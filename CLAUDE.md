@@ -384,8 +384,12 @@ resolved. `Rprofile.site`, the compiler toolchain (gcc/g++/gfortran/make), and
 `libcurl4-openssl-dev` / `libssl-dev` / `libxml2-dev` are all in place. R code
 in this repo has now been executed for the first time.
 
-**One §3.3 item is still broken: R packages do not install from the configured
-repository.** See blocker 1 below.
+**All 11 §3.3 packages are installed and working in this session** — tidyverse
+2.0.0, httr2 1.3.0, jsonlite, openxlsx, janitor, digest, here, yaml, fuzzyjoin,
+assertr, testthat. tidyverse loads and `%>%` works; httr2 reaches the RCJ API
+from R. **But this was achieved by hand via a source-build fallback, and it dies
+with the VM (§0.5).** The §3.3 setup script as written still produces an
+environment with zero packages. See blocker 1.
 
 ### Open blockers
 
@@ -396,17 +400,28 @@ repository.** See blocker 1 below.
    blocks. The §3.3 script hides this because its
    `install.packages(...) || true` swallows the failure and still exits zero —
    the environment snapshot builds successfully with **zero packages
-   installed**. Fixes, in order of preference:
-   - Add **`rspm-sync.rstudio.com`** to the environment's Allowed domains
-     (keeps fast precompiled binaries), **and**
-   - drop the `|| true` from the `install.packages()` line so a repeat failure
-     is loud rather than silent.
-   - Interim workaround, already verified this session: setting
-     `repos = c(CRAN = "https://cloud.r-project.org")` installs successfully by
-     compiling from source (`jsonlite`, `digest`, `yaml`, `here`, `httr2` all
-     built and load; `httr2` reaches the RCJ API from R). This is
-     **session-local and dies with the VM** (§0.5) — it is not a substitute for
-     the allowlist fix.
+   installed**. Three fixes, all needed:
+   - **(a)** Add **`rspm-sync.rstudio.com`** to the environment's Allowed
+     domains. This is the actual fix and keeps the fast precompiled binaries
+     that the `HTTPUserAgent` option exists to obtain.
+   - **(b)** Drop the `|| true` from the `install.packages()` line so a repeat
+     failure is loud rather than snapshotting a broken environment.
+   - **(c)** Add **`r-recommended`** to the apt line. `r-base-dev` alone
+     installs **none** of R's recommended packages — no `MASS`, `Matrix`,
+     `survival`, `lattice`, `nlme`. `assertr` fails outright on missing `MASS`,
+     and many CRAN packages depend on this set. This gap is independent of the
+     repository problem and will bite even after (a) is fixed.
+
+   Interim workaround, fully verified this session: setting
+   `repos = c(CRAN = "https://cloud.r-project.org")` installs by compiling from
+   source. All 11 §3.3 packages now build and load. Source builds additionally
+   need these apt packages, absent from §3.3: `libharfbuzz-dev`,
+   `libfribidi-dev`, `libfreetype6-dev`, `libpng-dev`, `libtiff5-dev`,
+   `libjpeg-dev` (for `textshaping`/`ragg`) and `libuv1-dev` (for `fs`).
+   With Posit binaries restored per (a) these are unnecessary — but
+   `r-recommended` in (c) is required either way. The whole workaround is
+   **session-local and dies with the VM** (§0.5); it is not a substitute for
+   fixing the environment.
 2. **Delta-pull strategy needs redesign** — no `since` parameter on the award or
    document endpoints. Hashing is the only Tier 3 change detection available
    (spec §4.1). Branch A's complete national snapshots make this cheaper than
