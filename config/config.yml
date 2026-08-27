@@ -62,8 +62,12 @@ endpoints:
   # envelope: "pagination" -> {data, pagination:{page,limit,total,pages}}
   # envelope: "hasmore"    -> {data, count, page, hasMore}
   states:
+    # CORRECTED Session 3 against a live call. Previously listed as
+    # "pagination"; the real envelope is {data, count} with no `pagination`
+    # object at all -- an unpaginated endpoint returning all 50 states in one
+    # call. See docs/stage1_retrieval_run.md.
     path: "/states"
-    envelope: "pagination"
+    envelope: "complete"
     max_limit: 50
     supports_state_filter: false
     delta_param: ~
@@ -142,8 +146,15 @@ pull:
   pilot_states: ["GA", "VA", "NE", "FL", "TX"]
   # Weekly minimum; consider twice-weekly through the Year 1 -> Year 2
   # transition, since Year 2 funds flow from October 1 (spec §5).
-  cadence: "weekly"
-  cadence_note: "Twice-weekly recommended through the FY Year 1 -> Year 2 transition."
+  cadence: "twice-weekly"
+  cadence_note: "Adopted Session 2 per spec 5.1: Branch A national pulls, twice-weekly through the FY Year 1 -> Year 2 transition. ~399 calls/month, 20% of allowance."
+
+  # Ceiling on the /activity hasMore walk. /activity is the only endpoint with
+  # no `total` in its envelope, so nothing bounds the loop except hasMore going
+  # false -- and the comprehensive backfill size was unmeasured before Session 3
+  # (open blocker 3). Hitting this ceiling is recorded as capped = TRUE in the
+  # pull metadata and raised as a warning; it is never a silent truncation.
+  activity_max_pages: 40
 
 qa:
   # Spec §13 reconciliation anchors for CMS FY2026 state allotments.
