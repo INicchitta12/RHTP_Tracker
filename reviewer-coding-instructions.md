@@ -22,11 +22,11 @@ A hospital that receives RHTP funds to run a clinic inside a middle school is
 still a hospital receiving RHTP funds. Where the clinic sits is irrelevant to the
 coding.
 
-> **The spec's own example list contains this trap.** §10.2 lists "school-based
-> health centers" under `NON_HOSPITAL`. That is an activity, and coding from it
-> is the exact error §0.3a corrects. The recipient decides: Beebe running a
-> school-based health center is `Yes`; a school district running one is `No`.
-> Same activity, opposite codes.
+> **The setting is not the code.** Spec §10.2 now says this outright: Nebraska's
+> school kitchen modernization awarded to the Department of Education is
+> `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe
+> Healthcare is `DIRECT`. Same setting, different recipients, different codes.
+> If an example list ever seems to code an activity, the recipient wins.
 
 ---
 

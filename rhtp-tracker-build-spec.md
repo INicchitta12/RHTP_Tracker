@@ -769,7 +769,7 @@ At least 6 of 11 Delaware records are hospital recipients. Coded by activity, th
 | `PASS_THROUGH_DESIGNATED` | Intermediary receives funds, but the source document **names** hospital subrecipients or restricts eligibility to hospitals *and* the award has been made (e.g. Georgia's Dual Track Rural Hospital Remote Critical Care NOI naming four rural hospitals) | `Yes`, with `intermediary_name` populated |
 | `PASS_THROUGH_UNRESOLVED` | Intermediary administers a pool where hospitals are among eligible entities, recipients not yet named (most VHHA Foundation and FHC solicitations today) | `Unclear` — **do not impute** |
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive (statewide EMD dispatch, HIE infrastructure, shared services consortiums) | `No`, but set `hospital_benefiting = Yes` |
-| `NON_HOSPITAL` | Recipient and purpose are clearly outside hospitals (school kitchen modernization, school-based health centers, dental school programs) | `No` |
+| `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |
 
 `IN_KIND_BENEFIT` deserves its own flag rather than being discarded: it is substantively important to AHA's narrative even though those dollars must never enter a "funds distributed to hospitals" total.
 

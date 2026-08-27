@@ -241,7 +241,7 @@ plan rather than an award action.
 | `PASS_THROUGH_DESIGNATED` | Intermediary receives funds, but the source document names hospital subrecipients or restricts eligibility to hospitals **and the award has been made** | `Yes`, with `intermediary_name` populated |
 | `PASS_THROUGH_UNRESOLVED` | Intermediary administers a pool where hospitals are among eligible entities, recipients not yet named | `Unclear` — **do not impute** |
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive | `No`, but set `hospital_benefiting = Yes` |
-| `NON_HOSPITAL` | Recipient and purpose are clearly outside hospitals | `No` |
+| `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |
 
 `IN_KIND_BENEFIT` gets its own flag rather than being discarded: it matters to
 AHA's narrative even though those dollars must **never** enter a "funds
@@ -633,13 +633,17 @@ meet (`UNPARSED_AWARD_CANDIDATE` carries no tier claim,
 `AMOUNT_EXCEEDS_STATE_ALLOTMENT` is almost always a multi-recipient field,
 `PROGRAM_NAME_AS_AWARDEE` never promotes the agency to recipient, and so on).
 
-**One spec defect is flagged in the file rather than silently coded around.**
-§10.2's `NON_HOSPITAL` row lists *"school-based health centers"* as an example
-of a recipient "clearly outside hospitals." That is an activity, and it is the
-exact error §0.3a exists to correct — the four Delaware records it would
-mis-code are the four §0.3a names. The instructions state that recipient
-identity overrides the §10.2 example list. **§10.2 should be corrected in the
-spec**; a reviewer reading the spec directly still hits the trap.
+**One spec defect was found and then fixed at the source.** §10.2's
+`NON_HOSPITAL` row listed *"school-based health centers"* as an example of a
+recipient "clearly outside hospitals." That is an activity, and it is the exact
+error §0.3a exists to correct — the four Delaware records it would mis-code are
+the four §0.3a names. **The row is rewritten** (owner's wording) to judge the
+recipient and to carry the contrast that makes it unmissable: Nebraska's school
+kitchen modernization to the Department of Education is `NON_HOSPITAL`;
+Delaware's school-based health center to Beebe Healthcare is `DIRECT`. Same
+setting, different recipients, different codes. The identical row in §7 of this
+file is updated to match, and the reviewer instructions now cite §10.2 as
+agreeing rather than warning around it.
 
 ### Next session
 
