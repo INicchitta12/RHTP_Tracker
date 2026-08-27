@@ -1,0 +1,18 @@
+pattern,pattern_type,flag_reason,notes,source,date_added
+"\bpool\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test","Stage 0 observed live: ""Delaware DHSS / Mobile Health Hubs Grantee Pool"" ($20M)",2026-08-27
+"\bgrantee(s)?\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test","Stage 0 observed live: ""... Grantee Pool""",2026-08-27
+"\binitiative\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test","Stage 0 observed live: ""School-Based Health Centers Expansion Initiative"" ($10M)",2026-08-27
+"\bexpansion\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test","Stage 0 observed live: ""School-Based Health Centers Expansion Initiative""",2026-08-27
+"\bprogram\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test",spec 6.1,2026-08-27
+"\bfund\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test. Word-bounded so ""Foundation"" and ""Fundamental"" do not match; ""Fund"" as the last word of a real entity name (""Rural Health Fund, Inc."") is a known false positive that lands in the review queue rather than in Tier 3, which is the safe direction.",spec 6.1,2026-08-27
+"\bTBD\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test",spec 6.1,2026-08-27
+"to be determined",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test",spec 6.1,2026-08-27
+"\bvarious\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test",spec 6.1,2026-08-27
+"\bmultiple\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 named-recipient test",spec 6.1,2026-08-27
+"\bnot yet (named|announced|awarded|selected)\b",regex,PROGRAM_NAME_AS_AWARDEE,"Generalisation of TBD phrasing",spec 6.1 generalisation,2026-08-27
+"\b(to be|to-be) (named|announced|awarded|selected)\b",regex,PROGRAM_NAME_AS_AWARDEE,"Generalisation of TBD phrasing",spec 6.1 generalisation,2026-08-27
+"\bawardees?\b",regex,PROGRAM_NAME_AS_AWARDEE,"An awardee list is not an awardee",spec 6.1 generalisation,2026-08-27
+"\bsubrecipients?\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 generalisation. A pass-through pool, not a recipient.",spec 6.1 generalisation,2026-08-27
+"\bcohort\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 generalisation",spec 6.1 generalisation,2026-08-27
+"\bstatewide\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 generalisation",spec 6.1 generalisation,2026-08-27
+"\bpilot\b",regex,PROGRAM_NAME_AS_AWARDEE,"spec 6.1 generalisation",spec 6.1 generalisation,2026-08-27

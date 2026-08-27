@@ -116,7 +116,7 @@ This inverts the normal convention of gitignoring data directories — see §1.
 CLAUDE.md                      # this file
 R/
   01_retrieve_rcj.R            # Stage 1 — retrieval (NOT YET BUILT)
-  02_normalize.R               # Stage 2 — normalization (NOT YET BUILT)
+  02_normalize.R               # Stage 2 — normalization (BUILT)
   03_state_registry.R          # Stage 3 — state source registry (NOT YET BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
@@ -343,7 +343,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-27 (Session 3)
+**Last updated:** 2026-08-27 (Session 4)
 
 ### Stages built
 
@@ -353,13 +353,13 @@ retrieval code.
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
-| Stage 2 — Normalization | `R/02_normalize.R` | Not started |
-| Stage 3 — State registry | `R/03_state_registry.R` | Not started |
+| Stage 2 — Normalization | `R/02_normalize.R` | **Built and run on the national pull — `docs/stage2_normalization_run.md`** |
+| Stage 3 — State registry | `R/03_state_registry.R` | Not started. §7.2 seed generated: `data/reference/state_source_registry_candidates.csv` |
 | Stage 4 — Validation | `R/04_validate.R` | Not started |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_01_retrieve_rcj.R` | **Built — 44 assertions, zero quota. Run `Rscript tests/run_tests.R`** |
+| Tests | `tests/testthat/test_01_retrieve_rcj.R`<br>`tests/testthat/test_02_normalize.R` | **Built — 44 + 136 assertions, all passing, zero quota. Run `Rscript tests/run_tests.R`** |
 
 ### States validated
 
@@ -398,12 +398,19 @@ not depend on code alone — RCJ titles and awardee names carry non-ASCII text.
 
 ### Open blockers
 
-1. **`/states` cannot serve as the state vocabulary.** Its 50 codes are 49
-   states plus a pseudo-state `US`, and **Wyoming is absent** — though WY has
-   records in `/documents`, `/opportunities`, and `/activity`. Stage 3's
-   registry needs an independent 50-state list, and
-   `qa$allotment_expected_states: 50` will not reconcile against anything
-   RCJ-derived.
+1. **No CMS FY2026 allotment anchor on disk — two §6 rules are inactive.**
+   `data/reference/state_source_registry.csv` does not exist, so
+   `fy2026_allotment` is unavailable and **§6.1 tier rule 3** (amount matches
+   the state allotment → `STATE_ALLOTMENT`) and the **§6.2 allotment ceiling**
+   cannot fire. The record table therefore shows **zero Tier 1 rows** despite
+   documents that plainly carry state allotments — Missouri's $216,000,000 hub
+   announcement sits in `UNASSIGNED` for want of a figure to match it against.
+   Both rules are implemented and unit-tested against a fixture and switch on
+   by themselves the moment the registry lands. The gap is recorded on every
+   affected row's `tier_basis`, in the run message, and in
+   `logs/normalize_manifest.csv` (`allotment_anchor_available`). **It is a
+   coverage gap, never a pass.** The figures come from the CMS December 2025
+   announcement, by hand, off-session — never from RCJ.
 2. **Delta-pull strategy still needs a decision.** No `since` on the award or
    document endpoints, so hashing is the only Tier 3 change detection
    (§4.1). Stage 1 writes a `body_sha256` per page over the verbatim response
@@ -412,10 +419,12 @@ not depend on code alone — RCJ titles and awardee names carry non-ASCII text.
    first backfill (45 calls/pull) or keeps being pulled comprehensively
    (60 calls/pull). Both are affordable — see below.
 
-*Resolved this session:* the R environment (Session 2 blocker 1), and
-**`/activity` backfill sizing (Session 2 blocker 3) — measured at 18 calls /
-1,787 records.** *Resolved earlier:* redistribution rights (superseded by spec
-§4.1, see §8.1).
+*Resolved this session:* **the state vocabulary (Session 3 blocker 1).**
+`data/reference/cms_states.csv` is the canonical 50-row list, independent of
+RCJ, and Stage 2 validates every `state` value against it (§7.1, §13.14).
+`/states` is now read only as a cross-check and is barred from defining
+anything. *Resolved earlier:* the R environment and `/activity` backfill
+sizing (Session 3); redistribution rights (superseded by spec §4.1, see §8.1).
 
 ### Measured call budget — supersedes the §8 projection
 
@@ -435,30 +444,76 @@ calls (~390/month, 20%).
 `/documents` (31) and `/activity` (18) are 49 of the 60 calls, both against a
 hard 100/page cap. They are the line items to watch as the corpus grows.
 
-### Data-quality findings waiting for Stage 2
+### Stage 2 results — first normalization of the national pull
 
-From the national pull, recorded but deliberately not acted on — Stage 1 never
-transforms:
+Full detail: `docs/stage2_normalization_run.md`. 5,152 records, zero quota.
 
-- **`RC` is a junk state code.** 54 `/documents` records carry `state: "RC"`,
-  titled `"RC - 2026 - …"`, category `REFERENCE`. National reference material
-  filed under a non-state code. A §6.2 junk-filter fixture.
-- **`/awards` covers only 39 of 50 states.** Eleven states have zero award
-  records nationally — §0.1's uneven awardee coverage, now quantified at 22%
-  of states with no Tier 3 candidates in RCJ at all. Completeness is bounded
-  by the state registry, not by RCJ.
-- **`/activity` carries `siteUrl` on all 1,787 records**, with real state
-  domains (`tn.gov/health/rural.html`, `hcpf.colorado.gov/…`). Confirms §4.1
-  and makes `/activity` the most useful input to Stage 3's registry, which the
-  spec assumed would be compiled entirely by hand.
+| Tier | PASS | FLAGGED | QUARANTINED |
+|---|---:|---:|---:|
+| `SOLICITATION` | 1,426 | 143 | 7 |
+| `SUBAWARD` | 1,016 | 347 | 6 |
+| `UNASSIGNED` | 1,924 | 173 | 110 |
+
+**Tier 3, clean: 1,016 records across 38 states, $2.03B announced** — all of it
+RCJ's unvalidated claim (§0.1), none of it a finding until Stage 4 ties it to a
+state primary source. `STATE_ALLOTMENT` is 0 rows for the reason in blocker 1.
+
+Session 3's four data-quality findings are all resolved:
+
+- **`RC` and `US` are junk state codes** — 96 records quarantined
+  `JUNK_STATE_CODE`, validated against `cms_states.csv`, never mapped.
+- **`/awards` covers 39 of 50 states, and Florida is one of the eleven gaps.**
+  RCJ's site display was *not* wrong: `/states` reports `awardeeCount: 0` for
+  Florida and all ten others, matching `/awards` exactly. RCJ is internally
+  consistent and genuinely has no awardee-level extraction for these states.
+  Florida *has* published awardee data — `FL - 2026 - Parrish Medical Center
+  Awarded More Than 52 Million in Grants` sits in `/documents` as `REFERENCE`,
+  never extracted — and runs RHTP through AHCA on numbered RFAs, i.e. a
+  procurement portal. **Florida's Tier 3 data must come from AHCA directly.**
+- **`/activity` `siteUrl` seeded the Stage 3 registry** — 151 candidate hosts,
+  **all 50 states covered**. Virginia's seed surfaces `vhhafoundation.org`
+  next to the state domain, i.e. the §7.3 pass-through administrator, without
+  anyone knowing to look for it.
+- **Delaware's Stage 0 defects are pinned test fixtures** — HRSA rows
+  quarantine, `federalAmount: 1` flags, tiers split, Governor Meyer's event
+  bleed is caught.
+
+**Five spec rules needed correcting against 50 states** (all documented in the
+code at the deviation, all in `docs/stage2_normalization_run.md` §3):
+
+1. §6.3's dedup key called Oregon's 99 × $100,000 awards to 99 distinct
+   hospitals a duplicate. Content duplicates 927 → 15.
+2. §6.1's `program` / `expansion` patterns rejected real institutions
+   (`Rural Health Medical Program Inc.`, ten Nevada residency programs). A
+   legal-entity override now rescues them; an explicit "unnamed" beats it.
+3. The state-agency pattern matched across a whole name and swept up
+   `Oregon Health & Science University … Department of Neurology`.
+4. A `SOURCE_IS_PLAN_NOT_AWARD` rule was added (from §0.3 / §9.2, reversible)
+   and then narrowed twice — budget narratives are a §9.2 `Yes` source, and
+   Pennsylvania's "Pa RHT Plan … Authorized Project Awards" is an award list
+   carrying **66 named rural hospitals**.
+5. `/documents` `award: 0` is RCJ's null sentinel, not a $0 award.
+   `/awards` `federalAmount` 0 and 1 stay flagged — that is the §6.2 case.
+
+**`state_source_url` coverage is worst where it matters most:**
+`/opportunities` 100%, `/awards` 13%, `/documents` 6%. 87% of Tier 3 candidates
+have no state URL from any RCJ endpoint, which makes §7 registry completeness a
+hard prerequisite for Stage 4, not a convenience (§13.12).
 
 ### Next session
 
-Session 4 — Stage 2 normalization (`R/02_normalize.R`): tier assignment, junk
-filters with the observed defects as fixtures, hashing and change detection.
-Read from `data/raw/rcj/2026-08-27/` — the five `<endpoint>.json` files in the
-parent directory, **never** `_stage0_exploratory/`. Costs zero quota.
+Session 5 — Stage 3, the state source registry (`R/03_state_registry.R`). Two
+inputs must be compiled **outside** the session and committed:
 
-Take the four findings above as the first junk-filter and partitioning test
-cases, alongside Delaware's Stage 0 defects (§6 of the preflight doc: tier
-mixing, HRSA non-RHTP contamination, `federalAmount: 1`).
+1. **CMS FY2026 state allotments, 50 rows**, from the CMS December 2025
+   announcement. Unblocks §6.1 rule 3, the §6.2 ceiling, and §13.3.
+2. **Verified `award_posting_url` per state.** Start from
+   `data/reference/state_source_registry_candidates.csv` (151 candidates, all
+   50 states) and set `last_verified` by loading each URL.
+
+Compile Florida by hand first — AHCA's procurement portal is the only route to
+its Tier 3 data, and no amount of RCJ work will produce it.
+
+Stage 2 re-runs against a new pull with `Rscript R/02_normalize.R --run`
+(newest pull on disk) or `--date=YYYY-MM-DD`. Re-running the same pull is
+idempotent.
