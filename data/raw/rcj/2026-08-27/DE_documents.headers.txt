@@ -1,0 +1,29 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+date: Thu, 27 Aug 2026 14:42:50 GMT
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: geolocation=(), microphone=(), camera=()
+strict-transport-security: max-age=31536000; includeSubDomains
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.mapbox.com https://events.mapbox.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.youtube.com; worker-src blob:; frame-src 'self' blob: https://www.youtube.com https://player.vimeo.com https://drive.google.com https://app.powerbigov.us https://experience.arcgis.com https://rhtla.net; media-src 'self' https:; font-src 'self' data: https://fonts.gstatic.com;
+set-cookie: rcj_vid=d000667aedfd11b1f7aa919ba8d8899a; Path=/; Expires=Tue, 23 Feb 2027 14:42:50 GMT; Max-Age=15552000; Secure; SameSite=lax
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+access-control-allow-headers: Content-Type, Authorization, X-Api-Key
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-origin: *
+x-ai-search-monthly-limit: 250
+x-ai-search-monthly-remaining: 250
+x-ratelimit-monthly-limit: 2000
+x-ratelimit-monthly-remaining: 1997
+strict-transport-security: max-age=31536000; includeSubDomains
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: geolocation=(), microphone=(), camera=()
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.mapbox.com https://events.mapbox.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.youtube.com; worker-src blob:; frame-src 'self' blob: https://www.youtube.com https://player.vimeo.com https://drive.google.com https://app.powerbigov.us https://experience.arcgis.com; media-src 'self' https:; font-src 'self' data: https://fonts.gstatic.com;
+x-azure-ref: 20260827T144250Z-156bcd5f974ghr2phC1CHIrek00000000710000000002uwd
+x-cache: CONFIG_NOCACHE
+

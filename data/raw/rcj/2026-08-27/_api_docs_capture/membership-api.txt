@@ -1,0 +1,101 @@
+API Plan — Rural Care Journey | Rural Care Journey
+Rural Care Journey
+Search…
+⌘K
+Applicant Portal
+Vendor Matchmaker
+Opportunity Intelligence
+Document Library
+Events
+Opportunities
+States
+Vendors
+Reports
+Community
+More
+Sign in
+Rural Care Journey
+A research tool by
+AME Mobile
+, tracking how rural care pathways, public program activity, and community support are evolving across America.
+"Right time. Right help. Closer to home."
+Explore
+Grant Opportunities
+All States
+Vendor Directory
+Reports
+Guides
+Community
+Briefs
+Applicant Portal
+My Applications
+Opportunity Intelligence
+Vendor Matchmaker
+Trend Intelligence
+RHTP Events
+Document Library
+Detailed Activity
+State Rankings
+References
+Site Glossary
+Public API
+About AME Mobile
+AME Mobile (American Medical Ecosystem Mobile) works to broaden healthcare access and strengthen care delivery through mobile, connected, and technology-enabled solutions — with a focus on rural and underserved communities.
+Rural healthcare access & equity
+Mobile health delivery
+FHIR-connected digital infrastructure
+Care continuity & coordination
+Contact
+info@amemobile.net
+amemobile.net ↗
+Data & Legal
+Not affiliated with HRSA, CMS, or HHS
+Data aggregated from public state and federal sources
+For research and informational purposes only
+Not intended as official program guidance
+Privacy Policy
+Manage cookies
+©
+2026
+AME Mobile · Rural Care Journey · Data updated daily from public sources
+Rural Health Transformation Program data is sourced from state Flex Program offices and federal agencies. Accuracy is not guaranteed — verify with official sources before making programmatic decisions.
+Dedicated API plan
+Put Rural Care Journey data inside your workflow.
+Access current rural health opportunities, documents, events, awards, state intelligence, and optional AI-assisted search through a versioned REST API.
+Sign in to subscribe
+Read API documentation
+Monthly billing · Cancel anytime · Usage resets monthly at 00:00 UTC
+API
+$
+99
+USD / month
+✓
+10,000 API requests per month
+✓
+500 AI-assisted searches per month
+✓
+120 requests per minute
+✓
+One managed API key
+✓
+Usage and quota response headers
+✓
+Email alerts at 80% and 100% usage
+Included data
+One API for the RCJ data layer
+Create a managed API key from your profile and authenticate with a Bearer token or X-Api-Key. Quota headers let integrations react before reaching a limit.
+Opportunities and procurement notices
+Documents and extracted program data
+Events, awards, and platform activity
+State summaries and implementation data
+AI-assisted search when explicitly requested
+Versioned JSON endpoints under /api/v1
+Predictable limits
+10,000 regular API requests and 500 AI-assisted searches each month.
+Visible consumption
+Authenticated responses report monthly request and AI-search capacity.
+Early warning
+Account owners and administrators receive notifications at 80% and 100% usage.
+Ready to connect?
+Subscribe, create your API key from your profile, and make your first request from the API reference.
+Sign in to subscribe

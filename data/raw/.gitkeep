@@ -1,0 +1,3 @@
+# Placeholder to keep this directory in git.
+# See CLAUDE.md and build spec §0.5 / §1: data/raw/, data/evidence/,
+# data/interim/review_queue.*, and logs/pull_manifest.csv are COMMITTED, not gitignored.

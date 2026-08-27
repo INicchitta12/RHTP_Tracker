@@ -1,0 +1,160 @@
+# RHTP Hospital Funding Tracker — configuration
+# Read via R/utils_config.R (rhtp_config()). Paths are relative to the repo
+# root and resolved with here::here() -- never setwd().
+#
+# The RCJ API key is NOT in this file and never will be. It is read from the
+# RCJ_API_KEY environment variable. See build spec §1 "Credentials".
+
+api:
+  # Base URL per /api-docs. rhtp.amemobile.net also works and remains supported
+  # for existing integrations; keep this switchable in case the primary host
+  # changes.
+  base_url: "https://www.ruralcarejourney.com"
+  api_prefix: "/api/v1"
+  # Name of the environment variable holding the key. The value is never stored.
+  key_env_var: "RCJ_API_KEY"
+  # "bearer" -> Authorization: Bearer <key>;  "x_api_key" -> X-Api-Key: <key>
+  auth_scheme: "bearer"
+  user_agent: "AHA-RHTP-Tracker/0.1 (R httr2; contact: AHA Data & Policy)"
+  timeout_seconds: 60
+
+  # Confirmed live against our key on 2026-08-27. Our key is on the Pro plan:
+  # 2,000 requests/month, 60/min, 250 AI answers/month -- NOT the 10,000/month
+  # plan advertised at /membership/api. Verify against a live response header before
+  # planning a large pull.
+  plan_name: "Pro"
+  monthly_request_limit: 2000
+  requests_per_minute: 60
+  monthly_ai_search_limit: 250
+
+  # Quota response header names, confirmed live. Spec §5 requires parsing these
+  # on every call. Lower-cased: httr2 header lookup is case-insensitive but we
+  # normalize anyway.
+  quota_headers:
+    monthly_limit: "x-ratelimit-monthly-limit"
+    monthly_remaining: "x-ratelimit-monthly-remaining"
+    ai_monthly_limit: "x-ai-search-monthly-limit"
+    ai_monthly_remaining: "x-ai-search-monthly-remaining"
+  # No per-minute quota headers are returned. The 60/min ceiling must be
+  # respected by client-side throttling alone.
+  has_per_minute_headers: false
+
+quota:
+  # Abort the run at this fraction of the monthly allowance consumed, rather
+  # than silently truncating a pull (spec §5).
+  abort_at_fraction_consumed: 0.90
+  # Warn into the manifest and console at this fraction.
+  warn_at_fraction_consumed: 0.80
+  # Client-side throttle. Held below the documented 60/min because no
+  # per-minute header exists to tell us how close we are.
+  throttle_requests_per_minute: 40
+  # Per-run ceiling. A belt-and-braces stop independent of the monthly figure.
+  max_requests_per_run: 400
+
+retry:
+  # httr2 req_retry(). Honour Retry-After on 429 when present (spec §5).
+  max_tries: 5
+  retry_on_status: [429, 500, 502, 503, 504]
+  backoff_base_seconds: 2
+  backoff_max_seconds: 120
+
+endpoints:
+  # envelope: "pagination" -> {data, pagination:{page,limit,total,pages}}
+  # envelope: "hasmore"    -> {data, count, page, hasMore}
+  states:
+    path: "/states"
+    envelope: "pagination"
+    max_limit: 50
+    supports_state_filter: false
+    delta_param: ~
+  state_detail:
+    path: "/states/{code}"
+    envelope: "bare"
+    max_limit: ~
+    supports_state_filter: true
+    delta_param: ~
+  awards:
+    path: "/awards"
+    envelope: "pagination"
+    default_limit: 100
+    max_limit: 500
+    supports_state_filter: true
+    delta_param: ~        # NO delta filter exists. See docs/stage0_preflight_findings.md
+  documents:
+    path: "/documents"
+    envelope: "pagination"
+    default_limit: 25
+    max_limit: 100
+    supports_state_filter: true
+    delta_param: ~        # NO delta filter. Records carry `discovered` for client-side filtering.
+  document_detail:
+    path: "/documents/{id}"
+    envelope: "bare"
+    max_limit: ~
+    supports_state_filter: false
+    delta_param: ~
+  opportunities:
+    path: "/opportunities"
+    envelope: "pagination"
+    default_limit: 25
+    max_limit: 100
+    supports_state_filter: true
+    delta_param: ~        # NO delta filter. Records carry `updatedAt` for client-side filtering.
+  events:
+    path: "/events"
+    envelope: "pagination"
+    default_limit: 25
+    max_limit: 100
+    supports_state_filter: true
+    delta_param: ~
+  activity:
+    path: "/activity"
+    envelope: "hasmore"
+    default_limit: 25
+    max_limit: 100
+    supports_state_filter: true
+    delta_param: "since"  # The ONLY server-side delta filter in the API.
+  # POST. Metered against the separate AI allowance when aiAnswer=true.
+  # aiAnswer output is non-quotable per spec §4 / CLAUDE.md §6.
+  search:
+    path: "/search"
+    envelope: "search"
+    method: "POST"
+    max_limit: 50
+    delta_param: ~
+
+paths:
+  raw: "data/raw"
+  raw_rcj: "data/raw/rcj"
+  interim: "data/interim"
+  reference: "data/reference"
+  evidence: "data/evidence"
+  output: "output"
+  logs: "logs"
+  pull_manifest: "logs/pull_manifest.csv"
+  review_queue: "data/interim/review_queue.rds"
+  state_source_registry: "data/reference/state_source_registry.csv"
+  vocabularies: "data/reference/vocabularies.csv"
+  title_junk_patterns: "data/reference/title_junk_patterns.csv"
+
+pull:
+  # Spec §14: pilot on five states before scaling to 50.
+  pilot_states: ["GA", "VA", "NE", "FL", "TX"]
+  # Weekly minimum; consider twice-weekly through the Year 1 -> Year 2
+  # transition, since Year 2 funds flow from October 1 (spec §5).
+  cadence: "weekly"
+  cadence_note: "Twice-weekly recommended through the FY Year 1 -> Year 2 transition."
+
+qa:
+  # Spec §13 reconciliation anchors for CMS FY2026 state allotments.
+  allotment_min_usd: 147000000
+  allotment_max_usd: 281000000
+  allotment_expected_states: 50
+  allotment_mean_target_usd: 200000000
+  # Spec §6.2 amount sanity.
+  amount_hard_max_usd: 1000000000
+  # Stage 0 observed four Delaware records with federalAmount == 1, so a
+  # floor test is needed alongside the zero test.
+  amount_implausible_floor_usd: 1000
+
+rules_version: "0.1.0-preflight"

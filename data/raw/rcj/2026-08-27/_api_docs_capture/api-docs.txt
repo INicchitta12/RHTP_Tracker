@@ -1,0 +1,597 @@
+API Reference | Rural Care Journey
+Rural Care Journey
+Search…
+⌘K
+Applicant Portal
+Vendor Matchmaker
+Opportunity Intelligence
+Document Library
+Events
+Opportunities
+States
+Vendors
+Reports
+Community
+More
+Sign in
+Rural Care Journey
+A research tool by
+AME Mobile
+, tracking how rural care pathways, public program activity, and community support are evolving across America.
+"Right time. Right help. Closer to home."
+Explore
+Grant Opportunities
+All States
+Vendor Directory
+Reports
+Guides
+Community
+Briefs
+Applicant Portal
+My Applications
+Opportunity Intelligence
+Vendor Matchmaker
+Trend Intelligence
+RHTP Events
+Document Library
+Detailed Activity
+State Rankings
+References
+Site Glossary
+Public API
+About AME Mobile
+AME Mobile (American Medical Ecosystem Mobile) works to broaden healthcare access and strengthen care delivery through mobile, connected, and technology-enabled solutions — with a focus on rural and underserved communities.
+Rural healthcare access & equity
+Mobile health delivery
+FHIR-connected digital infrastructure
+Care continuity & coordination
+Contact
+info@amemobile.net
+amemobile.net ↗
+Data & Legal
+Not affiliated with HRSA, CMS, or HHS
+Data aggregated from public state and federal sources
+For research and informational purposes only
+Not intended as official program guidance
+Privacy Policy
+Manage cookies
+©
+2026
+AME Mobile · Rural Care Journey · Data updated daily from public sources
+Rural Health Transformation Program data is sourced from state Flex Program offices and federal agencies. Accuracy is not guaranteed — verify with official sources before making programmatic decisions.
+Rural Care Journey API
+REST API providing access to rural care journey state data, public documents, opportunities, events, change activity, and AI-powered search. All endpoints return JSON. Versioned under
+/api/v1/
+.
+Base URL:
+https://www.ruralcarejourney.com
+—
+rhtp.amemobile.net
+also works and remains supported for existing integrations.
+View plan limits
+Authentication
+Most endpoints require an API key. Pass it in one of two ways:
+Authorization: Bearer rhtp_your_key_here
+# or
+X-Api-Key: rhtp_your_key_here
+API keys are issued from your
+account settings
+and are available on paid plans. The
+GET /api/stats
+endpoint is public and requires no key.
+Endpoints
+GET
+/api/stats
+Public
+Public dashboard headline stats. No API key needed.
+Request
+curl https://www.ruralcarejourney.com/api/stats
+Response
+{
+"states": 50,
+"documents": 4754,
+"activities": 8481,
+"totalStateAward": 5261940259.24,
+"fundingCount": 643,
+"federalTracked": true
+}
+GET
+/api/v1/states
+API key required
+States with document counts, award totals, and summaries. Returns up to 50 states (the full set) by default.
+Parameters
+limit
+query
+Max results (default 50, max 50)
+region
+query
+HHS region number, e.g. 7
+Request
+curl "https://www.ruralcarejourney.com/api/v1/states?region=7" \
+-H "Authorization: Bearer rhtp_..."
+Response
+Sample
+{
+"data": [
+{
+"code": "IA",
+"name": "Iowa",
+"region": "7",
+"cahCount": 82,
+"summary": "Iowa's Healthy Hometowns...",
+"siteUrl": "https://hhs.iowa.gov/...",
+"documents": 12,
+"awardTotal": 5600000,
+"awardeeCount": 8,
+"lastActivity": "2026-04-15T..."
+}
+],
+"count": 6
+}
+GET
+/api/v1/states/:code
+API key required
+Full detail for one state including award history and 10 most recent documents.
+Parameters
+code
+path
+Two-letter state code, e.g. IA
+Request
+curl https://www.ruralcarejourney.com/api/v1/states/IA \
+-H "Authorization: Bearer rhtp_..."
+Response
+Sample
+{
+"code": "IA",
+"name": "Iowa",
+"region": "7",
+"cahCount": 82,
+"population": 3200000,
+"ruralPercent": 38,
+"summary": "Iowa's program focuses on...",
+"sites": [{ "url": "https://hhs.iowa.gov/...", "label": "IA RHTP Primary" }],
+"documents": 20,
+"awardTotal": 5600000,
+"totalAwardByState": 5600000,
+"awardeeCount": 8,
+"activities": 45,
+"awardYears": [
+{
+"fiscalYear": "FY2025",
+"total": 2100000,
+"awardees": [{ "name": "Iowa Rural Network", "total": 1250000 }]
+}
+],
+"recentDocuments": [
+{
+"id": "abc123...",
+"title": "Iowa RHTP Annual Report",
+"fileType": "PDF",
+"category": "REPORT",
+"fiscalYear": "FY2025",
+"award": null,
+"highlights": "Iowa expanded CAH network...",
+"url": "https://...",
+"discovered": "2026-04-15T..."
+}
+]
+}
+GET
+/api/v1/awards
+API key required
+Paginated list of state-level RHTP grant recipients across all 50 states. Returns individual award rows (awardee, amount, fiscal year) sourced from official state program documents. Only verified, non-duplicate records are returned.
+Parameters
+state
+query
+Filter by 2-letter state code, e.g. TX
+fiscalYear
+query
+Filter by fiscal year, e.g. 2024 or FY2024 (partial match)
+awardee
+query
+Partial name search, e.g. "rural health" (case-insensitive)
+page
+query
+Page number (default 1)
+limit
+query
+Results per page (default 100, max 500)
+Request
+# All grant recipients nationwide
+curl "https://www.ruralcarejourney.com/api/v1/awards" \
+-H "Authorization: Bearer rhtp_..."
+# Filter by state + fiscal year
+curl "https://www.ruralcarejourney.com/api/v1/awards?state=TX&fiscalYear=2024" \
+-H "Authorization: Bearer rhtp_..."
+GET
+/api/v1/documents
+API key required
+Paginated list of RHTP-relevant documents with AI-extracted fields. For active solicitations (RFPs/RFAs/NOFOs) with structured deadlines, prefer /api/v1/opportunities.
+Parameters
+state
+query
+Filter by state code, e.g. IA
+category
+query
+REPORT | AWARD_ANNOUNCEMENT | ANNOUNCEMENT | STRATEGY | SUMMARY | APPLICATION | GUIDANCE | DATA | REFERENCE | OTHER
+year
+query
+Fiscal year, e.g. FY2025
+upcoming
+query
+true → only documents with a future deadline (nextDeadline > now), sorted by nextDeadline ascending
+page
+query
+Page number (default 1)
+limit
+query
+Results per page (default 25, max 100)
+Request
+# All docs with a future deadline
+curl "https://www.ruralcarejourney.com/api/v1/documents?upcoming=true&state=IA" \
+-H "Authorization: Bearer rhtp_..."
+GET
+/api/v1/documents/:id
+API key required
+Full document record with all AI-extracted structured fields.
+Parameters
+id
+path
+Document UUID
+Request
+curl https://www.ruralcarejourney.com/api/v1/documents/abc123... \
+-H "Authorization: Bearer rhtp_..."
+Response
+Sample
+{
+"id": "abc123...",
+"title": "Iowa Transformation Plan",
+"fileType": "PDF",
+"category": "STRATEGY",
+"state": "IA",
+"stateName": "Iowa",
+"fiscalYear": "FY2025",
+"award": 209000000,
+"budget": { "total": 250000000, "federal": 209000000, "match": 41000000 },
+"programHighlights": "Iowa's plan expands CAH network...",
+"strategicGoals": ["Expand CAH network"],
+"milestones": [{ "date": "2025-07", "label": "Phase 1 launch" }],
+"transformationStrategy": {
+"keyInitiatives": ["Hub-and-spoke model"],
+"approachSummary": "..."
+},
+"implementationPhase": "IMPLEMENTING",
+"completenessScore": 87,
+"applicationUrl": "https://grants.iowa.gov/apply/rhtp25",
+"pages": 42,
+"url": "https://..."
+}
+GET
+/api/v1/opportunities
+API key required
+Paginated list of RHTP opportunities — RFPs, RFAs, NOFOs, grants, and award announcements. This is the primary feed for active solicitations: deadlines are normalized structured fields (dueDate, loiDate, questionDeadline), not prose. Consolidated (duplicate families merged) with effective status applied.
+Parameters
+state
+query
+Filter by 2-letter state code
+status
+query
+OPEN | CLOSING_SOON | UPCOMING | AMENDED | CLOSED (effective status, computed)
+type
+query
+RFP | RFA | NOFO | GRANT | AWARD | IFB | …
+scope
+query
+STATE | NATIONAL
+q
+query
+Keyword search in title + summary (disables cache)
+page
+query
+Page number (default 1)
+limit
+query
+Max results (default 25, max 100)
+GET
+/api/v1/events
+API key required
+Paginated list of RHTP events across states (town halls, webinars, trainings, recordings, and announcements).
+Parameters
+state
+query
+2-letter state code, or comma-separated list (e.g. IA or IA,NE)
+status
+query
+UPCOMING | TODAY | PAST | CANCELLED | RECORDING_AVAILABLE (single or comma-separated)
+type
+query
+TOWN_HALL | WEBINAR | OFFICE_HOURS | TRAINING | ANNOUNCEMENT | RECORDING | QA_SESSION | CONFERENCE | WORKSHOP (single or comma-separated)
+from
+query
+ISO date/time lower bound on startAt (inclusive)
+to
+query
+ISO date/time upper bound on startAt (inclusive)
+q
+query
+Keyword search in title + hostAgency + description (disables cache)
+includeInactive
+query
+true to include inactive events (default false)
+GET
+/api/v1/activity
+API key required
+Recent change events across all states. Use type=NEW_OPPORTUNITY to poll for new solicitations. Supports backfill via since+page.
+Parameters
+state
+query
+Filter by state code
+type
+query
+PAGE_UPDATED (default) | NEW_OPPORTUNITY | NEW_DOCUMENT | SITE_DOWN | SITE_RESTORED
+since
+query
+ISO 8601 timestamp — return events after this date (disables cache)
+page
+query
+Page number for backfill pagination (default 1)
+limit
+query
+Max results (default 25, max 100)
+Request
+# Poll for new opportunities
+curl "https://www.ruralcarejourney.com/api/v1/activity?type=NEW_OPPORTUNITY&since=2026-06-01T00%3A00%3A00Z" \
+-H "Authorization: Bearer rhtp_..."
+Response
+Sample
+POST
+/api/v1/search
+API key required
+Full-text search over RHTP documents with optional AI answer synthesis.
+Parameters
+query
+body
+Search query (required, min 3 chars)
+states
+body
+Optional array of state codes to filter
+year
+body
+Optional fiscal year filter
+limit
+body
+Max documents returned (default 10, max 50)
+aiAnswer
+body
+Include metered AI synthesis (default false)
+Request
+curl -X POST https://www.ruralcarejourney.com/api/v1/search \
+-H "Authorization: Bearer rhtp_..." \
+-H "Content-Type: application/json" \
+-d '{
+"query": "EMS workforce development",
+"states": ["IA", "NV"],
+"aiAnswer": true
+}'
+Response
+Sample
+Error codes
+Status
+Meaning
+200
+Success
+400
+Bad request — missing or invalid parameter
+401
+No API key provided
+403
+Invalid or revoked API key
+404
+Resource not found
+429
+Per-minute or monthly allowance exceeded — check Retry-After and quota headers
+500
+Server error — contact support
+API access and plan limits
+Plan
+Rate
+Monthly
+AI answers
+Pro
+60/min
+2,000
+250
+Team
+120/min
+20,000
+1,000
+Featured Vendor
+300/min
+20,000
+1,000
+Monthly allowances reset at 00:00 UTC on the first day of each month. Responses include
+X-RateLimit-Monthly-Remaining
+and
+X-AI-Search-Monthly-Remaining
+. Account owners and administrators receive warnings at 80% and 100% usage.
+Dedicated API plan
+Build with Rural Care Journey for $99/month
+Get a managed API key for opportunities, documents, events, awards, activity, state data, and optional AI-assisted search. Monthly usage resets at 00:00 UTC.
+View API plan
+Manage API keys
+10,000
+requests / month
+500
+AI answers / month
+120
+requests / minute
+1
+managed API key
+Includes quota response headers and account-owner/admin warnings at 80% and 100% usage.
+Response
+Sample
+{
+"data": [
+{
+"id": "abc123...",
+"state": "TX",
+"stateName": "Texas",
+"fiscalYear": "FY2024",
+"awardeeName": "Texas Rural Health Network",
+"federalAmount": 1250000,
+"matchAmount": 250000,
+"activityType": "Care Coordination",
+"programDescription": "Expand rural care coordination...",
+"sourceDocument": {
+"id": "doc123...",
+"title": "Texas RHTP Award Announcement FY2024",
+"fileType": "PDF",
+"url": "https://..."
+}
+}
+],
+"pagination": { "page": 1, "limit": 100, "total": 842, "pages": 9 }
+}
+Response
+Sample
+{
+"data": [
+{
+"id": "abc123...",
+"title": "Iowa RHTP RFP — Care Coordination",
+"fileType": "PDF",
+"category": "APPLICATION",
+"state": "IA",
+"fiscalYear": "FY2025",
+"award": null,
+"highlights": "Iowa expanded...",
+"url": "https://...",
+"applicationUrl": "https://grants.iowa.gov/apply/rhtp25",
+"nextDeadline": "2026-07-01T00:00:00.000Z",
+"keyDates": [
+{ "label": "LOI due", "date": "2026-06-15" },
+{ "label": "Applications due", "date": "2026-07-01" }
+],
+"discovered": "2026-04-10T..."
+}
+],
+"pagination": {
+"page": 1, "limit": 25,
+"total": 4, "pages": 1
+}
+}
+Request
+curl "https://www.ruralcarejourney.com/api/v1/opportunities?state=IA&status=OPEN" \
+-H "Authorization: Bearer rhtp_..."
+Response
+Sample
+{
+"data": [
+{
+"id": "abc123...",
+"slug": "ia-rhtp-care-coordination-rfp",
+"title": "Iowa RHTP Care Coordination RFP",
+"type": "RFP",
+"scope": "STATE",
+"state": "IA",
+"status": "OPEN",
+"issuingAgency": "Iowa HHS",
+"summary": "Request for proposals for care coordination...",
+"budgetMin": null,
+"budgetMax": 2500000,
+"applicantTypes": ["Non-profit", "Health system"],
+"postedDate": "2026-05-15T...",
+"dueDate": "2026-07-01T...",
+"loiDate": null,
+"questionDeadline": "2026-06-15T...",
+"sourceUrl": "https://hhs.iowa.gov/rfp/rhtp25",
+"documentCount": 3,
+"createdAt": "2026-05-15T...",
+"updatedAt": "2026-05-20T..."
+}
+],
+"pagination": { "page": 1, "limit": 25, "total": 42, "pages": 2 }
+}
+page
+query
+Page number (default 1)
+limit
+query
+Max results (default 25, max 100)
+Request
+curl "https://www.ruralcarejourney.com/api/v1/events?state=IN&status=UPCOMING&type=WEBINAR,TRAINING&limit=20" \
+-H "Authorization: Bearer rhtp_..."
+Response
+Sample
+{
+"data": [
+{
+"id": "evt_abc123...",
+"title": "Indiana RHTP Budget Office Hours",
+"state": "IN",
+"stateName": "Indiana",
+"eventType": "OFFICE_HOURS",
+"status": "UPCOMING",
+"startAt": "2026-07-10T18:00:00.000Z",
+"endAt": "2026-07-10T19:00:00.000Z",
+"timezone": "ET",
+"hostAgency": "Indiana FSSA",
+"description": "Open Q&A for prospective applicants.",
+"registrationUrl": "https://example.gov/register",
+"recordingUrl": null,
+"slidesUrl": null,
+"sourceUrl": "https://example.gov/events/rhtp-office-hours",
+"topics": ["budget", "eligibility"],
+"audience": ["providers", "community organizations"],
+"confidence": "OFFICIAL",
+"isActive": true,
+"createdAt": "2026-06-01T12:00:00.000Z",
+"updatedAt": "2026-06-08T09:15:00.000Z"
+}
+],
+"pagination": { "page": 1, "limit": 20, "total": 8, "pages": 1 }
+}
+{
+"data": [
+{
+"id": "...",
+"state": "IA",
+"type": "NEW_OPPORTUNITY",
+"summary": "New solicitation: Iowa RHTP Care Coordination RFP",
+"siteUrl": "https://hhs.iowa.gov/rfp/rhtp25",
+"documentId": "abc123...",
+"detail": {
+"opportunityId": "opp_xyz...",
+"opportunityType": "RFP",
+"category": "APPLICATION",
+"deadline": "2026-07-01",
+"applicationUrl": "https://grants.iowa.gov/apply/rhtp25",
+"budgetMin": null,
+"budgetMax": 2500000
+},
+"occurredAt": "2026-06-05T..."
+}
+],
+"count": 1,
+"page": 1,
+"hasMore": false
+}
+{
+"documents": [
+{
+"id": "abc123...",
+"title": "Iowa EMS Strategic Plan",
+"fileType": "PDF",
+"category": "STRATEGY",
+"state": "IA",
+"stateName": "Iowa",
+"fiscalYear": "FY2025",
+"highlights": "Iowa is expanding EMS coverage...",
+"url": "https://...",
+"discovered": "2026-04-10T..."
+}
+],
+"count": 3,
+"hasMore": false,
+"aiAnswer": "Iowa and Nevada are both investing in EMS..."
+}
