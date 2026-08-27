@@ -124,7 +124,11 @@ rspm-sync.rstudio.com
 cloud.r-project.org
 archive.ubuntu.com
 security.ubuntu.com
+cms.gov
+www.cms.gov
 ```
+
+`cms.gov` is needed once, to parse the FY2026 allotment table (§7.1). Stage 4 requires a broader change — see §9.5.
 
 `rspm-sync.rstudio.com` is not optional. `packagemanager.posit.co` serves metadata directly but **307-redirects every actual package download** — binary and source alike — to that host. Without it, `PACKAGES.gz` returns 200 and every install then fails at the proxy, which is exactly the shape of failure that produced a zero-package environment snapshot in Session 2.
 
@@ -223,11 +227,15 @@ Verified live against the Pro plan. Base `https://www.ruralcarejourney.com`, all
 
 ### 4.1 Constraints this imposes
 
-**Coverage is incomplete, and this is a headline finding.** The national `/awards` pull returns 1,429 records spanning **only 39 of 50 states**. Eleven states have no awardee-level records in RCJ at all. This is not a bug to work around — it is a hard limit on what the deliverable can claim, and it means no national total is national. Consequences:
+**Coverage is incomplete — and the gap is extraction, not absence.** The national `/awards` pull returns 1,429 records spanning **only 39 of 50 states**. Eleven states return zero: AR, FL, KY, MA, MN, NJ, NY, NC, SC, TN, WY.
 
-- The workbook needs a **Coverage** sheet naming which states have awardee-level data and which do not (§11).
-- `/states` returns 49 states plus a pseudo-state `US`, and **omits Wyoming**, which has records on other endpoints. It cannot serve as the state vocabulary — see §7.
-- "RHTP subaward-level transparency is absent in 11 states" is substantively interesting to AHA on its own, independent of any dollar figure.
+RCJ is internally consistent about this — `/states` reports `awardeeCount: 0` for all eleven, matching `/awards` exactly. So this is not a display bug. **It is a parsing failure.** Florida's awardee-level data exists, RCJ holds the document, and it sits in `/documents` as category `REFERENCE` without ever becoming an award record: *FL - 2026 - Parrish Medical Center Awarded More Than 52 Million in Grants*. Florida administers RHTP through AHCA on numbered RFAs — the §7.3 case where `award_posting_url` differs from the program page.
+
+Three consequences, and the first is structural:
+
+- **`/awards` is not the Tier 3 universe.** It is the subset RCJ successfully parsed. Award-shaped records are also sitting unparsed in `/documents`, in the 39 covered states as well as the 11 empty ones. §6.4 adds a mining pass to surface them.
+- **The Coverage sheet reports two dimensions** (§11): whether RCJ produced award records for a state, and whether award-shaped documents exist that it failed to parse. "Data exists, source failed to extract" is a materially different message than "no data."
+- **`/states` returns 49 states plus a pseudo-state `US`, and omits Wyoming.** It cannot serve as the state vocabulary — see §7.1.
 
 **No `updated_since` on `/awards`, `/documents`, or `/opportunities`.** `since=` and `updatedSince=` are silently ignored, not rejected — they return unfiltered totals. Only `/activity` supports `since`. Award records carry no timestamp of any kind, so **hashing is the only Tier 3 change detection available.**
 
@@ -291,12 +299,15 @@ Assign `award_tier` using, in priority order:
 4. Amount attached to a solicitation/NOFO/RFP/RFA with no named recipient → `SOLICITATION`.
 5. Otherwise `UNASSIGNED` → routed to the review queue. **Never default to `SUBAWARD`.**
 
-**Named-recipient test.** A populated `awardeeName` is not evidence of a named recipient — Delaware returned six of fifteen rows where it held a program name or a pool: "Delaware DHSS / Mobile Health Hubs Grantee Pool" ($20M), "School-Based Health Centers Expansion Initiative" ($10M). `awardeeName` fails the test when it:
+**Named-recipient test.** A populated `awardeeName` is not evidence of a named recipient — Delaware returned six of fifteen rows where it held a program name or a pool: "Delaware DHSS / Mobile Health Hubs Grantee Pool" ($20M), "School-Based Health Centers Expansion Initiative" ($10M).
 
-- matches a program-name pattern: `pool`, `grantee`, `initiative`, `expansion`, `program`, `fund`, `TBD`, `to be determined`, `various`, `multiple`
-- matches the state agency administering the program (`Delaware DHSS`, `<State> DHHS`, etc.)
+Apply as a **precedence rule, not an exclusion list.** Order matters:
 
-Failures go to `UNASSIGNED` and the review queue, never to `SUBAWARD`.
+1. **Legal-entity marker wins.** If the string contains `Inc`, `LLC`, `LLP`, `Corp`, `Foundation`, `Trust`, `Hospital`, `Health System`, `Medical Center`, `Clinic`, `University`, `College`, `District`, or `Authority`, it is a named entity — **regardless of also matching a program pattern below.** This is what admits "Rural Health Medical Program Inc.", the Nevada residency programs, and "Oregon Health & Science University … Department of Neurology," all of which an exclusion list wrongly rejected on 50-state data.
+2. **Otherwise, program-name patterns fail the test:** `pool`, `grantee`, `initiative`, `expansion`, `program`, `fund`, `TBD`, `to be determined`, `various`, `multiple`.
+3. **Otherwise, a bare state-agency name fails** (`Delaware DHSS`, `<State> DHHS`) — but only when rule 1 did not already fire.
+
+Failures go to `UNASSIGNED` and the review queue, never to `SUBAWARD`. Extend rule 1 before ever extending rule 2: a generalizable marker beats another special case.
 
 **Do not over-filter.** A real legal entity that isn't a hospital is still Tier 3. Delaware's State Housing Authority ($11.5M) is a genuine named recipient: `SUBAWARD`, `recipient_type = LOCAL_GOVT_OR_PUBLIC_HEALTH`, `flow_type = NON_HOSPITAL`, `distributed_to_hospital = No`. Legitimate non-hospital recipients belong in the table as `No`, not quarantined out of it.
 
@@ -309,17 +320,40 @@ Build these as an explicit, testable filter set with a `flag_reason` column — 
 - **Self-declared non-RHTP.** Records whose description states the document does not relate to RHTP (a Wisconsin Perkins CTE record currently sits in the feed this way). Regex on the description for negation phrasing.
 - **Page chrome as title.** Titles matching accessibility text, cookie notices, nav labels, or bare filenames — observed: "Here's how you know. Resources", "Press Alt+1 for screen-reader mode", "Report an accessibility issue", "Browse.aspx", "DE - 2028 - portal". Pattern list in `data/reference/title_junk_patterns.csv`.
 - **Event-schedule bleed.** Event arrays containing items with no topical relationship to the record — the Delaware Governor Meyer award announcement carries a Delaware Libraries press release in its `keyDates` location field; a South Dakota record carries boiler replacements and latrine renovations. Heuristic: flag when <50% of event entries share health/RHTP keywords with the parent record. Flag for review, never auto-clean.
-- **Amount sanity.** Flag any Tier 3 amount exceeding that state's FY2026 allotment, any amount ≥ $1B (unit errors), and **any amount under $1,000**. The last threshold matters: Delaware returned four records with `federalAmount: 1`, which a zero-test misses entirely. RHTP subawards below $1,000 effectively don't exist, so anything under it is placeholder data.
+- **Amount sanity — two distinct sentinels.** These mean different things and carry different `flag_reason` values:
+  - `AMOUNT_PLACEHOLDER` — `federalAmount: 1` and anything under $1,000. A value was recorded and it is garbage. Delaware returned four of these; a zero-test misses them entirely.
+  - `AMOUNT_NULL_SENTINEL` — `award: 0` on `/documents`. This is RCJ's null, **not a $0 award.** Treat as missing, never as zero.
+  - Also flag any Tier 3 amount exceeding that state's FY2026 allotment, and any amount ≥ $1B (unit errors).
+- **`SOURCE_IS_PLAN_NOT_AWARD` — a signal, never a tier reassignment.** Source-title heuristics must not override record-level evidence. A record with a named recipient and a specific amount is Tier 3 even when its source document is titled a plan: Pennsylvania's 66 named rural hospitals sit in a document that is both an "RHT Plan" and a list of "Authorized Project Awards." Raise the flag, route to review, leave the tier alone.
 
 ### 6.3 Deduplication and change detection
 
 - Hash each record's substantive fields with `digest::digest()` → `rcj_record_hash`. Award records carry no timestamp (§4.1), so **hashing is the only Tier 3 change detection available** — there is no server-side delta to fall back on.
-- **Content-based dedup, not just ID.** The same award reported through two source documents gets two record IDs: Delaware returned two $10M school-based-health-center rows that appear to be the same money. Dedup on `(state, federalAmount, activity_type)` in addition to ID, and route collisions to the review queue rather than auto-merging.
+- **Content-based dedup, keyed on name as well as amount.** The same award reported through two source documents gets two record IDs — Delaware returned two $10M school-based-health-center rows that appear to be the same money. Key on `(state, awardee_name_clean, amount, activity_type)`.
+  **The name is not optional.** A key of `(state, amount, activity_type)` called Oregon's 99 separate $100,000 awards to 99 distinct hospitals a single duplicate, collapsing 927 collisions to 15. Uniform-amount grant programs are the normal shape of a state subaward round, not an edge case: an amount collision without a name match is a formula, not a duplicate.
+  Route surviving collisions to the review queue rather than auto-merging.
 - Maintain effective-dated rows: `first_seen`, `last_seen`, `superseded_by`. Never overwrite a prior version of a record.
 - Diff each pull against the previous. Changed and new records go to the review queue. Records unchanged since last pull skip re-validation.
 - **Re-opened solicitations are a known trap.** West Virginia currently has multiple re-opened solicitations with the same underlying opportunity. Match on the state's own solicitation number where present (e.g. `RHT-AFA-04-28-2026-MSC3`) to avoid counting the same pool twice.
 
 ---
+
+### 6.4 Tier 3 candidate mining from `/documents`
+
+Because `/awards` is only what RCJ managed to parse (§4.1), award-shaped records sit unextracted in `/documents` — in all 50 states, not just the 11 with zero award records.
+
+Scan `/documents` for records that are award-shaped but produced no `/awards` row:
+
+- category `AWARD_ANNOUNCEMENT` or `REFERENCE`
+- a named organization present in the title or description, passing the §6.1 legal-entity test
+- a dollar figure present
+- **no `/awards` record shares that `sourceDocument.id`**
+
+Emit these as `UNASSIGNED` Tier 3 *candidates* into the review queue with `flag_reason = UNPARSED_AWARD_CANDIDATE`. **Never auto-promote them to `SUBAWARD`** — the whole point is that RCJ's extraction failed here, so a second automated extraction of the same text deserves no more trust. A human or Stage 4 corroboration resolves them.
+
+Known live example: *FL - 2026 - Parrish Medical Center Awarded More Than 52 Million in Grants*, sitting in `/documents` as `REFERENCE` while Florida shows zero awards.
+
+Report the mined candidate count per state — it is the second dimension of the §11 Coverage sheet.
 
 ## 7. Stage 3 — State source registry (`03_state_registry.R`)
 
@@ -327,7 +361,18 @@ Build these as an explicit, testable filter set with a `flag_reason` column — 
 
 `/states` returns 49 states plus a pseudo-state `US`, and omits Wyoming, which has records on other endpoints. **It must not define the state vocabulary for anything.**
 
-The canonical list is the CMS FY2026 allotment table: exactly 50 rows, authoritative, and already required here as `fy2026_allotment`. Every state-keyed join, QA reconciliation, and coverage report keys off that. `qa$allotment_expected_states` stays at **50** — when it fails against RCJ-derived data, that is the assertion working, not a false positive. Report the shortfall as a coverage gap.
+The canonical list is the CMS FY2026 allotment table: exactly 50 rows, authoritative. Every state-keyed join, QA reconciliation, and coverage report keys off it.
+
+**Build `data/reference/cms_fy2026_allotments.csv` first — it is a hard dependency.** Without it, §6.1 rule 3 and the §6.2 allotment ceiling cannot fire, and `STATE_ALLOTMENT` stays at zero rows (Missouri's $216M sits in `UNASSIGNED` for want of a number to match against).
+
+Parse it from the CMS press release, which carries the complete alphabetical list with exact amounts:
+`https://cms.gov/newsroom/press-releases/cms-announces-50-billion-awards-strengthen-rural-health-all-50-states`
+
+Requires `cms.gov` on the environment allowlist (§3.2). **Never transcribe these figures by hand** — this file is the reconciliation anchor for every QA assertion, so a typo in it corrupts everything downstream. Assert on parse: exactly 50 rows, sum ≈ $10B, min ≈ $147M (NJ), max ≈ $281M (TX).
+
+Name the column `fy2026_allotment` with the year explicit. Year 2 awards flow from October 1 and CMS may adjust amounts based on demonstrated state progress, so this is a year-specific figure, not a constant.
+
+`qa$allotment_expected_states` stays at **50** — when it fails against RCJ-derived data, that is the assertion working, not a false positive. Report the shortfall as a coverage gap.
 
 `RC` also appears as a junk state code carrying 54 documents; filter it in Stage 2 (§6.2) rather than accommodating it here.
 
@@ -336,6 +381,10 @@ The canonical list is the CMS FY2026 allotment table: exactly 50 rows, authorita
 `siteUrl` is present on **all 1,787 `/activity` records** — a much better input than the spec originally assumed. Extract distinct `siteUrl` hosts by state to generate a candidate registry, then have a human verify and correct it. This converts the task from "compile 50 URLs from scratch" to "check a machine-generated list," which is both cheaper and likely more complete.
 
 The generated candidates are a starting point, never the final registry. Every row still needs `last_verified` set by a person who loaded the URL.
+
+**This is the critical path.** `state_source_url` is present on only 13% of `/awards` records and 6% of `/documents` records, so the registry — not RCJ — is how Stage 4 finds anything. Nothing downstream works without it, automated or manual. Build it before Stage 4 is designed.
+
+The seed run produced 151 candidate hosts across all 50 states and surfaced `vhhafoundation.org` alongside Virginia's state domain — a pass-through administrator nobody would have known to look for. Verifying 151 candidates down to 50 confirmed rows is a couple of hours of browser work and unblocks everything after it.
 
 Output: `data/reference/state_source_registry.csv`, 50 rows, committed.
 
@@ -378,64 +427,140 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 
 **`determination_confidence`:** `HIGH` | `MEDIUM` | `LOW`
 
+**`extraction_method`:** `DIRECT_TEXT` | `MODEL_ASSISTED` | `MANUAL`
+
+**`validator`:** `AUTO` | reviewer initials
+
+**`flag_reason`** additions: `PROVENANCE_MISMATCH` | `AMOUNT_PLACEHOLDER` | `AMOUNT_NULL_SENTINEL` | `SOURCE_IS_PLAN_NOT_AWARD` | `UNPARSED_AWARD_CANDIDATE` | `JUNK_STATE_CODE` | `TITLE_JUNK` | `EVENT_BLEED` | `DEDUP_COLLISION`
+
 **`activity_type`:** map to the CMS RHTP allowable-use categories (the CMS category guidance series — e.g. Category E covers workforce). Retain the state's own raw activity language in a parallel `activity_type_raw` field; never discard it.
 
 ---
 
-## 9. Stage 4 — Validation and evidence capture (`04_validate.R`)
+## 9. Stage 4 — Automated validation and evidence capture (`04_validate.R`)
 
-**Contract:** for every Tier 3 candidate, locate and archive the primary state source, then resolve confirmation status.
+**Contract:** for every Tier 3 candidate, retrieve and archive the primary state source, corroborate the award deterministically, and resolve confirmation status. Manual review handles the residual, not the bulk.
 
-### 9.0 This stage runs outside the cloud session
+### 9.1 Why this is automated, and what that constrains
 
-Validation requires fetching pages from 50-plus state government domains, plus non-state administrators. Enumerating those in a network allowlist in advance isn't feasible, and setting the environment to **Full** network access to accommodate it is a poor trade for a project whose whole point is provenance discipline.
+Manual validation of every award does not scale past a pilot. But automation must produce **auditable determinations, not model judgments**. The claim this stage must support is:
 
-**Split the stage:**
+> The recipient name and the award amount both appear in an archived document retrieved from a host verified in the §7 registry on this date, and that document carries RHTP program markers and no competing federal program markers.
 
-| Runs in the cloud session | Runs outside |
+That is checkable by anyone who opens the archive. *"The model read it and concluded the award was confirmed"* is not, and would forfeit the provenance discipline the rest of this spec exists to protect.
+
+**The governing rule: models find things, rules decide things.**
+
+### 9.2 Cluster by document before fetching anything
+
+Many awards share one source document — a single Notice of Intent to Award may list forty recipients. **The unit of work is the document, not the award.**
+
+Group Tier 3 candidates by `sourceDocument.id` and by resolved `state_source_url` before any retrieval. Fetch each distinct document once, archive it once, and corroborate every award that traces to it against that one archive.
+
+Do this first and measure the result. If a few hundred candidates collapse to sixty or ninety distinct documents, the problem is an order of magnitude smaller than the raw record count suggests.
+
+### 9.3 Deterministic corroboration — four signals
+
+Extraction may be model-assisted (§9.4). **Confirmation is string matching**, because a string match is defensible in a way an opinion is not.
+
+| Signal | Test |
 |---|---|
-| Building and prioritizing the review queue | Fetching state pages |
-| Exporting the queue to Excel | Archiving them to PDF |
-| Reading the completed queue back in | Reading the page and identifying confirming text |
-| Applying the §9.2 decision rules | — |
-| Writing determinations to the record table | — |
+| **Domain trust** | Document retrieved from a host verified in the §7 registry for that state |
+| **Recipient match** | `awardee_name_clean` found in extracted text, normalized for legal suffixes, `&`/`and`, and DBA variants |
+| **Amount match** | Figure found in any standard rendering: `$11,500,000`, `$11.5 million`, `11500000`, `$11.5M` |
+| **Program marker** | RHTP identifiers present **and** no competing federal program markers (HRSA, USDA RD, FCC/USAC, Flex/SORH — see §6.2) |
 
-Fetching and archiving happen either in a local R session (if this project later moves to a laptop) or manually in a browser, with results entered in the exported review-queue spreadsheet. The determination logic is indifferent to how evidence was captured — only that it is recorded, complete, and attributable.
+Resolution:
 
-**Consequence for the code:** `04_validate.R` contains no HTTP requests to state domains. It is a queue manager and rule engine that reads reviewer-supplied evidence. Build it that way from the start rather than writing a fetcher that can't run.
+- **All four** → `Yes`, `determination_confidence = HIGH`, auto-resolved
+- **Three** → review queue
+- **Two or fewer** → `Unclear`. This is the correct answer, not a failure.
 
-### 9.1 Evidence capture — required for every validated row
+Store which signals fired in `corroboration_signals` on every row. An auditor must be able to see exactly why a record was coded as it was without re-reading the source.
 
-- `validation_url` — the specific page or document, **not** the program homepage.
-- `validation_source_type` — from the `source_doc_type` vocabulary.
-- `validation_date_accessed`.
-- `validation_archive_path` — path to an **archived copy** committed under `data/evidence/<state>/`. This is not optional. State pages get restructured without notice; an advocacy citation that 404s in six months is a liability, and AHA figures need to survive scrutiny long after the page moves. In the browser workflow, "print to PDF" produces an acceptable archive.
-- `confirming_text` — the specific sentence establishing the award, stored in the row so a reviewer can adjudicate without reopening the source.
-- `validator` and `validation_date`.
+### 9.4 Where a model is permitted
 
-### 9.2 Confirmation decision rules
+**One place: extraction, not adjudication.** Pulling a structured table of `(recipient, amount, date)` from a state PDF is something models do well and regex does badly, because state document layouts are wildly inconsistent.
 
-Implement exactly these; write them into `CLAUDE.md` so coding is consistent across sessions and reviewers.
+The extracted table is then matched **deterministically** against the RCJ record per §9.3. The model proposes candidates; string matching decides. If the model extracts a recipient that does not match, the record goes to review — **the model never asserts a confirmation.**
 
-**`Yes`** — a state agency or designated pass-through administrator document names both the recipient and the award. Source type must be `NOTICE_OF_AWARD`, `NOTICE_OF_INTENT_TO_AWARD`, `PROCUREMENT_PORTAL_POSTING`, `STATE_BUDGET_NARRATIVE`, or an official agency/governor press release that names the recipient.
+Model-assisted extraction is recorded as `extraction_method = MODEL_ASSISTED` so those rows can be audited as a group.
+
+### 9.5 Network access and conduct
+
+Fetching arbitrary state domains requires **Full** network access on the cloud environment. This was an unattractive trade when validation was manual; with automation it is the only workable option.
+
+Mitigate by logging **every fetched host** to the pull manifest, preserving an audit trail of exactly where the pipeline went.
+
+Fetching 50 state government sites imposes obligations:
+
+- Throttle to roughly **one request per host every 3–5 seconds**, independent of the RCJ throttle
+- Set a descriptive user agent identifying AHA and a contact address
+- Respect `robots.txt`
+- **Cache aggressively** — a re-run must never re-fetch an unchanged document
+- Back off and stop on repeated 403/429 from a host
+
+Getting blocked by a state IT department mid-project would be genuinely disruptive and hard to reverse.
+
+### 9.6 Evidence capture — required for every validated row
+
+- `state_source_url` — the specific page or document, **not** the program homepage
+- `validation_source_type` — from the `source_doc_type` vocabulary
+- `validation_date_accessed`
+- `validation_archive_path` — archived copy committed under `data/evidence/<state>/`. Not optional. State pages get restructured without notice, and a figure whose source has moved is a figure that cannot be defended
+- `confirming_text` — the sentence establishing the award, stored in the row
+- `corroboration_signals`, `extraction_method`, `validator` (`AUTO` or initials), `validation_date`
+
+### 9.7 Confirmation decision rules
+
+**`Yes`** — all four §9.3 signals fired, **or** a human confirmed against a `NOTICE_OF_AWARD`, `NOTICE_OF_INTENT_TO_AWARD`, `PROCUREMENT_PORTAL_POSTING`, `STATE_BUDGET_NARRATIVE`, or an official agency/governor release naming the recipient.
 
 **`No`** — the state source contradicts RCJ, or shows the solicitation cancelled, withdrawn, unawarded, or re-opened without award.
 
-**`Unclear`** — any of: the only available source is third-party news; amounts conflict across sources; the page exists but names no recipients; the record is a pass-through pool with unresolved subrecipients; the source is a projection or plan rather than an award action.
+**`Unclear`** — fewer than three signals; the only source is third-party news; amounts conflict across sources; the page names no recipients; the record is a pass-through pool with unresolved subrecipients; or the source is a plan or projection rather than an award action.
 
-The `Unclear` bucket becomes a dumping ground unless these rules are explicit and applied mechanically. Reviewer consistency is what makes the file defensible.
+Third-party news can never support a `Yes`, automated or otherwise.
 
-### 9.3 Workflow
+### 9.8 Sampling instead of full review
 
-Validation is human-in-the-loop. Build it as a persistent review queue, not a batch script:
+Do not manually review every auto-confirmed record. Review a **stratified random sample** — roughly 30 from `HIGH`, 30 from the review tier — and **measure the error rate**.
 
-- `data/interim/review_queue.rds` with `status` ∈ `PENDING` | `IN_PROGRESS` | `RESOLVED` | `BLOCKED`. **Committed to git** — this is state that must survive between sessions (§0.5).
-- Prioritize by dollar amount descending, then by state.
-- Export the pending queue to `output/review_queue_<date>.xlsx` with the source URLs as clickable hyperlinks, so review happens in Excel outside the session and is read back in.
-- The round-trip is the primary interface for this stage: export → review offline → commit the completed file and the evidence PDFs → next session reads them and applies the rules. Build the reader to validate the returned file against the vocabularies and reject malformed rows rather than ingesting them silently.
-- Records unchanged since last validation (matching `rcj_record_hash`) inherit their prior determination and skip the queue.
+If auto-`Yes` shows an error rate under 2–3%, report the automated determinations with that measured rate attached. This is ordinary practice for automated coding and is more defensible than an unmeasured full-manual pass, because it comes with a number.
 
----
+Record `sample_error_rate` and the sample size in the workbook README (§11). Re-sample whenever `rules_version` changes.
+
+Human time goes to the sample and to genuinely ambiguous records — not to the easy majority.
+
+### 9.9 What stays human
+
+The `flow_type` determination in §10.2 — whether a pass-through intermediary's money reaches hospitals — cannot be automated. It requires reading the solicitation's eligibility terms.
+
+But it is a **per-program judgment, not per-award.** Virginia's VHHA Foundation programs are classified once, and every award under them inherits the classification. Across 50 states this is perhaps 50–100 decisions, made once and revisited only when a program changes.
+
+Store these in `data/reference/program_flow_classifications.csv`, keyed by program or solicitation identifier, committed, with the reasoning recorded per row.
+
+### 9.10 Realistic effort
+
+| Task | Effort |
+|---|---|
+| Verify 151 candidate hosts → 50 registry rows | ~2 hours, once |
+| Classify 50–100 programs for `flow_type` | ~3 hours, once |
+| Review sample + ambiguous records, first pass | ~4–6 hours |
+| Per-refresh review thereafter | ~1 hour |
+
+Per-refresh cost stays flat: unchanged records inherit prior determinations via `rcj_record_hash` (§6.3).
+
+### 9.11 Test the premise before building the automation
+
+**Manually validate five Delaware awards against Delaware state sources first.** Not in a session — a person, a browser, an hour, using the 15 records already committed as fixtures. Try to locate the notice of award for the State Housing Authority's $11.5M and for one or two of the pool records.
+
+This answers three questions that determine whether §9.3 is buildable at all:
+
+1. Do state documents name subrecipients, or only programs? If they publish at program level, the corroboration model has nothing to match against and this design needs rethinking.
+2. How long does one validation actually take?
+3. Do the §9.7 rules survive contact with real state web pages?
+
+An automated validator built against an untested premise is the expensive way to discover the premise was wrong.
 
 ## 10. Stage 5 — Hospital determination (`05_hospital_determination.R`)
 
@@ -465,6 +590,7 @@ Two axes. "Money reaches a hospital" and "we can prove it" are different claims 
 ### 10.3 Required accompanying fields
 
 - `determination_confidence` — `HIGH` (primary source, named hospital recipient, CCN matched) / `MEDIUM` (primary source, hospital identity inferred from name without CCN match) / `LOW` (secondary source or unresolved pass-through).
+- `flow_type` is inherited from `data/reference/program_flow_classifications.csv` (§9.9) where the award's program is classified; only unclassified programs need a fresh judgment.
 - `determination_basis` — free text, mandatory. When someone asks in six months why a $12M award was coded hospital-bound, the answer must be in the row.
 - `reviewer`, `review_date`, `rules_version` (see §13).
 
@@ -474,8 +600,11 @@ Two axes. "Money reaches a hospital" and "we can prove it" are different claims 
 
 `openxlsx`, one workbook, sheets in this order:
 
-1. **README** — generation date, pull date range, rules version, tier definitions, the eligibility-is-not-receipt warning, and a plain statement that Tier 1/2/3 figures must never be summed.
-2. **Coverage** — which of the 50 states have awardee-level data in the source and which do not, with record counts. Currently **39 of 50**. This sheet sits second, before any figures, so no reader mistakes a partial total for a national one.
+1. **README** — generation date, pull date range, `rules_version`, tier definitions, the eligibility-is-not-receipt warning, a plain statement that Tier 1/2/3 figures must never be summed, and the §9.8 `sample_error_rate` with its sample size.
+2. **Coverage** — sits second, before any figures, so no reader mistakes a partial total for a national one. Two dimensions per state, not one:
+   - **Parsed** — did RCJ produce `/awards` records? Currently 39 of 50; the eleven blanks are AR, FL, KY, MA, MN, NJ, NY, NC, SC, TN, WY.
+   - **Unparsed candidates** — how many award-shaped `/documents` records exist that produced no award row (§6.4)?
+   A state with zero parsed records but non-zero candidates is "data exists, source failed to extract" — a materially different message than "no data." Florida is the worked example.
 3. **Subawards (Tier 3)** — the analytical table. Full field set per §12.
 4. **Solicitations (Tier 2)** — announced pools. Physically separate sheet.
 5. **State Allotments (Tier 1)** — 50 rows, CMS-anchored.
@@ -500,7 +629,7 @@ Filename: `rhtp_hospital_tracker_<YYYY-MM-DD>.xlsx`. Never overwrite a prior bui
 `date_announced`, `date_effective`, `state`, `state_name`, `fiscal_year`, `rhtp_budget_period`, `solicitation_number`, `awardee_name_raw`, `awardee_name_clean`, `intermediary_name`, `amount_announced`, `amount_obligated`, `amount_basis`, `match_amount_rcj`, `applicant_cost_share_required`, `cost_share_pct`, `activity_type`, `activity_type_raw`, `program_description`, `source_doc_title`, `rcj_document_url`, `state_source_url`, `source_doc_archived_path`
 
 **Validation**
-`validation_url`, `validation_source_type`, `validation_date_accessed`, `validation_archive_path`, `confirming_text`, `rhtp_award_confirmed`, `validator`, `validation_date`, `validation_notes`
+`state_source_url`, `validation_source_type`, `validation_date_accessed`, `validation_archive_path`, `confirming_text`, `corroboration_signals`, `extraction_method`, `rhtp_award_confirmed`, `validator`, `validation_date`, `validation_notes`
 
 **Hospital determination**
 `recipient_type`, `ccn`, `aha_id`, `hospital_match_method`, `hospital_match_score`, `rural_designation`, `flow_type`, `distributed_to_hospital`, `hospital_benefiting`, `determination_confidence`, `determination_basis`, `reviewer`, `review_date`
@@ -538,7 +667,12 @@ Run on every build; fail the build, don't warn.
 12. **Registry completeness.** Every Tier 3 candidate belongs to a state with a verified `award_posting_url` in the §7 registry. A state missing from the registry cannot be validated, so registry gaps are reported as deliverable gaps, not silently skipped.
 13. No `awardee_name_clean` in Tier 3 matches a program-name pattern from the §6.1 named-recipient test.
 14. Every `state` value validates against the 50-row CMS list from §7.1. No `RC`, no `US`, no null.
-15. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
+15. Every row with `distributed_to_hospital = Yes` and `validator = AUTO` has all four §9.3 signals recorded in `corroboration_signals`.
+16. No row with `validation_source_type = THIRD_PARTY_NEWS` carries `rhtp_award_confirmed = Yes`, regardless of validator.
+17. `cms_fy2026_allotments.csv` has exactly 50 rows, sums to approximately $10B, and its min and max fall near $147M and $281M. Assert on load, not on use.
+18. No record was promoted to `SUBAWARD` from a §6.4 mining candidate without a human or §9.3 resolution.
+19. Every fetched host in Stage 4 appears in the §7 registry for that state. A fetch from an unregistered host is a provenance break, not a convenience.
+20. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
 
 **Version the classification rules.** The determination logic in §10 will change as edge cases surface. Store `rules_version` on every row and tag the repo at each build, so you can always say which rules produced a published figure.
 
@@ -567,26 +701,28 @@ Build in this order. Each session ends with a working, tested stage, **all persi
 1. ~~**Session 1** — Repo scaffold, `CLAUDE.md`, config, Stage 0 preflight.~~ **Complete.** Findings folded into §4. Vocabularies and junk-pattern reference files seeded. Delaware's 15 records committed as Stage 2 fixtures.
 2. ~~**Session 2** — §5.1 pagination test.~~ **Complete.** Branch A confirmed; findings in §5.1.
 3. ~~**Session 3** — Stage 1 retrieval client and first national pull.~~ **Complete.** 60 calls, all endpoints exhaustive; findings in §4.1 and §5.1.
-4. **Session 4** — Stage 2 normalization: tier assignment, junk filters with the Delaware fixtures as test cases, hashing and content-based dedup. Report the 11 states missing from `/awards`.
-4. **Session 4** — Stage 3 state source registry for the five pilot states, with CMS allotment anchors. The registry URLs are compiled by hand outside the session and committed as a CSV; the session validates the structure and integrates it.
-5. **Session 5** — Stage 4 queue manager and rule engine, plus the Excel round-trip. No state-domain fetching (§9.0). Export the first review batch.
-6. **Offline** — Work the exported queue: fetch, archive, record confirming text. Commit the completed spreadsheet and evidence PDFs.
-7. **Session 6** — Read the completed queue, apply the §9.2 rules, then build Stage 5 hospital determination, AHA/POS crosswalk, and fuzzy-match review queue.
-8. **Session 7** — Stage 6 workbook build and full QA assertion suite. Run the pilot end to end.
-9. **Session 8** — Review pilot results, revise determination rules, bump `rules_version`, then scale retrieval and the registry to all 50 states.
+4. ~~**Session 4** — Stage 2 normalization.~~ **Complete.** 5,152 records; 1,016 clean Tier 3 across 38 states, $2.03B announced (RCJ's unvalidated claim). Five spec rules corrected — see §6.1, §6.2, §6.3. `STATE_ALLOTMENT` blocked on the CMS table. Registry seed generated: 151 candidates, all 50 states.
+5. **Session 5 — CMS allotments and the registry.** Parse `cms_fy2026_allotments.csv` per §7.1, which switches on the blocked tier rules and clears `STATE_ALLOTMENT`. Then produce the verification worksheet for the 151 registry candidates. Add `/documents` mining per §6.4 and report candidate counts per state.
+6. **Offline — verify the registry** (~2 hours). Confirm 50 rows of `award_posting_url`, including Florida's AHCA procurement portal. Commit.
+7. **Offline — the §9.11 premise test** (~1 hour). Five Delaware awards, by hand. Report what state sources actually publish before any Stage 4 code is written.
+8. **Session 6 — Stage 4**, but only if §9.11 passes. Document clustering (§9.2), fetcher with §9.5 conduct rules, four-signal corroborator (§9.3). Requires **Full** network access on the environment.
+9. **Offline — program flow classifications** (~3 hours). Build `program_flow_classifications.csv` per §9.9.
+10. **Session 7 — Stage 5** hospital determination, AHA/POS crosswalk, fuzzy-match review queue.
+11. **Session 8 — Stage 6** workbook and the full QA suite. Run the pilot end to end, draw the §9.8 sample, record the error rate.
+12. **Session 9** — review results, revise rules, bump `rules_version`, scale to all 50 states.
 
 The AHA Annual Survey and CMS Provider of Services extracts needed in Session 6 must be committed to the repo (or a subset of them) before that session starts — cloud sessions can't reach internal AHA systems.
 
 ### Opening prompt for the next session
 
-> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §3.3, §4.1, §5.1, §6.2, §7, §11 and §13 have all changed since Session 3.
+> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §3.2, §4.1, §6.1, §6.2, §6.3, §7 and §9 have all changed since Session 4, and §9 is a full rewrite around automated validation.
 >
-> Stage 1 is merged. Build Stage 2 normalization (`02_normalize.R`) per §6, using the Delaware fixtures as test cases.
+> Stage 2 is merged. This session has three tasks, in order:
 >
-> Before the build, one reporting task: from the national `/awards` pull, list the 11 states absent from the data and confirm whether Florida is among them. If Florida has records, RCJ's site display was wrong rather than its data, which is a different problem — say so.
+> 1. Parse the CMS FY2026 allotment table per §7.1 into `data/reference/cms_fy2026_allotments.csv`. `cms.gov` is now allowlisted. Assert 50 rows on load. This unblocks `STATE_ALLOTMENT` and the two tier rules that were waiting on it — re-run Stage 2 afterward and report what moves out of `UNASSIGNED`.
+> 2. Build the §6.4 `/documents` mining pass. Report mined candidate counts per state, especially for the eleven states with zero award records. Do not auto-promote anything to `SUBAWARD`.
+> 3. Export the 151 registry candidates as a verification worksheet — one row per candidate host with state, host, sample source title, and empty columns for `award_posting_url`, `pass_through_admin`, and `last_verified`. I'll verify it offline.
 >
-> Note the changes that affect this stage specifically: the state vocabulary comes from the CMS 50-state list, never `/states` (§7.1); `RC` is a junk state code (§6.2); dedup is content-based, not ID-only (§6.3); and a populated `awardeeName` is not a named recipient (§6.1).
+> Do not start Stage 4. §9.11 is an unresolved premise test that I need to run by hand first.
 >
-> Open a PR when you're done — standing instruction from here on.
->
-> Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
+> Open a PR. Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
