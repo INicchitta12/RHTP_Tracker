@@ -79,6 +79,7 @@ RHTP_NORMALIZE_MANIFEST_COLUMNS <- c(
   "source_endpoint", "records_read", "records_normalized",
   "n_quarantined", "n_flagged", "n_pass",
   "n_state_allotment", "n_solicitation", "n_subaward", "n_unassigned",
+  "n_mined_candidates",
   "n_new", "n_changed", "n_unchanged",
   "allotment_anchor_available", "notes"
 )
@@ -107,31 +108,6 @@ RHTP_STOPWORDS <- c(
 
 # -- Reference tables ------------------------------------------------------
 
-#' The state vocabulary (§7.1)
-#'
-#' Independent of RCJ, by design. /states returns 49 states plus a pseudo-state
-#' `US` and omits Wyoming; `RC` appears as a state code on 54 /documents
-#' records and is not a state. Neither may define this list.
-#'
-#' Hard-fails on anything other than exactly 50 rows, because every state-keyed
-#' join and QA reconciliation downstream assumes it (§13.14).
-rhtp_cms_states <- function() {
-  path <- here::here("data", "reference", "cms_states.csv")
-
-  states <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
-
-  if (nrow(states) != 50) {
-    stop(
-      "data/reference/cms_states.csv must have exactly 50 rows (§7.1); found ",
-      nrow(states), ". Every state-keyed join downstream assumes 50.",
-      call. = FALSE
-    )
-  }
-
-  states %>% dplyr::select(state, state_name)
-}
-
-
 #' Read a pattern table from data/reference/
 #'
 #' `pattern_type` is `fixed` or `regex`; fixed patterns are escaped so a
@@ -150,37 +126,45 @@ rhtp_read_patterns <- function(file) {
 }
 
 
-#' CMS FY2026 state allotments, if the Stage 3 registry exists yet
+#' CMS FY2026 state allotments — the §7.1 anchor, if it is on disk yet
 #'
 #' Two §6 rules depend on this anchor and are inactive without it:
 #'   - §6.1 tier rule 3: amount matches the state allotment -> STATE_ALLOTMENT
 #'   - §6.2 amount sanity: a Tier 3 amount above the state's allotment
 #'
-#' Returning an empty table rather than erroring is deliberate. The figures
-#' come from the CMS December 2025 announcement, compiled by hand off-session
-#' (§7.3), and inventing them here to keep a rule switched on is exactly the
-#' §0.1 failure this project exists to avoid. The run reports which state it
-#' is in and the QA layer treats the gap as a coverage gap, not a pass.
+#' The single source is `data/reference/cms_fy2026_allotments.csv`, built by
+#' Stage 3 from the CMS December 2025 press release and asserted against
+#' §13.17 on the way in. It is deliberately NOT read from the §7.3 registry as
+#' well: two files carrying the same 50 figures is two files that can
+#' disagree, and this one is the reconciliation anchor for every QA assertion
+#' downstream.
+#'
+#' Returning an empty table rather than erroring when the file is absent is
+#' also deliberate. Stage 2 must still run without the anchor, and inventing
+#' figures here to keep a rule switched on is exactly the §0.1 failure this
+#' project exists to avoid. The run reports which state it is in and the QA
+#' layer treats the gap as a coverage gap, never as a pass.
 rhtp_load_allotments <- function() {
-  path <- rhtp_path("state_source_registry")
+  path <- rhtp_path("cms_allotments")
   empty <- tibble::tibble(state = character(), fy2026_allotment = numeric())
 
   if (!file.exists(path)) {
     return(empty)
   }
 
-  registry <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
+  allotments <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
 
-  if (!"fy2026_allotment" %in% names(registry)) {
+  if (!"fy2026_allotment" %in% names(allotments)) {
     warning(
-      "state_source_registry.csv exists but has no fy2026_allotment column; ",
-      "§6.1 rule 3 and the allotment sanity check stay inactive.",
+      "cms_fy2026_allotments.csv exists but has no fy2026_allotment column; ",
+      "\u00a76.1 rule 3 and the allotment sanity check stay inactive. Rebuild it ",
+      "with: Rscript R/03_state_registry.R --allotments",
       call. = FALSE
     )
     return(empty)
   }
 
-  registry %>%
+  allotments %>%
     dplyr::filter(!is.na(fy2026_allotment)) %>%
     dplyr::transmute(
       state = as.character(state),
@@ -388,9 +372,10 @@ rhtp_named_recipient_test <- function(awardee_name, state_name,
 #' Delaware school-based-health-centre rows sit under an award announcement
 #' while carrying `federalAmount: 1`. It informs rule 2, it does not bypass it.
 #'
-#' Rule 3 needs the CMS allotment anchor. Without the Stage 3 registry the
-#' rule is skipped, and `tier_basis` says so rather than silently passing the
-#' record down to rule 4.
+#' Rule 3 needs the §7.1 CMS allotment anchor
+#' (`data/reference/cms_fy2026_allotments.csv`). Without it the rule is
+#' skipped, and `tier_basis` says so rather than silently passing the record
+#' down to rule 4.
 #'
 #' @param allotment Numeric CMS FY2026 allotment for this record's state, or NA.
 #' @param allotment_tolerance Fractional tolerance for the allotment match.
@@ -450,7 +435,9 @@ rhtp_assign_tier <- function(source_endpoint,
   }
 
   allotment_note <- if (is.na(allotment)) {
-    " Rule 3 was skipped: no CMS allotment anchor for this state (Stage 3 registry not yet compiled)."
+    paste0(" Rule 3 was skipped: no CMS allotment anchor for this state ",
+           "(data/reference/cms_fy2026_allotments.csv absent, or missing ",
+           "this state).")
   } else {
     ""
   }
@@ -939,11 +926,21 @@ rhtp_apply_change_detection <- function(current, prior = NULL,
   # a table that also duplicates it multiplies rows on every pull. The
   # duplication is already flagged DUPLICATE_RECORD_ID on the record itself;
   # here the earliest version is the one change detection tracks.
+  # `award_tier` and `rules_version` are carried only to report what a rules
+  # change moved. A prior table written before those columns existed is still
+  # a valid history, so their absence degrades the report rather than failing
+  # the pull.
+  for (col in c("award_tier", "rules_version")) {
+    if (!col %in% names(prior_live)) prior_live[[col]] <- NA_character_
+  }
+
   prior_index <- prior_live %>%
     dplyr::arrange(record_id, row_uid) %>%
     dplyr::distinct(record_id, .keep_all = TRUE) %>%
     dplyr::select(record_id, prior_hash = rcj_record_hash,
-                  prior_first_seen = first_seen, prior_row_uid = row_uid)
+                  prior_first_seen = first_seen, prior_row_uid = row_uid,
+                  prior_award_tier = award_tier,
+                  prior_rules_version = rules_version)
 
   annotated <- current %>%
     dplyr::left_join(prior_index, by = "record_id",
@@ -985,26 +982,32 @@ rhtp_apply_change_detection <- function(current, prior = NULL,
     ) %>%
     dplyr::select(-successor)
 
-  # UNCHANGED records refresh last_seen on the row already stored rather than
-  # writing a second identical version.
-  unchanged <- annotated %>%
+  # UNCHANGED records: the RCJ payload is byte-identical, so this is NOT a new
+  # version and nothing is superseded. But the stored row also carries THIS
+  # pipeline's derived columns -- award_tier, tier_basis, flag_reason,
+  # qa_status, rules_version -- and those are a build output, not a fact about
+  # the record. Keeping the prior row verbatim would freeze Session 4's
+  # classifications into every later build: the CMS allotment anchor landing
+  # would change nothing visible, and §13.10 ("rules_version is identical
+  # across all rows in a build") would fail silently on a table quietly mixing
+  # rule generations.
+  #
+  # So the live unchanged row is REPLACED by this run's classification of the
+  # same payload, carrying `first_seen` forward. `superseded_by` is not set:
+  # superseding tracks changes in the DATA (§6.3), and re-deriving a column
+  # from unchanged input is not one. Superseded historical rows are untouched
+  # -- they keep the classification that was published with them.
+  refreshed_uids <- annotated %>%
     dplyr::filter(change_status == "UNCHANGED") %>%
-    dplyr::select(row_uid, refreshed_last_seen = last_seen)
+    dplyr::pull(row_uid)
 
   prior_updated <- prior_updated %>%
-    dplyr::left_join(unchanged, by = "row_uid",
-                     relationship = "many-to-one") %>%
-    dplyr::mutate(
-      last_seen = dplyr::coalesce(refreshed_last_seen, last_seen),
-      change_status = dplyr::if_else(
-        !is.na(refreshed_last_seen), "UNCHANGED", change_status
-      )
-    ) %>%
-    dplyr::select(-refreshed_last_seen)
+    dplyr::filter(!(row_uid %in% refreshed_uids & is.na(superseded_by)))
 
   appended <- annotated %>%
-    dplyr::filter(change_status %in% c("NEW", "CHANGED")) %>%
-    dplyr::select(-prior_hash, -prior_first_seen, -prior_row_uid)
+    dplyr::filter(change_status %in% c("NEW", "CHANGED", "UNCHANGED")) %>%
+    dplyr::select(-prior_hash, -prior_first_seen, -prior_row_uid,
+                  -prior_award_tier, -prior_rules_version)
 
   out <- dplyr::bind_rows(prior_updated, appended)
 
@@ -1013,7 +1016,342 @@ rhtp_apply_change_detection <- function(current, prior = NULL,
          call. = FALSE)
   }
 
+  # What a rules change actually moved, so it is reported rather than
+  # discovered. Attached as an attribute rather than a column: it describes
+  # this run, not the record.
+  report_cols <- intersect(
+    c("record_id", "state", "source_endpoint", "source_doc_title",
+      "amount_announced", "prior_award_tier", "award_tier",
+      "prior_rules_version", "rules_version", "tier_basis"),
+    names(annotated)
+  )
+
+  attr(out, "reclassified") <- if ("award_tier" %in% names(annotated)) {
+    annotated %>%
+      dplyr::filter(change_status == "UNCHANGED",
+                    !is.na(prior_award_tier),
+                    prior_award_tier != award_tier) %>%
+      dplyr::select(dplyr::all_of(report_cols))
+  } else {
+    annotated[0, intersect(report_cols, names(annotated)), drop = FALSE]
+  }
+
   out
+}
+
+
+# -- §6.4 Tier 3 candidate mining from /documents --------------------------
+
+# The terminators that end a legal-entity name in running prose. Drawn from
+# the §6.1 rule 1 marker list, plus the plural and "Center"/"Centre" spellings
+# that appear in document titles but not in RCJ's `awardeeName` field.
+#
+# This list only FINDS candidate spans. It never decides anything: every span
+# it produces is put through rhtp_legal_entity_test() and the full §6.1
+# named-recipient test, which are the arbiters. Same discipline as §9.1 --
+# finders find, rules decide.
+RHTP_ENTITY_TERMINATORS <- c(
+  "Inc", "Incorporated", "LLC", "L\\.L\\.C", "LLP", "PLLC", "Corp",
+  "Corporation", "Company", "Ltd", "Limited", "Association", "Society",
+  "Foundation", "Trust", "Hospital", "Hospitals", "System", "Systems",
+  "Cent(?:er|re)", "Cent(?:ers|res)", "Clinic", "Clinics", "University",
+  "College", "District", "Authority", "Network", "Alliance", "Consortium",
+  "Institute", "Partners", "Partnership"
+)
+
+# Connectives a real organisation name carries in the middle: "University of
+# Nevada, Reno", "Foundation for Healthy Communities".
+RHTP_ENTITY_CONNECTIVES <- c("of", "the", "and", "for", "at", "de", "in", "&")
+
+# Markers that LEAD a name rather than ending it. American health care writes
+# both shapes -- "Grady Memorial Hospital" ends in its marker, "University of
+# Nevada, Reno" and "Foundation for Healthy Communities" begin with one -- and
+# a finder that only handles the trailing shape misses every academic medical
+# centre and every pass-through foundation (§7.3).
+RHTP_ENTITY_LEADERS <- c(
+  "University", "College", "Foundation", "Institute", "Alliance", "Authority",
+  "Consortium", "Partnership", "Trust", "Network", "Association", "Society",
+  "Department", "Board", "Center", "Centre", "Hospital", "Hospitals"
+)
+
+
+#' Is there a dollar figure in this text?
+#'
+#' Two renderings, because state press releases use both and the live §6.4
+#' example uses the second: an explicit `$52,000,000` / `$52.3M`, and a bare
+#' magnitude word — "Parrish Medical Center Awarded More Than 52 Million in
+#' Grants" carries no dollar sign at all.
+#'
+#' A bare four-digit year cannot match: every branch requires either a `$` or
+#' an explicit million/billion/thousand word.
+rhtp_has_money <- function(text) {
+  if (is.na(text) || !nzchar(text)) return(FALSE)
+
+  patterns <- c(
+    # $1,234,567 / $52.3 / $52.3M / $52.3 million
+    "\\$\\s?\\d[\\d,]*(\\.\\d+)?\\s*(k|m|b|thousand|million|billion)?\\b",
+    # 52 million / 1.2 billion, with no dollar sign
+    "\\b\\d[\\d,]*(\\.\\d+)?\\s*(thousand|million|billion)\\b"
+  )
+
+  any(stringr::str_detect(text, stringr::regex(patterns, ignore_case = TRUE)))
+}
+
+
+#' Pull candidate organisation names out of running text
+#'
+#' Two shapes, because American health care writes both: a capitalised run
+#' ENDING in an entity terminator ("Parrish Medical Center"), and one LED by an
+#' entity marker joined with of/for ("University of Nevada, Reno", "Foundation
+#' for Healthy Communities"). A trailing-only finder misses every academic
+#' medical centre and every pass-through foundation.
+#'
+#' Returns every distinct span, longest first, so a caller testing "does any
+#' named organisation appear here" gets the most specific one to record.
+#'
+#' Recall matters more than precision here: a false positive becomes a review
+#' queue row a human dismisses in seconds, while a false negative is an award
+#' RCJ failed to parse that we then also fail to surface -- which is the whole
+#' point of §6.4.
+rhtp_extract_org_candidates <- function(text) {
+  if (is.na(text) || !nzchar(text)) return(character())
+
+  terminators <- paste(RHTP_ENTITY_TERMINATORS, collapse = "|")
+  connectives <- paste(RHTP_ENTITY_CONNECTIVES, collapse = "|")
+
+  # Shape 1: a capitalised run ENDING in a legal-entity terminator.
+  trailing <- paste0(
+    "\\b[A-Z][A-Za-z&'\\.\\-]*",
+    "(?:[ ,]+(?:", connectives, "|[A-Z][A-Za-z&'\\.\\-]*)){0,8}",
+    "[ ,]+(?:", terminators, ")\\b\\.?"
+  )
+
+  # Shape 2: a run LED by an entity marker and joined by of/for.
+  leading <- paste0(
+    "\\b(?:", paste(RHTP_ENTITY_LEADERS, collapse = "|"), ")",
+    "[ ,]+(?:of|for)[ ,]+",
+    "[A-Z][A-Za-z&'\\.\\-]*",
+    "(?:[ ,]+(?:", connectives, "|[A-Z][A-Za-z&'\\.\\-]*)){0,6}"
+  )
+
+  spans <- c(
+    stringr::str_extract_all(text, trailing)[[1]],
+    stringr::str_extract_all(text, leading)[[1]]
+  )
+
+  spans %>%
+    stringr::str_squish() %>%
+    stringr::str_remove("[,\\.]$") %>%
+    unique() %>%
+    (function(x) x[order(nchar(x), decreasing = TRUE)])
+}
+
+
+#' The §6.1 rule 1 legal-entity test, on its own
+#'
+#' §6.1 applies rule 1 as an override inside the named-recipient test: it
+#' rescues a name that a programme pattern would otherwise reject. §6.4 needs
+#' the same test as a standalone gate — "a named organization ... passing the
+#' §6.1 legal-entity test" — so it is factored out here rather than
+#' reimplemented, and both callers move together when the pattern table grows.
+#'
+#' An explicit statement that the recipient is unresolved ("various rural
+#' health clinics", "unnamed subrecipient pool") suppresses the pass in both
+#' directions, exactly as it does in §6.1.
+rhtp_legal_entity_test <- function(name, entity_patterns = NULL) {
+  if (is.null(entity_patterns)) {
+    entity_patterns <- rhtp_read_patterns("legal_entity_patterns.csv")
+  }
+
+  clean <- rhtp_clean_name(name)
+  if (is.na(clean) || !nzchar(clean)) return(FALSE)
+
+  overrides <- entity_patterns %>% dplyr::filter(role == "ENTITY_OVERRIDE")
+  suppressors <- entity_patterns %>% dplyr::filter(role == "OVERRIDE_SUPPRESSED")
+
+  suppressed <- any(stringr::str_detect(
+    clean, stringr::regex(suppressors$regex, ignore_case = TRUE)
+  ))
+  if (suppressed) return(FALSE)
+
+  any(stringr::str_detect(
+    clean, stringr::regex(overrides$regex, ignore_case = TRUE)
+  ))
+}
+
+
+#' Mine /documents for award-shaped records that produced no /awards row (§6.4)
+#'
+#' `/awards` is not the Tier 3 universe -- it is the subset RCJ managed to
+#' parse (§4.1). Award-shaped records sit unextracted in `/documents` in all 50
+#' states, not only the eleven with zero award records. This pass surfaces
+#' them.
+#'
+#' All four §6.4 conditions must hold:
+#'   1. category AWARD_ANNOUNCEMENT or REFERENCE
+#'   2. a named organisation in the title or description, passing the §6.1
+#'      legal-entity test AND the full named-recipient test
+#'   3. a dollar figure present
+#'   4. no /awards record shares that sourceDocument.id
+#'
+#' **Nothing here is promoted to SUBAWARD, ever.** The premise of §6.4 is that
+#' RCJ's extraction of this text failed; a second automated extraction of the
+#' same text has earned no more trust than the first. Candidates stay
+#' `UNASSIGNED`, carry `flag_reason = UNPARSED_AWARD_CANDIDATE`, and are
+#' resolved by a human or by §9.3 corroboration (§13.18).
+#'
+#' Quarantined records are excluded before mining: a HRSA fact sheet or a junk
+#' state code is not made minable by containing a hospital's name.
+#'
+#' @param records A classified, flagged record table.
+#' @return A tibble of candidates, one row per mined document.
+rhtp_mine_document_candidates <- function(records, entity_patterns = NULL,
+                                          program_patterns = NULL,
+                                          agency_patterns = NULL) {
+  empty <- tibble::tibble(
+    record_id = character(), state = character(), state_name = character(),
+    source_doc_id = character(), source_doc_title = character(),
+    source_doc_category = character(), mined_org_name = character(),
+    mined_org_candidates = character(), amount_announced = numeric(),
+    money_in_title = logical(), money_in_description = logical(),
+    rcj_document_url = character(), state_source_url = character(),
+    mining_basis = character()
+  )
+
+  if (nrow(records) == 0) return(empty)
+
+  if (is.null(entity_patterns)) {
+    entity_patterns <- rhtp_read_patterns("legal_entity_patterns.csv")
+  }
+  if (is.null(program_patterns)) {
+    program_patterns <- rhtp_read_patterns("program_name_patterns.csv")
+  }
+  if (is.null(agency_patterns)) {
+    agency_patterns <- rhtp_read_patterns("state_agency_patterns.csv")
+  }
+
+  # Condition 4, computed once: every sourceDocument.id already claimed by an
+  # /awards record. Those documents were parsed successfully -- mining them
+  # would re-surface awards the pipeline already holds.
+  parsed_doc_ids <- records %>%
+    dplyr::filter(source_endpoint == "awards", !is.na(source_doc_id)) %>%
+    dplyr::pull(source_doc_id) %>%
+    unique()
+
+  pool <- records %>%
+    dplyr::filter(
+      source_endpoint == "documents",
+      !is.na(source_doc_category),
+      source_doc_category %in% c("AWARD_ANNOUNCEMENT", "REFERENCE"),
+      qa_status != "QUARANTINED",
+      !record_id %in% parsed_doc_ids
+    )
+
+  if (nrow(pool) == 0) return(empty)
+
+  mined <- pool %>%
+    dplyr::mutate(
+      money_in_title = purrr::map_lgl(source_doc_title, rhtp_has_money),
+      money_in_description = purrr::map_lgl(program_description,
+                                            rhtp_has_money),
+      # An amount RCJ did publish on the document also satisfies condition 3.
+      has_money = money_in_title | money_in_description |
+        !is.na(amount_announced),
+
+      .orgs = purrr::map2(
+        source_doc_title, program_description,
+        function(title, description) {
+          spans <- c(rhtp_extract_org_candidates(title),
+                     rhtp_extract_org_candidates(description))
+          spans <- unique(spans)
+          if (length(spans) == 0) return(character())
+
+          # Both gates, in §6.1's own order. The named-recipient test is what
+          # keeps "Delaware Department of Health and Social Services" and
+          # "Mobile Health Hubs Grantee Pool" out of the candidate set.
+          keep <- purrr::map_lgl(spans, function(span) {
+            if (!rhtp_legal_entity_test(span, entity_patterns)) return(FALSE)
+            nrt <- rhtp_named_recipient_test(
+              span, NA_character_, program_patterns, agency_patterns,
+              entity_patterns
+            )
+            identical(nrt$result, "PASS")
+          })
+
+          spans[keep]
+        }
+      ),
+      n_orgs = purrr::map_int(.orgs, length)
+    ) %>%
+    dplyr::filter(has_money, n_orgs > 0)
+
+  if (nrow(mined) == 0) return(empty)
+
+  mined %>%
+    dplyr::transmute(
+      record_id,
+      state,
+      state_name,
+      source_doc_id,
+      source_doc_title,
+      source_doc_category,
+      # The longest span: the most specific name the finder produced.
+      mined_org_name = purrr::map_chr(.orgs, ~ .x[1]),
+      mined_org_candidates = purrr::map_chr(.orgs, ~ paste(.x, collapse = " | ")),
+      amount_announced,
+      money_in_title,
+      money_in_description,
+      rcj_document_url,
+      state_source_url,
+      mining_basis = paste0(
+        "§6.4: category ", source_doc_category, "; ",
+        n_orgs, " organisation name(s) passing the §6.1 legal-entity and ",
+        "named-recipient tests; a dollar figure present; no /awards record ",
+        "shares this sourceDocument.id. UNASSIGNED candidate only — never ",
+        "promoted to SUBAWARD (§6.4, §13.18)."
+      )
+    ) %>%
+    dplyr::arrange(state, source_doc_title)
+}
+
+
+#' Per-state mined candidate counts — the second dimension of the §11 Coverage sheet
+#'
+#' A state with zero parsed `/awards` records and a non-zero candidate count is
+#' "data exists, RCJ failed to extract it" — a materially different message
+#' than "no data", and the reason the Coverage sheet reports two dimensions
+#' rather than one (§4.1, §11).
+rhtp_mining_coverage <- function(records, candidates, valid_states = NULL) {
+  if (is.null(valid_states)) valid_states <- rhtp_cms_states()$state
+
+  parsed <- records %>%
+    dplyr::filter(source_endpoint == "awards", state %in% valid_states) %>%
+    dplyr::count(state, name = "n_awards_parsed")
+
+  clean_tier3 <- records %>%
+    dplyr::filter(source_endpoint == "awards", state %in% valid_states,
+                  award_tier == "SUBAWARD", qa_status == "PASS") %>%
+    dplyr::count(state, name = "n_tier3_clean")
+
+  mined <- candidates %>%
+    dplyr::filter(state %in% valid_states) %>%
+    dplyr::count(state, name = "n_mined_candidates")
+
+  tibble::tibble(state = sort(valid_states)) %>%
+    dplyr::left_join(parsed, by = "state") %>%
+    dplyr::left_join(clean_tier3, by = "state") %>%
+    dplyr::left_join(mined, by = "state") %>%
+    dplyr::mutate(
+      dplyr::across(c(n_awards_parsed, n_tier3_clean, n_mined_candidates),
+                    ~ tidyr::replace_na(.x, 0L)),
+      coverage_status = dplyr::case_when(
+        n_awards_parsed > 0 & n_mined_candidates > 0 ~ "PARSED_PLUS_CANDIDATES",
+        n_awards_parsed > 0                          ~ "PARSED",
+        n_mined_candidates > 0 ~ "UNPARSED_DATA_EXISTS",
+        TRUE                                         ~ "NO_DATA"
+      )
+    ) %>%
+    dplyr::arrange(dplyr::desc(n_mined_candidates), state)
 }
 
 
@@ -1575,12 +1913,19 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
 
   if (!allotment_anchor_available) {
     message(
-      "  NOTE: no CMS FY2026 allotment anchor on disk (Stage 3 registry not ",
-      "yet compiled).\n",
+      "  NOTE: no CMS FY2026 allotment anchor at ",
+      rhtp_path("cms_allotments"), ".\n",
       "        §6.1 tier rule 3 (allotment match -> STATE_ALLOTMENT) and the ",
       "§6.2 allotment\n",
-      "        ceiling are INACTIVE this run. Recorded in the manifest; not a pass."
+      "        ceiling are INACTIVE this run. Recorded in the manifest; not a pass.\n",
+      "        Build it with: Rscript R/03_state_registry.R --allotments"
     )
+  } else {
+    message("  CMS FY2026 allotment anchor: ", nrow(allotments),
+            " states, $",
+            format(sum(allotments$fy2026_allotment), big.mark = ",",
+                   scientific = FALSE),
+            ". §6.1 rule 3 and the §6.2 ceiling are ACTIVE.")
   }
 
   valid_states <- rhtp_cms_states()$state
@@ -1658,6 +2003,30 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
       qa_status  = rhtp_qa_status(flag_reason)
     )
 
+  # -- §6.4 Tier 3 candidate mining from /documents -----------------------
+  # Runs after the junk filters, so a quarantined record cannot be mined, and
+  # before hashing, so the flag is part of the record's identity for change
+  # detection. The mined rows stay UNASSIGNED: the flag routes them to review,
+  # it does not reassign a tier (§6.4, §13.18).
+  mining_candidates <- rhtp_mine_document_candidates(records)
+
+  records <- records %>%
+    dplyr::mutate(
+      flag_reason = purrr::map2_chr(
+        flag_reason, record_id,
+        function(fr, id) {
+          if (!id %in% mining_candidates$record_id) return(fr)
+          rhtp_collapse_flags(c(rhtp_flag_vector(fr),
+                                "UNPARSED_AWARD_CANDIDATE"))
+        }
+      ),
+      flag_count = purrr::map_int(flag_reason, ~ length(rhtp_flag_vector(.x))),
+      qa_status  = rhtp_qa_status(flag_reason)
+    )
+
+  mining_coverage <- rhtp_mining_coverage(records, mining_candidates,
+                                          valid_states)
+
   records <- records %>%
     dplyr::mutate(rcj_record_hash = rhtp_record_hash(records))
 
@@ -1671,6 +2040,9 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
     dplyr::mutate(pull_date = pull_date) %>%
     dplyr::relocate(row_uid, record_id, source_endpoint, award_tier,
                     change_status, qa_status, flag_reason)
+
+  reclassified <- attr(record_table, "reclassified")
+  if (is.null(reclassified)) reclassified <- record_table[0, ]
 
   live <- record_table %>% dplyr::filter(is.na(superseded_by))
   change_set <- live %>% dplyr::filter(change_status %in% c("NEW", "CHANGED"))
@@ -1696,6 +2068,45 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
   message("  NEW / CHANGED   : ", nrow(change_set))
   message("  quarantined     : ", sum(live$qa_status == "QUARANTINED"))
   message("  collisions      : ", nrow(collisions))
+  message("  reclassified    : ", nrow(reclassified),
+          " (unchanged data, new tier under rules ", cfg$rules_version, ")")
+
+  if (nrow(reclassified) > 0) {
+    message("\n-- Tier reassignments from a rules or reference-data change --")
+    print(
+      as.data.frame(
+        reclassified %>%
+          dplyr::count(state, prior_award_tier, award_tier, name = "n") %>%
+          dplyr::arrange(dplyr::desc(n), state)
+      ),
+      row.names = FALSE
+    )
+  }
+
+  # -- §6.4 mining report --------------------------------------------------
+  unparsed_states <- mining_coverage %>%
+    dplyr::filter(coverage_status == "UNPARSED_DATA_EXISTS")
+
+  message("\n-- §6.4 /documents mining: Tier 3 candidates RCJ failed to parse --")
+  message("  candidates      : ", nrow(mining_candidates), " across ",
+          dplyr::n_distinct(mining_candidates$state), " states")
+  message("  states with 0 parsed /awards records but candidates present: ",
+          nrow(unparsed_states),
+          if (nrow(unparsed_states) > 0) {
+            paste0(" (", paste(unparsed_states$state, collapse = " "), ")")
+          } else "")
+  message("  NONE promoted to SUBAWARD (§6.4). All carry ",
+          "UNPARSED_AWARD_CANDIDATE and stay UNASSIGNED for review.")
+
+  if (nrow(mining_candidates) > 0) {
+    message("\n  mined candidates by state:")
+    print(
+      as.data.frame(
+        mining_coverage %>% dplyr::filter(n_mined_candidates > 0)
+      ),
+      row.names = FALSE
+    )
+  }
 
   # -- Write ---------------------------------------------------------------
   if (isTRUE(write)) {
@@ -1707,6 +2118,20 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
     saveRDS(state_sources, file.path(interim, "stage2_state_sources.rds"))
     saveRDS(rcj_state_summary,
             file.path(interim, "stage2_rcj_state_summary.rds"))
+    saveRDS(mining_candidates,
+            file.path(interim, "stage2_mining_candidates.rds"))
+    saveRDS(mining_coverage,
+            file.path(interim, "stage2_mining_coverage.rds"))
+    saveRDS(reclassified,
+            file.path(interim, "stage2_reclassified.rds"))
+
+    # CSV as well as RDS: the mining candidates and the two-dimension coverage
+    # table are both read by a person before Stage 4 exists to consume them,
+    # and the coverage table becomes the §11 Coverage sheet.
+    readr::write_csv(mining_candidates,
+                     file.path(interim, "stage2_mining_candidates.csv"))
+    readr::write_csv(mining_coverage,
+                     file.path(interim, "stage2_mining_coverage.csv"))
 
     readr::write_csv(
       registry_candidates,
@@ -1731,6 +2156,7 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
           n_solicitation     = sum(ep_rows$award_tier == "SOLICITATION"),
           n_subaward         = sum(ep_rows$award_tier == "SUBAWARD"),
           n_unassigned       = sum(ep_rows$award_tier == "UNASSIGNED"),
+          n_mined_candidates = sum(mining_candidates$record_id %in% ep_rows$record_id),
           n_new              = sum(ep_rows$change_status == "NEW"),
           n_changed          = sum(ep_rows$change_status == "CHANGED"),
           n_unchanged        = sum(ep_rows$change_status == "UNCHANGED"),
@@ -1752,6 +2178,9 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
     state_sources = state_sources,
     rcj_state_summary = rcj_state_summary,
     registry_candidates = registry_candidates,
+    mining_candidates = mining_candidates,
+    mining_coverage = mining_coverage,
+    reclassified = reclassified,
     summary = summary_tbl,
     allotment_anchor_available = allotment_anchor_available
   ))

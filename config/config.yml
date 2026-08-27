@@ -138,8 +138,29 @@ paths:
   pull_manifest: "logs/pull_manifest.csv"
   review_queue: "data/interim/review_queue.rds"
   state_source_registry: "data/reference/state_source_registry.csv"
+  state_source_registry_candidates: "data/reference/state_source_registry_candidates.csv"
+  state_source_registry_worksheet: "data/reference/state_source_registry_worksheet.csv"
+  cms_allotments: "data/reference/cms_fy2026_allotments.csv"
+  cms_states: "data/reference/cms_states.csv"
+  raw_cms: "data/raw/cms"
   vocabularies: "data/reference/vocabularies.csv"
   title_junk_patterns: "data/reference/title_junk_patterns.csv"
+
+cms:
+  # Spec §7.1. The FY2026 state allotment table is parsed from the CMS
+  # December 2025 press release, never transcribed by hand: this file is the
+  # reconciliation anchor for every QA assertion in §13, so a typo in it
+  # corrupts everything downstream.
+  #
+  # Requires cms.gov and www.cms.gov on the environment allowlist (§3.2).
+  # The fetched HTML is archived verbatim under paths$raw_cms so the parse is
+  # reproducible without a second network call.
+  fy2026_allotment_url: "https://www.cms.gov/newsroom/press-releases/cms-announces-50-billion-awards-strengthen-rural-health-all-50-states"
+  # The press release carries exactly one <table>: State | FY26 Award Amount.
+  # Asserted on parse rather than assumed -- a CMS page redesign that adds a
+  # second table must fail loudly, not silently parse the wrong one.
+  fy2026_allotment_expected_tables: 1
+  fy2026_allotment_header_regex: "^(state|fy ?26 award amount)$"
 
 pull:
   # Spec §14: pilot on five states before scaling to 50.
@@ -162,6 +183,15 @@ qa:
   allotment_max_usd: 281000000
   allotment_expected_states: 50
   allotment_mean_target_usd: 200000000
+  # §13.17. The published table sums to exactly $10B; the tolerance exists so
+  # a future CMS revision of one state's figure surfaces as a warning-sized
+  # deviation rather than a silent pass or an unactionable hard stop.
+  # Written in exponent form: R's yaml reader coerces a bare 10000000000
+  # to NA, since it overflows a 32-bit integer.
+  allotment_total_usd: 1.0e10
+  allotment_total_tolerance_fraction: 0.01
+  # "min and max fall NEAR $147M and $281M" (§7.1) -- a band, not equality.
+  allotment_bound_tolerance_fraction: 0.02
   # Spec §6.2 amount sanity.
   amount_hard_max_usd: 1000000000
   # Stage 0 observed four Delaware records with federalAmount == 1, so a
