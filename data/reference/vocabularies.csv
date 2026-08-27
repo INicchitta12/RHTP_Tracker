@@ -57,3 +57,32 @@ review_status,PENDING,
 review_status,IN_PROGRESS,
 review_status,RESOLVED,
 review_status,BLOCKED,
+source_endpoint,awards,Stage 2. RCJ /awards - the Tier 3 candidate feed.
+source_endpoint,documents,Stage 2. RCJ /documents - source documents; some carry an award amount.
+source_endpoint,opportunities,Stage 2. RCJ /opportunities - the Tier 2 solicitation feed.
+change_status,NEW,Stage 2 (spec 6.3). Record id not present in the prior pull.
+change_status,CHANGED,"Stage 2 (spec 6.3). Same record id, different rcj_record_hash. The prior version is retained and superseded_by is set on it."
+change_status,UNCHANGED,Stage 2 (spec 6.3). Same record id and hash; skips re-validation.
+change_status,WITHDRAWN,Stage 2 (spec 6.3). Present in the prior pull and absent from this one. Never deleted.
+named_recipient_test,PASS,spec 6.1. awardeeName is a plausible legal entity. Necessary for SUBAWARD; not sufficient for a hospital determination.
+named_recipient_test,FAIL_PROGRAM_NAME,spec 6.1. awardeeName matches a program/pool pattern. Routed to UNASSIGNED.
+named_recipient_test,FAIL_STATE_AGENCY,spec 6.1. awardeeName is the administering state agency. Routed to UNASSIGNED.
+named_recipient_test,FAIL_EMPTY,spec 6.1. awardeeName is absent. Routed to UNASSIGNED.
+named_recipient_test,NOT_APPLICABLE,spec 6.1. Record carries no awardee field at all (documents and opportunities).
+flag_reason,PROVENANCE_MISMATCH,"spec 6.2 highest-priority filter. Source ties to a non-RHTP federal program. QUARANTINED. QA assertion 11 forbids this in any published row."
+flag_reason,JUNK_STATE_CODE,"spec 6.2 / 7.1. state fails the 50-row CMS list (RC, US, null). QUARANTINED."
+flag_reason,NON_RHTP_SELF_DECLARED,spec 6.2. The description states the record is not RHTP. QUARANTINED.
+flag_reason,PAGE_CHROME_TITLE,spec 6.2. Title is nav text/cookie notice/accessibility text/bare filename. FLAGGED.
+flag_reason,EVENT_SCHEDULE_BLEED,spec 6.2. Under half the keyDates entries share content with the parent record. FLAGGED for review - never auto-cleaned.
+flag_reason,AMOUNT_IMPLAUSIBLE_LOW,"spec 6.2. Amount under $1,000. Catches federalAmount: 1, which a zero-test misses. FLAGGED."
+flag_reason,AMOUNT_IMPLAUSIBLE_HIGH,spec 6.2. Amount at or above $1B - a unit error. FLAGGED.
+flag_reason,AMOUNT_EXCEEDS_STATE_ALLOTMENT,spec 6.2. Tier 3 amount exceeds the state's CMS FY2026 allotment. Requires the Stage 3 registry; inactive until it lands. FLAGGED.
+flag_reason,AMOUNT_MISSING,spec 6.2 corollary. No amount at all - cannot be sanity-checked or aggregated. FLAGGED.
+flag_reason,PROGRAM_NAME_AS_AWARDEE,spec 6.1. Failed the named-recipient test on a program/pool pattern. FLAGGED (the tier is already UNASSIGNED).
+flag_reason,STATE_AGENCY_AS_AWARDEE,spec 6.1. Failed the named-recipient test as the administering agency. FLAGGED.
+flag_reason,AWARDEE_MISSING,spec 6.1. An /awards record with no awardeeName. FLAGGED.
+flag_reason,CONTENT_DUPLICATE,"spec 6.3. Collides with another record on (state, amount, activity_type). FLAGGED and routed to review - never auto-merged."
+flag_reason,DUPLICATE_RECORD_ID,spec 6.3. The same RCJ id appears more than once in a single pull. FLAGGED.
+flag_reason,SOURCE_DOCUMENT_UNRESOLVED,"spec 12. sourceDocument.id does not resolve to a record in the /documents pull, so the source cannot be retrieved from this pull. FLAGGED."
+flag_reason,REOPENED_SOLICITATION,spec 6.3. Shares a state solicitation number with another record - the same pool announced twice. FLAGGED.
+flag_reason,SOURCE_IS_PLAN_NOT_AWARD,"Beyond the literal spec 6.1 list; derived from 0.3 and 9.2. The source document is a state plan, application, or proposed budget rather than an award action, so no recipient in it has received anything. Demotes an /awards row to UNASSIGNED. FLAGGED."

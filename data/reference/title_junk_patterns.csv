@@ -8,4 +8,3 @@ Browse\.aspx,regex,PAGE_CHROME_TITLE,spec 6.2 observed defect,2026-08-27
 \.(aspx|php|jsp|cfm|html?)$,regex,PAGE_CHROME_TITLE,Bare filename captured as title,2026-08-27
 cookie (notice|policy|settings),regex,PAGE_CHROME_TITLE,spec 6.2 cookie notices,2026-08-27
 skip to (main )?content,regex,PAGE_CHROME_TITLE,Accessibility skip-link text,2026-08-27
-HRSA'?s Rural Health Grants,regex,NON_RHTP_PROVENANCE,"Stage 0 observed live: 4 DE records sourced from a HRSA fact sheet. HRSA rural health grants are NOT RHTP.",2026-08-27

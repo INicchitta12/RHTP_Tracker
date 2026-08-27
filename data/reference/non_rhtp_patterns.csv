@@ -1,0 +1,27 @@
+pattern,pattern_type,flag_reason,scope,notes,source,date_added
+"\bHRSA\b",regex,PROVENANCE_MISMATCH,source,"Health Resources and Services Administration. HRSA rural health grants are a different federal program.","Stage 0 observed live: 4 DE rows sourced from ""FY 2025: HRSA's Rural Health Grants Delaware Fact Sheet""",2026-08-27
+"Health Resources (and|&) Services Administration",regex,PROVENANCE_MISMATCH,source,"HRSA spelled out.",spec 6.2,2026-08-27
+"\bHRSA-\d{2}-\d{3}\b",regex,PROVENANCE_MISMATCH,source,"HRSA funding opportunity number.","Stage 2 observed live: opportunity titled ""HRSA-26-045""",2026-08-27
+"Rural Health Grants",regex,PROVENANCE_MISMATCH,source,"The HRSA fact-sheet series title. Reads as rural health, is not RHTP.","Stage 0 observed live: the 4 DE fact-sheet rows",2026-08-27
+"USDA Rural Development",regex,PROVENANCE_MISMATCH,source,"USDA RD community facilities and distance-learning/telemedicine grants.",spec 6.2,2026-08-27
+"\bUSDA\b",regex,PROVENANCE_MISMATCH,source,"United States Department of Agriculture.",spec 6.2,2026-08-27
+"Community Facilities (Direct )?Loan",regex,PROVENANCE_MISMATCH,source,"USDA RD programme.",spec 6.2,2026-08-27
+"Distance Learning (and|&) Telemedicine",regex,PROVENANCE_MISMATCH,source,"USDA RD DLT programme.",spec 6.2,2026-08-27
+"Rural Health Care Program",regex,PROVENANCE_MISMATCH,source,"FCC/USAC Rural Health Care Program — telecom subsidy, not RHTP.",spec 6.2,2026-08-27
+"\bUSAC\b",regex,PROVENANCE_MISMATCH,source,"Universal Service Administrative Company (FCC).",spec 6.2,2026-08-27
+"Healthcare Connect Fund",regex,PROVENANCE_MISMATCH,source,"FCC/USAC programme.",spec 6.2,2026-08-27
+"Telecom(munications)? Program",regex,PROVENANCE_MISMATCH,source,"FCC/USAC Rural Health Care sub-programme.",spec 6.2,2026-08-27
+"Medicare Rural Hospital Flexibility",regex,PROVENANCE_MISMATCH,source,"Flex Program — HRSA/FORHP, not RHTP.",spec 6.2,2026-08-27
+"\bFlex Program\b",regex,PROVENANCE_MISMATCH,source,"Medicare Rural Hospital Flexibility Program.",spec 6.2,2026-08-27
+"Small Rural Hospital Improvement",regex,PROVENANCE_MISMATCH,source,"SHIP — HRSA/FORHP, not RHTP.",spec 6.2,2026-08-27
+"State Office(s)? of Rural Health",regex,PROVENANCE_MISMATCH,source,"SORH cooperative agreement is a HRSA programme. NOTE: a state office of rural health may also administer RHTP, so this marker flags for review rather than deciding on its own.",spec 6.2,2026-08-27
+"\bSORH\b",regex,PROVENANCE_MISMATCH,source,"State Office of Rural Health.",spec 6.2,2026-08-27
+"\bFORHP\b",regex,PROVENANCE_MISMATCH,source,"Federal Office of Rural Health Policy (HRSA).",spec 6.2,2026-08-27
+"\bARPA\b|American Rescue Plan",regex,PROVENANCE_MISMATCH,source,"A different federal funding stream that frequently co-occurs with rural health spending.",spec 6.2 generalisation,2026-08-27
+"Provider Relief Fund",regex,PROVENANCE_MISMATCH,source,"A different federal funding stream.",spec 6.2 generalisation,2026-08-27
+"(does|do) not relate to (the )?(RHTP|Rural Health Transformation)",regex,NON_RHTP_SELF_DECLARED,description,"The record says so itself.","spec 6.2: a Wisconsin Perkins CTE record currently sits in the feed this way",2026-08-27
+"(is|are) not (part of|related to|associated with|affiliated with) (the )?(RHTP|Rural Health Transformation)",regex,NON_RHTP_SELF_DECLARED,description,"Self-declared negation.",spec 6.2,2026-08-27
+"unrelated to (the )?(RHTP|Rural Health Transformation)",regex,NON_RHTP_SELF_DECLARED,description,"Self-declared negation.",spec 6.2,2026-08-27
+"no (direct )?(connection|relationship|relation) to (the )?(RHTP|Rural Health Transformation)",regex,NON_RHTP_SELF_DECLARED,description,"Self-declared negation.",spec 6.2,2026-08-27
+"not (an )?RHTP(-| )(funded|related|award|program)",regex,NON_RHTP_SELF_DECLARED,description,"Self-declared negation.",spec 6.2,2026-08-27
+"\bPerkins\b.*\b(CTE|Career and Technical Education)\b",regex,NON_RHTP_SELF_DECLARED,description,"The observed Wisconsin case.","spec 6.2 observed: Wisconsin Perkins CTE record in the feed",2026-08-27
