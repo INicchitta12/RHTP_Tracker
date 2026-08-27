@@ -11,11 +11,35 @@
 
 Four principles govern every design decision below. If a later instruction seems to conflict with one of these, the principle wins.
 
-### 0.1 Rural Care Journey (RCJ) is a discovery layer, not a source of record
+### 0.1 State budget narratives are the spine; RCJ is a supplement
 
-RCJ is a commercial aggregator operated by AME Mobile. Its own site states it is not affiliated with CMS/HHS/HRSA, that data is aggregated from public sources, and that accuracy is not guaranteed. Observed extraction defects include: non-RHTP records in the RHTP feed, page navigation text captured as document titles, unrelated state press releases bleeding into event-schedule fields, and awardee-level coverage that is complete in some states and empty in others.
+The project was originally built around Rural Care Journey. **That is inverted.**
 
-RCJ's job in this system is to tell us **where to look and when something changed**. The authoritative record for every published figure is the state notice of award or equivalent primary document. No RCJ field may appear in an AHA-published number without independent state-source validation.
+RCJ has an unbounded completeness problem. Seven of eleven verified Delaware records exist in no RCJ endpoint at all, and Delaware runs fifteen initiatives against the handful RCJ captured. You can never characterize what is missing, so you can never state a denominator, so no share or percentage computed from it is defensible. For advocacy work that is disqualifying, however clean the pipeline gets.
+
+**State RHTP budget narratives do not have that problem.** CMS required one from every state, with revised versions due 30 days after the December 2025 award. Fifty documents, complete by construction, covering the full $10B, and structured comparably because CMS specified the format. They reconcile against the CMS allotment table (§7.1), so the parse self-validates: if a state's initiatives don't sum to its allotment, the parse is wrong.
+
+Roles:
+
+| Source | Role |
+|---|---|
+| **CMS allotment table** | The anchor. 50 states, exact FY2026 figures. |
+| **State budget narratives** | The backbone. Initiative-level dollars and activities, complete per state. |
+| **RCJ** | Recipient names attached to initiatives, plus daily monitoring for new awards. |
+| **State award notices / procurement portals** | Recipient confirmation where published. |
+
+RCJ's 1,016 Tier 3 records stay useful. They stop being the frame.
+
+### 0.1a What this project can and cannot deliver
+
+Delaware publishes named recipients but **not recipient-level dollar amounts** — figures exist only at initiative level. If that holds nationally, **no pipeline produces a per-hospital dollar figure**, because states are not publishing one.
+
+Two deliverables, both defensible:
+
+1. **Which hospitals are receiving RHTP funds** — names, states, initiatives, source-verified. Achievable nationally, and likely the stronger advocacy asset: a named list of rural hospitals in members' states persuades a Hill audience more than an aggregate.
+2. **How much flows through hospital-involved initiatives** — initiative-level dollars where hospitals are named recipients, with an explicit statement that per-hospital splits are not published.
+
+**Do not promise a per-hospital dollar total.** The absence is itself a finding: states are distributing federal money without publishing recipient-level amounts.
 
 ### 0.2 The three-tier rule
 
@@ -28,6 +52,14 @@ RHTP money moves CMS → state → subrecipient. RCJ mixes all three tiers in a 
 | 3 | `SUBAWARD` | Executed or intended award to a named recipient | GA Dual Track Remote Critical Care, $900K to 4 rural hospitals |
 
 **Only Tier 3 answers the project question.** Tiers 1 and 2 live in separate reference tables, on separate Excel sheets, and are never unioned with Tier 3. Aggregation functions must hard-fail if passed mixed tiers.
+
+### 0.3a Code the recipient, not the activity
+
+**The single most consequential coding rule, and the one that has already gone wrong.** All eleven verified Delaware records were coded `hospital = no`, including four awards to Beebe Healthcare, TidalHealth, and Nemours Children's Health — all hospitals and health systems. The coding followed what the money *does* (school-based health centers, a diabetes pilot) rather than who *receives* it. Applied nationally, that would have reported Delaware's hospital total as zero, the exact opposite of the truth.
+
+Beebe Healthcare receiving RHTP funds to operate a school-based health center is `recipient_type = HOSPITAL_OR_SYSTEM`, `flow_type = DIRECT`, `distributed_to_hospital = Yes`. Beebe is a hospital. Beebe received the money. Where the clinic sits does not change either fact.
+
+Every human reviewer reads `reviewer-coding-instructions.md` before touching a record. Every automated classifier keys off recipient identity, never activity type.
 
 ### 0.3 Eligibility is not receipt
 
@@ -408,6 +440,50 @@ Notes for the build:
 
 ---
 
+## 7A. Stage 2.5 — State budget narratives (`03b_budget_narratives.R`)
+
+**This is the backbone table (§0.1). Build it before Stage 4.**
+
+### 7A.1 What these documents are
+
+CMS required a budget narrative from every state as part of the RHTP cooperative agreement, with revised versions due roughly 30 days after the December 29, 2025 award announcement. They decompose a state's allotment into named initiatives with dollar figures and activity categories.
+
+Known live examples: Delaware's `Final-RHTP-Revised-Budget-1.30.26.pdf` (15 initiatives), California's CalRHT Budget Narrative, Kansas's Year 1 Budget Narrative Revision 2.
+
+Many are linked from the state RHTP program pages already being verified in §7.2, so collection partly rides along with registry verification.
+
+### 7A.2 Collection
+
+Target: **50 documents, one per state**, committed under `data/evidence/budget_narratives/<state>/`.
+
+This is a bounded, checkable task in a way nothing sourced from RCJ is — you know when you have all fifty. Track completeness explicitly in `data/reference/budget_narrative_status.csv` with `state`, `document_url`, `document_date`, `version`, `archive_path`, `collected_by`, `collected_date`, and `status` ∈ `COLLECTED` | `NOT_FOUND` | `REQUESTED`.
+
+Where a state hasn't published one, record `NOT_FOUND` with the date searched. A missing narrative is a reportable gap, not a silent omission.
+
+### 7A.3 The initiative table
+
+Parse each narrative into `data/interim/initiatives.rds`, one row per initiative:
+
+`state`, `initiative_id`, `initiative_name`, `initiative_budget`, `activity_type`, `activity_type_raw`, `initiative_description`, `budget_narrative_version`, `source_archive_path`, `page_reference`, `extraction_method`
+
+`page_reference` matters — a reviewer must be able to open the archived PDF at the right page to check a figure.
+
+### 7A.4 Reconciliation is the QA gate
+
+For each state, the sum of `initiative_budget` must reconcile to that state's `fy2026_allotment` from §7.1, within a tolerance for administrative costs and rounding. **A state that doesn't reconcile has a bad parse and is quarantined, not published.**
+
+This self-validation is the central advantage of the backbone approach and RCJ offers no equivalent. Record `reconciliation_pct` and `reconciliation_status` per state.
+
+### 7A.5 Linking recipients to initiatives
+
+RCJ Tier 3 records and §6.4 mined candidates attach to initiatives by matching on state plus initiative name or activity type. Matching is fuzzy and goes to the review queue; it never auto-resolves.
+
+An initiative with at least one confirmed hospital recipient is flagged `has_hospital_recipient`. **That flag, not a per-hospital dollar split, is what carries the dollar figure** in the §11 deliverable.
+
+Never divide an initiative budget across its recipients. States don't publish the split, and inventing one would be the most damaging thing this project could do.
+
+---
+
 ## 8. Controlled vocabularies
 
 Store as `data/reference/vocabularies.csv` and validate every categorical column against it. No free-text categories anywhere.
@@ -416,8 +492,6 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 
 **`source_doc_type`:** `NOTICE_OF_AWARD` | `NOTICE_OF_INTENT_TO_AWARD` | `PROCUREMENT_PORTAL_POSTING` | `STATE_BUDGET_NARRATIVE` | `AGENCY_PRESS_RELEASE` | `GOVERNOR_PRESS_RELEASE` | `THIRD_PARTY_NEWS` | `OTHER`
 *(Strength ordering matters: the first three are primary; press releases are secondary; third-party news alone can never support a `Yes`.)*
-
-**`rhtp_award_confirmed`:** `Yes` | `No` | `Unclear`
 
 **`recipient_type`:** `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` | `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` | `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` | `VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `NOT_YET_NAMED`
 
@@ -428,6 +502,12 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 **`determination_confidence`:** `HIGH` | `MEDIUM` | `LOW`
 
 **`extraction_method`:** `DIRECT_TEXT` | `MODEL_ASSISTED` | `MANUAL`
+
+**`recipient_confirmed`:** `Yes` | `No` | `Unclear`
+
+**`amount_confirmed`:** `Yes` | `No` | `Unclear` — `No` is the expected common case; it means no recipient-level figure is published, not that verification failed
+
+**`reconciliation_status`:** `RECONCILED` | `VARIANCE` | `FAILED` | `NO_NARRATIVE`
 
 **`validator`:** `AUTO` | reviewer initials
 
@@ -459,24 +539,31 @@ Group Tier 3 candidates by `sourceDocument.id` and by resolved `state_source_url
 
 Do this first and measure the result. If a few hundred candidates collapse to sixty or ninety distinct documents, the problem is an order of magnitude smaller than the raw record count suggests.
 
-### 9.3 Deterministic corroboration — four signals
+### 9.3 Split confirmation — two independent claims
 
-Extraction may be model-assisted (§9.4). **Confirmation is string matching**, because a string match is defensible in a way an opinion is not.
+**Delaware's premise test found recipient names available and recipient-level amounts unavailable.** Four of eleven records carried the `federalAmount: 1` placeholder, seven were blank, and the reviewer's note recurred verbatim: *award amount not available for this specific awardee.* Amounts existed only at initiative level.
+
+A single blended verdict therefore fails: requiring an amount match sends every Delaware record to review and leaves the auto-confirm tier permanently empty. Split it.
+
+**`recipient_confirmed`** — a named recipient appears in a state source. Signals:
 
 | Signal | Test |
 |---|---|
-| **Domain trust** | Document retrieved from a host verified in the §7 registry for that state |
-| **Recipient match** | `awardee_name_clean` found in extracted text, normalized for legal suffixes, `&`/`and`, and DBA variants |
-| **Amount match** | Figure found in any standard rendering: `$11,500,000`, `$11.5 million`, `11500000`, `$11.5M` |
-| **Program marker** | RHTP identifiers present **and** no competing federal program markers (HRSA, USDA RD, FCC/USAC, Flex/SORH — see §6.2) |
+| Domain trust | Retrieved from a host verified in the §7 registry for that state |
+| Recipient match | `awardee_name_clean` found in extracted text, normalized for legal suffixes, `&`/`and`, and DBA variants |
+| Program marker | RHTP identifiers present **and** no competing federal program markers (HRSA, USDA RD, FCC/USAC, Flex/SORH) |
 
-Resolution:
+All three → `Yes`, `HIGH`. Two → review queue. Fewer → `Unclear`.
 
-- **All four** → `Yes`, `determination_confidence = HIGH`, auto-resolved
-- **Three** → review queue
-- **Two or fewer** → `Unclear`. This is the correct answer, not a failure.
+**`amount_confirmed`** — a **recipient-level** dollar figure appears in a state source. Requires all three signals above **plus** an amount match in any standard rendering (`$11,500,000`, `$11.5 million`, `11500000`, `$11.5M`).
 
-Store which signals fired in `corroboration_signals` on every row. An auditor must be able to see exactly why a record was coded as it was without re-reading the source.
+An initiative-level budget figure **never** confirms a recipient-level amount. That distinction is the whole point.
+
+A row may legitimately be `recipient_confirmed = Yes, HIGH` and `amount_confirmed = No`. That is honest and useful; forcing it to `Unclear` discards a real finding.
+
+Store which signals fired in `corroboration_signals` on every row, so an auditor sees why a record was coded as it was without reopening the source.
+
+**The governing rule stands: models find things, rules decide things.**
 
 ### 9.4 Where a model is permitted
 
@@ -513,11 +600,13 @@ Getting blocked by a state IT department mid-project would be genuinely disrupti
 
 ### 9.7 Confirmation decision rules
 
-**`Yes`** — all four §9.3 signals fired, **or** a human confirmed against a `NOTICE_OF_AWARD`, `NOTICE_OF_INTENT_TO_AWARD`, `PROCUREMENT_PORTAL_POSTING`, `STATE_BUDGET_NARRATIVE`, or an official agency/governor release naming the recipient.
+Applied independently to each of the two claims in §9.3.
 
-**`No`** — the state source contradicts RCJ, or shows the solicitation cancelled, withdrawn, unawarded, or re-opened without award.
+**`Yes`** — the required signals fired, **or** a human confirmed against a `NOTICE_OF_AWARD`, `NOTICE_OF_INTENT_TO_AWARD`, `PROCUREMENT_PORTAL_POSTING`, `STATE_BUDGET_NARRATIVE`, or an official agency/governor release naming the recipient.
 
-**`Unclear`** — fewer than three signals; the only source is third-party news; amounts conflict across sources; the page names no recipients; the record is a pass-through pool with unresolved subrecipients; or the source is a plan or projection rather than an award action.
+**`No`** — the state source contradicts RCJ, or shows the solicitation cancelled, withdrawn, unawarded, or re-opened without award. For `amount_confirmed`, `No` also means simply that no recipient-level figure is published — the common case, and not a failure.
+
+**`Unclear`** — the only source is third-party news; sources conflict; the page names no recipients (Delaware's "Not identified" row, where the state confirms an award but names nobody); the record is a pass-through pool with unresolved subrecipients; or the source is a plan or projection rather than an award action.
 
 Third-party news can never support a `Yes`, automated or otherwise.
 
@@ -550,21 +639,51 @@ Store these in `data/reference/program_flow_classifications.csv`, keyed by progr
 
 Per-refresh cost stays flat: unchanged records inherit prior determinations via `rcj_record_hash` (§6.3).
 
-### 9.11 Test the premise before building the automation
+### 9.11 Premise test — resolved (Delaware, 11 records)
 
-**Manually validate five Delaware awards against Delaware state sources first.** Not in a session — a person, a browser, an hour, using the 15 records already committed as fixtures. Try to locate the notice of award for the State Housing Authority's $11.5M and for one or two of the pool records.
+Run by a human reviewer against Delaware state sources. Results:
 
-This answers three questions that determine whether §9.3 is buildable at all:
+| Question | Answer |
+|---|---|
+| Do state documents name subrecipients? | **Yes** — Beebe Healthcare, TidalHealth, Nemours, Thomas Jefferson University, DHIN |
+| Are recipient-level amounts published? | **No** — 0 of 11. Initiative-level only |
+| Do the §9.7 rules survive real state pages? | Yes, once confirmation is split (§9.3) |
+| Are state sources findable and archivable? | Yes — DE Bids Contracts procurement portal, State of Delaware News, the budget narrative PDF |
 
-1. Do state documents name subrecipients, or only programs? If they publish at program level, the corroboration model has nothing to match against and this design needs rethinking.
-2. How long does one validation actually take?
-3. Do the §9.7 rules survive contact with real state web pages?
+Two structural findings came out of it:
 
-An automated validator built against an untested premise is the expensive way to discover the premise was wrong.
+- **Seven of eleven records exist in no RCJ endpoint at all.** RCJ is missing awards entirely, not merely misfiling them. This is what drove the §0.1 inversion.
+- **The reviewer worksheet's validation URL column held page titles, not URLs.** Nothing archivable. The §9.12 worksheet must validate URL format on entry.
+
+### 9.12 Reviewer worksheet requirements
+
+Human review happens in Excel, exported and read back. The worksheet must:
+
+- Carry a `state_source_url` column that **rejects non-URL values** on read-back. Page titles are not sources.
+- Include `recipient_confirmed` and `amount_confirmed` as separate columns, never one merged field.
+- Include `archive_path`, and refuse a `Yes` on either claim without one.
+- Restate the §0.3a rule — code the recipient, not the activity — in the header row and in `reviewer-coding-instructions.md`, which every reviewer reads first.
+- Validate all categorical entries against §8 on read-back, rejecting malformed rows rather than ingesting them.
 
 ## 10. Stage 5 — Hospital determination (`05_hospital_determination.R`)
 
 Two axes. "Money reaches a hospital" and "we can prove it" are different claims and need separate columns.
+
+### 10.0 The rule that governs both axes
+
+**Classify the recipient, not the activity** (§0.3a). Worked examples from the Delaware verification:
+
+| Record | Wrong | Right |
+|---|---|---|
+| Beebe Healthcare — Georgetown Middle School SBHC | `no` (activity is a school) | **`Yes`** — `HOSPITAL_OR_SYSTEM`, `DIRECT` |
+| TidalHealth — Selbyville Middle School SBHC | `no` | **`Yes`** — `HOSPITAL_OR_SYSTEM`, `DIRECT` |
+| Nemours Children's Health — Seaford Middle School | `no` | **`Yes`** — `HOSPITAL_OR_SYSTEM`, `DIRECT` |
+| Beebe Medical Center — diabetes pilot | `no` | **`Yes`** — `HOSPITAL_OR_SYSTEM`, `DIRECT` |
+| Thomas Jefferson University — medical school | — | `No` — `UNIVERSITY_OR_AHC` |
+| Delaware Health Information Network | — | `No` — `VENDOR_OR_CONTRACTOR`, `IN_KIND_BENEFIT` |
+| "Not identified" — VBC readiness | — | `Unclear` — `NOT_YET_NAMED` |
+
+At least 6 of 11 Delaware records are hospital recipients. Coded by activity, the state total would have been zero.
 
 ### 10.1 Axis 1 — Recipient identification
 
@@ -600,19 +719,20 @@ Two axes. "Money reaches a hospital" and "we can prove it" are different claims 
 
 `openxlsx`, one workbook, sheets in this order:
 
-1. **README** — generation date, pull date range, `rules_version`, tier definitions, the eligibility-is-not-receipt warning, a plain statement that Tier 1/2/3 figures must never be summed, and the §9.8 `sample_error_rate` with its sample size.
-2. **Coverage** — sits second, before any figures, so no reader mistakes a partial total for a national one. Two dimensions per state, not one:
-   - **Parsed** — did RCJ produce `/awards` records? Currently 39 of 50; the eleven blanks are AR, FL, KY, MA, MN, NJ, NY, NC, SC, TN, WY.
-   - **Unparsed candidates** — how many award-shaped `/documents` records exist that produced no award row (§6.4)?
-   A state with zero parsed records but non-zero candidates is "data exists, source failed to extract" — a materially different message than "no data." Florida is the worked example.
-3. **Subawards (Tier 3)** — the analytical table. Full field set per §12.
-4. **Solicitations (Tier 2)** — announced pools. Physically separate sheet.
-5. **State Allotments (Tier 1)** — 50 rows, CMS-anchored.
-6. **State Source Registry** — the §7 reference table.
-7. **Review Queue** — unresolved records.
-8. **Flagged / Quarantined** — junk-filter catches with `flag_reason`.
-9. **Change Log** — records added, changed, or superseded since the prior build.
-10. **Data Dictionary** — §12 rendered as a sheet.
+1. **README** — generation date, pull date range, `rules_version`, tier definitions, the §0.3a recipient-not-activity rule, the eligibility-is-not-receipt warning, a plain statement that Tier 1/2/3 figures must never be summed, **a plain statement that per-hospital dollar amounts are not published by states and are not reported here**, and the §9.8 `sample_error_rate` with its sample size.
+2. **Coverage** — sits second, before any figures. Per state: budget narrative collected (Y/N), initiative-level reconciliation status and percentage, RCJ `/awards` records parsed (39 of 50; blanks are AR, FL, KY, MA, MN, NJ, NY, NC, SC, TN, WY), and §6.4 unparsed candidate count. A state with zero parsed records but non-zero candidates is "data exists, source failed to extract" — Florida is the worked example.
+3. **Hospital Recipients — Deliverable 1.** Named hospitals receiving RHTP funds: hospital, CCN, state, rural designation, initiative, `recipient_confirmed`, source URL, archive path. **No dollar column.** This is the primary product.
+4. **Initiative Dollars — Deliverable 2.** One row per initiative from §7A.3: state, initiative, budget, activity type, `has_hospital_recipient`, named recipients, reconciliation status. Dollars live here and only here.
+5. **Subawards (Tier 3)** — the full record-level table with both confirmation columns.
+6. **Solicitations (Tier 2)** — announced pools, physically separate.
+7. **State Allotments (Tier 1)** — 50 rows, CMS-anchored.
+8. **State Source Registry** — the §7 reference table.
+9. **Review Queue** — unresolved records.
+10. **Flagged / Quarantined** — junk-filter catches with `flag_reason`, plus states failing §7A.4 reconciliation.
+11. **Change Log** — records added, changed, or superseded since the prior build.
+12. **Data Dictionary** — §12 rendered as a sheet.
+
+**Sheets 3 and 4 must not be joined into one.** A hospital-name table with a dollar column beside it invites exactly the per-hospital attribution that states don't publish and §7A.5 forbids.
 
 Formatting: freeze the header row, autofilter on all data sheets, currency format on amount columns, conditional fill on `distributed_to_hospital` (Yes/No/Unclear), and hyperlinks on `state_source_url` and `validation_url`. Column widths set explicitly, not auto.
 
@@ -625,11 +745,14 @@ Filename: `rhtp_hospital_tracker_<YYYY-MM-DD>.xlsx`. Never overwrite a prior bui
 **Identity & provenance**
 `record_id`, `rcj_record_hash`, `pull_date`, `first_seen`, `last_seen`, `superseded_by`, `award_tier`, `rules_version`
 
+**Initiative link (§7A)**
+`initiative_id`, `initiative_name`, `initiative_budget`, `has_hospital_recipient`, `budget_narrative_version`, `page_reference`, `reconciliation_status`
+
 **Award core**
 `date_announced`, `date_effective`, `state`, `state_name`, `fiscal_year`, `rhtp_budget_period`, `solicitation_number`, `awardee_name_raw`, `awardee_name_clean`, `intermediary_name`, `amount_announced`, `amount_obligated`, `amount_basis`, `match_amount_rcj`, `applicant_cost_share_required`, `cost_share_pct`, `activity_type`, `activity_type_raw`, `program_description`, `source_doc_title`, `rcj_document_url`, `state_source_url`, `source_doc_archived_path`
 
 **Validation**
-`state_source_url`, `validation_source_type`, `validation_date_accessed`, `validation_archive_path`, `confirming_text`, `corroboration_signals`, `extraction_method`, `rhtp_award_confirmed`, `validator`, `validation_date`, `validation_notes`
+`state_source_url`, `validation_source_type`, `validation_date_accessed`, `validation_archive_path`, `confirming_text`, `corroboration_signals`, `extraction_method`, `recipient_confirmed`, `amount_confirmed`, `validator`, `validation_date`, `validation_notes`
 
 **Hospital determination**
 `recipient_type`, `ccn`, `aha_id`, `hospital_match_method`, `hospital_match_score`, `rural_designation`, `flow_type`, `distributed_to_hospital`, `hospital_benefiting`, `determination_confidence`, `determination_basis`, `reviewer`, `review_date`
@@ -672,25 +795,36 @@ Run on every build; fail the build, don't warn.
 17. `cms_fy2026_allotments.csv` has exactly 50 rows, sums to approximately $10B, and its min and max fall near $147M and $281M. Assert on load, not on use.
 18. No record was promoted to `SUBAWARD` from a §6.4 mining candidate without a human or §9.3 resolution.
 19. Every fetched host in Stage 4 appears in the §7 registry for that state. A fetch from an unregistered host is a provenance break, not a convenience.
-20. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
+20. **No initiative budget is divided across recipients.** Assert that no per-recipient dollar column exists in the Hospital Recipients sheet at all — the structural guard against inventing a split states don't publish (§7A.5).
+21. Every state with a collected budget narrative has `reconciliation_status`; no `FAILED` state appears in a published sheet.
+22. `amount_confirmed = Yes` requires all four §9.3 signals including a recipient-level amount match. An initiative-level figure never satisfies it.
+23. Every reviewer-supplied `state_source_url` parses as a URL. Page titles are rejected on read-back (§9.12).
+24. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
 
 **Version the classification rules.** The determination logic in §10 will change as edge cases surface. Store `rules_version` on every row and tag the repo at each build, so you can always say which rules produced a published figure.
 
 ---
 
-## 14. Pilot before scaling
+## 14. Scope
 
-Do not build for 50 states first. Pilot on five, chosen to surface the edge cases cheaply:
+**Fifty states at initiative level. Deep recipient attribution for a subset.**
 
-| State | What it tests |
+The budget narratives make 50-state coverage feasible because it is fifty documents with a reconciliation check (§7A.4). Per-recipient verification is the part that does not scale, so spend it where it matters.
+
+**Deep-attribution subset:** roughly 15 states, chosen for rural hospital density and AHA member concentration. Include the following for structural reasons:
+
+| State | Why |
 |---|---|
-| **Georgia** | Awardee-level data present, NOIs posted — the happy path and `DIRECT` matching |
-| **Virginia** | VHHA Foundation pass-through — `PASS_THROUGH_DESIGNATED` vs `_UNRESOLVED` |
-| **Nebraska** | School kitchen / farm-to-school awards — negative cases, `NON_HOSPITAL` |
-| **Florida** | RCJ shows 11 opportunities and 0 awardees — tests whether the gap is RCJ's or the state's |
-| **Texas** | Largest allotment, observed junk titles — volume plus junk filters |
+| **Delaware** | Premise test baseline; 11 records already verified |
+| **Georgia** | Awardee data present, NOIs posted — the happy path |
+| **Virginia** | VHHA Foundation pass-through; tests `PASS_THROUGH_DESIGNATED` vs `_UNRESOLVED` |
+| **Florida** | Zero RCJ awards, data exists via AHCA procurement portal — tests §6.4 mining end to end |
+| **Oregon** | 99 uniform $100,000 hospital awards — tests dedup and bulk direct attribution |
+| **Pennsylvania** | 66 named hospitals under a plan-titled document — tests §6.2 flag-not-reassign |
+| **Nebraska** | School kitchen and farm-to-school awards — negative cases |
+| **Texas** | Largest allotment, observed junk titles |
 
-The pilot's most valuable output is not the data. It is an answer to: **what share of RHTP dollars are currently resolvable to hospitals at all?** If that share is low, that is itself a finding worth publishing, and it changes what the full build is for.
+Add the remaining states by rural hospital count.
 
 ---
 
@@ -701,28 +835,30 @@ Build in this order. Each session ends with a working, tested stage, **all persi
 1. ~~**Session 1** — Repo scaffold, `CLAUDE.md`, config, Stage 0 preflight.~~ **Complete.** Findings folded into §4. Vocabularies and junk-pattern reference files seeded. Delaware's 15 records committed as Stage 2 fixtures.
 2. ~~**Session 2** — §5.1 pagination test.~~ **Complete.** Branch A confirmed; findings in §5.1.
 3. ~~**Session 3** — Stage 1 retrieval client and first national pull.~~ **Complete.** 60 calls, all endpoints exhaustive; findings in §4.1 and §5.1.
-4. ~~**Session 4** — Stage 2 normalization.~~ **Complete.** 5,152 records; 1,016 clean Tier 3 across 38 states, $2.03B announced (RCJ's unvalidated claim). Five spec rules corrected — see §6.1, §6.2, §6.3. `STATE_ALLOTMENT` blocked on the CMS table. Registry seed generated: 151 candidates, all 50 states.
-5. **Session 5 — CMS allotments and the registry.** Parse `cms_fy2026_allotments.csv` per §7.1, which switches on the blocked tier rules and clears `STATE_ALLOTMENT`. Then produce the verification worksheet for the 151 registry candidates. Add `/documents` mining per §6.4 and report candidate counts per state.
-6. **Offline — verify the registry** (~2 hours). Confirm 50 rows of `award_posting_url`, including Florida's AHCA procurement portal. Commit.
-7. **Offline — the §9.11 premise test** (~1 hour). Five Delaware awards, by hand. Report what state sources actually publish before any Stage 4 code is written.
-8. **Session 6 — Stage 4**, but only if §9.11 passes. Document clustering (§9.2), fetcher with §9.5 conduct rules, four-signal corroborator (§9.3). Requires **Full** network access on the environment.
-9. **Offline — program flow classifications** (~3 hours). Build `program_flow_classifications.csv` per §9.9.
-10. **Session 7 — Stage 5** hospital determination, AHA/POS crosswalk, fuzzy-match review queue.
-11. **Session 8 — Stage 6** workbook and the full QA suite. Run the pilot end to end, draw the §9.8 sample, record the error rate.
-12. **Session 9** — review results, revise rules, bump `rules_version`, scale to all 50 states.
+4. ~~**Session 4** — Stage 2 normalization.~~ **Complete.** 5,152 records; 1,016 clean Tier 3 across 38 states. Five spec rules corrected (§6.1, §6.2, §6.3). Registry seed: 151 candidates.
+5. ~~**Delaware premise test.**~~ **Complete** — §9.11. Drove the §0.1 inversion and the §9.3 split.
+6. **Now — write `reviewer-coding-instructions.md`** before any further human review. Half a page, §0.3a with the Delaware worked examples. Everything downstream depends on humans applying it consistently, and it went wrong on the first eleven records.
+7. **Session 5 — CMS allotments, mining, registry worksheet.** Parse `cms_fy2026_allotments.csv` (§7.1), which unblocks `STATE_ALLOTMENT`. Build §6.4 `/documents` mining. Export the 151 registry candidates for offline verification, with the §9.12 URL validation.
+8. **Offline — verify the registry** (~2 hours), and while in each state's pages, capture the budget narrative URL for §7A.2.
+9. **Session 6 — Stage 2.5.** Collect and parse the 50 budget narratives into the initiative table. Reconcile against CMS allotments (§7A.4). Quarantine any state that fails.
+10. **Session 7 — Stage 4.** Document clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation corroborator (§9.3). Requires **Full** network access — clear with AHA IT before this session.
+11. **Offline — program flow classifications** (~3 hours), `program_flow_classifications.csv` per §9.9.
+12. **Session 8 — Stage 5** hospital determination, AHA/POS crosswalk, fuzzy-match review queue.
+13. **Session 9 — Stage 6** workbook and full QA suite. Draw the §9.8 sample, record the error rate.
+14. **Session 10** — review, revise rules, bump `rules_version`, extend attribution to the full §14 subset.
 
-The AHA Annual Survey and CMS Provider of Services extracts needed in Session 6 must be committed to the repo (or a subset of them) before that session starts — cloud sessions can't reach internal AHA systems.
+The AHA Annual Survey and CMS Provider of Services extracts needed in Session 8 must be committed to the repo before that session starts — cloud sessions can't reach internal AHA systems.
 
 ### Opening prompt for the next session
 
-> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §3.2, §4.1, §6.1, §6.2, §6.3, §7 and §9 have all changed since Session 4, and §9 is a full rewrite around automated validation.
+> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` in full — §0.1 inverts the architecture, and §0.3a, §7A, §9.3, §10.0, §11 and §14 are new or rewritten. The short version: state budget narratives are now the backbone, RCJ is a supplement, and per-hospital dollar amounts are not a deliverable.
 >
-> Stage 2 is merged. This session has three tasks, in order:
+> Stage 2 is merged. Three tasks this session, in order:
 >
-> 1. Parse the CMS FY2026 allotment table per §7.1 into `data/reference/cms_fy2026_allotments.csv`. `cms.gov` is now allowlisted. Assert 50 rows on load. This unblocks `STATE_ALLOTMENT` and the two tier rules that were waiting on it — re-run Stage 2 afterward and report what moves out of `UNASSIGNED`.
-> 2. Build the §6.4 `/documents` mining pass. Report mined candidate counts per state, especially for the eleven states with zero award records. Do not auto-promote anything to `SUBAWARD`.
-> 3. Export the 151 registry candidates as a verification worksheet — one row per candidate host with state, host, sample source title, and empty columns for `award_posting_url`, `pass_through_admin`, and `last_verified`. I'll verify it offline.
+> 1. Parse the CMS FY2026 allotment table per §7.1 into `data/reference/cms_fy2026_allotments.csv`. `cms.gov` is allowlisted. Assert 50 rows, sum ≈ $10B, min ≈ $147M, max ≈ $281M on load. Re-run Stage 2 afterward and report what moves out of `UNASSIGNED`.
+> 2. Build the §6.4 `/documents` mining pass. Report mined candidate counts per state, especially the eleven with zero award records. Do not auto-promote anything to `SUBAWARD`.
+> 3. Export the 151 registry candidates as a verification worksheet per §9.12 — one row per candidate host, with columns for `award_posting_url`, `budget_narrative_url` (§7A.2), `pass_through_admin`, and `last_verified`. URL columns must validate on read-back and reject page titles.
 >
-> Do not start Stage 4. §9.11 is an unresolved premise test that I need to run by hand first.
+> Do not start Stage 4 or Stage 2.5 — those need the registry verified first.
 >
 > Open a PR. Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
