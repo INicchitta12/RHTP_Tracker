@@ -42,14 +42,22 @@ source(here::here("R", "utils_config.R"))
 # walk that eats the month's allowance.
 .rhtp_run_state <- new.env(parent = emptyenv())
 
-rhtp_reset_run_state <- function() {
+rhtp_reset_run_state <- function(run_type = "PRODUCTION") {
   .rhtp_run_state$requests <- 0L
   .rhtp_run_state$started_at <- Sys.time()
+  # §5.2. Carried in run state rather than threaded through every call site:
+  # manifest rows are written deep inside rhtp_perform(), which has no business
+  # knowing why the run was started.
+  .rhtp_run_state$run_type <- run_type
   invisible(NULL)
 }
 
 rhtp_run_requests <- function() {
   if (is.null(.rhtp_run_state$requests)) 0L else .rhtp_run_state$requests
+}
+
+rhtp_run_type <- function() {
+  if (is.null(.rhtp_run_state$run_type)) "PRODUCTION" else .rhtp_run_state$run_type
 }
 
 rhtp_reset_run_state()
@@ -211,8 +219,34 @@ RHTP_MANIFEST_COLUMNS <- c(
   "quota_monthly_remaining",
   "duration_seconds",
   "stage",
+  "run_type",
   "notes"
 )
+
+# §5.2. A manifest that cannot tell a real pull from a development iteration
+# invites someone to read a throwaway run as the build of record. PRODUCTION
+# is the run whose output was committed; DEV is an intermediate iteration,
+# superseded by a later run in the same session. §5.2 also makes the manifest
+# append-only: development runs are FILTERED, never deleted.
+RHTP_RUN_TYPES <- c("PRODUCTION", "DEV")
+
+#' Refuse a run_type outside the controlled vocabulary (§5.2, §13.6)
+#'
+#' Not match.arg(): that does partial matching, so "PROD" would be silently
+#' accepted as "PRODUCTION" and written to an audit log as though it had been
+#' spelled correctly. A controlled vocabulary refuses what it does not
+#' recognise.
+rhtp_check_run_type <- function(run_type, allowed) {
+  if (length(run_type) != 1 || !run_type %in% allowed) {
+    stop(
+      "run_type must be exactly one of: ", paste(allowed, collapse = ", "),
+      ". Got: ", paste(run_type, collapse = ", "), ".",
+      call. = FALSE
+    )
+  }
+  run_type
+}
+
 
 
 #' Build one manifest row in the canonical column order
@@ -231,7 +265,10 @@ rhtp_manifest_row <- function(timestamp, pull_date, endpoint, params,
                               duration_seconds = NA_real_,
                               state = NA_character_,
                               stage = "stage1_retrieval",
+                              run_type = rhtp_run_type(),
                               notes = "") {
+  run_type <- rhtp_check_run_type(run_type, RHTP_RUN_TYPES)
+
   tibble::tibble(
     pull_timestamp_utc      = format(timestamp, "%Y-%m-%dT%H:%M:%SZ",
                                      tz = "UTC"),
@@ -248,6 +285,7 @@ rhtp_manifest_row <- function(timestamp, pull_date, endpoint, params,
     quota_monthly_remaining = as.numeric(quota_monthly_remaining),
     duration_seconds        = as.numeric(duration_seconds),
     stage                   = as.character(stage),
+    run_type                = as.character(run_type),
     notes                   = as.character(notes)
   )
 }
@@ -880,12 +918,16 @@ rhtp_write_raw <- function(result, pull_date = Sys.Date(), overwrite = FALSE) {
 #'   comprehensively -- which is what the first run must do, since there is no
 #'   prior pull to delta from, and its cost is unmeasured (open blocker 3).
 #' @param overwrite Allow overwriting today's files. Recovery only.
+#' @param run_type §5.2. "PRODUCTION" for a pull whose output is committed as the
+#'   build of record; "DEV" for an intermediate iteration. Recorded on every
+#'   manifest row so a throwaway run can never be read as the real one.
 rhtp_run_national_pull <- function(pull_date = Sys.Date(),
                                    endpoints = c("states", "awards", "documents",
                                                  "opportunities", "activity"),
                                    activity_since = NULL,
-                                   overwrite = FALSE) {
-  rhtp_reset_run_state()
+                                   overwrite = FALSE,
+                                   run_type = "PRODUCTION") {
+  rhtp_reset_run_state(run_type = rhtp_check_run_type(run_type, RHTP_RUN_TYPES))
   cfg <- rhtp_config()
 
   message("RHTP Stage 1 -- national pull (Branch A)")

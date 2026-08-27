@@ -813,7 +813,7 @@ test_that("coverage separates 'no data' from 'source failed to extract'", {
   # Florida: RCJ produced no award record, but award-shaped data exists. That
   # is a materially different message than "no data" (§4.1, §11).
   expect_equal(status("FL"), "UNPARSED_DATA_EXISTS")
-  expect_equal(status("WY"), "NO_DATA")
+  expect_equal(status("WY"), "NO_RCJ_DATA")
 })
 
 
@@ -915,4 +915,373 @@ test_that("a superseded historical row keeps the tier it was published with", {
   expect_false(is.na(old_row$superseded_by))
   expect_equal(old_row$award_tier, "UNASSIGNED")
   expect_equal(old_row$rules_version, "0.0.1")
+})
+
+
+# -- §0.2a Tier 1 corroboration --------------------------------------------
+
+tier1_fixture <- function(...) {
+  rhtp_record_skeleton(1) %>%
+    dplyr::mutate(award_tier = "STATE_ALLOTMENT", source_endpoint = "documents",
+                  ...)
+}
+
+fixture_allotments <- tibble::tibble(
+  state = c("MO", "TX", "NE"),
+  fy2026_allotment = c(216276818, 281319361, 218529075)
+)
+
+test_that("an exact restatement of the CMS figure reads EXACT", {
+  out <- rhtp_corroborate_state_allotments(
+    tier1_fixture(record_id = "a", state = "TX", amount_announced = 281319361),
+    fixture_allotments
+  )
+  expect_equal(out$tier1_agreement, "EXACT")
+  expect_equal(out$delta, 0)
+})
+
+test_that("a rounded restatement reads ROUNDED, not EXACT", {
+  # Missouri publishes $216.0M against a true $216,276,818. Rule 3 matched it,
+  # and it is still not the number to publish (§0.2a).
+  out <- rhtp_corroborate_state_allotments(
+    tier1_fixture(record_id = "a", state = "MO", amount_announced = 216000000),
+    fixture_allotments
+  )
+  expect_equal(out$tier1_agreement, "ROUNDED")
+  expect_equal(out$delta, 216000000 - 216276818)
+})
+
+test_that("a record beyond rule 3's tolerance is reported as a rule-3 defect", {
+  out <- rhtp_corroborate_state_allotments(
+    tier1_fixture(record_id = "a", state = "NE", amount_announced = 100000),
+    fixture_allotments
+  )
+  # Never silently dropped: reaching Tier 1 from here means rule 3 fired on
+  # something it should not have.
+  expect_equal(out$tier1_agreement, "DISAGREES")
+})
+
+test_that("a Tier 1 record with no amount is reported, not skipped", {
+  out <- rhtp_corroborate_state_allotments(
+    tier1_fixture(record_id = "a", state = "MO", amount_announced = NA_real_),
+    fixture_allotments
+  )
+  expect_equal(out$tier1_agreement, "NO_AMOUNT")
+})
+
+test_that("only Tier 1 records are corroborated", {
+  records <- dplyr::bind_rows(
+    tier1_fixture(record_id = "a", state = "TX", amount_announced = 281319361),
+    rhtp_record_skeleton(1) %>% dplyr::mutate(
+      record_id = "b", state = "TX", award_tier = "SUBAWARD",
+      amount_announced = 281319361, source_endpoint = "awards"
+    )
+  )
+  out <- rhtp_corroborate_state_allotments(records, fixture_allotments)
+  expect_equal(nrow(out), 1)
+  expect_equal(out$record_id, "a")
+})
+
+test_that("with no anchor on disk the check returns empty, never a pass", {
+  out <- rhtp_corroborate_state_allotments(
+    tier1_fixture(record_id = "a", state = "TX", amount_announced = 1),
+    tibble::tibble(state = character(), fy2026_allotment = numeric())
+  )
+  expect_equal(nrow(out), 0)
+})
+
+test_that("the state roll-up keeps states with no Tier 1 record", {
+  corroboration <- rhtp_corroborate_state_allotments(
+    dplyr::bind_rows(
+      tier1_fixture(record_id = "a", state = "TX", amount_announced = 281319361),
+      tier1_fixture(record_id = "b", state = "MO", amount_announced = 216000000)
+    ),
+    fixture_allotments
+  )
+
+  summary_tbl <- rhtp_tier1_state_summary(corroboration)
+
+  expect_equal(nrow(summary_tbl), 50)
+  status <- function(st) summary_tbl$rcj_tier1_status[summary_tbl$state == st]
+
+  expect_equal(status("TX"), "CMS_FIGURE_RESTATED")
+  # Missouri's only record is rounded: publishing Tier 1 from RCJ would give
+  # Missouri a wrong figure. That is the §0.2a case.
+  expect_equal(status("MO"), "ROUNDED_ONLY")
+  # A state with no Tier 1 record at all is kept and named, not dropped.
+  expect_equal(status("WY"), "NO_RCJ_TIER1_RECORD")
+  expect_equal(summary_tbl$n_tier1_records[summary_tbl$state == "WY"], 0)
+})
+
+test_that("the live table's Tier 1 records all sit inside rule 3's tolerance", {
+  skip_if_not(file.exists(rhtp_path("interim", "stage2_record_table.rds")),
+              "no Stage 2 output on disk")
+  skip_if_not(file.exists(rhtp_path("cms_allotments")),
+              "no CMS anchor on disk")
+
+  live <- readRDS(rhtp_path("interim", "stage2_record_table.rds")) %>%
+    dplyr::filter(is.na(superseded_by))
+  out <- rhtp_corroborate_state_allotments(live)
+
+  # DISAGREES or NO_AMOUNT here would mean a record reached Tier 1 by a route
+  # rule 3 did not sanction.
+  expect_equal(sum(out$tier1_agreement %in% c("DISAGREES", "NO_AMOUNT")), 0)
+  expect_true(nrow(out) > 0)
+})
+
+
+# -- §6.2 Multi-recipient awardeeName fields --------------------------------
+
+test_that("the New Hampshire three-MCO row splits on semicolons", {
+  out <- rhtp_split_recipient_field(paste0(
+    "AmeriHealth Caritas New Hampshire Inc.; ",
+    "Boston Medical Center Health Plan, Inc. d/b/a WellSense Health Plan; ",
+    "Granite State Health Plan Inc. d/b/a New Hampshire Healthy Families"
+  ))
+
+  expect_true(out$is_multi)
+  expect_equal(out$delimiter, "SEMICOLON")
+  expect_length(out$fragments, 3)
+  expect_equal(out$fragments[1], "AmeriHealth Caritas New Hampshire Inc.")
+  # The comma inside "Boston Medical Center Health Plan, Inc." is punctuation
+  # inside one name and must not split it further.
+  expect_match(out$fragments[2], "^Boston Medical Center Health Plan, Inc\\.")
+})
+
+test_that("the Delaware three-recipient row splits on commas", {
+  out <- rhtp_split_recipient_field(
+    "University of Delaware, Beebe Healthcare, Deloitte Consulting LLP"
+  )
+
+  expect_true(out$is_multi)
+  expect_equal(out$delimiter, "COMMA")
+  expect_equal(out$fragments,
+               c("University of Delaware", "Beebe Healthcare",
+                 "Deloitte Consulting LLP"))
+})
+
+test_that("a corporate suffix after a comma is not a second recipient", {
+  for (name in c("The Arc of Madison County, Inc.",
+                 "New Mexico Premier Health, LLC",
+                 "Cañoncito Band of Navajo Health Center, Inc.",
+                 "A Better Way Services, Inc.")) {
+    expect_false(rhtp_split_recipient_field(name)$is_multi, info = name)
+  }
+})
+
+test_that("a US state name after a comma is a qualifier, not a recipient", {
+  # Live Kansas row. Splitting it would invent "Kansas" as an awardee.
+  out <- rhtp_split_recipient_field(
+    "Hospital District No. 1 of Dickinson County, Kansas, DBA Memorial Health System"
+  )
+  expect_false(out$is_multi)
+})
+
+test_that("an alias after a comma is the same recipient renamed", {
+  # Live Pennsylvania row: one hospital under three names.
+  out <- rhtp_split_recipient_field(paste0(
+    "St. Luke's Hospital of Bethlehem, Pennsylvania dba St. Luke's Hospital - ",
+    "Lehighton Campus, formerly Blue Mountain Hospital"
+  ))
+  expect_false(out$is_multi)
+})
+
+test_that("containment does NOT collapse an explicit semicolon enumeration", {
+  # Oregon's hundred-clinic row lists a clinic and its named sites side by
+  # side. They are distinct recipients at distinct addresses, and collapsing
+  # them would delete real awardees.
+  out <- rhtp_split_recipient_field(paste0(
+    "Evergreen Family Medicine; Evergreen Family Medicine - Sutherlin; ",
+    "Evergreen Family Medicine South"
+  ))
+  expect_true(out$is_multi)
+  expect_length(out$fragments, 3)
+})
+
+test_that("a conjunction inside one organisation name is not a delimiter", {
+  # §6.2 lists ` and ` and ` & ` as delimiters, but they are common inside a
+  # single name where a top-level `;` or `,` is not. Three live rows.
+  for (name in c("Oregon Health & Science University",
+                 "Memorial Community Hospital and Health System",
+                 "Alaska Hospital & Healthcare Association")) {
+    expect_false(rhtp_split_recipient_field(name)$is_multi, info = name)
+  }
+})
+
+test_that("a conjunction splits two genuinely named recipients", {
+  # The §0.3a hospitals. Neither carries a corporate suffix, and a
+  # precision-first guard would have dropped both -- which is exactly how a
+  # hospital vanishes from Deliverable 1.
+  out <- rhtp_split_recipient_field("Beebe Healthcare and TidalHealth")
+  expect_true(out$is_multi)
+  expect_equal(out$delimiter, "CONJUNCTION")
+  expect_equal(out$fragments, c("Beebe Healthcare", "TidalHealth"))
+})
+
+test_that("punctuation beats a conjunction when both are present", {
+  # Splitting the `&` as well would shred the first name into "Oregon Health"
+  # and "Science University".
+  out <- rhtp_split_recipient_field(paste0(
+    "Oregon Health & Science University, ",
+    "Oregon Health & Science University - Department of Neurology"
+  ))
+  expect_false(out$is_multi)
+})
+
+test_that("the §0.3a hospitals pass the §6.1 legal-entity test", {
+  # All three were coded hospital = no in the Delaware review. If they fail
+  # the entity test, every §6.2 split and §6.4 mining pass that would have
+  # surfaced them is rejected before a human ever sees them.
+  for (name in c("Beebe Healthcare", "TidalHealth",
+                 "Nemours Children's Health")) {
+    expect_true(rhtp_legal_entity_test(name), info = name)
+  }
+  # And a bare "Oregon Health" still must not, or the ` & ` in "Oregon Health
+  # & Science University" reads as a delimiter.
+  expect_false(rhtp_legal_entity_test("Oregon Health"))
+})
+
+test_that("a comma inside parentheses does not split", {
+  out <- rhtp_split_recipient_field(
+    "16 Strategically Located Rural Hospitals (unnamed, subrecipient group)"
+  )
+  expect_false(out$is_multi)
+})
+
+test_that("a single name is never multi-recipient", {
+  for (name in c("Delaware State Housing Authority", "Parrish Medical Center",
+                 NA_character_, "")) {
+    expect_false(rhtp_split_recipient_field(name)$is_multi,
+                 info = as.character(name))
+  }
+})
+
+test_that("the amount is carried whole and never divided (§6.2)", {
+  records <- rhtp_record_skeleton(1) %>%
+    dplyr::mutate(
+      record_id = "nh-1", source_endpoint = "awards", state = "NH",
+      award_tier = "SUBAWARD", qa_status = "PASS",
+      amount_announced = 1898965390,
+      awardee_name_raw = paste0(
+        "AmeriHealth Caritas New Hampshire Inc.; ",
+        "Boston Medical Center Health Plan, Inc.; ",
+        "Granite State Health Plan Inc."
+      )
+    )
+
+  out <- rhtp_multi_recipient_candidates(records)
+
+  expect_equal(nrow(out), 3)
+  # Every fragment carries the FIELD total, undivided...
+  expect_true(all(out$amount_announced_field_total == 1898965390))
+  # ...and there is no per-recipient amount column for anything to sum.
+  expect_false(any(stringr::str_detect(names(out), "^amount_announced$")))
+  expect_match(out$amount_note[1], "Never divide")
+  expect_equal(out$n_recipients, rep(3L, 3))
+  expect_equal(out$recipient_index, 1:3)
+})
+
+test_that("the parent record keeps its tier — §6.2 flags, it does not reassign", {
+  records <- rhtp_record_skeleton(1) %>%
+    dplyr::mutate(
+      record_id = "nh-1", source_endpoint = "awards", state = "NH",
+      award_tier = "SUBAWARD", qa_status = "PASS",
+      amount_announced = 1898965390,
+      awardee_name_raw = "A Hospital Inc.; B Medical Center; C Clinic"
+    )
+
+  out <- rhtp_multi_recipient_candidates(records)
+
+  expect_equal(nrow(out), 3)
+  expect_true(all(out$award_tier == "SUBAWARD"))
+  expect_equal(records$award_tier, "SUBAWARD")
+})
+
+test_that("quarantined and non-award records are never split", {
+  quarantined <- rhtp_record_skeleton(1) %>% dplyr::mutate(
+    record_id = "q", source_endpoint = "awards", state = "NH",
+    qa_status = "QUARANTINED", award_tier = "SUBAWARD",
+    awardee_name_raw = "A Hospital Inc.; B Medical Center"
+  )
+  expect_equal(nrow(rhtp_multi_recipient_candidates(quarantined)), 0)
+
+  document <- rhtp_record_skeleton(1) %>% dplyr::mutate(
+    record_id = "d", source_endpoint = "documents", state = "NH",
+    qa_status = "PASS", award_tier = "UNASSIGNED",
+    awardee_name_raw = "A Hospital Inc.; B Medical Center"
+  )
+  expect_equal(nrow(rhtp_multi_recipient_candidates(document)), 0)
+})
+
+test_that("an empty record table splits to an empty, correctly-shaped table", {
+  out <- rhtp_multi_recipient_candidates(rhtp_record_skeleton(0))
+  expect_equal(nrow(out), 0)
+  expect_true(all(c("recipient_name", "n_recipients",
+                    "amount_announced_field_total", "amount_note")
+                  %in% names(out)))
+})
+
+
+# -- §6.4 coverage naming, §5.2 run_type -----------------------------------
+
+test_that("a state RCJ surfaced nothing for is NO_RCJ_DATA, not NO_DATA", {
+  # A classified table with no award rows in it -- rhtp_mining_coverage() is
+  # only ever handed post-rhtp_classify() output, which carries award_tier.
+  no_awards <- rhtp_record_skeleton(1) %>%
+    dplyr::mutate(record_id = "d", source_endpoint = "documents", state = "WY",
+                  award_tier = "UNASSIGNED", qa_status = "PASS")
+
+  coverage <- rhtp_mining_coverage(
+    no_awards,
+    tibble::tibble(state = character())
+  )
+
+  expect_equal(nrow(coverage), 50)
+  # The old label read as "this state has no data", i.e. as a claim about the
+  # state. It is a claim about RCJ's coverage. Every one of these states holds
+  # a $147M-$281M CMS allotment.
+  expect_true(all(coverage$coverage_status == "NO_RCJ_DATA"))
+  expect_false(any(coverage$coverage_status == "NO_DATA"))
+})
+
+test_that("the two run_type vocabularies cannot drift apart", {
+  # Stage 2 redeclares the list rather than sourcing Stage 1, whose CLI block
+  # would fire on a shared --run flag. This is the guard on that duplication.
+  stage1 <- new.env()
+  source(here::here("R", "01_retrieve_rcj.R"), local = stage1)
+  expect_equal(stage1$RHTP_RUN_TYPES, RHTP_NORMALIZE_RUN_TYPES)
+})
+
+test_that("run_type is pinned in both manifest schemas (§5.2, §13.20)", {
+  expect_true("run_type" %in% RHTP_NORMALIZE_MANIFEST_COLUMNS)
+
+  stage1 <- new.env()
+  source(here::here("R", "01_retrieve_rcj.R"), local = stage1)
+  expect_true("run_type" %in% stage1$RHTP_MANIFEST_COLUMNS)
+})
+
+test_that("an unknown run_type is refused, not written", {
+  expect_error(
+    rhtp_normalize_pull(pull_date = "2026-08-27", write = FALSE,
+                        run_type = "LIVE"),
+    "must be exactly one of"
+  )
+  # And an abbreviation is refused too. match.arg() would have accepted "PROD"
+  # as "PRODUCTION" and written the misspelling to the audit log.
+  expect_error(
+    rhtp_check_run_type("PROD", RHTP_NORMALIZE_RUN_TYPES),
+    "must be exactly one of"
+  )
+  expect_equal(rhtp_check_run_type("DEV", RHTP_NORMALIZE_RUN_TYPES), "DEV")
+})
+
+test_that("both committed manifests carry a valid run_type on every row", {
+  for (path in c(here::here("logs", "pull_manifest.csv"),
+                 here::here("logs", "normalize_manifest.csv"))) {
+    skip_if_not(file.exists(path), path)
+    manifest <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
+    expect_true("run_type" %in% names(manifest), info = basename(path))
+    expect_true(all(manifest$run_type %in% RHTP_NORMALIZE_RUN_TYPES),
+                info = basename(path))
+  }
 })

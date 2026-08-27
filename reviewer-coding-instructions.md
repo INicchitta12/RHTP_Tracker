@@ -83,6 +83,29 @@ Third-party news can never support a `Yes`. It can point you toward the state so
 
 ---
 
+## One field naming several recipients
+
+Some `awardeeName` fields name more than one organization. New Hampshire
+returned three managed care organizations in one row; one Oregon row names 102
+clinics; Delaware returned `University of Delaware, Beebe Healthcare, Deloitte
+Consulting LLP`.
+
+The pipeline now splits these and flags the group **`MULTI_RECIPIENT_FIELD`**,
+emitting one candidate row per fragment. Two things to know:
+
+**The split is a guess about the state's formatting, not a fact.** Check the
+fragment list against the state source before coding any of them. Some splits
+are wrong — `University of Nevada, Reno General Surgery Residency Program` comes
+through as two — and some fragments are junk. Dismiss those; the flag exists so
+a hospital buried in the middle of a string doesn't disappear.
+
+**The amount belongs to the field, not to any fragment.** Every candidate row
+carries `amount_announced_field_total` — the whole figure, on every fragment,
+labelled as the field's total. It is not that recipient's award. This is the
+same rule as an initiative budget: **never split it across recipients.**
+
+---
+
 ## When to stop and ask
 
 - The recipient name is ambiguous or you can't tell what kind of organization it is

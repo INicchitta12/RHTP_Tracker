@@ -79,10 +79,33 @@ RHTP_NORMALIZE_MANIFEST_COLUMNS <- c(
   "source_endpoint", "records_read", "records_normalized",
   "n_quarantined", "n_flagged", "n_pass",
   "n_state_allotment", "n_solicitation", "n_subaward", "n_unassigned",
-  "n_mined_candidates",
+  "n_mined_candidates", "n_multi_recipient_candidates",
   "n_new", "n_changed", "n_unchanged",
-  "allotment_anchor_available", "notes"
+  "allotment_anchor_available", "run_type", "notes"
 )
+
+# §5.2. Mirrors RHTP_RUN_TYPES in 01_retrieve_rcj.R -- redeclared rather than
+# sourced, because Stage 2 must not source Stage 1 (whose CLI block fires on a
+# shared --run flag). The two lists are asserted equal in the tests.
+RHTP_NORMALIZE_RUN_TYPES <- c("PRODUCTION", "DEV")
+
+#' Refuse a run_type outside the controlled vocabulary (§5.2, §13.6)
+#'
+#' Not match.arg(): that does partial matching, so "PROD" would be silently
+#' accepted as "PRODUCTION" and written to an audit log as though it had been
+#' spelled correctly. A controlled vocabulary refuses what it does not
+#' recognise.
+rhtp_check_run_type <- function(run_type, allowed) {
+  if (length(run_type) != 1 || !run_type %in% allowed) {
+    stop(
+      "run_type must be exactly one of: ", paste(allowed, collapse = ", "),
+      ". Got: ", paste(run_type, collapse = ", "), ".",
+      call. = FALSE
+    )
+  }
+  run_type
+}
+
 
 # Health / RHTP vocabulary for the §6.2 event-bleed heuristic. A heuristic,
 # not a controlled vocabulary, so it lives here rather than in
@@ -1040,6 +1063,487 @@ rhtp_apply_change_detection <- function(current, prior = NULL,
 }
 
 
+# -- §6.2 Multi-recipient awardeeName fields --------------------------------
+
+# Tokens that are a corporate suffix rather than the start of a new name. A
+# comma before one of these is punctuation inside a single legal name --
+# "The Arc of Madison County, Inc.", "New Mexico Premier Health, LLC" -- so the
+# fragment is rejoined to the one before it rather than counted as a recipient.
+RHTP_CORPORATE_SUFFIX_TOKENS <- c(
+  "inc", "incorporated", "llc", "l\\.l\\.c", "llp", "pllc", "pc", "p\\.c",
+  "corp", "corporation", "co", "ltd", "limited", "pa", "p\\.a", "lp", "l\\.p",
+  "dba", "d/b/a", "d\\.b\\.a"
+)
+
+# Stand-in for a comma that must not be treated as a delimiter. Printable, and
+# improbable enough in an organisation name that restoring it is safe.
+RHTP_COMMA_SENTINEL <- "<!COMMA!>"
+
+# Openers that mark a fragment as an alias of the name before it rather than a
+# new recipient. "St. Luke's Hospital of Bethlehem, Pennsylvania dba St. Luke's
+# Hospital - Lehighton Campus, formerly Blue Mountain Hospital" is one hospital
+# under three names, not three hospitals.
+# Generic organisation-type words. A fragment made only of these names no one:
+# "Health System", "Healthcare Association", "Children's Clinic" are the tails
+# of "Memorial Community Hospital and Health System", "Alaska Hospital &
+# Healthcare Association" and "Grande Ronde Hospital Women's & Children's
+# Clinic" -- three single organisations that a conjunction split would
+# otherwise cut in half.
+RHTP_ORG_TYPE_WORDS <- c(
+  "health", "healthcare", "hospital", "hospitals", "clinic", "clinics",
+  "system", "systems", "center", "centre", "centers", "centres", "medical",
+  "association", "network", "group", "services", "service", "care",
+  "children", "childrens", "women", "womens", "men", "mens", "family",
+  "community", "regional", "district", "authority", "the", "of", "and", "for",
+  "a", "an"
+)
+
+RHTP_ALIAS_OPENERS <- c(
+  "formerly", "previously", "now", "f/k/a", "fka", "a/k/a", "aka",
+  "n/k/a", "nka", "also known as", "successor to"
+)
+
+
+#' Split an awardeeName that names more than one recipient (§6.2)
+#'
+#' RCJ and the states cram several recipients into one `awardeeName` field.
+#' Three New Hampshire managed care organisations share a row carrying
+#' $1,898,965,390 -- 9.3x the state's entire allotment -- and a single Oregon
+#' row names about a hundred clinics. Delaware returned
+#' `University of Delaware, Beebe Healthcare, Deloitte Consulting LLP`.
+#'
+#' §6.2 is explicit that this is not merely an amount-ceiling problem: **a
+#' hospital buried inside a three-name string will not exact-match the AHA
+#' Annual Survey and vanishes from the recipient list.** Beebe is the worked
+#' example, and Deliverable 1 is the named-hospital sheet. So this function is
+#' tuned for RECALL, not precision: the split is "a guess about the state's
+#' formatting, not a fact", the group is flagged `MULTI_RECIPIENT_FIELD`, and a
+#' human resolves it. A false positive costs a reviewer ten seconds; a false
+#' negative loses a hospital from the primary product.
+#'
+#' **The amount is never divided.** RCJ publishes one figure for the field and
+#' says nothing about how it splits across the recipients named in it.
+#' Apportioning it would invent per-recipient awards that no source states --
+#' the §0.1 failure this project exists to avoid, and §7A.5's rule. Every
+#' fragment carries the field's total, labelled as the field's total.
+#'
+#' **Delimiters, per §6.2:** `;`, `,`, ` and `, ` & `. Four guards, each added
+#' because a real row demanded it, and none of which can hide a hospital:
+#'
+#' 1. **Commas and conjunctions inside parentheses do not split.**
+#'    `16 Strategically Located Rural Hospitals (unnamed, subrecipient group)`
+#'    would otherwise yield two junk fragments.
+#' 2. **A fragment opening with a corporate suffix, a US state name or an alias
+#'    marker rejoins its predecessor.** `Hospital District No. 1 of Dickinson
+#'    County, Kansas, DBA Memorial Health System` is one entity; splitting it
+#'    invents "Kansas" as an awardee. This guard removes fabricated fragments,
+#'    never real ones.
+#' 3. **A fragment contained in another is the same recipient named more
+#'    fully** -- `Oregon Health & Science University, Oregon Health & Science
+#'    University - Department of Neurology`. Applied only when NO semicolon was
+#'    present: a semicolon list is an explicit enumeration by whoever wrote it,
+#'    and Oregon's hundred-clinic row lists `Evergreen Family Medicine`
+#'    alongside `Evergreen Family Medicine - Sutherlin`, which are distinct
+#'    clinics at distinct sites.
+#' 4. **A split created ONLY by a conjunction needs two fragments that pass the
+#'    §6.1 legal-entity test.** ` & ` is common inside a single organisation
+#'    name -- `Oregon Health & Science University` -- where `;` and `,` at the
+#'    top level are not. This guard is deliberately NOT applied to comma or
+#'    semicolon splits, because that is exactly what would have rejected
+#'    `Beebe Healthcare, TidalHealth`: neither carries a corporate suffix.
+#'    §6.1's own instruction applies -- the fix for a missed entity is to
+#'    extend the rule 1 marker list, which is why `healthcare`, `<x>health` and
+#'    `children's health` are now in `legal_entity_patterns.csv`.
+#'
+#' A conjunction is a delimiter only when NO `;` or `,` is present. If the
+#' author enumerated with punctuation, that is the enumeration, and splitting
+#' the conjunction as well shreds `Oregon Health & Science University` into two
+#' non-names.
+#'
+#' @return A list: fragments, delimiter, is_multi, basis.
+rhtp_split_recipient_field <- function(awardee_name, entity_patterns = NULL) {
+  none <- function(basis) {
+    list(fragments = character(), delimiter = NA_character_,
+         is_multi = FALSE, basis = basis)
+  }
+
+  clean <- rhtp_clean_name(awardee_name)
+  if (is.na(clean) || !nzchar(clean)) return(none("Empty awardeeName."))
+
+  if (is.null(entity_patterns)) {
+    entity_patterns <- rhtp_read_patterns("legal_entity_patterns.csv")
+  }
+
+  # -- Guard 1: mask delimiters inside parentheses -------------------------
+  # Masked rather than deleted, so the fragment text survives intact.
+  masked <- clean
+  repeat {
+    replaced <- stringr::str_replace(
+      masked, "\\(([^()]*)(,| and | & )([^()]*)\\)",
+      paste0("(\\1", RHTP_COMMA_SENTINEL, "\\3)")
+    )
+    if (identical(replaced, masked)) break
+    masked <- replaced
+  }
+
+  has_semicolon  <- stringr::str_detect(masked, ";")
+  has_comma      <- stringr::str_detect(masked, ",")
+  has_conjunction <- stringr::str_detect(
+    masked, stringr::regex("\\s(and|&)\\s", ignore_case = TRUE)
+  )
+
+  if (!has_semicolon && !has_comma && !has_conjunction) {
+    return(none("No multi-recipient delimiter present."))
+  }
+
+  # A conjunction is a delimiter only when no punctuation delimiter is
+  # present. If the author enumerated with `;` or `,`, that IS the
+  # enumeration, and a conjunction inside a fragment is part of a name:
+  # "Oregon Health & Science University, <second recipient>" enumerates on the
+  # comma, and splitting the `&` as well shreds the first name into "Oregon
+  # Health" and "Science University".
+  split_on_conjunction <- has_conjunction && !has_semicolon && !has_comma
+
+  # The strongest delimiter present names the split, so the column stays a
+  # single controlled value rather than a set.
+  delimiter <- dplyr::case_when(
+    has_semicolon   ~ "SEMICOLON",
+    has_comma       ~ "COMMA",
+    TRUE            ~ "CONJUNCTION"
+  )
+
+  tidy_fragments <- function(x) {
+    x %>%
+      stringr::str_squish() %>%
+      stringr::str_remove("^[,;\\s]+") %>%
+      stringr::str_remove("[,;\\s]+$") %>%
+      purrr::keep(nzchar)
+  }
+
+  split_regex <- if (split_on_conjunction) {
+    "\\s(?:and|&)\\s"
+  } else {
+    "[;,]"
+  }
+
+  raw_fragments <- masked %>%
+    stringr::str_split(stringr::regex(split_regex, ignore_case = TRUE)) %>%
+    purrr::pluck(1) %>%
+    tidy_fragments() %>%
+    stringr::str_replace_all(stringr::fixed(RHTP_COMMA_SENTINEL), ", ")
+
+  if (length(raw_fragments) < 2) {
+    return(none("A delimiter is present but there is nothing to split on."))
+  }
+
+  # -- Guard 2: rejoin a fragment that continues the one before it ---------
+  suffix_or_alias <- paste0(
+    "(", paste(c(RHTP_CORPORATE_SUFFIX_TOKENS,
+                 stringr::str_escape(RHTP_ALIAS_OPENERS)),
+               collapse = "|"), ")"
+  )
+
+  # A corporate suffix or alias marker anywhere at the head of a fragment
+  # continues the name before it: ", Inc.", ", formerly Blue Mountain Hospital".
+  continuation_regex <- paste0("^", suffix_or_alias, "\\b\\.?")
+
+  # A US state name only continues the name before it when the fragment is the
+  # state ALONE ("... Dickinson County, Kansas, DBA ...") or the state followed
+  # immediately by a suffix or alias ("..., Pennsylvania dba St. Luke's ...").
+  # Merely STARTING with one is not enough, or "Oregon Health" gets swallowed
+  # into whatever precedes it.
+  states_regex <- paste0(
+    "^(", paste(stringr::str_escape(rhtp_cms_states()$state_name),
+                collapse = "|"),
+    ")\\b\\.?\\s*(", suffix_or_alias, "\\b|$)"
+  )
+
+  fragments <- purrr::reduce(raw_fragments, function(acc, fragment) {
+    continues_previous <- stringr::str_detect(
+      fragment, stringr::regex(continuation_regex, ignore_case = TRUE)
+    ) || stringr::str_detect(
+      fragment, stringr::regex(states_regex, ignore_case = TRUE)
+    )
+    if (length(acc) > 0 && continues_previous) {
+      acc[length(acc)] <- paste0(acc[length(acc)], ", ", fragment)
+      acc
+    } else {
+      c(acc, fragment)
+    }
+  }, .init = character())
+
+  if (length(fragments) < 2) {
+    return(none(
+      "The delimiter separated a suffix, state name or alias, not a recipient."
+    ))
+  }
+
+  # -- Guard 3: collapse a fragment contained in another (non-semicolon) ---
+  if (!has_semicolon) {
+    distinct_fragments <- fragments %>%
+      purrr::keep(function(fragment) {
+        others <- setdiff(fragments, fragment)
+        !any(stringr::str_detect(others, stringr::fixed(fragment)))
+      })
+
+    if (length(distinct_fragments) < 2) {
+      return(none(
+        "Every fragment restates one recipient more fully."
+      ))
+    }
+    fragments <- distinct_fragments
+  }
+
+  n_entities <- sum(purrr::map_lgl(
+    fragments, ~ rhtp_legal_entity_test(.x, entity_patterns)
+  ))
+
+  # -- Guard 4: a conjunction-only split must look like two named entities --
+  # ` & ` and ` and ` are common INSIDE one organisation name, where `;` and a
+  # top-level `,` are not, so a conjunction split has to clear a higher bar:
+  # two fragments that pass the §6.1 legal-entity test AND actually name
+  # somebody. A fragment of nothing but generic type words -- "Health System",
+  # "Healthcare Association" -- is the tail of one name, not a second recipient.
+  if (identical(delimiter, "CONJUNCTION")) {
+    names_somebody <- function(fragment) {
+      tokens <- fragment %>%
+        stringr::str_to_lower() %>%
+        stringr::str_replace_all("[^a-z0-9\\s]", "") %>%
+        stringr::str_split("\\s+") %>%
+        purrr::pluck(1) %>%
+        purrr::keep(nzchar)
+      length(setdiff(tokens, RHTP_ORG_TYPE_WORDS)) > 0
+    }
+
+    n_named <- sum(purrr::map_lgl(fragments, function(fragment) {
+      rhtp_legal_entity_test(fragment, entity_patterns) &&
+        names_somebody(fragment)
+    }))
+
+    if (n_named < 2) {
+      return(none(paste0(
+        "Split only on a conjunction, and only ", n_named,
+        " fragment(s) both pass the §6.1 legal-entity test and name somebody ",
+        "- ' & ' and ' and ' are common inside a single organisation name."
+      )))
+    }
+  }
+
+  list(
+    fragments = fragments,
+    delimiter = delimiter,
+    is_multi = TRUE,
+    basis = paste0(
+      "§6.2: ", tolower(delimiter), "-delimited awardeeName naming ",
+      length(fragments), " recipients, ", n_entities,
+      " of which pass the §6.1 legal-entity test. One candidate per fragment, ",
+      "routed to review -- the split is a guess about the state's formatting, ",
+      "not a fact. The amount is the FIELD total and is never divided."
+    )
+  )
+}
+
+
+#' One Tier 3 candidate per recipient named in a shared awardeeName field
+#'
+#' Emitted alongside the record table, not merged into it: the parent record
+#' keeps its tier and its single row (§6.2 flags and routes to review, it does
+#' not reassign -- the same discipline as `SOURCE_IS_PLAN_NOT_AWARD` and
+#' `UNPARSED_AWARD_CANDIDATE`). A human or §9.3 corroboration resolves the
+#' fragments into real awards.
+#'
+#' There is deliberately **no per-fragment amount column.** The field total is
+#' carried once, under a name that says what it is, so no downstream sum can
+#' quietly treat a hundred Oregon clinics as a hundred separate awards of the
+#' same size.
+rhtp_multi_recipient_candidates <- function(records, entity_patterns = NULL) {
+  empty <- tibble::tibble(
+    record_id = character(), state = character(), state_name = character(),
+    award_tier = character(), awardee_name_raw = character(),
+    delimiter = character(), n_recipients = integer(),
+    recipient_index = integer(), recipient_name = character(),
+    passes_legal_entity_test = logical(),
+    amount_announced_field_total = numeric(), amount_note = character(),
+    source_doc_title = character(), rcj_document_url = character(),
+    state_source_url = character(), split_basis = character()
+  )
+
+  if (nrow(records) == 0) return(empty)
+
+  if (is.null(entity_patterns)) {
+    entity_patterns <- rhtp_read_patterns("legal_entity_patterns.csv")
+  }
+
+  pool <- records %>%
+    dplyr::filter(
+      source_endpoint == "awards",
+      !is.na(awardee_name_raw),
+      qa_status != "QUARANTINED"
+    )
+
+  if (nrow(pool) == 0) return(empty)
+
+  split <- pool %>%
+    dplyr::mutate(
+      .split = purrr::map(awardee_name_raw,
+                          ~ rhtp_split_recipient_field(.x, entity_patterns))
+    ) %>%
+    dplyr::filter(purrr::map_lgl(.split, "is_multi"))
+
+  if (nrow(split) == 0) return(empty)
+
+  split %>%
+    dplyr::mutate(
+      delimiter = purrr::map_chr(.split, "delimiter"),
+      split_basis = purrr::map_chr(.split, "basis"),
+      recipient_name = purrr::map(.split, "fragments"),
+      n_recipients = purrr::map_int(.split, ~ length(.x$fragments))
+    ) %>%
+    tidyr::unnest_longer(recipient_name, indices_to = "recipient_index") %>%
+    dplyr::transmute(
+      record_id,
+      state,
+      state_name,
+      award_tier,
+      awardee_name_raw,
+      delimiter,
+      n_recipients,
+      recipient_index,
+      recipient_name,
+      passes_legal_entity_test = purrr::map_lgl(
+        recipient_name, ~ rhtp_legal_entity_test(.x, entity_patterns)
+      ),
+      amount_announced_field_total = amount_announced,
+      amount_note = paste0(
+        "RCJ published one amount for a field naming ", n_recipients,
+        " recipients. This is the FIELD total, NOT this recipient's award. ",
+        "Never divide it (§6.2) - no source states how it splits."
+      ),
+      source_doc_title,
+      rcj_document_url,
+      state_source_url,
+      split_basis
+    ) %>%
+    dplyr::arrange(state, record_id, recipient_index)
+}
+
+
+# -- §0.2a Tier 1 corroboration --------------------------------------------
+
+# The tolerance rule 3 matched on. A record inside it is a rounded restatement
+# of the CMS figure; a record outside it should never have been tiered
+# STATE_ALLOTMENT at all, so finding one is a rule-3 defect, not a data finding.
+RHTP_ALLOTMENT_MATCH_TOLERANCE <- 0.005
+
+
+#' Corroborate every RCJ STATE_ALLOTMENT record against the CMS anchor (§0.2a)
+#'
+#' **Published Tier 1 figures come from `cms_fy2026_allotments.csv` — 50 rows,
+#' CMS-anchored — and never from the RCJ `STATE_ALLOTMENT` records.** The
+#' record-table rows are RCJ records *about* the allotments; tiering them
+#' correctly is what keeps them out of Tier 3, and it is not a claim that any
+#' of them carries a publishable number.
+#'
+#' This function is the check that keeps the distinction honest. For every
+#' Tier 1 record it compares RCJ's amount to the CMS figure for that state and
+#' classifies the agreement:
+#'
+#' | `tier1_agreement` | Meaning |
+#' |---|---|
+#' | `EXACT` | RCJ restates the CMS figure to the dollar |
+#' | `ROUNDED` | Within rule 3's tolerance but not equal — e.g. $216.0M against $216,276,818 |
+#' | `DISAGREES` | Outside rule 3's tolerance. Should be impossible; a rule-3 defect |
+#' | `NO_AMOUNT` | Tiered Tier 1 without an amount. Also should be impossible via rule 3 |
+#'
+#' `DISAGREES` and `NO_AMOUNT` are reported, never silently dropped: both mean
+#' a record reached Tier 1 by a route rule 3 did not sanction.
+#'
+#' @param records A classified record table.
+#' @param allotments (state, fy2026_allotment). Defaults to the §7.1 anchor.
+#' @return One row per Tier 1 record.
+rhtp_corroborate_state_allotments <- function(records, allotments = NULL) {
+  if (is.null(allotments)) allotments <- rhtp_load_allotments()
+
+  empty <- tibble::tibble(
+    record_id = character(), state = character(),
+    source_endpoint = character(), source_doc_title = character(),
+    rcj_amount = numeric(), cms_fy2026_allotment = numeric(),
+    delta = numeric(), abs_pct_delta = numeric(),
+    tier1_agreement = character()
+  )
+
+  if (nrow(records) == 0 || nrow(allotments) == 0) return(empty)
+
+  records %>%
+    dplyr::filter(award_tier == "STATE_ALLOTMENT") %>%
+    dplyr::left_join(
+      allotments %>%
+        dplyr::rename(cms_fy2026_allotment = fy2026_allotment),
+      by = "state"
+    ) %>%
+    dplyr::transmute(
+      record_id,
+      state,
+      source_endpoint,
+      source_doc_title,
+      rcj_amount = amount_announced,
+      cms_fy2026_allotment,
+      delta = amount_announced - cms_fy2026_allotment,
+      abs_pct_delta = abs(delta) / cms_fy2026_allotment,
+      tier1_agreement = dplyr::case_when(
+        is.na(amount_announced) | is.na(cms_fy2026_allotment) ~ "NO_AMOUNT",
+        delta == 0                                            ~ "EXACT",
+        abs_pct_delta <= RHTP_ALLOTMENT_MATCH_TOLERANCE       ~ "ROUNDED",
+        TRUE                                                  ~ "DISAGREES"
+      )
+    ) %>%
+    dplyr::arrange(state, dplyr::desc(abs(delta)))
+}
+
+
+#' Per-state roll-up of the §0.2a corroboration
+#'
+#' The row that matters is a state where **no** RCJ record restates the CMS
+#' figure exactly. Publishing Tier 1 from RCJ would give that state a wrong
+#' number, which is the whole reason §0.2a names the CMS file as the source.
+#'
+#' States with no Tier 1 record at all are kept, not dropped. A state can have
+#' an allotment-shaped record that never reached Tier 1 because RCJ published
+#' the wrong figure for it — Nebraska is the live example — and that is exactly
+#' the case a roll-up over Tier 1 records alone would hide.
+rhtp_tier1_state_summary <- function(corroboration, valid_states = NULL) {
+  if (is.null(valid_states)) valid_states <- rhtp_cms_states()$state
+
+  per_state <- corroboration %>%
+    dplyr::filter(state %in% valid_states) %>%
+    dplyr::group_by(state) %>%
+    dplyr::summarise(
+      n_tier1_records = dplyr::n(),
+      n_exact   = sum(tier1_agreement == "EXACT"),
+      n_rounded = sum(tier1_agreement == "ROUNDED"),
+      n_disagrees = sum(tier1_agreement == "DISAGREES"),
+      n_no_amount = sum(tier1_agreement == "NO_AMOUNT"),
+      max_abs_delta = max(abs(delta), na.rm = TRUE),
+      .groups = "drop"
+    )
+
+  tibble::tibble(state = sort(valid_states)) %>%
+    dplyr::left_join(per_state, by = "state") %>%
+    dplyr::mutate(
+      dplyr::across(dplyr::starts_with("n_"), ~ tidyr::replace_na(.x, 0L)),
+      max_abs_delta = dplyr::if_else(n_tier1_records == 0, NA_real_,
+                                     max_abs_delta),
+      rcj_tier1_status = dplyr::case_when(
+        n_tier1_records == 0 ~ "NO_RCJ_TIER1_RECORD",
+        n_disagrees > 0 | n_no_amount > 0 ~ "REVIEW_RULE_3",
+        n_exact > 0 ~ "CMS_FIGURE_RESTATED",
+        TRUE        ~ "ROUNDED_ONLY"
+      )
+    ) %>%
+    dplyr::arrange(rcj_tier1_status, state)
+}
+
+
 # -- §6.4 Tier 3 candidate mining from /documents --------------------------
 
 # The terminators that end a legal-entity name in running prose. Drawn from
@@ -1348,7 +1852,12 @@ rhtp_mining_coverage <- function(records, candidates, valid_states = NULL) {
         n_awards_parsed > 0 & n_mined_candidates > 0 ~ "PARSED_PLUS_CANDIDATES",
         n_awards_parsed > 0                          ~ "PARSED",
         n_mined_candidates > 0 ~ "UNPARSED_DATA_EXISTS",
-        TRUE                                         ~ "NO_DATA"
+        # NOT "NO_DATA" (§6.4). This says RCJ surfaced nothing award-shaped for
+        # the state -- neither a parsed /awards row nor a minable /documents
+        # record. It says nothing whatever about whether the state has awarded
+        # money, and a reader who takes it that way has been misled by the
+        # label. Every one of these states has a $147M-$281M CMS allotment.
+        TRUE                                         ~ "NO_RCJ_DATA"
       )
     ) %>%
     dplyr::arrange(dplyr::desc(n_mined_candidates), state)
@@ -1899,9 +2408,14 @@ rhtp_append_normalize_manifest <- function(rows) {
 #' @param prior_path The stored record table to diff against. Defaults to the
 #'   Stage 2 output, so successive runs accumulate effective-dated versions.
 #' @param write Write the interim outputs and append the manifest.
+#' @param run_type §5.2. "PRODUCTION" for the run whose output is committed as the
+#'   build of record; "DEV" for an intermediate iteration. Recorded on every
+#'   manifest row so a throwaway run can never be read as the real one.
 rhtp_normalize_pull <- function(pull_date = Sys.Date(),
                                 prior_path = NULL,
-                                write = TRUE) {
+                                write = TRUE,
+                                run_type = "PRODUCTION") {
+  run_type <- rhtp_check_run_type(run_type, RHTP_NORMALIZE_RUN_TYPES)
   cfg <- rhtp_config()
   pull_date <- as.character(pull_date)
   run_time <- Sys.time()
@@ -2027,6 +2541,24 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
   mining_coverage <- rhtp_mining_coverage(records, mining_candidates,
                                           valid_states)
 
+  # -- §6.2 multi-recipient awardeeName fields ----------------------------
+  # Same discipline as §6.4: flag and route to review, never reassign a tier
+  # and never divide an amount. The parent record keeps its single row.
+  multi_recipient <- rhtp_multi_recipient_candidates(records)
+
+  records <- records %>%
+    dplyr::mutate(
+      flag_reason = purrr::map2_chr(
+        flag_reason, record_id,
+        function(fr, id) {
+          if (!id %in% multi_recipient$record_id) return(fr)
+          rhtp_collapse_flags(c(rhtp_flag_vector(fr), "MULTI_RECIPIENT_FIELD"))
+        }
+      ),
+      flag_count = purrr::map_int(flag_reason, ~ length(rhtp_flag_vector(.x))),
+      qa_status  = rhtp_qa_status(flag_reason)
+    )
+
   records <- records %>%
     dplyr::mutate(rcj_record_hash = rhtp_record_hash(records))
 
@@ -2052,6 +2584,13 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
       dplyr::coalesce(flag_reason, ""), "CONTENT_DUPLICATE|REOPENED_SOLICITATION"
     )) %>%
     dplyr::arrange(dedup_key, solicitation_number)
+
+  # -- §0.2a Tier 1 corroboration -----------------------------------------
+  # Published Tier 1 figures come from cms_fy2026_allotments.csv, never from
+  # these records. This is the check that keeps the distinction honest.
+  tier1_corroboration <- rhtp_corroborate_state_allotments(live, allotments)
+  tier1_state_summary <- rhtp_tier1_state_summary(tier1_corroboration,
+                                                  valid_states)
 
   rcj_state_summary <- rhtp_normalize_states(raw$states$records)
 
@@ -2098,6 +2637,58 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
   message("  NONE promoted to SUBAWARD (§6.4). All carry ",
           "UNPARSED_AWARD_CANDIDATE and stay UNASSIGNED for review.")
 
+  # -- §6.2 multi-recipient report ----------------------------------------
+  message("\n-- §6.2 multi-recipient awardeeName fields --")
+  message("  parent records  : ",
+          dplyr::n_distinct(multi_recipient$record_id))
+  message("  recipients named: ", nrow(multi_recipient))
+  if (nrow(multi_recipient) > 0) {
+    message("  the amount is NEVER divided: each fragment carries the field ",
+            "total, labelled as the field total.")
+    print(
+      as.data.frame(
+        multi_recipient %>%
+          dplyr::distinct(record_id, .keep_all = TRUE) %>%
+          dplyr::select(state, delimiter, n_recipients,
+                        amount_announced_field_total)
+      ),
+      row.names = FALSE
+    )
+  }
+
+  # -- §0.2a Tier 1 corroboration report ----------------------------------
+  message("\n-- §0.2a Tier 1: RCJ records vs the CMS anchor --")
+  message("  published Tier 1 figures come from cms_fy2026_allotments.csv ",
+          "(50 rows), NOT from these records.")
+
+  agreement_counts <- tier1_corroboration %>%
+    dplyr::count(tier1_agreement, name = "n") %>%
+    dplyr::arrange(dplyr::desc(n))
+  print(as.data.frame(agreement_counts), row.names = FALSE)
+
+  rounded_only <- tier1_state_summary %>%
+    dplyr::filter(rcj_tier1_status == "ROUNDED_ONLY")
+  no_tier1 <- tier1_state_summary %>%
+    dplyr::filter(rcj_tier1_status == "NO_RCJ_TIER1_RECORD")
+  needs_review <- tier1_corroboration %>%
+    dplyr::filter(tier1_agreement %in% c("DISAGREES", "NO_AMOUNT"))
+
+  message("\n  states where NO RCJ record restates the CMS figure exactly: ",
+          nrow(rounded_only))
+  if (nrow(rounded_only) > 0) {
+    message("    ", paste(rounded_only$state, collapse = " "))
+  }
+  message("  states with no RCJ Tier 1 record at all: ", nrow(no_tier1),
+          if (nrow(no_tier1) > 0) {
+            paste0(" (", paste(no_tier1$state, collapse = " "), ")")
+          } else "")
+
+  if (nrow(needs_review) > 0) {
+    message("\n  ", nrow(needs_review), " record(s) reached Tier 1 outside ",
+            "rule 3's tolerance -- this is a rule-3 defect, not a finding:")
+    print(as.data.frame(needs_review), row.names = FALSE)
+  }
+
   if (nrow(mining_candidates) > 0) {
     message("\n  mined candidates by state:")
     print(
@@ -2124,6 +2715,19 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
             file.path(interim, "stage2_mining_coverage.rds"))
     saveRDS(reclassified,
             file.path(interim, "stage2_reclassified.rds"))
+    saveRDS(multi_recipient,
+            file.path(interim, "stage2_multi_recipient_candidates.rds"))
+    saveRDS(tier1_corroboration,
+            file.path(interim, "stage2_tier1_corroboration.rds"))
+    saveRDS(tier1_state_summary,
+            file.path(interim, "stage2_tier1_state_summary.rds"))
+
+    readr::write_csv(multi_recipient,
+                     file.path(interim, "stage2_multi_recipient_candidates.csv"))
+    readr::write_csv(tier1_corroboration,
+                     file.path(interim, "stage2_tier1_corroboration.csv"))
+    readr::write_csv(tier1_state_summary,
+                     file.path(interim, "stage2_tier1_state_summary.csv"))
 
     # CSV as well as RDS: the mining candidates and the two-dimension coverage
     # table are both read by a person before Stage 4 exists to consume them,
@@ -2157,10 +2761,14 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
           n_subaward         = sum(ep_rows$award_tier == "SUBAWARD"),
           n_unassigned       = sum(ep_rows$award_tier == "UNASSIGNED"),
           n_mined_candidates = sum(mining_candidates$record_id %in% ep_rows$record_id),
+          n_multi_recipient_candidates = sum(
+            multi_recipient$record_id %in% ep_rows$record_id
+          ),
           n_new              = sum(ep_rows$change_status == "NEW"),
           n_changed          = sum(ep_rows$change_status == "CHANGED"),
           n_unchanged        = sum(ep_rows$change_status == "UNCHANGED"),
           allotment_anchor_available = allotment_anchor_available,
+          run_type           = run_type,
           notes              = if (allotment_anchor_available) "" else
             "No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive."
         )
@@ -2180,6 +2788,9 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
     registry_candidates = registry_candidates,
     mining_candidates = mining_candidates,
     mining_coverage = mining_coverage,
+    multi_recipient = multi_recipient,
+    tier1_corroboration = tier1_corroboration,
+    tier1_state_summary = tier1_state_summary,
     reclassified = reclassified,
     summary = summary_tbl,
     allotment_anchor_available = allotment_anchor_available
@@ -2247,6 +2858,7 @@ rhtp_registry_candidates <- function(state_sources, valid_states) {
 #
 #   Rscript R/02_normalize.R --run                 # newest pull on disk
 #   Rscript R/02_normalize.R --run --date=2026-08-27
+#   Rscript R/02_normalize.R --run --dev           # an iteration, logged DEV
 #
 if (!interactive()) {
   cli_args <- commandArgs(trailingOnly = TRUE)
@@ -2268,6 +2880,11 @@ if (!interactive()) {
       sort(dirs, decreasing = TRUE)[1]
     }
 
-    rhtp_normalize_pull(pull_date = pull_date)
+    rhtp_normalize_pull(
+      pull_date = pull_date,
+      # §5.2: an intermediate iteration must be able to say so, or the manifest
+      # cannot tell a throwaway run from the build of record.
+      run_type = if ("--dev" %in% cli_args) "DEV" else "PRODUCTION"
+    )
   }
 }
