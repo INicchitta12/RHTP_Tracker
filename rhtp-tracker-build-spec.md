@@ -118,25 +118,34 @@ The default **Trusted** level reaches allowlisted package registries, GitHub, an
 ```
 www.ruralcarejourney.com
 ruralcarejourney.com
+rhtp.amemobile.net
 packagemanager.posit.co
+rspm-sync.rstudio.com
 cloud.r-project.org
+archive.ubuntu.com
+security.ubuntu.com
 ```
 
-Add the RCJ API host separately if Stage 0 reveals it differs from the web domain.
+`rspm-sync.rstudio.com` is not optional. `packagemanager.posit.co` serves metadata directly but **307-redirects every actual package download** — binary and source alike — to that host. Without it, `PACKAGES.gz` returns 200 and every install then fails at the proxy, which is exactly the shape of failure that produced a zero-package environment snapshot in Session 2.
+
+`archive.ubuntu.com` and `security.ubuntu.com` are in the default Trusted set, so a 403 against them means the "also include default list of common package managers" box is unchecked. List them explicitly regardless.
 
 ### 3.3 Setup script
 
 **This goes in the cloud environment's Setup script field at claude.ai/code, not in the repo.** The environment script runs once before Claude Code launches and its result is snapshotted, so R persists across sessions. A repo script (`config/setup.sh`) would reinstall R every session and burn several minutes each time — keep it in the repo as the canonical copy if useful, but the environment field is what executes.
 
-The environment's **Allowed domains** must include `archive.ubuntu.com` and `security.ubuntu.com` explicitly, alongside the §3.2 list. These are in the default Trusted set, so a 403 against them means the "also include default list of common package managers" box is unchecked.
-
-Runs once per environment, then the filesystem is snapshotted. **It must exit zero and finish within roughly five minutes** or the cache won't build — which is why this uses precompiled binaries rather than compiling from source. Editing the allowed-domains list invalidates the cache and re-runs the script.
+The environment's **Allowed domains** must include everything in §3.2. Runs once per environment, then the filesystem is snapshotted. **It must exit zero and finish within roughly five minutes** or the cache won't build — which is why this uses precompiled binaries rather than compiling from source. Editing the allowed-domains list invalidates the cache and re-runs the script.
 
 ```bash
 #!/bin/bash
+set -e
+
 apt-get update
 apt-get install -y --no-install-recommends \
-  r-base-dev libcurl4-openssl-dev libssl-dev libxml2-dev || true
+  r-base-dev r-recommended \
+  libcurl4-openssl-dev libssl-dev libxml2-dev \
+  libharfbuzz-dev libfribidi-dev libfreetype6-dev \
+  libpng-dev libtiff5-dev libjpeg-dev libuv1-dev
 
 cat > /usr/lib/R/etc/Rprofile.site << 'EOF'
 options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/noble/latest"))
@@ -144,12 +153,26 @@ options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(),
   paste(getRversion(), R.version$platform, R.version$arch, R.version$os)))
 EOF
 
-Rscript -e 'install.packages(c("tidyverse","httr2","jsonlite","openxlsx",
-  "janitor","digest","here","yaml","fuzzyjoin","assertr","testthat"))' || true
-exit 0
+Rscript -e '
+pkgs <- c("tidyverse","httr2","jsonlite","openxlsx","janitor",
+          "digest","here","yaml","fuzzyjoin","assertr","testthat")
+install.packages(pkgs)
+missing <- pkgs[!pkgs %in% rownames(installed.packages())]
+if (length(missing)) {
+  cat("SETUP FAILED — packages not installed:", paste(missing, collapse=", "), "\n")
+  quit(status = 1)
+}
+cat("All", length(pkgs), "packages installed.\n")
+'
 ```
 
-The `HTTPUserAgent` option is what makes the Posit package manager serve Linux binaries instead of source tarballs. Without it the install compiles from scratch and will exceed the time limit.
+### Why each piece is there
+
+**`r-recommended`.** `r-base-dev` installs none of R's recommended packages — no MASS, Matrix, survival, lattice, or nlme. A large share of CRAN depends on that set; `assertr` fails outright without MASS. This is independent of the repository problem and survives fixing it.
+
+**The verification block, not just removing `|| true`.** Dropping `|| true` alone would not have caught the Session 2 failure: `install.packages()` **warns on failure, it does not error**, so the Rscript call exits zero even when every package fails. The explicit `installed.packages()` check with `quit(status = 1)` is what actually makes the failure loud. Combined with `set -e`, a broken install now fails the session start instead of snapshotting an empty environment that looks healthy.
+
+**The harfbuzz/freetype/libuv group.** Needed only when compiling from source — `textshaping`, `ragg`, and `fs` fail to configure without them. Unnecessary once Posit binaries are working, but included deliberately as insurance: the binary path already proved fragile once, and these add roughly 30 seconds to a five-minute budget.
 
 If the script does time out, trim the package list to `tidyverse`, `httr2`, `jsonlite`, `openxlsx`, `digest`, `here`, `yaml` and install the rest mid-session as needed.
 
@@ -197,27 +220,36 @@ Verified live against the Pro plan. Base `https://www.ruralcarejourney.com`, all
 
 **Contract:** pull RCJ records to an immutable dated landing zone. Never transform in this stage.
 
-### 5.1 Pull strategy — test global pagination first
+### 5.1 Pull strategy — Branch A, confirmed
 
-**Before writing the client, test whether `/awards`, `/documents`, and `/opportunities` paginate without a `state` filter.** This decides the quota model:
+**Global pagination works.** All three collection endpoints paginate without a `state` filter, verified live in Session 2: `/awards` 1,429 records across 3 pages at `limit=500`; `/documents` 3,092 across 31 pages at 100; `/opportunities` 631 across 7 pages at 100. Pages are disjoint, page 1 spans 21–32 states, and every final page returns the exact arithmetic remainder — no deep-page cap.
 
-- **If they do:** pull nationally at max `limit` and partition by state locally. Rough volumes — a few thousand awards at 500/page, ~3,100 documents at 100/page, ~630 opportunities at 100/page. A full weekly refresh lands near 100–150 calls/month against the 2,000 allowance, which affords twice-weekly cadence through the Year 1→Year 2 transition. Complete snapshots also give cleaner diffs than 50 independently-timed state pulls.
-- **If they require `state`:** fall back to a full weekly `/awards` pull at `limit=500` per state, with `/documents` and `/opportunities` gated on `/activity?since=`. Approximately 800–900 calls/month, 40–45% of allowance, weekly only.
+**Pull nationally at max `limit` and partition by state locally.** Per-state pulls are unnecessary and give worse change detection: complete snapshots diff cleanly, 50 independently-timed pulls do not.
 
-`/activity` is pulled comprehensively either way — it is the only source of `state_source_url`.
+**Measured volume:** ~46 calls per national pull — `/awards` 3, `/documents` 31, `/opportunities` 7, `/activity` ~5.
 
-Record the test result in `CLAUDE.md` §8 before Session 2 proceeds.
+| Cadence | Calls/month | % of 2,000 |
+|---|---|---|
+| Weekly | ~199 | 10% |
+| **Twice-weekly (adopted)** | **~399** | **20%** |
+
+Twice-weekly through the Year 1→Year 2 transition, leaving ~1,600 calls/month of headroom. No plan upgrade needed.
+
+`/documents` is 31 of the 46 calls against a hard 100/page cap, so every additional 100 documents adds one call per pull. It is the line item to watch as the corpus grows.
+
+`/activity` is pulled comprehensively every time regardless of cadence: it is the only source of `state_source_url` (§4.1).
 
 ### 5.2 Client requirements
 
-- Write to `data/raw/rcj/<YYYY-MM-DD>/<endpoint>[_<state>].json`. Never overwrite a prior date. Committed per §0.5.
-- **Three pagination handlers**, one per envelope in §4. The exhaustiveness assertion differs by shape: compare written count to `pagination.total` for the standard envelope; loop until `hasMore` is false for activity and search. A silent short-read is the worst failure mode here.
+- Write to `data/raw/rcj/<YYYY-MM-DD>/<endpoint>.json`. Never overwrite a prior date. Committed per §0.5.
+- **Never trust your own requested `limit`.** `/documents?limit=500` returns HTTP 200 while serving 100 rows and echoing `pagination.limit: 100` — over-max limits are silently downgraded, neither honored nor rejected. A client trusting its request would walk 7 pages, read 700 of 3,092 records, and report success. **Page counts and totals come from the response envelope, always.** Assert that served `limit` equals requested `limit` and log any mismatch.
+- **Three pagination handlers**, one per envelope in §4. Exhaustiveness differs by shape: compare written count to `pagination.total` for the standard envelope; loop until `hasMore` is false for activity and search. A silent short-read is the worst failure mode here.
 - `httr2` with `req_retry()` on 429/5xx with exponential backoff, `req_throttle()` **below 60 requests/minute** (no header will warn you), and a request timeout. Honor `Retry-After` on 429.
 - **Quota accounting.** Parse the four headers from §4 on every call, write remaining to `logs/pull_manifest.csv`, and abort at 90% monthly consumption rather than truncating silently.
-- **Pull manifest** — one row per call: timestamp, endpoint, params, HTTP status, records returned, monthly quota remaining, duration.
+- **Pull manifest** — one row per call: timestamp, endpoint, params, HTTP status, records returned, requested limit, served limit, monthly quota remaining, duration.
 - All normalization reads from `data/raw/`, never live. Development and re-runs cost zero quota.
 
-**Cadence:** weekly minimum; twice-weekly through the Year 1→Year 2 transition if the global-pagination test passes. States are mid-cycle — Year 1 operating periods ended in August/September 2026 and Year 2 funds flow from October 1.
+**Cadence:** twice-weekly through the Year 1→Year 2 transition. States are mid-cycle — Year 1 operating periods ended in August/September 2026 and Year 2 funds flow from October 1.
 
 ---
 
@@ -488,7 +520,7 @@ The pilot's most valuable output is not the data. It is an answer to: **what sha
 Build in this order. Each session ends with a working, tested stage, **all persistent output committed**, and an updated "current state" section in `CLAUDE.md`.
 
 1. ~~**Session 1** — Repo scaffold, `CLAUDE.md`, config, Stage 0 preflight.~~ **Complete.** Findings folded into §4. Vocabularies and junk-pattern reference files seeded. Delaware's 15 records committed as Stage 2 fixtures.
-2. **Session 2** — Stage 1 retrieval for the five pilot states, with manifest, retries, throttling, and quota accounting. Verify exhaustive pagination. Commit the raw pull.
+2. **Session 2** — ~~§5.1 pagination test~~ **complete: Branch A confirmed, findings in §5.1.** Remaining: build `01_retrieve_rcj.R` per §5.2, run the first national pull, commit the raw output.
 3. **Session 3** — Stage 2 normalization: tier assignment, junk filters with the observed defects as test fixtures, hashing and change detection.
 4. **Session 4** — Stage 3 state source registry for the five pilot states, with CMS allotment anchors. The registry URLs are compiled by hand outside the session and committed as a CSV; the session validates the structure and integrates it.
 5. **Session 5** — Stage 4 queue manager and rule engine, plus the Excel round-trip. No state-domain fetching (§9.0). Export the first review batch.
@@ -499,14 +531,12 @@ Build in this order. Each session ends with a working, tested stage, **all persi
 
 The AHA Annual Survey and CMS Provider of Services extracts needed in Session 6 must be committed to the repo (or a subset of them) before that session starts — cloud sessions can't reach internal AHA systems.
 
-### Opening prompt for Session 2
+### Opening prompt for the next session
 
-> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — it's been revised with the Stage 0 findings, so §4, §5, §6, §12 and §13 have all changed. Session 1's work is committed.
+> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §3.2, §3.3, §5.1 and §5.2 have changed since you last read them.
 >
-> First, confirm R is working now that the Ubuntu hosts are allowlisted: `Rscript -e 'sessionInfo()'` and report anything missing from §3.3.
+> Branch A is confirmed and adopted: national pulls, twice-weekly cadence. The environment has been fixed per the revised §3.3 — verify with `Rscript -e 'library(tidyverse); library(httr2); library(assertr)'` and stop if anything is missing rather than working around it with a source-build fallback.
 >
-> Then run the §5.1 test before writing any client code: check whether `/awards`, `/documents`, and `/opportunities` paginate without a `state` filter. Report the result and the implied monthly call volume for both branches. Record the answer in `CLAUDE.md` §8.
+> Then build `01_retrieve_rcj.R` per §5.2 and run one full national pull. Note the §5.2 requirement about never trusting the requested `limit` — that trap is live on `/documents`.
 >
-> Once I've confirmed the strategy, build `01_retrieve_rcj.R` per §5.2 — three pagination handlers, throttling below 60/min, quota accounting against all four headers, abort at 90%. Pull the five pilot states from §14 and commit the raw output.
->
-> Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
+> Commit the raw output. Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
