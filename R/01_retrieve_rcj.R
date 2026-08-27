@@ -993,7 +993,7 @@ rhtp_run_national_pull <- function(pull_date = Sys.Date(),
 #
 #   Rscript R/01_retrieve_rcj.R --run
 #
-if (!interactive()) {
+if (!interactive() && identical(sys.nframe(), 0L)) {
   cli_args <- commandArgs(trailingOnly = TRUE)
   if ("--run" %in% cli_args) {
     rhtp_run_national_pull()
