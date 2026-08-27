@@ -130,7 +130,21 @@ security.ubuntu.com
 
 `archive.ubuntu.com` and `security.ubuntu.com` are in the default Trusted set, so a 403 against them means the "also include default list of common package managers" box is unchecked. List them explicitly regardless.
 
-### 3.3 Setup script
+### 3.3 Environment variables
+
+Set in the environment dialog's **Environment variables** field, `.env` format:
+
+```
+RCJ_API_KEY=<key>
+LANG=C.UTF-8
+LC_ALL=C.UTF-8
+```
+
+**The locale variables are not optional.** Cloud sessions start R in the C/POSIX locale, where `readLines()` fails on multibyte UTF-8 — `config.yml` was itself unreadable until this was found. `utils_config.R` also sets a UTF-8 locale at source time; keep both. The environment variable covers anything that doesn't source the config, and the code covers a future local run where the variable doesn't exist.
+
+Per §1, `RCJ_API_KEY` is read via `Sys.getenv()` and never written to a file or printed.
+
+### 3.4 Setup script
 
 **This goes in the cloud environment's Setup script field at claude.ai/code, not in the repo.** The environment script runs once before Claude Code launches and its result is snapshotted, so R persists across sessions. A repo script (`config/setup.sh`) would reinstall R every session and burn several minutes each time — keep it in the repo as the canonical copy if useful, but the environment field is what executes.
 
@@ -176,7 +190,7 @@ cat("All", length(pkgs), "packages installed.\n")
 
 If the script does time out, trim the package list to `tidyverse`, `httr2`, `jsonlite`, `openxlsx`, `digest`, `here`, `yaml` and install the rest mid-session as needed.
 
-### 3.4 Package notes
+### 3.5 Package notes
 
 `arrow` is deliberately omitted — use `saveRDS()`/`readRDS()` for the interim layer instead of parquet. It's one less heavy dependency in a time-boxed setup script, and the interim layer is only read by this pipeline.
 
@@ -190,13 +204,16 @@ Verified live against the Pro plan. Base `https://www.ruralcarejourney.com`, all
 
 **Endpoints:** `/api/stats` (public), `/states`, `/states/:code`, `/awards`, `/documents`, `/documents/:id`, `/opportunities`, `/events`, `/activity`, `POST /search`.
 
-**Three pagination envelopes — handle each separately:**
+**Four response shapes — handle each separately:**
 
 | Envelope | Endpoints | Max `limit` | Termination |
 |---|---|---|---|
-| `{data, pagination:{page,limit,total,pages}}` | states, awards, documents, opportunities, events | awards 500; others 100 | `pages` count |
+| `{data, pagination:{page,limit,total,pages}}` | awards, documents, opportunities, events | awards 500; others 100 | `pages` count |
+| `{data, count}` — **unpaginated** | states | n/a | single call |
 | `{data, count, page, hasMore}` | activity | 100 | `hasMore` loop — `count` is page length, **not** grand total |
 | `{documents, count, hasMore, aiAnswer}` | search | 50 | `hasMore` loop |
+
+`/states` does not use the pagination envelope despite what the API docs imply. The page-planning function must **error on a missing `pagination.limit` rather than guess** — that guard is what surfaced this on the first live call.
 
 **Quota headers (confirmed):** `x-ratelimit-monthly-limit`, `x-ratelimit-monthly-remaining`, `x-ai-search-monthly-limit`, `x-ai-search-monthly-remaining`. Both pairs present, so percentage consumed is computed from headers with no hardcoded plan value. **No per-minute headers exist** — the 60/min ceiling is enforced but invisible, so client-side throttling is the only protection against it.
 
@@ -204,7 +221,13 @@ Verified live against the Pro plan. Base `https://www.ruralcarejourney.com`, all
 
 **`/awards` payload:** `id`, `state`, `stateName`, `fiscalYear`, `awardeeName`, `federalAmount`, `matchAmount`, `activityType`, `programDescription`, `sourceDocument{id,title,fileType,url}`.
 
-### 4.1 Four constraints this imposes
+### 4.1 Constraints this imposes
+
+**Coverage is incomplete, and this is a headline finding.** The national `/awards` pull returns 1,429 records spanning **only 39 of 50 states**. Eleven states have no awardee-level records in RCJ at all. This is not a bug to work around — it is a hard limit on what the deliverable can claim, and it means no national total is national. Consequences:
+
+- The workbook needs a **Coverage** sheet naming which states have awardee-level data and which do not (§11).
+- `/states` returns 49 states plus a pseudo-state `US`, and **omits Wyoming**, which has records on other endpoints. It cannot serve as the state vocabulary — see §7.
+- "RHTP subaward-level transparency is absent in 11 states" is substantively interesting to AHA on its own, independent of any dollar figure.
 
 **No `updated_since` on `/awards`, `/documents`, or `/opportunities`.** `since=` and `updatedSince=` are silently ignored, not rejected — they return unfiltered totals. Only `/activity` supports `since`. Award records carry no timestamp of any kind, so **hashing is the only Tier 3 change detection available.**
 
@@ -226,14 +249,16 @@ Verified live against the Pro plan. Base `https://www.ruralcarejourney.com`, all
 
 **Pull nationally at max `limit` and partition by state locally.** Per-state pulls are unnecessary and give worse change detection: complete snapshots diff cleanly, 50 independently-timed pulls do not.
 
-**Measured volume:** ~46 calls per national pull — `/awards` 3, `/documents` 31, `/opportunities` 7, `/activity` ~5.
+**Measured volume (Session 3, live):** 60 calls for a full national pull — `/states` 1, `/awards` 3 (1,429 records), `/documents` 31 (3,092), `/opportunities` 7 (631), `/activity` 18 (1,787). Every paginated endpoint wrote exactly `pagination.total`.
+
+The `/activity` backfill is 18 calls, not the ~5 originally projected.
 
 | Cadence | Calls/month | % of 2,000 |
 |---|---|---|
-| Weekly | ~199 | 10% |
-| **Twice-weekly (adopted)** | **~399** | **20%** |
+| Weekly | ~260 | 13% |
+| **Twice-weekly (adopted)** | **~520** | **26%** |
 
-Twice-weekly through the Year 1→Year 2 transition, leaving ~1,600 calls/month of headroom. No plan upgrade needed.
+Twice-weekly stands, with ~1,480 calls/month of headroom. No plan upgrade needed.
 
 `/documents` is 31 of the 46 calls against a hard 100/page cap, so every additional 100 documents adds one call per pull. It is the line item to watch as the corpus grows.
 
@@ -280,6 +305,7 @@ Failures go to `UNASSIGNED` and the review queue, never to `SUBAWARD`.
 Build these as an explicit, testable filter set with a `flag_reason` column — flag and quarantine, don't silently drop:
 
 - **Provenance mismatch — highest priority filter.** Delaware returned four records tracing to a HRSA Rural Health Grants fact sheet: real rural health awards, wrong program, unflagged in the RHTP feed. Description-negation regex cannot catch these because nothing about them reads as non-rural-health. Test the source document for non-RHTP federal program markers — HRSA, USDA Rural Development, FCC/USAC Rural Health Care, Flex/SORH — and quarantine any record whose source doesn't tie to RHTP. Flag as `PROVENANCE_MISMATCH`. Getting HRSA money into an RHTP figure is exactly the error that would discredit the analysis.
+- **Junk state codes.** `RC` appears as a state code carrying 54 documents and is not a state. Validate every `state` value against the 50-row CMS list from §7.1; anything failing is quarantined, never silently mapped.
 - **Self-declared non-RHTP.** Records whose description states the document does not relate to RHTP (a Wisconsin Perkins CTE record currently sits in the feed this way). Regex on the description for negation phrasing.
 - **Page chrome as title.** Titles matching accessibility text, cookie notices, nav labels, or bare filenames — observed: "Here's how you know. Resources", "Press Alt+1 for screen-reader mode", "Report an accessibility issue", "Browse.aspx", "DE - 2028 - portal". Pattern list in `data/reference/title_junk_patterns.csv`.
 - **Event-schedule bleed.** Event arrays containing items with no topical relationship to the record — the Delaware Governor Meyer award announcement carries a Delaware Libraries press release in its `keyDates` location field; a South Dakota record carries boiler replacements and latrine renovations. Heuristic: flag when <50% of event entries share health/RHTP keywords with the parent record. Flag for review, never auto-clean.
@@ -297,7 +323,23 @@ Build these as an explicit, testable filter set with a `flag_reason` column — 
 
 ## 7. Stage 3 — State source registry (`03_state_registry.R`)
 
-A one-time manual build that pays for itself immediately. Output: `data/reference/state_source_registry.csv`, 50 rows, hand-verified.
+### 7.1 The state vocabulary comes from CMS, not RCJ
+
+`/states` returns 49 states plus a pseudo-state `US`, and omits Wyoming, which has records on other endpoints. **It must not define the state vocabulary for anything.**
+
+The canonical list is the CMS FY2026 allotment table: exactly 50 rows, authoritative, and already required here as `fy2026_allotment`. Every state-keyed join, QA reconciliation, and coverage report keys off that. `qa$allotment_expected_states` stays at **50** — when it fails against RCJ-derived data, that is the assertion working, not a false positive. Report the shortfall as a coverage gap.
+
+`RC` also appears as a junk state code carrying 54 documents; filter it in Stage 2 (§6.2) rather than accommodating it here.
+
+### 7.2 Seed the registry from `/activity`, then verify by hand
+
+`siteUrl` is present on **all 1,787 `/activity` records** — a much better input than the spec originally assumed. Extract distinct `siteUrl` hosts by state to generate a candidate registry, then have a human verify and correct it. This converts the task from "compile 50 URLs from scratch" to "check a machine-generated list," which is both cheaper and likely more complete.
+
+The generated candidates are a starting point, never the final registry. Every row still needs `last_verified` set by a person who loaded the URL.
+
+Output: `data/reference/state_source_registry.csv`, 50 rows, committed.
+
+### 7.3 Registry fields
 
 | Field | Content |
 |---|---|
@@ -433,16 +475,17 @@ Two axes. "Money reaches a hospital" and "we can prove it" are different claims 
 `openxlsx`, one workbook, sheets in this order:
 
 1. **README** — generation date, pull date range, rules version, tier definitions, the eligibility-is-not-receipt warning, and a plain statement that Tier 1/2/3 figures must never be summed.
-2. **Subawards (Tier 3)** — the analytical table. Full field set per §12.
-3. **Solicitations (Tier 2)** — announced pools. Physically separate sheet.
-4. **State Allotments (Tier 1)** — 50 rows, CMS-anchored.
-5. **State Source Registry** — the §7 reference table.
-6. **Review Queue** — unresolved records.
-7. **Flagged / Quarantined** — junk-filter catches with `flag_reason`.
-8. **Change Log** — records added, changed, or superseded since the prior build.
-9. **Data Dictionary** — §12 rendered as a sheet.
+2. **Coverage** — which of the 50 states have awardee-level data in the source and which do not, with record counts. Currently **39 of 50**. This sheet sits second, before any figures, so no reader mistakes a partial total for a national one.
+3. **Subawards (Tier 3)** — the analytical table. Full field set per §12.
+4. **Solicitations (Tier 2)** — announced pools. Physically separate sheet.
+5. **State Allotments (Tier 1)** — 50 rows, CMS-anchored.
+6. **State Source Registry** — the §7 reference table.
+7. **Review Queue** — unresolved records.
+8. **Flagged / Quarantined** — junk-filter catches with `flag_reason`.
+9. **Change Log** — records added, changed, or superseded since the prior build.
+10. **Data Dictionary** — §12 rendered as a sheet.
 
-Formatting: freeze the header row, autofilter on all data sheets, currency format on amount columns, conditional fill on `distributed_to_hospital` (Yes/No/Unclear), and hyperlinks on `source_doc_url` and `validation_url`. Column widths set explicitly, not auto.
+Formatting: freeze the header row, autofilter on all data sheets, currency format on amount columns, conditional fill on `distributed_to_hospital` (Yes/No/Unclear), and hyperlinks on `state_source_url` and `validation_url`. Column widths set explicitly, not auto.
 
 Filename: `rhtp_hospital_tracker_<YYYY-MM-DD>.xlsx`. Never overwrite a prior build.
 
@@ -494,6 +537,8 @@ Run on every build; fail the build, don't warn.
 11. **No published row carries `flag_reason = PROVENANCE_MISMATCH`.** HRSA, USDA, or FCC rural money in an RHTP total is the single most discrediting error available.
 12. **Registry completeness.** Every Tier 3 candidate belongs to a state with a verified `award_posting_url` in the §7 registry. A state missing from the registry cannot be validated, so registry gaps are reported as deliverable gaps, not silently skipped.
 13. No `awardee_name_clean` in Tier 3 matches a program-name pattern from the §6.1 named-recipient test.
+14. Every `state` value validates against the 50-row CMS list from §7.1. No `RC`, no `US`, no null.
+15. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
 
 **Version the classification rules.** The determination logic in §10 will change as edge cases surface. Store `rules_version` on every row and tag the repo at each build, so you can always say which rules produced a published figure.
 
@@ -520,8 +565,9 @@ The pilot's most valuable output is not the data. It is an answer to: **what sha
 Build in this order. Each session ends with a working, tested stage, **all persistent output committed**, and an updated "current state" section in `CLAUDE.md`.
 
 1. ~~**Session 1** — Repo scaffold, `CLAUDE.md`, config, Stage 0 preflight.~~ **Complete.** Findings folded into §4. Vocabularies and junk-pattern reference files seeded. Delaware's 15 records committed as Stage 2 fixtures.
-2. **Session 2** — ~~§5.1 pagination test~~ **complete: Branch A confirmed, findings in §5.1.** Remaining: build `01_retrieve_rcj.R` per §5.2, run the first national pull, commit the raw output.
-3. **Session 3** — Stage 2 normalization: tier assignment, junk filters with the observed defects as test fixtures, hashing and change detection.
+2. ~~**Session 2** — §5.1 pagination test.~~ **Complete.** Branch A confirmed; findings in §5.1.
+3. ~~**Session 3** — Stage 1 retrieval client and first national pull.~~ **Complete.** 60 calls, all endpoints exhaustive; findings in §4.1 and §5.1.
+4. **Session 4** — Stage 2 normalization: tier assignment, junk filters with the Delaware fixtures as test cases, hashing and content-based dedup. Report the 11 states missing from `/awards`.
 4. **Session 4** — Stage 3 state source registry for the five pilot states, with CMS allotment anchors. The registry URLs are compiled by hand outside the session and committed as a CSV; the session validates the structure and integrates it.
 5. **Session 5** — Stage 4 queue manager and rule engine, plus the Excel round-trip. No state-domain fetching (§9.0). Export the first review batch.
 6. **Offline** — Work the exported queue: fetch, archive, record confirming text. Commit the completed spreadsheet and evidence PDFs.
@@ -533,10 +579,14 @@ The AHA Annual Survey and CMS Provider of Services extracts needed in Session 6 
 
 ### Opening prompt for the next session
 
-> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §3.2, §3.3, §5.1 and §5.2 have changed since you last read them.
+> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §3.3, §4.1, §5.1, §6.2, §7, §11 and §13 have all changed since Session 3.
 >
-> Branch A is confirmed and adopted: national pulls, twice-weekly cadence. The environment has been fixed per the revised §3.3 — verify with `Rscript -e 'library(tidyverse); library(httr2); library(assertr)'` and stop if anything is missing rather than working around it with a source-build fallback.
+> Stage 1 is merged. Build Stage 2 normalization (`02_normalize.R`) per §6, using the Delaware fixtures as test cases.
 >
-> Then build `01_retrieve_rcj.R` per §5.2 and run one full national pull. Note the §5.2 requirement about never trusting the requested `limit` — that trap is live on `/documents`.
+> Before the build, one reporting task: from the national `/awards` pull, list the 11 states absent from the data and confirm whether Florida is among them. If Florida has records, RCJ's site display was wrong rather than its data, which is a different problem — say so.
 >
-> Commit the raw output. Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
+> Note the changes that affect this stage specifically: the state vocabulary comes from the CMS 50-state list, never `/states` (§7.1); `RC` is a junk state code (§6.2); dedup is content-based, not ID-only (§6.3); and a populated `awardeeName` is not a named recipient (§6.1).
+>
+> Open a PR when you're done — standing instruction from here on.
+>
+> Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
