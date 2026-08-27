@@ -248,33 +248,69 @@ months why a $12M award was coded hospital-bound, the answer must be in the row.
 
 ---
 
-## 8. Redistribution rights — UNRESOLVED, BLOCKING FOR PUBLICATION
+## 8. Retrieval strategy — global pagination CONFIRMED (spec §5.1)
 
-Spec §4 requires recording whether AHA may publish figures derived from RCJ data.
+**Tested 2026-08-27 (Session 2). Result: Branch A. Pull nationally at max
+`limit`, partition by state locally.** Full evidence:
+`docs/stage1_pagination_test.md`.
 
-**Finding (2026-08-27): Rural Care Journey publishes no terms of service, no API
-terms, and no licensing or redistribution statement.** Verified by fetching
-`/terms`, `/terms-of-service`, `/tos`, `/legal`, `/api-terms` (all HTTP 404) and
-by enumerating every link on `/api-docs` — the only legal document on the site is
-`/privacy-policy`, which covers account data (name, email, cookies, Google
-sign-in) and says nothing about data reuse or redistribution.
+`/awards`, `/documents`, and `/opportunities` all paginate **without** a `state`
+filter. Unfiltered totals are genuinely national (1,429 awards / 3,092 documents
+/ 631 opportunities; page 1 alone spans 21–32 states, and unfiltered `/awards`
+at 1,429 dwarfs `state=GA` at 115). Page 1 and page 2 id sets are disjoint, and
+the last page of each endpoint returns exactly the arithmetic remainder — so
+deep pages are reachable and complete, with no cap.
 
-The site footer states only: *"Not affiliated with HRSA, CMS, or HHS · Data
-aggregated from public state and federal sources · For research and informational
-purposes only · Not intended as official program guidance."* The phrase **"for
-research and informational purposes only" is a restriction, not a grant**, and is
-the closest thing to a license term published.
+### Implied monthly call volume
 
-**Status: BLOCKED.** Written permission must be obtained from AME Mobile
-(`info@amemobile.net` / `admin@amemobile.net`) before AHA publishes any figure or
-chart derived from RCJ data. Do not draft a chart for publication until this is
-resolved and recorded here.
+Per full national pull: `/awards` 3 + `/documents` 31 + `/opportunities` 7 +
+`/activity` ~5 = **~46 calls**.
 
-**Mitigating factor:** under §0.1 no RCJ field may appear in a published number
-anyway — every published figure traces to a state primary source that AHA has
-independently retrieved and archived. RCJ is used as a discovery index. That
-materially reduces but does not eliminate the exposure, and it is not a
-substitute for the written answer.
+| Branch | Cadence | Calls/month | % of 2,000 |
+|---|---|---:|---:|
+| **A — global (confirmed)** | Weekly | ~199 | 10% |
+| **A — global (confirmed)** | Twice-weekly | ~399 | 20% |
+| B — per-state fallback (not needed) | Weekly only | ~800–900 | 40–45% |
+
+**Twice-weekly is affordable** and is the recommended cadence through the
+Year 1 → Year 2 transition, leaving ~1,600 calls/month of headroom.
+
+Spec §5.1 projected 100–150/month for weekly; measured is **~199**, because
+`/documents` alone is 31 of the 46 calls per pull against a hard 100/page cap.
+Budget ~200, not ~125. Every additional 100 documents adds 1 call/pull, so
+`/documents` is the line item to watch as the corpus grows.
+
+### `limit` is silently capped — client requirement
+
+`/documents?limit=500` returns **HTTP 200** while serving 100 rows and echoing
+`pagination.limit: 100`. Over-max limits are neither honoured nor rejected —
+they are quietly downgraded.
+
+**Always compute the page count from the response's `pagination.limit` and
+`pagination.total`, never from the requested limit.** A client trusting its own
+`limit=500` on `/documents` would walk 7 pages, read 700 of 3,092 records, and
+report success. That is the silent short-read failure mode in spec §5.2.
+
+Confirmed maxima: `/awards` 500, `/documents` 100, `/opportunities` 100.
+
+### 8.1 Redistribution rights — resolved, no longer blocking
+
+**Superseded by revised spec §4.1.** RCJ still publishes no terms of service
+(`/terms`, `/terms-of-service`, `/tos`, `/legal`, `/api-terms` all 404; the only
+legal document is `/privacy-policy`, which covers account data and is silent on
+reuse). The site footer says only: *"Not affiliated with HRSA, CMS, or HHS ·
+Data aggregated from public state and federal sources · For research and
+informational purposes only · Not intended as official program guidance."*
+
+What changed is the project's scope, not the finding: **this project is
+internal-use only and produces no published product**, so redistribution is not
+a live question and is **not a blocker**.
+
+If that scope ever changes, resolve permitted use with AME Mobile
+(`info@amemobile.net` / `admin@amemobile.net`) **and AHA counsel before anything
+leaves the building.** Principle §0.1 remains the primary mitigation either way:
+no RCJ field enters a published number — every figure traces to a state primary
+source that AHA retrieved and archived independently.
 
 ---
 
@@ -307,7 +343,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-27 (Session 1)
+**Last updated:** 2026-08-27 (Session 2)
 
 ### Stages built
 
@@ -315,7 +351,8 @@ retrieval code.
 |---|---|---|
 | Scaffold / config | `config/config.yml`, `R/utils_config.R` | **Built** |
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
-| Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | Not started — **awaiting Isaac's review of Stage 0 findings** |
+| Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
+| Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | Not started — **awaiting Isaac's confirmation of the Branch A strategy** |
 | Stage 2 — Normalization | `R/02_normalize.R` | Not started |
 | Stage 3 — State registry | `R/03_state_registry.R` | Not started |
 | Stage 4 — Validation | `R/04_validate.R` | Not started |
@@ -335,27 +372,57 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
   production pull; do not normalize from it as if it were one. 6 API calls
   consumed.
 
+The §5.1 pagination test consumed a further **15 calls** (2,000 → 1,985
+remaining). Its responses were diagnostic probes, not a production pull, and
+were deliberately **not** written to `data/raw/`.
+
+### Environment status (spec §3.3)
+
+**R 4.3.3 is installed and working** on Ubuntu 24.04 — `archive.ubuntu.com` and
+`security.ubuntu.com` are now allowlisted, and Session 1's blocker 1 is
+resolved. `Rprofile.site`, the compiler toolchain (gcc/g++/gfortran/make), and
+`libcurl4-openssl-dev` / `libssl-dev` / `libxml2-dev` are all in place. R code
+in this repo has now been executed for the first time.
+
+**One §3.3 item is still broken: R packages do not install from the configured
+repository.** See blocker 1 below.
+
 ### Open blockers
 
-1. **R is not installed and cannot be installed in the current cloud
-   environment.** `archive.ubuntu.com` and `security.ubuntu.com` are denied by
-   the egress policy (HTTP 403 at the proxy), so `apt-get install r-base-dev`
-   fails. The environment's setup script (spec §3.3) must run at environment
-   build time, and the network allowlist needs the Ubuntu archives added.
-   `packagemanager.posit.co` and `cloud.r-project.org` **are** reachable, so R
-   package installation will work once R itself exists. **No R code in this repo
-   has been executed.**
-2. **Redistribution rights unresolved** — see §8 above. Blocking for publication,
-   not for the build.
-3. **Delta-pull strategy needs redesign** — no `since` parameter on the award or
-   document endpoints. Blocks the spec §5 quota-control design as written.
-4. **Monthly quota is 2,000, not 10,000.** A weekly 50-state pull across
-   `/awards` + `/documents` + `/opportunities` + `/activity` will need explicit
-   budgeting against this ceiling.
+1. **`rspm-sync.rstudio.com` is not allowlisted, so `install.packages()` fails
+   against the §3.3 repo.** `packagemanager.posit.co` serves *metadata* fine
+   (`PACKAGES.gz` → 200) but **307-redirects every actual package download**,
+   binary and source alike, to `rspm-sync.rstudio.com`, which the egress policy
+   blocks. The §3.3 script hides this because its
+   `install.packages(...) || true` swallows the failure and still exits zero —
+   the environment snapshot builds successfully with **zero packages
+   installed**. Fixes, in order of preference:
+   - Add **`rspm-sync.rstudio.com`** to the environment's Allowed domains
+     (keeps fast precompiled binaries), **and**
+   - drop the `|| true` from the `install.packages()` line so a repeat failure
+     is loud rather than silent.
+   - Interim workaround, already verified this session: setting
+     `repos = c(CRAN = "https://cloud.r-project.org")` installs successfully by
+     compiling from source (`jsonlite`, `digest`, `yaml`, `here`, `httr2` all
+     built and load; `httr2` reaches the RCJ API from R). This is
+     **session-local and dies with the VM** (§0.5) — it is not a substitute for
+     the allowlist fix.
+2. **Delta-pull strategy needs redesign** — no `since` parameter on the award or
+   document endpoints. Hashing is the only Tier 3 change detection available
+   (spec §4.1). Branch A's complete national snapshots make this cheaper than
+   feared: full snapshots diff cleanly.
+3. **`/activity` backfill is unbudgeted.** The ~5 calls/pull in §8 covers a
+   bounded weekly `since=` delta only. The initial comprehensive backfill is of
+   unknown size and must be measured before it is run.
+
+*Resolved since Session 1:* R installation (blocker 1) and redistribution rights
+(blocker 2, superseded by spec §4.1 — see §8.1). Quota budgeting (blocker 4) is
+answered by §8: Branch A costs ~10% of allowance weekly, ~20% twice-weekly.
 
 ### Next session
 
-Session 2 per spec §15 — Stage 1 retrieval for the five pilot states, with
-manifest, retries, throttling, and quota accounting. **Do not start until Isaac
-has reviewed `docs/stage0_preflight_findings.md`** and settled the delta-pull and
-quota questions raised there.
+Session 3 — build Stage 1 retrieval (`R/01_retrieve_rcj.R`) against the
+**Branch A** national-pull strategy in §8, with the three pagination handlers,
+manifest, retries, throttling, and quota accounting per spec §5.2. **Do not
+start until Isaac has confirmed the Branch A strategy** and the environment
+allowlist fix in blocker 1 has been applied.
