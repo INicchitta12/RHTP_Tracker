@@ -213,6 +213,46 @@ rhtp_cms_states <- function() {
 }
 
 
+#' The controlled vocabularies (§8)
+#'
+#' `data/reference/vocabularies.csv` is the single home for every categorical
+#' value in the pipeline. Spec §8: "validate every categorical column against
+#' it. No free-text categories anywhere."
+#'
+#' Lives here so any stage can validate without sourcing another stage, and so
+#' there is exactly one reader -- a second one would drift.
+#'
+#' @param column_name Return only this column's allowed values, as a character
+#'   vector. Omit to get the whole table.
+#' @return A character vector when `column_name` is given, otherwise a tibble
+#'   of `column_name`, `allowed_value`, `notes`.
+rhtp_vocabulary <- function(column_name = NULL) {
+  path <- rhtp_path("vocabularies")
+
+  vocab <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
+
+  if (is.null(column_name)) {
+    return(vocab)
+  }
+
+  values <- vocab %>%
+    dplyr::filter(.data$column_name == !!column_name) %>%
+    dplyr::pull(.data$allowed_value)
+
+  if (length(values) == 0) {
+    stop(
+      "No controlled vocabulary for column '", column_name, "' in ", path, ".\n",
+      "Defined: ", paste(sort(unique(vocab$column_name)), collapse = ", "), ".\n",
+      "Do not invent codes mid-session (CLAUDE.md §5) -- add the value to ",
+      "vocabularies.csv, with the spec section that authorises it.",
+      call. = FALSE
+    )
+  }
+
+  values
+}
+
+
 # -- Credentials -----------------------------------------------------------
 
 #' Retrieve the RCJ API key

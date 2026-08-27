@@ -1,0 +1,31 @@
+RHTP tracker archive: CMS RHT Program State Project Abstracts (December 2025).
+
+source_url      : https://www.cms.gov/files/document/rht-program-state-provided-abstracts.pdf
+fetched_utc     : 2026-08-27T19:46:50Z
+http_status     : 200
+bytes           : 483999
+sha256          : a172a78c4b59f039c3745b559a7fd0be4b6ab1bd4a874341c846d073f8e68e58
+pages           : 74
+pdf_title       : RHT Program State project abstracts
+pdf_moddate     : 2026-12-29T16:12:36Z (per PDF metadata; CMS award announcement date)
+
+Archived verbatim under data/raw/ and therefore committed (spec 0.5), so the
+50-state extraction in data/reference/abstract_named_organizations.csv is
+reproducible offline and re-checkable against the bytes CMS served.
+
+Text layer used for the extraction:
+  pdftotext -layout rht_program_state_provided_abstracts.pdf \
+            rht_program_state_provided_abstracts.txt
+
+WHAT MAY AND MAY NOT BE TAKEN FROM THIS DOCUMENT (spec 4.1):
+
+  These are PRE-AWARD application abstracts. CMS states in the document's own
+  executive summary: "Budget amounts/requested funds highlighted in the State's
+  Abstract are purely illustrative and hypothetical and do not reflect the
+  State's final award amount or approved use of funds."
+
+  So NO dollar figure from this PDF may enter any table. Nearly every state
+  reports $1,000,000,000 or $200 million/year -- the NOFO placeholder, not an
+  award. Only NAMED ORGANIZATIONS are extracted, and they carry
+  status = CANDIDATE_ONLY: being named as a partner or intended subrecipient
+  in an application is not evidence of receiving money (spec 0.3).
