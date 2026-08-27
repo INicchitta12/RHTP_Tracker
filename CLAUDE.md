@@ -343,7 +343,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-27 (Session 2)
+**Last updated:** 2026-08-27 (Session 3)
 
 ### Stages built
 
@@ -352,13 +352,14 @@ retrieval code.
 | Scaffold / config | `config/config.yml`, `R/utils_config.R` | **Built** |
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
-| Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | Not started — **awaiting Isaac's confirmation of the Branch A strategy** |
+| Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | Not started |
 | Stage 3 — State registry | `R/03_state_registry.R` | Not started |
 | Stage 4 — Validation | `R/04_validate.R` | Not started |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
+| Tests | `tests/testthat/test_01_retrieve_rcj.R` | **Built — 44 assertions, zero quota. Run `Rscript tests/run_tests.R`** |
 
 ### States validated
 
@@ -368,76 +369,96 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 
 ### Raw pulls on disk
 
-- `data/raw/rcj/2026-08-27/` — Stage 0 exploratory only, **Delaware**. Not a
-  production pull; do not normalize from it as if it were one. 6 API calls
-  consumed.
+- **`data/raw/rcj/2026-08-27/` — first production national pull (Session 3).**
+  `states.json` 50, `awards.json` 1,429, `documents.json` 3,092,
+  `opportunities.json` 631, `activity.json` 1,787. All exhaustive, none
+  capped, none drifted. 12 MB. **60 API calls.** This is the Stage 2 input.
+- `data/raw/rcj/2026-08-27/_stage0_exploratory/` — Session 1's Delaware-only
+  Stage 0 probes, moved into a subdirectory so a Stage 2 glob cannot sweep
+  them into the record table and double-count Delaware. Not a production pull.
+  Delaware's 15 award records remain the Stage 2 fixtures.
 
-The §5.1 pagination test consumed a further **15 calls** (2,000 → 1,985
-remaining). Its responses were diagnostic probes, not a production pull, and
-were deliberately **not** written to `data/raw/`.
+**Quota: 1,920 of 2,000 remaining** (80 consumed this month).
 
 ### Environment status (spec §3.3)
 
-**R 4.3.3 is installed and working** on Ubuntu 24.04 — `archive.ubuntu.com` and
-`security.ubuntu.com` are now allowlisted, and Session 1's blocker 1 is
-resolved. `Rprofile.site`, the compiler toolchain (gcc/g++/gfortran/make), and
-`libcurl4-openssl-dev` / `libssl-dev` / `libxml2-dev` are all in place. R code
-in this repo has now been executed for the first time.
+**Fixed and verified this session.** R 4.3.3 with all 11 §3.3 packages
+installed from the environment snapshot — tidyverse 2.0.0, httr2 1.3.0,
+jsonlite, openxlsx, janitor, digest, here, yaml, fuzzyjoin, assertr, testthat.
+`library(tidyverse); library(httr2); library(assertr)` loads clean with **no
+source-build fallback**. Session 2's blocker 1 is resolved.
 
-**All 11 §3.3 packages are installed and working in this session** — tidyverse
-2.0.0, httr2 1.3.0, jsonlite, openxlsx, janitor, digest, here, yaml, fuzzyjoin,
-assertr, testthat. tidyverse loads and `%>%` works; httr2 reaches the RCJ API
-from R. **But this was achieved by hand via a source-build fallback, and it dies
-with the VM (§0.5).** The §3.3 setup script as written still produces an
-environment with zero packages. See blocker 1.
+**One defect found and fixed in code:** cloud sessions start R in the
+**C/POSIX locale** (`LANG` unset), where `readLines()` and every `stringr`
+operation fail on multibyte UTF-8. `config/config.yml` was itself unreadable.
+`utils_config.R` now sets a UTF-8 locale at `source()` time so every stage
+inherits it, and `rhtp_preflight()` reports it. **Recommend also adding
+`LANG=C.UTF-8` to the environment's Environment variables** so the fix does
+not depend on code alone — RCJ titles and awardee names carry non-ASCII text.
 
 ### Open blockers
 
-1. **`rspm-sync.rstudio.com` is not allowlisted, so `install.packages()` fails
-   against the §3.3 repo.** `packagemanager.posit.co` serves *metadata* fine
-   (`PACKAGES.gz` → 200) but **307-redirects every actual package download**,
-   binary and source alike, to `rspm-sync.rstudio.com`, which the egress policy
-   blocks. The §3.3 script hides this because its
-   `install.packages(...) || true` swallows the failure and still exits zero —
-   the environment snapshot builds successfully with **zero packages
-   installed**. Three fixes, all needed:
-   - **(a)** Add **`rspm-sync.rstudio.com`** to the environment's Allowed
-     domains. This is the actual fix and keeps the fast precompiled binaries
-     that the `HTTPUserAgent` option exists to obtain.
-   - **(b)** Drop the `|| true` from the `install.packages()` line so a repeat
-     failure is loud rather than snapshotting a broken environment.
-   - **(c)** Add **`r-recommended`** to the apt line. `r-base-dev` alone
-     installs **none** of R's recommended packages — no `MASS`, `Matrix`,
-     `survival`, `lattice`, `nlme`. `assertr` fails outright on missing `MASS`,
-     and many CRAN packages depend on this set. This gap is independent of the
-     repository problem and will bite even after (a) is fixed.
+1. **`/states` cannot serve as the state vocabulary.** Its 50 codes are 49
+   states plus a pseudo-state `US`, and **Wyoming is absent** — though WY has
+   records in `/documents`, `/opportunities`, and `/activity`. Stage 3's
+   registry needs an independent 50-state list, and
+   `qa$allotment_expected_states: 50` will not reconcile against anything
+   RCJ-derived.
+2. **Delta-pull strategy still needs a decision.** No `since` on the award or
+   document endpoints, so hashing is the only Tier 3 change detection
+   (§4.1). Stage 1 writes a `body_sha256` per page over the verbatim response
+   text, which gives Stage 2 a page-granularity starting point. The remaining
+   question is whether `/activity` narrows to a `since=` delta after this
+   first backfill (45 calls/pull) or keeps being pulled comprehensively
+   (60 calls/pull). Both are affordable — see below.
 
-   Interim workaround, fully verified this session: setting
-   `repos = c(CRAN = "https://cloud.r-project.org")` installs by compiling from
-   source. All 11 §3.3 packages now build and load. Source builds additionally
-   need these apt packages, absent from §3.3: `libharfbuzz-dev`,
-   `libfribidi-dev`, `libfreetype6-dev`, `libpng-dev`, `libtiff5-dev`,
-   `libjpeg-dev` (for `textshaping`/`ragg`) and `libuv1-dev` (for `fs`).
-   With Posit binaries restored per (a) these are unnecessary — but
-   `r-recommended` in (c) is required either way. The whole workaround is
-   **session-local and dies with the VM** (§0.5); it is not a substitute for
-   fixing the environment.
-2. **Delta-pull strategy needs redesign** — no `since` parameter on the award or
-   document endpoints. Hashing is the only Tier 3 change detection available
-   (spec §4.1). Branch A's complete national snapshots make this cheaper than
-   feared: full snapshots diff cleanly.
-3. **`/activity` backfill is unbudgeted.** The ~5 calls/pull in §8 covers a
-   bounded weekly `since=` delta only. The initial comprehensive backfill is of
-   unknown size and must be measured before it is run.
+*Resolved this session:* the R environment (Session 2 blocker 1), and
+**`/activity` backfill sizing (Session 2 blocker 3) — measured at 18 calls /
+1,787 records.** *Resolved earlier:* redistribution rights (superseded by spec
+§4.1, see §8.1).
 
-*Resolved since Session 1:* R installation (blocker 1) and redistribution rights
-(blocker 2, superseded by spec §4.1 — see §8.1). Quota budgeting (blocker 4) is
-answered by §8: Branch A costs ~10% of allowance weekly, ~20% twice-weekly.
+### Measured call budget — supersedes the §8 projection
+
+A comprehensive pull is **60 calls**, not the ~46 projected. The gap is
+`/activity`: §5.1's ~5 was a bounded weekly delta, while the comprehensive
+backfill is 18. `/states` adds the last call and is now part of the pull.
+
+| Cadence | Calls/pull | Calls/month | % of 2,000 |
+|---|---:|---:|---:|
+| Weekly | 60 | ~260 | 13% |
+| **Twice-weekly (adopted)** | **60** | **~520** | **26%** |
+
+Up from 20%, still comfortably affordable, **and the adopted cadence does not
+change.** Narrowing `/activity` to a `since=` delta would drop a pull to ~45
+calls (~390/month, 20%).
+
+`/documents` (31) and `/activity` (18) are 49 of the 60 calls, both against a
+hard 100/page cap. They are the line items to watch as the corpus grows.
+
+### Data-quality findings waiting for Stage 2
+
+From the national pull, recorded but deliberately not acted on — Stage 1 never
+transforms:
+
+- **`RC` is a junk state code.** 54 `/documents` records carry `state: "RC"`,
+  titled `"RC - 2026 - …"`, category `REFERENCE`. National reference material
+  filed under a non-state code. A §6.2 junk-filter fixture.
+- **`/awards` covers only 39 of 50 states.** Eleven states have zero award
+  records nationally — §0.1's uneven awardee coverage, now quantified at 22%
+  of states with no Tier 3 candidates in RCJ at all. Completeness is bounded
+  by the state registry, not by RCJ.
+- **`/activity` carries `siteUrl` on all 1,787 records**, with real state
+  domains (`tn.gov/health/rural.html`, `hcpf.colorado.gov/…`). Confirms §4.1
+  and makes `/activity` the most useful input to Stage 3's registry, which the
+  spec assumed would be compiled entirely by hand.
 
 ### Next session
 
-Session 3 — build Stage 1 retrieval (`R/01_retrieve_rcj.R`) against the
-**Branch A** national-pull strategy in §8, with the three pagination handlers,
-manifest, retries, throttling, and quota accounting per spec §5.2. **Do not
-start until Isaac has confirmed the Branch A strategy** and the environment
-allowlist fix in blocker 1 has been applied.
+Session 4 — Stage 2 normalization (`R/02_normalize.R`): tier assignment, junk
+filters with the observed defects as fixtures, hashing and change detection.
+Read from `data/raw/rcj/2026-08-27/` — the five `<endpoint>.json` files in the
+parent directory, **never** `_stage0_exploratory/`. Costs zero quota.
+
+Take the four findings above as the first junk-filter and partitioning test
+cases, alongside Delaware's Stage 0 defects (§6 of the preflight doc: tier
+mixing, HRSA non-RHTP contamination, `federalAmount: 1`).
