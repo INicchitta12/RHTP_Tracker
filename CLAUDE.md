@@ -86,6 +86,9 @@ This inverts the normal convention of gitignoring data directories — see §1.
 - Never let a fuzzy hospital match auto-resolve — it goes to the review queue (§10.1).
 - Never default an unassignable record to `SUBAWARD` — it goes to `UNASSIGNED` (§6.1).
 - Never quote an RCJ machine-generated summary field as fact (see §6 below).
+- Every human reviewer reads `reviewer-coding-instructions.md` before touching a
+  record, and every automated classifier keys off recipient identity, never
+  activity type (§0.3a).
 
 ---
 
@@ -348,7 +351,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-27 (corrections after Session 5)
+**Last updated:** 2026-08-27 (reviewer coding instructions — sequencing item 6)
 
 ### Stages built
 
@@ -592,6 +595,52 @@ input is not one. Superseded historical rows keep the classification they were
 published with. The run reports the reclassification count and writes the set to
 `data/interim/stage2_reclassified.rds`.
 
+### Reviewer coding instructions — sequencing item 6, done
+
+`reviewer-coding-instructions.md` is rewritten and is now the artifact §9.12
+requires every reviewer to read first. Zero quota, no network calls, no code
+touched.
+
+It had regressed. The `MULTI_RECIPIENT_FIELD` section appended at `34d8fee` was
+**removed at `0a51145`**, an owner upload of a local copy predating it — the
+xlsx files landed in the same commit, so the deletion was almost certainly
+collateral. That section is restored verbatim.
+
+The larger gap was that the file only covered **award records**, while §0.1
+inverted the project onto **budget narratives** and Session 6 is about to
+produce initiative tables nobody has coding rules for. The file is now in two
+parts:
+
+- **Part A — award records.** The Delaware worked examples, the §9.3 split of
+  `recipient_confirmed` / `amount_confirmed`, evidence requirements, source
+  strength. Substantially as the owner wrote it.
+- **Part B — initiatives from budget narratives.** New. The unit is the
+  initiative and the output is `has_hospital_recipient`; **a named hospital is
+  not required for `Yes`**, because Oklahoma names no individual hospital
+  anywhere and still has six hospital-directed fund uses. Worked examples are
+  read out of `OK_initiative_table.xlsx` and `DE_initiative_table.xlsx`, so the
+  rules match how the two reference states were actually coded. Also: never
+  divide an initiative budget, and never average the 15.7%–48.7% spread (§0.1b).
+
+The two parts are kept explicitly non-substitutable (§0.1a, §7A.5a). Delaware's
+school-based health centers are the worked case: the *awards* to Beebe,
+TidalHealth and Nemours are Part A `Yes`; the same program's *initiative* row is
+Part B `Unclear`, because the narrative was written while the vendor was still
+TBD. Both codings are correct and they are not the same claim.
+
+Added as well: a walkthrough of the review-queue flags a human will actually
+meet (`UNPARSED_AWARD_CANDIDATE` carries no tier claim,
+`AMOUNT_EXCEEDS_STATE_ALLOTMENT` is almost always a multi-recipient field,
+`PROGRAM_NAME_AS_AWARDEE` never promotes the agency to recipient, and so on).
+
+**One spec defect is flagged in the file rather than silently coded around.**
+§10.2's `NON_HOSPITAL` row lists *"school-based health centers"* as an example
+of a recipient "clearly outside hospitals." That is an activity, and it is the
+exact error §0.3a exists to correct — the four Delaware records it would
+mis-code are the four §0.3a names. The instructions state that recipient
+identity overrides the §10.2 example list. **§10.2 should be corrected in the
+spec**; a reviewer reading the spec directly still hits the trap.
+
 ### Next session
 
 **Two offline tasks come first:**
@@ -605,7 +654,9 @@ published with. The run reports the reclassification count and writes the set to
    `Rscript R/03_state_registry.R --validate`.
 2. **Commit the §9.11 Delaware findings.** §0.3a quotes their result and the
    sequencing records the test as complete, but the document is not in the repo,
-   so the eleven verified records cannot be re-read here.
+   so the eleven verified records cannot be re-read here. The reviewer
+   instructions now restate seven of the eleven from §10.0; the other four are
+   still unrecoverable in this repo.
 
 **Then Stage 2.5 (§7A)** — collect and parse the 50 budget narratives into the
 initiative table, reconcile against the CMS allotments (§7A.4), quarantine any
