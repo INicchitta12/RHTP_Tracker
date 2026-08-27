@@ -53,6 +53,14 @@ RHTP money moves CMS → state → subrecipient. RCJ mixes all three tiers in a 
 
 **Only Tier 3 answers the project question.** Tiers 1 and 2 live in separate reference tables, on separate Excel sheets, and are never unioned with Tier 3. Aggregation functions must hard-fail if passed mixed tiers.
 
+### 0.2a One home per authoritative number
+
+Tier 1 classification produced **274 RCJ records across 50 states** — roughly five per state, each restating the same allotment in a different document. Correctly classified, but Tier 1 no longer sums to $10B.
+
+**The canonical Tier 1 table is `cms_fy2026_allotments.csv`, 50 rows.** The 274 RCJ records are *corroborating references*: useful for provenance and for checking that RCJ's figures agree with CMS, never the table itself, never summed. Any RCJ record disagreeing with the CMS figure for its state is a finding about RCJ's accuracy — record it, don't silently prefer one.
+
+The same discipline governs initiative budgets (§7A.5) and recipient amounts (§9.3). An authoritative number has exactly one home, and every other appearance of it is a reference.
+
 ### 0.3a Code the recipient, not the activity
 
 **The single most consequential coding rule, and the one that has already gone wrong.** All eleven verified Delaware records were coded `hospital = no`, including four awards to Beebe Healthcare, TidalHealth, and Nemours Children's Health — all hospitals and health systems. The coding followed what the money *does* (school-based health centers, a diabetes pilot) rather than who *receives* it. Applied nationally, that would have reported Delaware's hospital total as zero, the exact opposite of the truth.
@@ -311,7 +319,7 @@ Twice-weekly stands, with ~1,480 calls/month of headroom. No plan upgrade needed
 - **Three pagination handlers**, one per envelope in §4. Exhaustiveness differs by shape: compare written count to `pagination.total` for the standard envelope; loop until `hasMore` is false for activity and search. A silent short-read is the worst failure mode here.
 - `httr2` with `req_retry()` on 429/5xx with exponential backoff, `req_throttle()` **below 60 requests/minute** (no header will warn you), and a request timeout. Honor `Retry-After` on 429.
 - **Quota accounting.** Parse the four headers from §4 on every call, write remaining to `logs/pull_manifest.csv`, and abort at 90% monthly consumption rather than truncating silently.
-- **Pull manifest** — one row per call: timestamp, endpoint, params, HTTP status, records returned, requested limit, served limit, monthly quota remaining, duration.
+- **Pull manifest** — one row per call: timestamp, endpoint, params, HTTP status, records returned, requested limit, served limit, monthly quota remaining, duration, and `run_type` ∈ `DEV` | `PRODUCTION`. The manifest is **append-only**: development runs are filtered, never deleted. Removing rows from an audit log to tidy it defeats its purpose.
 - All normalization reads from `data/raw/`, never live. Development and re-runs cost zero quota.
 
 **Cadence:** twice-weekly through the Year 1→Year 2 transition. States are mid-cycle — Year 1 operating periods ended in August/September 2026 and Year 2 funds flow from October 1.
@@ -347,6 +355,9 @@ Failures go to `UNASSIGNED` and the review queue, never to `SUBAWARD`. Extend ru
 
 Build these as an explicit, testable filter set with a `flag_reason` column — flag and quarantine, don't silently drop:
 
+- **Multi-recipient fields — a recurring pattern, and a threat to Deliverable 1.** States concatenate several recipients into one `awardeeName`: New Hampshire returned a $1.9B row against a $204M allotment holding three managed care organizations; Delaware returned `University of Delaware, Beebe Healthcare, Deloitte Consulting LLP`.
+  This is not merely an amount-ceiling problem. **A hospital buried inside a three-name string will not exact-match the AHA Annual Survey and vanishes from the recipient list.** Beebe is the worked example.
+  Split `awardeeName` on `,`, `;`, ` and `, and ` & `; emit one candidate per fragment; flag the group `MULTI_RECIPIENT_FIELD`; route to review rather than auto-resolving — the split is a guess about the state's formatting, not a fact. The amount stays with the group and is **never divided** (§7A.5).
 - **Provenance mismatch — highest priority filter.** Delaware returned four records tracing to a HRSA Rural Health Grants fact sheet: real rural health awards, wrong program, unflagged in the RHTP feed. Description-negation regex cannot catch these because nothing about them reads as non-rural-health. Test the source document for non-RHTP federal program markers — HRSA, USDA Rural Development, FCC/USAC Rural Health Care, Flex/SORH — and quarantine any record whose source doesn't tie to RHTP. Flag as `PROVENANCE_MISMATCH`. Getting HRSA money into an RHTP figure is exactly the error that would discredit the analysis.
 - **Junk state codes.** `RC` appears as a state code carrying 54 documents and is not a state. Validate every `state` value against the 50-row CMS list from §7.1; anything failing is quarantined, never silently mapped.
 - **Self-declared non-RHTP.** Records whose description states the document does not relate to RHTP (a Wisconsin Perkins CTE record currently sits in the feed this way). Regex on the description for negation phrasing.
@@ -364,6 +375,7 @@ Build these as an explicit, testable filter set with a `flag_reason` column — 
 - **Content-based dedup, keyed on name as well as amount.** The same award reported through two source documents gets two record IDs — Delaware returned two $10M school-based-health-center rows that appear to be the same money. Key on `(state, awardee_name_clean, amount, activity_type)`.
   **The name is not optional.** A key of `(state, amount, activity_type)` called Oregon's 99 separate $100,000 awards to 99 distinct hospitals a single duplicate, collapsing 927 collisions to 15. Uniform-amount grant programs are the normal shape of a state subaward round, not an edge case: an amount collision without a name match is a formula, not a duplicate.
   Route surviving collisions to the review queue rather than auto-merging.
+- **The hash covers the payload, not the derived columns.** Classification outputs are a build product, not a fact about the record. An unchanged record must pick up the current build's classification without superseding anything — otherwise no rule change is ever visible, and §13.10 passes silently over a table mixing rule generations.
 - Maintain effective-dated rows: `first_seen`, `last_seen`, `superseded_by`. Never overwrite a prior version of a record.
 - Diff each pull against the previous. Changed and new records go to the review queue. Records unchanged since last pull skip re-validation.
 - **Re-opened solicitations are a known trap.** West Virginia currently has multiple re-opened solicitations with the same underlying opportunity. Match on the state's own solicitation number where present (e.g. `RHT-AFA-04-28-2026-MSC3`) to avoid counting the same pool twice.
@@ -381,7 +393,11 @@ Scan `/documents` for records that are award-shaped but produced no `/awards` ro
 - a dollar figure present
 - **no `/awards` record shares that `sourceDocument.id`**
 
-Emit these as `UNASSIGNED` Tier 3 *candidates* into the review queue with `flag_reason = UNPARSED_AWARD_CANDIDATE`. **Never auto-promote them to `SUBAWARD`** — the whole point is that RCJ's extraction failed here, so a second automated extraction of the same text deserves no more trust. A human or Stage 4 corroboration resolves them.
+Emit these as `UNASSIGNED` Tier 3 *candidates* into the review queue with `flag_reason = UNPARSED_AWARD_CANDIDATE`.
+
+**Absence in RCJ is a statement about RCJ, not about the state.** The first mining run found 38 candidates across 19 states; of the eleven zero-award states, four (FL, NC, NJ, TN) have unparsed data and seven have nothing. Code those seven `NO_RCJ_DATA` — never anything implying the data doesn't exist. Delaware settled this: seven of eleven verified awards appear in no RCJ endpoint at all. The budget narratives (§7A) determine what actually exists.
+
+**Never auto-promote candidates to `SUBAWARD`** — the whole point is that RCJ's extraction failed here, so a second automated extraction of the same text deserves no more trust. A human or Stage 4 corroboration resolves them.
 
 Known live example: *FL - 2026 - Parrish Medical Center Awarded More Than 52 Million in Grants*, sitting in `/documents` as `REFERENCE` while Florida shows zero awards.
 
@@ -511,7 +527,7 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 
 **`validator`:** `AUTO` | reviewer initials
 
-**`flag_reason`** additions: `PROVENANCE_MISMATCH` | `AMOUNT_PLACEHOLDER` | `AMOUNT_NULL_SENTINEL` | `SOURCE_IS_PLAN_NOT_AWARD` | `UNPARSED_AWARD_CANDIDATE` | `JUNK_STATE_CODE` | `TITLE_JUNK` | `EVENT_BLEED` | `DEDUP_COLLISION`
+**`flag_reason`** additions: `PROVENANCE_MISMATCH` | `AMOUNT_PLACEHOLDER` | `AMOUNT_NULL_SENTINEL` | `SOURCE_IS_PLAN_NOT_AWARD` | `UNPARSED_AWARD_CANDIDATE` | `UNPARSED_DATA_EXISTS` | `NO_RCJ_DATA` | `MULTI_RECIPIENT_FIELD` | `JUNK_STATE_CODE` | `TITLE_JUNK` | `EVENT_BLEED` | `DEDUP_COLLISION`
 
 **`activity_type`:** map to the CMS RHTP allowable-use categories (the CMS category guidance series — e.g. Category E covers workforce). Retain the state's own raw activity language in a parallel `activity_type_raw` field; never discard it.
 
@@ -720,12 +736,16 @@ At least 6 of 11 Delaware records are hospital recipients. Coded by activity, th
 `openxlsx`, one workbook, sheets in this order:
 
 1. **README** — generation date, pull date range, `rules_version`, tier definitions, the §0.3a recipient-not-activity rule, the eligibility-is-not-receipt warning, a plain statement that Tier 1/2/3 figures must never be summed, **a plain statement that per-hospital dollar amounts are not published by states and are not reported here**, and the §9.8 `sample_error_rate` with its sample size.
-2. **Coverage** — sits second, before any figures. Per state: budget narrative collected (Y/N), initiative-level reconciliation status and percentage, RCJ `/awards` records parsed (39 of 50; blanks are AR, FL, KY, MA, MN, NJ, NY, NC, SC, TN, WY), and §6.4 unparsed candidate count. A state with zero parsed records but non-zero candidates is "data exists, source failed to extract" — Florida is the worked example.
+2. **Coverage** — sits second, before any figures. Per state: budget narrative collected (Y/N), initiative-level reconciliation status and percentage, RCJ `/awards` records parsed (39 of 50; blanks are AR, FL, KY, MA, MN, NJ, NY, NC, SC, TN, WY), and §6.4 unparsed candidate count. Three states of interest:
+
+   - **Parsed** — 39 states with RCJ `/awards` records.
+   - **`UNPARSED_DATA_EXISTS`** — FL, NC, NJ, TN. Data exists; RCJ failed to extract it. Florida is the worked example.
+   - **`NO_RCJ_DATA`** — the remaining seven. This says nothing about whether awards exist; it says RCJ has none.
 3. **Hospital Recipients — Deliverable 1.** Named hospitals receiving RHTP funds: hospital, CCN, state, rural designation, initiative, `recipient_confirmed`, source URL, archive path. **No dollar column.** This is the primary product.
 4. **Initiative Dollars — Deliverable 2.** One row per initiative from §7A.3: state, initiative, budget, activity type, `has_hospital_recipient`, named recipients, reconciliation status. Dollars live here and only here.
 5. **Subawards (Tier 3)** — the full record-level table with both confirmation columns.
 6. **Solicitations (Tier 2)** — announced pools, physically separate.
-7. **State Allotments (Tier 1)** — 50 rows, CMS-anchored.
+7. **State Allotments (Tier 1)** — exactly 50 rows, sourced from `cms_fy2026_allotments.csv`. The 274 RCJ `STATE_ALLOTMENT` records are references, not rows here (§0.2a).
 8. **State Source Registry** — the §7 reference table.
 9. **Review Queue** — unresolved records.
 10. **Flagged / Quarantined** — junk-filter catches with `flag_reason`, plus states failing §7A.4 reconciliation.
@@ -799,7 +819,11 @@ Run on every build; fail the build, don't warn.
 21. Every state with a collected budget narrative has `reconciliation_status`; no `FAILED` state appears in a published sheet.
 22. `amount_confirmed = Yes` requires all four §9.3 signals including a recipient-level amount match. An initiative-level figure never satisfies it.
 23. Every reviewer-supplied `state_source_url` parses as a URL. Page titles are rejected on read-back (§9.12).
-24. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
+24. Tier 1 figures in any published sheet come from `cms_fy2026_allotments.csv` (50 rows), never from the RCJ `STATE_ALLOTMENT` records, which are references only (§0.2a).
+25. Every RCJ `STATE_ALLOTMENT` record is compared to the CMS figure for its state; disagreements are reported, not resolved silently.
+26. No row carries `MULTI_RECIPIENT_FIELD` and an auto-resolved hospital match. Splits go to review.
+27. All rows in a build share one `rules_version`, including rows whose payload hash was unchanged since the prior build.
+28. **Manifest schema is pinned.** The pull manifest is written against an explicit column schema and refuses to write on header mismatch. `write_csv(append = TRUE)` writes positionally, so a schema drift silently shifts every value one column and reports success — this happened once in Session 3 and was caught only by inspection.
 
 **Version the classification rules.** The determination logic in §10 will change as edge cases surface. Store `rules_version` on every row and tag the repo at each build, so you can always say which rules produced a published figure.
 
@@ -838,7 +862,7 @@ Build in this order. Each session ends with a working, tested stage, **all persi
 4. ~~**Session 4** — Stage 2 normalization.~~ **Complete.** 5,152 records; 1,016 clean Tier 3 across 38 states. Five spec rules corrected (§6.1, §6.2, §6.3). Registry seed: 151 candidates.
 5. ~~**Delaware premise test.**~~ **Complete** — §9.11. Drove the §0.1 inversion and the §9.3 split.
 6. **Now — write `reviewer-coding-instructions.md`** before any further human review. Half a page, §0.3a with the Delaware worked examples. Everything downstream depends on humans applying it consistently, and it went wrong on the first eleven records.
-7. **Session 5 — CMS allotments, mining, registry worksheet.** Parse `cms_fy2026_allotments.csv` (§7.1), which unblocks `STATE_ALLOTMENT`. Build §6.4 `/documents` mining. Export the 151 registry candidates for offline verification, with the §9.12 URL validation.
+7. ~~**Session 5** — CMS allotments, mining, registry worksheet.~~ **Complete.** Anchor built: 50 states, $10,000,000,003. `STATE_ALLOTMENT` 0 → 274 rows. Mining: 38 candidates across 19 states, Parrish caught. Registry worksheet: 151 candidates. Change-detection defect on derived columns found and fixed.
 8. **Offline — verify the registry** (~2 hours), and while in each state's pages, capture the budget narrative URL for §7A.2.
 9. **Session 6 — Stage 2.5.** Collect and parse the 50 budget narratives into the initiative table. Reconcile against CMS allotments (§7A.4). Quarantine any state that fails.
 10. **Session 7 — Stage 4.** Document clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation corroborator (§9.3). Requires **Full** network access — clear with AHA IT before this session.
@@ -851,14 +875,17 @@ The AHA Annual Survey and CMS Provider of Services extracts needed in Session 8 
 
 ### Opening prompt for the next session
 
-> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` in full — §0.1 inverts the architecture, and §0.3a, §7A, §9.3, §10.0, §11 and §14 are new or rewritten. The short version: state budget narratives are now the backbone, RCJ is a supplement, and per-hospital dollar amounts are not a deliverable.
+> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §0.2a is new, and §6.2, §6.3, §6.4, §11 and §13 changed after Session 5.
 >
-> Stage 2 is merged. Three tasks this session, in order:
+> Four corrections to apply first:
 >
-> 1. Parse the CMS FY2026 allotment table per §7.1 into `data/reference/cms_fy2026_allotments.csv`. `cms.gov` is allowlisted. Assert 50 rows, sum ≈ $10B, min ≈ $147M, max ≈ $281M on load. Re-run Stage 2 afterward and report what moves out of `UNASSIGNED`.
-> 2. Build the §6.4 `/documents` mining pass. Report mined candidate counts per state, especially the eleven with zero award records. Do not auto-promote anything to `SUBAWARD`.
-> 3. Export the 151 registry candidates as a verification worksheet per §9.12 — one row per candidate host, with columns for `award_posting_url`, `budget_narrative_url` (§7A.2), `pass_through_admin`, and `last_verified`. URL columns must validate on read-back and reject page titles.
+> 1. **§0.2a** — Tier 1 published figures come from `cms_fy2026_allotments.csv` (50 rows), not the 274 RCJ `STATE_ALLOTMENT` records. Add the corroboration check: compare each of the 274 to the CMS figure for its state and report disagreements.
+> 2. **§6.2** — split multi-recipient `awardeeName` fields on delimiters, one candidate per fragment, flagged `MULTI_RECIPIENT_FIELD`, routed to review. Never divide the amount. Test against the NH three-MCO row and Delaware's `University of Delaware, Beebe Healthcare, Deloitte Consulting LLP`.
+> 3. **§6.4** — recode the seven states with no RCJ awards as `NO_RCJ_DATA`, and FL/NC/NJ/TN as `UNPARSED_DATA_EXISTS`.
+> 4. **§5.2** — add `run_type` to the manifest schema and backfill the four development runs as `DEV`.
 >
-> Do not start Stage 4 or Stage 2.5 — those need the registry verified first.
+> Also report: which state is missing from the 49 `/opportunities` allotment rows, and whether it has a differently-titled record or none.
+>
+> Then, if the registry worksheet is verified and returned, begin Stage 2.5 (§7A) — budget narrative collection and the initiative table. If it isn't back yet, stop after the corrections.
 >
 > Open a PR. Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
