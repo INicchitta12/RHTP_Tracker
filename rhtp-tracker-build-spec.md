@@ -32,14 +32,29 @@ RCJ's 1,016 Tier 3 records stay useful. They stop being the frame.
 
 ### 0.1a What this project can and cannot deliver
 
-Delaware publishes named recipients but **not recipient-level dollar amounts** — figures exist only at initiative level. If that holds nationally, **no pipeline produces a per-hospital dollar figure**, because states are not publishing one.
+Delaware and Oklahoma both publish **initiative-level dollars** and **neither publishes recipient-level amounts.** Delaware's budget narrative names four subrecipients across fifteen initiatives and **no hospitals at all** — not Beebe, TidalHealth, Nemours, Bayhealth, or ChristianaCare, despite all five appearing in its CMS abstract as known partners. **No pipeline produces a per-hospital dollar figure**, because states are not publishing one.
 
 Two deliverables, both defensible:
 
-1. **Which hospitals are receiving RHTP funds** — names, states, initiatives, source-verified. Achievable nationally, and likely the stronger advocacy asset: a named list of rural hospitals in members' states persuades a Hill audience more than an aggregate.
-2. **How much flows through hospital-involved initiatives** — initiative-level dollars where hospitals are named recipients, with an explicit statement that per-hospital splits are not published.
+1. **Which hospitals are receiving RHTP funds** — names, states, initiatives, source-verified. From **award notices**, not budget narratives (§7A.5a).
+2. **How much flows through hospital-involved initiatives** — initiative-level dollars with a hospital-directed flag. From **budget narratives**.
+
+**These are two sources and they do not substitute for each other.** Delaware proves it: the school-based health center awards to Beebe, TidalHealth, and Nemours are independently verified, but Initiative 3 in the budget narrative is $195,000 with "Vendor TBD." The budget narrative is a point-in-time plan; recipient identity emerges afterward through procurement.
 
 **Do not promise a per-hospital dollar total.** The absence is itself a finding: states are distributing federal money without publishing recipient-level amounts.
+
+### 0.1b Expect wide variance between states — the variance is the finding
+
+Hospital-directed share of Year 1 spending, from the two hand-extracted reference states:
+
+| State | Hospital-directed | Unclear | Non-hospital | Largest single line |
+|---|---|---|---|---|
+| **Oklahoma** | **48.7%** | 17.1% | 34.2% | Provider Collaborative Network, $43.1M — a nonprofit owned by member hospitals |
+| **Delaware** | **15.7%** | 24.5% | 59.8% | Delaware Medical School, $42.5M — not a hospital |
+
+A threefold spread across two states. Do not average it into a national figure and do not expect one to be meaningful. The reportable result is state-by-state, and the driver is structural: whether a state built its program around hospital collaboratives or around medical education and infrastructure.
+
+Frame findings accordingly — *"hospital-directed share ranges from X% to Y% across states, driven by program design"* is supportable; *"N% of RHTP funding goes to hospitals"* is not.
 
 ### 0.2 The three-tier rule
 
@@ -464,7 +479,14 @@ Notes for the build:
 
 CMS required a budget narrative from every state as part of the RHTP cooperative agreement, with revised versions due roughly 30 days after the December 29, 2025 award announcement. They decompose a state's allotment into named initiatives with dollar figures and activity categories.
 
-Known live examples: Delaware's `Final-RHTP-Revised-Budget-1.30.26.pdf` (15 initiatives), California's CalRHT Budget Narrative, Kansas's Year 1 Budget Narrative Revision 2.
+**Two states are extracted and committed as reference implementations** — build the parser against both, not either:
+
+- `OK_initiative_table.xlsx` — Oklahoma, 28 fund uses, structured and repeating, one page per fund use, Lead Agency named throughout.
+- `DE_initiative_table.xlsx` — Delaware, 15 initiatives, narrative and variable, contract-by-contract, recipients mostly TBD.
+
+They are formatted so differently that a parser tuned to one will fail on the other. Assume format variation is the norm.
+
+Other known live examples: California's CalRHT Budget Narrative and Notice of Award, Kansas's Year 1 Budget Narrative Revision 2, Oklahoma's Initiative Funding Summary.
 
 Many are linked from the state RHTP program pages already being verified in §7.2, so collection partly rides along with registry verification.
 
@@ -480,23 +502,52 @@ Where a state hasn't published one, record `NOT_FOUND` with the date searched. A
 
 Parse each narrative into `data/interim/initiatives.rds`, one row per initiative:
 
-`state`, `initiative_id`, `initiative_name`, `initiative_budget`, `activity_type`, `activity_type_raw`, `initiative_description`, `budget_narrative_version`, `source_archive_path`, `page_reference`, `extraction_method`
+`state`, `initiative_id`, `initiative_name`, `initiative_budget`, `activity_type`, `activity_type_raw`, `initiative_description`, `named_recipient_or_contractor`, `recipient_status`, `flow_type`, `has_hospital_recipient`, `evidence_from_document`, `budget_narrative_version`, `source_archive_path`, `page_reference`, `extraction_method`
+
+`recipient_status` ∈ `NAMED` | `NAMED + TBD` | `TBD`. Most initiatives will be `TBD` — Delaware names a recipient for only 4 of 15. `evidence_from_document` holds the sentence that supports the `has_hospital_recipient` call, so a reviewer can check the classification without reopening the PDF.
 
 `page_reference` matters — a reviewer must be able to open the archived PDF at the right page to check a figure.
 
-### 7A.4 Reconciliation is the QA gate
+### 7A.4 Reconciliation is the QA gate — and it works
 
-For each state, the sum of `initiative_budget` must reconcile to that state's `fy2026_allotment` from §7.1, within a tolerance for administrative costs and rounding. **A state that doesn't reconcile has a bad parse and is quarantined, not published.**
+For each state, the sum of `initiative_budget` must reconcile to that state's `fy2026_allotment` from §7.1. **A state that doesn't reconcile has a bad parse and is quarantined, not published.**
 
-This self-validation is the central advantage of the backbone approach and RCJ offers no equivalent. Record `reconciliation_pct` and `reconciliation_status` per state.
+**Both reference states reconcile, by different structures.** The tolerance must accommodate both:
 
-### 7A.5 Linking recipients to initiatives
+| State | Award | Narrative total | Structure |
+|---|---|---|---|
+| **Delaware** | $157,394,964 | $157,394,963.86 | Exact — admin and indirect **inside** the total |
+| **Oklahoma** | $223,476,948.62 | $204,900,000 allocated | 91.7% — admin and indirect **outside** the fund-use lines |
 
-RCJ Tier 3 records and §6.4 mined candidates attach to initiatives by matching on state plus initiative name or activity type. Matching is fuzzy and goes to the review queue; it never auto-resolves.
+So the gate is: **either the narrative total matches the award within rounding, or the sum of allocated fund uses falls between 85% and 100% of it** with the remainder attributable to administrative and indirect costs. Record which pattern a state follows in `reconciliation_structure` ∈ `TOTAL_INCLUSIVE` | `ALLOCATED_ONLY`.
 
-An initiative with at least one confirmed hospital recipient is flagged `has_hospital_recipient`. **That flag, not a per-hospital dollar split, is what carries the dollar figure** in the §11 deliverable.
+Reconciling at 91.7% is not a failure; reconciling at 60% is. Anything below 85% goes to review before it is called a bad parse.
+
+This self-validation is the central advantage of the backbone approach and RCJ offers no equivalent. Record `reconciliation_pct`, `reconciliation_structure`, and `reconciliation_status` per state.
+
+### 7A.5 What budget narratives do and do not give you
+
+**They give you dollars and, at best, a recipient *class*. They do not give you recipients.**
+
+Oklahoma names a Lead Agency for all 28 fund uses. Delaware names a subrecipient for 4 of 15 initiatives and no hospital anywhere. Treat named recipients as a bonus, never a dependency — a parser that requires them will fail on most states.
+
+What is reliably extractable, and enough for Deliverable 2:
+
+- initiative name and dollar amount
+- administering agency or lead entity, where stated
+- **flow language** — the sentence describing who the money reaches. This is what populates `has_hospital_recipient` without any recipient being named. Oklahoma: *"hospitals reimbursed for CHW hiring, training, and monitoring."* Delaware: *"fund healthcare systems and educational institutions to expand training capacity."* Both support a hospital-directed call; neither names a hospital.
+
+An initiative flagged `has_hospital_recipient` carries the dollar figure in the §11 deliverable. **That flag, not a per-hospital split, is the unit.**
 
 Never divide an initiative budget across its recipients. States don't publish the split, and inventing one would be the most damaging thing this project could do.
+
+### 7A.5a Deliverable 1 comes from award notices, not from here
+
+Recipient identity emerges **after** the budget narrative, through state procurement. Delaware's Initiative 3 is $195,000 with "Vendor TBD"; the school-based health center awards to Beebe Healthcare, TidalHealth, and Nemours were independently verified from a governor's announcement that post-dates the narrative.
+
+So RCJ Tier 3 records and §6.4 mined candidates attach to initiatives by matching on state plus initiative name or activity type — fuzzy, routed to the review queue, never auto-resolved. That linkage enriches the initiative table; it is not how the table is built.
+
+**Do not collapse the two sources.** Stage 2.5 produces Deliverable 2 from narratives. Stage 4 produces Deliverable 1 from award notices. Neither is a shortcut to the other.
 
 ---
 
@@ -742,7 +793,7 @@ At least 6 of 11 Delaware records are hospital recipients. Coded by activity, th
    - **`UNPARSED_DATA_EXISTS`** — FL, NC, NJ, TN. Data exists; RCJ failed to extract it. Florida is the worked example.
    - **`NO_RCJ_DATA`** — the remaining seven. This says nothing about whether awards exist; it says RCJ has none.
 3. **Hospital Recipients — Deliverable 1.** Named hospitals receiving RHTP funds: hospital, CCN, state, rural designation, initiative, `recipient_confirmed`, source URL, archive path. **No dollar column.** This is the primary product.
-4. **Initiative Dollars — Deliverable 2.** One row per initiative from §7A.3: state, initiative, budget, activity type, `has_hospital_recipient`, named recipients, reconciliation status. Dollars live here and only here.
+4. **Initiative Dollars — Deliverable 2.** One row per initiative from §7A.3: state, initiative, budget, activity type, `has_hospital_recipient`, named recipients, reconciliation status and structure. Dollars live here and only here. **Report hospital-directed share by state, never as a national average** (§0.1b).
 5. **Subawards (Tier 3)** — the full record-level table with both confirmation columns.
 6. **Solicitations (Tier 2)** — announced pools, physically separate.
 7. **State Allotments (Tier 1)** — exactly 50 rows, sourced from `cms_fy2026_allotments.csv`. The 274 RCJ `STATE_ALLOTMENT` records are references, not rows here (§0.2a).
@@ -864,7 +915,7 @@ Build in this order. Each session ends with a working, tested stage, **all persi
 6. **Now — write `reviewer-coding-instructions.md`** before any further human review. Half a page, §0.3a with the Delaware worked examples. Everything downstream depends on humans applying it consistently, and it went wrong on the first eleven records.
 7. ~~**Session 5** — CMS allotments, mining, registry worksheet.~~ **Complete.** Anchor built: 50 states, $10,000,000,003. `STATE_ALLOTMENT` 0 → 274 rows. Mining: 38 candidates across 19 states, Parrish caught. Registry worksheet: 151 candidates. Change-detection defect on derived columns found and fixed.
 8. **Offline — verify the registry** (~2 hours), and while in each state's pages, capture the budget narrative URL for §7A.2.
-9. **Session 6 — Stage 2.5.** Collect and parse the 50 budget narratives into the initiative table. Reconcile against CMS allotments (§7A.4). Quarantine any state that fails.
+9. **Session 6 — Stage 2.5.** Three tasks: (a) finish Delaware initiatives 13-15, truncated in the manual extraction, ~$10.1M of contractual; (b) extract the 16 remaining CMS abstracts (OH through WY); (c) build the narrative parser against **both** reference tables per §7A.2, and reconcile against CMS allotments (§7A.4).
 10. **Session 7 — Stage 4.** Document clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation corroborator (§9.3). Requires **Full** network access — clear with AHA IT before this session.
 11. **Offline — program flow classifications** (~3 hours), `program_flow_classifications.csv` per §9.9.
 12. **Session 8 — Stage 5** hospital determination, AHA/POS crosswalk, fuzzy-match review queue.
@@ -875,17 +926,16 @@ The AHA Annual Survey and CMS Provider of Services extracts needed in Session 8 
 
 ### Opening prompt for the next session
 
-> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §0.2a is new, and §6.2, §6.3, §6.4, §11 and §13 changed after Session 5.
+> Continuing the RHTP tracker. Re-read `rhtp-tracker-build-spec.md` — §0.1a, §0.1b, §7A.2, §7A.3, §7A.4, §7A.5 and §7A.5a have all changed after Delaware was extracted by hand.
 >
-> Four corrections to apply first:
+> Headline changes: budget narratives give dollars and flow language but mostly NOT recipients (Delaware names 4 subrecipients across 15 initiatives and no hospital at all); Deliverable 1 comes from award notices, not narratives; and hospital-directed share ranges 15.7%–48.7% across the two reference states, so never report a national average.
 >
-> 1. **§0.2a** — Tier 1 published figures come from `cms_fy2026_allotments.csv` (50 rows), not the 274 RCJ `STATE_ALLOTMENT` records. Add the corroboration check: compare each of the 274 to the CMS figure for its state and report disagreements.
-> 2. **§6.2** — split multi-recipient `awardeeName` fields on delimiters, one candidate per fragment, flagged `MULTI_RECIPIENT_FIELD`, routed to review. Never divide the amount. Test against the NH three-MCO row and Delaware's `University of Delaware, Beebe Healthcare, Deloitte Consulting LLP`.
-> 3. **§6.4** — recode the seven states with no RCJ awards as `NO_RCJ_DATA`, and FL/NC/NJ/TN as `UNPARSED_DATA_EXISTS`.
-> 4. **§5.2** — add `run_type` to the manifest schema and backfill the four development runs as `DEV`.
+> Three tasks this session:
 >
-> Also report: which state is missing from the 49 `/opportunities` allotment rows, and whether it has a differently-titled record or none.
+> 1. Finish Delaware initiatives 13-15. The manual extraction truncated at Initiative 12; roughly $10.1M of contractual is unaccounted. The PDF is at `https://dhss.delaware.gov/wp-content/uploads/sites/12/2026/06/Final-RHTP-Revised-Budget-1.30.26.pdf`. Add `dhss.delaware.gov` to the allowlist if needed.
+> 2. Extract the remaining 16 CMS abstracts (OH through WY) from `https://www.cms.gov/files/document/rht-program-state-provided-abstracts.pdf` into the candidate table. `cms.gov` is allowlisted. Remember §4.1: abstract dollar figures are illustrative and unusable; only named organizations are extracted, and they are candidates only.
+> 3. Build the Stage 2.5 narrative parser against **both** `OK_initiative_table.xlsx` and `DE_initiative_table.xlsx`. They are formatted very differently on purpose — a parser tuned to one will fail on the other. Implement the §7A.4 two-pattern reconciliation gate.
 >
-> Then, if the registry worksheet is verified and returned, begin Stage 2.5 (§7A) — budget narrative collection and the initiative table. If it isn't back yet, stop after the corrections.
+> Do not start Stage 4. The registry is still unverified.
 >
 > Open a PR. Reminders: never print `RCJ_API_KEY`; `data/raw/` is committed, not ignored; tidyverse and `%>%` only.
