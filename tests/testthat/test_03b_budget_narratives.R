@@ -66,9 +66,9 @@ test_that("every parsed table lands in the full §7A.3 canonical schema", {
 })
 
 test_that("row counts and figures survive the parse exactly", {
-  expect_equal(nrow(de), 14)
+  expect_equal(nrow(de), 17)
   expect_equal(nrow(ok), 29)
-  expect_equal(sum(de$initiative_budget), 133082267.48)
+  expect_equal(sum(de$initiative_budget), 143187467.48)
   expect_equal(sum(ok$initiative_budget), 204900000)
   # The largest line in each state, pinned: §0.1b turns on both.
   expect_equal(max(de$initiative_budget), 42500000)   # Delaware Medical School
@@ -157,7 +157,7 @@ test_that("Oklahoma derives NAMED on all 28 fund uses (§7A.5)", {
 })
 
 test_that("Delaware names a recipient for 4 of its 15 initiatives (§7A.5)", {
-  expect_equal(sum(de$recipient_status %in% c("NAMED", "NAMED + TBD")), 4)
+  expect_equal(sum(de$recipient_status %in% c("NAMED", "NAMED + TBD")), 5)
 })
 
 test_that("a quoted award-programme label is not read as a recipient", {
@@ -290,38 +290,51 @@ test_that("Oklahoma reconciles at 91.7%, which §7A.4 says is not a failure", {
   expect_true(recon_ok$publishable)
 })
 
-test_that("the gate catches Delaware's truncated extraction on its own", {
-  # The committed extraction stops at Initiative 12. Its narrative total is
-  # exact to $0.14 -- so a gate keyed on the STATED total would pass it. Keying
-  # on what was actually captured is what makes the check work.
-  expect_equal(round(100 * recon_de$reconciliation_pct, 1), 84.6)
-  expect_equal(recon_de$reconciliation_status, "VARIANCE")
-  expect_false(recon_de$publishable)
-})
+test_that("the gate catches a truncated extraction on its own", {
+  # Historically live: the committed Delaware extraction stopped at Initiative
+  # 12 and the gate quarantined the state without being told. Initiatives 13-15
+  # have since been extracted (session 8), so the condition is reproduced here
+  # by truncating the fixture rather than deleted -- the gate's ability to catch
+  # a short parse is the whole reason this stage sits ahead of Stage 4.
+  #
+  # Delaware's narrative total is exact to $0.14, so a gate keyed on the STATED
+  # total would pass the truncated table. Keying on what was actually captured
+  # is what makes the check work.
+  truncated <- de %>%
+    dplyr::filter(!initiative_no_source %in% c("13", "14", "15"))
 
-test_that("Delaware reconciles once initiatives 13-15 are added", {
-  # $10,105,200 of contractual spending, per the workbook's own reconciliation
-  # sheet. The remaining shortfall is state admin ($1,079,227.17) and indirect
-  # ($13,128,269.21), which sit outside the initiative lines.
-  completed <- dplyr::bind_rows(
-    de,
-    de[1, ] %>% dplyr::mutate(
-      initiative_id = "DE-901", initiative_budget = 10105200
-    )
-  )
-
-  filled <- rhtp_reconcile_narratives(completed, stated, allotments) %>%
+  result <- rhtp_reconcile_narratives(truncated, stated, allotments) %>%
     dplyr::filter(state == "DE")
 
-  expect_equal(round(100 * filled$reconciliation_pct, 1), 91.0)
-  expect_equal(filled$reconciliation_status, "RECONCILED")
-  expect_true(filled$publishable)
+  expect_equal(nrow(truncated), 14)
+  expect_equal(sum(truncated$initiative_budget), 133082267.48)
+  expect_equal(round(100 * result$reconciliation_pct, 1), 84.6)
+  expect_equal(result$reconciliation_status, "VARIANCE")
+  expect_false(result$publishable)
 })
 
-test_that("the unreconciled remainder is exactly the missing lines plus admin and indirect", {
+test_that("Delaware reconciles now that initiatives 13-15 are extracted", {
+  # Initiatives 13-15 are $10,105,200 of contractual spending, extracted from
+  # pp. 68-74 of the revised budget narrative. They were predicted by the
+  # workbook's own reconciliation sheet before they were read, and they land on
+  # the prediction to the dollar -- captured now equals the narrative's stated
+  # Contractual total of $143,187,467.48 exactly.
+  expect_equal(round(100 * recon_de$reconciliation_pct, 1), 91.0)
+  expect_equal(recon_de$reconciliation_status, "RECONCILED")
+  expect_true(recon_de$publishable)
+
+  expect_equal(sum(de$initiative_budget[de$initiative_no_source %in% c("13", "14", "15")]),
+               10105200)
+  expect_equal(sum(de$initiative_budget), 143187467.48)
+})
+
+test_that("the unreconciled remainder is exactly admin plus indirect", {
+  # With initiatives 13-15 extracted, everything still outside the initiative
+  # lines is state admin (personnel + fringe + travel + supplies) and the 9.1%
+  # indirect -- both read off the narrative's own executive budget summary.
   expect_equal(
     round(recon_de$unreconciled_remainder, 2),
-    round(10105200 + 1079227.17 + 13128269.21, 2)
+    round(1079227.17 + 13128269.21, 2)
   )
 })
 
@@ -378,12 +391,16 @@ test_that("the 48 states with no narrative are NO_NARRATIVE, never zero spending
 # -- §0.1b The variance the gate is meant to preserve ----------------------
 
 test_that("the parser reproduces the §0.1b hospital-directed shares", {
-  # Oklahoma 48.7%, Delaware 15.7%. These are the headline numbers of §0.1b and
-  # they come out of the parse rather than being carried over by hand.
+  # Oklahoma 48.7%, Delaware 14.6%. These are the headline numbers of §0.1b and
+  # they come out of the parse rather than being carried over by hand. Delaware
+  # was 15.7% while its extraction stopped at Initiative 12; initiatives 13-15
+  # add $10.1M of non-hospital denominator and no hospital-directed numerator,
+  # so the share falls without any row being re-coded. The threefold OK/DE
+  # spread -- the finding of §0.1b -- is unchanged.
   expect_equal(round(100 * recon_ok$hospital_directed_pct, 1), 48.7)
-  expect_equal(round(100 * recon_de$hospital_directed_pct, 1), 15.7)
+  expect_equal(round(100 * recon_de$hospital_directed_pct, 1), 14.6)
   expect_equal(round(100 * recon_ok$unclear_pct, 1), 17.1)
-  expect_equal(round(100 * recon_de$unclear_pct, 1), 24.5)
+  expect_equal(round(100 * recon_de$unclear_pct, 1), 22.8)
 })
 
 test_that("no initiative budget is ever divided across recipients (§7A.5)", {

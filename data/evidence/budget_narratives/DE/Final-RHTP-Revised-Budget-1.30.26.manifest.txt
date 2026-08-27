@@ -1,0 +1,53 @@
+RHTP tracker archive (spec 7A.2): Delaware RHTP Revised Budget Narrative.
+
+source_url      : https://dhss.delaware.gov/wp-content/uploads/sites/12/2026/06/Final-RHTP-Revised-Budget-1.30.26.pdf
+fetched_utc     : 2026-08-27T21:04:32Z
+http_status     : 200
+bytes           : 619344
+sha256          : a38271dad1f1a70f31eee45ead654c4562950aaf8e02c971d79710632a981fe0
+pages           : 74
+narrative_version: Revised 1.30.26
+state           : DE
+
+Archived under data/evidence/ and therefore committed (spec 0.5). This is the
+primary source of record for DE_initiative_table.xlsx. Host dhss.delaware.gov
+was denied by the egress policy through session 7, which is why initiatives
+13-15 stayed unextracted and the 7A.4 gate held Delaware at VARIANCE / 84.6%.
+The host was allowlisted for session 8 and the document fetched here.
+
+Text layer used for the extraction of initiatives 13-15:
+
+  No pdftotext/poppler, pdftools or pypdf is available in the cloud session, so
+  the text was recovered by inflating the PDF's own FlateDecode content streams
+  and reading the Tj/TJ operators, walking the page tree for document order.
+  Initiatives 13, 14 and 15 begin on pages 68, 71 and 73 respectively.
+
+WHAT THIS DOCUMENT SUPPORTS (spec 7A, Part B of reviewer-coding-instructions):
+
+  This is a STATE BUDGET NARRATIVE, not a notice of award. It supports
+  initiative-level coding -- has_hospital_recipient -- and never a Deliverable 1
+  receipt claim about a named hospital. Delaware names a recipient for only 5 of
+  its 15 initiatives; the rest are TBD pending procurement (spec 7A.5).
+
+  The figures below are the narrative's own executive budget summary and are
+  what the 7A.4 gate reconciles against:
+
+    Personnel                        $390,952.60
+    Fringe                           $232,047.21
+    Travel                            $24,635.68
+    Equipment                              $0.00
+    Supplies                         $431,591.68
+    Contractual                  $143,187,467.48
+    Other                                  $0.00
+    Subtotal Direct              $144,266,694.65
+    Indirect (9.1%)               $13,128,269.21
+    TOTAL                        $157,394,963.86   (CMS award: $157,394,964)
+
+  The 17 rows of DE_initiative_table.xlsx sum to $143,187,467.48 -- the
+  Contractual line exactly. The 9.03% not captured is state admin
+  ($1,079,227.17) plus indirect ($13,128,269.21), which sit outside the
+  initiative lines by construction.
+
+  Page 1 states Total Direct Costs of $721,329,131.03 for 15 initiatives. That
+  is the FIVE-YEAR plan, not Year 1. Do not reconcile it against the FY2026
+  allotment.
