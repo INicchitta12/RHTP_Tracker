@@ -174,7 +174,7 @@ data/
   interim/                     # normalized .rds/.csv; review_queue.rds — COMMITTED
   reference/                   # allotment anchor, registry, controlled vocabs
   evidence/                    # <state>/<record_id>_<date>.pdf — COMMITTED
-    budget_narratives/<state>/ #   §7A.2 — EMPTY, collection not started
+    budget_narratives/DE/      #   §7A.2 — DE narrative + SHA-256 manifest; 49 to go
 output/
   rhtp_hospital_tracker_<date>.xlsx
   review_queue_<date>.xlsx
@@ -394,7 +394,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-27 (Session 7 — Stage 2.5 parser, CMS abstracts completed)
+**Last updated:** 2026-08-27 (Session 8 — Delaware initiatives 13–15 extracted; DE RECONCILED)
 
 ### Stages built
 
@@ -406,13 +406,13 @@ retrieval code.
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
 | Stage 3 — Allotments + registry | `R/03_state_registry.R` | **Built and run. §7.1 anchor committed; §7.2 worksheet exported. §7.3 registry awaits offline verification — `docs/stage3_allotments_and_registry.md`** |
-| Stage 2.5 — Budget narratives | `R/03b_budget_narratives.R` | **Built and run (Session 7). Format-detecting parser + the §7A.4 gate. 2 of 50 states extracted; OK RECONCILED, DE quarantined — `docs/stage2.5_budget_narratives.md`** |
+| Stage 2.5 — Budget narratives | `R/03b_budget_narratives.R` | **Built and run. Format-detecting parser + the §7A.4 gate. 2 of 50 states extracted; OK and DE both `RECONCILED` and publishable (Session 8) — `docs/stage2.5_budget_narratives.md`** |
 | CMS project abstracts | `R/03c_cms_abstracts.R` | **Built and run (Session 7). All 50 states extracted, 120 CANDIDATE_ONLY organizations — §4.1** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_01_retrieve_rcj.R`<br>`tests/testthat/test_02_normalize.R`<br>`tests/testthat/test_03_state_registry.R`<br>`tests/testthat/test_03b_budget_narratives.R`<br>`tests/testthat/test_03c_cms_abstracts.R` | **Built — 44 + 276 + 70 + 86 + 40 = 516 assertions, all passing, zero quota. Run `Rscript tests/run_tests.R`** |
+| Tests | `tests/testthat/test_01_retrieve_rcj.R`<br>`tests/testthat/test_02_normalize.R`<br>`tests/testthat/test_03_state_registry.R`<br>`tests/testthat/test_03b_budget_narratives.R`<br>`tests/testthat/test_03c_cms_abstracts.R` | **Built — 44 + 276 + 70 + 90 + 40 = 520 assertions, all passing, zero quota. Run `Rscript tests/run_tests.R`** |
 
 ### States validated
 
@@ -496,18 +496,11 @@ locale at source time — keep both (§3.3).
    no findings document was committed, so the eleven records cannot be re-read
    here, and Stage 4's §9.3 design cannot be checked against what state sources
    actually publish. Commit them before Stage 4.
-3. **Delaware's budget narrative cannot be fetched from this environment.**
-   `dhss.delaware.gov` is denied by the egress policy — the proxy answers 403
-   to CONNECT, and `WebFetch` returns `EGRESS_BLOCKED` for the same host. So
-   `Final-RHTP-Revised-Budget-1.30.26.pdf` is unreadable here and Delaware's
-   initiatives 13–15 ($10,105,200) stay unextracted. The §7A.4 gate holds
-   Delaware at `VARIANCE`, 84.6%, quarantined — which is the correct outcome
-   and not a workaround. **Add `dhss.delaware.gov` to the environment
-   allowlist** (Claude Code on the web → environment settings → network
-   access), then re-run `Rscript R/03b_budget_narratives.R --build`; the tests
-   already assert Delaware reaches 91.0% and `RECONCILED` once those lines
-   land. The same allowlist change is needed for §7A.2 collection generally:
-   fifty state health-department hosts, none of them currently reachable.
+3. **The other 49 state health-department hosts are still not on the
+   allowlist.** `dhss.delaware.gov` was added for Session 8 and Delaware is
+   done, but §7A.2 needs fifty such hosts and only one is reachable. Widen the
+   allowlist (Claude Code on the web → environment settings → network access)
+   before the collection pass, or it will stall one state at a time.
 4. **Delta-pull strategy still needs a decision.** No `since` on the award or
    document endpoints, so hashing is the only Tier 3 change detection (§4.1).
    The remaining question is whether `/activity` narrows to a `since=` delta
@@ -694,7 +687,7 @@ parts:
   anywhere and still has six hospital-directed fund uses. Worked examples are
   read out of `OK_initiative_table.xlsx` and `DE_initiative_table.xlsx`, so the
   rules match how the two reference states were actually coded. Also: never
-  divide an initiative budget, and never average the 15.7%–48.7% spread (§0.1b).
+  divide an initiative budget, and never average the 14.6%–48.7% spread (§0.1b).
 
 The two parts are kept explicitly non-substitutable (§0.1a, §7A.5a). Delaware's
 school-based health centers are the worked case: the *awards* to Beebe,
@@ -743,6 +736,9 @@ OK  ALLOCATED_ONLY   RECONCILED   91.7%  (204,900,000 of 223,476,949)
 DE  TOTAL_INCLUSIVE  VARIANCE     84.6%  (133,082,267 of 157,394,964)  QUARANTINED
 ```
 
+*Delaware's line is Session 7's and is superseded — see Session 8 below. It is
+kept because the gate catching the truncation unaided is the case for the gate.*
+
 Oklahoma at 91.7% is what §7A.4 predicts. **Delaware fails, and should.** Its
 narrative total is exact to $0.14, so a gate keyed on the *stated* total would
 have passed it; keying `reconciliation_status` on what was actually captured —
@@ -754,6 +750,7 @@ the tests already assert.
 
 The §0.1b headline shares fall out of the parse rather than being carried over:
 Oklahoma 48.7% hospital-directed, Delaware 15.7%; unclear 17.1% and 24.5%.
+(Delaware is **14.6% / 22.8%** on the complete 15-initiative extraction — Session 8.)
 
 **All 50 CMS project abstracts are extracted.** The earlier pass truncated at
 page 52; `R/03c_cms_abstracts.R` completes OH–WY. 33 new candidates across
@@ -771,6 +768,81 @@ branch *after* PR #7 merged the parent, so it never reached `main` — and the
 spec upload at `219d803` then cemented the defective row. Re-applied here. This
 is the second instance of the same failure, and it is why §2.1 now exists.
 
+### Session 8 — Delaware initiatives 13–15, and the gate confirming its own prediction
+
+Full detail: `docs/stage2.5_budget_narratives.md`. Zero RCJ quota; one call to
+`dhss.delaware.gov`.
+
+The host was allowlisted, so `Final-RHTP-Revised-Budget-1.30.26.pdf` was fetched
+(74 pages, 619,344 bytes) and archived with a SHA-256 manifest at
+`data/evidence/budget_narratives/DE/`. **It is the first budget narrative on
+disk**, and the first state whose derived `source_archive_path` points at a real
+file.
+
+No `pdftotext`, `pdftools` or `pypdf` is available in the cloud session and PyPI
+is unreachable, so the text was recovered by inflating the PDF's own
+FlateDecode content streams and reading the `Tj`/`TJ` operators. Initiatives 13,
+14 and 15 begin on pages 68, 71 and 73.
+
+| # | Initiative | Year 1 | Recipient | `flow_type` | `has_hospital_recipient` |
+|---|---|---:|---|---|---|
+| 13 | Rural Health Workforce Education Program | $1,000,000 | 2 contractors, both TBD | `NON_HOSPITAL` | `No` |
+| 14 | Healthcare Workforce Data Center | $2,685,200 | Division of Professional Regulation | `NON_HOSPITAL` | `No` |
+| 15 | Statewide Health IT for Prior Authorizations | $6,420,000 | Health IT vendor, TBD | `IN_KIND_BENEFIT` | `No` |
+
+**The three lines total $10,105,200 — the shortfall the workbook predicted
+before anyone could open the document, to the dollar.** And the new captured
+total, $143,187,467.48, is the narrative's own **Contractual** line exactly.
+Two independent closures on a figure derived from a document nobody could read.
+
+```
+OK  ALLOCATED_ONLY   RECONCILED   91.7%  (204,900,000 of 223,476,949)
+DE  TOTAL_INCLUSIVE  RECONCILED   91.0%  (143,187,467 of 157,394,964)
+```
+
+**Delaware is out of quarantine and publishable.** The remaining 9.03% is state
+admin ($1,079,227.17) plus indirect ($13,128,269.21), which sit outside the
+initiative lines by construction — the remainder is now *exactly* those two.
+
+**Delaware's hospital-directed share moves 15.7% → 14.6%, and nothing was
+re-coded.** Initiatives 13–15 add $10.1M of denominator and no numerator:
+Initiative 12 (Training Programs for Clinical Support Roles, $20,910,000)
+remains the state's only hospital-directed line. Unclear moves 24.5% → 22.8%.
+**14.6% is the figure to quote** — it is the one computed over all 15
+initiatives. §0.1b's finding is untouched: the OK/DE spread is still threefold
+and still must not be averaged.
+
+**Initiative 15 is `IN_KIND_BENEFIT`, not `NON_HOSPITAL`.** The vendor receives
+the money, but the narrative names *health systems, FQHCs, and rural providers*
+as the parties integrated and onboarded, "with priority given to rural
+healthcare organizations." That is §10.2's in-kind test met on its own terms,
+and the code exists so those dollars stay visible to AHA's narrative rather than
+disappearing into a generic non-hospital bucket. It changes no total —
+`has_hospital_recipient` is `No` either way. *Worth a look:* Initiative 7
+(Catalyst Fund for Telehealth, $5M, "direct awards to technology companies") is
+the closest existing row and is coded `NON_HOSPITAL`. It was left alone — it is
+committed hand coding and re-coding initiatives 1–12 was outside this task — but
+the two rows are arguably the same case.
+
+**The recipient string had to follow the workbook's quoting convention.**
+Written plainly, `Statewide Health IT Infrastructure Vendor TBD` derives as
+`NAMED + TBD`: the derivation reads the role label as an organisation, which is
+the §6.1 `PROGRAM_NAME_AS_AWARDEE` error in a new place. The workbook already
+quotes such labels for exactly this reason, so the row is written
+`'Statewide Health IT Infrastructure Vendor' - Contractor TBD` and derives
+`TBD`. Derivation fidelity stays 17 of 17 Delaware rows. Delaware now names a
+recipient for **5 of 15** initiatives, not 4.
+
+**Ten test assertions pinned Delaware's truncated state and were updated**
+(row count, captured total, NAMED count, gate result, both §0.1b shares, the
+remainder). The suite is **520 assertions, all passing** (was 516). Two tests
+were restructured rather than deleted: *"the gate catches a truncated
+extraction on its own"* now reproduces the condition by filtering initiatives
+13–15 out of the fixture — the gate's ability to catch a short parse is the
+reason this stage sits ahead of Stage 4 and had to stay under test — and
+*"Delaware reconciles once initiatives 13–15 are added"* becomes a direct
+assertion on real data instead of a synthetic row.
+
 ### Next session
 
 **Two offline tasks still come first:**
@@ -783,12 +855,12 @@ is the second instance of the same failure, and it is why §2.1 now exists.
    **capture the budget narrative URL for §7A.2.** Check the result with
    `Rscript R/03_state_registry.R --validate`.
 2. **Widen the egress allowlist before the collection pass.**
-   `dhss.delaware.gov` is blocked today and so is every other state health
-   department host. §7A.2 needs fifty of them. Delaware first, since its
-   initiatives 13–15 are the one known-missing piece and the gate is already
-   holding the state out of the published table because of them.
+   `dhss.delaware.gov` is now allowlisted and Delaware is complete; every other
+   state health department host is still blocked. §7A.2 needs fifty of them.
+   Oklahoma next — it is the other reference state, and its narrative is the
+   only one of the two still unarchived.
 
-**Then §7A.2 collection** — 48 states to go. It is bounded and checkable in a
+**Then §7A.2 collection** — 48 states to go (49 narratives still unarchived; only Delaware's is on disk). It is bounded and checkable in a
 way nothing sourced from RCJ is: you know when you have all fifty. Each
 narrative lands under `data/evidence/budget_narratives/<state>/`, and
 `Rscript R/03b_budget_narratives.R --build` reconciles it the moment its
@@ -817,7 +889,7 @@ column uses `PHYSICIAN_PRACTICE` and `UNCLASSIFIED`, neither of which is in the
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 516 assertions, zero quota
+Rscript tests/run_tests.R                        # 520 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
