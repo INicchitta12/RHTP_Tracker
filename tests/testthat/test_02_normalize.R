@@ -610,3 +610,309 @@ test_that("fiscal years from both endpoints normalize to the same shape", {
   expect_equal(rhtp_normalize_fiscal_year("2026"), "FY2026")
   expect_true(is.na(rhtp_normalize_fiscal_year(NA)))
 })
+
+
+# -- §6.4 Tier 3 candidate mining from /documents --------------------------
+
+test_that("a dollar figure is found in both renderings states publish", {
+  expect_true(rhtp_has_money("Awarded $52,000,000 to four hospitals"))
+  expect_true(rhtp_has_money("a $11.5M notice of award"))
+  expect_true(rhtp_has_money("$900K for remote critical care"))
+  # The live §6.4 example carries no dollar sign at all.
+  expect_true(rhtp_has_money(
+    "Parrish Medical Center Awarded More Than 52 Million in Grants"
+  ))
+
+  # A bare year is not money, which is what a naive \\d+ pattern would call it.
+  expect_false(rhtp_has_money("DE - 2028 - portal"))
+  expect_false(rhtp_has_money("Budget period 1 opens October 1"))
+  expect_false(rhtp_has_money(NA_character_))
+  expect_false(rhtp_has_money(""))
+})
+
+test_that("organisation names are extracted out of running prose", {
+  spans <- rhtp_extract_org_candidates(
+    "FL - 2026 - Parrish Medical Center Awarded More Than 52 Million in Grants"
+  )
+  expect_true("Parrish Medical Center" %in% spans)
+
+  expect_true("Tennessee Hospital Association" %in% rhtp_extract_org_candidates(
+    "TN - 2026 - Tennessee Hospital Association RHTP Compliance Requirements"
+  ))
+  expect_true(any(stringr::str_detect(
+    rhtp_extract_org_candidates("Grant to University of Nevada, Reno"),
+    "University of Nevada"
+  )))
+
+  # Nothing entity-shaped in the text at all.
+  expect_length(rhtp_extract_org_candidates("Budget period 1 opens soon"), 0)
+  expect_length(rhtp_extract_org_candidates(NA_character_), 0)
+})
+
+test_that("the §6.1 legal-entity test is the arbiter, not the finder", {
+  expect_true(rhtp_legal_entity_test("Parrish Medical Center"))
+  expect_true(rhtp_legal_entity_test("Rural Health Medical Program Inc."))
+  expect_true(rhtp_legal_entity_test("University of Nevada, Reno"))
+
+  # An explicit statement that the recipient is unresolved beats the marker,
+  # exactly as it does inside the §6.1 named-recipient test.
+  expect_false(rhtp_legal_entity_test(
+    "16 Strategically Located Rural Hospitals (unnamed, subrecipient group)"
+  ))
+  expect_false(rhtp_legal_entity_test("Various Rural Health Clinics"))
+  expect_false(rhtp_legal_entity_test("Mobile Health Hubs Grantee Pool"))
+  expect_false(rhtp_legal_entity_test(NA_character_))
+})
+
+mining_fixture <- function(...) {
+  base <- rhtp_record_skeleton(1) %>%
+    dplyr::mutate(
+      source_endpoint = "documents",
+      state = "FL",
+      state_name = "Florida",
+      source_doc_category = "REFERENCE",
+      qa_status = "PASS",
+      award_tier = "UNASSIGNED"
+    )
+  base %>% dplyr::mutate(...)
+}
+
+test_that("the live §6.4 example is mined", {
+  records <- mining_fixture(
+    record_id = "doc-fl-1",
+    source_doc_id = "doc-fl-1",
+    source_doc_title = paste(
+      "FL - 2026 - Parrish Medical Center Awarded More Than 52 Million in",
+      "Grants to Promote Rural Health Workforce Development"
+    )
+  )
+
+  mined <- rhtp_mine_document_candidates(records)
+
+  expect_equal(nrow(mined), 1)
+  expect_equal(mined$state, "FL")
+  expect_equal(mined$mined_org_name, "Parrish Medical Center")
+  expect_match(mined$mining_basis, "never")
+})
+
+test_that("a document /awards already parsed is not mined again", {
+  records <- dplyr::bind_rows(
+    mining_fixture(
+      record_id = "doc-1", source_doc_id = "doc-1",
+      source_doc_title = "GA - 2026 - Grady Memorial Hospital Awarded $2,000,000"
+    ),
+    rhtp_record_skeleton(1) %>%
+      dplyr::mutate(
+        record_id = "award-1", source_endpoint = "awards", state = "GA",
+        source_doc_id = "doc-1", qa_status = "PASS", award_tier = "SUBAWARD"
+      )
+  )
+
+  expect_equal(nrow(rhtp_mine_document_candidates(records)), 0)
+})
+
+test_that("only AWARD_ANNOUNCEMENT and REFERENCE are in the mining pool", {
+  for (category in c("APPLICATION", "GUIDANCE", "DATA", "STRATEGY")) {
+    records <- mining_fixture(
+      record_id = "d", source_doc_id = "d", source_doc_category = category,
+      source_doc_title = "Parrish Medical Center Awarded $52,000,000"
+    )
+    expect_equal(nrow(rhtp_mine_document_candidates(records)), 0,
+                 info = category)
+  }
+
+  for (category in c("AWARD_ANNOUNCEMENT", "REFERENCE")) {
+    records <- mining_fixture(
+      record_id = "d", source_doc_id = "d", source_doc_category = category,
+      source_doc_title = "Parrish Medical Center Awarded $52,000,000"
+    )
+    expect_equal(nrow(rhtp_mine_document_candidates(records)), 1,
+                 info = category)
+  }
+})
+
+test_that("a quarantined record is not made minable by naming a hospital", {
+  # A HRSA fact sheet or a junk state code is out of the RHTP universe
+  # entirely; containing a hospital's name does not bring it back in.
+  records <- mining_fixture(
+    record_id = "d", source_doc_id = "d", qa_status = "QUARANTINED",
+    source_doc_title = "Parrish Medical Center Awarded $52,000,000"
+  )
+  expect_equal(nrow(rhtp_mine_document_candidates(records)), 0)
+})
+
+test_that("all four §6.4 conditions are required, not any of them", {
+  # No money.
+  expect_equal(nrow(rhtp_mine_document_candidates(mining_fixture(
+    record_id = "d", source_doc_id = "d",
+    source_doc_title = "Parrish Medical Center Opens New Wing"
+  ))), 0)
+
+  # No named organisation.
+  expect_equal(nrow(rhtp_mine_document_candidates(mining_fixture(
+    record_id = "d", source_doc_id = "d",
+    source_doc_title = "State announces $52,000,000 in rural funding"
+  ))), 0)
+
+  # A pool is not a named organisation, however entity-shaped the words.
+  expect_equal(nrow(rhtp_mine_document_candidates(mining_fixture(
+    record_id = "d", source_doc_id = "d",
+    source_doc_title = "Various Rural Health Clinics share $52,000,000"
+  ))), 0)
+})
+
+test_that("mining never promotes anything to SUBAWARD (§6.4, §13.18)", {
+  records <- mining_fixture(
+    record_id = "doc-fl-1", source_doc_id = "doc-fl-1",
+    source_doc_title = "Parrish Medical Center Awarded $52,000,000"
+  )
+
+  mined <- rhtp_mine_document_candidates(records)
+
+  expect_equal(nrow(mined), 1)
+  # The candidate table carries no tier column at all, and the record it
+  # points at is still UNASSIGNED. The whole premise of §6.4 is that RCJ's
+  # extraction of this text failed, so a second automated extraction of the
+  # same text has earned no more trust than the first.
+  expect_false("award_tier" %in% names(mined))
+  expect_equal(
+    records$award_tier[records$record_id == mined$record_id], "UNASSIGNED"
+  )
+})
+
+test_that("an empty record table mines to an empty, correctly-shaped table", {
+  mined <- rhtp_mine_document_candidates(rhtp_record_skeleton(0))
+  expect_equal(nrow(mined), 0)
+  expect_true(all(c("record_id", "state", "mined_org_name", "mining_basis")
+                  %in% names(mined)))
+})
+
+test_that("coverage separates 'no data' from 'source failed to extract'", {
+  records <- dplyr::bind_rows(
+    # GA: RCJ parsed awards AND candidates remain.
+    rhtp_record_skeleton(1) %>% dplyr::mutate(
+      record_id = "a1", source_endpoint = "awards", state = "GA",
+      award_tier = "SUBAWARD", qa_status = "PASS"
+    ),
+    # NE: parsed, nothing left over.
+    rhtp_record_skeleton(1) %>% dplyr::mutate(
+      record_id = "a2", source_endpoint = "awards", state = "NE",
+      award_tier = "SUBAWARD", qa_status = "PASS"
+    )
+  )
+
+  candidates <- tibble::tibble(state = c("GA", "FL"))
+
+  coverage <- rhtp_mining_coverage(records, candidates)
+
+  expect_equal(nrow(coverage), 50)
+  status <- function(st) coverage$coverage_status[coverage$state == st]
+
+  expect_equal(status("GA"), "PARSED_PLUS_CANDIDATES")
+  expect_equal(status("NE"), "PARSED")
+  # Florida: RCJ produced no award record, but award-shaped data exists. That
+  # is a materially different message than "no data" (§4.1, §11).
+  expect_equal(status("FL"), "UNPARSED_DATA_EXISTS")
+  expect_equal(status("WY"), "NO_DATA")
+})
+
+
+# -- §7.1 The CMS allotment anchor, as Stage 2 sees it ---------------------
+
+test_that("Stage 2 reads the anchor from the CMS file, not the registry", {
+  skip_if_not(file.exists(rhtp_path("cms_allotments")),
+              "cms_fy2026_allotments.csv not built yet")
+
+  allotments <- rhtp_load_allotments()
+
+  expect_equal(nrow(allotments), 50)
+  expect_setequal(names(allotments), c("state", "fy2026_allotment"))
+  expect_equal(allotments$fy2026_allotment[allotments$state == "MO"],
+               216276818)
+})
+
+test_that("tier rule 3 fires on a rounded state announcement", {
+  # Missouri publishes $216.0M against a true allotment of $216,276,818: the
+  # rounding §6.1 rule 3's tolerance exists for.
+  assigned <- rhtp_assign_tier(
+    source_endpoint = "documents", rcj_type = "ANNOUNCEMENT",
+    named_recipient_test = "NOT_APPLICABLE",
+    amount = 216000000, allotment = 216276818
+  )
+  expect_equal(assigned$award_tier, "STATE_ALLOTMENT")
+})
+
+test_that("a named recipient still beats the allotment match", {
+  # Rule 2 precedes rule 3. A subaward that happens to equal the state's
+  # allotment is still a subaward -- Tier 3 must never be drained into Tier 1.
+  assigned <- rhtp_assign_tier(
+    source_endpoint = "awards", rcj_type = NA_character_,
+    named_recipient_test = "PASS",
+    amount = 216276818, allotment = 216276818
+  )
+  expect_equal(assigned$award_tier, "SUBAWARD")
+})
+
+test_that("without the anchor, rule 3 says so instead of silently passing", {
+  assigned <- rhtp_assign_tier(
+    source_endpoint = "documents", rcj_type = "ANNOUNCEMENT",
+    named_recipient_test = "NOT_APPLICABLE",
+    amount = 216000000, allotment = NA_real_
+  )
+  expect_equal(assigned$award_tier, "UNASSIGNED")
+  expect_match(assigned$tier_basis, "Rule 3 was skipped")
+})
+
+
+# -- Change detection re-derives, it does not freeze (§13.10) --------------
+
+test_that("an unchanged record picks up this build's classification", {
+  prior <- rhtp_apply_change_detection(
+    tibble::tibble(record_id = "a", rcj_record_hash = "h1",
+                   award_tier = "UNASSIGNED", rules_version = "0.0.1"),
+    NULL, as.Date("2026-08-27")
+  )
+
+  # Same payload, so the hash is unchanged -- but the reference data the
+  # classifier reads has since landed, and the tier moved.
+  current <- tibble::tibble(record_id = "a", rcj_record_hash = "h1",
+                            award_tier = "STATE_ALLOTMENT",
+                            rules_version = "0.1.0")
+
+  out <- rhtp_apply_change_detection(current, prior, as.Date("2026-09-03"))
+
+  expect_equal(nrow(out), 1)
+  expect_equal(out$change_status, "UNCHANGED")
+  # Not superseded: the DATA did not change, only our reading of it (§6.3).
+  expect_true(is.na(out$superseded_by))
+  # But the stored row must not freeze the prior build's rules generation,
+  # or §13.10 fails silently on a table mixing rule versions.
+  expect_equal(out$award_tier, "STATE_ALLOTMENT")
+  expect_equal(out$rules_version, "0.1.0")
+  expect_equal(out$first_seen, "2026-08-27")
+  expect_equal(out$last_seen, "2026-09-03")
+
+  moved <- attr(out, "reclassified")
+  expect_equal(nrow(moved), 1)
+  expect_equal(moved$prior_award_tier, "UNASSIGNED")
+  expect_equal(moved$award_tier, "STATE_ALLOTMENT")
+})
+
+test_that("a superseded historical row keeps the tier it was published with", {
+  prior <- rhtp_apply_change_detection(
+    tibble::tibble(record_id = "a", rcj_record_hash = "h1",
+                   award_tier = "UNASSIGNED", rules_version = "0.0.1"),
+    NULL, as.Date("2026-08-27")
+  )
+
+  current <- tibble::tibble(record_id = "a", rcj_record_hash = "h2",
+                            award_tier = "SUBAWARD", rules_version = "0.1.0")
+
+  out <- rhtp_apply_change_detection(current, prior, as.Date("2026-09-03"))
+
+  old_row <- out %>% dplyr::filter(rcj_record_hash == "h1")
+  expect_equal(nrow(old_row), 1)
+  expect_false(is.na(old_row$superseded_by))
+  expect_equal(old_row$award_tier, "UNASSIGNED")
+  expect_equal(old_row$rules_version, "0.0.1")
+})

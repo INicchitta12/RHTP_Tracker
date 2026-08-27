@@ -1,4 +1,16 @@
-run_timestamp_utc,pull_date,stage,rules_version,source_endpoint,records_read,records_normalized,n_quarantined,n_flagged,n_pass,n_state_allotment,n_solicitation,n_subaward,n_unassigned,n_new,n_changed,n_unchanged,allotment_anchor_available,notes
-2026-08-27T16:52:13Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,404,1016,0,0,1369,60,1429,0,0,FALSE,No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive.
-2026-08-27T16:52:13Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,237,2744,0,1060,0,2032,3092,0,0,FALSE,No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive.
-2026-08-27T16:52:13Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,0,516,0,115,631,0,0,FALSE,No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive.
+run_timestamp_utc,pull_date,stage,rules_version,source_endpoint,records_read,records_normalized,n_quarantined,n_flagged,n_pass,n_state_allotment,n_solicitation,n_subaward,n_unassigned,n_mined_candidates,n_new,n_changed,n_unchanged,allotment_anchor_available,notes
+2026-08-27T16:52:13Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,404,1016,0,0,1369,60,NA,1429,0,0,FALSE,No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive.
+2026-08-27T16:52:13Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,237,2744,0,1060,0,2032,NA,3092,0,0,FALSE,No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive.
+2026-08-27T16:52:13Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,0,516,0,115,NA,631,0,0,FALSE,No CMS allotment anchor: 6.1 rule 3 and the allotment ceiling inactive.
+2026-08-27T17:24:38Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,404,1016,0,0,1369,60,0,0,0,1429,TRUE,
+2026-08-27T17:24:38Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,237,2744,0,1060,0,2032,36,0,0,3092,TRUE,
+2026-08-27T17:24:38Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,0,516,0,115,0,0,0,631,TRUE,
+2026-08-27T17:27:26Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,404,1016,0,0,1369,60,0,0,0,1429,TRUE,
+2026-08-27T17:27:26Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,272,2709,225,1060,0,1807,36,0,0,3092,TRUE,
+2026-08-27T17:27:26Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,49,467,0,115,0,0,0,631,TRUE,
+2026-08-27T17:28:40Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,404,1016,0,0,1369,60,0,0,0,1429,TRUE,
+2026-08-27T17:28:40Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,272,2709,225,1060,0,1807,36,0,0,3092,TRUE,
+2026-08-27T17:28:40Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,49,467,0,115,0,0,0,631,TRUE,
+2026-08-27T17:35:43Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,404,1016,0,0,1369,60,0,0,0,1429,TRUE,
+2026-08-27T17:35:43Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,274,2707,225,1060,0,1807,38,0,0,3092,TRUE,
+2026-08-27T17:35:43Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,49,467,0,115,0,0,0,631,TRUE,

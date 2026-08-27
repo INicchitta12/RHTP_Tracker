@@ -88,7 +88,8 @@ rhtp_config <- function(path = "config/config.yml", refresh = FALSE) {
 
   # Fail loudly on a truncated or malformed config rather than letting a NULL
   # propagate into a request URL.
-  required <- c("api", "quota", "retry", "endpoints", "paths", "pull", "qa")
+  required <- c("api", "quota", "retry", "endpoints", "paths", "pull", "qa",
+                "cms")
   missing_keys <- setdiff(required, names(cfg))
 
   if (length(missing_keys) > 0) {
@@ -178,6 +179,37 @@ rhtp_endpoint_url <- function(endpoint, ...) {
   }
 
   paste0(cfg$api$base_url, cfg$api$api_prefix, path)
+}
+
+
+# -- Shared reference tables -----------------------------------------------
+
+#' The state vocabulary (§7.1)
+#'
+#' Independent of RCJ, by design. /states returns 49 states plus a pseudo-state
+#' `US` and omits Wyoming; `RC` appears as a state code on 54 /documents
+#' records and is not a state. Neither may define this list.
+#'
+#' Lives here rather than in a stage script because every stage from 2 onward
+#' keys off it, and because Stage 3 must be able to read it without sourcing
+#' Stage 2 (whose CLI block would fire on a shared `--run` flag).
+#'
+#' Hard-fails on anything other than exactly 50 rows, because every state-keyed
+#' join and QA reconciliation downstream assumes it (§13.14).
+rhtp_cms_states <- function() {
+  path <- rhtp_path("cms_states")
+
+  states <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
+
+  if (nrow(states) != 50) {
+    stop(
+      "data/reference/cms_states.csv must have exactly 50 rows (§7.1); found ",
+      nrow(states), ". Every state-keyed join downstream assumes 50.",
+      call. = FALSE
+    )
+  }
+
+  states %>% dplyr::select(state, state_name)
 }
 
 
