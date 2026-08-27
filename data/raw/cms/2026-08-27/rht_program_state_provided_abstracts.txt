@@ -1,0 +1,2690 @@
+RHT
+PROGRAM
+STATE
+PROJECT
+ABSTRACTS
+_______
+
+
+December 2025
+Executive Summary
+Enclosed is a compilation of Rural Health Transformation (RHT) Program Project Abstracts
+submitted in each State’s RHT Program Applications. As outlined in the Notice of Funding
+Opportunity (NOFO), States were required to submit a one-page summary of their proposed project
+including its purpose and anticipated outcomes for the purposes of public information sharing.
+Budget amounts/requested funds highlighted in the State’s Abstract are purely illustrative and
+hypothetical and do not reflect the State’s final award amount or approved use of funds.
+
+
+
+
+1|Page
+Table of Contents
+
+  Alabama ................................................................................................................... 4
+  Alaska ...................................................................................................................... 5
+  Arizona ..................................................................................................................... 6
+  Arkansas ................................................................................................................... 7
+  California .................................................................................................................. 9
+  Colorado................................................................................................................. 11
+  Connecticut ............................................................................................................ 12
+  Delaware ................................................................................................................ 14
+  Florida .................................................................................................................... 15
+  Georgia ................................................................................................................... 16
+  Hawaii .................................................................................................................... 18
+  Idaho ...................................................................................................................... 19
+  Illinois..................................................................................................................... 21
+  Indiana ................................................................................................................... 22
+  Iowa ....................................................................................................................... 24
+  Kansas.................................................................................................................... 25
+  Kentucky ................................................................................................................. 26
+  Louisiana ................................................................................................................ 27
+  Maine ..................................................................................................................... 29
+  Maryland ................................................................................................................ 30
+  Massachusetts ........................................................................................................ 32
+  Michigan ................................................................................................................. 34
+  Minnesota ............................................................................................................... 35
+  Mississippi .............................................................................................................. 37
+  Missouri .................................................................................................................. 39
+  Montana ................................................................................................................. 40
+  Nebraska ................................................................................................................ 41
+
+
+2|Page
+ Nevada ................................................................................................................... 43
+ New Hampshire ...................................................................................................... 44
+ New Jersey .............................................................................................................. 46
+ New Mexico ............................................................................................................ 47
+ New York................................................................................................................. 49
+ North Carolina ........................................................................................................ 50
+ North Dakota........................................................................................................... 52
+ Ohio ....................................................................................................................... 54
+ Oklahoma ............................................................................................................... 56
+ Oregon ................................................................................................................... 57
+ Pennsylvania ........................................................................................................... 58
+ Rhode Island ........................................................................................................... 59
+ South Carolina ........................................................................................................ 61
+ South Dakota .......................................................................................................... 62
+ Tennessee ............................................................................................................... 63
+ Texas ...................................................................................................................... 64
+ Utah ....................................................................................................................... 65
+ Vermont .................................................................................................................. 66
+ Virginia ................................................................................................................... 68
+ Washington ............................................................................................................. 69
+ West Virginia ........................................................................................................... 70
+ Wisconsin ............................................................................................................... 71
+ Wyoming................................................................................................................. 73
+
+
+
+
+3|Page
+Alabama
+Title: Alabama Rural Health Transformation Program - Implement statewide sustainable rural
+healthcare initiatives that support the goals of the program by transforming the healthcare delivery
+ecosystem.
+
+Abstract:
+Alabama Rural Health Transformation Program (ARHTP)
+State of Alabama, Director of the Alabama Department of Economic and Community Affairs
+(ADECA) as its authorized organizational representative (AOR)
+Subrecipients: To be determined
+Total Budget Request: $1 billion
+
+Purpose and Outcomes
+Through its RHTP, Alabama aims to modernize and integrate its rural health system to ensure
+equitable, efficient, and sustainable access to high-quality care. The program is designed to:
+   • Enhance health information technology (IT) and cybersecurity through regional shared-
+       service hubs supporting Electronic Health Record (EHR) integration and compliance.
+   • Expand access to care via telehealth, remote monitoring, and regional specialty networks.
+   • Address maternal and cancer care deserts through digital regionalization and mobile
+       screening models.
+   • Strengthen the healthcare workforce through rural training pipelines, simulation training
+       programs, and expanded Graduate Medical Education (GME) opportunities.
+   • Improve behavioral health access by converting Community Mental Health Centers into
+       Certified Community Behavioral Health Clinics (CCBHCs).
+
+Project Design and Activities
+Alabama will use the funds from the RHTP to implement eleven interrelated initiatives statewide:
+    • Collaborative EHR, IT, and Cybersecurity: Regional IT hubs supporting EHR integration, IT
+        infrastructure, and security.
+    • Rural Health: Statewide telehealth/teleconsult network for specialty access.
+    • Maternal and Fetal Health: Digital obstetric regionalization and telerobotic ultrasound.
+    • Rural Workforce: Physician, nurse, emergency medical service (EMS), midwife, dentist,
+        dental hygienist and dental assistant training programs.
+    • Cancer Digital Regionalization: Mobile and regional cancer screening.
+    • Simulation Training: Specialty-based simulation education expansion.
+    • Statewide EMS Trauma and Stroke: Improving the statewide EMS diversion and routing
+        system.
+    • Emergency Medical Service (EMS) Treat-in-Place: EMS pilot for on-site treatment of low-
+        acuity patients.
+    • Mental Health: Behavioral health facility conversion and expansion.
+    • Community Medicine: Mobile wellness and nutrition units.
+    • Rural Health Practice: Networked clinics integrating behavioral, physical, and dental
+        health.
+
+
+
+
+4|Page
+Alaska
+Title: State of Alaska Rural Health Transformation Program
+
+Abstract:
+Organization name: State of Alaska Department of Health
+Subrecipients/subawardees: A wide range of entities across Alaska will participate as funding
+subrecipients, including: health care delivery organizations; Tribal Health Organizations;
+community-based entities; education and workforce development institutions; technology and
+innovation vendors; provider and trade associations; consulting and professional services firms;
+and State and local governments or authorities engaged in public health, education, or emergency
+medical response.
+
+Project Goals:
+1. Promote lifelong health and well-being for rural, remote, and frontier Alaskans.
+2. Build sustainable, outcomes-driven health systems.
+3. Drive workforce and technology innovation.
+
+Total budget amount: $1,000,000,000.00
+
+Brief description of fund usage: Alaska proposes to use RHT Program funding to strengthen
+community-led and regionally designed health systems that provide access to a full continuum of
+care as close to Alaskans’ homes as possible. The funds will be awarded to entities to launch
+projects in support of Alaska’s six initiatives: (1) Healthy Beginnings, which strengthens maternal
+and child health as a foundation for healthy families; (2) Health Care Access, which expands and
+sustains essential primary, behavioral, oral, specialty, emergency, home and community-based
+and post-acute care health services across Alaska’s rural communities; (3) Healthy Communities,
+which invests in enhancing access to preventive and primary care services that enable early
+chronic disease management, expanding the use of consumer-facing digital tools and population
+health clinical infrastructure, and promoting healthy lifestyles with culturally appropriate
+community education; (4) Pay for Value: Fiscal Sustainability, which incentivizes a shift from
+traditional volume-based reimbursement models to build the long-term financial stability of rural
+providers through voluntary innovative care and payment models that increase care coordination,
+lower costs and improve health outcomes; (5) Strengthen Workforce, which builds a resilient rural
+health care workforce through pipeline, recruitment, training and retention strategies, alongside
+wraparound housing and childcare supports to help providers remain in rural communities; and (6)
+Spark Technology and Innovation, which harnesses data and technology to expand the use of
+consumer wearables and digital devices, enhance telehealth, foster appropriate use of AI,
+strengthen cybersecurity, facilitate data sharing and system interoperability, and test new delivery
+modalities using emerging technologies.
+
+These six initiatives are flexible, phased, and voluntary, allowing each community and provider to
+engage at a pace and scale suited to their local priorities and resources. These initiatives will
+transform Alaska’s health system. They reflect Alaska’s culture of innovation and self-reliance, and
+affirm our commitment to high-quality, accessible, and sustainable care.
+
+
+
+
+5|Page
+Arizona
+Title: Arizona’s RHT Program drives innovation in rural healthcare delivery through telehealth and
+integrated care, targeting behavioral health, chronic disease, child and maternal health, and
+healthcare workforce
+
+Abstract: Nearly 786,000 Arizonans living in rural communities face persistent health care
+challenges that shorten lives and increase the cost of care. Provider shortages, geographic
+isolation, and limited infrastructure drive higher rates of chronic disease, behavioral health crises,
+and maternal health complications compared to urban areas. These challenges demand bold,
+coordinated action.
+
+The Arizona Rural Health Transformation Plan (RHTP) is a $200 million annual investment to
+strengthen access, quality, and sustainability of care across rural regions. Led by Arizona’s
+Medicaid Program, the Arizona Health Care Cost Containment System (AHCCCS), in partnership
+with the Arizona Governor’s Office, the Arizona Department of Health Services (ADHS), the Arizona
+Office of Economic Opportunity (OEO) and other key stakeholders, our plan will transform
+Arizona’s rural health system and deliver quality care to rural communities.
+
+The plan focuses on four strategic pillars. The Rural Health Workforce Development and Training
+Grant will recruit, train, and retain providers and allied professionals through expanded support for
+rural clinical rotations, residency programs, and Career and Technical Education. The Priority
+Health Initiatives Grants Portfolio will invest in behavioral health and substance use disorder
+treatment expansion, chronic disease prevention & management, and maternal, fetal, and infant
+health improvement. The Making Rural Healthcare Accessible initiative will expand telehealth
+infrastructure and provide funding opportunities for mobile and satellite care delivery and other
+innovative care models. Finally, the Making Rural Healthcare Resilient initiative will leverage
+shared-service networks and reduce fixed costs and administrative barriers for rural providers by
+subsidizing electronic health record licenses, scaling of back-office staff, and other capacity-
+building efforts.
+
+Funds will be strategically invested through subawards and cooperative agreements to local
+governments, rural hospitals and clinics, educational institutions, and community-based
+organizations. These resources will drive high-impact activities such as deploying telehealth hubs,
+maximizing use of mobile clinics, launching workforce incentive programs, and advancing county-
+led disease prevention initiatives. State agencies will also procure vendors to build secure,
+interoperable data systems, real-time data dashboards, and fiscal tracking and accountability
+tools that meet rigorous federal audit and transparency standards.
+
+By 2031, Arizona will deliver measurable results, including increased rural provider recruitment,
+retention, and satisfaction; expanded telehealth adoption statewide; improved maternal/infant
+outcomes, chronic disease management, behavioral health outcomes; and increased participation
+in preventive care services, leading to fewer hospitalizations and less reliance on emergency
+services. Through data-driven planning, cross-agency coordination, and community partnerships,
+our plan will ensure that every Arizonan—regardless of geography—has access to high-quality,
+coordinated, and sustainable care.
+
+
+
+
+6|Page
+Arkansas
+Title: The Arkansas RHT Program expands access, strengthens care, grows the healthcare
+workforce, and advances telehealth to improve health outcomes and service quality for rural
+residents and communities statewide
+
+Abstract:
+Subawardees: To be determined; The State is committed to complying with all CMS requirements
+for identifying and engaging subrecipients, contractors, and other partners as the program
+progresses. Subawardees will be selected by the State based on alignment with and capacity to
+support Arkansas’s Rural Health Transformation (RHT) Program.
+
+Project Summary: The Arkansas RHT Program is a comprehensive statewide initiative designed to
+strengthen rural healthcare delivery, expand access to care, improve health outcomes, and ensure
+sustainable, high-quality services for all Arkansans. By focusing on four core initiatives, Healthy
+Eating, Active Recreation, and Transformation (HEART), Promoting Access Coordination and
+Transformation (PACT), Recruitment Innovation Skills and Education for Arkansas (RISE AR), and
+Telehealth Health-monitoring and Response Innovation for Vital Expansion (THRIVE), Arkansas is
+takin a holistic, community-driven approach to rural health challenges. These initiatives integrate
+evidence-based prevention programs, workforce development, care coordination, value-based
+delivery models, and technology-driven solutions, ensuring that rural residents receive timely,
+efficient, and patient-centered care, including mental and behavioral health services. Across all
+initiatives, the State emphasizes cross-sector collaboration, data-driven decision-making, and
+continuous evaluation to ensure that program activities meet the needs of rural communities while
+aligning with CMS priorities.
+
+Use of Funds: RHT Program funds will support targeted investments across each initiative. HEART
+will focus on prevention and chronic disease programs, school and community-based wellness
+initiatives, nutrition interventions, and physical activity programming. PACT will fund integrated
+networks, expanded specialty and primary care access, scope of practice enhancements, and
+strategic facility investments. RISE AR will invest in leadership training, expanding residency,
+preceptorship, and other training programs for healthcare professionals, recruitment and retention
+incentives, professional development programs, and tele-education infrastructure to strengthen
+the rural healthcare workforce. THRIVE will fund telehealth platforms, technology-enabled
+monitoring for chronic diseases, emergency medical services modernization, and virtual care
+models to expand access and improve patient outcomes. Across initiatives, funds will also support
+data collection, analytics, performance tracking, and program evaluation to drive continuous
+improvement.
+
+Outcomes: Through these investments, Arkansas expects to achieve measurable improvements in
+access to care, preventive health utilization, chronic disease management, care coordination,
+workforce capacity, and technology adoption. HEART will lead to healthier behaviors, improved
+child and adult health outcomes, and increased community engagement. PACT will improve care
+integration, reduce gaps in specialty care, and enhance efficiency across rural providers. RISE AR
+will strengthen the pipeline and retention of healthcare professionals, ensuring a sustainable,
+skilled workforce. THRIVE will expand access to telehealth, enhance EMS response, improve
+remote patient monitoring, and integrate innovative digital solutions into routine care. Collectively,
+these initiatives will create a resilient, coordinated rural healthcare system, improve the quality of
+
+
+7|Page
+care, and lay the foundation for long-term, sustainable health improvements for rural Arkansas
+communities.
+Total Estimated Budget: $1,000,000,000
+
+
+
+
+8|Page
+California
+Title: The California Rural Health Transformation Program will provide novel and innovative
+strategies to bring rural and frontier communities the resources and quality health care services
+that they need.
+
+Abstract:
+Applicant Organization: California Department of Health Care Access & Information
+Subrecipients or Sub-awardees: TBD
+Total Funding Requested: $1,000,000,000
+
+Purpose: HCAI proposes to create a network of regional care collaboratives for rural communities.
+The program will focus on timely, person-centered primary, maternity, chronic disease, and
+specialty care close to home. Informed by extensive stakeholder input, the program aligns with
+federal and statewide priorities and the five strategic goals of the Rural Health Transformation
+Program. The program will create novel initiatives to increase the workforce supply and modernize
+rural technology with the goal to improve primary, maternity, chronic condition, and specialty care
+throughout rural California.
+
+Project goals: The California Rural Health Transformation Program will improve local access to
+comprehensive, evidence-based care; strengthen and retain a homegrown rural workforce;
+modernize technology, health information exchange, and cybersecurity; improve financial stability
+of rural providers to keep essential services available; reduce rural patient travel burden; and
+improve maternal and chronic disease outcomes through earlier detection and improved
+coordinated management. The program will provide novel and innovative strategies to bring rural
+and frontier communities the resources and quality health care services that they need.
+
+Use of funds: Rural Health Transformative Care Model: The program will create regional hub and
+spoke networks anchored by hospital hubs and spokes that include critical access hospitals,
+clinics, birthing centers, and other providers. Key activities will include shared levels of care and
+transfer protocols; Project Extension for Community Healthcare Outcomes for chronic disease and
+primary-specialty care collaboration; family medicine with obstetrics fellowships; OB Nest for
+prenatal care with remote patient self-monitoring and nursing support; and e-Consult resources
+and perinatal psychiatry access programs. The program will include targeted transformation
+payments to support rural hospitals’ capacity to transform their systems to support regional
+delivery of care, complete a telehealth gap assessment for each hub and spoke, and use
+accelerator partners to incubate workforce, technology, and payment solutions.
+
+Rural Health Workforce Development: The program will build a Statewide Workforce Mapping and
+Planning Tool to identify regional, county, and sub-county workforce needs; strengthen education
+pathways from high school to Community Colleges, and 4-year universities with wraparound
+supports; expand regional upskilling through Train-the-Trainer programs in maternal health,
+chronic disease, behavioral health, and telehealth; and grow non-physician roles such as
+Community Health Workers, nurses, doulas, and midwives. The program will fund pipeline and
+pathway programs, the expansion of clinical placement and supervision sites, and include
+retention and relocation incentive payments.
+
+
+
+
+9|Page
+Rural Health Technology and Tools: The program will modernize infrastructure and connectivity,
+including Electronic Health Record enhancements, health information exchange, and
+cybersecurity; operate a Technical Assistance Center that provides implementation support,
+training and certification, and capabilities assessment; expand collaboration through shared
+purchases and services; and deploy patient centered tools such as Remote Patient Self-Monitoring
+that integrate person generated data into clinical workflows.
+
+Expected Outcomes: The program will deliver better health outcomes including more rural
+residents receiving primary, maternity, chronic disease, and specialty services locally; fewer
+preventable maternal complications; expanded local clinician and provider capacity; increased
+use of telehealth and e-Consults; improved health information exchange; stronger cybersecurity;
+reduced rural hospital bypass; and higher patient engagement.
+
+
+
+
+10 | P a g e
+Colorado
+Title: Colorado Rural Health Transformation Program
+
+Abstract: Colorado is dedicated to ensuring our rural residents have ready access to the same high
+quality, multimodal, affordable health care as their urban counterparts. The Colorado Rural Health
+Transformation Program (RHTP) is the lynchpin by which we can ensure that vision becomes
+reality. By strengthening private-public partnerships, increasing access, modernizing delivery, and
+focusing on chronic disease prevention we can advance the future of health care in our uniquely
+rural and frontier communities. Working closely with rural hospitals, rural clinics, and local
+community organizations, RHTP can help these communities take charge of their own health:
+preventing chronic disease, improving access to vital services, and supporting rural providers.
+
+RHTP will support and strengthen Colorado’s community-driven initiatives, keeping care local and
+administering the program at a low 2.98%. RHTP funding will:
+   • Provide rural hospitals and clinics with resources to help communities get and stay healthy
+       to reduce chronic disease.
+   • Invest in telehealth, mobile health tools and monitoring, equipment and shared data
+       systems to connect and improve outcomes for patients.
+   • Recruit and keep local providers including but not limited to physicians, nurses,
+       paramedics, local education partnerships, and behavioral health professionals, through
+       streamlined credentialing processes, cross-training, and assessing and supporting
+       workforce needs.
+   • Bring together physical, behavioral, public health, schools, and local businesses to partner
+       to improve outcomes and affordability for rural Coloradans.
+   • Strengthen access to care, ensuring that rural Coloradans have essential services including
+       primary care, wellness, emergency, behavioral health, and maternity care services in rural
+       communities.
+   • Transform innovative care models to meet rural community needs while providing
+       sustainability, affordability and lasting infrastructure.
+
+Expected Impact: With the investment of RHTP, 2031 looks bright in both Colorado’s rural plains
+and mountain communities. Colorado’s RHTP will leave a lasting legacy: a sustainable, efficient,
+and robust rural health system worthy of the people it serves.
+
+
+
+
+11 | P a g e
+Connecticut
+Title: Connecticut's RHT Plan will modernize rural health delivery by investing in shared technology
+infrastructure, predictive analytics, facility upgrades, digital inclusion, and telehealth expansion.
+
+Abstract:
+Name of Organization: Connecticut Department of Social Services (DSS)
+
+Title: Connecticut Rural Health Transformation (RHT) Plan (CMS-RHT-26-001)
+
+Subrecipients / Sub-Awardee Organizations: DSS will serve as the lead agency. The project
+includes the following subrecipients/sub-awardees who will also carry out the State’s RHT Plan:
+the Connecticut Office of Rural Health (ORH), Office of Policy and Management (OPM), Office of
+Health Strategy (OHS), Office of Early Childhood (OEC), Department of Mental Health and
+Addiction Services (DMHAS), Department of Energy and Environmental Protection (DEEP), Aging
+and Disability Services (ADS), Department of Public Health (DPH), State Department of Education
+(SDE), and Department of Agriculture (DoAg). The project also includes funding for contractors who
+will receive funding through contracts, distinct from the subrecipient/sub-awardee State agencies
+listed above.
+
+Project Goals: The Connecticut RHT Plan is a critical mechanism to advance a sustainable, data-
+driven model of care that enhances access, quality, and outcomes. DSS, as lead agency, is
+committed to removing barriers to treatment, improving health outcomes, and promoting patient-
+centered care. The RHT Plan centers on four coordinated initiatives that collectively include thirty-
+one targeted projects which, together, address all of CMS’s strategic goals for this grant to
+transform healthcare for residents in the State’s rural areas: make rural America healthy again by
+addressing root causes of diseases; strengthen sustainable healthcare access; improve workforce
+development; promote innovative care; and enhance tech innovation. The initiatives are:
+    1. Population Health Outcomes – Advance prevention, improve management of chronic
+        diseases, maternal and behavioral health integration, and address root causes of disease.
+    2. Workforce – Strengthen recruitment, training, and retention of healthcare providers and
+        staff through education partnerships, telehealth support, and career pipelines.
+    3. Data & Technology – Expand interoperability, health information exchange participation and
+        telehealth infrastructure, and analytics to guide performance and inform policy, as well as
+        improve healthcare providers’ ability to coordinate care and improve population health.
+    4. Care Transformation & Stability – Promote rural healthcare provider capacity to improve
+        quality and population health, including by supporting enhanced care coordination,
+        adoption of value-based models, integrating medical, behavioral, dental, and long-term
+        services, coordinated care teams, and sustainable funding mechanisms for rural
+        healthcare providers.
+
+The State’s plan will leverage partnerships with State and local agencies, Tribal partners,
+healthcare providers, and community organizations to ensure locally responsive solutions. By
+aligning investments with evidence-based projects, the RHT Plan will improve chronic disease
+management, expand healthcare access, reduce avoidable hospitalizations, and strengthen the
+long-term health of rural residents through sustainable solutions. This program will modernize
+electronic and logistical infrastructure, strengthen community-to-clinician connections, and
+further integrate healthcare and community-based services across settings and types of care.
+
+
+12 | P a g e
+Total Budget Amount: $1,000,000,000
+
+Use of Funds: The requested $1,000,000,000 provides the investment needed to build a more
+resilient system
+
+
+
+
+13 | P a g e
+Delaware
+Title: The Delaware Rural Health Transformation Plan addresses critical healthcare access and
+outcome disparities affecting approximately 400,000 residents in rural Sussex and Kent Counties.
+
+Abstract:
+Delaware Rural Health Transformation Plan - Project Summary
+Lead Organization: Delaware Department of Health and Social Services (DHSS), in partnership with
+the Division of Public Health (DPH) and the Governor's Office
+
+Known Partner Organizations: Delaware State Housing Authority, Delaware Health Care
+Commission, Delaware Division of Libraries, Delaware Health Information Network (DHIN), Smart
+Health Network, Delaware Council on Farm & Food Policy, La Red Health Center, Westside Family
+Healthcare, Tidal Health, Beebe Healthcare, Bayhealth, ChristianaCare, Highmark Health Options,
+Nemours Children's Health, Delaware State University, University of Delaware, Delaware Technical
+Community College, and numerous community-based organizations
+
+Total Budget: $1 billion over five years ($935.5M in direct costs + $64.5M in indirect costs).
+
+Project Goals: Delaware's Rural Health Transformation Plan addresses critical healthcare
+disparities affecting approximately 400,000 residents in rural Sussex and Kent Counties through 15
+integrated initiatives. The plan aims to:
+    1. Expand Access: Establish Hope Centers for homeless populations, deploy mobile health
+        units, create school-based health centers, and expand library-based health services to
+        eliminate transportation barriers and bring care directly to rural communities.
+    2. Strengthen Workforce: Create Delaware's first medical school with a Primary Care-Rural
+        Health track, establish "Train Here, Stay Here" programs with education awards for medical
+        students and residents, and expand training programs for nurse practitioners, physician
+        assistants, community health workers, and other critical healthcare roles.
+    3. Drive Innovation: Build comprehensive health IT infrastructure for real-time insurance
+        verification and prior authorizations, launch a Catalyst Fund for telehealth and remote
+        monitoring technologies, and implement a diabetes wellness pilot integrating continuous
+        glucose monitoring with care management.
+    4. Improve Outcomes: Deploy Food is Medicine infrastructure with billing mechanisms and
+        workforce development, establish value-based care readiness programs for rural providers
+        and FQHCs, and create a Healthcare Workforce Data Center for real-time tracking of
+        progress
+
+Use of Funds: The $1 billion investment will transform rural healthcare delivery in Delaware through
+infrastructure development ($97.5M for Hope Centers, $50M for health information exchange),
+workforce development ($274M for medical school and training programs, $60.25M for educational
+awards and recruitment), expanded access points ($23M for mobile units, school health centers,
+and library services), technology innovation ($106.5M for catalyst fund and diabetes pilot), and
+sustainable care delivery models ($308M for value-based care readiness and Food is Medicine
+infrastructure and $16.25M for workforce data infrastructure). By addressing root causes—
+workforce shortages, outdated care delivery models, and underutilized payment mechanisms—
+rather than providing temporary subsidies, this plan creates sustainable improvements in access,
+quality, and health outcomes for Delaware's rural communities.
+
+
+14 | P a g e
+Florida
+Title: The Florida Rural Health Transformation Program (RHTP) modernizes, stabilizes, and sustains
+rural health systems across 31 counties, serving approximately 1.2 million Floridians.
+
+Abstract:
+State of Florida Rural Health Transformation Program (RHTP) Project Summary
+Lead Agency: Florida Agency for Health Care Administration (the Agency)
+Subrecipients: To be selected through a procurement process.
+
+Project Purpose and Goals: The Florida Rural Health Transformation Program (RHTP) modernizes,
+stabilizes, and sustains rural health systems across 31 counties, serving approximately 1.2 million
+Floridians. The program’s purpose is to expand access to high-quality, affordable healthcare by
+addressing provider shortages, technological fragmentation, and unsustainable reimbursement
+structures. Florida is committed to Making Rural Florida Healthy Again by advancing the following
+strategic goals:
+    1. Improve Access: Combine urban-led rural clinics, mobile health, community
+        paramedicine, tele-specialties, remote monitoring, retail pharmacy clinics, and nutrition-
+        focused Health and Lifestyle initiatives to offer preventive, chronic disease, behavioral
+        health, and maternal care directly to residents.
+    2. Improve Outcomes: Reduce preventable hospitalizations and improve chronic, behavioral,
+        and maternal health outcomes through evidence-based, technology-enabled interventions.
+    3. Enhance Technology and Data Use: Advance telehealth, remote monitoring, and health
+        information exchange and encounter notification systems to improve continuity, efficiency,
+        and performance tracking.
+    4. Strengthen Workforce: Build a lasting rural workforce pipeline through the Clinical Training
+        Investment Opportunity (CTIO) initiative, with supervised rotations and five-year rural
+        service commitments.
+    5. Ensure Financial Sustainability: Implement value-based payment models and promote
+        integrated Medicare-Medicaid plans initiative to stabilize rural hospitals and strengthen
+        provider solvency through more streamlined billing for providers.
+
+Total Budget Amount: $200 million
+Use of Funds: Florida will deploy RHTP funds through a statewide strategy to modernize rural
+health infrastructure, strengthen the workforce, and advance value-based, data-driven care.
+Funding will support new rural and satellite clinics, expand mobile health and community
+paramedicine services, and integrate telehealth and remote monitoring for preventive, primary,
+and specialty care. Enhancing behavioral health access with regional telepsychiatry hubs,
+workforce development, and increased access via retail clinics in rural pharmacies will also be
+prioritized. The Health and Lifestyle initiative will address food insecurity, nutrition counseling, and
+school-based wellness programs to reduce chronic disease. Additional funds will support the
+Integrated Medicare-Medicaid Plans Education and Outreach initiative, provider onboarding to the
+Florida Health Information Exchange, and advanced diagnostic technologies. Florida will further
+promote Value-Based Purchasing and Patient-Centered Medical Home transformation to improve
+care coordination, efficiency, and sustainability. This funding aims to build a sustainable rural
+health system that expands access and improves outcomes for 1.2 million rural Floridians.
+
+
+
+
+15 | P a g e
+Georgia
+Title: Georgia Rural Enhancement And Transformation of Health (GREAT Health) Program is a grant
+to support value-based care uptake in the State of Georgia strengthening the healthcare access
+and the workforce.
+
+Abstract:
+Organization: Georgia Department of Community Health
+Sub-recipients: State Office of Rural Health, Georgia Board of Health Care Workforce, Department
+of Public Health, Department of Behavioral Health and Developmental Disabilities, Department of
+Human Services, University System of Georgia, Side by Side, Georgia EMS Association/Georgia
+Ambulance Providers Association, ShareCare, Deloitte, RSM
+Project Goals: All five Rural Health Transformation goals as specified in the NOFO
+Total Budget Amount: $1,427,778,682 over five years
+
+Description: Georgia’s Rural Enhancement And Transformation of Health (GREAT Health) program
+will bring about a transformation of health in rural Georgia. Achieving this vision means rural
+populations are healthier, live longer, have an improved quality of life, and can both live and work in
+the communities they love; rural places have healthcare that is high quality, more abundant, more
+accessible, and more effective; and rural progress creates systems-level change that leverages
+technology, drives innovation, and improves quality, while maintaining a patient focus. The GREAT
+Health program will do this through five initiatives:
+     1. Transforming for a Sustainable Health System focuses on preparing rural healthcare
+         facilities and providers to qualify for the Achieving Healthcare Efficiency through
+         Accountable Design (AHEAD) Model for hospitals and AHEAD primary care programs from
+         CMS to align with the Georgia vision of rural progress. As part of this initiative, the GREAT
+         Health program will focus time and resources on working collaboratively with healthcare
+         facilities and leaders to assess readiness, identify gaps, and provide technical assistance.
+         Other parts of this initiative will address strategic gaps and mitigate fiscal risk that could
+         cause some facilities and providers to delay engagement in these reforms. Many of the
+         strategies outlined across initiatives will support the care delivery and financial situations
+         of rural providers to ensure long-term, meaningful participation in AHEAD.
+     2. Strengthening the Continuum of Care includes nine strategies that focus on addressing
+         rural-specific behavioral health concerns, improving infrastructure related to emergency
+         preparedness to mitigate injury and trauma risks, improving public health initiatives related
+         to newborn screenings and interhospital transportation, expanding support for acquired
+         brain injury survivors, and increasing access to nutrition services for children with autism
+         spectrum disorder (ASD) and pregnant women.
+     3. Connecting to Care to Improve Healthcare Access includes six strategies that align with the
+         vision of increasing access in rural places to ensure rural residents have more
+         opportunities for preventative, primary, specialty, dental, and behavioral healthcare.
+     4. Growing a Highly Skilled Healthcare Workforce includes five strategies grounded in
+         increasing and incentivizing healthcare workers to practice in rural Georgia. This is directly
+         associated with the vision for rural populations in rural places through expanded
+         scholarship and GME programs and establishing rural recruitment incentives.
+     5. Leveraging Technology for Healthcare Innovation consists of eight technology-based
+         strategies that will scale up innovation with a focus on improving care delivery, aligning with
+
+
+
+16 | P a g e
+       the vision of advancing rural progress, through technological advances in cybersecurity,
+       robotics, electronic medical records, artificial intelligence, and more.
+
+
+
+
+17 | P a g e
+Hawaii
+Title: The Hawai‘i Rural Health Transformation Plan will build a robust, sustainable rural health
+care system that will improve healthcare access, quality and outcomes through six interconnected
+initiatives.
+
+Abstract: The State of Hawaii requests a five-year, $1 billion Rural Health Transformation Program
+(RHTP) cooperative agreement from the Centers for Medicare and Medicaid Services (CMS) to
+achieve the RHT statutory goals of making rural America healthy again, promoting sustainable
+access, workforce development, innovative care, and technology innovation.
+
+Healthcare access challenges are significant in the State of Hawaii due to its unique geography;
+95.1% of the land area is rural. Healthcare services are centered in Honolulu, the State’s single
+urban core. There are serious deficiencies in the digital and physical health care infrastructure,
+along with severe workforce shortages and financial constraints that negatively impact rural
+residents’ access to physical and behavioral care at all levels.
+
+The goal of the State of Hawai‘i’s RHTP is to transform the rural health care delivery system in a
+sustainable manner that will improve healthcare access, quality, and outcomes. The plan focuses
+on addressing prioritized challenges affecting rural populations. These include health information
+technology infrastructure, the emergency medical services (EMS) system, access to behavioral
+health care, overreliance on hospitals and emergency care, workforce shortages, and the inability
+of rural providers and networks to adopt innovative care models.
+
+The RHTP includes six interconnected initiatives: (1) Rural Health Information Network (RHIN): A
+statewide digital backbone connecting rural hospitals, clinics, and health centers through
+interoperable EHRs, wireless networks, and integrated data hubs; (2) Pili Ola Telehealth Network: A
+statewide telehealth network connecting rural communities to providers and integrating digital
+health access, virtual care, and telehealth training; (3) Rural Infrastructure for Care Access (RICA):
+A physical access initiative to expand emergency medical services, implement evidence-based
+community care practices (healthcare team expansion, community paramedicine, and mobile
+healthcare), and bolster the behavioral health infrastructure; (4) Hawaii Outreach for Medical
+Education in Rural Under-resourced Neighborhoods (HOME RUN): A pipeline initiative expanding
+education, recruitment, and retention of healthcare workers through certificate programs,
+residencies, scholarships, and mentoring; (5) Rural Respite Network (RRN): An expansion of the
+effective medical respite model to rural areas to reduce preventable hospital use among unhoused
+or post-acute patients with low medical acuity; (6) Rural Value-Based Innovation (RVBI) & AHEAD
+Readiness Fund: A competitive fund enabling rural providers to adopt innovative care models and
+succeed under the CMS Achieving Healthcare Efficiency through Accountable Design (AHEAD)
+model by financing local value-based innovations.
+
+CMS funds will support personnel (RHTP Oversight Team), consultants for specialized technical
+and programmatic assistance, and subawards for initiative leads. Subawardees include the State
+Health Planning and Development Agency, the University of Hawaii (UH) Telecommunication and
+Social Informatics Program, the State Department of Health, UH John A. Burns School of Medicine,
+and the State Department of Human Services.
+
+
+
+
+18 | P a g e
+Idaho
+Title: State of Idaho Rural Health Transformation Program
+
+Abstract: The Idaho Department of Health and Welfare’s Rural Health Transformation Program
+grant proposal seeks $200 million per year for five years to empower Idahoans and their
+communities to take charge of their health by transforming today’s fragmented rural health care
+infrastructure into a resilient, patient-centered system that delivers accessible, sustainable, and
+innovative care close to home. This will be accomplished through five coordinated initiatives that
+build long-term system capacity, informed by public input that identified three clear priorities
+guiding this plan: workforce, healthcare access, and chronic disease prevention.
+
+Improving rural access to care through technology: Through investments in technology
+assessments, telehealth, interoperability through electronic health records software and
+upgrades, artificial intelligence, cybersecurity modernization, emergency communication system
+implementation and enrollment, health management and data analytics tools, and digital health
+applications, Idaho will strengthen the backbone of rural care--bridging distance, reducing
+duplication, and building durable infrastructure that allows communities to manage their own
+health more effectively in partnership with rural healthcare systems, treatment centers, and long-
+term care facilities.
+
+Ensuring accessible quality care through innovative models: By investing in access to innovative
+diagnostics, leveraging new technologies, expanding workforce by enhancing the role of health
+extenders (community health workers, community health emergency medical services (EMS),
+pharmacy allied professionals, and other non-physician health care professionals), strengthening
+EMS systems, and supporting home-based and community-based care solutions, this initiative will
+ensure that rural Idahoans can receive care at and close to home.
+
+Sustaining rural workforce with training, recruitment, and retention: To transform rural health
+sustainably, this initiative focuses on a comprehensive rural workforce strategy that leverages
+financial incentives, training pathways, and community support to build and sustain a skilled rural
+health workforce--including ladder payments for recruitment, retention, and post graduate
+scholarships; healthcare career exploration and advancement programs; work-based learning; and
+graduate medical education programs including fellowship and residency. All participants in the
+workforce projects will commit to a minimum of five years of service in rural communities, ensuring
+continuity of care and strengthening local health systems.
+
+ Implement population specific, evidence-based projects to Make America Healthy Again: This
+initiative will advance Idaho’s rural health systems by implementing community-targeted, data-
+driven prevention and treatment programs that address chronic disease, behavioral health, and
+maternal and child health; and build local capacity for implementation and ongoing sustainability.
+To ensure long-term impact, all interventions will be based on proven models and supported by
+training, monitoring, and evaluation systems to ensure viability in rural Idaho contexts.
+
+Investing in rural health infrastructure and partnerships: This initiative will invest in rural healthcare
+facility renovations, pharmacy solutions, clinical equipment purchases, vehicles for patient
+transport and rural mobile health units, and facility compliance upgrades. Additionally, it supports
+partnerships, including a 3.5% set-aside for Tribal rural health transformation support.
+
+
+19 | P a g e
+Funding will be awarded through competitive solicitations under the five initiatives.
+
+
+
+
+20 | P a g e
+Illinois
+Title: Illinois Rural Health Transformation Program - To support rural communities across the State
+of Illinois in improving healthcare access, quality, and outcomes by transforming healthcare
+delivery.
+
+Abstract:
+Name of Organization: Illinois Department of Healthcare and Family Services (HFS)
+Subrecipients or Sub-Awardee Organizations: HFS intends to further identify subrecipients and
+sub-awardees in upcoming demonstration years. Subrecipients are expected to include: Hospitals,
+Illinois Primary Health Care Association (IPHCA), Community Behavioral Health Association
+(CBHA), University of Illinois Chicago (UIC), Illinois Critical Access Hospital Network (ICAHN),
+Illinois Department of Public Health (IDPH), Illinois State University System, and Illinois Community
+College Board (ICCB).
+
+Project Goals, Purpose, & Outcomes: HFS has developed a vision for the future of rural healthcare
+in Illinois based on the five strategic goals outlined by the Centers for Medicare and Medicaid
+Services (CMS) in the Notice of Funding Opportunity (NOFO). The project includes 3 categories of
+initiatives: (1) Transforming Rural Healthcare; (2) Overcoming Geographic Barriers to Care; (3)
+Building a Resilient Rural Workforce. The purpose of HFS’ RHT program is to (1) Invest in
+infrastructure and innovative models of care to right-size care delivery in rural communities; (2)
+Break down existing barriers to care by bringing health care into the rural communities; ad (3) Build
+a robust local workforce.
+
+Total Budget Amount: $200 Million per budget period
+
+Description of Use of Funds:
+ Initiatives                       Strategic Goals                   Uses of Funds
+ Transforming Rural                Innovative care, Make rural       A, B, C, D, G, H, I, J, K
+ Healthcare                        America healthy again,
+ Hospital Transformation           Sustainable access
+ Community Care
+ Infrastructure
+ Hospital Disease Prevention
+ Overcoming Geographic             Sustainable access, Tech          A, C, D, F, G, H, I, J
+ Barriers to Care                  innovation
+ EMS and Mobile Healthcare
+ Technological Innovation for
+ Virtual Care
+ Building a Resilient Rural        Workforce development             E, G
+ Workforce
+ Healthcare Workforce
+ Expansion
+ Training Healthcare Support
+ Workers
+ Rural Health Education
+ Pipeline
+
+
+
+21 | P a g e
+Indiana
+Title: Growing Rural Opportunities for Well-being in Health (Grow: Cultivating Hoosier Health),
+Indiana's Rural Health Transformation Plan.
+
+Abstract: The State of Indiana, with its lead agencies, the Indiana Family and Social Services
+Administration (FSSA), the Indiana Department of Health (IDOH), and the Indiana Department of
+Child Services (DCS), collectively under Indiana Health and Family Services (HFS) will launch its
+landmark “GROW” transformation program utilizing RHT Program funds. Indiana engaged a broad
+network of rural residents, providers and provider organizations, community leaders, and State
+legislators to shape the vision and priorities of GROW through extensive collaboration and
+feedback.
+
+Purpose and Project Goals: GROW expands Indiana’s Make Indiana Healthy Again initiatives and
+seeks to invest $1B over a 5-year period to catalyze innovative and sustainable solutions to drive
+healthier outcomes for Indiana’s rural residents. GROW is fully aligned with the five CMS Strategic
+Goals with 12 target initiatives, which balance statewide efforts with regionally designed projects
+led by local networks of providers and community leaders.
+
+CMS Goal* Investments and Target Outcomes**
+  1. Sustainable Access (6% of total funding) Enable rural providers to serve as lasting access
+      points for care and improving overall care coordination to address existing low patient
+      volumes and hospital transfer barriers by establishing a statewide Medical Organizations
+      Coordination Center (1) and enhancing Indiana 211 to support closed-loop referrals (2)
+  2. Tech Innovation (7% of total funding) Enhance technology infrastructure and digital
+      connectivity across rural health systems to address gaps in secure data exchange and
+      improve patient outcomes by strengthening interoperability networks connecting rural
+      facilities (3)
+  3. Innovative Care (10% of total funding) Promote patient-centered models of care to address
+      access barriers to preventive and post-acute services by enhancing pediatric and obstetric
+      readiness in emergency departments (4), advancing cardiometabolic care standards (5),
+      improving timely access to prescription medications (6), and strengthening tele-consult (7)
+      and telehealth (8) capacities among rural facilities
+  4. Workforce Development (10% of total funding) Grow the paraprofessional, physician, and
+      behavioral health workforce to removing credentialing and training barriers for community
+      health workers and peers (9), and funding physician stipends and rural preceptorships to
+      incentivize rural practice (10)
+  5. Make Rural America Healthy Again Catalyze targeted local rural health innovation by
+      addressing community-specific challenges with community-specific solutions through the
+      Make Rural Indiana Healthy Again Regional Grants (12), which will be awarded to regional
+      coalitions through a competitive application process to drive outcomes-driven initiatives
+      and strengthen collaboration among healthcare and community partners (60% of total
+      funding)
+
+*Overall administrative costs and indirect costs make up the remaining portion of total funding.
+** Numbers in parentheses indicate which of Indiana’s 12 initiatives each activity corresponds to.
+
+
+
+
+22 | P a g e
+Looking ahead to the next five years, Indiana will continue to collaborate with key stakeholders and
+experienced partners throughout the implementation of these initiatives to ensure rural
+perspectives remain central across all phases of these efforts. Indiana will also hold regular
+advisory meetings to ensure ongoing accountability and responsiveness to feedback.
+
+
+
+
+23 | P a g e
+Iowa
+Title: Iowa's Rural Health Transformation Program. Supports rural hospitals and partners, build
+collaborations, recruit providers, prevent and treat chronic disease, combat cancer, and rural
+technology upgrades.
+
+Abstract: This package outlines Iowa’s application for Healthy Hometowns, Iowa’s Rural Health
+Transformation Program. Healthy Hometowns consists of initiatives that work together to support
+rural hospitals and their partners, build collaborations for long term systemic sustainability of rural
+healthcare, prevent and treat chronic disease, combat cancer, and invest in equipment and
+technology upgrades. Within five years, Iowans can expect a reduction in avoidable emergency
+department visits, an increase in rural residents receiving care locally through new or expanded
+service lines, an increase in the provider to population ratios in rural Iowa, and an increase in the
+number of telehealth consultations delivered to rural residents. Iowa anticipates this will lead to
+future reductions in chronic disease and cancer. Iowa’s application includes the following:
+
+Hometown Connections: An initiative that builds formal partnerships to restructure healthcare
+delivery options for rural communities. This includes an expansion of Iowa Governor Kim Reynold’s
+Centers of Excellence Program and a rare opportunity to develop enhanced Health Hubs, or hub-
+and-spoke networks of care, with investments in telehealth, specialized medical equipment,
+provider recruitment and retention, efficient space utilization, and limited funds to support care for
+uninsured Iowans. Health Hubs may include school-based service provision.
+Best and Brightest: A sub-initiative of Hometown Connections to recruit and retain an excellent
+rural healthcare workforce.
+
+Combat Cancer-Prevent and Treat: An initiative to comprehensively tackle cancer throughout the
+State via increasing access to cancer screening, forming cancer-specific Health Hubs, upgrading
+equipment for cancer screening and treatment, delivering supportive care for families impacted by
+cancer, and supporting studies and analyses by academic partners. Iowa will address lung cancer
+prevention through radon testing and mitigation, breast cancer by paying for mammograms and
+follow-up breast MRIs, colorectal cancer through FIT tests and follow-up colonoscopies, skin
+cancer through telehealth and new equipment, and prostate cancer through routine screening
+methods.
+
+Communities of Care: An initiative that supports co-location of different rural provider types for
+convenient patient access and improved coordination, hires community health workers as system
+navigators, and invests heavily in chronic disease prevention and management techniques.
+
+Health Information Exchange: An initiative that allows records to be accessible across the State as
+patients travel through new Health Hubs and seek care in new ways.
+
+EMS Community Care Mobile: An initiative that invests in new telehealth technology for high-risk
+transport of moms and their new babies to higher levels of care throughout the State and a mobile
+integrated healthcare program that brings prenatal, postpartum, post-surgery discharge, chronic
+disease management, and other types of care to rural residents in their homes or to easily
+accessible sites in their communities.
+
+Iowa requests $200 million per project year period (total $1 billion over the 5-year grant).
+
+
+24 | P a g e
+Kansas
+Title: Kansas Rural Health Transformation Plan
+
+Abstract: Project Goals: Transform Kansas’ rural health care delivery system by (1) realizing
+meaningful reductions in chronic disease rates and avoidable hospitalizations for complications
+related to chronic disease in rural Kansas; (2) substantially reducing the number of rural Kansas
+hospitals with negative operating margins; (3) improving provider-to-population ratios for primary
+care, dental and mental health disciplines and ease nursing and allied health shortages in rural
+Kansas; (4) having 100% of Medicare and Medicaid beneficiaries in rural Kansas in accountable
+care relationships by 2031; (5) and enabling rural Kansas providers to meaningfully engage in data
+sharing, analysis of aggregated patient and outcome data, expanded use of telehealth and remote
+monitoring, appropriate use of artificial intelligence, and utilization of consumer-facing
+technologies.
+
+Total Budget Amount: $200 million per year for five years.
+
+Description of How Funds Will Be Used: The State of Kansas’ Rural Health Transformation Plan
+includes five initiatives tied to the Rural Health Transformation Program’s five strategic goals and
+fully addressing the ten initiative-based factors specified by CMS: (1) expand primary and
+secondary prevention programs; (2) secure local access to primary care; (3) build a sustainable
+rural workforce; (4) enable value-based care; (5) harness data and technology. For each initiative,
+the State has developed programs and projects to achieve the initiative’s objectives.
+
+The Plan is comprehensive in scope, reaching all rural communities in the State and all types of
+rural providers.
+
+Key programs include (1) financial incentives for rural providers to implement and sustain
+evidence-based practices; (2) support for transformative projects to form or expand regional
+partnerships; (3) a statewide Accountable Food Is Medicine program supported in part by
+deployment of community health workers; (5) a focused behavioral health services program
+including integration of behavioral in primary care and embedding behavioral health supports in
+emergency departments and nursing facilities; (6) a comprehensive remote patient monitoring
+program using cutting-edge technologies; (7) deployment of consumer-facing technologies to
+support healthy lifestyles and manage chronic conditions; (8) new transportation models and
+innovative patient care resources to ensure patients receive the right care in the right place at the
+right time; (9) specific interventions to help rural providers improve revenue and reduce operating
+costs; and (10) targeted training and recruitment programs to address specific rural workforce
+challenges. The initiatives include several additional programs and projects to drive transformation
+and make rural America healthy again.
+
+The Plan, developed with significant stakeholder input, includes a detailed implementation plan
+with an aggressive timeline, a comprehensive evaluation plan, and a practical sustainability plan.
+Every dollar in the budget is committed to helping rural communities thrive through better health.
+
+
+
+
+25 | P a g e
+Kentucky
+Title: Kentucky Rural Health Transformation Plan - To improve health outcomes, expand access to
+care, & strengthen the infrastructure that supports the Commonwealth of KY rural constituents &
+areas
+
+Abstract: The Commonwealth of Kentucky is the 10th most rural State in the country, with 1.87
+million residents, nearly half (41.6%) of the total State population, residing in a rural area.
+According to America’s Health Rankings, Kentucky is currently ranked 41st out of the 50 States
+based on a spectrum of measures. Average life expectancy ranges from 64.5 to 79.7 years across
+counties, with a lower life expectancy in counties within Eastern rural areas. These rural
+communities face some of the most significant health access challenges in the Commonwealth
+and across the country, including high rates of chronic disease, maternal health deserts,
+behavioral health crises, and limited access to preventive dental care and emergency services. The
+Commonwealth’s Rural Health Transformation Plan (RHTP) represents a bold step forward to
+transform care delivery across our rural health ecosystem. Kentucky’s Department for Public
+Health, under the Cabinet for Health and Family Services (CHFS) and, together with key
+stakeholders, propose five specific care innovation models to refocus efforts on improving access
+and prevention of high-priority health conditions that disproportionately impact rural Kentuckians.
+
+These initiatives and their goals include (1) Rural Community Hubs for Chronic Care Innovation:
+Reduce obesity and diabetes rate through evidence-based, community-led strategies focused on
+upstream prevention; (2) PoWERing Maternal and Infant Health, Community-Based Teams:
+Increase timely perinatal care in maternity care deserts through coordinated, telehealth enabled
+teams; (3) Rapid Response to Recovery, EmPATH Model, Mobile Crisis, and Telehealth: Expand
+integrated, technology-enabled crisis care from community response to long-term support; (4)
+Rooted in Health, Kentucky Rural Dental Access Program: Improve rural access to preventive
+dental care and treatment through expanded training and mobile, portable services; and (5) From
+Crisis to Care, Integrated EMS and Trauma Response: Strengthen EMS and trauma care capacity,
+responsiveness, and coordination
+
+Across these five priority areas, Kentucky will make investments in new and emerging technology
+infrastructure, data interoperability standards, and other technology-based initiatives. The
+Commonwealth will also support workforce capacity by expanding the number and role of clinical
+and non-clinical health care workers to improve access and enable more cost-effective rural
+health delivery at the local community level. Kentucky intends to allocate funds to subrecipients
+who will play a critical role in implementing the proposed initiatives outlined in the RHTP. The
+Commonwealth will also maintain ongoing engagement with stakeholders across the program’s
+duration to ensure broad input and collaboration. Kentucky is fully committed to fiscal
+responsibility, rigorous monitoring, measurable outcomes, and long-term program sustainability.
+Furthermore, the Commonwealth will adopt and enforce any policies or regulations necessary to
+support and advance the goals of the program. Through this comprehensive and collaborative
+approach, Kentucky aims to create lasting improvements in rural health outcomes across the
+Commonwealth and be a leader in rural health transformation nationwide.
+Total Federal Cost: $200,000,000 per budget period
+
+
+
+
+26 | P a g e
+Louisiana
+Title: Utilizing workforce, modernized technology, coordinated and innovative care models, and
+investments in infrastructure LDH will transform health outcomes for rural communities in LA
+
+Abstract: The Louisiana Department of Health (LDH) application for the Rural Health
+Transformation Program (RHTP) includes groundbreaking initiatives that will have a long-lasting
+impact on healthcare for rural Louisiana citizens. These activities were developed based on
+stakeholder feedback and address the critical challenges in healthcare access, workforce, and
+health outcomes faced by the State’s rural population. Louisiana ranks 50th in national health
+rankings, and health outcomes in rural parishes reflect disproportionate challenges. These
+outcomes are a result of both limited healthcare access in rural areas and the financial instability
+of rural healthcare facilities.
+
+The Louisiana Rural Health Transformation Program (LA RHTP) will provide resources, facilitate
+collaboration across agencies, and reinforce State policy changes needed to tackle the pressing
+healthcare disparities in this State. Through this program, Louisiana aims to enhance the
+sustainability of rural healthcare providers while ensuring that the State’s 1.1 million rural
+residents, particularly those with chronic and behavioral health needs, can access high-quality
+care close to home.
+
+To ensure Louisiana meets its goal of improving healthcare quality to rural residents, LDH is
+requesting the maximum allocation of RHTP grant funds to implement six proposed initiatives that
+work together to expand the healthcare workforce, promote the use of technology, AI, digital tools,
+and data sharing, and deploy financial incentives to change provider behavior and empower
+communities to address non-clinical factors of chronic disease.
+
+These initiatives will: 1) build a resilient, integrated rural health and emergency system by
+expanding and stabilizing the workforce through targeted incentives, continuous training, and
+technology-enabled care coordination; 2) modernize rural health technology infrastructure and
+expand interoperability by combining a State-managed, CMS-aligned electronic health record
+(EHR) system with a tech catalyst fund to invest in innovative digital tools and mobile care
+platforms; 3) implement value-based payment and care models that reward outcomes, support
+innovative services, and ensure sustainable, high-quality care for rural communities; 4) expand
+prevention and nutrition-based interventions to address chronic disease, maternal health, and
+behavioral health challenges; 5) strengthen care integration for high-needs populations through
+coordinated, multi-modal care infrastructure models; and 6) provide capital investment support to
+strengthen sustainable access to essential health services.
+
+All funded activities are designed to address needs present in every rural parish across Louisiana.
+The State will ensure that each rural area has access to the program's benefits, while allowing
+flexibility to target specific parishes or regions identified as having a greater need. Louisiana will
+strengthen collaboration among rural hospitals, rural health clinics, federally qualified health
+centers (FQHCs), behavioral health providers, emergency medical services, Louisiana Ambulance
+Alliance, and allied health professional networks. Louisiana will maintain ongoing outreach and
+collaboration with rural communities to ensure that valuable stakeholders are aware of funding
+availability and have the opportunity to actively participate in initiatives. This program will
+
+
+
+27 | P a g e
+strengthen health care access and enhance provider sustainability, ensuring that Louisiana’s rural
+residents can receive equitable and high-quality care.
+
+
+
+
+28 | P a g e
+Maine
+Title: Maine’s Rural Health Transformation Plan proposes a new approach to delivering rural health
+care so that rural Mainers will have a resilient and integrated rural healthcare system accessible to
+all.
+
+Abstract: Maine stands out as America’s oldest and one of its most rural States, where rural
+residents face far higher risks of chronic disease than the national average. Adults in Maine’s rural
+communities are more likely to have heart disease, the leading cause of death in our State. Nearly
+one in eight lives with diabetes, and one in five has lost six or more teeth to decay or disease. These
+complex health needs, combined with our aging population, drive rising demand for services, while
+rural geography adds costs, logistical barriers, and workforce shortages. Together, these
+challenges call for a new approach to delivering rural health care, and Maine’s Rural Health
+Transformation Plan (RHTP) proposes a path to achieve that transformation.
+
+Maine’s RHTP strategy envisions a future rural health system in which where one lives no longer
+dictates health outcomes or access to care; a stronger workforce, mobility innovations, and
+technologies ensure quality care is available to rural Mainers when they need it, where they need it;
+and a rural health system that is strong and sustainable for generations of Mainers. Maine will track
+our progress towards achieving this vision through four overarching goals:
+    1. Increase the relative percentage of residents in rural areas with high BP that is well-
+        controlled by 10%.
+    2. Reduce the relative 30-day all-cause readmission rate among rural patients by 10%.
+    3. Reduce the relative percentage of adults in rural areas who report delaying medical care for
+        reasons other than costs by 10%.
+    4. Reach at least 75% of Maine's rural hospitals achieving annual operating margins sufficient
+        to make ongoing investments to improve operations and care (at or above 1% operating
+        margin).
+
+Our plan is organized around five initiatives to achieve these goals. To empower rural Mainers to
+achieve their own healthy living goals, we will adopt and expand proven population health
+solutions. To expand the supply of care, we will grow our rural healthcare workforce and implement
+technologies that connect every community to advanced care. And to ensure care will be available
+and affordable long into Maine’s future, we will pair affordability measures with strategies that
+advance quality, efficiency, and fiscal durability. By the conclusion of this work, rural Mainers will
+have a resilient and integrated rural healthcare system that is accessible to all, delivers consistent,
+high-value care, and achieves better health outcomes statewide. Our proposal’s total budget is $1
+billion, per CMS instructions, using an illustrative award amount of $200 million for each budget
+period.
+
+The plan’s implementation will be led by Maine’s Department of Health and Human Services in
+collaboration with other State agencies and many partnering organizations secured through
+Subawards and contracts.
+
+
+
+
+29 | P a g e
+Maryland
+Title: Maryland Rural Health Transformation Program: Transform the Rural Health Workforce;
+Promote Sustainable Access and Innovative Care for Rural Marylanders; Empower Rural
+Marylanders to Eat for Health
+
+Abstract: Maryland’s Rural Health Transformation Program will enable our State to improve the
+health and well-being of the one-third of our residents who call rural Maryland home. Maryland, via
+the Maryland Department of Health (MDH), proposes three bold goals to tackle longstanding
+challenges. We will implement critical initiatives through a combination of Immediate Impact
+Funds – quickly expanding “shovel-ready” activities, and Transformation Funds – issuing
+competitive opportunities for transformational projects that require longer planning.
+
+Goal 1. Transform the Rural Health Workforce: Maryland will expand existing and implement new
+efforts to develop, recruit, and retain a strong health workforce, addressing multiple types of
+clinicians and allied health professionals across medical, behavioral health, and dental fields. For
+example, Immediate Impact Funds will grow the number of apprenticeships and increase other
+employment and upskilling opportunities for community health workers and other occupations.
+Transformation Funds will build a pipeline of future health professionals in rural communities and
+expand training, recruitment, and retention for providers.
+
+Goal 2. Promote Sustainable Access and Innovative Care for Rural Marylanders: To achieve a
+world-class health system for rural Marylanders, we will expand existing and implement new
+efforts to bring healthcare services into rural communities. This comprehensive initiative includes
+multiple avenues to leverage technological advances, grow provider capacity, and increase
+access. Immediate Impact Funds will expand primary care, specialty care, and school-based
+health center capacity; optimize health information technology including through artificial
+intelligence modeling for patient risk predictive alerts; and expand the use of telehealth.
+Transformation Funds will expand an array of physical and behavioral health services, deploy
+technology-enabled chronic disease management including remote patient monitoring, expand
+mobile health, and help provider practices adopt innovative care models.
+
+Goal 3. Empower Rural Marylanders to Eat for Health: Addressing consistent access to food is
+important for health promotion, chronic disease prevention, and overall well-being. Immediate
+impact funds will invest in infrastructure to improve access to nutritious, locally grown and raised
+foods. We will increase the supply of healthy foods in Maryland’s rural hunger hotspots, for
+example by addressing farmers’ post-harvest needs and expanding mobile markets and grocery
+stores. We will support education to strengthen demand for fresh, unprocessed foods.
+Transformation Funds will link rural Maryland farmers to large-scale local buyers through
+aggregation that stimulates market access. Transformation Funds will also establish purchasing
+strategies that prioritize local sourcing among buyers of all sizes.
+
+The proposed total budget over five years is $1 billion. We are committed to ongoing collaboration
+with partners and engagement with stakeholders to actively involve rural Maryland in shaping
+transformation strategies. Known subrecipients include Maryland State Departments of
+Agriculture, Emergency Management, Labor, and Housing and Community Development; as well
+as the Rural Maryland Council, Chesapeake Regional Information System for our Patients (CRISP),
+Local Health Departments, Local Emergency Medical Services, and the Maryland Area Health
+
+
+30 | P a g e
+Education Center. Maryland will determine additional subrecipients through competitive
+Transformation Fund processes.
+
+
+
+
+31 | P a g e
+Massachusetts
+Title: The Massachusetts Rural Health Transformation Program will catalyze transformative
+investments that strengthen rural MA communities, enabling them to thrive and sustain improved
+health and well-being.
+
+Abstract: Of MA’s 351 jurisdictions, 160 are designated rural. Representing 57% of the State’s land
+mass, sparsely populated rural towns have a density of 198 people per square mile, compared to
+non-rural communities (2,256 people per square mile). The target population of this project
+includes MA’s 700,000 rural residents representing 10% of the State’s population who experience
+persistent gaps in access to essential health and social services.
+
+MA’s rural communities face significant barriers to healthcare including higher uninsurance rates,
+greater reliance on public insurance, rising chronic disease, behavioral health, and substance use
+disorder burdens. Care is often distant, with fewer primary and specialty care access points, fragile
+EMS, and healthcare systems strained by aging infrastructure. Shrinking access points reflect
+broader system decline such as rural hospital reductions (11 in 2014 to 6 in 2025), with limited
+clinics, behavioral health, pharmacies, and long-term care options. Technology and transportation
+gaps further restrict access.
+
+Key health challenges include maternal and pediatric service shortages, long specialty care wait
+times, workforce shortages (primary care provider (PCP) ratio 79/100,000 vs. 102 non-rural), and
+financial fragility of rural providers. These factors lead to worse outcomes: chronic disease
+prevalence and ED visit rates are consistently higher in rural communities (e.g., hypertension
+32.4% vs. 28.5% non-rural; mental health ED visits 1,016 vs. 756 per 100,000). Addressing these
+differences requires targeted investments in rural workforce, infrastructure, and access to primary
+and specialty care.
+
+Through the Rural Health Transformation Program, we will catalyze transformative investments
+that strengthen rural MA communities, enabling them to thrive and sustain improved health and
+well-being for generations. To actualize this vision to transform rural health, we have three
+overarching goals: (1) Ensure rural residents can readily access healthcare services, (2) Generate
+opportunities to improve the health and well-being of rural residents, and (3) Scale systems,
+policies, and investments to meet unique needs of rural communities.
+
+The MA RHTP is structured around seven broad Initiatives to transform rural healthcare in MA, and
+within each Initiative, multiple Activities to achieve the Initiative goals. Initiative I. Population
+Health Advancement: improving clinical infrastructure, increasing coordination, and expanding
+payment methodologies to advance rural providers’ value-based care and efforts to lower cost and
+increase quality of care. Initiative II. Innovation in Rural Care Models: Facilitating the introduction
+and redesign of models in rural MA to increase access, broaden service availability, and improve
+efficiency in the delivery of health care. Initiative III. Training Healthcare for Retention. Innovation, &
+Excellence (THRIVE): Strengthen the full continuum of the healthcare workforce in rural
+communities with targeted activities focused on workforce development, recruitment, and
+retention. Initiative IV. Healthy Rural Communities: Supporting community-informed and led
+prevention activities to increase opportunities and empower communities to address gaps related
+to the root causes of health. Initiative V. EMS Service Integration: Investments and programs to
+increase viability, integration, and expanded role of EMS in rural communities. Initiative VI.
+
+
+32 | P a g e
+Enhancing Technology Interoperability and Connectivity: Improving technological infrastructure of
+rural health providers to increase connectivity, create efficiencies, and support better outcomes.
+Initiative VII. Facility Modernization & Re-Use: Support minor renovations of rural facilities to
+optimize space and expand access.
+
+The total budget is $1,000,000,000 across five years.
+
+Together, MA is confident these Initiatives can truly transform and improve the health of our rural
+communities.
+
+
+
+
+33 | P a g e
+Michigan
+Title: Making Rural Michigan Healthy Again.
+
+Abstract: Subrecipients/Sub-awardees: Local health departments, rural health clinics, Federally
+Qualified Health Centers (FQHCs), hospitals, community-based organizations, universities, Tribal
+governments, and other critical rural health partners (to be identified through a competitive
+subaward process).
+Total Budget Request: $1,000,000,000
+
+Project Goals:
+    • Establish sustainable partnerships that integrate health, human services, and community
+        sectors across rural regions.
+    • Increase access to primary, behavioral, and preventive care through a well-trained,
+        supported workforce now and in the future.
+    • Improve use of technical innovations that promote increased efficiencies, health data
+        sharing and real-time referral capacity among rural providers among many other benefits.
+    • Advance rural health by reducing gaps in access to care and essential supportive care by
+        implementing care models that keep residents close to home.
+    • Demonstrate measurable improvements in community well-being, system efficiency, and
+        patient experience.
+
+Funds will be used to:
+   • Support the development and strengthening of regional partnerships among rural hospitals,
+       clinics, and community organizations to improve care coordination, align service delivery,
+       expand access points and promote financially sustainable care models
+   • Recruit and retain rural health professionals, behavioral health providers, and community
+       health workers. Funds will also promote prevention and chronic disease management
+       training and integrated behavioral health care access
+   • Implement technology tools and advancing rural interoperability, including a rural
+       technology catalyst fund to support expanding data exchange, and increasing adoption of
+       telehealth, remote patient monitoring and technology-driven care coordination tools
+   • Establish digital referral networks that connect residents to local care, prevention, and
+       wellness resources needed to live healthy lives
+
+
+
+
+34 | P a g e
+Minnesota
+Title: Minnesota Rural Health Transformation Program
+
+Abstract: MN's plan for rural health transformation adopts a comprehensive, data-driven,
+coordinated approach that builds on strong partnerships and local priorities and uses emerging
+technology to improve provider financial sustainability and extend access to health care deeper
+into trusted rural settings. We envision a vibrant, collaborative, and technology-enabled rural
+health care system that ensures rural Minnesotans have access to the care they need when they
+need it, as close to home as possible. To achieve this, we have developed five RHTP goals, aligned
+with CMS strategic goals:
+    1. Improve health outcomes for rural Minnesotans with or at risk of developing cardiovascular
+        disease, diabetes, and chronic kidney disease (cardiometabolic disease). (CMS goal: Make
+        Rural America Healthy Again)
+    2. Build education pathways and promote training opportunities in rural communities to
+        sustainably expand the healthcare workforce in rural Minnesota. (CMS goal: Workforce
+        Development)
+    3. Expand health care access in rural communities by creating new access points for
+        community-based screenings, preventive care, and chronic disease management through
+        technology-enabled care delivery, mobile care, and increased use of community-based
+        frontline workers. (CMS goals: Sustainable Access, Make Rural America Healthy Again,
+        Tech Innovation)
+    4. Strengthen partnerships between providers to enable delivery of expanded services in rural
+        areas through shared learning, collaborative approaches, and advanced technology
+        interventions. (CMS goals: Tech Innovation, Sustainable Access)
+    5. Strengthen and stabilize rural provider financial health through strategic investments in
+        technology, data infrastructure, and collaborative mechanisms to address unique needs of
+        rural providers. (CMS goals: Innovative Care, Sustainable Access, Tech Innovation)
+
+The Minnesota Department of Health is the lead and applicant organization. The total requested
+dollar amount for the five-year funding period is $1,000,000,000. Subrecipients may include all
+eligible rural hospitals, federally qualified health centers (FQHCs), community mental health
+centers (CMHCs), certified community behavioral health centers (CCBHCs) and rural Tribal
+Nations. A complete list of potential subrecipients is included in the budget narrative.
+
+MN will use RHTP funds to support the five initiatives below consistent with MN’s goals, each with a
+set of potential activities that providers may select to participate in:
+    1. Community-Based Preventive Care and Chronic Disease Management
+    2. Recruit and Retain Talent in Rural Communities
+    3. Sustain Access to Services to Keep Care Closer to Home
+    4. Create Regional Care Models to Improve Whole Person Health
+    5. Invest in Technology, Infrastructure, and Collaboration for Financial Viability
+
+RHTP funds will support these initiatives via a combination of grants to eligible rural providers to
+support technology and infrastructure improvements to allow providers to practice more efficiently
+and increase access to screenings and services; competitive grants to increase telehealth
+technology and use in rural areas, and provide EMS the ability to treat in place; grants to support
+
+
+
+35 | P a g e
+expansion of clinical training and residencies in rural areas; and technical assistance to support
+practices to reach financial stability, among other activities.
+
+
+
+
+36 | P a g e
+Mississippi
+Title: The MS RHTP strengthens rural healthcare by expanding access, improving care
+coordination, modernizing infrastructure, growing the workforce, and using telehealth to improve
+health outcomes.
+
+Abstract:
+Organization: State of Mississippi
+Subawardees: No subawardees have been awarded at this time; subrecipient agreements will be
+established during project implementation and may include various rural hospitals, FQHCs,
+primary care clinics, community health centers, technology and telehealth vendors, universities,
+and professional associations across the State.
+
+Project Summary: The State of Mississippi proposes a comprehensive Rural Health Transformation
+Program (RHT Program) to strengthen healthcare access, workforce development and capacity,
+and service delivery across rural communities through innovation and system-wide changes.
+Guided by the goals to Make Rural America Healthy Again, Sustainable Access, Workforce
+Development, Innovative Care, and Tech Innovation, the RHT Program will invest approximately $1
+billion over five years to address critical gaps in healthcare delivery, infrastructure, workforce, and
+technology.
+
+The RHT Program Plan consists of six integrated initiatives: the Statewide Rural Health
+Assessment, Coordinated Regional Integrated Systems (CRIS), Workforce Expansion Initiative
+(WEI), Health Technology Advancement and Modernization (HTAM), Telehealth Adoption and
+Provider Support (TAPS), and the Building Rural Infrastructure for Delivery, Growth and Efficiency
+(BRIDGE) Initiative.
+
+The Statewide Rural Health Assessment will review existing data and stakeholder input to refine
+investment strategies and align funding with critical rural health needs. CRIS will integrate EMS,
+hospitals, public health, and social services into regional healthcare districts to improve
+emergency response, post-discharge coordination, and behavioral health access. The WEI will
+recruit, retain, and train clinicians, allied health professionals, and support staff through retention
+awards, residency expansion, preceptor development, early-career outreach, and “Earn While You
+Learn” programs. HTAM and TAPS advance technology adoption and connectivity, health IT
+modernization, telehealth infrastructure, cybersecurity, and consumer-facing tools to improve
+efficiency, coordination, and access. BRIDGE addresses capital investments, psychiatric
+emergency services, care gap closure, and pilot programs for innovative interventions, including
+early intervention, ASD-focused programs, care management, and value-based care.
+
+Use of Funds: Funding will be strategically deployed to strengthen the full spectrum of rural health
+delivery. Investments will support workforce development, including recruitment, retention, and
+training programs to ensure rural communities have access to a skilled healthcare workforce.
+Funds will enhance provider capabilities through technical assistance, training, and modernized IT
+systems, including interoperable EHRs, telehealth infrastructure, cybersecurity enhancements,
+and consumer-facing technologies. Capital investments will expand facility capacity and
+specialized services, including psychiatric emergency care and community health programs.
+Funding will enable innovative care models, regional integration of EMS and clinical services, and
+population health initiatives that target chronic disease, behavioral health, and preventive care.
+
+
+37 | P a g e
+Across all initiatives, resources will be used to foster collaboration among rural hospitals, FQHCs,
+clinics, community organizations, and educational institutions to create sustainable, data-driven
+improvements in health outcomes.
+
+Outcomes: Expected outcomes include expanded access to healthcare services, improved clinical
+outcomes, increased telehealth utilization, enhanced workforce retention, strengthened regional
+care networks, and more accessible care delivery across Mississippi. This evidence-based, multi-
+pronged approach will establish sustainable mechanisms for recruitment, retention, technology
+adoption, and care delivery, producing long-term improvements in health system capacity,
+population health, and community engagement.
+
+Total Budget: $1,000,000,000
+
+
+
+
+38 | P a g e
+Missouri
+Title: Missouri Transformation of Rural Community Health Care (ToRCH Care) Project
+
+Abstract:
+Organization: Missouri Department of Social Services (DSS)
+Total Budget Amount: $1 Billion over five years of RHTP (as requested by CMS)
+
+Purpose and Overview: Missouri Department of Social Services (DSS) will lead a comprehensive,
+statewide effort through Transformation of Rural Community Health Care (ToRCH Care) to
+transform how rural healthcare is delivered and sustained. Building on the proven success of
+Missouri’s Transformation of Rural Community Health (ToRCH) program, ToRCH Care will create a
+connected system of local community hubs to ensure every rural Missourian has access to the
+high-quality care they need through a delivery system that is well aligned, community anchored,
+and built to last.
+
+Goals:
+   • Expanding access to care: Ensure rural Missourians can access primary and behavioral
+       health providers close to home, community-based maternity options, with connections to
+       specialists and complex care enabled by telehealth and provider interoperability
+   • Improving health outcomes: Strengthen healthcare quality through integrated care
+       coordination, aligned incentives, and evidence-based practices – so that rural Missourians
+       consistently experience seamless, high-value care
+   • Strengthening provider sustainability: Reinforce the long-term sustainability of rural
+       providers through targeted investments in infrastructure, adoption of innovative
+       technologies, and payment models that reflect the realities of rural care delivery
+
+Use of Funds: Missouri will deploy RHTP funding across five coordinated initiatives:
+   1. Regional Coordinating Networks and Hub Activation: Building the foundation of Regional
+        Coordinating Networks and Local Community Hubs to coordinate local care delivery and
+        expand entry points for physical health, behavioral health, and social services
+   2. Alternative Payment Models: Designing and launching alternative payment models to
+        sustain ToRCH Care through rewarding collaboration that leads to high quality and high
+        value outcomes
+   3. Digital backbone: Establishing the foundational layers of technology that enable ToRCH
+        Care to function, including platform interoperability and data modernization
+   4. Rural Health Workforce Programs: Creating a talent pipeline that encompasses the
+        cultivation, recruitment, training, and retention of rural clinicians and a broad array of
+        healthcare professionals
+   5. Provider Transformation: Invest in operational innovations that modernize and increase the
+        sustainability of rural providers while preserving access with strategic renovations
+
+
+
+
+39 | P a g e
+Montana
+Title: Building a Healthier Rural Montana: Investing in People, Technology, & Preventive Care to
+Strengthen Health Systems, Improve Access, & Build a More Resilient, Sustainable Future for Rural
+Communities.
+
+Abstract:
+Name of organization: State of Montana (“the State”); Department of Public Health and Human
+Services as lead department for the State.
+Names of subrecipients and sub-awardee organizations: To be determined post-award in
+accordance with the Montana Procurement Act and applicable federal and State procurement
+policies. Likely partners include rural hospitals, community health centers, Tribal health
+organizations, and other qualified providers.
+
+Project goals: The State will advance five strategic goals through its proposed initiatives:
+    1. Workforce Development – Strengthen recruitment, training, and retention of a high-skilled
+        rural health workforce across Montana.
+    2. Sustainable Access – Improve the long-term viability of rural providers as access points for
+        care through operational and financial support.
+    3. Innovative Care Models – Implement and scale flexible, patient-centered care models that
+        improve outcomes and care coordination.
+    4. Community Health and Prevention – Promote prevention and address root causes of
+        disease through expanded access and community-based interventions.
+    5. Technology Innovation – Expand the use of secure, efficient digital health tools to improve
+        care delivery and access for rural patients and providers.
+
+Total budget amount: $200 million per year for 5 years; $1 billion total.
+
+Description of fund use: The State will implement five initiatives to achieve these goals, supported
+by existing State policy and targeted policy interventions as needed:
+• Initiative 1: Develop Montana’s rural health workforce through recruitment, training, and
+    retention.
+• Initiative 2: Ensure the sustainability of Montana’s rural health facilities to ensure access
+    through partnerships and restructuring.
+• Initiative 3: Launch innovative care delivery and payment models to improve access and
+    outcomes in Montana.
+• Initiative 4: Invest in Montana’s community health and preventative infrastructure.
+• Initiative 5: Deploy modern health care technologies for Montana’s providers and patients.
+
+
+
+
+40 | P a g e
+Nebraska
+Title: RHTP – Make Nebraska Healthy Again - Nebraska Department of Health and Human Services
+(DHHS) will build a prevention-first, tech-enabled sustainable rural health care system.
+
+Abstract: The Rural Health Transformation Program (RHTP) is a once-in-a-generation opportunity to
+Make Rural Nebraska Healthy Again. Nearly 95% of counties in Nebraska are rural or frontier. Over
+one-third of Nebraskans live in areas where critical workforce shortages in primary care, obstetrics,
+and behavioral health persist. Despite Nebraska’s agricultural strength, 48 of 93 counties qualify as
+food deserts and children lack access to healthy foods. Nebraska will leverage RHTP funds to
+address unique challenges, including obesity amid food deserts, lack of maternal care in a State
+committed to family values, and an aging rural population. With a proposed annual budget of $200
+million, the Nebraska Department of Health and Human Services (DHHS) will build a prevention-
+first, tech-enabled sustainable rural health care system. The project will prevent chronic disease,
+regionalize care, and advance Make America Healthy Again priorities. To achieve this vision, DHHS
+will implement seven integrated initiatives to strengthen the State’s rural health infrastructure,
+address workforce gaps, and ensure access to care through consumer-facing technology. DHHS
+will partner with health care providers, agriculture and community partners through requests for
+application (RFA).
+     1. Make Rural Nebraska Healthy Again through Food as Medicine: Establish statewide
+          infrastructure to improve access to whole foods and lower obesity risk by transforming rural
+          school kitchens, developing regional food hubs to include farmers and ranchers, and
+          introducing nutrition education and fitness programs. Subrecipients include Nebraska
+          Department of Education and University of Nebraska Kearney.
+     2. Regionalized Rural Access and Navigation: Develop hub and spoke regional networks to
+          ensure rural residents can access care for emergency response, maternal care, post-acute
+          follow-up, preventive care, and other local services. Subrecipients include Local Health
+          Departments (LHD), Tribal Organizations (TO), Nebraska Association of Local Health
+          Departments, Nebraska County Extension Offices, and rural hospitals and clinics.
+     3. Rural Workforce Acceleration: Address care gaps by recruiting, training, and retaining a
+          resilient workforce that advances whole-person health through the State’s “grow local”
+          strategy. Subrecipients include Nebraska Hospital Association (NHA), community colleges,
+          private colleges, University of Nebraska system, and Creighton University as teaching
+          partners ensuring the funding goes to rural Nebraska workforce.
+     4. eHealth and Mobile: Implement remote care through mobile clinical units, oral health
+          teams, technology-enhanced pharmacy services, and consumer-facing remote patient
+          monitoring. Subrecipients include Nebraska Perinatal Quality Improvement Collaborative,
+          LHD, TO, Creighton University and UNMC School of Dentistry, and Nebraska Enhanced
+          Services Pharmacies.
+     5. Rural Emergency Behavioral Health: Address behavioral health needs by creating a
+          continuum of care for early intervention and emergency behavioral health and substance
+          use services. Subrecipients include Nebraska Medical Association.
+     6. Assisted Living Facility (ALF) Special Needs Population Incentive Model: Better serve
+          residents with complex medical, physical, intellectual, and other high-acuity needs through
+          provider add-ons and modernization grants for ALFs.
+     7. Nebraska Rural Health Technology Catalyst Fund and Partnership Initiative: Improve
+          access, enhance disease management, and strengthen the financial sustainability and
+          workforce capacity of rural providers by investing in high-tech innovations to support critical
+
+
+41 | P a g e
+       healthcare gaps in rural communities. Nebraska’s proposal combines evidence-based
+       innovation with deep community partnerships to transform how care is delivered across the
+       State. Through the RHTP, Nebraska will not only improve health outcomes but also revitalize
+       rural economies, empower local providers, and build healthier, more connected
+       communities for generations.
+
+
+
+
+42 | P a g e
+Nevada
+Title: This project will support improved health outcomes, strengthening rural health care
+infrastructure, attract/retain more health care providers, and technology innovation across rural
+Nevada.
+
+Abstract: Nevada is pleased to apply for the federal Rural Health Transformation (RHT) Program.
+The new 5-year RHT funding program represents an unprecedented opportunity for States to take
+meaningful action for strengthening their local rural health systems. With Nevada’s vast geography
+and sparsely populated rural counties, rural Nevadans often struggle to access reliable and timely
+health care. This is primarily due to the inherent challenges rural conditions present in creating the
+economies of scale needed to build and sustain a full continuum of care in rural communities.
+Through this infusion of federal funds, Nevada seeks to deploy four strategic initiatives to improve
+health outcomes through reliable, innovative, and sustainable care:
+   1. A rural health outcomes accelerator program to invest $30 million in efforts aimed at
+        improving health by increasing the use of value-based care to reward rural providers for
+        greater efficiencies and improved outcomes and for using innovative care models that
+        prevent and manage chronic disease, including but not limited to new online collaborative
+        care strategies, remote and/or hybrid approaches to care, online patient health
+        management tools, and virtual provider mentorship programs that can augment health
+        system capacity and serve as physician extenders.
+   2. A flex fund for rural providers to bolster and modernize the State’s rural health care
+        infrastructure with a total of $40 million in available investments for new medical
+        technologies, equipment, supplies, mobile units, emergency services, etc. Another key
+        aspect of this initiative is that the State will encourage rural providers to work together to get
+        a better deal by using regional purchasing strategies and sharing arrangements.
+   3. A workforce recruitment and rural access program to address historic gaps in the State’s
+        rural provider workforce. Multiple strategies will be employed with the support of $80 million
+        to address immediate and long-term provider gaps, including but not limited to new
+        incentives for providers to live and serve in rural areas of the State, tuition assistance for
+        workforce education and training programs with commitments to serve rural Nevadans
+        post-education, and a rural physician residency program.
+   4. A rural health innovation and technology grant program of $30 million for innovative
+        technologies and modernization of health data and records systems with a focus on
+        aligning with the CMS Digital Health Ecosystem and cybersecurity needs for rural health
+        systems.
+
+Through these four initiatives, Nevada believes it can strengthen its rural care health system so that
+they can better weather the fiscal changes ahead with the changes under H.R. 1 and address the
+historic gaps in access to care and poorer health outcomes rural communities face as compared to
+urban areas of the State.
+
+
+
+
+43 | P a g e
+New Hampshire
+Title: Granite Strong. Future Ready.
+
+Abstract:
+PROJECT SUMMARY:
+Organization Name: New Hampshire Department of Health and Human Services (DHHS)
+Subrecipients/Sub-Awardees: Foundation for Healthy Communities, Community Behavioral Health
+Association, University System of New Hampshire, Community College System of New Hampshire
+and the New Hampshire Department of Education, Community Development Finance Authority,
+NH Alcohol and Drug Abuse Counselors, as well as competitive bids.
+
+Total Budget: $1,000,000,000
+
+Project Purpose and Goals: DHHS through CMS’ Rural Health Transformation Program proposes to
+meet the needs of its rural communities. To achieve this goal, New Hampshire has a bold vision for
+its Rural Health Transformation Plan (RHTP) (that aligns with the elements of the authorizing
+statute) – healthy and thriving rural New Hampshire communities where residents have access to
+high-quality, affordable care close to home – supported by resilient local hospitals and providers, a
+stable local workforce, and data-driven, technology to enable secure care models that promote
+higher levels of coordination and continuity of care, and value-based payment mechanisms that
+incentivize prevention, and team-based care. DHHS is proposing the following goals for this project:
+1) Make rural NH healthier through evidence-based, outcomes-driven interventions to improve
+disease prevention, chronic disease management, behavioral health and perinatal care; 2) Create
+sustainable long-term access to care for rural residents through transformational care models and
+partnerships that allow rural facilities and clinicians to work with primary care, specialty care, and
+EMS providers to coordinate operations, sharing technology and resources; 3) Attract, train, and
+retain a highly-skilled healthcare workforce in New Hampshire by strengthening recruitment and
+retention of current healthcare workers and providing opportunities for new entrants to the
+healthcare workforce;4) Develop innovative care models to improve health outcomes, coordinate
+care, and promote flexible payment arrangements; 5) Adopt innovative technologies to modernize
+care delivery in rural communities to promote efficiency, data security, and access to digital health
+tools by rural facilities, providers, and patients.
+
+Use of Funds: DHHS proposes five coordinated evidence-based initiatives to strengthen rural
+health across the State. The Rural Population Health Initiative will invest in team-based primary
+care and prevention, improve chronic disease management, and launch the State’s first Dual-
+Eligible Special Needs Plan to integrate services for dual enrollees for the purpose of reducing use
+of acute care settings to deliver care. The Rural Healthcare Access Initiative will enhance care
+coordination and increase access to care for prevention, primary care (medical, behavioral, and
+oral health), through to specialty care telehealth access at rural hospitals, scaling certified
+community behavioral health centers statewide, and long-term services and supports. The Rural
+Workforce Recruitment and Retention Initiative will develop healthcare career pathways from high
+school through graduate programs, build infrastructure to enable clinical learning in rural
+communities using simulation labs and other technology, and establish a family medicine
+residency program in Coos County. The Rural Health Technology Initiative will modernize care
+delivery with investments in digital health infrastructure, telehealth, AI tools, interoperability
+investments, and cybersecurity. Finally, the Rural Financial Solvency Initiative will advance value-
+
+
+44 | P a g e
+based payment models, streamline financial operations, and sustain safety-net providers.
+Collectively, these initiatives will improve health by appropriately bringing care closer to home and
+into the rural communities.
+
+
+
+
+45 | P a g e
+New Jersey
+Title: Strengthen rural communities across New Jersey by improving their health through
+transformation of the healthcare delivery ecosystem.
+
+Abstract: New Jersey is home to over 1 million rural residents, who live in eleven of our twenty-one
+counties: Atlantic, Burlington, Cape May, Cumberland, Hunterdon, Mercer, Monmouth, Ocean,
+Salem, Sussex, and Warren. Our rural New Jerseyans live in 40 federally designed “rural census
+tracts” and in 7 State-designated “rural” counties. Rural New Jerseyans are more likely to live in
+areas facing a healthcare workforce shortage, experience more SUD-related health impacts, and
+are less likely to make it to an annual pediatric well-visit appointment.
+
+The Division of Medical Assistance and Health Service (DMAHS) is the State’s Medicaid Agency and
+is applying on behalf of New Jersey to receive $1 billion in federal funding through the Rural Health
+Transformation Program. If awarded, this funding would strengthen our State’s ability to direct
+resources and focus towards transforming the healthcare of rural New Jerseyans over the next five
+years. DMAHS has been working closely with NJ’s State Office of Rural Health and other
+stakeholders for this application—and will continue to do so to achieve our goals of building our
+rural-serving healthcare workforce, and adapting care delivery to be responsive to rural residents’
+wishes and needs.
+
+We propose directing funding in five Initiatives areas:
+  1. RHT1 supports recruitment, training, and retention of clinical and non-clinical providers
+  2. RHT2 provides funding for essential providers of behavioral health (CCBHCs), primary care
+      (FQHCs), and emergency medical services (hospitals)
+  3. RHT3 encourages regional partnerships to strengthen care delivery outside of brick-and-
+      mortar offices—including telehealth, remote patient monitoring, and mobile care
+  4. RHT4 funds community-level efforts to promote preventive health
+  5. RHT5 invests in an array of evidence-based interventions and data integration efforts to
+      improve chronic disease treatment
+
+We will take a hybrid funding approach, where we blend directed funding with competitive funding.
+This allows us to jumpstart RHT-funded activities immediately when funded while still preserving
+our ability to fund the best ideas that can arise from a competitive application process. To support
+the success of NJ RHT, we have sought out partnerships with innovative leaders (like SciTech Scity,
+a public-private collaboration to support digital health adoption), hospitals (University Hospital,
+which leads statewide emergency response), and academic partners (Montclair University, a State
+leader in reflective supervision) to help with key activities. DMAHS will also rely on our strong
+partnership with public health partners at the Department of Health to leverage RHT funding to
+adapt our healthcare ecosystem to better meet the needs of rural New Jerseyans and help them
+thrive.
+
+
+
+
+46 | P a g e
+New Mexico
+Title: Rural Health Transformation Program
+
+Abstract: The State of New Mexico Health Care Authority (HCA) is proud to present the State of
+New Mexico’s Rural Health Transformation Plan.
+
+New Mexico is ready to lead a bold transformation of rural health – one that expands access,
+strengthens outcomes, and ensures lasting equity for rural, frontier, and Tribal communities.
+Through frontier ingenuity, data-driven innovation, and community partnership, we will build a
+resilient system that sustains local providers, empowers families, and redefines what it means to
+deliver quality care in every corner of the State.
+
+New Mexico Rural Health Transformation Plan – Initiative Summary
+   1. Healthy Horizons: Expanding Access to Care in Rural Communities
+       • 5-Year Budget: $393,290,280
+       • State Goal / CMS Goal: Expand Access to Care / Make Rural America Healthy Again
+       • Summary: Strengthen specialty care and chronic disease management for high-risk
+           rural populations by implementing regionalized specialty and maternal care networks,
+           provider training, and remote care technologies to expand access, improve local
+           capacity, and reduce hospital readmissions for rural community members.
+   2. Rooted in New Mexico: Building Tomorrow’s Rural Health Workforce
+       • 5-Year Budget: $243,166,440
+       • State Goal / CMS Goal: Expand and Sustain Rural Health Care Workforce / Workforce
+           Development
+       • Summary: Build and sustain a rural and Tribal health workforce by expanding local
+           career pathways, strengthening clinical training pipelines and educational
+           opportunities, and supporting long-term retention through housing, mentorship, and
+           community-based incentives.
+   3. Rural Health Innovation Fund: Enabling Community-Designed, Community-Led Change
+       • 5-Year Budget: $187,508,220
+       • State Goal / CMS Goal: Support Community-Led Rural Health Solutions / Make Rural
+           America Healthy Again
+       • Summary: Launch a competitive grant program that empowers rural, frontier, and Tribal
+           communities in New Mexico to design and lead locally tailored health initiatives
+           addressing unique challenges such as preventive care, behavioral health, non-medical
+           drivers of health, and provider facility needs.
+   4. Bridge to Resilience: Rural Health Sustainability & Innovation Center
+       • 5-Year Budget: $122,644,440
+       • State Goal / CMS Goal: Stabilize and Sustain Rural Health Care Providers / Sustainable
+           Access
+       • Summary: Establish a Rural Health Sustainability & Innovation Center to deliver tailored
+           technical assistance, provider education, and operational support that strengthens
+           financial stability, fosters regional partnerships, and equips rural New Mexico’s
+           providers to navigate long-term challenges and improve care delivery.
+   5. Rural Health Data Hub: Establishing a Health Analytics Platform
+       • 5-Year Budget: $53,390,620
+
+
+47 | P a g e
+       •   State Goal / CMS Goal: Connect Community Members with Health Care Data / Tech
+           Innovation
+       •   Summary: Build a statewide health analytics platform that integrates siloed data
+           sources to improve rural health planning, enable predictive insights, and expand
+           transparent access to timely, actionable information for providers
+
+
+
+
+48 | P a g e
+New York
+Title: The NY RHTP is designed to address persistent disparities in rural health outcomes,
+workforce shortages, and infrastructure gaps by investing in innovative models, technology, and
+partnerships.
+
+Abstract: New York’s (NY) rural communities are home to approximately 2.1 million residents, who
+represent 10.6% of the State's total population. These rural communities face significant disparities
+across a variety of health indicators when compared to their regional counterparts, including care
+coordination, primary care access, behavioral health care access, and incidence of chronic
+conditions. These challenges demand collaborative, innovative, and sustainable solutions.
+
+NY envisions a rural health system that is resilient and sustainable where every resident, regardless
+of geography, has timely access to high-quality, coordinated care. Informed by input from nearly
+170 stakeholder organizations and community partners, NY’s Rural Health Transformation Program
+strategy seeks to improve health care access for rural communities through a set of four,
+interrelated initiatives that strategically leverage local providers, regional partnerships, and
+statewide infrastructure. These initiatives and their goals include: 1) Rural Community Health
+Integration: establish rural health partnerships that facilitate comprehensive care coordination and
+enhance patient access to a wide range of providers across the care continuum, effectively
+addressing health and social needs; 2) Strengthening Rural Communities with Technology-
+Enhanced Primary Care: improve rural patient access to and utilization of high-quality primary care;
+3) Rural Roots: Building a Sustainable Rural Healthcare Workforce: create a self-sustaining cycle of
+workforce development that addresses both immediate staffing needs and long-term capacity-
+building, ensuring NY’s rural communities have continuous access to high-quality health care
+services; 4) Investments in Technology Innovation and Cybersecurity Enhancements: expand
+access to care through telehealth, improve patient outcomes through eConsult partnerships,
+increase usable alerts in rural counties, and strengthen cybersecurity of rural facilities.
+
+To ensure that funding directly benefits rural residents across the State, NY will implement a
+funding distribution process that prioritizes the identified needs of rural populations. NY will
+collaborate closely with rural hospitals, clinics, and community-based organizations to identify
+areas of highest need and allocate resources accordingly. Program implementation will be
+supported by ongoing stakeholder engagement, including feedback from providers, Tribal and faith-
+based organizations, local leaders, and community members, to target resources where they will
+have the greatest impact.
+
+
+
+
+49 | P a g e
+North Carolina
+Title: North Carolina Rural Health Transformation Program
+
+Abstract:
+Organization: The North Carolina Department of Health & Human Services (NCDHHS), as the
+Governor’s designee, will lead the North Carolina Rural Health Transformation Program (NCRHTP)
+through its Office of Rural Health. Implementation is guided by a statewide steering committee that
+includes Medicaid, Public Health, and Behavioral Health divisions.
+
+Key subrecipients include the Duke-Margolis Health Policy Center, UNC The Cecil G. Sheps Center
+for Health Services Research and others to be determined.
+
+Project Goals: This transformative investment improves health outcomes and access for nearly 3
+million rural North Carolinians across 85 of 100 NC counties through three goals: 1) catalyzing
+innovative care models, 2) transforming the rural care experience. 3) creating a sustainable rural
+delivery system.
+
+By FY2031, NCRHTP will increase rural provider-to-population ratios, reduce preventable hospital
+readmissions and emergency visits, lower chronic disease risk factors, and expand access to
+integrated behavioral, mental health and substance use services. All while simultaneously
+investing directly into communities and stimulating rural economic development and job creation.
+
+Total Budget $1,000,000,000 over 5 years (indicative per CMS guidance)
+
+Fund Usage: Through 6 integrated initiatives, NCRHTP will sustainably transform rural health.
+   1. Launch “NC ROOTS”* Hubs. These locally governed, community-tailored networks connect
+      medical, behavioral, and social services--making it easier for rural residents to access
+      comprehensive care in one place. Each hub is tailored to its region, offering in-person
+      services, care coordination, and direct support for families, while also leveraging virtual
+      care and advanced AI to enhance access and share data.
+   2. Improve prevention/screening, chronic disease management, maternal health, and
+      nutrition by scaling up effective programs for primary care access, food as medicine,
+      diabetes and hypertension management, cancer screening, and perinatal health.
+   3. Expand behavioral health and substance use disorder (SUD) services and integrate into
+      regional care networks through the growth of Certified Community Behavioral Health
+      Clinics (CCBHCs), enhanced assessment and treatment programs to address critical care
+      gaps, as well as new collaborative and non-traditional workforce models to connect
+      residents to care.
+   4. Modernize and sustain the rural health workforce through catalyzing investments in rural
+      training centers, fellowships, and certification programs to recruit, train, and retain
+      clinicians, allied health professionals, and community health workers.
+   5. Advance value-based payment (VBP) by establishing capabilities for rural primary care
+      practices to participate in advanced VBP models and laying the groundwork for rural
+      hospital participation in VBP arrangements, with a focus on financial sustainability.
+   6. Accelerate technological innovation, access, and interoperability through increased health
+      information exchange participation, digital literacy programs to ensure rural residents can
+      access modern, connected care, and the broad implementation of state-of-the-art AI-
+
+
+50 | P a g e
+       based technology to support documentation and real-time expert clinical decision support
+       to drive down business costs for rural providers and improve sustainability
+*Rural Organizations Orchestrating Transformation for Sustainability
+
+
+
+
+51 | P a g e
+North Dakota
+Title: North Dakota Rural Health Transformation Program
+
+Abstract:
+Organization: North Dakota Department of Health and Human Services (NDHHS) Rural Health
+Transformation Plan (RHTP) Total Budget Requested: $1,000,000,000
+
+PURPOSE: North Dakota’s rural health system is under threat from workforce shortages, financially
+fragile facilities, widening outcome gaps for Tribal and frontier communities, and fragmented data
+and technology that block innovation. Our Rural Health Transformation Plan (RHTP) is a five-year,
+statewide roadmap to strengthen and stabilize rural workforce, bring high quality health care closer
+to home, connect tech, data and providers and make North Dakota Healthy Again. Built on broad
+stakeholder input, our RHTP confronts immediate threats to rural health while building lasting
+sustainability.
+
+GOALS/OUTCOMES
+  1. Rebuild and retain a rural health workforce
+          • Increase Rural Provider Retention
+          • Expand Remote Monitoring and AI-Assisted Care
+          • Reduce Health Professional Shortages
+  2. Prevent chronic disease, restore health, and reduce cost
+          • Increase Activity and Reduce Obesity
+          • Reduce Chronic Disease
+          • Prevent Suicide
+  3. Bring high quality care closer to home
+          • Increase Telehealth and Remote Monitoring Use
+          • Improve Care Coordination
+          • Improve Timeliness of Care
+  4. Gain efficiency with modern tech and data
+          • Increase Transparency and Modernize and Cross-Link Data
+          • Create Savings from Cooperative Purchasing
+          • Expand Remote Monitoring and AI-Assisted Care
+
+HOW NORTH DAKOTA WILL USE THE FUNDS
+  1. Strengthen and Stabilize Rural Health Workforce ($162.4M) – Train and retain a high-skilled
+     workforce through new residencies, grow-your-own workforce pipelines, recruitment and
+     retention grants, and training to develop the existing workforce to work at the top of their
+     license.
+  2. Make North Dakota Healthy Again ($85.9M) – Launch Eat Well ND and ND Moves Together to
+     put evidence-based practices in nutrition, physical activity and behavioral health at the
+     center of everyday life. Sustain progress through multipayer focus on innovative care
+     models and payment mechanisms.
+  3. Bring High-Quality Health Care Closer to Home ($583.8M) – Transform care models with
+     new tech tools to reduce reliance on physical workforce and foster efficiency by deploying
+     telehealth hubs, mobile clinics, remote patient monitoring, while aligning to new care
+     coordination models and focusing on sustainability through revenue diversification and
+     rightsizing care delivery.
+
+52 | P a g e
+   4. Connect Tech, Data and Providers for a Stronger ND ($168.0M) – Cut costs by modernizing
+      tech infrastructure and bringing providers together to support shared infrastructure and
+      improved data sharing. North Dakota is taking bold steps to restore health, opportunity, and
+      dignity to our prairies. North Dakota’s RHTP delivers practical investments that honor local
+      and Tribal values, protect rural independence, and get America back to what matters:
+      healthy people, prosperous communities, and common-sense service delivery.
+
+
+
+
+53 | P a g e
+Ohio
+Title: Ohio's Rural Health Transformation Project will implement initiatives to improve health for
+rural Ohioans through innovation, healthcare access, and prevention.
+
+Abstract: The Ohio Rural Health Transformation Program (RHTP) presents this plan to strengthen
+healthcare access, outcomes, and workforce capacity across Ohio’s 73 non-urban counties. The
+4.4 million residents living in these rural communities are impacted by limited access to care,
+hospital closures, workforce shortages, and high rates of chronic and behavioral health conditions.
+Rural and Appalachian Ohioans experience higher rates of heart disease, diabetes, COPD, cancer,
+and suicide than State averages. Thirteen counties are maternity care deserts, and nearly one in five
+rural hospitals is at risk of closure. Provider shortages are widespread: primary care availability is
+nearly half that of urban regions, and behavioral and oral health gaps persist. These challenges are
+compounded by lower education levels, higher poverty, and an aging population—one in three rural
+Ohioans is over age 60. Ohio’s plan aligns with federal priorities to Make Rural America Healthy
+Again through sustainable access, workforce development, innovative care, and tech
+advancement.
+
+Key Initiatives:
+Rural Health Innovation Hubs – Establish Clinically Integrated Networks (CINs) and Regional
+Centers of Excellence linking hospitals, clinics, EMS, pharmacists, and community partners to
+coordinate care, reduce costs, and expand capacity. Legislative reforms will allow low-risk birthing
+centers in rural hospitals.
+
+Emergency Care Transformation – Scale a successful pilot enabling EMS to provide treat-in-place or
+alternate-destination care, reducing unnecessary emergency department use through training,
+system upgrades, and improved connectivity.
+
+School-Based Health Centers – Establish clinics on K–12 and college campuses offering primary,
+behavioral, dental, and telehealth services for students and community members, serving also as
+rural clinical training sites.
+
+OH SEE – Expand statewide mobile vision, hearing, and dental care based on a 13-county pilot to
+ensure early diagnosis and treatment for children.
+
+Rural Workforce Pipeline – Build a continuum from high school through professional training and
+employment, featuring upskilling for community health workers and pharmacists, five-year rural
+service commitments, and partnerships among schools, universities, and employers.
+
+Cross-Cutting Strategies:
+RHTP embeds telehealth, remote monitoring, and interoperable electronic medical records across
+initiatives. Policy actions include expanding pharmacist scope of practice, establishing rural
+birthing centers, reinstating the Presidential Fitness Test, and requiring physician nutrition CME.
+More than 300 partners (hospitals, federally qualified health centers (FQHCs), universities,
+emergency medical services (EMS), associations) collaborated on the plan. Implementation will
+occur through local partners with State oversight.
+
+
+
+
+54 | P a g e
+Sustainability:
+Each project is designed for long-term viability through billable service models, shared-service
+efficiencies, and alignment with Medicaid and value-based payment systems. Workforce
+incentives, technology adoption, and legislative reforms will ensure continuity beyond the grant
+period. Expected Outcomes by 2031:
+     • Establish regional integrated networks across all rural counties. Expanded rural SBHCs.
+     • Reduce avoidable emergency visits through EMS innovation.
+     • Improve diabetes and hypertension outcomes statewide.
+     • Increase the rural health workforce by at least 20%.
+     • Strengthen maternal, behavioral, and preventive care access.
+
+Conclusion: This represents a bold, data-driven transformation of rural healthcare in Ohio. Through
+technology, policy innovation, and cross-sector collaboration, the program will create a sustainable
+model that improves care quality, strengthens the workforce, and enhances health outcomes for
+rural Ohioans.
+
+
+
+
+55 | P a g e
+Oklahoma
+Title: Oklahoma Rural Health Transformation Program – Strengthening Access, Innovation, and
+Workforce in Rural Communities
+
+Abstract: The Oklahoma State Department of Health (OSDH), on behalf of the State of Oklahoma,
+is pleased to apply for funds under the Centers for Medicare & Medicaid Services (CMS) Rural
+Health Transformation (RHT) Program. OSDH recognizes a need for a collaborative approach to
+transforming rural health. To that end, OSDH has partnered with numerous stakeholders – health
+systems, healthcare providers, patient advocacy groups, State partners, Tribal Nations, local
+organizations, and rural residents – to develop a plan that will build a lasting health ecosystem
+across Rural Oklahoma through 6 key initiatives:
+     • Innovating the care model: This initiative seeks to improve healthcare access and outcomes
+        through modernized care delivery (Make Rural America Healthy Again, Technology
+        Innovation).
+     • Moving upstream: This initiative seeks to promote preventive healthcare and address root
+        causes of disease through innovative care delivery and technology (Make Rural America
+        Healthy Again, Innovative Care, Technology Innovation).
+     • Facilitating regional collaboration: This initiative seeks to strengthen provider infrastructure
+        and enhance local and regional partnerships (Sustainable Access, Innovative Care).
+     • Shifting to value: This initiative seeks to improve outcomes and financial sustainability
+        through value-based care models (Sustainable Access, Innovative Care).
+     • Growing the next generation of rural talent: This initiative seeks to improve the pool of rural
+        talent and subsequent healthcare access (Workforce Development).
+     • Building health data utility: This initiative seeks to improve efficient, data-driven care
+        delivery (Technology Innovation). OSDH attests to proposing at least 3 approved uses of
+        funds, as stipulated by the Notice of Funding Opportunity (NOFO), across the initiatives
+        above.
+
+Administration and Subrecipients: The above initiatives will be administered by OSDH and other
+State agencies and associations, including Oklahoma Heath Care Authority, Oklahoma Association
+of Rural Councils, Oklahoma Department of Career and Technical Education, Health Workforce
+Training Commission, and Oklahoma State Department of Education. There will also be
+subrecipients that are “to be determined,” with OSDH ensuring compliance with CMS requirements
+under the Notice of Funding Opportunity and State procurement laws.
+
+Total Budget: The total proposed budget for the five-year RHT Program is $1 billion, distributed
+across OSDH’s 6 major initiatives. OSDH’s budget is built to scale as required. Use of funds during
+the five-year program includes personnel and fringe benefits, travel, equipment and supplies,
+subrecipients/consultants/contracts, and other uses. RHT Program funds will empower clinics and
+communities across Oklahoma to deliver care to rural Oklahomans. By investing in innovative care,
+prevention, technology, and collaboration, OSDH and CMS can Make Rural Oklahoma Healthy
+Again.
+
+
+
+
+56 | P a g e
+Oregon
+Title: Oregon Rural Health Transformation Program
+
+Abstract: The Rural Health Transformation (RHT) Program offers a pivotal opportunity for Oregon to
+strengthen its rural healthcare system, improve access, and support local communities and
+economies across the State. As the 9th largest State, with 33% of its population living in rural and
+frontier communities, the State faces ongoing challenges related to healthcare workforce
+shortages, limited preventative connections, and the financial stability of rural hospitals and
+clinics.
+
+Oregon envisions healthy rural communities where people, partners, and technology come
+together to build thriving communities of care – rooted in prevention, strengthened by regional
+collaboration, sustained by a resilient workforce, and guided by smart data for better health and
+well-being. To ensure all people and communities in rural Oregon can achieve optimum physical,
+mental, and social well-being at every life-stage, we will anchor our efforts in these goals: improving
+health access and outcomes; fostering workforce innovation; supporting technological and data-
+driven solutions; building strategic partnerships; and ushering in a future of financial sustainability.
+
+Through this cooperative agreement, Oregon and our federal partners will build on a strong
+foundation of community partnerships and practical health reforms to enhance care delivery in
+rural areas. Oregon will do this through five initiatives: (1) Regional Partnerships & System
+Transformation (2) Healthy Communities & Prevention (3) Workforce Capacity & Resilience (4)
+Technology & Data Modernization (5) Tribal Initiative. These initiatives all align with Oregon’s
+commitment to local and regional control, improving care efficiency, and responsible use of federal
+resources. The Oregon Health Authority (OHA) will be the lead agency responsible for
+implementation and administration of the program. OHA is inclusive of the State’s Public Health
+agency, Medicaid agency, Marketplace, and Behavioral Health agency, which allows OHA to be well
+positioned for cross-sector partnerships and a comprehensive view of the health of rural
+Oregonians.
+
+OHA proposes a budget of $200 million dollars annually for five years. OHA will provide a set-aside
+to the Nine Federally Recognized Tribes of Oregon and use funds to make awards to rural health
+organizations to implement the first four initiatives in two phases. The two-phase approach for fund
+distribution, within each initiative, allows Oregon to support rural organizations that have been
+waiting for an opportunity like this and build longer, sustainable approaches to some of rural
+Oregon’s most impacted sectors, such as technology and workforce. In the first phase, Oregon will
+fund immediate projects and uplift other projects that can be executed within two years. While
+those projects are occurring, OHA and its regional partners will work together to develop longer-
+term ventures that will be implemented during the second phase of the program and beyond.
+
+All awards will ensure that investments and initiatives are community-directed and address local
+and regional needs. With a proven record of innovation and collaboration between federal partners,
+State agencies, healthcare providers, Tribal and rural leaders, Oregon is well-positioned to use RHT
+Program funding to strengthen rural healthcare, create jobs, and promote self-sufficient,
+sustainable communities across the State.
+
+
+
+
+57 | P a g e
+Pennsylvania
+Title: Pennsylvania Rural Health Transformation Program
+
+Abstract:
+Pennsylvania’s Rural Health Transformation Plan (RHTP) Summary
+
+The name of your organization: The Commonwealth of Pennsylvania
+
+Project goals: Transform rural health through regionally led, technology-enabled models that
+strengthen local capacity and sustain high-quality, evidence-based care driven by continuous
+learning and innovation.
+
+Total budget amount: $200,000,000 per year x 5 years = $1,000,000,000
+
+Sub-Awardee Organizations: Eight of Pennsylvania’s Partnerships for Regional Economic
+Performance regions: Central, South Central, Southern Alleghenies, Southwest, Northwest, North
+Central, Northern Tier, Northeast; PA Area Health Education Center (AHEC); University of
+Pittsburgh-Medicaid Research Center; and other State and community partners.
+
+Use of RHTP funds: Pennsylvania’s RHTP addresses all five Center for Medicaid & Medicare
+Services (CMS) goals:
+   1. Rural Health: We propose innovations that directly respond to the most pressing health
+        priorities identified over the past two years by rural stakeholders through dozens of listening
+        sessions, roundtables, and regional health summits, as well as through the State’s rural
+        health improvement plans and more than 300 responses submitted through our Rural
+        Health website by stakeholders. Common themes include maternity care, behavioral
+        health, dental care, aging, and primary and preventive care, areas that have been shown to
+        reduce chronic disease, provide more years of healthy life, and decrease reliance on costly
+        hospital care.
+   2. Sustainable Access: We propose establishing eight regional Rural Care Collaboratives
+        (RCCs) through Pennsylvania’s Partnerships for Regional Economic Performance
+        organizations, which lead regional coordination and strategic investment in economic
+        development. Each RCC will bring together community and health system partners to
+        prioritize local needs, strengthen shared services, expand telehealth and clinical
+        integration, and ensure residents have consistent access to high-quality primary and
+        specialty care.
+   3. Workforce: Underlying all rural health concerns is the need for significant investments and
+        innovations in workforce development. We propose expanding the full spectrum of the rural
+        health care workforce including allied health, Emergency Medical Services (EMS), nursing,
+        nurse practitioners, physician assistants, dentists, pharmacists, and physicians through
+        rural focused training programs that target identified gaps in care. This will be accomplished
+        by upfront scholarships, mentoring, short-term housing, stipends, and investments in the
+        rural health provider training pipeline, with five-year rural health service commitments.
+   4. Innovative Care: We will provide data and analytic support to the RCCs to analyze the
+        impact of innovative digital models of care delivery, flexible care, alternative payment
+        models, and “right-sizing” rural hospitals to shift care to lower cost settings, while
+        improving access to essential health care services.
+
+
+58 | P a g e
+Rhode Island
+Title: Rhode Island Rural Health Transformation Program
+
+Abstract:
+Name of Organization: Rhode Island Executive Office of Health and Human Services (EOHHS)
+Subrecipients: Block Island Health Services; Care Transformation Collaborative of Rhode Island
+(CTC-RI); Hospital Association of Rhode Island (HARI); Rhode Island League of Cities and Towns;
+Narragansett Indian Tribe; Rhode Island Health Center Association (RIHCA)
+
+Project Goals: The Rhode Island Rural Health Transformation Program (RHTP) will strengthen
+access to high-quality, sustainable, and community-driven health care for residents of Rhode
+Island’s rural and island communities. The State’s vision for rural health transformation is a
+connected, community-based system that ensures every rural resident can obtain timely,
+coordinated, high quality care where they live. The program has five mutually reinforcing goals that
+directly align with CMS’ strategic priorities: (1) make rural America healthy again – improve the
+health of rural residents; (2) sustainable access –expand access to comprehensive, quality, low-
+cost care; (3) workforce development – strengthen the rural health care workforce; (4) innovative
+care – accelerate value-based and affordable care models; and (5) tech innovation – integrate
+technology into rural practice.
+
+Total Budget: $1,000,000,000 over five years
+
+Description of Use of Funds: RHTP funds will be used to implement a coordinated set of 13
+initiatives. Investments in community clinical care hubs and rural community health networks
+(Initiative 1) will link clinical providers, behavioral health professionals, and community
+organizations to deliver coordinated, team-based care supported by interoperable technology and
+community health workers. Rural community-integrated and mobile health Services (Initiative 2)
+will bring preventive, dental, and maternal-child health care directly to residents through mobile
+units and telehealth sites in schools and community learning centers. Accessibility investments
+(Initiative 3) for rural providers and community spaces will improve physical access and disability-
+competent care for older adults and people with disabilities.
+
+RHTP funds will also expand rural emergency medical services (EMS) capacity (Initiative 4) through
+statewide mobile integrated health–community paramedicine, a State EMS academy, and
+enhanced island EMS operations. Hospital-at-home (Initiative 5) will enable hospitals to safely
+deliver acute-level care in patients’ homes, supported by remote monitoring and EMS partnerships.
+Behavioral health services (Initiative 6) will be expanded through a 24/7 crisis stabilization center,
+recovery community centers, and peer navigators linking patients to ongoing care. Oral health
+access (Initiative 7) will improve through tele-dentistry triage and the establishment of a special-
+care dental center at Eleanor Slater Hospital’s Zambarano campus.
+
+Place-based investments will strengthen Block Island Health and Human Services (Initiative 8) and
+Narragansett Indian Tribe health systems (Initiative 9) through home-based care, telehealth, and
+facility upgrades. The rural workforce program (Initiative 10) will expand training, placements, and
+recruitment incentives. RHTP funds will support the value-based payment transition (Initiative 11),
+specifically through incentives and technical assistance to hospitals and primary care practices.
+Technology modernization (Initiative 12) will fund a State-sponsored electronic health record and
+
+
+59 | P a g e
+grants for health information technology infrastructure improvements, and rural data and workforce
+tracking (Initiative 13) will build systems to monitor outcomes and guide policy.
+
+
+
+
+60 | P a g e
+South Carolina
+Title: Transforming Rural Healthcare in South Carolina
+
+Abstract: South Carolina proposes a bold and comprehensive Rural Health Transformation (RHT)
+plan to address longstanding disparities in health care access, quality, and outcomes across its
+rural communities. With approximately 1.75 million residents—32.6% of the State’s population—
+living in rural areas, the State faces disproportionate rates of chronic disease, maternal mortality,
+and limited access to care due to provider shortages; aging infrastructure; and the geographic and
+logistical challenges inherent to rural communities.
+
+South Carolina’s RHT plan is designed to transform the rural health care landscape through five
+integrated, outcomes-driven initiatives:
+
+Connections to Care– Expands digital infrastructure by implementing electronic health records,
+remote patient monitoring, telehealth services and a statewide resource database platform to
+improve care coordination and access.
+
+Leveling Up– Scales successful pilot programs statewide, focusing on chronic disease
+management, pediatric care quality, and workforce development.
+
+Wellness Within Reach– Deploys mobile health units, crisis response teams, and pop-up clinics to
+bring care directly to underserved populations.
+
+Shoring Up to Sustainability– Strengthens rural healthcare systems through targeted investments in
+workforce recruitment and retention, facility upgrades, and provider training.
+
+Tech Catalyst Fund– Supports rural health technology startups and community-based innovations
+to drive long-term health and economic improvements.
+
+Led by the South Carolina Department of Health and Human Services, South Carolina’s plan and its
+five initiatives, aligns with the RHT’s five strategic goals: Make Rural America Healthy Again,
+Sustainable Access, Workforce Development, Innovative Care, and Tech Innovation. The program
+emphasizes one-time, high-impact investments that remove systemic barriers and build long-term
+capacity, with a focus on improving chronic disease and maternal health outcomes across all rural
+counties.
+
+To implement this transformative vision, South Carolina is requesting $1 billion in federal funding.
+This investment will enable the State to modernize rural healthcare infrastructure, expand access
+to essential services, and build a resilient, sustainable healthcare system that delivers measurable
+improvements in health outcomes for generations to come.
+
+
+
+
+61 | P a g e
+South Dakota
+Title: South Dakota Rural Health Transformation Plan
+
+Abstract: South Dakota Rural Health Transformation Project Summary
+Organization: Office of the Governor, State of South Dakota
+Lead Agency: South Dakota Department of Health
+Total Budget: $1,000,000,000 over 5 years
+
+Overview: South Dakota's Rural Health Transformation Plan addresses the State’s health access
+challenges in one of America's most rural States. Rural and frontier residents often face long
+distances to providers, limited transportation, lower incomes, and workforce shortages that strain
+hospitals and clinics. These factors contribute to higher rates of suicide and chronic disease. This
+five-year initiative invests strategically to build capacity and resilience within rural healthcare
+systems to ensure access to quality care endures far beyond this grant period.
+
+Strategic Approach & Project Goals
+The plan advances four interconnected goals. First, it modernizes South Dakota’s health
+infrastructure through expanded electronic health records, telehealth platforms, and data systems
+that support smarter resource use. Second, it builds a sustainable healthcare workforce by
+attracting and retaining professionals and expanding the community health worker network Third, it
+strengthens access to quality care close to home through innovative payment models, facility
+reinvention, and enhanced chronic disease and maternal health services. Fourth, it transforms care
+delivery by integrating behavioral health into primary care and reinforcing emergency medical
+services across the State. To achieve these goals, the plan focuses on:
+    1. Connecting Technology & Data: Deploy certified electronic health record (EHR) systems,
+        integrate health information exchange, fund telehealth equipment and platforms, support
+        cybersecurity enhancements, and create a Rural Data Atlas for evidence-based planning.
+    2. Advancing the Rural Workforce: Provide recruitment incentives and retention supports for
+        healthcare professionals, expand Community Health Worker training and certification, and
+        establish a Training and Resource Hub for continuing education.
+    3. Keeping Healthcare Local and Strong: Explore new Medicaid payment models, award Rural
+        Health Access and Quality Grants for facility optimization, strengthen chronic disease
+        management programs, and improve access to maternal care.
+    4. Transforming Systems for Sustainability: Implement Certified Community Behavioral Health
+        Clinics statewide, integrate behavioral health into primary care through the Collaborative
+        Care Model, and establish regional Emergency Medical Services hubs.
+
+Together, these goals create a more connected, capable, and resilient rural health system to
+improve access, quality, and outcomes for all South Dakotans.
+
+
+
+
+62 | P a g e
+Tennessee
+Title: Tennessee Rural Health Transformation Program
+
+Abstract:
+Project Summary
+The State of Tennessee will leverage the Rural Health Transformation Fund (RHTF) to build a
+comprehensive, outcomes-driven, sustainable care delivery system in its rural communities—
+anchored in prevention, innovation, workforce capacity, and value-based transformation. Under the
+guiding principle of “Better Care, Closer to Home,” Tennessee’s plan advances each Strategic Goal
+and Use of Funds suggested by CMS, centered on five goals.
+    • Goal 1 – Rural Healthcare Transformation Incentivizing transformative change in rural health
+        by right-sizing rural facilities and investing in outcomes-based payment models that
+        enhance and sustain access in rural communities.
+    • Goal 2 – Maternal and Child Health Generational investments to ensure strong starts for
+        every rural family
+    • Goal 3 – Make Rural Tennessee Healthy Again Embedding prevention into health and
+        healthcare delivery by addressing locally identified concerns, expanding early detection,
+        and improving nutrition security
+    • Goal 4 - Technological Infrastructure Investing in health-tech solutions that enhance
+        operational performance, allow for innovative care solutions, maximize efficiencies, and cut
+        administrative waste.
+    • Goal 5 – Workforce Development Strengthening a comprehensive healthcare workforce
+        pipeline, training and retaining local talent
+
+Leveraging its proven statewide infrastructure (including the Governor’s Rural Health Taskforce,
+Rural Health Resiliency Program and County Health Councils), the State is prepared to deploy
+$200–500 million annually toward high-impact rural transformation initiatives through FY 2031 and
+beyond. Sub-awards will be selected through competitive processes, detailed below.
+
+Governor Lee has made Rural Health a top priority since his first executive order, and Tennessee’s
+strategy is built on years of collaboration, a strong evidence base, and knowing what works:
+Tennessee’s competitive grant model (Healthcare Resiliency Program) and TennCare Shared
+Savings framework will drive innovation, measurable outcomes and scalability across all rural
+counties. To match this opportunity, in addition to RHTF funds, Tennessee will leverage an
+additional $125m Shared Savings for capital investments in rural health facilities. We will empower
+rural communities to invest in health-tech, engage new care pathways, and benefit from
+coordinated, value-based care close to home. For federal partners valuing urgency, impact and
+accountability, rural Tennessee presents a compelling opportunity to demonstrate how state-led,
+data-driven transformation can redefine rural health access and outcomes nationwide. With RHTF
+support, Tennessee is positioned to become the archetypal model in the nation for how rural
+systems can sustainably deliver high-quality, accessible care—anchored in prevention, technology,
+and value.
+
+
+
+
+63 | P a g e
+Texas
+Title: Rural Texas Strong: Supporting Health and Wellness
+
+Abstract: The Texas Health and Human Services Commission (HHSC) submits on behalf of rural
+Texans a request for $1,000,000,000 ($200,000,000 per year)* for Rural Texas Strong: Supporting
+Health and Wellness.
+
+Texas has filtered the federal Rural Health Transformation program notice of funding opportunity
+(NOFO) into six (6) distinctly Texan initiatives. The fragility of Texas’ rural health systems of care is
+profound. Rural healthcare providers provide care across large geographic areas to save and
+change lives. The Rural Texas Strong initiatives will support rural Texas as they strive for a future
+state of technology-supported vitality and longevity. Powered by a revitalized workforce and
+technological investments that will be sustained through aggregation and collaboration, Texas aims
+to launch a new era of rural wellness. Harnessing the synergy of our increasingly connected world,
+improvements in community health outcomes, and the desirable features of small-town living, rural
+Texas will be a global model for how to live a well-balanced life.
+
+Rural Texans are the backbone of the Texas economy and culture. To reside – and thrive – in rural
+Texas, families need access to high-quality healthcare providers and services, freedom to select
+nutrition and wellness that makes sense, and innovative consumer-facing technology that
+connects with provider systems, regardless of location. When a Texas dairy farmer in his 30s is
+diagnosed with cancer, he should be able to get treatment close to home. His son, decades later,
+should have the ability to pursue educational and career opportunities in health professions so he
+can care for other families. And the healthcare workers in that community should have first-rate
+technology to coordinate his care. These are the simple, but very impactful, goals of the Texas plan.
+Through the Texas plan, we will implement the following initiatives:
+    1. Make Rural Texans Healthy Again
+    2. Rural Texas Patients in the Driver’s Seat
+    3. Lone Star Advanced AI and Telehealth
+    4. The Next Generation of The Small Town Doctor and Team
+    5. Unified Care Infrastructure and Rural Cyber Protection
+    6. Infrastructure and Capital Investments for Rural Texas
+
+Texas will use rural transformation funds to develop proactive wellness and nutrition programs
+(sub-awards to rural providers); to educate and attract health professionals to rural towns (sub-
+awards to rural providers); to protect health data and elevate technology in rural healthcare
+(subcontractors to provide services to rural providers). When implemented, we will add more than a
+thousand rural health professionals, mitigate chronic disease, and reduce duplicative health costs.
+The resilient Texas rural health system will be reinforced by this project. And, at the conclusion of
+our project, Texas will be able to show how all rural Texans have been uplifted by this program. Our
+rural health systems of care and rural Texas communities will be strengthened for the future
+generations of Texans who will thrive in rural Texas.
+
+*Texas uses the budget of $1,000,000,000 in accordance with the instructions in the Notice of
+Funding Opportunity, but requests the maximum possible amount of funding available. Texas is
+prepared to scale projects to utilize all funds awarded to the State.
+
+
+
+64 | P a g e
+Utah
+Title: Utah Rural Health Transformation Program: A bold, multi-faceted innovative effort aimed at
+generational investments to build resilient, sustainable rural health systems.
+
+Abstract: Utah geographically is the 13th largest State and 77% rural. Rural residents in Utah face
+persistent healthcare barriers including geographic isolation, provider shortages, aging
+infrastructure, and economic hardships. These challenges contribute to higher rates of chronic
+disease, behavioral health issues, and poor maternal and child health outcomes. Addressing these
+challenges requires building a sustainable, patient-centered system of care to improve outcomes
+and ensure the long-term viability of rural healthcare in Utah.
+
+Utah’s Rural Health Transformation Program (RHTP) is a bold, multi-faceted innovative effort aimed
+at generational investments to build resilient, sustainable rural health systems. This outcome-
+focused program will be guided by four strategic pillars—Making Rural Utahns Healthy, Workforce
+Development, Innovation and Access, and Technology Innovation. Within these strategic pillars,
+Utah will implement seven integrated initiatives in collaboration with State, local, Tribal, and
+community partners to create a rural health ecosystem designed to improve health outcomes:
+PATH (Preventive Action and Transformation for Health); RISE (Rural Incentive and Skill Expansion):
+SHIFT (Sustaining Health Infrastructure for Transformation); FAST (Financial Approaches for
+Sustainable Transformation); LIFT (Leveraging Innovation for Facilitated Telehealth): SUPPORT
+(Shared Utilities for Partnered Provider Operational Resources and Technology); and LINCS
+(Leveraging Interoperability Networks to Connect Services).
+
+Combined, these initiatives will create financially sustainable health systems while supporting
+healthy lifestyles for rural Utahns, beginning in childhood and extending across the lifespan. PATH
+fosters lifelong wellness through improved nutrition, physical activity, and healthy environments.
+RISE strengthens the rural workforce through early and alternative career pathways, education,
+training, and structured provider incentives. SHIFT strategically invests in preventive care
+infrastructure to advance proactive, community-based health delivery systems, while
+strengthening public health capacity. FAST drives high-quality care, cost efficiency, and financial
+stability in rural health systems. LIFT expands access to care through telehealth to overcome
+geographic barriers. SUPPORT modernizes digital and administrative systems to enhance
+operational efficiency. And LINCS improves and optimizes data sharing across clinics, hospitals,
+behavioral health providers, and community organizations to enable coordinated care.
+Created through robust stakeholder engagement, these initiatives aim to unite rural providers,
+community partners, and public health entities to transform healthcare delivery, strengthen
+patient-centered care, and drive measurable improvements in health, coordination, and financial
+sustainability across rural Utah. Utah’s RHTP framework ascribes to a core Utah financing principle:
+to use one-time funding to convert short-term investments into lasting operational efficiencies and
+policy reforms. By aligning financial incentives, modernizing infrastructure, expanding telehealth
+capacity, and addressing workforce shortages, Utah is positioned to cultivate a data-driven,
+patient-centered rural health system that supports providers to thrive and ensures rural Utahns
+have consistent access to high-quality care for generations to come.
+
+Lead organization: Utah Department of Health and Human Services
+Subrecipients/sub-awardees: Post Notice of Award, the State will select subrecipients.
+Total budget amount requested: $1,000,000,000
+
+
+65 | P a g e
+Vermont
+Title: Vermont's Rural Health Transformation Plan
+
+Abstract: Sub-Recipients/Sub-Awardees: More information on subrecipients and sub-awardees for
+all projects within each initiative will be provided to CMS at a later date following completion of
+State procurement processes. Sub-recipients and awardees will include health care providers (e.g.,
+hospitals, federally qualified health centers, primary care clinics, etc.), housing developers,
+workforce training and clinical residency programs, among others. The State will also procure
+consultants and contractors to implement various projects as well as an independent evaluator to
+assess the outcomes of the State’s RHT Program according to defined metrics. Total Budget
+Amount: $200 million per budget year.
+
+Project Goals and Description of Funding Uses: The Vermont RHT Program seeks to advance a
+cohesive suite of health care innovations and reforms that address the State's rural health care
+access, quality, and affordability challenges. The Program is designed to ensure long-term health
+care system sustainability in the face of rising costs and population health needs, workforce and
+housing shortages, and other challenges. Vermont’s RHT Program goals are to:
+    1. Strengthen the State’s rural health care workforce
+    2. Increase access to timely care across rural communities
+    3. Expand innovative strategies to increase quality and reduce health care costs.
+
+Funds will be allocated across five core initiatives:
+   • Regionalization and Innovative Care Strategies: Absent regionalizing services, reducing
+       business efficiencies, and modernizing the system of care, it is likely that over the next 5
+       years Vermont will see significant erosion of health and social services. To address this
+       challenge, the State will implement a statewide transformation planning initiative to ensure
+       that Vermonters can access the right care, at the right time, at the right place, and at an
+       affordable cost. The State’s vision is that certain essential services are available in local
+       communities, while other services are in either regional hubs around the State or, for the
+       most complex care, a single location statewide. Regionalization protects access to care
+       over the long term by ensuring non-duplication of services and redirection of resources to
+       high-value, essential services.
+   • Establishing a Clinically Integrated Network of Shared Services: The State will foster
+       collaboration and partnerships across the continuum of independent providers in the State
+       to produce operational efficiencies that facilitate patient choice and market competition.
+       The State also seeks to promote adoption of patient-facing technologies that facilitate
+       delivery of care closer to home.
+   • Strengthening Primary Care: The State will enhance its outdated, foundational primary care
+       reform initiative, Blueprint for Health, to improve team-based chronic disease care, deliver
+       workforce training, provide transformation assistance to primary care practices, and create
+       a statewide quality improvement and learning network.
+   • Health Care Workforce Development: To address significant provider shortages, the State
+       will make strategic investments in workforce programs that strengthen its rural health care
+       workforce pipeline, while simultaneously addressing housing shortages. The State will also
+       invest in enabling providers to practice at the top of their license.
+
+
+
+
+66 | P a g e
+   •   Price Transparency and Insurance Competition: The State aims to address rising health care
+       costs and affordability barriers through investments in new accountability tools and
+       strategies.
+
+
+
+
+67 | P a g e
+Virginia
+Title: VA Rural Vitality – transforming health access and outcomes for more than 1.5 million rural
+residents through technological innovation, workforce development, wellness, and sustainable
+access
+
+Abstract: Applicant Organization: Virginia Department of Medical Assistance Services (DMAS)
+Subrecipient Organizations: Virginia Innovation Partnership Corporation; Virginia Health Care
+Foundation; Virginia Hospital Research and Education Foundation; Virginia Foundation for
+Community College Education; Virginia Works; Virginia Department of Education; and Virginia
+Center for Health Innovation (evaluation partner).
+
+Additional subrecipients will be competitively selected among rural providers, hospitals and health
+systems, federally qualified health centers, free clinics, federally recognized Tribes, digital health
+innovators, community-based organizations, and other key partners across Virginia's rural health
+landscape.
+
+Project Goals: Virginia’s rural communities face persistent challenges that limit access to high-
+quality care and contribute to poor health outcomes. Outdated technology constrains preventive
+care, provider shortages strain rural health systems, limited access forces long travel distances for
+care, and high rates of chronic disease remain a leading cause of morbidity.
+Through VA Rural Vitality, the Commonwealth seeks to transform health outcomes for Virginia’s
+more than 1.5 million rural residents by addressing these barriers and aligning with CMS’s Rural
+Health Transformation priorities. The initiative will:
+    • Modernize health technology to support preventive care and data-driven decision-making
+    • Strengthen and expand the rural health workforce to sustain local care delivery
+    • Improve access to primary, specialty, and maternal care close to home
+    • Advance prevention and wellness to reduce chronic disease and improve quality of life
+
+Together, these goals reflect Virginia’s commitment to helping rural communities thrive and making
+the Commonwealth the best place to live, work, and raise a family.
+
+Total Budget: $1 billion over five years
+Uses of Funds: Funds will be allocated across four integrated initiatives and central program
+administration:
+    1. CareIQ (CMS Goal: Tech Innovation) ($282.6M) Invest in early-stage health technology
+        startups, modernize electronic health records and productivity tools, and expand remote
+        patient monitoring capacity. These investments will strengthen care coordination, reduce
+        administrative burden, and support value-based care transformation.
+    2. Homegrown Health Heroes (CMS Goal: Workforce Development) ($132.0M) Address
+        provider shortages by funding rural medical residencies, allied health apprenticeships, and
+        community college programs, and expanding high school pathways into healthcare. This
+        initiative will create long-term workforce sustainability and stimulate rural economic
+        growth.
+    3. Connected Care, Closer to Home (CMS Goal: Sustainable Access) ($412.0M) Expand
+        access through mobile health clinics, hub-and-spoke telehealth models, community
+        paramedicine, and improved maternal care networks. These strategies will enhance care
+        continuity and reduce avoidable hospitalizations for rural residents.
+
+
+68 | P a g e
+Washington
+Title: Washington State supporting the innovative development of rural health care across primary
+and specialty care, hospitals, workforce development, technology investment, and chronic disease
+management.
+
+Abstract: Subrecipients or sub-awardee organizations: Department of Health (including the State
+Office of Rural Health), Department of Social and Health Services, The Rural Collaborative, Rural
+Health Redesign Center, the Washington State Hospital Association, University of Washington,
+Washington State University (WSU), Project Extension for Community Health Outcomes (ECHO),
+and Area Agencies on Aging.
+
+Project goals:
+    • Create opportunities for health in rural Washington
+    • Foster partnerships across the rural health care delivery system
+    • Grow Washington’s workforce
+    • Deploy technology and data-driven solutions to empower communities with healthy
+        opportunities, increased efficiencies, and connectivity
+    • Improve financial solvency for rural hospitals and providers
+    • Total budget amount: Washington proposes to spend $1 billion across the five-year RHT
+        Program. The application allocates $200 million a year for six initiatives and administrative
+        expenditures.
+
+How Washington will use the funds:
+
+The RHT Program offers Washington an unparalleled opportunity to invest in rural access to quality
+health care, and the long-term vitality of Washington’s rural communities. Washington’s RHT
+Program seeks to build a healthier, more resilient, and financially sustainable rural health system by
+investing $1 billion over five years to ignite innovation in rural hospitals, prevent disease and
+manage care in community settings, invest in the health of Native families, increase provider
+adoption of technology and data solutions, develop Washington’s rural workforce, and expand and
+sustain the rural behavioral health system.
+
+Each initiative supports the State’s goals through activities, which include increasing training
+capacity for Tribal providers, nurses and long-term care workers; investing in artificial intelligence
+and cybersecurity technology; and supporting payment transformation for rural hospitals and
+behavioral health clinics.
+
+Washington’s spending plan focuses on investments that can be sustained past the duration of the
+RHT Program. Where practical, funded activities leverage expansion of existing programs, such as
+proposed investments in Project ECHO or WSUs rural provider training. Other activities will directly
+support providers and facilities through distribution of RHT funds for technology, provider
+recruitment, and infrastructure investments.
+
+
+
+
+69 | P a g e
+West Virginia
+Title: The WV Rural Health Transformation Program launches a once-in-a-generation effort to
+improve healthcare outcomes, build a healthy and long-lasting rural workforce, and develop a more
+vibrant economy.
+
+Abstract:
+Lead Applicant: West Virginia Department of Health
+Total Estimated Budget: $1 billion (as directed by CMS for Application development)
+Sub-Awards: Distributed through a mix of competitive grants and direct State agency awards
+
+The West Virginia Rural Health Transformation (WV RHT) Program launches a once-in-a-generation
+effort to dramatically improve our healthcare outcomes to facilitate the creation of a larger, more
+productive, and healthier workforce. Enabled by strategic investments in technology and
+unprecedented collaboration with our rural communities, improved healthcare outcomes will serve
+as the foundation of West Virginia’s new economic strength and our comeback story. West Virginia
+will build upon the indomitable spirit of its people and ignite transformational opportunities to grow
+our workforce, strengthen rural health, and improve our standard of living—overcoming decades of
+barriers to productivity.
+
+West Virginia faces the nation’s toughest rural health and economic challenges. Poor health and
+disability are the top reasons that West Virginians cite for not working. Reversing that reality is at the
+heart of this plan. The State will tackle foundational health barriers that hold back workforce
+participation (including addiction, diabetes, hypertension, cardiovascular disease, COPD, and
+asthma), make West Virginia a hub for rural health innovation, and modernize care delivery and
+payment systems to drive healthcare value and ensure long-term sustainability. The RHT Plan will
+center on seven flagship initiatives:
+    1. Connected Care Grid will bring healthcare access directly to people—both in person and
+         digitally—by integrating telehealth, remote monitoring, and local care coordination.
+    2. Rural Health Link will unify medical and community transportation into a one-stop system
+         so distance and mobility are never barriers to care.
+    3. Mountain State Care Force will attract top clinical talent while training and retaining West
+         Virginia’s own future providers.
+    4. Smart Care Catalyst will equip rural providers with payment and data tools that free time for
+         patients and sustain provider viability.
+    5. Health to Prosperity Pipeline will connect recovery, care management, and employment
+         programs to help every West Virginian find work and prosperity.
+    6. Personal Health Accelerator will use education and incentives to empower West Virginians
+         to lead healthy, productive lives through prevention, nutrition, and exercise.
+    7. HealthTech Appalachia will incubate leap-frog technologies that improve outcomes and
+         generate growth, establishing West Virginia as a hub for health innovation.
+
+Building on the State’s leadership in advancing Make America Healthy Again priorities, this WV RHT
+Plan invests in proactive care to prevent the very conditions that lead to public spending. As access
+and outcomes improve, more residents will rejoin the workforce, healthcare systems will stabilize
+financially, and private investment will flow—reversing the decades-long trend of poor health and
+poverty and creating a durable cycle of health and prosperity across the State.
+
+
+
+70 | P a g e
+Wisconsin
+Title: The Rural Health Transformation Program – Wisconsin
+
+Abstract: From the shores of the Great Lakes to the banks of the Mississippi, from the vast
+Northwoods to the rugged bluffs of the Driftless southwest, rural Wisconsin holds immense
+strength, tradition, and sense of community. And though all Wisconsinites deserve access to high
+quality and timely health care, rural residents face major challenges due to geographic barriers and
+a fragmented health care system. We imagine a future where geography doesn’t determine your
+health, and where communities can work together to improve care for themselves and their
+neighbors.
+
+To bring this vision closer to reality, the State of Wisconsin Department of Health Services, as
+directed by Governor Tony Evers, is applying for the Rural Health Transformation (RHT) Program. The
+Department will partner with rural communities to transform health care, while strengthening our
+economy, our workforce, and our communities. This $1 billion investment will focus on rural
+capacity, sustainability, and innovation across three major initiatives:
+
+Strengthen Rural Health Care Workforce - $337 million. Recruiting and retaining an adequate health
+care workforce is a challenge in rural areas, making access to quality, timely care for rural residents
+difficult. RHT funds will provide grants for innovative workforce projects in rural communities,
+support career pathways for rural health care providers, and fund services provided by community
+health workers.
+
+Drive Rural Technology and Innovation - $329 million. Rural Wisconsin needs technology to support
+and reach residents, such as closed-loop referral systems and telehealth capabilities. Wisconsin
+will invest RHT funds to upgrade rural provider systems and digital infrastructure and develop a
+digital rural health care collaborative.
+
+Transform Rural Care through Partnerships - $279 million. Rural Wisconsinites experience
+fragmented coordination across primary care, specialty care, behavioral health, chronic disease
+prevention, and community social supports. Wisconsin will stand up a competitive grant program
+for rural regions to create coordinated systems of care where multi-sector partnerships show a
+clear path to sustainability.
+
+Each region of Wisconsin has unique challenges and strengths. Wisconsin’s RHT application
+recognizes this variation and leans on partnerships and flexibility for local expertise to solve
+problems. A wide range of organizations across the State will be involved in this work:
+Health care providers, such as rural hospitals, community health centers, dental providers,
+behavioral health clinics, long-term care providers, pharmacies, and emergency medical service
+agencies.
+
+Local and Tribal governments, such as local and Tribal health departments, county human services
+agencies, school districts, colleges and universities.
+
+Other private and public sector partners based on community strengths and needs, such as
+businesses, transportation companies, food pantries, and libraries.
+
+
+
+71 | P a g e
+We see a day when rural Wisconsin has the resources, technologies, and partnerships needed to
+connect everyone to the care they need, when they need it. This is a future worth fighting for, and
+the once-in-a-generation investment of the RHT Program will help us get there. Wisconsin is ready
+for the challenge.
+
+
+
+
+72 | P a g e
+Wyoming
+Title: State of Wyoming - Rural Health Transformation Application
+
+Abstract: Wyoming’s proposal for Rural Health Transformation, as developed and submitted by the
+Department of Health (WDH) and the Governor’s Office, is intended to directly address the health
+care priorities of our rural communities.
+
+We collected those priorities in a series of eleven (11) town hall meetings, and had them ranked by
+1,316 Wyomingites in an online survey. The priorities that came out on top aren’t extravagant. Most
+center on access to the basics: hospitals that can effectively treat emergencies, ambulances that
+show up quickly when you dial 911, and primary care that treats the whole person.
+When combined with the federal objectives articulated in the One Big Beautiful Bill Act, these
+priorities informed the four (4) major goals of our proposal. With supporting components listed
+under each, these are:
+    1. To increase sustainable access to right-sized and coordinated rural medical care.
+             • Encouraging smaller Critical Access Hospitals to focus on doing the basics well,
+                 and creating incentives for small ambulance services to consolidate around
+                 sustainable regional funding bases
+             • Expansion of primary care that integrates behavioral health and preventative
+                 medicine
+             • Building an affordable major medical plan for people priced out of health insurance
+    2. To build a durable workforce pipeline.
+             • Individual education support for people looking to become nurses, primary care
+                 providers, behavioral health clinicians and emergency medical technicians
+             • Grants for institutions to build career pipelines in these fields, starting in high school
+             • Loosening scope of practice for physician assistants, dental hygienists, and
+                 pharmacists.
+    3. To improve metabolic, cardiovascular, and behavioral health outcomes.
+             • Exercise and diet promotion
+             • Restricting the use of SNAP/food stamps to buy unhealthy food
+             • Statewide telepsychiatry and crisis intervention services
+    4. To use technology and payment models to improve chronic disease management and bring
+         care closer to home.
+             • Clinically-integrated care coordination for people at high risk of chronic disease
+             • Non-emergency transportation coordination.
+We were requested to assume a hypothetical $200,000,000 total budget for this proposal.
+Depending on the amount Wyoming actually receives, 48% of the funding will support access to
+emergency medical care, 25% will increase rural workforce supply, 16% is targeted at improving
+health outcomes, 10% will help providers acquire innovative new technology, and less than 1% will
+cover State administrative costs. Although this funding is time-limited, all of our initiatives are
+intentionally built for the long-term. Rural Health Transformation is a once-in-a-generation
+opportunity to strengthen how care is delivered in Wyoming, and we will not let it go to waste.
+
+
+
+
+73 | P a g e
+

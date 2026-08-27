@@ -2860,7 +2860,7 @@ rhtp_registry_candidates <- function(state_sources, valid_states) {
 #   Rscript R/02_normalize.R --run --date=2026-08-27
 #   Rscript R/02_normalize.R --run --dev           # an iteration, logged DEV
 #
-if (!interactive()) {
+if (!interactive() && identical(sys.nframe(), 0L)) {
   cli_args <- commandArgs(trailingOnly = TRUE)
 
   if ("--run" %in% cli_args) {

@@ -805,7 +805,7 @@ rhtp_state_registry <- function(allotments = TRUE, worksheet = TRUE,
 #   Rscript R/03_state_registry.R --worksheet     # §7.2 only
 #   Rscript R/03_state_registry.R --validate      # §7.3, once the registry lands
 #
-if (!interactive()) {
+if (!interactive() && identical(sys.nframe(), 0L)) {
   cli_args <- commandArgs(trailingOnly = TRUE)
 
   if ("--validate" %in% cli_args) {

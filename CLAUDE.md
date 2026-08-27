@@ -89,6 +89,44 @@ This inverts the normal convention of gitignoring data directories — see §1.
 - Every human reviewer reads `reviewer-coding-instructions.md` before touching a
   record, and every automated classifier keys off recipient identity, never
   activity type (§0.3a).
+- **The spec is edited in the repo. Patches only — never a wholesale file
+  upload.** This applies to `rhtp-tracker-build-spec.md`, `CLAUDE.md` and
+  `reviewer-coding-instructions.md` alike. See §2.1.
+
+### 2.1 The spec is edited in-repo, by patch
+
+`rhtp-tracker-build-spec.md`, `CLAUDE.md` and `reviewer-coding-instructions.md`
+are **source files under version control, not documents that live on a laptop
+and get uploaded.** Change them here, in a commit whose diff shows exactly what
+moved. **Do not replace them by uploading a local copy**, however small the edit
+looks.
+
+The reason is that it has already destroyed committed work twice, in the same
+way both times — a stale local copy overwriting a section it was never aware of:
+
+- **`0a51145`** replaced `reviewer-coding-instructions.md` with a local copy
+  predating `34d8fee`, silently deleting the committed `MULTI_RECIPIENT_FIELD`
+  section (§6.2). Found and restored a session later, by accident.
+- **`219d803`** replaced `rhtp-tracker-build-spec.md` with a copy that did not
+  contain `9fdc156`, reverting the §10.2 `NON_HOSPITAL` correction — the row
+  that stops a reviewer coding Beebe Healthcare's school-based health center as
+  a non-hospital, which is the single error §0.3a exists to prevent. Session 7
+  found the spec still carrying the defective row and re-applied the commit.
+
+Neither deletion appeared as a deletion. Both looked like an upload of the
+current file. A patch cannot do this: git refuses a conflicting edit and shows
+the difference instead of resolving it silently in favour of whichever copy was
+uploaded last.
+
+Two consequences worth stating plainly:
+
+- **An upload is a full-file overwrite even when the intent is a one-line
+  change.** Everything committed since that local copy was taken is discarded,
+  and nothing in the commit says so.
+- **A merged PR is not enough.** `9fdc156` was pushed to a branch *after* PR #7
+  merged its parent, so it never reached `main` at all, and the next spec upload
+  cemented that. Check that a correction is on `main` before relying on it, and
+  say so in the commit that depends on it.
 
 ---
 
@@ -121,6 +159,8 @@ R/
   01_retrieve_rcj.R            # Stage 1 — retrieval (BUILT)
   02_normalize.R               # Stage 2 — normalization + §6.4 mining (BUILT)
   03_state_registry.R          # Stage 3 — CMS allotments + registry (BUILT)
+  03b_budget_narratives.R      # Stage 2.5 — §7A initiative table + §7A.4 gate (BUILT)
+  03c_cms_abstracts.R          # CMS project abstracts — §4.1 candidate list (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -130,9 +170,11 @@ data/
   raw/                         # IMMUTABLE — COMMITTED
     rcj/<pull_date>/*.json     #   the RCJ landing zone
     cms/<fetch_date>/*.html    #   the §7.1 allotment table, verbatim + digest
+    cms/<fetch_date>/*.pdf     #   the CMS project abstracts, verbatim + SHA-256
   interim/                     # normalized .rds/.csv; review_queue.rds — COMMITTED
   reference/                   # allotment anchor, registry, controlled vocabs
   evidence/                    # <state>/<record_id>_<date>.pdf — COMMITTED
+    budget_narratives/<state>/ #   §7A.2 — EMPTY, collection not started
 output/
   rhtp_hospital_tracker_<date>.xlsx
   review_queue_<date>.xlsx
@@ -145,6 +187,7 @@ config/
 docs/
   stage0_preflight_findings.md # Stage 0 API reconnaissance (authoritative)
   stage3_allotments_and_registry.md  # §7.1 anchor, §6.4 mining, §7.2 worksheet
+  stage2.5_budget_narratives.md      # §7A parser, the §7A.4 gate, gaps left open
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -241,7 +284,7 @@ plan rather than an award action.
 | `PASS_THROUGH_DESIGNATED` | Intermediary receives funds, but the source document names hospital subrecipients or restricts eligibility to hospitals **and the award has been made** | `Yes`, with `intermediary_name` populated |
 | `PASS_THROUGH_UNRESOLVED` | Intermediary administers a pool where hospitals are among eligible entities, recipients not yet named | `Unclear` — **do not impute** |
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive | `No`, but set `hospital_benefiting = Yes` |
-| `NON_HOSPITAL` | Recipient and purpose are clearly outside hospitals | `No` |
+| `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |
 
 `IN_KIND_BENEFIT` gets its own flag rather than being discarded: it matters to
 AHA's narrative even though those dollars must **never** enter a "funds
@@ -351,7 +394,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-27 (reviewer coding instructions — sequencing item 6)
+**Last updated:** 2026-08-27 (Session 7 — Stage 2.5 parser, CMS abstracts completed)
 
 ### Stages built
 
@@ -363,12 +406,13 @@ retrieval code.
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
 | Stage 3 — Allotments + registry | `R/03_state_registry.R` | **Built and run. §7.1 anchor committed; §7.2 worksheet exported. §7.3 registry awaits offline verification — `docs/stage3_allotments_and_registry.md`** |
-| Stage 2.5 — Budget narratives | *(§7A, not yet scaffolded)* | Not started. **Gated on the verified registry** |
-| Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on §9.11 and on the spec being brought current** |
+| Stage 2.5 — Budget narratives | `R/03b_budget_narratives.R` | **Built and run (Session 7). Format-detecting parser + the §7A.4 gate. 2 of 50 states extracted; OK RECONCILED, DE quarantined — `docs/stage2.5_budget_narratives.md`** |
+| CMS project abstracts | `R/03c_cms_abstracts.R` | **Built and run (Session 7). All 50 states extracted, 120 CANDIDATE_ONLY organizations — §4.1** |
+| Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_01_retrieve_rcj.R`<br>`tests/testthat/test_02_normalize.R`<br>`tests/testthat/test_03_state_registry.R` | **Built — 44 + 276 + 70 = 390 assertions, all passing, zero quota. Run `Rscript tests/run_tests.R`** |
+| Tests | `tests/testthat/test_01_retrieve_rcj.R`<br>`tests/testthat/test_02_normalize.R`<br>`tests/testthat/test_03_state_registry.R`<br>`tests/testthat/test_03b_budget_narratives.R`<br>`tests/testthat/test_03c_cms_abstracts.R` | **Built — 44 + 276 + 70 + 86 + 40 = 516 assertions, all passing, zero quota. Run `Rscript tests/run_tests.R`** |
 
 ### States validated
 
@@ -394,6 +438,20 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 - `data/reference/cms_states.csv` — the 50-row state vocabulary (§7.1).
 - `data/reference/state_source_registry.csv` — **does not exist yet.** It is
   the §7.3 deliverable, compiled by hand from the worksheet.
+- **`data/reference/abstract_named_organizations.csv` — 120 rows, 16 states
+  (Session 7).** Organizations named in the CMS project abstracts, every row
+  `CANDIDATE_ONLY`. The source of record; `abstract_named_organizations.xlsx`
+  is a render of it. Rebuild with `Rscript R/03c_cms_abstracts.R --build`.
+- **`data/reference/abstract_coverage_by_state.csv` — 50 rows (Session 7).**
+  All 50 states extracted; 16 named anyone, 34 named nobody.
+- `data/reference/vocabularies.csv` — now carries the §7A codes as well
+  (`recipient_status`, `reconciliation_structure`, `reconciliation_status`,
+  `extraction_method`, `recipient_confirmed`, `amount_confirmed`,
+  `has_hospital_recipient`, `initiative_grain`, `validator`). Read it through
+  `rhtp_vocabulary()` — the single reader, in `utils_config.R`.
+- **`data/reference/budget_narrative_status.csv` (§7A.2) — does not exist
+  yet.** It records what was searched and when, and nothing has been searched.
+  It belongs to the collection pass, not to the parser.
 
 ### Raw pulls on disk
 
@@ -438,12 +496,28 @@ locale at source time — keep both (§3.3).
    no findings document was committed, so the eleven records cannot be re-read
    here, and Stage 4's §9.3 design cannot be checked against what state sources
    actually publish. Commit them before Stage 4.
-3. **Delta-pull strategy still needs a decision.** No `since` on the award or
+3. **Delaware's budget narrative cannot be fetched from this environment.**
+   `dhss.delaware.gov` is denied by the egress policy — the proxy answers 403
+   to CONNECT, and `WebFetch` returns `EGRESS_BLOCKED` for the same host. So
+   `Final-RHTP-Revised-Budget-1.30.26.pdf` is unreadable here and Delaware's
+   initiatives 13–15 ($10,105,200) stay unextracted. The §7A.4 gate holds
+   Delaware at `VARIANCE`, 84.6%, quarantined — which is the correct outcome
+   and not a workaround. **Add `dhss.delaware.gov` to the environment
+   allowlist** (Claude Code on the web → environment settings → network
+   access), then re-run `Rscript R/03b_budget_narratives.R --build`; the tests
+   already assert Delaware reaches 91.0% and `RECONCILED` once those lines
+   land. The same allowlist change is needed for §7A.2 collection generally:
+   fifty state health-department hosts, none of them currently reachable.
+4. **Delta-pull strategy still needs a decision.** No `since` on the award or
    document endpoints, so hashing is the only Tier 3 change detection (§4.1).
    The remaining question is whether `/activity` narrows to a `since=` delta
    after this first backfill (45 calls/pull) or keeps being pulled
    comprehensively (60 calls/pull). Both are affordable.
 
+*Resolved in Session 7:* the §9.11 blocker's evidence landed as `DE Verify.xlsx`
+(11 hand-verified Delaware records) and the 16 unextracted CMS abstracts are
+done, so `abstract_named_organizations.csv` now covers all 50 states. The §10.2
+spec defect was re-applied after an upload had reverted it — see §2.1.
 *Resolved after Session 5:* the four corrections — §0.2a Tier 1 corroboration,
 §6.2 multi-recipient splitting, §6.4 `NO_RCJ_DATA`, §5.2 `run_type` — plus
 and the stale-spec blocker, which cleared when `27b8e0c` landed §0.2a/§0.3a/§7A on `main`
@@ -633,17 +707,73 @@ meet (`UNPARSED_AWARD_CANDIDATE` carries no tier claim,
 `AMOUNT_EXCEEDS_STATE_ALLOTMENT` is almost always a multi-recipient field,
 `PROGRAM_NAME_AS_AWARDEE` never promotes the agency to recipient, and so on).
 
-**One spec defect is flagged in the file rather than silently coded around.**
-§10.2's `NON_HOSPITAL` row lists *"school-based health centers"* as an example
-of a recipient "clearly outside hospitals." That is an activity, and it is the
-exact error §0.3a exists to correct — the four Delaware records it would
-mis-code are the four §0.3a names. The instructions state that recipient
-identity overrides the §10.2 example list. **§10.2 should be corrected in the
-spec**; a reviewer reading the spec directly still hits the trap.
+**One spec defect was found and then fixed at the source.** §10.2's
+`NON_HOSPITAL` row listed *"school-based health centers"* as an example of a
+recipient "clearly outside hospitals." That is an activity, and it is the exact
+error §0.3a exists to correct — the four Delaware records it would mis-code are
+the four §0.3a names. **The row is rewritten** (owner's wording) to judge the
+recipient and to carry the contrast that makes it unmissable: Nebraska's school
+kitchen modernization to the Department of Education is `NON_HOSPITAL`;
+Delaware's school-based health center to Beebe Healthcare is `DIRECT`. Same
+setting, different recipients, different codes. The identical row in §7 of this
+file is updated to match, and the reviewer instructions now cite §10.2 as
+agreeing rather than warning around it.
+
+> **That fix did not survive.** `9fdc156` was pushed to its branch after PR #7
+> had merged the parent, so it never reached `main`, and the spec upload at
+> `219d803` overwrote the file with a copy that predated it. Session 7 found
+> the spec still carrying the defective row and re-applied the commit. §2.1.
+
+### Session 7 — Stage 2.5, the CMS abstracts, and a reverted correction
+
+Full detail: `docs/stage2.5_budget_narratives.md`. Zero RCJ quota; one call to
+`cms.gov`.
+
+**Stage 2.5 is built, and its gate immediately quarantined Delaware.**
+`R/03b_budget_narratives.R` resolves columns by synonym against the §7A.3
+schema, scores every sheet in a workbook, and refuses rather than guesses on a
+tie, on a non-numeric amount column, or on a workbook mixing two states. That
+is what §7A.1 requires: the two reference extractions use different sheets,
+different amount columns, different grains, and Oklahoma's `initiative` column
+is the six-way *grouping* while `fund_use` is the row's identity — mapping the
+obvious-looking column would have collapsed 28 rows onto 6 names.
+
+```
+OK  ALLOCATED_ONLY   RECONCILED   91.7%  (204,900,000 of 223,476,949)
+DE  TOTAL_INCLUSIVE  VARIANCE     84.6%  (133,082,267 of 157,394,964)  QUARANTINED
+```
+
+Oklahoma at 91.7% is what §7A.4 predicts. **Delaware fails, and should.** Its
+narrative total is exact to $0.14, so a gate keyed on the *stated* total would
+have passed it; keying `reconciliation_status` on what was actually captured —
+while `reconciliation_structure` records which document the state wrote — is
+what makes the check work. The shortfall is exactly the unextracted initiatives
+13–15 ($10,105,200) plus state admin ($1,079,227.17) and indirect
+($13,128,269.21). Adding 13–15 puts Delaware at 91.0% and `RECONCILED`, which
+the tests already assert.
+
+The §0.1b headline shares fall out of the parse rather than being carried over:
+Oklahoma 48.7% hospital-directed, Delaware 15.7%; unclear 17.1% and 24.5%.
+
+**All 50 CMS project abstracts are extracted.** The earlier pass truncated at
+page 52; `R/03c_cms_abstracts.R` completes OH–WY. 33 new candidates across
+6 states — WA 9, VA 8, RI 7, OK 5, PA 3, OR 1 — and 10 states name nobody. The
+yield holds: across all 50 states the abstracts name **7 hospital entities**,
+one of which (Eleanor Slater) is a state hospital named as a site rather than
+an awardee. Good for pass-through administrators, weak for hospitals. §4.1's
+no-dollar-figures rule is now *enforced* — `rhtp_assert_no_dollar_figures()`
+hard-fails the build on any currency-shaped string, positive-controlled against
+`$337 million`, a bare `1,000,000,000`, and a numeric column.
+
+**A committed spec correction had been silently reverted.** `9fdc156` fixed the
+§10.2 `NON_HOSPITAL` row across all three documents, but it was pushed to its
+branch *after* PR #7 merged the parent, so it never reached `main` — and the
+spec upload at `219d803` then cemented the defective row. Re-applied here. This
+is the second instance of the same failure, and it is why §2.1 now exists.
 
 ### Next session
 
-**Two offline tasks come first:**
+**Two offline tasks still come first:**
 
 1. **Verify the registry** (~2 hours, §7.2). Work
    `data/reference/state_source_registry_worksheet.csv` — or the formatted copy
@@ -652,36 +782,57 @@ spec**; a reviewer reading the spec directly still hits the trap.
    and set `last_verified`. **Florida first.** While in each state's pages,
    **capture the budget narrative URL for §7A.2.** Check the result with
    `Rscript R/03_state_registry.R --validate`.
-2. **Commit the §9.11 Delaware findings.** §0.3a quotes their result and the
-   sequencing records the test as complete, but the document is not in the repo,
-   so the eleven verified records cannot be re-read here. The reviewer
-   instructions now restate seven of the eleven from §10.0; the other four are
-   still unrecoverable in this repo.
+2. **Widen the egress allowlist before the collection pass.**
+   `dhss.delaware.gov` is blocked today and so is every other state health
+   department host. §7A.2 needs fifty of them. Delaware first, since its
+   initiatives 13–15 are the one known-missing piece and the gate is already
+   holding the state out of the published table because of them.
 
-**Then Stage 2.5 (§7A)** — collect and parse the 50 budget narratives into the
-initiative table, reconcile against the CMS allotments (§7A.4), quarantine any
-state that fails. This is the spine now; RCJ is the supplement (§0.1).
+**Then §7A.2 collection** — 48 states to go. It is bounded and checkable in a
+way nothing sourced from RCJ is: you know when you have all fifty. Each
+narrative lands under `data/evidence/budget_narratives/<state>/`, and
+`Rscript R/03b_budget_narratives.R --build` reconciles it the moment its
+extraction exists. Build `data/reference/budget_narrative_status.csv` as part
+of that pass — it records what was searched and when, so it cannot be seeded in
+advance.
 
-**Then Stage 4**, only if §9.11 passes. Document clustering (§9.2), fetcher with
-§9.5 conduct rules, split-confirmation corroborator (§9.3). Requires **Full**
-network access — clear with AHA IT first — and the AHA Annual Survey / CMS
-Provider of Services extracts committed before the hospital determination
-session.
+**Then Stage 4** — and **not before the §7.3 registry is verified.** Document
+clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation
+corroborator (§9.3). Requires **Full** network access — clear with AHA IT
+first — and the AHA Annual Survey / CMS Provider of Services extracts committed
+before the hospital determination session.
 
 `qa_assertions.R` is still unbuilt. §13.25 and §13.27 are already satisfied by
 the code and only need asserting.
 
+**Two files landed from the owner that no stage reads yet.** `DE Verify.xlsx`
+is the §9.11 premise-test evidence — 11 hand-verified Delaware records, and the
+`hospital_yn` column is still the pre-§0.3a coding, so Beebe, TidalHealth and
+Nemours read `no` in it. `FL_year1_awardees.xlsx` is 81 Florida Year 1 awards
+with recipient-level amounts, the first complete Deliverable 1 dataset and the
+answer to the §4.1 Florida gap. Note before ingesting it: its `recipient_type`
+column uses `PHYSICIAN_PRACTICE` and `UNCLASSIFIED`, neither of which is in the
+§8 vocabulary, so either the vocabulary grows or those 13 rows are re-coded.
+
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 390 assertions, zero quota
+Rscript tests/run_tests.R                        # 516 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
 Rscript R/03_state_registry.R --allotments       # §7.1, one call to cms.gov
 Rscript R/03_state_registry.R --worksheet        # §7.2, offline
 Rscript R/03_state_registry.R --validate         # §7.3, once the registry lands
+Rscript R/03b_budget_narratives.R --validate     # §7A parse + assert, no writes
+Rscript R/03b_budget_narratives.R --build        # §7A.4 gate, writes data/interim/
+Rscript R/03c_cms_abstracts.R --validate         # §4.1 assertions, offline
+Rscript R/03c_cms_abstracts.R --build            # renders abstract_named_organizations.xlsx
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the
-committed archive unless `--force` is passed.
+committed archive unless `--force` is passed. Stage 2.5 picks up any
+`<ST>_initiative_table.xlsx` at the repo root or under
+`data/reference/initiative_tables/`, so a new state's extraction needs no code
+change. Stage 3c renders from `data/reference/abstract_named_organizations.csv`
+— edit the CSV, never the workbook.

@@ -1,0 +1,51 @@
+state,abstract_status,n_named,note
+AK,NONE NAMED,0,Categories only
+AL,NONE NAMED,0,Subrecipients: To be determined
+AR,NONE NAMED,0,To be determined
+AZ,NONE NAMED,0,Categories only
+CA,NONE NAMED,0,TBD
+CO,NONE NAMED,0,Categories only
+CT,NAMED ORGANIZATIONS,10,
+DE,NAMED ORGANIZATIONS,17,
+FL,NONE NAMED,0,To be selected through procurement
+GA,NAMED ORGANIZATIONS,11,
+HI,NAMED ORGANIZATIONS,5,
+IA,NONE NAMED,0,None named
+ID,NONE NAMED,0,None named
+IL,NAMED ORGANIZATIONS,8,
+IN,NONE NAMED,0,Lead agencies only
+KS,NONE NAMED,0,None named
+KY,NONE NAMED,0,None named
+LA,NONE NAMED,0,Categories only
+MA,NONE NAMED,0,None named
+MD,NAMED ORGANIZATIONS,9,
+ME,NONE NAMED,0,None named
+MI,NONE NAMED,0,To be identified competitively
+MN,NONE NAMED,0,Categories only - full list is IN THE BUDGET NARRATIVE
+MO,NONE NAMED,0,None named
+MS,NONE NAMED,0,No subawardees awarded at this time
+MT,NONE NAMED,0,To be determined post-award
+NC,NAMED ORGANIZATIONS,2,
+ND,NONE NAMED,0,None named in extracted text
+NE,NAMED ORGANIZATIONS,15,
+NH,NAMED ORGANIZATIONS,7,
+NJ,NAMED ORGANIZATIONS,3,
+NM,NONE NAMED,0,None named
+NV,NONE NAMED,0,None named
+NY,NONE NAMED,0,None named
+OH,NONE NAMED,0,"Categories only - 300+ partners cited (hospitals, FQHCs, universities, EMS, associations), none named"
+OK,NAMED ORGANIZATIONS,5,Lead applicant OSDH excluded; 5 named under 'Administration and Subrecipients'. Rest 'to be determined'
+OR,NAMED ORGANIZATIONS,1,Lead agency OHA excluded. Only named recipient class is the Tribal set-aside
+PA,NAMED ORGANIZATIONS,3,Sub-Awardee Organizations list; PREP's 8 regions carried as one row
+RI,NAMED ORGANIZATIONS,7,"6-name Subrecipients list plus Eleanor Slater Hospital, named as an initiative site"
+SC,NONE NAMED,0,Lead agency only (SC Dept of Health and Human Services); no subrecipients named
+SD,NONE NAMED,0,Lead agencies only (Office of the Governor; SD Dept of Health)
+TN,NONE NAMED,0,"Sub-awards competitive. Existing state infrastructure cited, not subrecipients"
+TX,NONE NAMED,0,To be selected through procurement - 'sub-awards to rural providers' (unnamed)
+UT,NONE NAMED,0,"'Post Notice of Award, the State will select subrecipients'"
+VA,NAMED ORGANIZATIONS,8,7-name Subrecipient Organizations list plus the competitively-selected hospital class
+VT,NONE NAMED,0,Categories only - subrecipients supplied to CMS after procurement
+WA,NAMED ORGANIZATIONS,9,Longest named subrecipient list of the 16; no individual hospital among them
+WI,NONE NAMED,0,"Categories only - rural hospitals, health centers, local/Tribal governments named as classes"
+WV,NONE NAMED,0,Lead applicant only; sub-awards via competitive grants and direct State agency awards
+WY,NONE NAMED,0,"Lead agencies only (WDH; Governor's Office); priorities described, no organizations named"
