@@ -1,0 +1,59 @@
+column_name,allowed_value,notes
+award_tier,STATE_ALLOTMENT,"Tier 1 - separate sheet, never unioned with Tier 3"
+award_tier,SOLICITATION,"Tier 2 - separate sheet, never unioned with Tier 3"
+award_tier,SUBAWARD,Tier 3 - the ONLY tier that answers the project question
+award_tier,UNASSIGNED,Routed to review queue. NEVER default to SUBAWARD.
+source_doc_type,NOTICE_OF_AWARD,PRIMARY - strongest
+source_doc_type,NOTICE_OF_INTENT_TO_AWARD,PRIMARY
+source_doc_type,PROCUREMENT_PORTAL_POSTING,PRIMARY
+source_doc_type,STATE_BUDGET_NARRATIVE,Accepted for Yes per spec 9.2
+source_doc_type,AGENCY_PRESS_RELEASE,SECONDARY - supports Yes only if it names the recipient
+source_doc_type,GOVERNOR_PRESS_RELEASE,SECONDARY - supports Yes only if it names the recipient
+source_doc_type,THIRD_PARTY_NEWS,"CAN NEVER SUPPORT A Yes (spec 9.2, 13)"
+source_doc_type,OTHER,
+rhtp_award_confirmed,Yes,
+rhtp_award_confirmed,No,
+rhtp_award_confirmed,Unclear,
+recipient_type,HOSPITAL_OR_SYSTEM,
+recipient_type,HOSPITAL_AFFILIATED_ENTITY,
+recipient_type,FQHC_OR_RHC,
+recipient_type,EMS_OR_PSAP,
+recipient_type,UNIVERSITY_OR_AHC,
+recipient_type,AHEC,
+recipient_type,SCHOOL_OR_DISTRICT,
+recipient_type,LOCAL_GOVT_OR_PUBLIC_HEALTH,
+recipient_type,TRIBAL_ORG,
+recipient_type,STATE_AGENCY,
+recipient_type,VENDOR_OR_CONTRACTOR,
+recipient_type,NONPROFIT_CBO,
+recipient_type,NOT_YET_NAMED,
+flow_type,DIRECT,
+flow_type,PASS_THROUGH_DESIGNATED,
+flow_type,PASS_THROUGH_UNRESOLVED,distributed_to_hospital = Unclear. DO NOT IMPUTE (spec 0.3)
+flow_type,IN_KIND_BENEFIT,"distributed_to_hospital = No, but hospital_benefiting = Yes. Never enters a distributed-to-hospitals total."
+flow_type,NON_HOSPITAL,
+distributed_to_hospital,Yes,
+distributed_to_hospital,No,
+distributed_to_hospital,Unclear,
+hospital_benefiting,Yes,
+hospital_benefiting,No,
+hospital_benefiting,Unclear,
+determination_confidence,HIGH,
+determination_confidence,MEDIUM,
+determination_confidence,LOW,
+hospital_match_method,EXACT,
+hospital_match_method,FUZZY,Never auto-resolves. Requires reviewer populated (spec 13).
+hospital_match_method,MANUAL,
+hospital_match_method,NONE,
+rural_designation,CAH,
+rural_designation,SCH,
+rural_designation,MDH,
+rural_designation,RRC,
+rural_designation,NONE,
+qa_status,PASS,
+qa_status,FLAGGED,
+qa_status,QUARANTINED,
+review_status,PENDING,
+review_status,IN_PROGRESS,
+review_status,RESOLVED,
+review_status,BLOCKED,

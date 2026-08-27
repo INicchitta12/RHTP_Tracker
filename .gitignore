@@ -1,0 +1,13 @@
+# Per build spec §1: this file excludes ONLY these four entries.
+#
+# data/raw/, data/evidence/, data/interim/review_queue.*, and
+# logs/pull_manifest.csv are COMMITTED, NOT ignored. Per §0.5 ("committed or
+# gone"), cloud sessions get a fresh VM and anything uncommitted is destroyed
+# when the session ends. Gitignoring the raw landing zone -- the usual
+# convention -- would silently destroy the audit trail between sessions and
+# make the pipeline non-reproducible. Do not add data directories here.
+
+.Rhistory
+.RData
+.Rproj.user/
+.Renviron

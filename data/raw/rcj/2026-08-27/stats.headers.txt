@@ -1,0 +1,23 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+date: Thu, 27 Aug 2026 14:41:48 GMT
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: geolocation=(), microphone=(), camera=()
+strict-transport-security: max-age=31536000; includeSubDomains
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.mapbox.com https://events.mapbox.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.youtube.com; worker-src blob:; frame-src 'self' blob: https://www.youtube.com https://player.vimeo.com https://drive.google.com https://app.powerbigov.us https://experience.arcgis.com https://rhtla.net; media-src 'self' https:; font-src 'self' data: https://fonts.gstatic.com;
+set-cookie: rcj_vid=5274bb9eb8d27da54005f4d76a0cf4c1; Path=/; Expires=Tue, 23 Feb 2027 14:41:48 GMT; Max-Age=15552000; Secure; SameSite=lax
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubDomains
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: geolocation=(), microphone=(), camera=()
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.mapbox.com https://events.mapbox.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.youtube.com; worker-src blob:; frame-src 'self' blob: https://www.youtube.com https://player.vimeo.com https://drive.google.com https://app.powerbigov.us https://experience.arcgis.com; media-src 'self' https:; font-src 'self' data: https://fonts.gstatic.com;
+x-azure-ref: 20260827T144148Z-156bcd5f9744b4dvhC1CHI4kxn0000001qbg000000005svr
+x-cache: CONFIG_NOCACHE
+
