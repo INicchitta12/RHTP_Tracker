@@ -21,6 +21,36 @@ suppressPackageStartupMessages({
 })
 
 
+# -- Locale ----------------------------------------------------------------
+
+# Cloud sessions start R in the C/POSIX locale (LANG unset), where readLines()
+# and every stringr operation choke on multibyte UTF-8. That breaks config.yml
+# (which contains section-sign and em-dash characters) and would corrupt RCJ
+# payloads, whose titles and awardee names carry non-ASCII text.
+#
+# Called at source() time so every stage inherits a UTF-8 session without
+# having to remember to set it. Returns invisibly and never errors: if
+# C.UTF-8 is unavailable the session still works for ASCII-only input, and
+# rhtp_preflight() reports the degraded state.
+
+rhtp_set_utf8_locale <- function() {
+  if (isTRUE(l10n_info()$`UTF-8`)) {
+    return(invisible(TRUE))
+  }
+
+  for (candidate in c("C.UTF-8", "en_US.UTF-8")) {
+    suppressWarnings(try(Sys.setlocale("LC_ALL", candidate), silent = TRUE))
+    if (isTRUE(l10n_info()$`UTF-8`)) {
+      return(invisible(TRUE))
+    }
+  }
+
+  invisible(FALSE)
+}
+
+rhtp_set_utf8_locale()
+
+
 # -- Config ----------------------------------------------------------------
 
 #' Load config/config.yml
@@ -50,7 +80,11 @@ rhtp_config <- function(path = "config/config.yml", refresh = FALSE) {
     )
   }
 
-  cfg <- yaml::read_yaml(full_path)
+  # Explicit UTF-8 even after the locale fix above -- read_yaml() delegates to
+  # readLines(), which honours the connection encoding, not the locale.
+  cfg <- yaml::yaml.load(
+    paste(readLines(full_path, encoding = "UTF-8", warn = FALSE), collapse = "\n")
+  )
 
   # Fail loudly on a truncated or malformed config rather than letting a NULL
   # propagate into a request URL.
@@ -364,6 +398,7 @@ rhtp_preflight <- function() {
 
   list(
     r_version  = paste(R.version$major, R.version$minor, sep = "."),
+    utf8_locale = isTRUE(l10n_info()$`UTF-8`),
     packages   = pkg_status,
     api_key    = rhtp_api_key_status(),
     paths      = dir_status,
