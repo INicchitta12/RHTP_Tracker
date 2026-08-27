@@ -162,6 +162,16 @@ test_that("a handler refuses an endpoint whose envelope it does not own", {
 
 test_that("an unknown endpoint is rejected before any request is built", {
   expect_error(rhtp_fetch_paginated("not_a_real_endpoint"), "Unknown endpoint")
+  expect_error(rhtp_fetch_complete("not_a_real_endpoint"), "Unknown endpoint")
+})
+
+test_that("/states is routed to the complete-set handler, not the paginated one", {
+  # §4 and config both had /states under the {data, pagination} envelope. A
+  # live call returns {data, count} with no pagination object. Sending it to
+  # the paginated handler is what surfaced the error.
+  expect_equal(rhtp_config()$endpoints$states$envelope, "complete")
+  expect_error(rhtp_fetch_paginated("states"), "envelope")
+  expect_error(rhtp_fetch_complete("awards"), "envelope")
 })
 
 

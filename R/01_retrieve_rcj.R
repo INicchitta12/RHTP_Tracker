@@ -186,20 +186,119 @@ rhtp_format_params <- function(query) {
 
 # -- Manifest --------------------------------------------------------------
 
+# Canonical manifest schema. Session 0 established the first eleven columns;
+# `requested_limit` and `served_limit` are added here because §5.2 requires
+# both to be logged -- their divergence is the silent-downgrade signal, and it
+# cannot be reconstructed after the fact.
+#
+# Column ORDER is load-bearing: readr::write_csv(append = TRUE) writes values
+# positionally and will happily append a misaligned row to an existing file
+# without complaint. rhtp_append_manifest() therefore checks the header of the
+# file it is about to extend and refuses to write on a mismatch.
+
+RHTP_MANIFEST_COLUMNS <- c(
+  "pull_timestamp_utc",
+  "pull_date",
+  "state",
+  "endpoint",
+  "params",
+  "http_status",
+  "records_returned",
+  "records_reported",
+  "requested_limit",
+  "served_limit",
+  "quota_monthly_limit",
+  "quota_monthly_remaining",
+  "duration_seconds",
+  "stage",
+  "notes"
+)
+
+
+#' Build one manifest row in the canonical column order
+#'
+#' `state` is NA for Branch A pulls: they are national and unfiltered, so no
+#' single state applies. It stays in the schema for the per-state calls
+#' (`/states/:code`, `/documents/:id`) that later stages will make.
+rhtp_manifest_row <- function(timestamp, pull_date, endpoint, params,
+                              http_status = NA_integer_,
+                              records_returned = NA_integer_,
+                              records_reported = NA_integer_,
+                              requested_limit = NA_integer_,
+                              served_limit = NA_integer_,
+                              quota_monthly_limit = NA_real_,
+                              quota_monthly_remaining = NA_real_,
+                              duration_seconds = NA_real_,
+                              state = NA_character_,
+                              stage = "stage1_retrieval",
+                              notes = "") {
+  tibble::tibble(
+    pull_timestamp_utc      = format(timestamp, "%Y-%m-%dT%H:%M:%SZ",
+                                     tz = "UTC"),
+    pull_date               = as.character(pull_date),
+    state                   = as.character(state),
+    endpoint                = as.character(endpoint),
+    params                  = as.character(params),
+    http_status             = as.integer(http_status),
+    records_returned        = as.integer(records_returned),
+    records_reported        = as.integer(records_reported),
+    requested_limit         = as.integer(requested_limit),
+    served_limit            = as.integer(served_limit),
+    quota_monthly_limit     = as.numeric(quota_monthly_limit),
+    quota_monthly_remaining = as.numeric(quota_monthly_remaining),
+    duration_seconds        = as.numeric(duration_seconds),
+    stage                   = as.character(stage),
+    notes                   = as.character(notes)
+  )
+}
+
+
 #' Append one row per API call to logs/pull_manifest.csv
 #'
 #' Written immediately after each call rather than at the end of the run, so a
 #' crash mid-pull still leaves an accurate record of what was spent (§0.5).
+#'
+#' Refuses to append to a file whose header does not match
+#' RHTP_MANIFEST_COLUMNS. Appending positionally into a differently-shaped CSV
+#' corrupts the audit trail in a way that reads as valid data.
 rhtp_append_manifest <- function(row) {
   manifest_path <- rhtp_path("pull_manifest", create = TRUE)
 
-  row %>%
-    dplyr::mutate(dplyr::across(dplyr::where(is.character), rhtp_redact)) %>%
-    readr::write_csv(
-      manifest_path,
-      append = file.exists(manifest_path),
-      progress = FALSE
+  missing_cols <- setdiff(RHTP_MANIFEST_COLUMNS, names(row))
+  if (length(missing_cols) > 0) {
+    stop(
+      "Manifest row is missing required columns: ",
+      paste(missing_cols, collapse = ", "),
+      call. = FALSE
     )
+  }
+
+  row <- row %>%
+    dplyr::select(dplyr::all_of(RHTP_MANIFEST_COLUMNS)) %>%
+    dplyr::mutate(dplyr::across(dplyr::where(is.character), rhtp_redact))
+
+  file_exists <- file.exists(manifest_path)
+
+  if (file_exists) {
+    existing_header <- names(readr::read_csv(
+      manifest_path, n_max = 0, show_col_types = FALSE, progress = FALSE
+    ))
+
+    if (!identical(existing_header, RHTP_MANIFEST_COLUMNS)) {
+      stop(
+        "logs/pull_manifest.csv has a header that does not match the canonical ",
+        "schema, so appending would misalign every value in the row.\n",
+        "  on disk: ", paste(existing_header, collapse = ", "), "\n",
+        "  expected: ", paste(RHTP_MANIFEST_COLUMNS, collapse = ", "), "\n",
+        "Migrate the file to the canonical schema before running a pull.",
+        call. = FALSE
+      )
+    }
+  }
+
+  readr::write_csv(
+    row, manifest_path, append = file_exists, progress = FALSE
+  )
 
   invisible(row)
 }
@@ -229,6 +328,9 @@ rhtp_perform <- function(req, endpoint, query = list(), pull_date = Sys.Date()) 
   }
 
   params_str <- rhtp_format_params(query)
+  # Session 0 logged the API path rather than the config key; keep the column
+  # comparable across stages.
+  endpoint_path <- paste0(rhtp_config()$api$api_prefix, "/", endpoint)
   started <- Sys.time()
 
   resp <- tryCatch(
@@ -237,19 +339,14 @@ rhtp_perform <- function(req, endpoint, query = list(), pull_date = Sys.Date()) 
       duration <- as.numeric(difftime(Sys.time(), started, units = "secs"))
       .rhtp_run_state$requests <- rhtp_run_requests() + 1L
 
-      rhtp_append_manifest(tibble::tibble(
-        timestamp         = format(started, "%Y-%m-%dT%H:%M:%S%z"),
-        pull_date         = as.character(pull_date),
-        endpoint          = endpoint,
-        params            = params_str,
-        http_status       = NA_integer_,
-        records_returned  = NA_integer_,
-        requested_limit   = as.integer(query$limit %||% NA_integer_),
-        served_limit      = NA_integer_,
-        monthly_limit     = NA_real_,
-        monthly_remaining = NA_real_,
-        duration_s        = round(duration, 3),
-        note              = paste("REQUEST FAILED:", rhtp_redact(conditionMessage(e)))
+      rhtp_append_manifest(rhtp_manifest_row(
+        timestamp        = started,
+        pull_date        = pull_date,
+        endpoint         = endpoint_path,
+        params           = params_str,
+        requested_limit  = query$limit %||% NA_integer_,
+        duration_seconds = round(duration, 3),
+        notes            = paste("REQUEST FAILED:", rhtp_redact(conditionMessage(e)))
       ))
 
       stop(
@@ -270,19 +367,22 @@ rhtp_perform <- function(req, endpoint, query = list(), pull_date = Sys.Date()) 
   records_returned <- length(body$data %||% body$documents %||% list())
   served_limit <- body$pagination$limit %||% NA_integer_
 
-  rhtp_append_manifest(tibble::tibble(
-    timestamp         = format(started, "%Y-%m-%dT%H:%M:%S%z"),
-    pull_date         = as.character(pull_date),
-    endpoint          = endpoint,
-    params            = params_str,
-    http_status       = httr2::resp_status(resp),
-    records_returned  = as.integer(records_returned),
-    requested_limit   = as.integer(query$limit %||% NA_integer_),
-    served_limit      = as.integer(served_limit),
-    monthly_limit     = quota$monthly_limit,
-    monthly_remaining = quota$monthly_remaining,
-    duration_s        = round(duration, 3),
-    note              = ""
+  rhtp_append_manifest(rhtp_manifest_row(
+    timestamp               = started,
+    pull_date               = pull_date,
+    endpoint                = endpoint_path,
+    params                  = params_str,
+    http_status             = httr2::resp_status(resp),
+    records_returned        = records_returned,
+    # pagination.total for the standard envelope; absent on the hasMore
+    # shapes, where `count` is a page length and not a grand total (§4).
+    records_reported        = body$pagination$total %||% NA_integer_,
+    requested_limit         = query$limit %||% NA_integer_,
+    served_limit            = served_limit,
+    quota_monthly_limit     = quota$monthly_limit,
+    quota_monthly_remaining = quota$monthly_remaining,
+    duration_seconds        = round(duration, 3),
+    notes                   = ""
   ))
 
   # Aborts above the configured fraction rather than returning a partial pull.
@@ -441,6 +541,90 @@ rhtp_page_record <- function(performed, page) {
     body_sha256   = digest::digest(performed$body_text, algo = "sha256",
                                    serialize = FALSE),
     body          = performed$body
+  )
+}
+
+
+# -- Handler 1b: {data, count} -- complete, unpaginated set ----------------
+
+# /states only.
+#
+# CORRECTION (Session 3): §4 and config.yml both listed /states under the
+# {data, pagination} envelope. It is not. A live call returns exactly
+# `{data, count}` -- no `pagination` object, no `hasMore`, no `page`. It is an
+# unpaginated endpoint that returns the complete set of 50 states in one call.
+#
+# The pagination handler caught this rather than short-reading, because
+# rhtp_page_plan() errors on a missing pagination.limit instead of guessing.
+# That is the guard working as designed.
+#
+# Exhaustiveness here is `count` == length(data): on this shape `count` IS the
+# grand total, because there is only ever one page.
+
+rhtp_fetch_complete <- function(endpoint, query = list(), requested_limit = NULL,
+                                pull_date = Sys.Date()) {
+  cfg <- rhtp_config()
+  spec <- cfg$endpoints[[endpoint]]
+
+  if (is.null(spec)) {
+    stop("Unknown endpoint '", endpoint, "'.", call. = FALSE)
+  }
+  if (!identical(spec$envelope, "complete")) {
+    stop(
+      "rhtp_fetch_complete() called on '", endpoint, "', whose envelope is '",
+      spec$envelope, "'.",
+      call. = FALSE
+    )
+  }
+
+  requested_limit <- requested_limit %||% spec$max_limit
+  url <- rhtp_endpoint_url(endpoint)
+
+  message("  ", endpoint, ": complete set, limit=", requested_limit, " ...")
+
+  page_query <- c(query, list(limit = requested_limit))
+  performed <- rhtp_perform(
+    rhtp_build_request(url, page_query), endpoint, page_query, pull_date
+  )
+
+  n_records <- length(performed$body$data)
+  reported <- performed$body$count
+
+  if (is.null(reported) || is.na(reported)) {
+    stop(
+      "/", endpoint, ": response carried no `count`, so exhaustiveness cannot ",
+      "be asserted. Refusing to write to the landing zone.",
+      call. = FALSE
+    )
+  }
+
+  if (!identical(as.integer(reported), as.integer(n_records))) {
+    stop(
+      "SHORT READ on /", endpoint, ": collected ", n_records,
+      " records but the envelope reported count=", reported, ".",
+      call. = FALSE
+    )
+  }
+
+  message("  ", endpoint, ": total=", n_records, " (single unpaginated call)")
+
+  list(
+    endpoint = endpoint,
+    envelope = "complete",
+    plan = list(
+      requested_limit  = as.integer(requested_limit),
+      served_limit     = NA_integer_,
+      total            = as.integer(reported),
+      pages_reported   = 1L,
+      pages_needed     = 1L,
+      limit_downgraded = NA,
+      pages_mismatch   = FALSE
+    ),
+    pages           = list(rhtp_page_record(performed, page = 1)),
+    records_written = n_records,
+    exhaustive      = TRUE,
+    total_drifted   = FALSE,
+    capped          = FALSE
   )
 }
 
@@ -697,7 +881,7 @@ rhtp_write_raw <- function(result, pull_date = Sys.Date(), overwrite = FALSE) {
 #'   prior pull to delta from, and its cost is unmeasured (open blocker 3).
 #' @param overwrite Allow overwriting today's files. Recovery only.
 rhtp_run_national_pull <- function(pull_date = Sys.Date(),
-                                   endpoints = c("awards", "documents",
+                                   endpoints = c("states", "awards", "documents",
                                                  "opportunities", "activity"),
                                    activity_since = NULL,
                                    overwrite = FALSE) {
@@ -723,6 +907,7 @@ rhtp_run_national_pull <- function(pull_date = Sys.Date(),
     result <- switch(
       spec$envelope,
       pagination = rhtp_fetch_paginated(endpoint, pull_date = pull_date),
+      complete   = rhtp_fetch_complete(endpoint, pull_date = pull_date),
       hasmore    = rhtp_fetch_hasmore(
         endpoint,
         query = if (is.null(activity_since)) list() else list(since = activity_since),

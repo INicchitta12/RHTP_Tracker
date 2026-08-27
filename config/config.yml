@@ -62,8 +62,12 @@ endpoints:
   # envelope: "pagination" -> {data, pagination:{page,limit,total,pages}}
   # envelope: "hasmore"    -> {data, count, page, hasMore}
   states:
+    # CORRECTED Session 3 against a live call. Previously listed as
+    # "pagination"; the real envelope is {data, count} with no `pagination`
+    # object at all -- an unpaginated endpoint returning all 50 states in one
+    # call. See docs/stage1_retrieval_run.md.
     path: "/states"
-    envelope: "pagination"
+    envelope: "complete"
     max_limit: 50
     supports_state_filter: false
     delta_param: ~

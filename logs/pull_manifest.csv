@@ -1,7 +1,8 @@
-pull_timestamp_utc,pull_date,state,endpoint,params,http_status,records_returned,records_reported,quota_monthly_limit,quota_monthly_remaining,duration_seconds,stage,notes
-2026-08-27T14:41:49Z,2026-08-27,NA,/api/stats,,200,NA,NA,NA,NA,NA,stage0_preflight,Public endpoint; no API key; no quota headers returned
-2026-08-27T14:41:49Z,2026-08-27,DE,/api/v1/awards,state=DE&limit=500,200,15,15,2000,1999,NA,stage0_preflight,Exploratory schema call
-2026-08-27T14:43:00Z,2026-08-27,DE,/api/v1/documents/{id},id=3cd52e46-65dd-45d6-abb6-e15356baa71f,200,1,1,2000,NA,NA,stage0_preflight,Document detail schema probe
-2026-08-27T14:43:00Z,2026-08-27,DE,/api/v1/documents,state=DE&limit=100,200,30,30,2000,NA,NA,stage0_preflight,Documents envelope + discovered field probe
-2026-08-27T14:43:00Z,2026-08-27,DE,/api/v1/awards,state=DE&since=...&updatedSince=...,200,15,15,2000,NA,NA,stage0_preflight,Delta-param test; both params IGNORED by server
-2026-08-27T14:44:00Z,2026-08-27,DE,/api/v1/activity,state=DE&since=2026-06-01T00:00:00Z&limit=100,200,55,55,2000,NA,NA,stage0_preflight,since= HONORED; only endpoint exposing real state source URLs
+pull_timestamp_utc,pull_date,state,endpoint,params,http_status,records_returned,records_reported,requested_limit,served_limit,quota_monthly_limit,quota_monthly_remaining,duration_seconds,stage,notes
+2026-08-27T14:41:49Z,2026-08-27,NA,/api/stats,NA,200,NA,NA,NA,NA,NA,NA,NA,stage0_preflight,Public endpoint; no API key; no quota headers returned
+2026-08-27T14:41:49Z,2026-08-27,DE,/api/v1/awards,state=DE&limit=500,200,15,15,NA,NA,2000,1999,NA,stage0_preflight,Exploratory schema call
+2026-08-27T14:43:00Z,2026-08-27,DE,/api/v1/documents/{id},id=3cd52e46-65dd-45d6-abb6-e15356baa71f,200,1,1,NA,NA,2000,NA,NA,stage0_preflight,Document detail schema probe
+2026-08-27T14:43:00Z,2026-08-27,DE,/api/v1/documents,state=DE&limit=100,200,30,30,NA,NA,2000,NA,NA,stage0_preflight,Documents envelope + discovered field probe
+2026-08-27T14:43:00Z,2026-08-27,DE,/api/v1/awards,state=DE&since=...&updatedSince=...,200,15,15,NA,NA,2000,NA,NA,stage0_preflight,Delta-param test; both params IGNORED by server
+2026-08-27T14:44:00Z,2026-08-27,DE,/api/v1/activity,state=DE&since=2026-06-01T00:00:00Z&limit=100,200,55,55,NA,NA,2000,NA,NA,stage0_preflight,since= HONORED; only endpoint exposing real state source URLs
+2026-08-27T15:50:51Z,2026-08-27,NA,/api/v1/states,page=1;limit=50,200,50,NA,50,NA,2000,1980,1.316,stage1_retrieval,
