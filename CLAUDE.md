@@ -226,6 +226,7 @@ docs/
   session15_virginia_dmas_negative.md # DMAS hosts no RFA series; the §0.2 worked example
   session16_rcj_state_survey_illinois.md # the trigger list was never a census
   session17_oregon_extraction.md     # Oregon: 7 pools; the 99 x $100k are CLINICS
+  session18_hospital_association_flow_rule.md # §10.2 associations; 0 rows moved
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -356,6 +357,7 @@ plan rather than an award action.
 | `PASS_THROUGH_UNRESOLVED` | Intermediary administers a pool where hospitals are among eligible entities, recipients not yet named | `Unclear` — **do not impute** |
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive | `No`, but set `hospital_benefiting = Yes` |
 | `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |
+| `PASS_THROUGH_DESIGNATED` — hospital trade associations and hospital-governed entities | An award to a hospital association, hospital-owned nonprofit, or association foundation, **provided the source shows the funds are administered to or on behalf of member hospitals**. Record the entity in `intermediary_name`. See the worked examples below the table. | `Yes`, with `intermediary_name` populated |
 
 `IN_KIND_BENEFIT` gets its own flag rather than being discarded: it matters to
 AHA's narrative even though those dollars must **never** enter a "funds
@@ -367,6 +369,37 @@ CCN match) / `LOW` (secondary source or unresolved pass-through).
 
 `determination_basis` is **free text and mandatory**. When someone asks in six
 months why a $12M award was coded hospital-bound, the answer must be in the row.
+
+#### Hospital trade associations and hospital-governed entities
+
+An award to a **hospital association, hospital-owned nonprofit, or association
+foundation** is `recipient_type = NONPROFIT_CBO`, `flow_type =
+PASS_THROUGH_DESIGNATED`, `distributed_to_hospital = Yes` — **provided the
+source shows the funds are administered to or on behalf of member hospitals**.
+Record the entity in `intermediary_name`.
+
+**Worked examples.** *Illinois Critical Access Hospital Network,
+$50,008,264* — the source states ICAHN *"will administer the funds to Critical
+Access Hospitals and other eligible non-urban Illinois hospitals."* *Oklahoma
+Hospital Association, CHW Expansion in Hospitals, $4,300,000* — *"implementation
+will be conducted by hospitals reimbursed for CHW hiring, training, and
+monitoring."*
+
+**This does not extend to an association's own operating, advocacy, or
+membership costs where the source shows no flow to hospitals. That is
+`NON_HOSPITAL`. The test is what the document says the money does, not what the
+organization is.**
+
+**And it does not reach an association that keeps the money and delivers goods
+or services with it.** That is `IN_KIND_BENEFIT`, and the two worked negatives
+are the reason this row cannot be applied from the organisation's name alone.
+The *Georgia Hospital Association* "received a grant … to provide obstetrical
+emergency carts": carts reach hospitals, dollars do not. The *Alaska Hospital &
+Healthcare Association* proposes "Strategic, Financial, and Operational
+Assessments … for three independent Critical Access Hospitals" — it **names**
+three hospitals and still administers nothing to them, because AHHA performs the
+assessments. Both of the positive examples above move **money** to hospitals
+("administer the funds to", "reimbursed"); neither negative does.
 
 ---
 
@@ -465,7 +498,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 17 — Oregon: seven pools across four documents, 278 award actions, and the 99 x $100,000 that are clinics rather than hospitals)
+**Last updated:** 2026-08-28 (Session 18 — the §10.2 hospital-association row, and an audit of all nine states that moved nothing)
 
 ### Stages built
 
@@ -491,12 +524,12 @@ retrieval code.
 | Alaska Year 1 | `R/03h_ak_year1_awardees.R` | **Built and run (Session 12). 161 intents to award; the 161-vs-142 gap closed — 142 Implementation + 19 Planning** |
 | South Dakota portal | `R/03i_sd_rht_contracts.R` | **Built and run (Session 12). 13 administrative contracts, $5,618,367. The announced $31.5M and $90M rounds are NOT on open.sd.gov — re-probed Session 13, unchanged** |
 | South Dakota announcements | `R/03j_sd_year1_announcements.R` | **Built and run (Session 13). Both news.sd.gov releases archived. 110 grants, $121.5M, and ZERO named recipients — no reachable host publishes the roster. Carries a tripwire that hard-fails the day one appears — `docs/session13_sd_announcements_adeca_and_monitor.md`** |
-| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
+| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Session 18 added the §10.2 hospital-association branch — money-movement markers plus an opt-in `award_made` clause; zero committed rows moved. Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R` | `test_03m_or_year1_awardees.R`<br>**Built — 1,536 assertions; 1,535 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>**Built — 1,586 assertions; 1,585 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -1958,6 +1991,92 @@ a project OHA named, refusing on it would have lost the other 20 with it.
 
 **Tests: 1,536 assertions, all passing** (was 1,375). `test_state_union.R` now
 combines **nine** state files.
+
+### Session 18 — the §10.2 hospital-association row, and an audit that moved nothing
+
+Full detail: `docs/session18_hospital_association_flow_rule.md`. Zero RCJ quota,
+zero network calls.
+
+**§10.2 gains a row for hospital trade associations and hospital-governed
+entities**, patched identically into all three documents that carry the flow
+rules — the spec, this file, and `reviewer-coding-instructions.md`. An award to
+a hospital association, hospital-owned nonprofit or association foundation is
+`NONPROFIT_CBO` + `PASS_THROUGH_DESIGNATED` + `Yes`, **provided the source shows
+the funds are administered to or on behalf of member hospitals**, with the entity
+in `intermediary_name`. An association's own operating, advocacy or membership
+costs are `NON_HOSPITAL`. **The test is what the document says the money does,
+not what the organization is.**
+
+**A second carve-out was added on the evidence, because the first does not cover
+what actually occurs.** An association that **keeps the money and buys goods or
+services** is `IN_KIND_BENEFIT`. Both positive examples move *money* to
+hospitals — ICAHN *"will administer the funds to"* them, Oklahoma's hospitals are
+*"reimbursed"* — and that, not the name, is what separates them from every
+negative found.
+
+**The audit covered all nine state files and both initiative tables. Rows
+changed: 0. Dollar effect per state: $0.** Every hospital-association award in
+the repo already carried the coding the new row prescribes. Proof rather than
+inspection: with the rule live in the classifier, all nine extractors were re-run
+and **every committed reference CSV came back byte-identical**.
+
+**Alaska is the case the row was expected to move, and does not.** AHHA holds
+**four** awards, **$1,093,458.27** (the three excluding the largest are
+$735,186.40). Read against Alaska's own notice: `BP1-IA-021` distributes
+simulation kits, `BP1-IA-022` runs a recruitment platform, `BP1-PL-002` incubates
+a nursing workforce centre, and `BP1-PL-003` performs *"Strategic, Financial, and
+Operational Assessments … for three independent Critical Access Hospitals"*.
+**The last one names three hospitals and is still `IN_KIND_BENEFIT`** — a
+subrecipient receives a subaward, and these three receive an assessment AHHA
+performs. No money moves, and all four are notices of *intent* to award, so
+§10.2's second clause fails too.
+
+**Georgia and Oregon are the carve-outs almost verbatim.** GHA *"received a grant
+… to provide obstetrical emergency carts"* — carts reach hospitals, dollars stop
+at GHA. **Sky Lakes Foundation (DBA Healthy Klamath)**, $469,987.33, is a
+hospital's foundation arm, and OHA's own Organization Type calls it a
+community-based organisation against a prevention project. **Florida's "Calhoun
+Liberty Hospital Association" is a hospital** — the legal name of
+Calhoun–Liberty Hospital — which is why a name-keyed rule was rejected in both
+directions. And **Georgia Health Care Association is the long-term care
+association**, not a hospital body.
+
+**One figure in the task did not match its source, and the source won.** The
+Oklahoma example was given as *$6.6M*; the quoted sentence *"implementation will
+be conducted by hospitals reimbursed for CHW hiring"* is the committed evidence
+on **CHW Expansion in Hospitals, $4,300,000**. The $6.6M line is *MFM Telehealth
+Expansion*, OU-led and `PASS_THROUGH_UNRESOLVED`. **$4,300,000 went into the
+spec** (§0.4), and a test re-reads both quotes out of the committed files every
+run so the worked examples cannot drift from their sources.
+
+**`reviewer-coding-instructions.md` never restated the flow table** — it carried
+the rule, not the table. The block is inserted there in full, and
+`test_flow_table_parity.R` asserts the three copies are **byte-identical**, which
+is a cheaper guard against §2.1's failure mode than reading three files and
+hoping.
+
+**The rule is operative, and opt-in.** `rhtp_classify_flow()` gains a branch
+keyed on **money movement** (`administered … funds … hospitals`, `subaward`,
+`payments to hospitals`, `hospitals … reimbursed`) that **never matches across a
+full stop** (session 13's rule), plus an `award_made` argument defaulting to
+`FALSE` for §10.2's second clause — which no project description can answer.
+Every committed extractor calls the two-argument form; that is why nothing moved.
+The four negatives are tested **with `award_made = TRUE`**, the hostile setting,
+and all four decline.
+
+**One trap found and deliberately not closed.** `rhtp_classify_flow()` returns
+`DIRECT` / `Yes` for **any** `HOSPITAL_AFFILIATED_ENTITY` before reading a
+description, while Georgia hand-codes GHA as `HOSPITAL_AFFILIATED_ENTITY` +
+`IN_KIND_BENEFIT` + `No`. The two disagree, and nothing reconciles them only
+because the GA extractor does not call the shared function. **The open decision:
+is a hospital trade association `NONPROFIT_CBO` (the new row) or
+`HOSPITAL_AFFILIATED_ENTITY` (Georgia)?** AK and IL already use `NONPROFIT_CBO`,
+so Georgia is the outlier of three; changing it moves **no dollars**. Nothing was
+re-typed, because re-coding a committed hand-coded row to satisfy a rule added
+the same day is how §2.1's regressions happen. An assertion pins the divergence
+instead.
+
+**Tests: 1,586 assertions, all passing** (was 1,536).
 
 ### Next session
 

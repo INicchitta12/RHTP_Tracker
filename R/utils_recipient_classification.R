@@ -479,18 +479,57 @@ RHTP_PASS_THROUGH_MARKERS <- paste(
 RHTP_HOSPITAL_MENTION <- "\\bhospitals?\\b|\\bcritical access\\b"
 
 
+# ASSOCIATION-ADMINISTERED markers: the §10.2 hospital-association row, added in
+# session 18. These fire only where the source says the MONEY moves to
+# hospitals -- administered to them, subawarded to them, paid to them,
+# reimbursed to them. That is the whole test, and it is deliberately narrower
+# than "the recipient is a hospital association".
+#
+# The audit that produced the row is why. Across all nine extracted state files
+# and both initiative tables, every hospital-association award already carried
+# the coding §10.2 now prescribes, and the three that read most like hospital
+# money are the three that must not be counted as it: the Georgia Hospital
+# Association buys obstetrical carts, and the Alaska Hospital & Healthcare
+# Association runs a training programme and performs assessments for three
+# hospitals it NAMES. A rule keyed on the organisation would have moved all of
+# them; a rule keyed on the money moves none.
+#
+# Matching never crosses a full stop (§13, session 13's rule): a pattern allowed
+# to span sentences joins "…awards to hospitals" in one sentence to a subject in
+# the next. Undermatching leaves a row where it already is, which is the safe
+# direction for a rule whose only effect is to move dollars INTO the hospital
+# total.
+RHTP_ASSOCIATION_ADMINISTERED_MARKERS <- paste(
+  "administer(s|ed|ing)?[^.]{0,60}funds?[^.]{0,60}hospitals",
+  "(sub-?award(s|ed|ing)?|sub-?grant(s|ed|ing)?)[^.]{0,60}hospitals",
+  "(payments?|incentive payments?|grants?|funding|funds?)[^.]{0,20}(to|for)[^.]{0,40}hospitals",
+  "hospitals[^.]{0,60}reimburse",
+  "reimburs[a-z]*[^.]{0,60}hospitals",
+  "distribut(e|es|ed|ing)[^.]{0,60}hospitals",
+  sep = "|"
+)
+
+
 #' Apply the §10.2 flow table
 #'
 #' @param recipient_type A §8 code, already determined from recipient identity.
 #' @param description The source's own project description. Consulted only for
 #'   non-hospital recipients, and only to choose between NON_HOSPITAL,
 #'   IN_KIND_BENEFIT and PASS_THROUGH_UNRESOLVED.
+#' @param award_made The §10.2 hospital-association row's second clause, which
+#'   no project description can answer: has the award actually been made? Pass
+#'   `TRUE` per row only where the state document is an executed award. Left at
+#'   its default the association branch never fires and this function behaves
+#'   exactly as it did before session 18 -- which is why no committed state file
+#'   moved when the row was added. `PASS_THROUGH_DESIGNATED` is the one code
+#'   here that puts dollars INTO the hospital total, so it is opt-in.
 #' @return A tibble: `flow_type`, `distributed_to_hospital`,
 #'   `hospital_benefiting`, `flow_basis`, `flow_flag`.
-rhtp_classify_flow <- function(recipient_type, description) {
+rhtp_classify_flow <- function(recipient_type, description, award_made = FALSE) {
   stopifnot(length(recipient_type) == length(description))
+  award_made <- rep_len(award_made %||% FALSE, length(recipient_type))
 
-  purrr::map2_dfr(recipient_type, description, function(rt, desc) {
+  purrr::pmap_dfr(list(recipient_type, description, award_made), function(rt, desc, made) {
     desc <- desc %||% ""
 
     if (rt %in% c("HOSPITAL_OR_SYSTEM", "HOSPITAL_AFFILIATED_ENTITY")) {
@@ -508,6 +547,34 @@ rhtp_classify_flow <- function(recipient_type, description) {
     }
 
     low <- stringr::str_to_lower(desc)
+
+    # §10.2, hospital trade associations and hospital-governed entities. Both
+    # clauses must hold: the source says the funds are administered to or on
+    # behalf of member hospitals, AND the award has been made. The caller
+    # supplies the second, because a project description cannot.
+    # NONPROFIT_CBO only: §10.2's row names it as the recipient_type for a
+    # hospital association, and it is also the only §8 code that reaches here.
+    # HOSPITAL_OR_SYSTEM and HOSPITAL_AFFILIATED_ENTITY returned DIRECT above.
+    if (isTRUE(made) &&
+        rt == "NONPROFIT_CBO" &&
+        stringr::str_detect(low, RHTP_ASSOCIATION_ADMINISTERED_MARKERS)) {
+      return(tibble::tibble(
+        flow_type = "PASS_THROUGH_DESIGNATED",
+        distributed_to_hospital = "Yes",
+        hospital_benefiting = "Yes",
+        flow_basis = paste0(
+          "\u00a710.2 PASS_THROUGH_DESIGNATED (hospital trade associations and ",
+          "hospital-governed entities): the recipient is not itself a hospital, ",
+          "the source states the funds are administered to or on behalf of ",
+          "member hospitals, and the award has been made. Populate ",
+          "`intermediary_name` with the recipient. No individual hospital is ",
+          "named by this rule, so `hospital_attribution` is ",
+          "POOL_UNNAMED_HOSPITALS and the dollars are never added to ",
+          "named-hospital dollars."
+        ),
+        flow_flag = NA_character_
+      ))
+    }
 
     if (stringr::str_detect(low, RHTP_PASS_THROUGH_MARKERS)) {
       return(tibble::tibble(
