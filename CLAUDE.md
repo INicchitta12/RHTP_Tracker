@@ -194,6 +194,7 @@ docs/
   stage3_allotments_and_registry.md  # §7.1 anchor, §6.4 mining, §7.2 worksheet
   stage2.5_budget_narratives.md      # §7A parser, the §7A.4 gate, gaps left open
   session10_roster_live_monitor_recipient_type.md  # GA roster, live stage 00, §8
+  session11_six_state_award_list_hunt.md  # AK/AL/ND/OH/PA/SD award-list locators
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -405,7 +406,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 10 — GA's 87 hospitals named; stage 00 live; recipient_type settled)
+**Last updated:** 2026-08-28 (Session 11 — six-state award-list hunt; Wayback unreachable; GA figure corrected)
 
 ### Stages built
 
@@ -497,13 +498,23 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 - `data/raw/cms/2026-08-28/` — the CMS RHTP resources page, the stage 00
   trigger list (Session 10). Archived verbatim with a SHA-256 manifest;
   `shape : TABLE`.
+- `data/raw/cms/2026-08-28/state_press_releases/` — the six CMS state
+  announcement press releases for AK, AL, ND, OH, PA and SD (Session 11).
+  **Only the `<main>` element is archived**, on the §7.1 precedent: the
+  surrounding CMS chrome carries a third-party Mapbox token in its Drupal
+  settings JSON, which is CMS's to publish and not ours to redistribute. The
+  manifest carries **both** digests — the article's and the full page's as
+  served — so provenance still closes, and the writer asserts each file free of
+  that token shape before writing it. A **discovery** source (§0.1): their
+  project and grant *counts* corroborate what each state has published, and §0.2
+  forbids summing across them — CMS mixes Tier 1 and Tier 3 in the same prose.
 - `data/raw/owner_uploads/` — the owner's Florida workbook exactly as supplied,
   with a SHA-256 manifest. It is `R/03e`'s ingest source and cannot be
   regenerated: the workbook at the repo root is a render now.
 
 **Quota: 1,920 of 2,000 remaining** (80 consumed this month; Sessions 5 and
-8–10 spent none — Session 10's only network calls were to
-`greathealth.georgia.gov` and `www.medicaid.gov`).
+8–11 spent none — Session 11's only network calls were to `www.cms.gov` and
+the refused ones to `web.archive.org`).
 
 ### Environment status (spec §3.3)
 
@@ -537,7 +548,17 @@ locale at source time — keep both (§3.3).
    allowlist.** `dhss.delaware.gov` was added for Session 8 and Delaware is
    done, but §7A.2 needs fifty such hosts and only one is reachable. Widen the
    allowlist (Claude Code on the web → environment settings → network access)
-   before the collection pass, or it will stall one state at a time.
+   before the collection pass, or it will stall one state at a time. Session 11
+   ranked the Tier 3 half of that queue — `www.pa.gov`, `governor.alabama.gov`,
+   `health.alaska.gov`, then `doh.sd.gov` + `open.sd.gov`; each has a
+   recipient-level list already published behind it.
+7. **`web.archive.org` is permitted by policy but unreachable, and the apex
+   `archive.org` is denied.** The gateway completes the CONNECT and the TLS
+   handshake is then reset by the peer; 24 attempts across three TLS stacks,
+   and the proxy logs no policy denial. This is what keeps Georgia's 80/7 phase
+   split an inference rather than a fact, and it is the only way to read a page
+   as it stood on a past date — which this project will want again. Re-test it;
+   the failure was upstream of the policy, so it may clear without a change.
 4. **Delta-pull strategy still needs a decision.** No `since` on the award or
    document endpoints, so hashing is the only Tier 3 change detection (§4.1).
    The remaining question is whether `/activity` narrows to a `since=` delta
@@ -947,11 +968,18 @@ distinct organizations. Reported on the Reconciliation sheet and pinned by an
 assertion, **not** closed by dropping a name — guessing which of the 27 DCH did
 not mean to count would be an invention.
 
-**The single largest finding is one nobody can read yet.** Georgia awards **87
-rural hospitals $750,000 each — $65.25M**, more than Florida's entire hospital
-total. The roster is on `greathealth.georgia.gov`, which is not allowlisted, so
-the cohorts are two aggregate rows with `recipient_confirmed = No`: the class is
-confirmed, the names are not captured, nothing is imputed. Open blocker 5.
+**The single largest finding is one nobody can read yet.** Georgia awards AHEAD
+pre-implementation money to **87 rural hospitals**, at **$750,000 each for the
+eighty DCH states that figure for — $60,000,000**, more than Florida's entire
+hospital total. The roster is on `greathealth.georgia.gov`, which is not
+allowlisted, so the cohorts are two aggregate rows with
+`recipient_confirmed = No`: the class is confirmed, the names are not captured,
+nothing is imputed. Open blocker 5.
+
+> *Session 9 wrote $65.25M here, assuming 87 × $750,000. DCH states the figure
+> for eighty hospitals only, so the confirmed figure is $60,000,000 — corrected
+> in Session 10, see the note below. Both the host block and the unnamed roster
+> are also resolved there.*
 
 **Stage 00, the trigger list, is built and scheduled but has never run.**
 `R/00_cms_press_monitor.R` parses the CMS RHTP resources page into
@@ -1064,6 +1092,82 @@ both sides.
 
 **Tests: 728 assertions, 727 passing** (was 627).
 
+### Session 11 — where six states publish their awards, and one Wayback wall
+
+Full detail: `docs/session11_six_state_award_list_hunt.md`. Zero RCJ quota; six
+calls to `www.cms.gov` (archived), 24 refused to `web.archive.org`.
+
+**`web.archive.org` is allowed but not reachable.** The gateway answers
+`200 Connection Established` to the CONNECT and the TLS handshake is then reset
+by the peer, before any certificate. Reproduced 24 times across curl (h2 and
+forced HTTP/1.1), Python `urllib` and `openssl s_client`, and the proxy logs
+**no policy denial** for it — which is exactly what separates this from a
+blocked host. The apex `archive.org`, where the `/wayback/available` API lives,
+*is* a policy denial (`connect_rejected`, 403).
+
+**So Georgia's 80/7 split is still an inference and nothing was changed.**
+`PHASE_ATTRIBUTION_INFERRED` stays on the seven appended rows and the roster
+parser still refuses if the leading alphabetical run is not exactly 80. Worth
+re-testing: the failure was upstream of the policy, so it may clear on its own.
+
+**The six announced states with no extraction — none of their hosts is
+reachable, so no extractor was built.** All ten candidate hosts refused at
+CONNECT. The locator report was assembled from the committed RCJ pull, the six
+CMS state press releases (fetched and archived this session under
+`data/raw/cms/2026-08-28/state_press_releases/` with a SHA-256 manifest), and
+search for the URL of record.
+
+| | Recipient-level list? | Where | RCJ rows | Stated |
+|---|---|---|---:|---|
+| **PA** | **Yes, complete** | `pa.gov` DHS newsroom | 66 / 66 distinct / $42,198,310 | $42,198,309, 66 projects |
+| **AL** | **Yes, complete** | governor's 2026-08 release | 138 / 94 distinct / $143,745,821 | >$144M, 138 grants |
+| **AK** | **Yes, rolling** | `ak_rhtp_awardsnotice_2026.xlsx` | 161 / 102 distinct / $160,702,462 | $160M, 142 projects |
+| **SD** | **Awarded, list not located** | `doh.sd.gov`; contracts to `open.sd.gov` | 1 (a pool name) | 82 orgs / $90M; 28 projects / $31.5M |
+| **OH** | **No** — one named award | governor's release | 1 (Ohio University $10M) | — |
+| **ND** | **No** — solicitation stage | `hhs.nd.gov` funding opportunities | 1 (`"15 selected CAHs"`) | — |
+
+**Pennsylvania is the cleanest state found so far.** 66 RCJ rows, 66 distinct
+awardees, and $42,198,310 against DHS's stated $42,198,309 — one dollar of
+rounding, and the count matching exactly. Alabama's 138 rows equal the 138
+grants both the governor and CMS state. Those two are Deliverable 1 states 3
+and 4 the moment their hosts open; each is a single page.
+
+**Alaska's counts do not agree and that is left open.** 161 RCJ rows against
+CMS's "142 projects", with the dollars agreeing to 0.4%. Likely one line per
+activity type with projects spanning several, but that is a hypothesis about a
+file nobody has read. Alaska also publishes **notices of intent to award**, not
+notices of award — both primary under §8, and the distinction belongs in
+`validation_source_type` rather than being flattened.
+
+**South Dakota is the highest-value unresolved state.** 82 organizations at $90M
+and 28 projects at $31.5M are already awarded and RCJ caught neither — it holds
+one row, `"South Dakota Rural Strong Grants"`, which is a pool name and would
+tier `SOLICITATION`. The reporting says contracts post to the state transparency
+portal once finalised, so `open.sd.gov` is the route, and it is an unusual one
+for this project: a contracts register rather than a press release.
+
+**Ohio and North Dakota have published no recipient-level list**, and the §0.3
+distinction is what says so. Ohio's $92M Innovation Hubs pool is still the
+spec's own Tier 2 worked example; ND's one RCJ "award" is `"15 selected CAHs"`,
+a class rather than a recipient, and a textbook `PASS_THROUGH_UNRESOLVED`.
+Publicly described ND pipelines (~20 hospital awards of ~$2M, $3.6M in school
+and community grants) are forecast counts, not awards.
+
+**None of the RCJ sums above is a finding (§0.1).** They are a coverage signal:
+where RCJ's row count lands on the state's own stated count, the state document
+is recipient-level and worth extracting once reachable. Where RCJ has one row,
+the CMS releases and the press — not RCJ — are what distinguish "the state has
+published nothing" (ND, OH) from "RCJ missed a list that exists" (SD).
+
+**Georgia's hospital-directed figure is $60,000,000 everywhere.** `$65.25M` no
+longer appears as a carried figure. Verified rather than asserted:
+`ga_great_health_awards.csv` holds exactly 80 rows at $750,000, and
+80 × $750,000 = $60,000,000, closing on the stated Initiative 1 pool to the
+dollar. `--validate` passes unchanged — 139 award actions, $197,148,327,
+9.92% residual. The four surviving occurrences of the string are the correction
+record itself, each stating the figure was wrong and giving $60,000,000;
+deleting those would erase the audit trail, which is §2.1 in miniature.
+
 ### Next session
 
 **The two offline tasks are now the only thing between here and Stage 4.**
@@ -1075,12 +1179,18 @@ both sides.
    `last_verified`. **Florida first.** While in each state's pages, capture the
    budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
 
-2. **Widen the egress allowlist before the §7A.2 collection pass.** Three hosts
-   went in this session and all three paid off immediately; 48 state health
-   department hosts are still blocked and §7A.2 needs fifty. **Oklahoma next** —
-   it is the other reference state and its narrative is the only one of the two
-   still unarchived. Worth adding `web.archive.org` too: it would have settled
-   Georgia's 80/7 phase split as fact instead of an inference.
+2. **Widen the egress allowlist — and it now has a ranked queue.** 48 state
+   health department hosts are still blocked and §7A.2 needs fifty. For Tier 3
+   extraction, Session 11 established the order: **`www.pa.gov`** (a complete
+   66-row list on one page, corroborating to the dollar), **`governor.alabama.gov`**
+   (a complete 138-row list on one page), **`health.alaska.gov`** (an XLSX award
+   notice that ingests like Florida's workbook), then **`doh.sd.gov` +
+   `open.sd.gov`** (82 + 28 recipients awarded, list not located). For §7A.2,
+   **Oklahoma next** — the other reference state, and the only one of the two
+   whose narrative is still unarchived. `odh.ohio.gov` and `www.hhs.nd.gov` are
+   worth having for §7.3 registry verification but have no Tier 3 list yet.
+   **`web.archive.org` is allowed and still unreachable** (TLS reset, no policy
+   denial) — re-test it, and ask for the apex `archive.org` too.
 
 **Then §7A.2 collection** — 48 states to go. Bounded and checkable in a way
 nothing sourced from RCJ is: you know when you have all fifty. Each narrative

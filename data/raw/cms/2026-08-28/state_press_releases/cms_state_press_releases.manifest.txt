@@ -1,0 +1,60 @@
+RHTP tracker archive: the six CMS state announcement press releases for the
+states with no Tier 3 extraction yet (AK, AL, ND, OH, PA, SD).
+
+fetched_utc : 2026-08-28T15:00Z
+
+ONLY THE <main> ELEMENT IS ARCHIVED. The surrounding CMS page chrome carries a
+third-party (Mapbox) API token in its Drupal settings JSON -- CMS's to publish
+and not ours to redistribute. This is the same posture §7.1 took for the
+allotment table: the digest below is of the FULL page as served, so provenance
+still closes, while the committed bytes are the article only. Each file was
+asserted free of that token shape before it was written.
+
+
+AK  date 2026-08-25
+    file             : AK_cms_press_release_main.html (25146 bytes)
+    main_sha256      : 0678bc91405e5096cae3f9586b3766902844e142fa73d7aca5930cd1ae08ae99
+    full_page_sha256 : 3767101c623f1df7e9e21c095f6ebf7228ca450bfff7a918289e2be3e7b2f762  (64356 bytes as served)
+    source_url       : https://www.cms.gov/newsroom/press-releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription
+    title            : Trump Administration Announces $160 Million to Bring Cutting-Edge Technology, Drones Prescription Deliveries, Surgical Robotics and More to Alaska
+
+AL  date 2026-08-24
+    file             : AL_cms_press_release_main.html (25773 bytes)
+    main_sha256      : 385b106228dec35dc2783f516b93a488ffc77114d152dd34dd30d9cbaa0b46ea
+    full_page_sha256 : 93354d9fee216d88a4ae61170051895e16d22e3b758a467f5be9b783022d9bcf  (65095 bytes as served)
+    source_url       : https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal
+    title            : Trump Administration Announces $144 million to Improve Mental Health, Substance Abuse, Emergency and Maternal Care and Expand the Healthcare Workforce in Alabama
+
+ND  date 2026-08-20
+    file             : ND_cms_press_release_main.html (20052 bytes)
+    main_sha256      : 1ee812477a0bca520fd470e3160541058111b82ffdcc9be2eb80f613afa8ff46
+    full_page_sha256 : 2748c4354a81fddb8e6b34bc2e1abef925b4d609106262d4a4b9297075524883  (58958 bytes as served)
+    source_url       : https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north
+    title            : Trump Administration Delivers Critical Funding to Launch the Coordinating and Connecting Care Initiative in North Dakota
+
+OH  date 2026-08-26
+    file             : OH_cms_press_release_main.html (27435 bytes)
+    main_sha256      : c41ebf0ebd82eba57bf6cc56bb552df4dd4774e30ebd812fae73b360284251f4
+    full_page_sha256 : 9817ac5abe32e83976f70b048dc8883dca697b247c279c11e1227087a667972b  (66072 bytes as served)
+    source_url       : https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio
+    title            : Trump Administration Announces $3.15 Million to Expand Pharmacy Connectivity Throughout Rural Ohio Communities
+
+PA  date 2026-08-19
+    file             : PA_cms_press_release_main.html (22097 bytes)
+    main_sha256      : 27258f5c1310aeca6d0b34c6ac38b124c2b6408b85733473e1dbd47ac7f22312
+    full_page_sha256 : 801fce49859ef03695669dc1dab08a2da8d2e9da2d1bcac2c74f5d526f1750eb  (61506 bytes as served)
+    source_url       : https://www.cms.gov/newsroom/press-releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional
+    title            : Trump Administration Announces $35 million Investment to Advance Screening Technology, Secure Additional Operating Rooms, and Modernize Rural Pennsylvania Healthcare
+
+SD  date 2026-08-19
+    file             : SD_cms_press_release_main.html (21606 bytes)
+    main_sha256      : d72bc97f75f0cae73a7b533ae6e625c5598d03b79704acb29b4bde667d1933e0
+    full_page_sha256 : 3d3a683c696742154b0cc3fd9e82420ca722a3313c22c0bea3d23c9b835a3ce9  (60542 bytes as served)
+    source_url       : https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota
+    title            : Trump Administration Announces $90 million to Modernize and Improve IT and Interoperability for South Dakota
+
+These are a DISCOVERY source (§0.1) and a federal one. Their project and
+grant COUNTS are quoted in docs/session11_six_state_award_list_hunt.md as
+corroboration of what each state has published; no dollar figure on these
+pages may enter an AHA number, and §0.2 forbids summing across them -- CMS
+mixes the Tier 1 allotment and Tier 3 tranches in the same prose.
