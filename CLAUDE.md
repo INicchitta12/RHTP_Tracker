@@ -164,11 +164,16 @@ R/
   03c_cms_abstracts.R          # CMS project abstracts — §4.1 candidate list (BUILT)
   03d_ga_great_health.R        # Georgia GREAT Health Year 1 awardees (BUILT)
   03e_fl_year1_awardees.R      # Florida Year 1 + the §8 recipient_type back-fit (BUILT)
+  03f_pa_year1_awardees.R      # Pennsylvania Year 1 — 66 authorized projects (BUILT)
+  03g_al_year1_awardees.R      # Alabama Year 1 — 138 grants, parsed from prose (BUILT)
+  03h_ak_year1_awardees.R      # Alaska Year 1 — 161 intents to award (BUILT)
+  03i_sd_rht_contracts.R       # South Dakota — the transparency-portal search (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
   qa_assertions.R              # (NOT YET BUILT)
   utils_config.R               # config, paths, credentials, state vocabulary (BUILT)
+  utils_recipient_classification.R  # the §8/§10.2 rules, shared by every state (BUILT)
 data/
   raw/                         # IMMUTABLE — COMMITTED
     rcj/<pull_date>/*.json     #   the RCJ landing zone
@@ -180,6 +185,10 @@ data/
   evidence/                    # <state>/<record_id>_<date>.pdf — COMMITTED
     budget_narratives/DE/      #   §7A.2 — DE narrative + SHA-256 manifest; 49 to go
     GA/                        #   4 DCH announcements + the 87-hospital roster
+    PA/                        #   DHS announcement + the 66-project list
+    AL/                        #   the governor's 138-grant release
+    AK/                        #   the DOH award-notice workbook
+    SD/                        #   the open.sd.gov search + 13 contract detail pages
 output/
   rhtp_hospital_tracker_<date>.xlsx
   review_queue_<date>.xlsx
@@ -195,6 +204,7 @@ docs/
   stage2.5_budget_narratives.md      # §7A parser, the §7A.4 gate, gaps left open
   session10_roster_live_monitor_recipient_type.md  # GA roster, live stage 00, §8
   session11_six_state_award_list_hunt.md  # AK/AL/ND/OH/PA/SD award-list locators
+  session12_pa_al_ak_extraction_and_sd.md # PA/AL/AK extracted; the SD portal's shape
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -236,6 +246,15 @@ secondary; third-party news alone can never support a `Yes`.*
 `determination_confidence = LOW` + `flag_reason = RECIPIENT_TYPE_INFERRED`
 (settled session 10; Florida's `UNCLASSIFIED` was back-fitted to it).
 `PHYSICIAN_PRACTICE` is a determinable form, not that fallback.*
+
+**`flag_reason`** — three codes added in session 12, each for a condition no
+existing code covered, each written into `vocabularies.csv` with full notes:
+`AMOUNT_ROUNDED_IN_SOURCE` (the source published the amount rounded — Alabama,
+45 of 138 rows), `AMOUNT_PRELIMINARY` (the source says the amount is not final —
+Alaska, every row), `RECIPIENT_TYPE_VARIES_IN_SOURCE` (one named recipient
+carries different forms on different rows of one document — Alaska, 26 rows).
+Every state assert now validates `flag_reason` against the vocabulary, so a
+fourth invented code fails at the state that invents it.
 
 **`flow_type`**
 `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` |
@@ -406,7 +425,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 11 — six-state award-list hunt; Wayback unreachable; GA figure corrected)
+**Last updated:** 2026-08-28 (Session 12 — PA/AL/AK extracted, SD's portal searched, the §8/§10.2 rules made shared)
 
 ### Stages built
 
@@ -423,17 +442,40 @@ retrieval code.
 | CMS project abstracts | `R/03c_cms_abstracts.R` | **Built and run (Session 7). All 50 states extracted, 120 CANDIDATE_ONLY organizations — §4.1** |
 | Georgia Year 1 awardees | `R/03d_ga_great_health.R` | **Built and run. 139 award actions (Session 10 expanded the 2 AHEAD cohorts into 87 named hospitals), $197.1M, 9.92% residual — `docs/georgia_great_health_year1.md`** |
 | Florida Year 1 awardees | `R/03e_fl_year1_awardees.R` | **Built and run (Session 10). Ingests the owner's workbook, applies the §8 `recipient_type` back-fit, 81 award actions. FL and GA now union — `docs/session10_roster_live_monitor_recipient_type.md`** |
+| Pennsylvania Year 1 | `R/03f_pa_year1_awardees.R` | **Built and run (Session 12). 66 authorized projects, $42,198,309.80 against DHS's stated $42,198,309 — `docs/session12_pa_al_ak_extraction_and_sd.md`** |
+| Alabama Year 1 | `R/03g_al_year1_awardees.R` | **Built and run (Session 12). 138 grants parsed from prose, 95 awardees, $143,745,821** |
+| Alaska Year 1 | `R/03h_ak_year1_awardees.R` | **Built and run (Session 12). 161 intents to award; the 161-vs-142 gap closed — 142 Implementation + 19 Planning** |
+| South Dakota portal | `R/03i_sd_rht_contracts.R` | **Built and run (Session 12). 13 administrative contracts, $5,618,367. The announced $31.5M and $90M rounds are NOT on open.sd.gov** |
+| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Built (Session 12). The recipient_type and flow rules for every state, in one file** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R` | **Built — 70 + 44 + 276 + 70 + 90 + 40 + 99 + 39 = 728 assertions; 727 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R` | **Built — 997 assertions; 996 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
 None. No state has been through Stage 4 validation.
 
 Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas.
+
+### Deliverable 1 — six states extracted
+
+| | Rows | Total published | Hospital rows | Hospital dollars |
+|---|---:|---:|---:|---:|
+| FL | 81 | — | see `fl_year1_awardees.csv` | — |
+| GA | 139 | $197,148,327 | 87 named hospitals | **$60,000,000** |
+| **PA** | 66 | $42,198,310 | 27 | **$24,149,111** |
+| **AL** | 138 | $143,745,821 | 60 | **$66,133,019** |
+| **AK** | 161 | $160,701,975 | 26 | **$43,379,541** (preliminary) |
+| **SD** | 13 | $5,618,367 | 0 | $0 |
+
+**None of these hospital figures is comparable to another without reading its
+row**, and that is not a caveat to be dropped in a summary: PA's are authorized
+but undisbursed, AK's are preliminary intents to award, 45 of AL's amounts are
+rounded in the source, and SD's zero is because South Dakota's actual awards are
+not published anywhere reachable. All six union on the leading 19 columns with
+zero values outside §8, asserted every run by `tests/testthat/test_state_union.R`.
 
 ### Reference tables on disk
 
@@ -470,6 +512,22 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
   assertion enforces that.
 - `data/reference/ga_great_health_awards.csv` — 139 rows, including the 87 named
   AHEAD hospitals (Session 10). Rebuild with `Rscript R/03d_ga_great_health.R --build`.
+- **`data/reference/pa_year1_awardees.csv` — 66 rows (Session 12).**
+  Pennsylvania's first tranche, parsed from DHS's own project table. Source of
+  record; `PA_year1_awardees.xlsx` is a render. Rebuild with
+  `Rscript R/03f_pa_year1_awardees.R --build`.
+- **`data/reference/al_year1_awardees.csv` — 138 rows (Session 12).** Alabama's
+  first round, parsed from the governor's prose. 45 amounts carry
+  `AMOUNT_ROUNDED_IN_SOURCE`; 14 rows are second grants that inherit their
+  recipient from a continuation paragraph.
+- **`data/reference/ak_year1_awardees.csv` — 161 rows (Session 12).** Alaska's
+  rolling notice of intent to award, a snapshot at 2026-08-28. Every row
+  `amount_confirmed = No`; 26 carry `RECIPIENT_TYPE_VARIES_IN_SOURCE`.
+- **`data/reference/sd_rht_contracts.csv` — 13 rows (Session 12).** South
+  Dakota's `RHT` contract series from the state transparency portal. **Read the
+  file header before using it: this is $5.6M of administrative spend and is NOT
+  South Dakota's $121.5M of announced subawards, which are not published
+  anywhere reachable.**
 - `data/reference/vocabularies.csv` — now carries the §7A codes as well
   (`recipient_status`, `reconciliation_structure`, `reconciliation_status`,
   `extraction_method`, `recipient_confirmed`, `amount_confirmed`,
@@ -544,7 +602,18 @@ locale at source time — keep both (§3.3).
    no findings document was committed, so the eleven records cannot be re-read
    here, and Stage 4's §9.3 design cannot be checked against what state sources
    actually publish. Commit them before Stage 4.
-3. **The other 49 state health-department hosts are still not on the
+3. **The hosts that would close this session's four open items.** `www.pa.gov`,
+   `governor.alabama.gov`, `health.alaska.gov`, `doh.sd.gov` and `open.sd.gov`
+   were all opened for Session 12 and all four states are extracted. Still
+   refused at CONNECT (403), in the order they are worth asking for:
+   **`news.sd.gov`** — it holds both South Dakota award announcements, 110 named
+   recipients and $121.5M behind two pages, and it is the single largest
+   unextracted block of named recipients this project knows about;
+   **`adeca.alabama.gov`** / **`alabamarhtp.com`** — ADECA's own award file,
+   which would turn Alabama's 45 rounded amounts into exact ones and close the
+   $254,179 gap against the governor's own headline;
+   `ruralhealthtransformation.sd.gov`.
+3b. **The other 49 state health-department hosts are still not on the
    allowlist.** `dhss.delaware.gov` was added for Session 8 and Delaware is
    done, but §7A.2 needs fifty such hosts and only one is reachable. Widen the
    allowlist (Claude Code on the web → environment settings → network access)
@@ -555,7 +624,10 @@ locale at source time — keep both (§3.3).
 7. **`web.archive.org` is permitted by policy but unreachable, and the apex
    `archive.org` is denied.** The gateway completes the CONNECT and the TLS
    handshake is then reset by the peer; 28 curl attempts over 15 minutes plus
-   three further clients, and the proxy logs no policy denial. This is what keeps Georgia's 80/7 phase
+   three further clients, and the proxy logs no policy denial. **Re-tested in
+   Session 12 and unchanged** — same completed CONNECT, same reset at the Client
+   Hello, still no policy denial for it, while the apex `archive.org` is still
+   logged as `connect_rejected` 403. This is what keeps Georgia's 80/7 phase
    split an inference rather than a fact, and it is the only way to read a page
    as it stood on a past date — which this project will want again. Re-test it;
    the failure was upstream of the policy, so it may clear without a change.
@@ -1168,6 +1240,104 @@ dollar. `--validate` passes unchanged — 139 award actions, $197,148,327,
 record itself, each stating the figure was wrong and giving $60,000,000;
 deleting those would erase the audit trail, which is §2.1 in miniature.
 
+### Session 12 — Pennsylvania, Alabama and Alaska extracted; South Dakota located
+
+Full detail: `docs/session12_pa_al_ak_extraction_and_sd.md`. Zero RCJ quota.
+
+**Five hosts opened and four states came out of them.** Deliverable 1 goes from
+two states to six, and the four new ones are in the table above. Each carries a
+distinction that must not be flattened into a summary: Pennsylvania's awards are
+**authorized, not disbursed** (DHS: *"distribution is pending approval"*);
+Alaska's are **notices of intent with preliminary amounts** (its own sheet name
+and its own column header say so); 45 of Alabama's 138 amounts are **rounded in
+the source**; South Dakota's zero is because **its awards are not published**.
+
+**Pennsylvania is Georgia's AHEAD-roster shape again.** The announcement supplies
+the award language and names no recipient; the program page supplies the names
+and its own heading reads *"List of Eligible Projects"*, which §0.3 forbids
+reading as receipt on its own. The announcement links to that page as the list of
+what it just authorized, so every row cites both — and 66 rows sum to
+$42,198,309.80 against DHS's stated $42,198,309.
+
+**Alabama's list is prose with two shapes, and both failure modes are silent.**
+Where a recipient won twice under one initiative, the second grant is a bare `<p>`
+that names no recipient. Reading only the list items loses **14 award actions and
+$8.1M**; reading every block as an award invents 14 nameless recipients. The
+parser carries the recipient forward and an assertion requires every second grant
+to sit against a first grant *for the same recipient under the same initiative*.
+
+**Alabama's own figures sum to less than its own headline, and that is reported
+rather than closed.** $143,745,821 against *"more than $144 million"* — the
+$254,179 gap is the source's rounding. Nothing is reconstructed to a precision
+nobody published. The release also prints one name truncated — its markup reads
+`<strong> Clair Community Health Clinic Inc.</strong>`, the `St.` absent from the
+**source** — and §8 says keep the state's own language, so it is stored as
+published and the observation is recorded rather than silently corrected.
+
+**Alaska's 161-vs-142 gap is closed at the source, and session 11's hypothesis
+was wrong.** It is not one line per activity type. It is Alaska's own Project
+Type column: **142 Implementation + 19 Planning = 161**, and CMS counts the
+implementations. The file's own App ID prefix corroborates it independently
+(`BP1-PL` on exactly 19 rows). Two assertions hold it: the identity itself, and
+that the prefix and the column agree on every row.
+
+**Alaska classifies its own awardees and that outranks the name — which saved a
+bad coding immediately.** *"Alaska Hospital & Healthcare Association"* reads as a
+hospital from its name alone and is the state hospital association. But the field
+is set per **project**, not per organisation, and **seven awardees arrive with two
+different forms across their own rows** — ANTHC is `Hospital (all types)` on one
+project and `Tribal Health Organization` on another. The per-row value is kept and
+**not harmonised in either direction**: upward would move **$20.4M** into the
+hospital total on this pipeline's authority rather than the state's; downward
+would discard the state's own word. 26 rows carry
+`RECIPIENT_TYPE_VARIES_IN_SOURCE` and the dollars are on the Reconciliation
+sheet. **This is the largest open judgement the session leaves.**
+
+**South Dakota: the portal is the right route and the awards are not on it.**
+`open.sd.gov` is an ASP.NET WebForms search — POST with `__VIEWSTATE`, one unpaged
+result table with descriptions truncated to ~75 characters, and a stable GET
+detail page per row carrying the full text. Four probes (`--probe` re-runs them)
+establish the negative: the `RHT` series is 13 contracts and $5,618,367, all
+administrative; *"Rural Strong"* returns **zero rows**; DOH's grants with no
+filter at all are 463 rows and $39.4M whose largest single row is $2.6M and is not
+RHTP. An 82-organisation $90M round is not in that. The 13 rows are extracted
+anyway — they are real primary-source award actions and the extractor is then
+ready — with four guards keeping the small number attached to its explanation,
+including an assertion that **hard-fails if the series ever exceeds $20M**,
+because at that point the file's framing is wrong and must be rewritten.
+
+**The §8/§10.2 rules now live in one file**,
+`R/utils_recipient_classification.R`. The §8 question had to be settled twice
+already; four states at once would have given it a fifth answer. Rules match the
+recipient **name only** (§0.3a), **whole string including the DBA half** — which
+is what makes *"The City of York Health Care Authority DBA Hill Hospital of Sumter
+County"* a hospital and not a city. Two overrides exist specifically to stop
+**inflation**: `AltaPointe Health Systems` and `CarePath Behavioral Health` would
+read as hospital systems from a word in their names, and whether the entity that
+received those grants is AltaPointe's hospital operator is exactly what the
+release does not say.
+
+**The in-kind rule was under-firing and was rewritten.** It was a list of
+phrasings, and Alaska's *"statewide AI imaging network across 21 acute care
+hospitals"* came out `NON_HOSPITAL` — the source saying the opposite of silence.
+Any hospital mention by a non-hospital recipient is now `IN_KIND_BENEFIT` unless
+the narrower pass-through test fires first. **No distributed total moves either
+way**; what changes is that those dollars stay visible, which is why §10.2 has the
+code.
+
+**One provenance defect fixed, one left alone deliberately.** Manifests digest the
+body the server sent, and `writeLines()` appends a trailing newline — so the
+archived file was one byte longer than what was hashed and a reader verifying an
+archive would get a mismatch. The four new states `writeBin()` exact bytes and a
+test in each re-hashes the file on disk. **The same off-by-one is in the GA and
+CMS archives from earlier sessions**; they are not re-fetched here, because
+re-fetching to fix a digest could quietly pick up changed page content. Worth
+doing deliberately, with a diff, in a session that can check what came back.
+
+**Tests: 997 assertions, all passing** (was 728). `test_state_union.R` is new and
+is the one that would have caught session 10's problem before someone tripped
+over it: it combines all six states every run.
+
 ### Next session
 
 **The two offline tasks are now the only thing between here and Stage 4.**
@@ -1179,18 +1349,22 @@ deleting those would erase the audit trail, which is §2.1 in miniature.
    `last_verified`. **Florida first.** While in each state's pages, capture the
    budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
 
-2. **Widen the egress allowlist — and it now has a ranked queue.** 48 state
-   health department hosts are still blocked and §7A.2 needs fifty. For Tier 3
-   extraction, Session 11 established the order: **`www.pa.gov`** (a complete
-   66-row list on one page, corroborating to the dollar), **`governor.alabama.gov`**
-   (a complete 138-row list on one page), **`health.alaska.gov`** (an XLSX award
-   notice that ingests like Florida's workbook), then **`doh.sd.gov` +
-   `open.sd.gov`** (82 + 28 recipients awarded, list not located). For §7A.2,
-   **Oklahoma next** — the other reference state, and the only one of the two
-   whose narrative is still unarchived. `odh.ohio.gov` and `www.hhs.nd.gov` are
-   worth having for §7.3 registry verification but have no Tier 3 list yet.
-   **`web.archive.org` is allowed and still unreachable** (TLS reset, no policy
-   denial) — re-test it, and ask for the apex `archive.org` too.
+2. **Widen the egress allowlist — Session 11's Tier 3 queue is done, and the
+   remainder is re-ranked.** `www.pa.gov`, `governor.alabama.gov`,
+   `health.alaska.gov`, `doh.sd.gov` and `open.sd.gov` all opened for Session 12
+   and all four states are extracted. What is left, in order:
+   **`news.sd.gov`** — both South Dakota award announcements, **110 named
+   recipients and $121.5M**, and the largest block of named recipients this
+   project knows of and cannot read;
+   **`adeca.alabama.gov`** / **`alabamarhtp.com`** — ADECA's own award file,
+   which turns Alabama's 45 rounded amounts exact and closes its $254,179 gap;
+   **`web.archive.org` + the apex `archive.org`** — re-tested in Session 12 and
+   unchanged (TLS reset with no policy denial on the first, `connect_rejected`
+   403 on the second), still the only route to Georgia's July roster snapshot.
+   For §7A.2, **Oklahoma next** — the other reference state, and the only one of
+   the two whose narrative is still unarchived. 48 state health department hosts
+   are still blocked and §7A.2 needs fifty. `odh.ohio.gov` and `www.hhs.nd.gov`
+   are worth having for §7.3 registry verification but have no Tier 3 list yet.
 
 **Then §7A.2 collection** — 48 states to go. Bounded and checkable in a way
 nothing sourced from RCJ is: you know when you have all fifty. Each narrative
@@ -1203,19 +1377,27 @@ that pass.
 clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation
 corroborator (§9.3). Requires **Full** network access — clear with AHA IT first.
 
-**Two things this session set up for whoever does Stage 5.** The §8
-`recipient_type` question is settled and FL+GA union cleanly, so the column can
-be keyed off safely. And Georgia's 87 named hospitals carry addresses and CMS
-designations — they are the readiest cohort in the project for a CCN match, which
+**What Sessions 10–12 set up for whoever does Stage 5.** The §8
+`recipient_type` question is settled, the rules live in one file
+(`R/utils_recipient_classification.R`), and all six states union cleanly, so the
+column can be keyed off safely. And there are now **200 hospital recipients**
+waiting on a CCN match — Georgia's 87 plus PA's 27, AL's 60 and AK's 26 — which
 makes the **AHA Annual Survey / CMS Provider of Services extracts** (blocker 5)
-the next binding constraint rather than a distant one.
+the binding constraint outright. Until they land, every
+`determination_confidence` in the project is capped at `MEDIUM` (§7).
+
+**One judgement Session 12 deliberately left to a human:** Alaska's seven
+awardees whose organisational form varies across their own rows, **$20.4M** that
+a reviewer could move into the hospital total. Flagged
+`RECIPIENT_TYPE_VARIES_IN_SOURCE`, quantified on the Reconciliation sheet, and
+not resolved by the pipeline in either direction.
 
 `qa_assertions.R` is still unbuilt and is now the only stage with no file at all.
 
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 728 assertions, zero quota
+Rscript tests/run_tests.R                        # 997 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -1231,6 +1413,19 @@ Rscript R/03d_ga_great_health.R --build          # writes GA csv + GA_year1_awar
 Rscript R/03e_fl_year1_awardees.R --ingest       # owner's FL workbook -> committed CSV
 Rscript R/03e_fl_year1_awardees.R --validate     # FL §8 vocabulary assertions, offline
 Rscript R/03e_fl_year1_awardees.R --build        # renders FL_year1_awardees.xlsx
+Rscript R/03f_pa_year1_awardees.R --fetch        # PA: archive both sources + SHA-256
+Rscript R/03f_pa_year1_awardees.R --validate     # PA assertions + reconciliation, offline
+Rscript R/03f_pa_year1_awardees.R --build        # writes PA csv + PA_year1_awardees.xlsx
+Rscript R/03g_al_year1_awardees.R --fetch        # AL: archive the governor's release
+Rscript R/03g_al_year1_awardees.R --validate     # AL assertions, offline
+Rscript R/03g_al_year1_awardees.R --build        # writes AL csv + AL_year1_awardees.xlsx
+Rscript R/03h_ak_year1_awardees.R --fetch        # AK: archive the DOH award-notice xlsx
+Rscript R/03h_ak_year1_awardees.R --validate     # AK assertions + the 142/19 split, offline
+Rscript R/03h_ak_year1_awardees.R --build        # writes AK csv + AK_year1_awardees.xlsx
+Rscript R/03i_sd_rht_contracts.R --probe         # LIVE: is the announced round posted yet?
+Rscript R/03i_sd_rht_contracts.R --fetch         # SD: archive the search + 13 detail pages
+Rscript R/03i_sd_rht_contracts.R --validate      # SD assertions, offline
+Rscript R/03i_sd_rht_contracts.R --build         # writes SD csv + SD_rht_contracts.xlsx
 Rscript R/00_cms_press_monitor.R --status        # what the CMS trigger list says
 Rscript R/00_cms_press_monitor.R --run           # live; medicaid.gov allowlisted
 Rscript R/00_cms_press_monitor.R --parse         # re-parse newest archive, no network

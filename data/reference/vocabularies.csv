@@ -70,7 +70,7 @@ named_recipient_test,FAIL_PROGRAM_NAME,spec 6.1. awardeeName matches a program/p
 named_recipient_test,FAIL_STATE_AGENCY,spec 6.1. awardeeName is the administering state agency. Routed to UNASSIGNED.
 named_recipient_test,FAIL_EMPTY,spec 6.1. awardeeName is absent. Routed to UNASSIGNED.
 named_recipient_test,NOT_APPLICABLE,spec 6.1. Record carries no awardee field at all (documents and opportunities).
-flag_reason,PROVENANCE_MISMATCH,"spec 6.2 highest-priority filter. Source ties to a non-RHTP federal program. QUARANTINED. QA assertion 11 forbids this in any published row."
+flag_reason,PROVENANCE_MISMATCH,spec 6.2 highest-priority filter. Source ties to a non-RHTP federal program. QUARANTINED. QA assertion 11 forbids this in any published row.
 flag_reason,JUNK_STATE_CODE,"spec 6.2 / 7.1. state fails the 50-row CMS list (RC, US, null). QUARANTINED."
 flag_reason,NON_RHTP_SELF_DECLARED,spec 6.2. The description states the record is not RHTP. QUARANTINED.
 flag_reason,PAGE_CHROME_TITLE,spec 6.2. Title is nav text/cookie notice/accessibility text/bare filename. FLAGGED.
@@ -90,18 +90,18 @@ flag_reason,SOURCE_IS_PLAN_NOT_AWARD,"Beyond the literal spec 6.1 list; derived 
 flag_reason,UNPARSED_AWARD_CANDIDATE,"spec 6.4. An award-shaped /documents record that produced no /awards row: category AWARD_ANNOUNCEMENT or REFERENCE, a named organisation passing the 6.1 legal-entity and named-recipient tests, a dollar figure present, and no /awards record sharing its sourceDocument.id. FLAGGED and routed to review as an UNASSIGNED Tier 3 candidate. NEVER auto-promoted to SUBAWARD - RCJ extraction failed on this text, so a second automated extraction of it has earned no more trust (QA assertion 18)."
 flag_reason,MULTI_RECIPIENT_FIELD,"spec 6.2. One awardeeName field names more than one recipient - three New Hampshire MCOs in one row, about a hundred Oregon clinics in another. Split into one candidate per fragment in stage2_multi_recipient_candidates. FLAGGED and routed to review; the tier is NOT reassigned and the amount is NEVER divided - RCJ publishes one figure for the field and no source states how it splits."
 
-tier1_agreement,EXACT,"spec 0.2a. The RCJ STATE_ALLOTMENT record restates the CMS FY2026 figure for its state to the dollar."
+tier1_agreement,EXACT,spec 0.2a. The RCJ STATE_ALLOTMENT record restates the CMS FY2026 figure for its state to the dollar.
 tier1_agreement,ROUNDED,"spec 0.2a. Within 6.1 rule 3 tolerance but not equal - e.g. 216.0M against 216,276,818. Not publishable: the Tier 1 figure comes from cms_fy2026_allotments.csv."
 tier1_agreement,DISAGREES,"spec 0.2a. Outside rule 3 tolerance. Should be impossible - a record reached Tier 1 by a route rule 3 did not sanction. A rule-3 defect, reported not dropped."
-tier1_agreement,NO_AMOUNT,"spec 0.2a. Tiered STATE_ALLOTMENT with no amount. Also should be impossible via rule 3."
-rcj_tier1_status,CMS_FIGURE_RESTATED,"spec 0.2a. At least one RCJ record in this state restates the CMS figure exactly."
-rcj_tier1_status,ROUNDED_ONLY,"spec 0.2a. Every RCJ Tier 1 record in this state is a rounded restatement. Publishing Tier 1 from RCJ would give this state a wrong number."
+tier1_agreement,NO_AMOUNT,spec 0.2a. Tiered STATE_ALLOTMENT with no amount. Also should be impossible via rule 3.
+rcj_tier1_status,CMS_FIGURE_RESTATED,spec 0.2a. At least one RCJ record in this state restates the CMS figure exactly.
+rcj_tier1_status,ROUNDED_ONLY,spec 0.2a. Every RCJ Tier 1 record in this state is a rounded restatement. Publishing Tier 1 from RCJ would give this state a wrong number.
 rcj_tier1_status,NO_RCJ_TIER1_RECORD,"spec 0.2a. No RCJ record reached Tier 1 for this state. Nebraska is the live case: the record exists and is correctly titled, but RCJ published 100,000 against a 218,529,075 allotment."
-rcj_tier1_status,REVIEW_RULE_3,"spec 0.2a. A record here is DISAGREES or NO_AMOUNT - rule 3 fired where it should not have."
-run_type,PROD,"spec 5.2. The run whose output was committed as the build of record."
+rcj_tier1_status,REVIEW_RULE_3,spec 0.2a. A record here is DISAGREES or NO_AMOUNT - rule 3 fired where it should not have.
+run_type,PROD,spec 5.2. The run whose output was committed as the build of record.
 run_type,DEV,"spec 5.2. An intermediate iteration, superseded by a later run. Recorded so a throwaway run can never be read as the real one."
-coverage_status,PARSED,"spec 6.4/11. RCJ produced /awards records for this state and mining found nothing further."
-coverage_status,PARSED_PLUS_CANDIDATES,"spec 6.4/11. RCJ produced /awards records AND award-shaped /documents records remain unextracted."
+coverage_status,PARSED,spec 6.4/11. RCJ produced /awards records for this state and mining found nothing further.
+coverage_status,PARSED_PLUS_CANDIDATES,spec 6.4/11. RCJ produced /awards records AND award-shaped /documents records remain unextracted.
 coverage_status,UNPARSED_DATA_EXISTS,"spec 6.4/11. No /awards records, but award-shaped data sits in /documents that RCJ failed to extract. FL, NC, NJ, TN. Materially different from RCJ having surfaced nothing."
 coverage_status,NO_RCJ_DATA,"spec 6.4/11. RCJ surfaced nothing award-shaped for this state - no parsed /awards row and no minable /documents record. Renamed from NO_DATA after Session 5: this is a statement about RCJ coverage, NOT about whether the state has awarded money. Every one of these states holds a 147M-281M CMS allotment."
 flag_reason,UNPARSED_DATA_EXISTS,"spec 6.4/8/11. State-level coverage: no /awards records, but award-shaped data sits in /documents that RCJ failed to extract. FL, NC, NJ, TN. Carried on the coverage table as coverage_status; listed here because spec 8 lists it among the flag_reason additions."
@@ -114,27 +114,30 @@ flag_reason,RECIPIENT_TYPE_INFERRED,"spec 8. THE STANDING ANSWER FOR A NAMED ENT
 delimiter,SEMICOLON,"spec 6.2. The awardeeName was split on a semicolon - an explicit enumeration by whoever wrote it, and the strongest signal available."
 delimiter,COMMA,"spec 6.2. Split on a top-level comma, after masking commas inside parentheses and rejoining corporate suffixes, state names and aliases."
 delimiter,CONJUNCTION,"spec 6.2. Split on ' and ' or ' & ', used only when no semicolon or comma is present and both fragments pass the 6.1 legal-entity test and name somebody. Conjunctions are common inside a single organisation name."
-recipient_status,NAMED,"spec 7A.3. The narrative names the recipient or contractor for this initiative."
+recipient_status,NAMED,spec 7A.3. The narrative names the recipient or contractor for this initiative.
 recipient_status,NAMED + TBD,"spec 7A.3. The narrative names some recipients and leaves others to procurement. Delaware Initiative 1 is the worked case: DSHA named for the 11.5M renovation, clinical vendors TBD."
-recipient_status,TBD,"spec 7A.3. No recipient named. The expected common case - Delaware names one for 4 of 15 initiatives. A parser that requires a recipient will fail on most states (7A.5)."
-reconciliation_structure,TOTAL_INCLUSIVE,"spec 7A.4. The narrative's own stated grand total equals the CMS award within rounding - administrative and indirect costs sit INSIDE that total. Delaware: 157394963.86 against a 157394964 award."
+recipient_status,TBD,spec 7A.3. No recipient named. The expected common case - Delaware names one for 4 of 15 initiatives. A parser that requires a recipient will fail on most states (7A.5).
+reconciliation_structure,TOTAL_INCLUSIVE,spec 7A.4. The narrative's own stated grand total equals the CMS award within rounding - administrative and indirect costs sit INSIDE that total. Delaware: 157394963.86 against a 157394964 award.
 reconciliation_structure,ALLOCATED_ONLY,"spec 7A.4. The narrative allocates fund uses that fall short of the award, with the remainder attributable to administrative and indirect costs held OUTSIDE the fund-use lines. Oklahoma: 204900000 allocated against a 223476949 award, 91.7%."
-reconciliation_status,RECONCILED,"spec 7A.4/8. Captured initiative lines cover at least 85% of the state's CMS allotment and do not exceed it. Publishable."
+reconciliation_status,RECONCILED,spec 7A.4/8. Captured initiative lines cover at least 85% of the state's CMS allotment and do not exceed it. Publishable.
 reconciliation_status,VARIANCE,"spec 7A.4/8. Captured lines fall below 85% of the allotment. Goes to review before being called a bad parse - reconciling at 91.7% is not a failure, reconciling at 60% is. NOT published while VARIANCE."
 reconciliation_status,FAILED,"spec 7A.4/8. Captured lines exceed the state's CMS allotment beyond rounding, or sum to zero. A state cannot allocate more than it received, so this is unambiguously a bad parse. Quarantined, never published."
 reconciliation_status,NO_NARRATIVE,"spec 7A.4/8. No initiative rows parsed for this state. A reportable gap, not a silent omission (7A.2)."
-extraction_method,DIRECT_TEXT,"spec 8. Read straight out of the document's text layer."
-extraction_method,MODEL_ASSISTED,"spec 8/9.4. A model located or transcribed the value and a rule or a human checked it. Never a model judgment standing alone (9.1)."
-extraction_method,MANUAL,"spec 8. A person read the document and typed the value. Both 7A reference states are MANUAL."
-recipient_confirmed,Yes,"spec 8/9.3. A state primary source names this recipient for this award."
-recipient_confirmed,No,"spec 8/9.3."
-recipient_confirmed,Unclear,"spec 8/9.3."
-amount_confirmed,Yes,"spec 8/9.3."
+extraction_method,DIRECT_TEXT,spec 8. Read straight out of the document's text layer.
+extraction_method,MODEL_ASSISTED,spec 8/9.4. A model located or transcribed the value and a rule or a human checked it. Never a model judgment standing alone (9.1).
+extraction_method,MANUAL,spec 8. A person read the document and typed the value. Both 7A reference states are MANUAL.
+recipient_confirmed,Yes,spec 8/9.3. A state primary source names this recipient for this award.
+recipient_confirmed,No,spec 8/9.3.
+recipient_confirmed,Unclear,spec 8/9.3.
+amount_confirmed,Yes,spec 8/9.3.
 amount_confirmed,No,"spec 8/9.3. The EXPECTED common case: it means no recipient-level figure is published, not that verification failed. Neither Delaware nor Oklahoma publishes one (0.1a)."
-amount_confirmed,Unclear,"spec 8/9.3."
+amount_confirmed,Unclear,spec 8/9.3.
 has_hospital_recipient,Yes,"spec 7A.3/7A.5. The initiative's flow language or named recipient puts RHTP money in a hospital's hands. A named hospital is NOT required - Oklahoma names none and still has hospital-directed fund uses. This flag, not a per-hospital split, is the unit."
-has_hospital_recipient,No,"spec 7A.3/7A.5."
+has_hospital_recipient,No,spec 7A.3/7A.5.
 has_hospital_recipient,Unclear,"spec 7A.3/7A.5. Recipients not yet named and hospitals merely among the eligible - 0.3, eligibility is not receipt. Do not impute."
-initiative_grain,FUND_USE,"spec 7A.1. The workbook's rows are individual fund uses beneath a named initiative - Oklahoma's 28 fund uses across 6 initiatives."
-initiative_grain,INITIATIVE,"spec 7A.1. The workbook's rows are whole initiatives - Delaware's 15. Grain is recorded because summing across mixed grains within a state would double-count."
-validator,AUTO,"spec 8. A deterministic rule set the value."
+initiative_grain,FUND_USE,spec 7A.1. The workbook's rows are individual fund uses beneath a named initiative - Oklahoma's 28 fund uses across 6 initiatives.
+initiative_grain,INITIATIVE,spec 7A.1. The workbook's rows are whole initiatives - Delaware's 15. Grain is recorded because summing across mixed grains within a state would double-count.
+validator,AUTO,spec 8. A deterministic rule set the value.
+flag_reason,AMOUNT_ROUNDED_IN_SOURCE,"spec 0.4 / 6.2. The source publishes the amount ROUNDED rather than exact -- Alabama's governor's release writes 45 of its 138 grants as '$6.38 million', '$1.4 million'. The figure is stored as published and is NEVER reconstructed to a precision nobody published; this flag is what tells a reader the cents are not real. Its visible consequence is that the release's own figures sum to $143,745,821 against its own headline of 'more than $144 million', which is reported rather than closed. Distinct from AMOUNT_MISSING (there is an amount) and from AMOUNT_PRELIMINARY (this figure is final, just rounded)."
+flag_reason,AMOUNT_PRELIMINARY,spec 9.3. The source states the amount is PRELIMINARY or not yet final -- Alaska's award notice column header reads 'Award Amount (Preliminary)'. recipient_confirmed stays Yes and amount_confirmed is No: spec 9.3 splits those two questions precisely so a preliminary figure does not drag a confirmed recipient down with it. Distinct from AMOUNT_ROUNDED_IN_SOURCE (that figure is final).
+flag_reason,RECIPIENT_TYPE_VARIES_IN_SOURCE,"spec 8 / 0.4. The SAME named recipient carries DIFFERENT organisational forms on different rows of one state document, so recipient_type is not constant for that entity. Alaska: its Organization Type column calls the Alaska Native Tribal Health Consortium 'Hospital (all types)' on one project and 'Tribal Health Organization' on another; Providence Health & Services-Washington is a hospital on one row and a service line only on another. The per-row value is kept faithful to the source and is NOT harmonised in either direction -- harmonising upward would move money into the hospital total on this pipeline's authority rather than the state's, and harmonising downward would discard the state's own word. A reviewer resolves it. The affected dollars are reported on the state's Reconciliation sheet."
