@@ -73,11 +73,22 @@ cohort carrying an `amount` at all.
 
 ## The 87 AHEAD hospitals — the largest gap, and the largest prize
 
+> **Superseded by Session 10 in two ways.** The host was allowlisted, so the
+> roster is archived and the two aggregate rows below are now 87 named hospital
+> rows (`docs/session10_roster_live_monitor_recipient_type.md`). And the figure
+> this section originally carried, $65.25M, was wrong: it assumed 87 × $750,000
+> when DCH states that figure for eighty hospitals only. The paragraph below
+> carries the corrected $60,000,000.
+
 Phase 3 awards **80 rural hospitals $750,000 each** for pre-implementation work
 toward the CMS AHEAD model. Phase 4 adds **7 more**, completing a planned Year 1
-group of **87**. At the stated rate that is **$65.25M of directly
-hospital-bound money — the largest single block found in any state so far**,
-and more than Florida's entire hospital total of $49.3M.
+group of **87**. DCH states the $750,000 figure for the Phase 3 eighty and never
+restates it in Phase 4, so the confirmed, named, hospital-directed total is
+**80 × $750,000 = $60,000,000 — the largest single block found in any state so
+far**, and more than Florida's entire hospital total of $49.3M. It closes on the
+stated Initiative 1 pool to the dollar. The other seven hospitals are awarded and
+named; their per-hospital amount is simply not published, and §6.2 forbids
+dividing a pool to invent it.
 
 The roster is published at
 `greathealth.georgia.gov/value-based-care-hospital-list`. **That host is not on
