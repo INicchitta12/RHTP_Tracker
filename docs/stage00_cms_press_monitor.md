@@ -1,3 +1,28 @@
+> **SUPERSEDED IN PART — Session 14 (2026-08-28).** This document describes
+> stage 00 when `medicaid.gov` was its *only* source. It no longer is.
+>
+> **`www.cms.gov/newsroom`, filtered to the rural health topic, is now the
+> PRIMARY source and `medicaid.gov` the SECONDARY**, with the two unioned and
+> `source` recorded per row. The reason is in this file's own logic: the
+> medicaid.gov page **lags**. CMS announced $122M for Virginia on 2026-08-28
+> and that page did not list it, so a monitor reading it alone reported eight
+> announced states when there were nine — confidently, because a lagging
+> source does not look like a gap.
+>
+> What below is still accurate: the §0.1 discovery posture, the §0.2 rule that
+> `amount` is never summed, the `State = "All"` Tier 1 exclusion, the
+> `<td>`-header promotion, and every refusal in the medicaid.gov parser — all
+> of that is unchanged and still runs, as the secondary.
+>
+> What below is stale: the egress section (`medicaid.gov` was allowlisted on
+> 2026-08-28 and both sources are reachable), the claim that the page is the
+> trigger list, and the `shape : TABLE` check as a sufficient health signal —
+> there are now two sources with two shapes.
+>
+> Read `session14_cms_newsroom_trigger_virginia.md` for the current design.
+
+---
+
 # Stage 00 — the CMS state-announcement trigger list
 
 **Session 9, 2026-08-28.** Zero RCJ quota. **Never run against the live page —
