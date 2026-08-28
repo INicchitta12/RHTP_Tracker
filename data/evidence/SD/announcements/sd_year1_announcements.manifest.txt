@@ -1,0 +1,69 @@
+RHTP tracker archive (spec 0.4 / 0.5): South Dakota's two announced
+Rural Health Transformation award rounds.
+
+fetched_utc     : 2026-08-28T16:55:10Z
+state           : SD
+host            : news.sd.gov (ServiceNow knowledge base)
+source_doc_type : GOVERNOR_PRESS_RELEASE
+cms_year1_award : $189,477,607.26 (stated in DOH's own footnote)
+
+WHAT THESE DOCUMENTS DO NOT CONTAIN
+
+NEITHER RELEASE NAMES A SINGLE RECIPIENT. Between them they announce
+110 grants worth $121,500,000 and publish counts, totals and funded themes only --
+no list, no table, no attachment, no linked roster. This archive is the
+primary-source record of that negative, and of the counts and totals
+themselves, which ARE stated and ARE quotable.
+
+Routes checked this session and all negative: doh.sd.gov (press index,
+RHT project page, RHT resources & FAQs, press search on 'awarded');
+open.sd.gov (the RHT series is still 13 administrative contracts and
+$5,618,367, 'Rural Strong' still returns zero rows). The remaining
+candidate is ruralhealthtransformation.sd.gov, named as the resource
+site in both releases and REFUSED at CONNECT from this session.
+
+ONLY THE <article id="article"> ELEMENT IS ARCHIVED, on the 7.1 / CMS
+precedent: the ServiceNow chrome carries a per-session CSRF token (g_ck)
+and a guest user id, which are session state and not ours to commit. Both
+digests are recorded below, so provenance still closes.
+
+Digests are over the EXACT BYTES WRITTEN (writeBin). Re-hash any file
+here and the ARTICLE digest will match.
+
+THE FULL-PAGE DIGEST IS NOT REPRODUCIBLE, AND THAT IS THE POINT. Two
+fetches minutes apart gave identical article digests and DIFFERENT
+full-page digests, because the ServiceNow chrome embeds a fresh CSRF
+token on every request. It is recorded as the digest of the response as
+served on the fetch date -- evidence of what was received, not a value a
+later reader can reproduce. The article digest is the one that verifies.
+
+RELEASES
+
+
+  file            : KB0046839.html
+  kb_number       : KB0046839
+  title           : Rural Strong project grants
+  announced       : 2026-07-23
+  states          : 28 grants, $31,500,000, 20 health systems
+  named recipients: 0
+  cite as         : https://news.sd.gov/news?id=news_kb_article_view&sys_id=0a2599cd47d6cf10da219464336d439a
+  fetched from    : https://news.sd.gov/kb_view.do?sysparm_article=KB0046839
+  http_status     : 200
+  article bytes   : 5615
+  article sha256  : 97ada0f5b3038d7a51f2afd9e1c6b7e92bf005492b1ce33af58a451d0c5f2931
+  full-page bytes : 51889
+  full-page sha256: 23f44a367501afed139cf4ed852d4aa8995a9c46a4fdc40e1ff4035192002632
+
+  file            : KB0047023.html
+  kb_number       : KB0047023
+  title           : Technology and data grants
+  announced       : 2026-08-19
+  states          : 82 grants, $90,000,000, 82 rural healthcare organizations
+  named recipients: 0
+  cite as         : https://news.sd.gov/news?id=news_kb_article_view&sys_id=f299421547b20b10fc1303dc426d433a
+  fetched from    : https://news.sd.gov/kb_view.do?sysparm_article=KB0047023
+  http_status     : 200
+  article bytes   : 9004
+  article sha256  : 5fe4aebfbbcf723c516e5c650b88beb248a2b660769a2b4ac098becbfef14cd1
+  full-page bytes : 55381
+  full-page sha256: 4d2ed41e115415e11f5ab52601b688ae70993bf43bced92f2865b55d1e6f9b3e
