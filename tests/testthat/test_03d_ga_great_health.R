@@ -41,10 +41,14 @@ test_that("the archived pages match the SHA-256 in the committed manifest", {
 
   expect_length(stated, 4)
 
+  # Scoped to the four announcement archives the records cite. The roster page
+  # sits in the same directory under its own manifest, so a bare *.html glob
+  # would sweep it in and fail against a manifest that never described it.
+  announcements <- sort(unique(records$source_archive_path))
+  expect_length(announcements, 4)
   actual <- sort(purrr::map_chr(
-    sort(list.files(here::here("data", "evidence", "GA"),
-                    pattern = "\\.html$", full.names = TRUE)),
-    ~ digest::digest(file = .x, algo = "sha256")
+    announcements,
+    ~ digest::digest(file = here::here(.x), algo = "sha256")
   ))
   expect_setequal(actual, sort(stated))
 })
@@ -116,14 +120,16 @@ test_that("Georgia's CMS figure matches the 7.1 anchor", {
 
 test_that("Phase 3's 80 hospitals at $750,000 close on the stated pool", {
   # The state states both the per-hospital figure and the initiative total, and
-  # they agree independently. That is why this is the one cohort carrying an
-  # amount.
+  # they agree independently. That is why these are the rows carrying an amount.
   p3 <- records %>%
-    dplyr::filter(phase == "3", initiative_number == "1")
-  expect_equal(p3$recipient_count, 80L)
-  expect_equal(p3$amount, 60000000)
-  expect_equal(p3$recipient_count * 750000, p3$initiative_amount)
-  expect_equal(p3$amount_confirmed, "Yes")
+    dplyr::filter(phase == "3", initiative_number == "1",
+                  strategy == "AHEAD Model pre-implementation funding")
+  expect_equal(nrow(p3), 80L)
+  expect_true(all(p3$recipient_count == 1L))
+  expect_true(all(p3$amount == 750000))
+  expect_equal(sum(p3$amount), 60000000)
+  expect_equal(sum(p3$amount), unique(p3$initiative_amount))
+  expect_true(all(p3$amount_confirmed == "Yes"))
 })
 
 
@@ -136,42 +142,161 @@ test_that("no row carries an amount derived from splitting a pool", {
 })
 
 test_that("summing amount does not reach the state total, and is not meant to", {
-  # The trap this file exists to keep shut. `amount` is populated on 2 of 54
+  # The trap this file exists to keep shut. `amount` is populated on 81 of 139
   # rows; a reader who sums it gets $60.5M for a state that awarded $197.1M.
+  # The 80 AHEAD hospitals each carry a figure DCH stated per recipient, so the
+  # count grew with the expansion -- the total it reaches did not.
   expect_lt(sum(records$amount, na.rm = TRUE),
             recon_value("GREAT Health Year 1 awarded (sum of initiative pools)"))
-  expect_equal(sum(!is.na(records$amount)), 2)
+  expect_equal(sum(!is.na(records$amount)), 81)
+  expect_equal(sum(records$amount, na.rm = TRUE), 60487500)
 })
 
 test_that("Phase 4's seven AHEAD hospitals carry no amount", {
   # Phase 4 does not restate the $750,000 figure. Carrying it across from
-  # Phase 3 would be an imputation dressed as arithmetic.
+  # Phase 3 would be an imputation dressed as arithmetic -- and it stays an
+  # imputation now that the seven are named rather than one aggregate row.
   p4 <- records %>%
     dplyr::filter(phase == "4",
-                  stringr::str_detect(awardee, "^7 additional rural hospitals"))
-  expect_equal(nrow(p4), 1)
-  expect_true(is.na(p4$amount))
-  expect_equal(p4$amount_confirmed, "No")
+                  strategy == "AHEAD Model pre-implementation funding")
+  expect_equal(nrow(p4), 7L)
+  expect_true(all(is.na(p4$amount)))
+  expect_true(all(p4$amount_confirmed == "No"))
+  expect_true(all(p4$amount_basis == "NOT_PUBLISHED"))
 })
 
 
-# -- The 87-hospital AHEAD cohort --------------------------------------------
+# -- The 87-hospital AHEAD roster --------------------------------------------
 
-test_that("the AHEAD cohorts account for exactly 87 hospitals", {
+test_that("the AHEAD group is 87 named hospitals, one row each", {
   ahead <- records %>%
-    dplyr::filter(stringr::str_detect(awardee, "AHEAD Model pre-implementation"))
-  expect_equal(nrow(ahead), 2)
+    dplyr::filter(strategy == "AHEAD Model pre-implementation funding")
+  expect_equal(nrow(ahead), 87L)
   expect_equal(sum(ahead$recipient_count), 87L)
+  expect_equal(dplyr::n_distinct(ahead$awardee), 87L)
+  expect_true(all(ahead$distributed_to_hospital == "Yes"))
+  expect_true(all(ahead$recipient_type == "HOSPITAL_OR_SYSTEM"))
 })
 
-test_that("the AHEAD cohorts are flagged as names-not-captured, not confirmed", {
-  # The class is confirmed by DCH; the individual names are on a blocked host.
-  # recipient_confirmed = No is what stops these reading as 87 verified rows.
+test_that("the AHEAD hospitals are recipient-confirmed, and cite both sources", {
+  # Before the roster host was allowlisted these were two aggregate rows with
+  # recipient_confirmed = No. The names are captured now, so the class-only
+  # coding must be gone -- and no row may still describe an unnamed cohort.
   ahead <- records %>%
-    dplyr::filter(stringr::str_detect(awardee, "AHEAD Model pre-implementation"))
-  expect_true(all(ahead$recipient_confirmed == "No"))
-  expect_true(all(ahead$flag_reason == "RECIPIENT_NAMES_NOT_CAPTURED"))
-  expect_true(all(ahead$distributed_to_hospital == "Yes"))
+    dplyr::filter(strategy == "AHEAD Model pre-implementation funding")
+  expect_true(all(ahead$recipient_confirmed == "Yes"))
+  expect_true(all(ahead$recipient_names_source_url == GA_AHEAD_ROSTER_URL))
+  expect_false(any(stringr::str_detect(ahead$awardee, "names not captured")))
+  # The 8- and 13-hospital Phase 4 cohorts have no published roster and are
+  # still aggregates; this expansion must not have touched them.
+  expect_equal(sum(stringr::str_detect(records$awardee, "names not captured")), 2L)
+  expect_false(any(ahead$flag_reason %in% "RECIPIENT_NAMES_NOT_CAPTURED"))
+  # Every row still names the DCH announcement that made the award, because the
+  # roster alone states no award (its heading is "Completed Applications").
+  expect_true(all(stringr::str_detect(ahead$determination_basis,
+                                      "DCH 2026-0[78]-2[37] announcement")))
+})
+
+test_that("only the Phase 4 seven are flagged as an inferred attribution", {
+  ahead <- records %>%
+    dplyr::filter(strategy == "AHEAD Model pre-implementation funding")
+  flagged <- ahead %>%
+    dplyr::filter(flag_reason %in% "PHASE_ATTRIBUTION_INFERRED")
+  expect_equal(nrow(flagged), 7L)
+  expect_true(all(flagged$phase == "4"))
+  expect_true(all(is.na(flagged$amount)))
+  # and the 80 that carry money are not flagged
+  expect_true(all(is.na(ahead$flag_reason[ahead$phase == "3"])))
+})
+
+
+# -- The roster parser -------------------------------------------------------
+
+test_that("the roster archive is on disk and matches its committed manifest", {
+  expect_true(file.exists(here::here(GA_AHEAD_ROSTER_ARCHIVE)))
+  manifest <- here::here("data", "evidence", "GA",
+                         "ga_value_based_care_hospital_list.manifest.txt")
+  expect_true(file.exists(manifest))
+  stated <- readLines(manifest, warn = FALSE) %>%
+    stringr::str_subset("^\\s*sha256\\s*:") %>%
+    stringr::str_remove("^\\s*sha256\\s*:\\s*") %>%
+    stringr::str_trim()
+  actual <- unname(tools::md5sum(here::here(GA_AHEAD_ROSTER_ARCHIVE)))
+  expect_equal(length(stated), 1L)
+  expect_equal(
+    stated,
+    digest::digest(file = here::here(GA_AHEAD_ROSTER_ARCHIVE), algo = "sha256")
+  )
+  expect_true(!is.na(actual))
+})
+
+test_that("the roster parses to 87 hospitals split 80 / 7", {
+  roster <- rhtp_ga_ahead_roster()
+  expect_equal(nrow(roster), 87L)
+  expect_equal(dplyr::n_distinct(roster$hospital_name), 87L)
+  expect_equal(sum(roster$phase == "3"), 80L)
+  expect_equal(sum(roster$phase == "4"), 7L)
+  expect_true(all(nzchar(roster$address)))
+})
+
+test_that("the phase split is derived from the alphabetical break, not hardcoded", {
+  # This is the inference the whole Phase 3 / Phase 4 amount attribution rests
+  # on, so it is asserted rather than assumed: rows 1-80 are in order and row 81
+  # is not. If DCH re-sorts the page the parser must refuse, not mis-attribute
+  # $750,000 to a hospital DCH never stated a figure for.
+  roster <- rhtp_ga_ahead_roster()
+  expect_equal(ga_alphabetical_prefix(roster$hospital_name), 80L)
+  expect_equal(ga_alphabetical_prefix(c("Alpha", "Beta", "Gamma")), 3L)
+  expect_equal(ga_alphabetical_prefix(c("Alpha", "Beta", "Aardvark")), 2L)
+})
+
+test_that("the parser refuses a roster whose alphabetical run is not 80", {
+  # Reproduce a re-sorted page by handing the expansion a fully sorted roster:
+  # the break the split is read from is gone, so it must fail loudly.
+  resorted <- tempfile(fileext = ".html")
+  rows <- paste0("<tr><td>", sprintf("Hospital %02d", 1:87),
+                 "</td><td>1 Main St</td><td>Town, GA 30000</td><td>CAH</td></tr>",
+                 collapse = "")
+  writeLines(paste0("<html><body><table><tr><th>HOSPITAL NAME</th><th>ADDRESS</th>",
+                    "<th>CITY/STATE/ZIP</th><th>DESIGNATION</th></tr>",
+                    rows, "</table></body></html>"), resorted)
+  expect_error(rhtp_ga_ahead_roster(resorted), "leading alphabetical run")
+})
+
+test_that("the parser refuses a roster that is not 87 hospitals", {
+  short <- tempfile(fileext = ".html")
+  rows <- paste0("<tr><td>", sprintf("Hospital %02d", 1:12),
+                 "</td><td>1 Main St</td><td>Town, GA 30000</td><td>CAH</td></tr>",
+                 collapse = "")
+  writeLines(paste0("<html><body><table><tr><th>HOSPITAL NAME</th><th>ADDRESS</th>",
+                    "<th>CITY/STATE/ZIP</th><th>DESIGNATION</th></tr>",
+                    rows, "</table></body></html>"), short)
+  expect_error(rhtp_ga_ahead_roster(short), "parses to 12 hospitals")
+})
+
+test_that("the parser refuses a roster whose columns do not resolve", {
+  odd <- tempfile(fileext = ".html")
+  writeLines(paste0("<html><body><table><tr><th>Col A</th><th>Col B</th>",
+                    "<th>Col C</th><th>Col D</th></tr>",
+                    "<tr><td>x</td><td>y</td><td>z</td><td>w</td></tr>",
+                    "</table></body></html>"), odd)
+  expect_error(rhtp_ga_ahead_roster(odd), "Refusing to guess")
+})
+
+test_that("Georgia's own designations are kept raw and mapped to NONE", {
+  # 8: the controlled column takes only CMS designations; the state's raw
+  # language is preserved beside it rather than discarded.
+  ahead <- records %>%
+    dplyr::filter(strategy == "AHEAD Model pre-implementation funding")
+  expect_setequal(unique(ahead$rural_designation), c("CAH", "RRC", "NONE"))
+  expect_equal(sum(ahead$rural_designation == "CAH"), 30L)
+  expect_equal(sum(ahead$rural_designation == "RRC"), 18L)
+  expect_equal(sum(ahead$rural_designation == "NONE"), 39L)
+  none_raw <- unique(ahead$rural_designation_raw[ahead$rural_designation == "NONE"])
+  expect_setequal(none_raw, c("Rural", "In 126 Rural/Partial Rural Counties"))
+  # and no non-AHEAD row picked up a designation it has no source for
+  expect_true(all(is.na(records$rural_designation[
+    records$strategy != "AHEAD Model pre-implementation funding"])))
 })
 
 

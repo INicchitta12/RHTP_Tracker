@@ -1,0 +1,75 @@
+RHTP tracker archive (spec 0.4 / 0.5): Georgia GREAT Health Value-Based Care
+Hospital List -- the roster of the 87 AHEAD Model pre-implementation hospitals.
+
+fetched_utc     : 2026-08-28T14:02:04Z
+state           : GA
+host            : greathealth.georgia.gov (allowlisted 2026-08-28; blocker 5 cleared)
+http_status     : 200
+source_doc_type : AGENCY_PRESS_RELEASE (state programme site, DCH's GREAT Health)
+program         : Georgia Rural Enhancement and Transformation of Health
+                  ("GREAT Health") -- Georgia's RHTP
+
+FILES
+
+  file    : 2026-08-28_value_based_care_hospital_list.html
+  title   : Value-Based Care Hospital List | Georgia Rural Health Transformation
+  url     : https://greathealth.georgia.gov/value-based-care-hospital-list
+  bytes   : 89087
+  sha256  : 342c6a7e26aa9a9e22e4f0ad4a827af59e386d4765800fcef0427f4896d994a3
+  rows    : 87 hospitals, in one HTML table
+  columns : HOSPITAL NAME | ADDRESS | CITY/STATE/ZIP | DESIGNATION
+
+WHY THIS PAGE IS AN AWARD SOURCE AND NOT AN ELIGIBILITY LIST (spec 0.3)
+
+  The page's own heading reads "Hospitals With Completed Applications", and read
+  alone that is an application roster, not an award roster -- exactly the
+  eligibility-is-not-receipt trap spec 0.3 exists to catch. It is not read alone.
+  Both DCH award announcements link to THIS url and say what it is:
+
+    Phase 3 (2026-07-23): "Eighty rural hospitals have completed the application
+    to participate in the AHEAD model and have been awarded $750,000 to support
+    pre-implementation activities. The list of 80 awarded hospitals is
+    available here." -- where "here" is this url.
+
+    Phase 4 (2026-08-27): "These awards follow the 80 rural hospital awards
+    announced in Phase 3 and complete the planned group of 87 hospitals
+    identified in Year 1. The full list of hospitals is available here."
+    -- again this url.
+
+  So the award action, the count and the per-hospital figure come from the DCH
+  announcements; this page supplies only the names. Neither document supports
+  the coding on its own, and every one of the 87 rows cites both.
+
+  Independent closure: the table holds exactly 87 rows, which is the group DCH
+  says it completed, and 80 x $750,000 = $60,000,000 is the stated Initiative 1
+  pool to the dollar.
+
+WHICH 80 OF THE 87 CARRY THE STATED $750,000 -- AN INFERENCE, FLAGGED
+
+  DCH states $750,000 per hospital for the Phase 3 eighty and does NOT restate a
+  per-hospital figure for the Phase 4 seven. The roster does not label which
+  hospitals belong to which phase, so the split is inferred from list order:
+  rows 1-80 are in exact alphabetical order and row 81 breaks it, leaving
+  precisely 7 rows appended out of order at the end -- the shape a page updated
+  in place takes when 7 names are added to an 80-name list.
+
+  The parser derives that break rather than hardcoding it, and refuses if the
+  leading alphabetical run is not exactly 80 (rhtp_ga_ahead_roster()). The seven
+  appended rows carry flag_reason PHASE_ATTRIBUTION_INFERRED and no amount.
+
+  What does NOT depend on the inference: that all 87 are awarded hospitals, and
+  that the cohort total is $60,000,000 + the unstated Phase 4 share. Only the
+  per-row amount attribution does.
+
+  archive.org is not on the egress allowlist, so the July snapshot of this page
+  -- which would settle the split as fact -- could not be retrieved.
+
+DESIGNATION
+
+  The page states that CAH (Critical Access Hospital) and RRC (Rural Referral
+  Center) are CMS designations. "Rural" and "In 126 Rural/Partial Rural
+  Counties" are Georgia's own classifications and are NOT CMS designations, so
+  they map to rural_designation = NONE and are kept verbatim in
+  rural_designation_raw (spec 8: never discard the state's raw language).
+
+    CAH   30      RRC   18      Rural  34      In 126 Rural/Partial Rural  5
