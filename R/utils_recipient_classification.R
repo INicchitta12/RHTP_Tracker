@@ -313,6 +313,38 @@ RHTP_ORG_TYPE_TO_RECIPIENT_TYPE <- tibble::tribble(
   "Emergency Medical Services",                                  "EMS_OR_PSAP",                 "HIGH",
   "University",                                                  "UNIVERSITY_OR_AHC",           "HIGH",
   "Education organization (Not public university in Alaska)",    "SCHOOL_OR_DISTRICT",          "HIGH",
+  # -- Oregon (session 17). OHA publishes an `Entity type` per PROJECT in its
+  # own Catalyst data file, so the state classifies its own awardees and that
+  # outranks any reading of the name -- Alaska's rule, second state.
+  #
+  # THESE SIT ABOVE "Local government" DELIBERATELY, and the reason is a real
+  # deflation this ordering prevents. Oregon's rural hospitals are organised as
+  # HEALTH DISTRICTS, so Curry Health District (DBA Curry Health Network) is
+  # typed "Behavioral Health Clinic, Hospital or Hospital System, Local
+  # Government, ...". Appended at the end of this table instead, Alaska's
+  # "Local Government" row would fire first and code an operating rural
+  # hospital LOCAL_GOVT_OR_PUBLIC_HEALTH -- dropping it out of the hospital
+  # total altogether. Alaska is unaffected either way: no Alaska row contains
+  # an Oregon token, so where the Oregon block sits cannot change an Alaska
+  # answer.
+  #
+  # "University" is NOT repeated here, and that is also deliberate. It already
+  # sits above at row 7, so an Oregon row typed "Hospital or Hospital System,
+  # University" resolves UNIVERSITY_OR_AHC rather than HOSPITAL_OR_SYSTEM.
+  # Every such row in Oregon's file is an OHSU entity (the 24/7 obstetric
+  # advice line, the Casey Eye Institute, the Office of Rural Health), and
+  # UNIVERSITY_OR_AHC is what §8 has for an academic health centre. It is also
+  # the conservative direction: it can only keep dollars OUT of the hospital
+  # total, never put them in.
+  "Federally Recognized Tribe",                                  "TRIBAL_ORG",                  "HIGH",
+  "Hospital or Hospital System",                                 "HOSPITAL_OR_SYSTEM",          "HIGH",
+  "Federally Qualified Health Center (FQHC)",                    "FQHC_OR_RHC",                 "HIGH",
+  "Rural Health Clinic",                                         "FQHC_OR_RHC",                 "HIGH",
+  "Emergency Medical Services (EMS)",                            "EMS_OR_PSAP",                 "HIGH",
+  "Local Public Health Authority",                               "LOCAL_GOVT_OR_PUBLIC_HEALTH", "HIGH",
+  "Community College",                                           "UNIVERSITY_OR_AHC",           "MEDIUM",
+  "Education Service District",                                  "SCHOOL_OR_DISTRICT",          "HIGH",
+  "School District",                                             "SCHOOL_OR_DISTRICT",          "HIGH",
   "State Agency",                                                "STATE_AGENCY",                "HIGH",
   "State agency",                                                "STATE_AGENCY",                "HIGH",
   "Local government",                                            "LOCAL_GOVT_OR_PUBLIC_HEALTH", "HIGH",
@@ -324,7 +356,18 @@ RHTP_ORG_TYPE_TO_RECIPIENT_TYPE <- tibble::tribble(
   "Health Information Exchange (HIE)",                           "VENDOR_OR_CONTRACTOR",        "MEDIUM",
   "Private practitioner",                                        "PHYSICIAN_PRACTICE",          "HIGH",
   "Association",                                                 "NONPROFIT_CBO",               "MEDIUM",
-  "Non-Profit, Social Service, or Community Based Organization", "NONPROFIT_CBO",               "HIGH"
+  "Non-Profit, Social Service, or Community Based Organization", "NONPROFIT_CBO",               "HIGH",
+  # Oregon's remaining forms, all resolving to NONPROFIT_CBO. They sit BELOW
+  # every form above so that a health district typed as both a hospital and a
+  # nonprofit is a hospital. A Coordinated Care Organization is Oregon's
+  # Medicaid managed-care entity; §8 has no health-plan code and inventing one
+  # mid-session is what §2 forbids, so it takes the settled fallback at MEDIUM
+  # with the state's own word recorded in `recipient_type_source`.
+  "Coordinated Care Organization (CCO)",                         "NONPROFIT_CBO",               "MEDIUM",
+  "Professional Association or Nonprofit Advocacy",              "NONPROFIT_CBO",               "HIGH",
+  "Nonprofit or Private Health Care Organization",               "NONPROFIT_CBO",               "MEDIUM",
+  "Social Service or Community-Based Organization",              "NONPROFIT_CBO",               "HIGH",
+  "Coalition",                                                   "NONPROFIT_CBO",               "MEDIUM"
 )
 
 # The tokens that describe WHAT CARE IS DELIVERED rather than what the recipient
@@ -335,7 +378,15 @@ RHTP_ORG_TYPE_SERVICE_TOKENS <- c(
   "Clinic", "Family medicine or primary care",
   "Behavioral health/substance use disorder treatment", "Maternal health",
   "Pharmacy", "Home-and-community-based services provider", "Dental",
-  "Specialist", "Other health care provider"
+  "Specialist", "Other health care provider",
+  # Oregon. "Behavioral Health Clinic" and "Dental Provider" name a service
+  # line, not a form -- §8 has no clinic code other than FQHC_OR_RHC and a
+  # behavioural health clinic is neither. "Other" names nothing at all. Listed
+  # here so none of the three can decide a row on its own: a project typed
+  # ONLY with these falls to the §8 settled fallback (NONPROFIT_CBO + LOW +
+  # RECIPIENT_TYPE_INFERRED) instead of being assigned a form the state never
+  # stated.
+  "Behavioral Health Clinic", "Dental Provider", "Other"
 )
 
 
@@ -513,8 +564,15 @@ rhtp_classify_flow <- function(recipient_type, description) {
 #' @param description_col Name of the description column.
 #' @param org_type_col Optional: a state-published organisation-type column,
 #'   which takes precedence over the name rules where non-empty.
+#' @param org_type_delimiter Separator between tokens in `org_type_col`. Alaska
+#'   writes semicolons (the default); Oregon writes ", ". It is a parameter
+#'   rather than a guess because guessing wrong here does not fail -- it splits
+#'   a multi-token field into one unrecognised token, and
+#'   `rhtp_recipient_type_from_org_type()` then refuses, which is the loud
+#'   failure this argument exists to let a caller avoid honestly.
 rhtp_classify_records <- function(records, state, description_col,
-                                  org_type_col = NULL) {
+                                  org_type_col = NULL,
+                                  org_type_delimiter = ";") {
   for (col in c("awardee", description_col)) {
     if (!col %in% names(records)) {
       stop("[classify] records has no `", col, "` column.", call. = FALSE)
@@ -522,7 +580,8 @@ rhtp_classify_records <- function(records, state, description_col,
   }
 
   types <- if (!is.null(org_type_col) && org_type_col %in% names(records)) {
-    rhtp_recipient_type_from_org_type(records[[org_type_col]])
+    rhtp_recipient_type_from_org_type(records[[org_type_col]],
+                                      delimiter = org_type_delimiter)
   } else {
     rhtp_classify_recipient_type(records$awardee, state)
   }

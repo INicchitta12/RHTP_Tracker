@@ -1,5 +1,5 @@
 rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantined,distinct_awardees,rcj_federal_amount_sum,rcj_amount_max,rcj_awards_records_raw,in_cms_announcements,cms_announced_date,cms_source,cms_release_url,cms_fy2026_allotment,extraction_status,survey_status,investigate
-1,OR,Oregon,386,367,19,0,258,306924976.78,35000000,394,No,,,,197271578,NOT_EXTRACTED,RCJ_ONLY,Yes
+1,OR,Oregon,386,367,19,0,258,306924976.78,35000000,394,No,,,,197271578,EXTRACTED,RCJ_ONLY,No
 2,AK,Alaska,159,0,159,0,101,158435446.87,16009453.33,161,Yes,2026-08-25,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription,272174856,EXTRACTED,RCJ_AND_CMS,No
 3,AL,Alabama,138,138,0,0,94,143745821,7000000,138,Yes,2026-08-24,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal,203404327,EXTRACTED,RCJ_AND_CMS,No
 4,GA,Georgia,112,109,3,0,100,112677580,20000000,115,Yes,2026-08-27,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics,218862170,EXTRACTED,RCJ_AND_CMS,No
