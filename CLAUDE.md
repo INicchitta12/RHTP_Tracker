@@ -163,6 +163,7 @@ R/
   03b_budget_narratives.R      # Stage 2.5 — §7A initiative table + §7A.4 gate (BUILT)
   03c_cms_abstracts.R          # CMS project abstracts — §4.1 candidate list (BUILT)
   03d_ga_great_health.R        # Georgia GREAT Health Year 1 awardees (BUILT)
+  03e_fl_year1_awardees.R      # Florida Year 1 + the §8 recipient_type back-fit (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
