@@ -173,10 +173,12 @@ data/
     rcj/<pull_date>/*.json     #   the RCJ landing zone
     cms/<fetch_date>/*.html    #   the §7.1 allotment table, verbatim + digest
     cms/<fetch_date>/*.pdf     #   the CMS project abstracts, verbatim + SHA-256
+    owner_uploads/*.xlsx       #   owner files as supplied — R/03e's ingest source
   interim/                     # normalized .rds/.csv; review_queue.rds — COMMITTED
   reference/                   # allotment anchor, registry, controlled vocabs
   evidence/                    # <state>/<record_id>_<date>.pdf — COMMITTED
     budget_narratives/DE/      #   §7A.2 — DE narrative + SHA-256 manifest; 49 to go
+    GA/                        #   4 DCH announcements + the 87-hospital roster
 output/
   rhtp_hospital_tracker_<date>.xlsx
   review_queue_<date>.xlsx
@@ -190,6 +192,7 @@ docs/
   stage0_preflight_findings.md # Stage 0 API reconnaissance (authoritative)
   stage3_allotments_and_registry.md  # §7.1 anchor, §6.4 mining, §7.2 worksheet
   stage2.5_budget_narratives.md      # §7A parser, the §7A.4 gate, gaps left open
+  session10_roster_live_monitor_recipient_type.md  # GA roster, live stage 00, §8
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -401,7 +404,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 9 — Georgia Year 1 complete; stage 00 trigger list built)
+**Last updated:** 2026-08-28 (Session 10 — GA's 87 hospitals named; stage 00 live; recipient_type settled)
 
 ### Stages built
 
@@ -409,19 +412,20 @@ retrieval code.
 |---|---|---|
 | Scaffold / config | `config/config.yml`, `R/utils_config.R` | **Built** |
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
-| Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Built (Session 9). Never run — `medicaid.gov` is not allowlisted. Wired to the twice-weekly cadence as a Routine — `docs/stage00_cms_press_monitor.md`** |
+| Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Built and RUN (Session 10). `medicaid.gov` allowlisted; 8 states have announced. Two parser blind spots fixed. Routine now points at `main` — `docs/stage00_cms_press_monitor.md`** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
 | Stage 3 — Allotments + registry | `R/03_state_registry.R` | **Built and run. §7.1 anchor committed; §7.2 worksheet exported. §7.3 registry awaits offline verification — `docs/stage3_allotments_and_registry.md`** |
 | Stage 2.5 — Budget narratives | `R/03b_budget_narratives.R` | **Built and run. Format-detecting parser + the §7A.4 gate. 2 of 50 states extracted; OK and DE both `RECONCILED` and publishable (Session 8) — `docs/stage2.5_budget_narratives.md`** |
 | CMS project abstracts | `R/03c_cms_abstracts.R` | **Built and run (Session 7). All 50 states extracted, 120 CANDIDATE_ONLY organizations — §4.1** |
-| Georgia Year 1 awardees | `R/03d_ga_great_health.R` | **Built and run (Session 9). All four GREAT Health phases; 54 award actions, $197.1M, reconciles to 9.92% residual — `docs/georgia_great_health_year1.md`** |
+| Georgia Year 1 awardees | `R/03d_ga_great_health.R` | **Built and run. 139 award actions (Session 10 expanded the 2 AHEAD cohorts into 87 named hospitals), $197.1M, 9.92% residual — `docs/georgia_great_health_year1.md`** |
+| Florida Year 1 awardees | `R/03e_fl_year1_awardees.R` | **Built and run (Session 10). Ingests the owner's workbook, applies the §8 `recipient_type` back-fit, 81 award actions. FL and GA now union — `docs/session10_roster_live_monitor_recipient_type.md`** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`tests/testthat/test_01_retrieve_rcj.R`<br>`tests/testthat/test_02_normalize.R`<br>`tests/testthat/test_03_state_registry.R`<br>`tests/testthat/test_03b_budget_narratives.R`<br>`tests/testthat/test_03c_cms_abstracts.R`<br>`tests/testthat/test_03d_ga_great_health.R` | **Built — 46 + 44 + 276 + 70 + 90 + 40 + 61 = 627 assertions, all passing, zero quota. Run `Rscript tests/run_tests.R`** |
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R` | **Built — 70 + 44 + 276 + 70 + 90 + 40 + 99 + 39 = 728 assertions; 727 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -453,11 +457,27 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
   is a render of it. Rebuild with `Rscript R/03c_cms_abstracts.R --build`.
 - **`data/reference/abstract_coverage_by_state.csv` — 50 rows (Session 7).**
   All 50 states extracted; 16 named anyone, 34 named nobody.
+- **`data/reference/fl_year1_awardees.csv` — 81 rows (Session 10).** Florida
+  Year 1, the source of record; `FL_year1_awardees.xlsx` is a render of it. Five
+  rows back-fitted from `UNCLASSIFIED` to `NONPROFIT_CBO` + `LOW` +
+  `RECIPIENT_TYPE_INFERRED`; `recipient_type_source` preserves the owner's value
+  on every row. Unions with Georgia on the leading 19 columns.
+- **`data/reference/cms_state_announcements.csv` — 8 rows (Session 10).** The
+  stage 00 trigger list, from the live CMS page. AK, AL, GA, ND, OH, PA, SD, WV.
+  A **discovery** source (§0.1): its `amount` is never summed (§0.2), and an
+  assertion enforces that.
+- `data/reference/ga_great_health_awards.csv` — 139 rows, including the 87 named
+  AHEAD hospitals (Session 10). Rebuild with `Rscript R/03d_ga_great_health.R --build`.
 - `data/reference/vocabularies.csv` — now carries the §7A codes as well
   (`recipient_status`, `reconciliation_structure`, `reconciliation_status`,
   `extraction_method`, `recipient_confirmed`, `amount_confirmed`,
   `has_hospital_recipient`, `initiative_grain`, `validator`). Read it through
-  `rhtp_vocabulary()` — the single reader, in `utils_config.R`.
+  `rhtp_vocabulary()` — the single reader, in `utils_config.R`. **Session 10
+  added `PHYSICIAN_PRACTICE` to `recipient_type`** and documented five
+  `flag_reason` codes that were in use but had never been written down
+  (`RECIPIENT_NAMES_NOT_CAPTURED`, `RECIPIENT_NOT_NAMED`,
+  `ELIGIBILITY_NOT_RECEIPT`, `PHASE_ATTRIBUTION_INFERRED`,
+  `RECIPIENT_TYPE_INFERRED`).
 - **`data/reference/budget_narrative_status.csv` (§7A.2) — does not exist
   yet.** It records what was searched and when, and nothing has been searched.
   It belongs to the collection pass, not to the parser.
@@ -473,9 +493,16 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
   them into the record table and double-count Delaware. Not a production pull.
   Delaware's 15 award records remain the Stage 2 fixtures.
 - `data/raw/cms/2026-08-27/` — the CMS allotment press release (Session 5).
+- `data/raw/cms/2026-08-28/` — the CMS RHTP resources page, the stage 00
+  trigger list (Session 10). Archived verbatim with a SHA-256 manifest;
+  `shape : TABLE`.
+- `data/raw/owner_uploads/` — the owner's Florida workbook exactly as supplied,
+  with a SHA-256 manifest. It is `R/03e`'s ingest source and cannot be
+  regenerated: the workbook at the repo root is a render now.
 
-**Quota: 1,920 of 2,000 remaining** (80 consumed this month; Session 5 spent
-none — the only network call was to `cms.gov`).
+**Quota: 1,920 of 2,000 remaining** (80 consumed this month; Sessions 5 and
+8–10 spent none — Session 10's only network calls were to
+`greathealth.georgia.gov` and `www.medicaid.gov`).
 
 ### Environment status (spec §3.3)
 
@@ -515,25 +542,23 @@ locale at source time — keep both (§3.3).
    The remaining question is whether `/activity` narrows to a `since=` delta
    after this first backfill (45 calls/pull) or keeps being pulled
    comprehensively (60 calls/pull). Both are affordable.
-5. **`greathealth.georgia.gov` is not allowlisted, and it holds the 87 AHEAD
-   hospital names.** Georgia awards 87 rural hospitals $750,000 each —
-   **$65.25M, the largest block of directly hospital-bound RHTP money found in
-   any state**, more than Florida's entire hospital total of $49.3M. DCH
-   publishes the roster at
-   `greathealth.georgia.gov/value-based-care-hospital-list` and that host was
-   refused at CONNECT (403); `dch.georgia.gov` and `gov.georgia.gov` were
-   allowlisted for Session 9, this third Georgia host was not. The cohorts are
-   carried as two aggregate rows with `recipient_confirmed = No` (§0.4 — the
-   class is confirmed, the names are not captured). **Allowlist it and the two
-   rows expand into 87 named rows with no code change.** Highest-value single
-   follow-up in the project right now.
-6. **`medicaid.gov` is not allowlisted, so stage 00 has never run.**
-   `R/00_cms_press_monitor.R` is built, tested against fixtures and scheduled,
-   but both routes to the CMS RHTP resources page were refused at CONNECT
-   (403). It is the trigger list telling us which states to collect, so every
-   run it misses is a state we learn about late. Add `www.medicaid.gov`. The
-   scheduled Routine reports the blocker in one line twice a week and writes
-   nothing until then.
+5. **The AHA Annual Survey / CMS Provider of Services extracts are not in the
+   repo.** Stage 5 cannot match a hospital name to a CCN without them, so every
+   `determination_confidence` stays at `MEDIUM` at best (§7: `HIGH` requires a CCN
+   match). Georgia's 87 named hospitals make this the next binding constraint
+   rather than a distant one — they carry addresses and CMS designations and are
+   ready to match. Commit both extracts before the hospital-determination session.
+
+6. **`qa_assertions.R` is still unbuilt**, and it is now the only stage between
+   here and a workbook that has no file at all. §13.25 and §13.27 are already
+   satisfied by the code and only need asserting.
+
+*Resolved in Session 10:* **`greathealth.georgia.gov` (old blocker 5)** — the host
+was allowlisted, the roster is archived, and Georgia's two aggregate AHEAD rows are
+87 named hospitals. **`www.medicaid.gov` (old blocker 6)** — allowlisted, stage 00
+has run against the live page, and the Routine points at `main`. **The §8
+`recipient_type` question** — settled on Georgia's convention, Florida back-fitted,
+and the two states now union.
 
 *Resolved in Session 7:* the §9.11 blocker's evidence landed as `DE Verify.xlsx`
 (11 hand-verified Delaware records) and the 16 unextracted CMS abstracts are
@@ -948,69 +973,138 @@ blocked it reports that in one line and stops.
 **Tests: 627 assertions, all passing** (was 520) — 46 for stage 00 against five
 fixtures covering both shapes and three refusals, 61 for Georgia.
 
+### Session 10 — Georgia's 87 hospitals named, the trigger list live, §8 settled
+
+Full detail: `docs/session10_roster_live_monitor_recipient_type.md`. Zero RCJ
+quota; one call to `greathealth.georgia.gov`, one to `www.medicaid.gov`.
+
+**Georgia's 87 AHEAD hospitals are named.** The host was allowlisted, so the
+roster both DCH announcements link to is archived at
+`data/evidence/GA/2026-08-28_value_based_care_hospital_list.html` with a SHA-256
+manifest, and `rhtp_ga_ahead_roster()` parses the 87 names out of the committed
+archive — parsed, never transcribed, the §7.1 posture. Georgia goes from 54
+award actions to **139**, and every one of the 87 is `recipient_confirmed = Yes`.
+**The reconciliation is untouched: $197,148,327 awarded, 9.92% residual.**
+
+**The page's heading says "Hospitals With Completed Applications", and it is
+still an award source.** Read alone it is an eligibility list and §0.3 forbids
+coding it `Yes`. It is not read alone: Phase 3 calls this exact url *"the list of
+80 awarded hospitals"* and Phase 4 calls it the full list of the 87. The award,
+the count and the per-hospital figure come from the announcements; the page
+supplies only the names. Every hospital row cites both documents, and neither
+supports the coding on its own.
+
+**Which 80 of the 87 carry the stated $750,000 is an inference, and is flagged.**
+DCH states the figure for the Phase 3 eighty and never restates it in Phase 4,
+and the roster does not label phases. Rows 1–80 are in exact alphabetical order
+and row 81 breaks it, leaving precisely 7 appended at the end — the shape a page
+updated in place takes. The parser *derives* that break and **refuses if the
+leading run is not 80**, so a re-sorted page fails loudly rather than attributing
+$750,000 to a hospital DCH never named a figure for. The seven carry
+`PHASE_ATTRIBUTION_INFERRED` and no amount (§6.2). `archive.org` is not
+allowlisted, so the July snapshot that would settle it as fact is unreachable.
+
+> **$65.25M was the wrong number to carry, and this is why.** It assumed 87 ×
+> $750,000. DCH states $750,000 for eighty hospitals only. **The confirmed,
+> named, hospital-directed figure is $60,000,000** — which closes on the stated
+> Initiative 1 pool to the dollar. The other seven are awarded and named; their
+> amount is simply not published.
+
+**Stage 00 has run against the live CMS page. Eight states have announced: AK,
+AL, GA, ND, OH, PA, SD, WV.** Akamai fronts `medicaid.gov` and returns 403 to a
+user agent carrying no contact URL — **including to a spoofed browser UA, which
+is also refused.** The `+url` form is the well-behaved-crawler convention and is
+what gets through, so `api$user_agent` now carries it. Identifying honestly is
+the fix, not a workaround.
+
+**The live page then exposed a failure mode the fixtures could not.** Its header
+row is marked up with `<td>`, not `<th>`, so `html_table()` named the columns
+`X1..X5`, every synonym lookup missed, the table scored 0, and the parser fell
+through to the link-list shape — which **did not fail; it succeeded with less**:
+no dates at all, and the state read by matching a state name in the headline
+rather than from the page's own State column. Every refusal in that parser guards
+against parsing the *wrong* thing. This was the other kind: parsing the right
+thing less well, silently. `cms_press_promote_header()` promotes such a row, and
+only when that resolves strictly more columns, so it can never make a working
+parse worse.
+
+Reaching the table shape then surfaced two rows the link-list shape had been
+dropping by luck: CMS lists its national announcements (the $50bn launch, the
+all-50-states award) in the same table with `State = "All"`. Those are Tier 1
+(§0.2) and this is the *state* trigger list, so they are excluded deliberately
+with the count reported. **One closure, unarranged:** CMS announces $93.3M for
+Georgia on 2026-08-27; DCH's Phase 4 announcement the same day totals
+$93,330,827. Two publishers, one figure — still a discovery source (§0.1).
+
+**The §8 `recipient_type` question is settled, and Florida is ingested.** Florida
+wrote `UNCLASSIFIED` and Georgia wrote `NONPROFIT_CBO` + `LOW` +
+`RECIPIENT_TYPE_INFERRED` for one question: what the column holds when a
+recipient is *named* but its form is not determinable. **Georgia's convention is
+adopted**; Florida's five rows are back-fitted.
+
+**`PHYSICIAN_PRACTICE` was a different question and grew the vocabulary.** Those
+eight rows are not undetermined — a pediatrics group, a fetal medicine practice
+and a primary care clinic are all determinable, and none of the other twelve
+values is true of one. `NONPROFIT_CBO` would assert a form the source
+contradicts; `VENDOR_OR_CONTRACTOR` would make a provider receiving a grant look
+like a supplier to the state. It was **added to §8 deliberately** rather than
+folded in. All eight are already `distributed_to_hospital = No`, so no total
+moves. This is the one §2 "do not invent codes mid-session" exception, taken as
+an explicit decision rather than a default.
+
+`R/03e_fl_year1_awardees.R` reads the owner's workbook, applies the back-fit and
+**nothing else**, and writes `data/reference/fl_year1_awardees.csv` as the source
+of record. `recipient_type_source` preserves the owner's value on every row, so
+the back-fit is auditable and reversible. `determination_confidence` is set only
+on the five rows this session judged — Florida's workbook has no confidence
+column, and inventing 76 would be the pipeline asserting what the owner never
+did. **The two states union: 220 rows, zero values outside §8**, asserted from
+both sides.
+
+**Tests: 728 assertions, 727 passing** (was 627).
+
 ### Next session
 
-**Three egress additions would unblock the most work, and cost nothing:**
-`greathealth.georgia.gov` (87 Georgia hospital names, $65.25M — blocker 5),
-`www.medicaid.gov` (stage 00, the trigger list — blocker 6), and the state
-health-department hosts for §7A.2 (blocker 3). All three are one settings
-change: Claude Code on the web → environment settings → network access.
+**The two offline tasks are now the only thing between here and Stage 4.**
 
-**Two offline tasks still come first:**
+1. **Verify the registry** (~2 hours, §7.2) — still the hard gate (§13.12). Work
+   `data/reference/state_source_registry_worksheet.csv` (or the formatted copy at
+   `output/state_source_registry_worksheet_2026-08-27.xlsx`) down to 50 confirmed
+   rows in `data/reference/state_source_registry.csv`. Load each URL and set
+   `last_verified`. **Florida first.** While in each state's pages, capture the
+   budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
 
-1. **Verify the registry** (~2 hours, §7.2). Work
-   `data/reference/state_source_registry_worksheet.csv` — or the formatted copy
-   at `output/state_source_registry_worksheet_2026-08-27.xlsx` — down to 50
-   confirmed rows in `data/reference/state_source_registry.csv`. Load each URL
-   and set `last_verified`. **Florida first.** While in each state's pages,
-   **capture the budget narrative URL for §7A.2.** Check the result with
-   `Rscript R/03_state_registry.R --validate`.
-2. **Widen the egress allowlist before the collection pass.**
-   `dhss.delaware.gov` is now allowlisted and Delaware is complete; every other
-   state health department host is still blocked. §7A.2 needs fifty of them.
-   Oklahoma next — it is the other reference state, and its narrative is the
-   only one of the two still unarchived.
+2. **Widen the egress allowlist before the §7A.2 collection pass.** Three hosts
+   went in this session and all three paid off immediately; 48 state health
+   department hosts are still blocked and §7A.2 needs fifty. **Oklahoma next** —
+   it is the other reference state and its narrative is the only one of the two
+   still unarchived. Worth adding `web.archive.org` too: it would have settled
+   Georgia's 80/7 phase split as fact instead of an inference.
 
-**Then §7A.2 collection** — 48 states to go (49 narratives still unarchived; only Delaware's is on disk). It is bounded and checkable in a
-way nothing sourced from RCJ is: you know when you have all fifty. Each
-narrative lands under `data/evidence/budget_narratives/<state>/`, and
+**Then §7A.2 collection** — 48 states to go. Bounded and checkable in a way
+nothing sourced from RCJ is: you know when you have all fifty. Each narrative
+lands under `data/evidence/budget_narratives/<state>/`, and
 `Rscript R/03b_budget_narratives.R --build` reconciles it the moment its
-extraction exists. Build `data/reference/budget_narrative_status.csv` as part
-of that pass — it records what was searched and when, so it cannot be seeded in
-advance.
+extraction exists. Build `data/reference/budget_narrative_status.csv` as part of
+that pass.
 
 **Then Stage 4** — and **not before the §7.3 registry is verified.** Document
 clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation
-corroborator (§9.3). Requires **Full** network access — clear with AHA IT
-first — and the AHA Annual Survey / CMS Provider of Services extracts committed
-before the hospital determination session.
+corroborator (§9.3). Requires **Full** network access — clear with AHA IT first.
 
-`qa_assertions.R` is still unbuilt. §13.25 and §13.27 are already satisfied by
-the code and only need asserting.
+**Two things this session set up for whoever does Stage 5.** The §8
+`recipient_type` question is settled and FL+GA union cleanly, so the column can
+be keyed off safely. And Georgia's 87 named hospitals carry addresses and CMS
+designations — they are the readiest cohort in the project for a CCN match, which
+makes the **AHA Annual Survey / CMS Provider of Services extracts** (blocker 5)
+the next binding constraint rather than a distant one.
 
-**Two files landed from the owner that no stage reads yet.** `DE Verify.xlsx`
-is the §9.11 premise-test evidence — 11 hand-verified Delaware records, and the
-`hospital_yn` column is still the pre-§0.3a coding, so Beebe, TidalHealth and
-Nemours read `no` in it. `FL_year1_awardees.xlsx` is 81 Florida Year 1 awards
-with recipient-level amounts, the first complete Deliverable 1 dataset and the
-answer to the §4.1 Florida gap. Note before ingesting it: its `recipient_type`
-column uses `PHYSICIAN_PRACTICE` and `UNCLASSIFIED`, neither of which is in the
-§8 vocabulary, so either the vocabulary grows or those 13 rows are re-coded.
-**Georgia now makes that decision cheaper to take:** `GA_year1_awardees.xlsx`
-carries FL's 19 columns in order and stays inside the §8 vocabulary throughout,
-so the two states union today — with the 13 Florida rows as the only obstacle.
-
-**The §8 vocabulary needs one deliberate decision, not two.** Georgia needed no
-new code, but it did surface that `recipient_type` has no value for *a named
-entity whose form is not determinable from the source* — Florida reached for
-`UNCLASSIFIED` and Georgia used `NONPROFIT_CBO` with a `LOW` confidence and a
-`RECIPIENT_TYPE_INFERRED` flag. Those are two different answers to one question.
-Settle it before Stage 5 keys a hospital determination off the column.
+`qa_assertions.R` is still unbuilt and is now the only stage with no file at all.
 
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 520 assertions, zero quota
+Rscript tests/run_tests.R                        # 728 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -1023,8 +1117,12 @@ Rscript R/03c_cms_abstracts.R --validate         # §4.1 assertions, offline
 Rscript R/03c_cms_abstracts.R --build            # renders abstract_named_organizations.xlsx
 Rscript R/03d_ga_great_health.R --validate       # GA assertions + reconciliation, offline
 Rscript R/03d_ga_great_health.R --build          # writes GA csv + GA_year1_awardees.xlsx
+Rscript R/03e_fl_year1_awardees.R --ingest       # owner's FL workbook -> committed CSV
+Rscript R/03e_fl_year1_awardees.R --validate     # FL §8 vocabulary assertions, offline
+Rscript R/03e_fl_year1_awardees.R --build        # renders FL_year1_awardees.xlsx
 Rscript R/00_cms_press_monitor.R --status        # what the CMS trigger list says
-Rscript R/00_cms_press_monitor.R --run           # needs www.medicaid.gov allowlisted
+Rscript R/00_cms_press_monitor.R --run           # live; medicaid.gov allowlisted
+Rscript R/00_cms_press_monitor.R --parse         # re-parse newest archive, no network
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the
