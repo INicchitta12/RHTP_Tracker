@@ -3,3 +3,4 @@ run_utc,run_type,fetch_date,archive_path,shape,rows,states,new_states,new_rows,c
 2026-08-28T14:12:59Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
 2026-08-28T14:13:32Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
 2026-08-28T14:13:43Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
+2026-08-28T14:38:14Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
