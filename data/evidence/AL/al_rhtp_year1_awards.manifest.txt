@@ -1,7 +1,7 @@
 RHTP tracker archive (spec 0.4 / 0.5): Alabama Rural Health Transformation
 Program (ARHTP), first round of grant awards.
 
-fetched_utc     : 2026-08-28T15:51:39Z
+fetched_utc     : 2026-08-28T16:01:26Z
 state           : AL
 host            : governor.alabama.gov
 http_status     : 200

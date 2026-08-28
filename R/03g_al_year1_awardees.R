@@ -126,7 +126,9 @@ rhtp_al_fetch <- function(force = FALSE) {
          ". Refusing to archive a parse that does not match.", call. = FALSE)
   }
 
-  writeLines(body, path, useBytes = TRUE)
+  # writeBin, not writeLines: writeLines appends a trailing newline and the
+  # manifest's sha256 would then not verify against the archived file itself.
+  writeBin(charToRaw(body), path)
 
   writeLines(paste0(
     "RHTP tracker archive (spec 0.4 / 0.5): Alabama Rural Health Transformation\n",

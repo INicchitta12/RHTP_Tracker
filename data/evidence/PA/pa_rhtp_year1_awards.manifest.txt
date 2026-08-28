@@ -1,7 +1,7 @@
 RHTP tracker archive (spec 0.4 / 0.5): Pennsylvania RHTP Year 1, first
 tranche of authorized projects.
 
-fetched_utc     : 2026-08-28T15:49:11Z
+fetched_utc     : 2026-08-28T16:01:23Z
 state           : PA
 host            : www.pa.gov
 program         : Pennsylvania Rural Health Transformation Plan (RHTP)

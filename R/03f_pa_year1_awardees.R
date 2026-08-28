@@ -122,8 +122,13 @@ rhtp_pa_fetch <- function(force = FALSE) {
          "count.", call. = FALSE)
   }
 
-  writeLines(announcement$body, announcement$path, useBytes = TRUE)
-  writeLines(projects$body, projects$path, useBytes = TRUE)
+  # writeBin, not writeLines. writeLines appends a trailing newline, which makes
+  # the archived file one byte longer than the body that was digested -- so the
+  # manifest's sha256 would not verify against the file a reader has in hand.
+  # Writing the bytes exactly is what makes the digest checkable offline, and a
+  # test does check it.
+  writeBin(charToRaw(announcement$body), announcement$path)
+  writeBin(charToRaw(projects$body), projects$path)
 
   sha <- function(x) digest::digest(x, algo = "sha256", serialize = FALSE)
   nbytes <- function(x) nchar(x, type = "bytes")
