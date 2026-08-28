@@ -19,9 +19,10 @@ Hello, before any certificate is offered.
 * Recv failure: Connection reset by peer
 ```
 
-Reproduced **24 times over ~15 minutes** and across three independent TLS
-stacks — curl (HTTP/2 and forced HTTP/1.1), Python `urllib`, and
-`openssl s_client` — so it is not a client, ALPN or fingerprint problem. The
+Reproduced on **every one of 28 curl attempts between 14:56 and 15:11 UTC**
+(19 of them a paced retry loop, logged one per line), and on single attempts
+through three further clients — Python `urllib`, `openssl s_client`, and
+WebFetch — so it is not a client, ALPN or TLS-fingerprint problem. The
 proxy's own `recentRelayFailures` records **no policy denial** for
 `web.archive.org`, which is what distinguishes this from a blocked host: the
 policy permits it and the connection dies upstream of the policy.

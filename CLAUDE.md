@@ -554,8 +554,8 @@ locale at source time — keep both (§3.3).
    recipient-level list already published behind it.
 7. **`web.archive.org` is permitted by policy but unreachable, and the apex
    `archive.org` is denied.** The gateway completes the CONNECT and the TLS
-   handshake is then reset by the peer; 24 attempts across three TLS stacks,
-   and the proxy logs no policy denial. This is what keeps Georgia's 80/7 phase
+   handshake is then reset by the peer; 28 curl attempts over 15 minutes plus
+   three further clients, and the proxy logs no policy denial. This is what keeps Georgia's 80/7 phase
    split an inference rather than a fact, and it is the only way to read a page
    as it stood on a past date — which this project will want again. Re-test it;
    the failure was upstream of the policy, so it may clear without a change.
@@ -1099,10 +1099,10 @@ calls to `www.cms.gov` (archived), 24 refused to `web.archive.org`.
 
 **`web.archive.org` is allowed but not reachable.** The gateway answers
 `200 Connection Established` to the CONNECT and the TLS handshake is then reset
-by the peer, before any certificate. Reproduced 24 times across curl (h2 and
-forced HTTP/1.1), Python `urllib` and `openssl s_client`, and the proxy logs
-**no policy denial** for it — which is exactly what separates this from a
-blocked host. The apex `archive.org`, where the `/wayback/available` API lives,
+by the peer, before any certificate. Reproduced on every one of 28 curl attempts
+over 15 minutes, and on Python `urllib`, `openssl s_client` and WebFetch, and
+the proxy logs **no policy denial** for it — which is exactly what separates
+this from a blocked host. The apex `archive.org`, where the `/wayback/available` API lives,
 *is* a policy denial (`connect_rejected`, 403).
 
 **So Georgia's 80/7 split is still an inference and nothing was changed.**
