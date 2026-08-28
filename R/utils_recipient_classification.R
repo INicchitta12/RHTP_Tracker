@@ -378,28 +378,32 @@ rhtp_recipient_type_from_org_type <- function(org_type, delimiter = ";") {
 # is already fixed. They separate the three non-hospital flows from each other;
 # they can never turn a non-hospital recipient into a hospital one.
 #
-# PASS_THROUGH markers: the money is stated to reach hospitals that the source
-# does not name. §0.3 and §10.2 both say do not impute -- Unclear.
+# PASS_THROUGH markers: the money is stated to reach hospitals the source does
+# not name. §0.3 and §10.2 both say do not impute -- Unclear.
 RHTP_PASS_THROUGH_MARKERS <- paste(
   "at (four|five|six|seven|eight|nine|ten|\\d+|several|multiple) [a-z ]*hospitals",
   "to (rural )?(partner |member |participating )?hospitals",
   "sub-?award", "subrecipient", "pass-?through",
-  "hospitals will (be able to )?(apply|receive)",
+  "hospitals? will (be able to )?(apply|receive)",
   sep = "|"
 )
 
-# IN_KIND markers: hospitals use or are served by the funded thing, but the
-# recipient keeps the money. §10.2 keeps these visible rather than discarding
-# them -- they matter to AHA's narrative and must never enter a distributed
-# total.
-RHTP_IN_KIND_MARKERS <- paste(
-  "serving \\d+ rural hospitals", "for rural (healthcare )?providers",
-  "rural hospitals and clinics", "hospitals?[a-z, ]* and (clinics|providers)",
-  "among participating [a-z, ]*hospitals",
-  "network[a-z ]* (for|serving|connecting)[a-z ]*hospitals",
-  "hospitals?\\b[^.]{0,60}\\b(use|access|connect|share)",
-  sep = "|"
-)
+# Any mention of a hospital at all. This is deliberately broad, because of what
+# it is used for: once the recipient is known NOT to be a hospital, a source
+# that mentions hospitals anywhere in the funded work has told us hospitals are
+# involved, and §10.2 has a code for that (IN_KIND_BENEFIT) which is not the
+# same as silence (NON_HOSPITAL).
+#
+# The earlier version of this rule was a list of specific phrasings, and it
+# under-fired on real data in a way that mattered: the Alaska Stroke Coalition's
+# "statewide AI imaging network across 21 acute care hospitals" and the Alaska
+# Hospital & Healthcare Association's assessments for three NAMED critical
+# access hospitals both read as NON_HOSPITAL, which says the source is silent
+# about hospitals when it is the opposite. Nothing about the distributed total
+# changes either way -- IN_KIND_BENEFIT is `No` -- but §10.2 keeps these dollars
+# visible on purpose, because they matter to AHA's narrative, and a rule that
+# only catches the phrasings someone thought of is a rule that loses them.
+RHTP_HOSPITAL_MENTION <- "\\bhospitals?\\b|\\bcritical access\\b"
 
 
 #' Apply the §10.2 flow table
@@ -446,15 +450,16 @@ rhtp_classify_flow <- function(recipient_type, description) {
       ))
     }
 
-    if (stringr::str_detect(low, RHTP_IN_KIND_MARKERS)) {
+    if (stringr::str_detect(low, RHTP_HOSPITAL_MENTION)) {
       return(tibble::tibble(
         flow_type = "IN_KIND_BENEFIT",
         distributed_to_hospital = "No",
         hospital_benefiting = "Yes",
         flow_basis = paste0(
           "§10.2 IN_KIND_BENEFIT: the recipient is not a hospital and keeps the ",
-          "funds; hospitals use or are served by what the funds build. These ",
-          "dollars must never enter a 'funds distributed to hospitals' total."
+          "funds, and the source names hospitals among the parties the funded ",
+          "work serves. These dollars must never enter a 'funds distributed to ",
+          "hospitals' total; they are kept visible rather than discarded."
         ),
         flow_flag = NA_character_
       ))
@@ -467,7 +472,7 @@ rhtp_classify_flow <- function(recipient_type, description) {
       flow_basis = paste0(
         "§10.2 NON_HOSPITAL: the named recipient is not a hospital (§0.3a -- ",
         "judged on the recipient, not the activity), and the source does not ",
-        "state that hospitals receive or use the funded activity."
+        "mention hospitals anywhere in the funded work."
       ),
       flow_flag = NA_character_
     )

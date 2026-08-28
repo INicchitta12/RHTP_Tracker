@@ -1,0 +1,49 @@
+RHTP tracker archive (spec 0.4 / 0.5): Alaska RHTP Year 1 notices of intent
+to award.
+
+fetched_utc     : 2026-08-28T15:56:11Z
+state           : AK
+host            : health.alaska.gov
+http_status     : 200
+source_doc_type : NOTICE_OF_INTENT_TO_AWARD
+program         : Alaska Rural Health Transformation Program, DOH
+sheet           : Notice of Intent to Award
+cms_year1_award : ~$160,000,000 (CMS 2026-08-25 release)
+
+FILE
+
+  file    : 2026-08-28_ak_rhtp_awardsnotice_2026.xlsx
+  title   : Alaska RHTP Awards Notice 2026
+  url     : https://health.alaska.gov/media/tcvker5a/ak_rhtp_awardsnotice_2026.xlsx
+  program : https://health.alaska.gov/en/education/rural-health-transformation-program/
+  bytes   : 64895
+  sha256  : 1db9aa4c1b13d93df95f66e7d657b6971d1575e3e0d3b1be458141616be8a245
+  rows    : 161
+
+  by Project Type:
+    Implementation  142
+    Planning  19
+
+  notification dates present: 2026-08-07, 2026-08-14, 2026-08-21
+
+WHAT THIS DOCUMENT SUPPORTS (spec 9.2, Part A of reviewer-coding-instructions)
+
+THE 161-VS-142 GAP IS RESOLVED HERE. CMS states '142 projects' for Alaska.
+The file holds 161 rows because 19 of them are PLANNING awards and 142 are
+IMPLEMENTATION awards -- Alaska's own Project Type column, corroborated
+independently by the App ID prefix (BP1-PL appears on exactly 19). Both
+figures are right and they count different things. Nothing is dropped and
+no average is taken (session 11 left this open with a different and wrong
+hypothesis: one line per activity type).
+
+THESE ARE NOTICES OF INTENT TO AWARD AND THE AMOUNTS ARE PRELIMINARY.
+Alaska says both in its own sheet name and its own column header. Rows carry
+recipient_confirmed = Yes and amount_confirmed = No: §9.3 splits those two
+questions precisely so a preliminary figure does not drag a confirmed
+recipient down with it.
+
+THIS IS A SNAPSHOT OF A ROLLING FILE. DOH is releasing notices weekly and
+has said it will publish a comprehensive dashboard once all awards are
+announced. notification_date is on every row; diff a later pull against this
+digest rather than replacing it blind.
+

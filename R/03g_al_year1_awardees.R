@@ -511,8 +511,8 @@ rhtp_al_assert <- function(records = rhtp_al_build()) {
   }
 
   for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
-                "determination_confidence")) {
-    bad <- setdiff(unique(records[[col]]), rhtp_vocabulary(col))
+                "determination_confidence", "flag_reason")) {
+    bad <- setdiff(stats::na.omit(unique(records[[col]])), rhtp_vocabulary(col))
     if (length(bad)) {
       stop("[AL] ", col, " outside §8: ", paste(bad, collapse = ", "),
            call. = FALSE)
