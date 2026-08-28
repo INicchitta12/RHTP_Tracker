@@ -30,14 +30,28 @@
 # fails loudly instead of silently writing an empty or wrong CSV, which is the
 # §5.2 silent short-read failure mode in a different costume.
 #
-# EGRESS. medicaid.gov is NOT on the environment allowlist as of 2026-08-28.
-# Both routes were tried and both were refused at CONNECT (403), so this script
-# has never run against the live page. Everything in it is exercised by
-# tests/testthat/test_00_cms_press_monitor.R against fixtures covering the
-# shapes the page plausibly takes. Add www.medicaid.gov to the allowlist
-# (Claude Code on the web -> environment settings -> network access) and
-# `--run` works unchanged. Until then it stops with that instruction rather
-# than writing a file that would read as "no state has announced anything".
+# EGRESS. www.medicaid.gov was allowlisted on 2026-08-28 and this script has now
+# run against the live page. Akamai fronts that host and returns 403 to a user
+# agent carrying no contact URL -- including to a spoofed browser UA -- so
+# config api$user_agent now uses the +url form, which is the well-behaved-crawler
+# convention and what gets through. Identifying honestly is the fix here.
+#
+# WHAT THE LIVE PAGE TAUGHT US. It is a table, but its header row is marked up
+# with <td> rather than <th>. html_table() therefore named the columns X1..X5,
+# every synonym lookup missed, the table scored 0, and the parser fell through
+# to the link-list shape -- which did not fail, it succeeded with less: no dates
+# at all, and the state read by matching a state name in the headline instead of
+# from the page's own State column. cms_press_promote_header() promotes such a
+# row, and only when doing so resolves strictly more columns, so it can never
+# make a working parse worse. That failure mode is worth remembering: the
+# refusals below guard against parsing the WRONG thing, and this was the other
+# kind -- parsing the right thing less well, silently.
+#
+# Once the table shape was reachable it surfaced two rows the link-list shape
+# had been dropping by luck: CMS lists its national announcements (the $50bn
+# programme launch, the all-50-states award) in the same table with State =
+# "All". They are Tier 1 (§0.2) and this is the STATE trigger list, so they are
+# excluded deliberately and the count is reported.
 #
 # Conventions (CLAUDE.md §3): tidyverse, %>% only -- never |>. No setwd(); all
 # paths go through here::here().
@@ -130,12 +144,13 @@ rhtp_fetch_cms_press <- function(fetch_date = Sys.Date(), force = FALSE) {
       stop(
         "Could not reach ", CMS_PRESS_URL, ".\n",
         "  ", conditionMessage(e), "\n\n",
-        "medicaid.gov was NOT on the environment allowlist when this script was\n",
-        "written (2026-08-28) and a CONNECT refusal is the expected symptom.\n",
-        "Add www.medicaid.gov in Claude Code on the web -> environment settings\n",
-        "-> network access, then re-run. Nothing is written until the fetch\n",
-        "succeeds: an empty CSV here would read as 'no state has announced an\n",
-        "award', which is the opposite of the truth.",
+        "www.medicaid.gov is allowlisted and this has worked since\n",
+        "2026-08-28, so a 403 here most likely means the user agent lost its\n",
+        "contact URL (config api$user_agent): Akamai fronts that host and\n",
+        "refuses a UA without one -- a spoofed browser UA is refused too.\n",
+        "Nothing is written until the fetch succeeds: an empty CSV would\n",
+        "read as 'no state has announced an award', which is the opposite\n",
+        "of the truth.",
         call. = FALSE
       )
     }
@@ -214,6 +229,37 @@ cms_press_resolve_columns <- function(headers) {
 
 
 #' Score a candidate table: how many fields resolve, `state` being mandatory
+# A header row marked up with <td> instead of <th>. html_table() then names the
+# columns X1..Xn and every synonym lookup misses, so a page that IS a table
+# scores 0 and the parser falls through to the link-list shape. That fallback
+# does not fail loudly -- it succeeds with less: no dates at all, and the state
+# read by matching a state name in the press-release title rather than from the
+# page's own State column. The live medicaid.gov page is exactly this shape.
+#
+# Promotion is accepted only when it resolves strictly MORE columns than the
+# positional names did, so it can only ever improve a parse.
+# CMS states the figure in the headline, not in a column -- "Trump
+# Administration Announces $93.3 Million to ...". The link-list shape always
+# mined it from the title; the table shape now does the same when the table
+# carries no amount column, so promoting the header does not cost the figure.
+# It is a DISCOVERY value either way and is never summed (§0.1, §0.2).
+CMS_PRESS_AMOUNT_PATTERN <- "\\$[0-9][0-9,\\.]*\\s*(million|billion|M|B)?"
+
+cms_press_promote_header <- function(tbl) {
+  if (!is.data.frame(tbl) || nrow(tbl) < 2 || ncol(tbl) == 0) return(tbl)
+  if (!all(stringr::str_detect(names(tbl), "^X\\d+$"))) return(tbl)
+
+  hdr <- as.character(unlist(tbl[1, ], use.names = FALSE))
+  if (any(is.na(hdr)) || !all(nzchar(stringr::str_trim(hdr)))) return(tbl)
+  if (dplyr::n_distinct(hdr) != length(hdr)) return(tbl)
+
+  promoted <- tbl[-1, , drop = FALSE]
+  names(promoted) <- stringr::str_squish(hdr)
+
+  resolved <- function(x) sum(!is.na(unlist(cms_press_resolve_columns(names(x)))))
+  if (resolved(promoted) > resolved(tbl)) promoted else tbl
+}
+
 cms_press_score_table <- function(tbl) {
   if (!is.data.frame(tbl) || nrow(tbl) == 0 || ncol(tbl) == 0) return(-1L)
   cols <- cms_press_resolve_columns(names(tbl))
@@ -250,8 +296,8 @@ cms_press_parse_amount <- function(x) {
 #' Parse a date string in the formats a CMS page plausibly uses
 cms_press_parse_date <- function(x) {
   raw <- stringr::str_trim(as.character(x))
-  fmts <- c("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y", "%B %d, %Y", "%b %d, %Y",
-            "%d %B %Y", "%B %Y", "%b %Y")
+  fmts <- c("%Y-%m-%d", "%m-%d-%Y", "%m/%d/%Y", "%m-%d-%y", "%m/%d/%y",
+            "%B %d, %Y", "%b %d, %Y", "%d %B %Y", "%B %Y", "%b %Y")
 
   out <- as.Date(rep(NA_character_, length(raw)))
   for (f in fmts) {
@@ -305,7 +351,8 @@ rhtp_parse_cms_press_html <- function(html) {
   # --- shape A: an HTML table -----------------------------------------------
   nodes <- rvest::html_elements(doc, "table")
   if (length(nodes)) {
-    tables <- suppressWarnings(purrr::map(nodes, rvest::html_table))
+    tables <- suppressWarnings(purrr::map(nodes, rvest::html_table)) %>%
+      purrr::map(cms_press_promote_header)
     scores <- purrr::map_int(tables, cms_press_score_table)
 
     if (max(scores) > 0) {
@@ -340,11 +387,16 @@ rhtp_parse_cms_press_html <- function(html) {
       urls <- utils::tail(urls, nrow(tbl))
       if (length(urls) != nrow(tbl)) urls <- rep(NA_character_, nrow(tbl))
 
+      title <- pluck_col("title")
       out <- tibble::tibble(
         state_raw = pluck_col("state"),
         date_raw  = pluck_col("date"),
-        amount_raw = pluck_col("amount"),
-        title = pluck_col("title"),
+        amount_raw = if (is.na(cols[["amount"]])) {
+          stringr::str_extract(title, CMS_PRESS_AMOUNT_PATTERN)
+        } else {
+          pluck_col("amount")
+        },
+        title = title,
         url = urls
       ) %>%
         dplyr::filter(!is.na(.data$state_raw), nzchar(stringr::str_trim(.data$state_raw)))
@@ -384,7 +436,7 @@ rhtp_parse_cms_press_html <- function(html) {
         "[A-Z][a-z]+ \\d{1,2}, \\d{4}|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}/\\d{1,2}/\\d{2,4}"
       ),
       amount_raw = stringr::str_extract(
-        .data$title, "\\$[0-9][0-9,\\.]*\\s*(million|billion|M|B)?"
+        .data$title, CMS_PRESS_AMOUNT_PATTERN
       )
     ) %>%
     dplyr::distinct(.data$state_raw, .data$title, .keep_all = TRUE)
@@ -394,7 +446,34 @@ rhtp_parse_cms_press_html <- function(html) {
 
 
 #' Common tail of both shapes: type, normalize, order, attach provenance
+# CMS lists its two national announcements -- the $50 billion programme launch
+# and the all-50-states award announcement -- in the same table as the state
+# ones, with the State cell reading "All". They are not state announcements and
+# they are not Tier 3: they are the CMS->states programme itself (§0.2 Tier 1),
+# and this file is the STATE trigger list. They are dropped here deliberately
+# and the count is reported, rather than being left to fail the §7.1 state
+# mapping (which is what a genuinely unmappable value must still do) or to
+# vanish silently, which is what the link-list shape did by accident because
+# their titles happen to name no single state.
+CMS_PRESS_NATIONAL_MARKERS <- c(
+  "all", "all states", "all 50 states", "all fifty states", "national",
+  "nationwide", "multiple", "multiple states", "n/a", "-"
+)
+
+cms_press_is_national <- function(x) {
+  stringr::str_squish(stringr::str_to_lower(as.character(x))) %in%
+    CMS_PRESS_NATIONAL_MARKERS
+}
+
 cms_press_finalize <- function(out, shape) {
+  national <- cms_press_is_national(out$state_raw)
+  if (any(national)) {
+    message("  excluded ", sum(national), " national (non-state) announcement(s): ",
+            paste(unique(stringr::str_squish(out$state_raw[national])), collapse = ", "),
+            " -- Tier 1 programme announcements, not state award announcements")
+    out <- out[!national, , drop = FALSE]
+  }
+
   out <- out %>%
     dplyr::mutate(
       state = cms_press_state_code(.data$state_raw),

@@ -15,7 +15,12 @@ api:
   key_env_var: "RCJ_API_KEY"
   # "bearer" -> Authorization: Bearer <key>;  "x_api_key" -> X-Api-Key: <key>
   auth_scheme: "bearer"
-  user_agent: "AHA-RHTP-Tracker/0.1 (R httr2; contact: AHA Data & Policy)"
+  # The +url form is the well-behaved-crawler convention, and medicaid.gov
+  # requires it: Akamai fronts that host and returns 403 to a user agent with no
+  # contact URL -- including, notably, to a spoofed browser UA. Identifying
+  # honestly is what gets through, so this is the compliant fix and not a
+  # workaround. Verified 2026-08-28 against medicaid.gov and cms.gov.
+  user_agent: "AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)"
   timeout_seconds: 60
 
   # Confirmed live against our key on 2026-08-27. Our key is on the Pro plan:
