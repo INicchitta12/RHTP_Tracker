@@ -18,13 +18,23 @@ STATE_FILES <- c(
   GA = "data/reference/ga_great_health_awards.csv",
   PA = "data/reference/pa_year1_awardees.csv",
   AL = "data/reference/al_year1_awardees.csv",
-  AK = "data/reference/ak_year1_awardees.csv"
+  AK = "data/reference/ak_year1_awardees.csv",
+  # South Dakota is TWO files, because South Dakota published two different
+  # kinds of document and they must not be added together: 13 executed
+  # ADMINISTRATIVE contracts with named vendors, and two ANNOUNCED ROUNDS
+  # ($121.5M) whose recipients the state has never published. Session 12's
+  # notes said "all six states union", but SD was never in this list and
+  # nothing checked -- which is the same gap, one file later, that this
+  # test exists to close.
+  SD_CONTRACTS    = "data/reference/sd_rht_contracts.csv",
+  SD_ANNOUNCEMENTS = "data/reference/sd_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
 # the whole file: each state appends its own fields after it (Georgia's phases,
-# Alabama's counties, Alaska's App IDs), which is the arrangement Georgia
-# established and the reason the union is possible at all.
+# Alabama's counties, Alaska's App IDs, South Dakota's contract numbers and
+# round ids), which is the arrangement Georgia established and the reason the
+# union is possible at all.
 LEADING_COLUMNS <- c(
   "state", "row_no", "awardee", "amount", "recipient_type",
   "distributed_to_hospital", "note", "recipient_confirmed", "amount_confirmed",
@@ -45,20 +55,20 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all five states carry the leading 19 columns, in the same order", {
+test_that("all seven files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the five states union without a coercion failure", {
+test_that("the seven files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
       dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
-  expect_equal(sort(unique(u$state)), c("AK", "AL", "FL", "GA", "PA"))
+  expect_equal(sort(unique(u$state)), c("AK", "AL", "FL", "GA", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {
@@ -82,7 +92,7 @@ test_that("no categorical value anywhere in the union is outside §8", {
   }
 })
 
-test_that("§10.2 holds across all five states at once", {
+test_that("§10.2 holds across all states at once", {
   # A hospital coding that a single state's own assertions would let through
   # because it never compares itself to the others.
   for (st in names(state_tables)) {
@@ -104,10 +114,10 @@ test_that("every row names a state source and a source document", {
   }
 })
 
-test_that("the three new states each carry an archived source on disk", {
-  # PA, AL and AK were extracted this session; each names an archive path and
-  # the file has to be there, because §0.5 says an uncommitted archive is gone.
-  for (st in c("PA", "AL", "AK")) {
+test_that("the states extracted from archives each carry one on disk", {
+  # PA, AL, AK and both South Dakota files name an archive path, and the file
+  # has to be there, because §0.5 says an uncommitted archive is gone.
+  for (st in c("PA", "AL", "AK", "SD_CONTRACTS", "SD_ANNOUNCEMENTS")) {
     d <- state_tables[[st]]
     expect_true("source_archive_path" %in% names(d), info = st)
     for (p in unique(d$source_archive_path)) {

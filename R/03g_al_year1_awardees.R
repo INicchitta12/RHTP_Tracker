@@ -33,8 +33,30 @@
 # visible and must stay visible: the release's own figures sum to $143,745,821
 # while its headline says "more than $144 million". That gap is the rounding,
 # it is reported on the Reconciliation sheet, and it is NOT closed by adjusting
-# a number nobody published. ADECA's own award file would settle it; adeca.
-# alabama.gov and alabamarhtp.com are both still unreachable from this session.
+# a number nobody published.
+#
+# ADECA WAS SEARCHED IN SESSION 13 AND PUBLISHES NO AWARD FILE. adeca.alabama.gov
+# was allowlisted specifically to close this $254,179 gap. It does not close it:
+#
+#   - ADECA's own post of 2026-08-24 (post id 22417) is a VERBATIM MIRROR of the
+#     governor's release. Its body carries the same 46 million-form amounts, and
+#     an amount-by-amount comparison of the two documents found no figure in one
+#     that is absent from the other. Same prose, same rounding.
+#   - The ARHTP programme page (/alruralhealth/) links four documents -- the
+#     project narrative, the rural-counties list, the launch timeline and a
+#     workshop memo. None is an award list.
+#   - The WordPress media library was enumerated (search on "rhtp", "rural
+#     health", "award", "grant", plus every upload since 2026-06-01). The only
+#     ARHTP files are those four. There is no awarded-projects PDF, xlsx or csv.
+#
+# ADECA's page points to alabamarhtp.com for programme resources, and that host
+# is STILL refused at CONNECT (both the apex and www). It remains the one place
+# the exact figures are likely to be. Ask for alabamarhtp.com, not ADECA.
+#
+# So the 45 AMOUNT_ROUNDED_IN_SOURCE flags STAY. They are correct: the state
+# published those amounts rounded, and no reachable state source publishes them
+# any other way. Replacing them with reconstructed figures would be this
+# pipeline asserting a precision Alabama has not.
 #
 # COUNTY LISTS ARE KEPT WHOLE (§8: never discard the state's own language).
 #
@@ -159,9 +181,12 @@ rhtp_al_fetch <- function(force = FALSE) {
     "as a rounded number of millions ('$6.38 million'). They are stored as\n",
     "published, flagged amount_precision = ROUNDED_TO_MILLIONS, and the resulting\n",
     "gap -- the release's own figures sum to $143,745,821 against its headline\n",
-    "'more than $144 million' -- is reported rather than closed. ADECA publishes\n",
-    "the underlying award file; adeca.alabama.gov and alabamarhtp.com were both\n",
-    "unreachable when this was extracted.\n\n",
+    "'more than $144 million' -- is reported rather than closed. Session 13\n",
+    "searched adeca.alabama.gov for the underlying award file and it is NOT\n",
+    "there: ADECA's own 2026-08-24 post is a verbatim mirror of this release\n",
+    "carrying the same 46 million-form amounts, and its media library holds no\n",
+    "awarded-projects file. alabamarhtp.com, which ADECA points to for\n",
+    "resources, is still refused at CONNECT and remains the likely location.\n\n",
     "14 OF THE 138 ARE SECOND GRANTS carried in a continuation paragraph that\n",
     "names no recipient of its own. They inherit the preceding recipient and\n",
     "carry award_sequence = SECOND. Reading only the list items would lose them.\n"
