@@ -1,0 +1,42 @@
+RHTP tracker archive (spec 0.4 / 0.5): Alabama Rural Health Transformation
+Program (ARHTP), first round of grant awards.
+
+fetched_utc     : 2026-08-28T15:51:39Z
+state           : AL
+host            : governor.alabama.gov
+http_status     : 200
+source_doc_type : GOVERNOR_PRESS_RELEASE
+program         : Alabama Rural Health Transformation Program (ARHTP),
+                  administered by ADECA
+cms_year1_award : $203,404,326.54 (stated in the release's footnote)
+
+FILE
+
+  file    : 2026-08-24_governor_ivey_first_arhtp_grants.html
+  title   : Governor Ivey Announces First Grants in Major New Rural
+            Healthcare Program Totaling More than $144 Million
+  date    : 2026-08-24
+  url     : https://governor.alabama.gov/newsroom/2026/08/governor-ivey-announces-first-grants-in-major-new-rural-healthcare-program-totaling-more-than-144-million/
+  bytes   : 207234
+  sha256  : 7c50a94aa37444345bc779ffbc7e66bd75e4600f7500daa41d49639ef6868b84
+
+WHAT THIS DOCUMENT SUPPORTS (spec 9.2, Part A of reviewer-coding-instructions)
+
+This is ONE document and it supports the coding on its own: it names the
+recipient, the amount, the initiative and the counties served for every one
+of the 138 grants, and it states them as awarded --
+'announced the awarding of 138 grants'. That is §9.2's Yes test met by an
+official governor's release naming the recipient.
+
+THE AMOUNTS ARE MIXED PRECISION. 93 are exact to the dollar; 45 are written
+as a rounded number of millions ('$6.38 million'). They are stored as
+published, flagged amount_precision = ROUNDED_TO_MILLIONS, and the resulting
+gap -- the release's own figures sum to $143,745,821 against its headline
+'more than $144 million' -- is reported rather than closed. ADECA publishes
+the underlying award file; adeca.alabama.gov and alabamarhtp.com were both
+unreachable when this was extracted.
+
+14 OF THE 138 ARE SECOND GRANTS carried in a continuation paragraph that
+names no recipient of its own. They inherit the preceding recipient and
+carry award_sequence = SECOND. Reading only the list items would lose them.
+

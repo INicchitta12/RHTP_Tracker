@@ -69,7 +69,7 @@ RHTP_RECIPIENT_TYPE_PATTERNS <- tibble::tribble(
   # and none is a hospital.
   "(?i)\\bhospitals?\\b",                                                     "HOSPITAL_OR_SYSTEM",          "HIGH",   "name states a hospital",
   "(?i)\\bmedical cent(er|re)\\b",                                            "HOSPITAL_OR_SYSTEM",          "HIGH",   "name states a medical center",
-  "(?i)\\bhealth(care)? system\\b",                                           "HOSPITAL_OR_SYSTEM",          "MEDIUM", "name states a health system",
+  "(?i)\\bhealth(care)? systems?\\b",                                          "HOSPITAL_OR_SYSTEM",          "MEDIUM", "name states a health system",
   # Alabama incorporates its county hospitals as `... Health Care Authority` /
   # `... Healthcare Authority`; the enabling statute (Ala. Code 22-21-310 et
   # seq.) is the hospital-authority chapter. Every one of them in this data is a
@@ -140,6 +140,33 @@ RHTP_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
   # A DBA that names a hospital, reached by pattern; listed here only because the
   # LLC parent would otherwise read as a vendor if the patterns were reordered.
   "AL", "Floyd Healthcare Management DBA Atrium Health Floyd EMS",                  "EMS_OR_PSAP",            "HIGH",   "the DBA names the hospital's EMS division, which is the recipient",
+  # Behavioural-health providers whose names carry "Health Systems". The pattern
+  # list reads that as a hospital system, and for these three that would inflate
+  # the hospital total on the strength of a word -- the §0.3 failure mode this
+  # project exists to avoid. The release states none of their forms, so each
+  # takes the settled fallback and a LOW confidence that tells a reviewer to
+  # look. AltaPointe in particular does operate licensed psychiatric hospitals;
+  # whether the entity that received these grants is that operator is exactly
+  # what the source does not say.
+  "AL", "AltaPointe Health Systems",                                                "NONPROFIT_CBO",          "LOW",    "community mental health provider; it operates psychiatric hospitals, but the release does not state which entity received the grant -- confirm before coding as a hospital",
+  "AL", "AltaPointe Health Systems Inc.",                                           "NONPROFIT_CBO",          "LOW",    "community mental health provider; it operates psychiatric hospitals, but the release does not state which entity received the grant -- confirm before coding as a hospital",
+  "AL", "Southwest Alabama Behavioral Health Care Systems DBA CarePath Behavioral Health", "NONPROFIT_CBO",  "MEDIUM", "community behavioral health provider; the 'Health Care Systems' token would otherwise read as a hospital system",
+  # UAB's regional medical campus, not a hospital and not reachable by the
+  # university pattern -- the name carries the initialism, not the word.
+  "AL", "UAB Montgomery",                                                           "UNIVERSITY_OR_AHC",      "MEDIUM", "UAB's Montgomery regional medical campus; the name carries no university token",
+  # Federally qualified health centers whose names do not say so.
+  "AL", "Whatley Health Services Inc.",                                             "FQHC_OR_RHC",            "MEDIUM", "federally qualified health center network",
+  "AL", "Rural Health Medical Program Inc.",                                        "FQHC_OR_RHC",            "MEDIUM", "federally qualified health center",
+  "AL", "Cahaba Medical Care Foundation",                                           "FQHC_OR_RHC",            "MEDIUM", "federally qualified health center; one of its own awards establishes a further FQHC site",
+  "AL", "Franklin Primary Health Center",                                           "FQHC_OR_RHC",            "MEDIUM", "federally qualified health center",
+  # THE RELEASE PUBLISHES THIS NAME TRUNCATED. Its own markup reads
+  # "<strong> Clair Community Health Clinic Inc.</strong>" -- the "St." is
+  # absent from the source, not lost in the parse, and the award text places the
+  # recipient in St. Clair County. §8 says keep the state's own language, so the
+  # name is stored exactly as published and the observation lives here and in
+  # the manifest rather than being silently corrected.
+  "AL", "Clair Community Health Clinic",                                            "NONPROFIT_CBO",          "LOW",    "free clinic for uninsured rural adults in St. Clair County; the release publishes the name without its leading 'St.'",
+  "AL", "Clair Community Health Clinic Inc.",                                       "NONPROFIT_CBO",          "LOW",    "free clinic for uninsured rural adults in St. Clair County; the release publishes the name without its leading 'St.'",
 
   # -- Pennsylvania -------------------------------------------------------
   # Skilled-nursing, personal-care and rehabilitation operators. None is a
