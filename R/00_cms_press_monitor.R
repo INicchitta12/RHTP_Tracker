@@ -763,17 +763,27 @@ rhtp_newsroom_archived_releases <- function() {
 }
 
 
+#' The topic index's empty shape, as one definition
+#'
+#' Used both for a first run (no index on disk yet) and for a run that learns
+#' nothing. Those are the same shape and there is no reason for them to be two
+#' literals that can drift apart.
+cms_newsroom_index_schema <- function() {
+  tibble::tibble(
+    slug = character(), url = character(), item_date = as.Date(character()),
+    item_type = character(), title = character(), topics = character(),
+    is_rural = logical(), reduced_sha256 = character(),
+    full_page_sha256 = character(), full_page_bytes = integer(),
+    first_indexed = character()
+  )
+}
+
+
 #' The committed topic index: every newsroom item ever seen, and its topic
 rhtp_newsroom_index <- function() {
   path <- here::here(rhtp_config()$paths$cms_newsroom_index)
   if (!file.exists(path)) {
-    return(tibble::tibble(
-      slug = character(), url = character(), item_date = as.Date(character()),
-      item_type = character(), title = character(), topics = character(),
-      is_rural = logical(), reduced_sha256 = character(),
-      full_page_sha256 = character(), full_page_bytes = integer(),
-      first_indexed = character()
-    ))
+    return(cms_newsroom_index_schema())
   }
   # first_indexed is pinned to character on the way back in. readr infers it as
   # a Date, and it then meets medicaid.gov's character first_seen in the union
@@ -1009,6 +1019,14 @@ rhtp_fetch_cms_newsroom <- function(fetch_date = Sys.Date(), force = FALSE) {
     )
   })
 
+  # purrr::map_dfr over zero rows returns a zero-COLUMN tibble, so `learned$is_rural`
+  # is NULL and every read of it warns "Unknown or uninitialised column". That is
+  # the STEADY STATE, not an edge case: once the topic index is warm, most runs
+  # learn nothing, so the twice-weekly Routine hit this on every run. sum(NULL) is
+  # 0, so the counts printed were right by luck -- which is the part worth fixing,
+  # because the next reader of that column would get NULL rather than an error.
+  if (nrow(learned) == 0) learned <- cms_newsroom_index_schema()
+
   index <- dplyr::bind_rows(learned, index) %>%
     dplyr::distinct(.data$slug, .keep_all = TRUE) %>%
     dplyr::arrange(dplyr::desc(.data$item_date), .data$slug)
@@ -1055,10 +1073,18 @@ rhtp_fetch_cms_newsroom <- function(fetch_date = Sys.Date(), force = FALSE) {
       "state allotment and the Tier 3 announcement in the same release --\n",
       "Virginia's names $122M in its headline and $189M in a quoted\n",
       "statement, and those are two different tiers of the same programme.\n\n",
-      "sha256 per file:\n",
+      "sha256 per file. MANIFEST.txt IS NOT LISTED IN ITSELF -- a manifest\n",
+      "cannot record its own digest, because the value would be stale the\n",
+      "instant the file is written. It listed itself until a second --run on\n",
+      "one archive date exposed it: the first run wrote the manifest AFTER\n",
+      "taking the listing, so the file did not exist to be listed and the\n",
+      "verification test passed on absence rather than on correctness.\n\n",
       paste(
         purrr::map_chr(
-          sort(list.files(archive_dir, recursive = TRUE, full.names = TRUE)),
+          sort(setdiff(
+            list.files(archive_dir, recursive = TRUE, full.names = TRUE),
+            file.path(archive_dir, "MANIFEST.txt")
+          )),
           function(f) paste0("  ", digest::digest(file = f, algo = "sha256"),
                              "  ", sub(paste0(archive_dir, "/"), "", f, fixed = TRUE))
         ),

@@ -49,6 +49,13 @@ Only Tier 3 answers the project question. Tiers 1 and 2 live in separate
 reference tables, on separate Excel sheets, and are **never** unioned with Tier
 3. Aggregation functions must **hard-fail** if passed mixed tiers.
 
+**The worked example lives in spec §0.2 — Virginia, two tiers on one page.**
+CMS's 2026-08-28 release headlines **$122M** and quotes **$189M** in the same
+document; the Governor's own release calls it *"$189.5 million in year-one
+funding"*, which rounds the **$189,544,888** allotment exactly. Both figures
+are official, both are "Virginia FY2026", and only the tier separates them.
+Read it before coding any state whose sources disagree about its total.
+
 ### 0.3 Eligibility is not receipt
 
 A solicitation listing hospitals among eligible entities is **not** evidence that
@@ -191,6 +198,7 @@ data/
     AK/                        #   the DOH award-notice workbook
     SD/                        #   the open.sd.gov search + 13 contract detail pages
     SD/announcements/          #   the two news.sd.gov releases, article element only
+    VA/                        #   the DMAS negative: 3 reduced pages + the governor's PDF
 output/
   rhtp_hospital_tracker_<date>.xlsx
   review_queue_<date>.xlsx
@@ -209,6 +217,7 @@ docs/
   session12_pa_al_ak_extraction_and_sd.md # PA/AL/AK extracted; the SD portal's shape
   session13_sd_announcements_adeca_and_monitor.md # SD names nobody; ADECA has no file
   session14_cms_newsroom_trigger_virginia.md # newsroom primary; VA is at RFA stage
+  session15_virginia_dmas_negative.md # DMAS hosts no RFA series; the §0.2 worked example
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -429,7 +438,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 14 — the trigger list stops lagging: cms.gov/newsroom is primary, Virginia found, and Virginia has no award list)
+**Last updated:** 2026-08-28 (Session 15 — Virginia's awards do not run through DMAS; the §0.2 worked example lands in the spec; a manifest that listed itself)
 
 ### Stages built
 
@@ -437,7 +446,7 @@ retrieval code.
 |---|---|---|
 | Scaffold / config | `config/config.yml`, `R/utils_config.R` | **Built** |
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
-| Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Rewritten and run (Session 14). `cms.gov/newsroom` filtered to the rural health topic is now PRIMARY, `medicaid.gov` SECONDARY, the two unioned. 9 states — Virginia was on the newsroom and NOT on medicaid.gov — `docs/session14_cms_newsroom_trigger_virginia.md`** |
+| Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Rewritten Session 14, re-run Session 15. `cms.gov/newsroom` (rural health topic) is PRIMARY, `medicaid.gov` SECONDARY, the two unioned. 9 states, unchanged — no state has announced since 2026-08-28. Session 15 fixed two defects the re-run exposed: the warm-index run warned on every pass, and the archive manifest listed itself — `docs/session15_virginia_dmas_negative.md`** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
@@ -645,14 +654,32 @@ locale at source time — keep both (§3.3).
    no findings document was committed, so the eleven records cannot be re-read
    here, and Stage 4's §9.3 design cannot be checked against what state sources
    actually publish. Commit them before Stage 4.
-3. **`dmas.virginia.gov` (and `vdh.virginia.gov`) — the only Tier 3 host worth
-   asking for now.** Virginia is announced ($122M, 2026-08-28) and is at **RFA
-   stage**: the committed RCJ pull holds 38 VA documents that are
-   overwhelmingly Requests for Applications, six opportunities that are RFA
-   pools, and exactly **one** award (Virginia Highlands Community College,
-   $127,500 — a community college, so `NON_HOSPITAL` either way). Virginia's
-   RFAs are numbered `RFA-RHTP-2026-nn` and run by DMAS, which is where the
-   awards will post. All Virginia hosts are refused at CONNECT (403).
+3. **There is no Tier 3 host left worth asking for — five consecutive asks
+   have come back negative, and that is now the finding.**
+   `dmas.virginia.gov` was granted for Session 15 and answered **no**: the
+   string `RFA-RHTP` occurs **zero times across 388 pages** of it, covering
+   every one of the 330 paths on the agency's own HTML sitemap. And DMAS is
+   **the wrong host by construction** — Session 14's "DMAS is where the awards
+   will post" was wrong, and `/about-us/procurement/` says so: DMAS hosts no
+   solicitations of its own and directs everyone to **eVA**. Virginia's RFA
+   application portals are **pass-through administrators** — `vhcf.org`
+   (Virginia Health Care Foundation) and `vhha.com` / `vhhafoundation.org`
+   (the VHHA Foundation) — plus the programme's own
+   `ruralhealthtransformationva.virginia.gov`. All refused, as are
+   `eva.virginia.gov`, `vdh.virginia.gov`, `hhr.virginia.gov` and **`www.`**
+   `dmas.virginia.gov` (only the apex resolves).
+
+   Virginia is still at **RFA stage**: 38 VA documents overwhelmingly Requests
+   for Applications, six RFA pools, and exactly **one** award. That one award —
+   Virginia Highlands Community College, $127,500 — is now **corroborated by a
+   primary state source** (the Governor's 2026-05-21 release, archived under
+   `data/evidence/VA/`, matching RCJ's figure exactly). It is a community
+   college, so `NON_HOSPITAL` either way, and **no extractor was built**.
+
+   **The reading:** the remaining unextracted states have mostly not published
+   recipient-level awards yet. Host access has stopped being the binding
+   constraint on Deliverable 1 — blockers 1 (the §7.3 registry) and 5 (the
+   AHA/POS extracts) are, and neither needs a new host.
 
    *What Session 14 settled, so it is not re-asked:* **both of Session 13's
    asks were granted and both were negative.**
@@ -1575,6 +1602,81 @@ field the filter reads.
 
 **Tests: 1,177 assertions, all passing** (was 1,077).
 
+### Session 15 — Virginia's awards do not run through DMAS, and a manifest that listed itself
+
+Full detail: `docs/session15_virginia_dmas_negative.md`. Zero RCJ quota; 392
+calls to `dmas.virginia.gov`, 16 to `www.cms.gov`, 1 to `www.medicaid.gov`.
+
+**The sixth host ask, and the sixth negative — but this one is negative for a
+structural reason, not a timing one.** `dmas.virginia.gov` was opened to answer
+whether DMAS had posted awards under the `RFA-RHTP-2026-nn` series. The string
+`RFA-RHTP` occurs **zero times across 388 pages**, a sweep framed by the
+agency's own HTML sitemap (330 paths; `sitemap.xml` and `robots.txt` are both
+404) rather than by a crawl alone. `rural health transformation` appears on
+**five** pages in total.
+
+**Session 14's "DMAS is where the awards will post" was wrong, and DMAS says
+so.** `/about-us/procurement/` states the agency hosts no solicitations of its
+own and directs everyone to **eVA**. Virginia's RFA application portals are
+**pass-through administrators** — `vhcf.org` and `vhha.com` /
+`vhhafoundation.org` — plus `ruralhealthtransformationva.virginia.gov`. All
+refused. Allowlisting DMAS answered the question asked of it and did not open
+the route, because the route does not run through DMAS. **No extractor and no
+`va_year1_awardees.csv` were built.**
+
+**DMAS does publish one RHTP award, and it validated an RCJ row for the first
+time.** The Governor's 2026-05-21 release, served as a PDF from DMAS's own
+media library, names **Virginia Highlands Community College, $127,500** — which
+matches the committed RCJ `/awards` row exactly, `awardeeName` and
+`federalAmount` both. That is §0.1 satisfied on a Tier 3 record for once. It is
+still a community college, so `NON_HOSPITAL`, and a one-row file would add a
+state to Deliverable 1 while adding nothing to the hospital total. DMAS's press
+index also stops at **05.22.2026** — nothing there answers the 2026-08-28 CMS
+announcement at all.
+
+**§0.2 has its worked example, and the DMAS archive made it stronger.** The
+Governor's release says the initiative *"will deliver $189.5 million in
+year-one funding"* — which rounds `cms_fy2026_allotments.csv`'s
+**$189,544,888** exactly. So the $189M in CMS's quoted statement and the $122M
+in its headline are Tier 1 and an announced tranche, **restated from two
+publishers** rather than inferred from one page. The $122M names no recipient,
+so it is **not Tier 3** (§0.3), and CMS says outright it is *"just one part of
+the larger overall funding amount."* Patched into
+`rhtp-tracker-build-spec.md` §0.2 — 16 lines inserted, nothing deleted (§2.1).
+The example also distinguishes a near-miss in the same document: **$127,000**
+in the sub-deck against **$127,500** in the body is a typo, not a tier problem,
+and its rule is the opposite one (§8 — keep the source's language, resolve
+nothing).
+
+**The monitor: no new states since 2026-08-28.** Nine, unchanged: AK · AL · GA
+· ND · OH · PA · SD · VA · WV. `cms_state_announcements.csv` untouched.
+**The medicaid.gov lag still cannot be sized** — it was re-fetched live, still
+carries eight states and no Virginia, and its table is byte-for-byte identical
+in content to the committed archive; but Virginia was announced *today*, so the
+observed lag is under one day. That question needs a later session, not a
+better probe.
+
+**Two defects the re-run exposed, both in the run that happens most often.**
+`purrr::map_dfr` over zero rows returns a **zero-column** tibble, so once the
+topic index is warm — the steady state, and what the twice-weekly Routine does
+every time — `learned$is_rural` was `NULL` and every read of it warned.
+`sum(NULL)` is 0, so the counts printed were **right by luck**. The index's
+empty shape is now one named definition used by both paths.
+
+**And the archive manifest listed itself.** A manifest cannot record its own
+digest; the value is stale the instant the file is written. It had always been
+wrong, and the verification test **passed on absence** — on a first run the
+manifest does not exist when the listing is taken, so there was nothing to be
+wrong about. Any second `--run` in one day exposes it. `MANIFEST.txt` is now
+excluded from its own listing, and a new test pins both that it does not list
+itself *and* that the listed set equals the on-disk set — because the existing
+digest check guards each entry with `if (file.exists(path))`, so a file that
+silently stops being listed is indistinguishable from one that verified. The
+new test was positive-controlled: the defect was reintroduced, the test failed,
+the manifest was restored and re-verified.
+
+**Tests: 1,178 assertions, all passing** (was 1,177).
+
 ### Next session
 
 **The two offline tasks are now the only thing between here and Stage 4.**
@@ -1586,17 +1688,19 @@ field the filter reads.
    `last_verified`. **Florida first.** While in each state's pages, capture the
    budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
 
-2. **Widen the egress allowlist — the Tier 3 queue is one host long now.**
-   `ruralhealthtransformation.sd.gov` and `alabamarhtp.com` opened for Session
-   14 and **both were negative** (blocker 3): the first merely redirects to the
-   `doh.sd.gov` page already read, and the second publishes NOFOs, not awards.
-   Four of the last four host asks have come back negative, which is itself
-   worth noticing — the remaining unextracted states may simply not have
-   published yet. What is left, in order:
-   **`dmas.virginia.gov`** (+ `vdh.virginia.gov`) — Virginia is announced at
-   $122M and at RFA stage; DMAS runs the `RFA-RHTP-2026-nn` series and is where
-   its awards will post. The only live Tier 3 lead;
-   **`web.archive.org` + the apex `archive.org`** — last tested in Session 12
+2. **The Tier 3 host queue is EMPTY. Stop asking for hosts.** Session 15 spent
+   its ask on `dmas.virginia.gov` and got the sixth consecutive negative — and
+   this one is structural: DMAS hosts no solicitations at all, and Virginia's
+   RFAs run through pass-through administrators (`vhcf.org`, `vhha.com` /
+   `vhhafoundation.org`) and `ruralhealthtransformationva.virginia.gov`. See
+   blocker 3. **The pattern across six asks is that the remaining unextracted
+   states have not published recipient-level awards yet**, not that the wrong
+   hosts were requested. Asking for the three Virginia pass-through hosts is
+   the one remaining Tier 3 lead and it is speculative — Virginia's RFAs were
+   still open at last reading, so there is likely nothing behind them yet.
+   Prefer items 1 and 3 over another host request.
+   Still worth re-testing because it costs nothing and the failure was upstream
+   of the policy: **`web.archive.org` + the apex `archive.org`** — last tested in Session 12
    (TLS reset with no policy denial on the first, `connect_rejected` 403 on the
    second), **not re-tested in Session 13**, still the only route to Georgia's
    July roster snapshot.
@@ -1607,10 +1711,14 @@ field the filter reads.
 
 **That coverage question is answered (Session 14): the page lags.** Virginia
 was real, the newsroom is now the primary source, and the union carries all
-nine states. What is still open is the **size** of the lag — `source` moves
-`CMS_NEWSROOM` → `BOTH` on the run where medicaid.gov catches up, and how long
-that takes decides whether medicaid.gov is worth fetching at all. Worth a
-glance next session; it costs one line of the run output.
+nine states. **The size of the lag is still open, and Session 15 could not
+size it**: medicaid.gov was re-fetched live and still carries eight states and
+no Virginia, with its announcement table byte-for-byte identical in content to
+the committed archive — but Virginia was announced *that same day*, so the
+observed lag is under 24 hours. `source` moves `CMS_NEWSROOM` → `BOTH` on the
+run where medicaid.gov catches up, and how long that takes decides whether
+medicaid.gov is worth fetching at all. It costs one line of the run output;
+check it on any later session, not on the announcement day.
 
 **Then §7A.2 collection** — 48 states to go. Bounded and checkable in a way
 nothing sourced from RCJ is: you know when you have all fifty. Each narrative
@@ -1643,7 +1751,7 @@ not resolved by the pipeline in either direction.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 1,077 assertions, zero quota
+Rscript tests/run_tests.R                        # 1,178 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
