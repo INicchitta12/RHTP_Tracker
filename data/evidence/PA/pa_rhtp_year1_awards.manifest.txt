@@ -1,0 +1,52 @@
+RHTP tracker archive (spec 0.4 / 0.5): Pennsylvania RHTP Year 1, first
+tranche of authorized projects.
+
+fetched_utc     : 2026-08-28T15:49:11Z
+state           : PA
+host            : www.pa.gov
+program         : Pennsylvania Rural Health Transformation Plan (RHTP)
+cms_year1_award : $193,294,053.98 (stated in the announcement's footnote)
+tranche_total   : $42,198,309 stated; $42,198,309.80 summed from the table
+projects        : 66 stated; 66 parsed
+
+FILES
+
+  file    : 2026-07-23_dhs_supporting_rural_health_care.html
+  role    : the AWARD LANGUAGE and the state total. Names no recipient.
+  title   : Supporting Rural Health Care: Shapiro Administration Announces
+            $42 Million to Support Technology and Infrastructure
+            Improvements, Upgrades for Rural Hospitals, Emergency
+            Medicine, and Health Care Providers
+  date    : 2026-07-23
+  url     : https://www.pa.gov/agencies/dhs/newsroom/supporting-rural-health-care
+  bytes   : 565076
+  sha256  : 8f3c6d61b98943f310c5d3bf2e2eae9f85ec053df73dcf1dae25690929fc2568
+
+  file    : 2026-08-28_dhs_rural_health_selected_projects.html
+  role    : the 66 RECIPIENT NAMES and AMOUNTS. Supplies no award
+            language of its own -- its heading reads 'List of Eligible
+            Projects'.
+  title   : Rural Health Selected Projects
+  url     : https://www.pa.gov/agencies/dhs/programs-services/healthcare/rural-health/rural-health-selected-projects
+  bytes   : 629572
+  sha256  : 97e1cae3745e577fa70a7d453182445a2b0fa9c863951af90bfeb1d93ef59b51
+
+WHAT THESE DOCUMENTS SUPPORT (spec 9.2, Part A of reviewer-coding-instructions)
+
+NEITHER DOCUMENT SUPPORTS THE CODING ALONE, and this is the same shape as
+Georgia's AHEAD roster (session 10). The program page read by itself is an
+ELIGIBILITY list, and §0.3 forbids coding eligibility as receipt. The
+announcement read by itself names no recipient. Together the announcement
+says sixty-six projects were AUTHORIZED to RECEIVE the money and links to
+this page as the list of them. Every row cites both.
+
+THESE ARE AUTHORIZATIONS, NOT DISBURSEMENTS. The announcement states
+'Distribution is pending approval of selected projects.' Rows therefore
+carry validation_source_type = NOTICE_OF_INTENT_TO_AWARD and
+disbursement_status = PENDING_APPROVAL. Both intent-to-award and award are
+primary under §8; the distinction belongs in the row, not flattened away.
+
+This tranche is the FIRST of Pennsylvania's $193,294,053.98 Year 1 award.
+$42.2M of $193.3M is 21.8%; the remainder is not yet awarded and no residual
+may be inferred from it (§0.3).
+
