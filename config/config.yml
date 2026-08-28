@@ -145,6 +145,8 @@ paths:
   raw_cms: "data/raw/cms"
   vocabularies: "data/reference/vocabularies.csv"
   title_junk_patterns: "data/reference/title_junk_patterns.csv"
+  cms_state_announcements: "data/reference/cms_state_announcements.csv"
+  cms_press_manifest: "logs/cms_press_manifest.csv"
 
 cms:
   # Spec §7.1. The FY2026 state allotment table is parsed from the CMS
@@ -161,6 +163,24 @@ cms:
   # second table must fail loudly, not silently parse the wrong one.
   fy2026_allotment_expected_tables: 1
   fy2026_allotment_header_regex: "^(state|fy ?26 award amount)$"
+
+  # Stage 00, the trigger list. CMS maintains one page listing the states that
+  # have announced RHTP awards; a state appearing on it is the cue to collect
+  # that state's primary sources. Runs on pull$cadence and costs no RCJ quota.
+  #
+  # DISCOVERY ONLY (§0.1), exactly as RCJ is. No figure from this page may
+  # enter an AHA-published number, and the amounts are never summed: the page
+  # mixes CMS-to-state allotments (Tier 1) with state subaward announcements
+  # (Tier 3), so a total over that column blends the tiers §0.2 separates.
+  #
+  # Requires www.medicaid.gov on the environment allowlist. It was NOT
+  # allowlisted as of 2026-08-28 -- both routes refused at CONNECT (403) -- so
+  # R/00_cms_press_monitor.R has never run against the live page and stops with
+  # that instruction rather than writing an empty CSV.
+  press_monitor_url: "https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources"
+  press_monitor_archive_file: "medicaid_rhtp_resources.html"
+  # Absolutises the relative hrefs the page's links use.
+  press_monitor_base_url: "https://www.medicaid.gov"
 
 pull:
   # Spec §14: pilot on five states before scaling to 50.
