@@ -1607,7 +1607,7 @@ field the filter reads.
 Full detail: `docs/session15_virginia_dmas_negative.md`. Zero RCJ quota; 392
 calls to `dmas.virginia.gov`, 16 to `www.cms.gov`, 1 to `www.medicaid.gov`.
 
-**The sixth host ask, and the sixth negative — but this one is negative for a
+**The fifth host ask, and the fifth negative — but this one is negative for a
 structural reason, not a timing one.** `dmas.virginia.gov` was opened to answer
 whether DMAS had posted awards under the `RFA-RHTP-2026-nn` series. The string
 `RFA-RHTP` occurs **zero times across 388 pages**, a sweep framed by the
@@ -1689,11 +1689,11 @@ the manifest was restored and re-verified.
    budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
 
 2. **The Tier 3 host queue is EMPTY. Stop asking for hosts.** Session 15 spent
-   its ask on `dmas.virginia.gov` and got the sixth consecutive negative — and
+   its ask on `dmas.virginia.gov` and got the fifth consecutive negative — and
    this one is structural: DMAS hosts no solicitations at all, and Virginia's
    RFAs run through pass-through administrators (`vhcf.org`, `vhha.com` /
    `vhhafoundation.org`) and `ruralhealthtransformationva.virginia.gov`. See
-   blocker 3. **The pattern across six asks is that the remaining unextracted
+   blocker 3. **The pattern across five asks is that the remaining unextracted
    states have not published recipient-level awards yet**, not that the wrong
    hosts were requested. Asking for the three Virginia pass-through hosts is
    the one remaining Tier 3 lead and it is speculative — Virginia's RFAs were
