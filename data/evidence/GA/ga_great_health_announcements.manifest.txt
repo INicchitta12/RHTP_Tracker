@@ -1,0 +1,78 @@
+RHTP tracker archive (spec 0.4 / 0.5): Georgia GREAT Health Program Year 1 award
+announcements, all four phases.
+
+fetched_utc     : 2026-08-28T13:30:44Z
+state           : GA
+host            : dch.georgia.gov (allowlisted for this session)
+http_status     : 200 (all four)
+source_doc_type : AGENCY_PRESS_RELEASE
+program         : Georgia Rural Enhancement and Transformation of Health
+                  ("GREAT Health") -- Georgia's RHTP
+cms_year1_award : $218,862,169.63 (stated in the footnote of every page)
+
+FILES
+
+  file    : 2026-06-08_great_health_phase1_first_subgrantees.html
+  title   : Georgia Awards First GREAT Health Program Subgrantees
+  url     : https://dch.georgia.gov/announcement/2026-06-08/georgia-awards-first-great-health-program-subgrantees
+  bytes   : 178971
+  sha256  : d3071145a1dd19119f2280b9025bf5ba13cd28f137c741561364d62ac207e9a3
+
+  file    : 2026-07-16_great_health_phase2_awards.html
+  title   : Georgia Issues $30 Million in Phase 2 GREAT Health Awards to Advance Rural Healthcare Transformation
+  url     : https://dch.georgia.gov/announcement/2026-07-16/georgia-issues-30-million-phase-2-great-health-awards-advance-rural
+  bytes   : 185158
+  sha256  : 84154e2d30de9309972fdcf833925cc291885bd45f5f4a4bf6b15636efb7019a
+
+  file    : 2026-07-23_great_health_phase3_awards.html
+  title   : Georgia Reaches $103 Million in Total Awards to Date to Expand Rural Healthcare through GREAT Health Transformation
+  url     : https://dch.georgia.gov/announcement/2026-07-23/georgia-reaches-103-million-total-awards-date-expand-rural-healthcare
+  bytes   : 181830
+  sha256  : a962d40a9ef682b9483e838a70ce93b280a44a99bada52edd52ec96a5bb14e56
+
+  file    : 2026-08-27_great_health_phase4_awards.html
+  title   : Georgia Reaches Major Milestone with All Year 1 GREAT Health Awards Fully Committed
+  url     : https://dch.georgia.gov/announcement/2026-08-27/georgia-reaches-major-milestone-all-year-1-great-health-awards-fully
+  bytes   : 188970
+  sha256  : cd8b37f1b7001fd8e32d1e502318df229bdcb1d43be915f1632fa93b2630404c
+
+WHAT THESE DOCUMENTS SUPPORT (spec 9.2, Part A of reviewer-coding-instructions)
+
+  These are AGENCY_PRESS_RELEASE sources from the state agency administering the
+  award (DCH). Under spec 9.2 an agency press release supports a `Yes` only for
+  the recipients it NAMES. That is the whole of what has been coded from them.
+
+  RECIPIENT-LEVEL AMOUNTS ARE NOT PUBLISHED. Every page reports a total per
+  INITIATIVE and then lists the awardees inside that initiative without
+  splitting the figure. Per spec 6.2 the amount is never divided, so every
+  named-awardee row carries amount = NA and amount_confirmed = No -- which is
+  the vocabulary's expected case ("no recipient-level figure is published, not
+  that verification failed"), the same posture as DE and OK.
+
+  The two exceptions, where the state itself states a per-hospital figure, are
+  the Phase 3 and Phase 4 AHEAD pre-implementation cohorts at $750,000 each.
+
+KNOWN GAP -- THE 87 AHEAD HOSPITAL NAMES
+
+  Phase 3 awards 80 rural hospitals $750,000 each and Phase 4 adds 7 more, for a
+  planned Year 1 group of 87. Both pages link the roster to
+
+    https://greathealth.georgia.gov/value-based-care-hospital-list
+
+  greathealth.georgia.gov is NOT on the egress allowlist (CONNECT rejected, 403)
+  and could not be fetched in this session. dch.georgia.gov and gov.georgia.gov
+  were allowlisted; this third Georgia host was not.
+
+  The cohorts are therefore carried as two aggregate rows, not as 87 named rows.
+  Nothing is imputed: the count, the per-hospital amount and the hospital
+  identity of the class all come from the DCH pages archived here. Allowlist
+  greathealth.georgia.gov and the roster expands to 87 named rows -- the largest
+  single block of hospital-directed RHTP dollars found in any state so far.
+
+ALSO NOT RETRIEVED
+
+  https://dch.georgia.gov/great-health-program-georgias-rural-health-transformation-program
+  returns a Drupal "Access denied" 403 to every request (plain, browser UA,
+  Google referer) although it is indexed and reachable to a normal browser. It
+  is a program overview page and carries no award data that the four
+  announcements above do not carry, so nothing was lost from the extraction.
