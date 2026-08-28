@@ -152,6 +152,11 @@ paths:
   title_junk_patterns: "data/reference/title_junk_patterns.csv"
   cms_state_announcements: "data/reference/cms_state_announcements.csv"
   cms_press_manifest: "logs/cms_press_manifest.csv"
+  # The newsroom topic index: one row per newsroom item ever seen, carrying the
+  # topic CMS tagged it with. Committed (§0.5), and it is what keeps the
+  # twice-weekly run cheap -- an item already in the index is never re-fetched,
+  # so after the backfill a run costs one listing page plus the new releases.
+  cms_newsroom_index: "data/reference/cms_newsroom_topic_index.csv"
 
 cms:
   # Spec §7.1. The FY2026 state allotment table is parsed from the CMS
@@ -186,6 +191,40 @@ cms:
   press_monitor_archive_file: "medicaid_rhtp_resources.html"
   # Absolutises the relative hrefs the page's links use.
   press_monitor_base_url: "https://www.medicaid.gov"
+
+  # ---- Stage 00 PRIMARY source: the cms.gov newsroom, rural health topic ----
+  #
+  # Session 13 found the medicaid.gov resources page LAGGING: CMS announced
+  # $122M for Virginia on 2026-08-28 and the resources page did not list it.
+  # A trigger list that lags is a trigger list that misses states, so the
+  # newsroom is now the primary source and medicaid.gov the secondary; the two
+  # are unioned and neither can silently shrink the other (§0.1 discovery).
+  #
+  # THE TOPIC FILTER, AND WHY IT IS NOT A URL. CMS's own topic facet lives at
+  # /newsroom/search?about[]=<term id>, and Akamai returns 403 to that path for
+  # any non-browser client -- with no query string at all, so it is the path
+  # that is blocked, not the parameters. The topic itself is still published,
+  # in each release's schema.org NewsArticle JSON-LD as `about`. That is the
+  # same CMS taxonomy the blocked facet indexes, read from the document instead
+  # of from a query, so the filter is CMS's own classification either way.
+  #
+  # WHY THE TOPIC AND NOT THE TITLE. A title keyword filter MISSES most state
+  # announcements: Virginia's reads "...Expand Healthcare Access, Workforce and
+  # Innovation Across Virginia" and contains neither "rural" nor "RHTP". Of the
+  # nine state announcements live on 2026-08-28, SIX have no "rural" in the
+  # title at all -- a title filter keeps three. The topic tag catches all nine.
+  newsroom_listing_url: "https://www.cms.gov/newsroom/articles"
+  newsroom_base_url: "https://www.cms.gov"
+  # The RHTP topic string, matched case-insensitively against the JSON-LD
+  # `about` list. Releases carry it alone or beside "Administration".
+  newsroom_topic: "Rural health"
+  # The crawl floor. RHTP was launched 2025-09-15, so nothing before this can
+  # be an RHTP announcement and the crawl stops once a listing page is wholly
+  # older. Widen it only with a reason -- it bounds every run.
+  newsroom_floor_date: "2025-09-01"
+  # Ceiling on the listing walk. Reaching it WITHOUT crossing the floor date is
+  # a short read (§5.2) and is refused, never accepted as a complete crawl.
+  newsroom_max_pages: 40
 
 pull:
   # Spec §14: pilot on five states before scaling to 50.

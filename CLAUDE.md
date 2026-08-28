@@ -156,7 +156,7 @@ Two consequences worth stating plainly:
 ```
 CLAUDE.md                      # this file
 R/
-  00_cms_press_monitor.R       # Stage 00 — CMS trigger list (BUILT, never run)
+  00_cms_press_monitor.R       # Stage 00 — CMS trigger list: newsroom + medicaid.gov (BUILT)
   01_retrieve_rcj.R            # Stage 1 — retrieval (BUILT)
   02_normalize.R               # Stage 2 — normalization + §6.4 mining (BUILT)
   03_state_registry.R          # Stage 3 — CMS allotments + registry (BUILT)
@@ -208,6 +208,7 @@ docs/
   session11_six_state_award_list_hunt.md  # AK/AL/ND/OH/PA/SD award-list locators
   session12_pa_al_ak_extraction_and_sd.md # PA/AL/AK extracted; the SD portal's shape
   session13_sd_announcements_adeca_and_monitor.md # SD names nobody; ADECA has no file
+  session14_cms_newsroom_trigger_virginia.md # newsroom primary; VA is at RFA stage
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -428,7 +429,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 13 — SD's two rounds read and they name nobody; ADECA searched; monitor re-run)
+**Last updated:** 2026-08-28 (Session 14 — the trigger list stops lagging: cms.gov/newsroom is primary, Virginia found, and Virginia has no award list)
 
 ### Stages built
 
@@ -436,7 +437,7 @@ retrieval code.
 |---|---|---|
 | Scaffold / config | `config/config.yml`, `R/utils_config.R` | **Built** |
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
-| Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Built and RUN (Session 10). `medicaid.gov` allowlisted; 8 states have announced. Two parser blind spots fixed. Routine now points at `main` — `docs/stage00_cms_press_monitor.md`** |
+| Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Rewritten and run (Session 14). `cms.gov/newsroom` filtered to the rural health topic is now PRIMARY, `medicaid.gov` SECONDARY, the two unioned. 9 states — Virginia was on the newsroom and NOT on medicaid.gov — `docs/session14_cms_newsroom_trigger_virginia.md`** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
@@ -455,7 +456,7 @@ retrieval code.
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R` | **Built — 1,077 assertions; 1,076 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R` | **Built — 1,177 assertions; 1,176 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -525,10 +526,17 @@ South Dakota was never in it. Both SD files are now included.
   rows back-fitted from `UNCLASSIFIED` to `NONPROFIT_CBO` + `LOW` +
   `RECIPIENT_TYPE_INFERRED`; `recipient_type_source` preserves the owner's value
   on every row. Unions with Georgia on the leading 19 columns.
-- **`data/reference/cms_state_announcements.csv` — 8 rows (Session 10).** The
-  stage 00 trigger list, from the live CMS page. AK, AL, GA, ND, OH, PA, SD, WV.
-  A **discovery** source (§0.1): its `amount` is never summed (§0.2), and an
-  assertion enforces that.
+- **`data/reference/cms_state_announcements.csv` — 9 rows (Session 14).** The
+  stage 00 trigger list, now the **union of two sources**: AK, AL, GA, ND, OH,
+  PA, SD, **VA**, WV. Eight are `source = BOTH`; **Virginia is `CMS_NEWSROOM`
+  alone**, because the medicaid.gov page does not carry it. A **discovery**
+  source (§0.1): its `amount` is never summed (§0.2), and an assertion enforces
+  that.
+- **`data/reference/cms_newsroom_topic_index.csv` — 139 rows (Session 14).**
+  Every cms.gov newsroom item since 2025-09-01 and the topic CMS tagged it
+  with; 14 carry `Rural health`. It is what keeps the twice-weekly run cheap —
+  an indexed item is never re-fetched — and it carries `full_page_sha256` per
+  release, because the committed archive is a reduction (see below).
 - `data/reference/ga_great_health_awards.csv` — 139 rows, including the 87 named
   AHEAD hospitals (Session 10). Rebuild with `Rscript R/03d_ga_great_health.R --build`.
 - **`data/reference/pa_year1_awardees.csv` — 66 rows (Session 12).**
@@ -581,6 +589,16 @@ South Dakota was never in it. Both SD files are now included.
 - `data/raw/cms/2026-08-28/` — the CMS RHTP resources page, the stage 00
   trigger list (Session 10). Archived verbatim with a SHA-256 manifest;
   `shape : TABLE`.
+- **`data/raw/cms/2026-08-28/newsroom/` — the stage 00 primary source
+  (Session 14).** 16 listing pages archived byte for byte, plus the 14
+  rural-topic releases **reduced to `<main>` + the schema.org JSON-LD**. The
+  reduction is the §7.1 / Session 11 posture: CMS's page chrome carries a
+  third-party Mapbox token that is CMS's to publish and not ours to
+  redistribute, and the writer now asserts the token *shape* absent before
+  writing (so a rotated token is caught too). The JSON-LD is kept because it is
+  where CMS publishes the topic — archiving `<main>` alone would discard the
+  field the filter reads. The full page's digest is in the topic index, so
+  provenance closes.
 - `data/raw/cms/2026-08-28/state_press_releases/` — the six CMS state
   announcement press releases for AK, AL, ND, OH, PA and SD (Session 11).
   **Only the `<main>` element is archived**, on the §7.1 precedent: the
@@ -627,16 +645,28 @@ locale at source time — keep both (§3.3).
    no findings document was committed, so the eleven records cannot be re-read
    here, and Stage 4's §9.3 design cannot be checked against what state sources
    actually publish. Commit them before Stage 4.
-3. **The hosts that would close the two open state items.** `news.sd.gov` and
-   `adeca.alabama.gov` were opened for Session 13 and **both answered
-   negatively** — see the note below. Still refused at CONNECT (403), in the
-   order they are worth asking for:
-   **`ruralhealthtransformation.sd.gov`** — named as the resource site in *both*
-   South Dakota releases, and now the only remaining candidate for the 110
-   recipient names behind $121.5M;
-   **`alabamarhtp.com`** — ADECA's own resource site, which its programme page
-   points to, and the likely home of the exact ARHTP figures that would close
-   the $254,179 gap.
+3. **`dmas.virginia.gov` (and `vdh.virginia.gov`) — the only Tier 3 host worth
+   asking for now.** Virginia is announced ($122M, 2026-08-28) and is at **RFA
+   stage**: the committed RCJ pull holds 38 VA documents that are
+   overwhelmingly Requests for Applications, six opportunities that are RFA
+   pools, and exactly **one** award (Virginia Highlands Community College,
+   $127,500 — a community college, so `NON_HOSPITAL` either way). Virginia's
+   RFAs are numbered `RFA-RHTP-2026-nn` and run by DMAS, which is where the
+   awards will post. All Virginia hosts are refused at CONNECT (403).
+
+   *What Session 14 settled, so it is not re-asked:* **both of Session 13's
+   asks were granted and both were negative.**
+   `ruralhealthtransformation.sd.gov` **is not a separate site** — it 302s to
+   the `doh.sd.gov` RHT page Session 13 already read. Its document library is
+   programme material; its one awards press release (2026-05-21) names three
+   **programme-management consultants** (North Star Solutions $1,462,802, Black
+   Hills Special Services Cooperative, BCA $500,000), which is administrative
+   spend of the kind `R/03i` already extracts — **not** the 110 grant
+   recipients. South Dakota's roster is published nowhere reachable.
+   `alabamarhtp.com` **is a solicitation site**: ten NOFOs, an intro deck, a
+   workshop announcement, a second-round FAQ, and **no awarded-projects file in
+   any format**. Alabama's $254,179 gap stays open and the 45
+   `AMOUNT_ROUNDED_IN_SOURCE` flags stay correct.
 
    *What Session 13 settled, so it is not re-asked:* **`news.sd.gov` does not
    hold South Dakota's rosters.** Both award releases were fetched and archived
@@ -1461,6 +1491,90 @@ medicaid.gov page the monitor parses does not list.
 
 **Tests: 1,077 assertions, all passing** (was 997).
 
+### Session 14 — the trigger list stops lagging, and Virginia has no list
+
+Full detail: `docs/session14_cms_newsroom_trigger_virginia.md`. Zero RCJ quota.
+
+**Stage 00 read one source, that source lagged, and a lagging source does not
+look like a gap.** Session 13 spotted CMS's newsroom naming a **Virginia**
+announcement — 2026-08-28, **$122M** — that the `medicaid.gov` resources page
+did not list. The monitor reported eight announced states when there were
+nine, and reported it confidently, because nothing in the output suggested a
+ninth existed.
+
+**So the newsroom is now PRIMARY and medicaid.gov SECONDARY, and the two are
+unioned.** `source` is recorded per row (`CMS_NEWSROOM` | `MEDICAID_GOV` |
+`BOTH`) and the run names the states only one list knows about. medicaid.gov
+was demoted rather than deleted: it guards the symmetric failure, and a test
+from each side enforces that **neither source may silently shrink the other**.
+
+**The topic filter is read from the document, because CMS's facet URL is
+blocked.** `/newsroom/search?about[]=<id>` returns Akamai 403 to any
+non-browser client — with **no query string at all**, so it is the *path* that
+is refused and no user agent fixes it (the `+url` form that gets us through
+medicaid.gov is refused here too). CMS still publishes the topic, in each
+release's schema.org `NewsArticle` JSON-LD `about` field. That is the same
+taxonomy the blocked facet indexes, read from the document instead of from a
+query — **the filter is CMS's own classification either way.**
+
+**And the topic, never the title.** Six of the nine state announcements — AK,
+AL, ND, SD, **VA**, WV — carry **no "rural" in the title at all**. A title
+keyword filter is the obvious design, keeps three of nine, and loses the very
+state that prompted the rewrite. A test pins that list.
+
+**West Virginia is not Virginia.** `"...Across West Virginia"` contains
+`"Virginia"`, and a first-match reader files WV's $4.2M under `VA` with nothing
+afterwards looking wrong — both are real states with real announcements.
+`cms_newsroom_state()` matches the **longest** state name present and refuses a
+headline naming two. It also fixed a real defect for free: medicaid.gov
+publishes WV's link with a **doubled slash**, and the primary's URL wins a
+collision.
+
+**Five rural-topic releases name no state** — the $50bn launch, the
+all-50-states award, the Office of RHT, the summit readout, *All 50 States
+Seek*. Tier 1 (§0.2), excluded deliberately with the count reported, exactly as
+the medicaid.gov `State = "All"` rows already were. **Virginia's own release is
+§0.2 inside one document**: $122M in the headline, **$189 million** in a quoted
+statement — and `cms_fy2026_allotments.csv` has Virginia at **$189,544,888**.
+Tier 3 and Tier 1 on one page, which is why `amount` is never summed.
+
+**Cost.** Rurality lives on the release, so a topic costs one fetch to learn —
+learned once, into `cms_newsroom_topic_index.csv`, and an indexed item is never
+re-fetched. Backfill 16 listing pages + 139 releases; a run after it is one
+listing page plus what CMS published since.
+
+**Virginia is a trigger, not a dataset, and no extractor was built.** The CMS
+release names **no recipient** — it lists themes and says outright the
+announcement is "just one part of the larger overall funding amount". The
+committed RCJ pull says why: 38 VA documents that are overwhelmingly **Requests
+for Applications**, six opportunities that are RFA pools, and **one** award
+(Virginia Highlands Community College, $127,500). That is Ohio's and North
+Dakota's shape from Session 11, not Pennsylvania's. Writing a one-row Virginia
+file from an aggregator is precisely what §0.1 forbids, and the row would be
+`NON_HOSPITAL` anyway.
+
+**Both of Session 13's host asks were granted and both were negative** — see
+blocker 3. `ruralhealthtransformation.sd.gov` merely redirects to the page
+already read; `alabamarhtp.com` publishes NOFOs, not awards.
+
+**One defect found, and it is a shape this repo keeps meeting.** The offline
+`--parse` path failed where `--run` did not: `readr` infers the index's
+`first_indexed` as a **Date**, medicaid.gov's `first_seen` is **character**, and
+`bind_rows()` refuses the pair — invisible to a fresh run, which builds the
+index in memory. **The path that runs least often is the path that breaks**,
+and the archive exists so that path can be run for free. Types pinned at the
+reader, with a test.
+
+**One provenance mistake, caught before it was pushed.** The first run archived
+**full** release pages, committing CMS's third-party Mapbox token 14 times
+over. The archive was deleted and rebuilt: releases are now reduced to
+`<main>` + the JSON-LD, and the reduction is asserted free of the token
+**shape** (`[ps]k.ey…`), not its literal value, so a rotated token is caught
+too. The JSON-LD is kept because archiving `<main>` alone would discard the
+field the filter reads.
+
+**Tests: 1,177 assertions, all passing** (was 1,077).
+
 ### Next session
 
 **The two offline tasks are now the only thing between here and Stage 4.**
@@ -1472,15 +1586,16 @@ medicaid.gov page the monitor parses does not list.
    `last_verified`. **Florida first.** While in each state's pages, capture the
    budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
 
-2. **Widen the egress allowlist — the Tier 3 queue is two hosts long now.**
-   `news.sd.gov` and `adeca.alabama.gov` opened for Session 13 and **both were
-   negative** (see blocker 3): South Dakota's releases name nobody and ADECA
-   publishes no award file. What is left, in order:
-   **`ruralhealthtransformation.sd.gov`** — the resource site *both* South
-   Dakota releases name, and the only remaining candidate for **110 recipient
-   names behind $121.5M**;
-   **`alabamarhtp.com`** — ADECA's resource site and the likely home of the
-   exact ARHTP figures that would close Alabama's $254,179 gap;
+2. **Widen the egress allowlist — the Tier 3 queue is one host long now.**
+   `ruralhealthtransformation.sd.gov` and `alabamarhtp.com` opened for Session
+   14 and **both were negative** (blocker 3): the first merely redirects to the
+   `doh.sd.gov` page already read, and the second publishes NOFOs, not awards.
+   Four of the last four host asks have come back negative, which is itself
+   worth noticing — the remaining unextracted states may simply not have
+   published yet. What is left, in order:
+   **`dmas.virginia.gov`** (+ `vdh.virginia.gov`) — Virginia is announced at
+   $122M and at RFA stage; DMAS runs the `RFA-RHTP-2026-nn` series and is where
+   its awards will post. The only live Tier 3 lead;
    **`web.archive.org` + the apex `archive.org`** — last tested in Session 12
    (TLS reset with no policy denial on the first, `connect_rejected` 403 on the
    second), **not re-tested in Session 13**, still the only route to Georgia's
@@ -1490,14 +1605,12 @@ medicaid.gov page the monitor parses does not list.
    are still blocked and §7A.2 needs fifty. `odh.ohio.gov` and `www.hhs.nd.gov`
    are worth having for §7.3 registry verification but have no Tier 3 list yet.
 
-**One coverage question the monitor cannot answer about itself.** The archived
-CMS South Dakota release carries a "Related Releases" rail naming a **Virginia**
-announcement dated 2026-08-28 ($122M). Virginia is **not** on the medicaid.gov
-resources page stage 00 parses — checked directly: the only "Virginia" on that
-page is West Virginia. So either the page lags cms.gov's newsroom or it lists a
-different set. Nothing was changed on the strength of a sidebar headline, but a
-trigger list that lags is a trigger list that misses states, and this is worth
-one session's attention.
+**That coverage question is answered (Session 14): the page lags.** Virginia
+was real, the newsroom is now the primary source, and the union carries all
+nine states. What is still open is the **size** of the lag — `source` moves
+`CMS_NEWSROOM` → `BOTH` on the run where medicaid.gov catches up, and how long
+that takes decides whether medicaid.gov is worth fetching at all. Worth a
+glance next session; it costs one line of the run output.
 
 **Then §7A.2 collection** — 48 states to go. Bounded and checkable in a way
 nothing sourced from RCJ is: you know when you have all fifty. Each narrative
@@ -1563,8 +1676,11 @@ Rscript R/03j_sd_year1_announcements.R --fetch    # SD: archive both news.sd.gov
 Rscript R/03j_sd_year1_announcements.R --validate # SD rounds + the roster tripwire, offline
 Rscript R/03j_sd_year1_announcements.R --build    # writes SD y1 csv + SD_year1_awardees.xlsx
 Rscript R/00_cms_press_monitor.R --status        # what the CMS trigger list says
-Rscript R/00_cms_press_monitor.R --run           # live; medicaid.gov allowlisted
-Rscript R/00_cms_press_monitor.R --parse         # re-parse newest archive, no network
+Rscript R/00_cms_press_monitor.R --run           # live; BOTH sources, unioned
+Rscript R/00_cms_press_monitor.R --run --newsroom # the primary alone (cms.gov)
+Rscript R/00_cms_press_monitor.R --run --medicaid # the secondary alone
+Rscript R/00_cms_press_monitor.R --run --force   # re-fetch AND re-learn every topic
+Rscript R/00_cms_press_monitor.R --parse         # re-parse committed archives, no network
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the
