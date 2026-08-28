@@ -1,0 +1,51 @@
+rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantined,distinct_awardees,rcj_federal_amount_sum,rcj_amount_max,rcj_awards_records_raw,in_cms_announcements,cms_announced_date,cms_source,cms_release_url,cms_fy2026_allotment,extraction_status,survey_status,investigate
+1,OR,Oregon,386,367,19,0,258,306924976.78,35000000,394,No,,,,197271578,NOT_EXTRACTED,RCJ_ONLY,Yes
+2,AK,Alaska,159,0,159,0,101,158435446.87,16009453.33,161,Yes,2026-08-25,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription,272174856,EXTRACTED,RCJ_AND_CMS,No
+3,AL,Alabama,138,138,0,0,94,143745821,7000000,138,Yes,2026-08-24,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal,203404327,EXTRACTED,RCJ_AND_CMS,No
+4,GA,Georgia,112,109,3,0,100,112677580,20000000,115,Yes,2026-08-27,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics,218862170,EXTRACTED,RCJ_AND_CMS,No
+5,TX,Texas,68,63,5,0,67,352864058.3,250000000,72,No,,,,281319361,NOT_EXTRACTED,RCJ_ONLY,Yes
+6,PA,Pennsylvania,66,63,3,0,66,42198309.8,1000000,66,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional,193294054,EXTRACTED,RCJ_AND_CMS,No
+7,KS,Kansas,54,54,0,0,50,98763865.8,6096062,55,No,,,,221898008,NOT_EXTRACTED,RCJ_ONLY,Yes
+8,MD,Maryland,42,42,0,0,41,84925071,6340198,42,No,,,,168180838,NOT_EXTRACTED,RCJ_ONLY,Yes
+9,NE,Nebraska,39,33,6,0,35,8446843.67,340000,39,No,,,,218529075,NOT_EXTRACTED,RCJ_ONLY,Yes
+10,IN,Indiana,37,2,35,1,28,162727393.12,16806010.1,40,No,,,,206927897,NOT_EXTRACTED,RCJ_ONLY,Yes
+11,OK,Oklahoma,35,34,1,0,25,231614376.02,38020000,49,No,,,,223476949,NOT_EXTRACTED,RCJ_ONLY,Yes
+12,NV,Nevada,34,10,24,0,34,131643055,32300000,35,No,,,,179931608,NOT_EXTRACTED,RCJ_ONLY,Yes
+13,MI,Michigan,31,23,8,0,31,30848878,6000000,31,No,,,,173128201,NOT_EXTRACTED,RCJ_ONLY,Yes
+14,MO,Missouri,29,2,27,0,29,7232027,6500000,30,No,,,,216276818,NOT_EXTRACTED,RCJ_ONLY,Yes
+15,NH,New Hampshire,23,12,11,4,15,2260662942,1898965390,27,No,,,,204016550,NOT_EXTRACTED,RCJ_ONLY,Yes
+16,WI,Wisconsin,19,16,3,0,19,100139403,44000000,21,No,,,,203670005,NOT_EXTRACTED,RCJ_ONLY,Yes
+17,IA,Iowa,15,0,15,0,15,5,1,15,No,,,,209040064,NOT_EXTRACTED,RCJ_ONLY,Yes
+18,ME,Maine,12,0,12,0,12,12000011,12000000,12,No,,,,190008051,NOT_EXTRACTED,RCJ_ONLY,Yes
+19,CA,California,11,0,11,0,8,5475000,2800000,12,No,,,,233639308,NOT_EXTRACTED,RCJ_ONLY,Yes
+20,CT,Connecticut,7,5,2,0,6,49854129,21714915,9,No,,,,154249106,NOT_EXTRACTED,RCJ_ONLY,Yes
+21,NM,New Mexico,7,0,7,0,7,7,1,7,No,,,,211484741,NOT_EXTRACTED,RCJ_ONLY,Yes
+22,LA,Louisiana,6,6,0,0,6,53910000,30000000,7,No,,,,208374448,NOT_EXTRACTED,RCJ_ONLY,Yes
+23,DE,Delaware,5,1,4,1,5,11500004,11500000,15,No,,,,157394964,NOT_EXTRACTED,RCJ_ONLY,Yes
+24,AZ,Arizona,4,3,1,0,2,67000000,25000000,6,No,,,,166988956,NOT_EXTRACTED,RCJ_ONLY,Yes
+25,CO,Colorado,4,4,0,0,4,6572000,6450000,4,No,,,,200105604,NOT_EXTRACTED,RCJ_ONLY,Yes
+26,WV,West Virginia,4,0,4,0,4,948542,333828,4,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,NOT_EXTRACTED,RCJ_AND_CMS,No
+27,MS,Mississippi,3,1,2,0,3,50150000,50000000,3,No,,,,205907220,NOT_EXTRACTED,RCJ_ONLY,Yes
+28,RI,Rhode Island,3,0,3,0,3,22250349,13000000,3,No,,,,156169931,NOT_EXTRACTED,RCJ_ONLY,Yes
+29,WA,Washington,2,0,2,0,2,30200001,30200000,2,No,,,,181257515,NOT_EXTRACTED,RCJ_ONLY,Yes
+30,UT,Utah,2,2,0,0,2,6000000,3000000,2,No,,,,195743566,NOT_EXTRACTED,RCJ_ONLY,Yes
+31,MT,Montana,2,1,1,0,2,3184710.4,2000000,5,No,,,,233509359,NOT_EXTRACTED,RCJ_ONLY,Yes
+32,SD,South Dakota,1,1,0,0,1,31500000,31500000,1,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,RCJ_AND_CMS,No
+33,OH,Ohio,1,1,0,0,1,10000000,10000000,1,Yes,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,NOT_EXTRACTED,RCJ_AND_CMS,No
+34,ND,North Dakota,1,0,1,0,1,630000,630000,1,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north,198936970,NOT_EXTRACTED,RCJ_AND_CMS,No
+35,VT,Vermont,1,1,0,0,1,323927,323927,1,No,,,,195053740,NOT_EXTRACTED,RCJ_ONLY,Yes
+36,VA,Virginia,1,1,0,0,1,127500,127500,1,Yes,2026-08-28,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,RCJ_AND_CMS,No
+37,ID,Idaho,1,0,1,0,1,1,1,1,No,,,,185974368,NOT_EXTRACTED,RCJ_ONLY,Yes
+38,IL,Illinois,1,0,1,0,1,1,1,1,No,,,,193418216,EXTRACTED,RCJ_ONLY,No
+39,AR,Arkansas,0,0,0,0,0,0,,0,No,,,,208779396,NOT_EXTRACTED,NEITHER,No
+40,FL,Florida,0,0,0,0,0,0,,0,No,,,,209938195,EXTRACTED,NEITHER,No
+41,HI,Hawaii,0,0,0,0,0,0,,1,No,,,,188892440,NOT_EXTRACTED,NEITHER,No
+42,KY,Kentucky,0,0,0,0,0,0,,0,No,,,,212905591,NOT_EXTRACTED,NEITHER,No
+43,MA,Massachusetts,0,0,0,0,0,0,,0,No,,,,162005238,NOT_EXTRACTED,NEITHER,No
+44,MN,Minnesota,0,0,0,0,0,0,,0,No,,,,193090618,NOT_EXTRACTED,NEITHER,No
+45,NC,North Carolina,0,0,0,0,0,0,,0,No,,,,213008356,NOT_EXTRACTED,NEITHER,No
+46,NJ,New Jersey,0,0,0,0,0,0,,0,No,,,,147250806,NOT_EXTRACTED,NEITHER,No
+47,NY,New York,0,0,0,0,0,0,,0,No,,,,212058208,NOT_EXTRACTED,NEITHER,No
+48,SC,South Carolina,0,0,0,0,0,0,,0,No,,,,200030252,NOT_EXTRACTED,NEITHER,No
+49,TN,Tennessee,0,0,0,0,0,0,,0,No,,,,206888882,NOT_EXTRACTED,NEITHER,No
+50,WY,Wyoming,0,0,0,0,0,0,,0,No,,,,205004743,NOT_EXTRACTED,NEITHER,No

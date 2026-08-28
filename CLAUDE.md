@@ -164,6 +164,7 @@ Two consequences worth stating plainly:
 CLAUDE.md                      # this file
 R/
   00_cms_press_monitor.R       # Stage 00 — CMS trigger list: newsroom + medicaid.gov (BUILT)
+  00b_state_trigger_queue.R    # Stage 00b — the UNION of CMS + RCJ triggers (BUILT)
   01_retrieve_rcj.R            # Stage 1 — retrieval (BUILT)
   02_normalize.R               # Stage 2 — normalization + §6.4 mining (BUILT)
   03_state_registry.R          # Stage 3 — CMS allotments + registry (BUILT)
@@ -176,6 +177,8 @@ R/
   03h_ak_year1_awardees.R      # Alaska Year 1 — 161 intents to award (BUILT)
   03i_sd_rht_contracts.R       # South Dakota — the transparency-portal search (BUILT)
   03j_sd_year1_announcements.R # South Dakota — the two announced rounds; they name NOBODY (BUILT)
+  03k_rcj_state_survey.R       # 50-state RCJ coverage survey — the second trigger's input (BUILT)
+  03l_il_year1_awardees.R      # Illinois — ICAHN, the first PASS_THROUGH_DESIGNATED (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -198,6 +201,7 @@ data/
     AK/                        #   the DOH award-notice workbook
     SD/                        #   the open.sd.gov search + 13 contract detail pages
     SD/announcements/          #   the two news.sd.gov releases, article element only
+    IL/                        #   the ICAHN award release + the two HFS negatives
     VA/                        #   the DMAS negative: 3 reduced pages + the governor's PDF
 output/
   rhtp_hospital_tracker_<date>.xlsx
@@ -272,6 +276,18 @@ fourth invented code fails at the state that invents it.
 **`flow_type`**
 `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` |
 `IN_KIND_BENEFIT` | `NON_HOSPITAL`
+
+**`hospital_attribution`** (added session 16)
+`NAMED_HOSPITAL` | `POOL_UNNAMED_HOSPITALS` | `NOT_HOSPITAL`
+*The column that keeps a `PASS_THROUGH_DESIGNATED` dollar separable from a
+named-hospital dollar. Both are `distributed_to_hospital = Yes` and they must
+**never** be added. `rhtp_hospital_dollar_partition()` returns the two figures;
+`rhtp_hospital_total()` exists only to refuse.*
+
+**`survey_status`** / **`extraction_status`** / **`trigger_source`** /
+**`queue_status`** (added session 16) — the coverage-survey and trigger-queue
+codes. See `vocabularies.csv`; `trigger_source = NEITHER` is a statement about
+the discovery layers, never about the state.
 
 **`distributed_to_hospital`**
 `Yes` | `No` | `Unclear`
@@ -438,7 +454,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 15 — Virginia's awards do not run through DMAS; the §0.2 worked example lands in the spec; a manifest that listed itself)
+**Last updated:** 2026-08-28 (Session 16 — the CMS trigger list was never a census; the 50-state RCJ survey; Illinois/ICAHN, the first PASS_THROUGH_DESIGNATED)
 
 ### Stages built
 
@@ -447,6 +463,9 @@ retrieval code.
 | Scaffold / config | `config/config.yml`, `R/utils_config.R` | **Built** |
 | Stage 0 — Preflight | `docs/stage0_preflight_findings.md` | **Complete** |
 | Stage 00 — CMS trigger list | `R/00_cms_press_monitor.R` | **Rewritten Session 14, re-run Session 15. `cms.gov/newsroom` (rural health topic) is PRIMARY, `medicaid.gov` SECONDARY, the two unioned. 9 states, unchanged — no state has announced since 2026-08-28. Session 15 fixed two defects the re-run exposed: the warm-index run warned on every pass, and the archive manifest listed itself — `docs/session15_virginia_dmas_negative.md`** |
+| Stage 00b — trigger UNION | `R/00b_state_trigger_queue.R` | **Built and run (Session 16). The union of CMS announcements and RCJ Tier 3 candidates, recording which source flagged each state. 9 states -> 38; 32 queued. Offline, reads two committed CSVs — `docs/session16_rcj_state_survey_illinois.md`** |
+| RCJ 50-state survey | `R/03k_rcj_state_survey.R` | **Built and run (Session 16). 38 of 50 states hold Tier 3 candidates; 29 are RCJ_ONLY and were never investigated. §0.1 signal, never a dollar figure** |
+| Illinois Year 1 | `R/03l_il_year1_awardees.R` | **Built and run (Session 16). One row: ICAHN, $50,008,264, the first `PASS_THROUGH_DESIGNATED`. Illinois has published NO recipient-level list** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
@@ -460,7 +479,7 @@ retrieval code.
 | Alaska Year 1 | `R/03h_ak_year1_awardees.R` | **Built and run (Session 12). 161 intents to award; the 161-vs-142 gap closed — 142 Implementation + 19 Planning** |
 | South Dakota portal | `R/03i_sd_rht_contracts.R` | **Built and run (Session 12). 13 administrative contracts, $5,618,367. The announced $31.5M and $90M rounds are NOT on open.sd.gov — re-probed Session 13, unchanged** |
 | South Dakota announcements | `R/03j_sd_year1_announcements.R` | **Built and run (Session 13). Both news.sd.gov releases archived. 110 grants, $121.5M, and ZERO named recipients — no reachable host publishes the roster. Carries a tripwire that hard-fails the day one appears — `docs/session13_sd_announcements_adeca_and_monitor.md`** |
-| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Built (Session 12). The recipient_type and flow rules for every state, in one file** |
+| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
@@ -484,6 +503,7 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **AK** | 161 | $160,701,975 | 26 | **$43,379,541** (preliminary) |
 | **SD** (contracts) | 13 | $5,618,367 | 0 | $0 |
 | **SD** (announced rounds) | 2 | $121,500,000 | **0 named** | $0 |
+| **IL** | 1 | $50,008,264 | **0 named** | **$0 named / $50,008,264 pooled** |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
@@ -501,7 +521,20 @@ and their `amount` column is deliberately empty — the $121.5M is a *round*
 total and lives in `round_amount`, so no sum over `amount` can read as a
 per-recipient figure (§6.2, Georgia's rule).
 
-All seven files union on the leading 19 columns with zero values outside §8,
+**Illinois' line is the one that cannot be added to the others.** ICAHN is a
+`PASS_THROUGH_DESIGNATED` intermediary: the $50,008,264 is restricted to rural
+hospitals and the award is executed, so `distributed_to_hospital = Yes` — but
+**no hospital is named and, on ICAHN's own account, none has been chosen yet**.
+It carries `hospital_attribution = POOL_UNNAMED_HOSPITALS`, and
+`rhtp_hospital_dollar_partition()` reports it separately while
+`rhtp_hospital_total()` **refuses to return a combined figure**:
+
+```
+NAMED_HOSPITAL        : 243,006,884   AL 66.1M · GA 60.0M · FL 49.3M · AK 43.4M · PA 24.1M
+POOL_UNNAMED_HOSPITALS:  50,008,264   IL
+```
+
+All eight files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. **Session 12's note
 that "all six states union" was wrong about the test** — it named five and
 South Dakota was never in it. Both SD files are now included.
@@ -535,6 +568,22 @@ South Dakota was never in it. Both SD files are now included.
   rows back-fitted from `UNCLASSIFIED` to `NONPROFIT_CBO` + `LOW` +
   `RECIPIENT_TYPE_INFERRED`; `recipient_type_source` preserves the owner's value
   on every row. Unions with Georgia on the leading 19 columns.
+- **`data/reference/rcj_state_survey.csv` — 50 rows (Session 16).** The RCJ
+  coverage survey: Tier 3 candidates, distinct awardees and an unvalidated
+  amount signal per state, ranked. **38 of 50 states hold candidates; 29 are
+  `RCJ_ONLY`** — candidates, no CMS release, never investigated. Oregon leads
+  at 386 candidates / 258 distinct awardees. `rcj_federal_amount_sum` is
+  **not a dollar figure** (§0.1) and there is deliberately no total in the
+  file. Rebuild with `Rscript R/03k_rcj_state_survey.R --build`.
+- **`data/reference/state_trigger_queue.csv` — 50 rows (Session 16).** The
+  union: 9 `BOTH`, 0 `CMS_ONLY`, **29 `RCJ_ONLY`**, 12 `NEITHER`; 32 queued.
+  Assertions require it to be a superset of each source and strictly wider
+  than CMS alone.
+- **`data/reference/il_year1_awardees.csv` — 1 row (Session 16).** Illinois:
+  ICAHN, $50,008,264, three agreements executed 2026-07-31.
+  `hospital_attribution = POOL_UNNAMED_HOSPITALS` — **read that column before
+  using the amount.** `IL_year1_awardees.xlsx` is a render whose first sheet
+  is the warning.
 - **`data/reference/cms_state_announcements.csv` — 9 rows (Session 14).** The
   stage 00 trigger list, now the **union of two sources**: AK, AL, GA, ND, OH,
   PA, SD, **VA**, WV. Eight are `source = BOTH`; **Virginia is `CMS_NEWSROOM`
@@ -676,10 +725,14 @@ locale at source time — keep both (§3.3).
    `data/evidence/VA/`, matching RCJ's figure exactly). It is a community
    college, so `NON_HOSPITAL` either way, and **no extractor was built**.
 
-   **The reading:** the remaining unextracted states have mostly not published
-   recipient-level awards yet. Host access has stopped being the binding
-   constraint on Deliverable 1 — blockers 1 (the §7.3 registry) and 5 (the
-   AHA/POS extracts) are, and neither needs a new host.
+   **Session 16 supersedes the reading above, and network access is now Full
+   so no host has to be asked for at all.** The six negatives were real, but
+   the conclusion drawn from them — that the remaining states have mostly not
+   published — was drawn from a sample of **nine CMS-announced states**. The
+   50-state survey found **29 more states with RCJ Tier 3 candidates that
+   nobody has ever looked at**, Oregon at 386 candidates among them. The
+   binding constraint was never host access; it was that the queue only ever
+   held nine states. See `data/reference/state_trigger_queue.csv`.
 
    *What Session 14 settled, so it is not re-asked:* **both of Session 13's
    asks were granted and both were negative.**
@@ -1677,76 +1730,166 @@ the manifest was restored and re-verified.
 
 **Tests: 1,178 assertions, all passing** (was 1,177).
 
+### Session 16 — the trigger list was never a census, and Illinois proved it
+
+Full detail: `docs/session16_rcj_state_survey_illinois.md`. Zero RCJ quota.
+**First session under Full network access** — no host had to be asked for.
+
+**Illinois awarded $50,008,264 and this project never looked at it.** Three
+grant agreements with the Illinois Critical Access Hospital Network, executed
+**2026-07-31**, a quarter of Illinois' $193,418,216.21 allotment. CMS issued
+**no press release**, so Illinois never entered the stage 00 trigger list, and
+**every state hunt in sessions 9–15 ran against the same nine states.** The
+defect was never in `R/00`; it was in treating `R/00`'s answer as the list of
+states worth looking at.
+
+**The 50-state survey: 38 states hold RCJ Tier 3 candidates, 29 of them with
+no CMS release and no investigation.** Oregon alone has **386 candidates
+across 258 distinct awardees** — more than any state extracted so far — then
+TX 68, KS 54, MD 42, IN 37, OK 35, NV 34. §0.1 governs every one of those
+numbers: `rcj_federal_amount_sum` is an unvalidated aggregator field, it is
+**not a dollar figure**, and there is deliberately no total in the file.
+
+**FLAGGED records had to count as candidates, and that is the one choice that
+mattered.** Alaska's 159 Tier 3 records are **all** FLAGGED —
+`SOURCE_DOCUMENT_UNRESOLVED`, a provenance gap, not junk — and session 12
+extracted all 161 of them from the state's own workbook. A PASS-only survey
+would have reported **Alaska at zero** and hidden the fourth-largest state in
+the file.
+
+**Illinois has published NO recipient-level award list, and that is the
+finding.** `hfs.illinois.gov`'s RHTP page names no recipient; its 2026-03-09
+programme update names **intended** sub-awardees against **preliminary**
+amounts and is stamped *"for discussion purposes only"* (a plan, §0.3 — nothing
+coded from it); the three `il.amplifund.com` solicitations are open and name
+nobody. The ICAHN award is published **only by ICAHN** — admissible under §7,
+which admits a **designated pass-through administrator's** document, and the
+designation is corroborated by the state itself: HFS's own update names ICAHN
+for these three initiatives and HFS's RHTP programme director is quoted by name
+in the release. First §7 source in this project that is not a state agency.
+
+**Two closures, neither arranged.** HFS's plan names ICAHN as sub-awardee on
+**exactly three** initiatives and the release reports **three** executed
+agreements. And the release's two stated figures ($50,008,264 total,
+$31,008,264 technology) leave **exactly $19,000,000**, which is the plan's
+$14M + $5M to the dollar. **That split is NOT published** — it is on the
+workbook marked `DERIVED - DO NOT PUBLISH`, because it combines a plan with an
+award release and §0.3 is the rule against a planned figure becoming an awarded
+one because the arithmetic works.
+
+**The first `PASS_THROUGH_DESIGNATED` row, and the one shape that can inflate
+the headline.** §10.2's test is met on both clauses — the award to ICAHN **is
+executed**, and eligibility is restricted to **hospitals only**, not hospitals
+among other eligible entities — so `distributed_to_hospital = Yes`. **But no
+hospital is named and none has been chosen:** hospitals *"will apply"* after a
+readiness assessment of the 78 eligible. Every other hospital dollar in this
+repo sits on a row whose own awardee is a named hospital. So the row carries
+`hospital_attribution = POOL_UNNAMED_HOSPITALS` and
+**`rhtp_hospital_total()` refuses to return a combined figure** — Georgia's
+device, applied to the union.
+
+**The union test was wrong, and Illinois is what proved it.** It asserted every
+`distributed_to_hospital = Yes` row carries a hospital `recipient_type`. That
+held for six states by accident of what had been extracted — all direct awards
+— and encodes an assumption §10.2 never made. ICAHN is `NONPROFIT_CBO` and
+`Yes`, correctly.
+
+**And the partition itself shipped a bug worth recording.** Keying on
+`flow_type` alone, it **silently dropped all 15 Florida hospital rows —
+$49,345,213** — because Florida's file predates that column, and the output
+looked fine. It now keys on `recipient_type` too and **hard-fails on a `Yes`
+row that fits no bucket**: a total quietly missing a whole state is worse than
+the merged total the function exists to prevent.
+
+**Three hospital counts, three universes.** ICAHN membership **60** (56 CAHs +
+4 other rural), Technology Transformation eligible **78**, HFS planning-grant
+eligible **97**. Not reconciled — different sets, and the sources say so.
+
+**The trigger queue takes the list from 9 states to 38**, with the source
+recorded per state, as a **companion stage** rather than an edit to `R/00`:
+stage 00 runs live twice a week on a Routine, and `R/00b` touches no network at
+all. Assertions require the union to be a **superset of each source** and
+**strictly wider than CMS alone**.
+
+**What the union does for Illinois, stated honestly: it queues it, for the
+wrong reason.** Illinois' only RCJ Tier 3 candidate is `MyOwnDoctor, LLC` at
+**$1** — a 2025 Medicaid contract that is not RHTP — which ranks it near the
+*bottom*. The union widens the net; it did not make the net fine enough to
+catch this award on its merits. **Florida is the unmixed case**: no CMS
+release, no RCJ candidate, **81 extracted awards already here**. So `NEITHER`
+means "no discovery layer flagged this state" and **never** "this state awarded
+nothing" — pinned by an assertion requiring an EXTRACTED state to remain in
+that bucket.
+
+**Two latent defects, the same shape, two files apart.** `pull_date` was NA on
+all **5,152** rows of the committed record table: `mutate(pull_date =
+pull_date)` resolves the right-hand side to the skeleton's own empty **column**
+under dplyr data masking — a self-assignment that reports success. Nothing had
+read the column, so nothing failed. Fixed with `.env$`; **Stage 2 was not
+re-run**, and `R/03k` falls back to `last_seen` and *says which column
+answered*. The identical trap then appeared in the Illinois fetcher, where
+`digest(file = file)` inside a `tibble()` resolved to the `basename` defined one
+line above.
+
+**One credential caught before it was committed.** `hfs.illinois.gov` embeds a
+store-locator `<map-details api-key="pk.ey…">` — a Mapbox token, the same shape
+as CMS's. It sits **inside** `<main>`, so unlike CMS this could not be solved by
+picking a container: the credential-bearing node is removed by name and the
+result is **asserted credential-free before writing**, with both digests in the
+manifest.
+
+**Tests: 1,375 assertions, all passing** (was 1,178).
+
 ### Next session
 
-**The two offline tasks are now the only thing between here and Stage 4.**
+**The queue is no longer nine states. It is thirty-eight, and twenty-nine of
+them have never been looked at.** That is the change Session 16 makes to
+everything below it.
 
-1. **Verify the registry** (~2 hours, §7.2) — still the hard gate (§13.12). Work
-   `data/reference/state_source_registry_worksheet.csv` (or the formatted copy at
-   `output/state_source_registry_worksheet_2026-08-27.xlsx`) down to 50 confirmed
-   rows in `data/reference/state_source_registry.csv`. Load each URL and set
-   `last_verified`. **Florida first.** While in each state's pages, capture the
-   budget narrative URL for §7A.2. Check with `Rscript R/03_state_registry.R --validate`.
+1. **Work the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv` is
+   ordered. **Oregon is the outlier by an order of magnitude — 386 Tier 3
+   candidates across 258 distinct awardees**, more than any state extracted so
+   far; then TX 68/67, KS 54/50, MD 42/41, IN 37/28, OK 35/25, NV 34/34.
+   Network is **Full**, so the only question per state is whether it has
+   published a recipient-level list. **Confirm that before building an
+   extractor** — §0.1 says the candidate count is where to look, not what is
+   there, and 29 states is enough that guessing wrong is expensive.
 
-2. **The Tier 3 host queue is EMPTY. Stop asking for hosts.** Session 15 spent
-   its ask on `dmas.virginia.gov` and got the sixth consecutive negative — and
-   this one is structural: DMAS hosts no solicitations at all, and Virginia's
-   RFAs run through pass-through administrators (`vhcf.org`, `vhha.com` /
-   `vhhafoundation.org`) and `ruralhealthtransformationva.virginia.gov`. See
-   blocker 3. **The pattern across six asks is that the remaining unextracted
-   states have not published recipient-level awards yet**, not that the wrong
-   hosts were requested. Asking for the three Virginia pass-through hosts is
-   the one remaining Tier 3 lead and it is speculative — Virginia's RFAs were
-   still open at last reading, so there is likely nothing behind them yet.
-   Prefer items 1 and 3 over another host request.
-   Still worth re-testing because it costs nothing and the failure was upstream
-   of the policy: **`web.archive.org` + the apex `archive.org`** — last tested in Session 12
-   (TLS reset with no policy denial on the first, `connect_rejected` 403 on the
-   second), **not re-tested in Session 13**, still the only route to Georgia's
-   July roster snapshot.
-   For §7A.2, **Oklahoma next** — the other reference state, and the only one of
-   the two whose narrative is still unarchived. 48 state health department hosts
-   are still blocked and §7A.2 needs fifty. `odh.ohio.gov` and `www.hhs.nd.gov`
-   are worth having for §7.3 registry verification but have no Tier 3 list yet.
+2. **Illinois' next step is `il.amplifund.com`.** The 97-hospital,
+   $28,191,393 planning-grant solicitation, distributed equally, is how
+   Illinois hospitals get **named**. An award list there is a real extraction
+   and would move $28.2M from pooled to named.
 
-**That coverage question is answered (Session 14): the page lags.** Virginia
-was real, the newsroom is now the primary source, and the union carries all
-nine states. **The size of the lag is still open, and Session 15 could not
-size it**: medicaid.gov was re-fetched live and still carries eight states and
-no Virginia, with its announcement table byte-for-byte identical in content to
-the committed archive — but Virginia was announced *that same day*, so the
-observed lag is under 24 hours. `source` moves `CMS_NEWSROOM` → `BOTH` on the
-run where medicaid.gov catches up, and how long that takes decides whether
-medicaid.gov is worth fetching at all. It costs one line of the run output;
-check it on any later session, not on the announcement day.
+3. **Verify the registry** (~2 hours, §7.2) — still the hard gate (§13.12),
+   unchanged by any of this. Work
+   `data/reference/state_source_registry_worksheet.csv` down to 50 confirmed
+   rows. **Florida first.** Check with
+   `Rscript R/03_state_registry.R --validate`.
 
-**Then §7A.2 collection** — 48 states to go. Bounded and checkable in a way
-nothing sourced from RCJ is: you know when you have all fifty. Each narrative
-lands under `data/evidence/budget_narratives/<state>/`, and
-`Rscript R/03b_budget_narratives.R --build` reconciles it the moment its
-extraction exists. Build `data/reference/budget_narrative_status.csv` as part of
-that pass.
+4. **Re-run Stage 2 when convenient, and check `pull_date`.** Session 16 fixed
+   a data-masking self-assignment that left `pull_date` NA on all 5,152 rows,
+   but **did not re-run Stage 2** — rewriting committed artifacts to satisfy a
+   survey is a change with its own blast radius. `R/03k` falls back to
+   `last_seen` and reports that it did. After a re-run the fallback should
+   stop firing.
 
-**Then Stage 4** — and **not before the §7.3 registry is verified.** Document
-clustering (§9.2), fetcher with §9.5 conduct rules, split-confirmation
-corroborator (§9.3). Requires **Full** network access — clear with AHA IT first.
+5. **`web.archive.org`** is worth one more test now that the network policy has
+   changed — the failure was upstream of the policy (TLS reset, no denial
+   logged), and it is still the only route to Georgia's July roster snapshot.
 
-**What Sessions 10–12 set up for whoever does Stage 5.** The §8
-`recipient_type` question is settled, the rules live in one file
-(`R/utils_recipient_classification.R`), and all six states union cleanly, so the
-column can be keyed off safely. And there are now **200 hospital recipients**
-waiting on a CCN match — Georgia's 87 plus PA's 27, AL's 60 and AK's 26 — which
-makes the **AHA Annual Survey / CMS Provider of Services extracts** (blocker 5)
-the binding constraint outright. Until they land, every
-`determination_confidence` in the project is capped at `MEDIUM` (§7).
+**Then §7A.2 collection** — 48 states to go, and no longer host-blocked. Each
+narrative lands under `data/evidence/budget_narratives/<state>/`. Build
+`data/reference/budget_narrative_status.csv` as part of that pass.
 
-**One judgement Session 12 deliberately left to a human:** Alaska's seven
-awardees whose organisational form varies across their own rows, **$20.4M** that
-a reviewer could move into the hospital total. Flagged
-`RECIPIENT_TYPE_VARIES_IN_SOURCE`, quantified on the Reconciliation sheet, and
-not resolved by the pipeline in either direction.
+**Then Stage 4** — and **not before the §7.3 registry is verified.**
 
-`qa_assertions.R` is still unbuilt and is now the only stage with no file at all.
+**Still open, unchanged:** the **AHA Annual Survey / CMS Provider of Services
+extracts** (blocker 5) cap every `determination_confidence` at `MEDIUM`, with
+**200 hospital recipients** waiting on a CCN match. And Alaska's seven awardees
+whose organisational form varies across their own rows — **$20.4M** — is still
+a human's judgement, deliberately unresolved.
+
+`qa_assertions.R` is still unbuilt.
 
 ### Re-running what exists
 
@@ -1789,6 +1932,13 @@ Rscript R/00_cms_press_monitor.R --run --newsroom # the primary alone (cms.gov)
 Rscript R/00_cms_press_monitor.R --run --medicaid # the secondary alone
 Rscript R/00_cms_press_monitor.R --run --force   # re-fetch AND re-learn every topic
 Rscript R/00_cms_press_monitor.R --parse         # re-parse committed archives, no network
+Rscript R/03k_rcj_state_survey.R --build        # 50-state RCJ survey, offline
+Rscript R/03k_rcj_state_survey.R --report       # the ranked table + the flagged states
+Rscript R/03l_il_year1_awardees.R --fetch       # IL: archive ICAHN + the two HFS sources
+Rscript R/03l_il_year1_awardees.R --validate    # IL assertions + reconciliation, offline
+Rscript R/03l_il_year1_awardees.R --build       # writes IL csv + IL_year1_awardees.xlsx
+Rscript R/00b_state_trigger_queue.R --build     # the CMS + RCJ union, offline
+Rscript R/00b_state_trigger_queue.R --status    # what the queue says
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

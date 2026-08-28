@@ -2568,8 +2568,16 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
   }
   prior <- if (file.exists(prior_path)) readRDS(prior_path) else NULL
 
+  # `.env$` is load-bearing, not decoration. The record skeleton already
+  # carries an all-NA character `pull_date` column, so under dplyr's data
+  # masking a bare `pull_date = pull_date` resolves the RIGHT-hand side to that
+  # COLUMN rather than to this function's argument -- a self-assignment that
+  # leaves the column NA on every row and reports success. It did, on every
+  # Stage 2 run to date: the committed record table has 0 of 5,152 rows with a
+  # pull_date. Nothing downstream had read the column, so nothing failed;
+  # R/03k reads it as a provenance guard and is what surfaced it.
   record_table <- rhtp_apply_change_detection(records, prior, pull_date) %>%
-    dplyr::mutate(pull_date = pull_date) %>%
+    dplyr::mutate(pull_date = as.character(.env$pull_date)) %>%
     dplyr::relocate(row_uid, record_id, source_endpoint, award_tier,
                     change_status, qa_status, flag_reason)
 

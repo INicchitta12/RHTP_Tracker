@@ -566,3 +566,162 @@ rhtp_classify_records <- function(records, state, description_col,
 
 
 `%||%` <- function(x, y) if (is.null(x) || length(x) == 0L || is.na(x)) y else x
+
+
+# -- §0.3 / §10.2 The hospital-dollar partition --------------------------------
+#
+# WHY THIS EXISTS. Until Illinois, every hospital dollar in this repository sat
+# on a row whose own awardee WAS the hospital, named in the source: Georgia's
+# 87, Pennsylvania's 27, Alabama's 60, Alaska's 26. Filtering on
+# `distributed_to_hospital == "Yes"` and summing `amount` gave a defensible
+# figure because every row it caught named a hospital.
+#
+# Illinois breaks that. ICAHN's $50,008,264 is correctly
+# `distributed_to_hospital = Yes` under §10.2 -- the award to the intermediary
+# is executed and eligibility is restricted to rural hospitals only -- and it
+# names NO hospital. On ICAHN's own account no hospital has yet been chosen.
+# The same filter now returns two kinds of dollar that must not be added, and
+# adding them is exactly the "inflated, attackable number" §0.3 exists to
+# prevent.
+#
+# A note in a file header does not prevent it. This does: the partition returns
+# the two figures SEPARATELY and there is no function here that returns their
+# sum. It is the device rhtp_ga_reconcile() uses to make Georgia's wrong total
+# unobtainable, applied to the union.
+
+#' Which hospital bucket does a row's money land in?
+#'
+#' Derived from the row, never asserted per state, so a state that later gains
+#' a pass-through row is classified by the same rule rather than by whoever
+#' wrote that state's extractor.
+#'
+#' IT KEYS ON recipient_type, NOT ONLY flow_type, AND THAT IS NOT COSMETIC.
+#' The first version of this function read `flow_type` alone and bucketed
+#' anything else as NOT_HOSPITAL. Florida's file predates the `flow_type`
+#' column entirely, so all 15 of its hospital rows -- $49,345,213 -- were
+#' silently dropped from the named bucket and the partition looked fine. A
+#' hospital total quietly missing a whole state is worse than the merged total
+#' this file exists to prevent, so:
+#'
+#'   * recipient_type is consulted, which every state file carries; and
+#'   * a `Yes` row that fits NO bucket is an ERROR, not a silent NOT_HOSPITAL.
+#'
+#' @param flow_type §8 flow_type. May be NA for older state files.
+#' @param distributed_to_hospital §8 Yes/No/Unclear.
+#' @param recipient_type §8 recipient_type.
+#' @param hospital_attribution Optional explicit value where a state has
+#'   already coded it (Illinois does). Wins when present.
+rhtp_hospital_attribution <- function(flow_type,
+                                      distributed_to_hospital,
+                                      recipient_type = NA_character_,
+                                      hospital_attribution = NA_character_) {
+  explicit <- as.character(hospital_attribution)
+  flow     <- as.character(flow_type)
+  dist     <- as.character(distributed_to_hospital)
+  rtype    <- as.character(recipient_type)
+
+  hospital_types <- c("HOSPITAL_OR_SYSTEM", "HOSPITAL_AFFILIATED_ENTITY")
+
+  bucket <- dplyr::case_when(
+    !is.na(explicit) & nzchar(explicit)        ~ explicit,
+    is.na(dist) | dist != "Yes"                ~ "NOT_HOSPITAL",
+    !is.na(flow) & flow == "PASS_THROUGH_DESIGNATED" ~ "POOL_UNNAMED_HOSPITALS",
+    rtype %in% hospital_types                  ~ "NAMED_HOSPITAL",
+    !is.na(flow) & flow == "DIRECT"            ~ "NAMED_HOSPITAL",
+    TRUE                                       ~ NA_character_
+  )
+
+  if (any(is.na(bucket))) {
+    bad <- which(is.na(bucket))
+    stop(
+      "rhtp_hospital_attribution(): ", length(bad), " row(s) are ",
+      "distributed_to_hospital = Yes but fit no hospital bucket ",
+      "(recipient_type = ",
+      paste(unique(rtype[bad]), collapse = ", "), "; flow_type = ",
+      paste(unique(flow[bad]), collapse = ", "), ").\n",
+      "These dollars would vanish from both buckets. Code the row's ",
+      "flow_type or hospital_attribution rather than letting it fall ",
+      "through (§10.2).",
+      call. = FALSE
+    )
+  }
+
+  bucket
+}
+
+
+#' Partition hospital dollars into NAMED and POOLED -- and never their sum
+#'
+#' @param records Any union of state award files. Needs `amount`,
+#'   `distributed_to_hospital`, `flow_type`, and optionally
+#'   `hospital_attribution` and `state`.
+#' @return A tibble, one row per (state, bucket), plus a `bucket` total row per
+#'   bucket. Deliberately NO grand total: see rhtp_hospital_total().
+rhtp_hospital_dollar_partition <- function(records) {
+  required <- c("amount", "distributed_to_hospital")
+  missing_cols <- setdiff(required, names(records))
+  if (length(missing_cols) > 0) {
+    stop("rhtp_hospital_dollar_partition() needs: ",
+         paste(missing_cols, collapse = ", "), call. = FALSE)
+  }
+
+  attribution <- if ("hospital_attribution" %in% names(records)) {
+    records$hospital_attribution
+  } else {
+    NA_character_
+  }
+  rtype <- if ("recipient_type" %in% names(records)) {
+    records$recipient_type
+  } else {
+    NA_character_
+  }
+
+  records %>%
+    dplyr::mutate(
+      .bucket = rhtp_hospital_attribution(
+        flow_type, distributed_to_hospital, rtype, attribution
+      ),
+      .amount = suppressWarnings(as.numeric(amount))
+    ) %>%
+    dplyr::filter(.bucket != "NOT_HOSPITAL") %>%
+    dplyr::group_by(
+      state = if ("state" %in% names(.)) state else NA_character_,
+      bucket = .bucket
+    ) %>%
+    dplyr::summarise(
+      rows = dplyr::n(),
+      dollars = sum(.amount, na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    dplyr::arrange(bucket, dplyr::desc(dollars))
+}
+
+
+#' The function that refuses to exist
+#'
+#' Somebody will reach for a single "funds distributed to hospitals" number.
+#' This is what they find. It does not compute one, because the two buckets
+#' answer different questions -- "how much reached hospitals we can name" and
+#' "how much was committed to hospitals nobody has named yet" -- and one
+#' number cannot honestly carry both.
+#'
+#' It is not decoration: it is the searchable name a reader will grep for, and
+#' finding a hard error here is cheaper than finding an inflated figure in a
+#' board deck.
+rhtp_hospital_total <- function(records) {
+  parts <- rhtp_hospital_dollar_partition(records)
+  named  <- sum(parts$dollars[parts$bucket == "NAMED_HOSPITAL"])
+  pooled <- sum(parts$dollars[parts$bucket == "POOL_UNNAMED_HOSPITALS"])
+
+  stop(
+    "There is no single hospital total, and this function will not invent ",
+    "one (§0.3).\n",
+    "  NAMED_HOSPITAL        : ", format(named, big.mark = ",", scientific = FALSE),
+    "  -- the row's own awardee is a named hospital.\n",
+    "  POOL_UNNAMED_HOSPITALS: ", format(pooled, big.mark = ",", scientific = FALSE),
+    "  -- restricted to hospitals, but NO hospital is named.\n",
+    "Report the two figures separately. Use ",
+    "rhtp_hospital_dollar_partition().",
+    call. = FALSE
+  )
+}
