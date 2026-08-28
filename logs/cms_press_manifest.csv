@@ -6,3 +6,7 @@ run_utc,run_type,fetch_date,archive_path,shape,rows,states,new_states,new_rows,c
 2026-08-28T14:38:14Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
 2026-08-28T16:42:32Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
 2026-08-28T16:42:43Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
+2026-08-28T18:17:32Z,PRODUCTION,2026-08-28,both,16,139,9,8,FALSE,9,9,VA,,VA,1,0
+2026-08-28T18:21:36Z,PRODUCTION,2026-08-28,both,NA,NA,9,8,FALSE,9,9,VA,,,0,0
+2026-08-28T18:26:24Z,PRODUCTION,2026-08-28,both,16,139,9,8,FALSE,9,9,VA,,,0,0
+2026-08-28T18:33:53Z,PRODUCTION,2026-08-28,both,NA,NA,9,8,FALSE,9,9,VA,,,0,0

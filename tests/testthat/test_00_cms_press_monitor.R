@@ -333,3 +333,440 @@ test_that("CMS's Georgia figure corroborates the DCH Phase 4 total", {
   expect_equal(ga$amount, 93300000)
   expect_lt(abs(ga$amount - 93330827), 40000)
 })
+
+
+# ===========================================================================
+# The PRIMARY source: the cms.gov newsroom, rural health topic
+# ===========================================================================
+#
+# These exist because medicaid.gov alone was wrong in a way that cost a state.
+# CMS announced $122M for Virginia on 2026-08-28 and the resources page did not
+# carry it, so a monitor reading only that page reported eight announced states
+# when there were nine -- confidently, because nothing in a lagging source
+# looks like a gap. What follows pins the two things that fix it: the topic
+# filter (which catches the four state announcements whose titles say nothing
+# about rural health) and the union (which lets neither source shrink the
+# other).
+
+test_that("a newsroom listing parses to date, type, title and url", {
+  out <- rhtp_parse_newsroom_listing(fixture("newsroom_listing.html"))
+
+  expect_equal(nrow(out), 3)
+  expect_setequal(names(out), c("item_date", "item_type", "title", "url"))
+  expect_equal(out$item_date[1], as.Date("2026-08-28"))
+  expect_equal(out$item_type, c("Press Releases", "Press Releases", "Fact Sheets"))
+  expect_true(all(startsWith(out$url, "/newsroom/")))
+})
+
+test_that("an empty listing is refused, not read as a quiet week", {
+  # A markup change that yields zero rows must fail loudly. Reading it as
+  # "CMS published nothing" is the 5.2 silent short read: the trigger list
+  # would go on reporting whatever it last knew, and a new state would not
+  # arrive until someone noticed by hand.
+  expect_error(
+    rhtp_parse_newsroom_listing("<html><body><p>redesigned</p></body></html>"),
+    "zero items"
+  )
+})
+
+test_that("the topic is read from the JSON-LD, as a string and as an array", {
+  expect_equal(cms_newsroom_topics(fixture("newsroom_release_rural.html")),
+               "Rural health")
+  expect_setequal(cms_newsroom_topics(fixture("newsroom_release_rural_multi.html")),
+                  c("Administration", "Rural health"))
+  expect_setequal(cms_newsroom_topics(fixture("newsroom_release_not_rural.html")),
+                  c("Administration", "Payment Rules"))
+})
+
+test_that("a release CMS tagged with nothing is not rural, and does not error", {
+  # CMS tags some items with no topic at all. That is not a parse failure and
+  # must not stop a crawl -- it is simply not an RHTP announcement.
+  expect_equal(cms_newsroom_topics(fixture("newsroom_release_no_topic.html")),
+               character(0))
+  expect_false(cms_newsroom_is_rural(character(0)))
+})
+
+test_that("the rural topic matches beside other topics and case-insensitively", {
+  expect_true(cms_newsroom_is_rural(c("Administration", "Rural health")))
+  expect_true(cms_newsroom_is_rural("rural HEALTH"))
+  expect_false(cms_newsroom_is_rural(c("Administration", "Payment Rules")))
+})
+
+
+# -- The state, and the trap in it -------------------------------------------
+
+test_that("West Virginia is West Virginia, not Virginia", {
+  # THE test in this file. "...Across West Virginia" contains "Virginia", so a
+  # first-match reader files West Virginia's $4.2M under VA. Nothing would look
+  # wrong afterwards: both are real states, both have real announcements, and
+  # the trigger list would simply have the wrong one. Longest match wins.
+  expect_equal(
+    cms_newsroom_state(paste(
+      "Trump Administration Announces $4.2 Million to Expand Medical",
+      "Transportation and Improve Patient Access to Care Across West Virginia"
+    )),
+    "WV"
+  )
+  expect_equal(
+    cms_newsroom_state(paste(
+      "Trump Administration Announces $122 Million to Expand Healthcare",
+      "Access, Workforce and Innovation Across Virginia"
+    )),
+    "VA"
+  )
+})
+
+test_that("both Dakotas resolve, and to different states", {
+  expect_equal(
+    cms_newsroom_state("... Coordinating and Connecting Care Initiative in North Dakota"),
+    "ND"
+  )
+  expect_equal(
+    cms_newsroom_state("... Modernize and Improve IT and Interoperability for South Dakota"),
+    "SD"
+  )
+})
+
+test_that("a headline naming no state is NA, which is how a national release is found", {
+  expect_true(is.na(cms_newsroom_state(
+    "CMS Announces $50 Billion in Awards to Strengthen Rural Health in All 50 States"
+  )))
+  expect_true(is.na(cms_newsroom_state(
+    "CMS Announces Establishment of the Office of Rural Health Transformation"
+  )))
+})
+
+test_that("a headline naming two states is refused, not resolved", {
+  # CMS has never done this. If it does, picking one would be a guess about
+  # which state an award went to, and the guess would be invisible.
+  expect_error(
+    cms_newsroom_state("Announces Funding for Rural Health in Georgia and Alabama"),
+    "more than one state"
+  )
+})
+
+test_that("a slug survives a query string and a trailing slash", {
+  expect_equal(cms_newsroom_slug("/newsroom/press-releases/some-release"), "some-release")
+  expect_equal(cms_newsroom_slug("/newsroom/press-releases/some-release/"), "some-release")
+  expect_equal(cms_newsroom_slug("https://www.cms.gov/newsroom/press-releases/some-release?x=1"),
+               "some-release")
+})
+
+
+# -- Parsing the index into announcements ------------------------------------
+
+newsroom_index_fixture <- function() {
+  tibble::tibble(
+    slug = c("va", "wv", "national", "not-rural"),
+    url = paste0("https://www.cms.gov/newsroom/press-releases/", c("va", "wv", "national", "nr")),
+    item_date = as.Date(c("2026-08-28", "2026-08-20", "2025-12-29", "2026-08-18")),
+    item_type = "Press Releases",
+    title = c(
+      "Trump Administration Announces $122 Million to Expand Healthcare Access, Workforce and Innovation Across Virginia",
+      "Trump Administration Announces $4.2 Million to Expand Medical Transportation and Improve Patient Access to Care Across West Virginia",
+      "CMS Announces $50 Billion in Awards to Strengthen Rural Health in All 50 States",
+      "Medicare Advantage Rate Announcement"
+    ),
+    topics = c("Rural health", "Administration; Rural health", "Rural health", "Administration"),
+    is_rural = c(TRUE, TRUE, TRUE, FALSE),
+    first_indexed = "2026-08-28"
+  )
+}
+
+test_that("the index parses to state announcements, with the amount from the headline", {
+  out <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+
+  expect_equal(attr(out, "cms_press_shape"), "NEWSROOM_TOPIC")
+  expect_setequal(out$state, c("VA", "WV"))
+  expect_equal(out$amount[out$state == "VA"], 122000000)
+  expect_equal(out$amount[out$state == "WV"], 4200000)
+  expect_equal(out$date[out$state == "VA"], as.Date("2026-08-28"))
+})
+
+test_that("a non-rural item never reaches the trigger list", {
+  out <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  expect_false(any(grepl("Medicare Advantage", out$title)))
+})
+
+test_that("a rural release naming no state is excluded as Tier 1, not mapped", {
+  # The $50bn launch, the all-50-states award, the Office of RHT, the summit
+  # readout: all tagged rural health, none a state announcement. They are the
+  # CMS->states programme itself (0.2 Tier 1) and this is the STATE trigger
+  # list. Exactly the medicaid.gov "All" rows, in the newsroom's shape.
+  out <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  expect_equal(nrow(out), 2L)
+  expect_false(any(grepl("50 Billion", out$title)))
+})
+
+test_that("an index with nothing rural in it is refused", {
+  # Zero rural items means the JSON-LD moved or the topic was renamed. CMS has
+  # tagged RHTP announcements with it since 2025-09-15, so zero is never "CMS
+  # stopped announcing" -- and a monitor that reports that is worse than one
+  # that stops.
+  idx <- newsroom_index_fixture()
+  idx$is_rural <- FALSE
+  expect_error(rhtp_parse_cms_newsroom(idx), "No newsroom item carries")
+})
+
+
+# -- The union ---------------------------------------------------------------
+
+test_that("a shared announcement collapses to one row marked BOTH", {
+  newsroom <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  medicaid <- newsroom %>%
+    dplyr::filter(.data$state == "WV") %>%
+    dplyr::mutate(source_url = "https://www.medicaid.gov/x")
+
+  out <- rhtp_cms_press_union(newsroom, medicaid)
+  expect_equal(nrow(out), 2L)
+  expect_equal(out$source[out$state == "WV"], "BOTH")
+  expect_equal(out$source[out$state == "VA"], "CMS_NEWSROOM")
+})
+
+test_that("the union is what surfaces a lagging source", {
+  # The finding this rewrite exists for. Virginia is on the newsroom and not on
+  # medicaid.gov, and `source` is what makes that visible instead of leaving
+  # the count silently one short.
+  newsroom <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  medicaid <- newsroom[newsroom$state == "WV", ]
+
+  out <- rhtp_cms_press_union(newsroom, medicaid)
+  expect_equal(out$state[out$source == "CMS_NEWSROOM"], "VA")
+})
+
+test_that("a state only the secondary carries is kept, not dropped", {
+  # The symmetric failure. If the newsroom ever lags on something medicaid.gov
+  # has, the union must keep it -- which is the whole reason the secondary was
+  # kept rather than deleted when it was demoted.
+  newsroom <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  medicaid <- newsroom[1, ] %>%
+    dplyr::mutate(state = "NE", title = "A Nebraska announcement the newsroom lacks")
+
+  out <- rhtp_cms_press_union(newsroom, medicaid)
+  expect_true("NE" %in% out$state)
+  expect_equal(out$source[out$state == "NE"], "MEDICAID_GOV")
+})
+
+test_that("the primary's URL wins a collision, which fixes medicaid.gov's WV link", {
+  # Not a coin toss: the medicaid.gov page publishes West Virginia's link with
+  # a doubled slash (/newsroom/press-releases//trump-administration-...).
+  # Taking the primary's URL corrects it without a special case.
+  newsroom <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  medicaid <- newsroom %>%
+    dplyr::filter(.data$state == "WV") %>%
+    dplyr::mutate(url = sub("press-releases/", "press-releases//", .data$url, fixed = TRUE))
+
+  out <- rhtp_cms_press_union(newsroom, medicaid)
+  expect_false(grepl("//wv", out$url[out$state == "WV"], fixed = TRUE))
+})
+
+test_that("the union passes the assertions and its source column is controlled", {
+  newsroom <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  out <- rhtp_cms_press_union(newsroom, newsroom[0, ])
+
+  expect_true(rhtp_cms_press_assert(out))
+  expect_true(all(out$source %in% c("CMS_NEWSROOM", "MEDICAID_GOV", "BOTH")))
+})
+
+test_that("a free-text source value fails the assertions", {
+  newsroom <- rhtp_parse_cms_newsroom(newsroom_index_fixture())
+  out <- rhtp_cms_press_union(newsroom, newsroom[0, ])
+  out$source[1] <- "cms newsroom probably"
+  expect_error(rhtp_cms_press_assert(out), "outside the controlled set")
+})
+
+
+# -- The live run, pinned ----------------------------------------------------
+
+test_that("the live newsroom crawl finds nine states, including Virginia", {
+  idx <- here::here("data", "reference", "cms_newsroom_topic_index.csv")
+  skip_if_not(file.exists(idx), "the newsroom topic index is not on disk")
+
+  out <- rhtp_parse_cms_newsroom(
+    readr::read_csv(idx, show_col_types = FALSE, progress = FALSE) %>%
+      dplyr::mutate(item_date = as.Date(.data$item_date))
+  )
+  expect_setequal(out$state,
+                  c("AK", "AL", "GA", "ND", "OH", "PA", "SD", "VA", "WV"))
+  expect_equal(out$amount[out$state == "VA"], 122000000)
+  expect_equal(out$date[out$state == "VA"], as.Date("2026-08-28"))
+})
+
+test_that("the six titles that say nothing about rural health are still caught", {
+  # SIX of the nine state announcements -- AK, AL, ND, SD, VA, WV -- carry no
+  # "rural" in their headlines. A title filter, the obvious design and the
+  # wrong one, loses two thirds of the trigger list, Virginia included.
+  idx <- here::here("data", "reference", "cms_newsroom_topic_index.csv")
+  skip_if_not(file.exists(idx), "the newsroom topic index is not on disk")
+
+  out <- rhtp_parse_cms_newsroom(
+    readr::read_csv(idx, show_col_types = FALSE, progress = FALSE) %>%
+      dplyr::mutate(item_date = as.Date(.data$item_date))
+  )
+  silent <- out[!grepl("rural", out$title, ignore.case = TRUE), ]
+  expect_setequal(silent$state, c("AK", "AL", "ND", "SD", "VA", "WV"))
+  # Only three of the nine would survive a title filter.
+  expect_equal(nrow(out) - nrow(silent), 3L)
+})
+
+test_that("the committed trigger list carries Virginia, from the newsroom alone", {
+  csv <- here::here("data", "reference", "cms_state_announcements.csv")
+  skip_if_not(file.exists(csv), "the trigger list has not been run")
+
+  live <- readr::read_csv(csv, show_col_types = FALSE, progress = FALSE)
+  skip_if_not("source" %in% names(live), "the trigger list predates the union")
+
+  va <- live[live$state == "VA", ]
+  expect_equal(nrow(va), 1L)
+  expect_equal(va$amount, 122000000)
+  expect_equal(va$source, "CMS_NEWSROOM")
+  expect_equal(dplyr::n_distinct(live$state), 9L)
+})
+
+test_that("every archived rural release verifies against its manifest digest", {
+  # writeBin, not writeLines: writeLines appends a newline, so the file on disk
+  # would be one byte longer than the body that was hashed and the digest a
+  # reader checks would not verify. Session 12 found that in four earlier
+  # archives; this pins that these do not repeat it.
+  dir <- here::here("data", "raw", "cms", "2026-08-28", "newsroom")
+  skip_if_not(dir.exists(dir), "the newsroom archive is not on disk")
+
+  manifest <- readLines(file.path(dir, "MANIFEST.txt"), warn = FALSE)
+  lines <- stringr::str_subset(manifest, "^  [0-9a-f]{64}  ")
+  expect_gt(length(lines), 0)
+
+  purrr::walk(lines, function(line) {
+    parts <- stringr::str_match(line, "^  ([0-9a-f]{64})  (.+)$")
+    path <- file.path(dir, parts[3])
+    if (file.exists(path)) {
+      expect_equal(digest::digest(file = path, algo = "sha256"), parts[2])
+    }
+  })
+})
+
+test_that("the index read back off disk unions with medicaid.gov without a type clash", {
+  # A real bug, and one only the offline --parse path reached. readr infers
+  # first_indexed as a Date on the way back in; medicaid.gov's first_seen is
+  # character; bind_rows refuses the pair. A fresh --run never saw it, because
+  # it builds the index in memory where the column is already character. The
+  # types are pinned at the reader, and this is what holds them there.
+  idx <- here::here("data", "reference", "cms_newsroom_topic_index.csv")
+  skip_if_not(file.exists(idx), "the newsroom topic index is not on disk")
+
+  newsroom <- rhtp_parse_cms_newsroom(rhtp_newsroom_index())
+  expect_type(newsroom$first_seen, "character")
+
+  medicaid <- tibble::tibble(
+    state = "NE", date = as.Date("2026-08-01"), amount = 1e6,
+    title = "A Nebraska announcement", url = "https://www.medicaid.gov/x",
+    source_url = "https://www.medicaid.gov/x", first_seen = "2026-08-01"
+  )
+  expect_silent(out <- rhtp_cms_press_union(newsroom, medicaid))
+  expect_true("NE" %in% out$state)
+})
+
+
+# -- Provenance: what may be committed ---------------------------------------
+
+test_that("a release is reduced to <main> plus the JSON-LD, and the topic survives", {
+  # The JSON-LD lives in <head>, so archiving <main> alone would throw away the
+  # very field the topic filter reads and leave the archive unre-parseable
+  # offline -- which would defeat 0.5. Keeping both is the point.
+  page <- paste0(
+    '<html><head>',
+    '<script>var drupalSettings = {"mapboxToken":"pk.eySYNTHETICfixtureNOTarealTOKEN0123456789.abcdefghijklmnop"};</script>',
+    '<script type="application/ld+json">{"@type":"NewsArticle","about":"Rural health"}</script>',
+    '</head><body><nav>NAVIGATION-SENTINEL</nav>',
+    '<main><h1>Announces $122 Million ... Across Virginia</h1></main>',
+    '</body></html>'
+  )
+  reduced <- cms_newsroom_reduce_release(page)
+
+  expect_true(grepl("Across Virginia", reduced, fixed = TRUE))
+  expect_true(cms_newsroom_is_rural(cms_newsroom_topics(reduced)))
+  # A distinctive sentinel, not a plausible English word: the archive's own
+  # banner explains what CMS page chrome is, so asserting on "chrome" would
+  # have matched the banner and passed for the wrong reason.
+  expect_false(grepl("NAVIGATION-SENTINEL", reduced, fixed = TRUE))
+})
+
+test_that("the third-party token never reaches the archive", {
+  # CMS's page chrome carries a Mapbox API token in its Drupal settings JSON.
+  # It is CMS's to publish and not ours to redistribute -- the posture 7.1 took
+  # for the allotment table and Session 11 for the six state press releases.
+  #
+  # The fixture token below is SYNTHETIC, and deliberately so: pasting CMS's
+  # real one in here to test that we do not redistribute it would have
+  # redistributed it. (GitHub's push protection said so first, which is the
+  # check working.) The guard matches the token's SHAPE, so a synthetic value
+  # of the same form exercises it exactly as the real one would.
+  page <- paste0(
+    '<html><head>',
+    '<script>var drupalSettings = {"mapboxToken":"pk.eySYNTHETICfixtureNOTarealTOKEN0123456789.abcdefghijklmnop"};</script>',
+    '</head><body><main><h1>A release</h1></main></body></html>'
+  )
+  expect_false(grepl("pk.ey", cms_newsroom_reduce_release(page), fixed = TRUE))
+})
+
+test_that("a token that migrates INTO <main> is caught by shape, not by value", {
+  # The guard matches the token's form, so a rotated token -- or one CMS moves
+  # into the article -- fails too. A guard keyed on the literal string we
+  # happened to see would pass a rotated one silently.
+  page <- paste0(
+    '<html><head></head><body><main>',
+    '<h1>A release</h1><span data-x="pk.eyROTATEDvalue0123456789abcdefghij">m</span>',
+    '</main></body></html>'
+  )
+  expect_error(cms_newsroom_reduce_release(page), "third-party API token")
+})
+
+test_that("a page with no <main> is refused rather than archived whole", {
+  expect_error(
+    cms_newsroom_reduce_release("<html><body><div>no main here</div></body></html>"),
+    "no <main> element"
+  )
+})
+
+test_that("no committed newsroom archive carries a third-party token", {
+  dir <- here::here("data", "raw", "cms", "2026-08-28", "newsroom")
+  skip_if_not(dir.exists(dir), "the newsroom archive is not on disk")
+
+  files <- list.files(dir, pattern = "\\.html$", recursive = TRUE, full.names = TRUE)
+  expect_gt(length(files), 0)
+
+  offenders <- purrr::keep(files, function(f) {
+    any(stringr::str_detect(readLines(f, warn = FALSE),
+                            CMS_THIRD_PARTY_TOKEN_PATTERN))
+  })
+  expect_equal(basename(offenders), character(0))
+})
+
+test_that("the archived Virginia release still parses to its topic offline", {
+  # The whole reason the JSON-LD is kept: the committed archive must reproduce
+  # the filter without a network call (0.5).
+  f <- here::here("data", "raw", "cms", "2026-08-28", "newsroom", "releases",
+                  paste0("trump-administration-announces-122-million-expand-",
+                         "healthcare-access-workforce-innovation-across.html"))
+  skip_if_not(file.exists(f), "the Virginia release is not archived")
+
+  html <- paste(readLines(f, warn = FALSE), collapse = "\n")
+  expect_true(cms_newsroom_is_rural(cms_newsroom_topics(html)))
+})
+
+test_that("the index records the full page's digest, so provenance still closes", {
+  # The committed bytes are the reduction, so the digest a reader would take of
+  # the file is not the digest of what cms.gov served. Both are recorded --
+  # Session 11's convention -- and the reduction's is what verifies on disk.
+  idx <- here::here("data", "reference", "cms_newsroom_topic_index.csv")
+  skip_if_not(file.exists(idx), "the newsroom topic index is not on disk")
+
+  d <- readr::read_csv(idx, show_col_types = FALSE, progress = FALSE)
+  rural <- d[d$is_rural, ]
+
+  expect_true(all(!is.na(rural$reduced_sha256)))
+  expect_true(all(!is.na(rural$full_page_sha256)))
+  expect_true(all(rural$reduced_sha256 != rural$full_page_sha256))
+  expect_true(all(nchar(rural$full_page_sha256) == 64))
+  # A non-rural item is not archived, so it has no reduction to digest.
+  expect_true(all(is.na(d$reduced_sha256[!d$is_rural])))
+})

@@ -1,0 +1,74 @@
+RHTP tracker archive: the CMS newsroom, filtered to the 'Rural health' topic.
+
+listing_url  : https://www.cms.gov/newsroom/articles
+fetched_utc  : 2026-08-28T18:26:23Z
+listing_pages: 16
+floor_date   : 2025-09-01
+items_seen   : 139
+topics_learnt: 139
+rural_archived (this run): 14
+
+WHAT IS COMMITTED, AND WHAT IS NOT. Each file under releases/ is the
+<main> element plus the schema.org JSON-LD, NOT the page as served.
+CMS's page chrome carries a third-party Mapbox API token in its Drupal
+settings JSON, which is CMS's to publish and not ours to redistribute;
+this is the posture §7.1 took for the allotment table and Session 11
+took for the six state press releases. The JSON-LD is kept because it
+is where CMS publishes the topic -- archiving <main> alone would throw
+away the field the filter reads and leave the archive unre-parseable
+offline. Every file was asserted free of that token shape before it was
+written, and the full page's digest is recorded per release in
+data/reference/cms_newsroom_topic_index.csv (full_page_sha256), so
+provenance still closes against what cms.gov served.
+
+The listing pages under listing/ carry no such token and ARE archived
+byte for byte as served.
+
+Digests are written with writeBin, not writeLines: writeLines appends a
+trailing newline, so the file on disk would be one byte longer than the
+body that was hashed and a reader verifying it would get a mismatch.
+
+THE TOPIC FILTER is CMS's own, read from each release's schema.org
+NewsArticle JSON-LD `about`. CMS's facet URL for the same taxonomy,
+/newsroom/search?about[]=<id>, is refused by Akamai for any
+non-browser client (403 on the bare path, with no query string), so
+the topic is read from the document instead of from a query.
+
+A DISCOVERY source (§0.1). No figure here may enter an AHA-published
+number, and `amount` is never summed (§0.2): CMS mixes the Tier 1
+state allotment and the Tier 3 announcement in the same release --
+Virginia's names $122M in its headline and $189M in a quoted
+statement, and those are two different tiers of the same programme.
+
+sha256 per file:
+  cf02d5b4b6f3bd70f215b37298606f1fa0d7af020f5c8ac34903872907e45c79  listing/articles_page_00.html
+  84f5790b4189066d7156001fc481306ebae6aaa1eb86778e773f4856d99c8841  listing/articles_page_01.html
+  674a18b19439ea23e5c249bd5b2fd20d90c993e7bd05f854aeb3810fd15dc533  listing/articles_page_02.html
+  3299cf41df2850350894891b5fec4ce50698aa529cd2c8e5015d696420f5aae5  listing/articles_page_03.html
+  80339042e9af7ffa4371620a3768054f7265827dfbcf8ceaa87af4f00364a8da  listing/articles_page_04.html
+  215c99209f18e92a2e9b9b442312b3d13c35084d3a42451adece5c57b96458c2  listing/articles_page_05.html
+  280589fe0b1ca32a62f1e575394879b613a8d4d80ff59709ec8110bf2ea5e133  listing/articles_page_06.html
+  523b57b07f1f812d46891db6edc55440664c7b3fcc3f461d71fb19bfe211a962  listing/articles_page_07.html
+  b3913c4076a4df83fc5e2b9ab4b98b9b24907953aa6ac7c88cb775ae4b8f0b9c  listing/articles_page_08.html
+  b0f8d02b4056118fbf7f1401f9061fe4c0b25b9b39d65e80a318057ebf9176e6  listing/articles_page_09.html
+  3c3dbeb59b7ec28a8880f9a4052d179845094c2a57fd13ad4d0703665618b0ed  listing/articles_page_10.html
+  3dc6de7a0059e57e63cbbd5e52473009898ce84336e5c52864eba9bf6b704294  listing/articles_page_11.html
+  aad6df45072701b353e9f1396cc9c62f3e14b2cd33c1be286522164e822ca7a8  listing/articles_page_12.html
+  37fcdf3190939a6c21d099c15dea9064a029c9dc424ae0d88412c81077fbb737  listing/articles_page_13.html
+  cd6115f78c2c7eb60dad9615a3bd238c4b6e9f214636b74002df187de6c7e383  listing/articles_page_14.html
+  f3a006f69e3308bdb1a4789d6ecd213579dca4c6358a159bb86072ee8545c449  listing/articles_page_15.html
+  02365a546793de47bc4610097e89f19a3031b7e672ccf62578b9f28b3b511d1c  releases/all-50-states-seek-transform-rural-health-cms.html
+  5d18eab8c9fcac96c97500eae6bb13fa6586e9bec440b4d9577c34f7f1350c14  releases/cms-announces-50-billion-awards-strengthen-rural-health-all-50-states.html
+  99234ab91b174324b42dfa1c1b798159b00f57b1595889d801416020c55e38b2  releases/cms-announces-establishment-office-rural-health-transformation.html
+  e89d3c009ec15ac90ab533da1d5379f2d06a2b3f1115a60100963e8fc037b5c2  releases/cms-launches-landmark-50-billion-rural-health-transformation-program.html
+  f3195dee0641b2eb7929c4b43f20115294fb2258f33e36bf0666d8ea4d60b3ce  releases/readout-cms-convenes-first-rural-health-transformation-summit-advance-state-led-innovation.html
+  1bd074b0f2b967b7b8a3af61f99b017b320f005b4b6c27eb73803c3107bab3c7  releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across.html
+  f73efa50473ef2bd3dab5c9c9d4fc8d264d448ad7b454a1268abb71549a00f11  releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal.html
+  ac62e699cb222357ed571a3588b01c991363564076d6c1cfa0459d517ace1967  releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription.html
+  c57f3569df1f00aaa4b104cfe42d2cd7c2de2af4cdf77fe80457da4c3e8e8a45  releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio.html
+  bc62367b397eb98c6c43ee3615747c55735f8116808655b76607c18ff6c94a3d  releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional.html
+  034e180f5cfe97823454d335b77a36896d6d6fb02b4a985661e992b83e81dc83  releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care.html
+  c36c581def041d5e5e7332d21ae488754cc84d081cfd2b7fc1025418c53d5c66  releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota.html
+  fb2deed1c9816cb7b85df9e4c28aef8340a510ba25417a3307b0da9cd04f396d  releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics.html
+  5f06419d949362009d3b303f4ef06f498589c99c7c802c8550415ac4dee5ca6b  releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north.html
+
