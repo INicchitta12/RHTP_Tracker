@@ -27,7 +27,13 @@ STATE_FILES <- c(
   # nothing checked -- which is the same gap, one file later, that this
   # test exists to close.
   SD_CONTRACTS    = "data/reference/sd_rht_contracts.csv",
-  SD_ANNOUNCEMENTS = "data/reference/sd_year1_awardees.csv"
+  SD_ANNOUNCEMENTS = "data/reference/sd_year1_awardees.csv",
+  # Illinois is one row and it is the awkward one: the first
+  # PASS_THROUGH_DESIGNATED award in the project. Its $50,008,264 is
+  # distributed_to_hospital = Yes and names NO hospital, which is a
+  # combination no other state file contains and which the test below existed
+  # in a form that would have quietly mis-stated.
+  IL = "data/reference/il_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -55,20 +61,21 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all seven files carry the leading 19 columns, in the same order", {
+test_that("all eight files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the seven files union without a coercion failure", {
+test_that("the eight files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
       dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
-  expect_equal(sort(unique(u$state)), c("AK", "AL", "FL", "GA", "PA", "SD"))
+  expect_equal(sort(unique(u$state)),
+               c("AK", "AL", "FL", "GA", "IL", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {
@@ -95,13 +102,93 @@ test_that("no categorical value anywhere in the union is outside §8", {
 test_that("§10.2 holds across all states at once", {
   # A hospital coding that a single state's own assertions would let through
   # because it never compares itself to the others.
+  #
+  # THIS TEST USED TO BE WRONG, AND ILLINOIS IS WHAT PROVED IT. Until session
+  # 16 it asserted that EVERY distributed_to_hospital = Yes row carries a
+  # hospital recipient_type. That held for six states by accident of what had
+  # been extracted -- every one of them awarded money to hospitals DIRECTLY --
+  # and it encodes an assumption §10.2 never made. §10.2's
+  # PASS_THROUGH_DESIGNATED row is Yes precisely BECAUSE the money reaches
+  # hospitals through an intermediary that is not itself a hospital. Illinois'
+  # ICAHN row is NONPROFIT_CBO and Yes, and it is correctly coded.
+  #
+  # So the rule is stated properly now: a Yes row is either a hospital
+  # recipient (DIRECT) or a designated pass-through that names its
+  # intermediary. Nothing else may be Yes.
   for (st in names(state_tables)) {
     d <- state_tables[[st]]
     yes <- d[d$distributed_to_hospital == "Yes", ]
-    expect_true(all(yes$recipient_type %in% c("HOSPITAL_OR_SYSTEM",
-                                              "HOSPITAL_AFFILIATED_ENTITY")),
-                info = st)
+    if (nrow(yes) == 0) next
+
+    flow <- if ("flow_type" %in% names(yes)) yes$flow_type else rep(NA, nrow(yes))
+    direct_ok <- yes$recipient_type %in% c("HOSPITAL_OR_SYSTEM",
+                                           "HOSPITAL_AFFILIATED_ENTITY")
+    pass_ok <- !is.na(flow) & flow == "PASS_THROUGH_DESIGNATED"
+
+    expect_true(all(direct_ok | pass_ok), info = st)
+
+    # A pass-through Yes must say who the intermediary is and must declare
+    # itself a pool. Without both, its dollars are indistinguishable from a
+    # named hospital's the moment anyone filters on distributed_to_hospital.
+    if (any(pass_ok)) {
+      pt <- yes[pass_ok, ]
+      expect_true(all(nzchar(pt$intermediary_name)), info = st)
+      expect_true(all(pt$hospital_attribution == "POOL_UNNAMED_HOSPITALS"),
+                  info = st)
+    }
   }
+})
+
+test_that("named-hospital dollars and pooled dollars never merge", {
+  # THE SEPARABILITY INVARIANT, checked across every state at once. This is
+  # the check that keeps Illinois' $50,008,264 out of a figure it does not
+  # belong in.
+  source(here::here("R", "utils_recipient_classification.R"))
+
+  u <- dplyr::bind_rows(lapply(names(state_tables), function(st) {
+    d <- state_tables[[st]]
+    tibble::tibble(
+      state = as.character(d$state),
+      amount = suppressWarnings(as.numeric(d$amount)),
+      distributed_to_hospital = as.character(d$distributed_to_hospital),
+      recipient_type = as.character(d$recipient_type),
+      flow_type = if ("flow_type" %in% names(d)) {
+        as.character(d$flow_type)
+      } else {
+        NA_character_
+      },
+      hospital_attribution = if ("hospital_attribution" %in% names(d)) {
+        as.character(d$hospital_attribution)
+      } else {
+        NA_character_
+      }
+    )
+  }))
+
+  parts <- rhtp_hospital_dollar_partition(u)
+
+  # Both buckets are populated, so the distinction is load-bearing rather
+  # than theoretical.
+  expect_true("NAMED_HOSPITAL" %in% parts$bucket)
+  expect_true("POOL_UNNAMED_HOSPITALS" %in% parts$bucket)
+
+  # Florida carries no flow_type column at all, so its 15 hospital rows are
+  # bucketed from recipient_type. An earlier version of the partition dropped
+  # them silently; this pins them.
+  named <- parts[parts$bucket == "NAMED_HOSPITAL", ]
+  expect_true("FL" %in% named$state)
+  expect_equal(named$dollars[named$state == "FL"], 49345213)
+
+  # Illinois is the pooled bucket, and it is the whole of it.
+  pooled <- parts[parts$bucket == "POOL_UNNAMED_HOSPITALS", ]
+  expect_equal(sort(unique(pooled$state)), "IL")
+  expect_equal(sum(pooled$dollars), 50008264)
+
+  # And Illinois contributes NOTHING to the named-hospital figure.
+  expect_false("IL" %in% named$state)
+
+  # The single combined total is not obtainable. Somebody will try.
+  expect_error(rhtp_hospital_total(u), "no single hospital total")
 })
 
 test_that("every row names a state source and a source document", {

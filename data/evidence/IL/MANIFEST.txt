@@ -1,0 +1,41 @@
+Illinois RHTP evidence archive
+Fetched: 2026-08-28 20:07:37 UTC
+User agent: AHA-RHTP-Tracker/1.0 (American Hospital Association data and policy research; +https://www.aha.org)
+
+sha256        = the digest of the file archived here.
+served_sha256 = the digest of the FULL page as served, so provenance
+                closes even where the archive is a reduction. For a
+                VERBATIM source the two are identical.
+
+hfs_rhtp is reduced to <main> minus a <map-details api-key=...> store-
+locator widget: that Mapbox token is Illinois' to publish and not ours
+to redistribute (the §7.1 posture). Everything else is verbatim.
+MANIFEST.txt is excluded from its own listing.
+
+2026-08-28_icahn_award.html
+  url          : https://icahn.org/news/news-release-icahn-awarded-more-than-50-million-by-the-state-of-illinois-to-advance-rural-healthcare-transformation-across-illinois/
+  role         : THE AWARD SOURCE (§7 designated pass-through administrator)
+  archived     : VERBATIM
+  bytes        :  455369
+  sha256       : f46536ac644ac102402d40cbddca322f3cc2ad236da786084bca514925599e7c
+  served_bytes :  455369
+  served_sha256: f46536ac644ac102402d40cbddca322f3cc2ad236da786084bca514925599e7c
+  fetched      : 2026-08-28T20:07:36+0000
+2026-08-28_hfs_rhtp.html
+  url          : https://hfs.illinois.gov/info/fedresctr/ruralhealthtp.html
+  role         : THE NEGATIVE: the state programme page, which names no recipient
+  archived     : MAIN_MINUS_CREDENTIAL
+  bytes        :   70390
+  sha256       : 11f47dae5a49d2a83d583403a0b1582095bb322ef5a3661146a9f4153ed685e3
+  served_bytes :   83663
+  served_sha256: 4d6acdb832ed46f76050ac68ea558cd5d95210dd389a3942d5493ecc169dffdd
+  fetched      : 2026-08-28T20:07:37+0000
+2026-08-28_hfs_update.pdf
+  url          : https://hfs.illinois.gov/content/dam/soi/en/web/hfs/info/fedresctr/rhtprogup03092026.pdf
+  role         : THE PLAN (§0.3): intended sub-awardees, preliminary amounts, 'discussion purposes only'
+  archived     : VERBATIM
+  bytes        : 1237995
+  sha256       : 7a95820c2945101dadbc6559770453bd0d7788ec1362cd11c247c09875a396e4
+  served_bytes : 1237995
+  served_sha256: 7a95820c2945101dadbc6559770453bd0d7788ec1362cd11c247c09875a396e4
+  fetched      : 2026-08-28T20:07:37+0000
