@@ -352,10 +352,14 @@ test_that("determination_basis is mandatory and populated on every row", {
 
 # -- The FL schema contract --------------------------------------------------
 
-test_that("the first 19 columns are FL_year1_awardees.xlsx's, in order", {
+test_that("the first 19 columns are Florida's leading block, in order", {
   # The whole point of the schema match: the two states union without a reshape.
+  # Florida gained three columns of its own in session 10 (the preserved
+  # recipient_type_source and the two the back-fit sets), so the contract is on
+  # the shared leading block rather than on Florida's full width.
   fl <- openxlsx::read.xlsx(here::here("FL_year1_awardees.xlsx"), sheet = 1)
-  expect_equal(names(records)[1:19], names(fl))
+  expect_gte(ncol(fl), 19L)
+  expect_equal(names(records)[1:19], names(fl)[1:19])
 })
 
 test_that("the Phase 2 organization count is pinned against DCH's own headline", {

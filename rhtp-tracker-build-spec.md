@@ -560,7 +560,11 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 **`source_doc_type`:** `NOTICE_OF_AWARD` | `NOTICE_OF_INTENT_TO_AWARD` | `PROCUREMENT_PORTAL_POSTING` | `STATE_BUDGET_NARRATIVE` | `AGENCY_PRESS_RELEASE` | `GOVERNOR_PRESS_RELEASE` | `THIRD_PARTY_NEWS` | `OTHER`
 *(Strength ordering matters: the first three are primary; press releases are secondary; third-party news alone can never support a `Yes`.)*
 
-**`recipient_type`:** `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` | `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` | `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` | `VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `NOT_YET_NAMED`
+**`recipient_type`:** `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` | `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` | `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` | `VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `PHYSICIAN_PRACTICE` | `NOT_YET_NAMED`
+
+`PHYSICIAN_PRACTICE` was added in session 10, for a physician or clinician practice receiving an award directly. Florida awards eight and no other value is true of one: `NONPROFIT_CBO` asserts a form the source contradicts, and `VENDOR_OR_CONTRACTOR` makes a provider receiving a grant look like a supplier to the state. Stage 5 has to be able to tell a practice from a hospital.
+
+**A named recipient whose organisational form the source does not state is `NONPROFIT_CBO`, with `determination_confidence = LOW` and `flag_reason = RECIPIENT_TYPE_INFERRED`** — never a free-text placeholder. Florida originally wrote `UNCLASSIFIED` for this and was back-fitted to the Georgia convention in session 10; two answers to one question would split Stage 5's hospital determination. This is for an undetermined form only, never to soften a recipient whose form *is* stated.
 
 **`flow_type`:** `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` | `IN_KIND_BENEFIT` | `NON_HOSPITAL`
 

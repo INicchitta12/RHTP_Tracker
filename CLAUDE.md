@@ -225,7 +225,12 @@ secondary; third-party news alone can never support a `Yes`.*
 `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` |
 `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` |
 `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` |
-`VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `NOT_YET_NAMED`
+`VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `PHYSICIAN_PRACTICE` |
+`NOT_YET_NAMED`
+*A named recipient whose form the source does not state is `NONPROFIT_CBO` +
+`determination_confidence = LOW` + `flag_reason = RECIPIENT_TYPE_INFERRED`
+(settled session 10; Florida's `UNCLASSIFIED` was back-fitted to it).
+`PHYSICIAN_PRACTICE` is a determinable form, not that fallback.*
 
 **`flow_type`**
 `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` |

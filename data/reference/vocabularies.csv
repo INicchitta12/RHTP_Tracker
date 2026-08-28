@@ -27,6 +27,7 @@ recipient_type,STATE_AGENCY,
 recipient_type,VENDOR_OR_CONTRACTOR,
 recipient_type,NONPROFIT_CBO,
 recipient_type,NOT_YET_NAMED,
+recipient_type,PHYSICIAN_PRACTICE,"spec 8, added session 10. A physician or clinician practice receiving an award directly - a pediatrics group, a fetal medicine practice, a primary care clinic. Added deliberately rather than folded into an existing code: Florida awards eight of them and none of the other twelve values is true of one. NONPROFIT_CBO would assert a form the source contradicts (these are ordinarily for-profit), and VENDOR_OR_CONTRACTOR would make a provider receiving a grant look like a supplier to the state. Stage 5 must be able to tell a practice from a hospital, which is the whole point of the column. Distinct from FQHC_OR_RHC, which is a federal designation, and from HOSPITAL_AFFILIATED_ENTITY, which requires a hospital parent."
 flow_type,DIRECT,
 flow_type,PASS_THROUGH_DESIGNATED,
 flow_type,PASS_THROUGH_UNRESOLVED,distributed_to_hospital = Unclear. DO NOT IMPUTE (spec 0.3)
