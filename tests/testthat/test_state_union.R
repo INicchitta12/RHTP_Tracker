@@ -33,7 +33,15 @@ STATE_FILES <- c(
   # distributed_to_hospital = Yes and names NO hospital, which is a
   # combination no other state file contains and which the test below existed
   # in a form that would have quietly mis-stated.
-  IL = "data/reference/il_year1_awardees.csv"
+  IL = "data/reference/il_year1_awardees.csv",
+  # Oregon is the widest state file in the project: 278 award actions across
+  # SEVEN pools published in FOUR documents, at three different levels of
+  # certainty. It is in this test for the reason the test exists -- a state that
+  # mixes 35 named hospitals, 99 named clinics, 103 competitive grants, two
+  # ranges, two unpriced projects and two pools that name nobody is the state
+  # most likely to give §8 a different answer somewhere, and nothing would catch
+  # it until someone tried to combine the file with the others.
+  OR = "data/reference/or_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -61,13 +69,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all eight files carry the leading 19 columns, in the same order", {
+test_that("all nine files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the eight files union without a coercion failure", {
+test_that("the nine files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -75,7 +83,7 @@ test_that("the eight files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IL", "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

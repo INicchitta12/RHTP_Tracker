@@ -179,6 +179,7 @@ R/
   03j_sd_year1_announcements.R # South Dakota — the two announced rounds; they name NOBODY (BUILT)
   03k_rcj_state_survey.R       # 50-state RCJ coverage survey — the second trigger's input (BUILT)
   03l_il_year1_awardees.R      # Illinois — ICAHN, the first PASS_THROUGH_DESIGNATED (BUILT)
+  03m_or_year1_awardees.R      # Oregon — 7 pools, 4 documents, 278 award actions (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -202,6 +203,7 @@ data/
     SD/                        #   the open.sd.gov search + 13 contract detail pages
     SD/announcements/          #   the two news.sd.gov releases, article element only
     IL/                        #   the ICAHN award release + the two HFS negatives
+    OR/                        #   4 OHA documents + the Catalyst xlsx; awards page script-stripped
     VA/                        #   the DMAS negative: 3 reduced pages + the governor's PDF
 output/
   rhtp_hospital_tracker_<date>.xlsx
@@ -222,6 +224,8 @@ docs/
   session13_sd_announcements_adeca_and_monitor.md # SD names nobody; ADECA has no file
   session14_cms_newsroom_trigger_virginia.md # newsroom primary; VA is at RFA stage
   session15_virginia_dmas_negative.md # DMAS hosts no RFA series; the §0.2 worked example
+  session16_rcj_state_survey_illinois.md # the trigger list was never a census
+  session17_oregon_extraction.md     # Oregon: 7 pools; the 99 x $100k are CLINICS
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -272,6 +276,13 @@ Alaska, every row), `RECIPIENT_TYPE_VARIES_IN_SOURCE` (one named recipient
 carries different forms on different rows of one document — Alaska, 26 rows).
 Every state assert now validates `flag_reason` against the vocabulary, so a
 fourth invented code fails at the state that invents it.
+
+**A fourth was added in session 17**, on the same deliberate footing:
+`AMOUNT_RANGE_IN_SOURCE` — the source publishes a **range** where a
+per-recipient amount would go (Oregon's Immediate Impact Wave 1 prints
+"$403,000 – $778,000"). `amount` is left **empty** and the bounds go in
+`amount_low` / `amount_high`, because picking the low bound, the high bound or
+the midpoint would all publish a figure the state has not.
 
 **`flow_type`**
 `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` |
@@ -454,7 +465,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 16 — the CMS trigger list was never a census; the 50-state RCJ survey; Illinois/ICAHN, the first PASS_THROUGH_DESIGNATED)
+**Last updated:** 2026-08-28 (Session 17 — Oregon: seven pools across four documents, 278 award actions, and the 99 x $100,000 that are clinics rather than hospitals)
 
 ### Stages built
 
@@ -466,6 +477,7 @@ retrieval code.
 | Stage 00b — trigger UNION | `R/00b_state_trigger_queue.R` | **Built and run (Session 16). The union of CMS announcements and RCJ Tier 3 candidates, recording which source flagged each state. 9 states -> 38; 32 queued. Offline, reads two committed CSVs — `docs/session16_rcj_state_survey_illinois.md`** |
 | RCJ 50-state survey | `R/03k_rcj_state_survey.R` | **Built and run (Session 16). 38 of 50 states hold Tier 3 candidates; 29 are RCJ_ONLY and were never investigated. §0.1 signal, never a dollar figure** |
 | Illinois Year 1 | `R/03l_il_year1_awardees.R` | **Built and run (Session 16). One row: ICAHN, $50,008,264, the first `PASS_THROUGH_DESIGNATED`. Illinois has published NO recipient-level list** |
+| **Oregon Year 1** | `R/03m_or_year1_awardees.R` | **Built and run (Session 17). 278 award actions across SEVEN pools in FOUR documents. 35 named hospitals ($34,998,000) + 14 Catalyst hospital rows = $50,188,531. The 99 x $100,000 are RURAL HEALTH CLINICS — `docs/session17_oregon_extraction.md`** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
@@ -484,7 +496,7 @@ retrieval code.
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R` | **Built — 1,177 assertions; 1,176 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R` | `test_03m_or_year1_awardees.R`<br>**Built — 1,536 assertions; 1,535 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -504,12 +516,15 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **SD** (contracts) | 13 | $5,618,367 | 0 | $0 |
 | **SD** (announced rounds) | 2 | $121,500,000 | **0 named** | $0 |
 | **IL** | 1 | $50,008,264 | **0 named** | **$0 named / $50,008,264 pooled** |
+| **OR** | 278 | $175,312,365 | **49** | **$50,188,531** (intents to award) |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
 but undisbursed, AK's are preliminary intents to award, 45 of AL's amounts are
 rounded in the source, and SD's zero is because South Dakota's actual awards are
-not published anywhere reachable.
+not published anywhere reachable. **Not one Oregon award is executed either** —
+every OHA pool calls its figures estimates, offers or subject to negotiation, so
+all 278 rows are `NOTICE_OF_INTENT_TO_AWARD` + `amount_confirmed = No`.
 
 **South Dakota's two lines are two documents and must never be added.** The 13
 contracts are executed administrative spend with named vendors. The 2 rounds
@@ -530,11 +545,11 @@ It carries `hospital_attribution = POOL_UNNAMED_HOSPITALS`, and
 `rhtp_hospital_total()` **refuses to return a combined figure**:
 
 ```
-NAMED_HOSPITAL        : 243,006,884   AL 66.1M · GA 60.0M · FL 49.3M · AK 43.4M · PA 24.1M
+NAMED_HOSPITAL        : 293,195,415   AL 66.1M · GA 60.0M · OR 50.2M · FL 49.3M · AK 43.4M · PA 24.1M
 POOL_UNNAMED_HOSPITALS:  50,008,264   IL
 ```
 
-All eight files union on the leading 19 columns with zero values outside §8,
+All **nine** files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. **Session 12's note
 that "all six states union" was wrong about the test** — it named five and
 South Dakota was never in it. Both SD files are now included.
@@ -571,14 +586,26 @@ South Dakota was never in it. Both SD files are now included.
 - **`data/reference/rcj_state_survey.csv` — 50 rows (Session 16).** The RCJ
   coverage survey: Tier 3 candidates, distinct awardees and an unvalidated
   amount signal per state, ranked. **38 of 50 states hold candidates; 29 are
-  `RCJ_ONLY`** — candidates, no CMS release, never investigated. Oregon leads
-  at 386 candidates / 258 distinct awardees. `rcj_federal_amount_sum` is
+  `RCJ_ONLY`** — candidates, no CMS release, never investigated. Oregon led
+  at 386 candidates / 258 distinct awardees and is **`EXTRACTED` as of session
+  17**; **Texas is now the top of the queue** (68 / 67). `rcj_federal_amount_sum` is
   **not a dollar figure** (§0.1) and there is deliberately no total in the
   file. Rebuild with `Rscript R/03k_rcj_state_survey.R --build`.
-- **`data/reference/state_trigger_queue.csv` — 50 rows (Session 16).** The
-  union: 9 `BOTH`, 0 `CMS_ONLY`, **29 `RCJ_ONLY`**, 12 `NEITHER`; 32 queued.
+- **`data/reference/state_trigger_queue.csv` — 50 rows (Session 16; refreshed
+  Session 17).** The union: 9 `BOTH`, 0 `CMS_ONLY`, **29 `RCJ_ONLY`**, 12
+  `NEITHER`. **31 queued, 8 extracted** (Oregon moved across).
   Assertions require it to be a superset of each source and strictly wider
   than CMS alone.
+- **`data/reference/or_year1_awardees.csv` — 278 rows (Session 17).** Oregon,
+  across **seven award pools in four OHA documents**. Read `award_pool` before
+  using any figure. **The 99 rows at $100,000 are RURAL HEALTH CLINICS, not
+  hospitals** — OHA prints them in a table headed "Rural Health Clinics (RHCs)"
+  against a separate $10M pool, and Oregon's hospital block is the *other*
+  table in the same bulletin: 35 hospitals, $963,000 for the 32 at ≤50 beds and
+  $1,394,000 for the 3 above, **Grand Total $34,998,000**. Two pools
+  (Tribal $21.7M, LPHA $5M) name nobody and are one aggregate row each with an
+  **empty `amount`**. `OR_year1_awardees.xlsx` is a render whose first sheet is
+  the warning. Rebuild with `Rscript R/03m_or_year1_awardees.R --build`.
 - **`data/reference/il_year1_awardees.csv` — 1 row (Session 16).** Illinois:
   ICAHN, $50,008,264, three agreements executed 2026-07-31.
   `hospital_attribution = POOL_UNNAMED_HOSPITALS` — **read that column before
@@ -1840,20 +1867,120 @@ manifest.
 
 **Tests: 1,375 assertions, all passing** (was 1,178).
 
+### Session 17 — Oregon, the richest state file so far, and a block that was not hospitals
+
+Full detail: `docs/session17_oregon_extraction.md`. Zero RCJ quota; 8 calls to
+`www.oregon.gov`, 1 to `content.govdelivery.com`, throttled per §9.5.
+
+**Oregon publishes more than any state in this project, through FOUR documents,
+because OHA runs SEVEN pools and publishes each differently.** 278 award
+actions: Catalyst $80,114,365 (103 projects / 85 orgs, a **machine-readable
+xlsx**), Transformation hospitals $34,998,000 (35 named), Transformation RHCs
+$9,900,000 (99 named), Immediate Impact Wave 1 $5,192,000 (12), Wave 2
+$11,294,644 (**21 of 33**), Tribal $21,700,000 (**unnamed**), LPHA $5,000,000
+(**unnamed**).
+
+**The prior signal was wrong about the recipient class, and the state source is
+what says so.** RCJ shows **99 awards of exactly $100,000 to 99 distinct
+organisations** — which reads as a large clean uniform hospital block. OHA's own
+bulletin puts those 99 under **"Rural Health Clinics (RHCs)"**, in a table
+separate from its hospitals, against a separate **$10M** pool. Oregon's hospital
+block is the **other table in the same document**: 32 hospitals at $963,000
+(≤50 beds) + 3 at $1,394,000 (>50 beds), OHA's own **Grand Total $34,998,000**.
+§0.1 in one paragraph. **Two RCJ defects sit in the same 136 records**: the
+bulletin's own *title* is captured as an awardee at $963,000, and its **"Grand
+Total" row** as an awardee at $34,998,000. Four assertions and a test hold the
+correction.
+
+**Three closures, none arranged.** The seven pools total **$175,312,365** against
+OHA's own stated *"about $175.3 million"* — three documents, nobody arranged
+them. The hospital table sums to its own Grand Total exactly, **and** the
+bed-count rule the bulletin *states* agrees with the amounts it *prints* on all
+35 rows. And the RHC pool is short by **exactly one clinic** ($100,000): OHA says
+100 certified RHCs, the bulletin lists 99, and closes *"Additional clinics may
+receive their RHC certificate from CMS and become eligible."* Nothing was filled
+in for the 100th.
+
+**Not one Oregon award is executed, and every pool says so.** Immediate Impact
+amounts come from recipients' **Notice of Intent to Award** and are *"tentative,
+subject to budget negotiations, and contingent upon final agreement
+execution"*; Catalyst amounts *"will be finalized after OHA completes award
+negotiations"*; the Transformation tables are headed **"Organizations Offered
+Funds"** with an **"Eligible Award Total"** column. All 278 rows are
+`NOTICE_OF_INTENT_TO_AWARD` + `amount_confirmed = No`. The 2026-07-07 release
+does say the $35M is money Oregon *"has made to date"*, which is what carries
+`recipient_confirmed = Yes` on the 35; §9.3 splits the two questions so a
+preliminary figure does not drag a confirmed recipient down with it.
+
+**Wave 2 is short and that is the source.** OHA states 33 projects and $17M; the
+page names 21 at $11,294,644 and never claims to be complete. South Dakota's
+lesson in partial form — a count is not a list. The gap is reported, **not
+imputed**, and an assertion fails the day OHA publishes the rest.
+
+**Four judgements worth reading before using the file.** (1) `University`
+outranks `Hospital or Hospital System` in the org-type table: all four Oregon
+rows carrying both are **OHSU entities**, `UNIVERSITY_OR_AHC` is what §8 has for
+an academic health centre, and it can only keep dollars *out* of the hospital
+total. (2) **Oregon's tokens sit above Alaska's `Local Government`, preventing a
+deflation** — Oregon's rural hospitals are **health districts**, so Curry Health
+District (DBA Curry Health Network) is typed *"…Hospital or Hospital System,
+Local Government…"* and would otherwise be coded out of the hospital total
+entirely. Alaska is unaffected: no Alaska row contains an Oregon token. (3)
+**§6.2 caught a real inflation** — *"Northwest Regional ESD, Clatsop Community
+College, Providence Seaside Hospital, Seaside School District"* carries **one**
+figure of $186,000, and the name rules see *"Hospital"*. Multi-recipient rows are
+`Unclear` and enter neither bucket; **the delimiter is the comma and only the
+comma**, following session 6's decision not to split on a bare `&` so *Oregon
+Health & Science University* survives it. (4) **23 hospital-owned RHCs,
+$2,300,000, are recorded and not recoded** — OHA put every one in the RHC table
+and paid them from the RHC pool; `hospital_affiliation_signal` marks them and a
+human decides.
+
+**The provenance defect, and which check found it.** A hand grep before the first
+fetch reported all five sources clean. **It was wrong.** `rhtp-awards.aspx` loads
+Google Maps and carries the key **inside the script URL**
+(`…maps/api/js?…&key=AIza…`) — a form a pattern anchored on `api_key=` walks
+straight past. The **automated guard, running on every fetch, caught it**; the
+human check that ran once did not. The page is now archived with every
+`<script>` removed, asserted credential-free **after** reducing, with the full
+page's digest as served in the manifest. **Every figure is identical before and
+after.** The other four sources are archived byte for byte. The guard also now
+strips NUL bytes, because an xlsx is a zip and a guard that throws on the one
+binary source is a guard that gets an exception written around it.
+
+**Two things the parsers refuse to guess at.** A **range is not an amount** —
+Wave 1's *"$403,000 – $778,000"* leaves `amount` empty with the bounds in
+`amount_low`/`amount_high` (new flag `AMOUNT_RANGE_IN_SOURCE`, written into
+`vocabularies.csv` with full notes). And a **project OHA published with no
+amount is kept, not dropped** — *System of Care Transformation Regional
+Convenings* has an initiative and a description and no figure; dropping it loses
+a project OHA named, refusing on it would have lost the other 20 with it.
+
+**Tests: 1,536 assertions, all passing** (was 1,375). `test_state_union.R` now
+combines **nine** state files.
+
 ### Next session
 
-**The queue is no longer nine states. It is thirty-eight, and twenty-nine of
-them have never been looked at.** That is the change Session 16 makes to
-everything below it.
+**Oregon is done, and it was worth the position it held in the queue: 278 award
+actions, $175.3M, 49 named hospitals.** Thirty-one states are still queued.
 
-1. **Work the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv` is
-   ordered. **Oregon is the outlier by an order of magnitude — 386 Tier 3
-   candidates across 258 distinct awardees**, more than any state extracted so
-   far; then TX 68/67, KS 54/50, MD 42/41, IN 37/28, OK 35/25, NV 34/34.
+1. **Keep working the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv`
+   is ordered and **Texas now leads** — 68 Tier 3 candidates / 67 distinct
+   awardees; then KS 54/50, MD 42/41, NE 39/35, IN 37/28, OK 35/25, NV 34/34.
    Network is **Full**, so the only question per state is whether it has
    published a recipient-level list. **Confirm that before building an
    extractor** — §0.1 says the candidate count is where to look, not what is
-   there, and 29 states is enough that guessing wrong is expensive.
+   there, and Oregon proved the point twice over: its candidate count was right
+   about *where*, and wrong about *what* (99 clinics read as 99 hospitals).
+
+   Oregon is also the shape to expect again. Its awards were in **four
+   documents**, only one of them linked from the awards page — the
+   recipient-level hospital and clinic lists were in a **GovDelivery bulletin**
+   that no oregon.gov page links to, found because RCJ's `/activity` endpoint
+   records `siteUrl` (§9). **Check `/activity` for a state's real source URLs
+   before concluding it has published nothing**: `state_source_url` is absent
+   from all 386 Oregon Tier 3 records, and `stage2_state_sources.rds` had the
+   answer.
 
 2. **Illinois' next step is `il.amplifund.com`.** The 97-hospital,
    $28,191,393 planning-grant solicitation, distributed equally, is how
@@ -1885,7 +2012,9 @@ narrative lands under `data/evidence/budget_narratives/<state>/`. Build
 
 **Still open, unchanged:** the **AHA Annual Survey / CMS Provider of Services
 extracts** (blocker 5) cap every `determination_confidence` at `MEDIUM`, with
-**200 hospital recipients** waiting on a CCN match. And Alaska's seven awardees
+**249 hospital recipients** waiting on a CCN match — Oregon adds 49, and its 35
+Transformation hospitals are unusually matchable because OHA publishes a **bed
+count** per hospital. And Alaska's seven awardees
 whose organisational form varies across their own rows — **$20.4M** — is still
 a human's judgement, deliberately unresolved.
 
@@ -1939,6 +2068,9 @@ Rscript R/03l_il_year1_awardees.R --validate    # IL assertions + reconciliation
 Rscript R/03l_il_year1_awardees.R --build       # writes IL csv + IL_year1_awardees.xlsx
 Rscript R/00b_state_trigger_queue.R --build     # the CMS + RCJ union, offline
 Rscript R/00b_state_trigger_queue.R --status    # what the queue says
+Rscript R/03m_or_year1_awardees.R --fetch       # OR: archive 5 OHA sources + SHA-256
+Rscript R/03m_or_year1_awardees.R --validate    # OR assertions + reconciliation, offline
+Rscript R/03m_or_year1_awardees.R --build       # writes OR csv + OR_year1_awardees.xlsx
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

@@ -1,0 +1,22 @@
+Oregon Health Authority -- RHTP Year 1 award sources
+Archived by R/03m_or_year1_awardees.R --fetch
+User-agent: AHA-RHTP-Tracker/1.0 (American Hospital Association research; +https://www.aha.org)
+
+Files are written with writeBin(), so re-hashing a file on disk reproduces
+its digest below. Four of the five are the body the server sent, byte for
+byte. THE AWARDS PAGE IS A REDUCTION: every <script> element is removed,
+because oregon.gov loads Google Maps for the Catalyst distribution map and
+carries the API key in the script URL. That key is Google's to publish and
+not ours to redistribute (§7.1's posture, as applied to CMS and Illinois).
+For a reduced file the full page's digest as served is recorded too, so
+provenance closes; the reduction removes nothing this repo parses.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+c2c6d3e19c5a9fd8a6b1df0213c3b3f76a9b0047ac26081c574eb04af63989e0  2026-08-28_oha_rhtp_awards_page.html  (150023 bytes, reduce=STRIP_SCRIPTS)  <- https://www.oregon.gov/oha/HPA/HP/Pages/rhtp-awards.aspx
+    full page as served: a201fe6e624048390ee5e291f8a1d961947e53a7e4714a0cb74f2184d1957db3
+3939ce5c65ae91498c9a4a55951c7a9d58fd20181e809b269250bf0f16b35612  2026-08-28_oha_RHTP-Awards-Data.xlsx  (45542 bytes, reduce=NONE)  <- https://www.oregon.gov/oha/HPA/HP/Documents/RHTP-Awards-Data.xlsx
+978f59615d95f1c5f55c26cecf2a363ecc3582c3a7320e09e0ba4787362465e4  2026-05-07_oha_transformation_fund_bulletin.html  (273798 bytes, reduce=NONE)  <- https://content.govdelivery.com/accounts/ORHA/bulletins/4164e4f
+af31cd52f3f88f7cb67ed6a8e70d2b74e3b322a3fa48e12ef7b901c865f72575  2026-04-10_oha_news_release.html  (91456 bytes, reduce=NONE)  <- https://www.oregon.gov/oha/ERD/Pages/Oregon-organizations-awarded-federal-funding-to-improve-rural-healthcare-04.10.2026.aspx
+fb369fafb97ee27836d37b1d4b4372a30248e757b536c9f05f50a6e6b347b763  2026-07-07_oha_news_release.html  (86821 bytes, reduce=NONE)  <- https://www.oregon.gov/oha/ERD/Pages/$97M-awarded-across-Oregon-to-improve-rural-health-07.07.2026.aspx
