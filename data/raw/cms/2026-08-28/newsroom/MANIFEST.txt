@@ -1,12 +1,12 @@
 RHTP tracker archive: the CMS newsroom, filtered to the 'Rural health' topic.
 
 listing_url  : https://www.cms.gov/newsroom/articles
-fetched_utc  : 2026-08-28T18:26:23Z
+fetched_utc  : 2026-08-28T19:27:11Z
 listing_pages: 16
 floor_date   : 2025-09-01
 items_seen   : 139
-topics_learnt: 139
-rural_archived (this run): 14
+topics_learnt: 0
+rural_archived (this run): 0
 
 WHAT IS COMMITTED, AND WHAT IS NOT. Each file under releases/ is the
 <main> element plus the schema.org JSON-LD, NOT the page as served.
@@ -40,7 +40,13 @@ state allotment and the Tier 3 announcement in the same release --
 Virginia's names $122M in its headline and $189M in a quoted
 statement, and those are two different tiers of the same programme.
 
-sha256 per file:
+sha256 per file. MANIFEST.txt IS NOT LISTED IN ITSELF -- a manifest
+cannot record its own digest, because the value would be stale the
+instant the file is written. It listed itself until a second --run on
+one archive date exposed it: the first run wrote the manifest AFTER
+taking the listing, so the file did not exist to be listed and the
+verification test passed on absence rather than on correctness.
+
   cf02d5b4b6f3bd70f215b37298606f1fa0d7af020f5c8ac34903872907e45c79  listing/articles_page_00.html
   84f5790b4189066d7156001fc481306ebae6aaa1eb86778e773f4856d99c8841  listing/articles_page_01.html
   674a18b19439ea23e5c249bd5b2fd20d90c993e7bd05f854aeb3810fd15dc533  listing/articles_page_02.html

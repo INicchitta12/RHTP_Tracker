@@ -68,6 +68,22 @@ RHTP money moves CMS → state → subrecipient. RCJ mixes all three tiers in a 
 
 **Only Tier 3 answers the project question.** Tiers 1 and 2 live in separate reference tables, on separate Excel sheets, and are never unioned with Tier 3. Aggregation functions must hard-fail if passed mixed tiers.
 
+#### Worked example — Virginia, two tiers on one page
+
+The rule reads as bookkeeping until two tiers of the same state's money appear in one document, in the same week, both official, both correct. Virginia is that case, and it is the example to reach for.
+
+CMS announced Virginia on 2026-08-28 under the headline **$122 million**. A quoted statement *inside the same release* says Virginia receives **$189 million** through the programme. Neither figure is wrong and neither is a typo. `cms_fy2026_allotments.csv` has Virginia's FY2026 allotment at **$189,544,888**, so the $189M in the quote is **Tier 1** — the CMS→state award. The $122M in the headline is an announced tranche of that award, and the release says so outright: *"today's announcement is just one part of the larger overall funding amount being awarded to Virginia for fiscal year 2026."*
+
+The Commonwealth's own primary source says the same thing from the other side. The Governor's 2026-05-21 release — archived at `data/evidence/VA/2026-05-21_governor_vhcc_first_rhtp_grant.pdf` — states that the initiative *"will deliver $189.5 million in year-one funding."* That is the allotment again, rounded, restated by the state, and labelled **year-one funding**. Two publishers, two documents, one Tier 1 number.
+
+Three things follow, and they are the reason this example is in the spec rather than in a session note:
+
+1. **$122M is not Tier 3.** It names no recipient. A figure that names nobody cannot be a `SUBAWARD` however award-shaped its headline is (§0.3), and tiering it Tier 3 to make Virginia "have data" is the inflation this document exists to prevent. At best it is Tier 2; in practice it stays an `amount` on the stage 00 trigger list, which is a discovery source (§0.1) and is **never summed** (§0.2).
+2. **The trap is that both numbers survive a plausibility check.** $122M and $189M are each the right order of magnitude for a state RHTP figure, each traces to an official page, and each is genuinely "Virginia, FY2026." Nothing about either looks wrong in isolation. What separates them is not the number, the source or the date — it is only the tier, which is why `award_tier` is assigned *before* any other processing and not inferred later from context.
+3. **A worked example is not a licence to average or to net.** $189.5M − $122M is not "the rest of Virginia's money" in any reportable sense, and $122M + $189M is a figure no one should ever produce. The two live in different tables (§0.2a) and the arithmetic between them is undefined.
+
+**A near-miss worth distinguishing.** That same Governor's release announces Virginia's first RHTP award as **$127,000** in its sub-deck and **$127,500** in its body. That is *not* a tier problem — it is one figure published twice with a typo, and the rule for it is different: keep the source's own language (§8), record the discrepancy, resolve nothing. Two numbers on one page are a tier question only when they describe two different levels of the CMS→state→subrecipient flow. Check which before reaching for this section.
+
 ### 0.2a One home per authoritative number
 
 Tier 1 classification produced **274 RCJ records across 50 states** — roughly five per state, each restating the same allotment in a different document. Correctly classified, but Tier 1 no longer sums to $10B.

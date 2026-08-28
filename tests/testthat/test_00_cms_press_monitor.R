@@ -644,6 +644,34 @@ test_that("every archived rural release verifies against its manifest digest", {
   })
 })
 
+test_that("the manifest does not list itself, and lists everything else", {
+  # A manifest cannot record its own digest: the value is stale the instant the
+  # file is written. It DID list itself, and the digest test above passed anyway
+  # -- because on a first run the manifest does not exist when the listing is
+  # taken, so there was nothing to be wrong. The second --run on one archive
+  # date is what exposed it, and the twice-weekly Routine reaches that whenever
+  # it runs twice in a day.
+  #
+  # The completeness half matters as much: `if (file.exists(path))` above means
+  # a file that stops being listed is silently not checked, so an unlisted file
+  # is indistinguishable from a verified one. This asserts the two sets match.
+  dir <- here::here("data", "raw", "cms", "2026-08-28", "newsroom")
+  skip_if_not(dir.exists(dir), "the newsroom archive is not on disk")
+
+  manifest <- readLines(file.path(dir, "MANIFEST.txt"), warn = FALSE)
+  listed <- stringr::str_match(
+    stringr::str_subset(manifest, "^  [0-9a-f]{64}  "), "^  [0-9a-f]{64}  (.+)$"
+  )[, 2]
+
+  expect_false("MANIFEST.txt" %in% listed)
+
+  on_disk <- setdiff(
+    list.files(dir, recursive = TRUE), "MANIFEST.txt"
+  )
+  expect_setequal(listed, on_disk)
+})
+
+
 test_that("the index read back off disk unions with medicaid.gov without a type clash", {
   # A real bug, and one only the offline --parse path reached. readr infers
   # first_indexed as a Date on the way back in; medicaid.gov's first_seen is

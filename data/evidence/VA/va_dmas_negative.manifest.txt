@@ -1,0 +1,101 @@
+RHTP tracker archive (spec 0.4 / 0.5): Virginia's Department of Medical
+Assistance Services -- the primary-source record of a NEGATIVE.
+
+fetched_utc     : 2026-08-28T19:30Z
+state           : VA
+host            : dmas.virginia.gov  (apex only; www.dmas.virginia.gov is REFUSED)
+source_doc_type : GOVERNOR_PRESS_RELEASE (the PDF) / OTHER (the programme pages)
+cms_fy2026_allotment : $189,544,888  (cms_fy2026_allotments.csv)
+
+WHAT THIS ARCHIVE ESTABLISHES
+
+DMAS HAS POSTED NO AWARDS UNDER THE RFA-RHTP-2026-nn SERIES. It has posted
+no RFA-RHTP-2026-nn documents at all. The string "RFA-RHTP", in any spacing
+or casing, occurs ZERO times across 388 pages of dmas.virginia.gov -- a sweep
+that covers every one of the 330 internal paths listed on the site's own HTML
+sitemap at /sitemap/, plus a depth-2 crawl from the home page, the RHTP
+programme page and all six pages of the press-release index.
+
+"Rural health transformation" occurs on FIVE pages only: the programme page,
+its parent (/data-reporting/programs-services/), the press-release index
+(and its ?page=1 duplicate), and the sitemap. Nothing else on the agency's
+site mentions the programme at all.
+
+WHY DMAS IS NOT WHERE THE AWARDS WILL POST -- A CORRECTION TO SESSION 14
+
+Session 14 reasoned that "DMAS runs the RFA-RHTP-2026-nn series and is where
+the awards will post". The first half is right and the second is wrong, and
+the agency's own procurement page says so: DMAS hosts no solicitations of its
+own. /about-us/procurement/ directs vendors to eVA, the Commonwealth's central
+procurement portal, for every DMAS opportunity. The RFA application portals
+named in the committed RCJ pull are third-party pass-through administrators --
+vhcf.org (Virginia Health Care Foundation), vhha.com / vhhafoundation.org
+(the Virginia Hospital & Healthcare Association Foundation) -- and the
+programme's own site is ruralhealthtransformationva.virginia.gov.
+
+ALL of those hosts are REFUSED at CONNECT from this session, as are
+eva.virginia.gov, vdh.virginia.gov and hhr.virginia.gov. Allowlisting
+dmas.virginia.gov answered the question asked of it; it did not open the
+route to Virginia's awards, because that route does not run through DMAS.
+
+THE ONE RHTP AWARD DMAS DOES PUBLISH
+
+/media/qc5dxfpv/... is the Governor's 2026-05-21 release, archived here
+verbatim. It names exactly ONE recipient:
+
+    Virginia Highlands Community College -- $127,500
+    "a first-of-its-kind Rural Health Transformation grant"
+    LPN programme expansion, part of the Homegrown Health Heroes initiative
+
+This is the FIRST primary-source corroboration of the single VA row in the
+committed RCJ /awards pull (awardeeName "Virginia Highlands Community
+College", federalAmount 127500). RCJ's figure matches the release body
+exactly. Under 0.1 that record could now be validated -- and it is a
+community college, so recipient_type is NOT hospital and flow_type is
+NON_HOSPITAL either way. NO EXTRACTOR AND NO va_year1_awardees.csv WERE
+BUILT: one NON_HOSPITAL row adds a state to Deliverable 1 while adding
+nothing to the hospital total.
+
+TWO FIGURE DISCREPANCIES INSIDE THIS ONE DOCUMENT, BOTH RECORDED NOT RESOLVED
+
+1. The release's own sub-deck says "The Governor Announced the $127,000
+   Award"; its body says "a $127,500 award". The body figure is the one
+   RCJ carries and the one quoted above. Stored as published (8); the
+   discrepancy is the source's.
+
+2. The body says Virginia's initiative "will deliver $189.5 million in
+   YEAR-ONE funding". cms_fy2026_allotments.csv has Virginia's FY2026
+   allotment at $189,544,888, which $189.5 million rounds exactly. So the
+   Commonwealth's own release calls the whole Tier 1 allotment "year-one
+   funding" -- which is the second half of the 0.2 worked example the CMS
+   newsroom release opened. See spec 0.2 and docs/session15_*.md.
+
+REDUCTION AND TOKENS (the 7.1 / CMS Mapbox precedent)
+
+The three HTML files are reduced to their <main> element. DMAS's page chrome
+carries a Weglot translation api_key of the shape wg_<32 hex>, which is
+DMAS's to publish and not ours to redistribute. The writer asserts the token
+SHAPE absent from every reduced file before writing it -- shape, not literal
+value, so a rotated key is caught too (Session 14's rule). The PDF is
+archived whole: it carries no chrome and no token.
+
+Both digests are recorded below -- the reduction's and the full page's as
+served -- so provenance still closes. Digests are over the EXACT BYTES
+WRITTEN; re-hash any file here and the reduced digest will match.
+
+FILES
+
+file                                                reduction               sha256 (as written)                                               sha256 (full page as served)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2026-08-28_dmas_rural_health_transformation.html    <main> only             eb2cc26f5435585a19b9c9537b850442ec1bcab45c36a9e0a757dad58beac601  85a2f905526759622b0b00b61f86c92ffb210ee02e0a3ff0c63be8c7ec9343b6
+    url  : https://dmas.virginia.gov/data-reporting/programs-services/rural-health-transformation/
+    bytes: 4662 written / 48346 as served
+2026-08-28_dmas_press_releases_index.html           <main> only             cf2076f875d65d4b91055b48b806275c2a983be918a4e0d539baf65b9179e2d7  eea9da27e1187dbffb5d4b99cc2ca68570375c73f3d64bb6b8074d10fb37152c
+    url  : https://dmas.virginia.gov/news-updates/press-releases/
+    bytes: 29593 written / 73287 as served
+2026-05-21_governor_vhcc_first_rhtp_grant.pdf       verbatim (whole file)   5b9c2859a6175972c0a151871eeb77355aa53580d09baf5585338102d796689f  5b9c2859a6175972c0a151871eeb77355aa53580d09baf5585338102d796689f
+    url  : https://dmas.virginia.gov/media/qc5dxfpv/governor-spanberger-rural-health-grant-05-21-2026.pdf
+    bytes: 104180 written / 104180 as served
+2026-08-28_dmas_procurement.html                    <main> only             a8b2be126f053c616e2f0158dbc57e7aecfd4c1311ba4724d36e5fe857171ed1  c781d3454a64c0d4b32d49b2fc63c8e1cc03ebfc9219aa55a7e71f725970774f
+    url  : https://dmas.virginia.gov/about-us/procurement/
+    bytes: 5364 written / 48987 as served
