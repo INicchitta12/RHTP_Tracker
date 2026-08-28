@@ -216,3 +216,117 @@ test_that("an in-kind row can never carry distributed_to_hospital = Yes", {
                               "software rural hospitals use"))
   expect_true(all(out$distributed_to_hospital == "No"))
 })
+
+
+# -- §10.2 hospital trade associations and hospital-governed entities --------
+# Added session 18 with the §10.2 row. The branch is the only one in this file
+# that can move dollars INTO the hospital total, so it is tested from both
+# sides: it must fire on the two sources the spec quotes, and it must NOT fire
+# on the three association awards that read most like hospital money and are
+# not.
+
+test_that("the association branch never fires without an executed award", {
+  icahn <- paste("ICAHN will administer the funds to Critical Access Hospitals",
+                 "and other eligible non-urban Illinois hospitals in federally",
+                 "designated rural ZIP codes.")
+
+  # The default. Every committed state extractor calls the two-argument form,
+  # which is why adding this row moved no row in any state file.
+  default <- rhtp_classify_flow("NONPROFIT_CBO", icahn)
+  expect_false(default$flow_type == "PASS_THROUGH_DESIGNATED")
+  expect_false(default$distributed_to_hospital == "Yes")
+
+  expect_equal(
+    rhtp_classify_flow("NONPROFIT_CBO", icahn, award_made = FALSE)$flow_type,
+    default$flow_type
+  )
+})
+
+test_that("the association branch fires on both quoted worked examples", {
+  positives <- c(
+    icahn = paste("ICAHN will administer the funds to Critical Access Hospitals",
+                  "and other eligible non-urban Illinois hospitals."),
+    oha   = paste("Implementation will be conducted by hospitals reimbursed for",
+                  "CHW hiring, training, and monitoring.")
+  )
+  out <- rhtp_classify_flow(rep("NONPROFIT_CBO", 2), positives, award_made = TRUE)
+
+  expect_equal(out$flow_type, rep("PASS_THROUGH_DESIGNATED", 2))
+  expect_equal(out$distributed_to_hospital, rep("Yes", 2))
+  expect_equal(out$hospital_benefiting, rep("Yes", 2))
+  expect_true(all(grepl("intermediary_name", out$flow_basis, fixed = TRUE)))
+  expect_true(all(grepl("POOL_UNNAMED_HOSPITALS", out$flow_basis, fixed = TRUE)))
+})
+
+test_that("it does not fire where the association keeps the money", {
+  # These three are the audit's whole point. Each is a hospital association
+  # award; none of them is hospital money; the middle one NAMES three hospitals
+  # and is still in-kind, because AHHA performs the assessments.
+  negatives <- c(
+    gha_carts = paste("The Georgia Hospital Association received a grant to support",
+                      "Strengthening Perinatal Systems of Care to provide obstetrical",
+                      "emergency carts and support evidence-based patient safety",
+                      "practices to improve readiness for maternal emergencies."),
+    ahha_sfoa = paste("AHHA proposes Strategic, Financial, and Operational Assessments",
+                      "(SFOAs) for three independent Critical Access Hospitals -",
+                      "Petersburg Medical Center, Cordova Community Medical Center, and",
+                      "South Peninsula Hospital - plus implementation assistance for",
+                      "Rural Health Clinic (RHC) designation for those four facilities."),
+    ahha_fyf  = paste("Developed in partnership with Alaska's 24 hospitals, 20 skilled",
+                      "nursing facilities, and tribal health system, this coordinated",
+                      "statewide initiative builds a robust grow-our-own pipeline."),
+    ahha_awfc = paste("AHHA proposes to incubate the Alaska Nursing Workforce Center,",
+                      "a hub for nursing workforce data, research, and strategic planning.")
+  )
+
+  # award_made = TRUE is the hostile setting: even told the award is executed,
+  # the branch must decline all four.
+  out <- rhtp_classify_flow(rep("NONPROFIT_CBO", length(negatives)), negatives,
+                            award_made = TRUE)
+
+  expect_false(any(out$flow_type == "PASS_THROUGH_DESIGNATED"))
+  expect_false(any(out$distributed_to_hospital == "Yes"))
+
+  # And they keep the codes §10.2 already had for them: hospitals mentioned in
+  # the funded work is IN_KIND_BENEFIT, silence about hospitals is NON_HOSPITAL.
+  expect_equal(unname(out$flow_type[1:3]), rep("IN_KIND_BENEFIT", 3))
+  expect_equal(unname(out$flow_type[4]), "NON_HOSPITAL")
+})
+
+test_that("the administered-funds markers never match across a full stop", {
+  # Session 13's rule. A pattern allowed to span sentences joins an award verb
+  # in one sentence to 'hospitals' in the next and invents a flow.
+  split <- paste("The association will administer the funds under its own",
+                 "operating budget. Rural hospitals are described elsewhere in",
+                 "the plan.")
+  out <- rhtp_classify_flow("NONPROFIT_CBO", split, award_made = TRUE)
+  expect_false(out$flow_type == "PASS_THROUGH_DESIGNATED")
+})
+
+test_that("HOSPITAL_AFFILIATED_ENTITY still short-circuits to DIRECT", {
+  # Recorded rather than changed. Georgia hand-codes the Georgia Hospital
+  # Association as HOSPITAL_AFFILIATED_ENTITY + IN_KIND_BENEFIT, and this
+  # function would return DIRECT + Yes for that recipient_type whatever the
+  # description says. The two disagree, and today nothing reconciles them
+  # because the Georgia extractor does not call this function.
+  #
+  # It matters for the NEXT state: a hospital association typed
+  # HOSPITAL_AFFILIATED_ENTITY and run through here lands in the hospital total
+  # automatically, without the §10.2 proviso ever being tested. This assertion
+  # exists so that trap is written down and fails loudly if anyone assumes the
+  # association branch guards it. It does not -- it is only reached by
+  # NONPROFIT_CBO.
+  carts <- paste("received a grant to provide obstetrical emergency carts to",
+                 "hospitals")
+  out <- rhtp_classify_flow("HOSPITAL_AFFILIATED_ENTITY", carts, award_made = TRUE)
+  expect_equal(out$flow_type, "DIRECT")
+  expect_equal(out$distributed_to_hospital, "Yes")
+
+  ga <- readr::read_csv(here::here("data/reference/ga_great_health_awards.csv"),
+                        show_col_types = FALSE, progress = FALSE)
+  gha <- ga[ga$awardee == "Georgia Hospital Association", ]
+  expect_equal(nrow(gha), 1L)
+  expect_equal(gha$recipient_type[[1]], "HOSPITAL_AFFILIATED_ENTITY")
+  expect_equal(gha$flow_type[[1]], "IN_KIND_BENEFIT")
+  expect_equal(gha$distributed_to_hospital[[1]], "No")
+})

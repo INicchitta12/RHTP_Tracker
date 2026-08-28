@@ -790,8 +790,40 @@ At least 6 of 11 Delaware records are hospital recipients. Coded by activity, th
 | `PASS_THROUGH_UNRESOLVED` | Intermediary administers a pool where hospitals are among eligible entities, recipients not yet named (most VHHA Foundation and FHC solicitations today) | `Unclear` — **do not impute** |
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive (statewide EMD dispatch, HIE infrastructure, shared services consortiums) | `No`, but set `hospital_benefiting = Yes` |
 | `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |
+| `PASS_THROUGH_DESIGNATED` — hospital trade associations and hospital-governed entities | An award to a hospital association, hospital-owned nonprofit, or association foundation, **provided the source shows the funds are administered to or on behalf of member hospitals**. Record the entity in `intermediary_name`. See the worked examples below the table. | `Yes`, with `intermediary_name` populated |
 
 `IN_KIND_BENEFIT` deserves its own flag rather than being discarded: it is substantively important to AHA's narrative even though those dollars must never enter a "funds distributed to hospitals" total.
+
+#### Hospital trade associations and hospital-governed entities
+
+An award to a **hospital association, hospital-owned nonprofit, or association
+foundation** is `recipient_type = NONPROFIT_CBO`, `flow_type =
+PASS_THROUGH_DESIGNATED`, `distributed_to_hospital = Yes` — **provided the
+source shows the funds are administered to or on behalf of member hospitals**.
+Record the entity in `intermediary_name`.
+
+**Worked examples.** *Illinois Critical Access Hospital Network,
+$50,008,264* — the source states ICAHN *"will administer the funds to Critical
+Access Hospitals and other eligible non-urban Illinois hospitals."* *Oklahoma
+Hospital Association, CHW Expansion in Hospitals, $4,300,000* — *"implementation
+will be conducted by hospitals reimbursed for CHW hiring, training, and
+monitoring."*
+
+**This does not extend to an association's own operating, advocacy, or
+membership costs where the source shows no flow to hospitals. That is
+`NON_HOSPITAL`. The test is what the document says the money does, not what the
+organization is.**
+
+**And it does not reach an association that keeps the money and delivers goods
+or services with it.** That is `IN_KIND_BENEFIT`, and the two worked negatives
+are the reason this row cannot be applied from the organisation's name alone.
+The *Georgia Hospital Association* "received a grant … to provide obstetrical
+emergency carts": carts reach hospitals, dollars do not. The *Alaska Hospital &
+Healthcare Association* proposes "Strategic, Financial, and Operational
+Assessments … for three independent Critical Access Hospitals" — it **names**
+three hospitals and still administers nothing to them, because AHHA performs the
+assessments. Both of the positive examples above move **money** to hospitals
+("administer the funds to", "reimbursed"); neither negative does.
 
 ### 10.3 Required accompanying fields
 

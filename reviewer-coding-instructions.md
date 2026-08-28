@@ -83,6 +83,37 @@ from who is eligible.
 hospital association) → flag it and note who the money passes to, if the document
 says. If it doesn't say → `Unclear`.
 
+## Hospital trade associations and hospital-governed entities
+
+An award to a **hospital association, hospital-owned nonprofit, or association
+foundation** is `recipient_type = NONPROFIT_CBO`, `flow_type =
+PASS_THROUGH_DESIGNATED`, `distributed_to_hospital = Yes` — **provided the
+source shows the funds are administered to or on behalf of member hospitals**.
+Record the entity in `intermediary_name`.
+
+**Worked examples.** *Illinois Critical Access Hospital Network,
+$50,008,264* — the source states ICAHN *"will administer the funds to Critical
+Access Hospitals and other eligible non-urban Illinois hospitals."* *Oklahoma
+Hospital Association, CHW Expansion in Hospitals, $4,300,000* — *"implementation
+will be conducted by hospitals reimbursed for CHW hiring, training, and
+monitoring."*
+
+**This does not extend to an association's own operating, advocacy, or
+membership costs where the source shows no flow to hospitals. That is
+`NON_HOSPITAL`. The test is what the document says the money does, not what the
+organization is.**
+
+**And it does not reach an association that keeps the money and delivers goods
+or services with it.** That is `IN_KIND_BENEFIT`, and the two worked negatives
+are the reason this row cannot be applied from the organisation's name alone.
+The *Georgia Hospital Association* "received a grant … to provide obstetrical
+emergency carts": carts reach hospitals, dollars do not. The *Alaska Hospital &
+Healthcare Association* proposes "Strategic, Financial, and Operational
+Assessments … for three independent Critical Access Hospitals" — it **names**
+three hospitals and still administers nothing to them, because AHHA performs the
+assessments. Both of the positive examples above move **money** to hospitals
+("administer the funds to", "reimbursed"); neither negative does.
+
 ## Two claims, coded separately
 
 Never merge these into one column (§9.3).
