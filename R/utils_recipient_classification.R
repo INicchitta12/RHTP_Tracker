@@ -215,7 +215,29 @@ RHTP_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
   "PA", "Cornerstone Care, Inc. dba Cornerstone Care Greensboro Health Center",     "FQHC_OR_RHC",            "MEDIUM", "Cornerstone Care is an FQHC network",
   "PA", "Hyndman Area Health Center, Inc.",                                         "FQHC_OR_RHC",            "MEDIUM", "federally qualified health center",
   "PA", "Wakefield Ambulance Association",                                          "EMS_OR_PSAP",            "HIGH",   "volunteer ambulance service",
-  "PA", "Cameron County Ambulance Service",                                         "EMS_OR_PSAP",            "HIGH",   "county ambulance service; the EMS rule must beat the local-government rule"
+  "PA", "Cameron County Ambulance Service",                                         "EMS_OR_PSAP",            "HIGH",   "county ambulance service; the EMS rule must beat the local-government rule",
+
+  # -- South Dakota -------------------------------------------------------
+  # The register prints names in upper case, so these match the portal's own
+  # strings exactly. Every one of them is an administrative RHTP contract and
+  # none is a hospital, so nothing here moves a distributed total -- what it
+  # moves is whether Stage 5 sees a for-profit consultancy described as a
+  # nonprofit, which the settled fallback would otherwise assert.
+  #
+  # The register itself supplies the ground: each of the five below was procured
+  # through an RFP for SERVICES (its Solicitation Type reads "RFP (Linked)"),
+  # and DOH's own 2026-05-21 release names North Star Solutions and Business
+  # Concepts & Applications as programme-management consultants.
+  "SD", "NORTH STAR SOLUTIONS LLC",                                                 "VENDOR_OR_CONTRACTOR",   "MEDIUM", "commercial consultancy engaged through an RFP for services; named as the grant-programme management consultant in DOH's own release",
+  "SD", "BUSINESS CONCEPTS & APPS INC",                                             "VENDOR_OR_CONTRACTOR",   "MEDIUM", "commercial consultancy engaged through an RFP for services; named as a project-management contractor in DOH's own release",
+  "SD", "GUIDEHOUSE INC",                                                           "VENDOR_OR_CONTRACTOR",   "HIGH",   "national management consultancy engaged through an RFP for services",
+  "SD", "MYERS & STAUFFER LLC",                                                     "VENDOR_OR_CONTRACTOR",   "HIGH",   "actuarial and accounting firm engaged through an RFP for services",
+  "SD", "HEALTH MANAGEMENT ASSOCIATES",                                             "VENDOR_OR_CONTRACTOR",   "HIGH",   "commercial health policy consultancy engaged through an RFP for services",
+  # Nonprofits, named as such rather than reached by the undetermined fallback.
+  "SD", "BLACK HILLS SPECIAL SERVICES",                                             "NONPROFIT_CBO",          "MEDIUM", "South Dakota education service cooperative, a nonprofit",
+  "SD", "SD FOUNDATION FOR MEDICAL CARE",                                           "NONPROFIT_CBO",          "MEDIUM", "South Dakota Foundation for Medical Care, the state's nonprofit quality improvement organisation",
+  "SD", "COMMUNITY HEALTH WORKER COLLAB",                                           "NONPROFIT_CBO",          "MEDIUM", "Community Health Worker Collaborative of South Dakota, a nonprofit; the register truncates the name",
+  "SD", "ACTIVE GENERATION",                                                        "NONPROFIT_CBO",          "MEDIUM", "Sioux Falls nonprofit senior services centre"
 )
 
 
