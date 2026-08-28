@@ -52,22 +52,36 @@ WHAT THESE DOCUMENTS SUPPORT (spec 9.2, Part A of reviewer-coding-instructions)
   The two exceptions, where the state itself states a per-hospital figure, are
   the Phase 3 and Phase 4 AHEAD pre-implementation cohorts at $750,000 each.
 
-KNOWN GAP -- THE 87 AHEAD HOSPITAL NAMES
+CLOSED 2026-08-28 -- THE 87 AHEAD HOSPITAL NAMES
 
   Phase 3 awards 80 rural hospitals $750,000 each and Phase 4 adds 7 more, for a
   planned Year 1 group of 87. Both pages link the roster to
 
     https://greathealth.georgia.gov/value-based-care-hospital-list
 
-  greathealth.georgia.gov is NOT on the egress allowlist (CONNECT rejected, 403)
-  and could not be fetched in this session. dch.georgia.gov and gov.georgia.gov
-  were allowlisted; this third Georgia host was not.
+  That host was NOT on the egress allowlist when these four pages were archived
+  (CONNECT rejected, 403), so the cohorts were carried as two aggregate rows
+  with recipient_confirmed = No.
 
-  The cohorts are therefore carried as two aggregate rows, not as 87 named rows.
-  Nothing is imputed: the count, the per-hospital amount and the hospital
-  identity of the class all come from the DCH pages archived here. Allowlist
-  greathealth.georgia.gov and the roster expands to 87 named rows -- the largest
-  single block of hospital-directed RHTP dollars found in any state so far.
+  The host was allowlisted on 2026-08-28. The roster is now archived alongside
+  these files as
+
+    2026-08-28_value_based_care_hospital_list.html
+    ga_value_based_care_hospital_list.manifest.txt
+
+  and the two aggregate rows are expanded into 87 named hospital rows, each
+  recipient_confirmed = Yes. The table parses to exactly 87, which is the group
+  DCH says it completed.
+
+  ONE THING DID NOT FOLLOW FROM THE ROSTER. The sentence above -- "the two
+  exceptions, where the state itself states a per-hospital figure, are the
+  Phase 3 and Phase 4 AHEAD pre-implementation cohorts at $750,000 each" --
+  overstates Phase 4. DCH states $750,000 for the Phase 3 eighty and does not
+  restate any per-hospital figure in Phase 4; the record table has always coded
+  it that way and still does. The 7 Phase 4 hospitals carry no amount.
+
+  See the roster manifest for how the 80 and the 7 are told apart, and why that
+  split is an inference rather than a statement by DCH.
 
 ALSO NOT RETRIEVED
 

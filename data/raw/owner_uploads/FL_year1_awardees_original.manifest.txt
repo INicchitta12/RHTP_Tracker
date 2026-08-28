@@ -1,0 +1,14 @@
+RHTP tracker archive (spec 0.5): the owner's Florida Year 1 awardee workbook,
+exactly as it landed in the repo, preserved before R/03e_fl_year1_awardees.R
+began rendering FL_year1_awardees.xlsx from a committed CSV.
+
+This is the INGEST SOURCE. data/reference/fl_year1_awardees.csv is derived from
+it by --ingest, and the workbook at the repo root is a render of that CSV. Keep
+this file: it is the only copy of what the owner actually supplied, and the
+recipient_type back-fit (session 10) is only auditable against it.
+
+  file    : FL_year1_awardees_original.xlsx
+  bytes   : 16710
+  sha256  : b917e2c565c17a46ebb8baf3579aff65111a44350a6c6b924eb1517b3e878a8b
+  rows    : 81 award actions, 19 columns
+  archived: 2026-08-28T14:29:29Z

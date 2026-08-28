@@ -1,0 +1,6 @@
+run_utc,run_type,fetch_date,archive_path,shape,rows,states,new_states,new_rows,changed_rows
+2026-08-28T14:11:14Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,LINK_LIST,8,8,AK AL GA ND OH PA SD WV,8,0
+2026-08-28T14:12:59Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
+2026-08-28T14:13:32Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
+2026-08-28T14:13:43Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0
+2026-08-28T14:38:14Z,PRODUCTION,2026-08-28,data/raw/cms/2026-08-28/medicaid_rhtp_resources.html,TABLE,8,8,,0,0

@@ -33,15 +33,33 @@
 # Reconciliation sheet is built from; rhtp_ga_assert() hard-fails if anyone
 # reaches the wrong total.
 #
-# THE 87 AHEAD HOSPITALS ARE TWO AGGREGATE ROWS, NOT 87 NAMED ROWS. Phase 3
-# awards 80 rural hospitals $750,000 each and Phase 4 adds 7, completing a
-# planned Year 1 group of 87. The roster is published at
-# greathealth.georgia.gov/value-based-care-hospital-list, a host that is not on
-# the egress allowlist (CONNECT rejected, 403) and could not be read in the
-# session that built this file. Nothing is imputed: the count, the per-hospital
-# figure and the hospital identity of the class are all stated by DCH. Allowlist
-# that host and these two rows expand into 87 named rows -- $65.25M of directly
-# hospital-bound money, the largest such block found in any state so far.
+# THE 87 AHEAD HOSPITALS ARE 87 NAMED ROWS. Phase 3 awards 80 rural hospitals
+# $750,000 each and Phase 4 adds 7, completing a planned Year 1 group of 87.
+# Both announcements link the roster at
+# greathealth.georgia.gov/value-based-care-hospital-list; that host was
+# allowlisted on 2026-08-28 and the page is now archived under data/evidence/GA/
+# with a SHA-256 manifest. rhtp_ga_ahead_roster() parses the 87 names out of the
+# committed archive -- parsed, never transcribed, the same posture as the §7.1
+# CMS allotment table -- and ga_expand_ahead_cohorts() replaces each aggregate
+# cohort row with one row per named hospital, inheriting the cohort's coding.
+#
+# THE PAGE'S HEADING SAYS "COMPLETED APPLICATIONS", AND IT IS STILL AN AWARD
+# SOURCE. Read alone it would be an eligibility list, and §0.3 would forbid
+# coding it Yes. It is not read alone: DCH's Phase 3 announcement calls this
+# exact url "the list of 80 awarded hospitals" and Phase 4 calls it the full
+# list of the 87. The award, the count and the per-hospital figure come from the
+# announcements; the page supplies only the names, and every hospital row cites
+# both documents.
+#
+# WHICH 80 OF THE 87 CARRY THE $750,000 IS INFERRED. DCH states the figure for
+# the Phase 3 eighty and does not restate it for the Phase 4 seven, and the
+# roster does not label phases. The split is derived from list order: rows 1-80
+# are in exact alphabetical order and row 81 breaks it, leaving exactly 7 rows
+# appended at the end. The parser derives that break and REFUSES if the leading
+# run is not 80, so a re-sorted page fails loudly instead of mis-attributing an
+# amount. The seven carry flag_reason PHASE_ATTRIBUTION_INFERRED and no amount
+# (§6.2 -- the amount is never divided). What does not depend on the inference:
+# that all 87 are awarded hospitals.
 #
 # Conventions (CLAUDE.md §3): tidyverse, %>% only -- never |>. No setwd(); all
 # paths go through here::here(). Contains no network calls: it reads nothing off
@@ -110,11 +128,206 @@ ga_initiative_name <- c(
   "5" = "Leveraging Technology for Healthcare Innovations in Rural Georgia"
 )
 
+# --- the AHEAD hospital roster ---------------------------------------------
+#
+# The 87 named hospitals, parsed out of the committed archive of the DCH-linked
+# roster. Offline and deterministic: this file still makes no network call.
+
+GA_AHEAD_ROSTER_URL <- "https://greathealth.georgia.gov/value-based-care-hospital-list"
+GA_AHEAD_ROSTER_ARCHIVE <-
+  "data/evidence/GA/2026-08-28_value_based_care_hospital_list.html"
+
+# Stated by DCH in the Phase 3 announcement, for the Phase 3 eighty only.
+GA_AHEAD_PER_HOSPITAL_AMOUNT <- 750000
+GA_AHEAD_PHASE3_COUNT <- 80L
+GA_AHEAD_YEAR1_COUNT <- 87L
+
+# Resolved by synonym rather than by position, so a column rename on the state
+# page is not a code change (the R/03b and R/00 posture).
+ga_roster_synonyms <- list(
+  hospital_name   = c("hospital name", "hospital", "name", "facility",
+                      "facility name", "hospital/facility"),
+  address         = c("address", "street address", "street"),
+  city_state_zip  = c("city/state/zip", "city state zip", "city/state",
+                      "city, state, zip", "city", "location"),
+  designation     = c("designation", "designations", "type",
+                      "rural designation", "hospital designation")
+)
+
+ga_resolve_roster_column <- function(headers, key) {
+  norm <- headers %>%
+    stringr::str_to_lower() %>%
+    stringr::str_squish()
+  hit <- which(norm %in% ga_roster_synonyms[[key]])
+  if (length(hit) != 1L) {
+    stop("[GA] roster column `", key, "` resolved to ", length(hit),
+         " columns (headers seen: ", paste(headers, collapse = " | "),
+         "). Refusing to guess.", call. = FALSE)
+  }
+  hit
+}
+
+# The length of the leading run that is in alphabetical order. This is what the
+# Phase 3 / Phase 4 split is derived from -- see the header note and the archive
+# manifest. Returned rather than assumed so the caller can refuse on it.
+ga_alphabetical_prefix <- function(x) {
+  key <- stringr::str_to_upper(stringr::str_squish(x))
+  n <- 1L
+  while (n < length(key) && key[[n + 1L]] >= key[[n]]) {
+    n <- n + 1L
+  }
+  n
+}
+
+rhtp_ga_ahead_roster <- function(path = GA_AHEAD_ROSTER_ARCHIVE) {
+  full <- here::here(path)
+  if (!file.exists(full)) {
+    stop("[GA] the AHEAD roster archive is missing: ", path,
+         ". Re-archive ", GA_AHEAD_ROSTER_URL, " before building.", call. = FALSE)
+  }
+
+  tables <- xml2::read_html(full) %>% rvest::html_elements("table")
+  if (length(tables) != 1L) {
+    stop("[GA] the roster page holds ", length(tables),
+         " tables; exactly one is expected. Refusing to guess which is the ",
+         "hospital list.", call. = FALSE)
+  }
+  raw <- rvest::html_table(tables[[1]])
+
+  idx <- vapply(names(ga_roster_synonyms),
+                function(k) ga_resolve_roster_column(names(raw), k),
+                integer(1))
+
+  roster <- tibble::tibble(
+    hospital_name   = stringr::str_squish(raw[[idx[["hospital_name"]]]]),
+    address         = stringr::str_squish(raw[[idx[["address"]]]]),
+    city_state_zip  = stringr::str_squish(raw[[idx[["city_state_zip"]]]]),
+    designation_raw = stringr::str_squish(raw[[idx[["designation"]]]])
+  ) %>%
+    dplyr::filter(nzchar(.data$hospital_name))
+
+  if (nrow(roster) != GA_AHEAD_YEAR1_COUNT) {
+    stop("[GA] the roster parses to ", nrow(roster), " hospitals; DCH states a ",
+         "planned Year 1 group of ", GA_AHEAD_YEAR1_COUNT, ".", call. = FALSE)
+  }
+  if (dplyr::n_distinct(roster$hospital_name) != GA_AHEAD_YEAR1_COUNT) {
+    stop("[GA] the roster repeats a hospital name; ",
+         dplyr::n_distinct(roster$hospital_name), " are distinct.", call. = FALSE)
+  }
+
+  run <- ga_alphabetical_prefix(roster$hospital_name)
+  if (run != GA_AHEAD_PHASE3_COUNT) {
+    stop("[GA] the roster's leading alphabetical run is ", run,
+         " hospitals, not ", GA_AHEAD_PHASE3_COUNT, ". The Phase 3 / Phase 4 ",
+         "split is derived from that break, so a re-sorted or re-ordered page ",
+         "must be re-read by a human rather than split on a stale assumption.",
+         call. = FALSE)
+  }
+
+  roster %>%
+    dplyr::mutate(
+      list_position = dplyr::row_number(),
+      phase = dplyr::if_else(
+        .data$list_position <= GA_AHEAD_PHASE3_COUNT, "3", "4"),
+      # The page states that CAH and RRC are CMS designations. "Rural" and
+      # "In 126 Rural/Partial Rural Counties" are Georgia's own classifications
+      # and are not CMS designations, so they are NONE in the §8 vocabulary and
+      # kept verbatim in rural_designation_raw (§8: never discard raw language).
+      rural_designation = dplyr::case_when(
+        .data$designation_raw == "CAH" ~ "CAH",
+        .data$designation_raw == "RRC" ~ "RRC",
+        TRUE ~ "NONE"
+      )
+    )
+}
+
 # --- the record table ------------------------------------------------------
 #
 # One row per award action as DCH describes it. Kept in this file rather than a
 # hand-edited CSV so that every change to a coding decision shows up as a diff
 # a reviewer can read (§2.1). The CSV is a render of this, never the reverse.
+
+# --- expanding the AHEAD cohorts into named hospitals ----------------------
+#
+# The two cohort rows in the table below stay as the readable statement of the
+# coding decision (§2.1: a coding change should show up as a diff). They are
+# TEMPLATES: ga_expand_ahead_cohorts() replaces each one, in place, with one row
+# per named hospital that inherits the cohort's recipient_type, flow_type,
+# distributed_to_hospital, hospital_benefiting and confidence, and overrides
+# only what the roster settles -- the name, the count, the designation, and
+# whether an amount is stated for that phase.
+
+ga_ahead_rows <- function(template, roster) {
+  ph <- template$phase[[1]]
+  hs <- roster %>% dplyr::filter(.data$phase == ph)
+  if (!nrow(hs)) {
+    stop("[GA] no roster hospitals for phase ", ph, ".", call. = FALSE)
+  }
+
+  # DCH states $750,000 per hospital for the Phase 3 eighty, and does not
+  # restate a per-hospital figure in Phase 4. Nothing is divided either way.
+  stated <- identical(ph, "3")
+
+  note <- if (stated) {
+    paste0(
+      "One of the 80 rural hospitals DCH states were each awarded $750,000 for ",
+      "AHEAD Model pre-implementation. The award action, the count and the ",
+      "per-hospital figure are stated in the DCH 2026-07-23 announcement; the ",
+      "name is read from the roster that announcement links to as 'the list of ",
+      "80 awarded hospitals', archived at ", GA_AHEAD_ROSTER_ARCHIVE, ". ",
+      "80 x $750,000 = $60,000,000 closes on the stated Initiative 1 pool."
+    )
+  } else {
+    paste0(
+      "One of the 7 rural hospitals DCH added in Phase 4 to complete the ",
+      "planned Year 1 group of 87. Phase 4 does not restate the $750,000 ",
+      "per-hospital figure, so no amount is carried (§6.2 -- the amount is ",
+      "never divided). The roster, archived at ", GA_AHEAD_ROSTER_ARCHIVE,
+      ", does not label phases: this hospital is attributed to Phase 4 because ",
+      "it falls outside the roster's leading 80-row alphabetical block. That ",
+      "attribution is an inference, flagged PHASE_ATTRIBUTION_INFERRED; that ",
+      "the hospital is an awarded member of the 87 is not."
+    )
+  }
+
+  template[rep(1L, nrow(hs)), ] %>%
+    dplyr::mutate(
+      awardee = hs$hospital_name,
+      recipient_count = 1L,
+      recipient_confirmed = "Yes",
+      amount = if (stated) GA_AHEAD_PER_HOSPITAL_AMOUNT else NA_real_,
+      amount_basis = if (stated) "STATED_PER_RECIPIENT" else "NOT_PUBLISHED",
+      amount_confirmed = if (stated) "Yes" else "No",
+      rural_designation = hs$rural_designation,
+      rural_designation_raw = hs$designation_raw,
+      recipient_names_source_url = GA_AHEAD_ROSTER_URL,
+      flag_reason = if (stated) NA_character_ else "PHASE_ATTRIBUTION_INFERRED",
+      note = note
+    )
+}
+
+ga_expand_ahead_cohorts <- function(records, roster = rhtp_ga_ahead_roster()) {
+  at <- which(stringr::str_detect(
+    records$awardee, "AHEAD Model pre-implementation cohort"))
+  if (length(at) != 2L) {
+    stop("[GA] expected 2 AHEAD cohort template rows, found ", length(at), ".",
+         call. = FALSE)
+  }
+
+  pieces <- list()
+  prev <- 0L
+  for (i in at) {
+    if (i > prev + 1L) {
+      pieces <- append(pieces, list(records[(prev + 1L):(i - 1L), ]))
+    }
+    pieces <- append(pieces, list(ga_ahead_rows(records[i, ], roster)))
+    prev <- i
+  }
+  if (prev < nrow(records)) {
+    pieces <- append(pieces, list(records[(prev + 1L):nrow(records), ]))
+  }
+  dplyr::bind_rows(pieces)
+}
 
 rhtp_ga_records <- function() {
   tibble::tribble(
@@ -337,8 +550,8 @@ rhtp_ga_records <- function() {
     60000000, "STATED_PER_RECIPIENT", "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes",
     "Yes", "HIGH", "No", "Yes",
     "AHEAD Model pre-implementation funding",
-    "DCH states 80 rural hospitals each awarded $750,000. 80 x $750,000 = $60,000,000, which closes on the stated initiative total independently. The roster is at greathealth.georgia.gov/value-based-care-hospital-list, a host not on the egress allowlist, so recipient_confirmed = No: the class is confirmed, the individual names are not captured. Expands to 80 named rows once that host is reachable.",
-    "RECIPIENT_NAMES_NOT_CAPTURED",
+    "TEMPLATE ROW -- ga_expand_ahead_cohorts() replaces this with the 80 named hospitals from the archived roster. DCH states 80 rural hospitals each awarded $750,000; 80 x $750,000 = $60,000,000, which closes on the stated initiative total independently.",
+    NA_character_,
 
     # -- Phase 3, Initiative 4, $487,500 ------------------------------------
     "3", "4", 487500, "Georgia Board of Health Care Workforce", 1L,
@@ -354,8 +567,8 @@ rhtp_ga_records <- function() {
     NA_real_, "NOT_PUBLISHED", "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes",
     "Yes", "HIGH", "No", "No",
     "AHEAD Model pre-implementation funding",
-    "Completes the planned Year 1 group of 87. Phase 4 does not restate the $750,000 per-hospital figure, so no amount is carried: 7 x $750,000 = $5,250,000 would leave $10,385,000 for the readiness assessments below, but DCH states neither figure and neither is entered (§6.2 -- the amount is never divided).",
-    "RECIPIENT_NAMES_NOT_CAPTURED",
+    "TEMPLATE ROW -- ga_expand_ahead_cohorts() replaces this with the 7 named hospitals the roster carries outside its leading alphabetical block. Completes the planned Year 1 group of 87. Phase 4 does not restate the $750,000 per-hospital figure, so no amount is carried: 7 x $750,000 = $5,250,000 would leave $10,385,000 for the readiness assessments below, but DCH states neither figure and neither is entered (§6.2 -- the amount is never divided).",
+    NA_character_,
 
     "4", "1", 15635000,
     "AHEAD readiness assessments for all 87 hospitals - provider not named", NA_integer_,
@@ -495,6 +708,13 @@ rhtp_ga_records <- function() {
     "Reduces Medicaid eligibility determination delays. A vendor receives the money.",
     NA_character_
   ) %>%
+    # Columns the roster settles for the AHEAD hospitals and nothing else.
+    dplyr::mutate(
+      rural_designation = NA_character_,
+      rural_designation_raw = NA_character_,
+      recipient_names_source_url = NA_character_
+    ) %>%
+    ga_expand_ahead_cohorts() %>%
     dplyr::mutate(
       state = "GA",
       phase_key = paste0("p", .data$phase),
@@ -511,8 +731,7 @@ rhtp_ga_records <- function() {
       validation_source_type = "AGENCY_PRESS_RELEASE",
       extraction_method = "MODEL_ASSISTED",
       validator = "AI-assisted - CONFIRM",
-      ccn = NA_real_, aha_id = NA_real_,
-      rural_designation = NA_character_, reviewer = NA_character_,
+      ccn = NA_real_, aha_id = NA_real_, reviewer = NA_character_,
       determination_basis = paste0(
         "DCH ", .data$phase_date, " announcement, GREAT Health Phase ", .data$phase,
         dplyr::if_else(is.na(.data$initiative_number), "",
@@ -533,7 +752,8 @@ rhtp_ga_records <- function() {
       "phase", "phase_date", "initiative_number", "initiative", "initiative_amount",
       "strategy", "recipient_count", "amount_basis", "flow_type",
       "hospital_benefiting", "determination_confidence", "determination_basis",
-      "source_archive_path", "flag_reason"
+      "source_archive_path", "flag_reason",
+      "rural_designation_raw", "recipient_names_source_url"
     )
 }
 
@@ -594,7 +814,7 @@ rhtp_ga_reconcile <- function(records = rhtp_ga_records()) {
       "One row per award action as DCH describes it",
       "Aggregate rows (multi-recipient cohorts) excluded from the count",
       "distributed_to_hospital = Yes",
-      "Counts inside the 80/7/8/13 aggregate cohorts",
+      "87 AHEAD hospitals named individually; counts inside the 8/13 aggregate cohorts",
       "Names actually listed on the Phase 2 page (28 award actions; DBHDD twice)",
       "UNRECONCILED, off by one. The names on the page are what is coded."
     )
@@ -608,7 +828,8 @@ rhtp_ga_assert <- function(records = rhtp_ga_records()) {
 
   # 1. Every categorical column validates against the §8 controlled vocabulary.
   for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
-                "recipient_confirmed", "amount_confirmed", "extraction_method")) {
+                "recipient_confirmed", "amount_confirmed", "extraction_method",
+                "rural_designation")) {
     allowed <- rhtp_vocabulary(col)
     seen <- stats::na.omit(unique(records[[col]]))
     bad <- setdiff(seen, allowed)
@@ -700,18 +921,56 @@ rhtp_ga_assert <- function(records = rhtp_ga_records()) {
   if (length(missing_archive)) {
     fail("Archived source missing from disk: ", paste(missing_archive, collapse = ", "))
   }
+  if (!file.exists(here::here(GA_AHEAD_ROSTER_ARCHIVE))) {
+    fail("The AHEAD roster archive is missing: ", GA_AHEAD_ROSTER_ARCHIVE,
+         ". The 87 hospital names have no evidence behind them without it.")
+  }
   if (any(is.na(records$determination_basis) |
           !nzchar(records$determination_basis))) {
     fail("determination_basis is mandatory and is empty on at least one row.")
   }
 
-  # 9. The 87-hospital AHEAD cohort is accounted for exactly once, across the
-  #    two phases that announce it.
+  # 9. The 87-hospital AHEAD group is accounted for exactly once, across the two
+  #    phases that announce it, and is now 87 NAMED rows rather than 2 cohorts.
+  #    Keyed on `strategy` rather than on the awardee text, because the awardee
+  #    is a hospital name once ga_expand_ahead_cohorts() has run.
   ahead <- records %>%
-    dplyr::filter(stringr::str_detect(.data$awardee, "AHEAD Model pre-implementation"))
-  if (sum(ahead$recipient_count, na.rm = TRUE) != 87L) {
-    fail("The AHEAD cohorts sum to ", sum(ahead$recipient_count, na.rm = TRUE),
-         " hospitals; DCH states a planned Year 1 group of 87.")
+    dplyr::filter(.data$strategy == "AHEAD Model pre-implementation funding")
+  if (nrow(ahead) != GA_AHEAD_YEAR1_COUNT ||
+      sum(ahead$recipient_count, na.rm = TRUE) != GA_AHEAD_YEAR1_COUNT) {
+    fail("The AHEAD group is ", nrow(ahead), " rows covering ",
+         sum(ahead$recipient_count, na.rm = TRUE), " hospitals; DCH states a ",
+         "planned Year 1 group of ", GA_AHEAD_YEAR1_COUNT, ".")
+  }
+  if (dplyr::n_distinct(ahead$awardee) != GA_AHEAD_YEAR1_COUNT) {
+    fail("The AHEAD group names ", dplyr::n_distinct(ahead$awardee),
+         " distinct hospitals; a name is repeated.")
+  }
+  if (any(ahead$recipient_confirmed != "Yes")) {
+    fail("An AHEAD hospital row is not recipient_confirmed = Yes, although the ",
+         "roster names every one of them.")
+  }
+
+  # 9a. The phase split, and the money that rests on it. Exactly 80 hospitals
+  #     carry the stated $750,000 and they close on the stated $60M pool to the
+  #     dollar; the other 7 carry no amount and are flagged as inferred.
+  stated <- ahead %>% dplyr::filter(!is.na(.data$amount))
+  if (nrow(stated) != GA_AHEAD_PHASE3_COUNT ||
+      any(stated$amount != GA_AHEAD_PER_HOSPITAL_AMOUNT) ||
+      any(stated$phase != "3")) {
+    fail(nrow(stated), " AHEAD hospitals carry a stated amount; DCH states the ",
+         "$750,000 figure for the ", GA_AHEAD_PHASE3_COUNT, " Phase 3 hospitals only.")
+  }
+  if (sum(stated$amount) != 60000000) {
+    fail("The Phase 3 AHEAD hospitals sum to ",
+         format(sum(stated$amount), big.mark = ","),
+         " against a stated Initiative 1 pool of 60,000,000.")
+  }
+  inferred <- ahead %>% dplyr::filter(is.na(.data$amount))
+  if (nrow(inferred) != GA_AHEAD_YEAR1_COUNT - GA_AHEAD_PHASE3_COUNT ||
+      any(inferred$flag_reason != "PHASE_ATTRIBUTION_INFERRED")) {
+    fail("The Phase 4 AHEAD hospitals must carry no amount and the ",
+         "PHASE_ATTRIBUTION_INFERRED flag; ", nrow(inferred), " row(s) do not.")
   }
 
   # 10. The enumerated Phase 2 organization count is pinned. It does not match

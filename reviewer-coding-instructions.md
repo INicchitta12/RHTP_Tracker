@@ -236,12 +236,44 @@ rule as an initiative budget: **never split it across recipients.**
 | `NON_RHTP_SELF_DECLARED` / `PROVENANCE_MISMATCH` | The record may not be RHTP money at all. | Confirm the program in the state source before coding anything. HRSA, USDA, Flex and FCC money is not RHTP money. |
 | `SOURCE_IS_PLAN_NOT_AWARD` / `REOPENED_SOLICITATION` / `WITHDRAWN` | A plan, projection, or an award that didn't happen. | `Unclear`, or `No` where the source shows it cancelled or unawarded. |
 | `DUPLICATE_RECORD_ID` / `CONTENT_DUPLICATE` | Two records may be the same award. | Code one. Never let the same dollars enter the table twice. |
+| `RECIPIENT_TYPE_INFERRED` | The recipient is **named and confirmed**; only its organisational form was not determinable, so `recipient_type` reads `NONPROFIT_CBO` as a placeholder at `LOW` confidence. | If the source or a quick lookup settles the form, set the real value and clear the flag. If it does not, leave it. **Never read the `NONPROFIT_CBO` as a finding** — it is a placeholder, not a determination that the recipient is a nonprofit. |
+| `RECIPIENT_NAMES_NOT_CAPTURED` | The source names a **class** of recipient and a count — "13 hospitals" — but no individual names. | Look for a published roster; states often post one separately. If you find it, the row expands into named rows. If not, leave it as one aggregate row. **Never invent the names, and never divide the amount across the count.** |
+| `PHASE_ATTRIBUTION_INFERRED` | The recipient is confirmed, but **which announcement awarded it** was inferred rather than stated — so a per-recipient figure stated in one announcement cannot be attributed to this row. | Leave the amount blank unless you find a source that states it for this recipient. What is uncertain is the attribution, never that the recipient was awarded. |
+| `ELIGIBILITY_NOT_RECEIPT` | The source says the entity is **eligible to apply**, not that it received anything. | `Unclear`. This is §0.3 and it is the single most attackable error in the file. Never upgrade it to `Yes` without an award document. |
+
+---
+
+## When you cannot tell what kind of organization the recipient is
+
+This has one answer, and it is not free text. **Code `recipient_type` as
+`NONPROFIT_CBO`, set `determination_confidence` to `LOW`, and set
+`flag_reason` to `RECIPIENT_TYPE_INFERRED`.** Then move on.
+
+Three things about that:
+
+- **It is a placeholder, not a finding.** Nobody downstream may read
+  `NONPROFIT_CBO` on a flagged row as "this recipient is a nonprofit". The flag
+  is what carries that. If you drop the flag, you have made a claim.
+- **It applies only when the form is genuinely undetermined.** A pediatrics
+  group, a fetal medicine practice and a primary care clinic are all
+  determinable — they are `PHYSICIAN_PRACTICE`, which is a real §8 value. Do not
+  reach for the placeholder to avoid a judgement you can actually make.
+- **The recipient itself is still confirmed.** This says nothing about whether
+  the award happened or who got it. Only about what kind of organization they
+  are.
+
+Florida and Georgia had answered this differently — Florida wrote
+`UNCLASSIFIED`, which is not a §8 value at all, and Georgia used the convention
+above. Florida was back-fitted to Georgia's in session 10, and the original
+value is preserved in `recipient_type_source` on every row. Two answers to one
+question would have split Stage 5's hospital determination, which is the
+decision the whole file exists to support.
 
 ---
 
 ## When to stop and ask
 
-- The recipient name is ambiguous or you can't tell what kind of organization it is
+- The recipient name is ambiguous (**not** merely that you can't tell what kind of organization it is — that case has an answer, above)
 - The amount conflicts between two state sources
 - The document is both a plan and an award list and you can't tell which applies
 - The award appears to duplicate one you've already coded
