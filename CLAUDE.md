@@ -180,6 +180,7 @@ R/
   03k_rcj_state_survey.R       # 50-state RCJ coverage survey — the second trigger's input (BUILT)
   03l_il_year1_awardees.R      # Illinois — ICAHN, the first PASS_THROUGH_DESIGNATED (BUILT)
   03m_or_year1_awardees.R      # Oregon — 7 pools, 4 documents, 278 award actions (BUILT)
+  03n_tx_year1_probe.R         # Texas — the NEGATIVE, and 53 RCJ rows that are state money (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -227,6 +228,7 @@ docs/
   session16_rcj_state_survey_illinois.md # the trigger list was never a census
   session17_oregon_extraction.md     # Oregon: 7 pools; the 99 x $100k are CLINICS
   session18_hospital_association_flow_rule.md # §10.2 associations; 0 rows moved
+  session19_flow_fix_texas_negative.md # the flow short-circuit; TX is state money
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -285,9 +287,30 @@ per-recipient amount would go (Oregon's Immediate Impact Wave 1 prints
 `amount_low` / `amount_high`, because picking the low bound, the high bound or
 the midpoint would all publish a figure the state has not.
 
+**A fifth was added in session 19**, for the branch the flow fix opened:
+`FLOW_UNRESOLVED_HOSPITAL_AFFILIATED` — the recipient is hospital-affiliated
+(an association, a foundation, a hospital-owned nonprofit) and the source says
+nothing about where the money goes. Silence is evidence for a school district;
+it is not evidence here, so the row is `PASS_THROUGH_UNRESOLVED` + `Unclear`
+and enters **neither** bucket of `rhtp_hospital_dollar_partition()`. Zero
+committed rows carry it.
+
+**`extraction_status` gained `INVESTIGATED_NO_LIST` in session 19** (and
+`queue_status` the same code): the state has been worked against its own
+sources and publishes no recipient-level list. **Not `NOT_EXTRACTED`, which
+means nobody has looked** — left as that, Texas would have ranked 1 on every
+future survey and been re-investigated from scratch. It is never a claim that
+the state awarded nothing.
+
 **`flow_type`**
 `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` |
 `IN_KIND_BENEFIT` | `NON_HOSPITAL`
+
+> **`DIRECT` is reachable only from `HOSPITAL_OR_SYSTEM`** (session 19).
+> `HOSPITAL_AFFILIATED_ENTITY` used to short-circuit to it before any
+> description was read, which let `recipient_type` pre-decide flow; an
+> affiliated entity is by construction not the hospital §10.2's `DIRECT` row
+> tests for, so it now reads the source like every other type.
 
 **`hospital_attribution`** (added session 16)
 `NAMED_HOSPITAL` | `POOL_UNNAMED_HOSPITALS` | `NOT_HOSPITAL`
@@ -498,7 +521,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-28 (Session 18 — the §10.2 hospital-association row, and an audit of all nine states that moved nothing)
+**Last updated:** 2026-08-29 (Session 19 — the flow short-circuit removed, and Texas turns out to be a different programme)
 
 ### Stages built
 
@@ -510,6 +533,7 @@ retrieval code.
 | Stage 00b — trigger UNION | `R/00b_state_trigger_queue.R` | **Built and run (Session 16). The union of CMS announcements and RCJ Tier 3 candidates, recording which source flagged each state. 9 states -> 38; 32 queued. Offline, reads two committed CSVs — `docs/session16_rcj_state_survey_illinois.md`** |
 | RCJ 50-state survey | `R/03k_rcj_state_survey.R` | **Built and run (Session 16). 38 of 50 states hold Tier 3 candidates; 29 are RCJ_ONLY and were never investigated. §0.1 signal, never a dollar figure** |
 | Illinois Year 1 | `R/03l_il_year1_awardees.R` | **Built and run (Session 16). One row: ICAHN, $50,008,264, the first `PASS_THROUGH_DESIGNATED`. Illinois has published NO recipient-level list** |
+| **Texas Year 1** | `R/03n_tx_year1_probe.R` | **Built and run (Session 19). A NEGATIVE. HHSC has published no recipient-level RHTP award list — Texas is at solicitation stage — and NOT ONE of RCJ's 68 Tier 3 candidates is an RHTP award: 53 are a state-appropriated programme (88th Legislature Rider 88), 9 are Medicaid, 6 are budget-narrative line items. Carries a tripwire with a positive control — `docs/session19_flow_fix_texas_negative.md`** |
 | **Oregon Year 1** | `R/03m_or_year1_awardees.R` | **Built and run (Session 17). 278 award actions across SEVEN pools in FOUR documents. 35 named hospitals ($34,998,000) + 14 Catalyst hospital rows = $50,188,531. The 99 x $100,000 are RURAL HEALTH CLINICS — `docs/session17_oregon_extraction.md`** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
@@ -524,12 +548,12 @@ retrieval code.
 | Alaska Year 1 | `R/03h_ak_year1_awardees.R` | **Built and run (Session 12). 161 intents to award; the 161-vs-142 gap closed — 142 Implementation + 19 Planning** |
 | South Dakota portal | `R/03i_sd_rht_contracts.R` | **Built and run (Session 12). 13 administrative contracts, $5,618,367. The announced $31.5M and $90M rounds are NOT on open.sd.gov — re-probed Session 13, unchanged** |
 | South Dakota announcements | `R/03j_sd_year1_announcements.R` | **Built and run (Session 13). Both news.sd.gov releases archived. 110 grants, $121.5M, and ZERO named recipients — no reachable host publishes the roster. Carries a tripwire that hard-fails the day one appears — `docs/session13_sd_announcements_adeca_and_monitor.md`** |
-| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Session 18 added the §10.2 hospital-association branch — money-movement markers plus an opt-in `award_made` clause; zero committed rows moved. Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
+| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Session 19 removed the `HOSPITAL_AFFILIATED_ENTITY` short-circuit to `DIRECT`/`Yes` — recipient type no longer pre-decides flow; all nine extractors re-run byte-identical. Session 18 added the §10.2 hospital-association branch — money-movement markers plus an opt-in `award_made` clause; zero committed rows moved. Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>**Built — 1,586 assertions; 1,585 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>**Built — 1,645 assertions; 1,644 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -639,6 +663,24 @@ South Dakota was never in it. Both SD files are now included.
   (Tribal $21.7M, LPHA $5M) name nobody and are one aggregate row each with an
   **empty `amount`**. `OR_year1_awardees.xlsx` is a render whose first sheet is
   the warning. Rebuild with `Rscript R/03m_or_year1_awardees.R --build`.
+- **`data/reference/tx_year1_status.csv` — 4 rows (Session 19).** Texas's four
+  Rural Texas Strong solicitations and what each publishes. **It is a status
+  table, not an award file: there is deliberately NO `amount` column**, and an
+  assertion refuses to let one appear, because Texas has named no recipient and
+  published no per-recipient figure. `tx_year1_awardees.csv` does not exist and
+  a test asserts its absence.
+- **`data/reference/tx_rcj_candidate_disposition.csv` — 6 rows (Session 19).**
+  Why each of RCJ's 68 Texas Tier 3 candidates is **not** an RHTP award, with
+  the disqualifying sentence and the archived state document that carries it.
+  The count is re-derived from `stage2_record_table.rds` on every run, so the
+  day Texas's candidate set moves the build fails instead of the table quietly
+  ceasing to cover it. Rebuild with `Rscript R/03n_tx_year1_probe.R --build`.
+- **`data/reference/classification_review_queue.csv` — 1 row (Session 19).**
+  Open classification questions for a human. Today: `GHA_RECIPIENT_TYPE` — is a
+  hospital trade association `NONPROFIT_CBO` (§10.2's row, AK and IL) or
+  `HOSPITAL_AFFILIATED_ENTITY` (Georgia)? **$0 either way**, so decide it on
+  the spec. **This is not the §4 `data/interim/review_queue.rds`**, which
+  Stage 4 owns and which does not exist yet.
 - **`data/reference/il_year1_awardees.csv` — 1 row (Session 16).** Illinois:
   ICAHN, $50,008,264, three agreements executed 2026-07-31.
   `hospital_attribution = POOL_UNNAMED_HOSPITALS` — **read that column before
@@ -2078,19 +2120,146 @@ instead.
 
 **Tests: 1,586 assertions, all passing** (was 1,536).
 
+### Session 19 — recipient type stops pre-deciding flow, and Texas is a different programme
+
+Full detail: `docs/session19_flow_fix_texas_negative.md`. Zero RCJ quota; 11
+fetches to three HHSC hosts.
+
+**`HOSPITAL_AFFILIATED_ENTITY` no longer short-circuits to `DIRECT` / `Yes`.**
+It returned that before a word of the project description was read, which let
+`recipient_type` pre-decide flow and skipped the §10.2 test for the exact class
+of recipient the test exists for. §10.2's `DIRECT` row tests recipient
+**identity** — *"named recipient matches a hospital in AHA/POS"* — and an
+affiliated entity is by construction not that hospital. Session 18 recorded the
+trap and named what it cost: the Georgia Hospital Association *"received a grant
+… to provide obstetrical emergency carts"*, and the old branch returned `Yes`
+for it whatever the source said. **`HOSPITAL_OR_SYSTEM` keeps the
+short-circuit**, correctly — there, recipient identity *is* the flow test.
+
+**The terminal branch is the part worth arguing about, and it is not
+`NON_HOSPITAL`.** Silence is evidence for a school district or a vendor. It is
+not evidence for a hospital-governed recipient, where the money may well reach
+hospitals and the document has simply not said — coding that `No` deflates on
+this pipeline's authority, coding it `Yes` is the short-circuit just removed.
+So it is `PASS_THROUGH_UNRESOLVED` + `Unclear` +
+`FLOW_UNRESOLVED_HOSPITAL_AFFILIATED`, which enters **neither** bucket of
+`rhtp_hospital_dollar_partition()`.
+
+**The change moves no data, and that is proved rather than inspected.** All
+nine extractors re-run and **all nine reference CSVs come back byte-identical**
+(sha256 against a pre-change snapshot). The eight `.xlsx` renders differ **only**
+in `dcterms:created`; every sheet part is byte-identical, so they were reverted
+rather than committed as timestamp churn — a second, independent confirmation.
+Only **one** `HOSPITAL_AFFILIATED_ENTITY` row exists in the repository, and it
+is Georgia's hand-coded one.
+
+**Georgia's row is not re-typed.** The flow half of the divergence is now
+resolved — the shared function and Georgia **agree** on `IN_KIND_BENEFIT` +
+`No`. The §8 typing half goes to
+`data/reference/classification_review_queue.csv` as `GHA_RECIPIENT_TYPE`, with
+the dollar effect stated ($0 either way, so decide it on the spec). The
+assertion stays, restructured to pin what the row says today.
+
+---
+
+**Texas led the queue on every measure and produced no award file, and the
+reason is the finding.** Rank 1, 68 Tier 3 candidates, 67 distinct awardees,
+**the largest allotment in the country at $281,319,361**, no CMS release.
+
+**HHSC has published no recipient-level RHTP award list.** Texas is at
+solicitation and negotiation stage: its programme page prints Notice-of-Award
+dates that have passed (Initiative 1 Part 1 2026-06-19, Part 2 2026-07-15,
+Initiative 4 Round 1 2026-07-17, Initiative 6 Part 1 2026-07-21) and publishes
+no roster against any of them, and Initiative 4 Round 2 was **still open**,
+closing 2026-08-26. The state's fiscal year begins September 1.
+
+**The check is not a guess about HHSC's format.** HHSC publishes a roster by
+adding an **"Awarded Grant Information"** section to the RFA detail page. Four
+Rural Texas Strong pages were archived and none has one; **two 2025
+solicitations on the same site were archived as a positive control and both
+do.** Without that control, "no such section" is indistinguishable from "we are
+looking for the wrong string". The Rural Texas Strong RFAs are also **not on
+the RFA index at all** — 81 RFAs across six pages, not one of them.
+
+**And NOT ONE of RCJ's 68 Tier 3 candidates is an RHTP award.** §0.1's
+warned-of defect at a scale nothing here has met before:
+
+| Group | Rows | Disposition |
+|---|---:|---|
+| `HHS0015180` Rural Hospital Debt Reduction | 21 | `NOT_RHTP_STATE_APPROPRIATION` |
+| `HHS0015677` Rural Hospital Improvement | 32 | `NOT_RHTP_STATE_APPROPRIATION` |
+| ATLIS incentive payments to Medicaid MCOs | 5 | `NOT_RHTP_MEDICAID` |
+| Suggested Intergovernmental Transfers | 4 | `NOT_RHTP_MEDICAID` |
+| Budget Period 1 narrative line items | 5 | `RHTP_BUT_NOT_A_SUBAWARD` |
+| "80 Rural Hospital Districts" pool | 1 | `RHTP_BUT_A_CLASS_NOT_A_RECIPIENT` |
+| | **68** | **RHTP subawards: 0** |
+
+**The 53 are the dangerous ones**, because everything about them looks right:
+real, executed, recipient-level HHSC Notices of Award naming rural Texas
+hospitals, 21 at **$250,000** and 33 at **$350,000**, from the right agency in
+the right format. They are a **state-appropriated programme**. HHSC says so on
+its own Rural Hospital Financial Assistance page — *"The 88th Texas Legislature
+appropriated $50 million to HHSC for the 2024-2025 biennium … House Bill 1 …
+Article II Rider 88 appropriated the grant funding"* — and the RFA says
+*"the total amount of **state** funding available … is $6,250,000"*. **The dates
+close it independently: both RFAs were released in March 2025 and closed in
+April 2025, before OBBBA created RHTP and nine months before CMS issued Texas
+its Notice of Award on 2025-12-29.** Money the state did not have cannot have
+funded a grant it had already closed applications for.
+
+An extractor written from the candidate list alone would have produced a clean,
+plausible, fully sourced `TX_year1_awardees.xlsx` carrying **$16,800,000 of
+state money as RHTP** — the most defensible-*looking* wrong answer this project
+could publish. RCJ also captured only **32 of the 33** rows in one of the two,
+a second defect inside the first. And the $250,000,000 row's awardee is
+*"80 Rural Hospital Districts with a publicly owned and operated hospital"*,
+whose own description says *"Estimated 80 direct awards averaging $3,125,000
+each"* — North Dakota's *"15 selected CAHs"* at a thousand times the size.
+
+**No `TX_year1_awardees.xlsx` was written**, and a test asserts its absence so
+`tx_year1_status.csv` cannot be mistaken for one. That table has **no `amount`
+column**, asserted absent, so no sum over it can produce a Texas hospital
+dollar. `R/03n` carries a **tripwire** with three positive-controlled branches —
+including one that fires if the two control pages *lose* their award section,
+because a site redesign that renamed it would otherwise turn every future run
+silently green. The candidate count is **derived from the record table on every
+run**, not typed.
+
+**`INVESTIGATED_NO_LIST` was added to `extraction_status` and `queue_status`.**
+Left `NOT_EXTRACTED`, Texas would rank 1 again on the next survey and be
+re-investigated from scratch. It is not `EXTRACTED` (no award file) and not
+`QUEUED` (looking again today returns the same negative); its probe re-opens
+it. **It is never a claim that the state awarded nothing.** Texas drops from
+rank 1 to 50 and **Kansas now leads** (54 / 50).
+
+**Tests: 1,645 assertions, all passing** (was 1,586).
+
 ### Next session
 
 **Oregon is done, and it was worth the position it held in the queue: 278 award
 actions, $175.3M, 49 named hospitals.** Thirty-one states are still queued.
 
 1. **Keep working the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv`
-   is ordered and **Texas now leads** — 68 Tier 3 candidates / 67 distinct
-   awardees; then KS 54/50, MD 42/41, NE 39/35, IN 37/28, OK 35/25, NV 34/34.
+   is ordered and **Kansas now leads** — 54 Tier 3 candidates / 50 distinct
+   awardees; then MD 42/41, NE 39/35, IN 37/28, OK 35/25, NV 34/34. Texas is
+   done and sits at rank 50, `INVESTIGATED_NO_LIST`.
    Network is **Full**, so the only question per state is whether it has
    published a recipient-level list. **Confirm that before building an
    extractor** — §0.1 says the candidate count is where to look, not what is
    there, and Oregon proved the point twice over: its candidate count was right
    about *where*, and wrong about *what* (99 clinics read as 99 hospitals).
+
+   **Texas adds a second question, and it is the one sessions 9-18 never
+   asked: check what the candidate documents FUND, not just whether they name
+   recipients.** Texas answers "has this state published a recipient-level
+   list?" with **yes** — twice over, with hospital names and dollar figures —
+   and the honest answer to the project's question is still **no**, because
+   those lists are a state appropriation from the 88th Legislature and their
+   RFAs closed before RHTP existed. The extra check is one page of the state
+   site away and it was worth $16.8M of the wrong money. **Release date versus
+   2025-12-29 (Texas's CMS Notice of Award) is the cheapest version of it**:
+   a solicitation that closed before the state had the money cannot have spent
+   it.
 
    Oregon is also the shape to expect again. Its awards were in **four
    documents**, only one of them linked from the awards page — the
@@ -2142,7 +2311,7 @@ a human's judgement, deliberately unresolved.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 1,178 assertions, zero quota
+Rscript tests/run_tests.R                        # 1,645 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -2190,6 +2359,11 @@ Rscript R/00b_state_trigger_queue.R --status    # what the queue says
 Rscript R/03m_or_year1_awardees.R --fetch       # OR: archive 5 OHA sources + SHA-256
 Rscript R/03m_or_year1_awardees.R --validate    # OR assertions + reconciliation, offline
 Rscript R/03m_or_year1_awardees.R --build       # writes OR csv + OR_year1_awardees.xlsx
+Rscript R/03n_tx_year1_probe.R --fetch          # TX: archive 11 HHSC sources + SHA-256
+Rscript R/03n_tx_year1_probe.R --validate       # TX assertions + the tripwire, offline
+Rscript R/03n_tx_year1_probe.R --build          # writes the two TX status CSVs (NO xlsx)
+Rscript R/03n_tx_year1_probe.R --report         # the negative, with its positive control
+Rscript R/03n_tx_year1_probe.R --probe          # LIVE: has Texas published a roster yet?
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

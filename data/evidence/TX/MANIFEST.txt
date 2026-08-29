@@ -1,0 +1,21 @@
+Texas RHTP (Rural Texas Strong) -- archived state sources
+
+Every file is the bytes the server sent, unreduced: no Texas source in
+this set carries a third-party credential, which is asserted on each
+fetch by tx_assert_credential_free() rather than checked once by hand.
+So each sha256 below re-computes from the file on disk exactly.
+
+MANIFEST.txt is deliberately absent from its own listing (session 15).
+
+KEY            ROLE               BYTES  SHA-256  FILE
+programme      PROGRAMME          50144  9d31b03ce6844418aef648a9c3a3cf13f415d87ba8d7e8efa4f5c179eb85847c  2026-08-29_pfd_rhtp_programme.html
+rfa_index      PROGRAMME          46680  c3e7384c0999923d0c694560dc2f0680031eced64577c9ba6d41ed2fb320bae6  2026-08-29_hhsc_rfa_index.html
+rts_init1p2    SOLICITATION       11721  ea66ca92c28cff7e40c4c10bf79d5478573912ee2dd1aa808109dde7031b449a  2026-08-29_rfa_hhs0017223_init1_part2.html
+rts_init4r1    SOLICITATION       11546  7a32e46a73b4d575c6ff7b45d65c3e878eb9292eaa652d3a473c681235ac16c6  2026-08-29_rfa_hhs0017212_init4_round1.html
+rts_init4r2    SOLICITATION       12165  4af04c770916c2f40c3679a543f13564813cff4bf556fb5cb34273da0fbbfcbf  2026-08-29_rfa_hhs0017618_init4_round2.html
+rts_init6p1    SOLICITATION       11428  9b892abb2fbad67202c6069346982189f140a339a83f26a07b92b58a2088b86b  2026-08-29_rfa_hhs0017220_init6_part1.html
+state_debt_rfa DISQUALIFY         14388  d2b3793a4f080384b09690d460d58f24787e87cf8f5789c4e76fc87536715944  2026-08-29_rfa_hhs0015180_debt_reduction.html
+state_impr_rfa DISQUALIFY         13740  b2c70f9e3fabf1e538a2a19cc6d38bf6ce3a3496d84ca3630e039df29d112696  2026-08-29_rfa_hhs0015677_improvement.html
+state_debt_noa DISQUALIFY         90801  f0d26f07736d235cafe7a25bc367304a953de9d40a3354dc3e813779e32ed613  2026-08-29_hhs0015180_grants_awarded.pdf
+state_impr_noa DISQUALIFY         93487  c5db5ca0f759ac3ac7979c9de70b2f78f93987aa7454b16e82e440e733a4b674  2026-08-29_hhs0015677_grants_awarded.pdf
+state_rhf_page DISQUALIFY         67950  09cf0d5f6f0769852d649557ee15bdebe452c6da0ef7b4051e42e17d67b3dc07  2026-08-29_hhsc_rural_hospital_financial_assistance.html

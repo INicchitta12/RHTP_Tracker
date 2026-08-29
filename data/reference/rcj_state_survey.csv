@@ -3,7 +3,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 2,AK,Alaska,159,0,159,0,101,158435446.87,16009453.33,161,Yes,2026-08-25,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription,272174856,EXTRACTED,RCJ_AND_CMS,No
 3,AL,Alabama,138,138,0,0,94,143745821,7000000,138,Yes,2026-08-24,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal,203404327,EXTRACTED,RCJ_AND_CMS,No
 4,GA,Georgia,112,109,3,0,100,112677580,20000000,115,Yes,2026-08-27,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics,218862170,EXTRACTED,RCJ_AND_CMS,No
-5,TX,Texas,68,63,5,0,67,352864058.3,250000000,72,No,,,,281319361,NOT_EXTRACTED,RCJ_ONLY,Yes
+5,TX,Texas,68,63,5,0,67,352864058.3,250000000,72,No,,,,281319361,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 6,PA,Pennsylvania,66,63,3,0,66,42198309.8,1000000,66,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional,193294054,EXTRACTED,RCJ_AND_CMS,No
 7,KS,Kansas,54,54,0,0,50,98763865.8,6096062,55,No,,,,221898008,NOT_EXTRACTED,RCJ_ONLY,Yes
 8,MD,Maryland,42,42,0,0,41,84925071,6340198,42,No,,,,168180838,NOT_EXTRACTED,RCJ_ONLY,Yes

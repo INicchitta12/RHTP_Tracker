@@ -80,6 +80,22 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # committed a stub file for it.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IL", "OR", "PA", "SD")
 
+# The states that HAVE been worked and publish no recipient-level list.
+#
+# WHY THIS IS NOT THE SAME AS NOT_EXTRACTED. Texas is the case that forced it.
+# It led this queue on every measure the file carries -- rank 1, 68 Tier 3
+# candidates, the largest allotment in the country -- was investigated against
+# its own sources in session 19, and turned out to be at solicitation stage
+# with all 68 candidates disqualified. Left as NOT_EXTRACTED it would rank 1
+# again on the next run and be re-investigated from scratch, which is how a
+# project eventually gets a completed negative wrong. Each state here has a
+# committed evidence archive and a probe carrying a tripwire that re-opens it
+# the day the state publishes (R/03n for Texas), so this is a re-checkable
+# finding and not an assumption.
+#
+# IT IS NEVER A CLAIM THAT THE STATE AWARDED NOTHING (§0.1, §0.3).
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("TX")
+
 
 # -- Inputs ------------------------------------------------------------------
 
@@ -297,8 +313,10 @@ rhtp_rcj_state_survey <- function(records = NULL) {
       rcj_federal_amount_sum = dplyr::coalesce(rcj_federal_amount_sum, 0),
       in_cms_announcements = dplyr::if_else(is.na(cms_announced_date),
                                             "No", "Yes"),
-      extraction_status = dplyr::if_else(
-        state %in% SURVEY_EXTRACTED_STATES, "EXTRACTED", "NOT_EXTRACTED"
+      extraction_status = dplyr::case_when(
+        state %in% SURVEY_EXTRACTED_STATES            ~ "EXTRACTED",
+        state %in% SURVEY_INVESTIGATED_NO_LIST_STATES ~ "INVESTIGATED_NO_LIST",
+        TRUE                                          ~ "NOT_EXTRACTED"
       ),
 
       # The four-way split this file exists to produce. RCJ_ONLY is the answer
