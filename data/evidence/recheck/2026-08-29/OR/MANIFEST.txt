@@ -1,0 +1,22 @@
+OR -- RHTP award pages and their immediate children, re-read 2026-08-29
+Archived by R/03q_state_completeness_recheck.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+This is a COMPLETENESS RE-CHECK archive, not an extraction source. Nothing
+here has been extracted into a reference CSV; where it shows a roster this
+repository does not carry, that is reported and left for the state's own
+extractor. Files are the body the server sent, byte for byte, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below --
+EXCEPT where reduce=STRIP_SCRIPTS, which is Oregon's awards page: it loads
+Google Maps and carries the API key inside a <script> src, which is
+Oregon's to publish and not ours to redistribute (§7.1, session 17). Every
+<script> is removed and the full page's digest as served is recorded
+beneath the entry, so provenance still closes.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+d5d0eb03e5095f0360d2a43225a0b73750e7ae9dfa11e0e92831ceab366fb7ff  OR_oha_rhtp_home.html  (158729 bytes, role=INDEX, reduce=NONE)  <- https://www.oregon.gov/oha/HPA/HP/Pages/rural-health-transformation.aspx
+38b8b5a1614f3a37cf182fd784cd6416952fa112642fc682c2e5581be1d52f50  OR_oha_rhtp_awards_page.html  (150023 bytes, role=INDEX, reduce=STRIP_SCRIPTS)  <- https://www.oregon.gov/oha/HPA/HP/Pages/rhtp-awards.aspx
+    full page as served: 0664e03fb8cfa176b63942fe6f43ed2ad89e6afcb6f40ed938b8f020e1277356
+3939ce5c65ae91498c9a4a55951c7a9d58fd20181e809b269250bf0f16b35612  OR_oha_RHTP-Awards-Data.xlsx  (45542 bytes, role=CONTROL, reduce=NONE)  <- https://www.oregon.gov/oha/HPA/HP/Documents/RHTP-Awards-Data.xlsx

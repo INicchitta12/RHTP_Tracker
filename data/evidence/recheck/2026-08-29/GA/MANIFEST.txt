@@ -1,0 +1,25 @@
+GA -- RHTP award pages and their immediate children, re-read 2026-08-29
+Archived by R/03q_state_completeness_recheck.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+This is a COMPLETENESS RE-CHECK archive, not an extraction source. Nothing
+here has been extracted into a reference CSV; where it shows a roster this
+repository does not carry, that is reported and left for the state's own
+extractor. Files are the body the server sent, byte for byte, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below --
+EXCEPT where reduce=STRIP_SCRIPTS, which is Oregon's awards page: it loads
+Google Maps and carries the API key inside a <script> src, which is
+Oregon's to publish and not ours to redistribute (§7.1, session 17). Every
+<script> is removed and the full page's digest as served is recorded
+beneath the entry, so provenance still closes.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+7e00a43e197e66fe97d6b067b9d34d5fa27aa352cf873d6ad54ba1a2c9377f53  GA_greathealth_home.html  (83978 bytes, role=INDEX, reduce=NONE)  <- https://greathealth.georgia.gov/
+6903e0fc4aa2243eb4de2ef2c88751119e8e8ab2bc3fca19c2e64cd4edbd8ad0  GA_greathealth_news.html  (84459 bytes, role=INDEX, reduce=NONE)  <- https://greathealth.georgia.gov/about-program/news
+98113d6bb2674234a1c317d711f5be63e2be2a2209a999b4dba51c6edd8dc7b1  GA_find_funding_opportunities.html  (92527 bytes, role=INDEX, reduce=NONE)  <- https://greathealth.georgia.gov/find-funding-opportunities
+f080a773368b90526d6382797aae9ca504fb1642345560c6464eceb874350dad  GA_noa_workforce_retention_technology_signed.pdf  (279081 bytes, role=ROSTER, reduce=NONE)  <- https://greathealth.georgia.gov/document/document/notice-award-workforce-retention-technology-surgical-robotssigned/download
+f4471cba927f5ab5d84c36776ea8bf1ee05cf1d3631ca9e2ca1fc306733d191c  GA_nita_workforce_retention_technology.pdf  (231070 bytes, role=ROSTER, reduce=NONE)  <- https://greathealth.georgia.gov/document/document/notice-intent-award-workforce-retention-technology-7-31-2026pdf-0/download
+49ba971bd4a98502ee1e440d4db9b3a4175dfa758e2bf3b3b47265d40d5af844  GA_noa_point_of_care_telepods_signed.pdf  (178294 bytes, role=ROSTER, reduce=NONE)  <- https://greathealth.georgia.gov/document/document/notice-award-point-care-telepodssigned-0/download
+d892609e9df723f7bc4cae003947985222a9a462000af2cfcaa68d3b056a3c2e  GA_nita_point_of_care_telepods.pdf  (270017 bytes, role=ROSTER, reduce=NONE)  <- https://greathealth.georgia.gov/document/document/notice-intent-award-point-care-telepods-7-24-26/download

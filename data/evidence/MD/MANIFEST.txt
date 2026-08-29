@@ -1,0 +1,19 @@
+Maryland Department of Health -- RHTP Budget Period 1 sources
+Archived by R/03p_md_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+All five files are the body the server sent, BYTE FOR BYTE. None of them
+carries a third-party credential; the guard that caught CMS's Mapbox
+token, Illinois's and Oregon's, and Kansas's Google Maps key runs on every
+fetch here and finds nothing, so there is no reduction to explain.
+Files are written with writeBin(), so re-hashing a file on disk reproduces
+its digest below.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+5040af5a7363bdd40ac700b3696b3a06a332187898cf95f9d73b76d89bdc046e  2026-08-29_mdh_rhtp_program_page.html  (110155 bytes)  <- https://health.maryland.gov/pophealth/Pages/Rural-Health-Transformation-Program.aspx
+8841be37c3648cd3deefe50b6d93f09f2a1e9fa27cef7017eead1f12c9d00b29  2026-08-29_mdh_rhtp_procurement.html  (79098 bytes)  <- https://health.maryland.gov/pophealth/Pages/RHTP-Procurement.aspx
+6b47a971d3c54c8d1add6d0da76c614864724042f13c81b7363b895bfe9ab146  2025-12-31_mdh_168m_federal_funding.html  (77184 bytes)  <- https://health.maryland.gov/newsroom/Pages/Moore-Miller%20Administration%20secures%20$168%20million%20in%20federal%20funding%20to%20advance%20health%20care%20in%20rural%20Maryland%20communities.aspx
+2b8570d9489eab7f14135ee8bb8053589bd10b348993745f679c7553b602adbc  2026-08-29_mdh_pillar2_transformation_fund_bp1_award_offers.pdf  (105420 bytes)  <- https://health.maryland.gov/pophealth/Documents/Rural%20Health/RHTP/Pillar-2-Transformation-Fund-BP1-Award-Offers.pdf
+db9f7c1e80d317edcc26d28192a5ba5f45814e24eb64521e279d8d4bc1c4fd85  2026-08-29_mdh_pillar2_expand_primary_care_bp1_award_offers.pdf  (55097 bytes)  <- https://health.maryland.gov/pophealth/Documents/Rural%20Health/RHTP/Pillar-2-Expand-Primary-Care-Access-BP1-Award-Offers.pdf

@@ -186,6 +186,8 @@ R/
   03m_or_year1_awardees.R      # Oregon — 7 pools, 4 documents, 278 award actions (BUILT)
   03n_tx_year1_probe.R         # Texas — the NEGATIVE, and 53 RCJ rows that are state money (BUILT)
   03o_ks_year1_awardees.R      # Kansas — 46 awards in 3 pools, parsed from KDHE PDFs (BUILT)
+  03p_md_year1_awardees.R      # Maryland — 41 Budget Period 1 award OFFERS, 2 pools (BUILT)
+  03q_state_completeness_recheck.R # the 7 extracted states, re-read for rosters (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -212,6 +214,8 @@ data/
     IL/                        #   the ICAHN award release + the two HFS negatives
     OR/                        #   4 OHA documents + the Catalyst xlsx; awards page script-stripped
     VA/                        #   the DMAS negative: 3 reduced pages + the governor's PDF
+    MD/                        #   MDH programme + procurement + newsroom + 2 award-offer PDFs
+    recheck/<date>/<ST>/       #   the completeness re-check: award pages AND their children
 output/
   rhtp_hospital_tracker_<date>.xlsx
   review_queue_<date>.xlsx
@@ -235,6 +239,8 @@ docs/
   session17_oregon_extraction.md     # Oregon: 7 pools; the 99 x $100k are CLINICS
   session18_hospital_association_flow_rule.md # §10.2 associations; 0 rows moved
   session19_flow_fix_texas_negative.md # the flow short-circuit; TX is state money
+  session20_provenance_sweep_kansas.md # state money in the §6.2 filter; KS is 3 pools
+  session21_completeness_recheck_maryland.md # GA and AK have more; MD is 41 offers
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -541,7 +547,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-29 (Session 20 — the §6.2 provenance filter learns state money, and Kansas publishes three pools, not one)
+**Last updated:** 2026-08-29 (Session 21 — two of seven extracted states have rosters nobody read, and Maryland publishes 41 award offers)
 
 ### Stages built
 
@@ -557,7 +563,9 @@ retrieval code.
 | **Oregon Year 1** | `R/03m_or_year1_awardees.R` | **Built and run (Session 17). 278 award actions across SEVEN pools in FOUR documents. 35 named hospitals ($34,998,000) + 14 Catalyst hospital rows = $50,188,531. The 99 x $100,000 are RURAL HEALTH CLINICS — `docs/session17_oregon_extraction.md`** |
 | **§6.2 provenance sweep** | `R/02b_provenance_sweep.R` | **Built and run (Session 20). The provenance filter extended from other FEDERAL programmes to STATE-funded ones, plus a date test. Swept across all 1,366 committed Tier 3 candidates: 73 rows caught in 6 states — TX 62, NH 3, AZ 3, RI 3, MS 1, IL 1. Zero overlap with the 879 rows in the nine committed state files, asserted — `docs/session20_provenance_sweep_kansas.md`** |
 | **Kansas Year 1** | `R/03o_ks_year1_awardees.R` | **Built and run (Session 20). 46 award actions, $80,020,499, across THREE pools in TWO KDHE PDFs. The seven-award CHW+AFIM list is 1.3% of it. Hospital floor $35,721,277 with a LARGER uncertainty beside it** |
-| **PDF text extraction** | `R/utils_pdf_text.R` | **Built (Session 20). Decodes through each font's own `/ToUnicode` CMap. No shift-cipher guessing: KDHE's subsetted fonts render `and` as `D Q G`, and a constant-offset guess would decode these files and silently mangle the next** |
+| **PDF text extraction** | `R/utils_pdf_text.R` | **Session 21 extended it for Maryland — compressed object streams, form XObjects, page-tree order, a line model keyed on the TEXT POSITION rather than the positioning operator, and an ASCII fallback for codes a `/ToUnicode` CMap omits. On Maryland the old reader returned `character(0)`: NOT AN ERROR, AN EMPTY ANSWER, which reads as "the state published nothing". `ks_year1_awardees.csv` rebuilds byte-identical. Built (Session 20): decodes through each font's own `/ToUnicode` CMap — KDHE's subsetted fonts render `and` as `D Q G`, and a constant-offset guess would decode these files and silently mangle the next** |
+| **Maryland Year 1** | `R/03p_md_year1_awardees.R` | **Built and run (Session 21). 41 Budget Period 1 award OFFERS across TWO pools, $78,625,071. They are OFFERS, not executed agreements — MDH's own word. RCJ's 42nd candidate is the MHCC POOL (Tier 2) and the arithmetic closes exactly — `docs/session21_completeness_recheck_maryland.md`** |
+| **Completeness re-check** | `R/03q_state_completeness_recheck.R` | **Built and run (Session 21). Kansas's lesson applied backwards to FL/GA/PA/AL/AK/OR/IL. TWO of seven have rosters beyond what is extracted: GA 21 hospital award actions / $30,277,580 on a page never read, AK 161 → 185 rows. Each negative carries its own positive control. NOTHING WAS EXTRACTED** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
@@ -571,12 +579,12 @@ retrieval code.
 | Alaska Year 1 | `R/03h_ak_year1_awardees.R` | **Built and run (Session 12). 161 intents to award; the 161-vs-142 gap closed — 142 Implementation + 19 Planning** |
 | South Dakota portal | `R/03i_sd_rht_contracts.R` | **Built and run (Session 12). 13 administrative contracts, $5,618,367. The announced $31.5M and $90M rounds are NOT on open.sd.gov — re-probed Session 13, unchanged** |
 | South Dakota announcements | `R/03j_sd_year1_announcements.R` | **Built and run (Session 13). Both news.sd.gov releases archived. 110 grants, $121.5M, and ZERO named recipients — no reachable host publishes the roster. Carries a tripwire that hard-fails the day one appears — `docs/session13_sd_announcements_adeca_and_monitor.md`** |
-| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Session 19 removed the `HOSPITAL_AFFILIATED_ENTITY` short-circuit to `DIRECT`/`Yes` — recipient type no longer pre-decides flow; all nine extractors re-run byte-identical. Session 18 added the §10.2 hospital-association branch — money-movement markers plus an opt-in `award_made` clause; zero committed rows moved. Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
+| §8/§10.2 classifier | `R/utils_recipient_classification.R` | **Session 21 added the county/city public-health rule: Maryland awards EIGHT county health departments and the two spellings of one body were landing in two places — `Allegany County Health Department` fell to §8's fallback, `Charles County Department of Health` came out `STATE_AGENCY`. Both are now `LOCAL_GOVT_OR_PUBLIC_HEALTH`; all eleven extractors re-run, every reference CSV byte-identical. Session 19 removed the `HOSPITAL_AFFILIATED_ENTITY` short-circuit to `DIRECT`/`Yes` — recipient type no longer pre-decides flow; all nine extractors re-run byte-identical. Session 18 added the §10.2 hospital-association branch — money-movement markers plus an opt-in `award_made` clause; zero committed rows moved. Built (Session 12). The recipient_type and flow rules for every state, in one file. Session 16 added `rhtp_hospital_dollar_partition()` and `rhtp_hospital_total()` — the named/pooled split, enforced in code** |
 | Stage 4 — Validation | `R/04_validate.R` | Not started. **Gated on the verified §7.3 registry.** Do not start it before that. |
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>**Built — 1,645 assertions; 1,644 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>**Built — 2,005 assertions; 2,004 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -584,7 +592,7 @@ None. No state has been through Stage 4 validation.
 
 Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas.
 
-### Deliverable 1 — six states extracted
+### Deliverable 1 — eight states extracted
 
 | | Rows | Total published | Hospital rows | Hospital dollars |
 |---|---:|---:|---:|---:|
@@ -598,6 +606,7 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **IL** | 1 | $50,008,264 | **0 named** | **$0 named / $50,008,264 pooled** |
 | **OR** | 278 | $175,312,365 | **49** | **$50,188,531** (intents to award) |
 | **KS** | 46 | $80,020,499 | **21** | **$35,721,277** (a FLOOR — see below) |
+| **MD** | 41 | $78,625,071 | **6** | **$14,678,864** (award OFFERS; a FLOOR — see below) |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
@@ -629,6 +638,33 @@ not. **Nothing was promoted**, because promoting on this pipeline's own
 knowledge is the §0.4 failure the project exists to avoid; they are queued as
 `KS_RECIPIENT_FORM_NOT_STATED` and the CCN match (blocker 5) resolves them.
 
+**Maryland's line is Kansas's shape again, and its two counters are the two
+states have more.** MDH publishes a recipient, an amount, a project summary and
+the counties served, and **nothing about the recipient's organisational form** —
+no column of the kind Oregon and Alaska both have. So every `recipient_type` is
+derived from the recipient's own **name**, 6 rows resolve to hospitals at
+`MEDIUM` (§7's "identity inferred from name without CCN match"), and **24 rows,
+$36,558,089, carry §8's standing fallback**. Nothing was promoted (§0.4).
+TidalHealth ($4,911,052) and Meritus Health Center ($3,583,406) are in that 24
+and §0.3a names TidalHealth as a hospital; Choptank Community Health System
+($1,976,042) and Mountain Laurel Medical Center ($1,058,750) are typed
+`HOSPITAL_OR_SYSTEM` from their names and are, on the ordinary reading, FQHCs —
+uncertainty in **both** directions, and the CCN match resolves it.
+**And every Maryland row is an OFFER**, not an executed agreement: MDH's own
+word is "Award Offers", so all 41 are `NOTICE_OF_INTENT_TO_AWARD` +
+`amount_confirmed = No`, Oregon's posture.
+
+**GEORGIA'S AND ALASKA'S LINES ARE KNOWN TO BE INCOMPLETE AS OF 2026-08-29, AND
+THE FIGURES ABOVE ARE NOT YET UPDATED.** Session 21's completeness re-check
+found two signed Notices of Award on `greathealth.georgia.gov/find-funding-opportunities`
+naming **21 hospital award actions worth $30,277,580** that Georgia's file
+carries as two aggregate rows reading *"names not captured"* — so Georgia's
+named-hospital figure is **$60,000,000 today and $90,277,580 once extracted**,
+and the dollars are already inside its $197,148,327 at pool level. Alaska's
+rolling notice has grown from **161 to 185 award actions and $160,701,975 to
+$181,871,366**. Neither was extracted this session, deliberately; see
+`data/reference/state_completeness_recheck.csv`.
+
 **Illinois' line is the one that cannot be added to the others.** ICAHN is a
 `PASS_THROUGH_DESIGNATED` intermediary: the $50,008,264 is restricted to rural
 hospitals and the award is executed, so `distributed_to_hospital = Yes` — but
@@ -638,11 +674,16 @@ It carries `hospital_attribution = POOL_UNNAMED_HOSPITALS`, and
 `rhtp_hospital_total()` **refuses to return a combined figure**:
 
 ```
-NAMED_HOSPITAL        : 293,195,415   AL 66.1M · GA 60.0M · OR 50.2M · FL 49.3M · AK 43.4M · PA 24.1M
+NAMED_HOSPITAL        : 343,595,556   AL 66.1M · GA 60.0M · OR 50.2M · FL 49.3M · AK 43.4M ·
+                                      KS 35.7M · PA 24.1M · MD 14.7M
 POOL_UNNAMED_HOSPITALS:  50,008,264   IL
 ```
 
-All **ten** files union on the leading 19 columns with zero values outside §8,
+**Both figures are known to be understated as of 2026-08-29**, by Georgia's
+$30,277,580 of named hospitals and by whatever Alaska's 24 new awards classify
+to. Neither was extracted this session.
+
+All **eleven** files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. **Session 12's note
 that "all six states union" was wrong about the test** — it named five and
 South Dakota was never in it. Both SD files are now included.
@@ -736,6 +777,19 @@ South Dakota was never in it. Both SD files are now included.
   `determination_confidence` before using any figure.** Greeley County Health
   Services holds **two** awards, one per pool — RCJ kept only one, which is why
   it holds 45 of the 46. Rebuild with `Rscript R/03o_ks_year1_awardees.R --build`.
+- **`data/reference/md_year1_awardees.csv` — 41 rows (Session 21).** Maryland's
+  Budget Period 1 **award OFFERS**, across two pools in two MDH PDFs:
+  Transformation Funds 33 / $72,412,038, Expand Primary Care 8 / $6,213,033.
+  **Read `award_pool` and remember they are OFFERS** — MDH's own word, so every
+  row is `NOTICE_OF_INTENT_TO_AWARD` + `amount_confirmed = No`. MDH publishes no
+  organisation-type column, so **24 rows / $36,558,089 carry §8's standing
+  fallback**. Rebuild with `Rscript R/03p_md_year1_awardees.R --build`.
+- **`data/reference/state_completeness_recheck.csv` — 7 rows (Session 21).**
+  What FL, GA, PA, AL, AK, OR and IL publish TODAY against what this repository
+  extracted, with the positive control that makes each negative mean something.
+  **GA: 21 hospital award actions / $30,277,580 not extracted. AK: 24 award
+  actions / $16,862,504 not extracted.** Rebuild with
+  `Rscript R/03q_state_completeness_recheck.R --build`.
 - **`data/reference/classification_review_queue.csv` — 2 rows (Sessions 19,
   20).**
   Open classification questions for a human. Today: `GHA_RECIPIENT_TYPE` — is a
@@ -2423,15 +2477,195 @@ removed by name (Illinois's remedy), the reduction is asserted credential-free
 
 **Tests: 1,839 assertions, all passing** (was 1,645).
 
+### Session 21 — two of seven extracted states have more, and Maryland is 41 offers
+
+Full detail: `docs/session21_completeness_recheck_maryland.md`. Zero RCJ quota;
+24 fetches across seven state hosts and 5 to `health.maryland.gov`, throttled
+per §9.5.
+
+**Kansas's lesson, applied backwards to the seven states already extracted.**
+Session 20 nearly published $1,007,152 as "what Kansas awarded" when the state's
+own page carried $80,020,499 two links further down. Every state in this
+repository was worked once, from whatever was visible on the day, and nothing
+had ever gone back. `R/03q_state_completeness_recheck.R` goes back, and asks two
+questions per state: has the document we extracted CHANGED, and is there a
+roster on the award page's CHILDREN that nobody read?
+
+**Two of seven, and both are real.**
+
+**GEORGIA publishes signed Notices of Award on a page no session has read.**
+`greathealth.georgia.gov/find-funding-opportunities` carries a Notice of Intent
+to Award and a **signed Notice of Award** for each of two Round 4 strategies:
+**Workforce Retention Technology (surgical robots), 13 hospitals × $2,000,000 =
+$26,000,000** and **Care to Consumer: Point-of-Care Telepods, 8 award actions
+across 7 named hospitals, $4,277,580**. The committed file carries them as
+**two aggregate rows** reading *"13 hospitals … names not captured"* and
+*"8 hospitals … names not captured"*, `amount` empty on both. **This is not new
+money** — it is already inside $197,148,327 at pool level. It is **$30,277,580
+moving from a pool to named hospitals**, which takes Georgia's named-hospital
+figure from $60,000,000 to **$90,277,580**. The signed notice matches its intent
+exactly (13 and 13, 8 and 8) and additionally names **five unsuccessful
+applicants with DCH's reasons**.
+
+**ALASKA's rolling notice grew, and Alaska's own document says so.** The same
+URL now serves **185 award actions and $181,871,366**, up from 161 and
+$160,701,975. Of the $21,169,391 increase, **$16,862,504 is 24 new awards** and
+**$4,306,887 is one existing award revised upward** (Southcentral Foundation,
+`BP1-IA-308`, $1,548,208 → $5,855,095). No award disappeared. Alaska's *Year 1
+Funding Cycle Update* corroborates it independently — *"Week 4 | Aug 28 … $16.9M
+… 24 Projects"*, cumulative *"$182M … 185 Projects"* — and says awards are
+announced *"on a rolling weekly basis"*, so **Alaska needs a scheduled re-check,
+not a one-off extraction**. **86 `Organization Type` values also "changed" and
+none did**: Alaska re-saved with `";"` where it had `"; "`.
+
+**The five negatives, each with the control that makes it a finding.**
+**FLORIDA reconciles EXACTLY** with the Governor's own awardee PDF — 81
+awardees and $188,201,256.11 against 81 rows and $188,201,256.11, the first
+whole state file in this repository checked end to end against its primary
+source. (Its numbering runs 1–82 and skips 66; that is the source's gap, and it
+is asserted so nobody "fixes" the count. ~$21.7M of earlier monitoring
+procurements is unpublished.) **PENNSYLVANIA's** roster is byte-identical, and
+its funding-opportunities child page lists **four further payment programmes
+worth ~$86.8M that name NOBODY** (§0.3). **ALABAMA's** release is
+byte-identical and the site is still solicitation-only. **OREGON's** RHTP home
+page links **twelve** GovDelivery bulletins and session 17 read one; the other
+eleven were read here and none is a roster. **ILLINOIS's** one recipient-level
+document is the Hospital Planning Grant Methodology — **97 eligible hospitals
+WITH CCNs** against $28,191,393, stating its per-hospital figure conditionally
+(*"if all 97 eligible hospitals apply"*). §0.3: eligibility, not receipt, and
+nothing was coded from it. The CCN list is the most useful thing in Illinois
+against open blocker 5.
+
+**Nothing was extracted.** Georgia's 21 hospitals belong to `R/03d` and Alaska's
+24 awards to `R/03h`, and a test asserts both committed files are still 139 and
+161 rows.
+
+---
+
+**MARYLAND led the queue and publishes 41 award OFFERS across two pools:
+$78,625,071**, 46.8% of its $168,180,838 allotment. Transformation Funds 33 /
+$72,412,038 against MDH's stated $73M pool; Expand Primary Care 8 / $6,213,033
+against $6.3M.
+
+**They are OFFERS, and that is Maryland's own word.** Its funding table pairs
+each pool with an *Anticipated Project Period Start Date*, so all 41 rows are
+`NOTICE_OF_INTENT_TO_AWARD` + `amount_confirmed = No` — Oregon's posture.
+
+**The Texas check, run first and passed.** MDH's procurement page states that
+*"All partners and subawardees of Maryland's RHTP **cooperative agreement with
+the Centers for Medicare and Medicaid Services (CMS)** must agree to and comply
+with RHTP terms and conditions"*, and the programme page states the $163.7M
+Budget Period 1 subaward total inside the $168M award. **And both solicitations
+were POSTED AFTER the 2025-12-29 Notice of Award** — 2026-04-21 and 2026-05-04,
+read out of the archived page rather than typed. Texas's `HHS0015180` closed
+2025-04-24, eight months before its state had the money.
+
+**The positive control.** Maryland is running **ten** Budget Period 1
+opportunities and has published award offers for **two**; its own funding table
+carries an "Award Offers" link exactly where a roster exists. The assertion is a
+tripwire in both directions — it fails if either link disappears and fails if a
+**third** appears.
+
+**§0.1: RCJ's 42nd Maryland candidate is the POOL.** RCJ holds 42 Tier 3
+candidates against these 41 offers; the 42nd is **Maryland Health Care
+Commission, $6,300,000**, which is the MHCC RFA's own budget and is Tier 2. The
+arithmetic closes exactly and is asserted: 41 + 1 = 42, and $78,625,071 +
+$6,300,000 = $84,925,071. An extractor that took the candidate list at face
+value would have added $6.3M of Tier 2 money to a Tier 3 total.
+
+**The hospital figure is a floor and the uncertainty runs in BOTH directions.**
+$14,678,864 across 6 named hospitals, against **24 rows and $36,558,089** whose
+organisational form MDH nowhere states. TidalHealth ($4,911,052) and Meritus
+Health Center ($3,583,406) are in the 24 and §0.3a names TidalHealth as a
+hospital; Choptank Community Health System ($1,976,042) and Mountain Laurel
+Medical Center ($1,058,750) are typed `HOSPITAL_OR_SYSTEM` from their names and
+read as FQHCs. **Nothing was promoted (§0.4)**; the CCN match resolves it.
+
+---
+
+**`R/utils_pdf_text.R` returned `character(0)` on Maryland, and that is the
+worst failure shape this project has.** Not an error — an empty answer, which
+reads as *"the state published nothing"* about a $73M award list. Maryland's
+PDFs put every page object inside a compressed object stream (`/Type/ObjStm`)
+and every page's drawing inside a form XObject. Four changes: object streams are
+inflated and merged (top-level definitions win); `Do` is followed into
+`/Subtype /Form` XObjects with their own fonts, depth-capped and visit-marked;
+page order comes from the document's own page tree; and **a line is a text
+POSITION, not a `Td`** — Maryland's producer emits a `Td` per glyph, so the old
+model returned one character per line. `rhtp_pdf_lines()` now returns
+`page, x, y, text` and `rhtp_pdf_text()` is the character wrapper.
+
+**And one correctness fix the re-check forced: a `/ToUnicode` CMap can be
+INCOMPLETE, and a missing entry must not delete a character.** Georgia's DCH
+notices ship a single-byte font whose CMap omits `H`, `q`, `v`, `b`, `k` and
+others; dropping unmapped codes turned *"Crisp Regional Hospital"* into *"Crisp
+Regional ospital"* and *"Colquitt"* into *"Coluitt"* — readable, plausible, and
+wrong in a recipient name. An unmapped single-byte code now falls back to the
+code itself where that is printable ASCII, and the fallback is deliberately
+**not** extended to Identity-H fonts, where the code is a glyph id and guessing
+would produce confident nonsense instead of a gap.
+
+**The Kansas line grouping DID change and Kansas's output did not.** KDHE wraps
+mid-word, so the reader now joins *"Citizens Foundat"* / *"ion: $146,476"* and
+`R/03o`'s own re-join finds nothing to do. `ks_year1_awardees.csv` **rebuilds
+byte-identical** — 46 rows, $80,020,499 — which is the assertion that matters.
+
+**`R/utils_recipient_classification.R` gained the county public-health rule**,
+because Maryland's eight county health departments exposed a real
+inconsistency: *"Allegany County Health Department"* fell through every pattern
+to §8's `NONPROFIT_CBO` fallback while *"Charles County Department of Health"*
+matched `department of` and came out `STATE_AGENCY`. Both are now
+`LOCAL_GOVT_OR_PUBLIC_HEALTH` at `HIGH`. **All eleven extractors were re-run and
+every committed reference CSV came back byte-identical**; the workbooks differ
+only in `dcterms:created` and were reverted.
+
+**Tests: 2,004 assertions, all passing** (was 1,839). Three new files —
+`test_03p_md_year1_awardees.R`, `test_03q_state_completeness_recheck.R`, and
+`test_utils_pdf_text.R`, which is the first test the PDF reader has ever had.
+
 ### Next session
 
-**Oregon is done, and it was worth the position it held in the queue: 278 award
-actions, $175.3M, 49 named hospitals.** Thirty-one states are still queued.
+**THE FIRST TWO ITEMS ARE NOT NEW STATES. They are two states already in
+Deliverable 1 whose files are known to be short, today, by a measured amount.**
 
-1. **Keep working the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv`
-   is ordered and **Maryland now leads** — 42 Tier 3 candidates / 41 distinct
-   awardees; then NE 39/35, IN 37/28, OK 35/25, NV 34/34, MI 31/31. Texas is
+1. **Extract Georgia's 21 named hospitals into `R/03d`.** It is the single
+   largest improvement available anywhere in this repository:
+   **$30,277,580 from a pool to named hospitals**, taking Georgia's
+   named-hospital figure from $60,000,000 to $90,277,580, plus DCH's five named
+   unsuccessful applicants. Both signed Notices of Award and both Notices of
+   Intent to Award are already archived under
+   `data/evidence/recheck/2026-08-29/GA/`, so this costs no network at all. The
+   two aggregate rows reading *"names not captured"* are what they replace.
+
+2. **Re-run `R/03h` against Alaska's grown notice** — 161 → 185 award actions,
+   $160,701,975 → $181,871,366, of which $4,306,887 is one existing award
+   revised upward rather than a new one. **And note that it will be stale
+   again next week**: Alaska says awards are announced *"on a rolling weekly
+   basis"*, which makes it the first state in this project needing a
+   *scheduled* re-check rather than an extraction. The current file is archived
+   at `data/evidence/recheck/2026-08-29/AK/`.
+
+3. **Add `MD_RECIPIENT_FORM_NOT_STATED`** — 24 rows, **$36,558,089** — to
+   `data/reference/classification_review_queue.csv`. Session 21 was instructed
+   not to modify committed reference CSVs, so Maryland's open classification
+   question is recorded in its workbook and its session doc instead. Unlike the
+   Georgia question it **moves dollars**, and in both directions.
+
+4. **Keep working the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv`
+   is ordered and **still ranks Maryland first, which is now wrong**: Maryland
+   is extracted, but session 21 was instructed not to modify committed
+   reference CSVs, so neither `state_trigger_queue.csv` nor
+   `rcj_state_survey.csv` records it. **Move MD to `EXTRACTED` in both before
+   picking the next state**, or it will rank 1 again. Behind it:
+   NE 39/35, IN 37/28, OK 35/25, NV 34/34, MI 31/31. Texas is
    done at `INVESTIGATED_NO_LIST`; Kansas is `EXTRACTED`.
+
+   **Maryland adds a fourth question, and it is the one that catches a Tier 2
+   figure hiding in a Tier 3 list: does the candidate set contain the POOL?**
+   RCJ's 42nd Maryland candidate is the Maryland Health Care Commission at
+   $6,300,000 — the RFA's own budget, not a subaward. It reconciles exactly
+   (41 offers + 1 pool = 42), which is why it is safe to say so; taken at face
+   value it would have added $6.3M of Tier 2 money to a Tier 3 total.
 
    **Kansas adds a third question to Texas's and Oregon's, and it is the
    cheapest of the three: READ THE PROGRAMME PAGE'S LINK LIST, NOT ITS PROSE.**
@@ -2472,25 +2706,26 @@ actions, $175.3M, 49 named hospitals.** Thirty-one states are still queued.
    from all 386 Oregon Tier 3 records, and `stage2_state_sources.rds` had the
    answer.
 
-2. **Illinois' next step is `il.amplifund.com`.** The 97-hospital,
+5. **Illinois' next step is `il.amplifund.com`.** Session 21 confirmed it is
+   behind a Microsoft sign-in, so this needs credentials or another route. The 97-hospital,
    $28,191,393 planning-grant solicitation, distributed equally, is how
    Illinois hospitals get **named**. An award list there is a real extraction
    and would move $28.2M from pooled to named.
 
-3. **Verify the registry** (~2 hours, §7.2) — still the hard gate (§13.12),
+6. **Verify the registry** (~2 hours, §7.2) — still the hard gate (§13.12),
    unchanged by any of this. Work
    `data/reference/state_source_registry_worksheet.csv` down to 50 confirmed
    rows. **Florida first.** Check with
    `Rscript R/03_state_registry.R --validate`.
 
-4. **Re-run Stage 2 when convenient, and check `pull_date`.** Session 16 fixed
+7. **Re-run Stage 2 when convenient, and check `pull_date`.** Session 16 fixed
    a data-masking self-assignment that left `pull_date` NA on all 5,152 rows,
    but **did not re-run Stage 2** — rewriting committed artifacts to satisfy a
    survey is a change with its own blast radius. `R/03k` falls back to
    `last_seen` and reports that it did. After a re-run the fallback should
    stop firing.
 
-5. **`web.archive.org`** is worth one more test now that the network policy has
+8. **`web.archive.org`** is worth one more test now that the network policy has
    changed — the failure was upstream of the policy (TLS reset, no denial
    logged), and it is still the only route to Georgia's July roster snapshot.
 
@@ -2508,12 +2743,17 @@ count** per hospital. And Alaska's seven awardees
 whose organisational form varies across their own rows — **$20.4M** — is still
 a human's judgement, deliberately unresolved.
 
+**And run the completeness re-check again** once Georgia and Alaska are folded
+in, extending it to KS, SD, TX and MD: `Rscript R/03q_state_completeness_recheck.R
+--fetch --force`. It found something in two of the seven states it covered, and
+there is no reason to think the four it did not cover are different.
+
 `qa_assertions.R` is still unbuilt.
 
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 1,839 assertions, zero quota
+Rscript tests/run_tests.R                        # 2,004 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -2574,6 +2814,14 @@ Rscript R/03o_ks_year1_awardees.R --fetch       # KS: archive 4 KDHE sources + S
 Rscript R/03o_ks_year1_awardees.R --validate    # KS assertions + the positive control, offline
 Rscript R/03o_ks_year1_awardees.R --build       # writes KS csv + KS_year1_awardees.xlsx
 Rscript R/03o_ks_year1_awardees.R --report      # the three pools, and why the figure is a floor
+Rscript R/03p_md_year1_awardees.R --fetch       # MD: archive 5 MDH sources + SHA-256
+Rscript R/03p_md_year1_awardees.R --validate    # MD assertions + the positive control, offline
+Rscript R/03p_md_year1_awardees.R --build       # writes MD csv + MD_year1_awardees.xlsx
+Rscript R/03p_md_year1_awardees.R --report      # the two pools, and where the figure is soft
+Rscript R/03q_state_completeness_recheck.R --fetch    # 24 pages across 7 states + SHA-256
+Rscript R/03q_state_completeness_recheck.R --validate # the two positives and five negatives
+Rscript R/03q_state_completeness_recheck.R --build    # writes state_completeness_recheck.csv
+Rscript R/03q_state_completeness_recheck.R --report   # the table, with each control stated
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

@@ -1,0 +1,21 @@
+PA -- RHTP award pages and their immediate children, re-read 2026-08-29
+Archived by R/03q_state_completeness_recheck.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+This is a COMPLETENESS RE-CHECK archive, not an extraction source. Nothing
+here has been extracted into a reference CSV; where it shows a roster this
+repository does not carry, that is reported and left for the state's own
+extractor. Files are the body the server sent, byte for byte, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below --
+EXCEPT where reduce=STRIP_SCRIPTS, which is Oregon's awards page: it loads
+Google Maps and carries the API key inside a <script> src, which is
+Oregon's to publish and not ours to redistribute (§7.1, session 17). Every
+<script> is removed and the full page's digest as served is recorded
+beneath the entry, so provenance still closes.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+d491122e60b981f2c96187da428e1fb0a88a9056da988235624ac192caf9e5f3  PA_dhs_rural_health_program.html  (622610 bytes, role=INDEX, reduce=NONE)  <- https://www.pa.gov/agencies/dhs/programs-services/healthcare/rural-health/
+dab646bf2ba50ef08670a678b2050790dc4b37059459564294d4484a0562901a  PA_dhs_rhtp_funding_opportunities.html  (637119 bytes, role=INDEX, reduce=NONE)  <- https://www.pa.gov/agencies/dhs/programs-services/healthcare/rural-health/rhtp-funding-opportunities
+97e1cae3745e577fa70a7d453182445a2b0fa9c863951af90bfeb1d93ef59b51  PA_dhs_rural_health_selected_projects.html  (629572 bytes, role=CONTROL, reduce=NONE)  <- https://www.pa.gov/agencies/dhs/programs-services/healthcare/rural-health/rural-health-eligible-projects
