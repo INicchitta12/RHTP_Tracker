@@ -1,13 +1,13 @@
 # test_state_union.R ---------------------------------------------------------
-# The five extracted states must union. Reads committed CSVs off disk only --
+# The extracted states must union. Reads committed CSVs off disk only --
 # no network, no quota.
 #
 # WHY THIS FILE EXISTS. Session 10 found Florida and Georgia had given two
 # different answers to one §8 question, and the two states could not be combined
 # until that was settled. Nothing caught it until someone tried. This file is
-# that attempt, run every time: FL, GA, PA, AL and AK share the leading 19
+# that attempt, run every time: every extracted state shares the leading 19
 # columns and every categorical value in them is inside §8, asserted from all
-# five sides at once.
+# sides at once.
 
 library(testthat)
 
@@ -47,7 +47,13 @@ STATE_FILES <- c(
   # unstated by the publisher: 22 of its 46 rows carry §8's standing fallback.
   # That makes it the state most likely to put a value outside §8 into the
   # union without anyone noticing.
-  KS = "data/reference/ks_year1_awardees.csv"
+  KS = "data/reference/ks_year1_awardees.csv",
+  # Maryland is the first state whose file was parsed out of PDFs the reader
+  # could not open at all before session 21 -- and the first whose recipient
+  # types are derived from the recipient's own NAME for every single row,
+  # because MDH publishes no organisation-type column. That makes it the state
+  # most likely to put a name-derived value outside §8 into the union.
+  MD = "data/reference/md_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -75,13 +81,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all ten files carry the leading 19 columns, in the same order", {
+test_that("all eleven files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the ten files union without a coercion failure", {
+test_that("the eleven files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -89,7 +95,7 @@ test_that("the ten files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "KS", "OR", "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IL", "KS", "MD", "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

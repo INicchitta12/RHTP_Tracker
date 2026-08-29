@@ -90,7 +90,16 @@ RHTP_RECIPIENT_TYPE_PATTERNS <- tibble::tribble(
   # Schools.
   "(?i)\\b(school district|board of education|department of education)\\b",   "SCHOOL_OR_DISTRICT",          "HIGH",   "name states a school system",
 
-  # Government.
+  # Government. The county/city public-health rule comes FIRST because the two
+  # spellings of one body were landing in two different places: Maryland awards
+  # EIGHT county health departments, and "Allegany County Health Department"
+  # fell through every pattern to §8's NONPROFIT_CBO fallback while "Charles
+  # County Department of Health" matched `department of` and came out
+  # STATE_AGENCY. Neither is right and they are the same kind of recipient. A
+  # county health department is a LOCAL public health body, which is the value
+  # §8 has for it and the value Oregon's own Organization Type column gives its
+  # equivalents.
+  "(?i)\\b(count(y|ies)|city|parish|borough|township)\\b[^,;]{0,40}?\\b(health department|department of health|department of public health|public health department)\\b", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "HIGH", "county or city health department, a local public health body",
   "(?i)\\b(department of|state of|commonwealth of|division of)\\b",           "STATE_AGENCY",                "MEDIUM", "name states a state agency",
   "(?i)\\b(count(y|ies)|city|borough|township|municipal) (of |government)",   "LOCAL_GOVT_OR_PUBLIC_HEALTH", "MEDIUM", "name states a local government",
 

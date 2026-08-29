@@ -23,9 +23,32 @@
 #
 # WHAT IT DOES NOT DO. No layout: it emits one line per text-positioning
 # operator, in content order, which is what a bulleted award list needs and is
-# not enough to reconstruct a multi-column table. No encryption, no object
-# streams for page content, no CID fonts without a CMap. A caller that needs
-# more than a list of lines should not reach for this.
+# not enough to reconstruct a multi-column table. No encryption, no CID fonts
+# without a CMap. A caller that needs more than a list of lines should not
+# reach for this.
+#
+# WHAT SESSION 21 ADDED, AND WHY IT HAD TO BE ADDED RATHER THAN WORKED AROUND.
+# Maryland publishes its Budget Period 1 award offers as PDFs written by a
+# producer that puts every page object inside a COMPRESSED OBJECT STREAM
+# (`/Type/ObjStm`) and every page's drawing inside a FORM XOBJECT that carries
+# its own `/Font` resources. On such a file the old reader found `/Type/Page`
+# nowhere, walked zero pages and returned CHARACTER(0) -- not an error, an
+# empty answer, which is the failure mode this project cares about most: a
+# caller that treated it as "the state published nothing" would have been
+# wrong about a $73M award list. So two things are read now:
+#
+#   1. `/ObjStm` streams are inflated and their contained objects merged into
+#      the object map, so page objects become visible. A top-level definition
+#      of the same object number WINS, because an incremental update writes the
+#      newer object at the top level.
+#   2. A page's `Do` operators are followed into `/Subtype/Form` XObjects, each
+#      decoded through ITS OWN font resources, in the order the operators
+#      appear. Recursion is depth-capped and visit-marked, because a malformed
+#      or hostile file can make a form reference itself.
+#
+# Page ORDER now comes from the document's own page tree (`/Type/Pages`,
+# `/Kids`) when there is one. Object-number order is the fallback and it is not
+# reliable on a file assembled by an incremental update.
 
 #' Bytes to a Latin-1 string, NUL-safe
 #'
@@ -72,6 +95,63 @@ rhtp_pdf_objects <- function(bytes) {
     out[[as.character(num)]] <- bytes[(h + 3L):(e - 1L)]
   }
   out
+}
+
+
+#' Merge the objects held inside `/ObjStm` compressed object streams
+#'
+#' A PDF 1.5+ writer may pack non-stream objects -- page dictionaries among
+#' them -- into a single Flate-compressed stream. `rhtp_pdf_objects()` scans
+#' for `N G obj ... endobj` and cannot see those, so on such a file the page
+#' walk finds nothing and returns an EMPTY result rather than failing. This
+#' inflates every object stream and adds what it carries.
+#'
+#' A top-level object of the same number is kept in preference: an incremental
+#' update writes the newer revision of an object at the top level, and the copy
+#' inside an older object stream is the superseded one.
+#'
+#' @param objs The map from `rhtp_pdf_objects()`.
+#' @return The same map, plus the objects recovered from any object streams.
+rhtp_pdf_objstm_expand <- function(objs) {
+  for (nm in names(objs)) {
+    body <- objs[[nm]]
+    # The dictionary only. Slicing a fixed number of bytes would drag the
+    # compressed stream into the string and every regex below would then warn
+    # about invalid UTF-8 on a region that is not text at all.
+    s_at <- grepRaw("stream", body, all = FALSE)
+    head_end <- if (length(s_at)) s_at - 1L else min(600L, length(body))
+    if (head_end < 1L) next
+    head_txt <- rhtp_pdf_chr(body[seq_len(head_end)])
+    if (!grepl("/Type\\s*/ObjStm", head_txt, perl = TRUE, useBytes = TRUE)) next
+
+    inflated <- rhtp_pdf_stream(body)
+    if (is.null(inflated) || length(inflated) == 0L) next
+
+    n_m     <- regmatches(head_txt, regexec("/N\\s+(\\d+)", head_txt, perl = TRUE))[[1]]
+    first_m <- regmatches(head_txt, regexec("/First\\s+(\\d+)", head_txt, perl = TRUE))[[1]]
+    if (length(n_m) < 2L || length(first_m) < 2L) next
+    n_obj <- as.integer(n_m[2])
+    first <- as.integer(first_m[2])
+    if (is.na(n_obj) || is.na(first) || n_obj < 1L || first < 1L ||
+        first > length(inflated)) next
+
+    # The header is `num offset num offset ...`, 2N integers, all ASCII.
+    pairs <- scan(text = rhtp_pdf_chr(inflated[seq_len(first)]), what = integer(),
+                  quiet = TRUE, nmax = 2L * n_obj)
+    if (length(pairs) < 2L * n_obj) next
+    nums <- pairs[seq(1L, length(pairs), by = 2L)]
+    offs <- pairs[seq(2L, length(pairs), by = 2L)]
+
+    for (k in seq_len(n_obj)) {
+      key <- as.character(nums[k])
+      if (!is.null(objs[[key]])) next                  # top level wins
+      from <- first + offs[k] + 1L
+      to   <- if (k < n_obj) first + offs[k + 1L] else length(inflated)
+      if (is.na(from) || is.na(to) || from > to || to > length(inflated)) next
+      objs[[key]] <- inflated[from:to]
+    }
+  }
+  objs
 }
 
 
@@ -147,29 +227,65 @@ rhtp_pdf_tounicode <- function(cmap_raw) {
 
 
 #' Decode a string operand through the current font
+#'
+#' A `/ToUnicode` CMap CAN BE INCOMPLETE, and a missing entry must not silently
+#' delete a character. Georgia's DCH notices ship a single-byte font whose CMap
+#' covers most of the alphabet and omits, among others, `H`: dropping the
+#' unmapped codes turns "Crisp Regional Hospital" into "Crisp Regional ospital"
+#' and "Colquitt" into "Coluitt" -- still readable, still plausible, and wrong
+#' in a recipient name. So for a SINGLE-BYTE font an unmapped code falls back to
+#' the code itself where that is printable ASCII, which is what the code means
+#' in every single-byte encoding this project has met.
+#'
+#' The fallback is deliberately NOT extended to a two-byte (Identity-H) font:
+#' there the code is a glyph id in a subsetted font and has no relation to any
+#' character, so guessing would produce confident nonsense rather than a gap.
 rhtp_pdf_decode <- function(codes, cmap, two_byte) {
   if (length(codes) == 0L) return("")
   codes <- codes[!is.na(codes)]
   if (length(codes) == 0L) return("")
 
+  ascii <- function(x) {
+    vapply(x, function(k) if (k >= 32L && k < 256L) intToUtf8(k) else "",
+           character(1))
+  }
+
   if (length(cmap) == 0L) {
-    keep <- codes >= 32L & codes < 256L
-    return(paste(vapply(codes[keep], intToUtf8, character(1)), collapse = ""))
+    return(paste(ascii(codes), collapse = ""))
   }
   if (isTRUE(two_byte)) {
     if (length(codes) < 2L) return("")
     idx <- seq(1L, length(codes) - 1L, by = 2L)
     codes <- codes[idx] * 256L + codes[idx + 1L]
+    out <- unname(cmap[as.character(codes)])
+    return(paste(ifelse(is.na(out), "", out), collapse = ""))
   }
   out <- unname(cmap[as.character(codes)])
-  paste(ifelse(is.na(out), "", out), collapse = "")
+  paste(ifelse(is.na(out), ascii(codes), out), collapse = "")
 }
 
 
-#' Scan one content stream and emit its text, one line per positioning operator
+#' Scan one content stream and emit its text, one line per text position
 #'
 #' Operates on integer byte codes rather than a string: in a two-byte glyph
 #' code the high byte is very often NUL, and `rawToChar()` cannot hold one.
+#'
+#' A LINE IS A VERTICAL POSITION, NOT A `Td`. The first version of this broke a
+#' line at every text-positioning operator, which is right for KDHE's bulleted
+#' lists and catastrophic for Maryland's: its producer emits a separate
+#' `BT ... ET` block per word and a `Td` per GLYPH, all at the same y, so
+#' "Maryland" came out as eight lines of one character. So the scanner tracks
+#' the text position's vertical component -- `Tm`'s f, plus the accumulated `ty`
+#' of the `Td`/`TD` operators since the last `BT` -- and breaks only when that
+#' value CHANGES. Horizontal movement within a line no longer breaks it.
+#'
+#' THIS DOES CHANGE THE LINES KANSAS'S PDFs PRODUCE, and the claim that matters
+#' was checked rather than assumed. KDHE's files wrap mid-word, so the old
+#' reader emitted "Citizens Foundat" and "ion: $146,476" as two lines and
+#' `R/03o` re-joined them; the new one emits the whole visual line and the
+#' re-join finds nothing to do. `data/reference/ks_year1_awardees.csv` REBUILDS
+#' BYTE-IDENTICAL under both readers -- 46 rows, $80,020,499 -- which is the
+#' assertion, not the intermediate line count.
 rhtp_pdf_content_lines <- function(stream, fonts) {
   b <- as.integer(stream)
   n <- length(b)
@@ -186,6 +302,27 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   two   <- FALSE
   i     <- 1L
 
+  # The text position's vertical component, and the numeric operands seen
+  # since the last operator. `y_m` is Tm's f; `y_d` accumulates Td/TD's ty,
+  # which is relative to the line matrix and resets with each BT/Tm.
+  nums  <- numeric(0)
+  y_m   <- 0
+  y_d   <- 0
+  x_m   <- 0
+  x_d   <- 0
+  y_at  <- NA_real_          # the y the current buffer is being written at
+  x_at  <- NA_real_          # and the x it started at, for column bucketing
+  xs    <- numeric(0)
+  ys    <- numeric(0)
+  # The graphics state's vertical translation, and the q/Q stack that restores
+  # it. Maryland draws each TABLE CELL inside its own `q .75 0 0 .75 x y cm`,
+  # with the same text matrix every time, so without this every cell in the
+  # document lands on one line. Only the translation is tracked, not the full
+  # matrix: this reader needs to know when the pen moved DOWN, not where it is.
+  ctm_y <- 0
+  ctm_x <- 0
+  ctm_stack <- list()
+
   is_ws  <- function(x) x %in% c(32L, 13L, 10L, 9L, 12L, 0L)
   is_dlm <- function(x) x %in% c(40L, 41L, 60L, 62L, 91L, 93L, 47L, 37L,
                                  123L, 125L)
@@ -193,7 +330,19 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   flush <- function() {
     if (length(buf)) {
       lines <<- c(lines, paste(buf, collapse = ""))
+      xs    <<- c(xs, x_at)
+      ys    <<- c(ys, y_at)
       buf <<- character()
+    }
+  }
+
+  # Break the line only if the text position has actually moved vertically.
+  at_y <- function() {
+    y <- ctm_y + y_m + y_d
+    if (is.na(y_at) || !isTRUE(all.equal(y, y_at))) {
+      flush()
+      y_at <<- y
+      x_at <<- ctm_x + x_m + x_d
     }
   }
 
@@ -280,14 +429,69 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
       op <- paste(vapply(b[i:(j - 1L)], function(x) intToUtf8(x), character(1)),
                   collapse = "")
       if (op %in% c("Tj", "TJ")) {
+        # The line break is decided HERE, where text is actually painted, not
+        # at the positioning operators: a producer that emits Tm and Td for
+        # every word would otherwise break the line between the operator that
+        # moves and the operator that draws.
+        at_y()
         buf <- c(buf, pending)
         pending <- character()
-      } else if (op %in% c("Td", "TD", "T*", "ET")) {
+      } else if (op %in% c("Td", "TD")) {
+        pending <- character()
+        if (length(nums) >= 2L) {
+          y_d <- y_d + nums[length(nums)]
+          x_d <- x_d + nums[length(nums) - 1L]
+        }
+      } else if (op == "Tm") {
+        pending <- character()
+        if (length(nums) >= 6L) {
+          y_m <- nums[length(nums)]
+          x_m <- nums[length(nums) - 1L]
+        }
+        y_d <- 0
+        x_d <- 0
+      } else if (op == "BT") {
+        pending <- character()
+        y_m <- 0
+        y_d <- 0
+        x_m <- 0
+        x_d <- 0
+      } else if (op == "cm") {
+        if (length(nums) >= 6L) {
+          ctm_y <- ctm_y + nums[length(nums)]
+          ctm_x <- ctm_x + nums[length(nums) - 1L]
+        }
+      } else if (op == "q") {
+        ctm_stack[[length(ctm_stack) + 1L]] <- c(ctm_x, ctm_y)
+      } else if (op == "Q") {
+        if (length(ctm_stack)) {
+          last <- ctm_stack[[length(ctm_stack)]]
+          ctm_x <- last[1]; ctm_y <- last[2]
+          ctm_stack[[length(ctm_stack)]] <- NULL
+        }
+      } else if (op == "T*") {
+        # A move to the next line by an amount this reader does not track.
         pending <- character()
         flush()
+        y_at <- NA_real_
+      } else if (op == "ET") {
+        pending <- character()
       } else if (op %in% c("BDC", "DP", "BMC")) {
         pending <- character()
       }
+      if (op != "Tj" && op != "TJ") nums <- numeric(0)
+      i <- j
+      next
+    }
+
+    if ((ch >= 48L && ch <= 57L) || ch == 45L || ch == 43L || ch == 46L) {
+      j <- i
+      while (j <= n && ((b[j] >= 48L && b[j] <= 57L) || b[j] == 45L ||
+                        b[j] == 43L || b[j] == 46L)) j <- j + 1L
+      v <- suppressWarnings(as.numeric(paste(
+        vapply(b[i:(j - 1L)], function(x) intToUtf8(x), character(1)),
+        collapse = "")))
+      if (!is.na(v)) nums <- c(nums, v)
       i <- j
       next
     }
@@ -296,43 +500,55 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   }
 
   flush()
-  lines
+  data.frame(x = xs, y = ys, text = lines, stringsAsFactors = FALSE)
 }
 
 
-#' Extract the text of a PDF, one line per text-positioning operator
+#' Extract a PDF's text lines, with the position each was drawn at
 #'
 #' @param path Path to the PDF.
-#' @return A character vector of non-empty lines, in content order.
-rhtp_pdf_text <- function(path) {
+#' @return A data frame of `page`, `x`, `y`, `text`, in content order, one row
+#'   per visual line. `x` is what tells a table's columns apart -- Maryland's
+#'   award tables put the recipient, the amount, the summary and the counties
+#'   at four stable x values, and nothing in the content ORDER separates them.
+rhtp_pdf_lines <- function(path) {
   bytes <- readBin(path, "raw", file.info(path)$size)
-  objs  <- rhtp_pdf_objects(bytes)
+  objs  <- rhtp_pdf_objstm_expand(rhtp_pdf_objects(bytes))
 
-  dict_ref <- function(body, key) {
-    txt <- rhtp_pdf_chr(body)
+  # -- small readers over the object map ------------------------------------
+
+  # An object body, minus its stream: the dictionary is all these regexes want,
+  # and running them over an inflated font programme is both slow and a source
+  # of accidental matches.
+  header_of <- function(body) {
+    if (is.null(body)) return("")
+    s <- grepRaw("stream", body, all = FALSE)
+    end <- if (length(s)) s - 1L else length(body)
+    if (end < 1L) return("")
+    rhtp_pdf_chr(body[seq_len(min(end, 20000L))])
+  }
+
+  ref_body <- function(txt, key) {
     m <- regmatches(txt, regexec(paste0(key, "\\s+(\\d+)\\s+\\d+\\s+R"), txt,
-                                 useBytes = TRUE))[[1]]
+                                 perl = TRUE, useBytes = TRUE))[[1]]
     if (length(m) < 2L) NULL else objs[[m[2]]]
   }
 
-  # useBytes: these are binary regions, and a perl regex over a latin1 string
-  # warns on every embedded font programme it walks past.
-  pages <- Filter(function(b) grepl("/Type\\s*/Page[^s]",
-                                    rhtp_pdf_chr(b[1:min(2000, length(b))]),
-                                    perl = TRUE, useBytes = TRUE), objs)
+  # The text of a resource dictionary, whether it is written inline in the
+  # object or referenced. Both forms occur in the same corpus: SharePoint's
+  # writer references it, Maryland's writes it inline inside an object stream.
+  resources_txt <- function(owner_txt) {
+    r <- ref_body(owner_txt, "/Resources")
+    if (!is.null(r)) header_of(r) else owner_txt
+  }
 
-  out <- character()
-  for (page in pages) {
-    ptxt <- rhtp_pdf_chr(page)
-
-    res <- dict_ref(page, "/Resources")
-    res_txt <- if (is.null(res)) ptxt else rhtp_pdf_chr(res)
-
+  #' The /Font map of a resource dictionary, as name -> {cmap, two_byte}
+  fonts_of <- function(res_txt) {
     fonts <- list()
     fm <- regmatches(res_txt, regexec("/Font\\s*<<([^>]*)>>", res_txt))[[1]]
     font_dict <- if (length(fm) >= 2L) fm[2] else {
-      fr <- dict_ref(if (is.null(res)) page else res, "/Font")
-      if (is.null(fr)) "" else rhtp_pdf_chr(fr)
+      fr <- ref_body(res_txt, "/Font")
+      if (is.null(fr)) "" else header_of(fr)
     }
     refs <- regmatches(font_dict, gregexpr("/(\\w+)\\s+(\\d+)\\s+\\d+\\s+R",
                                            font_dict))[[1]]
@@ -340,18 +556,23 @@ rhtp_pdf_text <- function(path) {
       p <- regmatches(r, regexec("/(\\w+)\\s+(\\d+)\\s+\\d+\\s+R", r))[[1]]
       fb <- objs[[p[3]]]
       if (is.null(fb)) next
-      ftxt <- rhtp_pdf_chr(fb)
-      tu <- dict_ref(fb, "/ToUnicode")
+      ftxt <- header_of(fb)
+      tu <- ref_body(ftxt, "/ToUnicode")
       fonts[[p[2]]] <- list(
         cmap = rhtp_pdf_tounicode(if (is.null(tu)) NULL else rhtp_pdf_stream(tu)),
         two_byte = grepl("/Identity-H", ftxt, fixed = TRUE, useBytes = TRUE) ||
                    grepl("/Type0", ftxt, fixed = TRUE, useBytes = TRUE)
       )
     }
+    fonts
+  }
 
-    cm <- regmatches(ptxt, regexec("/Contents\\s*(\\[[^\\]]*\\]|\\d+\\s+\\d+\\s+R)",
-                                   ptxt, perl = TRUE, useBytes = TRUE))[[1]]
-    if (length(cm) < 2L) next
+  # The concatenated /Contents streams of a page.
+  contents_stream <- function(owner_txt) {
+    cm <- regmatches(owner_txt,
+                     regexec("/Contents\\s*(\\[[^\\]]*\\]|\\d+\\s+\\d+\\s+R)",
+                             owner_txt, perl = TRUE, useBytes = TRUE))[[1]]
+    if (length(cm) < 2L) return(raw(0))
     cnums <- regmatches(cm[2], gregexpr("(\\d+)\\s+\\d+\\s+R", cm[2]))[[1]]
     stream <- raw(0)
     for (cn in cnums) {
@@ -359,11 +580,118 @@ rhtp_pdf_text <- function(path) {
       s <- rhtp_pdf_stream(objs[[num]])
       if (!is.null(s)) stream <- c(stream, s, charToRaw("\n"))
     }
-    if (length(stream) == 0L) next
-
-    out <- c(out, rhtp_pdf_content_lines(stream, fonts))
+    stream
   }
 
-  out <- trimws(out)
-  out[nzchar(out)]
+  # -- content, following Do into form XObjects ------------------------------
+
+  # A page's own text, then each form XObject it invokes, in the order the `Do`
+  # operators appear. `seen` stops a form that references itself; `depth` caps
+  # a chain of forms that reference each other.
+  empty_lines <- data.frame(x = numeric(0), y = numeric(0),
+                            text = character(0), stringsAsFactors = FALSE)
+
+  lines_for <- function(stream, res_txt, seen = character(), depth = 0L) {
+    if (length(stream) == 0L) return(empty_lines)
+    out <- rhtp_pdf_content_lines(stream, fonts_of(res_txt))
+    if (depth >= 8L) return(out)
+
+    ctxt <- rhtp_pdf_chr(stream)
+    dos  <- regmatches(ctxt, gregexpr("/([A-Za-z0-9_.#-]+)\\s+Do\\b", ctxt,
+                                      perl = TRUE))[[1]]
+    if (length(dos) == 0L) return(out)
+
+    xm <- regmatches(res_txt, regexec("/XObject\\s*<<([^>]*)>>", res_txt))[[1]]
+    xdict <- if (length(xm) >= 2L) xm[2] else {
+      xr <- ref_body(res_txt, "/XObject")
+      if (is.null(xr)) "" else header_of(xr)
+    }
+    if (!nzchar(xdict)) return(out)
+
+    for (d in dos) {
+      nm <- regmatches(d, regexec("/([A-Za-z0-9_.#-]+)", d))[[1]][2]
+      hit <- regmatches(xdict, regexec(paste0("/", nm, "\\s+(\\d+)\\s+\\d+\\s+R"),
+                                       xdict, perl = TRUE))[[1]]
+      if (length(hit) < 2L) next
+      key <- hit[2]
+      if (key %in% seen) next
+      xb <- objs[[key]]
+      if (is.null(xb)) next
+      xtxt <- header_of(xb)
+      if (!grepl("/Subtype\\s*/Form", xtxt, perl = TRUE, useBytes = TRUE)) next
+      xs <- rhtp_pdf_stream(xb)
+      if (is.null(xs)) next
+      out <- rbind(out, lines_for(xs, resources_txt(xtxt), c(seen, key),
+                                  depth + 1L))
+    }
+    out
+  }
+
+  # -- pages, in the document's own order ------------------------------------
+
+  is_page <- function(body) {
+    grepl("/Type\\s*/Page[^s]", header_of(body), perl = TRUE, useBytes = TRUE)
+  }
+
+  # Walk /Type/Pages -> /Kids. Object-number order is only the fallback: on a
+  # file assembled by an incremental update it is not page order.
+  page_keys_from_tree <- function() {
+    is_pages <- vapply(objs, function(b)
+      grepl("/Type\\s*/Pages\\b", header_of(b), perl = TRUE, useBytes = TRUE),
+      logical(1))
+    if (!any(is_pages)) return(character())
+    roots <- names(objs)[is_pages &
+      !vapply(objs, function(b) grepl("/Parent\\s+\\d+\\s+\\d+\\s+R",
+                                      header_of(b), perl = TRUE), logical(1))]
+    if (length(roots) == 0L) roots <- names(objs)[is_pages][1]
+
+    walk <- function(key, seen) {
+      if (key %in% seen || is.null(objs[[key]])) return(character())
+      seen <- c(seen, key)
+      txt <- header_of(objs[[key]])
+      if (is_page(objs[[key]])) return(key)
+      km <- regmatches(txt, regexec("/Kids\\s*\\[([^\\]]*)\\]", txt, perl = TRUE))[[1]]
+      if (length(km) < 2L) return(character())
+      kids <- regmatches(km[2], gregexpr("(\\d+)\\s+\\d+\\s+R", km[2]))[[1]]
+      unlist(lapply(kids, function(k)
+        walk(regmatches(k, regexec("(\\d+)", k))[[1]][2], seen)), use.names = FALSE)
+    }
+    unique(unlist(lapply(roots[1], walk, seen = character()), use.names = FALSE))
+  }
+
+  keys <- page_keys_from_tree()
+  if (length(keys) == 0L) keys <- names(objs)[vapply(objs, is_page, logical(1))]
+
+  out <- empty_lines
+  out$page <- integer(0)
+  pno <- 0L
+  for (key in keys) {
+    page  <- objs[[key]]
+    if (is.null(page)) next
+    pno   <- pno + 1L
+    ptxt  <- header_of(page)
+    got <- lines_for(contents_stream(ptxt), resources_txt(ptxt))
+    if (nrow(got)) {
+      got$page <- pno
+      out <- rbind(out, got)
+    }
+  }
+
+  out$text <- trimws(out$text)
+  out <- out[nzchar(out$text), , drop = FALSE]
+  rownames(out) <- NULL
+  out[, c("page", "x", "y", "text")]
+}
+
+
+#' The text of a PDF as a plain character vector, in content order
+#'
+#' The convenience wrapper over `rhtp_pdf_lines()` that every caller before
+#' Maryland used. Keep using it unless you need the geometry: a table whose
+#' columns must be told apart needs `x`, and nothing else does.
+#'
+#' @param path Path to the PDF.
+#' @return A character vector of non-empty lines, in content order.
+rhtp_pdf_text <- function(path) {
+  rhtp_pdf_lines(path)$text
 }

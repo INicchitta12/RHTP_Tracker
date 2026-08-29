@@ -1,0 +1,21 @@
+AL -- RHTP award pages and their immediate children, re-read 2026-08-29
+Archived by R/03q_state_completeness_recheck.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+This is a COMPLETENESS RE-CHECK archive, not an extraction source. Nothing
+here has been extracted into a reference CSV; where it shows a roster this
+repository does not carry, that is reported and left for the state's own
+extractor. Files are the body the server sent, byte for byte, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below --
+EXCEPT where reduce=STRIP_SCRIPTS, which is Oregon's awards page: it loads
+Google Maps and carries the API key inside a <script> src, which is
+Oregon's to publish and not ours to redistribute (§7.1, session 17). Every
+<script> is removed and the full page's digest as served is recorded
+beneath the entry, so provenance still closes.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+b2235bd654d277cb41572c8f6d24f731a11c2060bdd5919260496ba0908de770  AL_alabamarhtp_home.html  (390783 bytes, role=INDEX, reduce=NONE)  <- https://alabamarhtp.com/
+03f2d10077a0d4b939ef9da33afa52bdb97cde5ff3c3a91f4352861c70ad8520  AL_alabamarhtp_resources.html  (232377 bytes, role=INDEX, reduce=NONE)  <- https://alabamarhtp.com/resources/
+7c50a94aa37444345bc779ffbc7e66bd75e4600f7500daa41d49639ef6868b84  AL_governor_ivey_first_arhtp_grants.html  (207234 bytes, role=CONTROL, reduce=NONE)  <- https://governor.alabama.gov/newsroom/2026/08/governor-ivey-announces-first-grants-in-major-new-rural-healthcare-program-totaling-more-than-144-million/
