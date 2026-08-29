@@ -157,13 +157,19 @@ test_that("an unrecognised organisation-type token refuses rather than guessing"
 # -- 10.2 flow ---------------------------------------------------------------
 
 test_that("only a hospital recipient reaches DIRECT / Yes", {
+  # The title was always the intent; HOSPITAL_AFFILIATED_ENTITY used to be
+  # counted as "a hospital recipient" and now is not, because an affiliated
+  # entity is not the hospital 10.2's DIRECT row tests for. A CT scanner
+  # replacement says nothing about where the money goes, so the affiliated
+  # entity is Unclear -- neither imputed to Yes nor deflated to No.
   out <- rhtp_classify_flow(
     c("HOSPITAL_OR_SYSTEM", "HOSPITAL_AFFILIATED_ENTITY", "FQHC_OR_RHC",
       "UNIVERSITY_OR_AHC", "STATE_AGENCY"),
     rep("replace a CT scanner", 5L))
   expect_equal(out$distributed_to_hospital,
-               c("Yes", "Yes", "No", "No", "No"))
-  expect_equal(out$flow_type[1:2], c("DIRECT", "DIRECT"))
+               c("Yes", "Unclear", "No", "No", "No"))
+  expect_equal(out$flow_type[1], "DIRECT")
+  expect_false(any(out$flow_type[-1] == "DIRECT"))
 })
 
 test_that("0.3a: the activity never decides, only the recipient", {
@@ -303,25 +309,93 @@ test_that("the administered-funds markers never match across a full stop", {
   expect_false(out$flow_type == "PASS_THROUGH_DESIGNATED")
 })
 
-test_that("HOSPITAL_AFFILIATED_ENTITY still short-circuits to DIRECT", {
-  # Recorded rather than changed. Georgia hand-codes the Georgia Hospital
-  # Association as HOSPITAL_AFFILIATED_ENTITY + IN_KIND_BENEFIT, and this
-  # function would return DIRECT + Yes for that recipient_type whatever the
-  # description says. The two disagree, and today nothing reconciles them
-  # because the Georgia extractor does not call this function.
+test_that("HOSPITAL_AFFILIATED_ENTITY no longer short-circuits to DIRECT", {
+  # THE FIX. This type used to return DIRECT + Yes before a word of the source
+  # was read, which let recipient_type pre-decide flow and skipped the §10.2
+  # test entirely. §10.2's DIRECT row tests recipient IDENTITY -- "named
+  # recipient matches a hospital in AHA/POS" -- and an affiliated entity is by
+  # construction not that hospital. It now reads the description like every
+  # other non-hospital type.
   #
-  # It matters for the NEXT state: a hospital association typed
-  # HOSPITAL_AFFILIATED_ENTITY and run through here lands in the hospital total
-  # automatically, without the §10.2 proviso ever being tested. This assertion
-  # exists so that trap is written down and fails loudly if anyone assumes the
-  # association branch guards it. It does not -- it is only reached by
-  # NONPROFIT_CBO.
-  carts <- paste("received a grant to provide obstetrical emergency carts to",
-                 "hospitals")
+  # The Georgia Hospital Association is the case that shows what the old
+  # behaviour cost. Same recipient_type, same real DCH sentence, and the answer
+  # flips from "Yes, count these dollars as hospital money" to Georgia's own
+  # hand coding.
+  carts <- paste("The Georgia Hospital Association received a grant to support",
+                 "Strengthening Perinatal Systems of Care to provide obstetrical",
+                 "emergency carts and support evidence-based patient safety",
+                 "practices to improve readiness for maternal emergencies.")
   out <- rhtp_classify_flow("HOSPITAL_AFFILIATED_ENTITY", carts, award_made = TRUE)
-  expect_equal(out$flow_type, "DIRECT")
-  expect_equal(out$distributed_to_hospital, "Yes")
+  expect_equal(out$flow_type, "IN_KIND_BENEFIT")
+  expect_equal(out$distributed_to_hospital, "No")
 
+  # No branch reachable by this type returns DIRECT any more -- not even when
+  # the source is silent about hospitals, and not on the hostile award_made
+  # setting.
+  probes <- c(silent    = "A leadership development programme for member staff.",
+              in_kind   = "Simulation training kits delivered across the state's hospitals.",
+              designated= "The association will administer the funds to member hospitals.")
+  both <- rbind(rhtp_classify_flow(rep("HOSPITAL_AFFILIATED_ENTITY", 3), probes,
+                                   award_made = TRUE),
+                rhtp_classify_flow(rep("HOSPITAL_AFFILIATED_ENTITY", 3), probes,
+                                   award_made = FALSE))
+  expect_false(any(both$flow_type == "DIRECT"))
+
+  # HOSPITAL_OR_SYSTEM keeps the short-circuit, and that is correct: for a
+  # recipient that IS a hospital, recipient identity is the §10.2 test.
+  hos <- rhtp_classify_flow("HOSPITAL_OR_SYSTEM", probes[["in_kind"]])
+  expect_equal(hos$flow_type, "DIRECT")
+  expect_equal(hos$distributed_to_hospital, "Yes")
+})
+
+test_that("a silent source leaves an affiliated entity Unclear, never No", {
+  # Silence is evidence for a school district or a vendor: NON_HOSPITAL. It is
+  # not evidence for a hospital-governed entity, where the money may well reach
+  # hospitals and the document has simply not said. Coding that No would
+  # deflate on this pipeline's authority; coding it Yes is the short-circuit
+  # that was just removed. §0.4 -- no quotable sentence, no determination.
+  silent <- "A leadership development programme for member staff."
+  aff <- rhtp_classify_flow("HOSPITAL_AFFILIATED_ENTITY", silent)
+  expect_equal(aff$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_equal(aff$distributed_to_hospital, "Unclear")
+  expect_equal(aff$flow_flag, "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED")
+
+  # The same silence on a plainly non-hospital recipient is unchanged.
+  other <- rhtp_classify_flow("SCHOOL_OR_DISTRICT", silent)
+  expect_equal(other$flow_type, "NON_HOSPITAL")
+  expect_equal(other$distributed_to_hospital, "No")
+
+  # And the flag is in the §8 vocabulary, not invented at the call site.
+  expect_true("FLOW_UNRESOLVED_HOSPITAL_AFFILIATED" %in% rhtp_vocabulary("flag_reason"))
+})
+
+test_that("the association branch admits both types while GHA is unsettled", {
+  # §10.2's row prescribes NONPROFIT_CBO; Georgia types the same kind of entity
+  # HOSPITAL_AFFILIATED_ENTITY. Until a human settles which is right, one
+  # organisation must not get two different flows depending on which state's
+  # extractor typed it.
+  administered <- "The association will administer the funds to member hospitals."
+  for (rt in c("NONPROFIT_CBO", "HOSPITAL_AFFILIATED_ENTITY")) {
+    out <- rhtp_classify_flow(rt, administered, award_made = TRUE)
+    expect_equal(out$flow_type, "PASS_THROUGH_DESIGNATED")
+    expect_equal(out$distributed_to_hospital, "Yes")
+  }
+  # Still opt-in: admitting a second type cannot move a row on its own.
+  expect_false(
+    rhtp_classify_flow("HOSPITAL_AFFILIATED_ENTITY", administered)$flow_type ==
+      "PASS_THROUGH_DESIGNATED"
+  )
+})
+
+test_that("Georgia's GHA recipient_type divergence is recorded, not resolved", {
+  # DELIBERATELY UNCHANGED. The flow half of the session 18 divergence is fixed
+  # above -- the shared function and Georgia now agree that GHA is
+  # IN_KIND_BENEFIT + No. The recipient_type half is NOT this session's to
+  # settle: is a hospital trade association NONPROFIT_CBO (§10.2's row, and what
+  # AK and IL use) or HOSPITAL_AFFILIATED_ENTITY (Georgia)? Re-coding a
+  # committed hand-coded row to satisfy a rule changed the same day is how §2.1's
+  # regressions happen. The row is in the verification queue for a human; this
+  # assertion pins what it says today so the queue entry cannot go stale.
   ga <- readr::read_csv(here::here("data/reference/ga_great_health_awards.csv"),
                         show_col_types = FALSE, progress = FALSE)
   gha <- ga[ga$awardee == "Georgia Hospital Association", ]
@@ -329,4 +403,13 @@ test_that("HOSPITAL_AFFILIATED_ENTITY still short-circuits to DIRECT", {
   expect_equal(gha$recipient_type[[1]], "HOSPITAL_AFFILIATED_ENTITY")
   expect_equal(gha$flow_type[[1]], "IN_KIND_BENEFIT")
   expect_equal(gha$distributed_to_hospital[[1]], "No")
+
+  queue <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
+                           show_col_types = FALSE, progress = FALSE)
+  row <- queue[queue$question_id == "GHA_RECIPIENT_TYPE", ]
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$queue_status[[1]], "OPEN")
+  expect_equal(row$state[[1]], "GA")
+  expect_true(grepl("NONPROFIT_CBO", row$options[[1]], fixed = TRUE))
+  expect_true(grepl("HOSPITAL_AFFILIATED_ENTITY", row$options[[1]], fixed = TRUE))
 })

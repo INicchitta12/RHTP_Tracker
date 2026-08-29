@@ -513,9 +513,11 @@ RHTP_ASSOCIATION_ADMINISTERED_MARKERS <- paste(
 #' Apply the §10.2 flow table
 #'
 #' @param recipient_type A §8 code, already determined from recipient identity.
-#' @param description The source's own project description. Consulted only for
-#'   non-hospital recipients, and only to choose between NON_HOSPITAL,
-#'   IN_KIND_BENEFIT and PASS_THROUGH_UNRESOLVED.
+#' @param description The source's own project description. Read for every
+#'   recipient type EXCEPT `HOSPITAL_OR_SYSTEM`, and used to choose between
+#'   PASS_THROUGH_DESIGNATED, PASS_THROUGH_UNRESOLVED, IN_KIND_BENEFIT and
+#'   NON_HOSPITAL. It can never turn a non-hospital recipient into a hospital
+#'   one -- no branch below returns DIRECT.
 #' @param award_made The §10.2 hospital-association row's second clause, which
 #'   no project description can answer: has the award actually been made? Pass
 #'   `TRUE` per row only where the state document is an executed award. Left at
@@ -532,7 +534,30 @@ rhtp_classify_flow <- function(recipient_type, description, award_made = FALSE) 
   purrr::pmap_dfr(list(recipient_type, description, award_made), function(rt, desc, made) {
     desc <- desc %||% ""
 
-    if (rt %in% c("HOSPITAL_OR_SYSTEM", "HOSPITAL_AFFILIATED_ENTITY")) {
+    # §10.2 DIRECT, and ONLY for a recipient that IS a hospital. The §10.2
+    # test for this row is recipient identity -- "named recipient matches a
+    # hospital in AHA/POS" -- so for HOSPITAL_OR_SYSTEM the recipient_type IS
+    # the flow test, and there is nothing left for a description to decide.
+    #
+    # HOSPITAL_AFFILIATED_ENTITY IS NOT IN THIS BRANCH, AND THAT IS THE POINT.
+    # It used to be, and it let recipient_type pre-decide flow: an affiliated
+    # entity -- a hospital association, a hospital foundation, a hospital-owned
+    # nonprofit -- is BY CONSTRUCTION not itself the hospital, so it does not
+    # satisfy the DIRECT row's test, and returning Yes for it before reading a
+    # word of the source skipped the §10.2 flow test entirely. Session 18
+    # recorded the trap rather than fixing it; the Georgia Hospital Association
+    # is the case that shows what it costs. GHA "received a grant ... to provide
+    # obstetrical emergency carts": carts reach hospitals, dollars stop at GHA,
+    # and Georgia hand-codes it IN_KIND_BENEFIT + No. The old short-circuit
+    # returned DIRECT + Yes for that same recipient_type whatever the source
+    # said, and the only thing standing between that and an inflated hospital
+    # total was the accident that the Georgia extractor does not call this
+    # function.
+    #
+    # The §10.2 test is what the document says the money DOES, not what the
+    # organisation IS (session 18). An affiliated entity therefore reads the
+    # description like every other non-hospital type, below.
+    if (rt == "HOSPITAL_OR_SYSTEM") {
       return(tibble::tibble(
         flow_type = "DIRECT",
         distributed_to_hospital = "Yes",
@@ -552,11 +577,18 @@ rhtp_classify_flow <- function(recipient_type, description, award_made = FALSE) 
     # clauses must hold: the source says the funds are administered to or on
     # behalf of member hospitals, AND the award has been made. The caller
     # supplies the second, because a project description cannot.
-    # NONPROFIT_CBO only: §10.2's row names it as the recipient_type for a
-    # hospital association, and it is also the only §8 code that reaches here.
-    # HOSPITAL_OR_SYSTEM and HOSPITAL_AFFILIATED_ENTITY returned DIRECT above.
+    # WHICH TYPES REACH THIS BRANCH. §10.2's row prescribes NONPROFIT_CBO for a
+    # hospital association, and that is the code Alaska and Illinois already
+    # use. Georgia types the same kind of entity HOSPITAL_AFFILIATED_ENTITY, and
+    # which of the two is right is an open question a human has to settle -- it
+    # is in `data/reference/classification_review_queue.csv`. Until it is
+    # settled, BOTH types are admitted here, because the alternative is that one
+    # organisation gets two different flows depending on which state's extractor
+    # typed it, and preventing exactly that is why this file exists. The branch
+    # is still opt-in via `award_made`, so admitting a second type cannot move a
+    # row on its own.
     if (isTRUE(made) &&
-        rt == "NONPROFIT_CBO" &&
+        rt %in% c("NONPROFIT_CBO", "HOSPITAL_AFFILIATED_ENTITY") &&
         stringr::str_detect(low, RHTP_ASSOCIATION_ADMINISTERED_MARKERS)) {
       return(tibble::tibble(
         flow_type = "PASS_THROUGH_DESIGNATED",
@@ -602,6 +634,41 @@ rhtp_classify_flow <- function(recipient_type, description, award_made = FALSE) 
           "hospitals' total; they are kept visible rather than discarded."
         ),
         flow_flag = NA_character_
+      ))
+    }
+
+    # THE TERMINAL BRANCH IS NOT THE SAME FOR AN AFFILIATED ENTITY.
+    #
+    # For a recipient that is plainly outside hospitals -- a school district, a
+    # university, an EMS agency, a vendor -- a source silent about hospitals is
+    # evidence: NON_HOSPITAL, No. That is §10.2's row, and it is the reading
+    # every committed state file already relies on.
+    #
+    # A hospital-affiliated entity is the case where silence is NOT evidence.
+    # The recipient is hospital-governed or hospital-owned, so the money may
+    # well reach hospitals; the document simply has not said. Coding that `No`
+    # deflates on this pipeline's authority, and coding it `Yes` is the
+    # short-circuit this function just stopped doing. §0.3 and §0.4 both point
+    # at the same answer: no captured sentence, no determination -- `Unclear`,
+    # which enters NEITHER hospital bucket and routes to a human. §10.2's
+    # NON_HOSPITAL carve-out for an association's own operating costs is about a
+    # source that SHOWS the money stays; it does not reach a source that says
+    # nothing.
+    if (rt == "HOSPITAL_AFFILIATED_ENTITY") {
+      return(tibble::tibble(
+        flow_type = "PASS_THROUGH_UNRESOLVED",
+        distributed_to_hospital = "Unclear",
+        hospital_benefiting = "Unclear",
+        flow_basis = paste0(
+          "\u00a710.2 PASS_THROUGH_UNRESOLVED: the recipient is a ",
+          "hospital-affiliated entity -- hospital-governed, hospital-owned or a ",
+          "hospital association -- so it is not itself the hospital the DIRECT ",
+          "row tests for, and the source does not say what the money does. ",
+          "\u00a70.4: a determination without a quotable sentence is not a ",
+          "determination, so this is Unclear rather than imputed in either ",
+          "direction, and it is never added to a hospital total."
+        ),
+        flow_flag = "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED"
       ))
     }
 
