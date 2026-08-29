@@ -118,6 +118,12 @@ rhtp_trigger_queue <- function(prior_path = QUEUE_CSV) {
       # and two of the eight were found by neither layer.
       queue_status = dplyr::case_when(
         extraction_status == "EXTRACTED" ~ "EXTRACTED",
+        # A state that has been worked and publishes no list leaves the queue
+        # too -- there is no work available on it today. It is NOT EXTRACTED
+        # (no award file exists) and it is NOT QUEUED (looking again today
+        # returns the same negative). Its own probe re-opens it. Session 19,
+        # Texas.
+        extraction_status == "INVESTIGATED_NO_LIST" ~ "INVESTIGATED_NO_LIST",
         trigger_source == "NEITHER"      ~ "NOT_TRIGGERED",
         TRUE                             ~ "QUEUED"
       )
