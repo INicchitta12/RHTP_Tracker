@@ -57,10 +57,15 @@ source(here::here("R", "utils_config.R"))
 RHTP_RECORD_ENDPOINTS <- c("awards", "documents", "opportunities")
 RHTP_PULL_ENDPOINTS   <- c(RHTP_RECORD_ENDPOINTS, "activity", "states")
 
-# Quarantine, don't merely flag. These three say the record is not RHTP money
-# in this state, so it must not reach a published sheet under any tier.
+# Quarantine, don't merely flag. These five say the record is not RHTP money in
+# this state, so it must not reach a published sheet under any tier. The two
+# state-provenance codes were added in session 20 on the same footing as the
+# federal one: Texas showed $16.8M of state-appropriated money sitting in the
+# Tier 3 feed as real, executed, recipient-level rural hospital awards.
 RHTP_QUARANTINE_FLAGS <- c(
   "PROVENANCE_MISMATCH",
+  "PROVENANCE_STATE_PROGRAM",
+  "PROVENANCE_PREDATES_NOA",
   "JUNK_STATE_CODE",
   "NON_RHTP_SELF_DECLARED"
 )
@@ -524,6 +529,344 @@ rhtp_flag_provenance <- function(source_text, patterns = NULL) {
   markers <- patterns %>% dplyr::filter(flag_reason == "PROVENANCE_MISMATCH")
 
   if (rhtp_any_pattern(source_text, markers)) "PROVENANCE_MISMATCH" else NA_character_
+}
+
+
+#' Non-RHTP STATE programme -- the §6.2 provenance filter's second half
+#'
+#' `rhtp_flag_provenance()` above tests for other FEDERAL programmes, because
+#' that is the failure Stage 0 met: four Delaware rows sourced from a HRSA fact
+#' sheet. Session 19 found the other half of the same failure and it is larger.
+#'
+#' Texas holds 68 Tier 3 candidates and **not one is an RHTP award**. Fifty
+#' three of them are real, executed, recipient-level HHSC notices of award
+#' naming rural Texas hospitals -- 21 at $250,000 under RFA `HHS0015180` and 32
+#' of 33 at $350,000 under `HHS0015677` -- paid from money the **88th Texas
+#' Legislature** appropriated in House Bill 1, Article II Rider 88. Right
+#' agency, right format, right recipients, wrong programme, and $16,800,000 of
+#' state money one extractor away from being published as RHTP.
+#'
+#' TWO THINGS THE TEXAS CORPUS SETTLES ABOUT HOW THIS FILTER CAN WORK.
+#'
+#' 1. **Appropriation language is not in the aggregator.** Measured across all
+#'    1,366 committed Tier 3 candidates: `Rider \\d+` matches 0 rows, `House
+#'    Bill` 0, `General Revenue` 0, `biennium` 0, `state-funded` 0, and
+#'    `appropriat` exactly 1 -- a Pennsylvania row that is genuine RHTP. The
+#'    federal markers work because HRSA and USDA brand themselves in a document
+#'    title (`HRSA-26-045`, `Rural Health Grants Fact Sheet`); a state
+#'    appropriation does not. RCJ's description for all 53 Texas rows is a
+#'    machine-generated line -- *"Grant award to support rural hospital
+#'    operations and transformation initiatives in Texas"* -- that names no
+#'    funding source at all. So a marker set modelled on the federal one cannot
+#'    reach them, and pretending otherwise would ship a filter that reports
+#'    clean because it is looking for text that is not there.
+#'
+#' 2. **What IS in the aggregator is the state's own solicitation identifier.**
+#'    `HHS0015180` and `HHS0015677` are in the source-document title on every
+#'    one of the 53. That is the handle a human takes to the state site, and it
+#'    is what session 19 actually used. So the state half of this filter is a
+#'    REGISTRY keyed on that identifier -- verified against the state's own
+#'    document, one row per programme -- and not a guess from prose.
+#'
+#' This function is the text half: named non-RHTP state funding streams that DO
+#' brand themselves in a title (opioid or tobacco settlement money, Medicaid
+#' managed care, intergovernmental transfers). Like its federal sibling it is
+#' scoped to the SOURCE, never the description, and that scoping is doing real
+#' work: description-scoped, these same markers also match a Pennsylvania RHTP
+#' award row and Alaska's Year 1 announcement. Source-scoped they match 16 rows
+#' in 5 states and none of them is RHTP.
+rhtp_flag_provenance_state <- function(source_text, patterns = NULL) {
+  if (is.null(patterns)) patterns <- rhtp_read_patterns("non_rhtp_patterns.csv")
+  markers <- patterns %>%
+    dplyr::filter(flag_reason == "PROVENANCE_STATE_PROGRAM")
+
+  if (rhtp_any_pattern(source_text, markers)) {
+    "PROVENANCE_STATE_PROGRAM"
+  } else {
+    NA_character_
+  }
+}
+
+
+#' Registry match -- a verified non-RHTP state programme (§6.2)
+#'
+#' The registry is `data/reference/non_rhtp_state_programs.csv`. Each row is a
+#' state programme somebody has read the state's own source for, carrying the
+#' disqualifying sentence, the date that closes it, the state URL and the
+#' archived evidence path. It is the same posture as
+#' `cms_fy2026_allotments.csv`: a hand-verified anchor, not a heuristic.
+#'
+#' The match runs against the source-document title and the solicitation
+#' number, because that is where a state RFA identifier appears. A registry row
+#' whose `match_regex` matches nothing is not an error here -- states publish
+#' and withdraw -- but `rhtp_assert_state_program_registry()` reports it, so a
+#' rule that has quietly stopped matching cannot pass for one that is still
+#' working.
+#'
+#' @return A one-row tibble (`flag`, `program_id`, `disposition`,
+#'   `program_date`, `program_date_basis`) -- `flag` is NA when nothing matches.
+rhtp_match_state_program <- function(state, source_text, registry = NULL) {
+  if (is.null(registry)) registry <- rhtp_read_state_program_registry()
+
+  empty <- tibble::tibble(
+    flag = NA_character_, program_id = NA_character_,
+    disposition = NA_character_, program_date = as.Date(NA),
+    program_date_basis = NA_character_
+  )
+
+  if (is.na(state) || is.na(source_text) || !nzchar(source_text)) return(empty)
+
+  rows <- registry %>% dplyr::filter(.data$state == !!state)
+  if (nrow(rows) == 0) return(empty)
+
+  hit <- purrr::detect_index(rows$match_regex, function(rx) {
+    stringr::str_detect(source_text, stringr::regex(rx, ignore_case = TRUE))
+  })
+  if (hit == 0) return(empty)
+
+  tibble::tibble(
+    flag               = "PROVENANCE_STATE_PROGRAM",
+    program_id         = rows$program_id[hit],
+    disposition        = rows$disposition[hit],
+    program_date       = rows$program_date[hit],
+    program_date_basis = rows$program_date_basis[hit]
+  )
+}
+
+
+#' Read the verified non-RHTP state-programme registry
+rhtp_read_state_program_registry <- function(
+    path = "data/reference/non_rhtp_state_programs.csv") {
+  full <- here::here(path)
+
+  if (!file.exists(full)) {
+    stop("No non-RHTP state-programme registry at '", path, "'.", call. = FALSE)
+  }
+
+  readr::read_csv(
+    full, show_col_types = FALSE, progress = FALSE,
+    col_types = readr::cols(
+      state              = readr::col_character(),
+      program_id         = readr::col_character(),
+      program_name       = readr::col_character(),
+      match_scope        = readr::col_character(),
+      match_regex        = readr::col_character(),
+      disposition        = readr::col_character(),
+      program_date       = readr::col_date(format = "%Y-%m-%d"),
+      program_date_basis = readr::col_character(),
+      disqualifying_fact = readr::col_character(),
+      state_source_url   = readr::col_character(),
+      source_archive_path = readr::col_character(),
+      verified_by        = readr::col_character(),
+      verified_date      = readr::col_date(format = "%Y-%m-%d")
+    )
+  )
+}
+
+
+# -- §6.2 The date test ----------------------------------------------------
+
+#' Resolve an award-action date, and REFUSE rather than guess
+#'
+#' The date test below needs a date the SOURCE asserts. RCJ does not supply
+#' one: `/awards` records carry no date field at all -- `id`, `state`,
+#' `stateName`, `fiscalYear`, `awardeeName`, `federalAmount`, `matchAmount`,
+#' `activityType`, `programDescription`, `sourceDocument`, and nothing else --
+#' and every Tier 3 row in this project comes from `/awards`. The record
+#' table's `date_announced` is populated on 3,639 rows and on **none** of the
+#' 1,372 Tier 3 ones, because on `/documents` it is RCJ's own `discovered`
+#' crawl timestamp and on `/opportunities` it is `postedDate`.
+#'
+#' So the date has to come out of the text, and the ladder below is ordered by
+#' who asserted it:
+#'
+#' 1. **`REGISTRY`** -- a verified row in `non_rhtp_state_programs.csv` whose
+#'    date was read off the state's own document. Texas's `HHS0015180` was
+#'    released 2025-03-24 and closed 2025-04-24; that is a fact about the
+#'    state's document, not an inference from the feed.
+#' 2. **`SOURCE_TEXT`** -- an explicit calendar date the state put in its own
+#'    document title or solicitation identifier: `(November 13, 2025)`,
+#'    `Quotation #20250728`, an ISO or slashed date. Accepted only when the
+#'    text yields exactly ONE such date; two or more is ambiguous and refuses.
+#'
+#' AND TWO REFUSALS, WHICH ARE THE PART THAT MATTERS.
+#'
+#' **`REFUSED_RCJ_YEAR`.** RCJ prefixes every source-document title with a
+#' year -- `TX - 2025 - ...`, `PA - 2025 - ...`. It reads exactly like a date
+#' and it is not one. `PA - 2025 - Rural Health Selected Projects: Pa RHT Plan
+#' (RHTP) Authorized Project Awards` is **Pennsylvania's entire committed Year 1
+#' file**: 66 rows, $42,198,309.80, extracted in session 12 against DHS's own
+#' project table. Maryland's 33 Pillar 2 rows sit behind `MD - 2025 -`, and
+#' `OK - 2025 - Oklahoma RHTP August 2026 Touchpoint Webinar` carries a 2025
+#' prefix on a document about August 2026. A date test keyed on that prefix
+#' would quarantine 145 rows, 99 of them from two states this project has
+#' already published, and it would look like a working filter while doing it.
+#' The prefix is stripped before mining and never used as a date (§0.1).
+#'
+#' **`REFUSED_FISCAL_YEAR`.** `fiscalYear` and an `SFY 2025` designation are
+#' periods, not dates, and turning one into a date needs a 50-state fiscal
+#' calendar this repository does not have and would be transcribing rather than
+#' sourcing. Texas's four `SFY 2025` intergovernmental-transfer rows are caught
+#' by the registry and by the state-stream markers instead -- twice over,
+#' without inventing a fiscal calendar to do it.
+#'
+#' @return A one-row tibble: `action_date`, `action_date_basis`.
+rhtp_resolve_action_date <- function(state, source_text, registry_match = NULL) {
+  none <- function(basis) {
+    tibble::tibble(action_date = as.Date(NA), action_date_basis = basis)
+  }
+
+  if (!is.null(registry_match) && !is.na(registry_match$program_date[1])) {
+    return(tibble::tibble(
+      action_date = registry_match$program_date[1],
+      action_date_basis = paste0("REGISTRY: ", registry_match$program_date_basis[1])
+    ))
+  }
+
+  if (is.na(source_text) || !nzchar(source_text)) return(none("NO_SOURCE_TEXT"))
+
+  # Strip RCJ's own "XX - YYYY - " title prefix before mining. This is the
+  # REFUSED_RCJ_YEAR rule made operative: the prefix cannot reach the miner.
+  mined_from <- stringr::str_remove(
+    source_text, "^\\s*[A-Za-z]{2}\\s*-\\s*(19|20)\\d{2}\\s*-\\s*"
+  )
+
+  dates <- rhtp_mine_explicit_dates(mined_from)
+  dates <- unique(dates[!is.na(dates)])
+
+  if (length(dates) == 1) {
+    return(tibble::tibble(action_date = dates[1],
+                          action_date_basis = "SOURCE_TEXT"))
+  }
+  if (length(dates) > 1) return(none("REFUSED_AMBIGUOUS_DATES"))
+
+  if (stringr::str_detect(
+    mined_from,
+    stringr::regex("\\b(SFY|FY|state fiscal year|fiscal year)\\b",
+                   ignore_case = TRUE))) {
+    return(none("REFUSED_FISCAL_YEAR"))
+  }
+  if (stringr::str_detect(source_text,
+                          "^\\s*[A-Za-z]{2}\\s*-\\s*(19|20)\\d{2}\\s*-\\s*")) {
+    return(none("REFUSED_RCJ_YEAR"))
+  }
+
+  none("NO_DATE_IN_SOURCE")
+}
+
+
+#' Explicit calendar dates in a string, in a date-bearing role only
+#'
+#' Deliberately narrow. A bare four-digit year is not a date and is not mined:
+#' a year can appear in a programme name, a statute citation or a hospital's
+#' founding, and every one of those would produce a date the source never
+#' asserted.
+rhtp_mine_explicit_dates <- function(text) {
+  if (is.na(text) || !nzchar(text)) return(as.Date(character()))
+
+  out <- as.Date(character())
+
+  months <- paste0(
+    "January|February|March|April|May|June|July|August|September|",
+    "October|November|December"
+  )
+  long <- stringr::str_match_all(
+    text,
+    stringr::regex(paste0("\\b(", months, ")\\s+(\\d{1,2}),\\s*((?:19|20)\\d{2})\\b"),
+                   ignore_case = TRUE)
+  )[[1]]
+  if (nrow(long) > 0) {
+    out <- c(out, as.Date(paste(long[, 4], long[, 2], long[, 3]),
+                          format = "%Y %B %d"))
+  }
+
+  iso <- stringr::str_match_all(
+    text, "\\b((?:19|20)\\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])\\b"
+  )[[1]]
+  if (nrow(iso) > 0) out <- c(out, as.Date(iso[, 1], format = "%Y-%m-%d"))
+
+  slash <- stringr::str_match_all(
+    text, "\\b(0?[1-9]|1[0-2])/(0?[1-9]|[12]\\d|3[01])/((?:19|20)\\d{2})\\b"
+  )[[1]]
+  if (nrow(slash) > 0) {
+    out <- c(out, as.Date(paste(slash[, 4], slash[, 2], slash[, 3]),
+                          format = "%Y %m %d"))
+  }
+
+  # A compact YYYYMMDD stamp inside an identifier -- Mississippi publishes
+  # "Consultant Quotation #20250728". The month and day ranges are enforced by
+  # the pattern, so a ten-digit contract number cannot masquerade as one.
+  compact <- stringr::str_match_all(
+    text, "(?<!\\d)((?:19|20)\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])(?!\\d)"
+  )[[1]]
+  if (nrow(compact) > 0) {
+    out <- c(out, as.Date(paste(compact[, 2], compact[, 3], compact[, 4]),
+                          format = "%Y %m %d"))
+  }
+
+  out[!is.na(out)]
+}
+
+
+#' The date test: an award action cannot predate its state's CMS award (§6.2)
+#'
+#' RHTP money moves CMS -> state -> subrecipient (§0.2). A state cannot have
+#' subawarded money it had not been given, so an award action the source dates
+#' before that state's CMS Notice of Award is not an RHTP subaward, whatever
+#' else it is. CMS issued all 50 notices on **2025-12-29**, in one announcement;
+#' the programme's statutory floor is earlier still, 2025-07-04 (Public Law
+#' 119-21), and both dates are in `data/reference/cms_state_noa_dates.csv` with
+#' their sources.
+#'
+#' The test is only as good as the date, so it never runs on one this
+#' repository inferred: `rhtp_resolve_action_date()` returns NA for every
+#' record whose only date evidence is RCJ metadata, and an NA date is an NA
+#' flag, never a flag.
+rhtp_flag_provenance_date <- function(action_date, noa_date) {
+  if (length(action_date) == 0 || is.na(action_date) || is.na(noa_date)) {
+    return(NA_character_)
+  }
+  if (action_date < noa_date) "PROVENANCE_PREDATES_NOA" else NA_character_
+}
+
+
+#' Per-state CMS Notice of Award dates (§6.2, §7.1)
+rhtp_read_noa_dates <- function(path = "data/reference/cms_state_noa_dates.csv") {
+  full <- here::here(path)
+
+  if (!file.exists(full)) {
+    stop(
+      "No CMS Notice of Award date table at '", path, "'.\n",
+      "Build it: Rscript R/02b_provenance_sweep.R --noa-dates",
+      call. = FALSE
+    )
+  }
+
+  dates <- readr::read_csv(
+    full, show_col_types = FALSE, progress = FALSE,
+    col_types = readr::cols(
+      state = readr::col_character(),
+      state_name = readr::col_character(),
+      noa_date = readr::col_date(format = "%Y-%m-%d"),
+      noa_date_basis = readr::col_character(),
+      statute_date = readr::col_date(format = "%Y-%m-%d"),
+      statute_citation = readr::col_character(),
+      source_url = readr::col_character(),
+      source_archive_path = readr::col_character(),
+      source_sha256 = readr::col_character(),
+      notes = readr::col_character()
+    )
+  )
+
+  if (nrow(dates) != 50) {
+    stop(
+      "data/reference/cms_state_noa_dates.csv must have exactly 50 rows ",
+      "(§7.1); found ", nrow(dates), ".",
+      call. = FALSE
+    )
+  }
+
+  dates
 }
 
 
@@ -2231,6 +2574,13 @@ rhtp_classify <- function(records, allotments = NULL, valid_states = NULL,
   non_rhtp_patterns <- rhtp_read_patterns("non_rhtp_patterns.csv")
   title_patterns    <- rhtp_read_patterns("title_junk_patterns.csv")
 
+  # The §6.2 state-provenance anchors (session 20). Read once here rather than
+  # per row: the registry is a hand-verified table and the NOA dates are parsed
+  # from the committed CMS archive, and both must fail loudly at the top of a
+  # run rather than 1,400 rows into one.
+  state_program_registry <- rhtp_read_state_program_registry()
+  noa_dates              <- rhtp_read_noa_dates()
+
   allotment_lookup <- stats::setNames(
     allotments$fy2026_allotment, allotments$state
   )
@@ -2287,6 +2637,43 @@ rhtp_classify <- function(records, allotments = NULL, valid_states = NULL,
       flag_provenance = purrr::map_chr(
         .provenance_text, ~ rhtp_flag_provenance(.x, non_rhtp_patterns)
       ),
+
+      # The STATE half of the same filter (session 20). Registry first, because
+      # a verified match on the state's own solicitation identifier is
+      # evidence; the text markers are the fallback. Both source-scoped, like
+      # their federal sibling above -- description-scoped they also match a
+      # Pennsylvania RHTP award row, which is the whole reason for the scope.
+      .state_program = purrr::map2(
+        state, .provenance_text,
+        ~ rhtp_match_state_program(.x, .y, state_program_registry)
+      ),
+      flag_provenance_state = purrr::map2_chr(
+        .state_program, .provenance_text,
+        function(hit, txt) {
+          dplyr::coalesce(
+            hit$flag[1],
+            rhtp_flag_provenance_state(txt, non_rhtp_patterns)
+          )
+        }
+      ),
+
+      # The date test. `action_date` is resolved from the source document's own
+      # text and is NA -- so the flag is NA -- for every record whose only date
+      # evidence is RCJ metadata. See rhtp_resolve_action_date() for why that
+      # refusal is the important half.
+      .action_date = purrr::pmap(
+        list(state, .provenance_text, .state_program),
+        function(st, txt, hit) rhtp_resolve_action_date(st, txt, hit)
+      ),
+      action_date       = as.Date(purrr::map_dbl(
+        .action_date, ~ as.numeric(.x$action_date[1])), origin = "1970-01-01"),
+      action_date_basis = purrr::map_chr(.action_date, ~ .x$action_date_basis[1]),
+      flag_predates_noa = purrr::map2_chr(
+        action_date, state,
+        function(d, st) {
+          rhtp_flag_provenance_date(d, noa_dates$noa_date[match(st, noa_dates$state)])
+        }
+      ),
       flag_self_declared = purrr::map_chr(
         program_description, ~ rhtp_flag_self_declared(.x, non_rhtp_patterns)
       ),
@@ -2323,7 +2710,8 @@ rhtp_classify <- function(records, allotments = NULL, valid_states = NULL,
 
       rules_version = rules_version
     ) %>%
-    dplyr::select(-.nrt, -.tier, -.provenance_text)
+    dplyr::select(-.nrt, -.tier, -.provenance_text, -.state_program,
+                  -.action_date)
 }
 
 
@@ -2336,7 +2724,8 @@ rhtp_finalize_flags <- function(records, extra_flag_cols = character()) {
   }
 
   flag_cols <- c(
-    "flag_provenance", "flag_self_declared", "flag_title", "flag_state",
+    "flag_provenance", "flag_provenance_state", "flag_predates_noa",
+    "flag_self_declared", "flag_title", "flag_state",
     "flag_amount", "flag_events", "flag_source_doc", "flag_plan_source",
     "awardee_flag",
     "collision_flags", "raw_flags", extra_flag_cols
