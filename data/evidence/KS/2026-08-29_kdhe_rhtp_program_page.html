@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<!-- Google Tag Manager for GA4 --><script>(function(w,d,s,l,i){w.GAMeasurementID='G-RSKR8JPEJT';w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','cpDataLayerGA4','GTM-K73C5PS');</script><!-- End Google Tag Manager for GA4 --><script type="text/javascript">
+					var enableTelemetry = 'false'
+					var aiConfig = {
+					instrumentationKey: '1cde048e-3185-4906-aa46-c92a7312b60f'						
+					}
+					var appInsights = window.appInsights || function (a) { function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement('script'); b.src = a.url || 'https://js.monitor.azure.com/scripts/a/ai.0.js', d.getElementsByTagName('script')[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Dependency']; f.length;)b('track' + f.pop()); if (b('setAuthenticatedUserContext'), b('clearAuthenticatedUserContext'), b('startTrackEvent'), b('stopTrackEvent'), b('startTrackPage'), b('stopTrackPage'), b('flush'), !a.disableExceptionTracking) { f = 'onerror', b('_' + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c['_' + f](a, b, d, e, h), i } } return c }(aiConfig);
+					window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length;
+					// Add telemetry initializer
+					appInsights.queue.push(function() {
+						appInsights.context.addTelemetryInitializer(function(envelope) {
+							var telemetryItem = envelope.data.baseData;
+							// To check the telemetry item’s type:
+							if (!false)
+							{
+								//If the telemetry is not enabled, we still want to capture Google map custom event, so only allow that
+								if (envelope.name.indexOf('.Event') == -1)
+									return false;
+							}
+						});
+					});						
+					appInsights.trackPageView();
+				</script><script>
+		function populateAntiForgery(token) {
+			var input = document.createElement("input");
+			input.name = "__RequestVerificationToken";
+			input.type = "hidden";
+			input.value = token;
+			var absPat = /^https?:\/\/|^\/\//i;
+			var forms = document.getElementsByTagName("form");
+			for (var i = 0; i < forms.length; i++) {
+				if (forms[i].method == "post" &&
+					!forms[i].querySelector('[name="__RequestVerificationToken"]') &&
+					!absPat.test(forms[i].getAttribute("action"))) {
+					forms[i].appendChild(input.cloneNode());
+				}
+			}
+		}
+
+		function getAntiForgeryToken(callback, error) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/antiforgery");
+			xhr.addEventListener("load", function() {
+				try {
+					if (this.status !== 200) {
+						throw Error("Invalid status. Could not retrieve antiforgery token.");
+		}
+					var obj = JSON.parse(this.responseText);
+					callback(obj.token);
+				} catch (e) {
+					typeof error === "function" && error(e);
+				}
+			});
+			xhr.send();
+		}
+
+		getAntiForgeryToken(function(token) {
+			if (document.readyState === "complete"
+				|| document.readyState === "loaded" 
+				|| document.readyState === "interactive") {
+				populateAntiForgery(token);
+				return;
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				populateAntiForgery(token);
+			}, false);
+		}, console.error);
+			</script><script type="text/javascript">
+		window.departmentHeader = {};
+		window.pageSectionTracker = {};
+		window.isResponsiveEnabled = true;
+		window.isRemoveSetHeights= false;
+		if (window.isRemoveSetHeights) {
+			document.documentElement.className += ' removeSetHeights';
+		}
+		window.mainMenuMediaQuery = 'screen and (max-width: 40em)';
+		window.isMobileBrowserIncludingTablets = false;
+		window.fixedResponsiveMenu = false;
+		window.fullWidthResponsiveMenu = true;
+		window.responsiveMenuHeight = '';
+		window.responsiveMenuFontSize = '';
+		window.isContentAdvisor = false;
+		(function () {
+			window.setSizeCookie = function () {
+				document.cookie = "dpi=" + window.devicePixelRatio + "; path=/";
+				document.cookie = "viewportWidth=" + window.innerWidth + "; path=/";
+				document.cookie = "viewportHeight=" + window.innerHeight + "; path=/";
+				if (screen && screen.width && screen.height) {
+					document.cookie = "screenWidth=" + screen.width + "; path=/";
+					document.cookie = "screenHeight=" + screen.height + "; path=/";
+				}
+				document.cookie = "responsiveGhost=1; path=/";
+			};
+
+			setSizeCookie();
+		}());
+	</script><meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://docaccess.com/docbox.js"></script><meta name="category0" content="Home">
+<meta name="category1" content="Programs &amp; Services">
+<meta name="category2" content="Division of Public Health">
+<meta name="category3" content="Community Health ">
+<meta name="category4" content="Community Health Access">
+<meta name="category5" content="Primary Care &amp; Rural Health Programs">
+<meta name="category6" content="Programs &amp; Funding Opportunities">
+<meta name="category7" content="Rural Health Transformation Program">
+<meta name="theme-color" content="#2e4e84">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<title>Rural Health Transformation Program | KDHE, KS</title>
+<meta name="description" content="">
+<meta name="keywords" content="rural health,rural health transformation program">
+<script src="/Assets/Scripts/jQuery/jquery-3.7.1.min.js"></script><script src="/Assets/Scripts/jQuery/jquery-migrate-3.5.2.min.js" type="text/javascript"></script><!--[if IE 6]><script language="JavaScript" type="text/javascript"> var isie6 = true; </script><![endif]--><!--[if IE 7]><script language="JavaScript" type="text/javascript"> var isie7 = true; </script><![endif]--><!--[if IE 8]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]--><!--[if IE 9]><script language="JavaScript" type="text/javascript"> var isie8 = true; </script><![endif]--><script type="text/javascript"><!--
+	var intCountryCode = 840;
+	var order = '';
+//--></script><link href="/-2140275272.css" rel="stylesheet" type="text/css">
+<link href="/-1374373518.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/Assets/Styles/Print.css" media="print">
+<script type="text/javascript">
+		window.Pages = window.Pages || {};
+		// FrontEnd RWD initialization
+		window.Pages.rwdReady = $.Deferred();
+		window.Pages.toolBarDeferred = $.Deferred();
+		window.Pages.rwdSetupComplete = $.Deferred();
+		window.Pages.megaMenuLoaded = $.Deferred();
+		window.Pages.angularToolbarComplete = $.Deferred();
+		window.Pages.frontEndToolbarComplete = $.Deferred();
+	</script><!--CPHeadContent--><script src="/739942322.js" type="text/javascript"></script><!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="/App_Themes/ie8.css"><![endif]--><!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/App_Themes/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/App_Themes/ie6.css"><![endif]--><!--[if lt IE 9]><script type="text/javascript" src="/Scripts/html5.js"></script><![endif]--><script type="text/javascript">
+		setEditorVariables(false, 840);
+		function getPrintPreviewType() { return 0; } function printPreview() {pPreview(getPrintPreviewType()); }
+	</script><script src="/Assets/Scripts/AlpineJS/3.14.1/alpine.min.js" type="text/javascript" defer></script>
+</head>
+<body class="wide ">
+
+    <script>jQuery(document).click(function (event) {
+	var target = jQuery(event.target);
+	if (target.attr('src') && target.parents('.image').length && target.parents('.widget').length) {
+		var text = target.attr('title');
+		
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Image',
+				eventAction: 'Image - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.is('button') || target.hasClass('button') || target.parents().hasClass('button')) {
+		var text = "";
+		if (target.parents('.button')[0]) {
+			text = target.parents('.button').first().text();
+		} else if (target.text().length) {
+			text = target.text();
+		} else if (target.attr('title').length) {
+			text = target.attr('title');
+		}
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Button',
+				eventAction: 'Button - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.widgetCustomHtml').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Custom Html',
+				eventAction: 'Custom Html Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.editor').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Editor',
+				eventAction: 'Editor Link Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.GraphicLinks').length) {
+		var text = "";
+		var targetGraphicLink = target;
+		if (target.hasClass('widgetGraphicLinksLink')) {
+			targetGraphicLink = jQuery(target.children()[0]);
+		}
+		if (targetGraphicLink.hasClass('text')) {
+			text = targetGraphicLink.text();
+		} else if (targetGraphicLink.attr('src').length) {
+			if (targetGraphicLink.attr('alt').length) {
+				text = targetGraphicLink.attr('alt');
+			} else {
+				text = targetGraphicLink.attr('src');
+			}
+		} else {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Graphic Links',
+				eventAction: 'Graphic Link - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.InfoAdvanced').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Info Advanced',
+				eventAction: 'Info Advanced Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.list').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'List',
+				eventAction: 'List Clicked',
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.megaMenuItem').length || target.parents('.topMenuItem').length) {
+		var megaMenuText = jQuery('.topMenuItem.mouseover').find('span').text();
+		var breadCrumbs = [];
+		jQuery('.breadCrumbs > li').each(function () {
+			 breadCrumbs.push(this.textContent);
+		});
+		var pageTitle = breadCrumbs.join('>');
+		var subTitleText = target.parents('.megaMenuItem').children('.widgetTitle').children().text();
+		var text = "";
+		if (pageTitle) {
+			text += pageTitle + " | ";
+		} else {
+			text += document.title + ' - ';
+		}
+		if (target.text() == "" && megaMenuText == "") {
+			text += "N/A";
+		} else if (target.text().length && megaMenuText.length) {
+			if (megaMenuText == target.text()) {
+				text += megaMenuText;
+			} else {
+				text += megaMenuText + " - " + subTitleText + " - " + target.text();
+			}
+		} else if (target.text() == "") {
+			text += megaMenuText;
+		} else {
+			text += target.text();
+		}
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Mega Menu',
+				eventAction: 'Mega Menu : ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.widgetNewsFlash').length && target.parents('.widgetItem').length) {
+		var text = jQuery(target.parents('.widgetItem')[0]).find('.widgetTitle').children().text();
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'News Flash',
+				eventAction: 'News Flash - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.hasClass('widgetQuickLinksLink') || target.find('.widgetQuickLinksLink').length) {
+		var text = target.text();
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Quick Links',
+				eventAction: 'Quick Links - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.attr('src') && target.parents('.cpSlideshow').length) {
+		var text = target.attr('title');
+		if (!text.length) {
+			text = "N/A";
+		}
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Slideshow',
+				eventAction: 'Slideshow - ' + text,
+				eventLabel: window.location.href
+			});
+	}
+	if (target.parents('.widgetText').length) {
+		ga('send',
+			{
+				hitType: 'event',
+				eventCategory: 'Text',
+				eventAction: 'Text Link Clicked',
+				eventLabel: window.location.href
+			});
+	}
+});</script><div id="popoverModal" class="cp-PopOver cp-PopOver--modal cp-AdminWrap" style="position: fixed; display: none;">
+	<div class="cp-PopOver-header">
+		<h3 class="cp-PopOver-title"></h3>
+		<button class="cp-Btn cp-PopOver-close" onclick="closePopOverModal(event)">
+			<svg class="cp-Icon--close" alt="close" title="close"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#iconClose"></use></svg></button>
+	</div>
+	<div id="cpPopOverBody" class="cp-PopOver-body">
+		<form id="cpPopOverForm" name="cpPopOverForm" novalidate></form>
+	</div>
+	<div id="cpPopOverFooter" class="cp-PopOver-footer">
+		<div class="cp-BtnGroup" id="actionButtons">
+			<!-- Action buttons will be dynamically added here -->
+		</div>
+	</div>
+</div>
+    <div id="fb-root"></div>
+<div id="skipToContentLinks">
+<a href="#cc5f8c90dc-b4cb-431b-90ee-10648f8df655" target="_self" class="skipToContentLink">Skip to Main Content</a>
+</div>
+    <form id="frmReferenceFormForTelerikEditorDialogs"></form>
+
+        <input type="hidden" id="cpcDomain" value="https://cp-civicplusuniversity2.civicplus.com"><input type="hidden" id="hdnStructureID" value="1"><input type="hidden" id="hdnContentCollectionID" value="beda913f-38e5-40c5-9452-875d25c5b54e"><input type="hidden" id="hdnWorkingCopyID" value="00000000-0000-0000-0000-000000000000"><input type="hidden" id="hdnThemeID" value="1"><input type="hidden" id="pageIsFrontEnd" value="true"><input type="hidden" id="pageModuleID"><input type="hidden" id="pagePageID" value="2361"><div id="stickyPlaceholder"></div>
+    <div id="outer-wrap" class="outer-wrap">
+        <div id="inner-wrap" class="inner-wrap">
+                <div id="divToolbars" class="cpToolbars newCP mui-fixed" style="">
+                    
+
+
+
+<!-- Begin Signed Out Bar -->
+<div class="cpToolbar user public">
+    <div class="inner selfClear">
+        <p class="dropdown"><a href="/MyAccount/ProfileCreate" class="myConnections" id="signedOutToolbarCreateProfileButton">Create a Website Account</a> <span class="welcomeMessage">- Manage notification subscriptions, save form progress and more.   </span></p>
+        <ul class="nav secondary">
+<li><a href="/MyAccount" class="button" id="loggedOutToolbarSignInButton">Website Sign In</a></li>
+        </ul>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#signedOutToolbarCreateProfileButton').click(function (event) {
+            event.preventDefault();
+            window.location.href = '/MyAccount/ProfileCreate?from=url&url=/&dn=' + window.location.origin;
+        });
+
+			
+				$('#loggedOutToolbarSignInButton').click(function (event) {
+					event.preventDefault();
+					window.location.href = '/MyAccount/?from=url&url=' + encodeURIComponent(window.location.href.replace(window.location.origin, '')) + '&dn=' + window.location.host;
+				});
+			
+
+		if ('False' == 'True') {
+            $('#loggedOutToolbarSignInButton').hide();
+		}
+    })
+</script><!-- End Signed Out Bar -->
+</div>
+            <div id="bodyWrapper">
+                <div id="mainNavHolderMobile" class="mainNavHolderMobile"></div>
+                
+<div data-cprole="structuralContainer" id="bodyContainerTS">
+<!-- Header Container --><header data-cprole="structuralContainer" id="headerContainerTS" class="fixedTopTS"><div class="siteWrap3">
+<div data-cprole="banner" id="bannerLogoTS" class="bannerLogoTS empty">
+
+
+
+
+				<a id="bannerLogoTS-62" style="			display: block; text-align: center;
+" class="bannerObject" href="/157/Division-of-Public-Health" target="_self"><img alt="Division of Public Health" class="bannerObject" height="450" src="/ImageRepository/Document?documentID=15135" width="1500"></a>
+</div>
+<div data-cprole="contentContainer" id="searchTS">	<div id="ccbb7939c8-5666-4b80-902f-bdfaf3aada05" data-containerid="bb7939c8-5666-4b80-902f-bdfaf3aada05" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="b556e6d2-90b7-461b-b35a-fdf08ddd41a6">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id3d957fe7-d10d-4fe9-82a0-7abe02a290e2" style="" data-widgetcontainerid="3d957fe7-d10d-4fe9-82a0-7abe02a290e2">	
+<div data-widget-id="8c0fe311-1ee2-4bdc-9e97-ceede7559560" data-widget-controller-path="/Layout/WidgetSearch">
+	
+	<script defer type="text/javascript" src="/Common/Controls/jquery-ui-1.14.1/jquery-ui.min.js"></script><script defer src="/Areas/Layout/Assets/Scripts/Search.js" type="text/javascript"></script><script defer type="text/javascript">
+
+		$(document).ready(function () {
+			try {
+				// Minimum characters required before performing a search/autocomplete
+				var minPrefixLength = 3;
+				var autoCompleteDebounceDelay = 500;
+				var searchFieldSelector = "#searchField" + '8c0fe311-1ee2-4bdc-9e97-ceede7559560';
+				var checkboxSelector = "#ysnSearchOnlyDept" + '8c0fe311-1ee2-4bdc-9e97-ceede7559560';
+				var buttonSelector = ".widgetSearchButton" + '8c0fe311-1ee2-4bdc-9e97-ceede7559560';
+				var autoCompleteCache = {};
+				var autoCompleteCacheKeys = [];
+				var autoCompleteCacheLimit = 25;
+				var currentAutoCompleteRequest = null;
+				var currentAutoCompleteRequestKey = null;
+				var autoCompleteDebounceTimer = null;
+				var autoCompleteDebounceKey = null;
+				var pendingAutoCompleteResponses = [];
+
+				function normalizeAutoCompleteTerm(term) {
+					return $.trim((term || "") + "").replace(/\s+/g, " ");
+				}
+
+				function shouldSearch(term) {
+					return normalizeAutoCompleteTerm(term).length >= minPrefixLength;
+				}
+
+				function getAutoCompleteUrl() {
+					return '/Search/AutoComplete' + ($(checkboxSelector).is(':checked') || false? '?departmentId=0' : '');
+				}
+
+				function getAutoCompleteCacheKey(requestUrl, term) {
+					return requestUrl + "|" + term.toLowerCase();
+				}
+
+				function cacheAutoCompleteResult(cacheKey, data) {
+					if (!Object.prototype.hasOwnProperty.call(autoCompleteCache, cacheKey)) {
+						autoCompleteCacheKeys.push(cacheKey);
+						if (autoCompleteCacheKeys.length > autoCompleteCacheLimit) {
+							delete autoCompleteCache[autoCompleteCacheKeys.shift()];
+						}
+					}
+					autoCompleteCache[cacheKey] = data;
+				}
+
+				function respondToPendingAutoComplete(data) {
+					var responses = pendingAutoCompleteResponses;
+					pendingAutoCompleteResponses = [];
+					for (var i = 0; i < responses.length; i++) {
+						responses[i](data);
+					}
+				}
+
+				function cancelPendingAutoComplete() {
+					clearTimeout(autoCompleteDebounceTimer);
+					autoCompleteDebounceKey = null;
+					if (currentAutoCompleteRequest != null) {
+						currentAutoCompleteRequest.abort();
+						currentAutoCompleteRequest = null;
+					}
+					currentAutoCompleteRequestKey = null;
+					respondToPendingAutoComplete([]);
+				}
+
+				function createWidgetAutoCompleteSource(options) {
+					return function (request, response) {
+						var term = normalizeAutoCompleteTerm(request.term);
+						if (!options.shouldSearch(term)) {
+							response([]);
+							return;
+						}
+
+						var requestUrl = options.url();
+						var cacheKey = getAutoCompleteCacheKey(requestUrl, term);
+						if (Object.prototype.hasOwnProperty.call(autoCompleteCache, cacheKey)) {
+							response(autoCompleteCache[cacheKey]);
+							if (options.success) {
+								options.success(autoCompleteCache[cacheKey]);
+							}
+							return;
+						}
+
+						if (currentAutoCompleteRequestKey === cacheKey || autoCompleteDebounceKey === cacheKey) {
+							pendingAutoCompleteResponses.push(response);
+							return;
+						}
+
+						cancelPendingAutoComplete();
+						autoCompleteDebounceKey = cacheKey;
+						pendingAutoCompleteResponses.push(response);
+						autoCompleteDebounceTimer = setTimeout(function () {
+							autoCompleteDebounceKey = null;
+							currentAutoCompleteRequestKey = cacheKey;
+							currentAutoCompleteRequest = $.ajax({
+								url: requestUrl,
+								dataType: "json",
+								timeout: options.timeout,
+								data: {
+									term: term,
+								},
+								success: function (data) {
+									if (currentAutoCompleteRequestKey === cacheKey) {
+										cacheAutoCompleteResult(cacheKey, data);
+										respondToPendingAutoComplete(data);
+										if (options.success) {
+											options.success(data);
+										}
+									}
+								},
+								error: function (xmlhttprequest, textstatus, message) {
+									if (textstatus === "abort") {
+										return;
+									}
+
+									if (options.error) {
+										options.error(xmlhttprequest, textstatus, message);
+									}
+
+									respondToPendingAutoComplete([]);
+								},
+								complete: function (xmlhttprequest) {
+									if (currentAutoCompleteRequest === xmlhttprequest) {
+										currentAutoCompleteRequest = null;
+										currentAutoCompleteRequestKey = null;
+									}
+								}
+							});
+						}, options.delay);
+					};
+				}
+
+				// click handler for search buttons
+				$(buttonSelector).click(function (e) {
+					e.preventDefault();
+					var $btn = $(this);
+					var $field = $btn.siblings(".widgetSearchBox");
+					var term = $field.val() + "";
+					if (!shouldSearch(term)) {
+						// do nothing until user types enough characters
+						$field.focus();
+						return;
+					}
+
+					if ($(checkboxSelector).is(':checked') || false)
+					{
+						doWidgetSearch($.trim(term), Number(0));
+					}
+					else {
+						doWidgetSearch($.trim(term), 0);
+					}
+				});
+
+				// enter key handler for the search field
+				$(searchFieldSelector).keypress(function (e) {
+					var code = e.which || e.keyCode;
+					if (code === 13) {
+						e.preventDefault();
+						var $this = $(this);
+						var term = $this.val() + "";
+						if (!shouldSearch(term)) {
+							// do nothing until user types enough characters
+							$this.focus();
+							return false;
+						}
+
+						if ($(checkboxSelector).is(':checked') || false) {
+							doWidgetSearch($.trim(term), Number(0));
+						} else {
+							doWidgetSearch($.trim(term), 0);
+						}
+						return false;
+					}
+					return true;
+				});
+
+				// autocomplete: set minLength and guard source
+				if (true) {
+					var $searchField = $(searchFieldSelector).autocomplete({
+						minLength: minPrefixLength,
+						source: createWidgetAutoCompleteSource({
+							delay: autoCompleteDebounceDelay,
+							timeout: 10000,
+							shouldSearch: shouldSearch,
+							url: getAutoCompleteUrl,
+							success: function () {
+								$('.autoCompleteError').remove();
+							},
+							error: function (xmlhttprequest, textstatus, message) {
+								if (textstatus === "timeout") {
+									if ($(searchFieldSelector).siblings('.autoCompleteError').length == 0)
+										$('<span class="autoCompleteError"><p class="alert error">Search autocomplete is currently not responding. Please try again later.</p></span>').insertAfter($(searchFieldSelector));
+								}
+							}
+						}),
+						html: true,
+						delay: 0,
+						select: function (event, ui) {
+							$(this).val(ui.item.value);
+							$(this).next().click();
+						}
+					});
+
+					$searchField.data("ui-autocomplete")._renderItem = function (ul, item) {
+						return $("<li class=\"itemList\"></li>")
+							.data("ui-autocomplete-item", item)
+							.append("<a>" + item.label + "</a>")
+							.appendTo(ul);
+					};
+				}
+
+				// keep searchBtnApplyQuery consistent with prefix rule
+				window.searchBtnApplyQuery = function() {
+					var $field = $(searchFieldSelector);
+					var term = $field.val() + "";
+					if (shouldSearch(term)) {
+						// update href for the icon/button (if present)
+						var btn = document.getElementById("btnSearchIcon");
+						if (btn) btn.href = "/Search?searchPhrase=" + encodeURIComponent($.trim(term));
+					} else {
+						var btn = document.getElementById("btnSearchIcon");
+						if (btn) btn.href = "#";
+					}
+				};
+			}
+			catch(e) {} //we're going to eat this error. Autocomplete won't work but we dont wan't to break anything else on the page.
+		});
+	</script><section id="widgetPreviewSearch" class="widget widgetSearch skin43 widgetOptionSet15" style="display: block;" aria-label="Search"><!-- For the button right and inside --><div class="widgetBody buttonRightInside">
+			<input class="widgetSearchBox widgetSearchBox8c0fe311-1ee2-4bdc-9e97-ceede7559560" cp5ph="true" id="searchField8c0fe311-1ee2-4bdc-9e97-ceede7559560" name="searchField" onchange="searchBtnApplyQuery();" placeholder="I'm Looking For..." type="text" value=""><a href="/Search/Results" id="btnSearchIcon" class="widgetSearchButton widgetSearchButton8c0fe311-1ee2-4bdc-9e97-ceede7559560" role="button"><img alt="Search" class="imageHover" data-hover="/ImageRepository/Document?documentID=75" data-image="/ImageRepository/Document?documentID=76" src="/ImageRepository/Document?documentID=76"></a>
+
+			<label class="searchLabel" aria-hidden="true" for="searchField8c0fe311-1ee2-4bdc-9e97-ceede7559560">Search</label>
+		</div>
+
+	</section><style scoped>
+	  
+		.widgetSearch ::-webkit-input-placeholder {
+		color: #444;
+	  }
+		.widgetSearch :-moz-placeholder { /* Firefox 18- */
+	   color: #444;
+	}
+		.widgetSearch ::-moz-placeholder {  /* Firefox 19+ */
+	   color: #444;
+	}
+	.widgetSearch :-ms-input-placeholder {
+	   color: #444;
+	}
+	
+
+	.widgetSearch .widgetBody .widgetSearchBox8c0fe311-1ee2-4bdc-9e97-ceede7559560
+	{
+		color: #444;
+		font-family: nunito; font-size:1em; font-weight:600;
+border-radius:5px;
+height:60px;
+border: 2px solid #022569;
+background-clip: padding-box;
+padding: 0 80px 0 20px;
+	}
+	.widgetSearch .widgetBody .widgetSearchButton8c0fe311-1ee2-4bdc-9e97-ceede7559560
+	{
+		margin: 7px;
+width:60px;
+
+	}
+	.widgetSearch .widgetSearch-onlyDept8c0fe311-1ee2-4bdc-9e97-ceede7559560
+	{
+		display: inline-block;
+		color: #333;
+		
+		
+		 padding-top: 10px;
+	}
+	#ysnSearchOnlyDept8c0fe311-1ee2-4bdc-9e97-ceede7559560
+	{
+		position: relative;
+		top: .125em;
+	}
+
+</style>
+<link rel="stylesheet" href="/Common/Controls/jquery-ui-1.14.1/jquery-ui.min.css">
+<link rel="stylesheet" href="/Common/Controls/jquery-ui-1.14.1/jquery-ui.theme.min.css">
+<script type="text/javascript">
+	//Updates search icons href to have the correct queryString
+	function searchBtnApplyQuery() {
+		document.getElementById("btnSearchIcon").href = "/Search?searchPhrase=" + document.getElementById("searchField8c0fe311-1ee2-4bdc-9e97-ceede7559560").value;
+	}
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+	</div>
+</div>
+<nav data-cprole="nav" id="mainNav" class="siteNav mainNav" role="navigation"><ol id="mainNavMenu" data-parent="157" class="rootNavMenu" role="menu">
+<!--
+--><li id="MainItem164" class="topMenuItem" role="none" data-pageid="164" data-displaymegamenu="True">
+<!--
+			--><!--
+			--> <a role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="mainNavMegaMenu164" id="mainNavHowDoI" class="navMainItem mainNavItem mainNavItem1 " href="/164/How-Do-I" target="_self">   How Do I...  </a>			<!--
+			--><!--
+			-->
+</li>
+<!----><li id="MainItem163" class="topMenuItem" role="none" data-pageid="163" data-displaymegamenu="True">
+<!--
+			--><!--
+			--> <a role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="mainNavMegaMenu163" id="mainNavDiseaseInjuryPrevention" class="navMainItem mainNavItem mainNavItem2 " href="/163/Disease-Injury-Prevention" target="_self">   Disease &amp; Injury Prevention  </a>			<!--
+			--><!--
+			-->
+</li>
+<!----><li id="MainItem161" class="topMenuItem" role="none" data-pageid="161" data-displaymegamenu="True">
+<!--
+			--><!--
+			--> <a role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="mainNavMegaMenu161" id="mainNavCommunityHealth" class="navMainItem mainNavItem mainNavItem3 " href="/161/Community-Health" target="_self">   Community Health   </a>			<!--
+			--><!--
+			-->
+</li>
+<!----><li id="MainItem162" class="topMenuItem" role="none" data-pageid="162" data-displaymegamenu="True">
+<!--
+			--><!--
+			--> <a role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="mainNavMegaMenu162" id="mainNavPersonalFamilyHealth" class="navMainItem mainNavItem mainNavItem4 " href="/162/Personal-Family-Health" target="_self">   Personal &amp; Family Health  </a>			<!--
+			--><!--
+			-->
+</li>
+<!---->
+</ol>
+<script type="text/javascript">
+		(function () {
+			function setupMenu() {
+				const menuID = 'mainNavMenu';
+				const menuType = MAIN_MENU;
+
+				//setup menu manager properties for main menu
+				if (!menuManager.mobileMainNav && true)
+					menuManager.adjustMainItemsWidth('#' + menuID);
+				menuManager.isMainMenuEditable = false;
+				menuManager.mainMenuMaxSubMenuLevels = 4;
+				menuManager.setMOMMode(2, menuType);
+
+				//Init main menu
+				const setupDraggable = menuManager.isMainMenuEditable;
+				const urlToGetHiddenMenus = '/Pages/MenuMain/HiddenMainSubMenus?pageID=157&moduleID=&themeID=1&menuContainerID=mainNav';
+
+				menuManager.setupMenu(menuID, 'mainNav', menuType, setupDraggable, urlToGetHiddenMenus);
+				menuManager.mainMenuInit = true;
+				menuManager.mainMenuTextResizer = true;
+				if (1.00 > 0)
+					menuManager.mainMenuTextResizerRatio = 1.00;
+				if (window.isResponsiveEnabled)
+					menuManager.mainMenuReady.resolve();
+
+			}
+
+			if (document.readyState === "complete"
+				|| document.readyState === "loaded"
+				|| document.readyState === "interactive") {
+				setupMenu();
+				return;
+			}
+
+			document.addEventListener("DOMContentLoaded", setupMenu);
+		})();
+	</script><aside data-cprole="megaMenu" id="megaMenu" class="megaMenu" style="display: none;"><input type="hidden" id="megaMenuPopupDirection" value="0"><input type="hidden" id="megaMenuWidthReference" value="1"><aside role="menu" data-cprole="contentContainer" id="mainNavMegaMenu164" class="contentTop mainNavMegaMenu megaMenuContainer pageID_164 hidden" data-orientation="horizontal"><div id="ccd7a5a4c7-f4b7-4a03-956f-26f1aae070bc" data-containerid="d7a5a4c7-f4b7-4a03-956f-26f1aae070bc" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside><aside role="menu" data-cprole="contentContainer" id="mainNavMegaMenu163" class="contentTop mainNavMegaMenu megaMenuContainer pageID_163 hidden" data-orientation="horizontal"><div id="cc863facce-45d0-4259-a370-2e744124c5c7" data-containerid="863facce-45d0-4259-a370-2e744124c5c7" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside><aside role="menu" data-cprole="contentContainer" id="mainNavMegaMenu161" class="contentTop mainNavMegaMenu megaMenuContainer pageID_161 hidden" data-orientation="horizontal"><div id="cc11ba1752-d0c2-412d-8fff-4719d097a766" data-containerid="11ba1752-d0c2-412d-8fff-4719d097a766" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside><aside role="menu" data-cprole="contentContainer" id="mainNavMegaMenu162" class="contentTop mainNavMegaMenu megaMenuContainer pageID_162 hidden" data-orientation="horizontal"><div id="ccb173867f-e500-41ee-b116-f7b476080ce3" data-containerid="b173867f-e500-41ee-b116-f7b476080ce3" class="pageContent cpGrid cpGrid24">
+				                
+
+
+
+	</div>
+</aside></aside></nav>
+</div>
+</header><!-- Banner --><div data-cprole="structuralContainer" id="bannerContainerTS">
+<div data-cprole="banner" id="banner1">
+<div data-cprole="structuralContainer" id="bannerSizingTS">
+<div class="siteWrap3"><div data-cprole="structuralContainer" id="bannerContentTS">
+<div data-cprole="contentContainer" id="bannerContentInnerTS">	<div id="cc501dac6e-6a73-4513-9f9f-818e04a6dd31" data-containerid="501dac6e-6a73-4513-9f9f-818e04a6dd31" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</div>
+</div></div>
+</div>
+
+
+
+
+		<div id="bannerImagesJSON131" class="hidden"></div>
+		<div id="bannerSlideshowControls_banner1" class="bannerSlideshowControlsNew none " style="display:none">
+			<a id="arrowPrev_banner1" tabindex="0" class="arrowNew prev" aria-label="Banner Arrow Previous"><svg style=" " class=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#iconSlideshowArrowLeft"></use></svg></a>
+			<a id="arrowNext_banner1" tabindex="0" class="arrowNew next" aria-label="Banner Arrow Next"><svg style=" " class=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#iconSlideshowArrowRight"></use></svg></a>
+		</div>
+			<script type="text/javascript">
+				$(window).on("load", function () {
+					$.when(window.Pages.rwdSetupComplete)
+						.done(function () {
+							renderExternalBannerSlideshow('banner1',
+								{"BannerOptionID":131,"ThemeID":1,"SlotName":"banner1","Name":"Default - Community Health Access","IsDefault":false,"BannerMode":2,"SlideShowSlideTiming":null,"SlideshowTransition":0,"SlideShowTransitionTiming":null,"ImageScale":true,"ImageAlignment":1,"ImageScroll":true,"MuteSound":true,"VideoType":0,"Status":40,"SlideshowControlsPosition":0,"SlideshowControlsAlignment":0,"SlideshowBannerControlsColorScheme":0,"DisplayVideoPauseButton":false,"VideoPauseButtonAlignment":1,"VideoPauseButtonControlsAlignment":0,"VideoPauseButtonStyle":"#FFFFFF","VideoPauseButtonBackgroundStyle":"#000000","VideoPauseButtonAlignmentClass":"alignRight viewport","DisplaySlideshowPauseButton":true,"SlideshowControlsColor":"#FFFFFF","SlideshowControlsBackgroundColor":"#000000","SlideshowPauseButtonClass":"isHidden","BannerImages":[{"BannerImageID":308,"BannerOptionID":131,"FileName":"/ImageRepository/Document?documentID=31438","Height":400,"Width":2200,"StartingOn":null,"StoppingOn":null,"IsLink":false,"LinkAddress":null,"Sequence":2,"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","AltText":""},{"BannerImageID":309,"BannerOptionID":131,"FileName":"/ImageRepository/Document?documentID=31437","Height":400,"Width":2200,"StartingOn":null,"StoppingOn":null,"IsLink":false,"LinkAddress":null,"Sequence":3,"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","AltText":""},{"BannerImageID":310,"BannerOptionID":131,"FileName":"/ImageRepository/Document?documentID=31436","Height":400,"Width":2200,"StartingOn":null,"StoppingOn":null,"IsLink":false,"LinkAddress":null,"Sequence":4,"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/","AltText":""}],"BannerVideos":[],"RecordStatus":0,"ModifiedBy":0,"ModifiedOn":"\/Date(-62135575200000)\/"},
+								'/App_Themes/Interior/Images/',
+								'Rotating');
+						});
+				});
+			</script>
+</div>
+</div>
+<!-- Content container --><div data-cprole="structuralContainer" id="mainContainerTS">
+<div class="siteWrap"><div data-cprole="structuralContainer" id="mainWrapTS" class="mainWrap" role="main">
+<div data-cprole="structuralContainer" id="outerContentWrapTS" class="outerContentWrap">
+<div data-cprole="structuralContainer" id="contentWrapTS" class="contentWrap">
+<div data-cprole="breadCrumbs" id="breadCrumbs" class="breadCrumbContainer">		<ol class="semanticList breadCrumbs">
+<li><a class="breadCrumb" href="/">Home</a></li>
+<li><a class="breadCrumb" href="/101/Programs-Services">Programs &amp; Services</a></li>
+<li><a class="breadCrumb" href="/157/Division-of-Public-Health">Division of Public Health</a></li>
+<li><a class="breadCrumb" href="/161/Community-Health">Community Health </a></li>
+<li><a class="breadCrumb" href="/241/Community-Health-Access">Community Health Access</a></li>
+<li><a class="breadCrumb" href="/242/Primary-Care-Rural-Health-Programs">Primary Care &amp; Rural Health Programs</a></li>
+<li><a class="breadCrumb" href="/2122/Programs-Funding-Opportunities">Programs &amp; Funding Opportunities</a></li>
+<li id="currentBCPage" data-pageid="2361"><a href class="breadCrumb" aria-current="page">Rural Health Transformation Program</a></li>
+		</ol>
+</div>
+<div data-cprole="mainContentContainer" id="moduleContent">
+	
+	<div id="page" class="moduleContentNew">
+		
+
+	<input id="hdnPageID" name="hdnPageID" type="hidden" value="2361"><input id="hdnParentID" name="hdnParentID" type="hidden" value="2122"><input id="hdnVersionID" name="hdnVersionID" type="hidden" value="31336"><input id="pageMenuTitle" name="pageMenuTitle" type="hidden" value="Rural Health Transformation Program"><input id="pageShowFeatureColumn" name="pageShowFeatureColumn" type="hidden" value="True"><input id="hdnIsLayoutPage" name="hdnIsLayoutPage" type="hidden" value="False"><input id="hdnPageStatus" name="hdnPageStatus" type="hidden" value="Published"><h1 id="versionHeadLine" class="headline">
+
+Rural Health Transformation Program		</h1>
+	
+		<div id="cc5f8c90dc-b4cb-431b-90ee-10648f8df655" data-containerid="5f8c90dc-b4cb-431b-90ee-10648f8df655" class="pageContent cpGrid cpGrid24" data-contentcontainerbreakpoint="20" data-smoothscrolling="True">
+			
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="f7497f66-74eb-4aab-990c-4f0750accdcb">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last ida388bac6-2e40-4ff2-aefb-4636a100a9b3" style="" data-widgetcontainerid="a388bac6-2e40-4ff2-aefb-4636a100a9b3">	
+
+<div class="widget image pageStyles" id="divImageOuterb2704ac2-cea7-470f-a7e2-1cb6e1e7b78e" data-widget-id="b2704ac2-cea7-470f-a7e2-1cb6e1e7b78e">
+    
+	<div class="widgetBody " id="divImageb2704ac2-cea7-470f-a7e2-1cb6e1e7b78e"><img src="/ImageRepository/Document?documentID=56667" alt="Kansas Rural Health Transformation. A farm field inside a stylized heart in front of a windmill fan." title="Kansas Rural Health Transformation. A farm field inside a stylized heart in front of a windmill fan.">
+</div></div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="3d595379-7ba6-4a30-9f36-3a6c26b70a9d">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id37b9585e-337f-438d-80b3-e871f89e904a" style="" data-widgetcontainerid="37b9585e-337f-438d-80b3-e871f89e904a">	
+<div class="widget editor pageStyles narrow" id="divEditor43050015-28e2-4c2a-9672-3d77d89b2d50" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <p data-pasted="true">The Rural Health Transformation Program (RHTP) serves to improve the health of rural Kansans by expanding primary and secondary prevention programs, securing local access to primary care, building a sustainable rural health workforce, enabling value-base care and harnessing data and technology. </p>
+<p>This office works closely with the Kansas Rural Health Innovation Alliance in supporting rural health systems and the communities they serve to improve access and outcomes in health care. </p>
+<p><a href="https://public.govdelivery.com/accounts/KSDHE/subscriber/new?topic_id=OOS_1">Sign up for Kansas Rural Health Transformation Program updates here.</a></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '43050015-28e2-4c2a-9672-3d77d89b2d50'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="c6522f4d-f598-4216-8c01-dfa3a6e27e3f">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last idc38923a2-8cbe-4776-ba63-5000a3ee1312" style="" data-widgetcontainerid="c38923a2-8cbe-4776-ba63-5000a3ee1312">	
+<div class="widget editor pageStyles narrow" id="divEditor76594e78-eecf-4254-b611-66d103d07647" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Open RHTP Funding Opportunities</h2>
+<p data-pasted="true">More funding opportunities coming soon. </p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '76594e78-eecf-4254-b611-66d103d07647'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="5b5572a1-8c1d-4c0b-bc28-e4ae21ae81c2">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id4600f1d2-ede6-49a2-a6d7-2a13e151e774" style="" data-widgetcontainerid="4600f1d2-ede6-49a2-a6d7-2a13e151e774">	
+<div class="widget editor pageStyles narrow" id="divEditor245c3003-3ed9-45e5-992d-17da6cf364b3" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Latest News</h2>
+<h3 data-pasted="true">Kansas Rural Health Transformation Plan Year 1 Budget Approved</h3>
+<p>The initial 10-month Budget Period 1 (Dec. 31, 2025, to Oct. 30, 2026) for the Kansas Rural Health Transformation Program has been approved. The narrative provides a detailed report of expenditures and actions from the RHTP and partner organizations to fulfill its mission of improving the health of rural Kansans. View the approved budget revisions below. </p>
+<p><a href="/DocumentCenter/View/59004/20260512-Budget-Revision-1-v2-PDF">Read Budget Revision 1 here.</a></p>
+<p><a href="/DocumentCenter/View/60171" target="_blank" rel="noopener">Read Budget Revision 2 here.</a></p>
+<h3 class="subhead2">
+<strong data-pasted="true">KDHE Awards Over $1M in Rural Health Transformation Program Grants to Increase Access to Health and Social Services and Clinical Nutrition</strong><strong> </strong>
+</h3>
+<p>The Kansas Department of Health and Environment (KDHE) today announced at an event hosted by Newman Regional Health in Emporia the recipients of the Community Health Worker + Accountable Food is Medicine Grant Program (CHW+AFIM), an initiative within the Rural Health Transformation Program (RHTP). In total, $1,007,152 was awarded to seven rural healthcare organizations across the state to implement or expand CHW and AFIM programs, increasing community access to health and social services and clinical nutrition.</p>
+<p><a href="/DocumentCenter/View/60037/CHW-AFIM-Project-Descriptions">Click here to view CHW + AFIM Award Winners and Project Descriptions</a></p>
+<h3 data-pasted="true">KDHE Awards Nearly $80M to Strengthen Rural Health Care Across Kansas Through the Kansas RHTP</h3>
+<p data-pasted="true">The Kansas Department of Health and Environment (KDHE) today announced the recipients of the Regional Partnerships Grant Program (RPGP) and Rural Emergency Hospital Conversion/Transformative Capital Investment Program (REH/CAP) grants through the Kansas Rural Health Transformation Program (RHTP). In total, $79.1 million is being awarded to 39 organizations across the state, representing a major investment in strengthening access to care across rural Kansas. </p>
+<p>View the award winners and project descriptions here:<br><a href="/DocumentCenter/View/58981/REH-CAP-and-RPGP-Award-Winners-PDF" target="_blank" rel="noopener">REH CAP and RPGP Award Winners (PDF)</a></p>
+<h3 class="subhead2">Notice of Award</h3>
+<p data-pasted="true">Governor Laura Kelly today announced that Kansas has been <a href="https://www.governor.ks.gov/?splash=https%3a%2f%2fgcc02.safelinks.protection.outlook.com%2f%3furl%3dhttps%253A%252F%252Flinks-2.govdelivery.com%252FCL0%252Fhttps%253A%25252F%25252Fwww.cms.gov%25252Fnewsroom%25252Fpress-releases%25252Fcms-announces-50-billion-awards-strengthen-rural-health-all-50-states%252F1%252F0101019b6c54b37b-e1e9e369-2fdf-4f39-bfe0-c99af309eb2e-000000%252FEXnE4qe39FEGNC4zY5Bu2aTcEnsxKUa7ta6HTXvQtbI%253D437%26data%3d05%257C02%257CGrace.Hoge%2540ks.gov%257C50c9d6c76c084eddfc1208de472da65d%257Cdcae8101c92d480cbc43c6761ccccc5a%257C0%257C0%257C639026458572096333%257CUnknown%257CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%253D%253D%257C0%257C%257C%257C%26sdata%3dcsOBcu9gg5rER8ZCdBAwd5KFeIeVcmhL%252BO6hjXVaQKI%253D%26reserved%3d0&amp;____isexternal=true" target="_blank" rel="noreferrer noopener">awarded $221 million from the Centers for Medicare and Medicaid Services (CMS)</a> to support the first year of the Rural Health Transformation Program. This funding will strengthen rural health systems, expand access to care, and improve health outcomes for Kansans across the state. This funding award exceeds the base amount states allocated and reflects the quality of Kansas’ application.  </p>
+<p><a href="https://www.governor.ks.gov/Home/Components/News/News/792/55" target="_blank" rel="noreferrer noopener">Learn more here</a>. </p>
+<h3 class="subhead2">RHTP Application Submitted</h3>
+<p>For nearly 900,000 Kansans, home is a rural community. Health care is the heart of these communities; those without local access to primary care services experience declining populations and shrinking economic opportunities for those who remain. The fight to maintain services, therefore, is literally a battle to preserve these communities. With significant stakeholder engagement, the State has developed an ambitious Rural Health Transformation Plan and applied with the Centers for Medicare &amp; Medicaid Services (CMS) for funding to help realize this plan.</p>
+<p><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52810/Kansas-RHTP-Full-Application-112025?bidId=" target="_blank" rel="noreferrer noopener">Read the full application here</a>. </p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '245c3003-3ed9-45e5-992d-17da6cf364b3'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="0afcf8c8-c27e-41af-bc70-385b441074ec">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col24 first last id1159e3e0-a409-4b09-a4ff-ddfd72f3b162" style="" data-widgetcontainerid="1159e3e0-a409-4b09-a4ff-ddfd72f3b162">	
+<div class="widget editor pageStyles narrow" id="divEditor3678920d-b40a-4197-adfb-b2ca36833312" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Background:</h2>
+<p>H.R. 1 Section 71401 of the One Big Beautiful Bill Act (OBBBA), enacted into law on July 4, 2025, establishes the Rural Health Transformation Program (RHTP) and created a national $50 billion fund, to support this initiative. All 50 states are eligible to apply for this funding.</p>
+<p>The Centers for Medicare &amp; Medicaid Services (CMS) will establish an application process and due date. Additionally, CMS must approve or deny applications no later than December 31, 2025. Applications are required to be submitted in early November 2025.</p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '3678920d-b40a-4197-adfb-b2ca36833312'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col24 first last id0b9ce4a6-dcff-4fe6-8d2e-84a67385d46a" style="" data-widgetcontainerid="0b9ce4a6-dcff-4fe6-8d2e-84a67385d46a">	
+<div class="widget editor pageStyles narrow" id="divEditor395d82c8-522c-45dd-a73b-f75a2efb4bd2" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Past Meetings</h2>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '395d82c8-522c-45dd-a73b-f75a2efb4bd2'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="e1eb20aa-455c-47a2-ba38-dedcb4cf148c">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col24 first last idd2954b8b-984d-4e51-a8d1-56b0537107ef" style="" data-widgetcontainerid="d2954b8b-984d-4e51-a8d1-56b0537107ef">	
+
+	<div id="divTabbed452b398b-8af7-4933-a91b-b8594e698dcf" class="widget widgetTabbed wide skin43" data-widgetid="452b398b-8af7-4933-a91b-b8594e698dcf">
+		<ol class="tabbedWidget cpTabs  " role="tablist" aria-hidden=".ToString().ToLowerInvariant()" style=" ">
+<!--
+					--><li class="active" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_0" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_0" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_0" aria-selected="true" tabindex="0"><span class="tabName editable" data-sequence="0" data-tabname="July 2026" contenteditable="false">July 2026</span></a>
+</li>
+<!--
+					--><li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_1" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_1" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_1" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="1" data-tabname="June 2026" contenteditable="false">June 2026</span></a>
+</li>
+<!--
+					--><li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_2" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_2" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_2" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="2" data-tabname="March 2026" contenteditable="false">March 2026</span></a>
+</li>
+<!--
+					--><li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_3" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_3" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_3" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="3" data-tabname="February 2026" contenteditable="false">February 2026</span></a>
+</li>
+<!--
+					--><li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_4" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_4" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_4" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="4" data-tabname="January 2026" contenteditable="false">January 2026</span></a>
+</li>
+<!--
+					--><li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_5" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_5" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_5" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="5" data-tabname="October 2025" contenteditable="false">October 2025</span></a>
+</li>
+<!--
+					--><li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_6" class="tabButton" id="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_6" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_6" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="6" data-tabname="Older" contenteditable="false">Older</span></a>
+</li>
+<!--
+					-->
+		</ol>
+<div class="cpTabPanels">
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="active" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_0" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_0" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_0" aria-selected="true" tabindex="0"><span class="tabName editable" data-sequence="0" data-tabname="July 2026" contenteditable="false">July 2026</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel showing" style="" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_0" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_0" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditor6cf73ca3-4a7e-4200-a5f7-99f51e0ad3d9" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1" data-pasted="true">Interfacility Transportation Project RFA Webinar</h2>
+<p><strong>July 8 Meeting</strong></p>
+<ul>
+<li><a href="https://youtu.be/Lp6TFHBwJV0">Recording</a></li>
+<li data-pasted="true"><a href="/DocumentCenter/View/59704/IFTp-RFA-Presentation-7826" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/53010/KRHIA-Slides-Dec-11-2025-PDF" data-url-hash="archived" data-url-status="archived">Slides (PDF)</a></li>
+<li data-pasted="true"><a href="/DocumentCenter/View/59888" target="_blank" rel="noopener">Interfacility Transport Project FAQs (PDF)</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '6cf73ca3-4a7e-4200-a5f7-99f51e0ad3d9'));
+	});
+</script>
+</div>
+				</div>
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_1" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_1" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_1" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="1" data-tabname="June 2026" contenteditable="false">June 2026</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_1" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_1" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditor23ac7987-727c-46f8-9e57-2e3a0bdb7725" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Emerging Technology Committee Meeting 2</h2>
+<p><strong>June 18 2026 Meeting</strong></p>
+<ul>
+<li><a href="/DocumentCenter/View/59425/RHTP-ETC-Meeting-2-PPT-PDF">Slides (PDF)</a></li>
+<li><a href="https://www.youtube.com/live/09QX4sbQ73I">Recording</a></li>
+</ul>
+<h2 class="subhead1"><br></h2>
+<h2 class="subhead1">Emerging Technology Webinar</h2>
+<p><strong>June 23 2026 Meeting</strong></p>
+<ul>
+<li><a href="https://youtu.be/kPO5iHIDbtc">Recording</a></li>
+<li><a href="/DocumentCenter/View/59351/Emerging-Tecchnology-Webinar-06-23-2026-PDF">Slides (PDF)</a></li>
+<li><a href="/DocumentCenter/View/59464" target="_blank" rel="noopener">Emerging Technology FAQ (PDF)</a></li>
+</ul>
+<h2 class="subhead1"><br></h2>
+<h2 class="subhead1">KHRIA Kansas RHTP Meeting</h2>
+<p><strong>June 17 2026 Meeting</strong></p>
+<ul>
+<li><a href="https://youtu.be/jTy_Czr-Jgg">Recording</a></li>
+<li><a href="/DocumentCenter/View/59307/06-17-2026-KRHIA-RHTP-meeting-PDF">Slides (PDF)</a></li>
+</ul>
+<h2 class="subhead1"><br></h2>
+<h2 class="subhead1">CHW + AFIM RFA Webinar</h2>
+<p><strong>June 4 2026 Meeting</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=dIVUE--ptFU&amp;feature=youtu.be">Recording</a></li>
+<li><a href="/DocumentCenter/View/59029/CHW-AFIM-RFA-Slides-PDF">Slides (PDF)</a></li>
+<li><a href="/DocumentCenter/View/59390" target="_blank" rel="noopener">Frequently Asked Questions (PDF)</a></li>
+</ul>
+<h2 class="subhead1">Emerging Technology Committee Meeting</h2>
+<p><strong>June 4 2026 Meeting</strong></p>
+<ul>
+<li><a href="/DocumentCenter/View/59165/RHTP-ETC-Meeting-Slides-PDF">Slides (PDF)</a></li>
+<li><a href="/DocumentCenter/View/59167/RHTP-ETC-Meeting-Agenda-PDF">Meeting Agenda (PDF)</a></li>
+<li><a href="/DocumentCenter/View/59168/RHTP-ETC-Meeting-Padlet-PDF">Meeting Padlet (PDF)</a></li>
+<li><a href="/DocumentCenter/View/59166/RHTP-ETC-Meeting-Summary-PDF">Meeting Summary (PDF)</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '23ac7987-727c-46f8-9e57-2e3a0bdb7725'));
+	});
+</script>
+</div>
+				</div>
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_2" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_2" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_2" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="2" data-tabname="March 2026" contenteditable="false">March 2026</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_2" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_2" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditoradc1a26b-cb26-4c98-bbbc-a828ed94d2ee" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1" data-pasted="true">EBP Program Introductory Webinar</h2>
+<h3 class="subhead2">March 30, 2026 Meeting</h3>
+<ul>
+<li><a href="https://youtu.be/9RyJg-6C9KA" target="_blank" rel="noopener">Recording</a></li>
+<li><a href="/DocumentCenter/View/57275/EBP-Program-Introductory-Webinar-Slides-PDF" target="_blank" rel="noopener">Slides (PDF)</a></li>
+<li><a href="/DocumentCenter/View/58894/05192026-EBP-Program-FAQs-PDF" target="_blank" rel="noopener">Frequently Asked Questions (PDF)</a></li>
+<li><a href="/DocumentCenter/View/58478/04172026-Clinic-KS-EBP-Program-Participation-Agreement-PDF">Clinic KS EBP Program Participation Agreement (PDF)</a></li>
+<li><a href="/DocumentCenter/View/58479/04172026-Hospital-KS-EBP-Program-Participation-Agreement-PDF">Hospital KS EBP Program Participation Agreement (PDF)</a></li>
+</ul>
+<h2 class="subhead1" data-pasted="true">RPGP and REH/CAP Grant Webinar</h2>
+<h3 class="subhead2">March 6, 2026 Meeting</h3>
+<ul>
+<li><a data-fr-linked="true" href="https://youtu.be/dixsxEmEFeA" data-pasted="true" target="_blank" rel="noopener">Recording</a></li>
+<li><a href="/DocumentCenter/View/56943/RPGP-REH-CAP-Webinar-March-6-2026-PDF" target="_blank" rel="noopener">Slides</a></li>
+<li><a href="/DocumentCenter/View/57030/20260313_RPGP--REH-CAP-Webinar-FAQ-PDF">FAQ's</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + 'adc1a26b-cb26-4c98-bbbc-a828ed94d2ee'));
+	});
+</script>
+</div>
+				</div>
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_3" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_3" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_3" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="3" data-tabname="February 2026" contenteditable="false">February 2026</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_3" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_3" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditordaa8b984-8e79-413a-9c6b-ee3ce46ab6aa" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1" data-pasted="true">RHT virtual meeting hosted by KRHIA</h2>
+<h3 class="subhead1">Feb. 27, 2026 Meeting</h3>
+<ul>
+<li><a href="https://www.youtube.com/live/5IRvieeWCpU">Recording</a></li>
+<li><a href="/DocumentCenter/View/56729/KRHIA-Slides-Feb-27-2026-PDF">Slides</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + 'daa8b984-8e79-413a-9c6b-ee3ce46ab6aa'));
+	});
+</script>
+</div>
+				</div>
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_4" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_4" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_4" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="4" data-tabname="January 2026" contenteditable="false">January 2026</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_4" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_4" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditor4499d90f-6c10-4fa1-9e62-4f7060001229" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 data-pasted="true">RHT virtual meeting hosted by KRHIA</h2>
+<h3 data-pasted="true">Jan. 13, 2026 Meeting</h3>
+<ul>
+<li><a href="https://youtube.com/live/L9uduqxM4cg?feature=share">Recording</a></li>
+<li data-pasted="true"><a href="/DocumentCenter/View/55454/KRHIA-Slides-Jan-13-2026-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/55454/KRHIA-Slides-Jan-13-2026-PDF" data-url-hash="5730c675c15739ec0383ef3d94bdc76befdcdf78f4612e1c760d1662dd6c5c66" data-url-status="disabled">Slides</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '4499d90f-6c10-4fa1-9e62-4f7060001229'));
+	});
+</script>
+</div>
+				</div>
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_5" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_5" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_5" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="5" data-tabname="October 2025" contenteditable="false">October 2025</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_5" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_5" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditor4c09e340-7771-4e80-bb08-1d99735c5e95" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 data-pasted="true">RHT meeting hosted by KRHIA</h2>
+<h3 data-pasted="true">Oct. 20, 2025 Meeting</h3>
+<ul>
+<li><a href="https://youtu.be/-BQAsSBNLUs">Recording</a></li>
+<li><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52511/KRHIA-Agenda-Oct-20-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52511/KRHIA-Agenda-Oct-20-2025-PDF" data-url-hash="b7f255624bca9be1311beac040649a5ab1cd8a00c585dc063456cc06cd2b4e00" data-url-status="disabled">Agenda</a></li>
+<li><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52510/KRHIA-Slides-Oct-20-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52510/KRHIA-Slides-Oct-20-2025-PDF" data-url-hash="20b5a11720e3c357a75e8ed247439d2626c7630de171be52b6e9acafca028db5" data-url-status="disabled">Slides</a></li>
+</ul>
+<h2>RHT virtual meeting hosted by KRHIA</h2>
+<h3 data-pasted="true">Oct. 16, 2025 Webinar</h3>
+<ul>
+<li><a href="https://youtu.be/R86gpFC-Ero">Recording</a></li>
+<li><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52507/KRHIA-Agenda-Oct-16-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52507/KRHIA-Agenda-Oct-16-2025-PDF" data-url-hash="a4c47074e66fdfd1795aaf94bcdb4fe95945c098c03c0de5ef996c63a8e166a9" data-url-status="disabled">Agenda</a></li>
+<li><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52506/KRHIA-Slides-Oct-16-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52506/KRHIA-Slides-Oct-16-2025-PDF" data-url-hash="ea0fceb7eac7c85dbb9a5ee6e56e94ddf66634a32313b43fb6ce3c11ccacc4c8" data-url-status="disabled">Slides</a></li>
+</ul>
+<h2>RHT virtual meeting hosted by KRHIA</h2>
+<h3>Oct. 9, 2025 Webinar</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=BGu5D9Tbp5M">Recording</a></li>
+<li><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52418/KRHIA-Agenda-Oct-9-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52418/KRHIA-Agenda-Oct-9-2025-PDF" data-url-hash="3fbdd70bd82d538e8b88b0df0adacf7324225061aafcc53d0b400cb396da2cd2" data-url-status="disabled">Agenda</a></li>
+<li><a href="https://www.kdhe.ks.gov/DocumentCenter/View/52419/KRHIA-Slides-Oct-9-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52419/KRHIA-Slides-Oct-9-2025-PDF" data-url-hash="d85317b9648da25096c2e7a44fa6320ba9f9edf56cfe177e73b3e52b3447b498" data-url-status="disabled">Slides</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '4c09e340-7771-4e80-bb08-1d99735c5e95'));
+	});
+</script>
+</div>
+				</div>
+					<ol class="tabbedWidgetNarrow cpTabs " role="tablist" aria-hidden="True.ToString().ToLowerInvariant()" style="display: none;">
+<li class="" role="presentation">	<a href="#tab452b398b-8af7-4933-a91b-b8594e698dcf_6" class="tabButton" id="tabBtnNarrow452b398b-8af7-4933-a91b-b8594e698dcf_6" role="tab" aria-controls="tab452b398b-8af7-4933-a91b-b8594e698dcf_6" aria-selected="false" tabindex="-1"><span class="tabName editable" data-sequence="6" data-tabname="Older" contenteditable="false">Older</span></a>
+</li>
+					</ol>
+<div class="tabbedWidget cpTabPanel " style="display: none;" id="tab452b398b-8af7-4933-a91b-b8594e698dcf_6" role="tabpanel" aria-labelledby="tabBtn452b398b-8af7-4933-a91b-b8594e698dcf_6" tabindex="-1">
+
+<div class="widget editor pageStyles narrow" id="divEditor3223478e-c3dc-4bfc-931c-5e291678e541" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 data-pasted="true">RHT virtual meeting hosted by KDHE</h2>
+<h3 data-pasted="true">Dec. 11, 2025 Meeting</h3>
+<ul>
+<li><a href="https://youtube.com/live/HKOTUFigXdk">Recording</a></li>
+<li data-pasted="true"><a href="/DocumentCenter/View/53010/KRHIA-Slides-Dec-11-2025-PDF" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/53010/KRHIA-Slides-Dec-11-2025-PDF" data-url-hash="archived" data-url-status="archived">Slides</a></li>
+</ul>
+<h2><br></h2>
+<h2 data-pasted="true">RHT virtual meeting hosted by KRHIA</h2>
+<h3 data-pasted="true">Sept. 29, 2025 webinar</h3>
+<ul>
+<li><a href="https://youtu.be/R-Fio01YWEE" target="_blank" rel="noopener">Recording</a></li>
+<li><a href="/DocumentCenter/View/52277" target="_blank" rel="noopener" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52277" data-url-hash="2d952f2eb4859ea2baee38cc49143603f30d2fb28a88eff5ddc2c6dada0719aa" data-url-status="disabled">Slides</a></li>
+<li><a href="/DocumentCenter/View/52283" target="_blank" rel="noopener" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52283" data-url-hash="38ad2896faa65258329edf7ab7417220f49f1b31e3fddcc5a2795c90899a4bd4" data-url-status="disabled">Transcript</a></li>
+<li><a href="/DocumentCenter/View/52284" target="_blank" rel="noopener" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52284" data-url-hash="d086d15ea6be9064a25a6a9859562a6fd5250063295be83793f094770f6b9c9e" data-url-status="disabled">FAQs</a></li>
+</ul>
+<h3><br></h3>
+<h2>RHT Program Applicants Webinars hosted by CMS</h2>
+<h3>Sept. 19, 2025 webinar</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=L-mibjZZ0qs">Recording</a></li>
+<li><a href="https://www.cms.gov/files/document/rht-program-applicants-webinar-presentation.pdf" data-docaccess-source-url="https://www.cms.gov/files/document/rht-program-applicants-webinar-presentation.pdf" data-url-hash="9eec0fcde664d124d4c9daa090ca82d1154b2fd7f9af26bc12646a7ead53c11c" data-url-status="disabled">Slides</a></li>
+<li><a href="https://www.cms.gov/files/document/rht-program-applicants-webinar-transcript.pdf" data-docaccess-source-url="https://www.cms.gov/files/document/rht-program-applicants-webinar-transcript.pdf" data-url-hash="1a3f9804197f945402529ff96183a3d0bf49105737f2d86546138b7732828025" data-url-status="disabled">Transcript</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '3223478e-c3dc-4bfc-931c-5e291678e541'));
+	});
+</script>
+</div>
+				</div>
+					</div>
+	</div>
+	<script type="text/javascript">
+		
+		$.when(window.Pages.rwdReady).done(function () {
+			var tabbedWidgetID = 'divTabbed452b398b-8af7-4933-a91b-b8594e698dcf';
+			var mediaQuerySize = 25;
+			if (mediaQuerySize > 0) {
+				var mediaElementQuery = '#' + tabbedWidgetID + ':media(this-min-width:' + mediaQuerySize + 'em)';
+				var $tabbedWidget = $('#' + tabbedWidgetID);
+				
+                // Update child widget classes based on parent state
+                var updateChildWidgetClasses = function (isParentWide) {
+                    var liveEditEnabled = getCookieValue("enableLiveEdit") === "true";
+                    if (liveEditEnabled)
+                        return;
+
+                    var $childWidgets = $tabbedWidget.find('.widget').not('[data-elementqueryclasses]');
+
+                    if (isParentWide) {
+                        $childWidgets.addClass('wide').removeClass('narrow');
+                        $tabbedWidget.find('[data-event-list-row="true"]').addClass('wide').removeClass('narrow');
+                    } else {
+                        $childWidgets.addClass('narrow').removeClass('wide');
+                        $tabbedWidget.find('[data-event-list-row="true"]').addClass('narrow').removeClass('wide');
+                    }
+                };
+				
+				window.cpMedia.unregister(mediaElementQuery).register(mediaElementQuery, {
+					deferSetup: false,
+					setup: function () {
+						var liveEditEnabled = $.cookie("enableLiveEdit") === "true";
+						if (!liveEditEnabled) {
+							$tabbedWidget.addClass('narrow').removeClass('wide');
+							cpMedia.diag('$(element).addClass("narrow"), mediaQuery: ' + mediaElementQuery);
+							$tabbedWidget.find('.tabbedWidget.cpTabs').hide().attr('aria-hidden', 'true');
+							$tabbedWidget.find('.tabbedWidgetNarrow.cpTabs').show().attr('aria-hidden', 'false');
+							$tabbedWidget.data("tabHeightSet", false);
+							
+							// Update child widget classes - parent is narrow
+							updateChildWidgetClasses(false);
+						}
+					},
+					match: function () {
+						$tabbedWidget.addClass('wide').removeClass('narrow');
+						cpMedia.diag('$(element).removeClass("narrow"), mediaQuery: ' + mediaElementQuery);
+						$tabbedWidget.find('.tabbedWidget.cpTabs').show().attr('aria-hidden', 'false');
+						$tabbedWidget.find('.tabbedWidgetNarrow.cpTabs').hide().attr('aria-hidden', 'true');
+
+						if($tabbedWidget.data("tabHeightSet") == false)
+						{
+							$tabbedWidget.data("tabHeightSet", true);
+
+							var tabbedWidgetID = 'divTabbed452b398b-8af7-4933-a91b-b8594e698dcf';
+							setTabbedWidgetsTabHeight(tabbedWidgetID);
+						}
+						$('.cpTabPanels').unbind('click');
+						
+						// Update child widget classes - parent is wide
+						updateChildWidgetClasses(true);
+					},
+					unmatch: function () {
+						var liveEditEnabled = $.cookie("enableLiveEdit") === "true";
+						if (!liveEditEnabled) {
+							$tabbedWidget.addClass('narrow').removeClass('wide');
+							cpMedia.diag('$(element).addClass("narrow"), mediaQuery: ' + mediaElementQuery);
+							$tabbedWidget.find('.tabbedWidget.cpTabs').hide().attr('aria-hidden', 'true');
+							$tabbedWidget.find('.tabbedWidgetNarrow.cpTabs').show().attr('aria-hidden', 'false');
+							
+							// Update child widget classes - parent is narrow
+							updateChildWidgetClasses(false);
+						}
+						$('.cpTabPanels').click(function() {
+							this.scrollIntoView();
+						});
+					}
+				});                
+            }
+        });
+		
+		//Used for when page is initially loaded
+		if($('#divTabbed452b398b-8af7-4933-a91b-b8594e698dcf').hasClass('narrow'))
+		{
+			$('.cpTabPanels').click(function() {
+				this.scrollIntoView();
+			});
+		}
+		
+
+		//If responsive not enabled, execute this after a timeout
+		if(!isResponsiveEnabled)
+		{
+			window.setTimeout(function(){
+				var tabbedWidgetID = 'divTabbed452b398b-8af7-4933-a91b-b8594e698dcf';
+				typeof setTabbedWidgetsTabHeight === "function" && setTabbedWidgetsTabHeight(tabbedWidgetID);
+			}, 1500);
+		}
+
+		function reinitCarousels() {
+			if (window.carouselsToInit) {
+				for (var i = 0; i < window.carouselsToInit.length; i++) {
+					carouselsToInit[i]();
+				}
+			}
+		}
+		function sizeTabbedContent(element){
+			if(window.Pages){
+				if(window.Pages.onResizeHandlers){
+					var setTabbedInterval = setInterval(function () {
+						window.Pages.onResizeHandlers.forEach(function(car){car();});
+					}, 25)
+
+
+					setTimeout(function () {
+						clearInterval(setTabbedInterval);
+						if ($.cookie("enableLiveEdit") === "true") {
+							setInterval(function () {
+								window.Pages.onResizeHandlers.forEach(function(car){car();});
+							}, 2000);
+						}
+					}, 2500);
+					element.onclick="window.setTimeout(function(){reinitCarousels();},2);"
+				}
+			}
+		}
+
+		function adjustTab(e) {
+			e.preventDefault();
+			window.setTimeout(function(){
+				reinitCarousels();
+			}, 2);
+			sizeTabbedContent(this);
+		}
+
+		var tabButtons = document.querySelectorAll("#divTabbed452b398b-8af7-4933-a91b-b8594e698dcf .tabButton");
+
+		tabButtons.forEach(function (tabButton) {
+			tabButton.addEventListener("click", adjustTab);
+		});
+
+	</script>
+</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest wide">
+	
+	<div class="inner col col24 first last idc8659c1d-8f89-4123-b86f-7bf1c487d6f5" style="" data-widgetcontainerid="c8659c1d-8f89-4123-b86f-7bf1c487d6f5">	
+<div class="widget editor pageStyles narrow" id="divEditor5c05f81a-fc47-44fa-bbb4-f387f385b1e7" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Year One Timeline and Reporting Requirements</h2>
+<ul>
+<li>Dec. 29, 2025 - Notice of Award</li>
+<li>Jan. 30, 2026 - Revised Budget due to CMS</li>
+<li>Q1 2026 - Funds available to State for authorized expenditures</li>
+<li>July 31, 2026 - End of first reporting period</li>
+<li>Aug. 30, 2026 - Annual Report + funding request for 2nd budget period due</li>
+<li>Oct. 30, 2026 - First Budget period ends</li>
+<li>By Oct. 31, 2026 - Second Budget Period Funding Announced</li>
+<li>By Sept. 30, 2027 - All 1st period funds must be expended</li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '5c05f81a-fc47-44fa-bbb4-f387f385b1e7'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest wide">
+	
+	<div class="inner col col24 first last idad4b8651-29bc-4d78-b9b3-d0fe903e0401" style="" data-widgetcontainerid="ad4b8651-29bc-4d78-b9b3-d0fe903e0401">	
+<div class="widget editor pageStyles narrow" id="divEditor7409873e-a958-49de-8c55-f9b699ae7f7e" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Five Kansas RHTP Initiatives</h2>
+<ul style="box-sizing: border-box; --categoryColor: #2e4e84; margin: 0px 0px 1rem; padding: 0px 0px 0px 2rem; font-family: Nunito; font-style: normal; font-weight: 400; color: rgb(68, 68, 68); line-height: 1.5; font-size: 16px; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-pasted="true">
+<li style="box-sizing: border-box; --categoryColor: #2e4e84;">Improving rural Kansas’ health outcomes and transforming the delivery system by implementing and sustaining initiatives that promote preventative health care and address root causes of diseases,</li>
+<li style="box-sizing: border-box; --categoryColor: #2e4e84;">Enhancing rural health care providers’ efficiency and sustainability,</li>
+<li style="box-sizing: border-box; --categoryColor: #2e4e84;">Attracting and retaining a highly-skilled health care workforce,</li>
+<li style="box-sizing: border-box; --categoryColor: #2e4e84;">Sparking growth of innovative care models in rural communities that improve quality of care while reducing costs, and,</li>
+<li style="box-sizing: border-box; --categoryColor: #2e4e84;">Fostering the use of innovative technologies to increase access to care for rural Kansans</li>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '7409873e-a958-49de-8c55-f9b699ae7f7e'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col24 first last id0d3abbbf-48a3-4ff0-85a2-d9de77bffae4" style="" data-widgetcontainerid="0d3abbbf-48a3-4ff0-85a2-d9de77bffae4">	
+<div class="widget editor pageStyles narrow" id="divEditord776f68e-a60d-4f6f-8ec7-c7e7510cd14c" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <p><em data-pasted="true">This website is supported by the Centers for Medicare &amp; Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial assistance award totaling $221,898,007.82<strong> </strong>with 100 percent funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.</em></p>
+    </div>
+
+<script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + 'd776f68e-a60d-4f6f-8ec7-c7e7510cd14c'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+		</div>
+
+	</div>
+
+	
+	<div class="newCP">
+
+	</div>
+</div>
+</div>
+<aside data-cprole="contentContainer" id="featureColumn" class="secondaryContent"><div id="ccd6923f64-2522-4bce-8783-61ad1b416b69" data-containerid="d6923f64-2522-4bce-8783-61ad1b416b69" class="pageContent cpGrid cpGrid24 showInMobile" data-contentcontainerbreakpoint="40">
+				                
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="ea88fb90-c189-40dc-b850-cfbbb97b7e06">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id517cc107-f216-4c4b-a0d2-bd53b95fc99f" style="" data-widgetcontainerid="517cc107-f216-4c4b-a0d2-bd53b95fc99f">	
+<div class="widget editor pageStyles narrow" id="divEditor100628bb-07a1-4e65-9833-d18bd4f5b68d" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}'>
+	    <div class="fr-view">
+
+
+        <h2 class="subhead1">Contact Information:</h2>
+<p><span data-teams="true" data-pasted="true">Email: <a href="/cdn-cgi/l/email-protection#85eee1ede0abf7edf1f5c5eef6abe2eaf3"><span class="__cf_email__" data-cfemail="fa919e929fd488928e8aba9189d49d958c">[email protected]</span></a></span></p>
+<h2 data-pasted="true">Quick Links</h2>
+<ul>
+<li>
+<a href="https://www.cms.gov/priorities/rural-health-transformation-rht-program/overview" target="_blank" rel="noopener">CMS Rural Health Transformation Program Website</a> </li>
+<li><a href="/DocumentCenter/View/52477" target="_blank" rel="noopener" data-docaccess-source-url="https://www.kdhe.ks.gov/DocumentCenter/View/52477" data-url-hash="697ac9b7a4b78b21cff3bd75621bf3c8337064f7b36b0f2ffebb52025cf50ba5" data-url-status="disabled">CMS Rural Health Transformation Program Notice of Funding Opportunity (NOFO)</a></li>
+</ul>
+<h2><br></h2>
+    </div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+	$(document).ready(function (e) {		
+	    renderSlideshowIfApplicable($('#divEditor' + '100628bb-07a1-4e65-9833-d18bd4f5b68d'));
+	});
+</script>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+	</div>
+</aside>
+</div>
+<div data-cprole="structuralContainer" id="siteSidebarTS" class="siteSidebar">
+<aside data-cprole="contentContainer" id="sidebarContainer1TS"><div id="cccd59b756-2850-487d-a99e-9281d07f2966" data-containerid="cd59b756-2850-487d-a99e-9281d07f2966" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="1e290db3-aa7c-4237-8fa0-2974d7d11322">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last id3d025d8f-f752-4e82-94a1-fe8d1bfa36a4" style="" data-widgetcontainerid="3d025d8f-f752-4e82-94a1-fe8d1bfa36a4">	
+<div data-widget-id="166d2e19-3e7a-4c44-974b-adcfa353c747" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget166d2e19-3e7a-4c44-974b-adcfa353c747" class="widget widgetGraphicLinks skin43 widgetOptionSet4 wide" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid1 ">
+		<nav class="widgetGraphicLinksNav" aria-labelledby="GraphicLinkHeaderText"><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/" target="_self" class="fancyButton fancyButton2133 ">
+		<span>
+			<span><span class="text">KDHE Home</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton2133.fancyButton:link,.fancyButton2133.fancyButton:visited, .fancyButton2133div.fancyButton{
+	background-color: #ffffff;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-right: .5em;
+	padding-left: 1em;
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-left: 4px solid #304f81;
+
+transition: all .3s ease-in-out;}
+.fancyButton2133.fancyButton:hover,.fancyButton2133.fancyButton:focus,.fancyButton2133.fancyButton:active,.fancyButton2133.fancyButton.hover{
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: left top;
+	border-left: 4px solid #fdb800;
+}
+.fancyButton2133.fancyButton:link > span,.fancyButton2133.fancyButton:visited > span, .fancyButton2133div.fancyButton > span{
+}
+.fancyButton2133.fancyButton:hover > span,.fancyButton2133.fancyButton:focus > span,.fancyButton2133.fancyButton:active > span,.fancyButton2133.fancyButton.hover > span{
+}
+.fancyButton2133.fancyButton .text{
+	color: #000000;
+	font-family: "Montserrat";
+	text-align: left;
+	padding-top: .25em;
+	padding-bottom: .25em;
+	padding-right: 1em;
+	padding-left: 3em;
+	font-weight: 600;
+	text-decoration: none;
+	padding-top: .25em;
+	padding-bottom: .25em;
+	padding-right: 1em;
+	padding-left: 3em;
+	background-image: url('/ImageRepository/Document?documentID=15127');
+	background-repeat: no-repeat;
+	background-position: left center;
+
+
+}
+.fancyButton2133.fancyButton:hover .text,.fancyButton2133.fancyButton:focus .text,.fancyButton2133.fancyButton:active .text,.fancyButton2133.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left center;
+
+
+}
+</style>
+</li>
+<!--
+				-->
+				</ul></nav>
+</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+	</div>
+</aside><nav data-cprole="nav" id="secondaryNav" class="siteNav secondaryNav"><ol role="menu" id="secondaryMenusecondaryNav" data-parent="2122" class="rootNavMenu accordionNav">
+<li class="topMenuItem sideNavLi hasAccordionChildren" id="SideItem245" data-pageid="245">
+		<div class="accordionNavItem">
+			<a href="/245/Community-Based-Primary-Care-Clinics" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Community-Based Primary Care Clinics</a>
+				<a href="#" role="button" class="openAccordionNav accordionSecondaryNavItem" aria-label="Community-Based Primary Care Clinics Submenu" aria-expanded="false" aria-controls="submenu-lvl1-245"></a>
+		</div>
+					<ol aria-hidden="true" class="accordionNavContainer accordionNavContainer--lvl1" id="submenu-lvl1-245" style="display: none;" data-parent="245">
+<li class="sideNavLi subMenuItem hasAccordionChildren" id="SideItem247" data-pageid="247">
+			<div class="accordionNavItem">
+				<a href="/247/Resources-for-Grantees" target="_self" class="navMenuItem cpComponent" data-type="SecondaryMenuItem"><span lang="en">Resources for Grantees</span></a>
+			</div>
+					</li>
+
+			</ol>
+</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" id="SideItem2361" data-pageid="2361">
+		<div class="accordionNavItem">
+			<a href="/2361/Rural-Health-Transformation-Program" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Rural Health Transformation Program</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" id="SideItem256" data-pageid="256">
+		<div class="accordionNavItem">
+			<a href="/256/Federally-Qualified-Health-Centers" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Federally Qualified Health Centers</a>
+		</div>
+			</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" id="SideItem2120" data-pageid="2120">
+		<div class="accordionNavItem">
+			<a href="/2120/Hospitals" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Hospitals</a>
+				<a href="#" role="button" class="openAccordionNav accordionSecondaryNavItem" aria-label="Hospitals Submenu" aria-expanded="false" aria-controls="submenu-lvl1-2120"></a>
+		</div>
+					<ol aria-hidden="true" class="accordionNavContainer accordionNavContainer--lvl1" id="submenu-lvl1-2120" style="display: none;" data-parent="2120">
+<li class="sideNavLi subMenuItem hasAccordionChildren" id="SideItem348" data-pageid="348">
+			<div class="accordionNavItem">
+				<a href="/348/Small-Hospital-Improvement-Program" target="_self" class="navMenuItem cpComponent" data-type="SecondaryMenuItem"><span lang="en">Small Hospital Improvement Program</span></a>
+			</div>
+					</li>
+		<li class="sideNavLi subMenuItem hasAccordionChildren" id="SideItem1922" data-pageid="1922">
+			<div class="accordionNavItem">
+				<a href="/1922/Rural-Hospital-Innovation-Grant" target="_self" class="navMenuItem cpComponent" data-type="SecondaryMenuItem"><span lang="en">Rural Hospital Innovation Grant</span></a>
+			</div>
+					</li>
+
+			</ol>
+</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" id="SideItem2118" data-pageid="2118">
+		<div class="accordionNavItem">
+			<a href="/2118/Medicare-Designated-Facilities" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Medicare-Designated Facilities</a>
+				<a href="#" role="button" class="openAccordionNav accordionSecondaryNavItem" aria-label="Medicare-Designated Facilities Submenu" aria-expanded="false" aria-controls="submenu-lvl1-2118"></a>
+		</div>
+					<ol aria-hidden="true" class="accordionNavContainer accordionNavContainer--lvl1" id="submenu-lvl1-2118" style="display: none;" data-parent="2118">
+<li class="sideNavLi subMenuItem hasAccordionChildren" id="SideItem316" data-pageid="316">
+			<div class="accordionNavItem">
+				<a href="/316/Medicare-Designated-Rural-Health-Clinics" target="_self" class="navMenuItem cpComponent" data-type="SecondaryMenuItem"><span lang="en">Medicare-Designated Rural Health Clinics</span></a>
+			</div>
+					</li>
+		<li class="sideNavLi subMenuItem hasAccordionChildren" id="SideItem311" data-pageid="311">
+			<div class="accordionNavItem">
+				<a href="/311/Medicare-Rural-Hospital-Flexibility-Prog" target="_self" class="navMenuItem cpComponent" data-type="SecondaryMenuItem"><span lang="en">Medicare Rural Hospital Flexibility Program</span></a>
+			</div>
+					</li>
+
+			</ol>
+</li>
+	<li class="topMenuItem sideNavLi hasAccordionChildren" id="SideItem1563" data-pageid="1563">
+		<div class="accordionNavItem">
+			<a href="/1563/Rural-Health-Clinics" target="_self" class="navMainItem secondaryNavItem cpComponent" data-type="SecondaryMainItem">Rural Health Clinics</a>
+		</div>
+			</li>
+
+	</ol>
+<script type="text/javascript">
+		(function () {
+			function setupSecondaryMenuProperties() {
+				//setup menu manager properties for secondary menu
+				menuManager.isSideMenuEditable = false;
+				menuManager.sideMenuMaxSubMenuLevels = 4;
+				menuManager.sideMenuHasCustomLinks = false;
+			}
+
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", setupSecondaryMenuProperties, { once: true });
+				return;
+			}
+
+			setupSecondaryMenuProperties();
+		})();
+	</script><script type="text/javascript">
+		(function () {
+			function setupAccordionSecondaryNav() {
+				var $menuContainer = $('#secondaryNav');
+
+				$menuContainer.find('*[id^="SideItem"]').each(function () {
+					var ids = $('[id="' + this.id + '"]');
+					if (ids.length > 1)
+						$.each(ids, function (index, value) {
+							value.id = value.id + '_' + index;
+						});
+				});
+
+				$menuContainer.find('.hasAccordionChildren .openAccordionNav').off('click.secondaryNav').on('click.secondaryNav', function (e) {
+					e.preventDefault();
+					showHideAccordionMenuForSecondaryNav($(this));
+				});
+
+				$menuContainer.find(".grippy").each(function () {
+					menuManager.setupDraggableElement($(this), SIDE_MENU, '#secondaryNav');
+				});
+
+				$menuContainer.find("li").each(function () {
+					menuManager.setupDroppableAccordionElement($(this), SIDE_MENU);
+				});
+			}
+
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", setupAccordionSecondaryNav, { once: true });
+				return;
+			}
+
+			setupAccordionSecondaryNav();
+		})();
+	</script></nav><aside data-cprole="contentContainer" id="sidebarContainer2TS"><div id="ccaafc0a6d-e53f-4c73-8aa7-150270f7de6c" data-containerid="aafc0a6d-e53f-4c73-8aa7-150270f7de6c" class="pageContent cpGrid cpGrid24 showInMobile">
+				                
+
+
+
+	</div>
+</aside>
+</div>
+</div></div>
+</div>
+<!-- GBs --><div data-cprole="structuralContainer" id="gbsContainerTS">
+<div class="siteWrap3"><div data-cprole="contentContainer" id="gbsTS">	<div id="ccf26ce22f-71b1-4900-9bed-13a219bb06ea" data-containerid="f26ce22f-71b1-4900-9bed-13a219bb06ea" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="55">
+				                
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col12 first" style="" data-widgetcontainerid="3781a532-4548-4620-8e88-b20ffe2e90b2">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last idcfa40b70-23f3-47ec-84f7-ef98df04714a" style="" data-widgetcontainerid="cfa40b70-23f3-47ec-84f7-ef98df04714a">	
+<div data-widget-id="cd52d2c9-3983-410d-b042-c4d8577704b5" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidgetcd52d2c9-3983-410d-b042-c4d8577704b5" class="widget widgetGraphicLinks skin45 widgetOptionSet44 wide" data-elementqueryclasses='{"wide-narrow":"min-width:35em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid3 ">
+		<nav class="widgetGraphicLinksNav" aria-labelledby="GraphicLinkHeaderText"><div class="row   wide">
+					<!--
+--><div class="col col1 first "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/1347/Health-Services-Guide" target="_self" class="fancyButton fancyButton137 ">
+		<span>
+			<span><span class="text">Public Health Services Guide</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton137.fancyButton:link,.fancyButton137.fancyButton:visited, .fancyButton137div.fancyButton{
+	padding-left: 5.5em;
+	background-image: url('/ImageRepository/Document?documentID=167');
+	background-repeat: no-repeat;
+	background-position: 10px  center;
+max-width:300px;
+margin:0 auto;
+transition:.1s ease-in-out;
+background-size:60px;
+line-height:1;}
+.fancyButton137.fancyButton:hover,.fancyButton137.fancyButton:focus,.fancyButton137.fancyButton:active,.fancyButton137.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: left center;
+background-size:80px;
+}
+.fancyButton137.fancyButton:link > span,.fancyButton137.fancyButton:visited > span, .fancyButton137div.fancyButton > span{
+}
+.fancyButton137.fancyButton:hover > span,.fancyButton137.fancyButton:focus > span,.fancyButton137.fancyButton:active > span,.fancyButton137.fancyButton.hover > span{
+}
+.fancyButton137.fancyButton .text{
+	color: #333333;
+	font-size: 1.2em;
+	font-family: "Nunito";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-left: 3px None #f1ad02;
+height:70px;
+}
+.fancyButton137.fancyButton:hover .text,.fancyButton137.fancyButton:focus .text,.fancyButton137.fancyButton:active .text,.fancyButton137.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+</li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/214/Immunization" target="_self" class="fancyButton fancyButton121 ">
+		<span>
+			<span><span class="text">Immunization</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton121.fancyButton:link,.fancyButton121.fancyButton:visited, .fancyButton121div.fancyButton{
+	padding-left: 5.5em;
+	background-image: url('/ImageRepository/Document?documentID=166');
+	background-repeat: no-repeat;
+	background-position: 10px  center;
+max-width:300px;
+margin:0 auto;
+transition:.1s ease-in-out;
+background-size:60px;
+line-height:1;}
+.fancyButton121.fancyButton:hover,.fancyButton121.fancyButton:focus,.fancyButton121.fancyButton:active,.fancyButton121.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: left center;
+background-size:80px;
+}
+.fancyButton121.fancyButton:link > span,.fancyButton121.fancyButton:visited > span, .fancyButton121div.fancyButton > span{
+}
+.fancyButton121.fancyButton:hover > span,.fancyButton121.fancyButton:focus > span,.fancyButton121.fancyButton:active > span,.fancyButton121.fancyButton.hover > span{
+}
+.fancyButton121.fancyButton .text{
+	color: #333333;
+	font-size: 1.2em;
+	font-family: "Nunito";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-left: 3px None #f1ad02;
+height:70px;
+}
+.fancyButton121.fancyButton:hover .text,.fancyButton121.fancyButton:focus .text,.fancyButton121.fancyButton:active .text,.fancyButton121.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+</li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  last"><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/1000/Nutrition-WIC-Services" target="_self" class="fancyButton fancyButton138 ">
+		<span>
+			<span><span class="text">WIC</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton138.fancyButton:link,.fancyButton138.fancyButton:visited, .fancyButton138div.fancyButton{
+	padding-left: 5.5em;
+	background-image: url('/ImageRepository/Document?documentID=169');
+	background-repeat: no-repeat;
+	background-position: 10px  center;
+max-width:300px;
+margin:0 auto;
+transition:.1s ease-in-out;
+background-size:60px;
+line-height:1;}
+.fancyButton138.fancyButton:hover,.fancyButton138.fancyButton:focus,.fancyButton138.fancyButton:active,.fancyButton138.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: left center;
+background-size:80px;
+}
+.fancyButton138.fancyButton:link > span,.fancyButton138.fancyButton:visited > span, .fancyButton138div.fancyButton > span{
+}
+.fancyButton138.fancyButton:hover > span,.fancyButton138.fancyButton:focus > span,.fancyButton138.fancyButton:active > span,.fancyButton138.fancyButton.hover > span{
+}
+.fancyButton138.fancyButton .text{
+	color: #333333;
+	font-size: 1.2em;
+	font-family: "Nunito";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-left: 3px None #f1ad02;
+height:70px;
+}
+.fancyButton138.fancyButton:hover .text,.fancyButton138.fancyButton:focus .text,.fancyButton138.fancyButton:active .text,.fancyButton138.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+</li>
+<!--
+-->
+</ul></div>
+<!--				-->
+				</div>
+			</nav>
+</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!----><div class="outer col col12 last" style="" data-widgetcontainerid="1cb2a4a9-d29b-4ebf-805c-ccdc1e6dc9b5">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col12 first last id64bb911b-d5b5-455e-bb47-04673a1aa1a7" style="" data-widgetcontainerid="64bb911b-d5b5-455e-bb47-04673a1aa1a7">	
+<div data-widget-id="0792c96d-f5d1-478f-a320-fb2f4a961557" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget0792c96d-f5d1-478f-a320-fb2f4a961557" class="widget widgetGraphicLinks skin45 widgetOptionSet44 wide" data-elementqueryclasses='{"wide-narrow":"min-width:35em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid3 ">
+		<nav class="widgetGraphicLinksNav" aria-labelledby="GraphicLinkHeaderText"><div class="row   wide">
+					<!--
+--><div class="col col1 first "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/280/Child-Care-Licensing" target="_self" class="fancyButton fancyButton139 ">
+		<span>
+			<span><span class="text">Child Care Licensing</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton139.fancyButton:link,.fancyButton139.fancyButton:visited, .fancyButton139div.fancyButton{
+	padding-left: 5.5em;
+	background-image: url('/ImageRepository/Document?documentID=21155');
+	background-repeat: no-repeat;
+	background-position: 10px  center;
+max-width:300px;
+margin:0 auto;
+transition:.1s ease-in-out;
+background-size:60px;
+line-height:1;}
+.fancyButton139.fancyButton:hover,.fancyButton139.fancyButton:focus,.fancyButton139.fancyButton:active,.fancyButton139.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: left center;
+background-size:80px;
+}
+.fancyButton139.fancyButton:link > span,.fancyButton139.fancyButton:visited > span, .fancyButton139div.fancyButton > span{
+}
+.fancyButton139.fancyButton:hover > span,.fancyButton139.fancyButton:focus > span,.fancyButton139.fancyButton:active > span,.fancyButton139.fancyButton.hover > span{
+}
+.fancyButton139.fancyButton .text{
+	color: #333333;
+	font-size: 1.2em;
+	font-family: "Nunito";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-left: 3px None #f1ad02;
+height:70px;
+}
+.fancyButton139.fancyButton:hover .text,.fancyButton139.fancyButton:focus .text,.fancyButton139.fancyButton:active .text,.fancyButton139.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+</li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/747/Special-Health-Care-Needs" target="_self" class="fancyButton fancyButton122 ">
+		<span>
+			<span><span class="text">Special Health Care Needs</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton122.fancyButton:link,.fancyButton122.fancyButton:visited, .fancyButton122div.fancyButton{
+	padding-left: 5.5em;
+	background-image: url('/ImageRepository/Document?documentID=95');
+	background-repeat: no-repeat;
+	background-position: 10px  center;
+max-width:300px;
+margin:0 auto;
+transition:.1s ease-in-out;
+background-size:60px;
+line-height:1;}
+.fancyButton122.fancyButton:hover,.fancyButton122.fancyButton:focus,.fancyButton122.fancyButton:active,.fancyButton122.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: left center;
+background-size:80px;
+}
+.fancyButton122.fancyButton:link > span,.fancyButton122.fancyButton:visited > span, .fancyButton122div.fancyButton > span{
+}
+.fancyButton122.fancyButton:hover > span,.fancyButton122.fancyButton:focus > span,.fancyButton122.fancyButton:active > span,.fancyButton122.fancyButton.hover > span{
+}
+.fancyButton122.fancyButton .text{
+	color: #333333;
+	font-size: 1.2em;
+	font-family: "Nunito";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-left: 3px None #f1ad02;
+height:70px;
+}
+.fancyButton122.fancyButton:hover .text,.fancyButton122.fancyButton:focus .text,.fancyButton122.fancyButton:active .text,.fancyButton122.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+</li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  last"><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks">
+
+<div>
+	<a href="/Jobs.aspx" target="_self" class="fancyButton fancyButton140 ">
+		<span>
+			<span><span class="text">Jobs</span></span>
+		</span>
+	</a>
+</div>
+		<style scoped="scoped">.fancyButton140.fancyButton:link,.fancyButton140.fancyButton:visited, .fancyButton140div.fancyButton{
+	padding-left: 5.5em;
+	background-image: url('/ImageRepository/Document?documentID=168');
+	background-repeat: no-repeat;
+	background-position: 10px  center;
+max-width:300px;
+margin:0 auto;
+transition:.1s ease-in-out;
+background-size:60px;
+line-height:1;}
+.fancyButton140.fancyButton:hover,.fancyButton140.fancyButton:focus,.fancyButton140.fancyButton:active,.fancyButton140.fancyButton.hover{
+	background-repeat: no-repeat;
+	background-position: left center;
+background-size:80px;
+}
+.fancyButton140.fancyButton:link > span,.fancyButton140.fancyButton:visited > span, .fancyButton140div.fancyButton > span{
+}
+.fancyButton140.fancyButton:hover > span,.fancyButton140.fancyButton:focus > span,.fancyButton140.fancyButton:active > span,.fancyButton140.fancyButton.hover > span{
+}
+.fancyButton140.fancyButton .text{
+	color: #333333;
+	font-size: 1.2em;
+	font-family: "Nunito";
+	text-align: left;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	font-weight: 700;
+	text-decoration: none;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-right: 1em;
+	background-repeat: no-repeat;
+	background-position: left center;
+	border-left: 3px None #f1ad02;
+height:70px;
+}
+.fancyButton140.fancyButton:hover .text,.fancyButton140.fancyButton:focus .text,.fancyButton140.fancyButton:active .text,.fancyButton140.fancyButton.hover .text{
+	text-decoration: underline;
+	background-repeat: no-repeat;
+	background-position: left top;
+
+
+}
+</style>
+</li>
+<!--
+-->
+</ul></div>
+<!--				-->
+				</div>
+			</nav>
+</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</div>
+<!-- Footer --><footer data-cprole="structuralContainer" id="footerContainerTS"><div class="siteWrap"><div data-cprole="contentContainer" id="footerTS">	<div id="cc8efaac3d-177e-4b68-b1ca-b774c00f3c3c" data-containerid="8efaac3d-177e-4b68-b1ca-b774c00f3c3c" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile" data-contentcontainerbreakpoint="55">
+				                
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col4 first" style="" data-widgetcontainerid="8366b4fd-61a8-4c5d-a5ba-9228e1e17dee">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col4 first last id0760bca9-0522-4b31-b800-85f15facecee" style="" data-widgetcontainerid="0760bca9-0522-4b31-b800-85f15facecee">	
+    <div data-widget-id="43190508-890e-43e9-817c-975d7ea9b57c" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdv43190508-890e-43e9-817c-975d7ea9b57c" class="widget widgetInfoAdvanced skin63 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" aria-label="Info Advanced"><header class="widgetHeader" id="header43190508-890e-43e9-817c-975d7ea9b57c"><div class="">
+								</div>
+	</header><div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+<li class="InfoAdvanced widgetItem fr-view">
+	<p style="text-align: center;"><a href="/"><img src="/ImageRepository/Document?documentId=108" class="fr-dib" alt="Kansas department of health and environment logo"></a></p>
+</li>						</ol>
+</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section><script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdv43190508-890e-43e9-817c-975d7ea9b57c .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script>
+</div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest wide">
+	
+	<div class="inner col col4 first last idac86783a-81e2-4585-8733-e4ce3b824ceb" style="" data-widgetcontainerid="ac86783a-81e2-4585-8733-e4ce3b824ceb">	
+    <div data-widget-id="f0edce80-6e48-46ae-913e-d61e659c67df" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdvf0edce80-6e48-46ae-913e-d61e659c67df" class="widget widgetInfoAdvanced skin37 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" aria-label="Info Advanced"><header class="widgetHeader" id="headerf0edce80-6e48-46ae-913e-d61e659c67df"><div class="">
+								</div>
+	</header><div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+<li class="InfoAdvanced widgetItem fr-view">
+	<p style="text-align: center;"><strong>To protect and improve the</strong><br><strong>health and environment</strong><br><strong>of all Kansans.</strong></p>
+</li>						</ol>
+</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section><script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdvf0edce80-6e48-46ae-913e-d61e659c67df .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script>
+</div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest wide">
+	
+	<div class="inner col col4 first last ide52333f5-710b-430a-8508-3d4f875e95bd" style="" data-widgetcontainerid="e52333f5-710b-430a-8508-3d4f875e95bd">	
+
+<div class="widget widgetSpacer" id="72368f16-823b-4dd5-a8ec-e4347a0fd2d3"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col4 first last id76541b74-46cc-4acc-b99b-ee425fe9c52b" style="" data-widgetcontainerid="76541b74-46cc-4acc-b99b-ee425fe9c52b">	
+<div data-widget-id="4a92e268-9138-47e4-a0c0-75bc7d7753ed" data-widget-controller-path="/GraphicLinks/Widget">
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!----><div class="outer col col2" style="" data-widgetcontainerid="7443192b-2dec-4752-97fc-2371a4a2ef59">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col2 first last idb5b8782c-c550-477b-8ef7-a42b4212f679" style="" data-widgetcontainerid="b5b8782c-c550-477b-8ef7-a42b4212f679">	
+
+<div class="widget widgetSpacer" id="66d6f47e-4b48-47fc-815c-fa17f70549ce"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!----><div class="outer col col5" style="" data-widgetcontainerid="3e40f142-abaa-4b41-9c11-b31dc557043e">				
+	<div class="row nest first wide">
+	
+	<div class="inner col col5 first last id96338f6a-9074-463f-93f3-b48bbe1deb2a" style="" data-widgetcontainerid="96338f6a-9074-463f-93f3-b48bbe1deb2a">	
+    <div data-widget-id="ae9fff17-1761-4ca8-be03-78a0f8160c09" data-widget-controller-path="/InfoAdvanced/Widget">
+
+
+
+
+
+	<section id="divInfoAdvae9fff17-1761-4ca8-be03-78a0f8160c09" class="widget widgetInfoAdvanced skin37 widgetOptionSet5 wide" data-modulewidgettype="infoAdv" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" aria-labelledby="headerae9fff17-1761-4ca8-be03-78a0f8160c09"><header class="widgetHeader" id="headerae9fff17-1761-4ca8-be03-78a0f8160c09"><div class="">
+					<h3>Contact Us</h3>
+								</div>
+	</header><div class="widgetBody  cpGrid cpGrid1 ">
+		<div class="row  wide">
+					<div class="col col1 first last">
+						<ol class="pageStyles semanticList">
+<li class="InfoAdvanced widgetItem fr-view">
+	<p><strong>Division of Public Health</strong><br>1000 SW Jackson<br>Suite 540<br>Topeka, KS 66612<br><a href="/cdn-cgi/l/email-protection#99f2fdf1fcb7f0f7fff6d9f2eab7fef6ef">Email</a><br>Phone: <a href="tel:785-296-1086">785-296-1086</a><br><br><a href="/Directory.aspx?DID=13">Division &amp; Staff Directory</a></p>
+</li>						</ol>
+</div>
+		</div>
+	</div>
+	<div class="widgetFooter">
+
+	</div>
+
+	</section><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+	//Render slideshow if info advacned items contain one.
+	$(document).ready(function (e) {
+		$('#divInfoAdvae9fff17-1761-4ca8-be03-78a0f8160c09 .InfoAdvanced.widgetItem').each(function () {
+			renderSlideshowIfApplicable($(this));		
+		});
+	});
+</script>
+</div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest wide">
+	
+	<div class="inner col col5 first last idd4a9e036-abe9-465c-ab98-1cab1c84d81d" style="" data-widgetcontainerid="d4a9e036-abe9-465c-ab98-1cab1c84d81d">	
+
+<div class="widget widgetSpacer" id="709755e6-fa80-412d-8bc8-b7964c6436f3"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest wide">
+	
+	<div class="inner col col5 first last id8879ff09-a63e-4fcd-8155-0bc7eb078849" style="" data-widgetcontainerid="8879ff09-a63e-4fcd-8155-0bc7eb078849">	
+
+<div class="widget widgetSpacer" id="78b2042d-e646-4366-9661-658b43495611"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+	<div class="row nest last wide">
+	
+	<div class="inner col col5 first last idad981a9a-5156-43a1-a2a2-def0c4ebc809" style="" data-widgetcontainerid="ad981a9a-5156-43a1-a2a2-def0c4ebc809">	
+<div data-widget-id="5eee8625-b22c-4478-85c5-8a2fa75e25b7" data-widget-controller-path="/GraphicLinks/Widget">
+
+
+
+
+<div id="graphicLinkWidget5eee8625-b22c-4478-85c5-8a2fa75e25b7" class="widget widgetGraphicLinks skin55 widgetOptionSet41 wide" data-elementqueryclasses='{"wide-narrow":"min-width:1em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" data-modulewidgettype="graphicLinks">
+	<div class="widgetHeader">
+		<div class="">
+				</div>
+	</div>
+	<div class="widgetBody cpGrid cpGrid5 ">
+		<nav class="widgetGraphicLinksNav" aria-labelledby="GraphicLinkHeaderText"><div class="row   wide">
+					<!--
+--><div class="col col1 first "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://www.facebook.com/KDHEnews" target="_blank" aria-label="Facebook opens in new window">
+
+<img src="/ImageRepository/Document?documentID=48" class="graphicButtonLink" alt="Facebook" onmouseover="this.src='/ImageRepository/Document?documentID=48'" onmouseout="this.src='/ImageRepository/Document?documentID=48'" onfocus="this.src='/ImageRepository/Document?documentID=48'" onblur="this.src='/ImageRepository/Document?documentID=48'"></a></li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://twitter.com/KDHE" target="_blank" aria-label="X opens in new window">
+
+<img src="/ImageRepository/Document?documentID=39985" class="graphicButtonLink" alt="X" onmouseover="this.src='/ImageRepository/Document?documentID=39985'" onmouseout="this.src='/ImageRepository/Document?documentID=39985'" onfocus="this.src='/ImageRepository/Document?documentID=39985'" onblur="this.src='/ImageRepository/Document?documentID=39985'"></a></li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://www.instagram.com/kdheks" target="_blank" aria-label="Instagram opens in new window">
+
+<img src="/ImageRepository/Document?documentID=49" class="graphicButtonLink" alt="Instagram" onmouseover="this.src='/ImageRepository/Document?documentID=49'" onmouseout="this.src='/ImageRepository/Document?documentID=49'" onfocus="this.src='/ImageRepository/Document?documentID=49'" onblur="this.src='/ImageRepository/Document?documentID=49'"></a></li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  "><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://www.linkedin.com/company/kansas-department-of-health-and-environment" target="_blank" aria-label="Linkedin opens in new window">
+
+<img src="/ImageRepository/Document?documentID=52" class="graphicButtonLink" alt="Linkedin" onmouseover="this.src='/ImageRepository/Document?documentID=52'" onmouseout="this.src='/ImageRepository/Document?documentID=52'" onfocus="this.src='/ImageRepository/Document?documentID=52'" onblur="this.src='/ImageRepository/Document?documentID=52'"></a></li>
+<!--
+-->
+</ul></div>
+<!----><div class="col col1  last"><ul class="semanticList">
+<!--
+
+	    --><li class="widgetItem GraphicLinks"><a class="widgetDesc widgetGraphicLinksLink" href="https://vimeo.com/kdhe" target="_blank" aria-label="vimeo opens in new window">
+
+<img src="/ImageRepository/Document?documentID=105" class="graphicButtonLink" alt="vimeo" onmouseover="this.src='/ImageRepository/Document?documentID=105'" onmouseout="this.src='/ImageRepository/Document?documentID=105'" onfocus="this.src='/ImageRepository/Document?documentID=105'" onblur="this.src='/ImageRepository/Document?documentID=105'"></a></li>
+<!--
+-->
+</ul></div>
+<!--				-->
+				</div>
+			</nav>
+</div>
+	<div class="widgetFooter">
+			</div>
+</div>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!----><div class="outer col col1" style="" data-widgetcontainerid="0d8d2cff-a5bd-4050-b7cd-a953ca2b07f3">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col1 first last idd9483522-23b7-4118-94ed-a893142eefc0" style="" data-widgetcontainerid="d9483522-23b7-4118-94ed-a893142eefc0">	
+
+<div class="widget widgetSpacer" id="2a6c7b37-4b10-4fb3-8b2e-2d2e534b5da1"></div>	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!----><div class="outer col col7" style="" data-widgetcontainerid="7f5985fe-5391-4b61-9cce-642268822a33">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col7 first last id4d7bd3f2-84be-47f9-9e74-5f8e255b7bb4" style="" data-widgetcontainerid="4d7bd3f2-84be-47f9-9e74-5f8e255b7bb4">	
+	<div data-widget-id="7f8191c9-65a0-4c57-8477-9b2e7ad2bf5d" data-widget-controller-path="/QuickLinks/Widget">
+
+
+
+
+
+
+
+
+	<section id="widgetQuicklink7f8191c9-65a0-4c57-8477-9b2e7ad2bf5d" class="widget widgetQuickLinks skin37 widgetOptionSet42 narrow" data-modulewidgettype="quickLinks" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" aria-labelledby="quickLinksHeader7f8191c9-65a0-4c57-8477-9b2e7ad2bf5d"><header class="widgetHeader" id="quickLinksHeader7f8191c9-65a0-4c57-8477-9b2e7ad2bf5d"><div class="">
+					<h3><a style="" href="/QuickLinks.aspx?CID=342">Quick Links</a></h3>
+						</div>
+	</header><div class="widgetBody cpGrid cpGrid1 ">
+        <div class="row  narrow">
+				<div class="col col1 first last">
+					<ol class="semanticList">
+<li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://kgms.ks.gov/" target="_self">Kansas Grant Management System</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://www.kdhe.ks.gov/1734/Behavioral-Risk-Factor-Surveillance-Syst" target="_self">Kansas Behavioral Risk Factor Surveillance System (KS BRFSS)</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://kanphix.kdhe.ks.gov/" target="_self">Kansas Public Health Information (KANPHIX)</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/1392/4252/Community-Health-Resources" target="_self">Community Health Resources</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://khap2.kdhe.state.ks.us/" target="_self">KDHE Application Portal (KHAP)</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://member.everbridge.net/892807736724418/login" target="_self">Kansas Health Alert Network (KS-HAN)</a>
+        <div class="widgetMeta"></div>
+    </li>
+					</ol>
+</div>
+		</div>
+        
+	</div>
+	<div class="widgetFooter">
+	</div>
+	<div class="addItemModal hidden">
+		<div class="url hidden">/QuickLinks.aspx</div>
+	</div>
+
+	</section>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!----><div class="outer col col5 last" style="" data-widgetcontainerid="cf903d09-70ea-4352-8cce-b116ce5615a0">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col5 first last idf65c2af3-1c3d-44cb-81b7-36e70ce6b908" style="" data-widgetcontainerid="f65c2af3-1c3d-44cb-81b7-36e70ce6b908">	
+	<div data-widget-id="45e15e61-216f-4949-a2a4-f55ac6bf371c" data-widget-controller-path="/QuickLinks/Widget">
+
+
+
+
+
+
+
+
+	<section id="widgetQuicklink45e15e61-216f-4949-a2a4-f55ac6bf371c" class="widget widgetQuickLinks skin37 widgetOptionSet42 narrow" data-modulewidgettype="quickLinks" data-elementqueryclasses='{"wide-narrow":"min-width:25em"}' data-elementquerymatch="matchMultiColumn" data-elementqueryunmatch="unmatchMultiColumn" aria-labelledby="quickLinksHeader45e15e61-216f-4949-a2a4-f55ac6bf371c"><header class="widgetHeader" id="quickLinksHeader45e15e61-216f-4949-a2a4-f55ac6bf371c"><div class="">
+					<h3><a style="" href="/QuickLinks.aspx?CID=16">Helpful Links</a></h3>
+						</div>
+	</header><div class="widgetBody cpGrid cpGrid1 ">
+        <div class="row  narrow">
+				<div class="col col1 first last">
+					<ol class="semanticList">
+<li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/" target="_self">KDHE Home</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/sitemap" target="_self">Site Map</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/accessibility" target="_self">Accessibility</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/1555/Privacy-Notice" target="_self">Privacy Policy</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/1874/Non-Discrimination-Policy" target="_self">Non-Discrimination Policy</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/1518/Open-Records" target="_self">Open Records</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="/79/Social-Media-Policy" target="_self">Social Media Policy</a>
+        <div class="widgetMeta"></div>
+    </li>
+
+    <li style="position:relative" class="widgetItem QuickLinks">
+        <a class="widgetDesc widgetQuickLinksLink" href="https://portal.kansas.gov/" target="_self">Kansas.gov </a>
+        <div class="widgetMeta"></div>
+    </li>
+					</ol>
+</div>
+		</div>
+        
+	</div>
+	<div class="widgetFooter">
+	</div>
+	<div class="addItemModal hidden">
+		<div class="url hidden">/QuickLinks.aspx</div>
+	</div>
+
+	</section>
+</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</footer><!-- Powered By --><div data-cprole="structuralContainer" id="poweredByContainerTS">
+<div class="siteWrap"><div data-cprole="contentContainer" id="poweredByTS">	<div id="cc3e63f004-89e6-47c6-8c65-f93e77ef55f4" data-containerid="3e63f004-89e6-47c6-8c65-f93e77ef55f4" class="pageContent cpGrid cpGrid24 isLockedContainer showInMobile">
+				                
+
+		<div class="row outer wide">
+<!--
+--><div class="outer col col24 first last" style="" data-widgetcontainerid="53e6fa50-70d5-4c99-8795-7e9c4296c9ca">				
+	<div class="row nest first last wide">
+	
+	<div class="inner col col24 first last idbc91ac59-f9bf-48fa-b2b8-b3017910ea82" style="" data-widgetcontainerid="bc91ac59-f9bf-48fa-b2b8-b3017910ea82">	
+ 
+	<div data-widget-id="d4d50810-280b-4d0c-9bea-f3cde69cbb1d" data-modulename="customHtml" id="widgetCustomHtmld4d50810-280b-4d0c-9bea-f3cde69cbb1d" class="widget widgetCustomHtml skin56 narrow">
+	<div class="widgetBody pageStyles" id="widgetBodyd4d50810-280b-4d0c-9bea-f3cde69cbb1d">
+		<div id="customHtmld4d50810-280b-4d0c-9bea-f3cde69cbb1d"><div>
+<!----------Google Translate (Mobile Friendly)--------->
+
+<style>
+  
+#google-translate-container {
+    float: right;
+    padding: 3px 5px 0px 0px;
+    position: fixed; 
+    top:40px;
+    right: 10px; 
+    z-index: 5;
+  }
+ @media(min-width:70em){
+  #google-translate-container {
+    top: 140px;
+  }
+  }
+ @media(max-width:35em){
+  #google-translate-container {
+   top:140px;
+  }
+  }  
+  .goog-te-combo, .goog-te-banner *, .goog-te-ftab *, .goog-te-menu *, .goog-te-menu2 *, .goog-te-balloon * {
+    font-family: arial;
+    font-size: 10pt;
+    background-image: url("https://www.gstatic.com/images/branding/product/2x/translate_24dp.png");
+    background-position: 5px 5px;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    text-indent: 16px;
+    background-color: #fff;
+    color: #000 !important;
+  }
+  
+  .goog-logo-link {
+    display: none !important;
+  }
+  
+  .goog-te-gadget {
+    color: transparent !important;
+  }
+  
+  .goog-te-gadget .goog-te-combo {
+    margin: 2px 0 !important;
+    border-radius: 15px !important;
+    }
+  
+  .goog-te-combo{
+    border: 1px solid !important;
+    border-color: #bcc9d7 #96a3b1 #96a3b1 #bcc9d7 !important;
+    border-radius: 50px !important;
+    height:31px !important;
+    padding: 0 1px 0 .25rem !important;
+                width: 156px;
+  }
+
+  #launcher-wrapper {
+    bottom: 50px !important;
+  }
+
+</style>
+<div id="google-translate-container">
+  <div id="google_translate_element">
+  </div>
+</div>
+
+<script>
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: "en" }, "google_translate_element");
+    // begin accessibility compliance
+    $('img.goog-te-gadget-icon').attr('alt','Google Translate');
+    $('div#goog-gt-tt div.logo img').attr('alt','translate');
+    $('div#goog-gt-tt .original-text').css('text-align','left');
+    $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+    $('.goog-te-combo').attr('aria-label','google translate languages');
+    $('svg.goog-te-spinner').attr('title','Google Translate Spinner');
+    $('.goog-te-gadget-simple .goog-te-menu-value span').css('color','#000000');
+  }
+
+  $(function() {
+    $.getScript("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+  });
+
+</script><!--------------End Google Translate----------------->
+</div></div>
+	</div>
+	</div>
+	</div> <!-- inner column -->
+
+	</div> <!-- inner row -->
+
+			</div>
+<!-- outer column --><!--		-->
+</div> <!-- outer row -->
+
+
+	</div>
+</div></div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </div>
+
+<link href="/745732998.css" rel="stylesheet" type="text/css">
+<div id="SplashMessageWrapper" class="cp-Splash-wrapper">
+	<div role="dialog" aria-labelledby="cp-Splash-title" aria-describedby="editorContentDesc" aria-modal="true" tabindex="-1" id="SplashMessage" class="hidden cp-Splash cp-Splash--modal is-open">
+		<div class="cp-Splash-header">
+			<h2 class="cp-Splash-title" id="cp-Splash-title">Loading</h2>
+			<button class="cp-Splash-Btn cp-Splash-close" aria-label="Close this modal" title="Close this window">
+				<svg id="iconClose" viewbox="0 0 25 25"><polygon style="fill:currentcolor" points="18.806,6.98 18.075,6.248 12.532,11.792 6.989,6.248 6.257,6.98 11.786,12.508 6.212,18.084 6.943,18.815 12.532,13.224 18.12,18.815 18.851,18.084 13.277,12.508"></polygon></svg></button>
+		</div>
+		<div class="cp-Splash-body">
+			<div class="cp-Splash-Prose editorContent fr-view" id="editorContentDesc">
+				<!-- Content from the Froala Editor will go here. -->
+				Loading
+			</div>
+		</div>
+		<div class="cp-Splash-footer">
+			<button class="cp-Splash-Btn cp-Splash-Btn--NoShow">Do Not Show Again</button>
+			<button class="cp-Splash-Btn cp-Splash-Btn--Close">Close</button>
+		</div>
+	</div>
+</div>
+
+<script src="/Assets/Scripts/APIClient.js"></script><script src="/Assets/Mystique/Shared/Scripts/Moment/Moment.min.js"></script><script src="/Assets/Scripts/SplashModal/SplashModalRender.js"></script><script>
+
+		$(document).ready(function () {
+			var filter = {
+				targetId: '2361',
+				targetType: 1
+			}
+
+			new SplashModalRender().triggerRender(filter);
+		});
+</script><script src="/-978663714.js" type="text/javascript"></script><!-- Fixed Nav Adjustment --><script>
+  function getValueTS(elem, attr) {
+    var val = elem.css(attr);
+    if (val === undefined) return undefined;
+    var num = parseInt(val, 10);
+    if (num === NaN) return undefined;
+    return num;
+  }
+
+  function clampTS(number, min, max) {
+    return Math.min(Math.max(number, min), max);
+  }
+
+  function isPageEditingTS() {
+    return (
+      $("#doneEditing").length > 0 || // In live edit
+      typeof DesignCenter !== "undefined" // In theme manager
+    );
+  }
+
+  var bgColorRegexTS = new RegExp("rgba\((\d+), (\d+), (\d+), (\d*\.?\d*)\)");
+  function isTransparentTS(elem) {
+    var bg = elem.css('background-color');
+    if (typeof bg !== "string") return false;
+    if (bg === "transparent") return true;
+    if (!bg.startsWith('rgba(')) return false;
+    var matchState = bg.match(bgColorRegexTS);
+    if (!matchState || matchState.length !== 5) return false;
+    var alpha = parseFloat(matchState[4], 10);
+    if (!(alpha >= 0 && alpha < 1)) return false;
+    return true;
+  }
+
+  function iterateLeftpads(cb) {
+    var containersTS = $("[class^='siteWrap'],[class*=' siteWrap']");
+    for (var i = 0; i < containersTS.length; i++) {
+      var containerTS = containersTS[i];
+      // Skip the body container and anything with data-skip-leftpad
+      if (
+        containerTS.id !== "bodyContainerTS" &&
+        containerTS.getAttribute('data-skip-leftpad') === null
+      ) {
+        cb(containerTS);
+      }
+    }
+  }
+
+  function iterateRightpads(cb) {
+    var containersTS = $("[class^='siteWrap'],[class*=' siteWrap']");
+    for (var i = 0; i < containersTS.length; i++) {
+      var containerTS = containersTS[i];
+      // Skip the body container and anything with data-skip-rightpad
+      if (
+        containerTS.id !== "bodyContainerTS" &&
+        containerTS.getAttribute('data-skip-rightpad') === null
+      ) {
+        cb(containerTS);
+      }
+    }
+  }
+
+  var anchor = $("#divToolbars");
+  var bodyContainerTS = $("#bodyContainerTS");
+
+  // Outer banner padding (push banner down)
+  var outerSizingTS = $("#bannerContainerTS");
+  // Inner banner padding (push banner content down) - Transparent header OR on attaching headers
+  var innerSizingTS = $("#bannerSizingTS");
+
+  var forceUnfixClassTS = "forceUnfixTS";
+
+  var fixedTopTS = $(".fixedTopTS");
+  var fixedBottomTS = $(".fixedBottomTS");
+  var fixedLeftTS = $(".fixedLeftTS");
+  var fixedRightTS = $(".fixedRightTS");
+
+  var initialTopTS;
+  var topAttachTS;
+  if (fixedTopTS && fixedTopTS.length === 1) {
+    initialTopTS = getValueTS(fixedTopTS, 'top');
+    var attachment = fixedTopTS.attr('data-attach');
+    if (attachment) topAttachTS = $("#" + attachment);
+    if (!topAttachTS || topAttachTS.length !== 1) topAttachTS = undefined;
+  }
+
+  function resizeAdjustmentTS() {
+    var editing = isPageEditingTS();
+
+    // Fixed top script
+    (function () {
+      if (!fixedTopTS || fixedTopTS.length !== 1 || initialTopTS === undefined) return;
+
+      if (editing) {
+        fixedTopTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedTopTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      var topPosition = fixedTopTS.css('position');
+      if (topPosition === 'fixed') {
+        if (topAttachTS) {
+          scrollAdjustmentTS();
+        } else {
+          var anchorHeight = anchor.outerHeight() - 1;
+          fixedTopTS.css('top', anchorHeight + initialTopTS);
+        }
+      } else {
+        fixedTopTS.css('top', initialTopTS);
+      }
+
+      if (topPosition === 'fixed' || topPosition === 'absolute') {
+        // Bump the banner content down
+        if (isTransparentTS(fixedTopTS)) {
+          innerSizingTS.css('padding-top', initialTopTS + fixedTopTS.outerHeight());
+          outerSizingTS.css('padding-top', '');
+
+          try {
+            window.Pages.onResizeHandlersExecute();
+          } catch (e) { }
+        } else {
+          outerSizingTS.css('padding-top', fixedTopTS.outerHeight() - 1);
+          innerSizingTS.css('padding-top', '');
+        }
+      } else {
+        innerSizingTS.css('padding-top', '');
+        outerSizingTS.css('padding-top', '');
+      }
+    })();
+
+    // Fixed bottom script
+    (function () {
+      if (!fixedBottomTS || fixedBottomTS.length === 0) return;
+
+      // If the widget has gone narrow, force unfix
+      if (editing || fixedBottomTS.outerHeight() > 200) {
+        fixedBottomTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedBottomTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      if (fixedBottomTS.css('position') === 'fixed') {
+        bodyContainerTS.css('padding-bottom', fixedBottomTS.outerHeight());
+      } else {
+        bodyContainerTS.css('padding-bottom', '');
+      }
+    })();
+
+    // Fixed left script
+    (function () {
+      if (!fixedLeftTS || fixedLeftTS.length === 0) return;
+
+      if (editing) {
+        fixedLeftTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedLeftTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      if (fixedLeftTS.css('position') === 'fixed') {
+        var anchorHeight = anchor.outerHeight() - 1;
+        fixedLeftTS.css('top', anchorHeight);
+        var leftBoundingTS = fixedLeftTS[0].getBoundingClientRect();
+        iterateLeftpads(function (containerTS) {
+          var containerBoundingTS = containerTS.getBoundingClientRect();
+          if (containerBoundingTS.left <= leftBoundingTS.right) {
+            $(containerTS).css('padding-left', leftBoundingTS.width + 16);
+          } else {
+            $(containerTS).css('padding-left', '');
+          }
+        });
+      } else {
+        fixedLeftTS.css('top', '');
+        iterateLeftpads(function (containerTS) {
+          $(containerTS).css('padding-left', '');
+        });
+      }
+    })();
+
+    // Fixed right script
+    (function () {
+      if (!fixedRightTS || fixedRightTS.length === 0) return;
+
+      if (editing) {
+        fixedRightTS[0].classList.add(forceUnfixClassTS);
+      } else {
+        fixedRightTS[0].classList.remove(forceUnfixClassTS);
+      }
+
+      if (fixedRightTS.css('position') === 'fixed') {
+        var anchorHeight = anchor.outerHeight() - 1;
+        fixedRightTS.css('top', anchorHeight);
+        var rightBoundingTS = fixedRightTS[0].getBoundingClientRect();
+        iterateRightpads(function (containerTS) {
+          var containerBoundingTS = containerTS.getBoundingClientRect();
+          if (containerBoundingTS.right >= rightBoundingTS.left) {
+            $(containerTS).css('padding-right', rightBoundingTS.width + 16);
+          }
+        });
+      } else {
+        fixedRightTS.css('top', '');
+        iterateRightpads(function (containerTS) {
+          $(containerTS).css('padding-right', '');
+        });
+      }
+    })();
+  }
+
+  function scrollAdjustmentTS() {
+    if (!fixedTopTS || fixedTopTS.length !== 1 || !topAttachTS || topAttachTS.length !== 1) return;
+    var topPosition = fixedTopTS.css('position');
+    if (topPosition === 'fixed' || topPosition === 'absolute') {
+      var anchorBounding = anchor[0].getBoundingClientRect();
+      var attachBounding = topAttachTS[0].getBoundingClientRect();
+      var scrollTop = $(window).scrollTop();
+
+      fixedTopTS.css('top', Math.max(anchorBounding.bottom - 1, attachBounding.bottom));
+    } else {
+      fixedTopTS.css('top', initialTopTS);
+    }
+  }
+
+  $(window).load(function () {
+    setTimeout(function () {
+      try {
+        resizeAdjustmentTS();
+      } catch (e) {
+        console.error(e);
+      }
+    }, 350);
+
+    $(window).scroll(function () {
+      try {
+        scrollAdjustmentTS();
+      } catch (e) {
+        console.error(e);
+      }
+    });
+
+    var adjustTimeoutTS;
+    $(window).resize(function () {
+      clearTimeout(adjustTimeoutTS);
+      adjustTimeoutTS = setTimeout(function () {
+        try {
+          resizeAdjustmentTS();
+        } catch (e) {
+          console.error(e);
+        }
+      }, 350);
+    });
+
+    $.when(window.Pages.angularToolbarComplete).done(function () {
+      try {
+        resizeAdjustmentTS();
+      } catch (e) {
+        console.error(e);
+      }
+    });
+  });
+</script><!-- End Fixed Nav Adjustment --><!------Start Monsido------><script type="text/javascript">
+    window._monsido = window._monsido || {
+        token: "RxhyQkFwUj8jdFNmvFt66g",
+        statistics: {
+            enabled: true,
+            cookieLessTracking: false,
+            documentTracking: {
+                enabled: true,
+                documentCls: "monsido_download",
+                documentIgnoreCls: "monsido_ignore_download",
+                documentExt: [],
+            },
+        },
+        pageCorrect: {
+            enabled: true,
+        },
+    };
+</script><script type="text/javascript" async src="https://app-script.monsido.com/v2/monsido-script.js"></script><!--------End Monsido------><script type="text/javascript">
+        $(function () {
+            document.cookie = "responsiveGhost=0; path=/";
+        });
+        $(window).on("load", function () {
+            $('body').addClass('doneLoading').removeClass('hideContent');
+
+            if ($('#404Content').length > 0)
+                $('div#bodyWrapper').css('padding', '0px');
+        });
+    </script><noscript>
+        <style>
+            body.hideContent {
+                opacity: 1 !important;
+            }
+        </style>
+</noscript>
+
+        
+<div style="display: none;">
+	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;"><symbol id="iconArrow--left" viewbox="0 0 25 25"><title>Arrow Left</title>
+<polygon style="fill:currentcolor" points="18.044,25 19.498,23.545 8.409,12.454 19.408,1.455 17.954,0 5.502,12.452"></polygon></symbol><symbol id="iconArrow--right" viewbox="0 0 25 25"><title>Arrow Right</title>
+<polygon style="fill:currentcolor" points="6.957,0 5.502,1.455 16.591,12.546 5.592,23.545 7.047,25 19.498,12.548"></polygon></symbol></svg>
+</div>
+    <script type="text/javascript">loadCSS('//fonts.googleapis.com/css?family=Montserrat:500,500italic,600,600italic,700,700italic,800,800italic,italic,regular|Nunito:600,600italic,700,700italic,800,800italic,italic,regular|');</script><div class="hidden activeWidgetSkinComponentsOnPageJson">[]</div>
+        <div style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><symbol id="iconSlideshowArrowLeft" viewbox="0 0 22.68 40"><title>Slideshow Left Arrow</title>
+<g><path style="fill:currentcolor;" d="M20,40a2.67,2.67,0,0,1-1.9-.79L.79,21.9a2.68,2.68,0,0,1,0-3.79L18.1.79a2.68,2.68,0,1,1,3.79,3.79L6.47,20,21.89,35.42A2.68,2.68,0,0,1,20,40Z"></path></g></symbol><symbol id="iconSlideshowArrowRight" viewbox="0 0 22.68 40"><title>Slideshow Right Arrow</title>
+<g><path style="fill:currentcolor;" d="M2.68,0a2.67,2.67,0,0,1,1.9.79L21.89,18.1a2.68,2.68,0,0,1,0,3.79L4.58,39.21A2.68,2.68,0,0,1,.79,35.42L16.21,20,.79,4.58A2.68,2.68,0,0,1,2.68,0Z"></path></g></symbol></svg>
+</div>
+    
+	
+
+    <div id="root-picker-outlet"></div>
+</body>
+</html>

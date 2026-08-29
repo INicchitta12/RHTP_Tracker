@@ -1,0 +1,23 @@
+Kansas Department of Health and Environment -- RHTP Year 1 sources
+Archived by R/03o_ks_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+The two award PDFs and the budget narrative are the body the server sent,
+byte for byte. THE PROGRAMME PAGE IS A REDUCTION: KDHE's CivicPlus
+template carries a Google Maps API key in a hidden input, which is
+Kansas's to publish and not ours to redistribute (§7.1's posture, as
+applied to CMS, Illinois and Oregon). The credential-bearing node is
+removed by name and the full page's digest as served is recorded below, so
+provenance still closes; the reduction removes nothing this repo parses.
+Files are written with writeBin(), so re-hashing a file on disk reproduces
+its digest below.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+2b1d81dccb45af0a600efbb95df86349a081d1b4dc8c9a4049e9432ff200461d  2026-08-29_kdhe_rhtp_program_page.html  (142556 bytes, reduce=STRIP_CREDENTIALS)  <- https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program
+    full page as served: 8a5de351bd724d63c8e008d55081e77e6c48c0293f21b09b1789271f18df2db4
+f248fb9e8bdcfe96c8b1d07201e661c8ba36656e4f2f61e3ba83b9e7f5f75429  2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf  (420323 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/58981/REH-CAP-and-RPGP-Award-Winners-PDF
+    full page as served: f248fb9e8bdcfe96c8b1d07201e661c8ba36656e4f2f61e3ba83b9e7f5f75429
+3f8d5a71cbdd091b816685415ec3e00992b57e6781306e0413bf2ca53c9f5be7  2026-08-29_kdhe_chw_afim_project_descriptions.pdf  (99221 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/60037/CHW-AFIM-Project-Descriptions
+    full page as served: 3f8d5a71cbdd091b816685415ec3e00992b57e6781306e0413bf2ca53c9f5be7

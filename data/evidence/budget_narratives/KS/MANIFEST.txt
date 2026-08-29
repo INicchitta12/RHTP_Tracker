@@ -1,0 +1,19 @@
+Kansas Department of Health and Environment -- RHTP Year 1 sources
+Archived by R/03o_ks_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+The two award PDFs and the budget narrative are the body the server sent,
+byte for byte. THE PROGRAMME PAGE IS A REDUCTION: KDHE's CivicPlus
+template carries a Google Maps API key in a hidden input, which is
+Kansas's to publish and not ours to redistribute (§7.1's posture, as
+applied to CMS, Illinois and Oregon). The credential-bearing node is
+removed by name and the full page's digest as served is recorded below, so
+provenance still closes; the reduction removes nothing this repo parses.
+Files are written with writeBin(), so re-hashing a file on disk reproduces
+its digest below.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+f68ba6e96d19e18171affeef3ac955d18f48a9b883fe11414a6c81920387dbc4  2026-07_ks_rht_plan_budget_narrative_revision_2.pdf  (966932 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/60171
+    full page as served: f68ba6e96d19e18171affeef3ac955d18f48a9b883fe11414a6c81920387dbc4

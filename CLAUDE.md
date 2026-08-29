@@ -87,6 +87,9 @@ This inverts the normal convention of gitignoring data directories — see §1.
 ## 2. Standing instructions
 
 - **Never** write code that sums across `award_tier` values.
+- **Never** read RCJ's source-document title year (`PA - 2025 - ...`) as a
+  date. It is aggregator metadata: Pennsylvania's entire committed Year 1 file
+  sits behind a 2025 prefix (§6.2, session 20).
 - **Never** print, log, or echo the value of `RCJ_API_KEY`.
 - **Never** add `data/raw/`, `data/evidence/`, or the review queue to `.gitignore`.
 - **Commit persistent output before the session ends.**
@@ -167,6 +170,7 @@ R/
   00b_state_trigger_queue.R    # Stage 00b — the UNION of CMS + RCJ triggers (BUILT)
   01_retrieve_rcj.R            # Stage 1 — retrieval (BUILT)
   02_normalize.R               # Stage 2 — normalization + §6.4 mining (BUILT)
+  02b_provenance_sweep.R       # §6.2 extended to STATE money + the date test (BUILT)
   03_state_registry.R          # Stage 3 — CMS allotments + registry (BUILT)
   03b_budget_narratives.R      # Stage 2.5 — §7A initiative table + §7A.4 gate (BUILT)
   03c_cms_abstracts.R          # CMS project abstracts — §4.1 candidate list (BUILT)
@@ -181,11 +185,13 @@ R/
   03l_il_year1_awardees.R      # Illinois — ICAHN, the first PASS_THROUGH_DESIGNATED (BUILT)
   03m_or_year1_awardees.R      # Oregon — 7 pools, 4 documents, 278 award actions (BUILT)
   03n_tx_year1_probe.R         # Texas — the NEGATIVE, and 53 RCJ rows that are state money (BUILT)
+  03o_ks_year1_awardees.R      # Kansas — 46 awards in 3 pools, parsed from KDHE PDFs (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
   qa_assertions.R              # (NOT YET BUILT)
   utils_config.R               # config, paths, credentials, state vocabulary (BUILT)
+  utils_pdf_text.R             # PDF text via each font's own /ToUnicode CMap (BUILT)
   utils_recipient_classification.R  # the §8/§10.2 rules, shared by every state (BUILT)
 data/
   raw/                         # IMMUTABLE — COMMITTED
@@ -301,6 +307,20 @@ sources and publishes no recipient-level list. **Not `NOT_EXTRACTED`, which
 means nobody has looked** — left as that, Texas would have ranked 1 on every
 future survey and been re-investigated from scratch. It is never a claim that
 the state awarded nothing.
+
+**Two more were added in session 20**, both §6.2 provenance and both
+QUARANTINE, on the same footing as the federal `PROVENANCE_MISMATCH`:
+`PROVENANCE_STATE_PROGRAM` (the source ties to a state-funded or
+state-administered programme that is not RHTP — a legislative appropriation,
+opioid or tobacco settlement money, Medicaid managed care, an intergovernmental
+transfer) and `PROVENANCE_PREDATES_NOA` (the source dates the award action
+before that state's CMS Notice of Award, so the state did not yet have the
+money). **Appropriation language is not an available marker and that is
+measured, not assumed** — across all 1,366 committed Tier 3 candidates
+`Rider \d+` matches 0 rows, `House Bill` 0, `General Revenue` 0, `biennium` 0,
+and `appropriat` exactly 1, a Pennsylvania row that is genuine RHTP. What RCJ
+carries is the state's RFA number, not its funding source, which is why the
+state half is a hand-verified registry keyed on that identifier.
 
 **`flow_type`**
 `DIRECT` | `PASS_THROUGH_DESIGNATED` | `PASS_THROUGH_UNRESOLVED` |
@@ -521,7 +541,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-29 (Session 19 — the flow short-circuit removed, and Texas turns out to be a different programme)
+**Last updated:** 2026-08-29 (Session 20 — the §6.2 provenance filter learns state money, and Kansas publishes three pools, not one)
 
 ### Stages built
 
@@ -535,6 +555,9 @@ retrieval code.
 | Illinois Year 1 | `R/03l_il_year1_awardees.R` | **Built and run (Session 16). One row: ICAHN, $50,008,264, the first `PASS_THROUGH_DESIGNATED`. Illinois has published NO recipient-level list** |
 | **Texas Year 1** | `R/03n_tx_year1_probe.R` | **Built and run (Session 19). A NEGATIVE. HHSC has published no recipient-level RHTP award list — Texas is at solicitation stage — and NOT ONE of RCJ's 68 Tier 3 candidates is an RHTP award: 53 are a state-appropriated programme (88th Legislature Rider 88), 9 are Medicaid, 6 are budget-narrative line items. Carries a tripwire with a positive control — `docs/session19_flow_fix_texas_negative.md`** |
 | **Oregon Year 1** | `R/03m_or_year1_awardees.R` | **Built and run (Session 17). 278 award actions across SEVEN pools in FOUR documents. 35 named hospitals ($34,998,000) + 14 Catalyst hospital rows = $50,188,531. The 99 x $100,000 are RURAL HEALTH CLINICS — `docs/session17_oregon_extraction.md`** |
+| **§6.2 provenance sweep** | `R/02b_provenance_sweep.R` | **Built and run (Session 20). The provenance filter extended from other FEDERAL programmes to STATE-funded ones, plus a date test. Swept across all 1,366 committed Tier 3 candidates: 73 rows caught in 6 states — TX 62, NH 3, AZ 3, RI 3, MS 1, IL 1. Zero overlap with the 879 rows in the nine committed state files, asserted — `docs/session20_provenance_sweep_kansas.md`** |
+| **Kansas Year 1** | `R/03o_ks_year1_awardees.R` | **Built and run (Session 20). 46 award actions, $80,020,499, across THREE pools in TWO KDHE PDFs. The seven-award CHW+AFIM list is 1.3% of it. Hospital floor $35,721,277 with a LARGER uncertainty beside it** |
+| **PDF text extraction** | `R/utils_pdf_text.R` | **Built (Session 20). Decodes through each font's own `/ToUnicode` CMap. No shift-cipher guessing: KDHE's subsetted fonts render `and` as `D Q G`, and a constant-offset guess would decode these files and silently mangle the next** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
 | Stage 2 — Normalization | `R/02_normalize.R` | **Built. Allotment anchor live; §6.4 mining; §0.2a Tier 1 corroboration; §6.2 multi-recipient split — `docs/stage2_normalization_run.md`, `docs/stage3_allotments_and_registry.md`, `docs/corrections_after_session5.md`** |
@@ -574,6 +597,7 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **SD** (announced rounds) | 2 | $121,500,000 | **0 named** | $0 |
 | **IL** | 1 | $50,008,264 | **0 named** | **$0 named / $50,008,264 pooled** |
 | **OR** | 278 | $175,312,365 | **49** | **$50,188,531** (intents to award) |
+| **KS** | 46 | $80,020,499 | **21** | **$35,721,277** (a FLOOR — see below) |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
@@ -593,6 +617,18 @@ and their `amount` column is deliberately empty — the $121.5M is a *round*
 total and lives in `round_amount`, so no sum over `amount` can read as a
 per-recipient figure (§6.2, Georgia's rule).
 
+**Kansas' line is a FLOOR and the uncertainty beside it is larger.** KDHE
+publishes a recipient and an amount and **nothing about the recipient's form** —
+no organisation-type column of the kind Oregon and Alaska both publish. 21 rows
+classify as named hospitals on the recipient's own name; **22 more, $39,249,763,
+are named recipients whose form KDHE nowhere states** and carry §8's standing
+answer (`NONPROFIT_CBO` + `LOW` + `RECIPIENT_TYPE_INFERRED`). Several read as
+hospitals to anyone who knows Kansas — Stormont Vail Health, AdventHealth
+Ottawa, Labette Health, South Central Kansas Health — and several plainly are
+not. **Nothing was promoted**, because promoting on this pipeline's own
+knowledge is the §0.4 failure the project exists to avoid; they are queued as
+`KS_RECIPIENT_FORM_NOT_STATED` and the CCN match (blocker 5) resolves them.
+
 **Illinois' line is the one that cannot be added to the others.** ICAHN is a
 `PASS_THROUGH_DESIGNATED` intermediary: the $50,008,264 is restricted to rural
 hospitals and the award is executed, so `distributed_to_hospital = Yes` — but
@@ -606,7 +642,7 @@ NAMED_HOSPITAL        : 293,195,415   AL 66.1M · GA 60.0M · OR 50.2M · FL 49.
 POOL_UNNAMED_HOSPITALS:  50,008,264   IL
 ```
 
-All **nine** files union on the leading 19 columns with zero values outside §8,
+All **ten** files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. **Session 12's note
 that "all six states union" was wrong about the test** — it named five and
 South Dakota was never in it. Both SD files are now included.
@@ -675,12 +711,42 @@ South Dakota was never in it. Both SD files are now included.
   The count is re-derived from `stage2_record_table.rds` on every run, so the
   day Texas's candidate set moves the build fails instead of the table quietly
   ceasing to cover it. Rebuild with `Rscript R/03n_tx_year1_probe.R --build`.
-- **`data/reference/classification_review_queue.csv` — 1 row (Session 19).**
+- **`data/reference/cms_state_noa_dates.csv` — 50 rows (Session 20).** The
+  §6.2 date anchor: every state's CMS Notice of Award date, **2025-12-29**,
+  **parsed** from the schema.org `datePublished` in stage 00's committed archive
+  of the release that awarded all 50 states, cross-checked against the newsroom
+  index's own `item_date` and corroborated by HHSC's separate statement of
+  Texas's NOA date. `statute_date` (2025-07-04, Public Law 119-21) is the floor
+  beneath it. Rebuild with `Rscript R/02b_provenance_sweep.R --noa-dates`.
+- **`data/reference/non_rhtp_state_programs.csv` — 5 rows (Session 20).** The
+  hand-verified registry of state-funded and state-administered programmes that
+  are **not** RHTP, keyed on the state's own solicitation identifier
+  (`HHS0015180`, `HHS0015677`, ATLIS, IGT, MyOwnDoctor). Each row carries the
+  disqualifying sentence, its date, the state URL and the archived evidence.
+  **A registry rather than a marker set, because appropriation language is not
+  in the aggregator** — see §5.
+- **`data/reference/provenance_sweep_by_state.csv` — 50 rows, and
+  `provenance_sweep_flagged_rows.csv` — 73 rows (Session 20).** What the
+  extended §6.2 filter catches and, just as much, **how many candidates carry
+  no date anybody asserted: 1,228 of 1,366.** Rebuild with
+  `Rscript R/02b_provenance_sweep.R --build`.
+- **`data/reference/ks_year1_awardees.csv` — 46 rows (Session 20).** Kansas,
+  across **three pools in two KDHE PDFs**: REH CAP 17 / $29,097,937, RPGP 22 /
+  $49,915,410, CHW+AFIM 7 / $1,007,152. **Read `award_pool` and
+  `determination_confidence` before using any figure.** Greeley County Health
+  Services holds **two** awards, one per pool — RCJ kept only one, which is why
+  it holds 45 of the 46. Rebuild with `Rscript R/03o_ks_year1_awardees.R --build`.
+- **`data/reference/classification_review_queue.csv` — 2 rows (Sessions 19,
+  20).**
   Open classification questions for a human. Today: `GHA_RECIPIENT_TYPE` — is a
   hospital trade association `NONPROFIT_CBO` (§10.2's row, AK and IL) or
   `HOSPITAL_AFFILIATED_ENTITY` (Georgia)? **$0 either way**, so decide it on
   the spec. **This is not the §4 `data/interim/review_queue.rds`**, which
-  Stage 4 owns and which does not exist yet.
+  Stage 4 owns and which does not exist yet. Session 20 added
+  `KS_RECIPIENT_FORM_NOT_STATED` — 22 Kansas rows, **$39,249,763**, named
+  recipients whose organisational form KDHE never states. Unlike the Georgia
+  question this one **moves dollars**, and it is larger than the Kansas figure
+  it sits beside.
 - **`data/reference/il_year1_awardees.csv` — 1 row (Session 16).** Illinois:
   ICAHN, $50,008,264, three agreements executed 2026-07-31.
   `hospital_attribution = POOL_UNNAMED_HOSPITALS` — **read that column before
@@ -2234,15 +2300,151 @@ rank 1 to 50 and **Kansas now leads** (54 / 50).
 
 **Tests: 1,645 assertions, all passing** (was 1,586).
 
+### Session 20 — the provenance filter learns state money, and Kansas is three pools
+
+Full detail: `docs/session20_provenance_sweep_kansas.md`. Zero RCJ quota; 8
+fetches to `www.kdhe.ks.gov`.
+
+**§6.2's provenance filter tested for other FEDERAL programmes and nothing
+else.** It was written from Stage 0's Delaware finding — four rows sourced from
+a HRSA fact sheet — and it works. Texas is the half it cannot see: 53 real,
+executed, recipient-level HHSC notices of award naming rural Texas hospitals,
+paid from the 88th Legislature's House Bill 1 Article II Rider 88
+appropriation. Two codes added, both QUARANTINE:
+`PROVENANCE_STATE_PROGRAM` and `PROVENANCE_PREDATES_NOA`.
+
+**A marker set modelled on the federal one cannot work, and the corpus says so
+rather than a hunch.** Across all 1,366 committed Tier 3 candidates: `Rider
+\d+` **0 rows**, `House Bill` **0**, `General Revenue` **0**, `biennium`
+**0**, `appropriat` **exactly 1** — and that one is a Pennsylvania row that is
+genuine RHTP. HRSA brands itself in a document title; a state appropriation
+does not, and RCJ's description for all 53 Texas rows is one machine-generated
+line naming no funding source at all. **What IS in the feed is the state's own
+solicitation identifier**, so the state half is a hand-verified registry keyed
+on `HHS0015180` / `HHS0015677`, with named state funding streams (opioid
+settlement, Medicaid managed care, IGT) as source-scoped markers behind it.
+**Source-scoped, not description-scoped**: description-scoped those same
+Medicaid markers also match a Pennsylvania RHTP award row and Alaska's Year 1
+announcement.
+
+**The NOA anchor is parsed, not typed** — 2025-12-29, one announcement, fifty
+states, read out of the schema.org `datePublished` in stage 00's committed
+archive, cross-checked against the newsroom index and corroborated by HHSC.
+
+**And the refusal is worth more than the catches. RCJ publishes no
+award-action date at all** — `/awards` records carry ten fields and none is a
+date; the record table's `date_announced` is populated on 3,639 rows and on
+**none** of the 1,372 Tier 3 ones. So dates are mined from the source
+document's own title, and RCJ's title-year prefix is **refused**:
+`PA - 2025 - Rural Health Selected Projects...` is **Pennsylvania's entire
+committed Year 1 file**. Keyed on that prefix the test quarantines **145 rows,
+99 of them from two states this project has already published**, and it looks
+like a working filter while doing it.
+
+**The sweep: 73 rows in 6 states, of 1,366 candidates.** TX 62 (53
+appropriation + 5 ATLIS + 4 IGT), NH 3, AZ 3, RI 3, MS 1, IL 1.
+
+**New Hampshire's $1,898,965,390 row is the closure worth reading.** The §6.2
+allotment ceiling flagged it in session 5 as impossible against a $204M
+allotment; the provenance filter now says *what it is* — Medicaid Care
+Management. Two independent §6.2 filters, opposite directions, same row.
+**Arizona's three rows, $55M**, come from an application webinar the state held
+six weeks **before** CMS awarded it anything. **Rhode Island's three are opioid
+settlement money and one is a named hospital**, $2,915,143. **Illinois's single
+catch corroborates session 16's hand finding by machine.**
+
+**138 of 1,366 candidates carry a date anybody asserted**, and that is reported
+per state rather than hidden. It is a bound on the DATA, not the rule.
+
+**Zero of the 73 overlap the 879 award rows in the nine committed state files**
+— asserted, not spot-checked, and a hard failure if it ever changes. Stage 2
+was run once with the filters wired in and flagged **exactly the same 73
+record_ids**; the rebuilt interim artifacts were reverted, so the committed
+record table is unchanged.
+
+---
+
+**Kansas led the queue and publishes THREE pools, not one.** The seven-award
+CHW + AFIM list ($1,007,152, four at $150,000, two of them hospital districts)
+is real and is **1.3% of what Kansas has published**. The other two pools are
+in a single PDF linked from the same page: **REH CAP 17 awardees /
+$29,097,937** and **RPGP 22 / $49,915,410**. Total **46 award actions,
+$80,020,499**, 36.1% of the allotment.
+
+**The Texas check, run first and passed.** The award document's own footer:
+*"supported by the Centers for Medicare & Medicaid Services (CMS) ... as part
+of a financial assistance award totaling $221,890,007.82 with 100 percent
+funded by CMS/HHS"* — the awarding agency saying so on the award document. And
+KDHE's applicant webinar is **6 March 2026**, after the 2025-12-29 NOA; Texas's
+`HHS0015180` closed 2025-04-24, before its state had the money.
+
+**The positive control.** *"The other four Kansas programmes have published no
+roster"* is a finding only because KDHE demonstrably publishes rosters in a
+recognisable form — two links off the programme page, both asserted **present**.
+The four with no such link (Emerging Technology $9.5M, Interfacility Transport,
+Evidence-Based Practice, KHA Healthworks) each have an open or just-closed
+deadline that says why. The assertion is a tripwire **in both directions**: it
+fails if a known award link disappears, and fails if a **third** appears.
+
+**A PDF parser had to be written and it does not guess.** `R/utils_pdf_text.R`
+decodes through each font's own `/ToUnicode` CMap. The cheap alternative reads
+`Tj` operands as ASCII, and on KDHE's subsetted fonts that gives `D Q G` for
+`and` — a constant-offset guess would have decoded these two files and silently
+mangled the next one, into text that still looks like words. It also had to
+hold strings until a `Tj` paints them (`/ActualText` otherwise sprinkles stray
+glyphs) and to join KDHE's mid-word wraps: `Citizens Foundat` / `ion:
+$146,476` would otherwise be published as *"Citizens Foundat ion"*.
+
+**RCJ holds 45 of the 46 and every amount it holds is exact.** The one it
+dropped is **Greeley County Health Services' $458,286 REH CAP award**: Greeley
+appears **twice**, once per pool, and RCJ kept the RPGP row. Texas's 32-of-33
+in a state that is otherwise clean. The pool split is **positional** for exactly
+this reason — a recipient-keyed split would have to choose one of Greeley's two.
+
+**Two publishers disagree about Kansas's award and it is not resolved.** KDHE
+says **$221,890,007.82**; CMS's own table says **$221,898,008**. The $8,000.18
+gap is asserted so a future session meets it (§8).
+
+**The hospital figure is a floor and the uncertainty is bigger than it** —
+$35,721,277 across 21 named hospitals, against **$39,249,763 across 22 rows**
+whose recipient form KDHE never states. **Nothing was promoted.** See the
+Deliverable 1 note above.
+
+**One coding mistake, caught by §0.3a.** A first pass fed the POOL's name to
+the classifier as the description; because the REH CAP pool is called *"Rural
+Emergency Hospital Conversion..."*, every unrecognised recipient came out
+`IN_KIND_BENEFIT` — the in-kind rule firing on a string this file had written
+itself. KDHE's own per-award paragraph is what goes to the classifier now.
+
+**And the credential guard earned its keep again.** KDHE's CivicPlus template
+carries a Google Maps key in a hidden `<input id="GoogleMapsKey">`. The node is
+removed by name (Illinois's remedy), the reduction is asserted credential-free
+**after** reducing, and the full page's digest as served is in the manifest.
+
+**Tests: 1,839 assertions, all passing** (was 1,645).
+
 ### Next session
 
 **Oregon is done, and it was worth the position it held in the queue: 278 award
 actions, $175.3M, 49 named hospitals.** Thirty-one states are still queued.
 
 1. **Keep working the RCJ_ONLY queue, richest first.** `state_trigger_queue.csv`
-   is ordered and **Kansas now leads** — 54 Tier 3 candidates / 50 distinct
-   awardees; then MD 42/41, NE 39/35, IN 37/28, OK 35/25, NV 34/34. Texas is
-   done and sits at rank 50, `INVESTIGATED_NO_LIST`.
+   is ordered and **Maryland now leads** — 42 Tier 3 candidates / 41 distinct
+   awardees; then NE 39/35, IN 37/28, OK 35/25, NV 34/34, MI 31/31. Texas is
+   done at `INVESTIGATED_NO_LIST`; Kansas is `EXTRACTED`.
+
+   **Kansas adds a third question to Texas's and Oregon's, and it is the
+   cheapest of the three: READ THE PROGRAMME PAGE'S LINK LIST, NOT ITS PROSE.**
+   Kansas's seven-award CHW+AFIM list is 1.3% of what the state has published;
+   the other 98.7% is a second PDF two links further down the same page. Texas
+   said a recipient-level list can be the wrong *programme*; Oregon said it can
+   be the wrong *recipient class*; Kansas says it can be a *fraction of the
+   state's own roster, in plain sight*.
+
+   **And run the §6.2 sweep against a state before extracting it.**
+   `provenance_sweep_by_state.csv` says in one line whether that state's
+   candidates carry state money or a pre-NOA date. Kansas's zero is part of why
+   its extraction is trustworthy.
    Network is **Full**, so the only question per state is whether it has
    published a recipient-level list. **Confirm that before building an
    extractor** — §0.1 says the candidate count is where to look, not what is
@@ -2311,7 +2513,7 @@ a human's judgement, deliberately unresolved.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 1,645 assertions, zero quota
+Rscript tests/run_tests.R                        # 1,839 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -2364,6 +2566,14 @@ Rscript R/03n_tx_year1_probe.R --validate       # TX assertions + the tripwire, 
 Rscript R/03n_tx_year1_probe.R --build          # writes the two TX status CSVs (NO xlsx)
 Rscript R/03n_tx_year1_probe.R --report         # the negative, with its positive control
 Rscript R/03n_tx_year1_probe.R --probe          # LIVE: has Texas published a roster yet?
+Rscript R/02b_provenance_sweep.R --noa-dates    # the §6.2 NOA anchor, from the committed archive
+Rscript R/02b_provenance_sweep.R --build        # the 50-state sweep, offline
+Rscript R/02b_provenance_sweep.R --validate     # sweep assertions incl. the false-positive check
+Rscript R/02b_provenance_sweep.R --report       # 73 rows in 6 states, and the date-test bound
+Rscript R/03o_ks_year1_awardees.R --fetch       # KS: archive 4 KDHE sources + SHA-256
+Rscript R/03o_ks_year1_awardees.R --validate    # KS assertions + the positive control, offline
+Rscript R/03o_ks_year1_awardees.R --build       # writes KS csv + KS_year1_awardees.xlsx
+Rscript R/03o_ks_year1_awardees.R --report      # the three pools, and why the figure is a floor
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

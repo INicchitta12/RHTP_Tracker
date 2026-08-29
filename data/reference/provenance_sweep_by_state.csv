@@ -1,0 +1,51 @@
+state,state_name,tier3_candidates,caught_total,caught_state_program,caught_by_registry,caught_by_text_marker,caught_predates_noa,datable_rows,undatable_rows,refused_rcj_year,caught_amount
+TX,Texas,68,62,62,62,0,53,53,15,11,60882308.300000004
+NH,New Hampshire,23,3,3,0,3,0,0,23,23,1958310534
+AZ,Arizona,4,3,0,0,0,3,3,1,1,55000000
+RI,Rhode Island,3,3,3,0,3,0,0,3,3,22250349
+MS,Mississippi,3,1,0,0,0,1,1,2,1,150000
+IL,Illinois,1,1,1,1,0,0,0,1,1,1
+OR,Oregon,386,0,0,0,0,0,0,386,386,0
+AK,Alaska,159,0,0,0,0,0,0,159,159,0
+AL,Alabama,138,0,0,0,0,0,0,138,138,0
+GA,Georgia,112,0,0,0,0,0,3,109,109,0
+PA,Pennsylvania,66,0,0,0,0,0,0,66,66,0
+KS,Kansas,54,0,0,0,0,0,1,53,53,0
+MD,Maryland,42,0,0,0,0,0,0,42,42,0
+NE,Nebraska,39,0,0,0,0,0,24,15,15,0
+IN,Indiana,37,0,0,0,0,0,10,27,13,0
+OK,Oklahoma,35,0,0,0,0,0,17,18,18,0
+NV,Nevada,34,0,0,0,0,0,0,34,26,0
+MI,Michigan,31,0,0,0,0,0,0,31,31,0
+MO,Missouri,29,0,0,0,0,0,0,29,29,0
+WI,Wisconsin,19,0,0,0,0,0,16,3,3,0
+IA,Iowa,15,0,0,0,0,0,0,15,15,0
+ME,Maine,12,0,0,0,0,0,0,12,12,0
+CA,California,11,0,0,0,0,0,0,11,11,0
+CT,Connecticut,7,0,0,0,0,0,2,5,5,0
+NM,New Mexico,7,0,0,0,0,0,0,7,7,0
+LA,Louisiana,6,0,0,0,0,0,6,0,0,0
+DE,Delaware,5,0,0,0,0,0,0,5,5,0
+CO,Colorado,4,0,0,0,0,0,0,4,4,0
+WV,West Virginia,4,0,0,0,0,0,0,4,0,0
+MT,Montana,2,0,0,0,0,0,1,1,1,0
+UT,Utah,2,0,0,0,0,0,0,2,2,0
+WA,Washington,2,0,0,0,0,0,0,2,2,0
+ID,Idaho,1,0,0,0,0,0,0,1,0,0
+ND,North Dakota,1,0,0,0,0,0,1,0,0,0
+OH,Ohio,1,0,0,0,0,0,0,1,1,0
+SD,South Dakota,1,0,0,0,0,0,0,1,1,0
+VA,Virginia,1,0,0,0,0,0,0,1,1,0
+VT,Vermont,1,0,0,0,0,0,0,1,0,0
+AR,Arkansas,0,0,0,0,0,0,0,0,0,0
+FL,Florida,0,0,0,0,0,0,0,0,0,0
+HI,Hawaii,0,0,0,0,0,0,0,0,0,0
+KY,Kentucky,0,0,0,0,0,0,0,0,0,0
+MA,Massachusetts,0,0,0,0,0,0,0,0,0,0
+MN,Minnesota,0,0,0,0,0,0,0,0,0,0
+NC,North Carolina,0,0,0,0,0,0,0,0,0,0
+NJ,New Jersey,0,0,0,0,0,0,0,0,0,0
+NY,New York,0,0,0,0,0,0,0,0,0,0
+SC,South Carolina,0,0,0,0,0,0,0,0,0,0
+TN,Tennessee,0,0,0,0,0,0,0,0,0,0
+WY,Wyoming,0,0,0,0,0,0,0,0,0,0
