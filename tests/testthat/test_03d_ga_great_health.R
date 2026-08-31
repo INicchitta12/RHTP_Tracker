@@ -42,9 +42,13 @@ test_that("the archived pages match the SHA-256 in the committed manifest", {
   expect_length(stated, 4)
 
   # Scoped to the four announcement archives the records cite. The roster page
-  # sits in the same directory under its own manifest, so a bare *.html glob
-  # would sweep it in and fail against a manifest that never described it.
-  announcements <- sort(unique(records$source_archive_path))
+  # and the two signed notices of award sit in the same directory under their
+  # own manifests, so a bare *.html glob would sweep them in and fail against a
+  # manifest that never described them -- and the notices are checked below
+  # against the digests session 21's re-check recorded, which is a stronger
+  # closure than a manifest of our own writing.
+  announcements <- sort(setdiff(unique(records$source_archive_path),
+                                GA_NOA_SOURCES$path))
   expect_length(announcements, 4)
   actual <- sort(purrr::map_chr(
     announcements,
@@ -142,14 +146,27 @@ test_that("no row carries an amount derived from splitting a pool", {
 })
 
 test_that("summing amount does not reach the state total, and is not meant to", {
-  # The trap this file exists to keep shut. `amount` is populated on 81 of 139
-  # rows; a reader who sums it gets $60.5M for a state that awarded $197.1M.
-  # The 80 AHEAD hospitals each carry a figure DCH stated per recipient, so the
-  # count grew with the expansion -- the total it reaches did not.
+  # The trap this file exists to keep shut. `amount` is populated on 102 of 158
+  # rows; a reader who sums it gets $90.8M for a state that awarded $197.1M.
+  # Naming the 21 notice-of-award hospitals moved 21 rows and $30,277,580 into
+  # this sum and did NOT move the state total, which is the whole point of the
+  # change: those dollars were already inside the Initiative 3 and Initiative 5
+  # pools that rhtp_ga_reconcile() adds.
   expect_lt(sum(records$amount, na.rm = TRUE),
             recon_value("GREAT Health Year 1 awarded (sum of initiative pools)"))
-  expect_equal(sum(!is.na(records$amount)), 81)
-  expect_equal(sum(records$amount, na.rm = TRUE), 60487500)
+  expect_equal(sum(!is.na(records$amount)), 102)
+  expect_equal(sum(records$amount, na.rm = TRUE), 90765080)
+})
+
+test_that("the state total did not move when the hospitals were named", {
+  # $197,148,327 is what session 9 published from four DCH announcements, and
+  # it is what session 22 must still get after replacing two aggregate rows
+  # with 21 named ones. A pool-to-named reclassification that changes the
+  # total is not a reclassification.
+  expect_equal(recon_value("GREAT Health Year 1 awarded (sum of initiative pools)"),
+               197148327)
+  expect_equal(GA_YEAR1_AWARDED, 197148327)
+  expect_equal(recon_value("Residual as % of the CMS award"), 9.92)
 })
 
 test_that("Phase 4's seven AHEAD hospitals carry no amount", {
@@ -187,9 +204,10 @@ test_that("the AHEAD hospitals are recipient-confirmed, and cite both sources", 
   expect_true(all(ahead$recipient_confirmed == "Yes"))
   expect_true(all(ahead$recipient_names_source_url == GA_AHEAD_ROSTER_URL))
   expect_false(any(stringr::str_detect(ahead$awardee, "names not captured")))
-  # The 8- and 13-hospital Phase 4 cohorts have no published roster and are
-  # still aggregates; this expansion must not have touched them.
-  expect_equal(sum(stringr::str_detect(records$awardee, "names not captured")), 2L)
+  # The 8- and 13-hospital Phase 4 cohorts DO have a published roster, on two
+  # signed notices of award, and session 22 extracted them. No aggregate row
+  # reading "names not captured" survives anywhere in Georgia's file.
+  expect_equal(sum(stringr::str_detect(records$awardee, "names not captured")), 0L)
   expect_false(any(ahead$flag_reason %in% "RECIPIENT_NAMES_NOT_CAPTURED"))
   # Every row still names the DCH announcement that made the award, because the
   # roster alone states no award (its heading is "Completed Applications").
@@ -378,11 +396,161 @@ ga_code <- function() {
     stringr::str_subset("\\S")
 }
 
-test_that("the stage spends no RCJ quota and makes no network call", {
-  expect_false(any(grepl("rhtp_api_key|req_perform|httr2::|GET\\(", ga_code())))
+test_that("the stage spends no RCJ quota", {
+  # Unchanged and non-negotiable: nothing in Georgia touches the RCJ API.
+  expect_false(any(grepl("rhtp_api_key|req_perform|httr2::", ga_code())))
+})
+
+test_that("the only network call is the notice-of-award fetch", {
+  # This file made NO network call at all until session 22 had to archive the
+  # two signed notices. The invariant that replaces "no network" is narrower
+  # and is the one that matters: --validate and --build must stay offline, so
+  # every http call has to sit inside rhtp_ga_noa_fetch().
+  code <- readLines(here::here("R", "03d_ga_great_health.R"), warn = FALSE)
+  calls <- grep("httr::GET\\(|http[rs]?::request\\(", code)
+  expect_gt(length(calls), 0L)
+
+  starts <- grep("^[a-zA-Z_.][a-zA-Z0-9_.]* <- function", code)
+  owner <- vapply(calls, function(i) {
+    before <- starts[starts < i]
+    if (!length(before)) "" else sub(" <-.*$", "", code[max(before)])
+  }, character(1))
+  expect_setequal(unique(owner), "rhtp_ga_noa_fetch")
 })
 
 test_that("the stage uses %>% and never setwd (CLAUDE.md 3)", {
   expect_false(any(grepl("|>", ga_code(), fixed = TRUE)))
   expect_false(any(grepl("setwd(", ga_code(), fixed = TRUE)))
+})
+
+
+# -- The two signed Notices of Award (session 22) ----------------------------
+#
+# Georgia's Phase 4 announcement counts "13 hospitals" and "eight hospitals" and
+# names none of them. Both are named on signed notices of award linked from
+# greathealth.georgia.gov/find-funding-opportunities, a page no session before
+# 21 had opened. These tests pin the extraction and, more importantly, pin the
+# invariant that makes it safe: the state total does not move.
+
+test_that("the notices parse to 21 award actions worth $30,277,580", {
+  awards <- rhtp_ga_noa_awards()
+  expect_equal(nrow(awards), 21L)
+  expect_equal(sum(awards$amount), 30277580)
+  expect_equal(sum(awards$key == "robots"), 13L)
+  expect_equal(sum(awards$key == "telepods"), 8L)
+  expect_true(all(awards$amount[awards$key == "robots"] == 2000000))
+  expect_equal(sum(awards$amount[awards$key == "telepods"]), 4277580)
+  # The application number is the row key and is unique across both notices.
+  expect_equal(dplyr::n_distinct(awards$application_id), 21L)
+  expect_true(all(grepl("^GREAT-[0-9]{6}$", awards$application_id)))
+})
+
+test_that("a wrapped name is joined, and a repeated name is not collapsed", {
+  # The two things a naive line-order reader gets wrong. DCH wraps long names
+  # across two lines, and on one telepod row it paints both name lines at the
+  # SAME y as each other and a different y from the amount -- so a reader keyed
+  # on line order attaches "County" to the next hospital. And Miller County
+  # Hospital holds TWO telepod awards, which is why the row key is the
+  # application number and not the name.
+  awards <- rhtp_ga_noa_awards()
+  expect_true("Hospital Authority of Stephens County" %in% awards$awardee)
+  expect_true("University McDuffie County Regional Medical Center" %in%
+                awards$awardee)
+  expect_true("South Georgia Medical Center, Inc. (Berrien County)" %in%
+                awards$awardee)
+  expect_true("South Georgia Medical Center, Inc. (Lanier County)" %in%
+                awards$awardee)
+  miller <- awards[awards$awardee == "Miller County Hospital", ]
+  expect_equal(nrow(miller), 2L)
+  expect_setequal(miller$application_id, c("GREAT-001222", "GREAT-001350"))
+  # No name may carry a stray dollar sign or application number.
+  expect_false(any(grepl("\\$|GREAT-", awards$awardee)))
+})
+
+test_that("DCH's unsuccessful applicants are counted and never coded", {
+  # 5 on the robotics notice, 2 on the telepods notice. Nothing codes them --
+  # they are not awards -- but the count has to be right, because getting it
+  # right requires the successful/unsuccessful section split to be right, and
+  # that is what the 21 depend on.
+  for (i in seq_len(nrow(GA_NOA_SOURCES))) {
+    src <- GA_NOA_SOURCES[i, ]
+    expect_equal(ga_noa_unsuccessful_count(src$path), src$stated_unsuccessful,
+                 info = src$key)
+  }
+  # None of them may appear as a NOTICE_OF_AWARD row.
+  noa <- records %>% dplyr::filter(validation_source_type == "NOTICE_OF_AWARD")
+  unsuccessful <- c("East Georgia Regional Medical Center", "Wellstar MCG",
+                    "Bacon County Health Services", "McAfee3 Architects",
+                    "Southeast Georgia Health System")
+  for (nm in unsuccessful) {
+    expect_false(any(grepl(nm, noa$awardee, fixed = TRUE)), info = nm)
+  }
+
+  # AND THE SCOPE MATTERS, because one of them IS an awarded Georgia hospital.
+  # Wellstar MCG Health Medical Center is on the AHEAD roster at $750,000 and
+  # was turned down for surgical robotics ("non-HRSA designated rural county").
+  # "Unsuccessful applicant" is a fact about ONE strategy, never about the
+  # hospital -- a test that excluded the name outright would have deleted a
+  # real award to make a point about a different one.
+  expect_equal(sum(grepl("Wellstar MCG", records$awardee, fixed = TRUE)), 1L)
+  wellstar <- records[grepl("Wellstar MCG", records$awardee, fixed = TRUE), ]
+  expect_equal(wellstar$strategy, "AHEAD Model pre-implementation funding")
+  expect_equal(wellstar$amount, 750000)
+})
+
+test_that("the archived notices hash to what session 21's re-check recorded", {
+  # A fresh fetch that reproduces the re-check's digest proves two things at
+  # once: Georgia's archive is primary rather than a copied file, and the
+  # document has not changed between the re-check that found it and the
+  # extraction that reads it.
+  for (i in seq_len(nrow(GA_NOA_SOURCES))) {
+    src <- GA_NOA_SOURCES[i, ]
+    expect_true(file.exists(here::here(src$path)), info = src$file)
+    expect_equal(digest::digest(file = here::here(src$path), algo = "sha256"),
+                 src$recheck_sha256, info = src$file)
+  }
+})
+
+test_that("the 21 rows are notice-of-award rows and are coded as such", {
+  noa <- records %>% dplyr::filter(validation_source_type == "NOTICE_OF_AWARD")
+  expect_equal(nrow(noa), 21L)
+  expect_equal(sum(noa$amount), 30277580)
+  expect_true(all(noa$recipient_confirmed == "Yes"))
+  expect_true(all(noa$amount_confirmed == "Yes"))
+  expect_true(all(noa$amount_basis == "STATED_PER_RECIPIENT"))
+  expect_true(all(noa$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(noa$flow_type == "DIRECT"))
+  expect_true(all(noa$distributed_to_hospital == "Yes"))
+  expect_true(all(is.na(noa$flag_reason)))
+  expect_true(all(noa$extraction_method == "DIRECT_TEXT"))
+  # §7 reserves HIGH for a CCN match, which this repository cannot do yet.
+  expect_true(all(noa$determination_confidence == "MEDIUM"))
+  # Every other Georgia row is still an agency press release.
+  expect_setequal(unique(records$validation_source_type),
+                  c("AGENCY_PRESS_RELEASE", "NOTICE_OF_AWARD"))
+})
+
+test_that("naming the hospitals moved $30,277,580 from pooled to named", {
+  named <- sum(records$amount[records$distributed_to_hospital == "Yes"],
+               na.rm = TRUE)
+  expect_equal(named, 90277580)
+  expect_equal(named, GA_NAMED_HOSPITAL_DOLLARS)
+  # $60,000,000 of it is the 80 AHEAD hospitals, unchanged.
+  ahead <- records %>%
+    dplyr::filter(strategy == "AHEAD Model pre-implementation funding")
+  expect_equal(sum(ahead$amount, na.rm = TRUE), 60000000)
+  expect_equal(named - sum(ahead$amount, na.rm = TRUE), 30277580)
+})
+
+test_that("the 21 fit inside the initiative pools they are named from", {
+  # If the named awards ever exceed their pool, either the pool figure or the
+  # parse is wrong, and publishing either would overstate Georgia.
+  noa <- records %>% dplyr::filter(validation_source_type == "NOTICE_OF_AWARD")
+  by_pool <- noa %>%
+    dplyr::group_by(initiative_number, initiative_amount) %>%
+    dplyr::summarise(named = sum(amount), .groups = "drop")
+  expect_equal(nrow(by_pool), 2L)
+  expect_true(all(by_pool$named <= by_pool$initiative_amount))
+  expect_equal(by_pool$named[by_pool$initiative_number == "5"], 26000000)
+  expect_equal(by_pool$named[by_pool$initiative_number == "3"], 4277580)
 })

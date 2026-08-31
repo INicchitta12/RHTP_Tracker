@@ -191,3 +191,70 @@ test_that("the committed CSV matches what the parser produces today", {
   expect_equal(sum(csv$amount), sum(md_recs$amount))
   expect_equal(csv$awardee, md_recs$awardee)
 })
+
+
+# -- The open classification question (session 22) ---------------------------
+#
+# MDH publishes no organisation-type column, so 24 of 41 recipient_types are
+# derived from the recipient's own name. Kansas's device: the uncertainty goes
+# in a queue a human reads, and its presence there is asserted every run.
+
+test_that("the 24 unstated-form rows are queued, with their dollars", {
+  queue <- readr::read_csv(
+    here::here("data/reference/classification_review_queue.csv"),
+    show_col_types = FALSE, progress = FALSE)
+  row <- queue %>% dplyr::filter(question_id == MD_FORM_NOT_STATED_QUESTION)
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$state, "MD")
+  expect_equal(row$queue_status, "OPEN")
+  expect_true(grepl("36,558,089", row$dollar_effect))
+  expect_true(grepl("14,678,864", row$dollar_effect))
+  # Every option a reviewer may choose has to be a real §8 value.
+  opts <- stringr::str_squish(strsplit(row$options, "\\|")[[1]])
+  opts <- stringr::str_remove(opts, " \\(the current coding\\)$")
+  expect_true(all(opts %in% rhtp_vocabulary("recipient_type")))
+})
+
+test_that("nothing was promoted and nothing was demoted", {
+  recs <- md_records()
+  inferred <- recs %>%
+    dplyr::filter(determination_confidence == "LOW",
+                  flag_reason == "RECIPIENT_TYPE_INFERRED")
+  expect_equal(nrow(inferred), 24L)
+  expect_equal(sum(inferred$amount), 36558089)
+  expect_true(all(inferred$recipient_type == "NONPROFIT_CBO"))
+  expect_true(all(inferred$distributed_to_hospital != "Yes"))
+
+  # UNDERSTATED: §0.3a names TidalHealth as a hospital and it is in the 24,
+  # uncounted. Meritus Health Center sits beside it. Neither was promoted --
+  # doing so on this pipeline's own knowledge is the §0.4 failure.
+  for (nm in c("TidalHealth", "Meritus Health Center")) {
+    hit <- inferred[grepl(nm, inferred$awardee, fixed = TRUE), ]
+    expect_equal(nrow(hit), 1L, info = nm)
+  }
+
+  # OVERSTATED, WHICH KANSAS DID NOT HAVE: two of the six rows inside today's
+  # hospital figure are typed HOSPITAL_OR_SYSTEM from their names and read as
+  # FQHCs. Neither was demoted either. The uncertainty runs BOTH ways.
+  named <- recs %>% dplyr::filter(distributed_to_hospital == "Yes")
+  expect_equal(nrow(named), 6L)
+  expect_equal(sum(named$amount), 14678864)
+  fqhc_shaped <- named %>%
+    dplyr::filter(grepl("Choptank|Mountain Laurel", awardee))
+  expect_equal(nrow(fqhc_shaped), 2L)
+  expect_true(all(fqhc_shaped$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_equal(sum(fqhc_shaped$amount), 3034792)
+})
+
+test_that("the uncertainty is larger than the figure it sits beside", {
+  # If this ever stops being true, the sentence this repository publishes about
+  # Maryland has to change, and md_assert_form_not_stated_queued() says so.
+  expect_gt(MD_STATED$form_not_stated_total, MD_STATED$named_hospital_floor)
+  expect_true(md_assert_form_not_stated_queued(md_records()))
+})
+
+test_that("every Maryland row is still an OFFER", {
+  recs <- md_records()
+  expect_true(all(recs$validation_source_type == "NOTICE_OF_INTENT_TO_AWARD"))
+  expect_true(all(recs$amount_confirmed == "No"))
+})

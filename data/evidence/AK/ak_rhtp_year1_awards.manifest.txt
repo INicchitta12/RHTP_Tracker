@@ -1,7 +1,7 @@
 RHTP tracker archive (spec 0.4 / 0.5): Alaska RHTP Year 1 notices of intent
 to award.
 
-fetched_utc     : 2026-08-28T15:56:11Z
+fetched_utc     : 2026-08-31T14:32:40Z
 state           : AK
 host            : health.alaska.gov
 http_status     : 200
@@ -12,19 +12,34 @@ cms_year1_award : ~$160,000,000 (CMS 2026-08-25 release)
 
 FILE
 
-  file    : 2026-08-28_ak_rhtp_awardsnotice_2026.xlsx
+  file    : 2026-08-31_ak_rhtp_awardsnotice_2026.xlsx
   title   : Alaska RHTP Awards Notice 2026
   url     : https://health.alaska.gov/media/tcvker5a/ak_rhtp_awardsnotice_2026.xlsx
   program : https://health.alaska.gov/en/education/rural-health-transformation-program/
-  bytes   : 64895
-  sha256  : 1db9aa4c1b13d93df95f66e7d657b6971d1575e3e0d3b1be458141616be8a245
-  rows    : 161
+  bytes   : 72209
+  sha256  : a77bb9741845f5f683e0509a7a9e114c90c66390a6d4a23135ff9a6a28923b2e
+  rows    : 185
 
   by Project Type:
-    Implementation  142
+    Implementation  166
     Planning  19
 
-  notification dates present: 2026-08-07, 2026-08-14, 2026-08-21
+  notification dates present: 2026-08-07, 2026-08-14, 2026-08-21, 2026-08-28
+
+  file    : 2026-08-31_alaska_rhtp_year1_funding_cycle_update.pdf
+  title   : Alaska RHTP Year 1 Funding Cycle Update
+  url     : https://health.alaska.gov/media/lyrcb3pc/alaska-rhtp-year-1-funding-cycle-update.pdf
+  bytes   : 89427
+  sha256  : a4533a6bfecfef480416fd08b9a22816824a56a49c491e0d8618210d363176fb
+  role    : POSITIVE CONTROL. Alaska's own weekly cumulative counts, which
+            are what make the growth of the notice a STATE-PUBLISHED fact
+            rather than this pipeline's diff of two downloads.
+
+  file    : 2026-08-28_ak_rhtp_awardsnotice_2026.xlsx
+  role    : the PRIOR SNAPSHOT, kept rather than replaced. It is what the
+            growth is measured against, and it is the snapshot where CMS's
+            stated 142 projects reconciles to Alaska's own Implementation
+            count exactly (session 12's finding, asserted every run).
 
 WHAT THIS DOCUMENT SUPPORTS (spec 9.2, Part A of reviewer-coding-instructions)
 
