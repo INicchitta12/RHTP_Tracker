@@ -66,7 +66,14 @@ STATE_FILES <- c(
   # so it is the state most likely to break an invariant that was only ever
   # true because every prior file had at least one hospital row in it. It is
   # also the first to carry a multi-year contract value in `amount`.
-  IN = "data/reference/in_year1_awardees.csv"
+  IN = "data/reference/in_year1_awardees.csv",
+  # Oklahoma is the first state file to mix a NAMED-recipient roster and a
+  # names-not-published aggregate row IN ONE POOL SET -- 68 microgrants with a
+  # recipient and an amount each, and one ROOTS row that names nobody and
+  # carries an EMPTY amount. South Dakota has the aggregate shape but nothing
+  # else; Georgia had it before its roster was found. A file that holds both at
+  # once is the one most likely to let a NOT_YET_NAMED row drift into a total.
+  OK = "data/reference/ok_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -94,13 +101,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all thirteen files carry the leading 19 columns, in the same order", {
+test_that("all fourteen files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the thirteen files union without a coercion failure", {
+test_that("the fourteen files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -108,8 +115,8 @@ test_that("the thirteen files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "NE", "OR",
-                 "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "NE", "OK",
+                 "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

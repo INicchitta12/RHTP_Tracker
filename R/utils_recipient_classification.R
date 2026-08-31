@@ -87,8 +87,17 @@ RHTP_RECIPIENT_TYPE_PATTERNS <- tibble::tribble(
   "(?i)\\b(universit(y|ies)|college)\\b",                                     "UNIVERSITY_OR_AHC",           "HIGH",   "name states a university or college",
   "(?i)\\barea health education cent(er|re)|\\bahec\\b",                      "AHEC",                        "HIGH",   "name states an AHEC",
 
-  # Schools.
+  # Schools. `public schools` was added in session 25, because Oklahoma awards
+  # microgrants to "Altus Public Schools" and "Clayton Public Schools" -- school
+  # districts under the ordinary American naming convention, which fell through
+  # every pattern to §8's NONPROFIT_CBO fallback and would have been queued as
+  # "form not stated" when the form is stated plainly in the name. It moves no
+  # dollars in any direction (a school district is NON_HOSPITAL either way) and
+  # it touches no committed row: `public school` appears exactly once across
+  # every reference CSV, inside an Alaska project DESCRIPTION whose awardee is
+  # "Department of Education & Early Development", which this rule cannot see.
   "(?i)\\b(school district|board of education|department of education)\\b",   "SCHOOL_OR_DISTRICT",          "HIGH",   "name states a school system",
+  "(?i)\\bpublic schools?\\b",                                                "SCHOOL_OR_DISTRICT",          "HIGH",   "name states a public school district",
 
   # Government. The county/city public-health rule comes FIRST because the two
   # spellings of one body were landing in two different places: Maryland awards
@@ -246,7 +255,27 @@ RHTP_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
   "SD", "BLACK HILLS SPECIAL SERVICES",                                             "NONPROFIT_CBO",          "MEDIUM", "South Dakota education service cooperative, a nonprofit",
   "SD", "SD FOUNDATION FOR MEDICAL CARE",                                           "NONPROFIT_CBO",          "MEDIUM", "South Dakota Foundation for Medical Care, the state's nonprofit quality improvement organisation",
   "SD", "COMMUNITY HEALTH WORKER COLLAB",                                           "NONPROFIT_CBO",          "MEDIUM", "Community Health Worker Collaborative of South Dakota, a nonprofit; the register truncates the name",
-  "SD", "ACTIVE GENERATION",                                                        "NONPROFIT_CBO",          "MEDIUM", "Sioux Falls nonprofit senior services centre"
+  "SD", "ACTIVE GENERATION",                                                        "NONPROFIT_CBO",          "MEDIUM", "Sioux Falls nonprofit senior services centre",
+
+  # -- Oklahoma (session 25) --------------------------------------------------
+  # Two rows where the SOURCE states the form and the name alone does not.
+  # Neither moves a dollar: both are distributed_to_hospital = No under the
+  # fallback and under the override, which is why they are settled here rather
+  # than queued. Everything Oklahoma leaves genuinely unstated stays on §8's
+  # fallback and goes to the review queue as OK_RECIPIENT_FORM_NOT_STATED.
+  #
+  # OSDH's own award paragraph for Stigler HWC reads "As a Federally Qualified
+  # Health Center (FQHC), Stigler HWC places a strong emphasis on...". That is
+  # the recipient's federal designation stated by the awarding agency in the
+  # award document, which is stronger evidence than any name pattern -- the
+  # same footing on which Indiana typed its seven vendors from IDOA's own word.
+  "OK", "Stigler HWC",                                                              "FQHC_OR_RHC",            "HIGH",   "OSDH's own award text calls it \"a Federally Qualified Health Center (FQHC)\"",
+  # A federally recognised tribe. The tribal pattern above keys on
+  # tribal/tribe/native village/band of/indian health and reaches none of the
+  # tribes that style themselves "<People> Nation", so this is recorded per
+  # entity rather than by widening that pattern to a bare `nation`, which would
+  # be a fuzzy token in a rule that has to hold for fifty states.
+  "OK", "Choctaw Nation of Oklahoma",                                               "TRIBAL_ORG",             "HIGH",   "federally recognised tribe; the tribal name pattern does not reach the \"Nation\" styling"
 )
 
 

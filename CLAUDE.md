@@ -190,6 +190,7 @@ R/
   03q_state_completeness_recheck.R # the 7 extracted states, re-read for rosters (BUILT)
   03r_ne_year1_awardees.R      # Nebraska — 3 NOTICES OF AWARD; RCJ mistitled one (BUILT)
   03s_in_year1_awardees.R      # Indiana — 7 awards, 0 hospitals; RCJ INVENTED the label (BUILT)
+  03t_ok_year1_awardees.R      # Oklahoma — 68 microgrants; RCJ holds NONE of them (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -223,6 +224,9 @@ data/
                                #   Scope of Work members (the CMS footer) + the trailer control
     NE/                        #   DHHS programme + grants pages, the 3 SIGNED NOTICES OF
                                #   AWARD, and RFA 4533 — the §6.2 NEGATIVE control
+    OK/                        #   the OSDH Funding Recipients roster, the funding page that
+                               #   is its positive control, and the 4 RHTP PDFs carrying the
+                               #   CMS financial-assistance footer
     recheck/<date>/<ST>/       #   the completeness re-check: award pages AND their children
 output/
   rhtp_hospital_tracker_<date>.xlsx
@@ -251,6 +255,7 @@ docs/
   session21_completeness_recheck_maryland.md # GA and AK have more; MD is 41 offers
   session22_georgia_alaska_maryland.md # GA's 21 named; AK needs a SCHEDULE; MD queued
   session24_indiana_procurement_channel.md # IN: awards are in PROCUREMENT; RCJ invented RHTP
+  session25_indiana_recheck_oklahoma.md    # IN unchanged; OK's 68 microgrants vs the 48.7%
 ```
 
 **Persistence rules differ from normal practice.** `data/raw/`,
@@ -570,7 +575,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-31 (Session 24 — Indiana: the awards are in the PROCUREMENT channel, 0 hospitals, and RCJ invented the programme label on 30 of 37 candidates)
+**Last updated:** 2026-08-31 (Session 25 — Indiana re-checked and byte-identical; Oklahoma publishes 68 microgrant awards RCJ holds NONE of, and the 48.7% initiative figure turns out to be untestable)
 
 ### Stages built
 
@@ -590,6 +595,7 @@ retrieval code.
 | **Maryland Year 1** | `R/03p_md_year1_awardees.R` | **Built and run (Session 21). 41 Budget Period 1 award OFFERS across TWO pools, $78,625,071. They are OFFERS, not executed agreements — MDH's own word. RCJ's 42nd candidate is the MHCC POOL (Tier 2) and the arithmetic closes exactly. Session 22 queued `MD_RECIPIENT_FORM_NOT_STATED` (24 rows, $36,558,089) and asserts its presence every run — `docs/session21_completeness_recheck_maryland.md`** |
 | **Nebraska Year 1** | `R/03r_ne_year1_awardees.R` | **Built and run (Session 23). 57 AWARDS across THREE signed Public Notices of Award, $36,137,614.90 — the strongest source type since Georgia; Oregon, Alaska and Maryland all publish intents or offers. RCJ filed 24 of them under the APPLICANT section's heading and holds NONE of Initiative 4.4b ($27.7M). Adds `POOL_NAMED_HOSPITALS` to §8 for the Nebraska High Value Network — `docs/session23_nebraska_extraction.md`** |
 | **Indiana Year 1** | `R/03s_in_year1_awardees.R` | **Built and run (Session 24). 7 award actions, 7 recipients, 5 RFPs, $860,088 — and NOT ONE IS A HOSPITAL. Indiana's awards run through IDOA STATE PROCUREMENT, not the RHTP site; the GROW initiative pages are the index. All are PRELIMINARY award recommendations (weaker than Oregon's intents). RCJ's 37 candidates are 6 real awards and 30 unrelated procurement — it APPENDS an RHTP label the documents do not carry — and it misses 2 of the 7 real awards. GROW Regional Grants ($120M/yr, 8 coalitions) LAUNCHES 2026-09-01 and is where the hospital money will be — `docs/session24_indiana_procurement_channel.md`** |
+| **Oklahoma Year 1** | `R/03t_ok_year1_awardees.R` | **Built and run (Session 25). 68 microgrant awards, $3,572,120.71, across 68 of the 74 counties OSDH lists — SIX say "No Awardee" and are the parse's own negative control. Plus ONE aggregate row for OSDE's ROOTS: 60 awards, $600,000, NOBODY NAMED. 20 award actions reach 18 named hospitals, $1,079,506.22 — a FLOOR whose uncertainty (31 rows / $1,575,304.25) is larger AND, for the first time in this project, ONE-DIRECTIONAL. §6.2 passes in its strongest form yet: the CMS footer is on the ROSTER ITSELF. NOT ONE of RCJ's 35 candidates is one of the 68 awards — all 35 are Tier 2 BUDGET LINES totalling $231,614,376, MORE THAN THE WHOLE ALLOTMENT — `docs/session25_indiana_recheck_oklahoma.md`** |
 | **Completeness re-check** | `R/03q_state_completeness_recheck.R` | **Session 22 FLIPPED its two positives to `ROSTER_EXTRACTED` — GA's check now requires all 21 to be IN the committed file (joined on the application number, never the name) and AK's compares against `ak_year1_awardees.csv` rather than a named evidence file. Left as they were, both would have failed on the extraction they asked for. Built Session 21: Kansas's lesson applied backwards to FL/GA/PA/AL/AK/OR/IL, each negative with its own positive control** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
@@ -609,7 +615,7 @@ retrieval code.
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>`test_03s_in_year1_awardees.R`<br>**Built — 27 files, 2,405 assertions; 2,404 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>`test_03s_in_year1_awardees.R`<br>`test_03t_ok_year1_awardees.R`<br>**Built — 29 files, 2,564 assertions; 2,563 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`. Session 24's "27 files" was off by one — counted with `testthat::test_dir(reporter = "silent")` rather than by reading the runner's output.**|
 
 ### States validated
 
@@ -617,7 +623,7 @@ None. No state has been through Stage 4 validation.
 
 Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas.
 
-### Deliverable 1 — eight states extracted
+### Deliverable 1 — fourteen state files, thirteen states
 
 | | Rows | Total published | Hospital rows | Hospital dollars |
 |---|---:|---:|---:|---:|
@@ -634,6 +640,7 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **MD** | 41 | $78,625,071 | **6** | **$14,678,864** (award OFFERS; a FLOOR — see below) |
 | **NE** | **57** (+21 unpriced) | **$36,137,615** | **41** | **$6,990,996 named + $18,156,856 pooled-but-named** (a FLOOR — see below) |
 | **IN** | **7** | **$860,088** (one row; a 5-YEAR value) | **0** | **$0** — every recipient is a vendor |
+| **OK** | **69** | **$3,572,121** (+$600,000 unnamed) | **20** | **$1,079,506** (a FLOOR — see below) |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
@@ -717,6 +724,33 @@ Nebraska's CMS abstract names it as a subrecipient (`CANDIDATE_ONLY`, §4.1). So
 §10.2's hospital-association branch never fires on a Nebraska row, and
 `ne_assert_nha_absent()` fails the day DHHS awards it.
 
+**OKLAHOMA'S LINE IS TWO DOCUMENTS' WORTH OF ONE PAGE, AND ONE OF THEM NAMES
+NOBODY.** The 68 microgrants carry a county, a recipient and an amount each;
+OSDE's ROOTS row is **60 awards and $600,000 with no roster at all**, so it
+carries an **empty `amount`** with the round total in `round_amount` (South
+Dakota's device). `sum(amount)` is $3,572,120.71 and nothing else. Read
+`award_pool` before using any figure.
+
+**Oklahoma's hospital floor is soft in the same way Kansas's, Maryland's and
+Nebraska's are — and it is the first one that is soft in ONE DIRECTION ONLY.**
+OSDH publishes no organisation-type column, so all 20 hospital rows are typed
+from the recipient's own name, and **31 rows / $1,575,304.25 carry §8's standing
+fallback** — larger than the $1,079,506.22 beside it. But every one of those 31
+is already `distributed_to_hospital = No`, so resolving any can only raise the
+figure: **$1,079,506.22 is a genuine floor and $2,654,810.47 a genuine
+ceiling**, and a test asserts that rather than the report claiming it. DRH
+Health, Baptist Healthcare, Fairfax Medical Facilities, Avem Health Partners,
+SSM Health St. Anthony Shawnee and AllianceHealth Madill are all inside the 31.
+**Nothing was promoted (§0.4)**; queued as `OK_RECIPIENT_FORM_NOT_STATED`.
+
+**And Oklahoma's 1.6% is a statement about what OSDH has PUBLISHED, not about
+what Oklahoma has spent.** Five closed opportunities have no roster — Chronic
+Disease Management ($15M anticipated), Rural Regional Reorientation ($20M), EMS
+Vehicles ($3.675M), Doulas ($2.5M), BH Integration ($2.8M) — and the Lung Cancer
+Screening Program's **11 selected hospitals are a count, not a list** (§0.3).
+`ok_assert_pending_not_awarded()` and `ok_assert_lung_screening_unnamed()` are
+both designed to fail the day any of that changes.
+
 **GEORGIA'S AND ALASKA'S LINES WERE KNOWN TO BE INCOMPLETE AND ARE NOW CLOSED
 (session 22).** Georgia's two aggregate rows reading *"names not captured"* are
 **21 named hospitals** parsed from two signed Notices of Award —
@@ -771,7 +805,7 @@ hospitals and Alaska's 24 new awards are both in the figure above (session 22).
 weekly basis and Routine `trig_01U4RxGWMH8yg37UKupHqTki` is what keeps it
 current.
 
-All **thirteen** files union on the leading 19 columns with zero values outside §8,
+All **fourteen** files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. Georgia gained a
 twentieth appended column in session 22, `application_id` — DCH's own row key on
 its notices of award, and what the completeness re-check joins on. A name is
@@ -904,6 +938,22 @@ South Dakota was never in it. Both SD files are now included.
   amount is a FIVE-YEAR contract value**, flagged `AMOUNT_IS_MULTI_YEAR_TOTAL`;
   the other six documents publish none, so `amount` is empty on them. Rebuild
   with `Rscript R/03s_in_year1_awardees.R --build`.
+- **`data/reference/ok_year1_awardees.csv` — 69 rows (Session 25).** Oklahoma's
+  Year 1 award roster, from ONE OSDH page in TWO sections: Community-Led
+  Wellness Hubs: Microgrants **68 awards / $3,572,120.71**, and OSDE's ROOTS
+  Competitive Grant **60 awards / $600,000 with NOBODY NAMED**. **Read
+  `award_pool` first**: the ROOTS row's `amount` is deliberately empty and its
+  round total is in `round_amount`, so `sum(amount)` is the microgrant total and
+  nothing else (§6.2). OSDH publishes no organisation-type column, so **31 rows
+  / $1,575,304.25 carry §8's standing fallback** against a $1,079,506.22 named
+  floor — and, uniquely so far, the uncertainty runs **only upward**. Rebuild
+  with `Rscript R/03t_ok_year1_awardees.R --build`.
+- **`data/reference/ok_rcj_candidate_disposition.csv` — 5 rows (Session 25).**
+  Why each of RCJ's 35 Oklahoma Tier 3 candidates is **not** an RHTP subaward.
+  **All 35 are Tier 2 budget lines** from four genuinely-RHTP OSDH planning
+  documents, and their "awardees" are the administering agencies. Taken at face
+  value they publish **$231,614,376 — more than Oklahoma's entire allotment**.
+  The counts are re-derived from `stage2_record_table.rds` on every run.
 - **`data/reference/in_rcj_candidate_disposition.csv` — 4 rows (Session 24).**
   Why each of RCJ's 37 Indiana Tier 3 candidates is, or is not, an RHTP award,
   with the disqualifying evidence and the archived state document. **6 are real
@@ -924,8 +974,8 @@ South Dakota was never in it. Both SD files are now included.
   for row. It is deliberately **not** `NO_ADDITIONAL_ROSTER`, which would be a
   false claim about what those two states publish. Rebuild with
   `Rscript R/03q_state_completeness_recheck.R --build`.
-- **`data/reference/classification_review_queue.csv` — 4 rows (Sessions 19,
-  20, 22, 23).**
+- **`data/reference/classification_review_queue.csv` — 6 rows (Sessions 19,
+  20, 22, 23, 24, 25).**
   Open classification questions for a human. Today: `GHA_RECIPIENT_TYPE` — is a
   hospital trade association `NONPROFIT_CBO` (§10.2's row, AK and IL) or
   `HOSPITAL_AFFILIATED_ENTITY` (Georgia)? **$0 either way**, so decide it on
@@ -954,6 +1004,17 @@ South Dakota was never in it. Both SD files are now included.
   (§2 forbids a fuzzy hospital match auto-resolving).
   `ne_assert_form_not_stated_queued()` asserts the row, its dollars and its
   options every run.
+  **Session 24 added `IN_PROCUREMENT_VENDOR_TYPE`** — all 7 Indiana rows, **$0
+  either way**, because IDOA's own word ("companies", "selected respondents")
+  states a form the shared classifier's fallback does not.
+  **Session 25 added `OK_RECIPIENT_FORM_NOT_STATED`** — 31 Oklahoma rows,
+  **$1,575,304.25** against a $1,079,506.22 floor, the fourth state where the
+  publisher gives a recipient and an amount and nothing about its form. It is
+  the first whose uncertainty is **one-directional**: every one of the 31 is
+  already `distributed_to_hospital = No`, so the queue row states a CEILING
+  ($2,654,810.47) rather than an unbounded question, and
+  `ok_assert_form_not_stated_queued()` asserts both the row and that
+  one-directionality every run.
 - **`data/reference/il_year1_awardees.csv` — 1 row (Session 16).** Illinois:
   ICAHN, $50,008,264, three agreements executed 2026-07-31.
   `hospital_attribution = POOL_UNNAMED_HOSPITALS` — **read that column before
@@ -3030,25 +3091,216 @@ is the argument for checking the **diff**, not the file.
 
 **Tests: 2,405 assertions, all passing** (was 2,292). `test_03s_in_year1_awardees.R` is new — 107 assertions — and `test_state_union.R` now combines **thirteen** state files.
 
+### Session 25 — Indiana is unchanged and measured so, and Oklahoma's roster is one RCJ holds nothing of
+
+Full detail: `docs/session25_indiana_recheck_oklahoma.md`. Zero RCJ quota; 14
+fetches to `oklahoma.gov` and 6 live re-checks against `www.in.gov`, throttled
+per §9.5.
+
+**INDIANA HAS NOT AWARDED ITS REGIONAL GRANTS, AND ALL SIX LIVE PAGES ARE
+BYTE-IDENTICAL TO THE COMMITTED ARCHIVES.** `in_assert_regional_not_awarded()`
+passes offline *and* against the live site — which is the check that mattered,
+because offline it reads the archive and passes trivially. The regional-grants
+page still carries all three pre-award sentences (the launch sentence, *"RFF
+Applications submitted July 1"*, *"score applications and determine funding"*),
+and IDOA's register still carries **exactly four** RHTP-titled rows, the number
+`in_assert_award_register()` refuses to exceed. **The launch is 2026-09-01, and
+this session ran on 2026-08-31 — tomorrow, not today**, so the item stays at the
+top of the next session's list unchanged.
+
+---
+
+**OKLAHOMA LED THE QUEUE AND PUBLISHES A RECIPIENT-LEVEL ROSTER: 68 microgrant
+awards, $3,572,120.71, to 54 distinct recipients across 68 counties.** Plus one
+aggregate row for **OSDE's ROOTS — 60 awards, $600,000, NOBODY NAMED**. That is
+**1.6%** of Oklahoma's $223,476,949 allotment, and it is all there is: OSDH is
+running **ten** Budget Period 1 opportunities and has published awardees for
+**two**. **20 award actions reach 18 named hospitals: $1,079,506.22.**
+
+**The route in was `/api/v1/activity`, not RCJ's award records** — Oregon's
+lesson working a second time. `state_source_url` is NA on all 35 Oklahoma Tier 3
+records; `stage2_state_sources.rds` holds five real OSDH urls, one of which is
+the funding page the roster hangs off.
+
+**§6.2 PASSES IN THE STRONGEST FORM THIS PROJECT HAS SEEN: THE CMS FOOTER IS ON
+THE ROSTER ITSELF.** *"...as part of a financial assistance award totaling
+**$223,476,948.62** with 100 percent funded by CMS/HHS"* is on the Funding
+Recipients page, the funding page, the programme page, the NOFO announcement and
+all four RHTP PDFs, and it rounds to the §7.1 anchor exactly. Indiana's footer
+was on the *solicitation*; Oklahoma's is on the *award list*. The date test
+passes too: the microgrant NOFO was announced **2026-03-16**, applications due
+**2026-04-13**, both after the **2025-12-29** Notice of Award.
+
+**§0.1 — THE WORST RATIO YET, AND A DIFFERENT MECHANISM FROM INDIANA'S. NOT ONE
+of RCJ's 35 Oklahoma candidates is one of these 68 awards.** All 35 are **budget
+lines** from four Tier 2 planning documents: 8 from the Budget Narrative, 8 from
+the Initiative Funding Summary, 17 from the two Legislative Quarterly Reports, 1
+from a webinar deck and 1 a $1 placeholder. Their "awardees" are the
+administering agencies — OHCA, OSDH, OSDE, OSU, OUHSC, SWODA, the Oklahoma
+Hospital Association, the Foundation for a Healthy Oklahoma — and RCJ's own
+strings weld the two together: *"Oklahoma Health Care Authority (OHCA) - EHR
+expansion"*. **An extractor built from the candidate list would have published
+$231,614,376 as Tier 3 subawards — MORE THAN THE ENTIRE ALLOTMENT**, and 65
+times what Oklahoma has actually awarded to named recipients.
+
+**And the documents refute it in their own glossary.** The Legislative Quarterly
+Reports define the column RCJ mined: *"**Y1 Budget Allocation**: The amount of
+funds dedicated to the program."* **Indiana's defect was an APPENDED label;
+Oklahoma's is TIER.** Every Oklahoma document is genuinely RHTP, every figure is
+real, and every row is one level above an award — so a provenance check catches
+nothing here and a plausibility check on the amount catches nothing in Indiana.
+**What catches both is reading what the document says the number IS.**
+
+**THE POSITIVE CONTROL, AND A SECOND ONE THE ROSTER SUPPLIES ITSELF.** OSDH
+demonstrably publishes rosters in a recognisable form — an "Awardees" navigation
+with one anchor per awarded opportunity — so `ok_assert_award_index()` asserts
+both present and **refuses a third**, and `ok_assert_pending_not_awarded()` names
+the five closed opportunities with no roster (Chronic Disease Management $15M
+anticipated, Rural Regional Reorientation $20M, EMS Vehicles $3.675M, Doulas
+$2.5M, BH Integration $2.8M) and **is designed to fail** the day one appears.
+**And OSDH lists 74 counties in one uniform three-line block shape, of which SIX
+say "No Awardee"** — Beckham, Canadian, Cherokee, Love, Nowata, Pawnee. A parser
+that read the block *shape* and not the *content* produces 74 rows and six
+invented recipients and looks entirely reasonable doing it; the guard is
+positive-controlled by feeding it a faked Nowata award and requiring a refusal.
+Oklahoma's three unlisted counties are Oklahoma and Tulsa (excluded by the
+NOFO's own rural definition) and **Kingfisher, whose absence is unexplained and
+recorded rather than filled in**.
+
+**Two corroborations, from a document read five weeks before the roster.** The
+Q2 Legislative Quarterly Report states *"OSDH issued **68 awards** through the
+competitive Microgrant application"* and *"**60 awards totalling $600K** to
+local schools"*. Both are asserted every run.
+
+**ROOTS NAMES NOBODY — a count and a unit price (§0.3).** So it is one aggregate
+row with an **empty `amount`** and its $600,000 in `round_amount` (South
+Dakota's device), and `sum(amount)` is the microgrant total and nothing else. It
+is `No` rather than South Dakota's `Unclear` because OSDE states the recipient
+**class** — PK-12 rural school sites, §10.2's own `NON_HOSPITAL` worked example
+— even while naming no member of it (§0.3a).
+
+**THE HOSPITAL FIGURE IS A FLOOR, AND FOR THE FIRST TIME THE UNCERTAINTY IS
+ONE-DIRECTIONAL.** OSDH publishes no organisation-type column, so Kansas's,
+Maryland's and Nebraska's shape a **fourth** time: $1,079,506.22 named against
+**31 rows / $1,575,304.25** on §8's standing fallback. But **every one of those
+31 is already `distributed_to_hospital = No`**, so resolving any can only *raise*
+the figure — $1,079,506.22 is a genuine floor and **$2,654,810.47** a genuine
+ceiling, and a test asserts the one-directionality rather than the report merely
+claiming it. It runs upward on the names too: DRH Health ($66,608.44), Baptist
+Healthcare ($73,188.00), Fairfax Medical Facilities ($83,017.73), Avem Health
+Partners ($99,852.00), SSM Health St. Anthony Shawnee and AllianceHealth Madill
+are all inside the 31 and all uncounted. **Nothing was promoted (§0.4)**; queued
+as `OK_RECIPIENT_FORM_NOT_STATED` with the ceiling stated in the queue row.
+
+**THE §7A COMPARISON — THE POINT OF THE SESSION, AND ITS ANSWER IS MOSTLY A
+NEGATIVE.** Oklahoma is the first state where a recipient-level extraction could
+be checked against an initiative table this repository already holds.
+
+```
+INITIATIVE LEVEL   $204,900,000 allocated · $99,800,000 hospital-directed · 48.7%
+                   6 fund uses coded hospital-directed
+                   OF THOSE, WITH A PUBLISHED RECIPIENT ROSTER: 0
+RECIPIENT LEVEL    $3,572,120.71 awarded to named recipients — 1.74% of the above
+                   $1,079,506.22 named-hospital — 30.2% of what is published
+                   ceiling if every unstated row were a hospital — 74.3%
+```
+
+**Read those as two claims over two universes, not one number checking
+another.** None of the six hospital-directed fund uses — Provider Collaborative
+Network $43.1M, RRR $26.4M, Rural Residency $22.4M, CHW $4.3M, Lung Screening
+$2.3M, Maternal VBP $1.3M — has published a single recipient, so **nothing here
+tests the 48.7%**.
+
+**But where the check CAN be made, the initiative table was wrong.** Both
+published fund uses are coded `has_hospital_recipient = No`; the microgrant line
+on the strength of *"local health departments in 59 rural counties and
+community-based entities"*. **The roster names 20 hospital award actions and not
+one county health department.** Wrong, and wrong in the *conservative*
+direction. `ok_assert_initiative_parity()` pins both codings so the finding
+fails rather than quietly ceasing to be true. **The lesson for the states still
+queued: `has_hospital_recipient` is a reading of a PLAN, and a plan that says
+"community-based entities" can award 30% of its money to hospitals. It is a
+discovery signal, never evidence about where money went.**
+
+**And the §7A denominator itself moved.** The Initiative Funding Summary
+(03.10.26, the §7A source) allocates **$2,800,000** to the microgrants; the Q2
+report (07.10.26) allocates **$7,750,000**; OSDH awarded **$3,572,120.71**. Both
+figures are Oklahoma's own, four months apart. Reported, not resolved.
+
+**Three things are deliberately NOT in the file.** The Q1/Q2 "Funded Entity"
+tables (Tier 2 by their own glossary). **The 11 hospitals selected for the Lung
+Cancer Screening Program** — the Q2 report says *"11 hospitals selected with 9
+hospital MOU's in progress"* and **names none**;
+`ok_assert_lung_screening_unnamed()` fails the day OSDH does, and those eleven
+will be real named-hospital rows. And **the Oklahoma Hospital Association and
+its Foundation**, which hold RHTP money at Tier 2 ($4,586,721.33 and
+$2,371,360.66 obligated per Q2) and are on **no** award row, so §10.2's
+association branch never fires on an Oklahoma award; `ok_assert_oha_absent()`
+fails the day one appears.
+
+**Two §8 rows typed from the source and one generic rule added, all moving $0.**
+OSDH's own award text calls **Stigler HWC** *"a Federally Qualified Health
+Center (FQHC)"* → `FQHC_OR_RHC` (Indiana's precedent for typing from the
+source); **Choctaw Nation of Oklahoma** → `TRIBAL_ORG`, recorded per entity
+rather than by widening §8's tribal pattern to a bare `nation`, which would be a
+fuzzy token in a rule that has to hold for fifty states; and
+**`\bpublic schools?\b` → `SCHOOL_OR_DISTRICT`** was added generically, because
+*Altus Public Schools* and *Clayton Public Schools* fell to the fallback and
+would have been queued as "form not stated" when the form is in the name.
+**Provably inert: all fourteen existing extractors were re-run and every
+committed reference CSV came back BYTE-IDENTICAL**; the thirteen workbooks
+differed only in `dcterms:created` and were reverted. `public school` occurs
+exactly once across every reference CSV, inside an Alaska *description* whose
+awardee is the Department of Education & Early Development — a name-keyed rule
+cannot see it.
+
+**One archiving note.** `oklahoma.gov/health/rhtp.html` and the long
+community-outreach url return **byte-identical bodies** — same SHA-256, same
+694,330 bytes, two paths onto one AEM page. It is archived **once**, the alias is
+in the manifest, and a test asserts no two archived files share a digest, so a
+future session cannot re-add it and leave the evidence directory implying two
+corroborating documents.
+
+**The CRLF trap was met a third time and did not land.** The review queue is
+CRLF; the row was appended byte-wise in Python rather than through
+`readr::write_csv`, and `git diff --numstat` reports **1 insertion, 0
+deletions**. Sessions 23 and 24 both met this and both caught it by reading the
+diff; this session avoided it by not using the tool that causes it.
+
+**Tests: 2,564 assertions across 29 files, 2,563 passing and 1 self-skipping**
+(was 2,405). `test_03t_ok_year1_awardees.R` is new — 153 assertions — and
+`test_state_union.R` now combines **fourteen** state files. *Session 24's note
+said "27 files"; the measured count before this session's file was added is
+**28**, so that line was off by one. Counted with
+`testthat::test_dir(reporter = "silent")` rather than by reading the runner's
+output, which is how the discrepancy surfaced.*
+
 ### Next session
 
 **SESSION 22 CLOSED THE FIRST THREE ITEMS SESSION 21 LEFT.** Georgia's 21
 hospitals are named, Alaska is refreshed and on a weekly Routine, and Maryland's
 open question is in the review queue. What follows is what is left.
 
-1. **INDIANA'S GROW REGIONAL GRANTS LAUNCHED 2026-09-01 — CHECK IT FIRST.**
-   *"$120M awarded annually across eight regional coalitions"*, applications
-   submitted 1 July, and the state's own page said it launches the day after
-   this session. It had **not** awarded when `in_year1_awardees.csv` was built,
-   which is why that file has seven vendors and **zero hospitals**. When it
-   awards, Indiana becomes one of the largest hospital-dollar states in the
-   project and the file is materially incomplete.
+1. **INDIANA'S GROW REGIONAL GRANTS — STILL THE FIRST THING TO CHECK, AND
+   SESSION 25 CHECKED IT AND FOUND NOTHING.** *"$120M awarded annually across
+   eight regional coalitions"*, applications submitted 1 July, launching
+   **2026-09-01**. Session 25 re-fetched all six Indiana pages live on
+   2026-08-31 and **every one is BYTE-IDENTICAL to the committed archive**;
+   IDOA's register still carries exactly four RHTP rows, and all three pre-award
+   sentences are still on the regional-grants page. So `in_year1_awardees.csv`
+   is still seven vendors and **zero hospitals**, correctly. **The launch was
+   the day after that check, so this item is unchanged rather than closed.**
    `Rscript R/03s_in_year1_awardees.R --fetch --force && --validate` —
-   `in_assert_regional_not_awarded()` is designed to FAIL on that day, and the
-   failure is the signal, not a defect. **Read the committee tables carefully
-   when you do**: fifteen tables of named people at named hospitals on that page
-   are an ADVISORY BODY, and the eight per-region dollar figures beside them are
-   CAPITAL EXPENDITURE CEILINGS, not awards.
+   `in_assert_regional_not_awarded()` is designed to FAIL on the day it awards,
+   and the failure is the signal, not a defect. **Read the committee tables
+   carefully when you do**: fifteen tables of named people at named hospitals on
+   that page are an ADVISORY BODY, and the eight per-region dollar figures
+   beside them are CAPITAL EXPENDITURE CEILINGS, not awards.
+
+   **And run the offline assertion against the LIVE page, not just the
+   archive.** `--validate` reads the committed copy and passes trivially; the
+   only thing that answers the question is a fetch. Session 25's whole Indiana
+   answer is a table of six SHA-256 comparisons.
 
 2. **Alaska will be stale again, and something now watches it.** Routine
    `trig_01U4RxGWMH8yg37UKupHqTki` runs `R/03h --probe` **Mondays 14:00 UTC**
@@ -3073,12 +3325,30 @@ open question is in the review queue. What follows is what is left.
    the Reconciliation sheet. **Settle it when the CCN match lands** (blocker 5),
    which resolves the question rather than arguing it.
 
-5. **Keep working the RCJ_ONLY queue, richest first.** Indiana is now
-   `EXTRACTED` in both `state_trigger_queue.csv` and `rcj_state_survey.csv`
-   (session 24) — both were **rebuilt**, not hand-edited, from
-   `SURVEY_EXTRACTED_STATES` in `R/03k`. So **Oklahoma leads at 35 candidates /
-   25 distinct awardees**. Behind it: NV 34/34, MI 31/31, MO 29/29, NH 23/15.
-   Texas is done at `INVESTIGATED_NO_LIST`; KS, MD, NE and IN are `EXTRACTED`.
+5. **Keep working the RCJ_ONLY queue, richest first.** **Oklahoma is
+   extracted as of session 25**, so **Nevada now leads at 34 candidates / 34
+   distinct awardees**. Behind it: MI 31/31, MO 29/29, NH 23/15. Texas is done
+   at `INVESTIGATED_NO_LIST`; KS, MD, NE, IN and OK are `EXTRACTED`.
+   Both `state_trigger_queue.csv` and `rcj_state_survey.csv` were **rebuilt**
+   from `SURVEY_EXTRACTED_STATES` in `R/03k`, never hand-edited, so Oklahoma
+   reads `EXTRACTED` in both and cannot rank 1 a second time and be
+   re-investigated from scratch.
+
+   **OKLAHOMA ADDS AN EIGHTH QUESTION, AND IT IS THE ONE THAT CATCHES A STATE
+   WHOSE DOCUMENTS ARE ALL GENUINELY RHTP: WHAT DOES THE DOCUMENT SAY THE
+   NUMBER *IS*?** Every one of Oklahoma's 35 candidates comes from a real RHTP
+   document published by OSDH, and not one is an award: they are
+   *"Y1 Budget Allocation: The amount of funds dedicated to the program"*, the
+   reports' own words, against the administering agency. Texas's defect was the
+   wrong PROGRAMME; Oregon's the wrong RECIPIENT CLASS; Indiana's an INVENTED
+   label; Oklahoma's is the wrong TIER, and it is invisible to every check that
+   asks where the money came from. **$231,614,376 — more than Oklahoma's entire
+   allotment — would have been published as subawards.** Read the glossary.
+
+   **And Oklahoma is the second state after Oregon where `/api/v1/activity`
+   found the source and `/awards` could not.** `state_source_url` is NA on all
+   35 Oklahoma Tier 3 records; `stage2_state_sources.rds` had five real OSDH
+   urls. **Check `/activity` for every state before concluding anything.**
 
    **Indiana adds a SIXTH question and a SEVENTH, and the sixth is the one
    that would have found nothing at all: IS THE STATE'S AWARD CHANNEL ITS
@@ -3301,6 +3571,10 @@ Rscript R/03s_in_year1_awardees.R --fetch        # IN: archive 19 sources + SHA-
 Rscript R/03s_in_year1_awardees.R --validate    # IN assertions + both controls, offline
 Rscript R/03s_in_year1_awardees.R --build       # writes IN csv + disposition + IN xlsx
 Rscript R/03s_in_year1_awardees.R --report      # 7 vendors, 0 hospitals, and the 30 non-RHTP
+Rscript R/03t_ok_year1_awardees.R --fetch        # OK: archive 8 sources + SHA-256
+Rscript R/03t_ok_year1_awardees.R --validate    # OK assertions + both controls, offline
+Rscript R/03t_ok_year1_awardees.R --build       # writes OK csv + disposition + OK xlsx
+Rscript R/03t_ok_year1_awardees.R --report      # the 2 pools, and the §7A comparison
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the
