@@ -231,6 +231,52 @@ spread driven by program design, not by coding. **The variance is the finding.**
 Report state by state. There is no defensible national percentage, so do not
 compute one.
 
+*(Delaware's figure is **14.6%** once initiatives 13–15 are included; 15.7% is
+the twelve-initiative number. See below — the denominator moves.)*
+
+## Your flag is a PROXY, and one state has now measured its error
+
+This is the most important thing in Part B and it was learned after the rules
+above were written.
+
+**Oklahoma's Community-Led Wellness Hub microgrants are coded `No`** in the
+committed initiative table, on the flow language the narrative actually uses:
+*"Local health departments in 59 rural counties and community-based entities."*
+Read against the table above that is the correct call — it is the document's own
+statement of the recipient class, and "community-based entities" is not a
+hospital.
+
+**OSDH then published the roster: 20 of the 68 microgrant awards went to named
+hospitals — $1,079,506.22 of $3,572,120.71, or 30.2% of the pool.**
+
+So a coding that follows these rules exactly can still be wrong, and here it was
+wrong in the direction that under-reports hospitals. That is not a reason to
+start guessing upward — inflating a `No` because Oklahoma's turned out to be 30%
+would be a worse invention than the original call, and one state is not an error
+bar. It is a reason to say plainly what the flag is:
+
+> **`has_hospital_recipient` is a reading of a PLAN.** It says where to look. It
+> is a **floor** on hospital involvement, never an estimate of it, and never
+> evidence about where money actually went. Only a recipient-level roster
+> (Part A) answers that.
+
+**Keep coding exactly as the table above says.** Do not adjust for this. Your job
+is to record what the document says, and §0.4 means the correction comes from a
+published roster, not from a reviewer's expectation.
+
+## And check the date on the narrative — states revise these
+
+The share is a ratio and **both halves come from documents states rewrite.**
+Oklahoma allocates that same microgrant fund use at **$2,800,000** in its
+Initiative Funding Summary (2026-03-10) and **$7,750,000** in its Legislative
+Quarterly Report (2026-07-10) — four months apart, both Oklahoma's own, a 2.8×
+spread — and then awarded **$3,572,120.71**, matching neither.
+
+Always fill `source_document` and its date. Never compare a share computed from
+one vintage of a narrative against a share computed from another, and never
+update a single line from a newer document while leaving its neighbours on the
+old one — that produces a total no state ever published.
+
 ---
 
 ## One field naming several recipients

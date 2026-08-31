@@ -275,7 +275,30 @@ RHTP_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
   # tribes that style themselves "<People> Nation", so this is recorded per
   # entity rather than by widening that pattern to a bare `nation`, which would
   # be a fuzzy token in a rule that has to hold for fifty states.
-  "OK", "Choctaw Nation of Oklahoma",                                               "TRIBAL_ORG",             "HIGH",   "federally recognised tribe; the tribal name pattern does not reach the \"Nation\" styling"
+  "OK", "Choctaw Nation of Oklahoma",                                               "TRIBAL_ORG",             "HIGH",   "federally recognised tribe; the tribal name pattern does not reach the \"Nation\" styling",
+
+  # -- Nevada (session 26) ----------------------------------------------------
+  # TWO FOUNDATIONS THE NAME RULE READS AS HOSPITALS. Both carry "Hospital" in
+  # their own published name and both are reached by the hospital pattern, so
+  # without these rows they classify HOSPITAL_OR_SYSTEM -> DIRECT -> Yes and
+  # land in NAMED_HOSPITAL. Neither is a hospital: one is the Nevada Rural
+  # Hospital Partners **Foundation**, the charitable arm of the state's rural
+  # hospital association, and the other is a single hospital's own fundraising
+  # **Foundation**. This is §10.2's inflation trap in the direction session 12
+  # warned about from the other side -- "Calhoun Liberty Hospital Association"
+  # IS a hospital, so a name-keyed rule cannot be trusted in either direction.
+  #
+  # They are typed HOSPITAL_AFFILIATED_ENTITY rather than NONPROFIT_CBO
+  # DELIBERATELY, and it changes nothing about the open GHA_RECIPIENT_TYPE
+  # question in classification_review_queue.csv: that question asks which of
+  # the two codes a hospital TRADE ASSOCIATION takes, and is worth $0 either
+  # way. What matters here is that since session 19 HOSPITAL_AFFILIATED_ENTITY
+  # no longer short-circuits to DIRECT/Yes -- it reads the source like every
+  # other type -- so these rows get §10.2 applied to them instead of having
+  # their flow pre-decided by their names. NVHA publishes no amount for any
+  # recipient, so both rows are worth $0 under every available coding.
+  "NV", "Nevada Rural Hospital Partners Foundation",                                "HOSPITAL_AFFILIATED_ENTITY", "MEDIUM", "the charitable foundation of Nevada Rural Hospital Partners, the state's rural hospital association -- an association foundation, not a hospital (§10.2)",
+  "NV", "Incline Village Community Hospital Foundation",                            "HOSPITAL_AFFILIATED_ENTITY", "MEDIUM", "a single hospital's own fundraising foundation; hospital-affiliated by construction and not itself the hospital §10.2's DIRECT row tests for"
 )
 
 

@@ -1,0 +1,68 @@
+Nevada -- RHTP Year 1: the NVHA Funded Projects roster, the funding-
+opportunities page that is its positive control, the two award press
+releases that carry the pool totals, CMS's own Notice of Award, and the
+GME release + workforce comparison that are the §6.2 NEGATIVE CONTROL.
+Archived by R/03u_nv_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/1.0 (AHA Data & Policy research; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below. The
+credential guard that caught CMS's Mapbox token, Illinois's and Oregon's,
+and Kansas's Google Maps key runs on every fetch here and finds nothing,
+so there is no reduction to explain and the pages are whole.
+
+THE ROSTER IS `..._rht_funded_projects_bp1.html`. Three accordion
+sections, one per awarded pool, each a Subrecipient/Project/County-Service
+Area table: 25 + 27 + 20 = 72 named award actions AND NO AMOUNT ANYWHERE
+ON THE PAGE. That absence is the finding, not a fetch failure, and it is
+corroborated by `..._rhtsc_program_fiscal_update.pdf`, whose own
+'Flex Funds - Funded Projects' slides list the same recipients under the
+same three column headings and also carry no amounts.
+
+`..._cms_notice_of_award_rhtcms332074-01-02.pdf` IS THE FEDERAL AWARD
+DOCUMENT. Recipient 'Nevada Health Authority', Assistance Listing 93.798
+'Rural Health Transformation Program', budget period 12/29/2025 -
+10/30/2026, $179,931,608.42. No other state file in this repository holds
+the NOA itself. Nevada also publishes the original restricted award at
+noa_rhtcms332074-01-00.pdf; the revised one archived here is the operative
+document and carries the full amount.
+
+THE TWO GME FILES ARE THE NEGATIVE CONTROL AND ARE NOT EXTRACTED FROM.
+`..._gme_grant_round_viii.pdf` announces $15,755,068 to nine residency
+programmes and says 'these new state investments'; 
+`..._workforce_programs_working_together.pdf` prints GME, WRRAP and SHARP
+side by side and gives each one's funding source -- 'State General Fund',
+the CMS RHT grant, and an SB5 appropriation respectively. THAT SECOND
+DOCUMENT CARRIES THE CMS FINANCIAL-ASSISTANCE FOOTER ON EVERY PAGE while
+two of the three programmes it describes are state-funded, which is why
+the footer alone is not a provenance test.
+
+Fetched: 2026-08-31
+
+file                                                                bytes  sha256
+------------------------------------------------------------------------------------------------------------------------------------------
+2026-08-31_nv_rht_funded_projects_bp1.html                         401124  7d6116b0052f1b91f26204f97da750aa090610237477494c14f68c39ef8d5b45
+2026-08-31_nv_rht_nofos.html                                        61765  97d5ed6179aab2136060a6648b66fb23ccb2dbb9685c6a49a54b9fb0f3b9729f
+2026-08-31_nv_rhtp_about.html                                       48806  de248fd16e73e369569cf95f01cc6494bf470246241b4f805ac107f65a656670
+2026-08-31_nv_rht_steering_committee.html                           50661  d01099375091eaa390c85363f36fdb61b9c441a509e438da9811a8b8a9a71175
+2026-08-31_nv_rhtp_initiatives.html                                 58245  ec3072ab50d9e4215fa15e7faebc951542c52c20ba08b83f4ff01137742300d7
+2026-02-19_nv_cms_notice_of_award_rhtcms332074-01-02.pdf          3742434  6d263b351db9f8a01cc2356234a78b8a53b992448879c5578019532b98dd6ddc
+2026-06-09_nv_press_release_first_round_flex_fund.pdf              594561  2b40e4ef176a73376f0d19ad7b2364755e978ce89f1779ec246ebcc8826bc75d
+2026-07-29_nv_press_release_wrrap_awards.pdf                       145118  34b81ac5286ebb944b2e6ad725c88326564a4c873e4ba4cc08849b295c910263
+2026-07-22_nv_press_release_gme_grant_round_viii.pdf               181419  bcc5c1fb58ad291256c3738b06dce9e57bd6b617fc671623ae2946f317fbd344
+2026-04_nv_workforce_programs_working_together.pdf                 248205  0ae7720813f14ec27c58ceac2a6fe71b589d963115e024afcdf4e4395011edb8
+2026-06-09_nv_rhtsc_program_fiscal_update.pdf                      550473  13fbb787c4fdc7a8a09ae1d4c259e52edd32da9bb10e2bd2799407000c3ee583
+
+
+Source URLs
+  roster         https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
+  nofos          https://www.nvha.nv.gov/RHTP/rht-nofos/
+  about          https://www.nvha.nv.gov/RHTP/rhtp-about
+  rhtsc          https://www.nvha.nv.gov/RHTP/rhtsc
+  initiatives    https://www.nvha.nv.gov/RHTP/rhtp-initiatives
+  noa            https://www.nvha.nv.gov/siteassets/content/community/rhtp/noa_rhtcms332074-01-02.pdf
+  press_flex     https://www.nvha.nv.gov/siteassets/content/home/press-release-first-round-of-rht-funded-projects-june-2026_final.pdf
+  press_wrrap    https://www.nvha.nv.gov/siteassets/content/home/rhtp-funding-press-release.pdf
+  press_gme      https://www.nvha.nv.gov/siteassets/content/home/grant-round-viii-announcement.pdf
+  workforce      https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht_nofos/nvha-healthcare-workforce-programs-remediated-doc-2-1.pdf
+  fiscal         https://www.nvha.nv.gov/siteassets/content/community/rhtp/rhtsc/meeting-6.9.26/rhtsc-program-fiscal-update-june26.pdf

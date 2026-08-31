@@ -79,7 +79,7 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # would silently start reporting a state as extracted the moment somebody
 # committed a stub file for it.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD",
-                             "NE", "OK", "OR", "PA", "SD")
+                             "NE", "NV", "OK", "OR", "PA", "SD")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #

@@ -56,6 +56,75 @@ A threefold spread across two states. Do not average it into a national figure a
 
 Frame findings accordingly — *"hospital-directed share ranges from X% to Y% across states, driven by program design"* is supportable; *"N% of RHTP funding goes to hospitals"* is not.
 
+#### The initiative-level share is a PROXY, and its error has now been measured
+
+Everything above is derived from **budget narratives**, which are plans. The
+share is a reading of what a state *said it intended to fund*, coded per
+initiative into `has_hospital_recipient` (§7A.3). Until session 25 nothing had
+ever checked one of those codings against a state's actual recipient roster,
+because no state had published both. Oklahoma now has, and the check failed.
+
+**The worked case — Oklahoma's Community-Led Wellness Hub microgrants.** The
+initiative table codes that fund use `has_hospital_recipient = No`, on the
+strength of the narrative's own eligible-recipient language, recorded verbatim
+in the row: *"Local health departments in 59 rural counties and community-based
+entities."* Nothing about that reading is careless — it is the document's own
+description of who the money is for, and "community-based entities" is not a
+hospital.
+
+OSDH then published the roster. **Twenty of the sixty-eight microgrant award
+actions went to named hospitals: $1,079,506.22 of $3,572,120.71, or 30.2% of
+the pool.** The initiative-level coding was not merely imprecise; it was wrong,
+and it was wrong in the *conservative* direction — it reported zero where the
+true figure was nearly a third.
+
+Three things follow, and they bind on every state still to be coded:
+
+1. **`has_hospital_recipient` is a reading of a plan, and a plan that says
+   "community-based entities" can award 30% of its money to hospitals.** Treat
+   it as a **discovery signal** — it says where to look — and never as evidence
+   about where money went. Only a recipient-level roster answers that.
+2. **The error has a measured magnitude in exactly one state and one
+   direction, which is not an error bar.** One case does not license a
+   correction factor, and inflating every `No` by 30% would be a worse
+   invention than the original coding. What it licenses is the *caveat*: an
+   initiative-level share is a floor on hospital involvement, not an estimate
+   of it.
+3. **Where a state publishes both, the roster wins and the divergence is
+   reported rather than reconciled.** They are two claims over two universes
+   (§0.1a), and `ok_assert_initiative_parity()` pins Oklahoma's two codings so
+   the finding fails loudly rather than quietly ceasing to be true.
+
+#### And the denominator moves too — budget narratives are revised
+
+The share is a ratio, and **both halves of it are drawn from documents the
+state rewrites.** Oklahoma allocates the same microgrant fund use at:
+
+| Document | Date | Allocation |
+|---|---|---:|
+| Initiative Funding Summary (the §7A source) | 2026-03-10 | **$2,800,000** |
+| Legislative Quarterly Report | 2026-07-10 | **$7,750,000** |
+| *What OSDH actually awarded* | *2026-08* | *$3,572,120.71* |
+
+Four months apart, both figures Oklahoma's own, a 2.8× spread, and the sum
+finally awarded matching neither. **Record which document a figure came from
+and its date, every time** (§7A.3's `source_document` column exists for this),
+and never compare a share computed from one vintage against a share computed
+from another.
+
+Delaware makes the same point from the extraction side rather than the
+publication side: its hospital-directed share was **15.7%** on twelve
+initiatives and **14.6%** once initiatives 13–15 were extracted, with **no row
+re-coded** — $10.1M of denominator arrived and no numerator came with it. The
+table above is the twelve-initiative figure; **14.6% is the one to quote.** A
+share is only as stable as the completeness of the extraction beneath it.
+
+**None of this weakens §0.1b's headline finding.** The Oklahoma–Delaware spread
+is real, it is structural, and it must still never be averaged. What has
+changed is what the percentage may be *called*: it is the hospital-directed
+share of **planned initiative allocations as most recently published**, and it
+is not, and has never been, the share of RHTP money that reached hospitals.
+
 ### 0.2 The three-tier rule
 
 RHTP money moves CMS → state → subrecipient. RCJ mixes all three tiers in a single amount field. Every record must carry an `award_tier` before any other processing:
