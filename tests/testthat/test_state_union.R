@@ -53,7 +53,14 @@ STATE_FILES <- c(
   # types are derived from the recipient's own NAME for every single row,
   # because MDH publishes no organisation-type column. That makes it the state
   # most likely to put a name-derived value outside §8 into the union.
-  MD = "data/reference/md_year1_awardees.csv"
+  MD = "data/reference/md_year1_awardees.csv",
+  # Nebraska is the first state file to carry a THIRD hospital-attribution
+  # bucket (POOL_NAMED_HOSPITALS, §8, session 23) and the first to mix priced
+  # award rows with deliberately un-priced ones inside a single pool -- the 21
+  # hospitals DHHS names as receiving funding through the Nebraska High Value
+  # Network, with no per-hospital split published. Both are exactly the kind of
+  # thing that unions fine until someone sums a column.
+  NE = "data/reference/ne_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -81,13 +88,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all eleven files carry the leading 19 columns, in the same order", {
+test_that("all twelve files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the eleven files union without a coercion failure", {
+test_that("the twelve files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -95,7 +102,8 @@ test_that("the eleven files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "KS", "MD", "OR", "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IL", "KS", "MD", "NE", "OR", "PA",
+                 "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {
@@ -153,7 +161,16 @@ test_that("§10.2 holds across all states at once", {
     if (any(pass_ok)) {
       pt <- yes[pass_ok, ]
       expect_true(all(nzchar(pt$intermediary_name)), info = st)
-      expect_true(all(pt$hospital_attribution == "POOL_UNNAMED_HOSPITALS"),
+      # The invariant is that a pass-through Yes lands in a POOL bucket, never
+      # in NAMED_HOSPITAL -- not that there is only one pool bucket. Nebraska
+      # added a second in session 23: the Nebraska High Value Network's award
+      # IS made and its 21 hospital subrecipients ARE named, but DHHS publishes
+      # no per-hospital split, so POOL_UNNAMED_HOSPITALS would assert something
+      # false about the document while NAMED_HOSPITAL would assert something
+      # false about the money. Both codes keep those dollars separable from a
+      # named hospital's, which is all this check exists to guarantee.
+      expect_true(all(pt$hospital_attribution %in%
+                        c("POOL_UNNAMED_HOSPITALS", "POOL_NAMED_HOSPITALS")),
                   info = st)
     }
   }
@@ -199,13 +216,25 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   expect_true("FL" %in% named$state)
   expect_equal(named$dollars[named$state == "FL"], 49345213)
 
-  # Illinois is the pooled bucket, and it is the whole of it.
+  # Illinois is the whole of the UNNAMED pooled bucket.
   pooled <- parts[parts$bucket == "POOL_UNNAMED_HOSPITALS", ]
   expect_equal(sort(unique(pooled$state)), "IL")
   expect_equal(sum(pooled$dollars), 50008264)
 
   # And Illinois contributes NOTHING to the named-hospital figure.
   expect_false("IL" %in% named$state)
+
+  # Nebraska is the whole of the NAMED pooled bucket, and it must stay out of
+  # the named-hospital figure for the same reason Illinois does: nobody can say
+  # what any one of the Nebraska High Value Network's 21 hospitals received.
+  pooled_named <- parts[parts$bucket == "POOL_NAMED_HOSPITALS", ]
+  expect_equal(sort(unique(pooled_named$state)), "NE")
+  expect_equal(round(sum(pooled_named$dollars), 2), 18156856.12)
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 6990996.01)
+
+  # The three buckets are disjoint by construction, so no dollar is in two of
+  # them -- which is the property that lets them be reported side by side.
+  expect_equal(nrow(parts), length(unique(paste(parts$state, parts$bucket))))
 
   # The single combined total is not obtainable. Somebody will try.
   expect_error(rhtp_hospital_total(u), "no single hospital total")
