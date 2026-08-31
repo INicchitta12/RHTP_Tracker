@@ -262,12 +262,39 @@ test_that("Rhode Island's opioid settlement rows include a named hospital", {
 
 # -- The sweep as a whole ----------------------------------------------------
 
-test_that("the sweep catches 73 rows in 6 states, and the arithmetic closes", {
-  expect_equal(sum(swept$caught), 73)
-  expect_equal(sum(by_state$caught_total > 0), 6)
-  expect_equal(sum(by_state$caught_total), 73)
+test_that("the sweep catches 82 rows in 7 states, and the arithmetic closes", {
+  # 73 in 6 states through session 25. NEVADA ADDED 9 IN SESSION 26: the nine
+  # GME Grant Round VIII residency awards, $15,755,068 of Nevada STATE GENERAL
+  # FUND money that RCJ files under RHTP-titled documents. They are caught by
+  # the registry entry NV-GME-ROUNDVIII, keyed on the GME release's own title.
+  #
+  # THE SWEEP CATCHES 9 OF NEVADA'S 17 SUCH ROWS AND THAT IS A MEASURED LIMIT,
+  # NOT A SHORTFALL. The other 8 are filed by RCJ under "Nevada Home Working
+  # Together RHTP 2026 Award Announcement" -- the NVHA workforce publication,
+  # which IS a genuine RHTP document and carries the CMS financial-assistance
+  # footer on every page while describing three programmes of which only one is
+  # RHTP. No source-title-keyed rule can honestly reach those 8; they are
+  # disposed of by hand in nv_rcj_candidate_disposition.csv. That gap is
+  # session 26's §6.2 lesson: the CMS footer covers the PUBLICATION, not every
+  # programme described in it.
+  expect_equal(sum(swept$caught), 82)
+  expect_equal(sum(by_state$caught_total > 0), 7)
+  expect_equal(sum(by_state$caught_total), 82)
   expect_setequal(by_state$state[by_state$caught_total > 0],
-                  c("TX", "NH", "AZ", "RI", "MS", "IL"))
+                  c("TX", "NV", "NH", "AZ", "RI", "MS", "IL"))
+})
+
+test_that("Nevada's caught rows are the nine GME programmes, and no Nevada RHTP row", {
+  nv <- swept %>% dplyr::filter(state == "NV", caught)
+  expect_equal(nrow(nv), 9)
+  expect_true(all(nv$flag_state_program == "PROVENANCE_STATE_PROGRAM"))
+  expect_true(all(nv$registry_program == "NV-GME-ROUNDVIII"))
+  expect_true(all(nv$registry_disposition == "NOT_RHTP_STATE_PROGRAM"))
+  # They are NOT caught on a date: Round VIII is a 2026 award, well after the
+  # 2025-12-29 Notice of Award. What disqualifies them is the funding source.
+  expect_true(all(is.na(nv$flag_predates_noa)))
+  # And their amounts are the state's own published figures.
+  expect_equal(sum(nv$amount_announced), 15755068)
 })
 
 test_that("no caught row is a recipient this project has already published", {
