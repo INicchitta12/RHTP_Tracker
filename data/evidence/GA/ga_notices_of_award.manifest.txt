@@ -1,0 +1,50 @@
+RHTP tracker archive (spec 0.4 / 0.5): Georgia GREAT Health signed NOTICES
+OF AWARD -- the 21 named hospital award actions behind Phase 4's two
+'names not captured' aggregate rows.
+
+fetched_utc     : 2026-08-31T14:24:14Z
+state           : GA
+host            : greathealth.georgia.gov
+http_status     : 200
+source_doc_type : NOTICE_OF_AWARD (spec 8's strongest source type)
+found_via       : greathealth.georgia.gov/find-funding-opportunities, read
+                  for the first time by R/03q's completeness re-check
+                  (session 21). No earlier session opened that page.
+
+EVERY DIGEST BELOW IS ASSERTED EQUAL TO THE ONE R/03q RECORDED ON
+2026-08-29 (data/evidence/recheck/2026-08-29/GA/MANIFEST.txt). These are
+fresh fetches, not copies: Georgia's archive is primary, AND the document
+is proved unchanged between the re-check that found it and the extraction
+that reads it. rhtp_ga_noa_fetch() hard-fails on a mismatch.
+
+FILES
+
+  file    : ga_noa_workforce_retention_technology_signed.pdf
+  title   : Notice of Award -- Initiative 5: Leveraging Technology in Support of Healthcare Innovations in Rural Georgia; Strategy: Workforce Retention Technology (Surgical Robots)
+  url     : https://greathealth.georgia.gov/document/document/notice-award-workforce-retention-technology-surgical-robotssigned/download
+  bytes   : 279081
+  sha256  : f080a773368b90526d6382797aae9ca504fb1642345560c6464eceb874350dad
+  rows    : 13 successful applicants, 2.6e+07 total; 5 unsuccessful applicants with reasons
+  columns : SUCCESSFUL APPLICANT | AWARD AMOUNT | GREAT Grant Application #
+
+  file    : ga_noa_point_of_care_telepods_signed.pdf
+  title   : Notice of Award -- Initiative 3: Connecting to Care to Improve Healthcare Access; Strategy: Point-of-Care Telepods
+  url     : https://greathealth.georgia.gov/document/document/notice-award-point-care-telepodssigned-0/download
+  bytes   : 178294
+  sha256  : 49ba971bd4a98502ee1e440d4db9b3a4175dfa758e2bf3b3b47265d40d5af844
+  rows    : 8 successful applicants, 4,277,580 total; 2 unsuccessful applicants with reasons
+  columns : SUCCESSFUL APPLICANT | AWARD AMOUNT | GREAT Grant Application #
+
+WHAT IS AND IS NOT EXTRACTED FROM THESE FILES
+
+  Extracted: the 21 successful award actions -- name, amount, application
+  number -- into ga_great_health_awards.csv, replacing the two aggregate
+  rows that read 'names not captured'.
+
+  NOT extracted: the 7 unsuccessful applicants DCH names, with its reasons
+  for each. They are not award actions and nothing here codes them. Their
+  COUNT is asserted (5 and 2), because the successful/unsuccessful section
+  split has to be right for the 21 to be right.
+
+MANIFEST.txt cannot record its own digest (session 15), and this file is
+not listed above for the same reason.

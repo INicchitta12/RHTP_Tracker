@@ -150,8 +150,23 @@ MD_STATED <- list(
   noa_date             = as.Date("2025-12-29"),
   # RCJ, for §0.1 corroboration only. Never a published figure.
   rcj_candidates       = 42L,
-  rcj_amount_sum       = 84925071
+  rcj_amount_sum       = 84925071,
+  # The named-hospital floor, and the uncertainty that sits beside it. MDH
+  # publishes no organisation-type column, so 24 of 41 recipient_types are
+  # derived from the recipient's own name and fall to §8's standing fallback.
+  named_hospital_n     = 6L,
+  named_hospital_floor = 14678864,
+  form_not_stated_n    = 24L,
+  form_not_stated_total = 36558089
 )
+
+# The open classification question, in data/reference/classification_review_queue.csv.
+# UNLIKE KANSAS'S, THIS ONE MOVES DOLLARS IN BOTH DIRECTIONS: TidalHealth and
+# Meritus Health Center are inside the 24 and are not counted today, while
+# Choptank Community Health System and Mountain Laurel Medical Center are typed
+# HOSPITAL_OR_SYSTEM from their names and are. Nothing was promoted and nothing
+# was demoted (§0.4); the CCN match (open blocker 5) resolves it.
+MD_FORM_NOT_STATED_QUESTION <- "MD_RECIPIENT_FORM_NOT_STATED"
 
 # The two award links that must be on the programme page, and the shape a third
 # would take. See the header: this is the positive control.
@@ -719,8 +734,73 @@ md_validate <- function() {
   stopifnot(nrow(recs) == MD_STATED$transformation_n + MD_STATED$primary_care_n)
   stopifnot(!anyNA(recs$amount), all(recs$amount > 0))
   md_assert_rcj_reconciles(recs)
+  md_assert_form_not_stated_queued(recs)
   message("[MD] all assertions pass.")
   invisible(recs)
+}
+
+#' THE FIGURE IS A FLOOR AND THE UNCERTAINTY IS DISCLOSED WHERE SOMEONE WILL
+#' FIND IT.
+#'
+#' MDH publishes no organisation-type column, so 24 of 41 recipient_types are
+#' derived from the recipient's own name and take §8's standing fallback
+#' (NONPROFIT_CBO + LOW + RECIPIENT_TYPE_INFERRED). Nothing is promoted on this
+#' pipeline's own knowledge of Maryland (§0.4) -- and nothing is demoted either,
+#' which is the half Kansas did not have: two of the six rows inside today's
+#' hospital figure read as FQHCs on the ordinary reading of their names.
+#'
+#' A caveat in a workbook nobody opens is not a disclosure, so the question goes
+#' in data/reference/classification_review_queue.csv and its presence there is
+#' asserted every run -- Kansas's device, and the reason this one exists at all.
+md_assert_form_not_stated_queued <- function(recs) {
+  inferred <- recs %>%
+    dplyr::filter(.data$determination_confidence == "LOW",
+                  .data$flag_reason == "RECIPIENT_TYPE_INFERRED")
+  if (nrow(inferred) != MD_STATED$form_not_stated_n) {
+    stop("[MD] ", nrow(inferred), " rows carry §8's recipient-form fallback; ",
+         MD_STATED$form_not_stated_n, " were queued for review. The disclosure ",
+         "and the data have drifted apart.", call. = FALSE)
+  }
+  if (!isTRUE(all.equal(sum(inferred$amount), MD_STATED$form_not_stated_total))) {
+    stop("[MD] the unstated-form rows sum to ",
+         format(sum(inferred$amount), big.mark = ","), " against a queued ",
+         format(MD_STATED$form_not_stated_total, big.mark = ","), ".",
+         call. = FALSE)
+  }
+
+  named <- recs %>% dplyr::filter(.data$distributed_to_hospital == "Yes")
+  if (nrow(named) != MD_STATED$named_hospital_n ||
+      !isTRUE(all.equal(sum(named$amount), MD_STATED$named_hospital_floor))) {
+    stop("[MD] the named-hospital floor is ", nrow(named), " rows / ",
+         format(sum(named$amount), big.mark = ","), " against a stated ",
+         MD_STATED$named_hospital_n, " / ",
+         format(MD_STATED$named_hospital_floor, big.mark = ","), ".",
+         call. = FALSE)
+  }
+  # THE UNCERTAINTY IS LARGER THAN THE FIGURE, and if that ever stops being true
+  # the sentence this repository publishes about Maryland has to change.
+  if (MD_STATED$form_not_stated_total <= MD_STATED$named_hospital_floor) {
+    stop("[MD] the unstated-form dollars no longer exceed the named-hospital ",
+         "floor. Re-word the finding before publishing it.", call. = FALSE)
+  }
+
+  queue <- readr::read_csv(
+    here::here("data/reference/classification_review_queue.csv"),
+    show_col_types = FALSE, progress = FALSE)
+  row <- queue %>%
+    dplyr::filter(.data$question_id == MD_FORM_NOT_STATED_QUESTION)
+  if (nrow(row) != 1L || !identical(row$queue_status[[1]], "OPEN")) {
+    stop("[MD] ", MD_FORM_NOT_STATED_QUESTION, " is not an OPEN row in ",
+         "classification_review_queue.csv. A disclosure nobody can find is ",
+         "not a disclosure.", call. = FALSE)
+  }
+  if (!grepl(format(MD_STATED$form_not_stated_total, big.mark = ","),
+             row$dollar_effect[[1]], fixed = TRUE)) {
+    stop("[MD] the queued dollar effect does not state ",
+         format(MD_STATED$form_not_stated_total, big.mark = ","),
+         "; the queue and the data disagree.", call. = FALSE)
+  }
+  invisible(TRUE)
 }
 
 md_build <- function() {

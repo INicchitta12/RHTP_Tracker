@@ -23,6 +23,10 @@
 library(testthat)
 
 source(here::here("R", "03q_state_completeness_recheck.R"))
+# Alaska's rolling-growth diff moved into R/03h in session 22, where the two
+# archived snapshots are. This file still checks it, from there.
+source(here::here("R", "utils_recipient_classification.R"))
+source(here::here("R", "03h_ak_year1_awardees.R"))
 
 recheck <- recheck_table()
 
@@ -34,12 +38,17 @@ test_that("all seven extracted states are covered, once each", {
 })
 
 test_that("every finding is inside the controlled set", {
+  # ROSTER_EXTRACTED joined the set in session 22: the state publishes a roster
+  # beyond what session 21 had extracted, AND the repository has since extracted
+  # it, verified row for row. It is not NO_ADDITIONAL_ROSTER, which would be a
+  # false claim about what Georgia and Alaska publish.
   expect_true(all(recheck$finding %in%
-    c("NO_ADDITIONAL_ROSTER", "ADDITIONAL_ROSTER_FOUND", "ROSTER_HAS_GROWN")))
+    c("NO_ADDITIONAL_ROSTER", "ADDITIONAL_ROSTER_FOUND", "ROSTER_HAS_GROWN",
+      "ROSTER_EXTRACTED")))
 })
 
 test_that("a negative carries zero on both counters and a positive carries neither", {
-  neg <- recheck$finding == "NO_ADDITIONAL_ROSTER"
+  neg <- recheck$finding %in% c("NO_ADDITIONAL_ROSTER", "ROSTER_EXTRACTED")
   expect_true(all(recheck$additional_award_actions[neg] == 0L))
   expect_true(all(recheck$additional_dollars[neg] == 0))
   expect_true(all(recheck$additional_award_actions[!neg] > 0L))
@@ -66,13 +75,24 @@ test_that("Georgia's signed notice names everyone its intent named", {
   expect_equal(length(unique(ga$telepods$application)), 8L)
 })
 
-test_that("the committed Georgia file still carries them as unnamed aggregates", {
+test_that("the committed Georgia file now carries all 21 as named rows", {
+  # THIS CHECK HAS FLIPPED, AND FLIPPING IT IS THE POINT OF RUNNING IT AGAIN.
+  # Session 21 asserted the two "names not captured" aggregates were still
+  # there, because that was the gap it had found. Session 22 closed the gap, so
+  # the same question now has the opposite right answer. A re-check that only
+  # knows how to find gaps stops being a check the moment one is closed -- and
+  # left as it was, this one would have failed on the extraction it asked for.
   ga <- recheck_ga()
-  expect_equal(nrow(ga$aggregate_rows), 2L)
-  expect_equal(sum(ga$aggregate_rows$recipient_count), 21L)
-  # amount is empty on both, which is why this is not new money -- the dollars
-  # are carried at initiative_amount (pool) level.
-  expect_true(all(is.na(ga$aggregate_rows$amount)))
+  expect_equal(ga$extracted_rows, 21L)
+  committed <- readr::read_csv(here::here(RECHECK_COMMITTED[["GA"]]),
+                               show_col_types = FALSE, progress = FALSE)
+  expect_equal(sum(grepl("names not captured", committed$awardee)), 0L)
+  # Joined on DCH's own application number, never on the hospital name: a name
+  # is re-typed between the intent and the signed notice ("Coffee Regional
+  # Medical Center" / "..., Inc."), and a name-keyed check would report the
+  # state as short when nothing is missing.
+  notices <- c(ga$robots$application, ga$telepods$application)
+  expect_length(setdiff(notices, committed$application_id), 0L)
 })
 
 test_that("Georgia's parsed names are recipients, not table furniture", {
@@ -86,14 +106,30 @@ test_that("Georgia's parsed names are recipients, not table furniture", {
 
 # -- Alaska: a rolling notice that grew --------------------------------------
 
-test_that("Alaska's notice grew by 24 awards and $16,862,504", {
+test_that("Alaska's growth is folded in, and the check compares to the CSV", {
+  # Session 21 diffed the re-check archive against a NAMED evidence file, which
+  # was right on the day and wrong the moment session 22 archived a newer
+  # snapshot beside it: the check would have gone on reporting a 24-award gap
+  # that had been closed. The reference CSV is the thing whose completeness is
+  # in question, so that is what it compares against now.
   ak <- recheck_ak()
-  expect_equal(ak$committed_rows, 161L)
+  expect_equal(ak$committed_rows, 185L)
   expect_equal(ak$live_rows, 185L)
-  expect_equal(length(ak$new_ids), 24L)
-  expect_equal(ak$committed_total, 160701975)
-  expect_equal(ak$live_total, 181871366)
-  expect_equal(ak$new_total, 16862504)
+  expect_length(ak$new_ids, 0L)
+  expect_equal(ak$committed_total, 181871366, tolerance = 1e-6)
+  expect_equal(ak$live_total, 181871366, tolerance = 1e-6)
+})
+
+test_that("the growth session 21 found is recorded where it happened", {
+  # 161 -> 185, of which 24 new awards ($16,862,504) and one existing award
+  # revised upward ($4,306,887). The diff lives in R/03h now, against the
+  # committed prior snapshot, because that is where the two documents are.
+  growth <- rhtp_ak_growth()
+  expect_equal(growth$prior_rows, 161L)
+  expect_equal(growth$rows, 185L)
+  expect_equal(nrow(growth$added), 24L)
+  expect_equal(growth$added_total, 16862504.06, tolerance = 1e-6)
+  expect_equal(growth$revised_delta, 4306887.29, tolerance = 1e-6)
 })
 
 test_that("Alaska's own document corroborates the growth", {
@@ -101,11 +137,14 @@ test_that("Alaska's own document corroborates the growth", {
   expect_equal(ak$state_stated_projects, ak$live_rows)
 })
 
-test_that("the growth is not fully explained by the new awards, and that is reported", {
-  ak <- recheck_ak()
+test_that("the growth was not fully explained by the new awards", {
   # $181,871,366 - $160,701,975 = $21,169,391, of which $16,862,504 is new
-  # awards. The remaining $4,306,887 is one committed award revised upward.
-  expect_gt(ak$live_total - ak$committed_total, ak$new_total)
+  # awards. The remaining $4,306,887 is ONE existing award revised upward, and
+  # counting it as a new award would have invented an award Alaska never made.
+  growth <- rhtp_ak_growth()
+  expect_gt(growth$total - growth$prior_total, growth$added_total)
+  expect_equal(growth$total - growth$prior_total,
+               growth$added_total + growth$revised_delta)
 })
 
 
@@ -154,16 +193,29 @@ test_that("Illinois's 97 hospitals are ELIGIBILITY, not receipt", {
 
 # -- this stage extracts nothing ---------------------------------------------
 
-test_that("no state award file was written by the re-check", {
-  # The re-check may only write its own summary. Georgia's and Alaska's files
-  # are for their own extractors, in a session that decides to move them.
+test_that("the re-check writes only its own summary", {
+  # The re-check may write RECHECK_CSV and nothing else. Session 21 pinned
+  # Georgia at 139 rows and Alaska at 161 to prove it had extracted nothing;
+  # session 22 moved both through their OWN extractors (R/03d and R/03h), which
+  # is what those pins were protecting. So the invariant is re-stated as what it
+  # always was -- the re-check does not touch a state file -- rather than as two
+  # row counts that now say the opposite of what they meant.
   expect_true(file.exists(here::here(RECHECK_CSV)))
+  code <- readLines(here::here("R", "03q_state_completeness_recheck.R"),
+                    warn = FALSE)
+  writes <- grep("write_csv|write\\.csv|saveWorkbook|writeBin\\(", code,
+                 value = TRUE)
+  # writeBin is the evidence archive; the only CSV written is RECHECK_CSV.
+  csv_writes <- grep("write_csv|write\\.csv|saveWorkbook", writes, value = TRUE)
+  expect_length(csv_writes, 1L)
+  expect_true(grepl("RECHECK_CSV", csv_writes))
+
   ga <- readr::read_csv(here::here("data/reference/ga_great_health_awards.csv"),
                         show_col_types = FALSE, progress = FALSE)
   ak <- readr::read_csv(here::here("data/reference/ak_year1_awardees.csv"),
                         show_col_types = FALSE, progress = FALSE)
-  expect_equal(nrow(ga), 139L)
-  expect_equal(nrow(ak), 161L)
+  expect_equal(nrow(ga), 158L)
+  expect_equal(nrow(ak), 185L)
 })
 
 test_that("the committed summary CSV matches what the checks produce today", {

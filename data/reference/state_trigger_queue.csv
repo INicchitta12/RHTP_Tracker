@@ -1,39 +1,39 @@
 queue_rank,state,state_name,trigger_source,queue_status,rcj_tier3_candidates,rcj_distinct_awardees,rcj_federal_amount_sum,cms_announced_date,cms_source,cms_release_url,cms_fy2026_allotment,extraction_status,first_queued
-1,MD,Maryland,RCJ_ONLY,QUEUED,42,41,84925071,,,,168180838,NOT_EXTRACTED,2026-08-28
-2,NE,Nebraska,RCJ_ONLY,QUEUED,39,35,8446843.67,,,,218529075,NOT_EXTRACTED,2026-08-28
-3,IN,Indiana,RCJ_ONLY,QUEUED,37,28,162727393.12,,,,206927897,NOT_EXTRACTED,2026-08-28
-4,OK,Oklahoma,RCJ_ONLY,QUEUED,35,25,231614376.02,,,,223476949,NOT_EXTRACTED,2026-08-28
-5,NV,Nevada,RCJ_ONLY,QUEUED,34,34,131643055,,,,179931608,NOT_EXTRACTED,2026-08-28
-6,MI,Michigan,RCJ_ONLY,QUEUED,31,31,30848878,,,,173128201,NOT_EXTRACTED,2026-08-28
-7,MO,Missouri,RCJ_ONLY,QUEUED,29,29,7232027,,,,216276818,NOT_EXTRACTED,2026-08-28
-8,NH,New Hampshire,RCJ_ONLY,QUEUED,23,15,2260662942,,,,204016550,NOT_EXTRACTED,2026-08-28
-9,WI,Wisconsin,RCJ_ONLY,QUEUED,19,19,100139403,,,,203670005,NOT_EXTRACTED,2026-08-28
-10,IA,Iowa,RCJ_ONLY,QUEUED,15,15,5,,,,209040064,NOT_EXTRACTED,2026-08-28
-11,ME,Maine,RCJ_ONLY,QUEUED,12,12,12000011,,,,190008051,NOT_EXTRACTED,2026-08-28
-12,CA,California,RCJ_ONLY,QUEUED,11,8,5475000,,,,233639308,NOT_EXTRACTED,2026-08-28
-13,CT,Connecticut,RCJ_ONLY,QUEUED,7,6,49854129,,,,154249106,NOT_EXTRACTED,2026-08-28
-14,NM,New Mexico,RCJ_ONLY,QUEUED,7,7,7,,,,211484741,NOT_EXTRACTED,2026-08-28
-15,LA,Louisiana,RCJ_ONLY,QUEUED,6,6,53910000,,,,208374448,NOT_EXTRACTED,2026-08-28
-16,DE,Delaware,RCJ_ONLY,QUEUED,5,5,11500004,,,,157394964,NOT_EXTRACTED,2026-08-28
-17,AZ,Arizona,RCJ_ONLY,QUEUED,4,2,67000000,,,,166988956,NOT_EXTRACTED,2026-08-28
-18,CO,Colorado,RCJ_ONLY,QUEUED,4,4,6572000,,,,200105604,NOT_EXTRACTED,2026-08-28
-19,WV,West Virginia,BOTH,QUEUED,4,4,948542,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,NOT_EXTRACTED,2026-08-28
-20,MS,Mississippi,RCJ_ONLY,QUEUED,3,3,50150000,,,,205907220,NOT_EXTRACTED,2026-08-28
-21,RI,Rhode Island,RCJ_ONLY,QUEUED,3,3,22250349,,,,156169931,NOT_EXTRACTED,2026-08-28
-22,MT,Montana,RCJ_ONLY,QUEUED,2,2,3184710.4,,,,233509359,NOT_EXTRACTED,2026-08-28
-23,UT,Utah,RCJ_ONLY,QUEUED,2,2,6000000,,,,195743566,NOT_EXTRACTED,2026-08-28
-24,WA,Washington,RCJ_ONLY,QUEUED,2,2,30200001,,,,181257515,NOT_EXTRACTED,2026-08-28
-25,ID,Idaho,RCJ_ONLY,QUEUED,1,1,1,,,,185974368,NOT_EXTRACTED,2026-08-28
-26,ND,North Dakota,BOTH,QUEUED,1,1,630000,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north,198936970,NOT_EXTRACTED,2026-08-28
-27,OH,Ohio,BOTH,QUEUED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,NOT_EXTRACTED,2026-08-28
-28,VA,Virginia,BOTH,QUEUED,1,1,127500,2026-08-28,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,2026-08-28
-29,VT,Vermont,RCJ_ONLY,QUEUED,1,1,323927,,,,195053740,NOT_EXTRACTED,2026-08-28
-30,OR,Oregon,RCJ_ONLY,EXTRACTED,386,258,306924976.78,,,,197271578,EXTRACTED,2026-08-28
-31,AK,Alaska,BOTH,EXTRACTED,159,101,158435446.87,2026-08-25,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription,272174856,EXTRACTED,2026-08-28
-32,AL,Alabama,BOTH,EXTRACTED,138,94,143745821,2026-08-24,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal,203404327,EXTRACTED,2026-08-28
-33,GA,Georgia,BOTH,EXTRACTED,112,100,112677580,2026-08-27,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics,218862170,EXTRACTED,2026-08-28
-34,PA,Pennsylvania,BOTH,EXTRACTED,66,66,42198309.8,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional,193294054,EXTRACTED,2026-08-28
-35,KS,Kansas,RCJ_ONLY,EXTRACTED,54,50,98763865.8,,,,221898008,EXTRACTED,2026-08-28
+1,NE,Nebraska,RCJ_ONLY,QUEUED,39,35,8446843.67,,,,218529075,NOT_EXTRACTED,2026-08-28
+2,IN,Indiana,RCJ_ONLY,QUEUED,37,28,162727393.12,,,,206927897,NOT_EXTRACTED,2026-08-28
+3,OK,Oklahoma,RCJ_ONLY,QUEUED,35,25,231614376.02,,,,223476949,NOT_EXTRACTED,2026-08-28
+4,NV,Nevada,RCJ_ONLY,QUEUED,34,34,131643055,,,,179931608,NOT_EXTRACTED,2026-08-28
+5,MI,Michigan,RCJ_ONLY,QUEUED,31,31,30848878,,,,173128201,NOT_EXTRACTED,2026-08-28
+6,MO,Missouri,RCJ_ONLY,QUEUED,29,29,7232027,,,,216276818,NOT_EXTRACTED,2026-08-28
+7,NH,New Hampshire,RCJ_ONLY,QUEUED,23,15,2260662942,,,,204016550,NOT_EXTRACTED,2026-08-28
+8,WI,Wisconsin,RCJ_ONLY,QUEUED,19,19,100139403,,,,203670005,NOT_EXTRACTED,2026-08-28
+9,IA,Iowa,RCJ_ONLY,QUEUED,15,15,5,,,,209040064,NOT_EXTRACTED,2026-08-28
+10,ME,Maine,RCJ_ONLY,QUEUED,12,12,12000011,,,,190008051,NOT_EXTRACTED,2026-08-28
+11,CA,California,RCJ_ONLY,QUEUED,11,8,5475000,,,,233639308,NOT_EXTRACTED,2026-08-28
+12,CT,Connecticut,RCJ_ONLY,QUEUED,7,6,49854129,,,,154249106,NOT_EXTRACTED,2026-08-28
+13,NM,New Mexico,RCJ_ONLY,QUEUED,7,7,7,,,,211484741,NOT_EXTRACTED,2026-08-28
+14,LA,Louisiana,RCJ_ONLY,QUEUED,6,6,53910000,,,,208374448,NOT_EXTRACTED,2026-08-28
+15,DE,Delaware,RCJ_ONLY,QUEUED,5,5,11500004,,,,157394964,NOT_EXTRACTED,2026-08-28
+16,AZ,Arizona,RCJ_ONLY,QUEUED,4,2,67000000,,,,166988956,NOT_EXTRACTED,2026-08-28
+17,CO,Colorado,RCJ_ONLY,QUEUED,4,4,6572000,,,,200105604,NOT_EXTRACTED,2026-08-28
+18,WV,West Virginia,BOTH,QUEUED,4,4,948542,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,NOT_EXTRACTED,2026-08-28
+19,MS,Mississippi,RCJ_ONLY,QUEUED,3,3,50150000,,,,205907220,NOT_EXTRACTED,2026-08-28
+20,RI,Rhode Island,RCJ_ONLY,QUEUED,3,3,22250349,,,,156169931,NOT_EXTRACTED,2026-08-28
+21,MT,Montana,RCJ_ONLY,QUEUED,2,2,3184710.4,,,,233509359,NOT_EXTRACTED,2026-08-28
+22,UT,Utah,RCJ_ONLY,QUEUED,2,2,6000000,,,,195743566,NOT_EXTRACTED,2026-08-28
+23,WA,Washington,RCJ_ONLY,QUEUED,2,2,30200001,,,,181257515,NOT_EXTRACTED,2026-08-28
+24,ID,Idaho,RCJ_ONLY,QUEUED,1,1,1,,,,185974368,NOT_EXTRACTED,2026-08-28
+25,ND,North Dakota,BOTH,QUEUED,1,1,630000,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north,198936970,NOT_EXTRACTED,2026-08-28
+26,OH,Ohio,BOTH,QUEUED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,NOT_EXTRACTED,2026-08-28
+27,VA,Virginia,BOTH,QUEUED,1,1,127500,2026-08-28,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,2026-08-28
+28,VT,Vermont,RCJ_ONLY,QUEUED,1,1,323927,,,,195053740,NOT_EXTRACTED,2026-08-28
+29,OR,Oregon,RCJ_ONLY,EXTRACTED,386,258,306924976.78,,,,197271578,EXTRACTED,2026-08-28
+30,AK,Alaska,BOTH,EXTRACTED,159,101,158435446.87,2026-08-25,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-160-million-bring-cutting-edge-technology-drones-prescription,272174856,EXTRACTED,2026-08-28
+31,AL,Alabama,BOTH,EXTRACTED,138,94,143745821,2026-08-24,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal,203404327,EXTRACTED,2026-08-28
+32,GA,Georgia,BOTH,EXTRACTED,112,100,112677580,2026-08-27,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics,218862170,EXTRACTED,2026-08-28
+33,PA,Pennsylvania,BOTH,EXTRACTED,66,66,42198309.8,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional,193294054,EXTRACTED,2026-08-28
+34,KS,Kansas,RCJ_ONLY,EXTRACTED,54,50,98763865.8,,,,221898008,EXTRACTED,2026-08-28
+35,MD,Maryland,RCJ_ONLY,EXTRACTED,42,41,84925071,,,,168180838,EXTRACTED,2026-08-28
 36,IL,Illinois,RCJ_ONLY,EXTRACTED,1,1,1,,,,193418216,EXTRACTED,2026-08-28
 37,SD,South Dakota,BOTH,EXTRACTED,1,1,31500000,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,2026-08-28
 38,FL,Florida,NEITHER,EXTRACTED,0,0,0,,,,209938195,EXTRACTED,2026-08-28

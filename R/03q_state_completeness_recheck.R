@@ -391,23 +391,51 @@ recheck_ga <- function() {
   stopifnot(isTRUE(all.equal(sum(robots$amount), sum(robots_i$amount))))
   stopifnot(isTRUE(all.equal(sum(telepods$amount), sum(telepods_i$amount))))
 
+  # THIS CHECK HAS FLIPPED, AND FLIPPING IT IS THE POINT OF RUNNING IT AGAIN.
+  # Session 21 asserted that the committed file still carried the two aggregate
+  # rows reading "names not captured", because that was the gap it had found.
+  # Session 22 closed the gap, so the same question now has the opposite right
+  # answer: every name and every amount on both notices must be IN the committed
+  # file. A re-check that only knows how to find gaps stops being a check the
+  # moment one is closed -- and left as it was, this one would have failed on
+  # the very extraction it asked for.
   ga <- readr::read_csv(here::here(RECHECK_COMMITTED[["GA"]]),
                         show_col_types = FALSE, progress = FALSE)
-  aggregates <- ga %>%
+  stale <- ga %>%
     dplyr::filter(stringr::str_detect(.data$awardee, "names not captured"))
-  if (nrow(aggregates) != 2L) {
-    stop("[recheck] GA: expected the two 'names not captured' aggregate rows ",
-         "in ga_great_health_awards.csv; found ", nrow(aggregates),
-         ". If Georgia has been re-extracted, this check is stale.",
-         call. = FALSE)
+  if (nrow(stale)) {
+    stop("[recheck] GA: ", nrow(stale), " 'names not captured' aggregate ",
+         "row(s) survive in ga_great_health_awards.csv, although both Phase 4 ",
+         "cohorts are named on signed notices of award.", call. = FALSE)
   }
-  stopifnot(sum(aggregates$recipient_count) == nrow(robots) + nrow(telepods))
+
+  # Joined on DCH's own application number, never on the hospital name: a name
+  # is re-typed between an intent and a signed notice ("Coffee Regional Medical
+  # Center" / "... , Inc."), and a name-keyed check reports the state as short
+  # when nothing is missing at all.
+  notices <- dplyr::bind_rows(robots, telepods)
+  extracted <- ga %>%
+    dplyr::filter(.data$validation_source_type == "NOTICE_OF_AWARD")
+  missing <- setdiff(notices$application, extracted$application_id)
+  if (length(missing)) {
+    stop("[recheck] GA: ", length(missing), " award action(s) on a signed ",
+         "notice of award are absent from ga_great_health_awards.csv: ",
+         paste(head(missing, 5), collapse = ", "), call. = FALSE)
+  }
+  if (nrow(extracted) != nrow(notices) ||
+      !isTRUE(all.equal(sum(extracted$amount), sum(notices$amount)))) {
+    stop("[recheck] GA: the committed file carries ", nrow(extracted),
+         " notice-of-award rows summing to $",
+         format(sum(extracted$amount), big.mark = ","), "; the two notices ",
+         "name ", nrow(notices), " summing to $",
+         format(sum(notices$amount), big.mark = ","), ".", call. = FALSE)
+  }
 
   list(
     robots = robots, telepods = telepods,
     actions = nrow(robots) + nrow(telepods),
     dollars = sum(robots$amount) + sum(telepods$amount),
-    aggregate_rows = aggregates
+    extracted_rows = nrow(extracted)
   )
 }
 
@@ -417,18 +445,25 @@ recheck_ga <- function() {
 #' publishes the weekly cumulative counts. It is what makes the growth a
 #' STATE-PUBLISHED fact rather than this pipeline's diff of two downloads.
 recheck_ak <- function() {
-  live      <- recheck_ak_notice(recheck_path("AK", "awards_notice"))
-  committed <- recheck_ak_notice(here::here(
-    "data/evidence/AK/2026-08-28_ak_rhtp_awardsnotice_2026.xlsx"))
+  live <- recheck_ak_notice(recheck_path("AK", "awards_notice"))
   amount_col <- grep("^Award\\.Amount", names(live), value = TRUE)[1]
 
-  new_ids <- setdiff(live$App.ID, committed$App.ID)
-  gone    <- setdiff(committed$App.ID, live$App.ID)
+  # THE COMPARISON IS AGAINST WHAT THE REPOSITORY CARRIES, NOT AGAINST A NAMED
+  # EVIDENCE FILE. Session 21 diffed the re-check archive against
+  # 2026-08-28_ak_rhtp_awardsnotice_2026.xlsx by path -- which was right on the
+  # day and wrong the moment session 22 archived a newer snapshot beside it: the
+  # check would have gone on reporting a 24-award gap that had been closed. The
+  # reference CSV is the thing whose completeness is in question.
+  committed <- readr::read_csv(here::here(RECHECK_COMMITTED[["AK"]]),
+                               show_col_types = FALSE, progress = FALSE)
+
+  new_ids <- setdiff(live$App.ID, committed$app_id)
+  gone    <- setdiff(committed$app_id, live$App.ID)
   if (length(gone)) {
-    stop("[recheck] AK: ", length(gone), " award(s) have DISAPPEARED from the ",
-         "notice. A rolling notice that loses rows is a different problem from ",
-         "one that gains them: ", paste(head(gone, 5), collapse = ", "),
-         call. = FALSE)
+    stop("[recheck] AK: ", length(gone), " award(s) this repository has ",
+         "published are absent from the notice. A rolling notice that loses ",
+         "rows is a different problem from one that gains them: ",
+         paste(head(gone, 5), collapse = ", "), call. = FALSE)
   }
 
   update <- paste(rhtp_pdf_text(recheck_path("AK", "cycle_update")), collapse = " ")
@@ -457,7 +492,7 @@ recheck_ak <- function() {
     live_rows = nrow(live), committed_rows = nrow(committed),
     new_ids = new_ids,
     live_total = sum(as.numeric(live[[amount_col]]), na.rm = TRUE),
-    committed_total = sum(as.numeric(committed[[amount_col]]), na.rm = TRUE),
+    committed_total = sum(committed$amount, na.rm = TRUE),
     new_total = sum(as.numeric(live[[amount_col]][live$App.ID %in% new_ids]),
                     na.rm = TRUE),
     state_stated_projects = stated_projects
@@ -610,17 +645,19 @@ recheck_table <- function() {
              "publishes no roster and points at this release. The release also ",
              "refers to an EARLIER procurement round for monitoring and support ",
              "vendors whose recipients are not published anywhere reachable."),
-    "GA", "ADDITIONAL_ROSTER_FOUND", as.integer(ga$actions), ga$dollars,
-      paste0("Two signed Notices of Award on ",
-             "greathealth.georgia.gov/find-funding-opportunities -- a page no ",
-             "session has read -- name ", ga$actions, " hospital award actions ",
-             "worth $", format(ga$dollars, big.mark = ","),
-             ". The committed file carries them as TWO aggregate rows reading ",
-             "'names not captured', recipient_count ",
-             paste(ga$aggregate_rows$recipient_count, collapse = " and "),
-             ", with amount empty. The dollars are already inside Georgia's ",
-             "$197,148,327 at POOL level, so this is not new money: it is ",
-             "named hospitals where there were none."),
+    "GA", "ROSTER_EXTRACTED", 0L, 0,
+      paste0("CLOSED IN SESSION 22. The two signed Notices of Award on ",
+             "greathealth.georgia.gov/find-funding-opportunities -- the page ",
+             "this re-check read first -- name ", ga$actions,
+             " hospital award actions worth $", format(ga$dollars, big.mark = ","),
+             ", and ga_great_health_awards.csv now carries all ", ga$actions,
+             " as named rows citing the notice. Joined on DCH's own GREAT ",
+             "application number, not on the hospital name. No aggregate row ",
+             "reading 'names not captured' survives. The dollars were always ",
+             "inside Georgia's $197,148,327 at POOL level, so the state total ",
+             "did not move: what moved is $30,277,580 from pooled to named, ",
+             "taking Georgia's named-hospital figure from $60,000,000 to ",
+             "$90,277,580."),
     "PA", "NO_ADDITIONAL_ROSTER", 0L, 0,
       paste0("The eligible-projects table is BYTE-IDENTICAL to the committed ",
              "archive (", pa$live_rows, " table rows, 66 projects). DHS's ",
@@ -635,16 +672,23 @@ recheck_table <- function() {
              "solicitation site: ", al$nofo_count, " closed NOFOs, no award ",
              "file in any format, and the home page states Year 1 application ",
              "periods are now closed."),
-    "AK", "ROSTER_HAS_GROWN", as.integer(length(ak$new_ids)), ak$new_total,
-      paste0("The rolling notice of intent to award has grown from ",
-             ak$committed_rows, " to ", ak$live_rows, " award actions and $",
-             format(ak$committed_total, big.mark = ","), " to $",
-             format(ak$live_total, big.mark = ","),
-             ". Alaska's own Year 1 Funding Cycle Update corroborates it ",
-             "independently at ", ak$state_stated_projects,
-             " projects, and says awards are announced on a rolling weekly ",
-             "basis. One committed award was also revised UPWARD; no award ",
-             "disappeared."),
+    "AK", if (length(ak$new_ids)) "ROSTER_HAS_GROWN" else "ROSTER_EXTRACTED",
+      as.integer(length(ak$new_ids)), ak$new_total,
+      paste0("CLOSED IN SESSION 22, AND IT WILL RE-OPEN. The rolling notice ",
+             "grew from 161 to ", ak$live_rows, " award actions and ",
+             "$160,701,975 to $", format(ak$live_total, big.mark = ","),
+             " -- 24 new awards ($16,862,504) plus one existing award revised ",
+             "upward ($4,306,887, Southcentral Foundation BP1-IA-308). ",
+             "ak_year1_awardees.csv now carries ", ak$committed_rows,
+             " rows and $", format(ak$committed_total, big.mark = ","),
+             ", and this check compares against THAT rather than against a ",
+             "named evidence file, so it cannot go on reporting a gap it has ",
+             "closed. ", length(ak$new_ids), " award action(s) are on the ",
+             "notice and not in the committed file. Alaska's own Year 1 ",
+             "Funding Cycle Update corroborates the total independently at ",
+             ak$state_stated_projects, " projects and says awards are ",
+             "announced on a rolling weekly basis -- so Alaska needs a ",
+             "SCHEDULE, not an extraction: R/03h --probe is the weekly check."),
     "OR", "NO_ADDITIONAL_ROSTER", 0L, 0,
       paste0("The awards page and the Catalyst data file are unchanged (the ",
              "xlsx is byte-identical). The RHTP home page links ",
@@ -674,8 +718,13 @@ recheck_validate <- function() {
   tbl <- recheck_table()
   stopifnot(nrow(tbl) == length(RECHECK_COMMITTED))
   stopifnot(all(tbl$state %in% names(RECHECK_COMMITTED)))
+  # ROSTER_EXTRACTED was added in session 22, for the condition the first run
+  # of this file could not have: the state publishes a roster beyond what was
+  # extracted, AND the repository has since extracted it, verified row for row.
+  # It is not NO_ADDITIONAL_ROSTER -- that means the state published nothing
+  # more, which would be false about Georgia and Alaska both.
   allowed <- c("NO_ADDITIONAL_ROSTER", "ADDITIONAL_ROSTER_FOUND",
-               "ROSTER_HAS_GROWN")
+               "ROSTER_HAS_GROWN", "ROSTER_EXTRACTED")
   bad <- setdiff(tbl$finding, allowed)
   if (length(bad)) {
     stop("[recheck] finding outside the controlled set: ",
@@ -684,13 +733,14 @@ recheck_validate <- function() {
   # A state reported as having nothing more must carry zero on both counters,
   # and a state reported as having more must carry a positive count. The pair
   # is what stops a finding and its figures drifting apart.
-  neg <- tbl$finding == "NO_ADDITIONAL_ROSTER"
+  neg <- tbl$finding %in% c("NO_ADDITIONAL_ROSTER", "ROSTER_EXTRACTED")
   stopifnot(all(tbl$additional_award_actions[neg] == 0L),
             all(tbl$additional_dollars[neg] == 0))
   stopifnot(all(tbl$additional_award_actions[!neg] > 0L),
             all(tbl$additional_dollars[!neg] > 0))
   message("[recheck] all assertions pass. ", sum(!neg), " of ", nrow(tbl),
-          " states have award rosters beyond what is extracted.")
+          " states have award rosters beyond what is extracted; ",
+          sum(tbl$finding == "ROSTER_EXTRACTED"), " had and no longer do.")
   invisible(tbl)
 }
 

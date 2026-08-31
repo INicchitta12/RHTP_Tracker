@@ -62,10 +62,13 @@
 # that all 87 are awarded hospitals.
 #
 # Conventions (CLAUDE.md §3): tidyverse, %>% only -- never |>. No setwd(); all
-# paths go through here::here(). Contains no network calls: it reads nothing off
-# the wire and re-runs offline against the committed archive.
+# paths go through here::here(). --validate and --build make NO network calls:
+# they read nothing off the wire and re-run offline against the committed
+# archives. Only --fetch touches the network, and only to archive the two signed
+# notices of award (see rhtp_ga_noa_fetch()).
 #
 # CLI:
+#   Rscript R/03d_ga_great_health.R --fetch      # the 2 signed NOAs -> data/evidence/GA/
 #   Rscript R/03d_ga_great_health.R --validate   # assertions only, no writes
 #   Rscript R/03d_ga_great_health.R --build      # assertions, then write CSV + xlsx
 
@@ -79,6 +82,7 @@ suppressPackageStartupMessages({
 })
 
 source(here::here("R", "utils_config.R"))
+source(here::here("R", "utils_pdf_text.R"))
 
 # --- source documents ------------------------------------------------------
 
@@ -118,6 +122,17 @@ GA_CMS_YEAR1_AWARD <- 218862169.63
 # dropping a name: every organization coded here is printed on the page, and
 # guessing which of the 27 DCH did not mean to count would be an invention.
 GA_PHASE2_STATED_ORG_COUNT <- 26
+
+# Georgia's Year 1 total, as the sum of its twelve initiative pools. Pinned so
+# that naming the hospitals inside a pool is provably a reclassification: the
+# figure below is what session 9 published and what session 22 must still get.
+GA_YEAR1_AWARDED <- 197148327
+
+# The dollars on rows whose own awardee is a named hospital. 80 AHEAD hospitals
+# at $750,000 ($60,000,000) plus the 21 award actions on the two signed notices
+# of award ($30,277,580). Not a total of what reached Georgia's hospitals: the
+# pooled initiatives that DCH never split are outside it in both directions.
+GA_NAMED_HOSPITAL_DOLLARS <- 90277580
 
 # The five GREAT Health initiatives, as DCH names them.
 ga_initiative_name <- c(
@@ -241,6 +256,353 @@ rhtp_ga_ahead_roster <- function(path = GA_AHEAD_ROSTER_ARCHIVE) {
     )
 }
 
+# --- the two signed Notices of Award ---------------------------------------
+#
+# THE TWO AGGREGATE ROWS BELOW WERE NEVER THE WHOLE STORY, AND THE REASON THEY
+# SURVIVED FOUR SESSIONS IS THAT NOBODY READ THE CHILD PAGE.  DCH's Phase 4
+# announcement states "13 hospitals" for surgical robotics and "eight hospitals"
+# for telepods, and names none of them; those two sentences are what the
+# RECIPIENT_NAMES_NOT_CAPTURED rows record.  Session 21's completeness re-check
+# then read greathealth.georgia.gov/find-funding-opportunities -- a page no
+# earlier session had opened -- and found a signed NOTICE OF AWARD for each
+# strategy, naming every recipient and its amount.
+#
+# THIS IS NOT NEW MONEY, AND SAYING SO IS THE POINT.  Both strategies already
+# sit inside Georgia's $197,148,327 at POOL level: Initiative 5's $37,500,000
+# and Initiative 3's $10,378,639 are counted by rhtp_ga_reconcile(), which sums
+# distinct (phase, initiative) pools and never sums `amount`.  What changes is
+# that $30,277,580 moves from "a pool DCH says went to hospitals" to
+# "twenty-one award actions with a hospital's name on each".  An assertion
+# below pins the state total at $197,148,327 across the change.
+#
+# SOURCE STRENGTH GOES UP, NOT DOWN.  Every other Georgia row rests on an
+# AGENCY_PRESS_RELEASE, which under §9.2 supports a `Yes` only for a recipient
+# the document names.  These twenty-one rest on a NOTICE_OF_AWARD -- DCH's own
+# words, "has awarded a grant agreement to the successful applicants listed
+# below" -- which is the strongest source type in §8.  So these rows carry their
+# own validation_source_type, their own url and their own archive path,
+# overriding the phase defaults every other row inherits.
+#
+# THE NAMES AND THE AMOUNTS ARE PARSED, NEVER TRANSCRIBED (§7.1's posture).
+# ga_noa_award_table() reads the committed PDF through the repository's own
+# reader and rebuilds the table from the page's own GEOMETRY: an award row is
+# anchored on its GREAT-###### application number, and the applicant name is
+# whatever sits in the name column within that row's vertical band.  DCH wraps
+# long names across two lines ("Hospital Authority of Stephens" / "County") and
+# on one telepod row puts both name lines at the SAME y as each other and a
+# different y from the amount, so a reader keyed on line order alone attaches
+# "County" to the next hospital.  Banding on the anchor's y is what survives
+# that.
+#
+# WHY determination_confidence IS MEDIUM HERE AND HIGH ON THE 87 AHEAD ROWS.
+# §7 reserves HIGH for a named hospital recipient WITH A CCN MATCH, and this
+# repository has no CCN source yet (open blocker 5).  These twenty-one are
+# "primary source, hospital identity inferred from name without CCN match",
+# which is §7's MEDIUM exactly, and is the coding session 21 gave Maryland's
+# six named hospitals.  The 87 AHEAD rows were hand-coded HIGH in session 10,
+# before that reading was settled; they are left alone rather than re-coded as
+# a side effect of this change (§2.1), and the divergence is reported on the
+# Reconciliation sheet so it is visible rather than buried.
+#
+# ONE NAME THE SHARED CLASSIFIER WOULD NOT RECOGNISE.  Of the twenty distinct
+# names, rhtp_classify_recipient_type() types nineteen HOSPITAL_OR_SYSTEM from
+# the name alone and falls through on "Atrium Health Navicent Baldwin".  It is
+# typed HOSPITAL_OR_SYSTEM here on DCH's own statement of the class -- the
+# announcement says the award went to hospitals and the NOA's heading is
+# "SUCCESSFUL APPLICANT" under a hospitals-only strategy -- not on this
+# pipeline's knowledge of Georgia (§0.4).  Georgia is hand-coded throughout and
+# does not call the shared classifier; the check was run as a cross-check only.
+#
+# DCH ALSO NAMES ITS UNSUCCESSFUL APPLICANTS, WITH REASONS -- five on the
+# robotics notice, two on the telepods notice.  They are not awards and nothing
+# here codes them.  Their COUNT is asserted, because getting it right requires
+# the successful/unsuccessful section split to be right, which is the same
+# thing the twenty-one depend on.
+
+GA_NOA_DIR <- "data/evidence/GA"
+
+# The award-row anchor.  One per award action, and DCH prints it in its own
+# column, so it is a far better row key than the amount (which repeats) or the
+# name (which wraps, and which repeats -- Miller County Hospital holds two
+# telepod awards).
+GA_NOA_APP_ID <- "GREAT-[0-9]{6}"
+
+# Column and row tolerances, in PDF points.  The name column is identified by
+# the x of the first body line in the section rather than by a literal, so a
+# re-typeset document does not need a code change; 1pt is tight enough to
+# exclude the page footer, which sits ~2.4pt to the right of it.  3pt of
+# vertical slack is what the telepods notice needs: one row's amount is painted
+# 1.2pt above its own name lines.
+GA_NOA_NAME_X_TOL <- 1.0
+GA_NOA_ROW_Y_TOL <- 3.0
+
+GA_NOA_SOURCES <- tibble::tribble(
+  ~key, ~strategy, ~file, ~url, ~title,
+  ~recheck_sha256, ~stated_actions, ~stated_total, ~stated_unsuccessful,
+
+  "robots",
+  "Workforce Retention Technology (surgical robotics)",
+  "ga_noa_workforce_retention_technology_signed.pdf",
+  paste0("https://greathealth.georgia.gov/document/document/",
+         "notice-award-workforce-retention-technology-surgical-robotssigned/download"),
+  paste0("Notice of Award -- Initiative 5: Leveraging Technology in Support of ",
+         "Healthcare Innovations in Rural Georgia; Strategy: Workforce ",
+         "Retention Technology (Surgical Robots)"),
+  "f080a773368b90526d6382797aae9ca504fb1642345560c6464eceb874350dad",
+  13L, 26000000, 5L,
+
+  "telepods",
+  "Care to Consumer Point-of-Care Telepods",
+  "ga_noa_point_of_care_telepods_signed.pdf",
+  paste0("https://greathealth.georgia.gov/document/document/",
+         "notice-award-point-care-telepodssigned-0/download"),
+  paste0("Notice of Award -- Initiative 3: Connecting to Care to Improve ",
+         "Healthcare Access; Strategy: Point-of-Care Telepods"),
+  "49ba971bd4a98502ee1e440d4db9b3a4175dfa758e2bf3b3b47265d40d5af844",
+  8L, 4277580, 2L
+) %>%
+  dplyr::mutate(path = file.path(GA_NOA_DIR, .data$file))
+
+# strategy -> notice-of-award key. The strategy string is what the aggregate
+# template row and the notice have in common.
+GA_NOA_STRATEGY_KEY <- stats::setNames(GA_NOA_SOURCES$key, GA_NOA_SOURCES$strategy)
+
+GA_NOA_USER_AGENT <-
+  "RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)"
+
+#' Fetch the two signed Notices of Award into Georgia's own evidence directory.
+#'
+#' The bytes are ALSO in session 21's completeness re-check archive, which says
+#' of itself that it is not an extraction source.  Rather than copy them across
+#' -- which would move a file and call it provenance -- they are fetched again,
+#' and the digest of what comes back is asserted EQUAL to the digest session 21
+#' recorded on 2026-08-29.  That closes two things at once: Georgia's own
+#' archive is a primary fetch with its own date, and the document demonstrably
+#' has not changed between the re-check that found it and the extraction that
+#' reads it.  A mismatch is a hard failure, because a silently edited notice of
+#' award is exactly the thing this project must not extract from unnoticed.
+#'
+#' This is the only function in this file that touches the network.
+rhtp_ga_noa_fetch <- function(force = FALSE) {
+  dir.create(here::here(GA_NOA_DIR), recursive = TRUE, showWarnings = FALSE)
+
+  entries <- purrr::map_dfr(seq_len(nrow(GA_NOA_SOURCES)), function(i) {
+    src <- GA_NOA_SOURCES[i, ]
+    dest <- here::here(src$path)
+
+    if (file.exists(dest) && !force) {
+      message("[GA] cached: ", src$file)
+    } else {
+      Sys.sleep(2)
+      message("[GA] fetching ", src$url)
+      resp <- httr::GET(src$url, httr::user_agent(GA_NOA_USER_AGENT),
+                        httr::timeout(180))
+      if (httr::status_code(resp) != 200L) {
+        stop("[GA] HTTP ", httr::status_code(resp), " for ", src$url,
+             call. = FALSE)
+      }
+      body <- httr::content(resp, as = "raw")
+      if (!identical(rawToChar(body[seq_len(5)]), "%PDF-")) {
+        stop("[GA] ", src$url, " did not return a PDF.", call. = FALSE)
+      }
+      writeBin(body, dest)
+    }
+
+    got <- digest::digest(file = dest, algo = "sha256")
+    if (!identical(got, src$recheck_sha256)) {
+      stop("[GA] ", src$file, " hashes ", got, " but session 21's re-check ",
+           "recorded ", src$recheck_sha256, " on 2026-08-29. DCH has changed ",
+           "the notice of award; re-read it before extracting from it.",
+           call. = FALSE)
+    }
+
+    tibble::tibble(
+      key = src$key, file = src$file, url = src$url,
+      bytes = file.info(dest)$size, sha256 = got,
+      matches_recheck_2026_08_29 = TRUE,
+      fetched_utc = format(Sys.time(), tz = "UTC", "%Y-%m-%dT%H:%M:%SZ")
+    )
+  })
+
+  ga_noa_write_manifest(entries)
+  entries
+}
+
+ga_noa_write_manifest <- function(entries) {
+  path <- here::here(GA_NOA_DIR, "ga_notices_of_award.manifest.txt")
+  lines <- c(
+    "RHTP tracker archive (spec 0.4 / 0.5): Georgia GREAT Health signed NOTICES",
+    "OF AWARD -- the 21 named hospital award actions behind Phase 4's two",
+    "'names not captured' aggregate rows.",
+    "",
+    paste0("fetched_utc     : ", entries$fetched_utc[[1]]),
+    "state           : GA",
+    "host            : greathealth.georgia.gov",
+    "http_status     : 200",
+    "source_doc_type : NOTICE_OF_AWARD (spec 8's strongest source type)",
+    "found_via       : greathealth.georgia.gov/find-funding-opportunities, read",
+    "                  for the first time by R/03q's completeness re-check",
+    "                  (session 21). No earlier session opened that page.",
+    "",
+    "EVERY DIGEST BELOW IS ASSERTED EQUAL TO THE ONE R/03q RECORDED ON",
+    "2026-08-29 (data/evidence/recheck/2026-08-29/GA/MANIFEST.txt). These are",
+    "fresh fetches, not copies: Georgia's archive is primary, AND the document",
+    "is proved unchanged between the re-check that found it and the extraction",
+    "that reads it. rhtp_ga_noa_fetch() hard-fails on a mismatch.",
+    "",
+    "FILES",
+    ""
+  )
+  for (i in seq_len(nrow(entries))) {
+    src <- GA_NOA_SOURCES[GA_NOA_SOURCES$key == entries$key[[i]], ]
+    lines <- c(lines,
+      paste0("  file    : ", entries$file[[i]]),
+      paste0("  title   : ", src$title),
+      paste0("  url     : ", entries$url[[i]]),
+      paste0("  bytes   : ", entries$bytes[[i]]),
+      paste0("  sha256  : ", entries$sha256[[i]]),
+      paste0("  rows    : ", src$stated_actions, " successful applicants, ",
+             format(src$stated_total, big.mark = ","), " total; ",
+             src$stated_unsuccessful, " unsuccessful applicants with reasons"),
+      "  columns : SUCCESSFUL APPLICANT | AWARD AMOUNT | GREAT Grant Application #",
+      ""
+    )
+  }
+  lines <- c(lines,
+    "WHAT IS AND IS NOT EXTRACTED FROM THESE FILES",
+    "",
+    "  Extracted: the 21 successful award actions -- name, amount, application",
+    "  number -- into ga_great_health_awards.csv, replacing the two aggregate",
+    "  rows that read 'names not captured'.",
+    "",
+    "  NOT extracted: the 7 unsuccessful applicants DCH names, with its reasons",
+    "  for each. They are not award actions and nothing here codes them. Their",
+    "  COUNT is asserted (5 and 2), because the successful/unsuccessful section",
+    "  split has to be right for the 21 to be right.",
+    "",
+    "MANIFEST.txt cannot record its own digest (session 15), and this file is",
+    "not listed above for the same reason."
+  )
+  writeLines(lines, path)
+  invisible(path)
+}
+
+#' Split a notice of award into its successful and unsuccessful sections.
+#'
+#' Ordered by (page, descending y), which is the document's own reading order,
+#' and cut at the two column headers. "SUCCESSFUL APPLICANT" is anchored to the
+#' start of the line so that "UNSUCCESSFUL APPLICANT" -- which contains it as a
+#' substring -- cannot open the section it closes.
+ga_noa_section <- function(lines, section = c("successful", "unsuccessful")) {
+  section <- match.arg(section)
+  ln <- lines %>%
+    dplyr::mutate(.paint_order = dplyr::row_number()) %>%
+    dplyr::arrange(.data$page, dplyr::desc(.data$y), .data$.paint_order)
+
+  opens  <- which(stringr::str_detect(ln$text, "^\\s*SUCCESSFUL\\s+APPLICANT"))
+  closes <- which(stringr::str_detect(ln$text, "UNSUCCESSFUL\\s*APPLICANT"))
+  if (length(opens) != 1L || length(closes) != 1L || closes <= opens) {
+    stop("[GA] a notice of award does not have exactly one SUCCESSFUL header ",
+         "followed by one UNSUCCESSFUL header (found ", length(opens), " and ",
+         length(closes), "). Re-read the document before trusting a parse.",
+         call. = FALSE)
+  }
+  if (identical(section, "successful")) {
+    ln[(opens + 1L):(closes - 1L), ]
+  } else {
+    ln[(closes + 1L):nrow(ln), ]
+  }
+}
+
+#' Rebuild the successful-applicant table from the page's geometry.
+ga_noa_award_table <- function(path) {
+  sec <- ga_noa_section(rhtp_pdf_lines(here::here(path)), "successful")
+
+  # The name column is wherever the section's first body line starts. DCH puts
+  # the applicant name there on every row; the amount and the application
+  # number are either on that same line or in their own columns to the right.
+  name_x <- sec$x[[1]]
+  in_name_col <- abs(sec$x - name_x) <= GA_NOA_NAME_X_TOL
+  anchors <- which(stringr::str_detect(sec$text, GA_NOA_APP_ID))
+  if (!length(anchors)) {
+    stop("[GA] no GREAT application numbers in the successful section of ",
+         path, ".", call. = FALSE)
+  }
+
+  purrr::map_dfr(seq_along(anchors), function(i) {
+    a <- anchors[[i]]
+    page <- sec$page[[a]]
+    # The band runs from this row's anchor down to the next anchor ON THE SAME
+    # PAGE. Bounding by page matters: the last row of page 1 is followed, in
+    # document order, by the first row of page 2, whose y is far HIGHER.
+    below <- anchors[anchors > a & sec$page[anchors] == page]
+    floor_y <- if (length(below)) {
+      sec$y[[below[[1]]]] + GA_NOA_ROW_Y_TOL
+    } else {
+      -Inf
+    }
+    band <- in_name_col & sec$page == page &
+      sec$y <= sec$y[[a]] + GA_NOA_ROW_Y_TOL & sec$y > floor_y
+    if (!any(band)) {
+      stop("[GA] no applicant name in the name column for ",
+           stringr::str_extract(sec$text[[a]], GA_NOA_APP_ID), " in ", path,
+           call. = FALSE)
+    }
+
+    awardee <- sec$text[band] %>%
+      # Where the name shares a line with the amount, the name is what precedes
+      # the dollar sign. Nothing in a Georgia hospital's name contains one.
+      stringr::str_remove("\\$.*$") %>%
+      stringr::str_remove(paste0(GA_NOA_APP_ID, ".*$")) %>%
+      paste(collapse = " ") %>%
+      stringr::str_squish()
+    amount <- stringr::str_match(
+      sec$text[[a]], "\\$\\s*([0-9][0-9,]*\\.[0-9]{2})")[, 2]
+    if (is.na(amount)) {
+      stop("[GA] no award amount on the row for ",
+           stringr::str_extract(sec$text[[a]], GA_NOA_APP_ID), " in ", path,
+           call. = FALSE)
+    }
+
+    tibble::tibble(
+      application_id = stringr::str_extract(sec$text[[a]], GA_NOA_APP_ID),
+      awardee = awardee,
+      amount = as.numeric(stringr::str_remove_all(amount, ","))
+    )
+  })
+}
+
+#' Count the unsuccessful applicants a notice names. Never coded -- asserted.
+ga_noa_unsuccessful_count <- function(path) {
+  sec <- ga_noa_section(rhtp_pdf_lines(here::here(path)), "unsuccessful")
+  length(stringr::str_subset(sec$text, GA_NOA_APP_ID))
+}
+
+#' The 21 award actions, with the source each came from, checked against what
+#' DCH's own Phase 4 announcement says the strategy awarded.
+rhtp_ga_noa_awards <- function() {
+  purrr::map_dfr(seq_len(nrow(GA_NOA_SOURCES)), function(i) {
+    src <- GA_NOA_SOURCES[i, ]
+    if (!file.exists(here::here(src$path))) {
+      stop("[GA] the signed notice of award is missing: ", src$path,
+           ". Run `Rscript R/03d_ga_great_health.R --fetch` first; without it ",
+           "the ", src$stated_actions, " ", src$strategy,
+           " hospitals have no evidence behind them.", call. = FALSE)
+    }
+    tab <- ga_noa_award_table(src$path)
+    if (nrow(tab) != src$stated_actions) {
+      stop("[GA] ", src$file, " parses to ", nrow(tab), " award actions; DCH's ",
+           "Phase 4 announcement states ", src$stated_actions, ".", call. = FALSE)
+    }
+    if (abs(sum(tab$amount) - src$stated_total) > 0.005) {
+      stop("[GA] ", src$file, " sums to ",
+           format(sum(tab$amount), big.mark = ","), " against ",
+           format(src$stated_total, big.mark = ","), ".", call. = FALSE)
+    }
+    tab %>% dplyr::mutate(key = src$key, strategy = src$strategy)
+  })
+}
+
 # --- the record table ------------------------------------------------------
 #
 # One row per award action as DCH describes it. Kept in this file rather than a
@@ -321,6 +683,87 @@ ga_expand_ahead_cohorts <- function(records, roster = rhtp_ga_ahead_roster()) {
       pieces <- append(pieces, list(records[(prev + 1L):(i - 1L), ]))
     }
     pieces <- append(pieces, list(ga_ahead_rows(records[i, ], roster)))
+    prev <- i
+  }
+  if (prev < nrow(records)) {
+    pieces <- append(pieces, list(records[(prev + 1L):nrow(records), ]))
+  }
+  dplyr::bind_rows(pieces)
+}
+
+# --- expanding the two NOA cohorts into named hospitals --------------------
+#
+# The same device as ga_expand_ahead_cohorts(), for the same reason: the
+# aggregate row stays in the tribble as the readable statement of what DCH's
+# press release says, and is replaced in place by one row per named recipient
+# that INHERITS the cohort's coding and overrides only what the notice of award
+# settles -- the name, the amount, the count, the source document, and the two
+# confirmation flags.
+#
+# Nothing here divides a pool (§6.2). DCH states an amount per recipient on the
+# notice, so `amount` is that stated figure and `amount_basis` is
+# STATED_PER_RECIPIENT, exactly as on the 80 AHEAD rows.
+
+ga_noa_rows <- function(template, awards) {
+  key <- template$noa_key[[1]]
+  hs <- awards %>% dplyr::filter(.data$key == !!key)
+  if (!nrow(hs)) {
+    stop("[GA] no notice-of-award rows for cohort '", key, "'.", call. = FALSE)
+  }
+  src <- GA_NOA_SOURCES[GA_NOA_SOURCES$key == key, ]
+
+  template[rep(1L, nrow(hs)), ] %>%
+    dplyr::mutate(
+      awardee = hs$awardee,
+      application_id = hs$application_id,
+      recipient_count = 1L,
+      recipient_confirmed = "Yes",
+      amount = hs$amount,
+      amount_basis = "STATED_PER_RECIPIENT",
+      amount_confirmed = "Yes",
+      # §7: HIGH needs a CCN match and this repository has no CCN source yet
+      # (open blocker 5). A named hospital on a primary source without one is
+      # MEDIUM -- Maryland's coding, session 21.
+      determination_confidence = "MEDIUM",
+      flag_reason = NA_character_,
+      recipient_names_source_url = src$url,
+      source_title_override = src$title,
+      source_url_override = src$url,
+      source_archive_override = src$path,
+      validation_source_type_override = "NOTICE_OF_AWARD",
+      extraction_method_override = "DIRECT_TEXT",
+      validator_override = "AUTO",
+      note = paste0(
+        "Named on DCH's SIGNED NOTICE OF AWARD for ", src$strategy,
+        " (application ", hs$application_id, "), archived at ", src$path,
+        ". DCH: 'The Georgia Department of Community Health has awarded a ",
+        "grant agreement to the successful applicants listed below.' The award ",
+        "and the strategy are stated in the DCH 2026-08-27 announcement, which ",
+        "gives the count (", src$stated_actions, ") and names nobody; the ",
+        "notice supplies the name and the recipient-level amount. The ",
+        format(src$stated_actions), " actions sum to ",
+        format(src$stated_total, big.mark = ","),
+        ", inside the stated Initiative ", template$initiative_number[[1]],
+        " pool. This is a pool-to-named reclassification: no dollar enters ",
+        "Georgia's total that was not already in it."
+      )
+    )
+}
+
+ga_expand_noa_cohorts <- function(records, awards = rhtp_ga_noa_awards()) {
+  at <- which(!is.na(records$noa_key))
+  if (length(at) != nrow(GA_NOA_SOURCES)) {
+    stop("[GA] expected ", nrow(GA_NOA_SOURCES), " notice-of-award cohort ",
+         "template rows, found ", length(at), ".", call. = FALSE)
+  }
+
+  pieces <- list()
+  prev <- 0L
+  for (i in at) {
+    if (i > prev + 1L) {
+      pieces <- append(pieces, list(records[(prev + 1L):(i - 1L), ]))
+    }
+    pieces <- append(pieces, list(ga_noa_rows(records[i, ], awards)))
     prev <- i
   }
   if (prev < nrow(records)) {
@@ -712,9 +1155,29 @@ rhtp_ga_records <- function() {
     dplyr::mutate(
       rural_designation = NA_character_,
       rural_designation_raw = NA_character_,
-      recipient_names_source_url = NA_character_
+      recipient_names_source_url = NA_character_,
+      # DCH's own row key on the notices of award. Its own column rather than
+      # a phrase inside determination_basis, because it is what a re-check
+      # joins on -- and joining a roster on a hospital NAME is how a re-check
+      # starts reporting a state as short because a name was re-typed.
+      application_id = NA_character_,
+      # The two Phase 4 cohorts DCH counted and did not name. Keyed on
+      # `strategy` rather than on the aggregate row's awardee text, so that the
+      # link between a template row and its notice of award survives someone
+      # rewording the placeholder (§2.1: the coding must be the thing that is
+      # hard to change by accident, not the prose beside it).
+      noa_key = unname(GA_NOA_STRATEGY_KEY[.data$strategy]),
+      # Populated only where a row's source is NOT the phase announcement every
+      # other row inherits. NA everywhere else, and coalesced below.
+      source_title_override = NA_character_,
+      source_url_override = NA_character_,
+      source_archive_override = NA_character_,
+      validation_source_type_override = NA_character_,
+      extraction_method_override = NA_character_,
+      validator_override = NA_character_
     ) %>%
     ga_expand_ahead_cohorts() %>%
+    ga_expand_noa_cohorts() %>%
     dplyr::mutate(
       state = "GA",
       phase_key = paste0("p", .data$phase),
@@ -725,12 +1188,17 @@ rhtp_ga_records <- function() {
         unname(ga_initiative_name[.data$initiative_number])
       ),
       fiscal_year = "FY2026 (Year 1)",
-      source_document_title = unname(ga_source_title[.data$phase_key]),
-      state_source_url = unname(ga_source_url[.data$phase_key]),
-      source_archive_path = unname(ga_source_archive[.data$phase_key]),
-      validation_source_type = "AGENCY_PRESS_RELEASE",
-      extraction_method = "MODEL_ASSISTED",
-      validator = "AI-assisted - CONFIRM",
+      source_document_title = dplyr::coalesce(
+        .data$source_title_override, unname(ga_source_title[.data$phase_key])),
+      state_source_url = dplyr::coalesce(
+        .data$source_url_override, unname(ga_source_url[.data$phase_key])),
+      source_archive_path = dplyr::coalesce(
+        .data$source_archive_override, unname(ga_source_archive[.data$phase_key])),
+      validation_source_type = dplyr::coalesce(
+        .data$validation_source_type_override, "AGENCY_PRESS_RELEASE"),
+      extraction_method = dplyr::coalesce(
+        .data$extraction_method_override, "MODEL_ASSISTED"),
+      validator = dplyr::coalesce(.data$validator_override, "AI-assisted - CONFIRM"),
       ccn = NA_real_, aha_id = NA_real_, reviewer = NA_character_,
       determination_basis = paste0(
         "DCH ", .data$phase_date, " announcement, GREAT Health Phase ", .data$phase,
@@ -753,7 +1221,7 @@ rhtp_ga_records <- function() {
       "strategy", "recipient_count", "amount_basis", "flow_type",
       "hospital_benefiting", "determination_confidence", "determination_basis",
       "source_archive_path", "flag_reason",
-      "rural_designation_raw", "recipient_names_source_url"
+      "rural_designation_raw", "recipient_names_source_url", "application_id"
     )
 }
 
@@ -786,7 +1254,11 @@ rhtp_ga_reconcile <- function(records = rhtp_ga_records()) {
       "Hospital recipients - award actions",
       "Hospital recipients - hospitals covered",
       "Phase 2 distinct organizations enumerated",
-      "Phase 2 distinct organizations per DCH"
+      "Phase 2 distinct organizations per DCH",
+      "Named-hospital dollars (rows whose own awardee is a hospital)",
+      "  of which: 80 AHEAD hospitals at a stated $750,000",
+      "  of which: 21 award actions on the two signed Notices of Award",
+      "Unsuccessful applicants DCH names and this file does not code"
     ),
     value = c(
       GA_CMS_YEAR1_AWARD,
@@ -804,7 +1276,11 @@ rhtp_ga_reconcile <- function(records = rhtp_ga_records()) {
         dplyr::pull("recipient_count") %>%
         sum(na.rm = TRUE),
       p2_distinct,
-      GA_PHASE2_STATED_ORG_COUNT
+      GA_PHASE2_STATED_ORG_COUNT,
+      sum(records$amount[records$distributed_to_hospital == "Yes"], na.rm = TRUE),
+      GA_AHEAD_PHASE3_COUNT * GA_AHEAD_PER_HOSPITAL_AMOUNT,
+      sum(GA_NOA_SOURCES$stated_total),
+      sum(GA_NOA_SOURCES$stated_unsuccessful)
     ),
     note = c(
       "Stated in the footnote of all four DCH announcements",
@@ -814,9 +1290,16 @@ rhtp_ga_reconcile <- function(records = rhtp_ga_records()) {
       "One row per award action as DCH describes it",
       "Aggregate rows (multi-recipient cohorts) excluded from the count",
       "distributed_to_hospital = Yes",
-      "87 AHEAD hospitals named individually; counts inside the 8/13 aggregate cohorts",
+      "87 AHEAD hospitals + 21 notice-of-award hospitals, every one named",
       "Names actually listed on the Phase 2 page (28 award actions; DBHDD twice)",
-      "UNRECONCILED, off by one. The names on the page are what is coded."
+      "UNRECONCILED, off by one. The names on the page are what is coded.",
+      paste0("NOT a total of what reached Georgia hospitals: the initiative ",
+             "pools DCH never split sit outside it, in both directions"),
+      "Session 10. Hand-coded HIGH, before §7's CCN rule was settled",
+      paste0("Session 22, from the signed notices. MEDIUM per §7 -- named ",
+             "hospital, primary source, no CCN match yet (blocker 5)"),
+      paste0("5 on the robotics notice, 2 on the telepods notice, each with ",
+             "DCH's reason. Not award actions; the count is asserted only")
     )
   )
 }
@@ -829,8 +1312,12 @@ rhtp_ga_assert <- function(records = rhtp_ga_records()) {
   # 1. Every categorical column validates against the §8 controlled vocabulary.
   for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
                 "recipient_confirmed", "amount_confirmed", "extraction_method",
-                "rural_designation")) {
-    allowed <- rhtp_vocabulary(col)
+                "rural_designation", "validation_source_type")) {
+    # validation_source_type draws on the §8 `source_doc_type` vocabulary; it
+    # went unchecked while every Georgia row was an AGENCY_PRESS_RELEASE, and
+    # the notices of award are the first rows that are not.
+    allowed <- rhtp_vocabulary(
+      if (identical(col, "validation_source_type")) "source_doc_type" else col)
     seen <- stats::na.omit(unique(records[[col]]))
     bad <- setdiff(seen, allowed)
     if (length(bad)) {
@@ -984,6 +1471,94 @@ rhtp_ga_assert <- function(records = rhtp_ga_records()) {
          "28 and 27 (against DCH's stated ", GA_PHASE2_STATED_ORG_COUNT, ").")
   }
 
+  # 11. THE TWENTY-ONE NAMED HOSPITALS, AND THE INVARIANT THAT MAKES THE CHANGE
+  #     SAFE: Georgia's total does not move. Every dollar on these rows was
+  #     already inside the Initiative 3 and Initiative 5 pools, so this is a
+  #     reclassification from pooled to named and nothing else. Pinned as a
+  #     literal, because "the total is unchanged" is the claim a reader of this
+  #     file most needs to be able to check without recomputing it.
+  if (abs(awarded - GA_YEAR1_AWARDED) > 1) {
+    fail("Year 1 awarded is ", format(awarded, big.mark = ","),
+         " but Georgia's published total is ",
+         format(GA_YEAR1_AWARDED, big.mark = ","),
+         ". Naming the hospitals inside a pool must never change the total.")
+  }
+
+  noa <- records %>%
+    dplyr::filter(.data$validation_source_type == "NOTICE_OF_AWARD")
+  if (nrow(noa) != sum(GA_NOA_SOURCES$stated_actions)) {
+    fail(nrow(noa), " rows cite a notice of award; the two signed notices name ",
+         sum(GA_NOA_SOURCES$stated_actions), " award actions.")
+  }
+  if (any(records$flag_reason %in% "RECIPIENT_NAMES_NOT_CAPTURED")) {
+    fail("A RECIPIENT_NAMES_NOT_CAPTURED row survives. Both Phase 4 cohorts ",
+         "are named on signed notices of award and neither aggregate row ",
+         "should remain.")
+  }
+  for (i in seq_len(nrow(GA_NOA_SOURCES))) {
+    src <- GA_NOA_SOURCES[i, ]
+    got <- noa %>% dplyr::filter(.data$strategy == src$strategy)
+    if (nrow(got) != src$stated_actions ||
+        abs(sum(got$amount) - src$stated_total) > 0.005) {
+      fail(src$strategy, " is ", nrow(got), " rows summing to ",
+           format(sum(got$amount), big.mark = ","), "; the notice of award ",
+           "names ", src$stated_actions, " summing to ",
+           format(src$stated_total, big.mark = ","), ".")
+    }
+    # The named awards must fit inside the initiative pool they are named from.
+    # If they ever exceed it, either the pool figure or the parse is wrong, and
+    # publishing either would overstate what Georgia awarded.
+    pool <- unique(got$initiative_amount)
+    if (length(pool) != 1L || sum(got$amount) > pool) {
+      fail(src$strategy, " sums to ", format(sum(got$amount), big.mark = ","),
+           " against an initiative pool of ",
+           paste(format(pool, big.mark = ","), collapse = "/"), ".")
+    }
+    if (!file.exists(here::here(src$path))) {
+      fail("The signed notice of award is missing: ", src$path)
+    }
+    if (!identical(digest::digest(file = here::here(src$path), algo = "sha256"),
+                   src$recheck_sha256)) {
+      fail(src$file, " on disk does not hash to the digest session 21 recorded ",
+           "on 2026-08-29. Re-fetch it and re-read it before extracting.")
+    }
+    # DCH names its unsuccessful applicants too. Nothing codes them; the count
+    # is asserted because the successful/unsuccessful split has to be right for
+    # the successful rows to be right.
+    n_unsuccessful <- ga_noa_unsuccessful_count(src$path)
+    if (n_unsuccessful != src$stated_unsuccessful) {
+      fail(src$file, " names ", n_unsuccessful, " unsuccessful applicants; ",
+           src$stated_unsuccessful, " were read on 2026-08-29.")
+    }
+  }
+  if (any(noa$recipient_confirmed != "Yes") ||
+      any(noa$amount_confirmed != "Yes") ||
+      any(noa$amount_basis != "STATED_PER_RECIPIENT") ||
+      any(!is.na(noa$flag_reason))) {
+    fail("A notice-of-award row is not a confirmed, per-recipient, unflagged ",
+         "award. The notice names the recipient and states its amount.")
+  }
+  if (any(noa$determination_confidence != "MEDIUM")) {
+    fail("A notice-of-award row is not MEDIUM. §7 reserves HIGH for a CCN ",
+         "match and this repository has no CCN source yet (blocker 5).")
+  }
+  if (any(noa$recipient_type != "HOSPITAL_OR_SYSTEM") ||
+      any(noa$flow_type != "DIRECT") ||
+      any(noa$distributed_to_hospital != "Yes")) {
+    fail("A notice-of-award row is not a direct award to a hospital.")
+  }
+
+  # 11a. The named-hospital figure this change exists to move. $60,000,000 was
+  #      the 80 AHEAD hospitals alone; the notices add $30,277,580 that was
+  #      already inside the pools.
+  named <- sum(records$amount[records$distributed_to_hospital == "Yes"],
+               na.rm = TRUE)
+  if (abs(named - GA_NAMED_HOSPITAL_DOLLARS) > 1) {
+    fail("Named-hospital dollars are ", format(named, big.mark = ","),
+         " against an expected ",
+         format(GA_NAMED_HOSPITAL_DOLLARS, big.mark = ","), ".")
+  }
+
   invisible(TRUE)
 }
 
@@ -1045,7 +1620,9 @@ rhtp_ga_write <- function() {
 
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
-  if ("--build" %in% args) {
+  if ("--fetch" %in% args) {
+    print(rhtp_ga_noa_fetch(force = "--force" %in% args))
+  } else if ("--build" %in% args) {
     rhtp_ga_write()
   } else if ("--validate" %in% args) {
     rhtp_ga_assert()
@@ -1053,6 +1630,6 @@ if (sys.nframe() == 0L) {
     message("[GA] ", nrow(recs), " award actions; all assertions pass.")
     print(rhtp_ga_reconcile(recs), n = Inf)
   } else {
-    message("Usage: Rscript R/03d_ga_great_health.R [--validate | --build]")
+    message("Usage: Rscript R/03d_ga_great_health.R [--fetch | --validate | --build]")
   }
 }

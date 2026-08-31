@@ -3,14 +3,40 @@
 #
 # WHAT THIS IS. Alaska DOH publishes its RHTP awards as a workbook,
 # ak_rhtp_awardsnotice_2026.xlsx, whose single sheet is named "Notice of Intent
-# to Award". 161 rows, ten columns, one row per project: App ID, Project Type,
+# to Award". 185 rows, ten columns, one row per project: App ID, Project Type,
 # Org Name, Project Title, Project Summary, Initiative, Award Amount
 # (Preliminary), Organization Type, Service Area, Notification Date.
 #
-# THE 161-VS-142 GAP IS RESOLVED, NOT AVERAGED. Session 11 recorded 161 RCJ rows
-# against CMS's stated "142 projects" and left it open, with a hypothesis that
-# Alaska carried one line per activity type. That hypothesis was wrong and the
-# real answer is in the file's own Project Type column:
+# ALASKA IS THE FIRST STATE IN THIS PROJECT THAT NEEDS A SCHEDULE, NOT AN
+# EXTRACTION. Its own funding-cycle update says awards are announced "on a
+# rolling weekly basis", from ONE url that is overwritten each week. Session 12
+# extracted 161 rows; three days after session 21's completeness re-check the
+# same url served 185 and $181,871,366. Nothing was wrong with the extraction --
+# a snapshot of a rolling file is stale by construction, and the only defence is
+# to re-check it on a cadence and to keep the snapshot it is measured against.
+# --probe is that check (live, archives nothing) and rhtp_ak_growth() is the
+# diff. Both snapshots stay committed.
+#
+# WHAT THE REFRESH MOVED, AND WHERE IT CAME FROM:
+#
+#     2026-08-28   161 award actions   $160,701,975
+#     2026-08-31   185 award actions   $181,871,366
+#     ---------------------------------------------
+#     + 24 NEW award actions           $ 16,862,504
+#     + 1 EXISTING award REVISED UP    $  4,306,887   (Southcentral Foundation,
+#                                                      BP1-IA-308, 1,548,208 ->
+#                                                      5,855,095)
+#     0 withdrawn
+#
+# The revision is not a new award and is not counted as one; the row says so in
+# its own determination_basis. Alaska's update: "subaward budget finalization is
+# still in progress ... minor adjustments to award amounts may occur."
+#
+# THE 161-VS-142 GAP IS RESOLVED, NOT AVERAGED -- AND IT IS ASSERTED WHERE IT IS
+# TRUE. Session 11 recorded 161 RCJ rows against CMS's stated "142 projects" and
+# left it open, with a hypothesis that Alaska carried one line per activity
+# type. That hypothesis was wrong and the real answer is in the file's own
+# Project Type column, on the file CMS described:
 #
 #     Implementation  142
 #     Planning         19
@@ -19,9 +45,21 @@
 #
 # CMS counts the IMPLEMENTATION awards. The App ID prefixes corroborate it
 # independently -- BP1-PL (planning) appears on exactly 19 rows. So both figures
-# are right and they count different things. `project_type` is on every row and
-# `rhtp_ak_reconcile()` reports both counts side by side; nothing is dropped and
-# no average is taken.
+# are right and they count different things.
+#
+# THE CURRENT FILE HOLDS 166 IMPLEMENTATION ROWS, AND THAT IS NOT A BROKEN
+# RECONCILIATION. CMS's 142 is a fact about the 2026-08-28 snapshot, so it is
+# asserted THERE, offline, against the committed archive -- and the current file
+# is required only to be a superset of it, with nothing withdrawn and the
+# Planning count unmoved at 19. Re-pointing the constant at 166 would have
+# thrown session 12's finding away to make an assertion pass.
+#
+# THE POSITIVE CONTROL IS ALASKA'S OWN. Its Year 1 Funding Cycle Update prints
+# the weekly cumulative counts -- "Week 4 | Aug 28 ... $16.9M ... 24 Projects",
+# cumulative "$182M ... 185 Projects". rhtp_ak_assert_cycle_control() DERIVES
+# those figures from the parsed rows, rounds them the way Alaska rounds, and
+# requires the results to appear in Alaska's text. Without it, "the file got
+# bigger" is indistinguishable from "we fetched it twice".
 #
 # THESE ARE NOTICES OF INTENT TO AWARD, AND THE AMOUNTS SAY "PRELIMINARY".
 # Alaska's own sheet name and its own column header both say so, and DOH is
@@ -35,7 +73,8 @@
 #
 # THIS EXTRACTION IS A SNAPSHOT OF A ROLLING FILE. `notification_date` carries
 # each row's own date and the manifest records the fetch date and digest, so a
-# later pull can be diffed against this one rather than replacing it blind.
+# later pull is diffed against this one rather than replacing it blind -- which
+# is exactly what happened on 2026-08-31, and is why AK_PRIOR_FILE exists.
 #
 # ALASKA CLASSIFIES ITS OWN AWARDEES AND THAT OUTRANKS ANY READING OF THE NAME.
 # The Organization Type column is semicolon-delimited and mixes organisational
@@ -50,6 +89,7 @@
 # network.
 #
 # CLI:
+#   Rscript R/03h_ak_year1_awardees.R --probe     # LIVE: has the notice grown?
 #   Rscript R/03h_ak_year1_awardees.R --fetch     # archive the XLSX + SHA-256
 #   Rscript R/03h_ak_year1_awardees.R --validate  # parse + assert, no writes
 #   Rscript R/03h_ak_year1_awardees.R --build     # assert, write CSV + xlsx
@@ -65,6 +105,7 @@ suppressPackageStartupMessages({
 
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
+source(here::here("R", "utils_pdf_text.R"))
 
 AK_STATE <- "AK"
 
@@ -74,8 +115,24 @@ AK_PROGRAM_URL <- paste0(
   "https://health.alaska.gov/en/education/",
   "rural-health-transformation-program/"
 )
-AK_AWARDS_FILE   <- "2026-08-28_ak_rhtp_awardsnotice_2026.xlsx"
+# THE CURRENT SNAPSHOT AND THE ONE BEFORE IT. Alaska announces awards weekly and
+# serves every week from the SAME url, so a snapshot is only ever the file as it
+# stood on the date in its name. Both are kept: the prior one is what makes the
+# growth a diff of two archived documents rather than a claim, and it is the
+# snapshot against which CMS's "142 projects" reconciles exactly (see below).
+AK_AWARDS_FILE   <- "2026-08-31_ak_rhtp_awardsnotice_2026.xlsx"
+AK_PRIOR_FILE    <- "2026-08-28_ak_rhtp_awardsnotice_2026.xlsx"
 AK_MANIFEST_FILE <- "ak_rhtp_year1_awards.manifest.txt"
+
+# THE POSITIVE CONTROL. Alaska publishes its own weekly cumulative counts in a
+# separate document, so the growth below is a STATE-PUBLISHED FACT and not this
+# pipeline's diff of two downloads. Without it, "the file got bigger" is
+# indistinguishable from "we fetched it twice and something changed".
+AK_CYCLE_UPDATE_URL <- paste0(
+  "https://health.alaska.gov/media/lyrcb3pc/",
+  "alaska-rhtp-year-1-funding-cycle-update.pdf"
+)
+AK_CYCLE_UPDATE_FILE <- "2026-08-31_alaska_rhtp_year1_funding_cycle_update.pdf"
 
 AK_EVIDENCE_DIR <- "data/evidence/AK"
 AK_CSV  <- "data/reference/ak_year1_awardees.csv"
@@ -92,10 +149,37 @@ AK_EXPECTED_COLUMNS <- c(
   "Service Area", "Notification Date"
 )
 
-# What CMS states in its 2026-08-25 Alaska release, and what this file must be
-# able to reproduce from Alaska's own column rather than by coincidence.
+# What CMS states in its 2026-08-25 Alaska release. Session 12 asserted this
+# EQUAL to Alaska's own Implementation count, and it was: 142 exactly, which is
+# what resolved the 161-vs-142 gap. THAT ASSERTION WAS RIGHT ABOUT A SNAPSHOT
+# AND WRONG AS A STANDING INVARIANT -- CMS described the file as it stood in
+# August, and Alaska has kept awarding since. The finding is preserved by
+# asserting it where it is true, against the committed 2026-08-28 archive, and
+# the current file is required only to be a SUPERSET of it. Adjusting the
+# constant to 166 would have thrown the finding away to make a test pass.
 AK_CMS_STATED_PROJECTS <- 142L
-AK_STATED_YEAR1_AWARD  <- 160702462  # CMS: "$160 million" for Alaska
+
+# What CMS's 2026-08-25 release described as announced TO DATE. It is not a
+# ceiling and must never be used as one: it is a point-in-time count of a
+# rolling file, and Alaska passed it in week 4.
+AK_CMS_ANNOUNCED_TO_DATE <- 160702462
+
+# THE §6.2 CEILING IS THE ALLOTMENT, AND IT IS READ FROM THE §7.1 ANCHOR RATHER
+# THAN TYPED (§0.2a: Tier 1 comes from CMS, never from a state document or from
+# this file). Alaska's FY2026 allotment is $272,174,856; the earlier ceiling was
+# keyed on the announced-to-date figure above, which a rolling file necessarily
+# outruns -- it fired on this session's refresh, on money Alaska plainly has.
+rhtp_ak_allotment <- function() {
+  anchor <- readr::read_csv(
+    here::here("data", "reference", "cms_fy2026_allotments.csv"),
+    show_col_types = FALSE, progress = FALSE)
+  row <- anchor %>% dplyr::filter(.data$state == AK_STATE)
+  if (nrow(row) != 1L) {
+    stop("[AK] the §7.1 allotment anchor does not carry exactly one AK row.",
+         call. = FALSE)
+  }
+  row$fy2026_allotment[[1]]
+}
 
 
 # -- Fetch and archive -------------------------------------------------------
@@ -133,6 +217,22 @@ rhtp_ak_fetch <- function(force = FALSE) {
 
   writeBin(body, path)
 
+  # The positive control, fetched in the same pass so it can never be one week
+  # older than the file it corroborates.
+  control <- file.path(dir, AK_CYCLE_UPDATE_FILE)
+  cresp <- httr2::request(AK_CYCLE_UPDATE_URL) %>%
+    httr2::req_user_agent(cfg$api$user_agent) %>%
+    httr2::req_timeout(cfg$api$timeout_seconds) %>%
+    httr2::req_retry(max_tries = 3, backoff = ~ 2^.x) %>%
+    httr2::req_perform()
+  if (httr2::resp_status(cresp) != 200) {
+    stop("[AK] the Year 1 Funding Cycle Update returned HTTP ",
+         httr2::resp_status(cresp),
+         "; without it the growth is only a diff of two downloads.",
+         call. = FALSE)
+  }
+  writeBin(httr2::resp_body_raw(cresp), control)
+
   by_type <- parsed %>% dplyr::count(.data$project_type)
   writeLines(paste0(
     "RHTP tracker archive (spec 0.4 / 0.5): Alaska RHTP Year 1 notices of intent\n",
@@ -158,6 +258,19 @@ rhtp_ak_fetch <- function(force = FALSE) {
     "  notification dates present: ",
     paste(sort(unique(as.character(parsed$notification_date))), collapse = ", "),
     "\n\n",
+    "  file    : ", AK_CYCLE_UPDATE_FILE, "\n",
+    "  title   : Alaska RHTP Year 1 Funding Cycle Update\n",
+    "  url     : ", AK_CYCLE_UPDATE_URL, "\n",
+    "  bytes   : ", file.info(control)$size, "\n",
+    "  sha256  : ", digest::digest(file = control, algo = "sha256"), "\n",
+    "  role    : POSITIVE CONTROL. Alaska's own weekly cumulative counts, which\n",
+    "            are what make the growth of the notice a STATE-PUBLISHED fact\n",
+    "            rather than this pipeline's diff of two downloads.\n\n",
+    "  file    : ", AK_PRIOR_FILE, "\n",
+    "  role    : the PRIOR SNAPSHOT, kept rather than replaced. It is what the\n",
+    "            growth is measured against, and it is the snapshot where CMS's\n",
+    "            stated 142 projects reconciles to Alaska's own Implementation\n",
+    "            count exactly (session 12's finding, asserted every run).\n\n",
     "WHAT THIS DOCUMENT SUPPORTS (spec 9.2, Part A of reviewer-coding-instructions)\n\n",
     "THE 161-VS-142 GAP IS RESOLVED HERE. CMS states '142 projects' for Alaska.\n",
     "The file holds 161 rows because 19 of them are PLANNING awards and 142 are\n",
@@ -235,6 +348,87 @@ rhtp_ak_parse_awards <- function(path) {
     dplyr::filter(nzchar(.data$awardee))
 }
 
+
+# -- The rolling growth, and Alaska's own corroboration of it ----------------
+
+#' Diff the current notice against the prior committed snapshot.
+#'
+#' Alaska serves every week from the same url, so "the file changed" is not by
+#' itself information. What is information is WHICH awards are new, which
+#' existing award had its preliminary figure revised, and whether anything
+#' disappeared. All three are read from two archived documents, offline.
+rhtp_ak_growth <- function(current = NULL, prior = NULL) {
+  if (is.null(current)) {
+    current <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_AWARDS_FILE))
+  }
+  if (is.null(prior)) {
+    prior <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))
+  }
+
+  added <- current %>% dplyr::filter(!.data$app_id %in% prior$app_id)
+  revised <- current %>%
+    dplyr::inner_join(
+      prior %>% dplyr::select("app_id", prior_amount = "amount"),
+      by = "app_id") %>%
+    dplyr::filter(abs(.data$amount - .data$prior_amount) > 0.005)
+
+  list(
+    prior_rows = nrow(prior),
+    prior_total = sum(prior$amount),
+    rows = nrow(current),
+    total = sum(current$amount),
+    added = added,
+    added_total = sum(added$amount),
+    revised = revised,
+    revised_delta = sum(revised$amount - revised$prior_amount),
+    vanished = setdiff(prior$app_id, current$app_id)
+  )
+}
+
+#' Alaska's Year 1 Funding Cycle Update, as text.
+rhtp_ak_cycle_update_text <- function(
+    path = file.path(AK_EVIDENCE_DIR, AK_CYCLE_UPDATE_FILE)) {
+  full <- here::here(path)
+  if (!file.exists(full)) {
+    stop("[AK] the Year 1 Funding Cycle Update is missing: ", path,
+         ". It is the positive control for the growth of the award notice; ",
+         "without it the growth is only a diff of two downloads. Run --fetch.",
+         call. = FALSE)
+  }
+  paste(rhtp_pdf_text(full), collapse = "\n")
+}
+
+#' Assert Alaska's own document states the totals this extraction derives.
+#'
+#' THE FIGURES ARE DERIVED AND THEN LOOKED FOR, never read off and copied. The
+#' update rounds -- $181,871,366 is printed "$182M" and $16,862,504 "$16.9M" --
+#' so the rounding is done here, from the parsed rows, and the RESULT is
+#' required to appear in Alaska's text. That is a closure in the direction that
+#' matters: the state has to agree with what this file computed.
+rhtp_ak_assert_cycle_control <- function(growth = rhtp_ak_growth(),
+                                         text = rhtp_ak_cycle_update_text()) {
+  want <- c(
+    cumulative_total   = sprintf("$%.0fM", growth$total / 1e6),
+    cumulative_projects = as.character(growth$rows),
+    week_added_total   = sprintf("$%.1fM", round(growth$added_total / 1e6, 1)),
+    week_added_projects = as.character(nrow(growth$added))
+  )
+  missing <- want[!vapply(want, function(w) grepl(w, text, fixed = TRUE),
+                          logical(1))]
+  if (length(missing)) {
+    stop("[AK] Alaska's Year 1 Funding Cycle Update does not state ",
+         paste(paste0(names(missing), " = ", missing), collapse = ", "),
+         ". The award notice and the state's own weekly counts disagree; ",
+         "re-read both before publishing either.", call. = FALSE)
+  }
+  # And the control has to be about a ROLLING file, or it is the wrong control.
+  if (!grepl("rolling weekly basis", text, fixed = TRUE)) {
+    stop("[AK] the funding cycle update no longer says awards are announced ",
+         "'on a rolling weekly basis'. Alaska's publication model is what ",
+         "makes this file a snapshot; re-read it.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
 
 rhtp_ak_build <- function() {
   path <- here::here(AK_EVIDENCE_DIR, AK_AWARDS_FILE)
@@ -322,6 +516,28 @@ rhtp_ak_build <- function() {
       )
     ) %>%
     dplyr::select(-"awardee_type_count", -"awardee_types") %>%
+    # A preliminary figure that has since been revised says so on its own row.
+    # No new flag code: AMOUNT_PRELIMINARY already means "this may move", and
+    # this is that happening. What the row gains is WHICH WAY it moved, in the
+    # free text §7 makes mandatory, so a reader is not left comparing archives.
+    dplyr::left_join(
+      rhtp_ak_growth()$revised %>%
+        dplyr::select("app_id", "prior_amount"),
+      by = "app_id") %>%
+    dplyr::mutate(
+      determination_basis = dplyr::if_else(
+        is.na(.data$prior_amount),
+        .data$determination_basis,
+        paste0(.data$determination_basis,
+               " NOTE: Alaska REVISED this preliminary figure between the ",
+               "2026-08-28 and 2026-08-31 snapshots, from ",
+               format(.data$prior_amount, big.mark = ","), " to ",
+               format(.data$amount, big.mark = ","),
+               ". Both are archived; the state's own update says 'subaward ",
+               "budget finalization is still in progress'.")
+      )
+    ) %>%
+    dplyr::select(-"prior_amount") %>%
     dplyr::select(
       # -- the FL_year1_awardees schema, in FL's order --------------------
       "state", "row_no", "awardee", "amount", "recipient_type",
@@ -366,14 +582,23 @@ rhtp_ak_reconcile <- function(records = rhtp_ak_build()) {
     "rows in Alaska's award notice",              as.character(nrow(records)),
     "  of which Implementation",                  as.character(sum(impl)),
     "  of which Planning",                        as.character(sum(plan)),
-    "projects stated by CMS",                     as.character(AK_CMS_STATED_PROJECTS),
-    "CMS count reconciles to Implementation",     if (sum(impl) == AK_CMS_STATED_PROJECTS) "yes, exactly" else "NO -- investigate",
+    "projects stated by CMS (2026-08-25 release)", as.character(AK_CMS_STATED_PROJECTS),
+    "CMS count reconciles to the 2026-08-28 snapshot",
+      paste0("yes, exactly -- ",
+             sum(rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))$project_type ==
+                   "Implementation"),
+             " Implementation rows on the file CMS described. The CURRENT ",
+             "file holds ", sum(impl), ", because Alaska has kept awarding ",
+             "weekly since; both are right and they count different days."),
     "distinct awardees",                          as.character(dplyr::n_distinct(records$awardee)),
     "notification dates in this snapshot",        paste(sort(unique(as.character(records$notification_date))), collapse = ", "),
     "total (preliminary) summed",                 format(sum(records$amount), big.mark = ",", nsmall = 2),
     "  Implementation only",                      format(sum(records$amount[impl]), big.mark = ",", nsmall = 2),
     "  Planning only",                            format(sum(records$amount[plan]), big.mark = ",", nsmall = 2),
-    "CMS stated award for Alaska",                format(AK_STATED_YEAR1_AWARD, big.mark = ",", nsmall = 2),
+    "CMS announced-to-date figure (2026-08-25 release)",
+                                                  format(AK_CMS_ANNOUNCED_TO_DATE, big.mark = ","),
+    "Alaska FY2026 CMS allotment (§7.1 anchor)",  format(rhtp_ak_allotment(), big.mark = ","),
+    "  awarded as % of the allotment",            sprintf("%.1f%%", 100 * sum(records$amount) / rhtp_ak_allotment()),
     "awardees whose form varies across their own rows",
                                                   as.character(dplyr::n_distinct(
                                                     records$awardee[varies])),
@@ -385,6 +610,28 @@ rhtp_ak_reconcile <- function(records = rhtp_ak_build()) {
     "dollars distributed_to_hospital = Yes",      format(sum(records$amount[hosp]), big.mark = ",", nsmall = 2),
     "rows distributed_to_hospital = Unclear",     as.character(sum(unclear)),
     "dollars distributed_to_hospital = Unclear",  format(sum(records$amount[unclear]), big.mark = ",", nsmall = 2)
+  ) %>%
+    dplyr::bind_rows(rhtp_ak_growth_lines())
+}
+
+#' The rolling-growth block of the reconciliation, kept separate because it is
+#' about TWO archived documents rather than about the current one.
+rhtp_ak_growth_lines <- function(growth = rhtp_ak_growth()) {
+  tibble::tribble(
+    ~measure, ~value,
+    "-- rolling growth since the prior snapshot --", "",
+    "prior snapshot (2026-08-28) rows",       as.character(growth$prior_rows),
+    "prior snapshot total",                   format(growth$prior_total, big.mark = ","),
+    "award actions added since",              as.character(nrow(growth$added)),
+    "dollars added since",                    format(growth$added_total, big.mark = ","),
+    "existing awards revised",                as.character(nrow(growth$revised)),
+    "dollars from revision, not from new awards",
+                                              format(growth$revised_delta, big.mark = ","),
+    "award actions withdrawn",                as.character(length(growth$vanished)),
+    "corroborated by Alaska's own weekly counts",
+      "yes -- Year 1 Funding Cycle Update states the cumulative and week-4 figures",
+    "this file is a SNAPSHOT of a weekly release",
+      "yes -- Alaska: 'Project awards are being announced on a rolling weekly basis'"
   )
 }
 
@@ -397,14 +644,46 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
   # CMS's 142 must equal Alaska's own Implementation count, from Alaska's own
   # column. If a later pull breaks it, the reconciliation is a live question
   # again and must not be papered over.
+  # CMS's 142 reconciles against the snapshot CMS described, and is asserted
+  # THERE -- against the committed 2026-08-28 archive, offline, every run. That
+  # is where session 12's finding lives, and it stays checkable however far the
+  # rolling file moves on.
+  prior <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))
+  n_impl_prior <- sum(prior$project_type == "Implementation")
+  if (n_impl_prior != AK_CMS_STATED_PROJECTS) {
+    stop("[AK] the 2026-08-28 snapshot holds ", n_impl_prior,
+         " Implementation rows against CMS's stated ", AK_CMS_STATED_PROJECTS,
+         ". That agreement is what resolved the 161-vs-142 gap; it is a fact ",
+         "about an archived file and cannot legitimately change.", call. = FALSE)
+  }
+
+  # The current file must be a SUPERSET of the snapshot CMS described. Growth is
+  # expected on a rolling notice; a row disappearing is not, and would mean an
+  # award this repository has published was withdrawn.
   n_impl <- sum(records$project_type == "Implementation")
-  if (n_impl != AK_CMS_STATED_PROJECTS) {
+  if (n_impl < AK_CMS_STATED_PROJECTS) {
     stop("[AK] Alaska's Implementation rows number ", n_impl,
-         " against CMS's stated ", AK_CMS_STATED_PROJECTS,
-         ". These agreed when this was written, and the agreement is what ",
-         "explains the 161-vs-142 gap. A later rolling release may legitimately ",
-         "move it -- re-derive the reconciliation rather than adjusting this ",
-         "constant blind.", call. = FALSE)
+         ", FEWER than the ", AK_CMS_STATED_PROJECTS,
+         " CMS described. A rolling notice grows; it does not shrink.",
+         call. = FALSE)
+  }
+  vanished <- setdiff(prior$app_id, records$app_id)
+  if (length(vanished)) {
+    stop("[AK] ", length(vanished), " award(s) present on 2026-08-28 are gone ",
+         "from the current notice: ", paste(vanished, collapse = ", "),
+         ". Alaska has withdrawn an award this repository published; that is a ",
+         "finding, not a parse to wave through.", call. = FALSE)
+  }
+
+  # The BP1-PL corroboration held at 19 planning awards through the growth, and
+  # is worth pinning: it is the independent check on the Project Type column.
+  n_plan <- sum(records$project_type == "Planning")
+  if (n_plan != sum(prior$project_type == "Planning")) {
+    stop("[AK] the Planning count moved from ",
+         sum(prior$project_type == "Planning"), " to ", n_plan,
+         ". Re-read the notice: every award added since 2026-08-28 has been an ",
+         "Implementation award, and a Planning award appearing changes what ",
+         "CMS's project count is counting.", call. = FALSE)
   }
 
   # And the independent corroboration: the App ID prefix must agree with the
@@ -435,14 +714,15 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
     stop("[AK] every row must carry a notification date.", call. = FALSE)
   }
 
-  # §6.2 ceiling. Alaska's rolling file must not outrun the CMS award; a small
-  # overshoot would mean the preliminary figures are being revised upward and is
-  # worth stopping for.
+  # §6.2 ceiling, against the §7.1 ALLOTMENT. A rolling file necessarily outruns
+  # a point-in-time count of what had been announced, so keying the ceiling on
+  # CMS's "$160 million" made week 4 look like an overrun of money Alaska has.
   summed <- sum(records$amount)
-  if (summed > AK_STATED_YEAR1_AWARD * 1.02) {
-    stop("[AK] the preliminary total ", format(summed, nsmall = 2),
-         " exceeds CMS's stated award for Alaska by more than 2%. §6.2 ceiling.",
-         call. = FALSE)
+  allotment <- rhtp_ak_allotment()
+  if (summed > allotment) {
+    stop("[AK] the preliminary total ", format(summed, big.mark = ","),
+         " exceeds Alaska's FY2026 CMS allotment of ",
+         format(allotment, big.mark = ","), ". §6.2 ceiling.", call. = FALSE)
   }
 
   for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
@@ -475,6 +755,12 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
     stop("[AK] determination_basis is mandatory free text (§7).", call. = FALSE)
   }
 
+  # THE GROWTH IS ALASKA'S CLAIM, NOT THIS PIPELINE'S. The award notice and the
+  # state's own weekly funding-cycle counts have to agree on the cumulative
+  # total, the cumulative project count, and what week 4 added -- derived here
+  # and then looked for in Alaska's text, never copied out of it.
+  rhtp_ak_assert_cycle_control()
+
   invisible(TRUE)
 }
 
@@ -502,11 +788,68 @@ rhtp_ak_write <- function() {
 }
 
 
+#' LIVE: has Alaska's rolling notice moved since the committed snapshot?
+#'
+#' The SD `--probe` precedent -- fetch, diff, report, ARCHIVE NOTHING. Alaska is
+#' the first state in this project that needs a scheduled re-check rather than
+#' an extraction: it announces awards "on a rolling weekly basis" from a single
+#' unchanging url, so the committed file is stale by design and the only
+#' question worth asking on a schedule is how stale.
+#'
+#' Exits 0 and prints UNCHANGED when the digest matches, so a scheduled run that
+#' finds nothing is cheap and silent.
+rhtp_ak_probe <- function() {
+  cfg <- rhtp_config()
+  committed <- here::here(AK_EVIDENCE_DIR, AK_AWARDS_FILE)
+  resp <- httr2::request(AK_AWARDS_URL) %>%
+    httr2::req_user_agent(cfg$api$user_agent) %>%
+    httr2::req_timeout(cfg$api$timeout_seconds) %>%
+    httr2::req_retry(max_tries = 3, backoff = ~ 2^.x) %>%
+    httr2::req_perform()
+  if (httr2::resp_status(resp) != 200) {
+    stop("[AK] probe: HTTP ", httr2::resp_status(resp), " for ", AK_AWARDS_URL,
+         call. = FALSE)
+  }
+  body <- httr2::resp_body_raw(resp)
+  live_sha <- digest::digest(body, algo = "sha256", serialize = FALSE)
+  held_sha <- digest::digest(file = committed, algo = "sha256")
+
+  if (identical(live_sha, held_sha)) {
+    message("[AK] UNCHANGED -- the live notice is byte-identical to ",
+            AK_AWARDS_FILE, " (sha256 ", substr(live_sha, 1, 12), ").")
+    return(invisible(list(changed = FALSE)))
+  }
+
+  tmp <- tempfile(fileext = ".xlsx")
+  writeBin(body, tmp)
+  growth <- rhtp_ak_growth(current = rhtp_ak_parse_awards(tmp),
+                           prior = rhtp_ak_parse_awards(committed))
+  unlink(tmp)
+
+  message("[AK] CHANGED -- Alaska has published since ", AK_AWARDS_FILE, ".")
+  message("[AK]   rows    ", growth$prior_rows, " -> ", growth$rows)
+  message("[AK]   total   ", format(growth$prior_total, big.mark = ","),
+          " -> ", format(growth$total, big.mark = ","))
+  message("[AK]   added   ", nrow(growth$added), " award actions, ",
+          format(growth$added_total, big.mark = ","))
+  message("[AK]   revised ", nrow(growth$revised), " existing award(s), ",
+          format(growth$revised_delta, big.mark = ","))
+  if (length(growth$vanished)) {
+    message("[AK]   WITHDRAWN ", length(growth$vanished), ": ",
+            paste(growth$vanished, collapse = ", "))
+  }
+  message("[AK] Re-run: --fetch --force (with AK_AWARDS_FILE re-dated and the ",
+          "current file moved to AK_PRIOR_FILE), then --build, then COMMIT.")
+  invisible(list(changed = TRUE, growth = growth))
+}
+
 # -- CLI ---------------------------------------------------------------------
 
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
-  if ("--fetch" %in% args) {
+  if ("--probe" %in% args) {
+    rhtp_ak_probe()
+  } else if ("--fetch" %in% args) {
     rhtp_ak_fetch(force = "--force" %in% args)
   } else if ("--build" %in% args) {
     rhtp_ak_write()
@@ -517,6 +860,7 @@ if (sys.nframe() == 0L) {
     print(rhtp_ak_reconcile(recs), n = Inf)
     message("[AK] all assertions passed.")
   } else {
-    message("Usage: Rscript R/03h_ak_year1_awardees.R [--fetch|--validate|--build]")
+    message("Usage: Rscript R/03h_ak_year1_awardees.R ",
+            "[--probe|--fetch|--validate|--build]")
   }
 }
