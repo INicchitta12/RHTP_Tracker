@@ -1452,7 +1452,9 @@ in_report <- function() {
 
 # -- CLI ----------------------------------------------------------------------
 
-if (identical(environment(), globalenv()) && !interactive()) {
+# `sys.nframe() == 0L` is the repo's CLI guard: it is FALSE when the file is
+# sourced by a test or another stage, so nothing here runs then.
+if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--fetch" %in% args)    print(as.data.frame(
                                 in_fetch(force = "--force" %in% args)[, c("key", "bytes")]))
