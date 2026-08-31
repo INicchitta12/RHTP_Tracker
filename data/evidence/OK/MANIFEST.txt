@@ -1,0 +1,59 @@
+Oklahoma -- RHTP Year 1: the OSDH Funding Recipients roster, the funding
+page that is its positive control, the programme pages, the microgrant
+NOFO announcement, and the four RHTP publications that carry the CMS
+financial-assistance footer.
+Archived by R/03t_ok_year1_awardees.R --fetch
+User-agent: AHA-RHTP-Tracker/1.0 (research; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below. The
+credential guard that caught CMS's Mapbox token, Illinois's and Oregon's,
+and Kansas's Google Maps key runs on every fetch here and finds nothing,
+so there is no reduction to explain and the pages are whole.
+
+`..._rhtp_home.html` IS SERVED AT TWO URLs. oklahoma.gov/health/rhtp.html
+and oklahoma.gov/health/community-health-and-wellness/community-outreach/
+rural-health-transformation.html return byte-identical bodies -- the same
+SHA-256 and the same 694,330 bytes. They are two paths onto one AEM page,
+so it is archived ONCE. The second URL is where /api/v1/activity reports
+Oklahoma's source documents, which is how this file found the site.
+
+THE ROSTER IS `..._funding_recipients.html`. It carries an "Awardees"
+navigation with exactly two anchors, #roots and #microgrants, which is
+OSDH's own index of what it has awarded. `..._rhtp_funding.html` is the
+positive control beside it: ten funding opportunities, two open and eight
+closed, and a roster published for two of them.
+
+THE FOUR PDFs ARE NOT AWARD DOCUMENTS AND ARE NOT EXTRACTED FROM. They
+are Tier 2 (§0.2): the Initiative Funding Summary is the §7A source for
+OK_initiative_table.xlsx, and the two Legislative Quarterly Reports
+publish a per-programme "Y1 Budget Allocation", which their own glossary
+defines as "the amount of funds dedicated to the program". They are
+archived because they are what disposes of all 35 RCJ Tier 3 candidates,
+and because the Q2 report independently corroborates both award counts:
+"OSDH issued 68 awards through the competitive Microgrant application"
+and "60 awards totalling $600K to local schools".
+
+Fetched: 2026-08-31
+
+file                                                      bytes  sha256
+--------------------------------------------------------------------------------------------------------------------------------
+2026-08-31_ok_rhtp_funding_recipients.html               630569  c20ae8f9dddc447fe9b8c9a571e8a69b79dec80239675ec657edff39ed049395
+2026-08-31_ok_rhtp_funding.html                          761369  6eb1303ead694bff23aa8754692b224228612a7ef1b6d4bb532628d4514d8a6a
+2026-08-31_ok_rhtp_home.html                             694330  15b5a0bc329ae600d6960d114b91a075b4bf20a14245e8c537d145746e557097
+2026-03-16_ok_microgrant_nofo_announcement.html          533911  273c2813306699912671a12eb09c22d33b21fee2a9d42e0a5c8b868e157795d0
+2026-03-10_ok_rhtp_initiative_funding_summary.pdf       2727727  6c7d97937c8bf620d0e67b7177589ebc45799734012f786418ee0c0a0ed0867f
+2026-06-03_ok_rhtp_legislative_quarterly_report_q1.pdf     552598  9b9b01d079a3727314a6386edc3fcb319468f5256edac17e291a7593f75f5de8
+2026-07-10_ok_rhtp_legislative_quarterly_report_q2.pdf     783368  2fe840595827a71116dfb89d856c2dc1b15005660df2955491a7278160353703
+2026-08-31_ok_rhtp_quick_summary.pdf                     157129  7c494e919e74944f556bb45f98b7430d4d8240382b55b51b74b6ec503281ff35
+
+
+Source URLs
+  recipients       https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html
+  funding          https://oklahoma.gov/health/rhtp/rhtp-funding.html
+  program          https://oklahoma.gov/health/rhtp.html
+  nofo_release     https://oklahoma.gov/health/news---events/newsroom/2026/oklahoma-rural-health-transformation-program-announces-public-gr.html
+  ifs              https://oklahoma.gov/content/dam/ok/en/health/health2/aem-documents/health-promotion/rhtp/RHTP_InitiativeFundingSummary.pdf
+  q1               https://oklahoma.gov/content/dam/ok/en/health/health2/aem-documents/health-promotion/rhtp/06-03-26%20RHTP%20Legislative%20Quarterly%20Report_Q1.pdf
+  q2               https://oklahoma.gov/content/dam/ok/en/health/health2/aem-documents/health-promotion/rhtp/07-10-26%20RHTP%20Legislative%20Quarterly%20Report_Q2.pdf
+  quick_summary    https://oklahoma.gov/content/dam/ok/en/health/health2/aem-documents/health-promotion/rhtp/RHTP_QuickSummary.pdf
