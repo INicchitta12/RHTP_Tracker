@@ -183,8 +183,10 @@ rhtp_pdf_tounicode <- function(cmap_raw) {
   if (is.null(cmap_raw)) return(character())
   txt <- rhtp_pdf_chr(cmap_raw)
 
-  codes <- character()
-  vals  <- character()
+  # Accumulated as chunks and flattened once -- see the bfrange loop below.
+  code_chunks <- list()
+  val_chunks  <- list()
+  n_chunk     <- 0L
 
   hex_to_str <- function(h) {
     if (nchar(h) < 4) return("")
@@ -200,8 +202,9 @@ rhtp_pdf_tounicode <- function(cmap_raw) {
     for (pair in m) {
       p <- regmatches(pair, regexec("<([0-9A-Fa-f]+)>\\s*<([0-9A-Fa-f]+)>",
                                     pair))[[1]]
-      codes <- c(codes, as.character(strtoi(p[2], 16L)))
-      vals  <- c(vals, hex_to_str(p[3]))
+      n_chunk <- n_chunk + 1L
+      code_chunks[[n_chunk]] <- as.character(strtoi(p[2], 16L))
+      val_chunks[[n_chunk]]  <- hex_to_str(p[3])
     }
   }
 
@@ -215,13 +218,20 @@ rhtp_pdf_tounicode <- function(cmap_raw) {
         "<([0-9A-Fa-f]+)>\\s*<([0-9A-Fa-f]+)>\\s*<([0-9A-Fa-f]+)>", trip))[[1]]
       lo <- strtoi(p[2], 16L); hi <- strtoi(p[3], 16L); dst <- strtoi(p[4], 16L)
       if (is.na(lo) || is.na(hi) || hi < lo || hi - lo > 65535L) next
-      for (k in lo:hi) {
-        codes <- c(codes, as.character(k))
-        vals  <- c(vals, intToUtf8(dst + k - lo))
-      }
+      # A bfrange is expanded WHOLE, not one c() at a time. A single range may
+      # span thousands of codes -- an Identity-H subset routinely does -- and
+      # growing two vectors element by element made this function 97.9% of the
+      # reader's entire runtime on Indiana's 2026-08-21 award letter: 362 of
+      # 370 seconds, all of it in c(). Same codes, same values, same order.
+      ks <- lo:hi
+      n_chunk <- n_chunk + 1L
+      code_chunks[[n_chunk]] <- as.character(ks)
+      val_chunks[[n_chunk]]  <- vapply(dst + ks - lo, intToUtf8, character(1))
     }
   }
 
+  codes <- if (n_chunk) unlist(code_chunks, use.names = FALSE) else character()
+  vals  <- if (n_chunk) unlist(val_chunks,  use.names = FALSE) else character()
   stats::setNames(vals, codes)
 }
 
@@ -240,7 +250,29 @@ rhtp_pdf_tounicode <- function(cmap_raw) {
 #' The fallback is deliberately NOT extended to a two-byte (Identity-H) font:
 #' there the code is a glyph id in a subsetted font and has no relation to any
 #' character, so guessing would produce confident nonsense rather than a gap.
-rhtp_pdf_decode <- function(codes, cmap, two_byte) {
+#' A CMap as a hash table, built once per font.
+#'
+#' WHY. `cmap[as.character(codes)]` is a name lookup on a character vector,
+#' which R resolves by scanning the names. `rhtp_pdf_decode()` runs once per
+#' string operand, and a Word-exported PDF emits one per GLYPH -- so on
+#' Indiana's 2026-08-21 award letter the reader scanned a several-thousand-entry
+#' CMap tens of thousands of times. An environment lookup is O(1) and the
+#' answers are identical: same keys, same values, `NA` where the CMap has no
+#' entry (which is what the ASCII fallback in `rhtp_pdf_decode()` keys on).
+rhtp_pdf_cmap_env <- function(cmap) {
+  e <- new.env(hash = TRUE, parent = emptyenv(), size = max(29L, length(cmap)))
+  if (length(cmap)) list2env(as.list(cmap), envir = e)
+  e
+}
+
+rhtp_pdf_cmap_get <- function(env, keys) {
+  vapply(keys, function(k) {
+    v <- env[[k]]
+    if (is.null(v)) NA_character_ else v
+  }, character(1), USE.NAMES = FALSE)
+}
+
+rhtp_pdf_decode <- function(codes, cmap, two_byte, cmap_env = NULL) {
   if (length(codes) == 0L) return("")
   codes <- codes[!is.na(codes)]
   if (length(codes) == 0L) return("")
@@ -257,10 +289,12 @@ rhtp_pdf_decode <- function(codes, cmap, two_byte) {
     if (length(codes) < 2L) return("")
     idx <- seq(1L, length(codes) - 1L, by = 2L)
     codes <- codes[idx] * 256L + codes[idx + 1L]
-    out <- unname(cmap[as.character(codes)])
+    out <- if (is.null(cmap_env)) unname(cmap[as.character(codes)])
+           else rhtp_pdf_cmap_get(cmap_env, as.character(codes))
     return(paste(ifelse(is.na(out), "", out), collapse = ""))
   }
-  out <- unname(cmap[as.character(codes)])
+  out <- if (is.null(cmap_env)) unname(cmap[as.character(codes)])
+         else rhtp_pdf_cmap_get(cmap_env, as.character(codes))
   paste(ifelse(is.na(out), ascii(codes), out), collapse = "")
 }
 
@@ -286,12 +320,48 @@ rhtp_pdf_decode <- function(codes, cmap, two_byte) {
 #' re-join finds nothing to do. `data/reference/ks_year1_awardees.csv` REBUILDS
 #' BYTE-IDENTICAL under both readers -- 46 rows, $80,020,499 -- which is the
 #' assertion, not the intermediate line count.
+#' isTRUE(all.equal(target, current)) for two finite scalars, without the
+#' generic dispatch.
+#'
+#' WHY THIS EXISTS. `at_y()` runs once per text-positioning operator, and a
+#' Word-exported PDF emits one per GLYPH -- so on Indiana's 2026-08-21 award
+#' letter `all.equal()` was called tens of thousands of times and was the single
+#' largest cost in the reader. This reproduces `all.equal.numeric`'s default
+#' behaviour for the scalar case exactly: a relative comparison scaled by
+#' |target| once that exceeds the tolerance, an absolute one below it.
+rhtp_pdf_near <- function(target, current,
+                          tolerance = sqrt(.Machine$double.eps)) {
+  d <- abs(target - current)
+  # Exact and cheap: anything this far apart differs under any of all.equal's
+  # branches, because the relative branch only ever makes the ratio larger for
+  # |target| <= 1.
+  if (is.finite(d) && is.finite(target)) {
+    scale <- abs(target)
+    if (scale > 1 && d / scale > tolerance) return(FALSE)
+    if (scale > 1 && d == 0) return(TRUE)
+    if (scale <= 1 && d > tolerance) return(FALSE)
+    if (scale <= 1 && d == 0) return(TRUE)
+  }
+  # Everything left is within a hair of the tolerance boundary, where
+  # all.equal's relative/absolute switch is the only thing that decides it.
+  # PDF text coordinates never land here; correctness does not depend on that.
+  isTRUE(all.equal(target, current, tolerance = tolerance))
+}
+
 rhtp_pdf_content_lines <- function(stream, fonts) {
   b <- as.integer(stream)
   n <- length(b)
   if (n == 0L) return(character())
 
-  lines   <- character()
+  # Accumulated as LISTS and flattened once at the end. These were grown with
+  # c() per emitted line, which is O(n^2): Indiana's 2026-08-21 award letter is
+  # a Word export that emits a Td per glyph, so a 280 KB content stream emits
+  # tens of thousands of lines and the copying dominated everything else. The
+  # values and their order are unchanged -- see rhtp_pdf_near() below.
+  lines_l <- list()
+  xs_l    <- list()
+  ys_l    <- list()
+  n_out   <- 0L
   buf     <- character()
   # Strings are held here until a Tj/TJ actually paints them. A PDF also
   # carries strings that are never drawn -- /ActualText and /Alt inside
@@ -299,6 +369,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   # buffer sprinkles stray glyphs through the output.
   pending <- character()
   cmap  <- character()
+  cmap_e <- NULL
   two   <- FALSE
   i     <- 1L
 
@@ -312,8 +383,6 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   x_d   <- 0
   y_at  <- NA_real_          # the y the current buffer is being written at
   x_at  <- NA_real_          # and the x it started at, for column bucketing
-  xs    <- numeric(0)
-  ys    <- numeric(0)
   # The graphics state's vertical translation, and the q/Q stack that restores
   # it. Maryland draws each TABLE CELL inside its own `q .75 0 0 .75 x y cm`,
   # with the same text matrix every time, so without this every cell in the
@@ -329,9 +398,10 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
 
   flush <- function() {
     if (length(buf)) {
-      lines <<- c(lines, paste(buf, collapse = ""))
-      xs    <<- c(xs, x_at)
-      ys    <<- c(ys, y_at)
+      n_out <<- n_out + 1L
+      lines_l[[n_out]] <<- paste(buf, collapse = "")
+      xs_l[[n_out]]    <<- x_at
+      ys_l[[n_out]]    <<- y_at
       buf <<- character()
     }
   }
@@ -339,7 +409,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   # Break the line only if the text position has actually moved vertically.
   at_y <- function() {
     y <- ctm_y + y_m + y_d
-    if (is.na(y_at) || !isTRUE(all.equal(y, y_at))) {
+    if (is.na(y_at) || !rhtp_pdf_near(y, y_at)) {
       flush()
       y_at <<- y
       x_at <<- ctm_x + x_m + x_d
@@ -379,7 +449,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
         }
         codes <- c(codes, c2); i <- i + 1L
       }
-      pending <- c(pending, rhtp_pdf_decode(codes, cmap, two))
+      pending <- c(pending, rhtp_pdf_decode(codes, cmap, two, cmap_e))
       next
     }
 
@@ -397,7 +467,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
         strtoi(substring(h, seq(1, nchar(h) - 1, by = 2),
                          seq(2, nchar(h), by = 2)), 16L)
       } else integer(0)
-      pending <- c(pending, rhtp_pdf_decode(codes, cmap, two))
+      pending <- c(pending, rhtp_pdf_decode(codes, cmap, two, cmap_e))
       i <- j + 1L
       next
     }
@@ -414,6 +484,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
       if (k + 1L <= n && b[k] == 84L && b[k + 1L] == 102L) {   # "Tf"
         f <- fonts[[name]]
         cmap <- if (is.null(f)) character() else f$cmap
+        cmap_e <- if (is.null(f)) NULL else f$cmap_env
         two  <- if (is.null(f)) FALSE else f$two_byte
       }
       i <- j
@@ -500,7 +571,14 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   }
 
   flush()
-  data.frame(x = xs, y = ys, text = lines, stringsAsFactors = FALSE)
+  if (n_out == 0L) {
+    return(data.frame(x = numeric(0), y = numeric(0), text = character(0),
+                      stringsAsFactors = FALSE))
+  }
+  data.frame(x = unlist(xs_l, use.names = FALSE),
+             y = unlist(ys_l, use.names = FALSE),
+             text = unlist(lines_l, use.names = FALSE),
+             stringsAsFactors = FALSE)
 }
 
 
@@ -545,21 +623,25 @@ rhtp_pdf_lines <- function(path) {
   #' The /Font map of a resource dictionary, as name -> {cmap, two_byte}
   fonts_of <- function(res_txt) {
     fonts <- list()
-    fm <- regmatches(res_txt, regexec("/Font\\s*<<([^>]*)>>", res_txt))[[1]]
+    fm <- regmatches(res_txt, regexec("/Font\\s*<<([^>]*)>>", res_txt,
+                                     useBytes = TRUE))[[1]]
     font_dict <- if (length(fm) >= 2L) fm[2] else {
       fr <- ref_body(res_txt, "/Font")
       if (is.null(fr)) "" else header_of(fr)
     }
     refs <- regmatches(font_dict, gregexpr("/(\\w+)\\s+(\\d+)\\s+\\d+\\s+R",
-                                           font_dict))[[1]]
+                                           font_dict, useBytes = TRUE))[[1]]
     for (r in refs) {
-      p <- regmatches(r, regexec("/(\\w+)\\s+(\\d+)\\s+\\d+\\s+R", r))[[1]]
+      p <- regmatches(r, regexec("/(\\w+)\\s+(\\d+)\\s+\\d+\\s+R", r,
+                                 useBytes = TRUE))[[1]]
       fb <- objs[[p[3]]]
       if (is.null(fb)) next
       ftxt <- header_of(fb)
       tu <- ref_body(ftxt, "/ToUnicode")
+      fcmap <- rhtp_pdf_tounicode(if (is.null(tu)) NULL else rhtp_pdf_stream(tu))
       fonts[[p[2]]] <- list(
-        cmap = rhtp_pdf_tounicode(if (is.null(tu)) NULL else rhtp_pdf_stream(tu)),
+        cmap = fcmap,
+        cmap_env = rhtp_pdf_cmap_env(fcmap),
         two_byte = grepl("/Identity-H", ftxt, fixed = TRUE, useBytes = TRUE) ||
                    grepl("/Type0", ftxt, fixed = TRUE, useBytes = TRUE)
       )
@@ -573,10 +655,11 @@ rhtp_pdf_lines <- function(path) {
                      regexec("/Contents\\s*(\\[[^\\]]*\\]|\\d+\\s+\\d+\\s+R)",
                              owner_txt, perl = TRUE, useBytes = TRUE))[[1]]
     if (length(cm) < 2L) return(raw(0))
-    cnums <- regmatches(cm[2], gregexpr("(\\d+)\\s+\\d+\\s+R", cm[2]))[[1]]
+    cnums <- regmatches(cm[2], gregexpr("(\\d+)\\s+\\d+\\s+R", cm[2],
+                                        useBytes = TRUE))[[1]]
     stream <- raw(0)
     for (cn in cnums) {
-      num <- regmatches(cn, regexec("(\\d+)", cn))[[1]][2]
+      num <- regmatches(cn, regexec("(\\d+)", cn, useBytes = TRUE))[[1]][2]
       s <- rhtp_pdf_stream(objs[[num]])
       if (!is.null(s)) stream <- c(stream, s, charToRaw("\n"))
     }
@@ -598,10 +681,11 @@ rhtp_pdf_lines <- function(path) {
 
     ctxt <- rhtp_pdf_chr(stream)
     dos  <- regmatches(ctxt, gregexpr("/([A-Za-z0-9_.#-]+)\\s+Do\\b", ctxt,
-                                      perl = TRUE))[[1]]
+                                      perl = TRUE, useBytes = TRUE))[[1]]
     if (length(dos) == 0L) return(out)
 
-    xm <- regmatches(res_txt, regexec("/XObject\\s*<<([^>]*)>>", res_txt))[[1]]
+    xm <- regmatches(res_txt, regexec("/XObject\\s*<<([^>]*)>>", res_txt,
+                                      useBytes = TRUE))[[1]]
     xdict <- if (length(xm) >= 2L) xm[2] else {
       xr <- ref_body(res_txt, "/XObject")
       if (is.null(xr)) "" else header_of(xr)
@@ -609,9 +693,9 @@ rhtp_pdf_lines <- function(path) {
     if (!nzchar(xdict)) return(out)
 
     for (d in dos) {
-      nm <- regmatches(d, regexec("/([A-Za-z0-9_.#-]+)", d))[[1]][2]
+      nm <- regmatches(d, regexec("/([A-Za-z0-9_.#-]+)", d, useBytes = TRUE))[[1]][2]
       hit <- regmatches(xdict, regexec(paste0("/", nm, "\\s+(\\d+)\\s+\\d+\\s+R"),
-                                       xdict, perl = TRUE))[[1]]
+                                       xdict, perl = TRUE, useBytes = TRUE))[[1]]
       if (length(hit) < 2L) next
       key <- hit[2]
       if (key %in% seen) next
@@ -642,7 +726,8 @@ rhtp_pdf_lines <- function(path) {
     if (!any(is_pages)) return(character())
     roots <- names(objs)[is_pages &
       !vapply(objs, function(b) grepl("/Parent\\s+\\d+\\s+\\d+\\s+R",
-                                      header_of(b), perl = TRUE), logical(1))]
+                                      header_of(b), perl = TRUE,
+                                      useBytes = TRUE), logical(1))]
     if (length(roots) == 0L) roots <- names(objs)[is_pages][1]
 
     walk <- function(key, seen) {

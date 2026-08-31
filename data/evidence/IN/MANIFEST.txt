@@ -1,0 +1,57 @@
+Indiana -- GROW / RHTP Year 1: award recommendations, the programme site,
+the IDOA award register, one negative control and five Scope of Work
+members carrying the CMS financial-assistance footer.
+Archived by R/03s_in_year1_awardees.R --fetch
+User-agent: AHA-RHTP-Tracker/1.0 (research; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below. The
+credential guard that caught CMS's Mapbox token, Illinois's and Oregon's,
+and Kansas's Google Maps key runs on every fetch here and finds nothing,
+so there is no reduction to explain.
+
+THE SCOPE OF WORK FILES ARE MEMBERS OF A LARGER ZIP, ARCHIVED ALONE. Each
+solicitation package is 2-7 MB of boilerplate attachments and embedded
+images; the RHTP provenance is one paragraph in the Scope of Work. The
+parent zip's URL and the member's path within it are both recorded below,
+so the member can be re-derived from the parent and re-hashed.
+
+NB 26-87613 80HT HYDRAULIC TAIL TRAILER IS NOT AN RHTP DOCUMENT. It is
+archived deliberately, as the §6.2 negative control. IDOA's award register
+is a GENERAL state procurement register -- road salt, dumpsters, DNA
+collection kits -- so an IDOA award recommendation is not by itself
+evidence of RHTP. RCJ nonetheless files this one under the title 'Indiana
+Negotiated Bid 26-87613 For Hydraulic Trail Trailer Purchase RHTP 2026
+Award Announcement', appending a programme label the document does not
+carry. The letter itself recommends 'a one-time purchase with an amount
+of $90,000'. Indiana spells it 'Tail Trailer' on the register and
+'Trail Trailer' in the letter; both spellings are the state's own,
+and §8 resolves neither.
+
+RHTP-BudgetNarrative.pdf IS A PLAN, NOT AN AWARD (§0.3). It is archived
+because it is what disposes of RCJ's 'Indiana Community Connect' candidate:
+the $3,320,000 there is an initiative BUDGET line whose contractors are
+unnamed and future.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+e6956a032af8c207bcc14048897819737c2854e38e8c9fb417298484d60b7bfa  2026-08-31_grow_home.html  (29220 bytes)  <- https://www.in.gov/grow-rural-health/
+0f94e5f18d2a6015ced86574e1a10e1a415444a86ab66b6b1731120b8a082a11  2026-08-31_grow_regional_grants.html  (104367 bytes)  <- https://www.in.gov/grow-rural-health/regional-grants/
+0e8ecbf3a91a824a52300aa454f626a6ead3e592765e020c214e9aba9ffe33a8  2026-08-31_grow_initiative_1.html  (27997 bytes)  <- https://www.in.gov/grow-rural-health/initiatives/initiative-1
+4f0958a14de29c17a272a5dfbb39dd83492d91823a183db2bb8b218a83c2ab7b  2026-08-31_grow_initiative_7.html  (27263 bytes)  <- https://www.in.gov/grow-rural-health/initiatives/initiative-7
+14a83ec7342751cadbad3fe1364608efa37873136f31ec9b89fd7b2fcf257218  2026-08-31_grow_initiative_10.html  (24999 bytes)  <- https://www.in.gov/grow-rural-health/initiatives/initiative-10
+1e02228c57d9b1ee26f51444791f8e4e311649452646fed010ae4e79d04f1e45  2026-08-31_idoa_award_recommendations.html  (172842 bytes)  <- https://www.in.gov/idoa/procurement/award-recommendations/
+bd6903e01b947dd478f636bd4fdf0455253623d8529567ee5117c1b4b571dae4  RFP_26-87448_RHTP_MOCC_20260728.zip  (139577 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87448%20RHTP%20MOCC_20260728.zip
+5753505a3794571b421f9162f98dfab6548dcae7d985dd6614f2f581c6bc4038  RFP_26-87449_RHTP07_Teleconsult_20260603.zip  (139738 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87449%20RHTP07%20Teleconsult%20and%20Telehealth%20Landscape%20Assessment_20260603.zip
+9a42d349ecfcb8e53974ad4258da026eaafd255d05cab3eb0e7a72584faee7b3  RFP_26-87449_RHTP_Teleconsult_letter_20260821.zip  (202135 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87449%20RHTP%20Teleconsult%20and%20Telehealth%20Landscape%20Assessment_20260821.zip
+bba83c23e385aeb9cac0118cdd28cd989129231939dcac17d4f4fdba4968ddc7  RFP_26-87450_RHTP_Program_Evaluator_20260626.zip  (140159 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87450%20RHTP%20Program%20Evaluator_20260626.zip
+547eadd40cd39e14b61ac5438bda355113dc40578ba5eb02add229f62b130ee0  RFP_26-87556_Preceptor_Registry_20260806.zip  (139395 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87556%20Preceptor%20Registry_20260806.zip
+92a8ba01e30871e11b3fbac5976f25208eb9053505fa005510e34d484bff2808  RFP_26-87667_ACO_Feasibility_Study_20260807.zip  (138701 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87667%20ACO%20Feasibility%20Study_20260807.zip
+b105a407910cc0e2a656bc3e8fae88c51381309f79b80130ef02d7d6dd32ad76  NEGATIVE_CONTROL_NB_26-87613_Hydraulic_Tail_Trailer_20260616.zip  (373447 bytes)  <- https://www.in.gov/idoa/proc/recommendations/files/NB%2026-87613%2080HT%20Hydraulic%20Tail%20Trailer_20260616.zip
+415e8f93c3b0cf69fc01345b35cb2ab67924b67b1edf5eb15ad436bd59810260  2026-08-31_RHTP-BudgetNarrative.pdf  (1845336 bytes)  <- https://www.in.gov/grow-rural-health/files/RHTP-BudgetNarrative.pdf
+45e6775d4142d0a1120d5c767666394e459a4eefebaa4a169a425dc88a31f343  scope_RFP_26-87448_K1.docx  (150089 bytes)  <- https://www.in.gov/idoa/proc/solicitations/files/004000000087448.zip  [member of the solicitation package: Att K1 - Services Scope of Work.docx]
+e30087b785436dba2c12dac8cbb1c7809889b278c8ed59f2f16a555ddb6e5234  scope_RFP_26-87449_K.docx  (85456 bytes)  <- https://www.in.gov/idoa/proc/solicitations/files/004000000087449.zip  [member of the solicitation package: Att K - Scope of Work.docx]
+7d4e3a46ffcbfd4e19ae342ccfbec60a0c134412f3472fe5b4a1a7c0186b5fb5  scope_RFP_26-87450_K.docx  (1839474 bytes)  <- https://www.in.gov/idoa/proc/solicitations/files/004000000087450.zip  [member of the solicitation package: Att K - Scope of Work.docx]
+409cd8bd238728d5f84ad72799e057a894d0b3d13a072d92639eae17e41ab9d3  scope_RFP_26-87556_K.docx  (2713483 bytes)  <- https://www.in.gov/idoa/proc/solicitations/files/004000000087556.zip  [member of the solicitation package: 004000000087556/Att K - Scope of Work.docx]
+acb8a9206c6e251fc6b88884642a63389b68831e374998885f24434307f7152c  scope_RFP_26-87667_L.docx  (2492767 bytes)  <- https://www.in.gov/idoa/proc/solicitations/files/004000000087667.zip  [member of the solicitation package: 004000000087667/Att L - Scope of Work.docx]
