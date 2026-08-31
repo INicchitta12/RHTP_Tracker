@@ -609,7 +609,7 @@ retrieval code.
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>**Built — 2,293 assertions; 2,292 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>`test_03s_in_year1_awardees.R`<br>**Built — 27 files, 2,405 assertions; 2,404 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -3028,7 +3028,7 @@ five-line rewrite. Caught by reading the diff rather than the content, and
 re-appended byte-wise. Meeting the same failure one session after it was recorded
 is the argument for checking the **diff**, not the file.
 
-**Tests: `test_03s_in_year1_awardees.R` is new.**
+**Tests: 2,405 assertions, all passing** (was 2,292). `test_03s_in_year1_awardees.R` is new — 107 assertions — and `test_state_union.R` now combines **thirteen** state files.
 
 ### Next session
 
@@ -3222,7 +3222,7 @@ think the four states it does not cover are different.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 2,292 assertions, zero quota
+Rscript tests/run_tests.R                        # 2,405 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull

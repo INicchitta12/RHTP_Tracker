@@ -345,6 +345,15 @@ checking the *diff*, not the file.
 
 ---
 
+## Tests
+
+**2,405 assertions across 27 files, all passing** (was 2,292 across 26); the one
+skip is the stage 00 first-run branch that has self-skipped since its CSV
+existed. `test_03s_in_year1_awardees.R` is new at 107 assertions, and
+`test_state_union.R` now combines **thirteen** state files — Indiana is the
+first with no hospital row at all, which is exactly the kind of thing that
+unions fine until an invariant assumed one.
+
 ## What Indiana adds to the standing questions
 
 Every state so far has added one question to ask the next. Indiana adds two.
