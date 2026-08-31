@@ -115,7 +115,7 @@
 # Purchase RHTP 2026 Award Announcement" and "Indiana Communication Equipment &
 # Piece Parts QPA RHTP 2026 Award Announcement". The first of those is a
 # trailer: IDOA's own award letter recommends "a one-time purchase with an
-# amount of $90,000" for a tilt trailer, and RCJ's $90,000 for Globe Trailers
+# amount of $90,000", and RCJ's $90,000 for Globe Trailers
 # matches it exactly. RCJ's AMOUNT is right; the programme label is invented.
 # (Indiana spells it "Tail Trailer" on its register and "Trail Trailer" in the
 # letter -- the state's own two spellings, not an aggregator error. §8 keeps
@@ -473,9 +473,9 @@ in_write_manifest <- function(entries) {
     "Negotiated Bid 26-87613 For Hydraulic Trail Trailer Purchase RHTP 2026",
     "Award Announcement', appending a programme label the document does not",
     "carry. The letter itself recommends 'a one-time purchase with an amount",
-    "of $90,000' for a tilt trailer. Indiana spells it 'Tail Trailer' on the",
-    "register and 'Trail Trailer' in the letter; both spellings are the",
-    "state's own (§8 resolves neither).",
+    "of $90,000'. Indiana spells it 'Tail Trailer' on the register and",
+    "'Trail Trailer' in the letter; both spellings are the state's own,",
+    "and §8 resolves neither.",
     "",
     "RHTP-BudgetNarrative.pdf IS A PLAN, NOT AN AWARD (§0.3). It is archived",
     "because it is what disposes of RCJ's 'Indiana Community Connect' candidate:",
@@ -655,7 +655,7 @@ in_build_awards <- function() {
         "Preliminary Notice - Award Recommendation, ", solicitation_title),
       state_source_url = "https://www.in.gov/idoa/procurement/award-recommendations/",
       validation_source_type = "NOTICE_OF_INTENT_TO_AWARD",
-      extraction_method = "PARSED_FROM_PDF",
+      extraction_method = "DIRECT_TEXT",
       validator = "R/03s_in_year1_awardees.R",
       ccn = NA_character_,
       aha_id = NA_character_,

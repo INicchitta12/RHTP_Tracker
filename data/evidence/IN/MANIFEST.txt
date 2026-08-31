@@ -23,7 +23,10 @@ collection kits -- so an IDOA award recommendation is not by itself
 evidence of RHTP. RCJ nonetheless files this one under the title 'Indiana
 Negotiated Bid 26-87613 For Hydraulic Trail Trailer Purchase RHTP 2026
 Award Announcement', appending a programme label the document does not
-carry and mistranscribing 'Tail' as 'Trail'.
+carry. The letter itself recommends 'a one-time purchase with an amount
+of $90,000'. Indiana spells it 'Tail Trailer' on the register and
+'Trail Trailer' in the letter; both spellings are the state's own,
+and §8 resolves neither.
 
 RHTP-BudgetNarrative.pdf IS A PLAN, NOT AN AWARD (§0.3). It is archived
 because it is what disposes of RCJ's 'Indiana Community Connect' candidate:

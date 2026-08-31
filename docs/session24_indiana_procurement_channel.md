@@ -262,28 +262,54 @@ least loud, but it still means an unreadable state document. All nine now use
 `useBytes = TRUE`, which is what PDF internals want anyway — the patterns are
 pure ASCII PDF syntax.
 
-### And a quadratic that made one document take over six minutes
+### A quadratic that made one document take SIX MINUTES — and it was not where it looked
 
-Indiana's 2026-08-21 award letter is a Word export whose five content streams
-inflate to **280 KB** and which emits a **`Td` per glyph** — Maryland's producer
-behaviour (session 21), at four times the size. Two costs compounded on it:
+Indiana's 2026-08-21 award letter took **370 seconds** to parse. Three rounds of
+plausible-looking optimisation barely moved it, which is the lesson: **the
+profile found it in seconds and reasoning had not.**
 
-- `flush()` grew `lines`, `xs` and `ys` with `c()` once per emitted line. With
-  tens of thousands of lines that is O(n²) copying. They are now accumulated as
-  lists and flattened once, with the values and their order unchanged.
-- `at_y()` ran `isTRUE(all.equal(y, y_at))` **once per positioning operator** —
-  a generic dispatch, per glyph. Replaced by `rhtp_pdf_near()`, which is
-  `all.equal.numeric`'s scalar behaviour written out, **including its default
-  tolerance of `sqrt(.Machine$double.eps)`** and falling back to `all.equal`
-  itself in the narrow band around the tolerance where the relative/absolute
-  switch decides the answer.
+```
+                         self.time self.pct total.time total.pct
+"c"                         362.46    97.87     362.46     97.87
+"rhtp_pdf_tounicode"          1.82     0.49     368.00     99.36
+"rhtp_pdf_content_lines"      0.18     0.05     369.98     99.90
+```
 
-The tolerance detail is the part worth keeping: a first version used a literal
-`1.5e-8`, which is *not* R's default (`sqrt(.Machine$double.eps)` is
-1.4901161e-08). It disagreed with `all.equal` on 7 of 174,300 comparisons — all
-at magnitudes no PDF coordinate reaches, which is exactly the kind of "it can't
-happen here" that should not be load-bearing in a shared reader. With the real
-default, **0 of 174,300 disagree.**
+**97.9% of the entire run was `c()`, inside the CMap parser** — not the content
+scanner everything pointed at. `rhtp_pdf_tounicode()` expanded a `beginbfrange`
+one code at a time:
+
+```r
+for (k in lo:hi) {
+  codes <- c(codes, as.character(k))
+  vals  <- c(vals, intToUtf8(dst + k - lo))
+}
+```
+
+A single `bfrange` routinely spans thousands of codes in a subsetted font, and
+each `c()` copies the whole vector. Ranges are now expanded whole and the chunks
+flattened once — same codes, same values, same order.
+
+**370 s → 3.4 s.** The document's text is identical.
+
+Two smaller quadratics found on the way were kept, because both are real and
+both were verified:
+
+- `flush()` grew `lines`, `xs` and `ys` with `c()` per emitted line.
+- `at_y()` called `isTRUE(all.equal(y, y_at))` **once per positioning operator**
+  — a generic dispatch per glyph on a `Td`-per-glyph Word export (Maryland's
+  producer behaviour, session 21). Replaced by `rhtp_pdf_near()`.
+
+The tolerance detail there is worth keeping: a first version of `rhtp_pdf_near()`
+used a literal `1.5e-8`, which is *not* R's default
+(`sqrt(.Machine$double.eps)` = 1.4901161e-08). It disagreed with `all.equal` on
+7 of 174,300 comparisons — all at magnitudes no PDF coordinate reaches, which is
+exactly the kind of "it can't happen here" that should not be load-bearing in a
+shared reader. With the real default, **0 of 174,300 disagree.**
+
+A CMap hash (`rhtp_pdf_cmap_env()`) replaced the per-glyph name scan in
+`rhtp_pdf_decode()` as well; it was worth ~0 here once the real cause was fixed,
+but it is correct and verified equivalent over 400 random CMaps, so it stayed.
 
 **Verified rather than assumed: Kansas, Maryland and Georgia were rebuilt after
 each change and all three reference CSVs came back byte-identical**, and
@@ -292,6 +318,20 @@ differ only in `dcterms:created` and were reverted, which is the second,
 independent confirmation (sessions 19 and 21's precedent).
 
 ---
+
+## The vocabulary guard caught this session's own invented code
+
+`extraction_method` was first written as **`PARSED_FROM_PDF`** — a value that
+reads correctly, describes what happened accurately, and **is not in §8**. The
+Indiana test's own vocabulary check failed on it, and `vocabularies.csv` already
+had the right answer: `DIRECT_TEXT`, which is what Kansas, Maryland, Nebraska and
+Oregon all use for exactly this. Changed, and no other column moved.
+
+That is §2's *"do not invent codes mid-session"* working as designed, on the
+session that wrote the rule's newest exception (`AMOUNT_IS_MULTI_YEAR_TOTAL`,
+added deliberately and documented). The difference between the two is the whole
+point: one described a condition no existing code covered, the other was a
+synonym for one that already existed.
 
 ## One near-miss, and it is session 23's again
 

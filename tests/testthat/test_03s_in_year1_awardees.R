@@ -106,18 +106,28 @@ test_that("the file unions on Florida's leading columns with §8 values only", {
                "rural_designation", "reviewer")
   expect_equal(names(IN_TEST_AWARDS)[seq_along(leading)], leading)
 
-  for (col in c("recipient_type", "distributed_to_hospital", "flow_type",
-                "hospital_attribution", "validation_source_type",
-                "determination_confidence")) {
-    allowed <- rhtp_vocabulary(col)$allowed_value
+  # The column is `validation_source_type` in Florida's schema and the
+  # vocabulary that governs it is keyed `source_doc_type` (§8) -- so the pair
+  # is mapped explicitly rather than assumed to share a name.
+  vocab_for <- c(recipient_type = "recipient_type",
+                 distributed_to_hospital = "distributed_to_hospital",
+                 flow_type = "flow_type",
+                 hospital_attribution = "hospital_attribution",
+                 validation_source_type = "source_doc_type",
+                 determination_confidence = "determination_confidence",
+                 recipient_confirmed = "recipient_confirmed",
+                 amount_confirmed = "amount_confirmed",
+                 hospital_benefiting = "hospital_benefiting",
+                 extraction_method = "extraction_method")
+  for (col in names(vocab_for)) {
+    allowed <- rhtp_vocabulary(vocab_for[[col]])
     expect_true(all(IN_TEST_AWARDS[[col]] %in% allowed),
                 info = paste(col, "has a value outside §8"))
   }
   # Every flag code is in the vocabulary, including the one added this session.
   flags <- unique(unlist(strsplit(IN_TEST_AWARDS$flag_reason, ";")))
-  expect_true(all(flags %in% rhtp_vocabulary("flag_reason")$allowed_value))
-  expect_true("AMOUNT_IS_MULTI_YEAR_TOTAL" %in%
-                rhtp_vocabulary("flag_reason")$allowed_value)
+  expect_true(all(flags %in% rhtp_vocabulary("flag_reason")))
+  expect_true("AMOUNT_IS_MULTI_YEAR_TOTAL" %in% rhtp_vocabulary("flag_reason"))
 })
 
 
