@@ -78,8 +78,8 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # Kept here rather than derived by globbing data/reference/, because a glob
 # would silently start reporting a state as extracted the moment somebody
 # committed a stub file for it.
-SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IL", "KS", "MD", "OR",
-                             "PA", "SD")
+SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IL", "KS", "MD", "NE",
+                             "OR", "PA", "SD")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #

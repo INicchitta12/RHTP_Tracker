@@ -914,15 +914,33 @@ rhtp_hospital_total <- function(records) {
   parts <- rhtp_hospital_dollar_partition(records)
   named  <- sum(parts$dollars[parts$bucket == "NAMED_HOSPITAL"])
   pooled <- sum(parts$dollars[parts$bucket == "POOL_UNNAMED_HOSPITALS"])
+  pooled_named <- sum(parts$dollars[parts$bucket == "POOL_NAMED_HOSPITALS"])
+
+  # Every bucket the partition produced must be named in this message. A new
+  # attribution code that this function did not know about would otherwise
+  # disappear from the one place a reader is guaranteed to look -- which is
+  # exactly the silent omission the function exists to prevent.
+  unreported <- setdiff(unique(parts$bucket),
+                        c("NAMED_HOSPITAL", "POOL_UNNAMED_HOSPITALS",
+                          "POOL_NAMED_HOSPITALS"))
+  if (length(unreported)) {
+    stop("rhtp_hospital_total(): the partition returned bucket(s) this ",
+         "function does not report: ", paste(unreported, collapse = ", "),
+         ". Those dollars would vanish from the only summary a reader sees. ",
+         "Add them here before using the new code.", call. = FALSE)
+  }
 
   stop(
     "There is no single hospital total, and this function will not invent ",
     "one (§0.3).\n",
     "  NAMED_HOSPITAL        : ", format(named, big.mark = ",", scientific = FALSE),
     "  -- the row's own awardee is a named hospital.\n",
+    "  POOL_NAMED_HOSPITALS  : ", format(pooled_named, big.mark = ",", scientific = FALSE),
+    "  -- an intermediary's award; the hospitals ARE named, but no ",
+    "per-hospital split is published.\n",
     "  POOL_UNNAMED_HOSPITALS: ", format(pooled, big.mark = ",", scientific = FALSE),
     "  -- restricted to hospitals, but NO hospital is named.\n",
-    "Report the two figures separately. Use ",
+    "Report the three figures separately. Use ",
     "rhtp_hospital_dollar_partition().",
     call. = FALSE
   )

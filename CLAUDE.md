@@ -188,6 +188,7 @@ R/
   03o_ks_year1_awardees.R      # Kansas — 46 awards in 3 pools, parsed from KDHE PDFs (BUILT)
   03p_md_year1_awardees.R      # Maryland — 41 Budget Period 1 award OFFERS, 2 pools (BUILT)
   03q_state_completeness_recheck.R # the 7 extracted states, re-read for rosters (BUILT)
+  03r_ne_year1_awardees.R      # Nebraska — 3 NOTICES OF AWARD; RCJ mistitled one (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -217,6 +218,8 @@ data/
     OR/                        #   4 OHA documents + the Catalyst xlsx; awards page script-stripped
     VA/                        #   the DMAS negative: 3 reduced pages + the governor's PDF
     MD/                        #   MDH programme + procurement + newsroom + 2 award-offer PDFs
+    NE/                        #   DHHS programme + grants pages, the 3 SIGNED NOTICES OF
+                               #   AWARD, and RFA 4533 — the §6.2 NEGATIVE control
     recheck/<date>/<ST>/       #   the completeness re-check: award pages AND their children
 output/
   rhtp_hospital_tracker_<date>.xlsx
@@ -341,12 +344,25 @@ state half is a hand-verified registry keyed on that identifier.
 > affiliated entity is by construction not the hospital §10.2's `DIRECT` row
 > tests for, so it now reads the source like every other type.
 
-**`hospital_attribution`** (added session 16)
-`NAMED_HOSPITAL` | `POOL_UNNAMED_HOSPITALS` | `NOT_HOSPITAL`
+**`hospital_attribution`** (added session 16; a third bucket added session 23)
+`NAMED_HOSPITAL` | `POOL_NAMED_HOSPITALS` | `POOL_UNNAMED_HOSPITALS` |
+`NOT_HOSPITAL`
 *The column that keeps a `PASS_THROUGH_DESIGNATED` dollar separable from a
-named-hospital dollar. Both are `distributed_to_hospital = Yes` and they must
-**never** be added. `rhtp_hospital_dollar_partition()` returns the two figures;
+named-hospital dollar. All are `distributed_to_hospital = Yes` and they must
+**never** be added. `rhtp_hospital_dollar_partition()` returns the figures;
 `rhtp_hospital_total()` exists only to refuse.*
+
+> **`POOL_NAMED_HOSPITALS` was added deliberately in session 23**, for a
+> condition neither existing code could describe honestly. Nebraska's
+> **$18,156,856.12** award to the **Nebraska High Value Network** is a
+> `PASS_THROUGH_DESIGNATED` whose subrecipients DHHS **names** — twenty-one
+> hospitals, on the notice — while publishing **no per-hospital split**.
+> `NAMED_HOSPITAL` is false, because nobody can say what any one of them
+> received and §6.2 forbids dividing; `POOL_UNNAMED_HOSPITALS` is false in the
+> more damaging direction, because it asserts no hospital is named when
+> twenty-one are. `rhtp_hospital_total()` now **refuses to run at all** if the
+> partition returns a bucket it does not name — a new code missing from the one
+> summary a reader sees is exactly what that function exists to prevent.
 
 **`survey_status`** / **`extraction_status`** / **`trigger_source`** /
 **`queue_status`** (added session 16) — the coverage-survey and trigger-queue
@@ -550,7 +566,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-08-31 (Session 22 — Georgia's 21 hospitals named, Alaska on a weekly schedule, Maryland's question queued)
+**Last updated:** 2026-08-31 (Session 23 — Nebraska: 3 notices of award, RCJ's title read off the wrong page, and a third hospital bucket)
 
 ### Stages built
 
@@ -568,6 +584,7 @@ retrieval code.
 | **Kansas Year 1** | `R/03o_ks_year1_awardees.R` | **Built and run (Session 20). 46 award actions, $80,020,499, across THREE pools in TWO KDHE PDFs. The seven-award CHW+AFIM list is 1.3% of it. Hospital floor $35,721,277 with a LARGER uncertainty beside it** |
 | **PDF text extraction** | `R/utils_pdf_text.R` | **Session 21 extended it for Maryland — compressed object streams, form XObjects, page-tree order, a line model keyed on the TEXT POSITION rather than the positioning operator, and an ASCII fallback for codes a `/ToUnicode` CMap omits. On Maryland the old reader returned `character(0)`: NOT AN ERROR, AN EMPTY ANSWER, which reads as "the state published nothing". `ks_year1_awardees.csv` rebuilds byte-identical. Built (Session 20): decodes through each font's own `/ToUnicode` CMap — KDHE's subsetted fonts render `and` as `D Q G`, and a constant-offset guess would decode these files and silently mangle the next** |
 | **Maryland Year 1** | `R/03p_md_year1_awardees.R` | **Built and run (Session 21). 41 Budget Period 1 award OFFERS across TWO pools, $78,625,071. They are OFFERS, not executed agreements — MDH's own word. RCJ's 42nd candidate is the MHCC POOL (Tier 2) and the arithmetic closes exactly. Session 22 queued `MD_RECIPIENT_FORM_NOT_STATED` (24 rows, $36,558,089) and asserts its presence every run — `docs/session21_completeness_recheck_maryland.md`** |
+| **Nebraska Year 1** | `R/03r_ne_year1_awardees.R` | **Built and run (Session 23). 57 AWARDS across THREE signed Public Notices of Award, $36,137,614.90 — the strongest source type since Georgia; Oregon, Alaska and Maryland all publish intents or offers. RCJ filed 24 of them under the APPLICANT section's heading and holds NONE of Initiative 4.4b ($27.7M). Adds `POOL_NAMED_HOSPITALS` to §8 for the Nebraska High Value Network — `docs/session23_nebraska_extraction.md`** |
 | **Completeness re-check** | `R/03q_state_completeness_recheck.R` | **Session 22 FLIPPED its two positives to `ROSTER_EXTRACTED` — GA's check now requires all 21 to be IN the committed file (joined on the application number, never the name) and AK's compares against `ak_year1_awardees.csv` rather than a named evidence file. Left as they were, both would have failed on the extraction they asked for. Built Session 21: Kansas's lesson applied backwards to FL/GA/PA/AL/AK/OR/IL, each negative with its own positive control** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
 | Stage 1 — Retrieval | `R/01_retrieve_rcj.R` | **Built and run. First national pull complete — `docs/stage1_retrieval_run.md`** |
@@ -587,7 +604,7 @@ retrieval code.
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>**Built — 2,117 assertions; 2,116 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>**Built — 2,293 assertions; 2,292 pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`**|
 
 ### States validated
 
@@ -610,6 +627,7 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **OR** | 278 | $175,312,365 | **49** | **$50,188,531** (intents to award) |
 | **KS** | 46 | $80,020,499 | **21** | **$35,721,277** (a FLOOR — see below) |
 | **MD** | 41 | $78,625,071 | **6** | **$14,678,864** (award OFFERS; a FLOOR — see below) |
+| **NE** | **57** (+21 unpriced) | **$36,137,615** | **41** | **$6,990,996 named + $18,156,856 pooled-but-named** (a FLOOR — see below) |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
@@ -657,6 +675,42 @@ uncertainty in **both** directions, and the CCN match resolves it.
 word is "Award Offers", so all 41 are `NOTICE_OF_INTENT_TO_AWARD` +
 `amount_confirmed = No`, Oregon's posture.
 
+**NEBRASKA IS THE ONLY STATE SINCE GEORGIA WHOSE ROWS ARE AWARDS.** All three
+DHHS notices say *"The following have been selected for award for the Request
+for Application which closed <date>"*, so every priced row is
+`NOTICE_OF_AWARD` + `amount_confirmed = Yes` — where Oregon and Alaska publish
+intents and Maryland publishes offers.
+
+**Nebraska's line has two hospital figures and they are two different claims.**
+$6,990,996 across 41 rows is the named floor. The $18,156,856 beside it is one
+award to the **Nebraska High Value Network**, whose 21 hospital subrecipients
+DHHS *names* while publishing **no per-hospital split** — so it is neither a
+named-hospital dollar nor Illinois's unnamed pool, and it carries the
+`POOL_NAMED_HOSPITALS` code added for it (§8). **The 21 hospitals are carried
+as rows with an EMPTY `amount`** (Georgia's device), so `amount` sums to
+Nebraska's published $36,137,615 and not a dollar more. Jefferson Community
+Health & Life is on that roster *and* holds its own $446,741.33 award; **DHHS
+says in the notice not to add the two.**
+
+**And Nebraska's floor is soft in the same way Kansas's and Maryland's are, for
+the same reason.** DHHS publishes no organisation-type column, so outside the 21
+NHVN rows every `recipient_type` is derived from the recipient's own **name**,
+and **30 rows / $9,411,695 carry §8's standing fallback** — larger than the
+floor beside it, and running **mainly upward**: CHI St. Mary's, CHI Health
+Schuyler and Plainview, CHI Good Samaritan/St. Francis, Mary Lanning
+Healthcare, Methodist Fremont Health, Faith Health, Gothenburg Health and Boone
+County Health Center are all in it and all uncounted. **Nothing was promoted
+(§0.4)**, and four of the 30 are near-identical to names on the 4.4b hospital
+roster — *"Memorial Health Care System"* against *"Memorial Health Care
+Systems"*, *"Jefferson … & Life"* against *"Jefferson … and Life"* — which is
+precisely the fuzzy match §2 forbids a machine from auto-resolving. Queued as
+`NE_RECIPIENT_FORM_NOT_STATED`.
+
+**The Nebraska Hospital Association is on NONE of the three notices**, though
+Nebraska's CMS abstract names it as a subrecipient (`CANDIDATE_ONLY`, §4.1). So
+§10.2's hospital-association branch never fires on a Nebraska row, and
+`ne_assert_nha_absent()` fails the day DHHS awards it.
+
 **GEORGIA'S AND ALASKA'S LINES WERE KNOWN TO BE INCOMPLETE AND ARE NOW CLOSED
 (session 22).** Georgia's two aggregate rows reading *"names not captured"* are
 **21 named hospitals** parsed from two signed Notices of Award —
@@ -694,10 +748,16 @@ It carries `hospital_attribution = POOL_UNNAMED_HOSPITALS`, and
 `rhtp_hospital_total()` **refuses to return a combined figure**:
 
 ```
-NAMED_HOSPITAL        : 380,179,820   GA 90.3M · AL 66.1M · OR 50.2M · AK 49.7M · FL 49.3M ·
-                                      KS 35.7M · PA 24.1M · MD 14.7M
-POOL_UNNAMED_HOSPITALS:  50,008,264   IL
+NAMED_HOSPITAL        : 387,170,816   GA 90.3M · AL 66.1M · OR 50.2M · AK 49.7M · FL 49.3M ·
+                                      KS 35.7M · PA 24.1M · MD 14.7M · NE 7.0M
+POOL_NAMED_HOSPITALS  :  18,156,856   NE — the Nebraska High Value Network. 21 hospitals
+                                      NAMED on the notice; NO per-hospital split published
+POOL_UNNAMED_HOSPITALS:  50,008,264   IL — no hospital named, none yet chosen
 ```
+
+**The three lines are three different claims and none may be added to another.**
+Nebraska's middle line is not Illinois's: ICAHN has named nobody, while DHHS has
+named all twenty-one of NHVN's hospitals and simply has not said what each got.
 
 **Session 21's known understatement is closed** — Georgia's $30,277,580 of named
 hospitals and Alaska's 24 new awards are both in the figure above (session 22).
@@ -705,7 +765,7 @@ hospitals and Alaska's 24 new awards are both in the figure above (session 22).
 weekly basis and Routine `trig_01U4RxGWMH8yg37UKupHqTki` is what keeps it
 current.
 
-All **eleven** files union on the leading 19 columns with zero values outside §8,
+All **twelve** files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. Georgia gained a
 twentieth appended column in session 22, `application_id` — DCH's own row key on
 its notices of award, and what the completeness re-check joins on. A name is
@@ -810,6 +870,21 @@ South Dakota was never in it. Both SD files are now included.
   row is `NOTICE_OF_INTENT_TO_AWARD` + `amount_confirmed = No`. MDH publishes no
   organisation-type column, so **24 rows / $36,558,089 carry §8's standing
   fallback**. Rebuild with `Rscript R/03p_md_year1_awardees.R --build`.
+- **`data/reference/ne_year1_awardees.csv` — 78 rows (Session 23).** Nebraska's
+  Year 1 **notices of award**, across three pools in three DHHS PDFs:
+  Initiative 3.3 9 / $1,852,376.73, 4.4a 24 / $6,594,460.94, 4.4b 24 /
+  $27,690,777.23 — **57 awards, $36,137,614.90**. The other **21 rows are the
+  hospitals DHHS names as receiving funding through the Nebraska High Value
+  Network and carry NO `amount`**, so `amount` sums to the state's published
+  total exactly. Read `award_pool` and `hospital_attribution` before using any
+  figure. Rebuild with `Rscript R/03r_ne_year1_awardees.R --build`.
+- **`data/reference/ne_rcj_candidate_disposition.csv` — 4 rows (Session 23).**
+  Why each of RCJ's 39 Nebraska Tier 3 candidates is, or is not, an RHTP award
+  row, with the disqualifying sentence and the archived state document. **24 of
+  them are Initiative 4.4a's AWARDS filed under the applicant section's
+  heading** — RCJ took the amounts from page 1 and the title from page 2, which
+  read at face value would have *discarded* 24 real awards. The counts are
+  re-derived from `stage2_record_table.rds` on every run.
 - **`data/reference/state_completeness_recheck.csv` — 7 rows (Session 21;
   refreshed Session 22).** What FL, GA, PA, AL, AK, OR and IL publish TODAY
   against what this repository extracted, with the positive control that makes
@@ -819,8 +894,8 @@ South Dakota was never in it. Both SD files are now included.
   for row. It is deliberately **not** `NO_ADDITIONAL_ROSTER`, which would be a
   false claim about what those two states publish. Rebuild with
   `Rscript R/03q_state_completeness_recheck.R --build`.
-- **`data/reference/classification_review_queue.csv` — 2 rows (Sessions 19,
-  20).**
+- **`data/reference/classification_review_queue.csv` — 4 rows (Sessions 19,
+  20, 22, 23).**
   Open classification questions for a human. Today: `GHA_RECIPIENT_TYPE` — is a
   hospital trade association `NONPROFIT_CBO` (§10.2's row, AK and IL) or
   `HOSPITAL_AFFILIATED_ENTITY` (Georgia)? **$0 either way**, so decide it on
@@ -837,6 +912,18 @@ South Dakota was never in it. Both SD files are now included.
   their names, counted today, and read as FQHCs. Nothing promoted, nothing
   demoted (§0.4). `md_assert_form_not_stated_queued()` asserts the row, its
   dollars and its options every run.
+  **Session 23 added `NE_RECIPIENT_FORM_NOT_STATED`** — 30 Nebraska rows,
+  **$9,411,695.59** against a $6,990,996.01 floor, the third state where DHHS
+  publishes a recipient and an amount and nothing about its form. It is the
+  first of the three that arrives **with the evidence a reviewer needs already
+  in the repository**: DHHS's own 4.4b notice calls twenty-one organisations
+  *"individual hospitals"*, and four of the thirty appear on that roster under a
+  near-identical name — two differing by **one character across two documents**
+  (`Memorial Health Care System`/`Systems`, `Jefferson … & Life`/`… and Life`).
+  That match is named in the queue row and deliberately **not** made by machine
+  (§2 forbids a fuzzy hospital match auto-resolving).
+  `ne_assert_form_not_stated_queued()` asserts the row, its dollars and its
+  options every run.
 - **`data/reference/il_year1_awardees.csv` — 1 row (Session 16).** Illinois:
   ICAHN, $50,008,264, three agreements executed 2026-07-31.
   `hospital_attribution = POOL_UNNAMED_HOSPITALS` — **read that column before
@@ -2668,6 +2755,128 @@ only in `dcterms:created` and were reverted.
 `test_03p_md_year1_awardees.R`, `test_03q_state_completeness_recheck.R`, and
 `test_utils_pdf_text.R`, which is the first test the PDF reader has ever had.
 
+### Session 23 — Nebraska publishes AWARDS, and RCJ titled them from the wrong page
+
+Full detail: `docs/session23_nebraska_extraction.md`. Zero RCJ quota; 21
+fetches to `dhhs.ne.gov`, throttled per §9.5.
+
+**Nebraska led the queue and publishes THREE signed Public Notices of Award:
+57 awards, $36,137,614.90**, 16.5% of its $218,529,075 allotment. Initiative
+3.3 (workforce) 9 / $1,852,376.73, 4.4a (chronic disease) 24 / $6,594,460.94,
+4.4b (remote patient monitoring) 24 / $27,690,777.23. **They are AWARDS** —
+*"The following have been selected for award for the Request for Application
+which closed <date>"* — the strongest source type in §8 and the first state
+since Georgia's signed notices to reach it, where Oregon and Alaska publish
+intents and Maryland publishes offers.
+
+**§0.1: RCJ read one document's title off the wrong page, and it would have
+DEFLATED Nebraska.** Twenty-four of RCJ's 39 candidates carry Initiative 4.4a's
+**award** amounts under the title *"Organizations Submitted Applications for
+RHTP RFA Closing March 27, 2026"* — which is the heading of pages 2-3, a
+separate roster of ~115 applicants, while the amounts came from the award table
+on page 1. Every §0.1 defect this project has met inflated; **this one, believed,
+discards 24 real hospital and clinic awards as applications.** The opposite
+mistake is in the same PDF and is worse: reading pages 2-3 as recipients invents
+~115 awards (§0.3). `ne_assert_applicants_not_awarded()` holds both edges, and
+Bryan Health, Nebraska Medicine and Cherry County Hospital — three applicants a
+reader would expect to see — are pinned out of the priced rows by name.
+
+**And RCJ holds NONE of Initiative 4.4b: $27,690,777, three quarters of
+everything Nebraska has published, including its single largest award.** Two
+4.4b awardees share a *name* with an RCJ row, but those are 4.4a awards and the
+amounts differ; no `(name, amount)` pair matches. The 39 candidates reconcile to
+the cent: 24 (4.4a) + 9 (3.3) + 5 ($1 intent placeholders) + 1 (not RHTP) =
+$8,446,843.67, `rcj_state_survey.csv`'s own figure.
+
+**The Texas check, run first and passed — and Nebraska is where it nearly
+mattered.** DHHS's Office of Procurement and Grants publishes "Intent to Award"
+notices for **many** series, RHTP and otherwise, off one page. Two were read
+directly rather than assumed about: **RFA 5965 SNAP Employment and Training**,
+whose intents run January 2025 to June 2026 and therefore **straddle the NOA
+date** — and RHTP Initiative 3.3 is *itself* a SNAP E&T programme, so two series
+share one subject and one publisher — and **RFA R6251 stem cell research**,
+which is nothing to do with rural health. So "DHHS published an Intent to Award"
+is not evidence of RHTP. What is: the CMS footer on all three notices and the
+programme page, *"a financial assistance award totaling **$218,529,075.01** with
+100 percent funded by CMS/US HHS"*, matching §7.1 to the dollar; and six RFA
+close dates (2026-03-27 through -07-10) **all after** the 2025-12-29 NOA, read
+out of the archived PDFs.
+
+**The negative control is archived beside the positives, and it is what disposes
+of RCJ's odd row.** `RFA 4533 NHAP Legal Services` says DHHS is *"awarding
+**state funds**"* and closed **2025-05-21**, seven months before Nebraska had
+the federal money — Texas's `HHS0015180` in Nebraska. Nebraska Lawyers
+Foundation is on none of the three notices and is dispositioned
+`NOT_RHTP_STATE_PROGRAM`.
+
+**The automated §6.2 sweep caught ZERO Nebraska rows while a non-RHTP row sat in
+the candidate set, and that is a measured limit rather than a defect.** The
+sweep's provenance text is the source-document title plus the solicitation
+number; RCJ's title for that row is the bare string `"Intent to Award"` with no
+identifier and no solicitation number, and the date test cannot run either
+because RCJ carries no date for it (**15 of Nebraska's 39 candidates are
+undatable**). It was found by hand. `NE-RFA4533` is in
+`non_rhtp_state_programs.csv` anyway, **matching nothing today and saying so**,
+so the next candidate whose title does name NHAP is caught by machine.
+**Nebraska's clean sweep line was a statement about the registry's coverage, not
+about Nebraska** — `trigger_source = NEITHER`'s lesson, one file over.
+
+**The positive control, and it is the load-bearing part.** Nebraska is running
+nineteen initiative rows and has published awardees for three; its RFA timeline
+table carries an **"Awardees" link** exactly where a roster exists.
+`ne_assert_award_index()` asserts all three present and **refuses a fourth**,
+both branches tested by feeding it a modified page. Corroborated independently:
+the thirteen other initiative slots at the same URL shape **all 404**, the three
+known ones **200**.
+
+**The Nebraska High Value Network forced a new §8 code, deliberately.** Its
+**$18,156,856.12** is a `PASS_THROUGH_DESIGNATED` — the award is made and the
+source names hospital subrecipients — and DHHS then names **21 hospitals** while
+publishing **no per-hospital split**. `NAMED_HOSPITAL` is false (nobody can say
+what any one received; §6.2 forbids dividing) and `POOL_UNNAMED_HOSPITALS` is
+false in the more damaging direction (it asserts no hospital is named when 21
+are). **`POOL_NAMED_HOSPITALS`** was added with full notes, and
+`rhtp_hospital_total()` now **refuses to run at all** if the partition returns a
+bucket it does not name. The 21 hospitals are rows with an **empty `amount`**
+(Georgia's device), so `amount` sums to Nebraska's published total and not a
+dollar more — and **Jefferson Community Health & Life is on that roster AND
+holds its own $446,741.33 award, with DHHS's own parenthetical saying not to add
+the two**, asserted rather than silently de-duplicated.
+
+**The hospital figure is a floor and the uncertainty is larger — Kansas's shape
+a third time.** $6,990,996.01 named, against **30 rows / $9,411,695.59** whose
+form DHHS never states, running **mainly upward** (the four CHI Health entities,
+Mary Lanning, Methodist Fremont, Faith Health, Gothenburg Health, Boone County
+Health Center). **Nothing was promoted (§0.4)**, and this time there was a live
+temptation: the 4.4b footnote *does* state form, and four of the thirty appear
+on it under a near-identical name — two differing by **one character across two
+documents**. §2 forbids a machine resolving that, so the roster is named in the
+queue row as the evidence a reviewer should start from, and the match is left to
+a human. Queued as `NE_RECIPIENT_FORM_NOT_STATED`.
+
+**The Nebraska Hospital Association is on NONE of the three notices**, though
+the CMS abstract names it as a subrecipient (`CANDIDATE_ONLY`, §4.1). §10.2's
+association branch never fires on a Nebraska row;
+`ne_assert_nha_absent()` fails the day DHHS awards it, positive-controlled with
+a faked row. **§0.3a fires twice on the timeline** — School Kitchen
+Modernization (1.1) and Farm-to-School (1.3) both run through an interagency
+agreement with the **Department of Education**, §10.2's own `NON_HOSPITAL`
+worked example — and neither has published an awardee list, so neither is in the
+file.
+
+**One near-miss worth recording.** A first edit of `vocabularies.csv` wrote it
+back as LF where the committed file is CRLF, turning a one-line addition into a
+**166-line rewrite**. Caught by reading the diff rather than the content, and
+restored. That is §2.1's failure mode in a new disguise: the change was correct
+and the *presentation* of it would have buried a later reviewer.
+
+**Tests: 2,292 assertions, all passing** (was 2,117). `test_state_union.R` now
+combines **twelve** state files, and two of its invariants were widened because
+Nebraska is the first state to break them — the expected state list, and the
+rule that a pass-through `Yes` must be `POOL_UNNAMED_HOSPITALS`. The real
+invariant is that it lands in a **pool** bucket and never in `NAMED_HOSPITAL`;
+that is now what it says, plus a check that the three buckets stay disjoint.
+
 ### Next session
 
 **SESSION 22 CLOSED THE FIRST THREE ITEMS SESSION 21 LEFT.** Georgia's 21
@@ -2697,11 +2906,27 @@ open question is in the review queue. What follows is what is left.
    the Reconciliation sheet. **Settle it when the CCN match lands** (blocker 5),
    which resolves the question rather than arguing it.
 
-4. **Keep working the RCJ_ONLY queue, richest first.** Maryland is now
+4. **Keep working the RCJ_ONLY queue, richest first.** Nebraska is now
    `EXTRACTED` in both `state_trigger_queue.csv` and `rcj_state_survey.csv`
-   (session 22), so **Nebraska leads at 39 candidates / 35 distinct awardees**.
-   Behind it: IN 37/28, OK 35/25, NV 34/34, MI 31/31, MO 29/29. Texas is done at
-   `INVESTIGATED_NO_LIST`; Kansas and Maryland are `EXTRACTED`.
+   (session 23) — both were **rebuilt**, not hand-edited, from
+   `SURVEY_EXTRACTED_STATES` in `R/03k`. So **Indiana leads at 37 candidates /
+   28 distinct awardees**. Behind it: OK 35/25, NV 34/34, MI 31/31, MO 29/29.
+   Texas is done at `INVESTIGATED_NO_LIST`; KS, MD and NE are `EXTRACTED`.
+
+   **Nebraska adds a fifth question, and it is the one that costs a state its
+   whole file: IS THE CANDIDATE LIST'S TITLE THE DOCUMENT'S TITLE?** RCJ filed
+   24 of Nebraska's 39 candidates under *"Organizations Submitted Applications
+   for RHTP RFA Closing March 27, 2026"* — which is the heading of **pages 2-3**
+   of a document whose **page 1** is the award table those 24 amounts came from.
+   Every §0.1 defect before this one inflated; **this one deflates**, and taking
+   the title at face value would have thrown away 24 real awards. The opposite
+   mistake sits in the same PDF and is worse: pages 2-3 are ~115 applicants, and
+   reading them as recipients invents ~115 awards (§0.3). **Open the document
+   and find out which page the title came from.**
+
+   And Nebraska is the third state in a row to prove Kansas's point about link
+   lists: **RCJ holds NONE of Initiative 4.4b — $27,690,777, three quarters of
+   everything Nebraska has published, including its largest single award.**
 
    **Maryland adds a fourth question, and it is the one that catches a Tier 2
    figure hiding in a Tier 3 list: does the candidate set contain the POOL?**
@@ -2800,7 +3025,7 @@ think the four states it does not cover are different.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 2,004 assertions, zero quota
+Rscript tests/run_tests.R                        # 2,292 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -2871,6 +3096,10 @@ Rscript R/03q_state_completeness_recheck.R --fetch    # 24 pages across 7 states
 Rscript R/03q_state_completeness_recheck.R --validate # the two positives and five negatives
 Rscript R/03q_state_completeness_recheck.R --build    # writes state_completeness_recheck.csv
 Rscript R/03q_state_completeness_recheck.R --report   # the table, with each control stated
+Rscript R/03r_ne_year1_awardees.R --fetch        # NE: archive 6 sources + SHA-256
+Rscript R/03r_ne_year1_awardees.R --validate    # NE assertions + both controls, offline
+Rscript R/03r_ne_year1_awardees.R --build       # writes NE csv + disposition + NE xlsx
+Rscript R/03r_ne_year1_awardees.R --report      # the 3 pools, and where the figure is soft
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

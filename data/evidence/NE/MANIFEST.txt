@@ -1,0 +1,28 @@
+Nebraska DHHS -- RHTP Year 1 notices of award, and one negative control
+Archived by R/03r_ne_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+All six files are the body the server sent, BYTE FOR BYTE. None carries a
+third-party credential; the guard that caught CMS's Mapbox token,
+Illinois's and Oregon's, and Kansas's Google Maps key runs on every fetch
+here and finds nothing, so there is no reduction to explain. Files are
+written with writeBin(), so re-hashing a file on disk reproduces its
+digest below.
+
+RFA 4533 (NHAP Legal Services) IS NOT AN RHTP DOCUMENT. It is archived
+deliberately, as the §6.2 negative control: DHHS's Office of Procurement
+and Grants publishes Intent to Award notices for many grant series, and
+this one says in its own words that the department is 'awarding state
+funds'. Its applications closed 2025-05-21, seven months before Nebraska's
+CMS Notice of Award. It is why an 'Intent to Award' from this office is
+not, by itself, evidence of RHTP.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+76adc87a026f5684670ed135bec43b8707bd4f5fe57ae57b252629e5ddcacfc2  2026-08-31_ne_dhhs_rhtp_program_page.html  (220724 bytes)  <- https://dhhs.ne.gov/Pages/Rural-Health-Transformation.aspx
+398579c245a64ef65a36fabd880777bf7c70e1786f415df17c98cff70f3d19d5  2026-08-31_ne_dhhs_grant_opportunities.html  (246822 bytes)  <- https://dhhs.ne.gov/Pages/Grant-Opportunities.aspx
+f4d228151b7c8b95b7d11f11ea9584d1fe8e0fbb51b71de911fe05a0996883be  2026-08-31_ne_dhhs_public_notice_of_award_3.3.pdf  (182825 bytes)  <- https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-3.3.pdf
+db933486bfa16c29a88c5393125697b4f483a8c50c313d3e7ae1b206c969de9b  2026-08-31_ne_dhhs_public_notice_of_award_4.4a.pdf  (223839 bytes)  <- https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-4.4a.pdf
+39b9a0805c3ffc80131d359eaf87c0d494135b49ddda5d855b893f5607422eeb  2026-08-31_ne_dhhs_public_notice_of_award_4.4b.pdf  (187825 bytes)  <- https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-4.4b.pdf
+d0c96c4c8ab5eac1f40146f504eba791ead9da0db8d37943e74272626858f41b  2025-04-22_ne_dhhs_rfa_4533_nhap_legal_services.pdf  (303218 bytes)  <- https://dhhs.ne.gov/Grants%20and%20Contract%20Opportunity%20Docs/RFA%204533%20%20NHAP%20Legal%20Services%20RFA%20FINAL.pdf
