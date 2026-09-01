@@ -96,7 +96,13 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD",
 # finding and not an assumption.
 #
 # IT IS NEVER A CLAIM THAT THE STATE AWARDED NOTHING (§0.1, §0.3).
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("TX")
+# WISCONSIN joins in session 30 on the same footing: it led the queue at 19
+# candidates, was worked against its own sources, and is at SOLICITATION stage
+# -- four DHS opportunities all "application period now closed" and none naming
+# a recipient, with DHS's own council deck dating the awards to September 2026.
+# R/03y carries the tripwires, and its award window is open NOW, so this is the
+# one INVESTIGATED_NO_LIST state that should be re-probed within weeks.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("TX", "WI")
 
 
 # -- Inputs ------------------------------------------------------------------

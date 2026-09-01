@@ -1,0 +1,40 @@
+Wisconsin -- Rural Health Transformation Program, Year 1.
+Archived by R/03y_wi_year1_probe.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch and finds nothing, so there is
+no reduction to explain.
+
+WISCONSIN HAS PUBLISHED NO RECIPIENT-LEVEL RHTP AWARD LIST. Four DHS
+opportunities are all 'application period now closed' and none names a
+recipient; the advisory-council deck of 2026-07-23 says 'Award
+announcements: September' against three of them; and the solicitations
+index calls itself a 'list of current solicitations (unawarded) by DHS'.
+
+TWO OF THESE FILES ARE CONTROLS AND ARE NAMED SO.
+  *_NEGATIVE_CONTROL.pdf is DWD's 'Successful WIG Healthcare Awards' --
+  a REAL executed health-workforce award list, linked from an RHTP-funded
+  page, belonging to the Governor's 2021 ARPA-funded Workforce Innovation
+  Grant programme. It mentions RHTP zero times. Texas's shape.
+  *_CONTROL.html is the WTCS college roster, which is what makes the
+  claim that RCJ's 16 bare region names ARE the 16 technical college
+  districts a sourced fact rather than this pipeline's own knowledge.
+
+ONE PATH IS UNREADABLE AND THAT IS RECORDED, NOT RESOLVED. https://www.dhs.wisconsin.gov/contracts/rural-technology-transformation-fund-allocations-improve-health-services-rural-wisconsin
+answers 403 on all of: project honest (+url), RFC Mozilla/5.0 (compatible), bare Mozilla/5.0, full Chrome (tested 2026-09-01), while https://www.dhs.wisconsin.gov/rhtp/index.htm answers 200 on the same
+agents from the same host and robots.txt is 200 and does not disallow
+/contracts/. So it is a PER-PATH refusal by the origin, and what it holds
+is UNKNOWN to this repository (§0.4).
+
+file  bytes  sha256
+2026-09-01_dhs_rhtp_program.html  169311  073e67b9a02f17e90529ebbf894e06ba9baf298214ffecbdb44240ae9e7a8757
+2026-09-01_dhs_rhtp_advisory_council.html  162626  6e0fc171afb369f14bdeeaeb6f38da4b7985622802268ca86e63e2ab45521ffd
+2026-09-01_dhs_rhtpac_presentation_260723.pdf  2278558  8e3a9d2e84bd63fa1a77022cf5d89aacb473441a4f72cd52aaa4d082af5f41e1
+2026-09-01_dhs_current_grant_solicitations.html  161828  665020f1a88189cc654636a7b78858134c9e26070376a8b53a1c77e3966e65e4
+2026-09-01_dwd_wig_heart.html  29833  6810996ee4b3f3f026789a26bd0b92360b69b9be3df47a760cb4186b07488dc0
+2026-09-01_dwd_wig_healthcare_awards_NEGATIVE_CONTROL.pdf  4229439  7157083afa868e7e8c7c7521d39ffe3fc1b65e3272bfd7d9c75928840c3c34cc
+2026-09-01_dpi_rhtp_grant.html  175984  5ad1ea2e8c67c0175bf456e29fa5a51d678e968300f5778514be7d127c93eb64
+2026-09-01_worh_rhtp_updates.html  72250  f5f0fe99ba393fe70da08e1eda0b9fe691752f6b225a5416abc7ff3dc3c9f3f6
+2026-09-01_wtcs_college_roster_CONTROL.html  65534  23121d79a85a6f2043608c575dd5e68d9cb7da8360f874d866a452265417dda2
