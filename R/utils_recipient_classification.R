@@ -109,6 +109,20 @@ RHTP_RECIPIENT_TYPE_PATTERNS <- tibble::tribble(
   # §8 has for it and the value Oregon's own Organization Type column gives its
   # equivalents.
   "(?i)\\b(count(y|ies)|city|parish|borough|township)\\b[^,;]{0,40}?\\b(health department|department of health|department of public health|public health department)\\b", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "HIGH", "county or city health department, a local public health body",
+  # AND THE SAME BODY WHEN IT SERVES SEVERAL COUNTIES AT ONCE, which is how
+  # Michigan organises most of its local public health (session 27). MDHHS
+  # awards ELEVEN multi-county health departments and the county rule above
+  # reaches none of them, so one kind of recipient was landing in three places:
+  # "Berrien County Health Department" came out LOCAL_GOVT_OR_PUBLIC_HEALTH,
+  # "Benzie-Leelanau District Health Department" and "District Health
+  # Department #10" fell through to §8's NONPROFIT_CBO fallback, and "Health
+  # Department of Northwest Michigan" matched `department of` and came out
+  # STATE_AGENCY. That is Maryland's session-21 defect exactly -- the same body
+  # under a different spelling -- one administrative tier down and eleven rows
+  # wide. A district or regional health department is a LOCAL public health
+  # body, whatever it is named after; `\\bstate\\b` is excluded so a genuine
+  # state health department cannot reach this row.
+  "(?i)^(?!.*\\bstate\\b).*(\\bhealth department\\b|\\b(district|regional|area|community) health agency\\b|^public health\\b)", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "HIGH", "a health department, or a body named Public Health <place>: a local public health body",
   "(?i)\\b(department of|state of|commonwealth of|division of)\\b",           "STATE_AGENCY",                "MEDIUM", "name states a state agency",
   "(?i)\\b(count(y|ies)|city|borough|township|municipal) (of |government)",   "LOCAL_GOVT_OR_PUBLIC_HEALTH", "MEDIUM", "name states a local government",
 

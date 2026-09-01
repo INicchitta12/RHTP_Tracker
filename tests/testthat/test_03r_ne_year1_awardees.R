@@ -428,8 +428,16 @@ test_that("nothing was promoted: the unstated-form question is queued", {
   soft <- ne_recs[ne_recs$determination_confidence == "LOW" &
                     ne_recs$flag_reason == "RECIPIENT_TYPE_INFERRED" &
                     is.na(ne_recs$intermediary_name), ]
-  expect_equal(nrow(soft), 30L)
-  expect_equal(round(sum(soft$amount), 2), 9411695.59)
+  # Session 27: 30 -> 29. Southeast District Health Department left this
+  # question when the shared classifier's county-health-department rule was
+  # widened to district and regional ones (Michigan awards eleven). It was
+  # `distributed_to_hospital = No` before and after, so Nebraska's
+  # named-hospital floor did not move -- a false uncertainty shrank.
+  expect_equal(nrow(soft), 29L)
+  expect_equal(round(sum(soft$amount), 2), 9215948.66)
+  expect_equal(
+    ne_recs$recipient_type[ne_recs$awardee == "Southeast District Health Department"],
+    "LOCAL_GOVT_OR_PUBLIC_HEALTH")
   # The uncertainty is LARGER than the figure beside it -- Kansas's and
   # Maryland's shape a third time.
   expect_gt(sum(soft$amount), NE_STATED$named_hospital_floor)

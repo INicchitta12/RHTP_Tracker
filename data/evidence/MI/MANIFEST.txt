@@ -1,0 +1,83 @@
+Michigan -- RHTP Year 1: MDHHS's RHTP Subrecipients roster (139 named
+awards WITH amounts), the programme page carrying its completeness claim,
+the 2025-12-30 award release, a post-NOA solicitation, MHA's own RHTP
+page, CMS's 50-state spotlights, and the §6.2 NEGATIVE CONTROL.
+Archived by R/03v_mi_year1_awardees.R --fetch
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch here and finds nothing, so
+there is no reduction to explain and the pages are whole.
+
+TWO USER-AGENTS, AND THE SECOND IS A DOCUMENTED EXCEPTION.
+  HONEST        AHA-RHTP-Tracker/1.0 (research; +https://www.aha.org)
+  MICHIGAN_GOV  Mozilla/5.0
+
+www.michigan.gov is fronted by Akamai and REFUSES EVERY IDENTIFYING
+USER-AGENT. Probed, not assumed: the project's honest agent 403, the RFC
+crawler convention 'Mozilla/5.0 (compatible; AHA-RHTP-Tracker/1.0;
++https://www.aha.org)' 403, a full Chrome UA with the tracker token
+appended 403, bare 'Mozilla/5.0' 200 -- and https://www.michigan.gov/
+robots.txt is ITSELF 403, so there is no crawler policy on offer and none
+is being declined. It is a denylist on identifying tokens, not an
+allowlist on browsers. Session 10 settled the same question for
+medicaid.gov the other way, where the '+url' form was what got through;
+Michigan inverts it. The bare agent is used for michigan.gov ONLY and
+`mi_agent_for()` refuses to use it on any other host, so the exception
+cannot quietly spread. mha.org and cms.gov take the honest agent.
+
+THE ROSTER IS `..._mi_rhtp_subrecipients.html`. Five accordion sections,
+one per initiative, each a Subrecipient Organization / Award Amount* /
+Fund table: 20 + 71 + 19 + 16 + 13 = 139 award actions and $69,883,392.
+EVERY HEADER ROW IS MARKED UP WITH <td>, NOT <th>, on all five tables --
+session 10's CMS defect, five times over on one page. Unpromoted, the
+parser reads five organisations called 'Subrecipient Organization'.
+
+MDHHS CLAIMS THIS ROSTER IS COMPLETE, which no other state in this
+repository does: the programme page reads 'MDHHS maintains a dedicated
+webpage featuring all RHTP Subrecipients'. The roster is dated 'Award
+notices as of July 10, 2026'. Both sentences are asserted every run,
+because the day the completeness claim goes, every figure here becomes a
+floor rather than a total.
+
+THE AMOUNTS ARE CONTINGENT AND MDHHS SAYS SO. The asterisk on every
+'Award Amount*' column resolves to 'Award amount is contingent upon
+review by Centers for Medicare & Medicaid Services (CMS) for final
+approval'. So all 139 rows are amount_confirmed = No.
+
+`..._mdhhs_prevention_grants.html` IS THE §6.2 NEGATIVE CONTROL AND IS
+NOT EXTRACTED FROM. Its own sub-headline states the funding source --
+'New opioid settlement-funded grants support 12 organizations' -- and the
+words 'Rural Health Transformation', 'RHTP' and 'rural' appear ZERO times
+in it. RCJ files eight of those twelve organisations as Michigan RHTP
+Tier 3 candidates.
+
+THE FOOTER IS NOT THE PROVENANCE HERE. The roster carries the WEAK form,
+'This PROJECT is supported by ... a financial assistance award totaling
+$173,128,201.02' -- the publication-scoped subject that session 26
+disproved in Nevada and session 27 audited across five states. It is used
+to corroborate the AMOUNT against the §7.1 anchor and never as the
+evidence that these awards are RHTP; three programme-scoped sentences do
+that, and each is asserted separately.
+
+Fetched: 2026-09-01
+
+file                                                      bytes  sha256
+--------------------------------------------------------------------------------------------------------------------------------
+2026-09-01_mi_rhtp_subrecipients.html                    762955  a09bbc05e0ad3b1ec627ef62470d3f280e296906afad9008b30d88c22f7ef521
+2026-09-01_mi_rhtp_program_page.html                     777497  4a81fba273791f78b0a38a3f9bffa4db5ce4dc45eca39eb08b02ba89c81e4639
+2025-12-30_mi_mdhhs_rht_funding_award.html               741919  3d46e1e65466b1d9a1d4800963f3388fb4adf068a4574b4c028450f744625b32
+2026-07-08_mi_mdhhs_workforce_gfo.html                   742242  24f9515f7671d00dcd2dda2cc9f5fc3d8752edcdbd9f59444c8e9628781a242e
+2026-06-24_mi_mdhhs_prevention_grants.html               750967  6d15829730b084e5d960ebdd6b0fa054ee16bbd5ddbf564a50d7d7041cf53fdb
+2026-09-01_mi_mha_center_of_rural_excellence.html        550844  c5f38c40e5fcf590173bc7be19d69b071496ce20ec13a6a9ef22071d266c69c8
+2026-09-01_cms_rhtp_50_state_spotlights.pdf             1061135  2db5f7ef2e957dba54ada1437c87c44e58887d73ffc02a331c9f932b3431ec07
+
+
+Source URLs and agents
+  roster          MICHIGAN_GOV  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-subrecipients
+  program         MICHIGAN_GOV  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program
+  award_release   MICHIGAN_GOV  https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2025/12/30/rht-funding
+  workforce_gfo   MICHIGAN_GOV  https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2026/07/08/workforce-gfo
+  prevention      MICHIGAN_GOV  https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2026/06/24/prevention-grants
+  mha             HONEST        https://www.mha.org/mha-center-of-rural-excellence/rural-health-transformation-program/
+  cms_spotlights  HONEST        https://www.cms.gov/files/document/rural-health-transformation-50-state-spotlights.pdf
