@@ -45,6 +45,116 @@ test_that("KDHE's own award document says CMS funds these awards", {
   expect_true(grepl("Centers for Medicare & Medicaid Services", one, fixed = TRUE))
 })
 
+test_that("the award document's footer is the WEAK form, and names no programme", {
+  # Session 27's audit, pinned so the reason Kansas needed rewiring cannot be
+  # lost. The footer's grammatical SUBJECT is the slide deck; the document
+  # never names the programme its awards belong to at all.
+  one <- ks_join_lines(ks_document_text("reh_cap_rpgp"))
+  expect_true(grepl("This presentation is supported by", one, fixed = TRUE))
+  expect_false(grepl("This Rural Health Transformation Program", one,
+                     fixed = TRUE))
+  expect_equal(length(gregexpr("RHTP", one, fixed = TRUE)[[1]]
+                      [gregexpr("RHTP", one, fixed = TRUE)[[1]] > 0]), 0L)
+  expect_equal(
+    length(gregexpr("Rural Health Transformation", one, fixed = TRUE)[[1]]
+           [gregexpr("Rural Health Transformation", one, fixed = TRUE)[[1]] > 0]),
+    0L)
+})
+
+test_that("the footer no longer STOPS Kansas -- it corroborates the amount", {
+  # The direction that matters: a KDHE re-post dropping the deck's boilerplate
+  # must not hard-fail a state whose provenance is established twice over
+  # elsewhere. Fed a document with no footer, the corroborating call returns NA
+  # with a message rather than throwing.
+  expect_error(ks_assert_rhtp_funded("no footer here"))
+  expect_message(
+    got <- ks_assert_rhtp_funded("no footer here", strict = FALSE),
+    "CORROBORATING check")
+  expect_true(is.na(got))
+})
+
+
+# -- provenance: the two independent, PROGRAMME-SCOPED sources ---------------
+
+test_that("KDHE's programme page says the GRANTS are RHTP, not the paper", {
+  prose <- ks_program_page_prose()
+  expect_true(grepl(
+    "grants through the Kansas Rural Health Transformation Program (RHTP)",
+    prose, fixed = TRUE))
+  expect_true(grepl(
+    "an initiative within the Rural Health Transformation Program (RHTP)",
+    prose, fixed = TRUE))
+  expect_true(ks_assert_program_page_provenance(prose))
+})
+
+test_that("the programme page states each pool's scale independently", {
+  # 39 organizations / $79.1 million and seven / $1,007,152, published on the
+  # page rather than in the award PDFs -- so a parse that drifted from the
+  # documents fails here too.
+  prose <- ks_program_page_prose()
+  expect_true(grepl("$79.1 million is being awarded to 39 organizations",
+                    prose, fixed = TRUE))
+  expect_true(grepl("$1,007,152 was awarded to seven rural healthcare organizations",
+                    prose, fixed = TRUE))
+  expect_equal(nrow(ks_awards[ks_awards$award_pool != "CHW_AFIM", ]), 39L)
+  expect_equal(nrow(ks_awards[ks_awards$award_pool == "CHW_AFIM", ]), 7L)
+})
+
+test_that("the programme-page check fails loudly if a sentence goes", {
+  gutted <- sub("grants through the Kansas Rural Health Transformation Program",
+                "grants through the programme", ks_program_page_prose(),
+                fixed = TRUE)
+  expect_error(ks_assert_program_page_provenance(gutted),
+               "KANSAS'S PROVENANCE")
+})
+
+test_that("the RHT Plan narrative places all three awarded pools", {
+  # `budget_rev2` has been registered in KS_SOURCES since session 20 and was
+  # never opened. It is programme-scoped by construction and carries NO CMS
+  # footer at all -- it does not need one, because the document IS the plan.
+  narr <- ks_narrative_text()
+  expect_true(grepl("Kansas RHT Plan Year 1 Budget Narrative", narr,
+                    fixed = TRUE))
+  expect_false(grepl("is supported by the Centers", narr, fixed = TRUE))
+  expect_true(grepl("Program 1: Regional Partnership Grant Program (RPGP)",
+                    narr, fixed = TRUE))
+  expect_true(grepl(
+    "REH Conversion/Transformative Capital Investment Grant Program",
+    narr, fixed = TRUE))
+  expect_true(grepl(paste("Program 1: Accountable Food Is Medicine and",
+                          "Community Health Worker (CHW) Deployment Program",
+                          "(A-FIM)"), narr, fixed = TRUE))
+  expect_true(ks_assert_narrative_places_pools(narr))
+})
+
+test_that("the narrative's PLAN figures are not asserted against the AWARDS", {
+  # A plan is not an award (§0.3). The plan budgets RPGP at $49,969,410.72 and
+  # REH-CAP at $31,279,891.30; KDHE awarded $49,915,410 and $29,097,937.
+  # Nothing reconciles the two universes, and this pins that they differ so a
+  # later session does not "close" the gap by moving an award figure.
+  narr <- ks_narrative_text()
+  expect_true(grepl("$49,969,410.72", narr, fixed = TRUE))
+  expect_true(grepl("$31,279,891.30", narr, fixed = TRUE))
+  by_pool <- rhtp_ks_reconcile(ks_awards)$by_pool
+  expect_equal(by_pool$total[by_pool$award_pool == "RPGP"], 49915410)
+  expect_equal(by_pool$total[by_pool$award_pool == "REH_CAP"], 29097937)
+})
+
+test_that("the narrative check fails loudly if a pool leaves the plan", {
+  gutted <- sub("Program 1: Regional Partnership Grant Program (RPGP)",
+                "Program 1: Something Else", ks_narrative_text(), fixed = TRUE)
+  expect_error(ks_assert_narrative_places_pools(gutted),
+               "SECOND independent, programme-scoped")
+})
+
+test_that("provenance runs on the two programme-scoped sources, footer last", {
+  prov <- ks_assert_rhtp_provenance()
+  expect_true(prov$program_page)
+  expect_true(prov$budget_narrative)
+  expect_true(prov$after_noa)
+  expect_equal(prov$footer_stated, 221890007.82)
+})
+
 test_that("the solicitations postdate Kansas's CMS Notice of Award", {
   # Session 19's cheapest version of the funding-source test. KDHE's RPGP /
   # REH CAP applicant webinar is 6 March 2026; the NOA is 2025-12-29. Texas's
@@ -54,6 +164,22 @@ test_that("the solicitations postdate Kansas's CMS Notice of Award", {
   expect_equal(as.character(noa$noa_date[noa$state == "KS"]), "2025-12-29")
 
   expect_true(any(grepl("RPGP-REH-CAP-Webinar-March-6-2026", ks_links$href)))
+})
+
+test_that("the date test is ASSERTED now, from KDHE's own timeline", {
+  # Session 27's audit: Kansas was the only one of the five footer states with
+  # no *_assert_after_noa(). Its 6 March 2026 webinar date lived in a comment.
+  # The anchor is read from KDHE's own Year One Timeline, not typed.
+  prose <- ks_program_page_prose()
+  expect_true(grepl("Dec. 29, 2025 - Notice of Award", prose, fixed = TRUE))
+  expect_equal(ks_assert_after_noa(prose, ks_links), "2025-12-29")
+})
+
+test_that("the date test fails if KDHE's timeline stops stating the NOA", {
+  gutted <- sub("Dec. 29, 2025 - Notice of Award", "Notice of Award",
+                ks_program_page_prose(), fixed = TRUE)
+  expect_error(ks_assert_after_noa(gutted, ks_links),
+               "no longer states its own Notice of Award")
 })
 
 test_that("Kansas is not caught by the extended §6.2 provenance filter", {
@@ -183,10 +309,22 @@ test_that("the description passed to the classifier is KDHE's, not ours", {
 
 # -- the two publishers ------------------------------------------------------
 
-test_that("KDHE and CMS disagree about Kansas's award, and it is reported", {
+test_that("the $8,000.18 is the award DECK's alone -- KDHE and CMS agree", {
+  # Session 20 recorded this as "two publishers disagree about Kansas's
+  # award". Wiring the provenance meant reading KDHE's other two
+  # publications, and both say $221,898,007.82 -- CMS's own table to the cent.
+  # So the deck transposes 898 as 890 and nothing else does. Nothing is
+  # corrected (§8); all three figures are pinned.
   expect_equal(ks_rec$cms_award_stated, 221890007.82)
+  expect_equal(ks_rec$kdhe_award_page, 221898007.82)
+  expect_equal(ks_rec$kdhe_award_narrative, 221898007.82)
   expect_equal(ks_rec$cms_allotment, 221898008)
-  expect_equal(round(ks_rec$publisher_gap, 2), 8000.18)
+  expect_equal(round(ks_rec$deck_gap, 2), 8000.18)
+  expect_equal(round(ks_rec$publisher_gap, 2), 0.18)
+
+  # And the two figures are read out of the documents, not carried in a list.
+  expect_true(grepl("$221,898,007.82", ks_program_page_prose(), fixed = TRUE))
+  expect_true(grepl("$221,898,007.82", ks_narrative_text(), fixed = TRUE))
 })
 
 

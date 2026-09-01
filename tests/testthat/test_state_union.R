@@ -88,7 +88,17 @@ STATE_FILES <- c(
   # actions and $0 of named-hospital dollars at the same time. Every invariant
   # in this file that was only ever true because each state had at least one
   # priced row is one Nevada can break -- which is exactly why it is here.
-  NV = "data/reference/nv_year1_awardees.csv"
+  NV = "data/reference/nv_year1_awardees.csv",
+  # Missouri is the SMALLEST award file in the project -- two rows -- and it is
+  # here for what is NOT in it. DSS publishes a named, 27-organisation,
+  # recipient-level roster (the ToRCH Care Hub Anchors, 14 of them hospitals)
+  # that is a SELECTION TO A GOVERNANCE ROLE with no money attached, and RCJ
+  # carries all 27 as Tier 3 awards at $1 each. Those 27 live in
+  # `mo_hub_anchors.csv`, which has no `amount` column at all and is
+  # deliberately NOT in this union. A future session that "completes" Missouri
+  # by folding the roster in would add 14 named hospitals and $0 to the
+  # project's headline, which is §0.3 at the scale of a state.
+  MO = "data/reference/mo_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -116,13 +126,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all fifteen files carry the leading 19 columns, in the same order", {
+test_that("all seventeen files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the fifteen files union without a coercion failure", {
+test_that("the seventeen files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -130,8 +140,8 @@ test_that("the fifteen files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "MI", "NE",
-                 "NV", "OK", "OR", "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "MI", "MO",
+                 "NE", "NV", "OK", "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

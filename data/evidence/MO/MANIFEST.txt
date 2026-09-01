@@ -1,0 +1,46 @@
+Missouri -- DSS Rural Health Transformation Program / ToRCH Care.
+Archived by R/03w_mo_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard that caught CMS's Mapbox token, Illinois's and
+Oregon's, and Kansas's Google Maps key runs on every fetch here and finds
+nothing, so there is no reduction to explain.
+
+RHTP-Hub-Anchors-07-17-2026.pdf IS A ROSTER AND IS NOT AN AWARD LIST.
+It names 27 organisations, one per ToRCH Care Hub, and carries no dollar
+figure of any kind. DSS's own FAQ (20260702_ToRCH Care FAQs.pdf, Q36)
+says 'Hub Anchors will not act as the fiscal agent', and the 2026-07-17
+release says participation is 'subject to execution of a Hub Anchor
+Participation Agreement'. Seventeen of the 27 are hospitals or health
+systems, and RCJ files all 27 as Tier 3 awards at $1 each. Reading this
+file as an award list is the §0.3 failure at the scale of a state.
+
+2026-09-01_dss_bid_proposals.html IS THE PROCUREMENT-CHANNEL CONTROL.
+DSS's own RHTP timeline says 'Aug - Sept 2026 Announce select procurement
+awardees', so Missouri's awards are coming through procurement (Indiana's
+sixth question, answered by the state rather than inferred). The bid table
+carries live solicitations -- IFB DSS26015-02 closed 2026-09-01 -- and no
+awards, which is what makes the absence a finding.
+
+2026-09-01_ctf_funding_opportunities.html IS THE PASS-THROUGH CONTROL.
+The Children's Trust Fund administers $588,000/yr of RHTP home-visiting
+money; its funding page reads 'Stay tuned for future' and names nobody.
+
+NOT ARCHIVED, AND RECORDED AS UNREACHABLE RATHER THAN NEGATIVE:
+https://memsa.org/rht-funding/ answers HTTP 202 with an sgcaptcha
+redirect to every client tried, so whether MEMSA has named its EMS
+sub-awardees is UNKNOWN, not answered.
+
+MANIFEST.txt is deliberately absent from this listing: a manifest cannot
+record its own digest (session 15).
+
+87f5c206a916f127285b7879cf7c4e81f86334faf826b7df6be268b35542f019  2026-09-01_dss_rural_health.html  (116295 bytes)  <- https://dss.mo.gov/mhd/rural-health
+4b632fde82490dc92175f87cd671b11430fa5b7a68100d45590e68a59e021b60  2026-07-17_rhtp_hub_anchors.pdf  (214168 bytes)  <- https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/RHTP-Hub-Anchors-07-17-2026.pdf
+667dd3ac8fcdc2ec8b4b5adf898dc09e0d2bee69d54b44c894758d99df1c2457  2026-07-17_dss_hub_anchors_release.html  (20829 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420acc4
+f44520ae0df2157a814593212b44ab66e536ec282d909fcfce1ded79bc4d4cff  2026-07-20_dss_maternal_partnership_release.html  (20441 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420f3bd
+28eada15b5241af0f387093a76a678364b22e88ef57ceb972b6a3fe9dcf9040e  2026-07-24_dss_mih_cp_release.html  (22769 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/421d56d
+4740f3c69d938ced3e22f64c5d7f928df5a8227ed53d7f11d35f9bb1753c7856  2026-07-02_torch_care_faqs.pdf  (762655 bytes)  <- https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/20260702_ToRCH%20Care%20FAQs.pdf
+ee2fd8a0d6cacaf4cbf47629c5a6da01becc6e49eb712621f3511bbe81515d40  2026-09-01_dss_bid_proposals.html  (47651 bytes)  <- https://dss.mo.gov/bids/
+dbc2b160211ba8ed8ed4106c8651a5d9f852a1c516c7875e7f0cbbbd24fb9c59  2026-09-01_ctf_funding_opportunities.html  (80514 bytes)  <- https://ctf4kids.org/ctf-funding-opportunities/
