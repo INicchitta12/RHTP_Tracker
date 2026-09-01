@@ -309,3 +309,148 @@ test_that("the committed CSVs match a fresh parse", {
 test_that("all Missouri assertions pass on the committed archive", {
   expect_true(rhtp_mo_assert(mo_awards, mo_anchors))
 })
+
+
+# -- the scheduled procurement re-check (--probe) -----------------------------
+#
+# Missouri's file is stale BY APPOINTMENT rather than by construction. Alaska
+# needs a probe because DOH overwrites one url weekly; Missouri needs one
+# because DSS has published the DATE on which the thing this file says has not
+# happened is expected to happen -- "Aug - Sept 2026  Announce select
+# procurement awardees" -- and the ToRCH Care Smart Growth IFB (~$40M, awards
+# to $5M, "Funding is open to hospitals") is where its hospital dollars are.
+# Every assertion below reads the committed archive; none touches the network.
+
+test_that("the probe reads the CONTENT digest, not the file digest", {
+  # dss.mo.gov sits behind Incapsula, which rotates a cache-buster on a script
+  # tag on EVERY page it serves. The file digest therefore moves on every
+  # fetch while the solicitations are untouched, and a probe keyed on it would
+  # cry CHANGED every week until somebody stopped reading it. This is Nevada's
+  # rotating state-symbol widget on a new host -- there one page's footer,
+  # here the whole of dss.mo.gov.
+  raw_bids <- readBin(mo_path("bids"), "raw", file.size(mo_path("bids")))
+
+  spoof <- rawToChar(raw_bids)
+  Encoding(spoof) <- "UTF-8"
+  expect_true(grepl("_Incapsula_Resource", spoof, fixed = TRUE))
+
+  # Same page, a different cache-buster: the FILE digest moves, the CONTENT
+  # digest does not. That is the whole design of the probe, in two lines.
+  rotated <- sub("&cb=[0-9]+", "&cb=999999999", spoof)
+  expect_false(identical(
+    digest::digest(spoof,   algo = "sha256", serialize = FALSE),
+    digest::digest(rotated, algo = "sha256", serialize = FALSE)))
+  expect_identical(
+    mo_content_digest(raw_bids, "html")$sha,
+    mo_content_digest(charToRaw(rotated), "html")$sha)
+})
+
+test_that("the probe covers procurement AND the roster, and knows each kind", {
+  expect_setequal(MO_PROBE_KEYS, c("bids", "program_page", "hub_roster"))
+  # A schedule that watched procurement and not the roster would miss the
+  # larger event: the day a dollar figure lands on the 27, mo_hub_anchors.csv
+  # must be REWRITTEN as an award file rather than patched.
+  expect_identical(mo_probe_kind("bids"), "html")
+  expect_identical(mo_probe_kind("program_page"), "html")
+  expect_identical(mo_probe_kind("hub_roster"), "pdf")
+  expect_true(all(MO_PROBE_KEYS %in% MO_SOURCES$key))
+})
+
+test_that("the procurement assertion accepts LIVE bodies, not just the archive", {
+  # Session 25's Indiana lesson as code: --validate reads the committed copy
+  # and therefore passes trivially, so it can only ever answer "had Missouri
+  # awarded on the day the archive was taken?". The probe hands these
+  # assertions what the server just served.
+  expect_true("page" %in% names(formals(mo_assert_procurement_pending)))
+  expect_true("bids" %in% names(formals(mo_assert_procurement_pending)))
+  expect_true(mo_assert_procurement_pending(
+    page = mo_html_text("program_page"), bids = mo_html_text("bids")))
+})
+
+test_that("the award detector fires on every form DSS could post, and not today", {
+  page <- mo_html_text("program_page")
+  bids <- mo_html_text("bids")
+
+  # It does NOT fire on the live page.
+  expect_true(mo_assert_procurement_pending(page = page, bids = bids))
+
+  # The bare token IS on the page already, in its own boilerplate, which is
+  # exactly why MO_AWARD_POSTED is a set of specific forms and not `award`.
+  expect_true(grepl("(?i)\\baward(s|ed)?\\b", bids))
+  expect_false(grepl(MO_AWARD_POSTED, bids))
+
+  for (posted in c("Contract awarded to Acme Health LLC",
+                   "Notice of Award posted",
+                   "Awarded Vendor: Acme Health",
+                   "Bid Tabulation available",
+                   "Contract Award summary",
+                   "apparent low bidder")) {
+    expect_error(
+      mo_assert_procurement_pending(page = page, bids = paste(bids, posted)),
+      "NOW POSTS AN AWARD", fixed = TRUE)
+  }
+})
+
+test_that("the probe's tripwires fire when the solicitation or timeline moves", {
+  page <- mo_html_text("program_page")
+  bids <- mo_html_text("bids")
+
+  # DSS26015-02 leaving the bid table is what makes the absence of an award a
+  # finding rather than an absence of evidence.
+  expect_error(
+    mo_assert_procurement_pending(
+      page = page,
+      bids = gsub("DSS26015-02", "DSS29999-99", bids, fixed = TRUE)),
+    "no longer carries IFB DSS26015-02")
+
+  # The timeline losing its pending-procurement line is the state saying the
+  # announcement has happened.
+  expect_error(
+    mo_assert_procurement_pending(
+      page = gsub("Announce select procurement awardees",
+                  "Procurement awardees announced", page, fixed = TRUE),
+      bids = bids),
+    "no longer says procurement awardees")
+})
+
+test_that("the roster tripwire still fires on a priced Hub Anchor roster", {
+  # The probe re-reads this one LIVE every run, so it is the branch that
+  # catches Missouri pricing the governance role between sessions.
+  roster <- mo_pdf_text("hub_roster")
+  expect_true(mo_assert_anchors_not_awarded(roster = roster))
+  expect_error(
+    mo_assert_anchors_not_awarded(
+      roster = paste(roster, "Hub Anchor award: $250,000")),
+    "NOW CARRIES A DOLLAR FIGURE", fixed = TRUE)
+})
+
+
+# -- the host this file cannot read ------------------------------------------
+
+test_that("memsa.org is recorded as UNREACHABLE, which is not a negative", {
+  # §0.4. MEMSA's own rural EMS sub-awardee list would be at memsa.org, and
+  # this project cannot read it. That is a fact about ACCESS, and the row must
+  # never harden into a claim that MEMSA has named nobody.
+  dispo <- rhtp_mo_rcj_disposition()
+  memsa <- dispo$why[grepl("EMS", dispo$group)]
+  expect_length(memsa, 1L)
+
+  expect_true(grepl("UNKNOWN, NOT NO", memsa, fixed = TRUE))
+  expect_true(grepl("202", memsa, fixed = TRUE))
+  expect_true(grepl("sgcaptcha", memsa, fixed = TRUE))
+
+  # The reason a future session does not need to re-run the experiment: it is
+  # not a user-agent question, and all four agents are named so the claim is
+  # checkable rather than asserted.
+  expect_length(MO_MEMSA_AGENTS, 4L)
+  for (agent in MO_MEMSA_AGENTS) expect_true(grepl(agent, memsa, fixed = TRUE))
+
+  # §3's michigan.gov exception is the one place this project uses a bare
+  # agent. Naming it here is what stops it being reached for a second time on
+  # the strength of "a bare agent worked once".
+  expect_true(grepl("michigan.gov exception would not help", memsa,
+                    fixed = TRUE))
+  # And the archive route is closed for a different reason than blocker 7.
+  expect_true(grepl("no snapshot at all", memsa, fixed = TRUE))
+  expect_true(grepl("DO NOT RE-LITIGATE", memsa, fixed = TRUE))
+})

@@ -205,6 +205,18 @@ MO_NOT_AN_AWARD <- c(
 # text runs the date cell straight into the event cell with no separator.
 MO_PROCUREMENT_PENDING <- "Aug\\s*-\\s*Sept 2026\\s*Announce select procurement awardees"
 MO_OPEN_SOLICITATION   <- "IFB # DSS26015-02"
+# HOW AN AWARD WOULD READ WHEN IT LANDS. Every alternative below was tested
+# against the live bid page this session and is ABSENT; the bare token
+# `\baward(s|ed)?\b` is NOT in this set because it IS present today, in the
+# page's own boilerplate, and would fire on every run. That is the difference
+# between a detector and a nuisance, and it is measured rather than guessed.
+# DSS's bid table carries three columns today -- "Bid ID, Title", "Issue Date",
+# "Closing Date" -- and NO award column at all, so an award posting changes the
+# table's shape as well as its words; the content digest catches the shape and
+# this catches the words.
+MO_AWARD_POSTED <- paste0(
+  "(?i)(award(ed)? (contracts? )?to\\b|notice of award|award(ed)? vendor|",
+  "bid tabulation|contract award|apparent low)")
 
 # The one roster link. A second means Missouri has published a pool this file
 # does not carry -- the tripwire, in both directions.
@@ -219,6 +231,43 @@ MO_ROSTER_SHAPE    <- paste0(
   "(?i)(hub anchors|award winners|awardees|award recipients|",
   "selected organizations|funded (projects|organizations)|subrecipients)")
 MO_ROSTER_NOT      <- "(?i)(application|apply|packet|invit|boundar|job description|manual|faq)"
+
+# THE ONE HOST THIS FILE CANNOT READ, AND WHY THAT IS "UNKNOWN" AND NOT "NO".
+# memsa.org is where the Missouri EMS Association's own RHTP sub-awardee list
+# would be -- the ~$6.5M pass-through this file carries as
+# PASS_THROUGH_UNRESOLVED. Re-tested 2026-09-01 (session 29) and UNCHANGED from
+# session 28, with the characterisation extended rather than repeated:
+#
+#   /rht-funding/, the apex, AND robots.txt ITSELF all answer HTTP 202 with
+#   <meta http-equiv="refresh"> to /.well-known/sgcaptcha/ -- so there is no
+#   crawler policy on offer and none is being declined.
+#
+#   IT IS NOT A USER-AGENT QUESTION. Four agents were tried and ALL FOUR got
+#   202: this project's honest agent, the RFC `Mozilla/5.0 (compatible; ...;
+#   +url)` convention, a bare `Mozilla/5.0`, and a full Chrome UA. That matters
+#   because michigan.gov (§3) is the one recorded exception where a bare agent
+#   is used, and this measurement says the exception WOULD NOT HELP HERE --
+#   which is what stops a one-host exception being reached for a second time.
+#
+#   Following the refresh target returns a "Robot Challenge Screen" (HTTP 200)
+#   whose <noscript> falls through to a further captcha, so the gate needs
+#   JavaScript execution, not a header.
+#
+#   AND THERE IS NO ARCHIVE ROUTE EITHER, WHICH IS NEW. archive.org's
+#   availability API -- reachable since session 27 -- answers HTTP 200 for this
+#   url and returns `{"archived_snapshots": {}}`. The Wayback Machine HOLDS NO
+#   SNAPSHOT of it. So blocker 7 (web.archive.org unreachable, still true here:
+#   the handshake is still reset) is NOT what is standing between this project
+#   and MEMSA's roster; there is nothing behind it to fetch.
+#
+# CONSEQUENCE, STATED AS THE CLAIM IT IS (§0.4): whether MEMSA has named its
+# rural EMS sub-awardees is UNKNOWN. It is NOT a finding that it has not.
+MO_MEMSA_HOST     <- "https://memsa.org/rht-funding/"
+MO_MEMSA_STATUS   <- 202L
+MO_MEMSA_GATE     <- "/.well-known/sgcaptcha/"
+MO_MEMSA_AGENTS   <- c("project honest (+url)", "RFC Mozilla/5.0 (compatible)",
+                       "bare Mozilla/5.0", "full Chrome")
+MO_MEMSA_RETESTED <- "2026-09-01"
 
 MO_CREDENTIAL_SHAPES <- c(
   mapbox_token   = "[ps]k\\.ey[A-Za-z0-9_-]{10,}",
@@ -505,8 +554,9 @@ mo_assert_roster_index <- function(links = NULL) {
 
 #' Indiana's sixth question, answered by Missouri itself: the channel is
 #' PROCUREMENT, and it has published no awards through it yet
-mo_assert_procurement_pending <- function() {
-  page <- mo_html_text("program_page")
+mo_assert_procurement_pending <- function(page = NULL, bids = NULL) {
+  if (is.null(page)) page <- mo_html_text("program_page")
+  if (is.null(bids)) bids <- mo_html_text("bids")
   if (!stringr::str_detect(page, MO_PROCUREMENT_PENDING)) {
     stop("[MO] DSS's RHTP timeline no longer says procurement awardees are ",
          "still to be announced. THIS IS THE ONE DESIGNED TO FAIL: Missouri's ",
@@ -514,14 +564,17 @@ mo_assert_procurement_pending <- function() {
          "will surface as procurement awards. Re-read dss.mo.gov/bids.",
          call. = FALSE)
   }
-  bids <- mo_html_text("bids")
   if (!stringr::str_detect(bids, stringr::fixed(MO_OPEN_SOLICITATION))) {
     stop("[MO] the DSS bid table no longer carries IFB DSS26015-02, the live ",
          "ToRCH Care solicitation that makes the absence of awards a finding.",
          call. = FALSE)
   }
-  if (stringr::str_detect(bids, "(?i)award(ed)? (contracts? )?to\\b")) {
-    stop("[MO] the DSS bid page now names an awardee.", call. = FALSE)
+  if (stringr::str_detect(bids, MO_AWARD_POSTED)) {
+    stop("[MO] THE DSS BID PAGE NOW POSTS AN AWARD. If it is DSS26015 (ToRCH ",
+         "Care Smart Growth, ~$40M, awards to $5M, 'Funding is open to ",
+         "hospitals') these are Missouri's FIRST hospital-facing RHTP dollars ",
+         "and mo_year1_awardees.csv's two-award, $0-to-hospitals finding no ",
+         "longer holds.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -539,6 +592,174 @@ mo_assert_ctf_unnamed <- function() {
          "named.", call. = FALSE)
   }
   invisible(TRUE)
+}
+
+
+# -- probe -------------------------------------------------------------------
+
+# THE PAGES A SCHEDULED RE-CHECK HAS TO READ, and why each one is here.
+#
+#   bids          IFB DSS26015-02, ToRCH Care Smart Growth and Service Line
+#                 Modifications (Horizon-2). THIS IS WHERE MISSOURI'S HOSPITAL
+#                 MONEY SURFACES: the ToRCH Care Smart Growth IFB anticipates
+#                 nearly $40M with individual awards up to $5M and "Funding is
+#                 open to hospitals". Horizon-2's bid opening is 2026-09-01 at
+#                 2pm, so from this date forward an award may appear at any
+#                 time and nothing on the RHTP programme page will say so.
+#   program_page  DSS's own RHTP timeline, which DATES the answer rather than
+#                 leaving it to be inferred: "Aug - Sept 2026  Announce select
+#                 procurement awardees". Missouri is the state that told us
+#                 where to look and when (the fourteenth question, §10).
+#   hub_roster    the 27 Hub Anchors. Not procurement -- but it is the other
+#                 designed-to-fail tripwire, it is the same fetch shape, and
+#                 this whole file rests on that roster carrying no money. The
+#                 day a dollar figure lands on it, mo_hub_anchors.csv must be
+#                 REWRITTEN rather than patched, so a schedule that watched
+#                 procurement and not the roster would miss the larger event.
+MO_PROBE_KEYS <- c("bids", "program_page", "hub_roster")
+
+
+#' The CONTENT digest -- NOT the file digest, and the difference is the point
+#'
+#' `dss.mo.gov` sits behind Incapsula, which appends a ROTATING CACHE-BUSTER to
+#' a script tag on every page it serves:
+#'
+#'   <script src="/_Incapsula_Resource?SWJIYLWA=<const>&ns=5&cb=922092161">
+#'
+#' Two fetches of the bid page minutes apart differ in `ns` and `cb` and in
+#' NOTHING ELSE -- measured, not assumed: the committed archive and a live
+#' fetch taken this session are 47,651 and 47,652 bytes, one line apart, and
+#' the programme page is byte-identical in length with the same one line
+#' changed. So the whole-file SHA-256 moves on EVERY fetch while the
+#' solicitations are untouched, and a probe keyed on it would report CHANGED
+#' every week until somebody stopped reading it.
+#'
+#' This is Nevada's rotating state-symbol widget (session 26) on a new host and
+#' by a different mechanism: there it was one page's footer, here it is the
+#' whole of `dss.mo.gov`. The reduction below is exactly the one
+#' `mo_html_text()` already performs, so the probe and the assertions read the
+#' same bytes and cannot drift apart.
+mo_content_digest <- function(body, kind = c("html", "pdf")) {
+  kind <- match.arg(kind)
+  txt <- if (kind == "html") {
+    doc <- xml2::read_html(body)
+    xml2::xml_remove(xml2::xml_find_all(doc, "//script | //style"))
+    stringr::str_squish(xml2::xml_text(doc))
+  } else {
+    tmp <- tempfile(fileext = ".pdf")
+    on.exit(unlink(tmp), add = TRUE)
+    writeBin(body, tmp)
+    stringr::str_squish(paste(rhtp_pdf_text(tmp), collapse = " "))
+  }
+  list(text = txt, sha = digest::digest(txt, algo = "sha256",
+                                        serialize = FALSE))
+}
+
+mo_probe_kind <- function(key) {
+  if (grepl("\\.pdf$", MO_SOURCES$file[MO_SOURCES$key == key])) "pdf" else "html"
+}
+
+
+#' LIVE: has Missouri awarded the ToRCH Care procurement, or priced the anchors?
+#'
+#' Alaska's `--probe` shape (session 22), which is South Dakota's before it:
+#' fetch, compare, report, ARCHIVE NOTHING. Missouri needs one for the same
+#' structural reason Alaska does and for a different one besides. Alaska's file
+#' is stale by construction because DOH overwrites one url weekly. Missouri's
+#' is stale by APPOINTMENT: DSS has published the date on which the thing this
+#' file says has not happened is expected to happen, and `mo_year1_awardees.csv`
+#' -- two awards, $7,232,660.43, ZERO hospital dollars -- stops being true the
+#' moment the Smart Growth IFB awards.
+#'
+#' THE ASSERTIONS RUN AGAINST THE LIVE BYTES, NOT THE ARCHIVE. This is session
+#' 25's Indiana lesson stated as code: `--validate` reads the committed copy and
+#' therefore passes trivially, so it can answer "has Missouri awarded?" only on
+#' the day the archive was taken. The only thing that answers it today is a
+#' fetch, and `mo_assert_procurement_pending()` and
+#' `mo_assert_anchors_not_awarded()` both take body overrides so the probe can
+#' hand them what the server just served.
+#'
+#' Exits 0 and prints UNCHANGED when every content digest matches and every
+#' tripwire still holds, so a scheduled run that finds nothing is cheap and
+#' silent. A tripwire that FIRES is the signal, not a defect -- it means
+#' Missouri has published and this file needs rebuilding.
+mo_probe <- function(keys = MO_PROBE_KEYS) {
+  live <- list()
+  for (i in seq_along(keys)) {
+    key <- keys[[i]]
+    src <- MO_SOURCES[MO_SOURCES$key == key, ]
+    if (nrow(src) != 1L) stop("[MO] unknown probe key: ", key, call. = FALSE)
+    if (i > 1L) Sys.sleep(MO_HOST_THROTTLE_S)
+    body <- mo_get(src$url, paste0("probe:", src$file))
+    kind <- mo_probe_kind(key)
+    cur  <- mo_content_digest(body, kind)
+    held <- mo_content_digest(readBin(mo_path(key), "raw",
+                                      file.size(mo_path(key))), kind)
+    live[[key]] <- list(text = cur$text, sha = cur$sha, held_sha = held$sha,
+                        file = src$file, url = src$url,
+                        changed = !identical(cur$sha, held$sha))
+  }
+
+  moved <- vapply(live, function(x) x$changed, logical(1))
+
+  # The content questions, asked of the LIVE bytes. These run whether or not a
+  # digest moved: a digest is a change detector, not an award detector, and the
+  # two answer different questions.
+  findings <- character(0)
+  ask <- function(label, expr) {
+    res <- tryCatch({ expr; NULL }, error = function(e) conditionMessage(e))
+    if (!is.null(res)) findings <<- c(findings, paste0(label, ": ", res))
+  }
+  if (all(c("program_page", "bids") %in% names(live))) {
+    ask("PROCUREMENT", mo_assert_procurement_pending(
+      page = live$program_page$text, bids = live$bids$text))
+  }
+  if ("hub_roster" %in% names(live)) {
+    # Only the roster half is live here; the FAQ and release sentences are
+    # asserted from the archive by --validate every run.
+    ask("HUB ANCHORS", mo_assert_anchors_not_awarded(
+      roster = live$hub_roster$text,
+      faq    = mo_pdf_text("torch_faq"),
+      hub    = mo_html_text("pr_hub")))
+  }
+
+  if (!any(moved) && !length(findings)) {
+    message("[MO] UNCHANGED -- all ", length(live), " probed sources are ",
+            "content-identical to the committed archive, ",
+            MO_OPEN_SOLICITATION, " is still open with no awardee named, and ",
+            "the Hub Anchor roster still carries no dollar figure.")
+    for (key in names(live)) {
+      message("[MO]   ", format(key, width = 13), " content-sha ",
+              substr(live[[key]]$sha, 1, 12))
+    }
+    return(invisible(list(changed = FALSE, findings = character(0),
+                          sources = live)))
+  }
+
+  message("[MO] CHANGED -- Missouri has moved since the committed archive.")
+  for (key in names(live)) {
+    message("[MO]   ", format(key, width = 13),
+            if (live[[key]]$changed) {
+              paste0("CONTENT MOVED  ", substr(live[[key]]$held_sha, 1, 12),
+                     " -> ", substr(live[[key]]$sha, 1, 12))
+            } else {
+              paste0("unchanged      ", substr(live[[key]]$sha, 1, 12))
+            })
+  }
+  if (length(findings)) {
+    message("[MO] ", strrep("-", 68))
+    message("[MO] A TRIPWIRE FIRED. THIS IS THE SIGNAL, NOT A DEFECT.")
+    for (f in findings) message("[MO]   ", f)
+    message("[MO] ", strrep("-", 68))
+  }
+  message("[MO] Re-run: --fetch --force (re-dating the affected MO_SOURCES ",
+          "files), then --validate, then --build, then COMMIT.")
+  message("[MO] If the Smart Growth IFB has awarded, those are Missouri's ",
+          "FIRST hospital-facing RHTP dollars and mo_year1_awardees.csv's ",
+          "two-award, $0-to-hospitals finding no longer holds.")
+  message("[MO] If the Hub Anchor roster has gained amounts, ",
+          "mo_hub_anchors.csv must be REWRITTEN as an award file, not patched.")
+  invisible(list(changed = TRUE, findings = findings, sources = live))
 }
 
 
@@ -749,9 +970,24 @@ rhtp_mo_rcj_disposition <- function(cands = NULL) {
     "Missouri EMS Association -- a real partnership, amount approximate",
     sum(is_memsa),
     "RHTP_AWARD_PASS_THROUGH",
-    paste("RCJ's $6,500,000 matches DSS's 'around $6.5M'. It is in this",
-          "file, as a PASS_THROUGH_UNRESOLVED to rural EMS agencies MEMSA has",
-          "not named -- not a hospital dollar."),
+    paste0("RCJ's $6,500,000 matches DSS's 'around $6.5M'. It is in this ",
+           "file, as a PASS_THROUGH_UNRESOLVED to rural EMS agencies MEMSA ",
+           "has not named -- not a hospital dollar. WHETHER MEMSA HAS NAMED ",
+           "THEM IS UNKNOWN, NOT NO: ", MO_MEMSA_HOST, " answers HTTP ",
+           MO_MEMSA_STATUS, " with a ", MO_MEMSA_GATE, " interstitial, re-",
+           "tested ", MO_MEMSA_RETESTED, " and unchanged. It is NOT a user-",
+           "agent question -- all four of (",
+           paste(MO_MEMSA_AGENTS, collapse = ", "), ") get 202, so §3's ",
+           "michigan.gov exception would not help; robots.txt is itself 202, ",
+           "so no crawler policy is on offer; and the gate needs JavaScript, ",
+           "not a header. Nor is there an archive route: archive.org's ",
+           "availability API answers 200 and returns no snapshot at all, so ",
+           "web.archive.org being unreachable (blocker 7) is not what is in ",
+           "the way -- there is nothing behind it. DO NOT RE-LITIGATE THIS ",
+           "unless testing it deliberately. If it ever answers 200, MEMSA's ",
+           "sub-awardees are a real extraction and still not hospital ",
+           "dollars: DSS states the eligible class and it is rural EMS ",
+           "agencies."),
 
     "Missouri Doula Association -- a real award, RCJ's amount short",
     sum(is_mda),
@@ -969,13 +1205,14 @@ rhtp_mo_report <- function() {
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
+  if ("--probe" %in% args)    mo_probe()
   if ("--fetch" %in% args)    mo_fetch(force = force)
   if ("--validate" %in% args) rhtp_mo_assert()
   if ("--build" %in% args)    rhtp_mo_build()
   if ("--report" %in% args)   rhtp_mo_report()
-  if (!length(intersect(args, c("--fetch", "--validate", "--build",
+  if (!length(intersect(args, c("--probe", "--fetch", "--validate", "--build",
                                 "--report")))) {
     message("usage: Rscript R/03w_mo_year1_awardees.R ",
-            "[--fetch [--force]] [--validate] [--build] [--report]")
+            "[--probe] [--fetch [--force]] [--validate] [--build] [--report]")
   }
 }

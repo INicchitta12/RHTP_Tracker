@@ -208,6 +208,7 @@ R/
   03u_nv_year1_awardees.R      # Nevada — 72 named awards, NO AMOUNTS ANYWHERE (BUILT)
   03v_mi_year1_awardees.R      # Michigan — 139 awards, a roster its state calls COMPLETE (BUILT)
   03w_mo_year1_awardees.R      # Missouri — 2 awards; a 27-org roster that is NOT AN AWARD LIST (BUILT)
+  03x_nh_year1_awardees.R      # New Hampshire — GO-NORTH; 2 administrators, NO ROSTER (BUILT)
   04_validate.R                # Stage 4 — queue manager + rule engine (NOT YET BUILT)
   05_hospital_determination.R  # Stage 5 (NOT YET BUILT)
   06_build_workbook.R          # Stage 6 (NOT YET BUILT)
@@ -257,6 +258,12 @@ data/
                                #   the ToRCH Care FAQ whose Q36 says Hub Anchors "will not
                                #   act as the fiscal agent", the DSS bid table (the
                                #   PROCUREMENT-CHANNEL control) and the CTF funding page
+    NH/                        #   FHC's own GO-NORTH award page and CDFA's statement of
+                               #   the SAME 2026-03-16 Council action. NEITHER IS A STATE
+                               #   HOST: every nh.gov host is Akamai-403 to this
+                               #   environment on FOUR agents, so §7's designated
+                               #   pass-through administrator route (Illinois/ICAHN) is
+                               #   what makes New Hampshire readable at all
     recheck/<date>/<ST>/       #   the completeness re-check: award pages AND their children
 output/
   rhtp_hospital_tracker_<date>.xlsx
@@ -630,7 +637,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-09-01 (Session 28 — KANSAS'S PROVENANCE WIRED: the two independent, programme-scoped sources that were already committed and unread are now the §6.2 gate, the slide-deck footer is demoted to corroborating the amount, and `ks_year1_awardees.csv` rebuilds BYTE-IDENTICAL. And the "$8,000.18 publisher disagreement" turns out to be the AWARD DECK ALONE — KDHE's other two publications both say $221,898,007.82, which is CMS's table to the cent. MISSOURI extracted: 2 award actions, $7,232,660.43, ZERO hospital dollars — and a NAMED 27-ORGANISATION ROSTER, 14 of them hospitals, in which NOT ONE ROW IS AN AWARD)
+**Last updated:** 2026-09-01 (Session 29 — MISSOURI IS ON A SCHEDULE: `R/03w --probe` and Routine `trig_01RyGxdGNv6rrF8t6bT5fQdK` (Wednesdays 15:00 UTC) watch the ToRCH Care Smart Growth IFB, where Missouri's HOSPITAL money is. It compares a CONTENT digest, not a file digest, because dss.mo.gov rotates an Incapsula cache-buster on EVERY page — Nevada's rotating widget on a new host and host-wide. NEW HAMPSHIRE extracted: GO-NORTH, 2 Council-approved administrators, $66,547,394 sourced, and ZERO named subrecipients — its hospital RFA had not been PUBLISHED. FHC is NOT ICAHN: same shape, opposite coding, and the ELIGIBLE CLASS is why. Every nh.gov host is Akamai-403 to this environment. memsa.org re-tested and STILL UNREACHABLE — recorded with its four-agent evidence, and archive.org now says the Wayback Machine holds NO SNAPSHOT of it) (Session 28 — KANSAS'S PROVENANCE WIRED: the two independent, programme-scoped sources that were already committed and unread are now the §6.2 gate, the slide-deck footer is demoted to corroborating the amount, and `ks_year1_awardees.csv` rebuilds BYTE-IDENTICAL. And the "$8,000.18 publisher disagreement" turns out to be the AWARD DECK ALONE — KDHE's other two publications both say $221,898,007.82, which is CMS's table to the cent. MISSOURI extracted: 2 award actions, $7,232,660.43, ZERO hospital dollars — and a NAMED 27-ORGANISATION ROSTER, 14 of them hospitals, in which NOT ONE ROW IS AN AWARD)
 
 ### Stages built
 
@@ -653,7 +660,8 @@ retrieval code.
 | **Oklahoma Year 1** | `R/03t_ok_year1_awardees.R` | **Built and run (Session 25). 68 microgrant awards, $3,572,120.71, across 68 of the 74 counties OSDH lists — SIX say "No Awardee" and are the parse's own negative control. Plus ONE aggregate row for OSDE's ROOTS: 60 awards, $600,000, NOBODY NAMED. 20 award actions reach 18 named hospitals, $1,079,506.22 — a FLOOR whose uncertainty (31 rows / $1,575,304.25) is larger AND, for the first time in this project, ONE-DIRECTIONAL. §6.2 passes in its strongest form yet: the CMS footer is on the ROSTER ITSELF. NOT ONE of RCJ's 35 candidates is one of the 68 awards — all 35 are Tier 2 BUDGET LINES totalling $231,614,376, MORE THAN THE WHOLE ALLOTMENT — `docs/session25_indiana_recheck_oklahoma.md`** |
 | **Nevada Year 1** | `R/03u_nv_year1_awardees.R` | **Built and run (Session 26). 72 NAMED award actions across three pools plus one aggregate row — and `amount` is EMPTY ON ALL 73 ROWS, because NVHA publishes a complete recipient roster with NO DOLLAR FIGURE ON IT. $87,400,000 announced at POOL level (48.6% of the allotment). **20 named-hospital award actions and $0 of named-hospital dollars, both true at once — READ THE ROW COUNT.** §6.2 passes in its strongest form yet: Nevada publishes CMS's OWN NOTICE OF AWARD, not a footer quoting it. And the session's lesson — THE CMS FOOTER COVERS THE PUBLICATION, NOT THE PROGRAMMES IN IT: NVHA's workforce document carries it while describing GME ("Source: State General Fund") and SHARP (an SB5 appropriation) beside WRRAP. 17 of RCJ's 34 candidates are $15,755,068 of STATE money — `docs/session26_nevada_roster_without_amounts.md`** |
 | **Michigan Year 1** | `R/03v_mi_year1_awardees.R` | **Built and run (Session 27). 139 award actions, $69,883,392, across TWELVE funds in FIVE initiatives — 40.4% of the allotment. THE FIRST ROSTER THIS PROJECT HAS MET WHOSE PUBLISHER CALLS IT COMPLETE: MDHHS "maintains a dedicated webpage featuring **all** RHTP Subrecipients", so this is a TOTAL and not a floor, and an assertion checks that sentence every run. Amounts are contingent on CMS approval, so all 139 rows are `amount_confirmed = No`. **ONE named-hospital award action, $76,924** — and that is NOT Nevada's zero: Michigan prices every row and almost none of it reaches a hospital. Its hospital money runs through the **MHA at $8,625,000**, which is §10.2's association row, PASS_THROUGH_UNRESOLVED, and in NEITHER bucket. **RCJ DEFLATES for the first time by a new mechanism** — one row per ORGANISATION where MDHHS publishes one per AWARD — `docs/session27_footer_audit_michigan.md`** |
-| **Missouri Year 1** | `R/03w_mo_year1_awardees.R` | **Built and run (Session 28). TWO award actions, $7,232,660.43, and NOT ONE REACHES A HOSPITAL — the Missouri Doula Association ($732,660.43, exact) and the Missouri EMS Association (~$6.5M, running past Budget Period 1). **AND A NAMED 27-ORGANISATION ROSTER IN WHICH NOT ONE ROW IS AN AWARD**: the ToRCH Care Hub Anchors, one per hub, chosen from 41 applications, **14 of them hospitals or health systems** — and DSS's own FAQ Q36 says *"Hub Anchors will not act as the fiscal agent"* while its release says participation is *"subject to execution of a Hub Anchor Participation Agreement"*. They live in `mo_hub_anchors.csv`, which has **NO `amount` COLUMN** and an assertion refusing one. **RCJ carries all 27 as Tier 3 awards at $1 each** — 93% of Missouri's candidate set, and a mechanism no amount check can see. Missouri's hospital money is coming through **PROCUREMENT** (the ToRCH Care Smart Growth IFB, ~$40M, awards to $5M, open to hospitals) — `docs/session28_kansas_provenance_missouri.md`** |
+| **Missouri Year 1** | `R/03w_mo_year1_awardees.R` | **Built and run (Session 28). TWO award actions, $7,232,660.43, and NOT ONE REACHES A HOSPITAL — the Missouri Doula Association ($732,660.43, exact) and the Missouri EMS Association (~$6.5M, running past Budget Period 1). **AND A NAMED 27-ORGANISATION ROSTER IN WHICH NOT ONE ROW IS AN AWARD**: the ToRCH Care Hub Anchors, one per hub, chosen from 41 applications, **14 of them hospitals or health systems** — and DSS's own FAQ Q36 says *"Hub Anchors will not act as the fiscal agent"* while its release says participation is *"subject to execution of a Hub Anchor Participation Agreement"*. They live in `mo_hub_anchors.csv`, which has **NO `amount` COLUMN** and an assertion refusing one. **RCJ carries all 27 as Tier 3 awards at $1 each** — 93% of Missouri's candidate set, and a mechanism no amount check can see. Missouri's hospital money is coming through **PROCUREMENT** (the ToRCH Care Smart Growth IFB, ~$40M, awards to $5M, open to hospitals) — `docs/session28_kansas_provenance_missouri.md`. **SESSION 29 PUT IT ON A SCHEDULE**: `--probe` re-reads the DSS bid page, the RHTP programme page and the Hub Anchor roster LIVE and runs the award tripwires against the LIVE bytes (session 25's Indiana lesson as code), as Routine `trig_01RyGxdGNv6rrF8t6bT5fQdK`, Wednesdays 15:00 UTC. It compares a **CONTENT digest, not a file digest** — `dss.mo.gov` sits behind Incapsula and rotates a cache-buster on every page it serves, so the file SHA-256 moves on EVERY fetch while the solicitations are untouched** |
+| **New Hampshire Year 1** | `R/03x_nh_year1_awardees.R` | **Built and run (Session 29). TWO Council-approved administrator awards, $66,547,394 sourced to a primary amount, and **ZERO NAMED SUBRECIPIENTS**. New Hampshire's RHTP is branded **GO-NORTH** and runs through designated administrators approved by the Governor and Executive Council on **2026-03-16**. **FHC IS NOT ICAHN, AND THE ELIGIBLE CLASS IS THE WHOLE DIFFERENCE**: both are executed awards to a designated pass-through with no hospital named, but ICAHN's eligibility was **HOSPITALS ONLY** (§10.2's second clause met, `Yes`) while FHC's is *"primary care, critical access hospitals, EMS, behavioral health, oral health, and community-based organizations"* — hospitals **AMONG OTHERS**, which is §0.3 exactly, so `PASS_THROUGH_UNRESOLVED` + `Unclear`, in **NEITHER** bucket. Its hospital-facing RFA (Critical Access Hospital and Acute Care Hospital) had not been **PUBLISHED**. **EVERY `nh.gov` HOST IS AKAMAI-403 TO THIS ENVIRONMENT** on four agents including bare Mozilla and full Chrome, with `robots.txt` itself 403 — so §3's michigan.gov exception would NOT help, and what the State publishes is **UNKNOWN, not absent** (§0.4). §7's designated pass-through administrator route (Illinois/ICAHN) is what makes the state readable at all — `docs/session29_missouri_watch_new_hampshire.md`** |
 | **CMS footer audit** | `docs/session27_cms_footer_provenance_audit.md` | **Complete (Session 27). Every state where the footer was used as a §6.2 check, and whether it was load-bearing. The axis is the footer's grammatical SUBJECT — "This publication/presentation" vs "This Rural Health Transformation Program". **KANSAS IS THE ONE LOAD-BEARING CASE**, on the weak form, for 98.7% of its dollars; an independent check exists TWICE in the committed archive and neither is wired. NE, IN, OK and NV all pass on programme-scoped evidence. NOTHING WAS RE-CODED** |
 | **Completeness re-check** | `R/03q_state_completeness_recheck.R` | **Session 22 FLIPPED its two positives to `ROSTER_EXTRACTED` — GA's check now requires all 21 to be IN the committed file (joined on the application number, never the name) and AK's compares against `ak_year1_awardees.csv` rather than a named evidence file. Left as they were, both would have failed on the extraction they asked for. Built Session 21: Kansas's lesson applied backwards to FL/GA/PA/AL/AK/OR/IL, each negative with its own positive control** |
 | Stage 1 — §5.1 pagination test | `docs/stage1_pagination_test.md` | **Complete — Branch A confirmed (§8)** |
@@ -674,7 +682,7 @@ retrieval code.
 | Stage 5 — Hospital determination | `R/05_hospital_determination.R` | Not started |
 | Stage 6 — Workbook | `R/06_build_workbook.R` | Not started |
 | QA assertions | `R/qa_assertions.R` | Not started |
-| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>`test_03s_in_year1_awardees.R`<br>`test_03t_ok_year1_awardees.R`<br>`test_03u_nv_year1_awardees.R`<br>`test_03v_mi_year1_awardees.R`<br>`test_03w_mo_year1_awardees.R`<br>**Built — 32 files, 3,032 assertions; all pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`.** `test_state_union.R` now combines **seventeen** state files, sixteen states — and Missouri's 27-row Hub Anchor roster is deliberately NOT among them.|
+| Tests | `tests/testthat/test_00_cms_press_monitor.R`<br>`test_01_retrieve_rcj.R`<br>`test_02_normalize.R`<br>`test_03_state_registry.R`<br>`test_03b_budget_narratives.R`<br>`test_03c_cms_abstracts.R`<br>`test_03d_ga_great_health.R`<br>`test_03e_fl_year1_awardees.R`<br>`test_03f_pa_year1_awardees.R`<br>`test_03g_al_year1_awardees.R`<br>`test_03h_ak_year1_awardees.R`<br>`test_03i_sd_rht_contracts.R`<br>`test_03j_sd_year1_announcements.R`<br>`test_utils_recipient_classification.R`<br>`test_state_union.R`<br>`test_flow_table_parity.R` | `test_03m_or_year1_awardees.R`<br>`test_03n_tx_year1_probe.R`<br>`test_03o_ks_year1_awardees.R`<br>`test_03p_md_year1_awardees.R`<br>`test_03q_state_completeness_recheck.R`<br>`test_utils_pdf_text.R`<br>`test_03r_ne_year1_awardees.R`<br>`test_03s_in_year1_awardees.R`<br>`test_03t_ok_year1_awardees.R`<br>`test_03u_nv_year1_awardees.R`<br>`test_03v_mi_year1_awardees.R`<br>`test_03w_mo_year1_awardees.R`<br>`test_03x_nh_year1_awardees.R`<br>**Built — 33 files, 3,151 assertions; all pass and 1 self-skips (the stage 00 first-run branch, now that the CSV exists). Zero quota. Run `Rscript tests/run_tests.R`.** `test_state_union.R` now combines **eighteen** state files, seventeen states — and Missouri's 27-row Hub Anchor roster is deliberately NOT among them.|
 
 ### States validated
 
@@ -682,7 +690,7 @@ None. No state has been through Stage 4 validation.
 
 Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas.
 
-### Deliverable 1 — seventeen state files, sixteen states
+### Deliverable 1 — eighteen state files, seventeen states
 
 | | Rows | Total published | Hospital rows | Hospital dollars |
 |---|---:|---:|---:|---:|
@@ -704,6 +712,7 @@ Pilot set (spec §14), none started: Georgia, Virginia, Nebraska, Florida, Texas
 | **MI** | **139** | **$69,883,392** (a TOTAL, not a floor) | **1** | **$76,924** — see below |
 | **MO** (awards) | **2** | **$7,232,660** | **0** | **$0** — both are pass-throughs to non-hospitals |
 | **MO** (hub anchors) | **27** | **— NO AMOUNT PUBLISHED** | **14 named** | **$0 — NOT AWARDS. READ BELOW** |
+| **NH** | **2** | **$66,547,394** (one row priced) | **0** | **$0 — NO SUBRECIPIENT NAMED AT ALL** |
 
 **None of these hospital figures is comparable to another without reading its
 row**, and that is not a caveat to be dropped in a summary: PA's are authorized
@@ -967,13 +976,66 @@ each. A future session that "completes" Missouri by folding the roster in would
 add 14 named hospitals and $0 to the headline, which is §0.3 at the scale of a
 state.
 
+**NEW HAMPSHIRE IS ILLINOIS'S SHAPE AND CODES THE OPPOSITE WAY, AND THE
+ELIGIBLE CLASS IS THE ONLY REASON.** Its RHTP is branded **GO-NORTH** — the
+Governor's Office of New Opportunities and Rural Transformational Health,
+established by Executive Order — and runs through designated administrators
+approved by the Governor and Executive Council on **2026-03-16**. Two of those
+awards are evidenced to a primary source and are in the file: the **Foundation
+for Healthy Communities, $66,547,394**, and the **Community Development Finance
+Authority**, whose `amount` is deliberately **empty** because CDFA publishes
+*"up to $40 million a year"* — a programme ceiling, not an award figure — which
+lives in `round_amount` (South Dakota's device).
+
+**FHC is not ICAHN.** Both are executed awards to a designated pass-through
+administrator with no hospital named, and they code differently on §10.2's
+second clause. ICAHN is `Yes` because Illinois restricted eligibility to
+**hospitals only**. FHC's eligible class, in its own words, is *"primary care,
+critical access hospitals, EMS, behavioral health, oral health, and
+community-based organizations"* — hospitals **among other eligible entities**,
+which is §0.3 exactly. So it is `PASS_THROUGH_UNRESOLVED` + `Unclear`, in
+**neither** bucket of `rhtp_hospital_dollar_partition()`. A session that
+"tidied" the two into one coding would publish $66.5M as hospital-bound money
+on this pipeline's authority.
+
+**NEW HAMPSHIRE HAS NAMED NO SUBRECIPIENT, AND ITS HOSPITAL RFA HAD NOT BEEN
+PUBLISHED.** Every FHC funding opportunity is open, upcoming, or closed without
+a roster; **Critical Access Hospital and Acute Care Hospital** — the one that
+would name hospitals — reads *"Coming Soon"*, and Primary Care's own key date is
+*"Notification of Award (initial cohort): Late October"*. FHC's *"50-100 active
+subrecipient awards"* is a **planning range for a portfolio it has not awarded**,
+and a range of future awards is not a roster (§0.3).
+
+**AND EVERY `nh.gov` HOST IS UNREACHABLE TO THIS ENVIRONMENT, WHICH IS RECORDED
+AS UNREACHABLE AND NOT AS A NEGATIVE (§0.4).** `gonorth.nh.gov`, `dhhs.nh.gov`,
+`governor.nh.gov`, `sos.nh.gov`, `das.nh.gov`, the Council page and the apex all
+answer Akamai *"Access Denied"* (403, `errors.edgesuite.net`) on **four** agents
+— the project's honest agent, the RFC crawler convention, bare `Mozilla/5.0`
+and a full Chrome UA — with `robots.txt` **itself 403**, two independent
+transports agreeing, and no policy denial logged by the proxy. **§3's
+michigan.gov exception would not help here**, and that is measured rather than
+assumed, which is what stops a one-host exception being reached for a second
+time. What the State publishes on its own sites is **UNKNOWN to this
+repository**. The extraction is possible at all because §7 admits a
+**designated pass-through administrator's** own document — Illinois/ICAHN is
+the precedent — and **two publishers carry the same 2026-03-16 Council action
+from two different hosts, nothing arranged**.
+
+**§0.2 IN ONE DOCUMENT, FOR THE SECOND TIME AFTER VIRGINIA.** FHC's page carries
+**two** CMS financial-assistance footers: **$204,016,550.20**, the state's Tier 1
+allotment, matching the §7.1 anchor to the cent; and **$66,547,394**, FHC's own
+Tier 3 award. Both are official, both are "New Hampshire FY2026", and only the
+tier separates them. Per session 27's audit the footer is **non-strict** here —
+it corroborates the **amounts** and two programme-scoped sentences carry the
+provenance.
+
 **Session 21's known understatement is closed** — Georgia's $30,277,580 of named
 hospitals and Alaska's 24 new awards are both in the figure above (session 22).
 **Alaska's line will understate again next week**: DOH announces on a rolling
 weekly basis and Routine `trig_01U4RxGWMH8yg37UKupHqTki` is what keeps it
 current.
 
-All **sixteen** files union on the leading 19 columns with zero values outside §8,
+All **seventeen** files union on the leading 19 columns with zero values outside §8,
 asserted every run by `tests/testthat/test_state_union.R`. Georgia gained a
 twentieth appended column in session 22, `application_id` — DCH's own row key on
 its notices of award, and what the completeness re-check joins on. A name is
@@ -1182,6 +1244,37 @@ South Dakota was never in it. Both SD files are now included.
   than a wrong figure. It also **understates the one exact award it holds**:
   $732,000 against DSS's $732,660.43. The counts are re-derived from
   `stage2_record_table.rds` on every run.
+- **`data/reference/nh_year1_awardees.csv` — 2 rows (Session 29).** New
+  Hampshire's two Governor-and-Executive-Council-approved GO-NORTH
+  administrator awards of 2026-03-16: the **Foundation for Healthy Communities**
+  ($66,547,394, exact, from FHC's own CMS footer, corroborated by the
+  programme-scoped Council sentence's rounded *"$66.5 million"*) and the
+  **Community Development Finance Authority**, whose `amount` is **empty**
+  because CDFA publishes *"up to $40 million a year"* — a ceiling, not an award
+  — carried in `round_amount`. **Neither names a subrecipient and neither is a
+  hospital dollar**: FHC is `PASS_THROUGH_UNRESOLVED`/`Unclear` (hospitals among
+  other eligible entities, §0.3 — NOT Illinois's `Yes`), CDFA is `NON_HOSPITAL`
+  on the recipient class its own statement gives. Rebuild with
+  `Rscript R/03x_nh_year1_awardees.R --build`.
+- **`data/reference/nh_year1_status.csv` — 6 rows (Session 29), AND IT HAS NO
+  `amount` COLUMN.** What each GO-NORTH administrator publishes, with an
+  assertion refusing an amount column (Texas's device), because New Hampshire
+  has named no subrecipient and published no per-subrecipient figure. **One row
+  is the State's own sites and reads `publishes_roster = UNKNOWN`** — every
+  `nh.gov` host is Akamai-403 to this environment on four agents, so that is a
+  statement about our access and never about New Hampshire (§0.4).
+- **`data/reference/nh_rcj_candidate_disposition.csv` — 5 rows (Session 29).**
+  Why each of RCJ's 27 New Hampshire Tier 3 candidates is, or is not, an award.
+  **3 are Medicaid Care Management** — including the $1,898,965,390 row against
+  a $204,016,550 allotment that the §6.2 allotment ceiling flagged in session 5
+  and the provenance sweep independently disposed of in session 20, **two §6.2
+  filters, opposite directions, same row**. **5 are CDFA under three spellings
+  at three different prices**, which is the tell that the aggregator is pricing
+  **documents**, not awards. **16 are administrators for whom no reachable
+  primary source publishes an amount** — recorded as a limit on our access, not
+  on New Hampshire. The $1 placeholder runs through the whole set (Missouri's
+  mechanism). The counts are re-derived from `stage2_record_table.rds` on every
+  run.
 - **`data/reference/nv_rcj_candidate_disposition.csv` — 3 rows (Session 26).**
   Why each of RCJ's 34 Nevada Tier 3 candidates is, or is not, an RHTP subaward.
   **17 are Nevada's GME Grant Round VIII — $15,755,068 of STATE GENERAL FUND
@@ -3934,6 +4027,146 @@ file says it does not know, which is a different claim (§0.4).
 rows were appended byte-wise in Python and `git diff --numstat` reports
 **2 insertions, 0 deletions**.
 
+### Session 29 — Missouri on a schedule, New Hampshire's opposite coding, and memsa closed
+
+Full detail: `docs/session29_missouri_watch_new_hampshire.md`. Zero RCJ quota;
+~20 requests across `dss.mo.gov`, `memsa.org`, `archive.org`, six `nh.gov`
+hosts (all refused), `healthynh.org` and `nhcdfa.org`, throttled per §9.5.
+
+**MISSOURI IS THE SECOND STATE IN THIS PROJECT ON A SCHEDULE, AND IT IS STALE
+FOR A DIFFERENT REASON THAN ALASKA.** Alaska's file is stale **by
+construction** — DOH overwrites one url weekly. Missouri's is stale **by
+appointment**: DSS has published the date on which the thing `R/03w` says has
+not happened is expected to happen (*"Aug - Sept 2026  Announce select
+procurement awardees"*), and the ToRCH Care Smart Growth IFB — **~$40M, awards
+to $5M, "Funding is open to hospitals"** — is where its hospital dollars are.
+Horizon-2 (**IFB # DSS26015-02**) had its bid opening **2026-09-01 at 2pm**,
+the day this ran. `mo_probe()` and Routine `trig_01RyGxdGNv6rrF8t6bT5fQdK`
+(Wednesdays 15:00 UTC) watch it. **The probe ran live and reports UNCHANGED.**
+
+**AND IT COMPARES A CONTENT DIGEST, NOT A FILE DIGEST, BECAUSE THE FILE DIGEST
+IS USELESS ON THIS HOST.** `dss.mo.gov` sits behind **Incapsula**, which appends
+a rotating cache-buster to a script tag on **every page it serves**: the
+committed bid archive and a live fetch this session are 47,651 and 47,652 bytes
+and differ on **one line**, `&ns=5&cb=922092161` against `&ns=2&cb=1919101840`,
+with the programme page identical in length and the same one line changed. A
+probe keyed on the file digest would report CHANGED every week until somebody
+stopped reading it. This is **Nevada's rotating state-symbol widget (session 26)
+on a new host and by a different mechanism** — there one page's footer, here the
+whole of `dss.mo.gov`. `mo_content_digest()` performs exactly the reduction
+`mo_html_text()` already did, so the probe and the assertions read the same
+bytes and cannot drift apart. Measured, then tested both ways.
+
+**THE TRIPWIRES RUN AGAINST THE LIVE BYTES, WHICH IS SESSION 25's INDIANA
+LESSON AS CODE.** `--validate` reads the committed copy and therefore passes
+trivially — it can only answer "had Missouri awarded on the day the archive was
+taken?". `mo_assert_procurement_pending()` now takes body overrides so the
+probe hands it what the server just served. **`MO_AWARD_POSTED` is a set of six
+specific forms and NOT the bare token `award`**, because the bare token is
+already on the live bid page in its own boilerplate and would fire every run —
+measured, not guessed. All six forms fire under control; the live page does
+not. DSS's bid table carries three columns today and **no award column at
+all**, so an award posting changes its shape as well as its words: the content
+digest catches the shape, `MO_AWARD_POSTED` the words. **`mo_year1_awardees.csv`
+and `mo_hub_anchors.csv` rebuild BYTE-IDENTICAL.**
+
+**MEMSA.ORG IS STILL UNREACHABLE, AND IT IS NOW RECORDED WELL ENOUGH THAT
+NOBODY NEEDS TO RE-RUN THE EXPERIMENT.** `memsa.org/rht-funding/` — where the
+Missouri EMS Association's own rural EMS sub-awardee list would be — answers
+**HTTP 202 with a `/.well-known/sgcaptcha/` meta-refresh**, unchanged from
+session 28. Three things are new. **It is not a user-agent question**: all four
+of the project's honest agent, the RFC crawler convention, bare `Mozilla/5.0`
+and a full Chrome UA get 202, so **§3's michigan.gov exception would not help**,
+which is the measurement that stops a one-host exception being reached for a
+second time. **`robots.txt` is itself 202**, so no crawler policy is on offer
+and none is being declined; following the refresh yields a *"Robot Challenge
+Screen"* whose `<noscript>` falls through to a further captcha, so the gate
+needs JavaScript and not a header. **And there is no archive route either**:
+`archive.org`'s availability API — reachable since session 27 — answers **200**
+and returns **`{"archived_snapshots": {}}`**. The Wayback Machine **holds no
+snapshot of it**, so blocker 7 is not what stands between this project and
+MEMSA's roster; there is nothing behind it to fetch. All of this is in
+`mo_rcj_candidate_disposition.csv`'s MEMSA row with a test pinning it, and the
+claim it makes is **UNKNOWN, not NO** (§0.4).
+
+---
+
+**NEW HAMPSHIRE LED THE QUEUE AND IS ILLINOIS'S SHAPE CODED THE OPPOSITE WAY.**
+Its RHTP is branded **GO-NORTH** — the Governor's Office of New Opportunities
+and Rural Transformational Health, established by Executive Order under Governor
+Ayotte — and it runs through designated administrators approved by the Governor
+and Executive Council on **2026-03-16**. Two are evidenced to a primary source:
+the **Foundation for Healthy Communities, $66,547,394**, and the **Community
+Development Finance Authority**, whose `amount` is **empty** because CDFA
+publishes *"up to $40 million a year"*, a ceiling and not an award figure.
+
+**FHC IS NOT ICAHN, AND THE ELIGIBLE CLASS IS THE ENTIRE DIFFERENCE.** Both are
+executed awards to a designated pass-through with no hospital named. ICAHN codes
+**`Yes`** because Illinois restricted eligibility to **hospitals only** —
+§10.2's second clause met. FHC's class, in its own words, is *"primary care,
+critical access hospitals, EMS, behavioral health, oral health, and
+community-based organizations"* — hospitals **among others**, which is §0.3
+exactly — so it is `PASS_THROUGH_UNRESOLVED` + `Unclear`, in **neither** bucket.
+A session that tidied the two into one coding would publish **$66.5M** as
+hospital-bound money on this pipeline's authority. An assertion fails the build
+if that sentence leaves the page.
+
+**NEW HAMPSHIRE HAS NAMED NO SUBRECIPIENT AND ITS HOSPITAL RFA HAD NOT BEEN
+PUBLISHED.** Every FHC funding opportunity is open, upcoming or closed without a
+roster; **Critical Access Hospital and Acute Care Hospital** reads *"Coming
+Soon"*, and Primary Care's own key date is *"Notification of Award (initial
+cohort): Late October"*. **FHC's *"50-100 active subrecipient awards"* is a
+planning range for a portfolio it has not awarded** — a range of future awards
+is not a roster (§0.3). The positive control is FHC's own funding-opportunity
+index, which carries Open, Upcoming and Closed sections: without it, "no roster"
+is indistinguishable from "we are reading the wrong page".
+
+**EVERY `nh.gov` HOST IS AKAMAI-403 TO THIS ENVIRONMENT, ON FOUR AGENTS.**
+`gonorth.nh.gov`, `dhhs.nh.gov`, `governor.nh.gov`, `sos.nh.gov`, `das.nh.gov`,
+the Council page and the apex all answer *"Access Denied"* (`errors.edgesuite.net`)
+to the project's honest agent, the RFC convention, bare `Mozilla/5.0` and a full
+Chrome UA, with **`robots.txt` itself 403**. Two independent transports agree
+and the proxy logs **no policy denial**, so this is the origin's own decision.
+**§3's michigan.gov exception would not help — a bare agent is refused here
+too**, and that is measured rather than assumed. **What the State publishes on
+its own sites is UNKNOWN to this repository, and `nh_year1_status.csv` says
+UNKNOWN rather than "no roster" (§0.4).**
+
+**WHAT MAKES THE EXTRACTION POSSIBLE ANYWAY IS §7, AND ILLINOIS IS THE
+PRECEDENT.** §7 admits a **designated pass-through administrator's** own
+document; ICAHN's release was the first such source in this project. Here FHC
+publishes its own award and **CDFA publishes the same 2026-03-16 Council action
+from a different host** — two publishers, nothing arranged.
+
+**§0.2 IN ONE DOCUMENT, FOR THE SECOND TIME AFTER VIRGINIA.** FHC's page carries
+**two** CMS financial-assistance footers: **$204,016,550.20**, the state's Tier 1
+allotment, matching the §7.1 anchor **to the cent**, and **$66,547,394**, FHC's
+own Tier 3 award. Both official, both "New Hampshire FY2026", only the tier
+separating them. Per session 27's audit the footer is **non-strict** —
+`nh_assert_footer_corroborates()` returns NA with a message rather than throwing
+when called non-strictly (Kansas's demotion), so a page re-post that drops the
+boilerplate cannot hard-fail New Hampshire for no reason, **and a future state
+whose only evidence is a "this project" footer does not pass the test New
+Hampshire passes**. Two programme-scoped sentences carry the provenance.
+
+**§0.1 — RCJ PRICES ONE COUNCIL ACTION AT THREE DIFFERENT AMOUNTS.** Of 27 NH
+Tier 3 candidates, **3 are Medicaid Care Management** — including the
+$1,898,965,390 row against a $204,016,550 allotment that the §6.2 allotment
+ceiling flagged in session 5 and the provenance sweep independently disposed of
+in session 20, **two §6.2 filters, opposite directions, same row**. **5 are CDFA
+under three spellings at $43,810,000, $43,800,000 (twice) and $40,000,000 plus a
+$1 placeholder** — the tell that the aggregator is pricing **documents**, not
+awards, and §2 forbids a machine merging the spellings. **16 are administrators
+for whom no reachable primary source publishes an amount**, so they are in the
+status table and **not** in the award file: §0.1 forbids publishing RCJ's figure
+in place of a primary one, and that is **a limit on our access, not on New
+Hampshire**. The $1 placeholder runs through the whole set — Missouri's
+mechanism, the one defect no amount check can see.
+
+**Tests: 3,151 assertions across 33 files, all passing and 1 self-skipping**
+(was 3,032 across 32). `test_03x_nh_year1_awardees.R` is new, and
+`test_state_union.R` now combines **eighteen** state files, seventeen states.
+
 ### Next session
 
 **SESSION 22 CLOSED THE FIRST THREE ITEMS SESSION 21 LEFT.** Georgia's 21
@@ -3948,7 +4181,22 @@ open question is in the review queue. What follows is what is left.
    The one thing it also settled: the $8,000.18 gap is the AWARD DECK'S alone.
    Detail: `docs/session28_kansas_provenance_missouri.md` §1.
 
-0b. **MISSOURI'S HOSPITAL MONEY IS IN PROCUREMENT AND THE WINDOW IS OPEN NOW.**
+0b. **CLOSED IN SESSION 29 AS A MANUAL ITEM — MISSOURI IS NOW ON A SCHEDULE.**
+   `R/03w --probe` exists and Routine `trig_01RyGxdGNv6rrF8t6bT5fQdK` runs it
+   **Wednesdays 15:00 UTC** (first fire 2026-09-02). It re-reads the DSS bid
+   page, the RHTP programme page and the Hub Anchor roster LIVE, and runs the
+   award tripwires **against the live bytes** rather than the archive — session
+   25's Indiana lesson as code, because `--validate` reads the committed copy
+   and passes trivially. **It compares a CONTENT digest, not a file digest**:
+   `dss.mo.gov` sits behind Incapsula and rotates a cache-buster on every page,
+   so the file SHA-256 moves on every fetch while the solicitations are
+   untouched (Nevada's rotating widget, new host, and here it is host-wide).
+   **Check the Routine is running against `main`**: its prompt refuses to act
+   if `mo_probe` is absent from `R/03w`, so until this branch merges it will
+   report that and stop, which is intended. The original item follows, because
+   the window it describes is still open.
+
+0b-i. **MISSOURI'S HOSPITAL MONEY IS IN PROCUREMENT AND THE WINDOW IS OPEN NOW.**
    DSS's own RHTP timeline says *"Aug - Sept 2026 Announce select procurement
    awardees"*, and the ToRCH Care Smart Growth IFB (DSS26015) anticipates
    **nearly $40M with individual awards up to $5M and "Funding is open to
@@ -4023,14 +4271,38 @@ open question is in the review queue. What follows is what is left.
    the Reconciliation sheet. **Settle it when the CCN match lands** (blocker 5),
    which resolves the question rather than arguing it.
 
-5. **Keep working the RCJ_ONLY queue, richest first.** **Missouri is extracted
-   as of session 28**, so **New Hampshire now leads at 23 candidates / 15
-   distinct awardees**. Behind it: WI 19/19, IA 15/15, ME 12/12, CA 11/8.
-   Texas is done at `INVESTIGATED_NO_LIST`; KS, MD, MI, MO, NE, IN, OK and NV
-   are `EXTRACTED`. Both `state_trigger_queue.csv` and `rcj_state_survey.csv`
+5. **Keep working the RCJ_ONLY queue, richest first.** **New Hampshire is
+   extracted as of session 29**, so **Wisconsin now leads at 19 candidates / 19
+   distinct awardees**. Behind it: IA 15/15, ME 12/12, CA 11/8, CT 7/6, NM 7/7.
+   Texas is done at `INVESTIGATED_NO_LIST`; KS, MD, MI, MO, NE, NH, IN, OK and
+   NV are `EXTRACTED`. Both `state_trigger_queue.csv` and `rcj_state_survey.csv`
    were **rebuilt** from `SURVEY_EXTRACTED_STATES` in `R/03k`, never
-   hand-edited, so Missouri reads `EXTRACTED` in both and cannot rank 1 a
+   hand-edited, so New Hampshire reads `EXTRACTED` in both and cannot rank 1 a
    second time and be re-investigated from scratch.
+
+   **NEW HAMPSHIRE ADDS A FIFTEENTH QUESTION, AND IT IS THE ONE THAT DECIDES
+   WHETHER A PASS-THROUGH DOLLAR IS A HOSPITAL DOLLAR: WHAT IS THE ELIGIBLE
+   CLASS?** Illinois and New Hampshire are the same shape — an executed award
+   to a designated pass-through administrator, no hospital named — and they
+   code **opposite ways**. ICAHN is `Yes` because eligibility was **hospitals
+   only**; FHC is `Unclear` because its class is *"primary care, critical
+   access hospitals, EMS, behavioral health, oral health, and community-based
+   organizations"* — hospitals **among others**, §0.3 exactly. **Find the
+   sentence that states the eligible class before coding any pass-through**,
+   and assert it, because losing it must stop the build rather than silently
+   re-code $66.5M.
+
+   **AND A SIXTEENTH, WHICH IS ABOUT US AND NOT ABOUT THE STATE: IS THE
+   STATE'S WHOLE WEB ESTATE REACHABLE?** Every `nh.gov` host answers Akamai 403
+   to this environment on four agents, `robots.txt` included. Sessions 9-15
+   asked for one host at a time and got six negatives; New Hampshire refuses
+   **all** of them at once, and §3's michigan.gov exception does not help
+   because a bare agent is refused too. **Test more than one agent, record what
+   each answered, and then look for a §7 route** — a designated pass-through
+   administrator's own document is admissible (Illinois/ICAHN), and here FHC
+   and CDFA published the same Council action from two hosts that do answer.
+   **"We cannot read the state's site" is never "the state published
+   nothing" (§0.4).**
 
    **MISSOURI ADDS A THIRTEENTH QUESTION, AND IT IS THE ONE THAT DECIDES
    WHETHER A NAMED ROSTER IS A ROSTER OF RECIPIENTS AT ALL: WHAT WAS THE
@@ -4247,7 +4519,7 @@ think the four states it does not cover are different.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 3,032 assertions, zero quota
+Rscript tests/run_tests.R                        # 3,151 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
@@ -4341,7 +4613,12 @@ Rscript R/03v_mi_year1_awardees.R --report      # 139 awards, ONE named hospital
 Rscript R/03w_mo_year1_awardees.R --fetch        # MO: archive 8 sources + SHA-256
 Rscript R/03w_mo_year1_awardees.R --validate    # MO assertions + all four controls, offline
 Rscript R/03w_mo_year1_awardees.R --build       # writes MO csv + hub anchors + disposition + xlsx
+Rscript R/03w_mo_year1_awardees.R --probe       # LIVE: has the ToRCH Care IFB awarded yet?
 Rscript R/03w_mo_year1_awardees.R --report      # 2 awards, $0 to hospitals, and the 27 NON-awards
+Rscript R/03x_nh_year1_awardees.R --fetch       # NH: archive FHC + CDFA + SHA-256
+Rscript R/03x_nh_year1_awardees.R --validate    # NH assertions + the positive control, offline
+Rscript R/03x_nh_year1_awardees.R --build       # writes NH csv + status + disposition
+Rscript R/03x_nh_year1_awardees.R --report      # 2 administrators, 0 subrecipients, 0 hospitals
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the

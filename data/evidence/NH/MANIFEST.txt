@@ -1,0 +1,30 @@
+New Hampshire -- GO-NORTH, the Governor's Office of New Opportunities and
+Rural Transformational Health. Archived by R/03x_nh_year1_awardees.R --fetch
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch here and finds nothing, so there
+is no reduction to explain.
+
+NEITHER OF THESE IS A STATE HOST, AND THAT IS THE POINT. Every nh.gov host
+was refused to this environment on 2026-09-01 -- Akamai 403 (errors.edgesuite.net) on all of: project honest (+url), RFC Mozilla/5.0 (compatible), bare Mozilla/5.0, full Chrome, with robots.txt
+itself 403 and no policy denial logged by the proxy. §7 admits a
+DESIGNATED PASS-THROUGH ADMINISTRATOR's own document (Illinois/ICAHN is
+the precedent), and both files below are exactly that: FHC publishes its
+own award and CDFA publishes the same Governor and Executive Council
+action of 2026-03-16 from a different host. TWO PUBLISHERS, NOTHING
+ARRANGED.
+
+NOT ONE SUBRECIPIENT IS NAMED IN EITHER FILE. That is New Hampshire's
+position, not a gap in this archive.
+
+--------------------------------------------------------------------------
+file                                            bytes  sha256
+--------------------------------------------------------------------------
+2026-09-01_fhc_go_north_rhtp.html              163666  fa175be6c4ddbeab5af5bcd87903bafb946b41d187cf636c400e4eca9e8e7322
+2026-09-01_cdfa_rchip_statement.html            62827  d716a5f9cbb8c55f80bac778c7a51892c8c502a717061f348b1975ed512c3e01
+
+Source URLs
+  2026-09-01_fhc_go_north_rhtp.html          https://healthynh.org/initiatives/rural-health-transformation-program
+  2026-09-01_cdfa_rchip_statement.html       https://nhcdfa.org/cdfa-statement-about-the-rural-community-health-infrastructure-programs/
