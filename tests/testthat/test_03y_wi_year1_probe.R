@@ -224,3 +224,115 @@ test_that("the archive verifies and the manifest does not list itself", {
                  info = parts[1])
   }
 })
+
+
+# -- the live probe (session 31) ---------------------------------------------
+# Offline throughout: these drive the probe's PARTS against the committed
+# archive and against synthesised bodies. The probe itself makes network calls
+# and is never invoked here.
+
+test_that("the probe watches the three sources that can answer the question", {
+  # And only those. DPI, DWD, WORH and WTCS are context and controls: they
+  # cannot change whether Wisconsin has awarded, and probing them weekly would
+  # spend requests on a question they do not hold.
+  expect_setequal(WI_PROBE_KEYS, c("dhs_rhtp", "dhs_solicit", "dhs_deck_0723"))
+  expect_true(all(WI_PROBE_KEYS %in% WI_SOURCES$key))
+  expect_equal(unname(vapply(WI_PROBE_KEYS, wi_probe_kind, character(1))),
+               c("html", "html", "pdf"))
+})
+
+test_that("the content digest ignores what the Akamai beacon rotates", {
+  # WHY THIS IS A CONTENT DIGEST AND NOT A FILE DIGEST, DRIVEN RATHER THAN
+  # ASSERTED. www.dhs.wisconsin.gov injects a Boomerang RUM beacon carrying a
+  # per-request nonce into every HTML response -- ak.rid, ak.t, a fresh ak.ak
+  # signature, an edge hostname, the client port. Two fetches two seconds apart
+  # are 169,310 and 169,311 bytes and differ on eighteen lines, all inside that
+  # one <script>.
+  #
+  # This is the THIRD mechanism for one failure and they are three different
+  # things: Nevada rotates a widget in the page's CONTENT, Missouri an
+  # Incapsula cache-buster in a script SRC, Wisconsin a beacon in a script
+  # BODY. A file digest is not a change detector on a modern state host.
+  held <- readBin(wi_path("dhs_rhtp"), "raw", file.size(wi_path("dhs_rhtp")))
+  base <- wi_content_digest(held, "html")
+
+  beacon <- function(rid, t, port) {
+    paste0('<script>!function(){var i={"ak.rid":"', rid, '","ak.t":"', t,
+           '","ak.cport":', port, ',"ak.ak":"', rid, t, '=="};}();</script>')
+  }
+  a <- charToRaw(paste0(rawToChar(held), beacon("16129e", "1788284422", 32768)))
+  b <- charToRaw(paste0(rawToChar(held), beacon("165fc5", "1788284424", 32769)))
+
+  # The file digests differ -- the failure the probe has to survive ...
+  expect_false(identical(digest::digest(a, algo = "sha256"),
+                         digest::digest(b, algo = "sha256")))
+  # ... and the content digests do not.
+  expect_equal(wi_content_digest(a, "html")$sha, wi_content_digest(b, "html")$sha)
+  expect_equal(wi_content_digest(a, "html")$sha, base$sha)
+})
+
+test_that("the probe and the assertions read the SAME reduction", {
+  # Missouri's rule (session 29): a probe that reduces differently from the
+  # assertions it feeds drifts away from them silently, and the drift shows up
+  # as a tripwire that has quietly stopped firing. `wi_reduce_html()` is the
+  # one definition, and `wi_html_text()` is the key-based wrapper over it.
+  held <- readBin(wi_path("dhs_rhtp"), "raw", file.size(wi_path("dhs_rhtp")))
+  expect_identical(wi_reduce_html(held), wi_html_text("dhs_rhtp"))
+  expect_identical(wi_content_digest(held, "html")$text, wi_html_text("dhs_rhtp"))
+})
+
+test_that("the probe's tripwires run against supplied bodies, not the archive", {
+  # SESSION 25'S INDIANA LESSON AS CODE. --validate reads the committed copy
+  # and passes trivially, so it can only answer "had Wisconsin awarded on the
+  # day the archive was taken?". Each tripwire takes a body override so the
+  # probe can hand it what the server just served -- and each must FAIL on a
+  # body where Wisconsin has moved, or the probe is decoration.
+  prog <- wi_html_text("dhs_rhtp")
+  sol  <- wi_html_text("dhs_solicit")
+  deck <- wi_deck_text()
+
+  # Today's bytes: all three hold.
+  expect_true(wi_assert_no_award_roster(program_body = prog, solicit_body = sol))
+  expect_true(wi_assert_tech_eligibility_pre_identified(body = prog))
+  expect_equal(wi_assert_award_announcements_pending(deck = deck),
+               WI_AWARD_ANNOUNCEMENT_N)
+
+  # An opportunity that has awarded: one "application period now closed" marker
+  # replaced by a roster heading.
+  awarded <- sub(WI_CLOSED_MARKER, "awarded projects and recipients", prog,
+                 fixed = TRUE)
+  expect_error(wi_assert_no_award_roster(program_body = awarded,
+                                         solicit_body = sol), "markers")
+
+  # The solicitations index no longer calling itself unawarded.
+  expect_error(wi_assert_no_award_roster(
+    program_body = prog,
+    solicit_body = sub(WI_SOLICIT_UNAWARDED, "recent awards", sol, fixed = TRUE)),
+    "unawarded")
+
+  # The $61M pool losing the sentence that keeps it ELIGIBILITY and not receipt.
+  expect_error(wi_assert_tech_eligibility_pre_identified(
+    body = sub(WI_TECH_ELIGIBILITY, "All rural organizations may apply", prog,
+               fixed = TRUE)), "pre-identified")
+
+  # The September window moving.
+  expect_error(wi_assert_award_announcements_pending(
+    deck = gsub(WI_AWARD_ANNOUNCEMENT_MARKER, "Awards announced", deck,
+                fixed = TRUE)), "markers")
+})
+
+test_that("the 403 path is REPORTED, never asserted", {
+  # The one thing about Wisconsin this repository records as UNKNOWN rather
+  # than as a negative (§0.4), and its slug is "...fund-ALLOCATIONS" -- the url
+  # most likely to carry a Rural Technology Transformation roster. A per-path
+  # refusal on an otherwise fully readable host may simply be a page withdrawn
+  # and later restored, so a 200 here is a NEW SOURCE TO READ and must not be
+  # a build failure.
+  expect_true(is.function(wi_probe_unreadable))
+  body <- paste(deparse(wi_probe_unreadable), collapse = " ")
+  expect_true(grepl("NOW READABLE", body, fixed = TRUE))
+  expect_false(grepl("stop(", body, fixed = TRUE))
+  expect_equal(WI_UNREADABLE_STATUS, 403L)
+  expect_length(WI_UNREADABLE_AGENTS, 4L)
+})
+

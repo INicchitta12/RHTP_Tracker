@@ -349,14 +349,23 @@ wi_write_manifest <- function(entries) {
 
 # -- readers -----------------------------------------------------------------
 
-wi_html_text <- function(key) {
-  raw <- readBin(wi_path(key), "raw", file.size(wi_path(key)))
+#' The one HTML reduction, so the probe and the assertions read the same bytes
+#'
+#' Split out of `wi_html_text()` in session 31 so `wi_probe()` can reduce a body
+#' the server just served without writing it to disk first. Missouri's rule:
+#' a probe that reduces differently from the assertions it feeds can drift away
+#' from them silently, and the drift shows up as a tripwire that stops firing.
+wi_reduce_html <- function(raw) {
   txt <- rawToChar(raw[raw != as.raw(0)])
   Encoding(txt) <- "UTF-8"
   txt <- stringr::str_remove_all(txt, "(?s)<(script|style)[^>]*>.*?</\\1>")
   txt <- stringr::str_replace_all(txt, "<[^>]+>", " ")
   txt <- rhtp_wi_unescape(txt)
   stringr::str_squish(txt)
+}
+
+wi_html_text <- function(key) {
+  wi_reduce_html(readBin(wi_path(key), "raw", file.size(wi_path(key))))
 }
 
 rhtp_wi_unescape <- function(x) {
@@ -900,18 +909,222 @@ rhtp_wi_report <- function() {
 }
 
 
+# -- the live probe ----------------------------------------------------------
+
+# WHICH SOURCES ANSWER "HAS WISCONSIN AWARDED?" -- and only those. The DPI,
+# DWD, WORH and WTCS pages are context and controls; they cannot change the
+# answer, and probing them weekly would spend requests on a question they do
+# not hold. These three do:
+#   dhs_rhtp      the four "application period now closed" markers, the four
+#                 FUTURE-TENSE award sentences, and the $61M pool's
+#                 pre-identified eligible class
+#   dhs_solicit   the index calling itself "current solicitations (unawarded)"
+#   dhs_deck_0723 "Award announcements: September" -- the date itself
+WI_PROBE_KEYS <- c("dhs_rhtp", "dhs_solicit", "dhs_deck_0723")
+
+# WHY THIS IS A CONTENT DIGEST AND NOT A FILE DIGEST, MEASURED ON THIS HOST.
+# `www.dhs.wisconsin.gov` is fronted by Akamai and injects a Boomerang RUM
+# beacon into every HTML response, carrying a PER-REQUEST nonce: `ak.rid`,
+# `ak.t` (a unix timestamp), a fresh `ak.ak` signature, an edge hostname and
+# the client port. Two fetches of the RHTP page two seconds apart are 169,310
+# and 169,311 bytes and differ on eighteen wrapped lines, ALL of them inside
+# that one <script> -- so the whole-file SHA-256 moves on every fetch while the
+# page's words are untouched. Measured 2026-09-01, both probed HTML pages:
+# file digest DIFFERS, reduced-text digest IDENTICAL.
+#
+# THIS IS THE THIRD MECHANISM FOR ONE FAILURE, AND THEY ARE THREE DIFFERENT
+# THINGS. Nevada (session 26) rotates a state-symbol widget in the page's own
+# CONTENT; Missouri (session 29) rotates an Incapsula cache-buster in a script
+# SRC ATTRIBUTE, host-wide; Wisconsin rotates an Akamai RUM beacon in a script
+# BODY. A file digest is not a change detector on a modern state host, and the
+# reduction that fixes it has to be the same one the assertions read -- which
+# is why `wi_reduce_html()` exists rather than a second copy here.
+#
+# The council deck is a static PDF asset and its FILE digest IS stable across
+# fetches (measured the same day), so it is digested as text anyway rather than
+# specially: one rule, no exceptions to remember.
+wi_content_digest <- function(body, kind = c("html", "pdf")) {
+  kind <- match.arg(kind)
+  txt <- if (kind == "html") {
+    wi_reduce_html(body)
+  } else {
+    if (!exists("rhtp_pdf_text")) source(here::here("R", "utils_pdf_text.R"))
+    tmp <- tempfile(fileext = ".pdf")
+    on.exit(unlink(tmp), add = TRUE)
+    writeBin(body, tmp)
+    stringr::str_squish(paste(rhtp_pdf_text(tmp), collapse = " "))
+  }
+  list(text = txt, sha = digest::digest(txt, algo = "sha256",
+                                        serialize = FALSE))
+}
+
+wi_probe_kind <- function(key) {
+  if (grepl("\\.pdf$", WI_SOURCES$file[WI_SOURCES$key == key])) "pdf" else "html"
+}
+
+#' LIVE: has Wisconsin announced its September awards?
+#'
+#' Missouri's `--probe` shape (session 29), which is Alaska's (session 22)
+#' before it: fetch, compare, report, ARCHIVE NOTHING.
+#'
+#' WISCONSIN IS STALE BY APPOINTMENT AND THE APPOINTMENT IS THIS MONTH. It is
+#' Missouri's reason, sharper: DHS's own 2026-07-23 advisory-council deck
+#' prints "Award announcements: September" against three of the four closed
+#' opportunities, and `wi_year1_status.csv` -- eight channels, NO awardee, no
+#' `amount` column at all -- stops being true the day the first roster lands.
+#' Session 30 ran on 2026-09-01 and found nothing awarded; the window opened
+#' that day. No other INVESTIGATED_NO_LIST state in this repository has a
+#' window open now.
+#'
+#' THE ROW THAT MATTERS IS RURAL TECHNOLOGY TRANSFORMATION, UP TO $61 MILLION.
+#' Its eligible class is PRE-IDENTIFIED from the rural health facility list in
+#' Wisconsin's CMS application -- "Only organizations named in the application
+#' are eligible" -- which is closed and hospital-weighted and unpublished here.
+#' Until those organisations are named it is ELIGIBILITY, not receipt (§0.3);
+#' when they are named it is the largest single hospital-facing figure this
+#' probe can surface.
+#'
+#' THE ASSERTIONS RUN AGAINST THE LIVE BYTES, NOT THE ARCHIVE (session 25's
+#' Indiana lesson as code): `--validate` reads the committed copy and passes
+#' trivially, so it answers "had Wisconsin awarded on the day the archive was
+#' taken?" and nothing else. Every tripwire below already took a body override,
+#' so the probe hands each one what the server just served.
+#'
+#' Exits quietly with UNCHANGED when every content digest matches and every
+#' tripwire holds. A tripwire that FIRES IS THE SIGNAL, NOT A DEFECT: it means
+#' Wisconsin has published, and `R/03y` must then be REWRITTEN as an award
+#' extractor rather than patched -- a status table with no `amount` column
+#' cannot carry awards.
+wi_probe <- function(keys = WI_PROBE_KEYS) {
+  live <- list()
+  for (i in seq_along(keys)) {
+    key <- keys[[i]]
+    src <- WI_SOURCES[WI_SOURCES$key == key, ]
+    if (nrow(src) != 1L) stop("[WI] unknown probe key: ", key, call. = FALSE)
+    if (i > 1L) Sys.sleep(WI_HOST_THROTTLE_S)
+    body <- wi_get(src$url, paste0("probe:", src$file))
+    kind <- wi_probe_kind(key)
+    cur  <- wi_content_digest(body, kind)
+    held <- wi_content_digest(readBin(wi_path(key), "raw",
+                                      file.size(wi_path(key))), kind)
+    live[[key]] <- list(text = cur$text, sha = cur$sha, held_sha = held$sha,
+                        file = src$file, url = src$url,
+                        changed = !identical(cur$sha, held$sha))
+  }
+
+  moved <- vapply(live, function(x) x$changed, logical(1))
+
+  # The content questions, asked of the LIVE bytes. These run whether or not a
+  # digest moved: a digest is a change detector, not an award detector, and the
+  # two answer different questions. DHS could publish a roster on a page whose
+  # digest we are not watching, and it could equally re-flow this page without
+  # awarding anything.
+  findings <- character(0)
+  ask <- function(label, expr) {
+    res <- tryCatch({ expr; NULL }, error = function(e) conditionMessage(e))
+    if (!is.null(res)) findings <<- c(findings, paste0(label, ": ", res))
+  }
+  if (all(c("dhs_rhtp", "dhs_solicit") %in% names(live))) {
+    ask("AWARD ROSTER", wi_assert_no_award_roster(
+      program_body = live$dhs_rhtp$text, solicit_body = live$dhs_solicit$text))
+    ask("$61M ELIGIBLE CLASS", wi_assert_tech_eligibility_pre_identified(
+      body = live$dhs_rhtp$text))
+  }
+  if ("dhs_deck_0723" %in% names(live)) {
+    ask("SEPTEMBER WINDOW", wi_assert_award_announcements_pending(
+      deck = live$dhs_deck_0723$text))
+  }
+
+  # The per-path 403, re-tested every run because it costs one request and is
+  # the one thing about Wisconsin this repository records as UNKNOWN rather
+  # than as a negative (§0.4). Its slug is "...fund-ALLOCATIONS", which is the
+  # url most likely to carry a roster. A per-path refusal on an otherwise fully
+  # readable host may simply be a page withdrawn and later restored, so this
+  # reports its status rather than asserting it -- a 200 here is a NEW SOURCE
+  # to read, not a failure.
+  unreadable <- wi_probe_unreadable()
+
+  if (!any(moved) && !length(findings)) {
+    message("[WI] UNCHANGED -- all ", length(live), " probed sources are ",
+            "content-identical to the committed archive: all four DHS ",
+            "opportunities still say '", WI_CLOSED_MARKER, "', all four still ",
+            "state their award in the FUTURE TENSE, the solicitations index ",
+            "still calls itself unawarded, and the council deck still says '",
+            WI_AWARD_ANNOUNCEMENT_MARKER, "'.")
+    for (key in names(live)) {
+      message("[WI]   ", format(key, width = 14), " content-sha ",
+              substr(live[[key]]$sha, 1, 12))
+    }
+    message("[WI]   ", format("contracts/", width = 14), " HTTP ",
+            unreadable$status, " (", unreadable$note, ")")
+    return(invisible(list(changed = FALSE, findings = character(0),
+                          sources = live, unreadable = unreadable)))
+  }
+
+  message("[WI] CHANGED -- Wisconsin has moved since the committed archive.")
+  for (key in names(live)) {
+    message("[WI]   ", format(key, width = 14),
+            if (live[[key]]$changed) {
+              paste0("CONTENT MOVED  ", substr(live[[key]]$held_sha, 1, 12),
+                     " -> ", substr(live[[key]]$sha, 1, 12))
+            } else {
+              paste0("unchanged      ", substr(live[[key]]$sha, 1, 12))
+            })
+  }
+  if (length(findings)) {
+    message("[WI] ", strrep("-", 68))
+    message("[WI] A TRIPWIRE FIRED. THIS IS THE SIGNAL, NOT A DEFECT.")
+    for (f in findings) message("[WI]   ", f)
+    message("[WI] ", strrep("-", 68))
+  }
+  message("[WI] Re-run: --fetch --force (re-dating the affected WI_SOURCES ",
+          "files), then --validate, then --build, then COMMIT.")
+  message("[WI] IF AN OPPORTUNITY HAS AWARDED, R/03y MUST BE REWRITTEN AS AN ",
+          "AWARD EXTRACTOR, NOT PATCHED: wi_year1_status.csv has no `amount` ",
+          "column by design and an assertion refuses one, and ",
+          "wi_year1_awardees.csv is asserted ABSENT.")
+  message("[WI] Rural Technology Transformation (up to $61 million) is the ",
+          "row to read first: its eligible class is pre-identified from the ",
+          "rural health facility list in Wisconsin's CMS application, so its ",
+          "awardees will be disproportionately HOSPITALS.")
+  invisible(list(changed = any(moved), findings = findings, sources = live,
+                 unreadable = unreadable))
+}
+
+#' Re-test the one per-path 403, and report rather than assert
+wi_probe_unreadable <- function() {
+  code <- tryCatch({
+    resp <- httr::GET(WI_UNREADABLE_URL, httr::user_agent(WI_USER_AGENT),
+                      httr::config(followlocation = TRUE), httr::timeout(120))
+    httr::status_code(resp)
+  }, error = function(e) NA_integer_)
+  note <- if (identical(as.integer(code), WI_UNREADABLE_STATUS)) {
+    paste0("unchanged since ", WI_UNREADABLE_TESTED,
+           "; per-path refusal, UNKNOWN not absent (§0.4)")
+  } else if (identical(as.integer(code), 200L)) {
+    paste0("NOW READABLE -- this is the fund-ALLOCATIONS path and is the url ",
+           "most likely to carry a Rural Technology Transformation roster. ",
+           "READ IT.")
+  } else {
+    paste0("status changed from ", WI_UNREADABLE_STATUS, "; re-characterise it")
+  }
+  list(status = code, note = note, url = WI_UNREADABLE_URL)
+}
+
+
 # -- CLI ---------------------------------------------------------------------
 
 if (sys.nframe() == 0L) {
   args  <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
+  if ("--probe" %in% args)    wi_probe()
   if ("--fetch" %in% args)    wi_fetch(force = force)
   if ("--validate" %in% args) { rhtp_wi_assert(); message("[WI] all assertions pass.") }
   if ("--build" %in% args)    rhtp_wi_build()
   if ("--report" %in% args)   rhtp_wi_report()
-  if (!length(intersect(args, c("--fetch", "--validate", "--build",
+  if (!length(intersect(args, c("--probe", "--fetch", "--validate", "--build",
                                 "--report")))) {
     message("usage: Rscript R/03y_wi_year1_probe.R ",
-            "[--fetch [--force]] [--validate] [--build] [--report]")
+            "[--probe] [--fetch [--force]] [--validate] [--build] [--report]")
   }
 }

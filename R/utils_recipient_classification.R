@@ -526,11 +526,71 @@ rhtp_recipient_type_from_org_type <- function(org_type, delimiter = ";") {
 # is already fixed. They separate the three non-hospital flows from each other;
 # they can never turn a non-hospital recipient into a hospital one.
 #
+# MONEY-MOVEMENT markers: the source says DOLLARS move to hospitals -- they are
+# administered to them, subawarded to them, paid, reimbursed or distributed to
+# them. This is §10.2's whole test, stated once and shared by both branches
+# that depend on it (the generic pass-through branch below, and the hospital
+# trade association row further down). The two branches differ ONLY on §10.2's
+# second clause -- whether the award has been made -- and therefore on the code
+# they return; they must not differ on what counts as money moving.
+#
+# Matching never crosses a full stop (§13, session 13's rule): a pattern allowed
+# to span sentences joins "...awards to hospitals" in one sentence to a subject
+# in the next. The window between the money noun and the preposition is
+# deliberately TIGHT for the same reason -- see the note on
+# RHTP_PASS_THROUGH_MARKERS below for what a loose one costs.
+RHTP_MONEY_TO_HOSPITALS_MARKERS <- paste(
+  "administer(s|ed|ing)?[^.]{0,60}funds?[^.]{0,60}hospitals",
+  "(sub-?award(s|ed|ing)?|sub-?grant(s|ed|ing)?)[^.]{0,60}hospitals",
+  "(payments?|incentive payments?|grants?|funding|funds?)[^.]{0,20}(to|for)[^.]{0,40}hospitals",
+  "hospitals[^.]{0,60}reimburse",
+  "reimburs[a-z]*[^.]{0,60}hospitals",
+  "distribut(e|es|ed|ing)[^.]{0,60}hospitals",
+  sep = "|"
+)
+
+
 # PASS_THROUGH markers: the money is stated to reach hospitals the source does
 # not name. §0.3 and §10.2 both say do not impute -- Unclear.
+#
+# THIS WAS NOT A MONEY-MOVEMENT TEST UNTIL SESSION 31, AND THAT IS WHAT IT IS
+# FOR. It carried two positional patterns --
+#
+#     "at (four|five|...|\\d+) [a-z ]*hospitals"
+#     "to (rural )?(partner |member |participating )?hospitals"
+#
+# -- which match where a SERVICE lands, not where a DOLLAR goes, and the
+# session 30 eligibility sweep measured what that cost. The positive control is
+# the spec's own worked negative: Georgia's note on the Georgia Hospital
+# Association reads "GHA receives the grant and supplies obstetrical emergency
+# carts to hospitals. Equipment reaches hospitals, dollars do not" -- §10.2's
+# textbook IN_KIND_BENEFIT -- and the old marker fired on it, on `to hospitals`.
+# Meanwhile the Alaska Hospital & Healthcare Association's assessments "for
+# three ... Critical Access Hospitals" correctly fell through, so the old rule
+# separated the spec's two worked negatives BY THEIR PREPOSITION.
+#
+# Two committed rows reached PASS_THROUGH_UNRESOLVED through those patterns and
+# are IN_KIND_BENEFIT on their own sources' words: Alabama's Cahaba Medical Care
+# Foundation ($430,304, "establish rural obstetric training capacity at four
+# Alabama hospitals") and Kansas's Salina Regional Health Center ($932,310,
+# "providing ... infrastructure to rural hospitals"). In both the recipient
+# KEEPS the money and delivers a service. Both were `Unclear` and are now `No`;
+# neither is in either hospital bucket, so no hospital dollar moves either way.
+# What the correction buys is that PASS_THROUGH_UNRESOLVED -- the bucket a later
+# session revisits TO PROMOTE TO `Yes` once subrecipients are named -- no longer
+# holds two rows through which no money will ever pass.
+#
+# What remains, and why each is money movement rather than location:
+#   * the shared money-movement markers above;
+#   * `subaward` / `subrecipient` / `pass-through`, which name the MECHANISM by
+#     which money moves onward and are the state's own words for it;
+#   * `hospitals will (be able to) apply|receive`, session 18's clause,
+#     unchanged -- a hospital applying for or receiving the money is the money
+#     reaching the hospital, and it is what codes Georgia's Type 2 ambulances
+#     ("select rural hospitals will be eligible to apply for soon") as §0.3
+#     eligibility-not-receipt rather than as silence.
 RHTP_PASS_THROUGH_MARKERS <- paste(
-  "at (four|five|six|seven|eight|nine|ten|\\d+|several|multiple) [a-z ]*hospitals",
-  "to (rural )?(partner |member |participating )?hospitals",
+  RHTP_MONEY_TO_HOSPITALS_MARKERS,
   "sub-?award", "subrecipient", "pass-?through",
   "hospitals? will (be able to )?(apply|receive)",
   sep = "|"
@@ -574,15 +634,13 @@ RHTP_HOSPITAL_MENTION <- "\\bhospitals?\\b|\\bcritical access\\b"
 # the next. Undermatching leaves a row where it already is, which is the safe
 # direction for a rule whose only effect is to move dollars INTO the hospital
 # total.
-RHTP_ASSOCIATION_ADMINISTERED_MARKERS <- paste(
-  "administer(s|ed|ing)?[^.]{0,60}funds?[^.]{0,60}hospitals",
-  "(sub-?award(s|ed|ing)?|sub-?grant(s|ed|ing)?)[^.]{0,60}hospitals",
-  "(payments?|incentive payments?|grants?|funding|funds?)[^.]{0,20}(to|for)[^.]{0,40}hospitals",
-  "hospitals[^.]{0,60}reimburse",
-  "reimburs[a-z]*[^.]{0,60}hospitals",
-  "distribut(e|es|ed|ing)[^.]{0,60}hospitals",
-  sep = "|"
-)
+# Session 31 made this an alias rather than a second copy. The list above was
+# the money-movement test and the generic pass-through branch was not; the two
+# now share ONE definition, so a phrasing added for one branch can never be
+# missing from the other. The association row is still distinguished by what it
+# additionally requires -- §10.2's second clause, `award_made` -- and by the
+# code it returns, not by what it counts as money moving.
+RHTP_ASSOCIATION_ADMINISTERED_MARKERS <- RHTP_MONEY_TO_HOSPITALS_MARKERS
 
 
 #' Apply the §10.2 flow table

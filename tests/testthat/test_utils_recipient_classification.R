@@ -183,12 +183,28 @@ test_that("0.3a: the activity never decides, only the recipient", {
 })
 
 test_that("unnamed hospital subrecipients are Unclear and are never imputed", {
+  # §0.3 still holds, and this is what it now takes to reach it: the source has
+  # to say MONEY moves to hospitals it does not name, not merely that the work
+  # HAPPENS at them. The old fixture here was Alabama's Cahaba sentence
+  # ("training capacity AT FOUR ALABAMA HOSPITALS"), which is §10.2's
+  # IN_KIND_BENEFIT -- the recipient keeps the money and delivers the training
+  # -- and session 31 moved it. The case below is the real thing.
   out <- rhtp_classify_flow(
     "FQHC_OR_RHC",
-    "establish rural obstetric training capacity at four Alabama hospitals")
+    "subaward the funds to rural hospitals across the region, to be named later")
   expect_equal(out$flow_type, "PASS_THROUGH_UNRESOLVED")
   expect_equal(out$distributed_to_hospital, "Unclear")
   expect_equal(out$flow_flag, "ELIGIBILITY_NOT_RECEIPT")
+
+  # And the contrast that makes the distinction real, in one assertion: same
+  # recipient type, same hospitals, and the only difference is whether the
+  # sentence moves a dollar or describes a place.
+  at_them <- rhtp_classify_flow(
+    "FQHC_OR_RHC",
+    "establish rural obstetric training capacity at four Alabama hospitals")
+  expect_equal(at_them$flow_type, "IN_KIND_BENEFIT")
+  expect_equal(at_them$distributed_to_hospital, "No")
+  expect_equal(at_them$hospital_benefiting, "Yes")
 })
 
 test_that("hospitals mentioned by a non-hospital recipient are in-kind, not silence", {
@@ -297,6 +313,92 @@ test_that("it does not fire where the association keeps the money", {
   # the funded work is IN_KIND_BENEFIT, silence about hospitals is NON_HOSPITAL.
   expect_equal(unname(out$flow_type[1:3]), rep("IN_KIND_BENEFIT", 3))
   expect_equal(unname(out$flow_type[4]), "NON_HOSPITAL")
+})
+
+test_that("the pass-through marker is a MONEY-MOVEMENT test, not a location test", {
+  # SESSION 31, AND THE POSITIVE CONTROL IS THE SPEC'S OWN WORKED NEGATIVE.
+  # RHTP_PASS_THROUGH_MARKERS used to carry two POSITIONAL patterns --
+  # "at (four|...|\\d+) [a-z ]*hospitals" and "to (rural )?...hospitals" --
+  # which match where a SERVICE lands, not where a DOLLAR goes.
+  #
+  # Georgia's own committed note on the Georgia Hospital Association is the
+  # case: "GHA receives the grant and supplies obstetrical emergency carts TO
+  # HOSPITALS. Equipment reaches hospitals, dollars do not." That is §10.2's
+  # textbook IN_KIND_BENEFIT -- the very row the association branch exists to
+  # exclude -- and the old marker fired on it. Meanwhile Alaska's AHHA
+  # assessments "FOR three ... Critical Access Hospitals" correctly fell
+  # through. The old rule separated the spec's two worked negatives BY THEIR
+  # PREPOSITION.
+  gha_note <- paste("GHA receives the grant and supplies obstetrical emergency",
+                    "carts to hospitals. Equipment reaches hospitals, dollars",
+                    "do not: §10.2 in-kind, hospital_benefiting = Yes.")
+  expect_false(stringr::str_detect(stringr::str_to_lower(gha_note),
+                                   RHTP_PASS_THROUGH_MARKERS))
+  out <- rhtp_classify_flow("HOSPITAL_AFFILIATED_ENTITY", gha_note)
+  expect_equal(out$flow_type, "IN_KIND_BENEFIT")
+  expect_equal(out$distributed_to_hospital, "No")
+
+  # The two committed rows the old marker mis-labelled, in their sources' own
+  # words. Both recipients KEEP the money and deliver a service.
+  keeps_the_money <- c(
+    al_cahaba = paste("A second grant totaling $430,304 will establish rural",
+                      "obstetric training capacity at four Alabama hospitals to",
+                      "strengthen the pipeline of physicians prepared to provide",
+                      "maternity care in four counties."),
+    ks_salina = paste("Five founding providers will form AstraHealth Kansas, a",
+                      "shared services organization providing back-office and",
+                      "clinical infrastructure to rural hospitals across Kansas.")
+  )
+  low <- stringr::str_to_lower(keeps_the_money)
+  expect_false(any(stringr::str_detect(low, RHTP_PASS_THROUGH_MARKERS)))
+  moved <- rhtp_classify_flow(rep("NONPROFIT_CBO", 2), keeps_the_money)
+  expect_equal(unname(moved$flow_type), rep("IN_KIND_BENEFIT", 2))
+  expect_equal(unname(moved$distributed_to_hospital), rep("No", 2))
+
+  # AND IT STILL FIRES WHERE MONEY ACTUALLY MOVES. These are §10.2's own two
+  # worked POSITIVES plus the structural mechanisms, and a marker that stopped
+  # catching them would be a deflation, not a tightening.
+  money_moves <- c(
+    icahn    = paste("ICAHN will administer the funds to Critical Access",
+                     "Hospitals and other eligible non-urban Illinois hospitals."),
+    oha_chw  = paste("Implementation will be conducted by hospitals reimbursed",
+                     "for CHW hiring, training, and monitoring."),
+    subaward = "The intermediary will subaward to rural hospitals in the region.",
+    apply    = paste("Type 2 ambulances which select rural hospitals will be",
+                     "eligible to apply for soon.")
+  )
+  expect_true(all(stringr::str_detect(
+    stringr::str_to_lower(money_moves[c("icahn", "oha_chw", "subaward")]),
+    RHTP_PASS_THROUGH_MARKERS)))
+  # Session 18's clause, unchanged: hospitals applying for or receiving the
+  # money IS the money reaching the hospital, and it is what keeps Georgia's
+  # Type 2 ambulances coded §0.3 eligibility-not-receipt rather than silence.
+  expect_true(stringr::str_detect(
+    stringr::str_to_lower("Select rural hospitals will be able to apply for these funds."),
+    RHTP_PASS_THROUGH_MARKERS))
+})
+
+test_that("both branches share ONE money-movement definition", {
+  # The generic pass-through branch and §10.2's association branch used to
+  # disagree about what counts as money moving -- the association row was a
+  # money test and the generic one was not. They now read the same definition,
+  # so a phrasing added for one can never be missing from the other. What
+  # still separates them is §10.2's SECOND clause (award_made) and the code
+  # each returns, which is the distinction the spec actually draws.
+  expect_identical(RHTP_ASSOCIATION_ADMINISTERED_MARKERS,
+                   RHTP_MONEY_TO_HOSPITALS_MARKERS)
+  expect_true(grepl(RHTP_MONEY_TO_HOSPITALS_MARKERS, RHTP_PASS_THROUGH_MARKERS,
+                    fixed = TRUE))
+
+  # Same sentence, both settings: only `award_made` moves it, and only it can
+  # put dollars INTO a hospital bucket.
+  s <- "ICAHN will administer the funds to eligible non-urban Illinois hospitals."
+  expect_equal(rhtp_classify_flow("NONPROFIT_CBO", s, award_made = TRUE)$flow_type,
+               "PASS_THROUGH_DESIGNATED")
+  expect_equal(rhtp_classify_flow("NONPROFIT_CBO", s, award_made = FALSE)$flow_type,
+               "PASS_THROUGH_UNRESOLVED")
+  expect_equal(rhtp_classify_flow("NONPROFIT_CBO", s, award_made = FALSE)$distributed_to_hospital,
+               "Unclear")
 })
 
 test_that("the administered-funds markers never match across a full stop", {

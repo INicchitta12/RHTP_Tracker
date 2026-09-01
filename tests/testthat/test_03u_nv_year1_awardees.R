@@ -458,3 +458,40 @@ test_that("validate passes end to end", {
   skip_if_no_archive()
   expect_silent(suppressMessages(nv_validate()))
 })
+
+
+# -- §7: the mandatory basis exists at all (session 31) ----------------------
+
+test_that("determination_basis is present and non-empty on every Nevada row", {
+  # FINDING 2 OF THE SESSION 30 ELIGIBILITY SWEEP, AND NEVADA'S HALF OF IT WAS
+  # NOT A WRONG SENTENCE BUT NO SENTENCE. §7 makes `determination_basis`
+  # mandatory; Nevada computed both halves -- `classifier_basis` from the
+  # recipient's name and `flow_basis` from §10.2 -- surfaced only the first as
+  # `recipient_type_source`, and dropped the flow half on the floor. The sweep
+  # found the two PASS_THROUGH rows with no stated basis, which is the field's
+  # whole purpose failing on exactly the rows a reviewer comes back to.
+  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  expect_true("determination_basis" %in% names(recs))
+  expect_equal(nrow(recs), 73L)
+  expect_false(any(is.na(recs$determination_basis) |
+                     trimws(recs$determination_basis) == ""))
+
+  # The two rows the sweep named, each now stating the reason it actually
+  # carries.
+  incline <- recs[grepl("^Incline Village", recs$awardee), ]
+  expect_equal(nrow(incline), 1L)
+  expect_equal(incline$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_true(grepl("hospital-affiliated", incline$determination_basis))
+  expect_true(grepl("PASS_THROUGH_UNRESOLVED", incline$determination_basis,
+                    fixed = TRUE))
+
+  unnamed <- recs[recs$awardee == "Recipients not named by NVHA", ]
+  expect_equal(nrow(unnamed), 1L)
+  expect_true(grepl("names no recipient", unnamed$determination_basis))
+
+  # Nothing was re-coded: both sentences already existed and described the
+  # codings the file already carried.
+  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 20L)
+  expect_true(all(is.na(recs$amount)))
+})
+

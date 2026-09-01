@@ -161,13 +161,45 @@ test_that("60 hospital award actions hold $66,133,019", {
   expect_equal(sum(yes$amount), 66133019)
 })
 
-test_that("the one Unclear row is unnamed hospital subrecipients, not imputed", {
-  # "rural obstetric training capacity at four Alabama hospitals" -- the release
-  # names no hospital, so §0.3 says this is not receipt.
-  unclear <- records[records$distributed_to_hospital == "Unclear", ]
-  expect_equal(nrow(unclear), 1L)
-  expect_equal(unclear$flow_type, "PASS_THROUGH_UNRESOLVED")
-  expect_equal(unclear$flag_reason, "ELIGIBILITY_NOT_RECEIPT")
+test_that("Cahaba's obstetric training row is IN_KIND_BENEFIT, not a pass-through", {
+  # SESSION 31 MOVED THIS ROW, AND IT IS THE MARKER FIX, NOT AN ALABAMA FIX.
+  # The release says the $430,304 grant "will establish rural obstetric
+  # training capacity AT FOUR ALABAMA HOSPITALS". Cahaba -- a federally
+  # qualified health center -- keeps the money and delivers the training; no
+  # dollar passes through it to a hospital. The old
+  # RHTP_PASS_THROUGH_MARKERS matched the positional phrase "at four ...
+  # hospitals" and coded it PASS_THROUGH_UNRESOLVED + Unclear, which is
+  # \u00a710.2's IN_KIND_BENEFIT described as its opposite: it put the row in the
+  # bucket a later session revisits TO PROMOTE TO `Yes`, and asserted in its
+  # own determination_basis that "funds reach hospitals it does not name" --
+  # which the source does not say.
+  #
+  # Alabama now has NO Unclear row at all, and no hospital dollar moved:
+  # Unclear and No are both outside every bucket of
+  # rhtp_hospital_dollar_partition().
+  expect_equal(nrow(records[records$distributed_to_hospital == "Unclear", ]), 0L)
+
+  cahaba <- records[records$awardee == "Cahaba Medical Care Foundation" &
+                      records$amount == 430304, ]
+  expect_equal(nrow(cahaba), 1L)
+  expect_equal(cahaba$flow_type, "IN_KIND_BENEFIT")
+  expect_equal(cahaba$distributed_to_hospital, "No")
+  # \u00a710.2's own definition of the code: No, but the hospitals are visible.
+  expect_equal(cahaba$hospital_benefiting, "Yes")
+  expect_true(is.na(cahaba$flag_reason) ||
+                !grepl("ELIGIBILITY_NOT_RECEIPT", cahaba$flag_reason))
+  # And the row's stated reason now matches the row's coding (\u00a77).
+  expect_true(grepl("IN_KIND_BENEFIT", cahaba$determination_basis, fixed = TRUE))
+  expect_false(grepl("funds reach hospitals it does not name",
+                     cahaba$determination_basis, fixed = TRUE))
+})
+
+test_that("the hospital total is untouched by that move", {
+  # The whole point: the marker change is worth $0. 60 rows, $66,133,019,
+  # before and after -- the figures the block above already asserts.
+  yes <- records[records$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(yes), 60L)
+  expect_equal(sum(yes$amount), 66133019)
 })
 
 test_that("the truncated recipient name is kept as the release published it", {

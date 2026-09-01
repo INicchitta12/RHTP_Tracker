@@ -175,12 +175,24 @@ KS_STATED <- list(
   initiative_2_yr1 = "97,263,092.46",
   initiative_1_yr1 = "25,291,240.16",
   # THE FLOOR AND THE UNCERTAINTY. 21 rows classify as named hospitals on the
-  # recipient's own name; 22 more are named recipients whose ORGANISATIONAL
+  # recipient's own name; 23 more are named recipients whose ORGANISATIONAL
   # FORM KDHE nowhere states, and they carry more money than the confirmed
   # figure does. See KS_FORM_NOT_STATED below.
+  #
+  # SESSION 31 MOVED THIS 22 -> 23 AND $39,249,763 -> $40,182,073, AND NOT ONE
+  # HOSPITAL DOLLAR MOVED WITH IT. The 23rd row is Salina Regional Health
+  # Center ($932,310). Tightening RHTP_PASS_THROUGH_MARKERS to money-movement
+  # language re-coded it IN_KIND_BENEFIT (KDHE says AstraHealth Kansas provides
+  # "infrastructure to rural hospitals" -- a service, not a transfer), which
+  # frees its single flag slot from ELIGIBILITY_NOT_RECEIPT and lets
+  # RECIPIENT_TYPE_INFERRED -- the question KDHE's silence about its form
+  # actually raises -- surface. The named-hospital floor is unchanged at 21
+  # rows / $35,721,277; the row was `No` for hospital dollars before and after.
+  # It is a DISCLOSURE that grew: a row whose name reads like a hospital was
+  # previously absent from the queue that exists to ask exactly that.
   named_hospital_floor = 35721277,
-  form_not_stated_n     = 22L,
-  form_not_stated_total = 39249763
+  form_not_stated_n     = 23L,
+  form_not_stated_total = 40182073
 )
 
 # WHY KANSAS'S HOSPITAL FIGURE IS A FLOOR, STATED WHERE IT CANNOT BE MISSED.
@@ -189,18 +201,19 @@ KS_STATED <- list(
 # and no "critical access hospital" label except inside a few project
 # narratives, where it describes the project rather than the awardee. So
 # `rhtp_classify_recipient_type()` falls back to §8's standing answer,
-# NONPROFIT_CBO + LOW + RECIPIENT_TYPE_INFERRED, for 22 of the 46 rows.
+# NONPROFIT_CBO + LOW + RECIPIENT_TYPE_INFERRED, for 23 of the 46 rows.
 #
-# NOTHING IS OVERRIDDEN HERE, AND THAT IS DELIBERATE. Several of the 22 read
+# NOTHING IS OVERRIDDEN HERE, AND THAT IS DELIBERATE. Several of the 23 read
 # as hospitals to anyone who knows Kansas -- Stormont Vail Health, AdventHealth
-# Ottawa, Labette Health, South Central Kansas Health ("Kansas' first REH", in
-# KDHE's own words about the project) -- and several plainly are not: Special
+# Ottawa, Labette Health, Salina Regional Health Center, South Central Kansas
+# Health ("Kansas' first REH", in KDHE's own words about the project) -- and
+# several plainly are not: Special
 # Olympics Kansas, InterHab, the Kansas Council on Developmental Disabilities.
 # Promoting the first group on this pipeline's own knowledge would be exactly
 # the §0.4 failure the project exists to avoid, and it would inflate the one
 # number AHA will be asked to defend. The resolution is the CCN match (open
 # blocker 5, the AHA Annual Survey / CMS Provider of Services extracts), and
-# until it lands the 22 sit in data/reference/classification_review_queue.csv
+# until it lands the 23 sit in data/reference/classification_review_queue.csv
 # with their dollars stated.
 KS_FORM_NOT_STATED_QUESTION <- "KS_RECIPIENT_FORM_NOT_STATED"
 
