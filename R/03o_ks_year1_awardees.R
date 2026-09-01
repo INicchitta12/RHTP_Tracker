@@ -25,17 +25,47 @@
 # before anything was extracted here, two things were established from Kansas's
 # own documents:
 #
-#   1. WHAT FUNDS IT. The award document's own footer states it is "supported
-#      by the Centers for Medicare & Medicaid Services (CMS) ... as part of a
-#      financial assistance award totaling $221,890,007.82 with 100 percent
-#      funded by CMS/HHS". That is RHTP money, said by the awarding agency on
-#      the award document. `ks_assert_rhtp_funded()` requires it on every run.
+#   1. WHAT FUNDS IT -- REWIRED IN SESSION 28, AND THIS IS THE IMPORTANT PART
+#      OF THIS FILE'S HISTORY. Until then the only thing tying these 46 awards
+#      to RHTP in code was the award PDF's footer, "This PRESENTATION is
+#      supported by the Centers for Medicare & Medicaid Services (CMS) ... as
+#      part of a financial assistance award totaling $221,890,007.82". Session
+#      27's audit found that Kansas was the one state where that was
+#      load-bearing -- 98.7% of its dollars -- and that the footer is the WEAK
+#      grammatical form: its subject is the slide deck, not the grants. The
+#      award document contains ZERO occurrences of "RHTP" and zero of "Rural
+#      Health Transformation". Nevada is where that stopped being pedantic
+#      (session 26): the same footer sat on a deck describing two STATE-funded
+#      programmes worth $15.8M and $60M.
+#
+#      Provenance now runs through `ks_assert_rhtp_provenance()`, on two
+#      INDEPENDENT, PROGRAMME-SCOPED sources that were already committed here
+#      and simply unread:
+#
+#        - KDHE's PROGRAMME PAGE, whose sentences take the GRANTS as their
+#          subject: the RPGP and REH/CAP recipients are awarded "through the
+#          Kansas Rural Health Transformation Program (RHTP)", and CHW+AFIM is
+#          "an initiative within" it. The page also states each pool's scale
+#          independently of the award PDFs -- 39 organizations / $79.1 million,
+#          and seven / $1,007,152.
+#        - The KANSAS RHT PLAN YEAR 1 BUDGET NARRATIVE, registered in
+#          KS_SOURCES as `budget_rev2` since session 20 and never opened. It
+#          places all three awarded pools inside the plan's own initiative
+#          structure and carries NO CMS footer at all, because the document is
+#          the plan.
+#
+#      The footer still runs and now corroborates the AMOUNT only. NO KANSAS
+#      DOLLAR MOVED when this changed, and none was ever in doubt.
 #   2. WHEN. Session 19's cheapest version of the test is release date against
-#      the state's CMS Notice of Award, 2025-12-29. KDHE's own RPGP / REH CAP
-#      applicant webinar is dated 6 March 2026 and the awards followed it; the
-#      CHW+AFIM RFA slides are March 2026 too. Both solicitations opened after
-#      Kansas had the money, which is the opposite of Texas's HHS0015180
-#      (released 2025-03-24, closed 2025-04-24).
+#      the state's CMS Notice of Award, 2025-12-29 -- and Kansas was the only
+#      one of the five footer states with no assertion for it. There is one
+#      now, and it reads from KDHE's own Year One Timeline ("Dec. 29, 2025 -
+#      Notice of Award") rather than from a typed constant, cross-checked
+#      against `cms_state_noa_dates.csv`. KDHE's RPGP / REH CAP applicant
+#      webinar is dated 6 March 2026 and the awards followed it; the CHW+AFIM
+#      RFA slides are March 2026 too. Both solicitations opened after Kansas
+#      had the money, which is the opposite of Texas's HHS0015180 (released
+#      2025-03-24, closed 2025-04-24).
 #
 # THE POSITIVE CONTROL, WHICH IS WHAT MAKES THE REST OF THE ANSWER MEAN
 # ANYTHING. Kansas is still running four more Year 1 programmes -- Emerging
@@ -65,12 +95,16 @@
 # an aggregator that de-duplicates on the recipient loses the second award, and
 # nothing about the output looks wrong.
 #
-# ONE FIGURE IS NOT RECONCILED, DELIBERATELY. KDHE's award document states the
-# CMS award as $221,890,007.82; `cms_fy2026_allotments.csv`, parsed from CMS's
-# own table, has Kansas at $221,898,008. The two differ by $8,000.18. Both are
-# quoted from their publishers and neither is adjusted (§8) -- it is on the
-# reconciliation sheet and it is asserted, so a future session meets it rather
-# than rediscovering it.
+# ONE FIGURE WAS NOT RECONCILED AND NOW LARGELY IS -- BY READING, NOT BY
+# ADJUSTING. Session 20 recorded that "two publishers disagree about Kansas's
+# award": KDHE's award document says $221,890,007.82 and CMS's own table says
+# $221,898,008, a gap of $8,000.18. Wiring the provenance above meant reading
+# KDHE's OTHER TWO publications for the first time, and both say
+# $221,898,007.82 -- CMS's figure to the cent. So KDHE and CMS agree; the
+# AWARD SLIDE DECK ALONE transposes 898 as 890. Nothing is corrected (§8): the
+# deck still says what it says, all three figures are on the reconciliation,
+# and the assertion now pins the deck's $8,000.18 AND the $0.18 everywhere
+# else. No award amount is affected in either reading.
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -120,8 +154,21 @@ KS_STATED <- list(
   chw_afim_total   = 1007152,
   # KDHE's own statement of the CMS award, on the award document's footer.
   cms_award_stated = 221890007.82,
-  # CMS's own table, parsed in session 5. The two disagree by $8,000.18.
+  # THE SAME FIGURE ON KDHE'S OTHER TWO PUBLICATIONS, both read for the first
+  # time in session 28 while wiring the provenance below. The programme page's
+  # footer and the budget narrative's Table 1 both say $221,898,007.82, which
+  # is CMS's own table to the cent once rounded. So KDHE and CMS DO NOT
+  # disagree: two of KDHE's three publications and CMS all agree, and the award
+  # slide deck alone carries a transposed digit (890 for 898). That is
+  # reported, not corrected -- the deck still says what it says (§8) and no
+  # award amount is affected either way.
+  kdhe_award_page      = 221898007.82,
+  kdhe_award_narrative = 221898007.82,
+  # CMS's own table, parsed in session 5.
   cms_allotment    = 221898008,
+  # Kansas's own Notice of Award date, published on KDHE's Year One Timeline
+  # and matching cms_state_noa_dates.csv exactly.
+  noa_date         = "2025-12-29",
   # Budget Narrative Revision 2, Table 7 and Table 3: the Year 1 pools the
   # awarded pools sit inside. REH CAP and RPGP are two of Initiative 2's six
   # programmes; CHW+AFIM is Programme 1 of Initiative 1.
@@ -156,6 +203,70 @@ KS_STATED <- list(
 # until it lands the 22 sit in data/reference/classification_review_queue.csv
 # with their dollars stated.
 KS_FORM_NOT_STATED_QUESTION <- "KS_RECIPIENT_FORM_NOT_STATED"
+
+# KANSAS'S PROVENANCE, AND WHY IT IS NOT THE FOOTER ANY MORE.
+#
+# Session 27 audited every state that used the CMS financial-assistance footer
+# as its §6.2 check and found the axis nobody had recorded: the footer's
+# grammatical SUBJECT. "This Rural Health Transformation Program is supported
+# by CMS" is a claim about the programme; "This PRESENTATION is supported by
+# CMS" is a claim about the paper, and Nevada is where the difference was
+# measured -- NVHA's workforce deck carries that footer on every page while
+# describing GME ("Source: State General Fund") and SHARP (an SB5
+# appropriation) beside one RHTP programme.
+#
+# KANSAS WAS THE ONE LOAD-BEARING CASE. Its REH CAP / RPGP award PDF opens
+# "This presentation is supported by", contains ZERO occurrences of "RHTP" and
+# zero of "Rural Health Transformation", and `ks_assert_rhtp_funded()` read
+# that string and nothing else -- for 39 of 46 rows, $79,013,347, 98.7% of
+# Kansas's dollars and 98.4% of its named-hospital floor.
+#
+# NO KANSAS DOLLAR WAS EVER IN DOUBT. Two independent, PROGRAMME-SCOPED
+# sources were already in the committed archive and simply unread, and they are
+# what the strings below assert:
+#
+#   1. THE PROGRAMME PAGE says the awards are RHTP with the grants as the
+#      sentence's subject -- "the recipients of the RPGP and REH/CAP grants
+#      through the Kansas Rural Health Transformation Program (RHTP)" and
+#      "CHW+AFIM, an initiative within the Rural Health Transformation Program
+#      (RHTP)" -- and states each pool's count and total independently of the
+#      award PDFs.
+#   2. THE YEAR 1 BUDGET NARRATIVE (registered as `budget_rev2` since session
+#      20, never opened) places all three pools inside the RHT Plan's own
+#      initiative structure. It carries no CMS footer at all; it does not need
+#      one, because the document IS the plan.
+#
+# The footer still runs, and now corroborates the AMOUNT only. A KDHE re-post
+# that dropped the deck's boilerplate can no longer hard-fail Kansas for no
+# reason -- and, the direction that matters more, a future state whose ONLY
+# evidence is a "this publication" footer does not pass the test Kansas passes.
+KS_PROVENANCE <- list(
+  page = c(
+    reh_cap_rpgp_programme = paste(
+      "grants through the Kansas Rural Health Transformation Program (RHTP)"),
+    reh_cap_rpgp_scale     = paste(
+      "$79.1 million is being awarded to 39 organizations"),
+    chw_afim_programme     = paste(
+      "an initiative within the Rural Health Transformation Program (RHTP)"),
+    chw_afim_scale         = paste(
+      "$1,007,152 was awarded to seven rural healthcare organizations"),
+    cms_award_total        = "$221,898,007.82"
+  ),
+  narrative = c(
+    plan_title      = "Kansas RHT Plan Year 1 Budget Narrative",
+    initiative_1_p1 = paste(
+      "Program 1: Accountable Food Is Medicine and Community Health Worker",
+      "(CHW) Deployment Program (A-FIM)"),
+    initiative_2_p1 = "Program 1: Regional Partnership Grant Program (RPGP)",
+    initiative_2_p2 = paste(
+      "REH Conversion/Transformative Capital Investment Grant Program"),
+    initiative_1_yr1 = "$25,291,240.16",
+    initiative_2_yr1 = "$97,263,092.46",
+    cms_award_total  = "$221,898,007.82"
+  ),
+  # KDHE's own Year One Timeline, which is where the date test now reads from.
+  noa_line = "Dec. 29, 2025 - Notice of Award"
+)
 
 # The two award links that must be on the programme page, and the shape a third
 # one would take. See the header: this is the positive control.
@@ -498,34 +609,200 @@ ks_parse_chw_afim <- function(text = NULL) {
   )
 }
 
-#' KDHE's own statement of what funds these awards -- the Texas check
+#' The CMS financial-assistance footer on the award document -- CORROBORATING
 #'
-#' The award document's footer names CMS/HHS and the award total. If it ever
-#' stops doing so, this file has lost the evidence that Kansas's awards are
-#' RHTP at all, and that is a hard stop rather than a warning.
-ks_assert_rhtp_funded <- function(text = NULL) {
+#' KEPT, AND DELIBERATELY NO LONGER THE PROVENANCE. Session 27's audit found
+#' this footer load-bearing for 98.7% of Kansas's dollars, and found it to be
+#' the WEAK grammatical form: its subject is "This presentation", so it is a
+#' claim about the slide deck and not about the grants printed on it. Nevada is
+#' where that distinction stopped being pedantic -- NVHA's workforce deck
+#' carries the identical footer while describing two STATE-funded programmes
+#' worth $15.8M and $60M beside one RHTP one (session 26).
+#'
+#' The award document also contains ZERO occurrences of "RHTP" and zero of
+#' "Rural Health Transformation": read alone it never names the programme its
+#' awards belong to. So provenance now runs through
+#' `ks_assert_rhtp_provenance()`, which requires two independent
+#' PROGRAMME-SCOPED sources, and this function's job shrinks to corroborating
+#' the AMOUNT and reporting what the footer says. A KDHE re-post that dropped
+#' the deck's footer no longer hard-fails Kansas for no reason; it returns NA
+#' and the caller says so.
+ks_assert_rhtp_funded <- function(text = NULL, strict = TRUE) {
   if (is.null(text)) text <- ks_document_text("reh_cap_rpgp")
   one <- ks_join_lines(text)
 
+  missing <- character(0)
   if (!stringr::str_detect(
     one, "Centers for Medicare & Medicaid Services \\(CMS\\)")) {
-    stop("[KS] the award document no longer names CMS as the funder.",
-         call. = FALSE)
+    missing <- c(missing, "the CMS funder line")
   }
   if (!stringr::str_detect(one, "100 percent funded by CMS/HHS")) {
-    stop("[KS] the award document no longer states 100 percent CMS/HHS ",
-         "funding. Without it these awards are not established as RHTP ",
-         "money -- which is exactly what Texas's HHSC awards looked like ",
-         "until somebody read the funding source (§0.1, session 19).",
-         call. = FALSE)
+    missing <- c(missing, "the 100 percent CMS/HHS line")
   }
   stated <- stringr::str_match(
     one, "financial assistance award totaling \\$([0-9][0-9,]*\\.[0-9]{2})")[, 2]
-  if (is.na(stated)) {
-    stop("[KS] the award document no longer states the CMS award total.",
-         call. = FALSE)
+  if (is.na(stated)) missing <- c(missing, "the stated award total")
+
+  if (length(missing) > 0) {
+    msg <- paste0(
+      "[KS] the award document no longer carries ",
+      paste(missing, collapse = ", "), ". This is the CORROBORATING check, ",
+      "not the provenance one: Kansas's RHTP status rests on ",
+      "ks_assert_program_page_provenance() and ",
+      "ks_assert_narrative_places_pools(), which are programme-scoped and ",
+      "unaffected. Re-read the document before changing anything."
+    )
+    if (strict) stop(msg, call. = FALSE) else message(msg)
+    return(invisible(NA_real_))
   }
   invisible(as.numeric(gsub(",", "", stated)))
+}
+
+
+# -- provenance: the two INDEPENDENT, PROGRAMME-SCOPED sources ---------------
+
+#' The programme page as running prose, not as a link list
+#'
+#' `ks_program_page_text()` returns anchors, which is what the positive control
+#' needs. The provenance sentences are in the body copy, so they need the text.
+ks_program_page_prose <- function() {
+  path <- ks_archive_path("program_page")
+  if (!file.exists(path)) {
+    stop("[KS] the programme page is not archived. Run --fetch.", call. = FALSE)
+  }
+  doc <- xml2::read_html(path)
+  xml2::xml_remove(xml2::xml_find_all(doc, "//script | //style"))
+  stringr::str_squish(xml2::xml_text(doc))
+}
+
+#' SOURCE 1. KDHE's programme page says the awards are RHTP, in so many words
+#'
+#' The subject of each sentence below is the GRANTS. That is the whole
+#' difference from the footer: "This presentation is supported by CMS" is a
+#' claim about a PDF; "the recipients of the RPGP and REH/CAP grants THROUGH
+#' THE KANSAS RURAL HEALTH TRANSFORMATION PROGRAM (RHTP)" is a claim about the
+#' award actions this file carries.
+#'
+#' The page also publishes the two pools' COUNTS AND TOTALS independently of
+#' the award PDFs -- 39 organizations / $79.1 million, and seven organizations
+#' / $1,007,152 -- so a parse that drifted from the documents fails here as
+#' well as in the reconciliation.
+ks_assert_program_page_provenance <- function(prose = NULL) {
+  if (is.null(prose)) prose <- ks_program_page_prose()
+
+  for (nm in names(KS_PROVENANCE$page)) {
+    if (!stringr::str_detect(prose, stringr::fixed(KS_PROVENANCE$page[[nm]]))) {
+      stop(
+        "[KS] the programme page no longer carries '", nm, "':\n  ",
+        KS_PROVENANCE$page[[nm]], "\n",
+        "THIS IS KANSAS'S PROVENANCE, not a nicety. Without it the only ",
+        "thing tying 39 awards and $79,013,347 to RHTP is a footer whose ",
+        "subject is 'This presentation' (session 27's audit). Re-read the ",
+        "page; do not widen this assertion.",
+        call. = FALSE
+      )
+    }
+  }
+  invisible(TRUE)
+}
+
+#' SOURCE 2. The Kansas RHT Plan's own budget narrative places the three pools
+#'
+#' Registered as `budget_rev2` in `KS_SOURCES` since session 20 and never
+#' opened until now. It is programme-scoped by construction -- it is the SF-424A
+#' expenditure plan FOR the RHT Plan, its every page is headed "Kansas RHT Plan
+#' Year 1 Budget Narrative", and it carries no CMS footer at all -- and it puts
+#' each awarded pool inside the plan's own initiative structure:
+#'
+#'   Initiative 1, Programme 1  Accountable Food Is Medicine + CHW (A-FIM)
+#'   Initiative 2, Programme 1  Regional Partnership Grant Program (RPGP)
+#'   Initiative 2, Programme 2  REH Conversion/Transformative Capital (REH-CAP)
+#'
+#' It is INDEPENDENT of source 1: a different document, a different publisher
+#' surface, a different year (July 2026 vs the August award announcements), and
+#' written before the awards were made rather than after.
+#'
+#' THE AMOUNTS HERE ARE PLAN FIGURES AND ARE NOT ASSERTED AGAINST THE AWARDS.
+#' The plan budgets RPGP at $49,969,410.72 and REH-CAP at $31,279,891.30; KDHE
+#' awarded $49,915,410 and $29,097,937. A plan is not an award (§0.3), so what
+#' is asserted is the initiative-level Year 1 totals the plan states about
+#' itself -- nothing is reconciled across the two universes.
+ks_narrative_text <- function() {
+  path <- ks_archive_path("budget_rev2")
+  if (!file.exists(path)) {
+    stop("[KS] the Year 1 budget narrative is not archived. Run --fetch.",
+         call. = FALSE)
+  }
+  stringr::str_squish(paste(rhtp_pdf_text(path), collapse = " "))
+}
+
+ks_assert_narrative_places_pools <- function(prose = NULL) {
+  if (is.null(prose)) prose <- ks_narrative_text()
+
+  for (nm in names(KS_PROVENANCE$narrative)) {
+    if (!stringr::str_detect(
+      prose, stringr::fixed(KS_PROVENANCE$narrative[[nm]]))) {
+      stop(
+        "[KS] the Year 1 budget narrative no longer carries '", nm, "':\n  ",
+        KS_PROVENANCE$narrative[[nm]], "\n",
+        "That document is Kansas's SECOND independent, programme-scoped ",
+        "provenance source. Re-read it; do not widen this assertion.",
+        call. = FALSE
+      )
+    }
+  }
+  invisible(TRUE)
+}
+
+#' The date test, read from Kansas's own page rather than typed
+#'
+#' The audit noted Kansas was the only one of the five footer states with no
+#' `*_assert_after_noa()`: its 6 March 2026 webinar date lived in a comment.
+#' KDHE publishes its own Year One Timeline, whose first line is
+#' "Dec. 29, 2025 - Notice of Award" -- the state saying its own NOA date, and
+#' `cms_state_noa_dates.csv`'s anchor exactly. Both solicitations postdate it,
+#' which is the opposite of Texas's HHS0015180 (closed 2025-04-24, eight months
+#' before its state had the money).
+ks_assert_after_noa <- function(prose = NULL, links = NULL) {
+  if (is.null(prose)) prose <- ks_program_page_prose()
+  if (is.null(links)) links <- ks_program_page_text()
+
+  if (!stringr::str_detect(prose, stringr::fixed(KS_PROVENANCE$noa_line))) {
+    stop("[KS] the programme page no longer states its own Notice of Award ",
+         "date ('", KS_PROVENANCE$noa_line, "').", call. = FALSE)
+  }
+  noa <- rhtp_read_noa_dates()
+  anchor <- as.character(noa$noa_date[noa$state == "KS"])
+  if (!identical(anchor, KS_STATED$noa_date)) {
+    stop("[KS] cms_state_noa_dates.csv says ", anchor, " and this file ",
+         "expects ", KS_STATED$noa_date, ".", call. = FALSE)
+  }
+  # The RPGP / REH CAP applicant webinar, dated in KDHE's own filename.
+  if (!any(stringr::str_detect(links$href, "RPGP-REH-CAP-Webinar-March-6-2026"))) {
+    stop("[KS] the 6 March 2026 RPGP/REH CAP applicant webinar is no longer ",
+         "linked. It is what dates the solicitations after the NOA.",
+         call. = FALSE)
+  }
+  invisible(anchor)
+}
+
+#' Kansas's provenance, in the order the audit asks for it
+#'
+#' The two programme-scoped sources are the gate. The footer runs afterwards
+#' and CORROBORATES THE AMOUNT ONLY; it cannot on its own establish that these
+#' awards are RHTP, and after session 27 it is no longer asked to.
+ks_assert_rhtp_provenance <- function() {
+  ks_assert_program_page_provenance()
+  ks_assert_narrative_places_pools()
+  ks_assert_after_noa()
+
+  footer <- ks_assert_rhtp_funded(strict = FALSE)
+  list(
+    program_page      = TRUE,
+    budget_narrative  = TRUE,
+    after_noa         = TRUE,
+    footer_stated     = footer
+  )
 }
 
 
@@ -606,8 +883,16 @@ rhtp_ks_reconcile <- function(awards = NULL) {
     awards_n       = nrow(awards),
     awards_total   = sum(awards$amount),
     cms_award_stated = KS_STATED$cms_award_stated,
+    kdhe_award_page      = KS_STATED$kdhe_award_page,
+    kdhe_award_narrative = KS_STATED$kdhe_award_narrative,
     cms_allotment  = ks_allot,
-    publisher_gap  = ks_allot - KS_STATED$cms_award_stated,
+    # THE $8,000.18 IS THE AWARD DECK'S ALONE. Session 20 recorded it as "two
+    # publishers disagree about Kansas's award"; session 28 read KDHE's other
+    # two publications and both say $221,898,007.82, which is CMS's table to
+    # the cent. Kept as `deck_gap` -- named for the one document it belongs to
+    # -- and reported beside a gap of $0.18 against KDHE's other two.
+    deck_gap       = ks_allot - KS_STATED$cms_award_stated,
+    publisher_gap  = ks_allot - KS_STATED$kdhe_award_page,
     share_of_allotment = sum(awards$amount) / ks_allot
   )
 }
@@ -619,8 +904,11 @@ rhtp_ks_assert <- function(awards = NULL) {
   if (is.null(awards)) awards <- rhtp_ks_year1_awardees()
 
   # 1. The Texas check. Run first, because if it fails nothing below matters.
-  stated <- ks_assert_rhtp_funded()
-  stopifnot(identical(stated, KS_STATED$cms_award_stated))
+  #    Since session 28 this is TWO INDEPENDENT PROGRAMME-SCOPED SOURCES plus
+  #    the date test; the slide-deck footer corroborates the amount afterwards
+  #    and is no longer what establishes that these awards are RHTP.
+  prov <- ks_assert_rhtp_provenance()
+  stopifnot(identical(prov$footer_stated, KS_STATED$cms_award_stated))
 
   # 2. The positive control.
   ks_assert_award_index()
@@ -644,9 +932,16 @@ rhtp_ks_assert <- function(awards = NULL) {
   stopifnot(all(awards$amount > 0))
   stopifnot(all(awards$amount < rec$cms_allotment))
 
-  # 5. THE TWO PUBLISHERS DISAGREE, AND THAT IS PINNED RATHER THAN CLOSED.
-  #    KDHE says $221,890,007.82; CMS's own table says $221,898,008.
-  stopifnot(abs(rec$publisher_gap - 8000.18) < 0.005)
+  # 5. THE $8,000.18 BELONGS TO ONE DOCUMENT, NOT TO KDHE. Session 20 pinned
+  #    it as "two publishers disagree"; wiring the provenance meant reading
+  #    KDHE's other two publications, and the programme page's footer and the
+  #    budget narrative's Table 1 BOTH say $221,898,007.82 -- CMS's own table
+  #    to the cent. So the award slide deck is the outlier, by a transposed
+  #    digit, and both facts are pinned: the deck's gap and its absence
+  #    everywhere else. Nothing is corrected (§8).
+  stopifnot(abs(rec$deck_gap - 8000.18) < 0.005)
+  stopifnot(abs(rec$publisher_gap - 0.18) < 0.005)
+  stopifnot(identical(rec$kdhe_award_page, rec$kdhe_award_narrative))
 
   # 6. Greeley County Health Services holds TWO awards, one per pool. This is
   #    the row RCJ dropped, and a parser that de-duplicated on the recipient
@@ -832,12 +1127,36 @@ rhtp_ks_report <- function() {
           "  (", round(100 * rec$share_of_allotment, 1),
           "% of the CMS allotment)")
   message("")
-  message("CMS award, as KDHE states it : $",
+  message("PROVENANCE (§6.2, programme-scoped -- NOT the footer):")
+  message("  KDHE programme page : the RPGP/REH CAP grants are awarded ",
+          "'through the Kansas")
+  message("                        Rural Health Transformation Program ",
+          "(RHTP)'; CHW+AFIM is")
+  message("                        'an initiative within' it. 39 orgs / ",
+          "$79.1M and 7 / $1,007,152.")
+  message("  RHT Plan narrative  : all three pools sit inside the plan's own ",
+          "initiative")
+  message("                        structure (I1 P1, I2 P1, I2 P2). No CMS ",
+          "footer; none needed.")
+  message("  Date test           : KDHE's own timeline says 'Dec. 29, 2025 - ",
+          "Notice of Award';")
+  message("                        both solicitations postdate it.")
+  message("  Award-deck footer   : CORROBORATING ONLY. Its subject is ",
+          "'This presentation',")
+  message("                        and the document never names RHTP ",
+          "(session 27's audit).")
+  message("")
+  message("CMS award, on the award DECK      : $",
           format(rec$cms_award_stated, big.mark = ",", nsmall = 2,
+                 scientific = FALSE),
+          "   (out by $", format(rec$deck_gap, nsmall = 2), ")")
+  message("CMS award, on KDHE's page + plan  : $",
+          format(rec$kdhe_award_page, big.mark = ",", nsmall = 2,
                  scientific = FALSE))
-  message("CMS award, as CMS states it  : $",
+  message("CMS award, as CMS states it       : $",
           format(rec$cms_allotment, big.mark = ",", scientific = FALSE),
-          "   (gap $", format(rec$publisher_gap, nsmall = 2), ", reported)")
+          "   (gap $", format(rec$publisher_gap, nsmall = 2), ")")
+  message("  -> KDHE and CMS AGREE. The deck alone transposes 898 as 890.")
   message("")
   message("Hospital dollars (A FLOOR -- read the next line):")
   print(rhtp_hospital_dollar_partition(awards))
