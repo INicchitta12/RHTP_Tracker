@@ -277,11 +277,17 @@ test_that("the sweep catches 82 rows in 7 states, and the arithmetic closes", {
   # disposed of by hand in nv_rcj_candidate_disposition.csv. That gap is
   # session 26's §6.2 lesson: the CMS footer covers the PUBLICATION, not every
   # programme described in it.
-  expect_equal(sum(swept$caught), 82)
-  expect_equal(sum(by_state$caught_total > 0), 7)
-  expect_equal(sum(by_state$caught_total), 82)
+  #
+  # SESSION 27 ADDED MICHIGAN: 82 rows in 7 states -> 90 in 8. All eight are
+  # MDHHS's youth substance-use prevention grants, which the release's own
+  # sub-headline calls "New opioid settlement-funded grants". Unlike Nevada's,
+  # the registry reaches ALL of them -- RCJ carries the release HEADLINE as its
+  # source-document title and the first alternative matches it.
+  expect_equal(sum(swept$caught), 90)
+  expect_equal(sum(by_state$caught_total > 0), 8)
+  expect_equal(sum(by_state$caught_total), 90)
   expect_setequal(by_state$state[by_state$caught_total > 0],
-                  c("TX", "NV", "NH", "AZ", "RI", "MS", "IL"))
+                  c("TX", "NV", "MI", "NH", "AZ", "RI", "MS", "IL"))
 })
 
 test_that("Nevada's caught rows are the nine GME programmes, and no Nevada RHTP row", {

@@ -265,8 +265,19 @@ NE_STATED <- list(
   # §10.2, on DHHS's own sentence, whatever NHVN's own corporate form turns out
   # to be. Folding its $18,156,856.12 into the "unresolved" figure would treble
   # the stated uncertainty by counting money the source has already placed.
-  form_not_stated_n     = 30L,
-  form_not_stated_total = 9411695.59,
+  #
+  # SESSION 27 MOVED ONE ROW OUT OF THIS FIGURE, and it moved $0 of hospital
+  # money. "Southeast District Health Department" ($195,746.90) was carrying
+  # §8's fallback and asking a reviewer whether it is a hospital, when its own
+  # NAME states it is a local public health body. Michigan awards ELEVEN
+  # multi-county health departments and exposed that the shared classifier's
+  # county rule reached none of them, so the rule was widened to district and
+  # regional health departments; Nebraska is the only other committed state
+  # with such a recipient. The row was already `distributed_to_hospital = No`
+  # and still is, so the named-hospital floor and every published Nebraska
+  # figure are unchanged -- what shrinks is a false uncertainty.
+  form_not_stated_n     = 29L,
+  form_not_stated_total = 9215948.66,
   named_hospital_rows   = 41L,
   named_hospital_floor  = 6990996.01,
   pool_named_hospitals  = 18156856.12

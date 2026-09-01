@@ -34,6 +34,14 @@ STATE_FILES <- c(
   # combination no other state file contains and which the test below existed
   # in a form that would have quietly mis-stated.
   IL = "data/reference/il_year1_awardees.csv",
+  # Michigan is the only state file whose roster its own publisher calls
+  # COMPLETE -- MDHHS "maintains a dedicated webpage featuring all RHTP
+  # Subrecipients" -- and the only one where 139 priced awards yield ONE named
+  # hospital. It is in this test because that combination is new: a full,
+  # amounts-on-every-row roster whose hospital figure is $76,924 and whose
+  # largest recipient is the state HOSPITAL ASSOCIATION at $8,625,000, sitting
+  # in neither bucket of the partition.
+  MI = "data/reference/mi_year1_awardees.csv",
   # Oregon is the widest state file in the project: 278 award actions across
   # SEVEN pools published in FOUR documents, at three different levels of
   # certainty. It is in this test for the reason the test exists -- a state that
@@ -122,8 +130,8 @@ test_that("the fifteen files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "NE", "NV",
-                 "OK", "OR", "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "MI", "NE",
+                 "NV", "OK", "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {
