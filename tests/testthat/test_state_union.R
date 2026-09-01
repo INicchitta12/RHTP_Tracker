@@ -108,7 +108,14 @@ STATE_FILES <- c(
   # community-based organizations", i.e. hospitals AMONG OTHERS, which is §0.3
   # exactly. Same shape, same tier, opposite codings, and the eligible class is
   # the whole reason.
-  NH = "data/reference/nh_year1_awardees.csv"
+  NH = "data/reference/nh_year1_awardees.csv",
+
+  # IOWA IS NEVADA'S SHAPE AND THE LARGEST INSTANCE OF IT. Eleven Notices of
+  # Intent to Award, ten of them operative, 264 award actions, every recipient
+  # NAMED and NOT ONE PRICED -- so it contributes 152 named-hospital award
+  # ACTIONS and $0 of named-hospital dollars, and both are true at once. Read
+  # the row count: down the dollar column alone Iowa is invisible.
+  IA = "data/reference/ia_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -136,13 +143,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all eighteen files carry the leading 19 columns, in the same order", {
+test_that("all nineteen files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the eighteen files union without a coercion failure", {
+test_that("the nineteen files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -150,8 +157,8 @@ test_that("the eighteen files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IL", "IN", "KS", "MD", "MI", "MO",
-                 "NE", "NH", "NV", "OK", "OR", "PA", "SD"))
+               c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS", "MD", "MI",
+                 "MO", "NE", "NH", "NV", "OK", "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

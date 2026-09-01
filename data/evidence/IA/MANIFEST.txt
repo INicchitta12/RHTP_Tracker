@@ -1,0 +1,73 @@
+Iowa -- RHTP Year 1 (HEALTHY HOMETOWNS): the ELEVEN Notices of Intent to
+Award that hhs.iowa.gov's programme page links under "Where to Find
+Funding Awardees", the programme page itself, and TWO further publishers
+of the same claim -- the Governor's 2026-01-30 release and Iowa HHS's
+2026-06-18 release.
+Archived by R/03z_ia_year1_awardees.R --fetch
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below. The
+credential guard runs on every fetch here and finds nothing, so there is
+no reduction to explain and the documents are whole.
+
+NOT ONE NOTICE CARRIES A PER-RECIPIENT AMOUNT. Each holds exactly ONE
+dollar figure and it is in the CMS financial-assistance footer. That
+absence is the finding, not a fetch failure -- Nevada's shape.
+
+THE FOOTER'S AMOUNT IS NOT ONE TIER, AND THE ELEVEN MUST NEVER BE SUMMED.
+The seven Jan/Feb notices carry the RFP's own POOL ($50,000,000 Centers of
+Excellence, $66,002,161.80, $15,128,000, $12,600,000, $6,000,000 x3); all
+four June-18 notices carry IOWA'S STATE ALLOTMENT, $209,040,063.71.
+Summing the eleven gives ~$845,770,387 against a $209M allotment. Iowa's
+footer practice changed between February and June in the same template
+with no other signal. §0.2 inside one document SERIES.
+
+THE NOTICES NEVER NAME THE PROGRAMME: "RHTP", "Rural Health
+Transformation" and "Healthy Hometowns" occur ZERO times in them. The
+provenance is the programme page's own sentences and the two other
+publishers, not the footer.
+
+18093 IS SUPERSEDED BY 18330. Both are PHTHORC26009; the 2026-02-27
+re-issue is the 2026-01-30 roster PLUS Marengo Memorial Hospital. Counting
+both invents a roster Iowa never issued. Both stay archived, because a
+re-issued roster's growth is only measurable against the one it grew from.
+
+18093'S FOOTER PRINTS `$66,002,161.80.00`. The doubled decimal is IOWA'S,
+in the source, and is kept as published (§8).
+
+Fetched: 2026-09-01
+
+file                                                                          bytes  sha256
+----------------------------------------------------------------------------------------------------------------------------------------------------
+2026-01-30_ia_noia_phthorc26009_best_and_brightest_medical_equipment_procure.pdf     310682  9724e92e8d3b7395a4740ddd060c97b1b9b3e6eeb0158ef2adb1035e6fce3ce0
+2026-01-30_ia_noia_phthorc26010_best_and_brightest_rural_healthcare_workforc.pdf     200502  4d1f51c61a27402722c928d01399ef4f7989bc6cb84889ec75bd43d1c36dacc3
+2026-02-05_ia_noia_compadm26001_combat_cancer_technical_assistance_provider.pdf     162165  de6a2fe6355cebf04e687d75594a6c8784fcb86164ad20fc6b81d5afa526dee7
+2026-02-05_ia_noia_phthocc26755_combat_cancer_prevention_and_screening.pdf     163686  7882358b4840bcf433f78896547bcf0936262b6df7ab7038419a4338f9fd514c
+2026-02-05_ia_noia_phthorc26008_centers_of_excellence.pdf                    161030  1f3d80464ce8e49ba4ea0158743626d811d23a9b600e63ca8bbe7451af7ea846
+2026-02-05_ia_noia_compadm26003_communities_of_care_technical_assistance_provi.pdf     172353  b72994872d9515cad7ee397c23f61843aeeea120d8988cc9c77763d680853dde
+2026-02-05_ia_noia_compadm26002_health_hub_technical_assistance_provider.pdf     163823  2d5584ad6279e32fbad5c26720bad2b82596f4a38e36794d8f7db5b1969d02af
+2026-02-27_ia_noia_phthorc26009_best_and_brightest_medical_equipment_procure.pdf     223473  31239b8f8faa186462ced6c23f53eaf557d654a1bdb1d0a745c8a856bda95a6d
+2026-06-18_ia_noia_phthocc26756_combat_cancer_health_hub_program.pdf         156859  d1cfcddf5a233cd5ba8b3323b5f314eb72047e00746f16de2dec5a20aaa68a7f
+2026-06-18_ia_noia_phthorc26011_best_and_brightest_medical_equipment.pdf     188407  65a04aa07fc9dfb24ecdce7e9e4a088cd747db08e7f5fd05a1d6aea9830c88d2
+2026-06-18_ia_noia_phthorc26012_best_and_brightest_rural_healthcare_workforc.pdf     196328  79c464af6bd05c4a1577773328bd7b3768d089b3b45043e703a9353ca65c87aa
+2026-09-01_ia_hhs_healthy_hometowns_programme.html                           227291  cbc4c673e6bd9cdbd69a64c26caaeaeb253381d9a5fb334ee9c36146d44bdc53
+2026-01-30_governor_iowa_first_in_nation_to_award_rhtp.html                  143256  d5121c68b521830c4568401e9613c2ee9efaddb4a6ce6172d3df3741e0755d71
+2026-06-18_ia_hhs_gme_approval_new_healthy_hometowns_awardees.html           420364  719a6207b69e4b2705774ab1a49bc8bdf26c895c4340d68f6028eb31ecd73d68
+
+
+Source URLs
+  phthorc26009_jan     https://hhs.iowa.gov/media/18093/download?inline
+  phthorc26010         https://hhs.iowa.gov/media/18094/download?inline
+  compadm26001         https://hhs.iowa.gov/media/18135/download?inline
+  phthocc26755         https://hhs.iowa.gov/media/18136/download?inline
+  phthorc26008         https://hhs.iowa.gov/media/18137/download?inline
+  compadm26003         https://hhs.iowa.gov/media/18138/download?inline
+  compadm26002         https://hhs.iowa.gov/media/18139/download?inline
+  phthorc26009_feb     https://hhs.iowa.gov/media/18330/download?inline
+  phthocc26756         https://hhs.iowa.gov/media/18884/download?inline
+  phthorc26011         https://hhs.iowa.gov/media/18885/download?inline
+  phthorc26012         https://hhs.iowa.gov/media/18886/download?inline
+  programme            https://hhs.iowa.gov/initiatives/healthy-hometowns-iowas-rural-health-transformation-plan
+  governor             https://governor.iowa.gov/press-release/2026-01-30/iowa-first-nation-award-rural-health-transformation-program-funding
+  june_release         https://hhs.iowa.gov/news-release/2026-06-18/governor-reynolds-and-iowa-hhs-announce-graduate-medical-education-approval-new-healthy-hometowns
