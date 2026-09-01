@@ -471,3 +471,60 @@ test_that("the guard catches a key hidden in a script URL, not just a bare one",
   ))
   expect_error(or_assert_credential_free(planted, "planted.html"), "google_api_key")
 })
+
+
+# -- §7: the mandatory basis matches the coding (session 31) ------------------
+
+test_that("no override row's determination_basis argues for the coding it replaced", {
+  # FINDING 2 OF THE SESSION 30 ELIGIBILITY SWEEP. The §6.2 multi-recipient and
+  # §0.3 unnamed-pool overrides set `flow_type` and `distributed_to_hospital`
+  # AFTER the classifier had written the basis, and never re-wrote it. The
+  # worst case read, on the committed file: awardee "Northwest Regional ESD,
+  # Clatsop Community College, Providence Seaside Hospital, Seaside School
+  # District", flow_type PASS_THROUGH_UNRESOLVED, and a basis beginning "§10.2
+  # DIRECT: the named recipient is a hospital or hospital system".
+  #
+  # The CODING was right -- it is the catch that keeps $186,000 out of the
+  # named-hospital total -- and a reader auditing the row found the file
+  # arguing for the number it had declined to publish. §7 makes this field
+  # mandatory precisely so the row answers the question in six months.
+  recs <- or_year1_awardees()
+  pt <- recs[grepl("PASS_THROUGH", recs$flow_type), ]
+  expect_equal(nrow(pt), 6L)
+
+  # Mandatory and non-empty on every row of the file, not just these.
+  expect_false(any(is.na(recs$determination_basis) |
+                     trimws(recs$determination_basis) == ""))
+
+  # No override row LEADS with a claim its own coding contradicts.
+  expect_false(any(startsWith(pt$determination_basis, "§10.2 DIRECT")))
+
+  multi <- pt[grepl("MULTI_RECIPIENT_FIELD", pt$flag_reason), ]
+  expect_equal(nrow(multi), 4L)
+  expect_true(all(startsWith(multi$determination_basis,
+                             "§6.2 MULTI_RECIPIENT_FIELD")))
+  # The superseded machine sentence is KEPT here -- it is a real determination
+  # the name rules made on real names, and the audit trail is worth having.
+  expect_true(all(grepl("Superseded machine basis", multi$determination_basis,
+                        fixed = TRUE)))
+
+  agg <- pt[pt$awardee == "Not identified in the source", ]
+  expect_equal(nrow(agg), 2L)
+  expect_true(all(startsWith(agg$determination_basis, "§0.3 AGGREGATE ROW")))
+  # And DISCARDED here, deliberately: "Recipient is named but the source does
+  # not state its organisational form" against an awardee of "Not identified in
+  # the source" is not a superseded determination, it is an artefact of running
+  # a name rule on a row with no name.
+  expect_false(any(grepl("Superseded machine basis", agg$determination_basis,
+                         fixed = TRUE)))
+})
+
+test_that("the basis repair moved no determination and no dollar", {
+  recs <- or_year1_awardees()
+  part <- rhtp_hospital_dollar_partition(recs)
+  expect_equal(part$bucket, "NAMED_HOSPITAL")
+  expect_equal(part$rows, 49L)
+  expect_equal(round(part$dollars), 50188531)
+  expect_equal(sum(recs$distributed_to_hospital == "Unclear"), 6L)
+})
+

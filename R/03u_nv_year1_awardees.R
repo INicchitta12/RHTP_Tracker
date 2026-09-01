@@ -1081,6 +1081,25 @@ nv_records <- function() {
       flag_reason = nv_flags(.data$recipient_type, .data$classifier_rule,
                              .data$flow_flag, .data$award_pool,
                              .data$recipient_confirmed),
+
+      # \u00a77 MAKES THIS FIELD MANDATORY AND NEVADA DID NOT CARRY IT AT ALL.
+      # Both halves were already computed -- `classifier_basis` from the
+      # recipient's name and `flow_basis` from \u00a710.2 -- and only the first
+      # was surfaced, as `recipient_type_source`; the flow half was dropped on
+      # the floor. The session 30 eligibility sweep found the two pass-through
+      # rows with no stated basis at all, which is the field's whole purpose
+      # failing on exactly the rows a reviewer will come back to: the Incline
+      # Village Community Hospital Foundation (the project's first
+      # FLOW_UNRESOLVED_HOSPITAL_AFFILIATED row) and the unnamed $4.8M
+      # residency aggregate.
+      #
+      # The composition is `rhtp_classify_recipients()`'s own -- recipient
+      # basis, then flow basis -- so a Nevada row now reads the same way a row
+      # from any other state does. Session 31; nothing was re-coded and no
+      # dollar moved, because both sentences already existed and described the
+      # codings the file already carried.
+      determination_basis = paste(.data$classifier_basis, .data$flow_basis),
+
       row_no = dplyr::row_number()
     )
 
@@ -1506,7 +1525,8 @@ NV_COLUMN_ORDER <- c(
   "rural_designation", "reviewer", "recipient_type_source",
   "determination_confidence", "flag_reason", "award_pool", "budget_period",
   "flow_type", "hospital_benefiting", "hospital_attribution",
-  "intermediary_name", "amount_basis", "county", "project_description",
+  "intermediary_name", "determination_basis", "amount_basis", "county",
+  "project_description",
   "round_id", "round_name", "round_awards", "round_amount", "initiative",
   "initiative_fund_use", "source_archive_path", "service_area", "row_in_pool"
 )

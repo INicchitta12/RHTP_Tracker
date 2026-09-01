@@ -309,3 +309,51 @@ test_that("the states extracted from archives each carry one on disk", {
     }
   }
 })
+
+
+# -- §7: every pass-through row states its reason (session 31) ---------------
+
+test_that("no PASS_THROUGH row anywhere carries an empty or contradictory basis", {
+  # THE SESSION 30 ELIGIBILITY SWEEP'S SECOND FINDING, ASSERTED ACROSS EVERY
+  # STATE AT ONCE RATHER THAN STATE BY STATE. It found eight bad rows in two
+  # files -- six Oregon rows whose basis argued for the coding an override had
+  # replaced, and two Nevada rows with no basis at all because the file had no
+  # such column. Both are fixed at their sources; this is the guard that stops
+  # a ninth appearing in a state nobody thought to check.
+  #
+  # PASS_THROUGH is the class that matters most for this: it is the bucket a
+  # later session revisits to decide whether dollars move into a hospital
+  # total, and §7 makes `determination_basis` mandatory so that decision can be
+  # made from the row.
+  problems <- character(0)
+  for (nm in names(STATE_FILES)) {
+    d <- readr::read_csv(here::here(STATE_FILES[[nm]]), show_col_types = FALSE,
+                         progress = FALSE)
+    if (!"flow_type" %in% names(d)) next
+    ft <- d$flow_type
+    ft[is.na(ft)] <- ""
+    pt <- d[grepl("PASS_THROUGH", ft), ]
+    if (!nrow(pt)) next
+    if (!"determination_basis" %in% names(pt)) {
+      problems <- c(problems, paste0(nm, ": ", nrow(pt),
+                                     " PASS_THROUGH rows and NO determination_basis column"))
+      next
+    }
+    b <- pt$determination_basis
+    b[is.na(b)] <- ""
+    if (any(trimws(b) == "")) {
+      problems <- c(problems, paste0(nm, ": ", sum(trimws(b) == ""),
+                                     " PASS_THROUGH rows with an EMPTY basis"))
+    }
+    # A basis that LEADS with §10.2's DIRECT row on a row that is not DIRECT.
+    # Leading, not containing: a basis may legitimately quote a superseded
+    # machine determination behind its own reason (Oregon does), and that is
+    # an audit trail rather than a contradiction.
+    if (any(startsWith(b, "§10.2 DIRECT"))) {
+      problems <- c(problems, paste0(nm, ": a PASS_THROUGH row's basis LEADS ",
+                                     "with §10.2 DIRECT"))
+    }
+  }
+  expect_equal(problems, character(0))
+})
+

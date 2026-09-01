@@ -339,9 +339,36 @@ test_that("the hospital figure is a floor, and the uncertainty is larger", {
   inferred <- ks_awards %>%
     dplyr::filter(determination_confidence == "LOW",
                   flag_reason == "RECIPIENT_TYPE_INFERRED")
-  expect_equal(nrow(inferred), 22L)
-  expect_equal(sum(inferred$amount), 39249763)
+  expect_equal(nrow(inferred), 23L)
+  expect_equal(sum(inferred$amount), 40182073)
   expect_gt(sum(inferred$amount), part$dollars)
+})
+
+test_that("Salina is the 23rd form-not-stated row, and it cost no hospital dollar", {
+  # SESSION 31. Tightening RHTP_PASS_THROUGH_MARKERS to money-movement
+  # language re-coded this row IN_KIND_BENEFIT -- KDHE says AstraHealth Kansas
+  # provides "back-office and clinical infrastructure TO RURAL HOSPITALS",
+  # which is a service the recipient delivers, not a dollar it passes on. The
+  # row carries ONE flag slot, and it was spent on ELIGIBILITY_NOT_RECEIPT; the
+  # question KDHE's silence actually raises -- what form is Salina Regional
+  # Health Center? -- could not surface behind it.
+  #
+  # THE DISCLOSURE GREW AND THE FIGURE DID NOT MOVE. Salina reads like a
+  # hospital and was absent from the queue that exists to ask exactly that,
+  # while the named-hospital floor is 21 rows / $35,721,277 before and after.
+  salina <- ks_awards %>% dplyr::filter(grepl("^Salina Regional", awardee))
+  expect_equal(nrow(salina), 1L)
+  expect_equal(salina$flow_type, "IN_KIND_BENEFIT")
+  expect_equal(salina$distributed_to_hospital, "No")
+  expect_equal(salina$flag_reason, "RECIPIENT_TYPE_INFERRED")
+  expect_equal(salina$amount, 932310)
+
+  part <- rhtp_hospital_dollar_partition(ks_awards)
+  expect_equal(part$bucket, "NAMED_HOSPITAL")
+  expect_equal(part$dollars, 35721277)
+  expect_equal(part$rows, 21L)
+  # 23 - 22 = 1 row, and the whole of the delta is Salina's own amount.
+  expect_equal(40182073 - 39249763, 932310)
 })
 
 test_that("nothing was promoted on this pipeline's own knowledge", {
@@ -365,7 +392,12 @@ test_that("the open question is in the review queue with its dollars", {
   expect_equal(nrow(row), 1L)
   expect_equal(row$state, "KS")
   expect_equal(row$queue_status, "OPEN")
-  expect_true(grepl("39,249,763", row$dollar_effect))
+  expect_true(grepl("40,182,073", row$dollar_effect))
+  expect_true(grepl("23 rows", row$dollar_effect))
+  # The queue row has to SAY why it grew, or the next reader reconciles it
+  # against session 20's 22/$39,249,763 and cannot.
+  expect_true(grepl("Salina Regional Health Center", row$dollar_effect,
+                    fixed = TRUE))
 })
 
 

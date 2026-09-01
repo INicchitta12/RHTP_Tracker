@@ -884,6 +884,59 @@ or_year1_awardees <- function() {
         .data$multi_recipient, "LOW", .data$determination_confidence
       ),
 
+      # §7 MAKES `determination_basis` MANDATORY, AND THE TWO OVERRIDES ABOVE
+      # USED TO LEAVE IT ARGUING FOR THE CODING THEY HAD JUST REPLACED.
+      #
+      # `rhtp_classify_recipients()` writes the basis from the recipient's NAME,
+      # and the §6.2 and §0.3 overrides then re-set `flow_type` and
+      # `distributed_to_hospital` underneath it without touching the sentence.
+      # The worst case read, verbatim on the committed file: awardee "Northwest
+      # Regional ESD, Clatsop Community College, Providence Seaside Hospital,
+      # Seaside School District", flow_type PASS_THROUGH_UNRESOLVED,
+      # determination_basis "§10.2 DIRECT: the named recipient is a hospital or
+      # hospital system and the state's award document names both the recipient
+      # and the amount." The CODING is right -- it is the §6.2 catch that keeps
+      # $186,000 out of the named-hospital total -- and the stated reason was
+      # the opposite of it, so a reader auditing the row found the file arguing
+      # for the number it had declined to publish. The two aggregate rows
+      # compounded it by reading "Recipient is named but the source does not
+      # state its organisational form" where the awardee is literally "Not
+      # identified in the source".
+      #
+      # The override's own reason now leads, and the classifier's superseded
+      # sentence is kept verbatim behind it -- an audit trail of what the
+      # machine said, not a second answer competing with the first. Session 31;
+      # no determination changed, and no dollar moved.
+      determination_basis = dplyr::case_when(
+        unnamed_pool ~ paste0(
+          "\u00a70.3 AGGREGATE ROW, NOT A RECIPIENT: OHA publishes this pool as a ",
+          "total and names no member of it, so `recipient_type` is NOT_YET_NAMED, ",
+          "`amount` is deliberately empty and the pool total is carried in ",
+          "`pool_amount`. PASS_THROUGH_UNRESOLVED + Unclear because a count is ",
+          "not a list and nothing may be imputed to the unnamed. This row enters ",
+          "NEITHER bucket of rhtp_hospital_dollar_partition(). The classifier's ",
+          "name-based sentence is DISCARDED rather than kept behind this one, ",
+          "unlike the multi-recipient rows below: it read \"Recipient is named ",
+          "but the source does not state its organisational form\" against an ",
+          "awardee of \"Not identified in the source\", which is not a ",
+          "superseded determination but an artefact of running a name rule on ",
+          "a row that has no name."
+        ),
+        .data$multi_recipient ~ paste0(
+          "\u00a76.2 MULTI_RECIPIENT_FIELD: OHA publishes ONE figure against ",
+          "several named organisations in a single awardee field, so the ",
+          "recipient list is unresolved. The amount is never divided (\u00a76.2) ",
+          "and no organisation in the field is imputed to have received it ",
+          "(\u00a70.3) -- including any hospital named in it, which is what this ",
+          "override exists to prevent. PASS_THROUGH_UNRESOLVED + Unclear, in ",
+          "NEITHER hospital bucket, routed to a reviewer. THIS SUPERSEDES THE ",
+          "NAME-BASED DETERMINATION BELOW, which was written from the field as ",
+          "if it named one recipient. [Superseded machine basis, kept for ",
+          "audit: ", .data$determination_basis, "]"
+        ),
+        TRUE ~ .data$determination_basis
+      ),
+
       # Flags stack in severity order; the classifier's own flag survives.
       hospital_attribution = dplyr::case_when(
         .data$distributed_to_hospital == "Yes" ~ "NAMED_HOSPITAL",
