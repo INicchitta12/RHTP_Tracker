@@ -299,7 +299,7 @@ rhtp_pdf_decode <- function(codes, cmap, two_byte, cmap_env = NULL) {
 }
 
 
-#' Scan one content stream and emit its text, one line per text position
+#' Scan one content stream and emit its text, one row per painted RUN
 #'
 #' Operates on integer byte codes rather than a string: in a two-byte glyph
 #' code the high byte is very often NUL, and `rawToChar()` cannot hold one.
@@ -361,7 +361,12 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   lines_l <- list()
   xs_l    <- list()
   ys_l    <- list()
+  ln_l    <- list()
   n_out   <- 0L
+  # The line a run belongs to. It advances on EXACTLY the condition that used
+  # to flush a line -- see at_position() -- so grouping runs by it reproduces
+  # the old reader's lines, character for character.
+  line_id <- 0L
   buf     <- character()
   # Strings are held here until a Tj/TJ actually paints them. A PDF also
   # carries strings that are never drawn -- /ActualText and /Alt inside
@@ -402,17 +407,38 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
       lines_l[[n_out]] <<- paste(buf, collapse = "")
       xs_l[[n_out]]    <<- x_at
       ys_l[[n_out]]    <<- y_at
+      ln_l[[n_out]]    <<- line_id
       buf <<- character()
     }
   }
 
-  # Break the line only if the text position has actually moved vertically.
-  at_y <- function() {
+  # A RUN ends wherever the pen moves; a LINE ends only where it moves DOWN.
+  #
+  # Vertical movement starts a new line, exactly as before. Horizontal movement
+  # ends the run WITHOUT ending the line: the text is emitted with the x it was
+  # actually painted at, and it keeps the line id of the text beside it. So the
+  # two readings a table needs are both available and neither is a guess --
+  # rhtp_pdf_lines() pastes a line's runs back together and cannot see the
+  # columns, rhtp_pdf_runs() keeps them apart at the producer's own boundaries.
+  #
+  # WHY THIS IS THE WHOLE FIX FOR IOWA. hhs.iowa.gov paints each table cell as
+  # its own run: "Adair County Memorial Hospital" at x=77.664 and "Greenfield"
+  # at x=311.470, one Td apart, sharing a y. Merged, that is a recipient name
+  # with a county welded onto it -- session 21's "Crisp Regional ospital" one
+  # column over, and unpublishable (§0.4). Nothing here thresholds a gap or
+  # reads a vocabulary of county names: the split is where Iowa's own producer
+  # put it.
+  at_position <- function() {
     y <- ctm_y + y_m + y_d
+    x <- ctm_x + x_m + x_d
     if (is.na(y_at) || !rhtp_pdf_near(y, y_at)) {
       flush()
+      line_id <<- line_id + 1L
       y_at <<- y
-      x_at <<- ctm_x + x_m + x_d
+      x_at <<- x
+    } else if (is.na(x_at) || !rhtp_pdf_near(x, x_at)) {
+      flush()
+      x_at <<- x
     }
   }
 
@@ -504,7 +530,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
         # at the positioning operators: a producer that emits Tm and Td for
         # every word would otherwise break the line between the operator that
         # moves and the operator that draws.
-        at_y()
+        at_position()
         buf <- c(buf, pending)
         pending <- character()
       } else if (op %in% c("Td", "TD")) {
@@ -572,24 +598,29 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
 
   flush()
   if (n_out == 0L) {
-    return(data.frame(x = numeric(0), y = numeric(0), text = character(0),
-                      stringsAsFactors = FALSE))
+    return(data.frame(line = integer(0), x = numeric(0), y = numeric(0),
+                      text = character(0), stringsAsFactors = FALSE))
   }
-  data.frame(x = unlist(xs_l, use.names = FALSE),
+  data.frame(line = unlist(ln_l, use.names = FALSE),
+             x = unlist(xs_l, use.names = FALSE),
              y = unlist(ys_l, use.names = FALSE),
              text = unlist(lines_l, use.names = FALSE),
              stringsAsFactors = FALSE)
 }
 
 
-#' Extract a PDF's text lines, with the position each was drawn at
+#' Walk a PDF and return every painted run, untrimmed, in content order
+#'
+#' The one reader. `rhtp_pdf_runs()` and `rhtp_pdf_lines()` are both views over
+#' what this returns, so they can never disagree about what a document says.
+#'
+#' It deliberately does NOT trim: trimming a run before its line is pasted back
+#' together deletes the space that separated it from the next run, which welds
+#' two words into one. Each accessor trims its own output instead.
 #'
 #' @param path Path to the PDF.
-#' @return A data frame of `page`, `x`, `y`, `text`, in content order, one row
-#'   per visual line. `x` is what tells a table's columns apart -- Maryland's
-#'   award tables put the recipient, the amount, the summary and the counties
-#'   at four stable x values, and nothing in the content ORDER separates them.
-rhtp_pdf_lines <- function(path) {
+#' @return A data frame of `page`, `line`, `x`, `y`, `text`.
+rhtp_pdf_run_table <- function(path) {
   bytes <- readBin(path, "raw", file.info(path)$size)
   objs  <- rhtp_pdf_objstm_expand(rhtp_pdf_objects(bytes))
 
@@ -671,7 +702,7 @@ rhtp_pdf_lines <- function(path) {
   # A page's own text, then each form XObject it invokes, in the order the `Do`
   # operators appear. `seen` stops a form that references itself; `depth` caps
   # a chain of forms that reference each other.
-  empty_lines <- data.frame(x = numeric(0), y = numeric(0),
+  empty_lines <- data.frame(line = integer(0), x = numeric(0), y = numeric(0),
                             text = character(0), stringsAsFactors = FALSE)
 
   lines_for <- function(stream, res_txt, seen = character(), depth = 0L) {
@@ -705,8 +736,14 @@ rhtp_pdf_lines <- function(path) {
       if (!grepl("/Subtype\\s*/Form", xtxt, perl = TRUE, useBytes = TRUE)) next
       xs <- rhtp_pdf_stream(xb)
       if (is.null(xs)) next
-      out <- rbind(out, lines_for(xs, resources_txt(xtxt), c(seen, key),
-                                  depth + 1L))
+      nested <- lines_for(xs, resources_txt(xtxt), c(seen, key), depth + 1L)
+      # Each content stream numbers its lines from 1, so a form XObject's ids
+      # would otherwise collide with the page's and weld the last line of one
+      # onto the first line of the next.
+      if (nrow(nested)) {
+        nested$line <- nested$line + (if (nrow(out)) max(out$line) else 0L)
+        out <- rbind(out, nested)
+      }
     }
     out
   }
@@ -762,10 +799,91 @@ rhtp_pdf_lines <- function(path) {
     }
   }
 
+  rownames(out) <- NULL
+  out[, c("page", "line", "x", "y", "text")]
+}
+
+
+#' Compose a run table back into one row per visual line
+#'
+#' The runs of a line are pasted in the order they were painted and the line
+#' takes the position of its FIRST run -- which is what the reader recorded
+#' before runs existed, so this reproduces its output exactly. The paste is
+#' deliberately done BEFORE trimming: a run may end in the space that separates
+#' it from the next, and trimming first would delete it.
+rhtp_pdf_compose_lines <- function(runs) {
+  if (nrow(runs) == 0L) {
+    return(data.frame(page = integer(0), x = numeric(0), y = numeric(0),
+                      text = character(0), stringsAsFactors = FALSE))
+  }
+  key <- cumsum(c(TRUE, runs$page[-1] != runs$page[-nrow(runs)] |
+                        runs$line[-1] != runs$line[-nrow(runs)]))
+  first <- !duplicated(key)
+  out <- data.frame(
+    page = runs$page[first],
+    x    = runs$x[first],
+    y    = runs$y[first],
+    text = vapply(split(runs$text, key), paste, character(1), collapse = ""),
+    stringsAsFactors = FALSE
+  )
   out$text <- trimws(out$text)
   out <- out[nzchar(out$text), , drop = FALSE]
   rownames(out) <- NULL
-  out[, c("page", "x", "y", "text")]
+  out
+}
+
+
+#' Extract a PDF's text runs, with the position each was painted at
+#'
+#' ONE ROW PER RUN, which is one row per table CELL on every producer met so
+#' far: a run ends wherever the pen moved, and a producer moves the pen to
+#' start the next cell. Where `rhtp_pdf_lines()` returns
+#' `"Adair County Memorial Hospital Greenfield"` -- Iowa's organisation column
+#' welded to its county column, both at one y -- this returns the two cells at
+#' x=77.664 and x=311.470, which is where Iowa's own producer put them.
+#'
+#' Use it whenever a column is a FIELD. `rhtp_pdf_lines()` remains right for
+#' prose, and for a table whose columns must be read together: Maryland's
+#' Primary Care table sets the recipient and the amount so close that its
+#' parser splits the pasted line on its own dollar figure, and that parser
+#' wants the line, not the runs.
+#'
+#' THE TEXT IS RETURNED AS PAINTED AND IS DELIBERATELY NOT TRIMMED, because a
+#' run boundary very often falls ON A SPACE: 199 of Iowa 18093's 328 runs end
+#' in one and 150 are nothing but whitespace. Trim each run and then paste them
+#' and `"Notice of Intent to "` + `"Award"` becomes `"Notice of Intent toAward"`
+#' -- two words welded, which is the same class of defect as the two columns
+#' this function exists to separate.
+#'
+#' SO NEVER TRIM A RUN BEFORE PASTING IT. Paste first, trim the result. Pass
+#' any subset of these rows to `rhtp_pdf_compose_lines()` and it does exactly
+#' that -- filter to one column and compose, and the column comes back with the
+#' line model's own spacing, because it is the line model's own code.
+#'
+#' @param path Path to the PDF.
+#' @return A data frame of `page`, `line`, `x`, `y`, `text`, in content order,
+#'   the text as painted. Runs sharing a `(page, line)` were painted at one
+#'   vertical position; `rhtp_pdf_lines()` is exactly those runs pasted back
+#'   together and trimmed.
+rhtp_pdf_runs <- function(path) {
+  out <- rhtp_pdf_run_table(path)
+  out <- out[nzchar(out$text), , drop = FALSE]
+  rownames(out) <- NULL
+  out
+}
+
+
+#' Extract a PDF's text lines, with the position each was drawn at
+#'
+#' @param path Path to the PDF.
+#' @return A data frame of `page`, `x`, `y`, `text`, in content order, one row
+#'   per visual line. `x` is what tells a table's columns apart -- Maryland's
+#'   award tables put the recipient, the amount, the summary and the counties
+#'   at four stable x values, and nothing in the content ORDER separates them.
+#'   A line is its runs pasted together, so a table row whose cells share a y
+#'   arrives as ONE string here; `rhtp_pdf_runs()` is what keeps them apart.
+rhtp_pdf_lines <- function(path) {
+  rhtp_pdf_compose_lines(rhtp_pdf_run_table(path))
 }
 
 

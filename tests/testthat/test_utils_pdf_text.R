@@ -115,3 +115,61 @@ test_that("Kansas's own figures are unchanged by all of the above", {
   expect_true(any(grepl("Citizens Foundation", ks$awardee)))
   expect_false(any(grepl("Foundat ion", ks$awardee)))
 })
+
+
+# -- the run model (session 32) ------------------------------------------------
+#
+# A LINE IS ITS RUNS PASTED BACK TOGETHER. That is the invariant the whole
+# change rests on: rhtp_pdf_lines() kept its output character for character
+# across all nine PDF-reading states because it is now composed from the runs
+# rather than accumulated separately, so the two views cannot drift apart.
+
+test_that("composing a document's runs reproduces its lines exactly", {
+  for (p in c(KS_REH, KS_CHW, MD_TF, GA_NOA)) {
+    skip_if_not(file.exists(p))
+    runs <- rhtp_pdf_run_table(p)
+    expect_equal(rhtp_pdf_compose_lines(runs), rhtp_pdf_lines(p),
+                 label = basename(p))
+  }
+})
+
+test_that("every line's runs share its page and start at its x and y", {
+  skip_if_not(file.exists(MD_TF))
+  runs <- rhtp_pdf_run_table(MD_TF)
+  key  <- cumsum(c(TRUE, runs$page[-1] != runs$page[-nrow(runs)] |
+                         runs$line[-1] != runs$line[-nrow(runs)]))
+  # One line never spans two pages, and its runs were all painted at one y.
+  expect_true(all(vapply(split(runs$page, key),
+                         function(v) length(unique(v)) == 1L, logical(1))))
+  expect_true(all(vapply(split(runs$y, key),
+                         function(v) length(unique(v)) == 1L, logical(1))))
+  # A line takes the position of its first run -- which is what the reader
+  # recorded before runs existed.
+  first <- !duplicated(key)
+  lines <- rhtp_pdf_lines(MD_TF)
+  keep  <- nzchar(trimws(vapply(split(runs$text, key), paste, character(1),
+                                collapse = "")))
+  expect_equal(runs$x[first][keep], lines$x)
+})
+
+test_that("a run is finer than a line, and its x is its own", {
+  skip_if_not(file.exists(MD_TF))
+  runs  <- rhtp_pdf_runs(MD_TF)
+  lines <- rhtp_pdf_lines(MD_TF)
+  expect_named(runs, c("page", "line", "x", "y", "text"))
+  # More runs than lines is the point: a line that merged two cells is two runs.
+  expect_gt(nrow(runs), nrow(lines))
+})
+
+test_that("runs are returned AS PAINTED, because a run boundary lands on a space", {
+  skip_if_not(file.exists(MD_TF))
+  runs <- rhtp_pdf_runs(MD_TF)
+  # THE POSITIVE CONTROL FOR THE NO-TRIM CONTRACT. If these documents had no
+  # run ending in a space, trimming would be harmless and the contract would be
+  # untestable; they do, and trim-then-paste welds the two words together.
+  ends_in_space <- grepl("[ ]$", runs$text)
+  expect_true(any(ends_in_space))
+  i <- which(ends_in_space)[1]
+  expect_false(identical(paste0(trimws(runs$text[i]), "x"),
+                         paste0(runs$text[i], "x")))
+})
