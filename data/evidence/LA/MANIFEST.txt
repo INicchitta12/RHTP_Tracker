@@ -1,0 +1,90 @@
+Louisiana -- Rural Health Transformation Program, Year 1.
+Archived by R/03ae_la_year1_probe.R --fetch
+User-agent: Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch and finds nothing, so there is
+no reduction to explain.
+
+THE USER-AGENT, AND WHY IT IS NOT MICHIGAN'S EXCEPTION. ldh.la.gov
+answers the project's own agent 403 and bare 'Mozilla/5.0' 403, and
+answers 200 to the RFC well-behaved-crawler convention above -- which
+carries the tracker's name AND its contact URL. Identifying honestly is
+still the fix (session 10, medicaid.gov); this host merely also wants the
+Mozilla prefix. Michigan inverts that -- there the identifying tokens are
+what get refused. robots.txt here is 404, GENUINELY ABSENT, where
+Michigan's is 403: no crawler policy exists and none is being declined.
+
+LOUISIANA HAS PUBLISHED NO RECIPIENT-LEVEL RHTP AWARD LIST, AND ALL SEVEN
+OF ITS OWN ANNOUNCEMENT WINDOWS HAVE CLOSED. LDH's programme page carries
+an 'IMPORTANT DATES - BUDGET YEAR 1' block giving a 'Notice of Intent to
+Contract Announcements' window for each of the seven Budget Year 1
+opportunities: 'Late July to mid August' x3 and 'Mid to late August' x4.
+This archive was taken 2026-09-02. Connecticut (session 35) was the first
+negative here whose award date had passed, with ONE solicitation sixteen
+days overdue; Louisiana has SEVEN, and published the dates itself.
+
+*_PROJECTED_FUNDING.pdf IS RCJ'S SOURCE AND ITS OWN REFUTATION.
+  Slide 18 of the 2026-08-20 Advisory Council deck is a table headed
+  'RHTP Funding Cycle Budget Year 1', columns Activity | # Applications
+  Received | PROJECTED BY 1 Funding | Anticipated Announcement. All SIX
+  RCJ Louisiana Tier 3 candidates are rows of it: the 'awardee' is the
+  ACTIVITY column (fund uses, not organisations -- §6.1's
+  PROGRAM_NAME_AS_AWARDEE on six of six) and the amount is the PROJECTED
+  column times a million. 505 applications received, NOT ONE AWARD NAMED.
+  The deck also promises only a 'complete list of obligated funds BY
+  ENTITY TYPE' next time -- by type, not by recipient.
+
+*_ROW_RCJ_DROPS.pdf is the Capital Improvement NOFO -- 160 applications,
+  $41.60 million projected, awards of $100,000-$10,000,000, and NOT among
+  RCJ's six. Its six sum to $53,910,000 against the deck's seven at
+  $95,510,000, so the aggregator understates the table it mined by
+  $41,600,000. Its eligible class is HOSPITALS AMONG OTHERS ('Critical
+  Access Hospitals (CAHs), Rural hospitals' beside RHCs, FQHCs, EMS,
+  behavioral health and independent rural practices) -- New Hampshire's
+  FHC class, not Illinois's ICAHN class, so §0.3 governs it either way.
+
+*_SECOND_PUBLISHER.html is LED's Rural Tech Catalyst Fund release, which
+  carries a programme-scoped provenance sentence from a publisher that is
+  not LDH: 'Supported through the Rural Health Transformation Program, a
+  more than $1 billion federal investment over five years'. It names no
+  recipient and no amount ('award' x0, 'recipient' x0).
+
+*_ELIGIBILITY_CONTROL.json IS A FACILITY REGISTRY, NOT AN AWARD ROSTER,
+  AND IT IS THE §0.3 TRAP. rhtla.net/api/facilities is 3,576 named
+  Louisiana facilities -- 305 hospitals (170 acute care, 135 specialty),
+  859 RHCs, 78 FQHCs -- with addresses, services and coordinates, on the
+  RHTP programme's own second domain. 'award', 'amount', '$', 'RHTP' and
+  'fund' occur ZERO times each. It is the dataset behind the 'Is my
+  location rural?' eligibility tool. California's 102 SRHRP eligible
+  hospitals in machine-readable form, and three times the size.
+
+*_UNREADABLE.html is rhtla.net's landing page and is recorded as UNKNOWN,
+  never as a negative (§0.4). It serves an unrendered Vue application:
+  its mustache templates arrive as literal '{{ copy.brand }}' text, so
+  whether the Atlas surfaces award data behind its parish profiles is a
+  statement about OUR ACCESS and not about Louisiana. Maine's CGI
+  Advantage portal and Connecticut's CTsource in a new costume.
+
+THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE MECHANISM IS THE
+SEVENTH THIS PROJECT HAS MET. ldh.la.gov runs Cloudflare Email Address
+Obfuscation, which XOR-encodes a mailto with a RANDOM ONE-BYTE KEY on
+every render, into an href and a data-cfemail ATTRIBUTE. Three fetches
+gave THREE distinct file digests at EXACTLY 169,500 bytes each -- so it
+is California's antispambot() finding on a different platform, and
+CONSTANT-LENGTH like California's, which means a byte-count check passes
+it. Living in attributes rather than a script body makes it Connecticut's
+'?v=' stamp structurally, and the tag-stripping reduction absorbs it for
+free: reduced text IDENTICAL across all three at 21,249 characters.
+--probe compares a CONTENT digest via la_reduce_html(), never a file one.
+
+file  bytes  sha256
+2026-09-02_la_ldh_rhtp_programme_SEVEN_WINDOWS_PASSED.html  169500  3deee9aacfd9ec654373bf0bb9795dc3bf6642f7a1576fdc5cc2cd81def46d5d
+2026-09-02_la_ldh_rhtp_funding_opportunities.html  166120  cff9999c7128a5617a002ab07244ac1e5774ce783c7ba43302d5f38cc06e2ed1
+2026-04-07_la_ldh_governor_establishes_orhts.html  164621  94692e9323d3de10169abb481e2c006e1aff64e38312f8d845420ea38478039a
+2026-08-20_la_ldh_rhtp_advisory_council_slides_PROJECTED_FUNDING.pdf  3190596  43ee7be72938d58dd659f0adadb4efefdc09321c1cee1e24ac3fecd083062f6b
+2026-06-18_la_ldh_capital_improvement_NOFO_ROW_RCJ_DROPS.pdf  739234  2dcbe190ebe3b65bf24077d39758984fd28ec35bd8cb09549062cd2e8ec2d6da
+2026-05-27_la_led_rural_tech_catalyst_fund_SECOND_PUBLISHER.html  235191  c66bdc242644f87ead19383941ecc65bb186fc4447b4b6fff81bc5c1ce405dea
+2026-09-02_la_rhtla_atlas_landing_UNREADABLE.html  95644  e2ed84809c99613ecab16c9f8faa225cf1a7ee649fcf7ee7f6eb686c7eaeaddd
+2026-09-02_la_rhtla_api_facilities_ELIGIBILITY_CONTROL.json  1778624  3d22571600fa81cbf880aa0fa610aee8349b8f9e32f843a34127e4cd713ad6a9

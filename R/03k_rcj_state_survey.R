@@ -143,7 +143,22 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
 # Maine's placeholder) -- WHICH IS WHAT HIDES THE OTHER TWO, because a row
 # priced at $1 reads as missing data rather than as the wrong programme. TWO
 # of the seven are named New Mexico hospitals. R/03ad carries the tripwires.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "NM", "TX", "WI")
+#
+# LOUISIANA (session 36) led this queue at 6 candidates / $53,910,000 and is a
+# NEGATIVE WHOSE SEVEN ANNOUNCEMENT WINDOWS HAVE ALL CLOSED. LDH publishes a
+# "Notice of Intent to Contract Announcements" window for each of its seven
+# Budget Year 1 opportunities -- three "Late July to mid August", four "Mid to
+# late August" -- and no roster on any reachable host. Connecticut was the
+# first negative here whose award date had passed, with ONE solicitation;
+# Louisiana has SEVEN. All six candidates are rows of ONE table, slide 18 of
+# the 2026-08-20 Advisory Council deck: the "awardee" is its ACTIVITY column
+# (fund uses, not organisations -- §6.1's PROGRAM_NAME_AS_AWARDEE on six of
+# six) and the amount is its "PROJECTED BY 1 Funding" column, Oklahoma's tier
+# defect with the state's own heading refuting it. 505 applications received,
+# not one award named. AND RCJ DROPS THE LARGEST ROW -- Capital Improvement,
+# $41.60M, the capital one likeliest to reach a hospital -- so its six
+# understate the deck's seven by $41,600,000. R/03ae carries the tripwires.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "LA", "NM", "TX", "WI")
 
 
 # -- Inputs ------------------------------------------------------------------
