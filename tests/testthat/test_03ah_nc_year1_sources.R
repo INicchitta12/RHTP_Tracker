@@ -1,12 +1,15 @@
 # test_03ah_nc_year1_sources.R ------------------------------------------------
-# North Carolina: NOT a negative. Two published rosters, deliberately not
-# extracted. Committed files only -- no network.
+# North Carolina: NOT a negative. Two published rosters, 44 named recipients,
+# EXTRACTED in session 38. Committed files only -- no network.
 #
-# THE TESTS THAT CARRY THE WEIGHT ARE THE ONES GUARDING THE EXTRACTION THAT
-# HAS NOT HAPPENED YET. North Carolina publishes 44 named recipients and NO
-# per-recipient dollar, and the only currency figure beside the five Hub Leads
-# is the whole state allotment. An extractor built carelessly from these
-# documents would publish $213,008,356.47 as five hub awards.
+# THE TESTS THAT CARRY THE WEIGHT ARE THE ONES GUARDING THE THREE WAYS THIS
+# EXTRACTION COULD BE WRONG, and none of them is a parse error. (1) The only
+# currency figure beside the five Hub Leads is the WHOLE STATE ALLOTMENT, so a
+# careless `round_amount` publishes $213,008,356.47 as five hub awards.
+# (2) The MIH pool's $10,000,000 is repeated per row, so summing the column
+# gives $390,000,000. (3) The Region 4 Hub Lead appears under two spellings
+# that CLASSIFY DIFFERENTLY -- one of them into a named-hospital row -- so a
+# tidy-up of the names changes a coding and not merely a count.
 
 library(testthat)
 
@@ -162,9 +165,9 @@ test_that("the SECOND TIER awarding stops the build -- that is where the money i
 
 # -- the deferral is deliberate ----------------------------------------------
 
-test_that("no award file exists, and creating one trips the guard", {
-  expect_true(nc_assert_not_extracted())
-  expect_false(file.exists(NC_AWARDEES_CSV))
+test_that("the award file exists and North Carolina is extracted", {
+  expect_true(nc_assert_extracted())
+  expect_true(file.exists(NC_AWARDEES_CSV))
 })
 
 test_that("the status table records the rosters WITHOUT an amount column", {
@@ -177,9 +180,10 @@ test_that("the status table records the rosters WITHOUT an amount column", {
   expect_setequal(awarded$named_recipients, c(39L, 5L))
 })
 
-test_that("North Carolina stays NOT_EXTRACTED, never INVESTIGATED_NO_LIST", {
+test_that("North Carolina reads EXTRACTED, never INVESTIGATED_NO_LIST", {
   # It has published rosters, so INVESTIGATED_NO_LIST would be a FALSE claim
-  # about the state -- the one thing that code must never become.
+  # about the state -- the one thing that code must never become. Session 37
+  # left it NOT_EXTRACTED, which was true then; session 38 extracted it.
   for (f in c("rcj_state_survey.csv", "state_trigger_queue.csv")) {
     path <- here::here("data", "reference", f)
     skip_if_not(file.exists(path), paste(f, "is not on disk"))
@@ -187,6 +191,7 @@ test_that("North Carolina stays NOT_EXTRACTED, never INVESTIGATED_NO_LIST", {
     col <- if ("extraction_status" %in% names(d)) "extraction_status" else
       "queue_status"
     expect_false(identical(d[[col]][d$state == "NC"], "INVESTIGATED_NO_LIST"))
+    expect_equal(d[[col]][d$state == "NC"], "EXTRACTED")
   }
 })
 
@@ -204,4 +209,233 @@ test_that("Dynatrace's per-request rpid moves the FILE digest, not content", {
                          digest::digest(raw, serialize = FALSE)))
   # It is a script-TAG ATTRIBUTE, so the reduction absorbs it free.
   expect_identical(nc_reduce_html(charToRaw(rolled)), nc_reduce_html(raw))
+})
+
+
+# -- the extraction ----------------------------------------------------------
+
+test_that("both rosters parse to the counts NCDHHS states", {
+  skip_without_archive()
+  mih <- nc_mih_roster()
+  expect_equal(nrow(mih), 39L)
+  expect_equal(length(unique(mih$awardee)), 39L)
+  expect_true(all(nzchar(mih$awardee)))
+  # The two the header calls out, both present and both as PUBLISHED (§8).
+  expect_true("Cape Fear Valley Mobile Integrated Health (MIH)" %in% mih$awardee)
+  expect_true("Clay County" %in% mih$awardee)
+  expect_false("Clay County EMS" %in% mih$awardee)
+
+  roots <- nc_hub_lead_roster()
+  expect_equal(nrow(roots), 5L)
+  # NC_HUB_LEADS holds the SUBSTRINGS nc_assert_hub_leads() looks for; the
+  # roster prints "Access East, Inc." in full, and §8 keeps the state's own
+  # language.
+  expect_true(all(vapply(NC_HUB_LEADS,
+                         function(n) any(startsWith(roots$awardee, n)),
+                         logical(1))))
+  expect_true("Access East, Inc." %in% roots$awardee)
+  # FIVE ORGANISATIONS, SIX REGIONS. Trillium holds two, so a row count is
+  # neither a region count nor an organisation count.
+  expect_equal(roots$hub_region[roots$awardee == "Trillium Health Resources"],
+               "Region 2 and 5")
+})
+
+test_that("a dollar figure inside either roster stops the build", {
+  # THE ONE THING THAT WOULD MAKE THE EMPTY `amount` COLUMN A LIE. If NCDHHS
+  # starts publishing per-recipient amounts, this file must be REWRITTEN, not
+  # patched -- so the parser refuses rather than quietly carrying on.
+  skip_without_archive()
+  raw <- nc_raw("pr_mih")
+  faked <- sub("<li data-list-item-id", "<li>$250,000</li><li data-list-item-id",
+               rawToChar(raw), fixed = TRUE)
+  expect_error(nc_mih_roster(body = charToRaw(faked)),
+               "dollar figure has appeared INSIDE")
+})
+
+test_that("a 40th MIH recipient stops the build rather than updating a count", {
+  skip_without_archive()
+  raw <- nc_raw("pr_mih")
+  # Inserted INSIDE the roster's own <ul>, not at the document's first </ul>
+  # -- which is a navigation menu and would leave the roster untouched.
+  faked <- sub("recipients include:&nbsp;</p><ul>",
+               "recipients include:&nbsp;</p><ul><li>Wake County EMS</li>",
+               rawToChar(raw), fixed = TRUE)
+  expect_false(identical(faked, rawToChar(raw)))
+  expect_error(nc_mih_roster(body = charToRaw(faked)),
+               "document to re-read, not a count to update")
+})
+
+test_that("amount is empty on all 44 rows and no bucket is populated", {
+  # THE PAIRING ASSERTION, IN THE SHAPE NORTH CAROLINA'S DATA ACTUALLY TAKES.
+  skip_without_archive()
+  rows <- nc_award_rows()
+  expect_equal(nrow(rows), 44L)
+  expect_true(all(is.na(rows$amount)))
+  expect_equal(sum(rows$amount, na.rm = TRUE), 0)
+
+  part <- rhtp_hospital_dollar_partition(rows)
+  expect_equal(nrow(part), 0L)
+  expect_true(is.list(nc_assert_row_count_is_the_finding(rows)))
+})
+
+test_that("a divided pool or a promoted row trips the pairing assertion", {
+  # THE TWO WAYS THE MISTAKE IS ACTUALLY MADE, in the order it is made in:
+  # first somebody spreads the $10,000,000 over 39 rows, then somebody
+  # promotes Cape Fear Valley into a hospital bucket.
+  skip_without_archive()
+  rows <- nc_award_rows()
+
+  divided <- rows
+  divided$amount <- divided$round_amount / divided$round_awards
+  expect_error(nc_assert_row_count_is_the_finding(divided),
+               "came from this pipeline and not from North Carolina")
+
+  promoted <- rows
+  k <- which(promoted$awardee == "Cape Fear Valley Mobile Integrated Health (MIH)")
+  promoted$recipient_type[k]          <- "HOSPITAL_OR_SYSTEM"
+  promoted$flow_type[k]               <- "DIRECT"
+  promoted$distributed_to_hospital[k] <- "Yes"
+  promoted$hospital_attribution[k]    <- "NAMED_HOSPITAL"
+  expect_error(nc_assert_row_count_is_the_finding(promoted),
+               "hospital bucket")
+  expect_error(nc_assert_form_not_stated_queued(promoted),
+               "promoted off §8's standing fallback")
+})
+
+test_that("the ROOTS rows carry NO round_amount -- the allotment is refused", {
+  # §0.2 WRITTEN INTO THE DATA. Five named awardees, and the only currency
+  # figure on either ROOTS document is the $213,008,356.47 STATE ALLOTMENT.
+  skip_without_archive()
+  rows <- nc_award_rows()
+  hub <- rows[rows$award_pool == NC_POOL_ROOTS, ]
+  expect_true(all(is.na(hub$round_amount)))
+  expect_true(nc_assert_hub_leads_unresolved(rows))
+
+  filled <- rows
+  filled$round_amount[filled$award_pool == NC_POOL_ROOTS] <- NC_FOOTER
+  expect_error(nc_assert_hub_leads_unresolved(filled),
+               "whole state award as five hub awards")
+})
+
+test_that("round_amount must never be summed down the column", {
+  # GEORGIA'S TRAP, NEVADA'S DEVICE. $10,000,000 repeated 39 times.
+  skip_without_archive()
+  rec <- nc_reconcile()
+  expect_equal(rec$published, 10000000)
+  expect_equal(rec$naive_wrong_total, 390000000)
+  expect_gt(rec$naive_wrong_total, rec$published)
+})
+
+test_that("the five Hub Leads are Unclear, in neither bucket, with a basis", {
+  # NEW HAMPSHIRE'S FHC ANSWER, NOT ILLINOIS'S ICAHN ANSWER -- hospitals among
+  # others is §0.3, and coding it Yes would put an unpriced regional
+  # pass-through into a hospital bucket on this pipeline's authority.
+  skip_without_archive()
+  hub <- nc_award_rows() %>% dplyr::filter(award_pool == NC_POOL_ROOTS)
+  expect_true(all(hub$flow_type == "PASS_THROUGH_UNRESOLVED"))
+  expect_true(all(hub$distributed_to_hospital == "Unclear"))
+  expect_true(all(hub$hospital_attribution == "NOT_HOSPITAL"))
+  expect_true(all(nzchar(hub$determination_basis)))
+  expect_false(any(startsWith(hub$determination_basis, "§10.2 DIRECT")))
+  expect_true(all(grepl("hospitals AMONG OTHERS", hub$determination_basis,
+                        fixed = TRUE)))
+  expect_true(all(nzchar(hub$intermediary_name)))
+})
+
+test_that("the two spellings of the Region 4 Hub Lead classify DIFFERENTLY", {
+  # THE FINDING, ASSERTED RATHER THAN REPAIRED. A fuzzy merge here changes a
+  # CODING, not just a count: one spelling is a named-hospital row.
+  skip_without_archive()
+  cls <- rhtp_classify_recipient_type(
+    c("University of North Carolina Hospitals", "UNC Health"), "NC")
+  expect_equal(cls$recipient_type[1], "HOSPITAL_OR_SYSTEM")
+  expect_equal(cls$recipient_type[2], "NONPROFIT_CBO")
+  expect_false(identical(cls$recipient_type[1], cls$recipient_type[2]))
+
+  flow <- rhtp_classify_flow(cls$recipient_type, c(NA_character_, NA_character_))
+  expect_equal(flow$distributed_to_hospital, c("Yes", "No"))
+
+  # And NEITHER machine answer is what the file uses: NCDHHS's own page states
+  # the form, and §8's code for an academic health centre is UNIVERSITY_OR_AHC
+  # (Oregon's OHSU precedent), which can only keep dollars OUT.
+  rows <- nc_award_rows()
+  k <- which(rows$awardee == "University of North Carolina Hospitals")
+  expect_equal(rows$recipient_type[k], "UNIVERSITY_OR_AHC")
+  expect_equal(rows$distributed_to_hospital[k], "Unclear")
+  expect_true(is.character(nc_assert_unc_two_spellings()))
+})
+
+test_that("37 of the 39 MIH rows agree with NCDHHS's own class sentence", {
+  # The agreement is what makes the TWO queued rows stand out rather than
+  # being two of thirty-nine unknowns.
+  skip_without_archive()
+  rows <- nc_award_rows()
+  mih <- rows[rows$award_pool == NC_POOL_MIH, ]
+  expect_equal(sum(mih$recipient_type == "EMS_OR_PSAP"), 37L)
+  expect_equal(sum(mih$recipient_type == "NONPROFIT_CBO"), 2L)
+  expect_true(all(mih$distributed_to_hospital == "No"))
+  expect_true(nc_assert_form_not_stated_queued(rows))
+})
+
+test_that("nothing was promoted, and both questions are in the review queue", {
+  skip_without_archive()
+  rows <- nc_award_rows()
+  for (nm in NC_QUEUED_FORM_ROWS) {
+    k <- which(rows$awardee == nm)
+    expect_equal(rows$recipient_type[k], "NONPROFIT_CBO")
+    expect_equal(rows$determination_confidence[k], "LOW")
+    expect_true(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+  }
+  q <- readr::read_csv(NC_REVIEW_QUEUE, show_col_types = FALSE,
+                       progress = FALSE)
+  expect_true("NC_MIH_FORM_NOT_STATED" %in% q$question_id)
+  expect_true("NC_HUB_LEAD_FORM_NOT_IN_VOCABULARY" %in% q$question_id)
+  # Both are worth $0, because North Carolina prices nobody.
+  nc_q <- q[q$state == "NC", ]
+  expect_true(all(grepl("\\$0", nc_q$dollar_effect)))
+})
+
+test_that("the three Hub Leads whose stated form §8 lacks keep the fallback", {
+  # A CONDITION THIS PROJECT HAD NOT RECORDED: the source STATES a form and §8
+  # has no code for it. That is not the unstated-form question eight other
+  # states raise, and no code was invented for it (§2).
+  skip_without_archive()
+  rows <- nc_award_rows()
+  for (nm in c("Trillium Health Resources", "Vaya Health", "Access East, Inc.")) {
+    k <- which(rows$awardee == nm)
+    expect_equal(rows$recipient_type[k], "NONPROFIT_CBO")
+    expect_true(grepl("§8 CARRIES NO CODE FOR THAT FORM",
+                      rows$recipient_type_source[k], fixed = TRUE))
+    expect_true(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+  }
+  # Impact Health's form IS in §8, so it is typed from the source and is NOT
+  # flagged as inferred -- the distinction the flag exists to draw.
+  k <- which(rows$awardee == "Impact Health")
+  expect_equal(rows$recipient_type[k], "NONPROFIT_CBO")
+  expect_true(grepl("501(c)3", rows$recipient_type_source[k], fixed = TRUE))
+  expect_false(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+})
+
+test_that("every categorical value is inside §8 and every row cites a source", {
+  skip_without_archive()
+  rows <- nc_award_rows()
+  expect_true(nc_assert_vocabulary(rows))
+  expect_true(all(nzchar(rows$state_source_url)))
+  expect_true(all(nzchar(rows$source_document_title)))
+  expect_true(all(file.exists(here::here(rows$source_archive_path))))
+  expect_true(all(rows$recipient_confirmed == "Yes"))
+  expect_true(all(rows$amount_confirmed == "No"))
+})
+
+test_that("the committed CSV is what the builder produces", {
+  skip_without_archive()
+  skip_if_not(file.exists(NC_AWARDEES_CSV))
+  on_disk <- readr::read_csv(NC_AWARDEES_CSV, show_col_types = FALSE,
+                             progress = FALSE)
+  built <- nc_award_rows()
+  expect_equal(nrow(on_disk), nrow(built))
+  expect_equal(names(on_disk), names(built))
+  expect_equal(on_disk$awardee, built$awardee)
+  expect_equal(on_disk$recipient_type, built$recipient_type)
+  expect_equal(on_disk$flow_type, built$flow_type)
 })
