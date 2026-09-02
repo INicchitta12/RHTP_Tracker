@@ -134,6 +134,43 @@ RHTP_STATUTE_CITATION <- "Public Law 119-21"
 #' AND IT IS CORROBORATED. HHSC's own page states CMS issued Texas its RHTP
 #' Notice of Award on 2025-12-29 -- read and archived in session 19, from a
 #' different publisher, and matching this release's datePublished exactly.
+#'
+#' THE ONE "DATA CORRECTION" THAT MUST NEVER BE MADE: NOT THE "FEDERAL AWARD
+#' DATE" ON A STATE'S OWN NOTICE OF AWARD (session 36).
+#'
+#' Three states now publish CMS's own Notice of Award -- Nevada (session 26),
+#' California (34) and Connecticut (35) -- and that PDF is plainly better
+#' evidence than a press release, which is exactly what makes it the trap. The
+#' form has two dates on it, and the wrong one is the one labelled like the
+#' answer:
+#'
+#'     state  award #              budget period start   "Federal Award Date"
+#'     NV     RHTCMS332074-01-02   12/29/2025            02/19/2026   (+52d)
+#'     CA     RHTCMS332078-01-02   12/29/2025            03/31/2026   (+92d)
+#'     CT     RHTCMS332073-01-03   12/29/2025            07/23/2026  (+206d)
+#'
+#' THREE OF THREE, and all three carry Award Action Type "Revision (Budget)".
+#' The "Federal Award Date" is the date of the LATEST REVISION, not of the
+#' award: CMS re-issues the whole form each time it approves a revised budget,
+#' and the budget period start does not move. Connecticut's award number ends
+#' -01-03 where the other two end -01-02, which is why its gap is the widest --
+#' SO THE ERROR GROWS WITH EVERY REVISION, and fastest for the states managing
+#' their awards most actively. Any state NOA this project reads in future will
+#' carry this, and the gap will be wider than these.
+#'
+#' THE ANCHOR IS THE BUDGET PERIOD START, which is 2025-12-29 on all three --
+#' the same date this function parses out of the CMS announcement, from a
+#' different publisher in a different medium. That agreement is the reason to
+#' keep the announcement as the source rather than "upgrading" to the PDFs.
+#'
+#' WHAT KEYING ON THE LATER DATE COSTS, MEASURED. Connecticut's own build stops
+#' in two places, and the first says "NOFO #26OHS001 no longer postdates
+#' Connecticut's Notice of Award" -- which reads as a finding about Connecticut
+#' when it is a defect in this table. Two dated Connecticut candidates
+#' (2026-04-07, $1,500,000 and $3,800,000) quarantine as PROVENANCE_PREDATES_NOA
+#' for being seven months "early" against their own state's genuine award.
+#' Pinned by `test_02b_provenance_sweep.R`, which reads all three archived NOAs
+#' and drives the counterfactual.
 rhtp_build_noa_dates <- function() {
   archive <- here::here(NOA_RELEASE_FILE)
 

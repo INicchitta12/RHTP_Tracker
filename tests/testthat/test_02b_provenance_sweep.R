@@ -54,6 +54,116 @@ test_that("the statute floor is earlier than the NOA date, so NOA is stronger", 
 })
 
 
+# -- The two-dates trap ------------------------------------------------------
+#
+# Three states publish CMS's OWN Notice of Award, and that PDF is better
+# evidence than a press release -- which is what makes it the trap. Each form
+# carries a budget period starting 12/29/2025 AND a later "Federal Award Date"
+# that is the date of the latest budget revision. A future session "correcting"
+# the anchor from these documents would take the field labelled like the answer
+# and quarantine genuine rows. These tests read the archived PDFs and drive the
+# counterfactual, so that correction fails here instead of in the data.
+
+source(here::here("R", "utils_pdf_text.R"))
+
+# state -> archived NOA, its budget period, and the Federal Award Date on it.
+CMS_NOA_ARCHIVES <- tibble::tribble(
+  ~state, ~path,                                                                 ~federal_award_date,
+  "NV",   "data/evidence/NV/2026-02-19_nv_cms_notice_of_award_rhtcms332074-01-02.pdf", "02/19/2026",
+  "CA",   "data/evidence/CA/2026-03-31_ca_cms_notice_of_award_revised.pdf",            "03/31/2026",
+  "CT",   "data/evidence/CT/2026-09-02_ct_cms_notice_of_award.pdf",                    "07/23/2026"
+)
+
+noa_pdf_text <- function(path) {
+  paste(rhtp_pdf_text(here::here(path)), collapse = " ")
+}
+
+test_that("every state NOA in the archive starts its budget period on the anchor", {
+  anchor <- unique(rhtp_read_noa_dates()$noa_date)
+  expect_equal(as.character(anchor), "2025-12-29")
+
+  for (i in seq_len(nrow(CMS_NOA_ARCHIVES))) {
+    row <- CMS_NOA_ARCHIVES[i, ]
+    expect_true(file.exists(here::here(row$path)), info = row$state)
+    txt <- noa_pdf_text(row$path)
+
+    # The budget period, as the pair CMS prints it. Asserted as a PAIR rather
+    # than as a loose "12/29/2025 appears somewhere", because the whole point
+    # is which field the date sits in.
+    expect_match(txt, "12/29/2025\\s+10/30/2026", info = row$state)
+  }
+})
+
+test_that("three of three carry a LATER Federal Award Date, and it is a revision", {
+  anchor <- unique(rhtp_read_noa_dates()$noa_date)
+
+  for (i in seq_len(nrow(CMS_NOA_ARCHIVES))) {
+    row <- CMS_NOA_ARCHIVES[i, ]
+    txt <- noa_pdf_text(row$path)
+
+    # The label a future session would grep for, and the value under it.
+    expect_true(stringr::str_detect(txt, stringr::fixed("Federal Award Date")),
+                info = row$state)
+    expect_true(stringr::str_detect(txt, stringr::fixed(row$federal_award_date)),
+                info = row$state)
+
+    # It is later than the anchor in every case -- that is the trap, so it is
+    # measured rather than assumed.
+    fad <- as.Date(row$federal_award_date, format = "%m/%d/%Y")
+    expect_gt(as.numeric(fad - anchor), 0)
+
+    # And it is later BECAUSE the form is a re-issue, which is the word that
+    # explains the gap. If a state ever publishes an original NOA whose action
+    # type is not a revision, this fails and the finding must be re-read.
+    expect_true(stringr::str_detect(txt, stringr::fixed("Revision (Budget)")),
+                info = row$state)
+  }
+})
+
+test_that("the gap grows with the revision count, so it is not a fixed offset", {
+  # Connecticut is on its second revision (award # ends -01-03) where Nevada
+  # and California are on their first (-01-02), and its gap is the widest by a
+  # long way. A future session must not "fix" this with a constant offset.
+  anchor <- unique(rhtp_read_noa_dates()$noa_date)
+  gaps <- as.numeric(
+    as.Date(CMS_NOA_ARCHIVES$federal_award_date, format = "%m/%d/%Y") - anchor
+  )
+  names(gaps) <- CMS_NOA_ARCHIVES$state
+
+  expect_equal(unname(gaps[["NV"]]),  52)
+  expect_equal(unname(gaps[["CA"]]),  92)
+  expect_equal(unname(gaps[["CT"]]), 206)
+  expect_gt(length(unique(gaps)), 1)
+
+  expect_true(stringr::str_detect(noa_pdf_text(CMS_NOA_ARCHIVES$path[3]),
+                                  stringr::fixed("RHTCMS332073-01-03")))
+})
+
+test_that("keying the date test on the Federal Award Date quarantines real rows", {
+  anchor <- unique(rhtp_read_noa_dates()$noa_date)
+
+  # Connecticut's two dated candidates, from the committed sweep.
+  ct <- swept %>%
+    dplyr::filter(.data$state == "CT", !is.na(.data$action_date))
+  expect_equal(nrow(ct), 2)
+
+  # Against the real anchor they are clean: nothing Connecticut has published
+  # predates its own award.
+  today <- purrr::map_chr(
+    ct$action_date, ~ rhtp_flag_provenance_date(.x, anchor)
+  )
+  expect_true(all(is.na(today)))
+
+  # Against the NOA form's Federal Award Date, BOTH quarantine -- for being
+  # seven months "early" relative to their own state's genuine award.
+  wrong <- purrr::map_chr(
+    ct$action_date,
+    ~ rhtp_flag_provenance_date(.x, as.Date("2026-07-23"))
+  )
+  expect_equal(sum(wrong == "PROVENANCE_PREDATES_NOA", na.rm = TRUE), 2)
+})
+
+
 # -- The refusals ------------------------------------------------------------
 
 test_that("RCJ's title-year prefix is never read as a date", {
