@@ -262,7 +262,7 @@ test_that("Rhode Island's opioid settlement rows include a named hospital", {
 
 # -- The sweep as a whole ----------------------------------------------------
 
-test_that("the sweep catches 82 rows in 7 states, and the arithmetic closes", {
+test_that("the sweep catches 101 rows in 9 states, and the arithmetic closes", {
   # 73 in 6 states through session 25. NEVADA ADDED 9 IN SESSION 26: the nine
   # GME Grant Round VIII residency awards, $15,755,068 of Nevada STATE GENERAL
   # FUND money that RCJ files under RHTP-titled documents. They are caught by
@@ -283,11 +283,37 @@ test_that("the sweep catches 82 rows in 7 states, and the arithmetic closes", {
   # sub-headline calls "New opioid settlement-funded grants". Unlike Nevada's,
   # the registry reaches ALL of them -- RCJ carries the release HEADLINE as its
   # source-document title and the first alternative matches it.
-  expect_equal(sum(swept$caught), 90)
-  expect_equal(sum(by_state$caught_total > 0), 8)
-  expect_equal(sum(by_state$caught_total), 90)
+  #
+  # SESSION 34 ADDED CALIFORNIA: 90 rows in 8 states -> 101 in 9, and it is the
+  # largest single-state catch after Texas. All ELEVEN of California's Tier 3
+  # candidates are the Small and Rural Hospital Relief Program -- a state
+  # cigarette-tax seismic-compliance programme -- and ALL ELEVEN ARE NAMED
+  # CALIFORNIA HOSPITALS carrying real amounts on real executed HCAI awards.
+  # Texas's defect with Maine's ratio.
+  #
+  # AND CALIFORNIA IS CAUGHT BY BOTH FILTERS AT ONCE, which no other state's
+  # rows are. The registry reaches all eleven on the source-document title, and
+  # the DATE test reaches all eleven too -- because the registry row supplies
+  # HCAI's own 2025-02-19 SRHRP webinar date for rows RCJ carries NO DATE FOR
+  # AT ALL. New Hampshire's pattern (two §6.2 filters, one row) at the scale of
+  # a whole state's candidate set.
+  expect_equal(sum(swept$caught), 101)
+  expect_equal(sum(by_state$caught_total > 0), 9)
+  expect_equal(sum(by_state$caught_total), 101)
   expect_setequal(by_state$state[by_state$caught_total > 0],
-                  c("TX", "NV", "MI", "NH", "AZ", "RI", "MS", "IL"))
+                  c("TX", "CA", "NV", "MI", "NH", "AZ", "RI", "MS", "IL"))
+})
+
+test_that("California's caught rows are all eleven, and both filters reach them", {
+  ca <- swept %>% dplyr::filter(state == "CA", caught)
+  expect_equal(nrow(ca), 11)
+  expect_true(all(ca$flag_state_program == "PROVENANCE_STATE_PROGRAM"))
+  expect_true(all(ca$registry_program == "CA-SRHRP-SEISMIC"))
+  expect_true(all(ca$registry_disposition == "NOT_RHTP_STATE_PROGRAM"))
+  # Unlike Nevada's, these ARE also caught on a date: the SRHRP was soliciting
+  # in February 2025, ten months before California's Notice of Award.
+  expect_true(all(!is.na(ca$flag_predates_noa)))
+  expect_equal(sum(ca$amount_announced), 5475000)
 })
 
 test_that("Nevada's caught rows are the nine GME programmes, and no Nevada RHTP row", {

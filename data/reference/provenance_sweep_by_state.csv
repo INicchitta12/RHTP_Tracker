@@ -1,5 +1,6 @@
 state,state_name,tier3_candidates,caught_total,caught_state_program,caught_by_registry,caught_by_text_marker,caught_predates_noa,datable_rows,undatable_rows,refused_rcj_year,caught_amount
 TX,Texas,68,62,62,62,0,53,53,15,11,60882308.300000004
+CA,California,11,11,11,11,0,11,11,0,0,5475000
 NV,Nevada,34,9,9,9,0,0,9,25,17,15755068
 MI,Michigan,31,8,8,8,0,0,8,23,23,2214846
 NH,New Hampshire,23,3,3,0,3,0,0,23,23,1958310534
@@ -21,7 +22,6 @@ MO,Missouri,29,0,0,0,0,0,0,29,29,0
 WI,Wisconsin,19,0,0,0,0,0,16,3,3,0
 IA,Iowa,15,0,0,0,0,0,0,15,15,0
 ME,Maine,12,0,0,0,0,0,0,12,12,0
-CA,California,11,0,0,0,0,0,0,11,11,0
 CT,Connecticut,7,0,0,0,0,0,2,5,5,0
 NM,New Mexico,7,0,0,0,0,0,0,7,7,0
 LA,Louisiana,6,0,0,0,0,0,6,0,0,0
