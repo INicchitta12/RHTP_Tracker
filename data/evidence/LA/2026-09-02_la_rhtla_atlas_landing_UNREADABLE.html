@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore Louisiana rural health needs, services, program investments, and outcomes by parish.">
+<title>RHTLA | Louisiana Rural Health</title>
+<base href="/landing/">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' blob: https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https:; font-src 'self' data:; base-uri 'self'; object-src 'none'">
+<script src="/analytics.js"></script>
+<script src="/vendor/resource-overrides.js"></script>
+<script src="./support.js"></script>
+<script src="./content.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/tokens/base.css">
+  <link rel="stylesheet" href="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/styles.css">
+  <link rel="stylesheet" href="./landing.css?v=20260821-rurality-content">
+  <script src="_ds/louisiana-rhtp-design-system-ed8bffbc-d178-47eb-b341-13bac04625fd/_ds_bundle.js"></script>
+  <script src="./la-parishes.js"></script>
+</helmet>
+<template id="__bundler_thumbnail" data-bg-color="#ffffff"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#002d62"/><g fill="none" stroke="#149dd4" stroke-width="7" stroke-linecap="round"><path d="M70 60h60M70 100h60M70 140h60"/></g><circle cx="100" cy="100" r="46" fill="none" stroke="#f9c90f" stroke-width="5"/></svg></template>
+<landing-page>
+<header data-screen-label="Header" class="site-header position-sticky top-0 z-index-100 bg-white border-bottom-1-solid-border-hair">
+  <header-inner>
+    <div class="d-flex items-center gap-12 shrink-0">
+      <a href="/landing" aria-label="RHTLA home" class="d-flex items-center">
+      <img src="assets/logos/orhts-azure-horizontal.png" alt="Louisiana Department of Health — Office of Rural Health Transformation and Sustainability" class="h-46 w-auto d-block">
+      </a>
+      <span class="rhtp-brand-label border-left-1-solid-border-hair pl-12 weight-fw-bold text-navy text-size-15 tracking-0-01em">{{ copy.brand }}</span>
+    </div>
+    <nav class="rhtp-primary-nav d-flex items-center gap-2">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+        <a href="{{ item.href }}" onClick="{{ item.click }}" class="landing-nav-link" style="color:{{ item.color }};border-color:{{ item.border }}">{{ item.label }}</a>
+      </sc-for>
+      <span class="w-14"></span>
+      <span class="d-flex gap-8">
+        <a class="rhtp-atlas-link" href="/atlas.html" target="_blank" rel="noopener">{{ copy.openAtlas }}</a>
+      </span>
+    </nav>
+    <mobile-navigation>
+      <a class="rhtp-atlas-link" href="/atlas.html" target="_blank" rel="noopener">{{ copy.openAtlas }}</a>
+      <details>
+        <summary>More</summary>
+        <nav aria-label="Mobile navigation">
+          <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+            <a href="{{ item.href }}" onClick="{{ item.click }}" class="landing-nav-link" style="color:{{ item.color }};border-color:{{ item.border }}">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+      </details>
+    </mobile-navigation>
+  </header-inner>
+</header>
+<main class="grow-1">
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<page-screen data-screen-label="Home">
+  <content-section>
+    <page-container layout="hero">
+      <div>
+        <section-kicker tone="brand" space-after="14">{{ copy.home.programName }}</section-kicker>
+        <h1 class="m-0-0-16 font-font-display text-size-fs-display-lg leading-1-05 tracking-ls-tight text-navy text-wrap-pretty">{{ copy.home.heroTitle }}</h1>
+        <p class="m-0-0-24 text-size-fs-body-lg leading-1-65 text-text-body max-w-520">{{ copy.home.heroBody }}</p>
+        <div class="landing-search">
+          <input value="{{ query }}" onChange="{{ onQuery }}" onKeyDown="{{ onQueryKey }}" placeholder="{{ copy.home.searchPlaceholder }}" class="landing-search-input">
+          <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="accent" size="lg" on-click="{{ doSearch }}" hint-size="100px,46px">{{ copy.home.searchAction }}</x-import>
+        </div>
+        <div class="mt-12 text-size-fs-caption text-text-muted">{{ copy.home.searchPrompt }} <a href="?page=need" onClick="{{ tryMadison }}">{{ copy.home.searchExamples.madison }}</a> · <a href="?page=need" onClick="{{ tryEastCarroll }}">{{ copy.home.searchExamples.eastCarroll }}</a> · <a href="?page=rurality" onClick="{{ goRurality }}">{{ copy.home.searchExamples.rurality }}</a></div>
+        <sc-if value="{{ searchError }}" hint-placeholder-val="{{ false }}">
+          <div role="alert" class="mt-10 text-size-fs-body-sm text-danger">{{ searchError }}</div>
+        </sc-if>
+      </div>
+      <dl class="landing-stat-grid" aria-label="Louisiana rural health snapshot">
+        <sc-for list="{{ heroStats }}" as="s" hint-placeholder-count="4">
+          <dc-import name="HeroStat" value="{{ s.value }}" label="{{ s.label }}" source="{{ s.source }}"></dc-import>
+        </sc-for>
+      </dl>
+    </page-container>
+  </content-section>
+  <content-section surface="tint">
+    <page-container>
+      <div class="d-flex items-baseline justify-space-between gap-16 mb-20">
+        <div>
+          <section-kicker tone="brand" space-after="8">{{ copy.home.statewideOverline }}</section-kicker>
+          <h2 class="m-0 text-size-fs-h2 text-navy">{{ copy.home.statewideTitle }}</h2>
+        </div>
+        <span class="font-font-mono text-size-fs-caption text-text-muted">As of: {{ asOf }} · {{ copy.home.asOfSuffix }}</span>
+      </div>
+      <content-grid layout="map">
+        <content-panel clipped>
+          <div class="position-relative p-8-8-0">
+            <svg viewBox="0 0 900 620" role="img" aria-label="{{ copy.home.mapAriaLabel }}" class="w-100 h-auto d-block">
+              <sc-for list="{{ mapPaths }}" as="mp" hint-placeholder-count="64">
+                <sc-raw-path d="{{ mp.d }}" fill="{{ mp.fill }}" stroke="var(--white)" stroke-width="0.8" onMouseEnter="{{ mp.enter }}" onMouseLeave="{{ mp.leave }}" onClick="{{ mp.click }}" class="cursor-pointer"></sc-raw-path>
+              </sc-for>
+            </svg>
+            <sc-if value="{{ hoverName }}" hint-placeholder-val="{{ false }}">
+              <div class="position-absolute left-16 top-16 bg-navy-800 text-color radius-6 p-11-14 min-w-190 pointer-none">
+                <div class="weight-fw-bold text-size-13-5 mb-5">{{ hoverName }} {{ copy.home.parishSuffix }}</div>
+                <tooltip-row><span class="text-text-on-brand-muted">{{ copy.home.tooltip.needIndex }}</span><span>{{ hoverIndex }} / 100</span></tooltip-row>
+                <tooltip-row><span class="text-text-on-brand-muted">{{ copy.home.tooltip.rurality }}</span><span>{{ hoverRural }}</span></tooltip-row>
+                <tooltip-row><span class="text-text-on-brand-muted">{{ copy.home.tooltip.priorityRegion }}</span><span>{{ hoverRegion }}</span></tooltip-row>
+                <div class="text-size-10-5 text-text-on-brand-muted mt-5">{{ copy.home.tooltip.hint }}</div>
+              </div>
+            </sc-if>
+          </div>
+          <map-caption>
+            <span class="landing-map-hint grow-1 min-w-260">{{ copy.home.mapHint }}</span>
+            <div class="shrink-0">
+              <div class="text-size-9-5 weight-fw-semibold tracking-0-08em transform-uppercase text-ink-600 mb-5">{{ copy.home.legendTitle }}</div>
+              <div class="d-flex">
+                <sc-for list="{{ legendSwatches }}" as="ls" hint-placeholder-count="6">
+                  <span class="landing-legend-swatch" style="background:{{ ls }}"></span>
+                </sc-for>
+              </div>
+              <div class="d-flex justify-space-between w-156 font-font-mono text-size-9-5 mt-3"><span>{{ copy.home.legendLow }}</span><span>{{ copy.home.legendHigh }}</span></div>
+            </div>
+          </map-caption>
+        </content-panel>
+        <content-stack layout="spaced">
+          <side-panel accent="azure">
+            <h3 class="m-0-0-4 text-size-fs-h4 text-navy">{{ copy.home.priorityTitle }}</h3>
+            <p class="m-0-0-14 text-size-fs-caption text-text-muted">{{ copy.home.priorityBody }}</p>
+            <content-stack layout="plain">
+              <sc-for list="{{ regions }}" as="r" hint-placeholder-count="4">
+                <div class="d-flex justify-space-between items-center gap-12 p-10-0 border-top-1-solid-border-hair">
+                  <span class="text-size-fs-body-sm weight-fw-semibold text-ink-800">{{ r.name }}</span>
+                  <span class="font-font-mono text-size-fs-body-sm text-blue white-space-nowrap">{{ r.parishes }} parishes</span>
+                </div>
+              </sc-for>
+            </content-stack>
+          </side-panel>
+          <side-panel>
+            <h3 class="m-0-0-10 text-size-fs-h4 text-navy">{{ copy.home.statesTitle }}</h3>
+            <sc-for list="{{ threeStates }}" as="t" hint-placeholder-count="3">
+              <div class="d-flex gap-10 items-flex-start p-8-0">
+                <span class="landing-state-dot" style="background:{{ t.dot }}"></span>
+                <span class="text-size-fs-body-sm text-ink-700"><strong class="text-ink-800">{{ t.name }}.</strong> {{ t.desc }}</span>
+              </div>
+            </sc-for>
+          </side-panel>
+          <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Alert" tone="warning" title="{{ copy.home.coverageTitle }}" hint-size="100%,110px">{{ copy.home.coverageBody }}</x-import>
+        </content-stack>
+      </content-grid>
+    </page-container>
+  </content-section>
+  <content-section>
+    <page-container>
+      <section-heading>
+        <section-kicker tone="brand" space-after="10">{{ copy.home.needOverline }}</section-kicker>
+        <h2 class="m-0-0-12 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight leading-1-1">{{ copy.home.needTitle }}</h2>
+        <p class="m-0 text-size-fs-body-lg text-text-body leading-1-65 text-wrap-pretty">{{ copy.home.needBody }}</p>
+      </section-heading>
+      <content-grid layout="needs">
+        <sc-for list="{{ needCards }}" as="nc" hint-placeholder-count="7">
+          <dc-import name="NeedCard" href="?page=need" click="{{ nc.click }}" kind="{{ nc.kind }}" title="{{ nc.title }}" body="{{ nc.line }}" value="{{ nc.fig }}" value-label="{{ nc.figLabel }}" action-label="{{ copy.home.readMore }}" size="{{ nc.size }}" tone="{{ nc.tone }}" surface="{{ nc.surface }}"></dc-import>
+        </sc-for>
+      </content-grid>
+      <action-row space-before="22">
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="secondary" on-click="{{ goNeed }}" hint-size="230px,40px">{{ copy.home.needAction }}</x-import>
+        <span class="text-size-fs-body-sm text-text-muted">{{ copy.home.needFootnote }}</span>
+      </action-row>
+    </page-container>
+  </content-section>
+  <content-section surface="tint">
+    <page-container>
+      <section-heading layout="plan">
+        <div>
+          <section-kicker tone="brand" space-after="10">{{ copy.home.planOverline }}</section-kicker>
+          <h2 class="m-0-0-12 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight leading-1-1">{{ copy.home.planTitle }}</h2>
+          <p class="m-0 text-size-fs-body-lg text-text-body leading-1-65 text-wrap-pretty">{{ copy.home.planBody }}</p>
+        </div>
+        <div class="d-flex gap-40 justify-flex-end wrap-wrap">
+          <sc-for list="{{ planStats }}" as="stat" hint-placeholder-count="3">
+            <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="{{ stat.value }}" label="{{ stat.label }}" context="{{ stat.context }}" accent="{{ stat.accent }}" hint-size="{{ stat.size }}"></x-import>
+          </sc-for>
+        </div>
+      </section-heading>
+      <content-grid layout="strategies">
+        <sc-for list="{{ strategies }}" as="st" hint-placeholder-count="5">
+          <a href="?page=programs" onClick="{{ goPrograms }}" class="landing-strategy-card landing-interactive-card">
+            <metric-value>{{ st.amount }}</metric-value>
+            <div class="text-size-fs-body weight-fw-bold text-ink-800 mt-4">{{ st.name }}</div>
+            <div class="text-size-fs-caption text-text-muted mt-8 leading-1-55 grow-1">{{ st.desc }}</div>
+            <div class="text-size-fs-caption weight-fw-semibold text-blue mt-14">{{ copy.home.strategyPrefix }} {{ st.addresses }}</div>
+          </a>
+        </sc-for>
+      </content-grid>
+      <action-row>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="primary" on-click="{{ goPrograms }}" hint-size="220px,40px">{{ copy.home.programAction }}</x-import>
+        <span class="text-size-fs-body-sm text-text-muted">{{ copy.home.programFootnote }}</span>
+      </action-row>
+    </page-container>
+  </content-section>
+</page-screen>
+</sc-if>
+
+<sc-if value="{{ isNeedOverview }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="Needs assessment overview" width="wide">
+  <section-kicker tone="brand" space-after="10">Needs assessment</section-kicker>
+  <h1 class="m-0-0-14 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight">Understanding rural health needs, parish by parish</h1>
+  <p class="m-0-0-12 text-size-fs-body-lg text-text-body max-w-760 leading-1-65">We are conducting a statewide rural health needs assessment to guide program funding. The work is being developed in partnership with state and local government agencies, rural partners, and patients.</p>
+  <p class="m-0-0-26 text-size-fs-body text-ink-700 max-w-760 leading-1-65">Explore the map or choose a parish profile below. Each profile brings together health indicators, facility records, rurality, and identified RHTP projects, with the source and source date shown alongside the data.</p>
+  <div class="landing-search mb-24">
+    <input value="{{ query }}" onChange="{{ onQuery }}" onKeyDown="{{ onQueryKey }}" placeholder="Search a ZIP code or parish — e.g. 71254 or Madison" class="landing-search-input">
+    <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="accent" size="lg" on-click="{{ doSearch }}" hint-size="130px,46px">View profile</x-import>
+  </div>
+  <content-grid layout="main-sidebar">
+    <content-panel padding="8" clipped>
+      <svg viewBox="0 0 900 620" role="img" aria-label="Select a Louisiana parish to open its needs assessment profile" class="w-100 h-auto d-block">
+        <sc-for list="{{ mapPaths }}" as="mp" hint-placeholder-count="64"><sc-raw-path d="{{ mp.d }}" fill="{{ mp.fill }}" stroke="var(--white)" stroke-width="0.8" onMouseEnter="{{ mp.enter }}" onMouseLeave="{{ mp.leave }}" onClick="{{ mp.click }}" class="cursor-pointer"></sc-raw-path></sc-for>
+      </svg>
+    </content-panel>
+    <content-panel>
+      <h2 class="m-0-0-12 text-size-fs-h4 text-navy">Parish profiles</h2>
+      <content-stack layout="links"><sc-for list="{{ profileLinks }}" as="pl" hint-placeholder-count="8"><a href="?page=need" onClick="{{ pl.click }}" class="text-size-fs-body-sm weight-fw-semibold">{{ pl.name }} Parish →</a></sc-for></content-stack>
+      <p class="m-16-0-0 pt-12 border-top-1-solid-border-hair text-size-fs-caption text-text-muted">Use the search to open any of Louisiana’s 64 parish profiles.</p>
+    </content-panel>
+  </content-grid>
+</page-screen>
+</sc-if>
+
+<sc-if value="{{ isRurality }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="Rurality check" width="wide">
+  <section-kicker tone="brand" space-after="10">Is my location rural?</section-kicker>
+  <h1 class="m-0-0-12 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight">Is my location rural?</h1>
+  <p class="m-0-0-26 text-size-fs-body-lg text-text-body max-w-680 leading-1-65">Find out whether a Louisiana location counts as rural for Rural Health Transformation Program (RHTP) funding. Enter a ZIP code, address, or organization name. You'll get an answer, the record we matched it to, and what to do next.</p>
+  <div class="d-flex gap-10 max-w-680 mb-10 landing-rurality-search">
+    <label class="sr-only" for="rurality-query">ZIP code, address, or organization name — e.g. 71254 or Madison Parish Hospital</label>
+    <input id="rurality-query" value="{{ ruralityQuery }}" onChange="{{ onRuralityQuery }}" onKeyDown="{{ onRuralityKey }}" placeholder="ZIP code, address, or organization name — e.g. 71254 or Madison Parish Hospital" class="grow-1 h-46 p-0-16 border-1-solid-border-strong radius-radius-md font-font-sans text-size-fs-body outline-color-azure">
+    <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="primary" size="lg" on-click="{{ checkRurality }}" hint-size="180px,46px">Check this location</x-import>
+  </div>
+  <p class="m-0-0-24 max-w-680 text-size-fs-caption text-text-muted leading-1-55">ZIP code gives the most reliable match. Searching by name shows up to six possible matches — check the address before you use one.</p>
+  <content-panel space-after="34" surface="tint" width="680">
+    <h2 class="m-0-0-6 text-size-fs-h4 text-navy">Check many locations at once</h2>
+    <p class="m-0-0-12 text-size-fs-body-sm text-ink-700 leading-1-55">Upload a spreadsheet and get a result for every row. Useful if you're preparing an application covering several sites.</p>
+    <div class="d-flex items-center gap-10 wrap-wrap">
+      <a href="assets/rurality-bulk-template.csv" download class="landing-file-label">Download the template (CSV)</a>
+      <label class="landing-file-label">Upload your file<input id="bulk-rurality-file" type="file" accept=".csv,text/csv" onChange="{{ onBulkRurality }}" class="sr-only"></label>
+    </div>
+    <p class="m-0 mt-12 text-size-fs-caption text-text-muted leading-1-55">Your file needs one column named <strong>name</strong>, <strong>address</strong>, or <strong>zip</strong>. Up to 100 rows. Results appear below.</p>
+  </content-panel>
+  <sc-if value="{{ ruralityError }}" hint-placeholder-val="{{ false }}"><div role="alert" class="mb-20 text-size-fs-body-sm text-danger">{{ ruralityError }}</div></sc-if>
+  <sc-if value="{{ ruralityResults.length }}" hint-placeholder-val="{{ false }}">
+    <section aria-live="polite" aria-label="Rurality search results" class="mb-34">
+      <h2 class="m-0-0-12 text-size-fs-h3 text-navy">Search results</h2>
+      <content-grid layout="results">
+        <sc-for list="{{ ruralityResults }}" as="rr" hint-placeholder-count="3">
+          <dc-import name="RuralityResult" result-name="{{ rr.name }}" type="{{ rr.type }}" street="{{ rr.street }}" city="{{ rr.city }}" zip="{{ rr.zip }}" parish="{{ rr.parish }}" status="{{ rr.status }}" detail="{{ rr.detail }}" tone="{{ rr.tone }}"></dc-import>
+        </sc-for>
+      </content-grid>
+    </section>
+  </sc-if>
+  <div class="text-size-fs-caption text-text-muted mb-14">The location falls in one of three categories.</div>
+  <content-grid layout="three-cards-spaced">
+    <content-panel padding="22" accent="success">
+      <status-header>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Badge" tone="success" variant="solid" hint-size="110px,24px">Rural</x-import>
+        <span class="landing-state-symbol" aria-hidden="true">R</span>
+      </status-header>
+      <h3 class="rurality-status-title">The location meets the geographic rural definition</h3>
+      <p class="m-0 mt-12 text-size-fs-body-sm text-ink-700 leading-1-55">The matched ZIP is classified Rural or Partially Rural under the published methodology. This satisfies Pathway 1 geographic screening, subject to application review.</p>
+    </content-panel>
+    <content-panel padding="22" accent="ink-400">
+      <status-header>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Badge" tone="neutral" variant="solid" hint-size="170px,24px">Not rural by geography</x-import>
+        <span class="landing-state-symbol landing-state-symbol--neutral" aria-hidden="true">N</span>
+      </status-header>
+      <h3 class="rurality-status-title">Not rural by geography — two other routes may still apply</h3>
+      <p class="m-0 mt-12 text-size-fs-body-sm text-ink-700 leading-1-55">This ZIP doesn't pass Pathway 1. You may still qualify through Pathway 2 (your facility's federal designation) or Pathway 3 (where your patients live). Only one pathway has to pass.</p>
+      <a href="?page=rurality#qualification-pathways" class="d-inline-block mt-12 text-size-fs-body-sm weight-fw-semibold">See how Pathway 2 and Pathway 3 work →</a>
+    </content-panel>
+    <content-panel padding="22" accent="azure">
+      <status-header>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Badge" tone="azure" variant="solid" hint-size="100px,24px">Not found</x-import>
+        <span class="landing-state-symbol landing-state-symbol--info" aria-hidden="true">i</span>
+      </status-header>
+      <h3 class="rurality-status-title">We couldn't find enough information to answer</h3>
+      <p class="m-0 mt-12 text-size-fs-body-sm text-ink-700 leading-1-55">We either didn't find this organization in our records, or the matched record has no rural classification. This is a gap in our data, not a finding that your location isn't rural.</p>
+      <p class="m-0 mt-12 text-size-fs-body-sm text-ink-700 leading-1-55">Try searching by ZIP code instead. A “not found” result does not stop you from applying.</p>
+    </content-panel>
+  </content-grid>
+  <section id="qualification-pathways" class="mb-34">
+    <h2 class="m-0-0-8 text-size-fs-h2 text-navy">Three ways to qualify — you only need one</h2>
+    <p class="m-0-0-18 text-size-fs-body text-ink-700 leading-1-65">RHTP uses three separate tests. Passing any one of them meets the rural requirement.</p>
+    <content-grid layout="three-cards">
+      <content-panel>
+        <section-kicker tone="brand" space-after="8">Pathway 1 · Where the location is</section-kicker>
+        <p class="m-0 text-size-fs-body-sm text-ink-700 leading-1-55">A location qualifies if it sits in an area the federal government designates rural — RUCA codes 4 through 10, or a ZIP classified Rural or Partially Rural. This page checks Pathway 1 automatically.</p>
+      </content-panel>
+      <content-panel>
+        <section-kicker tone="brand" space-after="8">Pathway 2 · What kind of facility you are</section-kicker>
+        <p class="m-0 text-size-fs-body-sm text-ink-700 leading-1-55">Pathway 2 guidance is being confirmed with ORHTS and is not published here yet. This page does not check Pathway 2. Check the funding notice you're applying under for current requirements.</p>
+      </content-panel>
+      <content-panel>
+        <section-kicker tone="brand" space-after="8">Pathway 3 · Where your patients live</section-kicker>
+        <p class="m-0 text-size-fs-body-sm text-ink-700 leading-1-55">If more than half of your active patients live in rural ZIP codes (RUCA 4–10), you qualify even if Pathways 1 and 2 don't. You'll need your patient ZIP code counts to show this. Provide your patient data in the application. This page does not check Pathway 3.</p>
+      </content-panel>
+    </content-grid>
+    <div class="mt-14"><a href="https://ldh.la.gov/assets/docs/Secretary/RHTP/Rural-Eligibility-Definition-Methodology.pdf" target="_blank" rel="noopener" class="text-size-fs-body-sm weight-fw-semibold">Read the full LDH rural eligibility methodology (PDF) →</a></div>
+  </section>
+  <content-panel layout="challenge">
+    <div>
+      <section-kicker tone="brand" space-after="8">The challenge</section-kicker>
+      <h2 class="m-0-0-10 text-size-fs-h3 text-navy">Current rurality methods don't reach every patient</h2>
+      <p class="m-0-0-10 text-size-fs-body text-ink-700 leading-1-65 text-wrap-pretty">Census-tract codes like RUCA classify geography, not people. A clinic on the "wrong" side of a tract line, a new road that changed drive times, or a practice type no registry enumerates can all leave a genuinely rural patient outside the definition.</p>
+      <p class="m-0 text-size-fs-body text-ink-700 leading-1-65 text-wrap-pretty">RHTLA's work is to expand the reach of these methods — layering drive time, service availability, and enumeration coverage on top of the federal codes — with <strong>the patient at the center of the determination</strong>, not the tract.</p>
+    </div>
+    <content-panel>
+      <h3 class="m-0-0-10 text-size-fs-h4 text-navy">Terms used on this page</h3>
+      <dl class="m-0 d-flex flex-column text-size-fs-body-sm text-ink-700 leading-1-55">
+        <definition-item><dt class="weight-fw-bold text-navy">RUCA</dt><dd class="m-0">Rural-Urban Commuting Area. A federal code from 1 to 10, based on where people in an area commute for work. Codes 4 through 10 count as rural.</dd></definition-item>
+        <definition-item><dt class="weight-fw-bold text-navy">FORHP</dt><dd class="m-0">The Federal Office of Rural Health Policy, which maintains the federal list of rural areas.</dd></definition-item>
+        <definition-item><dt class="weight-fw-bold text-navy">Partially Rural</dt><dd class="m-0">A ZIP code containing both rural and non-rural areas. It passes Pathway 1.</dd></definition-item>
+        <definition-item><dt class="weight-fw-bold text-navy">Transitional At-Risk</dt><dd class="m-0">A flag on locations close to the rural cut-off. It warns that the classification could change as population or commuting patterns shift. It doesn't change your result today.</dd></definition-item>
+        <definition-item><dt class="weight-fw-bold text-navy">Source date</dt><dd class="m-0">When the record you matched was last updated.</dd></definition-item>
+      </dl>
+    </content-panel>
+  </content-panel>
+  <content-grid layout="two-cards">
+    <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Callout" title="How we match your organization" hint-size="100%,140px">Matching runs on identifiers first — NPI, CCN, TIN — then a maintained alias table of legal and trading names. When only a name match is possible, the result names the record it actually matched. A proxy match is never substituted silently.</x-import>
+    <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Callout" title="How determinations are documented" tone="info" hint-size="100%,140px">Every determination can be reproduced from the stated methodology: the pathway applied, the record matched, and the source date used are part of the result.</x-import>
+  </content-grid>
+</page-screen>
+</sc-if>
+
+<sc-if value="{{ isNeed }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="Needs assessment" width="wide" spacing="compact">
+  <div class="d-flex items-center gap-8 text-size-fs-body-sm text-text-muted mb-22">
+    <a href="?page=home" onClick="{{ goHome }}">Home</a><span>›</span><a href="?page=needs" onClick="{{ goNeed }}">Needs assessment</a><span>›</span><span class="text-ink-800 weight-fw-semibold">{{ parishName }} Parish</span>
+  </div>
+  <content-grid layout="main-sidebar">
+    <div>
+      <div class="d-flex items-center gap-14 wrap-wrap mb-6">
+        <h1 class="m-0 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight">{{ parishName }} Parish</h1>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Badge" tone="{{ parishBadgeTone }}" variant="solid" hint-size="90px,24px">{{ parishRuralLabel }}</x-import>
+        <sc-if value="{{ parishRegion }}" hint-placeholder-val="{{ false }}">
+          <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Badge" tone="gold" hint-size="150px,24px">Priority · {{ parishRegion }}</x-import>
+        </sc-if>
+      </div>
+      <div class="font-font-mono text-size-fs-caption text-text-muted mb-24">As of: {{ asOf }} · every figure carries its source and source date</div>
+  <metric-grid>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="{{ parishIndex }}" label="Rural needs index / 100" context="Weights pending final review" accent="navy" hint-size="220px,90px"></x-import>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="{{ parishRank }}" label="Needs rank of 64 parishes" context="Higher needs = higher rank" accent="blue" hint-size="200px,90px"></x-import>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="{{ parishZips }}" label="ZIP codes assessed" context="of 542 statewide" accent="azure" hint-size="170px,90px"></x-import>
+      </metric-grid>
+      <index-legend aria-label="Rural needs index legend">
+        <div><strong>Rural needs index</strong><span>Composite score from 0–100. Higher values indicate greater combined health need and access barriers; weights remain provisional.</span></div>
+        <div><strong>Need rank</strong><span>Orders all 64 parishes from greatest need (#1) to lowest relative need (#64).</span></div>
+        <div><strong>ZIP codes assessed</strong><span>Count of ZIP-level records contributing to this parish profile, out of 542 statewide.</span></div>
+      </index-legend>
+      <h2 class="m-0-0-4 text-size-fs-h3 text-navy">Need indicators</h2>
+      <p class="m-0-0-16 text-size-fs-body-sm text-text-muted">Indicators were selected when they were statewide, reproducible, relevant to rural health decisions, and maintained by a named public steward. They are grouped into vetted domains below. Bars show this parish (navy) vs. state (hairline).</p>
+      <content-grid layout="two-column-section">
+        <sc-for list="{{ indicators }}" as="ind" hint-placeholder-count="6">
+          <content-panel>
+            <div class="landing-indicator-category">{{ ind.category }}</div>
+            <div class="d-flex justify-space-between items-baseline gap-12">
+              <span class="text-size-fs-body-sm weight-fw-semibold text-ink-800">{{ ind.label }}</span>
+              <span class="font-font-mono text-size-20 weight-fw-bold text-navy">{{ ind.value }}</span>
+            </div>
+            <div class="m-10-0-4 h-6 bg-ink-100 radius-3 position-relative">
+              <span class="landing-progress-fill landing-progress-fill--navy" style="width:{{ ind.barPct }}"></span>
+              <span class="landing-progress-marker" style="left:{{ ind.statePct }}"></span>
+            </div>
+            <div class="d-flex justify-space-between text-size-fs-caption text-text-muted"><span>State: {{ ind.state }}</span><span class="font-font-mono text-size-10-5">{{ ind.source }}</span></div>
+          </content-panel>
+        </sc-for>
+      </content-grid>
+      <h2 class="m-0-0-4 text-size-fs-h3 text-navy">Services on file</h2>
+      <p class="m-0-0-14 text-size-fs-body-sm text-text-muted">One record per location. Counts are only as complete as registry coverage — read the coverage column with each count.</p>
+      <scroll-hint aria-hidden="true">Swipe horizontally to see coverage and source columns →</scroll-hint>
+      <div class="landing-data-table landing-service-table bg-white border-1-solid-border-hair radius-radius-lg overflow-hidden mb-16" tabindex="0" role="region" aria-label="Services on file; scroll horizontally on small screens">
+        <div class="landing-table-header landing-service-grid">
+          <span>Facility type</span><span class="text-align-right">In parish</span><span>Registry coverage</span><span>Source date</span>
+        </div>
+        <sc-for list="{{ services }}" as="sv" hint-placeholder-count="10">
+          <content-grid layout="service-row">
+            <span class="weight-fw-semibold text-ink-800">{{ sv.type }}</span>
+            <span class="text-align-right font-font-mono">{{ sv.count }}</span>
+            <span class="d-flex items-center gap-8">
+              <sc-if value="{{ sv.showBar }}" hint-placeholder-val="{{ true }}">
+                <span class="w-70 h-6 bg-ink-100 radius-3 d-inline-block position-relative"><span class="landing-progress-fill" style="width:{{ sv.covPct }};background:{{ sv.covColor }}"></span></span>
+              </sc-if>
+              <span class="landing-coverage-label" style="--coverage-color:{{ sv.covTextColor }}">{{ sv.coverage }}</span>
+            </span>
+            <span class="font-font-mono text-size-11 text-text-muted">{{ sv.source }}</span>
+          </content-grid>
+        </sc-for>
+      </div>
+      <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Alert" tone="warning" title="Reading absences" hint-size="100%,90px">A zero means "none on file," not "none exists." Read each facility count with its named source and registry notes before drawing conclusions about local access.</x-import>
+    </div>
+    <content-stack layout="sticky">
+      <content-panel clipped>
+        <svg viewBox="0 0 900 620" role="img" aria-label="Parish locator map" class="w-100 h-auto d-block p-10 box-border-box">
+          <sc-for list="{{ miniPaths }}" as="mn" hint-placeholder-count="64">
+            <sc-raw-path d="{{ mn.d }}" fill="{{ mn.fill }}" stroke="var(--white)" stroke-width="0.8"></sc-raw-path>
+          </sc-for>
+        </svg>
+        <div class="p-10-16 border-top-1-solid-border-hair d-flex justify-space-between gap-12 text-size-fs-caption"><span class="text-text-muted">{{ parishName }} Parish, Louisiana</span><a href="{{ parishAtlasHref }}" class="weight-fw-semibold">Open this parish in the Atlas →</a></div>
+      </content-panel>
+      <content-panel accent="gold">
+        <h3 class="m-0-0-10 text-size-fs-h4 text-navy">RHTP in this parish</h3>
+        <content-stack layout="compact">
+          <detail-row><span class="text-text-muted">Projects identified</span><span class="font-font-mono">{{ parishProjects }}</span></detail-row>
+          <detail-row><span class="text-text-muted">Participating facilities</span><span class="font-font-mono">{{ parishFacilities }}</span></detail-row>
+        </content-stack>
+        <div class="mt-12"><a href="?page=programs" onClick="{{ goPrograms }}" class="text-size-fs-body-sm weight-fw-semibold">See all program activity →</a></div>
+      </content-panel>
+      <content-panel>
+        <h3 class="m-0-0-8 text-size-fs-h4 text-navy">Ask about this parish</h3>
+        <p class="m-0-0-12 text-size-fs-caption text-text-muted leading-1-5">"What would close the primary-care gap in {{ parishName }} Parish?"</p>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="secondary" size="sm" on-click="{{ goChat }}" hint-size="130px,34px">Ask RHTLA</x-import>
+      </content-panel>
+    </content-stack>
+  </content-grid>
+  <div class="mt-44 border-top-1-solid-border-hair pt-34">
+    <section-kicker tone="brand" space-after="8">Focus areas</section-kicker>
+    <section-heading layout="focus">
+      <h2 class="m-0 text-size-fs-h2 text-navy">Understanding rural patient needs, by domain</h2>
+      <span class="font-font-mono text-size-fs-caption text-text-muted">Statewide views · source dates shown</span>
+    </section-heading>
+    <content-grid layout="tabs-and-detail">
+      <content-stack layout="tabs">
+        <sc-for list="{{ areaTabs }}" as="at" hint-placeholder-count="7">
+          <a href="?page=need" onClick="{{ at.click }}" class="landing-tab" style="border-color:{{ at.bd }};border-left-color:{{ at.rail }};background:{{ at.bg }};color:{{ at.color }}">{{ at.label }}<span class="text-size-10 text-text-faint">›</span></a>
+        </sc-for>
+      </content-stack>
+      <content-panel padding="roomy">
+        <div class="d-flex items-center gap-12 mb-8">
+          <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Badge" tone="{{ areaTagTone }}" hint-size="90px,24px">{{ areaTag }}</x-import>
+          <span class="font-font-mono text-size-fs-caption text-text-faint">As of: {{ asOf }}</span>
+        </div>
+        <h3 class="m-0-0-10 text-size-fs-h3 text-navy">{{ areaName }}</h3>
+        <p class="m-0-0-20 text-size-fs-body text-ink-700 leading-1-65 max-w-640 text-wrap-pretty">{{ areaSummary }}</p>
+        <content-grid layout="stat-cards">
+          <sc-for list="{{ areaStats }}" as="ast" hint-placeholder-count="3">
+            <div class="bg-white p-16-18">
+              <metric-value>{{ ast.v }}</metric-value>
+              <div class="text-size-fs-body-sm weight-fw-semibold text-ink-700 mt-3 leading-1-4">{{ ast.k }}</div>
+              <div class="font-font-mono text-size-10-5 text-text-faint mt-6">{{ ast.src }}</div>
+            </div>
+          </sc-for>
+        </content-grid>
+        <content-grid layout="two-columns">
+          <div class="border-1-solid-border-hair border-left-3-solid-warning radius-radius-md p-14-16">
+            <section-kicker tone="muted" space-after="6">The challenge</section-kicker>
+            <p class="response-copy">{{ areaChallenge }}</p>
+          </div>
+          <div class="border-1-solid-border-hair border-left-3-solid-azure radius-radius-md p-14-16">
+            <section-kicker tone="muted" space-after="6">The RHTP response</section-kicker>
+            <p class="response-copy">{{ areaResponse }}</p>
+          </div>
+        </content-grid>
+      </content-panel>
+    </content-grid>
+  </div>
+</page-screen>
+</sc-if>
+
+<sc-if value="{{ isPrograms }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="Programs">
+  <section class="bg-navy text-text-on-brand">
+    <page-container spacing="section">
+      <section-kicker tone="inverse" space-after="10">Program transparency</section-kicker>
+      <h1 class="m-0-0-10 font-font-display text-size-fs-display-lg tracking-ls-tight text-color">What RHTP plans to fund, and how progress will be tracked</h1>
+      <p class="m-0-0-28 text-size-fs-body-lg text-text-on-brand-muted max-w-680 leading-1-65">Louisiana committed specific Year 1–5 outcomes to CMS. This page shows projects identified for funding and every committed target against its baseline — in one place, on the record.</p>
+      <div class="d-flex gap-56 wrap-wrap">
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="$208.4M" label="Budget Year-1 federal award" context="CMS/HHS · FY2026" accent="azure" on-dark="{{ true }}" hint-size="210px,90px"></x-import>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="$1.4B" label="Total grant funding" context="One of the top awards nationally" accent="azure" on-dark="{{ true }}" hint-size="190px,90px"></x-import>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="1.1M" label="Rural residents served" context="Statewide" accent="azure" on-dark="{{ true }}" hint-size="190px,90px"></x-import>
+        <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Stat" value="9" label="Year 1 Competitive NOFOs" context="$117.3M competitive · $76.2M direct" accent="azure" on-dark="{{ true }}" hint-size="190px,90px"></x-import>
+      </div>
+    </page-container>
+  </section>
+  <section class="border-bottom-1-solid-border-hair">
+    <page-container spacing="section">
+      <div class="d-flex items-baseline justify-space-between gap-16 mb-6">
+        <h2 class="m-0 text-size-fs-h2 text-navy">Committed outcomes: establishing baseline</h2>
+        <span class="font-font-mono text-size-fs-caption text-text-muted">As of: {{ asOf }}</span>
+      </div>
+      <p class="m-0-0-22 text-size-fs-body-sm text-text-muted max-w-640">The four headline targets from the state's application to CMS. Progress bars run baseline → Year-5 target.<br/>(All committed outcomes are reported to CMS)</p>
+      <content-grid layout="outcomes">
+        <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="4">
+          <dc-import name="OutcomeCard" metric-name="{{ o.name }}" status="{{ o.status }}" detail="{{ o.detail }}" baseline="{{ o.baseline }}" current="{{ o.current }}" target="{{ o.target }}" progress="{{ o.pct }}" source="{{ o.source }}"></dc-import>
+        </sc-for>
+      </content-grid>
+    </page-container>
+  </section>
+  <section>
+    <page-container spacing="section">
+      <h2 class="m-0-0-4 text-size-fs-h2 text-navy">Projects identified for funding</h2>
+      <p class="m-0-0-18 text-size-fs-body-sm text-text-muted">Identified projects are grouped by organization type and priority region. Selections are not awards, and funding amounts are not shown until awards are made.</p>
+      <scroll-hint aria-hidden="true">Swipe horizontally to see region and project count →</scroll-hint>
+      <div class="landing-data-table landing-award-table bg-white border-1-solid-border-hair radius-radius-lg overflow-hidden mb-20" tabindex="0" role="region" aria-label="Projects identified for funding; scroll horizontally on small screens">
+        <div class="landing-table-header landing-award-grid">
+          <span>Organization type</span><span>Region</span><span class="text-align-right">Projects identified</span><span></span>
+        </div>
+        <sc-for list="{{ awards }}" as="a" hint-placeholder-count="6">
+          <content-grid layout="award-row">
+            <span class="weight-fw-semibold text-ink-800">{{ a.type }}</span>
+            <span>{{ a.region }}</span>
+            <span class="text-align-right font-font-mono">{{ a.count }}</span><span></span>
+          </content-grid>
+        </sc-for>
+        <div class="p-12-20 text-size-fs-caption text-text-muted d-flex justify-space-between"><span>Grouped public view · 128 projects identified</span><a href="/atlas.html" class="weight-fw-semibold">Open project records in the Atlas →</a></div>
+      </div>
+      <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Callout" title="Funding attribution" hint-size="100%,90px">This project is supported by CMS/HHS as part of a financial assistance award totaling $208,374,447.57, with 100 percent of funding provided by CMS/HHS.</x-import>
+    </page-container>
+  </section>
+</page-screen>
+</sc-if>
+
+<!-- <sc-if value="{{ isChat }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="Ask RHTLA" width="narrow" spacing="compact">
+  <section-kicker tone="brand" space-after="10">Ask RHTLA</section-kicker>
+  <h1 class="m-0-0-8 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight">Ask a question about rural health in Louisiana</h1>
+  <p class="m-0-0-28 text-size-fs-body text-text-muted leading-1-6">Answers lead with the short version, show their sources as links to the underlying data, and say plainly when the data can't answer.</p>
+  <content-stack layout="conversation">
+    <user-message>Which parishes have the greatest unmet need for dental care?</user-message>
+    <assistant-message>
+      <p class="m-0-0-12 text-size-fs-body leading-1-6 text-ink-800"><strong>Short answer: compare need and supply together.</strong> The Atlas carries dental facility records from the NPI source. Counts show locations on file, while need-side indicators help explain where access pressure may be greatest.</p>
+      <details class="mb-14">
+        <summary class="cursor-pointer text-size-fs-body-sm weight-fw-semibold text-blue">How this was determined</summary>
+        <div class="p-12-0-0 text-size-fs-body-sm text-ink-700 leading-1-6">Need-side ranking uses the Rural needs index components available for all 64 parishes: poverty (SVI), chronic-disease prevalence (BRFSS), distance to nearest hospital (registry), and Medicaid dental utilization. Supply-side (practice locations) is excluded until dental enumeration completes — planned under the data-quality workstream.</div>
+      </details>
+      <div class="d-flex gap-8 wrap-wrap mb-6">
+        <span class="text-size-fs-caption text-text-muted self-center">Sources:</span>
+        <a href="?page=methods" onClick="{{ goMethods }}" class="font-font-mono text-size-11 p-3-9 border-1-solid-border-hair radius-3 text-blue decoration-none">CDC SVI · 2022</a>
+        <a href="?page=methods" onClick="{{ goMethods }}" class="font-font-mono text-size-11 p-3-9 border-1-solid-border-hair radius-3 text-blue decoration-none">BRFSS · 2024</a>
+        <a href="?page=methods" onClick="{{ goMethods }}" class="font-font-mono text-size-11 p-3-9 border-1-solid-border-hair radius-3 text-blue decoration-none">Medicaid utilization · 2025</a>
+        <a href="?page=methods" onClick="{{ goMethods }}" class="font-font-mono text-size-11 p-3-9 border-1-solid-border-hair radius-3 text-blue decoration-none">ORHTS facility registry · 6/26</a>
+      </div>
+    </assistant-message>
+    <user-message>How does that compare with the parishes RHTP is already funding?</user-message>
+    <assistant-message>
+      <p class="m-0-0-12 text-size-fs-body leading-1-6 text-ink-800"><strong>Short answer: identified projects align with a named priority region.</strong> Madison, East Carroll, and Tensas sit in the Mississippi Delta priority region. Project identification is not an award; final recipients and funding amounts will be reported after awards are made.</p>
+      <div class="d-flex gap-8 wrap-wrap">
+        <span class="text-size-fs-caption text-text-muted self-center">Sources:</span>
+        <a href="?page=programs" onClick="{{ goPrograms }}" class="font-font-mono text-size-11 p-3-9 border-1-solid-border-hair radius-3 text-blue decoration-none">RHTP awards · {{ asOf }}</a>
+        <a href="?page=methods" onClick="{{ goMethods }}" class="font-font-mono text-size-11 p-3-9 border-1-solid-border-hair radius-3 text-blue decoration-none">State RHTP application · 2025</a>
+      </div>
+    </assistant-message>
+  </content-stack>
+  <div class="position-sticky bottom-0 bg-surface-page p-14-0-22 border-top-1-solid-border-hair">
+    <div class="d-flex gap-8 wrap-wrap mb-12">
+      <sc-for list="{{ chatChips }}" as="c" hint-placeholder-count="3">
+        <span class="text-size-fs-body-sm p-6-14 border-1-solid-border-strong radius-radius-pill text-ink-700 cursor-pointer bg-white">{{ c }}</span>
+      </sc-for>
+      <span class="text-size-fs-body-sm p-6-14 border-1-solid-gold-600 radius-radius-pill text-ink-800 cursor-pointer bg-gold-100">Compile this session into a report</span>
+    </div>
+    <div class="d-flex gap-10">
+      <input placeholder="Ask about need, services, or program progress…" class="grow-1 h-46 p-0-16 border-1-solid-border-strong radius-radius-md font-font-sans text-size-fs-body outline-color-azure">
+      <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Button" variant="primary" size="lg" hint-size="80px,46px">Send</x-import>
+    </div>
+    <div class="mt-10 text-size-fs-caption text-text-faint">Answers are generated from the sources listed in <a href="?page=methods" onClick="{{ goMethods }}">Data &amp; methods</a> and always cite them. RHTLA does not give medical advice.</div>
+  </div>
+</page-screen>
+</sc-if> -->
+
+<sc-if value="{{ isMethods }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="Data and methods" width="wide">
+  <section-kicker tone="brand" space-after="10">Data &amp; methods</section-kicker>
+  <h1 class="m-0-0-12 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight">Every figure has a source, a source date, and a method</h1>
+  <p class="m-0-0-30 text-size-fs-body-lg text-text-body max-w-680 leading-1-65">RHTLA is built to be checked. This page lists what the platform holds, how complete it is, and how the rural accessibility index is computed — so a determination can be reproduced by anyone.</p>
+  <content-grid layout="methods">
+    <div>
+      <h2 class="m-0-0-4 text-size-fs-h3 text-navy">Selected source inventory</h2>
+      <p class="m-0-0-14 text-size-fs-body-sm text-text-muted">Highlights the primary sources used across the public Atlas. This is not the complete field-level data dictionary; expanded source documentation is planned with the full methodology package.</p>
+      <content-panel clipped space-after="30">
+        <div class="landing-table-header landing-source-grid">
+          <span>Source</span><span>Steward</span><span>Source date</span><span>Refresh</span>
+        </div>
+        <sc-for list="{{ sources }}" as="src" hint-placeholder-count="8">
+          <content-grid layout="source-row">
+            <span class="weight-fw-semibold text-ink-800">{{ src.name }}</span>
+            <span class="text-ink-600">{{ src.steward }}</span>
+            <span class="font-font-mono">{{ src.sourceDate }}</span>
+            <span class="font-font-mono text-text-muted">{{ src.refresh }}</span>
+          </content-grid>
+        </sc-for>
+      </content-panel>
+      <h2 class="m-0-0-4 text-size-fs-h3 text-navy">Facilities on file by type</h2>
+      <p class="m-0-0-14 text-size-fs-body-sm text-text-muted">Counts show records currently carried in the Atlas. They describe the registry, not a verified census of every operating facility.</p>
+      <content-panel padding="wide" layout="stack">
+        <sc-for list="{{ coverage }}" as="cv" hint-placeholder-count="7">
+          <content-grid layout="coverage-row">
+            <span class="text-size-fs-body-sm weight-fw-semibold text-ink-800">{{ cv.type }}</span>
+            <span class="h-8 bg-ink-100 radius-4 position-relative d-block"><span class="landing-outcome-fill" style="width:{{ cv.pct }};background:{{ cv.color }}"></span></span>
+            <span class="landing-coverage-label landing-coverage-label--right" style="--coverage-color:{{ cv.textColor }}">{{ cv.count }}</span>
+          </content-grid>
+        </sc-for>
+        <div class="text-size-fs-caption text-text-muted border-top-1-solid-border-hair pt-12">The displayed types match the Atlas facility layers: acute and specialty hospitals, FQHCs, rural health clinics, dental facilities, and pharmacies.</div>
+      </content-panel>
+    </div>
+    <content-stack layout="spaced">
+      <content-panel padding="wide" accent="azure">
+        <h3 class="m-0-0-10 text-size-fs-h4 text-navy">Rural accessibility index</h3>
+        <p class="m-0-0-12 text-size-fs-body-sm text-ink-700 leading-1-6">A 0–100 composite of need and access, computed per ZIP and rolled up to parish:</p>
+        <content-stack layout="compact">
+          <sc-for list="{{ weights }}" as="w" hint-placeholder-count="5">
+            <detail-row><span class="text-ink-700">{{ w.name }}</span><span class="font-font-mono weight-fw-bold text-navy">{{ w.weight }}</span></detail-row>
+          </sc-for>
+        </content-stack>
+        <div class="mt-12 text-size-fs-caption text-warning weight-fw-semibold">Weights are provisional — pending ORHTS sign-off and external academic review.</div>
+      </content-panel>
+      <content-panel padding="wide">
+        <h3 class="m-0-0-10 text-size-fs-h4 text-navy">The three-state model</h3>
+        <p class="m-0 text-size-fs-body-sm text-ink-700 leading-1-6">No silent blanks. Every lookup returns <strong>verified rural</strong>, <strong>verified not rural</strong>, or <strong>not enumerated</strong> — and a "not enumerated" result is a statement about the registry, never about the place.</p>
+      </content-panel>
+      <content-panel padding="wide">
+        <h3 class="m-0-0-10 text-size-fs-h4 text-navy">For researchers</h3>
+        <p class="m-0-0-12 text-size-fs-body-sm text-ink-700 leading-1-6">Full methodology documentation, a REST API specification, and bulk extracts are planned but are not yet published. The rural eligibility methodology below is available now.</p>
+        <a href="https://ldh.la.gov/assets/docs/Secretary/RHTP/Rural-Eligibility-Definition-Methodology.pdf" target="_blank" rel="noopener" class="text-size-fs-body-sm weight-fw-semibold">Read the methodology (PDF) →</a>
+      </content-panel>
+    </content-stack>
+  </content-grid>
+</page-screen>
+</sc-if>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<page-screen data-screen-label="About" width="narrow">
+  <section-kicker tone="brand" space-after="10">About RHTLA</section-kicker>
+  <h1 class="m-0-0-16 font-font-display text-size-fs-display-lg text-navy tracking-ls-tight">Closing the gap between data and decisions for Rural Health</h1>
+  <p class="m-0-0-24 text-size-fs-body-lg leading-1-65 text-text-body">Louisiana's rural communities face uneven health needs, limited access to care, workforce shortages, transportation and broadband barriers. Yet the data needed to understand these challenges is spread across multiple agencies, datasets, and systems, often using different measures and definitions of rural areas, making it difficult to see the full picture of need and determine where resources should go.</p>
+  <p class="m-0-0-24 text-size-fs-body-lg leading-1-65 text-text-body">RHTLA brings that data together in one public place. Search your parish or ZIP code to see local needs and services, check whether your organization qualifies as rural before applying for funding, or track what the state's Rural Health Transformation Program is funding and achieving. Every figure on this site carries its source and date.</p>
+  <h2 class="m-0-0-12 text-size-fs-h2 text-navy">Who this is for</h2>
+  <content-grid layout="two-column-section">
+    <sc-for list="{{ audiences }}" as="au" hint-placeholder-count="4">
+      <content-panel>
+        <div class="text-size-fs-body weight-fw-bold text-navy mb-6">{{ au.who }}</div>
+        <div class="text-size-fs-body-sm text-ink-700 leading-1-55">{{ au.need }}</div>
+      </content-panel>
+    </sc-for>
+  </content-grid>
+  <section class="mb-30">
+    <h2 class="m-0-0-12 text-size-fs-h2 text-navy">Built with academic rigor</h2>
+    <p class="m-0-0-18 text-size-fs-body text-ink-700 leading-1-65">RHTLA is built by the UL Lafayette Center for Applied Artificial Intelligence, in partnership with the NSF Accessible Healthcare through AI-Augmented Decisions Center and the Louisiana Center for Health Innovation. The AI assistant is grounded in named Atlas sources and always shows its evidence, and the tool is tested regularly with rural providers, patients, and researchers to keep it accurate and clear.</p>
+    <p class="m-0-0-18 text-size-fs-body text-ink-700 leading-1-65">Want the details — data sources, index methodology, or how we evaluate the assistant? <a href="?page=methods" onClick="{{ goMethods }}">See Data &amp; methods →</a></p>
+    <content-panel padding="wide" space-after="18" surface="tint">
+      <h3 class="m-0-0-8 text-size-fs-h4 text-navy">How to use the Atlas</h3>
+      <p class="m-0-0-12 text-size-fs-body-sm text-ink-700 leading-1-6">Choose a parish or ZIP, turn facility layers on and off, inspect a source-labeled indicator, or ask the assistant a question.</p>
+      <ol class="m-0 p-0-0-0-22 d-flex flex-column gap-10 text-size-fs-body-sm text-ink-700 leading-1-6">
+        <li>Search for your parish or ZIP code to see local facilities, health indicators, and program activity.</li>
+        <li>Turn facility layers on and off — hospitals, FQHCs, rural health clinics, dental, and pharmacies — to see what's nearby.</li>
+        <li>Click any indicator to see its source and how current it is.</li>
+        <li>Ask RHIA, the AI assistant, a question about broadband, workforce, or access to care in plain language.</li>
+      </ol>
+      <p class="m-0 mt-12 text-size-fs-body-sm text-ink-700 leading-1-6">If a facility count reads zero, check the source and registry notes next to it — it usually means the record isn't on file yet, not that nothing exists there.</p>
+      <img src="assets/atlas-use-guide.png" alt="RHTLA Atlas with the map layers, health indicator controls, facility legend, and AI assistant visible" loading="lazy" decoding="async" class="w-100 h-auto d-block mt-14 border-1-solid-border-hair radius-radius-md">
+      <a href="/atlas.html" class="d-inline-block mt-10 text-size-fs-body-sm weight-fw-semibold">Open the Atlas →</a>
+    </content-panel>
+  </section>
+  <content-panel layout="delivery-partner">
+    <img src="assets/caai-logo-about.webp" alt="Center for Applied Artificial Intelligence" class="w-200 h-auto d-block">
+    <div>
+      <section-kicker tone="brand" space-after="8">Delivery partner</section-kicker>
+      <h2 class="m-0-0-10 text-size-fs-h3 text-navy">UL Lafayette Center for Applied Artificial Intelligence</h2>
+      <p class="m-0-0-12 text-size-fs-body text-ink-700 leading-1-65 text-wrap-pretty"></p>
+      <a href="https://caai.louisiana.edu/" target="_blank" rel="noopener" class="text-size-fs-body-sm weight-fw-semibold">caai.louisiana.edu →</a>
+    </div>
+  </content-panel>
+  <x-import component-from-global-scope="LouisianaRHTPDesignSystem_ed8bff.Callout" title="Funding disclosure" hint-size="100%,90px">This project is supported by CMS/HHS as part of a financial assistance award totaling $208,374,447.57, with 100 percent of funding provided by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views of, nor an endorsement by, CMS/HHS or the U.S. Government.</x-import>
+</page-screen>
+</sc-if>
+
+</main>
+<footer class="bg-navy text-text-on-brand">
+  <footer-grid>
+    <div>
+      <img src="assets/logos/orhts-white-stacked.png" alt="Louisiana Department of Health — Office of Rural Health Transformation and Sustainability" class="h-88 w-auto d-block">
+      <p class="m-16-0-0 text-text-on-brand-muted text-size-fs-body-sm max-w-320 leading-1-6">RHTLA.net is the public data platform of the Louisiana Rural Health Transformation Program.</p>
+      <partner-block>
+        <section-kicker tone="inverse" space-after="10" size="small">Built in partnership with</section-kicker>
+        <partner-logos aria-label="Project partners">
+          <a href="https://caai.louisiana.edu/" target="_blank" rel="noopener" class="landing-partner-link" aria-label="Visit the Center for Applied Artificial Intelligence website">
+            <img src="assets/caai-logo.webp" alt="Center for Applied Artificial Intelligence" class="landing-partner-logo landing-partner-logo--caai">
+          </a>
+          <a href="https://nsfahead.org/" target="_blank" rel="noopener" class="landing-partner-link" aria-label="Visit the Accessible Healthcare through AI-Augmented Decisions Center website">
+            <img src="assets/logos/ahead-logo-footer.webp" alt="Accessible Healthcare through AI-Augmented Decisions Center" class="landing-partner-logo landing-partner-logo--ahead">
+          </a>
+          <a href="https://lchi.louisiana.edu/" target="_blank" rel="noopener" class="landing-partner-link" aria-label="Visit the Louisiana Center for Health Innovation website">
+            <img src="assets/logos/lchi-logo-footer.webp" alt="Louisiana Center for Health Innovation" class="landing-partner-logo landing-partner-logo--lchi">
+          </a>
+        </partner-logos>
+      </partner-block>
+    </div>
+    <div>
+      <section-kicker tone="inverse" space-after="14">Explore</section-kicker>
+      <content-stack layout="footer-links">
+        <a href="?page=rurality" onClick="{{ goRurality }}" class="text-text-on-brand-muted">Is my location rural?</a>
+        <a href="?page=need" onClick="{{ goNeed }}" class="text-text-on-brand-muted">Needs assessment</a>
+        <a href="?page=programs" onClick="{{ goPrograms }}" class="text-text-on-brand-muted">Program tracker</a>
+        <a href="/atlas.html" class="text-text-on-brand-muted">Ask RHTLA</a>
+      </content-stack>
+    </div>
+    <div>
+      <section-kicker tone="inverse" space-after="14">Trust</section-kicker>
+      <content-stack layout="footer-links">
+        <a href="?page=methods" onClick="{{ goMethods }}" class="text-text-on-brand-muted">Data &amp; methods</a>
+        <a href="?page=methods" onClick="{{ goMethods }}" class="text-text-on-brand-muted">Registry coverage</a>
+        <a href="?page=about" onClick="{{ goAbout }}" class="text-text-on-brand-muted">About RHTLA</a>
+        <a href="https://www.ldh.la.gov/contact-us" target="_blank" rel="noopener" class="text-text-on-brand-muted">Report a data issue</a>
+      </content-stack>
+    </div>
+    <div>
+      <section-kicker tone="inverse" space-after="14">Program</section-kicker>
+      <content-stack layout="footer-links">
+        <a href="https://ldh.la.gov/page/rhtp-funding-opportunities" target="_blank" rel="noopener" class="text-text-on-brand-muted">Apply for funding</a>
+        <a href="https://ldh.la.gov/page/rural-health-transformation-program" target="_blank" rel="noopener" class="text-text-on-brand-muted">ldh.la.gov/page/rural-health-transformation-program</a>
+      </content-stack>
+    </div>
+  </footer-grid>
+  <footer-divider>
+    <footer-bottom>
+      <span class="max-w-760 leading-1-55">This project is supported by CMS/HHS as part of a financial assistance award totaling $208,374,447.57, with 100 percent of funding provided by CMS/HHS. © 2026 Louisiana Department of Health · Office of Rural Health Transformation and Sustainability</span>
+      <span><a href="https://www.ldh.la.gov/page/nondiscrimination-disclaimer" target="_blank" rel="noopener" class="text-text-on-brand-muted">Accessibility</a> · <a href="https://www.ldh.la.gov/page/ldh-privacy-policy" target="_blank" rel="noopener" class="text-text-on-brand-muted">Privacy</a> · <a href="https://ldh.la.gov/page/public-records-request" target="_blank" rel="noopener" class="text-text-on-brand-muted">Public Records</a></span>
+    </footer-bottom>
+  </footer-divider>
+</footer>
+</landing-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;coveragePublic&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Open design questions&quot;,&quot;description&quot;:&quot;Publish registry coverage bars on the public tier (vs. general caveat only)&quot;},&quot;dataAsOf&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;8/1/26&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Data&quot;,&quot;description&quot;:&quot;The as-of dateline shown on data surfaces&quot;}}">
+class Component extends DCLogic {
+  content = window.RHTP_CONTENT;
+  state = { page: this.initialPage(), parish: this.content.defaults.parish, query: "", searchError: "", ruralityQuery: "", ruralityError: "", ruralityResults: [], areaIdx: 0, hover: null };
+
+  areas = [
+    { label: "Access to care services", tag: "Access", tagTone: "navy", name: "Access to health care services",
+      summary: "Primary care, behavioral health, and dental are three front doors of rural care, and each has a different access picture. Atlas facility records provide a supply view that should be interpreted alongside source coverage.",
+      stats: [{ v: "60%", k: "Primary care received in parish of residence", src: "Medicaid claims · 2025" }, { v: "1:2,940", k: "Behavioral health provider ratio, rural", src: "HRSA shortage file · 6/26" }, { v: "0%", k: "Dental practices enumerated in registry", src: "ORHTS registry · 6/26" }],
+      challenge: "Patients travel out of parish for basics; behavioral health waits stretch months; the dental supply picture is invisible until enumeration completes.",
+      response: "Workforce ($53.2M) and Sustainable Access ($39.9M) strategies fund recruitment, retention, and keeping rural clinics open — with the Clinician Credit Bank as the lead instrument." },
+    { label: "Care coordination & referrals", tag: "Challenge", tagTone: "warning", name: "Care coordination, referrals, and patients' access to their own data",
+      summary: "Rural patients are referred out — to specialists two parishes away — and their records don't travel with them. Coordination failures show up as repeat tests, missed follow-ups, and patients who simply stop pursuing a referral.",
+      stats: [{ v: "38%", k: "Referrals completed within 90 days, rural", src: "Medicaid claims · 2025" }, { v: "52 mi", k: "Median distance to referred specialist", src: "Claims + registry · 2025" }, { v: "27%", k: "Rural patients using a patient portal", src: "LDH survey · 2025" }],
+      challenge: "Referrals leak, records fragment across systems, and patients can't see or carry their own data between providers.",
+      response: "Tech Innovation ($50.6M) funds interoperable referral and record exchange, and patient-facing data access is a scored criterion in the NOFOs." },
+    { label: "Preventive care", tag: "Challenge", tagTone: "warning", name: "Preventive care: physical activity, nutrition, and patient education",
+      summary: "Chronic disease in rural Louisiana is upstream of the hospital: what people can do before they need care depends on safe places to be active, food that supports health, and education that reaches them where they are.",
+      stats: [{ v: "33%", k: "Rural adults reporting no leisure-time physical activity", src: "BRFSS · 2024" }, { v: "40%", k: "Adults with obesity, rural parishes", src: "BRFSS · 2024" }, { v: "13.1%", k: "Adults with diagnosed diabetes, rural", src: "BRFSS · 2024" }],
+      challenge: "Prevention programs exist but are fragmented, urban-designed, and rarely evaluated against rural participation.",
+      response: "MRAHA ($39.8M) — Making Rural America Healthy Again — funds prevention, nutrition, and patient-education programs built for rural delivery." },
+    { label: "Hospital access by drive time", tag: "Access", tagTone: "navy", name: "Hospital access by drive time",
+      summary: "Distance is the rural fact that shapes every other one. Drive-time to acute care — not straight-line miles — is what determines whether a chest pain becomes a survivable event.",
+      stats: [{ v: "74%", k: "Rural residents within 30 min of acute care", src: "Registry + road network · 6/26" }, { v: "38 mi", k: "Longest parish median drive to a hospital", src: "Registry + road network · 6/26" }, { v: "14.2 min", k: "Rural EMS median response time (baseline)", src: "LERN · 2025" }],
+      challenge: "Closures compound: when one rural hospital closes, drive times rise across every neighboring parish at once — and current maps lag new roads and closures.",
+      response: "Sustainable Access ($39.9M) stabilizes at-risk hospitals; the committed CMS target is a 10% reduction in rural EMS response times by Year 5." },
+    { label: "Food deserts & food as medicine", tag: "Need", tagTone: "azure", name: "Food deserts and food as medicine",
+      summary: "In much of rural Louisiana the nearest full grocery is farther than the nearest clinic. Food access is a health exposure — and prescriptions for produce only work where produce exists.",
+      stats: [{ v: "31%", k: "Rural households with low food access", src: "USDA FARA · 2023" }, { v: "24", k: "Parishes with a USDA-designated food desert", src: "USDA FARA · 2023" }, { v: "17%", k: "Rural households SNAP-enrolled", src: "DCFS · 2025" }],
+      challenge: "Diet-driven chronic disease is treated downstream while the upstream cause — no accessible healthy food — sits outside the health system's usual reach.",
+      response: "MRAHA identifies food-as-medicine projects pairing clinics with local food systems; RHTLA maps food access alongside clinical need so future funding decisions can consider both gaps." },
+    { label: "Health workforce shortage", tag: "Challenge", tagTone: "warning", name: "Workforce shortage for the health professions",
+      summary: "Rural Louisiana doesn't just need to recruit clinicians — it needs to grow them. The pipeline runs from rural high schools through training pathways and back home: pathways programs, grow-your-own models, and the Rural HERO initiative.",
+      stats: [{ v: "23", k: "Specialists per 100k rural residents (urban: 78)", src: "Licensure + NPI · 2026" }, { v: "58 of 64", k: "Parishes with a primary-care shortage area", src: "HRSA HPSA · 6/26" }, { v: "40", k: "Clinician Credit Bank Batch 1 applicants", src: "ORHTS RCCB · 8/26" }],
+      challenge: "Recruited clinicians leave; home-grown ones stay. But rural students face the longest odds of entering the health professions at all.",
+      response: "Workforce ($53.2M) funds pathway programs, grow-your-own partnerships with schools and community colleges, Rural HERO, and the Clinician Credit Bank." },
+    { label: "Telehealth, broadband & technology", tag: "Access", tagTone: "navy", name: "Access to telehealth, broadband, and technology",
+      summary: "Telehealth only closes distance where the connection exists. Broadband, devices, and digital comfort are now health infrastructure — and they're unevenly distributed in exactly the parishes with the least in-person care.",
+      stats: [{ v: "68%", k: "Rural households with broadband subscription", src: "FCC + ACS · 12/25" }, { v: "11", k: "Parishes below 50% broadband availability", src: "FCC · 12/25" }, { v: "15%", k: "Year-5 target: low-acuity 911 resolved by tele-EMS", src: "IIR metric 51" }],
+      challenge: "The parishes farthest from care are also the least connected — telehealth without broadband widens the gap it was meant to close.",
+      response: "Tech Innovation ($50.6M) and the $20M Rural Tech Catalyst Fund with LED fund connectivity, devices, and tele-EMS; broadband availability is a rural-index component." },
+  ];
+
+  componentDidMount() {
+    if (!window.LA_PARISHES) {
+      this._geoTimer = setInterval(() => { if (window.LA_PARISHES) { clearInterval(this._geoTimer); this.forceUpdate(); } }, 60);
+    }
+    this._onPopState = (event) => {
+      const saved = event.state && event.state.landing;
+      const page = saved && ["home", "about", "rurality", "need", "programs", "methods"].includes(saved.page)
+        ? saved.page
+        : this.initialPage();
+      this.setState({
+        page,
+        parish: saved && saved.parish ? saved.parish : this.content.defaults.parish,
+        areaIdx: saved && Number.isInteger(saved.areaIdx) ? saved.areaIdx : 0,
+        hover: null,
+        searchError: "",
+      });
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("popstate", this._onPopState);
+    window.history.replaceState(
+      { ...(window.history.state || {}), landing: this.historyState(this.state) },
+      "",
+      window.location.href,
+    );
+  }
+  componentWillUnmount() {
+    if (this._geoTimer) clearInterval(this._geoTimer);
+    window.removeEventListener("popstate", this._onPopState);
+  }
+
+  static REGIONS = {
+    "Mississippi Delta": ["Madison", "Tensas", "East Carroll", "West Carroll", "Franklin", "Richland", "Morehouse", "Concordia"],
+    "Central & West Central Timberlands": ["Winn", "Grant", "LaSalle", "Caldwell", "Jackson", "Bienville", "Natchitoches", "Sabine", "Vernon"],
+    "Central Agricultural Core": ["Avoyelles", "Evangeline", "St. Landry", "Catahoula", "Pointe Coupee"],
+    "Northern Hill & Timber Corridors": ["Claiborne", "Union", "Webster", "Red River", "De Soto"],
+  };
+  static URBAN = ["East Baton Rouge", "Orleans", "Jefferson", "Caddo", "Lafayette", "St. Tammany", "Bossier", "Calcasieu", "Ouachita", "Rapides", "Ascension", "Livingston", "Terrebonne", "Lafourche", "St. Charles", "St. Bernard", "West Baton Rouge"];
+
+  regionOf(name) {
+    for (const [r, list] of Object.entries(Component.REGIONS)) if (list.includes(name)) return r;
+    return null;
+  }
+  needIndexOf(name) {
+    const h = this.hash(name);
+    if (this.regionOf(name)) return 72 + h % 26;
+    if (Component.URBAN.includes(name)) return 8 + h % 22;
+    return 34 + h % 34;
+  }
+  needFill(v) {
+    const t = Math.max(0, Math.min(1, v / 100));
+    const a = [234, 244, 251], b = [0, 45, 98];
+    return "rgb(" + a.map((c, i) => Math.round(c + (b[i] - c) * t)).join(",") + ")";
+  }
+
+  initialPage() {
+    const requested = new URLSearchParams(window.location.search).get("page");
+    return ["home", "about", "rurality", "needs", "need", "programs", "methods"].includes(requested) ? requested : "home";
+  }
+
+  pageHref(page) { return page === "home" ? "?page=home" : "?page=" + page; }
+
+  historyState(state) {
+    return { page: state.page, parish: state.parish, areaIdx: state.areaIdx };
+  }
+
+  navigate(page, extra) {
+    const nextState = { ...this.state, page, ...(extra || {}) };
+    window.history.pushState({ landing: this.historyState(nextState) }, "", this.pageHref(page));
+    this.setState(nextState);
+    window.scrollTo(0, 0);
+  }
+
+  nav(page, extra) { return (e) => { if (e && e.preventDefault) e.preventDefault(); const menu = e && e.currentTarget ? e.currentTarget.closest("details") : null; if (menu) menu.open = false; this.navigate(page, extra); }; }
+
+  hash(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
+
+  renderVals() {
+    const page = this.state.page, p = this.state.parish, hv = this.state.hover;
+    const geo = (window.LA_PARISHES && window.LA_PARISHES.p) || [];
+    const asOf = this.props.dataAsOf ?? this.content.defaults.dataAsOf;
+    const showCoverage = this.props.coveragePublic ?? true;
+    const navItems = this.content.navigation.map(([id, label]) => ({
+      label, href: this.pageHref(id), click: this.nav(id),
+      color: page === id ? "var(--navy)" : "var(--ink-600)",
+      border: page === id ? "var(--gold)" : "transparent",
+    }));
+    const h = this.hash(p.name);
+    const idx = p.index ?? 80;
+    const indicators = [
+      { category: "Access", label: "Primary care in parish of residence", value: (46 + h % 10) + "%", state: "60%", barPct: (46 + h % 10) + "%", statePct: "60%", source: "Medicaid claims · 2025" },
+      { category: "Diagnosis", label: "Adults with diagnosed diabetes", value: (12 + h % 4) + "." + (h % 10) + "%", state: "11.8%", barPct: (58 + h % 20) + "%", statePct: "52%", source: "BRFSS · 2024" },
+      { category: "Access", label: "Drive to nearest acute-care hospital", value: (24 + h % 22) + " mi", state: "11 mi", barPct: (60 + h % 30) + "%", statePct: "24%", source: "ORHTS registry · 6/26" },
+      { category: "Social conditions", label: "Households with low food access", value: (30 + h % 16) + "%", state: "19%", barPct: (48 + h % 26) + "%", statePct: "30%", source: "USDA FARA · 2023" },
+      { category: "Social conditions", label: "Adults without high-school diploma", value: (22 + h % 8) + "%", state: "14%", barPct: (44 + h % 18) + "%", statePct: "28%", source: "ACS 5-yr · 2024" },
+      { category: "Emergency care", label: "EMS median response time", value: (13 + h % 8) + "." + (h % 10) + " min", state: "9.4 min", barPct: (52 + h % 26) + "%", statePct: "38%", source: "LERN · 2025" },
+    ];
+    const svc = (type, count, cov, source) => {
+      const enumerated = cov != null;
+      return {
+        type, count: enumerated ? String(count) : "—",
+        coverage: enumerated ? cov + "%" : "Not enumerated",
+        covPct: enumerated ? cov + "%" : "0%",
+        covColor: !enumerated ? "var(--warning)" : cov >= 95 ? "var(--success)" : "var(--azure)",
+        covTextColor: enumerated ? "var(--ink-700)" : "var(--warning)",
+        showBar: enumerated && showCoverage, source,
+      };
+    };
+    const services = [
+      svc("Acute-care hospitals", 1 + h % 2, 100, "CMS PoS · 7/26"),
+      svc("Specialty hospitals", h % 2, 100, "CMS PoS · 7/26"),
+      svc("FQHC sites", 1 + h % 3, 91, "HRSA UDS · 6/26"),
+      svc("Rural health clinics", 2 + h % 3, 94, "HRSA · 6/26"),
+      svc("Dental facilities", 4 + h % 12, 100, "NPI · 8/26"),
+      svc("Pharmacies", 2 + h % 4, 88, "LA Board of Pharmacy · 5/26"),
+    ];
+    const outcomes = [
+      { name: "Primary care received in parish of residence", detail: "+3 percentage points committed by Year 5 · urban comparison pending validation", baseline: "60%", current: "60%", target: "63%", pct: "0%", status: "Establishing baseline", source: "Medicaid claims · 2025 · Initiative Information Report metric 12" },
+      { name: "Specialty coverage per 100,000 rural residents", detail: "+5 providers committed · urban comparison pending validation", baseline: "23", current: "23", target: "28", pct: "0%", status: "Establishing baseline", source: "Licensure + NPI · 2026 · IIR metric 27" },
+      { name: "Rural EMS response times", detail: "−10% committed by Year 5 · national comparison pending validation", baseline: "14.2 min", current: "14.2 min", target: "12.8 min", pct: "0%", status: "Establishing baseline", source: "LERN · 2025 · IIR metric 44" },
+      { name: "Low-acuity 911 calls resolved by tele-EMS", detail: "15% committed by Year 5 · national comparison not yet established", baseline: "0%", current: "0%", target: "15%", pct: "0%", status: "Establishing baseline", source: "Bureau of EMS · 2026 baseline · IIR metric 51" },
+    ];
+    return {
+      copy: this.content.copy, planStats: this.content.copy.home.planStats, navItems, asOf,
+      isHome: page === "home", isAbout: page === "about", isRurality: page === "rurality",
+      isNeedOverview: page === "needs", isNeed: page === "need", isPrograms: page === "programs", isChat: page === "chat", isMethods: page === "methods",
+      goHome: this.nav("home"), goAbout: this.nav("about"), goRurality: this.nav("rurality"),
+      goNeed: this.nav("needs"), goPrograms: this.nav("programs"), goChat: () => { window.location.href = "/atlas.html"; }, goMethods: this.nav("methods"),
+      tryMadison: this.nav("need", { parish: { name: "Madison", region: "Mississippi Delta", index: 88, rural: true } }),
+      tryEastCarroll: this.nav("need", { parish: { name: "East Carroll", region: "Mississippi Delta", index: 91, rural: true } }),
+      query: this.state.query,
+      searchError: this.state.searchError,
+      onQuery: (e) => this.setState({ query: e.target.value, searchError: "" }),
+      onQueryKey: (e) => { if (e.key === "Enter") this.doSearchNow(); },
+      doSearch: () => this.doSearchNow(),
+      ruralityQuery: this.state.ruralityQuery,
+      ruralityError: this.state.ruralityError,
+      ruralityResults: this.state.ruralityResults,
+      onRuralityQuery: (e) => this.setState({ ruralityQuery: e.target.value, ruralityError: "" }),
+      onRuralityKey: (e) => { if (e.key === "Enter") this.checkRuralityNow(); },
+      checkRurality: () => this.checkRuralityNow(),
+      onBulkRurality: (e) => this.processRuralityFile(e),
+      heroStats: this.content.heroStats,
+      regions: this.content.regions,
+      threeStates: this.content.resultStates,
+      needCards: this.content.needCards.map((card) => ({ ...card, click: this.nav("need", { areaIdx: card.i }) })),
+      strategies: this.content.strategies,
+      parishName: p.name, parishRegion: p.region,
+      parishIndex: String(idx), parishRank: "#" + (1 + this.hash(p.name + "r") % 12),
+      parishZips: String(3 + h % 9),
+      parishBadgeTone: p.rural ? "success" : "neutral",
+      parishRuralLabel: p.rural ? "Rural" : "Not rural",
+      parishProjects: String(1 + h % 4), parishAtlasHref: "/atlas.html?parish=" + encodeURIComponent(p.name),
+      parishFacilities: String(2 + h % 5),
+      mapPaths: geo.map((g) => ({
+        d: g.d, fill: this.needFill(this.needIndexOf(g.n)),
+        enter: () => this.setState({ hover: g.n }),
+        leave: () => this.setState({ hover: null }),
+        click: () => this.navigate("need", { hover: null, parish: { name: g.n, region: this.regionOf(g.n), index: this.needIndexOf(g.n), rural: !Component.URBAN.includes(g.n) } }),
+      })),
+      profileLinks: geo.slice().sort((a, b) => a.n.localeCompare(b.n)).slice(0, 8).map((g) => ({
+        name: g.n,
+        click: this.nav("need", { parish: { name: g.n, region: this.regionOf(g.n), index: this.needIndexOf(g.n), rural: !Component.URBAN.includes(g.n) } }),
+      })),
+      miniPaths: geo.map((g) => ({ d: g.d, fill: g.n === p.name ? "var(--azure)" : "var(--ink-100)" })),
+      legendSwatches: [0, 20, 40, 60, 80, 100].map((v) => this.needFill(v)),
+      hoverName: hv, hoverIndex: hv ? String(this.needIndexOf(hv)) : "",
+      hoverRural: hv ? (Component.URBAN.includes(hv) ? "Not rural" : "Rural") : "",
+      hoverRegion: hv ? (this.regionOf(hv) || "—") : "",
+      indicators, services, outcomes,
+      areaTabs: this.areas.map((a, i) => {
+        const on = i === this.state.areaIdx;
+        return { label: a.label, click: (e) => { e.preventDefault(); this.setState({ areaIdx: i }); },
+          bg: on ? "var(--surface-tint)" : "var(--white)", bd: on ? "var(--border-strong)" : "var(--border-hair)",
+          rail: on ? "var(--gold)" : "transparent", color: on ? "var(--navy)" : "var(--ink-600)" };
+      }),
+      areaName: this.areas[this.state.areaIdx].name,
+      areaTag: this.areas[this.state.areaIdx].tag,
+      areaTagTone: this.areas[this.state.areaIdx].tagTone,
+      areaSummary: this.areas[this.state.areaIdx].summary,
+      areaStats: this.areas[this.state.areaIdx].stats,
+      areaChallenge: this.areas[this.state.areaIdx].challenge,
+      areaResponse: this.areas[this.state.areaIdx].response,
+      awards: [
+        { type: "Hospitals", region: "Mississippi Delta", count: "31", amount: "" },
+        { type: "Rural health clinics", region: "Central & West Central", count: "24", amount: "" },
+        { type: "FQHC sites", region: "Northern Hill & Timber", count: "21", amount: "" },
+        { type: "EMS providers", region: "Central Agricultural Core", count: "18", amount: "" },
+        { type: "Hospitals", region: "Statewide / other rural", count: "20", amount: "" },
+        { type: "Clinics and community partners", region: "Statewide / other rural", count: "8", amount: "" },
+        { type: "Universities", region: "Statewide / other rural", count: "6", amount: "" },
+      ],
+      chatChips: this.content.chatChips,
+      sources: [
+        { name: "ORHTS facility registry (377 facilities)", steward: "ORHTS", sourceDate: "6/26", refresh: "Monthly" },
+        { name: "ZIP-level rurality file (542 ZIPs)", steward: "ORHTS", sourceDate: "6/26", refresh: "Annual" },
+        { name: "RUCA codes — parishes & ZIPs", steward: "USDA ERS", sourceDate: "2020", refresh: "Decennial" },
+        { name: "Medicaid utilization (66 parishes)", steward: "LDH Medicaid", sourceDate: "2025", refresh: "Quarterly" },
+        { name: "Initiative Information Report (81 metrics)", steward: "ORHTS", sourceDate: "2025", refresh: "Annual" },
+        { name: "HRSA shortage & UDS layers", steward: "HRSA", sourceDate: "6/26", refresh: "Quarterly" },
+        { name: "CDC Social Vulnerability Index", steward: "CDC/ATSDR", sourceDate: "2022", refresh: "Biennial" },
+        { name: "FCC broadband availability", steward: "FCC", sourceDate: "12/25", refresh: "Semi-annual" },
+      ],
+      coverage: [
+        { type: "Hospitals", pct: "27%", count: "305", color: "var(--navy)", textColor: "var(--ink-800)" },
+        { type: "FQHC sites", pct: "7%", count: "79", color: "var(--blue)", textColor: "var(--ink-800)" },
+        { type: "Rural health clinics", pct: "24%", count: "274", color: "var(--success)", textColor: "var(--ink-800)" },
+        { type: "Dental facilities", pct: "100%", count: "1,137", color: "var(--azure)", textColor: "var(--ink-800)" },
+        { type: "Pharmacies", pct: "100%", count: "1,275", color: "var(--warning)", textColor: "var(--ink-800)" },
+      ],
+      weights: this.content.indexWeights,
+      audiences: this.content.audiences,
+    };
+  }
+
+  ruralityStatus(zip) {
+    const cls = String(zip.rurality_class || "").toLowerCase();
+    if (cls === "rural" || cls === "partially rural") return { status: "Rural", tone: "success", detail: (zip.rurality_tier || zip.rurality_class) + " · Pathway 1 geographic screen passes" };
+    if (cls) return { status: "Not rural by geography", tone: "neutral", detail: (zip.rurality_tier || zip.rurality_class) + " · Pathway 1 geographic screen does not pass" };
+    return { status: "Not found", tone: "azure", detail: "No rural classification is available for this matched ZIP; this is a data gap, not a non-rural finding" };
+  }
+
+  async facilities() {
+    if (!this._facilities) {
+      const response = await fetch("/api/facilities");
+      if (!response.ok) throw new Error("Facility lookup failed");
+      this._facilities = await response.json();
+    }
+    return this._facilities;
+  }
+
+  normalizeAddressTokens(text) {
+    if (!text) return [];
+    const streetReplacements = {
+      st: "street", str: "street",
+      rd: "road",
+      hwy: "highway", hw: "highway",
+      blvd: "boulevard",
+      ave: "avenue", av: "avenue",
+      dr: "drive",
+      ct: "court",
+      ln: "lane",
+      pkwy: "parkway", pky: "parkway",
+      ste: "suite", apt: "suite", unit: "suite",
+    };
+    return String(text)
+      .toLowerCase()
+      .replace(/[,.#\-/\\]/g, " ")
+      .split(/\s+/)
+      .map((t) => streetReplacements[t] || t)
+      .filter((t) => t && t !== "la" && t !== "louisiana" && t !== "usa");
+  }
+
+  async lookupRuralityRow(rowOrQuery) {
+    const isObj = typeof rowOrQuery === "object" && rowOrQuery !== null;
+    const name = (isObj ? rowOrQuery.name || "" : rowOrQuery || "").trim();
+    const address = (isObj ? rowOrQuery.address || "" : "").trim();
+    const zip = (isObj ? rowOrQuery.zip || "" : "").trim();
+
+    const directZip = /^\d{5}$/.test(zip)
+      ? zip
+      : (/^\d{5}$/.test(address)
+        ? address
+        : (/^\d{5}$/.test(name)
+          ? name
+          : (address.match(/\b\d{5}\b/) || name.match(/\b\d{5}\b/) || [])[0] || null));
+
+    const facilities = await this.facilities();
+    const stopTokens = new Set([
+      "street", "road", "highway", "boulevard", "avenue", "drive", "court", "lane", "parkway",
+      "suite", "unit", "apt", "box", "po", "north", "south", "east", "west", "n", "s", "e", "w",
+      "la", "louisiana", "usa", "and", "the", "of", "in", "at", "llc", "inc", "corp",
+      "clinic", "center", "centre", "hospital", "pharmacy", "services", "practice", "health",
+      "medical", "department", "office", "group", "care", "dr", "dds", "md", "apdc"
+    ]);
+
+    const nameTokens = this.normalizeAddressTokens(name);
+    const addrTokens = this.normalizeAddressTokens(address);
+    const hasName = nameTokens.length > 0;
+    const hasAddr = addrTokens.length > 0;
+
+    let candidateFacilities = facilities;
+    if (directZip) {
+      const scoped = facilities.filter((f) => String(f.zip_code || "").padStart(5, "0") === directZip);
+      if (scoped.length) candidateFacilities = scoped;
+    }
+
+    let matches = [];
+    if (hasName || hasAddr) {
+      const scored = candidateFacilities.map((facility) => {
+        let nameScore = 0;
+        let addrScore = 0;
+        let hasSpecificNameMatch = false;
+        let hasSpecificAddrMatch = false;
+
+        const fNameLower = facility.name.toLowerCase();
+        const nameLower = name.toLowerCase().trim();
+        const fAddrLower = [facility.street, facility.address, facility.city].filter(Boolean).join(" ").toLowerCase();
+        const addrLower = address.toLowerCase().trim();
+
+        const fNameTokens = this.normalizeAddressTokens(facility.name);
+        const fAddrTokens = this.normalizeAddressTokens([facility.street, facility.address, facility.city].filter(Boolean).join(" "));
+
+        if (hasName) {
+          if (nameLower && fNameLower === nameLower) {
+            nameScore += 100;
+            hasSpecificNameMatch = true;
+          } else if (nameLower && (fNameLower.includes(nameLower) || nameLower.includes(fNameLower))) {
+            nameScore += 60;
+            hasSpecificNameMatch = true;
+          }
+          for (const t of nameTokens) {
+            if (fNameTokens.includes(t)) {
+              if (!stopTokens.has(t)) {
+                nameScore += 20;
+                hasSpecificNameMatch = true;
+              } else {
+                nameScore += 2;
+              }
+            }
+          }
+        }
+
+        if (hasAddr) {
+          if (addrLower && fAddrLower.includes(addrLower)) {
+            addrScore += 60;
+            hasSpecificAddrMatch = true;
+          }
+          for (const t of addrTokens) {
+            if (fAddrTokens.includes(t)) {
+              if (!stopTokens.has(t)) {
+                addrScore += 15;
+                hasSpecificAddrMatch = true;
+              } else {
+                addrScore += 1;
+              }
+            }
+          }
+        }
+
+        if (hasName && !hasSpecificNameMatch) return { facility, score: 0, exact: 0 };
+        if (!hasName && hasAddr && !hasSpecificAddrMatch) return { facility, score: 0, exact: 0 };
+
+        const exact = (hasName && fNameLower === nameLower) || (hasAddr && fAddrLower.includes(addrLower)) ? 1 : 0;
+        return { facility, score: nameScore + addrScore, exact };
+      }).filter((item) => item.score > 0);
+
+      scored.sort((left, right) => {
+        const leftExact = left.exact;
+        const rightExact = right.exact;
+        return rightExact - leftExact || (right.score - left.score) || left.facility.name.localeCompare(right.facility.name);
+      });
+
+      if (scored.length > 0) {
+        const topScore = scored[0].score;
+        matches = scored.filter((item) => item.score >= topScore * 0.9).slice(0, 1).map((item) => item.facility);
+      }
+    }
+
+    if (!matches.length && directZip) {
+      const zipData = await fetch("/api/zip/" + directZip).then((response) => response.ok ? response.json() : null);
+      if (!zipData) return [];
+      const status = this.ruralityStatus(zipData);
+      return [{
+        name: name ? `${name} (ZIP ${directZip})` : `ZIP ${directZip}`,
+        type: "Location",
+        street: address || "ZIP-level result",
+        city: zipData.city || "—",
+        parish: zipData.parish || "—",
+        zip: directZip,
+        ...status,
+      }];
+    }
+
+    return Promise.all(matches.map(async (facility) => {
+      const zipCode = String(facility.zip_code || "").padStart(5, "0");
+      const zipData = /^\d{5}$/.test(zipCode) ? await fetch("/api/zip/" + zipCode).then((response) => response.ok ? response.json() : {}) : {};
+      return {
+        name: facility.name,
+        type: facility.type,
+        street: facility.street || facility.address || "Street address unavailable",
+        city: facility.city || "City unavailable",
+        parish: facility.parish || zipData.parish || "Parish unavailable",
+        zip: zipCode || "ZIP unavailable",
+        ...this.ruralityStatus(zipData),
+      };
+    }));
+  }
+
+  async lookupRurality(query) {
+    return this.lookupRuralityRow(query);
+  }
+
+  async checkRuralityNow() {
+    try {
+      const results = await this.lookupRurality(this.state.ruralityQuery || "");
+      this.setState({ ruralityResults: results, ruralityError: results.length ? "" : "We didn't find a match. Try a five-digit ZIP code — that's the most reliable search. If your organization still doesn't appear, that's a gap in our records, not an answer about your location." });
+    } catch (error) {
+      console.error(error);
+      this.setState({ ruralityResults: [], ruralityError: "The rurality service is unavailable. Please try again." });
+    }
+  }
+
+  parseCsvLine(line) {
+    const values = [];
+    let value = "";
+    let quoted = false;
+    for (let index = 0; index < line.length; index += 1) {
+      const character = line[index];
+      if (character === '"' && quoted && line[index + 1] === '"') {
+        value += '"';
+        index += 1;
+      } else if (character === '"') {
+        quoted = !quoted;
+      } else if (character === "," && !quoted) {
+        values.push(value.trim());
+        value = "";
+      } else {
+        value += character;
+      }
+    }
+    values.push(value.trim());
+    return values;
+  }
+
+  async processRuralityFile(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    try {
+      const lines = (await file.text()).split(/\r?\n/).filter((line) => line.trim());
+      const headers = this.parseCsvLine(lines.shift() || "").map((value) => value.toLowerCase());
+      const acceptedColumns = ["name", "address", "zip"].map((name) => headers.indexOf(name));
+      if (!acceptedColumns.some((index) => index >= 0)) throw new Error("missing-column");
+      const nameCol = headers.indexOf("name");
+      const addrCol = headers.indexOf("address");
+      const zipCol = headers.indexOf("zip");
+      const rows = lines.slice(0, 100).map((line) => {
+        const values = this.parseCsvLine(line);
+        const name = nameCol >= 0 ? values[nameCol] || "" : "";
+        const address = addrCol >= 0 ? values[addrCol] || "" : "";
+        const zip = zipCol >= 0 ? values[zipCol] || "" : "";
+        const firstPopulated = acceptedColumns.find((index) => index >= 0 && values[index]);
+        if (!name && !address && !zip && !firstPopulated) return null;
+        return { name, address, zip };
+      }).filter(Boolean);
+      const batches = [];
+      for (const row of rows) batches.push(...await this.lookupRurality(row));
+      this.setState({ ruralityResults: batches, ruralityError: batches.length ? "" : "No rows matched a Louisiana organization or ZIP." });
+    } catch (error) {
+      console.error(error);
+      this.setState({ ruralityResults: [], ruralityError: "We couldn't read that file. Make sure it's a CSV with a column named name, address, or zip." });
+    } finally {
+      event.target.value = "";
+    }
+  }
+
+  async doSearchNow() {
+    const q = (this.state.query || "").trim().toLowerCase();
+    if (/^\d{5}$/.test(q)) {
+      try {
+        const response = await fetch("/api/zip/" + q);
+        if (!response.ok) throw new Error("ZIP lookup failed");
+        const result = await response.json();
+        const region = this.regionOf(result.parish);
+        this.navigate("need", {
+          searchError: "",
+          parish: { name: result.parish, region, index: 60 + this.hash(result.parish) % 38, rural: result.rural },
+        });
+      } catch {
+        this.setState({ searchError: "We couldn't find that ZIP code. Check all five digits and try again." });
+      }
+      return;
+    }
+
+    if (/^\d+$/.test(q)) {
+      this.setState({ searchError: "ZIP codes must contain exactly five digits." });
+      return;
+    }
+
+    const requestedParish = q.replace(/\s*parish\s*$/, "");
+    const parishRecord = ((window.LA_PARISHES && window.LA_PARISHES.p) || [])
+      .find((item) => item.n.toLowerCase() === requestedParish);
+    if (q && !parishRecord) {
+      this.setState({ searchError: "We couldn't find that parish or ZIP code. Check the spelling and try again." });
+      return;
+    }
+    const name = parishRecord ? parishRecord.n : "Madison";
+    const priority = { "Madison": "Mississippi Delta", "East Carroll": "Mississippi Delta", "Tensas": "Mississippi Delta", "Winn": "Central & West Central Timberlands", "Webster": "Northern Hill & Timber Corridors", "Avoyelles": "Central Agricultural Core" };
+    this.navigate("need", { searchError: "", parish: { name, region: priority[name] || null, index: 60 + this.hash(name) % 38, rural: !Component.URBAN.includes(name) } });
+  }
+}
+</script>
+</body>
+</html>
