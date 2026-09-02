@@ -158,7 +158,52 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
 # not one award named. AND RCJ DROPS THE LARGEST ROW -- Capital Improvement,
 # $41.60M, the capital one likeliest to reach a hospital -- so its six
 # understate the deck's seven by $41,600,000. R/03ae carries the tripwires.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "LA", "NM", "TX", "WI")
+# KENTUCKY AND NEW YORK join in session 37, and they are the FIRST TWO STATES
+# ADDED HERE THAT NEVER ENTERED THIS QUEUE AT ALL. Every other entry led the
+# RCJ_ONLY ranking. These two carry ZERO Tier 3 candidates -- they are from
+# the group of TWELVE states invisible to BOTH discovery layers, which session
+# 36 named as the next phase on Florida's precedent (Florida is invisible to
+# both and had published 81 awards worth $188,201,256 the whole time).
+#
+# So `INVESTIGATED_NO_LIST` now carries a second meaning it did not have
+# before: not only "this state led the queue and the candidates were
+# disqualified", but "this state had no candidates, was worked against its own
+# sources anyway, and publishes no recipient-level list". Without the code the
+# distinction between the two states below and the nine states in that group
+# nobody has opened would be invisible.
+#
+# KENTUCKY is the first negative here that names the award-notification step
+# AND its date, twice, with both passed. `ruralhealthplan.ky.gov` -- a
+# dedicated RHTP domain no other state has -- carries NINE RFAs and not one
+# names a recipient ("awarded", "awardee", "recipients", "selected", "Notice
+# of Intent" all ZERO). Its CMHC RFA gives "July 10, 2026: Notification of
+# Award to Grantees" and its CHW RFA "August 26, 2026 Anticipated Notification
+# of Award to Recipients". Kentucky also publishes CMS's OWN Notice of Award,
+# the FOURTH state to do so, and uniquely it is the ORIGINAL (Action Type
+# "New", Federal Award Date 12/29/2025) rather than a revision -- which is the
+# first direct corroboration of session 36's decision to pin the §6.2 date
+# test to the budget period. R/03af carries the tripwires.
+#
+# NEW YORK's one recipient-level solicitation has run and its CONTRACT START
+# has passed: RCHI allocates $76,190,022 and its own guidance says "Contracts
+# for funded grantees will begin on September 1, 2026", against an
+# investigation that ran 2026-09-02. DOH's own 2026-08-12 deck says "91
+# Applications, $156,000,000 total request" and "Reviews and Funding
+# Recommendation In Progress" -- oversubscribed two to one with not one award
+# named (§0.3 in the state's own numbers). Its eligible class is new to this
+# repository and is neither Illinois's nor New Hampshire's: A HOSPITAL IS
+# REQUIRED in every partnership and need not be the recipient. R/03ag carries
+# the tripwires.
+#
+# NORTH CAROLINA WAS WORKED IN THE SAME SESSION AND IS DELIBERATELY NOT HERE.
+# It is from the same group of twelve and it has PUBLISHED TWO NAMED ROSTERS
+# -- 39 Mobile Integrated Health recipients and 5 NC ROOTS Hub Leads -- so
+# `INVESTIGATED_NO_LIST` would be a false claim about it. It is left
+# `NOT_EXTRACTED`, which is true: nobody has extracted it yet. See
+# R/03ah_nc_year1_sources.R, which archives the evidence and refuses to
+# create an award file.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM", "NY",
+                                        "TX", "WI")
 
 
 # -- Inputs ------------------------------------------------------------------

@@ -1,0 +1,18 @@
+NEW YORK -- RHTP evidence archive
+
+Fetched 2026-09-02 by R/03ag_ny_year1_probe.R --fetch.
+Bodies are written with writeBin(), so re-hashing a file on disk
+reproduces its digest below.
+
+THE PROGRAMME PAGE'S FILE DIGEST HELD ACROSS THREE FETCHES (28,125 bytes,
+one SHA-256), which only Maine's has done before. That is recorded and
+NOT relied on: a stable-looking pair proves nothing (session 34's
+California cache variant is guaranteed to be missed by back-to-back
+fetches), so --probe compares a CONTENT digest like every other probe.
+
+file  bytes  sha256
+2026-09-02_ny_transforming_rural_healthcare.html  28125  2bfc0c11c618f0de4e782ff52b086c93f2716c0b1a707f727c206306b5a97869
+2026-09-02_ny_rchi_funding_guidance.pdf  289776  c741e54ded6504c91e1550ef8373322ad910dc367db0b2312e4c0bf8c8804031
+2026-09-02_ny_2026-08-12_update.pdf  333895  65ee679492ee7f1f92eab818694d8596667639ee16bbafe0df720dc26654f5e4
+2026-09-02_ny_doh_press_releases_2026.html  49586  59d5e89dc99230230d66bc58775ffc1925acc02731f680e84ff912e84d8bc9a0
+2026-09-02_ny_contract_reporter.html  12117  b1dfb2a9da81b17995b93882ef6916c1d90e63a365a3667320e73b4ddecd8c7f

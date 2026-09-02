@@ -1,0 +1,20 @@
+KENTUCKY -- RHTP evidence archive
+
+Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch.
+Bodies are written with writeBin(), so re-hashing a file on disk
+reproduces its digest below.
+
+THE FILE DIGEST OF THE TWO ruralhealthplan.ky.gov PAGES IS NOT A CHANGE
+TEST. SharePoint re-rolls a GUID in every <link id="CssLink-..."> and a
+fresh ASP.NET __VIEWSTATE on every render: three fetches, three distinct
+SHA-256s. Both are attribute-borne, so ky_reduce_html() absorbs them and
+--probe compares a CONTENT digest. Re-verify with ky_content_digest().
+
+file  bytes  sha256
+2026-09-02_ky_ruralhealthplan_home.html  61219  303491f12c733ad88fcba3eaccff80b72678eddcd6b023edb1a118186658cafb
+2026-09-02_ky_ruralhealthplan_funding_opportunities.html  84004  95f8485b8d1a5f892f42bccfefd9b66df26a63ae4529ab8f4a0e5311f3bbdf0c
+2026-09-02_ky_chfs_grant_opportunities.html  97837  35fd0a60dbbcb6e0eaa2377728c553e40bbff5989102998888c6f3e04e1b2d9f
+2026-09-02_ky_rfa_community_health_worker.pdf  246241  a2d845ffafc7cefbdf18265156feb1de4c8a5fdbd3f9cf4beb5a743e7c37e75b
+2026-09-02_ky_rfa_cmhc_support.pdf  384680  10df121f9c1e3f40c00030de4298e966741f1c6694f57de52e7874024f8ab41e
+2026-09-02_ky_cms_notice_of_award_attachment_b.pdf  2880479  e6a899a5d498ab8f10f08ffeb3156ee0b90cd7faf09df7e69748c5e3dec0f778
+2026-09-02_ky_foundation_healthy_kentucky_rch.html  313540  39aaf09e4beaa52afa9a48c7aad3c97df0e88ae2c9ea7ea18f41b4cd8128f22d

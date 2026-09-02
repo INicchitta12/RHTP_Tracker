@@ -477,3 +477,213 @@ rhtp_preflight <- function() {
     missing    = pkg_status %>% dplyr::filter(!installed) %>% dplyr::pull(package)
   )
 }
+
+
+# -- §0.2: the CMS footer's tier is INDISTINGUISHABLE from its grammar --------
+#
+# SESSION 37'S FINDING, AND IT IS THE ONE THAT MAKES A FOOTER FIGURE UNSAFE TO
+# READ AS A POOL. Session 27's audit put the footer on an axis of grammatical
+# SUBJECT -- "This publication is supported by" (weak, a claim about the paper)
+# against "This <programme> is supported by" (strong, a claim about the
+# programme). That axis answers whether a footer is PROVENANCE. It does not
+# answer what TIER its number is, and Iowa proves the two questions are
+# separate. Its three footers, read verbatim out of the archived notices:
+#
+#   "This Best and Brightest- Medical Equipment Procurement is supported by the
+#    Centers for Medicare and Medicaid Services (CMS) ... as part of a financial
+#    assistance award totaling approximately $66,002,161.80 ..."   <- TIER 2
+#
+#   "This Centers of Excellence is supported by the Centers for Medicare and
+#    Medicaid Services (CMS) ... as part of a financial assistance award
+#    totaling approximately $50,000,000.00 ..."                     <- TIER 2
+#
+#   "This Combat Cancer Health Hub Program is supported by the Centers for
+#    Medicare and Medicaid Services (CMS) ... as part of a financial assistance
+#    award totaling approximately $209,040,063.71 ..."              <- TIER 1
+#
+# The three sentences are WORD FOR WORD IDENTICAL apart from the programme name
+# and the number. All three are programme-scoped. All three name a real RHTP
+# programme. All three are the "strong" form. Grammar separates none of them,
+# and neither does the subject: "Combat Cancer Health Hub Program" is a genuine
+# Iowa RHTP programme, not a stand-in for the State, so nothing in the sentence
+# says its figure is the whole allotment.
+#
+# THE ONLY THING THAT REVEALS THE TIER IS COLLISION WITH THE §7.1 ANCHOR.
+# $209,040,063.71 is Tier 1 because `cms_fy2026_allotments.csv` has Iowa at
+# $209,040,064 and for no other reason available on the page. That is a
+# uniquely fragile way to know something -- it is a coincidence of value, not a
+# statement by the publisher -- so it must be checked by machine on every
+# footer figure any state file records, rather than read once by whoever
+# happened to open the PDF.
+#
+# THE FAILURE THIS PREVENTS IS SILENT AND IT INFLATES. A state file that
+# accepted Iowa's June footer as that RFP's pool would publish $209,040,063.71
+# as one solicitation's budget -- the whole state allotment, attributed to one
+# of eleven RFPs -- and it would look exactly like the eight figures beside it
+# that are genuinely pools. Nothing in the document contradicts it.
+#
+# SO THE DEFAULT IS REFUSAL, NOT ACCEPTANCE. `rhtp_assert_footer_not_allotment()`
+# takes a footer figure and refuses to let it be treated as a Tier 2 pool when
+# it lands within a margin of that state's allotment. The caller that has read
+# the documents and KNOWS the figure is Tier 1 declares it -- Iowa does, per
+# document, in `ia_notice_footers.csv` -- and the assertion then requires the
+# collision it was told to expect. Both directions fail:
+#
+#   - a figure declared SOLICITATION that collides with the allotment  -> stop
+#   - a figure declared STATE_ALLOTMENT that does NOT collide          -> stop
+#
+# The second half matters as much as the first. A Tier 1 declaration that no
+# longer collides means either the publisher changed the figure or the anchor
+# moved, and both are findings rather than things to carry forward.
+
+#' The §7.1 anchor, read here rather than through Stage 2's loader
+#'
+#' `rhtp_load_allotments()` is the Stage 2 reader and does the same job, but it
+#' lives in `R/02_normalize.R`. A state extractor sourcing `utils_config.R` to
+#' get this assertion should not have to source the whole normalizer with it,
+#' and the state files already read this CSV directly (Nevada, California, New
+#' Mexico, Louisiana all do). Same file, same two columns, no second copy of
+#' the figures -- §0.2a is about one home for the NUMBERS, and that home is
+#' still `cms_fy2026_allotments.csv`.
+rhtp_footer_allotments <- function() {
+  path <- rhtp_path("cms_allotments")
+  empty <- tibble::tibble(state = character(), fy2026_allotment = numeric())
+  if (!file.exists(path)) return(empty)
+  a <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
+  if (!"fy2026_allotment" %in% names(a)) return(empty)
+  a %>%
+    dplyr::filter(!is.na(.data$fy2026_allotment)) %>%
+    dplyr::transmute(state = as.character(.data$state),
+                     fy2026_allotment = as.numeric(.data$fy2026_allotment))
+}
+
+#' The margin, in dollars, within which a footer figure IS the allotment
+#'
+#' Not a tolerance on a parse -- the parse is exact, and every state file
+#' asserts its own footer digits. This is the width of the CMS/state rounding
+#' this project has actually measured: publishers restate an allotment rounded
+#' to the dollar (Iowa's $209,040,063.71 against the anchor's $209,040,064),
+#' to the cent (New Hampshire's $204,016,550.20), or transposed (Kansas's
+#' $221,890,007.82 for $221,898,007.82, an $8,000.18 gap that is a real
+#' publisher defect and still unmistakably the allotment).
+#'
+#' $10,000 covers all three and is far below any plausible Iowa-style pool: the
+#' smallest genuine Tier 2 footer in this repository is $6,000,000, so the
+#' margin would have to grow six hundredfold before it could swallow a real
+#' pool figure. Widening it is a decision to be argued, not a way past a
+#' failure -- if a figure fails this check, read the document.
+RHTP_FOOTER_ALLOTMENT_MARGIN <- 10000
+
+#' Refuse a footer figure that is the state's allotment wearing a pool's grammar
+#'
+#' @param amount Numeric. The figure printed in the footer.
+#' @param state Two-letter state code, matched against the §7.1 anchor.
+#' @param declared_tier "SOLICITATION" (the caller believes this is a pool) or
+#'   "STATE_ALLOTMENT" (the caller has read the documents and knows it is not).
+#' @param label Character. What to name in the error -- a document key, an RFP
+#'   number, whatever lets a reader find the page.
+#' @param margin Dollars. See `RHTP_FOOTER_ALLOTMENT_MARGIN`.
+#' @param allotments Optional pre-loaded anchor, for tests.
+#'
+#' @return Invisibly TRUE when the declaration holds; invisibly NA, with a
+#'   message, when the anchor is not on disk for that state. Stops otherwise.
+#'
+#' NA rather than TRUE on a missing anchor is deliberate and is §0.4: with no
+#' anchor there is nothing to collide with, so the check has not passed -- it
+#' has not run, and a caller that wants a hard gate can test for TRUE.
+rhtp_assert_footer_not_allotment <- function(amount, state, declared_tier,
+                                             label = "a footer figure",
+                                             margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                                             allotments = NULL) {
+  declared_tier <- match.arg(declared_tier,
+                             c("SOLICITATION", "STATE_ALLOTMENT"))
+  if (length(amount) != 1L || is.na(amount) || !is.numeric(amount)) {
+    stop("[§0.2] rhtp_assert_footer_not_allotment() takes one numeric ",
+         "footer amount; got ", paste(format(amount), collapse = ", "), ".",
+         call. = FALSE)
+  }
+
+  if (is.null(allotments)) allotments <- rhtp_footer_allotments()
+  hit <- allotments$fy2026_allotment[allotments$state == state]
+
+  if (length(hit) != 1L) {
+    message("[§0.2] no §7.1 allotment for ", state,
+            ", so the footer tier of ", label, " could NOT be checked. That is ",
+            "a gap in the anchor, not a pass (§0.4).")
+    return(invisible(NA))
+  }
+
+  collides <- abs(amount - hit) <= margin
+  money <- function(x) paste0("$", formatC(x, format = "f", digits = 2,
+                                           big.mark = ","))
+
+  if (collides && declared_tier == "SOLICITATION") {
+    stop("[§0.2] ", label, ": the footer prints ", money(amount),
+         ", which is within ", money(margin), " of ", state, "'s CMS allotment ",
+         "of ", money(hit), ". It is being read as a Tier 2 POOL and it is ",
+         "almost certainly Tier 1. The footer's grammar cannot tell you which ",
+         "-- Iowa's pool footers and its allotment footer are word for word ",
+         "identical apart from the programme name and the number -- so the ",
+         "collision is the only signal there is. Read the document. If it IS ",
+         "the allotment, declare it STATE_ALLOTMENT and keep it out of every ",
+         "pool total; do NOT widen the margin.", call. = FALSE)
+  }
+
+  if (!collides && declared_tier == "STATE_ALLOTMENT") {
+    stop("[§0.2] ", label, ": the footer prints ", money(amount),
+         ", declared STATE_ALLOTMENT, but ", state, "'s §7.1 allotment is ",
+         money(hit), " and the two differ by ", money(abs(amount - hit)),
+         ", more than the ", money(margin), " margin. A Tier 1 declaration ",
+         "rests entirely on that collision, so it no longer holds: either the ",
+         "publisher changed the figure or the anchor moved. Both are findings ",
+         "-- re-read the document rather than relaxing this.", call. = FALSE)
+  }
+
+  invisible(TRUE)
+}
+
+#' The same refusal over a whole table of footer figures
+#'
+#' @param footers A data frame with `footer_amount` and `footer_tier`, and
+#'   either a `state` column or a scalar `state`.
+#' @param label_col Column naming each row in an error. Falls back to the row
+#'   number.
+#'
+#' @return Invisibly TRUE when every row was checked and every declaration
+#'   held. Refusals throw, so FALSE means only that some row could NOT be
+#'   checked -- the anchor has no figure for that state (§0.4). Callers
+#'   wanting a hard gate should test for TRUE.
+rhtp_assert_footer_tiers <- function(footers, state = NULL,
+                                     label_col = "rfp",
+                                     margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                                     allotments = NULL) {
+  if (!all(c("footer_amount", "footer_tier") %in% names(footers))) {
+    stop("[§0.2] rhtp_assert_footer_tiers() needs footer_amount and ",
+         "footer_tier columns.", call. = FALSE)
+  }
+  if (is.null(state) && !"state" %in% names(footers)) {
+    stop("[§0.2] rhtp_assert_footer_tiers() needs either a `state` column or ",
+         "a scalar `state`: a footer figure means nothing without the ",
+         "allotment it is being compared against.", call. = FALSE)
+  }
+  if (is.null(allotments)) allotments <- rhtp_footer_allotments()
+  states <- if (!is.null(state)) rep(state, nrow(footers)) else footers$state
+  labels <- if (label_col %in% names(footers)) {
+    as.character(footers[[label_col]])
+  } else {
+    paste("row", seq_len(nrow(footers)))
+  }
+
+  checked <- vapply(seq_len(nrow(footers)), function(i) {
+    isTRUE(rhtp_assert_footer_not_allotment(
+      amount = footers$footer_amount[i],
+      state = states[i],
+      declared_tier = footers$footer_tier[i],
+      label = labels[i],
+      margin = margin,
+      allotments = allotments
+    ))
+  }, logical(1))
+
+  invisible(all(checked))
+}
