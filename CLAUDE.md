@@ -5462,7 +5462,7 @@ think the four states it does not cover are different.
 ### Re-running what exists
 
 ```
-Rscript tests/run_tests.R                        # 4,314 assertions, zero quota
+Rscript tests/run_tests.R                        # 4,422 assertions, zero quota
 Rscript R/02_normalize.R --run                   # newest pull on disk (logged PRODUCTION)
 Rscript R/02_normalize.R --run --dev             # an iteration, logged DEV (§5.2)
 Rscript R/02_normalize.R --run --date=2026-08-27 # a specific pull
