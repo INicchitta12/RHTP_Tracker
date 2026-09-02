@@ -924,6 +924,53 @@ three hospitals and still administers nothing to them, because AHHA performs the
 assessments. Both of the positive examples above move **money** to hospitals
 ("administer the funds to", "reimbursed"); neither negative does.
 
+#### The eligible class of a pass-through, and when a hospital is required
+
+**The eligible class is what decides a pass-through, and there are now three
+answers rather than two.** Illinois and New Hampshire are the same shape — an
+executed award to a designated pass-through administrator with no hospital
+named — and they code opposite ways. ICAHN is `Yes` because Illinois restricted
+eligibility to **hospitals only**, so every possible recipient of the money is a
+hospital. FHC is `Unclear` because its class is *"primary care, critical access
+hospitals, EMS, behavioral health, oral health, and community-based
+organizations"* — hospitals **among others**, which is §0.3 exactly, so nobody
+can say a hospital received anything.
+
+**New York's RCHI is the third, and it is neither.** Its own funding guidance
+says *"A **hospital must be included** as either the lead applicant or the
+partner Organization"* — a hospital is **mandatory in every single award** and
+**need not be the recipient**, because the lead applicant may be a 501(c)(3).
+
+**It is not ICAHN's `Yes`.** ICAHN's `Yes` rests on the recipient necessarily
+being a hospital; New York's rule guarantees only that a hospital is *in the
+partnership*, and the dollar may be awarded to the non-hospital lead.
+
+**And it is not `Unclear` for FHC's reason, which is the part that matters.**
+FHC is `Unclear` because a hospital *might* be among the eventual recipients and
+might equally not be. New York's rule is stronger than "might": a hospital is
+present in every awarded partnership, by rule, and that is knowable in advance.
+The FHC sentence — *we cannot say a hospital is involved* — is simply false
+here. What is still unknown is different and narrower: **whether any dollar
+reaches the hospital that had to be in the room.**
+
+**So the rule is: a required partner is not a recipient — participation is not
+receipt, exactly as eligibility is not receipt (§0.3) — and the coding is read
+off the AWARD, one award at a time, never off the eligibility rule.**
+
+| What the award document shows | Coding |
+|---|---|
+| The lead applicant is itself the hospital | `DIRECT`, `distributed_to_hospital = Yes` — ordinary §10.2, and the partnership rule adds nothing |
+| The lead is a non-hospital, the partner hospital is **named**, and the source shows funds administered to or on behalf of it | `PASS_THROUGH_DESIGNATED`, `Yes`, `intermediary_name` = the lead. Where no per-hospital split is published this is `hospital_attribution = POOL_NAMED_HOSPITALS` (§8, Nebraska's code) |
+| The lead is a non-hospital and the roster names **only the lead** | `PASS_THROUGH_UNRESOLVED`, `Unclear`. The hospital's presence is a fact about the **application**, not about where a dollar went |
+
+**This class is the most seductive one this project has met, and that is why it
+is written down before New York awards anything.** *"A hospital must be
+included"* reads like a guarantee that every dollar reaches a hospital. It
+guarantees that a hospital is in the room. A session that took the eligibility
+sentence as the coding would publish New York's **$76,190,022** RCHI pool as
+hospital-bound money on this pipeline's authority, against 91 applications DOH
+was still reviewing.
+
 ### 10.3 Required accompanying fields
 
 - `determination_confidence` — `HIGH` (primary source, named hospital recipient, CCN matched) / `MEDIUM` (primary source, hospital identity inferred from name without CCN match) / `LOW` (secondary source or unresolved pass-through).

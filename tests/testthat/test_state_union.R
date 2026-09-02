@@ -128,7 +128,20 @@ STATE_FILES <- c(
   # not. A future session that "completes" Maine by folding the cohort in would
   # add eleven named hospitals and $0 to the project's headline -- §0.3 at the
   # scale of a state, and with a higher hospital ratio than Missouri's.
-  ME = "data/reference/me_year1_awardees.csv"
+  ME = "data/reference/me_year1_awardees.csv",
+
+  # NORTH CAROLINA IS HERE FOR A COMBINATION NO OTHER FILE HAS: A COMPLETE,
+  # NAMED, 44-RECIPIENT ROSTER THAT CONTRIBUTES NOTHING TO ANY BUCKET. Nevada
+  # and Iowa publish named HOSPITALS with no amounts, so they contribute rows
+  # and $0. Maine and Missouri keep their named hospitals OUT of the award file
+  # entirely, in a separate no-amount file. North Carolina does neither: all 44
+  # of its named recipients ARE award rows, all 44 carry an empty `amount`, and
+  # every one is either an EMS agency (`No`) or a regional pass-through lead
+  # (`Unclear`). It is the state most likely to break an invariant that only
+  # ever held because each file had at least one row in some bucket -- and its
+  # five PASS_THROUGH_UNRESOLVED rows are what the mandatory-basis check below
+  # exists for.
+  NC = "data/reference/nc_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -156,13 +169,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty files carry the leading 19 columns, in the same order", {
+test_that("all twenty-one files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty files union without a coercion failure", {
+test_that("the twenty-one files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -171,7 +184,7 @@ test_that("the twenty files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS", "MD", "ME",
-                 "MI", "MO", "NE", "NH", "NV", "OK", "OR", "PA", "SD"))
+                 "MI", "MO", "NC", "NE", "NH", "NV", "OK", "OR", "PA", "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

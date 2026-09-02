@@ -78,9 +78,16 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # Kept here rather than derived by globbing data/reference/, because a glob
 # would silently start reporting a state as extracted the moment somebody
 # committed a stub file for it.
+#
+# NORTH CAROLINA JOINS IN SESSION 38, AND IT IS THE FIRST STATE HERE THAT NEVER
+# ENTERED THIS QUEUE AT ALL. Every other entry either led the RCJ_ONLY ranking
+# or arrived with a CMS press release. North Carolina has NEITHER -- zero Tier 3
+# candidates and no CMS announcement -- and it has published two named rosters
+# totalling 44 recipients. That is Florida's shape a second time, and it is the
+# measured answer to whether the twelve no-signal states are worth opening.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
-                             "MD", "ME", "MI", "MO", "NE", "NH", "NV", "OK",
-                             "OR", "PA", "SD")
+                             "MD", "ME", "MI", "MO", "NC", "NE", "NH", "NV",
+                             "OK", "OR", "PA", "SD")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -198,10 +205,9 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
 # NORTH CAROLINA WAS WORKED IN THE SAME SESSION AND IS DELIBERATELY NOT HERE.
 # It is from the same group of twelve and it has PUBLISHED TWO NAMED ROSTERS
 # -- 39 Mobile Integrated Health recipients and 5 NC ROOTS Hub Leads -- so
-# `INVESTIGATED_NO_LIST` would be a false claim about it. It is left
-# `NOT_EXTRACTED`, which is true: nobody has extracted it yet. See
-# R/03ah_nc_year1_sources.R, which archives the evidence and refuses to
-# create an award file.
+# `INVESTIGATED_NO_LIST` would be a false claim about it. Session 37 left it
+# `NOT_EXTRACTED`, which was true at the time; SESSION 38 EXTRACTED IT, so it
+# is now in SURVEY_EXTRACTED_STATES above. See R/03ah_nc_year1_sources.R.
 SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM", "NY",
                                         "TX", "WI")
 

@@ -39,6 +39,14 @@ extract_block <- function(lines, heading_text) {
 
 HEADING <- "Hospital trade associations and hospital-governed entities"
 
+# THE SECOND BLOCK, ADDED IN SESSION 38 ON THE SAME FOOTING. New York's RCHI
+# requires a hospital in every awarded partnership without requiring it to be
+# the recipient, which is a third answer to the question ICAHN and FHC answer
+# two different ways. It is written once and pasted into all three documents,
+# so parity here is byte parity for it too.
+ELIGIBLE_CLASS_HEADING <-
+  "The eligible class of a pass-through, and when a hospital is required"
+
 test_that("all three documents carry the hospital-association block", {
   for (key in names(DOCS)) {
     block <- extract_block(read_doc(key), HEADING)
@@ -111,4 +119,59 @@ test_that("the two quoted worked examples still match their committed sources", 
                "conducted by hospitals reimbursed for CHW hiring", fixed = TRUE)
   expect_equal(chw$flow_type[[1]], "PASS_THROUGH_DESIGNATED")
   expect_equal(chw$has_hospital_recipient[[1]], "Yes")
+})
+
+
+# -- §10.2, the eligible class (session 38) ----------------------------------
+
+test_that("all three documents carry the eligible-class block", {
+  for (key in names(DOCS)) {
+    block <- extract_block(read_doc(key), ELIGIBLE_CLASS_HEADING)
+    expect_false(is.null(block),
+                 info = paste(DOCS[[key]],
+                              "is missing the §10.2 eligible-class block"))
+    expect_true(nzchar(block), info = DOCS[[key]])
+  }
+})
+
+test_that("the three copies of the eligible-class block are byte-identical", {
+  blocks <- vapply(names(DOCS),
+                   function(k) extract_block(read_doc(k), ELIGIBLE_CLASS_HEADING),
+                   character(1))
+  expect_identical(blocks[["claude"]], blocks[["spec"]])
+  expect_identical(blocks[["reviewer"]], blocks[["spec"]])
+})
+
+test_that("the block carries all three worked cases and keeps them distinct", {
+  block <- extract_block(read_doc("spec"), ELIGIBLE_CLASS_HEADING)
+
+  # The two answers that already existed, with the sentence each rests on.
+  expect_match(block, "hospitals only", fixed = TRUE)
+  expect_match(block, "hospitals **among others**", fixed = TRUE)
+  expect_match(block, "ICAHN", fixed = TRUE)
+  expect_match(block, "FHC", fixed = TRUE)
+
+  # The third, quoted from New York's own guidance.
+  expect_match(block, "hospital must be included", fixed = TRUE)
+  expect_match(block, "need not be the recipient", fixed = TRUE)
+
+  # AND WHY IT IS NEITHER -- the half that is easiest to lose. It is not
+  # ICAHN's Yes because the recipient need not be a hospital; it is not
+  # Unclear for FHC's reason because a hospital IS knowably present. What is
+  # unknown is narrower: whether a dollar reaches it.
+  expect_match(block, "It is not ICAHN's `Yes`", fixed = TRUE)
+  expect_match(block, "not `Unclear` for FHC's reason", fixed = TRUE)
+  expect_match(block, "participation is not
+receipt", fixed = TRUE)
+
+  # The resolution is per-award, and all three codings are named.
+  expect_match(block, "read
+off the AWARD, one award at a time", fixed = TRUE)
+  expect_match(block, "PASS_THROUGH_DESIGNATED", fixed = TRUE)
+  expect_match(block, "PASS_THROUGH_UNRESOLVED", fixed = TRUE)
+  expect_match(block, "POOL_NAMED_HOSPITALS", fixed = TRUE)
+  expect_match(block, "intermediary_name", fixed = TRUE)
+
+  # The figure at stake, so the block states its own cost.
+  expect_match(block, "$76,190,022", fixed = TRUE)
 })
