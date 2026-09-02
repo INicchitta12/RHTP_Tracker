@@ -89,14 +89,25 @@
 # academic medical centres. So even when California awards, no pool is
 # Illinois's hospitals-only class, and a pass-through to any of them is §0.3.
 #
-# THE HOST IS ORDINARY AND THAT IS MEASURED, NOT ASSUMED. hcai.ca.gov answers
-# the project's honest agent with HTTP 200 on every path used here, and its
-# page digests are STABLE -- two fetches three seconds apart return the same
-# SHA-256 on both probed pages. So a FILE digest is the change test here, as it
-# is for Maine, and unlike Nevada (rotating page content), Missouri (an
-# Incapsula cache-buster in a script SRC) and Wisconsin (an Akamai Boomerang
-# nonce in a script BODY). `robots.txt` is 404, so no crawler policy is on
-# offer and none is being declined.
+# THE HOST ANSWERS ORDINARILY AND ITS DIGESTS DO NOT, AND BOTH HALVES ARE
+# MEASURED. hcai.ca.gov answers the project's honest agent with HTTP 200 on
+# every path used here, and `robots.txt` is 404, so no crawler policy is on
+# offer and none is being declined. But a FILE digest is NOT the change test:
+# two fetches three seconds apart return the same SHA-256 on both probed pages,
+# and an earlier version of this file concluded from exactly that measurement
+# that a file digest would do -- then the first live probe reported two of
+# three pages CHANGED half an hour later with nothing changed. TWO FETCHES
+# SECONDS APART IS NOT A STABILITY TEST. Two mechanisms, neither one this
+# project had met: a CACHE VARIANT (the CalRHT page served with or without a
+# ~15 KB ElasticPress asset block, 142,605 or 157,732 bytes) and WordPress
+# `antispambot()` RE-ROLLING EMAIL ENTITIES on every render of the newsroom
+# (same length, different bytes, identical rendered text -- a byte-count check
+# passes it). `--probe` therefore compares a CONTENT digest via
+# `ca_reduce_html()`; see `ca_probe()`. That makes California the FOURTH
+# mechanism, after Nevada (rotating page content), Missouri (an Incapsula
+# cache-buster in a script SRC) and Wisconsin (an Akamai Boomerang nonce in a
+# script BODY) -- and Connecticut's per-node asset-version stamp (session 35)
+# is the fifth.
 #
 # CLI:
 #   --fetch [--force]  archive the 10 sources + SHA-256 manifest
