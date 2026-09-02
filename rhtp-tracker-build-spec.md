@@ -153,6 +153,36 @@ Three things follow, and they are the reason this example is in the spec rather 
 
 **A near-miss worth distinguishing.** That same Governor's release announces Virginia's first RHTP award as **$127,000** in its sub-deck and **$127,500** in its body. That is *not* a tier problem — it is one figure published twice with a typo, and the rule for it is different: keep the source's own language (§8), record the discrepancy, resolve nothing. Two numbers on one page are a tier question only when they describe two different levels of the CMS→state→subrecipient flow. Check which before reaching for this section.
 
+#### Second worked example — Iowa, two tiers in one sentence template
+
+Virginia is two tiers on one page, published by two agencies, in prose a reader can weigh. Iowa is the harder case and it is the one that governs machine reading: **two tiers in the same sentence of the same boilerplate, on documents from one agency, distinguishable by nothing a reader can see.**
+
+Every Iowa Notice of Intent to Award carries exactly one dollar figure, and it is in the CMS financial-assistance footer. Three of them, verbatim from the archived notices:
+
+> "This **Best and Brightest- Medical Equipment Procurement** is supported by the Centers for Medicare and Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial assistance award totaling approximately **$66,002,161.80** with 100 percent funded by CMS/HHS."
+
+> "This **Centers of Excellence** is supported by the Centers for Medicare and Medicaid Services (CMS) … as part of a financial assistance award totaling approximately **$50,000,000.00** with 100 percent funded by CMS/HHS."
+
+> "This **Combat Cancer Health Hub Program** is supported by the Centers for Medicare and Medicaid Services (CMS) … as part of a financial assistance award totaling approximately **$209,040,063.71** with 100 percent funded by CMS/HHS."
+
+The first two are **Tier 2** — each RFP's own pool. The third is **Tier 1** — Iowa's entire FY2026 state allotment. Eight of the eleven notices carry a pool and three carry the allotment, in the same slot of the same template, and Iowa's practice changed between February and June without the wording changing at all.
+
+**The tier is not recoverable from the grammar, and that is the finding.** Session 27's footer audit sorted footers by their grammatical *subject* — "This publication is supported by" (weak: a claim about the paper) against "This *&lt;programme&gt;* is supported by" (strong: a claim about the programme) — and that axis answers whether a footer is **provenance**. It does not answer what **tier** its number is, and Iowa shows the two questions are independent:
+
+- All three sentences are the **strong**, programme-scoped form.
+- All three name a **real Iowa RHTP programme**. "Combat Cancer Health Hub Program" is a genuine RFP, not a stand-in for the State, so nothing in the subject hints that its figure is the whole allotment.
+- The three differ in exactly two tokens: the programme name and the number.
+
+**Tier 1 is knowable here only by collision with the §7.1 anchor.** $209,040,063.71 is Tier 1 because `cms_fy2026_allotments.csv` has Iowa at $209,040,064 — and for no other reason available anywhere on the page. That is a uniquely fragile way to know something: it is a coincidence of *value*, not a statement by the publisher. A figure that were coincidentally close to an allotment would read as Tier 1 wrongly, and a state that split its allotment across two RFPs would defeat it entirely. It is nonetheless the only signal the document offers, which has three consequences:
+
+1. **The default for a footer figure is refusal, not acceptance.** A footer figure may be recorded as a Tier 2 pool only after it has been checked against that state's allotment. Accepting it first and checking later is how $209,040,063.71 gets published as one of eleven RFP budgets — a figure that would sit beside eight genuine pools looking exactly like them, with nothing in the document contradicting it.
+2. **The check must run on every footer figure a state file records, by machine.** Iowa's tier split was read correctly by a human who opened the PDFs; the same human's session note recorded the split as seven/four and it was eight/three, and that error survived into a committed reference table. A reading that cannot be re-derived on every run is a reading that decays.
+3. **The refusal is symmetric.** A figure *declared* Tier 1 that stops colliding with the anchor is equally a finding — either the publisher changed the figure or the anchor moved — and neither is something to carry forward silently.
+
+`rhtp_assert_footer_not_allotment()` and `rhtp_assert_footer_tiers()` in `R/utils_config.R` implement this. They refuse any footer figure declared `SOLICITATION` that falls within `RHTP_FOOTER_ALLOTMENT_MARGIN` ($10,000) of that state's §7.1 allotment, and refuse any declared `STATE_ALLOTMENT` that falls outside it. The margin is the width of publisher rounding this project has measured — Iowa restates its allotment to the dollar, New Hampshire to the cent ($204,016,550.20), Kansas transposes two digits ($221,890,007.82 for $221,898,007.82, an $8,000.18 gap that is still unmistakably the allotment) — and it sits far below the smallest genuine Tier 2 footer in the repository ($6,000,000). **A figure that fails this check is a document to re-read, never a margin to widen.**
+
+**And the footer's amount and its provenance are two separate readings.** Iowa's footers are programme-scoped and still carry two tiers; Michigan's, Missouri's and Wisconsin's are weak in subject and still carry the allotment correctly. Session 27's axis governs whether the footer establishes that a document is RHTP. This section governs what its number *is*. Answer both, in that order, and never let one stand in for the other.
+
 ### 0.2a One home per authoritative number
 
 Tier 1 classification produced **274 RCJ records across 50 states** — roughly five per state, each restating the same allotment in a different document. Correctly classified, but Tier 1 no longer sums to $10B.

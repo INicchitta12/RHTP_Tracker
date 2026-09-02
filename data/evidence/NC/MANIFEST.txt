@@ -1,0 +1,23 @@
+NORTH CAROLINA -- RHTP evidence archive
+
+Fetched 2026-09-02 by R/03ah_nc_year1_sources.R --fetch.
+Bodies are written with writeBin(), so re-hashing a file on disk
+reproduces its digest below.
+
+THE FILE DIGEST IS NOT A CHANGE TEST ON ncdhhs.gov. A Dynatrace RUM
+beacon (ruxitagentjs) carries a per-request 'rpid' in its data-dtconfig
+attribute: four fetches gave three distinct SHA-256s AND FETCHES 1 AND 2
+WERE IDENTICAL, so a back-to-back pair reports this host stable. Compare
+nc_content_digest(), which discards attributes.
+
+NOTE: this state has PUBLISHED ROSTERS (39 MIH recipients, 5 ROOTS Hub
+Leads). No extraction has been performed -- see the file header.
+
+file  bytes  sha256
+2026-09-02_nc_ncrhtp_programme.html  84857  7f6773b5d355327d7f53c86568e5e069b6d4e9d6d1b1d443cca4066af1786b0f
+2026-09-02_nc_ncrhtp_grant_opportunities.html  84142  c316acd55a67a1a7cb4b65aacca22398830206dcdc944b5d7b5ef92b463a4721
+2026-09-02_nc_roots_hub_leads.html  207708  35df6bd8e337d9d420bf64ebaa6d5b235bb6846d91accf266e7f2ad06f837a4f
+2026-05-01_nc_pr_roots_hub_leads.html  73024  29ecaf3f78f52417226e11036a3057490561c755edce0cc575f5bfe5bbe49312
+2026-06-08_nc_pr_mobile_integrated_health.html  68454  8a46f13c77be3b40030b0e568231fa5739a8402e6d60c6dfe712e220755768c4
+2026-06-24_nc_pr_three_digital_programs.html  68255  3958b15782c7e85e3703475d160e986cc12f0faa947d15e4c4ef36b39f7c73bb
+2026-09-02_nc_trillium_roots_region2.html  163072  4413bb99d9c2232d29b79d8a081262b2c9f6ef2d7d2557272d00d9fde6d39cce

@@ -152,6 +152,59 @@ test_that("the footer table states each figure's tier and is not an amount colum
   expect_true(all(grepl("TIER [12]", f$note)))
 })
 
+test_that("the Tier 2 note's own counts are DERIVED, not typed", {
+  # THE DEFECT THIS PINS. The note read "four of the eleven notices carry the
+  # state allotment" for a session after session 32 corrected the split to 8/3
+  # from the documents. Every assertion in R/03z was corrected; the one place
+  # the number was PROSE inside a paste() was missed, and a reader meets the
+  # prose. The counts are now computed from IA_NOTICES, so this test fails if
+  # anyone re-types them.
+  skip_without_archive()
+  f <- ia_footer_table()
+  n_t1 <- sum(IA_NOTICES$footer_tier == "STATE_ALLOTMENT")
+  expect_equal(n_t1, 3L)
+  expect_equal(ia_footer_tier1_words(), "three")
+  expect_equal(ia_footer_count_words(), "eleven")
+
+  t2 <- f$note[f$footer_tier != "STATE_ALLOTMENT"]
+  expect_equal(length(t2), 8L)
+  expect_true(all(grepl("three of the eleven notices", t2, fixed = TRUE)))
+  expect_false(any(grepl("four of the eleven", t2, fixed = TRUE)))
+
+  # The sum and the allotment in that sentence are the table's own, not a
+  # transcription of them.
+  expect_true(all(grepl(ia_money(sum(IA_NOTICES$footer_amount)), t2,
+                        fixed = TRUE)))
+  expect_true(all(grepl(ia_money(IA_ALLOTMENT), t2, fixed = TRUE)))
+  expect_equal(ia_money(IA_ALLOTMENT), "$209,040,063.71")
+
+  # Positive control: the sentence MOVES with the table. Drop a June notice and
+  # the count must read "two", which is what proves it is not a literal.
+  local({
+    keep <- IA_NOTICES[-max(which(IA_NOTICES$footer_tier ==
+                                    "STATE_ALLOTMENT")), ]
+    old <- IA_NOTICES
+    on.exit(assign("IA_NOTICES", old, envir = globalenv()), add = TRUE)
+    assign("IA_NOTICES", keep, envir = globalenv())
+    expect_equal(ia_footer_tier1_words(), "two")
+    expect_equal(ia_footer_count_words(), "ten")
+  })
+  expect_equal(ia_footer_tier1_words(), "three")
+})
+
+test_that("the disposition's June count is the table's too", {
+  # The SAME defect, one file over and caught by the same rebuild: the
+  # committed disposition CSV said "all four June ones" while its own source
+  # line already said three, so that CSV had drifted from the code generating
+  # it. Read from the built table, not from the source string.
+  skip_without_archive()
+  d <- ia_disposition()
+  absent <- d$evidence[d$disposition == "NOT_IN_THE_AGGREGATOR_AT_ALL"]
+  expect_length(absent, 1L)
+  expect_true(grepl("all three June ones", absent, fixed = TRUE))
+  expect_false(grepl("all four June ones", absent, fixed = TRUE))
+})
+
 
 # -- the controls -------------------------------------------------------------
 

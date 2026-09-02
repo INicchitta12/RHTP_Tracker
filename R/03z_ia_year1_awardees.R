@@ -707,6 +707,16 @@ ia_assert_footer_amounts <- function(strict = FALSE) {
     stop("[IA] a June notice's footer no longer carries Iowa's allotment.",
          call. = FALSE)
   }
+
+  # AND THE SAME TEST FROM THE OTHER SIDE, ON EVERY ROW RATHER THAN THE THREE.
+  # The check above asks "do the notices I have already labelled Tier 1 still
+  # match the anchor?". It cannot catch the failure that matters, which is a
+  # notice whose footer carries the allotment and which nobody has labelled --
+  # and Iowa is the state where that is a live risk, because its footers give
+  # a reader NOTHING to distinguish the two. The shared §0.2 assertion refuses
+  # any figure declared SOLICITATION that collides with Iowa's allotment, and
+  # refuses any declared STATE_ALLOTMENT that stops colliding.
+  rhtp_assert_footer_tiers(IA_NOTICES, state = IA_STATE)
   invisible(TRUE)
 }
 
@@ -961,14 +971,52 @@ ia_award_rows <- function() {
   out
 }
 
+#' Small counting words, so the note's prose cannot drift from `IA_NOTICES`
+#'
+#' Session 31 read the split as seven/four and session 32 corrected it to
+#' eight/three from the documents themselves. The correction reached every
+#' assertion in this file and missed the one place the number was prose. These
+#' three helpers exist so that it cannot happen again: the sentence a reader
+#' meets is computed from the same table the assertions read.
+IA_COUNT_WORDS <- c("zero", "one", "two", "three", "four", "five", "six",
+                    "seven", "eight", "nine", "ten", "eleven", "twelve",
+                    "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+                    "eighteen", "nineteen", "twenty")
+
+ia_count_word <- function(n) {
+  if (length(n) != 1L || is.na(n) || n < 0 || n != as.integer(n)) {
+    stop("[IA] ia_count_word() takes one non-negative whole number.",
+         call. = FALSE)
+  }
+  if (n > length(IA_COUNT_WORDS) - 1L) return(format(n, big.mark = ","))
+  IA_COUNT_WORDS[[n + 1L]]
+}
+
+ia_footer_count_words <- function() ia_count_word(nrow(IA_NOTICES))
+
+ia_footer_tier1_words <- function() {
+  ia_count_word(sum(IA_NOTICES$footer_tier == "STATE_ALLOTMENT"))
+}
+
+#' A dollar figure in the form this repository's prose uses
+ia_money <- function(x) {
+  paste0("$", formatC(x, format = "f", digits = 2, big.mark = ","))
+}
+
 #' The footer figures, per document, with the TIER each carries
 #'
 #' A SEPARATE FILE, DELIBERATELY, AND IT IS NOT AN AMOUNT COLUMN. These eleven
 #' figures are the only dollar amounts in Iowa's award documents and they are
-#' not one quantity: seven are an RFP's pool and four are the State's whole
+#' not one quantity: EIGHT are an RFP's pool and THREE are the State's whole
 #' Year 1 allotment. Kept beside the award file rather than in it -- Texas's and
 #' Missouri's device -- so that nothing in `ia_year1_awardees.csv` can be summed
 #' into a Tier-1 figure, and so a reader meets the tier before the number.
+#'
+#' THE SPLIT IS DERIVED FROM `IA_NOTICES`, NEVER TYPED INTO THE PROSE. Session
+#' 31 recorded it as 7/4 from a first reading and session 32 corrected it to
+#' 8/3 from the documents; the note built below carried the stale 4 for a
+#' session because it was a literal in a `paste()`. A twelfth notice, or a
+#' re-issue that changes tier, now moves the sentence with it.
 ia_footer_table <- function() {
   IA_NOTICES %>%
     dplyr::transmute(
@@ -990,10 +1038,12 @@ ia_footer_table <- function() {
         paste("TIER 1. This is Iowa's whole FY2026 CMS allotment, matching the",
               "§7.1 anchor. It is NOT this RFP's pool and must never be read as",
               "one, nor added to any figure in this table."),
-        paste("TIER 2. The figure this notice's own footer attaches to this",
-              "RFP. NEVER ADD IT TO ANOTHER ROW: four of the eleven notices",
-              "carry the state allotment in the same slot, and the eleven sum",
-              "to $854,852,514.73 against a $209,040,063.71 allotment (§0.2)."))
+        paste0("TIER 2. The figure this notice's own footer attaches to this ",
+               "RFP. NEVER ADD IT TO ANOTHER ROW: ", ia_footer_tier1_words(),
+               " of the ", ia_footer_count_words(), " notices carry the state ",
+               "allotment in the same slot, and the ", ia_footer_count_words(),
+               " sum to ", ia_money(sum(IA_NOTICES$footer_amount)),
+               " against a ", ia_money(IA_ALLOTMENT), " allotment (§0.2)."))
     )
 }
 
