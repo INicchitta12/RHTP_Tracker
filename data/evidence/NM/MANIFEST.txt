@@ -1,0 +1,74 @@
+New Mexico -- Rural Health Transformation Program, Year 1.
+Archived by R/03ad_nm_year1_probe.R --fetch
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch and finds nothing, so there is
+no reduction to explain.
+
+NEW MEXICO HAS PUBLISHED NO RECIPIENT-LEVEL RHTP AWARD LIST. HCA has
+opened SIX RHT procurements and every one is pre-award in HCA's own
+words: four read 'Currently under evaluation', Rooted in New Mexico
+reads 'Submissions due: September 4, 2026' (TWO DAYS AFTER this archive
+was taken) and the Rural Health Data Hub reads 'Submissions due: TBD'.
+The two largest pools -- Healthy Horizons $76.2M and the Rural Health
+Innovation Fund $47M -- closed to applications on 2026-07-02 and
+2026-07-27 respectively and neither has a roster.
+
+ONE FILE IS BOTH CONTROLS AT ONCE, AND IT IS NAMED SO.
+  *_BOTH_CONTROLS.html is HCA's Rural Health Care Delivery Fund page.
+  POSITIVE: HCA publishes recipient-level rosters in a recognisable form
+    -- 'FY26-27 - Total Funding Recipients: 30', named by region. So
+    'the RHT Program has published no roster' is a statement about the
+    programme, not about our reading.
+  NEGATIVE (§0.1): the RHCDF is NEW MEXICO STATE MONEY, and ALL SEVEN of
+    RCJ's New Mexico Tier 3 candidates come from this page. Its own prose
+    NEVER names RHTP -- the three occurrences of 'Rural Health
+    Transformation' on it are all the NAVIGATION MENU -- and it carries
+    NO CMS FOOTER AT ALL. Its one mention of CMS is New Mexico's
+    Turquoise Care 1115 Medicaid waiver, approved 2024-07-25.
+
+  *_NEGATIVE_CONTROL.html is the Governor's 2026-08-04 release, which
+    says the funding source in one sentence: '41 rural health care
+    providers and facilities will receive a combined $50 million IN
+    STATE FUNDING from the Rural Health Care Delivery Fund', a fund
+    'originally established in 2023' that 'received an additional $50
+    million during the OCTOBER 2025 SPECIAL SESSION' -- a state
+    appropriation predating the 2025-12-29 CMS Notice of Award. It names
+    41 organisations including SIX HOSPITALS.
+  *_STATE_INVESTMENT.pdf is HCA's own RHCDF webinar deck, which calls it
+    'a $50 million STATE investment' and contains 'RHTP', 'Rural Health
+    Transformation', 'CMS' and 'federal' ZERO TIMES EACH.
+  *_CONTROL.html is HCA's news index -- and it carries BOTH the positive
+    control and the §0.1 negative ONE CLICK APART: 'New Mexico awards
+    $50 million to 41 rural healthcare organizations' (STATE, awarded,
+    named) four items from 'NM opens $47 million fund for rural health
+    projects' (RHTP, open, unnamed). A hunt scanning a news index for
+    'awards' + 'rural' + a large figure takes the state one every time.
+
+THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE MECHANISM IS THE SIXTH
+THIS PROJECT HAS MET. hca.nm.gov runs the WordPress Complianz
+cookie-consent plugin, which writes a 'privacy-statement-children' URL
+into a JSON config inside a script body -- drawn from the site's own
+posts AT RANDOM on each render. Twenty minutes apart it served
+'/snapchanges/' and a 2021 press release, moving the page from 199,369
+to 199,464 bytes. It is California's antispambot() finding one plugin
+over, with the difference that CALIFORNIA'S RE-ROLL WAS CONSTANT-LENGTH
+AND THIS ONE IS NOT -- so a byte-count check passes California's and
+fails this. THREE FETCHES SECONDS APART WERE BYTE-IDENTICAL while the
+copy taken twenty minutes earlier was not: California's lesson confirmed
+a third time, by a third mechanism. --probe compares a CONTENT digest
+via nm_reduce_html(); the reduced text is IDENTICAL across all four
+copies at 6,978 characters. robots.txt is 200.
+
+file  bytes  sha256
+2026-09-02_nm_hca_rht_programme.html  199357  35e07a9552aff3a0e8ac40dd60d14a5785d7c1c3ea35eb5fab098f6abaf4cdcd
+2026-09-02_nm_hca_rhcdf_BOTH_CONTROLS.html  306819  9759124c3951d5d50c1017bc7aebf9b10ab43b1e52b7362de8cf7dc918a25e4e
+2026-09-02_nm_hca_rhcdf_rfa_webinar_STATE_INVESTMENT.pdf  1627593  2e4bf84b4009b6270766c0751f0d48ee3fb314e32e9ac4d9f339d6b1c652523f
+2026-08-04_nm_governor_rhcdf_50m_41_orgs_NEGATIVE_CONTROL.html  243719  9070dd1dbc904b2438c76d79e87bb52be9df5fa3b75ed87850a661e88b580531
+2026-07-07_nm_hca_rural_health_innovation_fund_47m.html  244827  0784ab1bf75939f1aea62cfb2096b2abdb8fbdf037e1751c7fb563aa0d9839cd
+2026-06-03_nm_hca_healthy_horizons_76m.html  242450  d601fc4bb27c58faceb738511994dbddaaca2eafc5b1a0215a2bb10d43456bf1
+2026-09-02_nm_hca_news_index_CONTROL.html  653338  5a942bbeb80b02082557e27478392a78ac2f588d81c68dc3ff2d5f3602860821
+2026-08-19_nm_hca_stakeholder_advisory_committee.html  241762  fd30943e012d7bf7925ed78a3b45dee1a9b937f770c527736cb0d1caa356125f
+2026-04-27_nm_hca_seeks_vendors_aso.html  241429  c28ae1ba1d86c8da87bce6ff1b43047a3d5a8df5ad5badda5f04c0c65fc2892d

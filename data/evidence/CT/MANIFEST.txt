@@ -1,0 +1,78 @@
+Connecticut -- Rural Health Transformation Program, Year 1.
+Archived by R/03ac_ct_year1_probe.R --fetch
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch and finds nothing, so there is
+no reduction to explain.
+
+CONNECTICUT HAS PUBLISHED NO RECIPIENT-LEVEL RHTP AWARD LIST, AND ITS OWN
+AWARD DATE HAS ALREADY PASSED. OHS's NOFO #26OHS001 closed to
+applications on JULY 7, 2026, and OPM's published timeline gives 'Grant
+Awards Announced ... August 17, 2026'. This archive was taken 2026-09-02,
+SIXTEEN DAYS LATER, and no roster exists on any reachable state host.
+DSS's RHTP Documents page carries eight documents and not one is a
+roster.
+
+THE §6.2 ANCHOR IS CMS'S OWN NOTICE OF AWARD, NOT A FOOTER QUOTING ONE.
+  2026-09-02_ct_cms_notice_of_award.pdf is CMS's own form: recipient
+  DEPARTMENT OF SOCIAL SERVICES CONNECTICUT, Assistance Listing 93.798
+  Rural Health Transformation Program, Award# RHTCMS332073-01-03, budget
+  period 12/29/2025 - 10/30/2026, $154,249,105.53. Connecticut is the
+  THIRD state to publish it, after Nevada and California.
+  ITS FEDERAL AWARD DATE OF 07/23/2026 IS THE DATE OF A BUDGET REVISION
+  (Award Action Type 'Revision (Budget)'), not the date of the award: the
+  budget period still starts 12/29/2025, which is the project's own NOA
+  anchor. California's revision was three months after the award;
+  Connecticut's is SEVEN, so a date test keyed on 'Federal Award Date'
+  would quarantine every genuine Connecticut row.
+
+ONE CLOSURE, UNARRANGED. The NOA names Daniel Mize Sinclair as Director
+and Julie Vigil as Deputy Director; DSS's own 2026-04-10 press release
+names the same two people in the same roles. One federal publisher, one
+state publisher, nothing arranged.
+
+THE CONTROLS.
+  *_CONTROL.html is OHS's press index -- THE POSITIVE CONTROL. OHS
+    publishes named, recipient-level decisions in a recognisable form
+    ('Approves UCONN Health Affiliate's Acquisition of Waterbury
+    Hospital'). So the absence of an RHTP roster is Connecticut's and not
+    our channel's. Its four RHTP items are all pre-award.
+  *_NEGATIVE_CONTROL.html is DSS's ONLY RHTP press release, and it
+    announces a LEADERSHIP TEAM -- four named PEOPLE, no organisation and
+    no money. Missouri's governance roster (27 organisations at $1 each)
+    one tier further from money still.
+  *_AWARD_DATE_PASSED.html is OPM's RFP index, which carries NOFO
+    #26OHS001's full timeline including the award date that has gone by.
+  *_UNREADABLE.html is the CTsource bid board landing page. The state
+    directs subrecipients to CTsource; it is an external stateful
+    application this environment cannot search, so whether an RHTP award
+    has been posted inside it is UNKNOWN -- a statement about our access,
+    never about Connecticut (§0.4). biznet.ct.gov answers 403.
+
+THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE MECHANISM IS THE FIFTH
+THIS PROJECT HAS MET AND THE FIRST THAT IS PER-NODE. portal.ct.gov stamps
+a cache-busting '?v=<yyyymmddHHMMSS>' on seven static asset URLs and the
+value is the SERVING NODE'S asset build time. Six fetches of the OPM page
+returned 80,531 bytes every time under FIVE DISTINCT file digests, one of
+which repeated -- so it is a small finite set of values, one per node,
+not a per-request nonce. A back-to-back pair across two pages of this one
+host gave SAME on the programme page and DIFFER on the OPM page in the
+same minute, which is California's lesson made sharper: a 'SAME' result
+is not evidence of stability even for the page it was run on. --probe
+compares a CONTENT digest via ct_reduce_html(); the reduced text was
+IDENTICAL across all six fetches at 8,983 characters. robots.txt is 200
+and does not disallow any path used here.
+
+file  bytes  sha256
+2026-09-02_ct_dss_rhtp_programme.html  28416  4b35584c0d24639630f20eadcd4497e601ba391de44562b4ce08039e5dd0a483
+2026-09-02_ct_dss_rhtp_documents.html  27468  d980b8764029aab7fd943fe4cd1b92762331d59449152fa422ad1612aaea59ee
+2026-09-02_ct_cms_notice_of_award.pdf  1992539  1f2fa27e1a10267fdf54e68ebfc231f2d47bc9f8b52a41a0aca9300c24a89cc2
+2026-09-02_ct_dss_rht_budget_narrative_20260407.pdf  711773  fbba4cbe28df8e605783f30a9c633c5ee54ce2bf99fc97f2cf9772f82967bdae
+2026-09-02_ct_ohs_nofo_26ohs001_release.html  55239  5c488eade97de6081e76ae8ae9a93b0ce65b8bdea45b0c1246da083df19d1ae8
+2026-09-02_ct_opm_rfp_index_AWARD_DATE_PASSED.html  80531  35a17ed6d21143e0f386ed7469dd412ef6ad268f06b7a9ecc53e78d93525e4bf
+2026-09-02_ct_dss_leadership_team_NEGATIVE_CONTROL.html  63231  0987887b9e8588de0999bc8ad0afcc7b5370cf888c668dca662e43a8304a7185
+2026-09-02_ct_ohs_press_index_CONTROL.html  73131  d1188f03fc940dcf7495048cce695604027d5b9a6ecf278d53b2c94ca57c8f1a
+2026-09-02_ct_dss_press_index.html  81213  2bb61e812f4cfc257d20b2aa4f1d7e47f9a55cf603e9ef6b7e134e7d8642f056
+2026-09-02_ct_das_ctsource_bidboard_UNREADABLE.html  69911  9375ac0a342424b86ac0afa42d99640d68ff0e20d6bc4c8558caaed925784d8c

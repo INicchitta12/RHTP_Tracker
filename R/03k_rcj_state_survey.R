@@ -118,7 +118,32 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
 # the top of the RCJ_ONLY queue again looking exactly like a hospital
 # extraction, which is the single most attackable number this project could
 # publish.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "TX", "WI")
+#
+# CONNECTICUT AND NEW MEXICO join in session 35, having led the queue jointly
+# at 7 candidates each, and each answers the question a different way.
+#
+# CONNECTICUT is the first negative in this project whose award date is ALREADY
+# IN THE PAST: OHS's NOFO #26OHS001 closed to applications on 2026-07-07 and
+# OPM's own published timeline gives "Grant Awards Announced ... AUGUST 17,
+# 2026", sixteen days before the investigation ran, with no roster on any
+# reachable state host. Its seven candidates are BUDGET-NARRATIVE LINE ITEMS
+# whose awardees are the administering state agencies -- Oklahoma's defect, the
+# wrong TIER -- and two of the seven are ONE line item carried twice because
+# Connecticut published the narrative in two revisions. R/03ac carries the
+# tripwires.
+#
+# NEW MEXICO is the first candidate set to stack THREE recorded defects at
+# once. All seven come from the Rural Health Care Delivery Fund, which the
+# Governor's own release calls "$50 million IN STATE FUNDING" from a fund
+# established in 2023 and topped up in the October 2025 special session (the
+# wrong PROGRAMME, Texas's and California's); every one is filed under the
+# title of a FUTURE opportunity while the names come from a PAST award roster
+# further down the same page (the wrong SECTION, Nebraska's); and every one is
+# priced at $1, so New Mexico's whole survey figure is $7 (Missouri's and
+# Maine's placeholder) -- WHICH IS WHAT HIDES THE OTHER TWO, because a row
+# priced at $1 reads as missing data rather than as the wrong programme. TWO
+# of the seven are named New Mexico hospitals. R/03ad carries the tripwires.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "NM", "TX", "WI")
 
 
 # -- Inputs ------------------------------------------------------------------
