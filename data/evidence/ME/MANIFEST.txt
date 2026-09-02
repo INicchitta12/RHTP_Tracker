@@ -1,0 +1,50 @@
+Maine -- RHTP Year 1. The state's RHTP programme page, its THREE RHTP
+announcements (two on the DHHS news index, one on the DHHS blog), the
+Maine DOE funding opportunity, the TWO RHTP Advisory Committee decks,
+MCD Global Health's own partner page, the Governor's 2025-12-29 statement,
+the two DHHS indexes that are the award-index control, and Maine's
+procurement archive, which is BOTH the positive control (1,362 named
+awarded vendors, none of them RHTP) and the negative control (HRSA's
+Small Rural Hospital Improvement Program, awarded, DHHS, with 'Rural
+Hospital' in its title).
+
+USER AGENT: the project's own honest agent, which every host here answers
+with HTTP 200. §3's michigan.gov exception is NOT reached and must not be.
+
+Every file is archived VERBATIM as served -- no reduction was needed,
+because none of the thirteen carries a credential shape (asserted before
+each write). The page digests are stable: two fetches of the programme
+page three seconds apart returned the SAME SHA-256, so unlike Nevada,
+Missouri and Wisconsin a file digest is a usable change test here.
+
+2026-09-02 00:19:57 UTC
+
+KEY            FILE                                                            BYTES  SHA-256
+programme      2026-09-02_me_dhhs_rhtp_programme.html                          46806  61f915ef19d4c7e2e8832b035fed343559899650308308c565aaf12320a0f52c
+rhef           2026-07-31_me_dhhs_rural_hospital_resiliency.html               29876  bfe6471ee8ceb17a096384b763f011e97c5210884c14f1ecbb4145472def1cc4
+une            2026-07-31_me_dhhs_une_12m_partnership.html                     30904  6c698cfb1b83602bafbabe6f9222161ca2d3803c369336e6fbffb5ac05a1a9f6
+emr            2026-07-10_me_dhhs_emr_modernization.html                       29114  3cbf96973aec402f32c7a97c3cd4efebfe2708bdc7eb9682bd7b5f22b9a74e8c
+advisory_aug   2026-08-05_me_rhtp_advisory_updates.pdf                        753872  c7bfb91fb429d71f0cdd4fb91b94fdd4bdfecf25f54524d98b7bfc1c32c764aa
+advisory_jul   2026-07-01_me_rhtp_advisory_committee.pdf                      751564  b29f6ed537be10bb5ce3bd1818e7b37ddc0f2ae02b83eb6a737ec3261360ea06
+doe            2026-09-02_me_doe_healthcare_careers_exploration.html           50953  ec77203c43c4591f28e2d2ac0bce94cbca39b1906d78b10f9fc3977296a6e348
+mcd            2026-09-02_mcd_global_health_maine_rhtp.html                    26508  10ab02665c2e209fbf15b10abaaf7a1fa1eb34c0138cbb247b17bdf78a4d167c
+governor       2025-12-29_governor_mills_rhtp_award.html                       26714  29891d66cfa412e779f0d0ff184a532f63e68170bc52b2d2bd38de600ae9ee70
+news_index     2026-09-02_me_dhhs_news_index.html                              35501  c4924e7f9a65429fc918db45b00c92721cc397e61a05b6fee2de18080c184022
+blog_index     2026-09-02_me_dhhs_blog_index.html                              25810  b59264ac8ab2ae589ded622f3ba0fbf2d81f1575b385b6c43f2fa4eb95658b04
+rfp_archive    2026-09-02_me_procurement_rfp_archive.html                    1419029  f8cc23cd73d812981b30b1c2840788f9d75e9b43fd85f5ff495c9757eb87418b
+rfa_current    2026-09-02_me_procurement_grant_rfas.html                       52324  feb4239baf22bd59a4237de5cc67e11cdcde2c78709f4d0b670aaa26f9901aca
+
+URLs:
+  programme      https://www.maine.gov/dhhs/ruralhealth
+  rhef           https://www.maine.gov/dhhs/news/maine-dhhs-releases-30-million-strengthen-rural-hospital-resiliency-2026-07-31
+  une            https://www.maine.gov/dhhs/blog/maine-rural-health-transformation-program-announces-12m-partnership-university-new-england-expand-2026-07-31
+  emr            https://www.maine.gov/dhhs/news/maine-dhhs-announces-30-million-investment-help-health-care-providers-modernize-electronic-medical-2026-07-10
+  advisory_aug   https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/20260805%20Advisory%20Updates_F.pdf
+  advisory_jul   https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/20260701%20Maine%20RHTP%20Advisory%20Committee.pdf
+  doe            https://www.maine.gov/doe/pathways/healthcareexplorations
+  mcd            https://www.mcd.org/focus-areas/maine-rural-health-transformation-program
+  governor       https://www.maine.gov/governor/mills/news/governor-mills-statement-rural-health-transformation-program-award-2025-12-29
+  news_index     https://www.maine.gov/dhhs/news
+  blog_index     https://www.maine.gov/dhhs/blog
+  rfp_archive    https://www.maine.gov/dafs/bbm/procurementservices/vendors/rfps/rfp-archives
+  rfa_current    https://www.maine.gov/dafs/bbm/procurementservices/vendors/grants

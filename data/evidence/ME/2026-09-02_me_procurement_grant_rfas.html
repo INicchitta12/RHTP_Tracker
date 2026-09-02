@@ -1,0 +1,629 @@
+	
+
+<!DOCTYPE html>
+<!--new method to send styles to older versions of IE--><!--[if lt IE 7 ]>             <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>                <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>                <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>                <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<meta name="description" content="Grant Funding Opportunities (RFAs)" />
+<link rel="canonical" href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/grants" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript" data-toolbar-anti-flicker-loading>(function() {
+  const toolbarState = sessionStorage.getItem('Drupal.toolbar.toolbarState')
+    ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+    : false;
+  // These are classes that toolbar typically adds to <body>, but this code
+  // executes before the first paint, when <body> is not yet present. The
+  // classes are added to <html> so styling immediately reflects the current
+  // toolbar state. The classes are removed after the toolbar completes
+  // initialization.
+  const classesToAdd = ['toolbar-loading', 'toolbar-anti-flicker'];
+  if (toolbarState) {
+    const {
+      orientation,
+      hasActiveTab,
+      isFixed,
+      activeTray,
+      activeTabId,
+      isOriented,
+      userButtonMinWidth
+    } = toolbarState;
+
+    classesToAdd.push(
+      orientation ? `toolbar-` + orientation + `` : 'toolbar-horizontal',
+    );
+    if (hasActiveTab !== false) {
+      classesToAdd.push('toolbar-tray-open');
+    }
+    if (isFixed) {
+      classesToAdd.push('toolbar-fixed');
+    }
+    if (isOriented) {
+      classesToAdd.push('toolbar-oriented');
+    }
+
+    if (activeTray) {
+      // These styles are added so the active tab/tray styles are present
+      // immediately instead of "flickering" on as the toolbar initializes. In
+      // instances where a tray is lazy loaded, these styles facilitate the
+      // lazy loaded tray appearing gracefully and without reflow.
+      const styleContent = `
+      .toolbar-loading #` + activeTabId + ` {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
+      }
+      .toolbar-loading #` + activeTabId + `-tray {
+        display: block; box-shadow: -1px 0 5px 2px rgb(0 0 0 / 33%);
+        border-right: 1px solid #aaa; background-color: #f5f5f5;
+        z-index: 0;
+      }
+      .toolbar-loading.toolbar-vertical.toolbar-tray-open #` + activeTabId + `-tray {
+        width: 15rem; height: 100vh;
+      }
+     .toolbar-loading.toolbar-horizontal :not(#` + activeTray + `) > .toolbar-lining {opacity: 0}`;
+
+      const style = document.createElement('style');
+      style.textContent = styleContent;
+      style.setAttribute('data-toolbar-anti-flicker-loading', true);
+      document.querySelector('head').appendChild(style);
+
+      if (userButtonMinWidth) {
+        const userButtonStyle = document.createElement('style');
+        userButtonStyle.textContent = `#toolbar-item-user {min-width: ` + userButtonMinWidth +`px;}`
+        document.querySelector('head').appendChild(userButtonStyle);
+      }
+    }
+  }
+  document.querySelector('html').classList.add(...classesToAdd);
+})();</script>
+<link rel="icon" href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/favicon.ico" type="image/vnd.microsoft.icon" />
+
+<meta charset="windows-1252" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>Grant Funding Opportunities | Division of Procurement Services</title>
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/libraries/superfish/css/superfish.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/ajax-progress.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/align.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/autocomplete-loading.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/fieldgroup.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/container-inline.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/clearfix.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/details.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/hidden.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/item-list.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/js.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/nowrap.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/position-container.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/progress.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/reset-appearance.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/resize.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/sticky-header.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/system-status-counter.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/system-status-report-counters.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/system-status-report-general-info.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/tabledrag.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/tablesort.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/system/css/components/tree-child.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/core/modules/views/css/views.module.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/libraries/datatables/media/css/jquery.dataTables.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/themes/agencytemplate/css/custom.css?t3te3z" />
+<link rel="stylesheet" media="print" href="/dafs/bbm/procurementservices/themes/agencytemplate/css/print.css?t3te3z" />
+<link rel="stylesheet" media="only screen and (max-width:651px)" href="/dafs/bbm/procurementservices/themes/agencytemplate/css/sphone.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/themes/agencytemplate/css/flexslider-reverse.css?t3te3z" />
+<link rel="stylesheet" media="print" href="/dafs/bbm/procurementservices/themes/procurement/css/print.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/themes/procurement/css/flexslider-reverse.css?t3te3z" />
+<link rel="stylesheet" media="all" href="https://www.maine.gov/awt/templateV3/css/styles2.css" />
+<link rel="stylesheet" media="all" href="https://www.maine.gov/awt/templateV3/css/sm-simple.css" />
+<link rel="stylesheet" media="all" href="https://www.maine.gov/awt/templateV3/js/datatables/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/themes/procurement/css/custom.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/css_editor/procurement.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/asset_injector/css/datatable_style_overrides-6f87b4f29c4d101e529988ac827ebb4d.css?t3te3z" />
+<link rel="stylesheet" media="all" href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/asset_injector/css/table_pager-10bce44bb445fec93146591b5cecb309.css?t3te3z" />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content=" " />
+<meta name="keywords" content=" " />
+<link media="only screen and (max-width:651px)" type="text/css" rel="stylesheet" href="/dafs/procurementservices/themes/procurement/css/sphone.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+</head>
+<body class="node-id-93 path-node node--type-basic-template-page">
+<!-- Start Skip Navigation: Accessibility Requirement -->
+<ul class="offscreen">
+  <li><a href="/dafs/procurementservices" accesskey="H" title="Home [accesskey 'h']">Home</a></li>
+  <li><a href="#top-nav" accesskey="1" title="Skip to navigation [accesskey '1']">Skip to top navigation</a></li>
+  <li><a href="#content" accesskey="2" title="Skip to side navigation [accesskey '2']">Skip to side navigation</a></li>
+  <li><a href="#page-body" accesskey="3" title="Skip to content [accesskey '3']">Skip to content</a></li>
+  <li><a href="#footer" accesskey="4" title="Skip to footer [accesskey '4']">Skip to footer</a></li>
+</ul>
+<!-- End Skip Navigation: Accessibility Requirement --> 
+<a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+          <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <!-- Sliver Include Start -->
+<!-- Template V3.1 Sliver Header Drupal  -->
+<div id="sliver_container"> 
+  <div class="sliver"> 
+		<nav class="sliver-links" aria-label="State utility links"><!-- changed from div to nav and added aria label-->
+			<a href="https://www.maine.gov/" class="sliver-logo"><img alt="Maine.gov logo" src="https://www.maine.gov/awt/templateV3/images/maine_gov-rev.svg"></a>
+			<ul> 
+			<li><a href="https://www.maine.gov/portal/government/state-agencies/">Agencies</a> |</li>
+			<li><a href="https://www.maine.gov/portal/online_services/index.html">Online Services</a> |</li>
+			<li><a href="https://www.maine.gov/portal/help/index.html">Help</a> |</li>
+			<li><a href="https://www.maine.gov/search/" class="state_search">Search Maine.gov</a></li>
+			</ul>
+		</nav>
+		<div id="google_translate_element" role="region" aria-label="Google Translate"></div>
+  </div>
+		<script>
+			function googleTranslateElementInit() {
+			  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+			}
+		</script>
+		<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+		</script>
+</div>
+<!-- Sliver End -->
+<div id="container">
+	<header>
+		<div class="sub-container clearfix">
+		
+	
+    	<h2 class="logo"><a href="/dafs/bbm/procurementservices/" rel="home">Division of Procurement Services</a></h2>
+
+
+ 
+		<div class="header_nav_search">
+			
+            
+        
+    
+<nav aria-label="Top links">
+    <ul id="vtopnav">
+          <li>
+        <a href="/dafs/bbm/procurementservices/contact-us" data-drupal-link-system-path="node/42">Contact Us</a> 
+      </li> 
+			
+	          <li>
+        <a href="/dafs/bbm/procurementservices/sitemap" data-drupal-link-system-path="node/55">Sitemap</a> 
+      </li> 
+	        </ul>
+</nav>  
+
+
+  <div  class="search-block-form contextual-region" data-drupal-selector="search-block-form" id="block-procurementservices-search" role="search">
+  
+      
+<form action="/dafs/procurementservices/search/node" method="get" id="search-block-form" accept-charset="UTF-8" data-drupal-selector="search-form">
+  
+
+<div class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label">
+      
+
+<label for="edit-keys" class="visually-hidden">Search</label>
+
+
+
+
+<input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" class="form-search topsearch" placeholder="Search Procurement Services" />
+
+
+
+
+        </div>
+
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper searchbutton" id="edit-actions">
+
+
+
+<input data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="Search" class="button js-form-submit form-submit" />
+
+</div>
+
+
+
+
+</form>
+
+
+
+
+  </div>
+
+
+			
+		</div>
+		<!-- end header_nav_search --> 
+		</div>
+	</header>
+	<!-- end header -->
+		
+  <div  id="block-mainmenu">
+  
+    
+    <nav id="top-nav" class="megamenu">
+    <div class="sub-container clearfix">
+    
+<ul id="superfish-main-menu" class="menu sf-menu sf-main-menu sf-horizontal sf-style-none">
+  
+<li id="main-menu-menu-link-content1c8083f1-5918-417b-9207-91122f3d54d6" class="sf-depth-1 sf-no-children"><a href="/dafs/bbm/procurementservices/home" title="" class="sf-depth-1">Home</a></li><li id="main-menu-menu-link-content20854192-6dbf-49f6-8c6c-c7a0640cd051" class="sf-depth-1 menuparent"><a href="https://www.maine.gov/dafs/bgs/home" title="" class="sf-depth-1 sf-external menuparent">Bureau of <span class="sf-description">General Services</span></a><ul><li id="main-menu-menu-link-contentc6e99480-2028-43da-b633-6ce52cbdd25f" class="sf-depth-2 sf-no-children"><a href="https://www.maine.gov/bgs/centralfleet/index.htm" title="" class="sf-depth-2 sf-external">Central Fleet Management</a></li><li id="main-menu-menu-link-content5c451529-cc6a-4e68-bafe-46ea4887808c" class="sf-depth-2 sf-no-children"><a href="https://www.maine.gov/dafs/bbm/centralservices/" title="" class="sf-depth-2 sf-external">Division of Central Services</a></li></ul></li><li id="main-menu-menu-link-contente8a3f919-497c-44d1-a423-babc25a81a26" class="sf-depth-1 sf-no-children"><a href="https://stateofmaine.sharepoint.com/sites/DAFS-Procurement-Services-Intranet" title="" class="sf-depth-1 sf-external">Intranet <span class="sf-description">(Maine State Employees Only)</span></a></li><li id="main-menu-menu-link-contenta7586316-2f96-405f-b1c0-641bb28b8d77" class="sf-depth-1 sf-no-children"><a href="/dafs/bbm/procurementservices/forms" title="" class="sf-depth-1">Forms</a></li><li id="main-menu-menu-link-content8ed9cbf7-4de1-4bc5-9228-d2c423029367" class="sf-depth-1 sf-no-children"><a href="/dafs/bbm/procurementservices/procurement-cards" title="" class="sf-depth-1">Procurement <span class="sf-description">Cards</span></a></li><li id="main-menu-menu-link-content2cf081a0-4bcc-4d58-8da4-d271ecb20cce" class="sf-depth-1 menuparent"><a href="/dafs/bbm/procurementservices/Policies-Procedures" title="" class="sf-depth-1 menuparent">Policies  <span class="sf-description">&amp; Procedures</span></a><ul><li id="main-menu-menu-link-contentc8d84bd6-6fc0-4792-bc68-6ed0fcfa6402" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/Policies-Procedures" title="" class="sf-depth-2">Policies Home</a></li><li id="main-menu-menu-link-contenteff7ee1d-8f24-4c29-8538-ee667b37067b" class="sf-depth-2 menuparent"><a href="/dafs/bbm/procurementservices/policies-procedures/policy" title="" class="sf-depth-2 menuparent">Policy</a><ul></ul></li><li id="main-menu-menu-link-content31ea092f-abc1-4280-8ad0-b205b67116fa" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/policies-procedures/statute" title="" class="sf-depth-2">Statute</a></li><li id="main-menu-menu-link-contentee82bfc9-b313-4a8f-a321-24e76d88ed67" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/policies-procedures/appeals" title="" class="sf-depth-2">Appeals</a></li><li id="main-menu-menu-link-content059974c9-9c5a-4512-9db5-fe854ef697ce" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/policies-procedures/maine-armory-rental-program" title="" class="sf-depth-2">Maine Armory Rental Program</a></li><li id="main-menu-menu-link-contentdffc3799-bf65-4df1-8a1b-320ee9221fc8" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/policies-procedures/work-centers" title="" class="sf-depth-2">Work Centers</a></li><li id="main-menu-menu-link-content09c5a8da-43fb-4ae8-9e06-ea0027e8aa8f" class="sf-depth-2 sf-no-children"><a href="https://www.maine.gov/dafs/bbm/procurementservices/node/95" title="" class="sf-depth-2 sf-external">Mileage &amp; Travel Reimbursement</a></li></ul></li><li id="main-menu-menu-link-content0e329dfa-3c32-49f8-80d4-95376a6f0aff" class="sf-depth-1 menuparent"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts" title="" class="sf-depth-1 menuparent">Contracts</a><ul><li id="main-menu-menu-link-contentaf090308-e84b-42c0-a931-379e4ecc23df" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/service-contract-search" title="" class="sf-depth-2">Service Contract Search</a></li><li id="main-menu-menu-link-content1d1c9648-19e1-4cf3-8e9b-f828018dad19" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/contract-search" title="" class="sf-depth-2">Master Agreements</a></li><li id="main-menu-menu-link-content371c8d33-7fe5-4eae-b5d4-ab79549b251c" class="sf-depth-2 menuparent"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts" title="" class="sf-depth-2 menuparent">Statewide Contracts</a><ul><li id="main-menu-menu-link-contentbafc18e3-b5e8-491b-b051-5f1e5203b055" class="sf-depth-3 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts/courier-services-contracts" title="" class="sf-depth-3">Courier Services Contracts</a></li><li id="main-menu-menu-link-contentb49875a2-12a0-486b-97e2-5756351a352b" class="sf-depth-3 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts/energy-contracts" title="" class="sf-depth-3">Fuel Contracts</a></li><li id="main-menu-menu-link-content223c2d30-ba19-4aa4-ad5e-0a8fb27aec5d" class="sf-depth-3 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts/hearing-aid-contracts" title="" class="sf-depth-3">Hearing Aid Contracts</a></li><li id="main-menu-menu-link-content2b760f5d-877e-43bc-be78-7cd17b49dbee" class="sf-depth-3 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/statewide-contracts/Multi-State%20Cooperative%20Purchasing" title="" class="sf-depth-3">Multi-State Cooperative Purchasing</a></li><li id="main-menu-menu-link-content35655d7a-97fb-4998-b2fd-61a5ffa4a92f" class="sf-depth-3 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts/municipality" title="" class="sf-depth-3">Municipality</a></li><li id="main-menu-menu-link-contentdd8aff4a-25d6-4159-a458-10c26f458164" class="sf-depth-3 sf-no-children"><a href="/dafs/bbm/procurementservices/reports/statewide-contracts/Moving" title="" class="sf-depth-3">Used/Refurbished Modular Furniture Services and Moving Services</a></li></ul></li><li id="main-menu-menu-link-content59920e90-dafa-4076-bf19-ec464d8145f9" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/reports" title="" class="sf-depth-2">Reports</a></li></ul></li><li id="main-menu-menu-link-content7dafa8d2-9e77-4f3c-9bf5-f39bb030c172" class="sf-depth-1 menuparent"><a href="/dafs/bbm/procurementservices/vendors" title="" class="sf-depth-1 menuparent">Vendors</a><ul><li id="main-menu-menu-link-content25a6004f-9051-4fd3-b0ce-895b50471137" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors" title="" class="sf-depth-2">Vendor Home Page</a></li><li id="main-menu-menu-link-contente438217d-d29b-4f6f-a577-35ba9568dace" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/doing-business-with-the-state-of-maine" title="" class="sf-depth-2">Doing Business With the State of Maine</a></li><li id="main-menu-menu-link-content075e7530-8c7b-4d65-b1bf-f956fe199e0b" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/vendor-self-service-system" title="" class="sf-depth-2">Vendor Self-Service System</a></li><li id="main-menu-menu-link-content454766b3-9514-4550-b102-34cc39a54816" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/commodity-groups" title="" class="sf-depth-2">Commodity Groups</a></li><li id="main-menu-menu-link-content452ab3e3-62e2-4f10-8921-0e1713f1ed32" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/vendor-debarment-and-tax-exemption" title="" class="sf-depth-2">Vendor Debarment &amp; Tax Exemption</a></li><li id="main-menu-menu-link-content1de16e81-7f56-4747-ba78-3a8bb24ecc30" class="sf-depth-2 menuparent"><a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/noi" title="" class="sf-depth-2 sf-external menuparent">Notice of Intent to Waive Competitive Bids (NOIs)</a><ul><li id="main-menu-menu-link-content83f78998-77b3-4465-ba19-ccbad7bdba04" class="sf-depth-3 sf-no-children"><a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/noi-archive?q=vendors/noi-archive&amp;combine=&amp;order=field_posting_start_date&amp;sort=desc" title="" class="sf-depth-3 sf-external">Notice of Intent (NOI) - Archive</a></li></ul></li><li id="main-menu-menu-link-content3442d4ac-a7fc-4728-aca3-ba266a0aca64" class="sf-depth-2 sf-no-children"><a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/grants" title="" class="sf-depth-2 sf-external">Grant Funding Opportunities (RFAs)</a></li><li id="main-menu-menu-link-content19a4a094-3b49-4694-b55d-c4d5bf7ee534" class="sf-depth-2 sf-no-children"><a href="http://www.maine.gov/dafs/bbm/procurementservices/vendors/rfis" title="" class="sf-depth-2 sf-external">Requests for Information (RFIs)</a></li><li id="main-menu-menu-link-contenteee4f25b-7033-4911-a473-0a01a249e36f" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/rfps" title="" class="sf-depth-2">Request for Proposals (RFPs) </a></li><li id="main-menu-menu-link-content1c7839fe-8dfc-40d5-b31e-fe547ebacf63" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/rfqs" title="" class="sf-depth-2">Request for Quotations &amp; Sealed Surplus Bids (RFQs)</a></li><li id="main-menu-menu-link-contentc35b6f42-bcb9-433a-9e5b-85468ac09627" class="sf-depth-2 sf-no-children"><a href="/dafs/bbm/procurementservices/vendors/other-solicitations-and-grant-opportunities" title="" class="sf-depth-2">Other Solicitations and Grant Opportunities</a></li><li id="main-menu-menu-link-content52a184ea-60f5-4eb1-831f-b2c4bd190b9c" class="sf-depth-2 sf-no-children"><a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/meetingPQVL" title="" class="sf-depth-2 sf-external">Pre-Qualified Meeting/Conference Facilities</a></li><li id="main-menu-menu-link-contentdf71a0b2-ee14-4adb-b3bc-b7c1fb51fc6d" class="sf-depth-2 sf-no-children"><a href="http://www.maine.gov/dafs/bbm/procurementservices/vendors/pqvls" title="" class="sf-depth-2 sf-external">Pre-Qualified Vendor Lists (PQVLs)</a></li><li id="main-menu-menu-link-contenteb257ae1-8d28-4e85-9446-8e3ba9bfda8a" class="sf-depth-2 sf-no-children"><a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/noi/willingandqualified" title="" class="sf-depth-2 sf-external">Willing and Qualified Vendor Agreements (W&amp;Qs)</a></li></ul></li>
+</ul>
+
+    </div>
+    </nav>
+  </div>
+
+
+	<!-- end top_nav -->
+	<div id="content" class="clearfix">
+		 
+		
+		
+
+															<div id="sectionnav" class="subsection nav" role="navigation">
+						
+  
+
+          
+        
+          <ul class="mainnav">
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors" data-drupal-link-system-path="node/6">Vendor Home Page</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/doing-business-with-the-state-of-maine" data-drupal-link-system-path="node/18">Doing Business With the State of Maine</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/vendor-self-service-system" data-drupal-link-system-path="node/19">Vendor Self-Service (VSS)</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/commodity-groups" data-drupal-link-system-path="node/20">Commodity Groups</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/vendor-debarment-and-tax-exemption" data-drupal-link-system-path="node/21">Vendor Debarment &amp; Tax Exemption</a>
+                  </li>
+      <li>
+                        <a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/noi">Notice of Intent to Waive Competitive Bids (NOIs)</a>
+                  </li>
+      <li>
+                        <a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/grants">Grant Funding Opportunities (RFAs)</a>
+                  </li>
+      <li>
+                        <a href="http://www.maine.gov/dafs/bbm/procurementservices/vendors/rfis">Requests for Information (RFIs)</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/rfps" data-drupal-link-system-path="node/25">Requests for Proposals (RFPs)</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/rfqs" data-drupal-link-system-path="node/50">Request for Quotations &amp; Sealed Surplus Bids (RFQs)</a>
+                  </li>
+      <li>
+                        <a href="/dafs/bbm/procurementservices/vendors/other-solicitations-and-grant-opportunities" data-drupal-link-system-path="node/25949">Other Solicitations and Grant Opportunities</a>
+                  </li>
+      <li>
+                        <a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/meetingPQVL">Pre-Qualified Meeting/Conference Facilities</a>
+                  </li>
+      <li>
+                        <a href="http://www.maine.gov/dafs/bbm/procurementservices/vendors/pqvls">Pre-Qualified Vendor Lists (PQVLs)</a>
+                  </li>
+      <li>
+                        <a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/noi/willingandqualified">Willing and Qualified Vendor Agreements (W&amp;Qs)</a>
+                  </li>
+    </ul>
+
+
+  
+
+
+	
+					</div><!-- end sectionnav -->
+					<span id="page-body"></span>				
+											<div id="maincontent2" class="article" role="main">
+													
+			
+			  <div data-drupal-messages-fallback class="hidden"></div><div  id="block-procurement-content">
+<div class="contextual-region">
+  
+</div>  <div class="contextual-region">
+  
+</div>
+      <article data-history-node-id="93" about="/dafs/bbm/procurementservices/vendors/grants">
+
+  
+    
+
+  
+  <div>
+    
+            <div><p style="margin-bottom: 11px;"><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><b><span style="font-size:18.0pt"><span style="line-height:115%"><span style="font-family:&quot;Arial&quot;,sans-serif">Grant Funding Opportunities (RFAs)</span></span></span></b></span></span></span></p>
+
+<p style="margin-bottom:11px"><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">Grant funding opportunities are made available by various State agencies, primarily in the form of Requests for Applications (RFAs).  </span></span></span></span></p>
+
+<p style="margin-bottom:11px"><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><b><span style="font-family:&quot;Arial&quot;,sans-serif">Archive</span></b></span></span></span><br />
+For archived RFAs that were published prior to October 1, 2025, <span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">please see <a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/grants-archive">here</a>. </span></span></span></span><br /><br />
+RFAs published on or after October 1, 2025 will be archived in <a href="https://www.maine.gov/dafs/bbm/procurementservices/vendors/vendor-self-service-system" title="Vendor Self-Service System (VSS)">Vendor Self-Service System</a>.</p>
+
+<p style="margin-bottom:11px"><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><b><span style="font-family:&quot;Arial&quot;,sans-serif">Appeals</span></b><br /><span style="font-family:&quot;Arial&quot;,sans-serif">To access appeal guidelines, rules, current appeal details, and past appeal hearing decisions, please see </span><a href="https://www.maine.gov/dafs/bbm/procurementservices/policies-procedures/appeals" style="color:blue; text-decoration:underline"><span style="font-family:&quot;Arial&quot;,sans-serif">here</span></a><span style="font-family:&quot;Arial&quot;,sans-serif">.</span></span></span></span></p>
+
+<p style="margin-bottom:11px"><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><b><span style="font-family:&quot;Arial&quot;,sans-serif">Freedom of Access Act (FOAA)</span></b><br /><span style="font-family:&quot;Arial&quot;,sans-serif">Following announcement of an award decision, all submissions in response to a Request for Applications will be considered public records available for public inspection pursuant to the State of Maine Freedom of Access Act (FOAA) (1 M.R.S. §§ 401 et seq.).</span></span></span></span></p>
+
+<p style="margin-bottom:11px"><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">For FOAA requests related to Request for Applications, please submit requests to </span><a href="mailto:FOAArequest.DAFS@Maine.gov" style="color:blue; text-decoration:underline"><span style="font-family:&quot;Arial&quot;,sans-serif">FOAArequest.DAFS@Maine.gov</span></a><span style="font-family:&quot;Arial&quot;,sans-serif">. </span></span></span></span></p>
+
+<h3 style="margin-bottom: 11px;"> </h3>
+
+<h3 style="margin-bottom: 11px;"><font face="Arial, sans-serif"><span style="font-size: 16px;">Introduction to RFAs for Vendors</span></font></h3>
+
+<p> </p>
+
+<p class="text-align-center"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hHjr3IYZ_ro?si=ohwx_rj4pXeqhw5I" title="YouTube video player" width="560"></iframe></p>
+
+<p align="center"><span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Aptos,sans-serif"><b><span style="font-size:16.0pt"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:#c00000">NOTICE</span></span></span></b></span></span></span><br /><br />
+Beginning <b>October 1, 2025</b>, all new solicitations will be posted through <a href="https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.maine.gov%2Fdafs%2Fbbm%2Fprocurementservices%2Fvendors%2Fvendor-self-service-system&amp;data=05%7C02%7CLindsey.Kendall%40maine.gov%7Ce6c9eae2b4b742a8f20b08dddc156582%7C413fa8ab207d4b629bcdea1a8f2f864e%7C0%7C0%7C638908706723676185%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=c0mTaAfCEHIDT5SmYKkSRCml%2BR7YICgf8y%2B2CBHROZM%3D&amp;reserved=0">Vendor Self Service (VSS)</a>!<br /><br />
+All RFAs posted to maine.gov prior to October 1, 2025 will continue with the process as defined in the RFAs below.<br /><br /><span style="font-size:12pt"><span style="line-height:normal"><span style="font-family:Aptos,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:#c00000"><strong>New solicitations posted on or after October 1, 2025 will be available in Vendor Self Service only.</strong></span></span></span></span></span></p>
+
+<p><span>                                    1. Vendors <u>must</u> have an active User ID and password in VSS to submit questions and respond to solicitations.</span></p>
+
+<p><span>                                    2. Vendors <u>must</u> have an active Vendor Code (VC or VS) to contract with the department.</span></p>
+
+<p class="text-align-center"><b>Training and Support:</b><br />
+Vendor registration instructions, User Guide, and response instructions are available on the Vendor Self-Service webpage linked above.</p>
+
+<div style="border-top:solid windowtext 1.0pt; padding:1.0pt 0in 0in 0in">
+<p style="border:none; padding:0in; margin-bottom:11px"><strong><span style="font-size:12pt"><span style="line-height:115%"><span style="font-family:Aptos,sans-serif"><span style="font-family:&quot;Arial&quot;,sans-serif">The table below lists all current RFAs published prior to October 1, 2025 and may be sorted by clicking on the arrows next to the column headers. A copy of the RFA and any related documents (Q&amp;A Summary, Amendments, Selection Packages) may be obtained by clicking on the links associated with the RFA.  </span></span></span></span></strong></p>
+</div>
+</div>
+      
+  </div>
+
+</article>
+
+  </div>
+<div  class="views-element-container" id="block-procurement-views-block-rfps-block-7">
+<div class="contextual-region">
+  
+</div>  <div class="contextual-region">
+  
+</div>
+      <div><div class="js-view-dom-id-01fc96e94fe0b30762c7ad98d9a910bca18964ecd030bc780fa6313d149d99d7">
+  
+  
+  
+
+  
+  
+  
+
+  <table id="datatable" class="display cols-9">
+        <thead>
+      <tr>
+                                                  <th id="view-title-table-column" class="views-field views-field-title" scope="col">RFA Title</th>
+                                                  <th id="view-field-rfp-table-column" class="views-field views-field-field-rfp-" scope="col">RFA #</th>
+                                                  <th id="view-field-issuing-department-table-column" class="views-field views-field-field-issuing-department" scope="col">Issuing Department</th>
+                                                  <th id="view-field-date-posted-table-column" class="views-field views-field-field-date-posted" scope="col">Date Posted</th>
+                                                  <th id="view-field-q-a-summary-and-amendment-table-column" class="views-field views-field-field-q-a-summary-and-amendment" scope="col">Q/A Summary and Amendments</th>
+                                                  <th id="view-field-proposal-due-date-table-column" class="views-field views-field-field-proposal-due-date" scope="col">Application Due Date</th>
+                                                  <th id="view-field-rfp-status-table-column" class="views-field views-field-field-rfp-status" scope="col">RFA Status</th>
+                                                  <th id="view-field-awarded-vendor-s-table-column" class="views-field views-field-field-awarded-vendor-s-" scope="col">Award Documents</th>
+                                                  <th id="view-field-next-anticipated-rfp-relea-table-column" class="views-field views-field-field-next-anticipated-rfp-relea" scope="col">Next Anticipated RFA Release</th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr>
+                                                                                        <td headers="view-title-table-column" class="views-field views-field-title"><a href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/rfps/RFA%20202508124%20Maine%20Rural%20State%20Americorps%20Grants_Final.docx">MAINE RURAL STATE AMERICORPS GRANTS </a>          </td>
+                                                                                        <td headers="view-field-rfp-table-column" class="views-field views-field-field-rfp-">202508124          </td>
+                                                                                        <td headers="view-field-issuing-department-table-column" class="views-field views-field-field-issuing-department">DOE          </td>
+                                                                                        <td headers="view-field-date-posted-table-column" class="views-field views-field-field-date-posted"><time datetime="2025-09-02T12:00:00Z">09/02/2025</time>
+          </td>
+                                                                                        <td headers="view-field-q-a-summary-and-amendment-table-column" class="views-field views-field-field-q-a-summary-and-amendment"><ul><li><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/rfps/RFA%20202508124%20Amendment%231_Final.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" title="RFA 202508124 Amendment#1_Final.docx">Amendment #1</a></span>
+    
+</li><li><span class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document"><a href="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/rfps/RFA%20202508124%20Amendment%232_FINAL.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" title="RFA 202508124 Amendment#2_FINAL.docx">Amendment #2</a></span>
+    
+</li></ul>          </td>
+                                                                                        <td headers="view-field-proposal-due-date-table-column" class="views-field views-field-field-proposal-due-date"><time datetime="2025-10-15T12:00:00Z">10/15/2025</time>
+          </td>
+                                                                                        <td headers="view-field-rfp-status-table-column" class="views-field views-field-field-rfp-status">Closed - Evaluation of Proposals          </td>
+                                                                                        <td headers="view-field-awarded-vendor-s-table-column" class="views-field views-field-field-awarded-vendor-s-">          </td>
+                                                                                        <td headers="view-field-next-anticipated-rfp-relea-table-column" class="views-field views-field-field-next-anticipated-rfp-relea">N/A          </td>
+              </tr>
+      </tbody>
+</table>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+
+		
+				 </div>
+									 									</div>
+												
+
+		<!-- end content id -->
+	<footer id="footer" class="clearfix">
+	<div class="sub-container">
+		            <div class="footer_column">
+  <div id="block-credit">
+  
+      <h3>Credit</h3>
+    
+      
+            <div><p><img alt="InforME logo" data-entity-type="file" data-entity-uuid="22f08d20-26ef-43ee-aef1-2ae2b14bbbde" height="40" src="/dafs/bbm/procurementservices/sites/maine.gov.dafs.bbm.procurementservices/files/inline-images/InforME_1.png" width="57" loading="lazy" /></p>
+
+<p>Copyright © 2019<br />
+All rights reserved.</p>
+</div>
+      
+  </div>
+
+</div>
+
+            <div class="footer_column">
+  <div  id="block-information">
+<div class="contextual-region">
+  
+</div>      <h3>Information</h3>
+  <div class="contextual-region">
+  
+</div>
+      
+            <div><ul><li><a href="http://www.maine.gov/portal/policies/index.html">Site Policies</a></li>
+	<li><a href="http://www.maine.gov/portal/policies/accessibility.html">Accessibility</a></li>
+	<li><a href="http://maine.gov/portal/free-viewers.html">Document Viewers</a></li>
+	<li><a href="http://www.maine.gov/">Maine.gov</a></li>
+	<li><a href="http://www.maine.gov/dafs">DAFS</a></li>
+	<li><a href="/dafs/procurementservices/home">Home</a></li>
+	<li><a href="/dafs/procurementservices/sitemap">Sitemap</a></li>
+</ul><p> </p></div>
+      
+  </div>
+
+</div>
+
+            <div class="footer_column">
+  <div  id="block-contactus">
+<div class="contextual-region">
+  
+</div>  <div class="contextual-region">
+  
+</div>
+      
+            <div><h3><u><a href="/dafs/procurementservices/contact-us">Contact Us</a></u></h3>
+
+<p><strong>Office of State Procurement Services</strong><br />
+Burton M. Cross Building<br />
+4th Floor<br />
+111 Sewall Street<br />
+9 State House Station<br />
+Augusta, ME 04333-0009</p>
+
+<p>Voice: (207) 624-7340<br />
+Maine Relay Service 711</p>
+
+<p><a href="mailto:christopher.sturies@maine.gov">Contact the Webmaster</a></p>
+</div>
+      
+  </div>
+
+</div>
+
+            <div class="footer_column">
+  <div  id="block-doingbusinesswithmaine">
+<div class="contextual-region">
+  
+</div>      <h3>Doing Business With Maine</h3>
+  <div class="contextual-region">
+  
+</div>
+      
+            <div><ul><li><a href="/dafs/procurementservices/vendors">Vendors</a></li>
+	<li><a href="https://www.maine.gov/dafs/bbm/procurementservices/reports/statewide-contracts/municipality">Municipalities</a></li>
+</ul></div>
+      
+  </div>
+
+</div>
+
+            <div class="footer_column">
+  <div  id="block-helpfullinks">
+<div class="contextual-region">
+  
+</div>      <h3>Helpful Links</h3>
+  <div class="contextual-region">
+  
+</div>
+      
+            <div><ul><li><a href="/dafs/procurementservices/forms">Forms</a></li>
+	<li><a href="/dafs/procurementservices/vendors/rfps">RFPs</a></li>
+	<li><a href="/dafs/procurementservices/vendors/rfps/rfp-archives">RFP Archives</a></li>
+	<li><a href="/dafs/procurementservices/vendors/rfqs">RFQs</a></li>
+	<li><a href="/dafs/procurementservices/vendors/noi">NOI</a></li>
+</ul></div>
+      
+  </div>
+
+</div>
+
+            </div>
+	</footer>
+	<!-- end pagefooter id -->
+</div>
+<!-- end container id -->
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/dafs\/bbm\/procurementservices\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/93","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","currentQuery":{"q":"vendors\/grants"}},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"gtag":{"tagId":"UA-33094047-1","otherIds":["G-HZHEF1XXB8","G-TFVPRW63KM"],"events":[],"additionalConfigInfo":[]},"ajaxPageState":{"libraries":"agencytemplate\/flexslider,agencytemplate\/global-css,asset_injector\/css\/datatable_style_overrides,asset_injector\/css\/table_pager,datatables\/datatables,datatables\/datatables_core,google_tag\/gtag,google_tag\/gtag.ajax,procurement\/css_editor,procurement\/flexslider,procurement\/global-styling,superfish\/superfish,superfish\/superfish_hoverintent,superfish\/superfish_smallscreen,superfish\/superfish_supersubs,superfish\/superfish_supposition,system\/base,views\/views.module","theme":"procurement","theme_token":null},"ajaxTrustedUrl":[],"datatables":{"#datatable":{"aaSorting":[],"aoColumns":[{"sType":"html","bSortable":true},{"sType":"numeric","bSortable":true},{"bSortable":true},{"sType":"html","bSortable":true},{"bSortable":false},{"sType":"html","bSortable":true},{"bSortable":true},{"bSortable":false},{"bSortable":false}],"aoColumnHeaders":[{"content":"RFA Title","title":"sort by RFA Title","default_classes":true,"attributes":" id=\u0022view-title-table-column\u0022 class=\u0022views-field views-field-title\u0022 scope=\u0022col\u0022"},{"content":"RFA #","title":"sort by RFA #","default_classes":true,"attributes":" id=\u0022view-field-rfp-table-column\u0022 class=\u0022views-field views-field-field-rfp-\u0022 scope=\u0022col\u0022"},{"content":"Issuing Department","title":"sort by Issuing Department","default_classes":true,"attributes":" id=\u0022view-field-issuing-department-table-column\u0022 class=\u0022views-field views-field-field-issuing-department\u0022 scope=\u0022col\u0022"},{"content":"Date Posted","title":"sort by Date Posted","default_classes":true,"attributes":" id=\u0022view-field-date-posted-table-column\u0022 class=\u0022views-field views-field-field-date-posted\u0022 scope=\u0022col\u0022"},{"content":"Q\/A Summary and Amendments","default_classes":true,"attributes":" id=\u0022view-field-q-a-summary-and-amendment-table-column\u0022 class=\u0022views-field views-field-field-q-a-summary-and-amendment\u0022 scope=\u0022col\u0022"},{"content":"Application Due Date","title":"sort by Application Due Date","default_classes":true,"attributes":" id=\u0022view-field-proposal-due-date-table-column\u0022 class=\u0022views-field views-field-field-proposal-due-date\u0022 scope=\u0022col\u0022"},{"content":"RFA Status","title":"sort by RFA Status","default_classes":true,"attributes":" id=\u0022view-field-rfp-status-table-column\u0022 class=\u0022views-field views-field-field-rfp-status\u0022 scope=\u0022col\u0022"},{"content":"Award Documents","default_classes":true,"attributes":" id=\u0022view-field-awarded-vendor-s-table-column\u0022 class=\u0022views-field views-field-field-awarded-vendor-s-\u0022 scope=\u0022col\u0022"},{"content":"Next Anticipated RFA Release","default_classes":true,"attributes":" id=\u0022view-field-next-anticipated-rfp-relea-table-column\u0022 class=\u0022views-field views-field-field-next-anticipated-rfp-relea\u0022 scope=\u0022col\u0022"}],"bInfo":1,"bFilter":1,"bStateSave":0,"bLengthChange":1,"iDisplayLength":25,"bAutoWidth":0,"sPaginationType":"full_numbers","oLanguage":{"sEmptyTable":"No data available in table","sInfo":"Start _START_ to _END_ of _TOTAL_ entries","sInfoEmpty":"Showing 0 to 0 of 0 entries","sInfoFiltered":"(filtered from _MAX_ total entries)","sInfoPostFix":"","sProcessing":"Processing...","sLengthMenu":"Show _MENU_ entries","sLoadingRecords":"Loading...","sZeroRecords":"No matching records found","sSearch":"Search","oPaginate":{"sFirst":"First","sPrevious":"Previous","sNext":"Next","sLast":"Last"},"oAria":{"sSortAscending":": activate to sort column ascending","sSortDescending":": activate to sort column descending"}}}},"superfish":{"superfish-main-menu":{"id":"superfish-main-menu","sf":{"animation":{"opacity":"show","height":"show"},"speed":"fast"},"plugins":{"smallscreen":{"mode":"window_width","breakpoint":651,"title":"Main Menu"},"supposition":true,"supersubs":true}}},"user":{"uid":0,"permissionsHash":"991c2e6f15f358ded239edc2dd16671bb74f7e9e3071dc4b0066224cd3afd936"}}</script>
+<script src="/dafs/bbm/procurementservices/core/assets/vendor/jquery/jquery.min.js?v=3.7.0"></script>
+<script src="/dafs/bbm/procurementservices/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/drupalSettingsLoader.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/drupal.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/drupal.init.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/assets/vendor/tabbable/index.umd.min.js?v=6.1.2"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/maine.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/jquery.hoverIntent.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/superfish.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/jquery.smartmenus.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/jquery.smartmenus.keyboard.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/agencyv3.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/custom.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/jquery.cycle.lite.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/flexslider2/jquery.flexslider.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/flexslider2/jquery.mousewheel.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/agencytemplate/js/flexslider2/jquery.easing.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/maine.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/jquery.hoverIntent.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/superfish.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/jquery.smartmenus.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/jquery.smartmenus.keyboard.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/agencyv3.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/custom.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/themes/procurement/js/accordion.js?t3te3z"></script>
+<script src="https://www.maine.gov/awt/templateV3/js/datatables/js/jquery.dataTables.min.js"></script>
+<script src="https://www.maine.gov/awt/templateV3/js/datatables/js/dataTables.responsive.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+<script src="/dafs/bbm/procurementservices/modules/contrib/google_tag/js/gtag.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/progress.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/assets/vendor/loadjs/loadjs.min.js?v=4.2.0"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/debounce.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/announce.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/message.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/core/misc/ajax.js?v=10.1.0"></script>
+<script src="/dafs/bbm/procurementservices/modules/contrib/google_tag/js/gtag.ajax.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/modules/contrib/datatables/js/datatables.js?v=2.x"></script>
+<script src="/dafs/bbm/procurementservices/libraries/datatables/media/js/jquery.dataTables.js?v=1.9"></script>
+<script src="/dafs/bbm/procurementservices/libraries/superfish/superfish.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/libraries/superfish/jquery.hoverIntent.minified.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/libraries/superfish/sfsmallscreen.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/libraries/superfish/supposition.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/libraries/superfish/supersubs.js?t3te3z"></script>
+<script src="/dafs/bbm/procurementservices/modules/contrib/superfish/js/superfish.js?v=2.0"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31309917-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+ 
+  gtag('config', 'UA-31309917-6');
+</script>
+</body>
+</html>
