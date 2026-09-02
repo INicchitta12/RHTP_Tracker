@@ -100,9 +100,25 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
 # candidates, was worked against its own sources, and is at SOLICITATION stage
 # -- four DHS opportunities all "application period now closed" and none naming
 # a recipient, with DHS's own council deck dating the awards to September 2026.
-# R/03y carries the tripwires, and its award window is open NOW, so this is the
-# one INVESTIGATED_NO_LIST state that should be re-probed within weeks.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("TX", "WI")
+# R/03y carries the tripwires, and its award window is open NOW.
+#
+# CALIFORNIA joins in session 34, on the same footing and with the tightest
+# date of the three. It led the queue at 11 candidates, was worked against its
+# own sources, and is at SOLICITATION stage: all four CalRHT opportunities are
+# headed "(Closed)" and none names a recipient, while their own grant guides
+# put award notification in AUGUST / SEPTEMBER 2026 and grant agreements in
+# SEPTEMBER / OCTOBER 2026, and WDRR's application window closed AUGUST 31,
+# 2026 -- two days before the investigation ran. R/03ab carries the tripwires.
+#
+# AND CALIFORNIA IS THE STRONGEST ARGUMENT THIS CODE HAS FOR EXISTING. All
+# ELEVEN of its Tier 3 candidates are named California hospitals carrying real
+# amounts from real executed HCAI awards -- and they are the Small and Rural
+# Hospital Relief Program, funded by the California Electronic Cigarette Excise
+# Tax for seismic compliance. Left as NOT_EXTRACTED, California would rank near
+# the top of the RCJ_ONLY queue again looking exactly like a hospital
+# extraction, which is the single most attackable number this project could
+# publish.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "TX", "WI")
 
 
 # -- Inputs ------------------------------------------------------------------

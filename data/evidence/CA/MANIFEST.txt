@@ -1,0 +1,64 @@
+California -- Rural Health Transformation Program (CalRHT), Year 1.
+Archived by R/03ab_ca_year1_probe.R --fetch
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below.
+The credential guard runs on every fetch and finds nothing, so there is
+no reduction to explain.
+
+CALIFORNIA HAS PUBLISHED NO RECIPIENT-LEVEL RHTP AWARD LIST. Four CalRHT
+grant opportunities are all headed '(Closed)' and none names a recipient.
+Their own grant guides put award notification in AUGUST / SEPTEMBER 2026
+and grant agreements in SEPTEMBER / OCTOBER 2026; WDRR's application
+window closed AUGUST 31, 2026. This archive was taken 2026-09-02.
+
+THE §6.2 ANCHOR IS CMS'S OWN NOTICE OF AWARD, NOT A FOOTER QUOTING ONE.
+  2026-03-31_ca_cms_notice_of_award_revised.pdf is CMS's own form:
+  recipient CALIFORNIA DEPARTMENT OF HEALTH CARE ACCESS AND INFORMATION,
+  Assistance Listing 93.798 Rural Health Transformation Program, Award#
+  RHTCMS332078-01-02, budget period 12/29/2025 - 10/30/2026,
+  $233,639,308.47. Its Federal Award Date of 03/31/2026 is the date of a
+  BUDGET REVISION (Award Action Type 'Revision (Budget)'), not the date
+  of the award: the budget period still starts 12/29/2025, which is the
+  project's own NOA anchor. A date test keyed on 'Federal Award Date'
+  would read California's NOA as three months late.
+
+ONE FILE IS BOTH CONTROLS AT ONCE, AND IT IS NAMED SO.
+  *_BOTH_CONTROLS.html is HCAI's Small and Rural Hospital Relief Program
+  (SRHRP) page.
+  POSITIVE: HCAI publishes recipient-level awards in a recognisable form
+    -- '29 grants (totaling $17.2 million) have been awarded', five named
+    with amounts. So 'CalRHT has published no roster' is a statement
+    about CalRHT, not about our reading.
+  NEGATIVE (§0.1): those awards are NOT RHTP. The SRHRP is funded by the
+    California Electronic Cigarette Excise Tax (HSC 130075) under the
+    Alfred E. Alquist Hospital Facilities Seismic Safety Act (HSC
+    129675), and its page mentions 'RHTP' ZERO times, 'Rural Health
+    Transformation' ZERO times and 'federal' ZERO times. ALL ELEVEN of
+    RCJ's California Tier 3 candidates come from this programme.
+  AND §0.3 ON THE SAME PAGE: it also carries 'SRHRP Eligible Hospitals',
+    a table of 104 NAMED California hospitals. That is an ELIGIBILITY
+    list sitting directly beneath real awards.
+
+  *_CONTROL.html is HCAI's newsroom, which carries award announcements
+  in a recognisable form and NOT ONE mention of CalRHT or RHTP -- so the
+  absence of an award announcement is HCAI's, not our channel's.
+
+THE HOST IS ORDINARY AND ITS DIGESTS ARE STABLE. Two fetches of each
+probed page three seconds apart returned the SAME SHA-256 (measured
+2026-09-02), so a FILE digest is the change test here -- unlike Nevada,
+Missouri and Wisconsin. robots.txt is 404, so no crawler policy is on
+offer and none is being declined.
+
+file  bytes  sha256
+2026-09-02_ca_hcai_calrht_programme.html  142605  765cc2383c154a9616ae963ce6647011f3fdf8c844f740813f15aa6f0b5b5b49
+2026-09-02_ca_hcai_calrht_funding_opportunities.html  167530  87dd9f58ddc55db9b80753c722d57615fb2ca957db8f3e50c68869e46a7d84f3
+2026-03-31_ca_cms_notice_of_award_revised.pdf  3474145  827bfe756ba8e077dd144e21897c0c1398ab2fd01f90614c686a48e46ec24f15
+2026-03-27_ca_calrht_budget_narrative.pdf  930118  0871944d3bc9c096707f0631ae0e8bd8e6cf58b2df6986afc5f7c74c3f2a1168
+2026-06-30_ca_calrht_accelerator_partners_grant_guide.pdf  389401  0db27d8ae07b3ea4252bb7a85f8532cd0b1fa751eb82c1da9971bbf507cc3cef
+2026-09-02_ca_calrht_wdrr_grant_guide.pdf  508001  142b296f79bd113a2371c6ec0acc9a96c41994977be1b42dd843a0ec5908fee7
+2026-09-02_ca_calrht_ehr_modernization_grant_guide.pdf  368343  09071722b8b96fe9db88215642de9e7dd1c3443a557caef85cf609af43cb04ee
+2026-09-02_ca_calrht_expand_support_workforce_grant_guide.pdf  351784  72bc79483a35ec879ea9aa6b9d863f4b0fb760fa2edc0e67189eb0bfecfca046
+2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182650  0b8864c37a1e49acdab8d801d66a0b2c7744b80f6898d79196c69d673c4f1a0f
+2026-09-02_ca_hcai_newsroom_CONTROL.html  150605  2271314782eed4690a64430afe9ddd23548205d6d7a5b5f110e7bfabe6668bc1
