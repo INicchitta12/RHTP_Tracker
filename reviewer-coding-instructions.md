@@ -385,6 +385,21 @@ Three things about that:
 - **The recipient itself is still confirmed.** This says nothing about whether
   the award happened or who got it. Only about what kind of organization they
   are.
+- **And it applies only when the source is SILENT about the form — not when
+  the source states a form §8 has no code for.** Those are two different
+  conditions and they have two different answers. North Carolina is the worked
+  case: NCDHHS calls Trillium Health Resources *"an NC Medicaid Tailored Plan
+  and Managed Care Organization (MCO)"* and Vaya Health *"a public NC Medicaid
+  Managed Care Organization (MCO)"*, so `MANAGED_CARE_ORGANIZATION` was added
+  to §8 in session 39 and both rows are typed from the source at `MEDIUM`.
+  **Do not use the placeholder to absorb a form the state has stated** — that
+  drops the state's own word and marks it undetermined. If the source states a
+  form and no §8 value fits, that is a vocabulary question for the owner: raise
+  it in `classification_review_queue.csv`, leave the row on the placeholder
+  until it is answered, and **never invent a code yourself** (§2). Access East,
+  Inc. is the row that is still open on exactly that basis — NCDHHS states its
+  form as *"a comprehensive care management provider"*, which is not an MCO,
+  and `MANAGED_CARE_ORGANIZATION` was deliberately not widened to cover it.
 
 Florida and Georgia had answered this differently — Florida wrote
 `UNCLASSIFIED`, which is not a §8 value at all, and Georgia used the convention

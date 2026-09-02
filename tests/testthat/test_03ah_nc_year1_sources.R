@@ -395,25 +395,125 @@ test_that("nothing was promoted, and both questions are in the review queue", {
   expect_true(all(grepl("\\$0", nc_q$dollar_effect)))
 })
 
-test_that("the three Hub Leads whose stated form §8 lacks keep the fallback", {
-  # A CONDITION THIS PROJECT HAD NOT RECORDED: the source STATES a form and §8
-  # has no code for it. That is not the unstated-form question eight other
-  # states raise, and no code was invented for it (§2).
+test_that("§8 now carries MANAGED_CARE_ORGANIZATION, and it is in the vocabulary", {
+  # SESSION 39. The code was added deliberately, on session 10's
+  # PHYSICIAN_PRACTICE footing, for a condition none of the codes before it was
+  # added for: THE SOURCE STATES A FORM §8 DOES NOT CARRY. It must be a real
+  # vocabulary value with real notes, not a string an extractor invented (§2).
+  expect_true("MANAGED_CARE_ORGANIZATION" %in%
+                rhtp_vocabulary("recipient_type"))
+  v <- readr::read_csv(here::here("data/reference/vocabularies.csv"),
+                       show_col_types = FALSE, progress = FALSE)
+  note <- v$notes[v$column_name == "recipient_type" &
+                    v$allowed_value == "MANAGED_CARE_ORGANIZATION"]
+  expect_equal(length(note), 1L)
+  expect_true(nzchar(note))
+  # The note has to carry the three things that stop it being reached for
+  # wrongly: why it is not the standing fallback, why it is not
+  # VENDOR_OR_CONTRACTOR / STATE_AGENCY, and that it is never a hospital type.
+  expect_true(grepl("RECIPIENT_TYPE_INFERRED", note, fixed = TRUE))
+  expect_true(grepl("VENDOR_OR_CONTRACTOR", note, fixed = TRUE))
+  expect_true(grepl("STATE_AGENCY", note, fixed = TRUE))
+  expect_true(grepl("NOT a hospital type", note, fixed = TRUE))
+})
+
+test_that("the two Hub Leads NCDHHS calls an MCO are typed from the source", {
+  # Session 38 left all three of these on §8's standing fallback because §8 had
+  # no code for the form the state stated. Session 39 added one, so the two the
+  # state actually calls a Managed Care Organization are now typed from
+  # NCDHHS's own sentence -- and using the fallback here would assert the form
+  # is UNDETERMINED when the state has stated it outright, which is exactly
+  # what RECIPIENT_TYPE_INFERRED's own note forbids.
   skip_without_archive()
   rows <- nc_award_rows()
-  for (nm in c("Trillium Health Resources", "Vaya Health", "Access East, Inc.")) {
+  for (nm in c("Trillium Health Resources", "Vaya Health")) {
     k <- which(rows$awardee == nm)
-    expect_equal(rows$recipient_type[k], "NONPROFIT_CBO")
-    expect_true(grepl("§8 CARRIES NO CODE FOR THAT FORM",
+    expect_equal(rows$recipient_type[k], "MANAGED_CARE_ORGANIZATION")
+    expect_true(grepl("Managed Care Organization (MCO)",
                       rows$recipient_type_source[k], fixed = TRUE))
-    expect_true(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+    # The state's word is the basis, so the row is NOT flagged as inferred.
+    expect_false(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+    # AND THE RETYPING MOVED NO HOSPITAL QUANTITY. Both stay §10.2's
+    # unresolved pass-through, in neither bucket, worth $0 and 0 rows.
+    expect_equal(rows$flow_type[k], "PASS_THROUGH_UNRESOLVED")
+    expect_equal(rows$distributed_to_hospital[k], "Unclear")
+    expect_true(is.na(rows$amount[k]))
   }
+})
+
+test_that("ACCESS EAST IS NOT AN MCO AND THE NEW CODE WAS NOT WIDENED TO IT", {
+  # THE HALF THAT MATTERS MORE. NCDHHS states this recipient's form too -- "a
+  # comprehensive care management provider" -- and that is a different thing
+  # from a Managed Care Organization in North Carolina's own Medicaid
+  # vocabulary. Widening a code on the day it is added, to a form its source
+  # does not state, is §0.4's failure in miniature. So this row keeps §8's
+  # standing fallback and the question stays open.
+  skip_without_archive()
+  rows <- nc_award_rows()
+  k <- which(rows$awardee == "Access East, Inc.")
+  expect_equal(rows$recipient_type[k], "NONPROFIT_CBO")
+  expect_true(grepl("§8 CARRIES NO CODE FOR THAT FORM",
+                    rows$recipient_type_source[k], fixed = TRUE))
+  expect_true(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+  # POSITIVE CONTROL: the archive must still NOT call it a Managed Care
+  # Organization. If NCDHHS ever restates its form, this test fails and the
+  # coding is re-decided from the document rather than drifting into the code
+  # its two neighbours carry.
+  html <- readLines(nc_path("roots_page"),
+                    warn = FALSE, encoding = "UTF-8")
+  txt <- paste(html, collapse = " ")
+  i <- regexpr("comprehensive care management provider", txt, fixed = TRUE)
+  expect_true(i > 0)
+  # The window spans NCDHHS's whole Access East entry, from its own heading
+  # through the sentence that states its form. "Managed Care Organization"
+  # appears twice on this page -- for Trillium and for Vaya -- and NOT here.
+  expect_false(grepl("Managed Care Organization",
+                     substr(txt, i - 600, i + 600), fixed = TRUE))
+  expect_equal(length(gregexpr("Managed Care Organization (MCO)",
+                               txt, fixed = TRUE)[[1]]), 2L)
+})
+
+test_that("Impact Health and UNC keep the codes §8 already carried", {
   # Impact Health's form IS in §8, so it is typed from the source and is NOT
   # flagged as inferred -- the distinction the flag exists to draw.
+  skip_without_archive()
+  rows <- nc_award_rows()
   k <- which(rows$awardee == "Impact Health")
   expect_equal(rows$recipient_type[k], "NONPROFIT_CBO")
   expect_true(grepl("501(c)3", rows$recipient_type_source[k], fixed = TRUE))
   expect_false(grepl("RECIPIENT_TYPE_INFERRED", rows$flag_reason[k]))
+  k <- which(rows$awardee == "University of North Carolina Hospitals")
+  expect_equal(rows$recipient_type[k], "UNIVERSITY_OR_AHC")
+})
+
+test_that("EXACTLY ONE Hub Lead is still on the fallback, and it is queued", {
+  # The queue row went from THREE recipients to ONE, not to zero. A session
+  # that closed it entirely would have swept Access East into a code its
+  # source does not support.
+  skip_without_archive()
+  rows <- nc_award_rows()
+  hub <- rows[grepl("ROOTS", rows$award_pool), ]
+  expect_equal(sum(grepl("RECIPIENT_TYPE_INFERRED", hub$flag_reason)), 1L)
+  expect_equal(hub$awardee[grepl("RECIPIENT_TYPE_INFERRED", hub$flag_reason)],
+               "Access East, Inc.")
+  q <- readr::read_csv(NC_REVIEW_QUEUE, show_col_types = FALSE,
+                       progress = FALSE)
+  r <- q[q$question_id == "NC_HUB_LEAD_FORM_NOT_IN_VOCABULARY", ]
+  expect_equal(nrow(r), 1L)
+  expect_equal(r$row_key, "Access East, Inc.")
+  expect_equal(r$queue_status, "OPEN")
+  # And it still moves nothing, which is what made the addition safe.
+  expect_true(grepl("\\$0", r$dollar_effect))
+})
+
+test_that("NORTH CAROLINA STILL CONTRIBUTES NOTHING TO ANY HOSPITAL BUCKET", {
+  # THE INVARIANT THE WHOLE RETYPING HAD TO PRESERVE. An MCO is not a hospital
+  # type, so §8 gaining a code must not have moved a dollar or a row.
+  skip_without_archive()
+  rows <- nc_award_rows()
+  part <- rhtp_hospital_dollar_partition(rows)
+  expect_equal(nrow(part), 0L)
+  expect_true(all(is.na(rows$amount)))
 })
 
 test_that("every categorical value is inside §8 and every row cites a source", {

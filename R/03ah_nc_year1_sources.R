@@ -118,17 +118,31 @@
 #    Hampshire's FHC class (`Unclear`), not Illinois's hospitals-only ICAHN
 #    class (`Yes`). So the five enter NEITHER bucket.
 #
-#    AND THREE OF THE FIVE RAISE A CONDITION THIS PROJECT HAD NOT RECORDED:
+#    AND THREE OF THE FIVE RAISED A CONDITION THIS PROJECT HAD NOT RECORDED:
 #    THE SOURCE STATES A FORM §8 DOES NOT CARRY. NCDHHS calls Trillium "an NC
 #    Medicaid Tailored Plan and Managed Care Organization (MCO)", Vaya "a
 #    public NC Medicaid Managed Care Organization (MCO)" and Access East "a
 #    comprehensive care management provider". That is NOT the unstated form
 #    Kansas, Maryland, Nebraska, Oklahoma, Nevada, Michigan, Missouri and Iowa
-#    all raise -- the state HAS stated it, and §8 has no code for the answer.
-#    No code was invented (§2): the three keep §8's standing fallback, the
-#    state's own sentence is preserved in `recipient_type_source`, and the
-#    question is queued. Impact Health, by contrast, is stated as "an
-#    independent 501(c)3", which §8 does carry.
+#    all raise -- the state HAS stated it, and §8 had no code for the answer.
+#    Impact Health, by contrast, is stated as "an independent 501(c)3", which
+#    §8 does carry.
+#
+#    SESSION 39 ANSWERED TWO OF THE THREE AND DELIBERATELY NOT THE THIRD.
+#    `MANAGED_CARE_ORGANIZATION` was added to §8 on session 10's
+#    PHYSICIAN_PRACTICE footing -- an owner decision, written into
+#    `vocabularies.csv` with full notes and mirrored into the spec, CLAUDE.md
+#    and the reviewer instructions -- so Trillium and Vaya are now typed from
+#    NCDHHS's own sentence at MEDIUM. **ACCESS EAST IS NOT AN MCO AND WAS NOT
+#    SWEPT IN WITH THEM.** "A comprehensive care management provider" is a
+#    different thing from a Managed Care Organization in North Carolina's own
+#    Medicaid vocabulary, and widening a code on the day it is added, to a
+#    form its source does not state, is the §0.4 failure in miniature. That
+#    row keeps §8's standing fallback with the state's own sentence in
+#    `recipient_type_source`, and the queue row is now ONE recipient rather
+#    than three. NO DOLLAR AND NO ROW COUNT MOVED either way: an MCO is not a
+#    hospital type and all five Hub Leads are PASS_THROUGH_UNRESOLVED +
+#    `Unclear` in NEITHER bucket regardless.
 #
 # 3. THE CONTRACTS WERE TO BE FINALISED BY 2026-06-01, WHICH HAS PASSED.
 #    The release says the Hub Leads "will work with NCDHHS to finalize
@@ -739,13 +753,22 @@ NC_HUB_LEAD_FORMS <- tibble::tribble(
         "Carolina's Healthy Opportunities Pilot (HOP) program"),
   TRUE,
 
-  "Trillium Health Resources", NA_character_, NA_character_,
+  # SESSION 39: §8 NOW CARRIES A CODE FOR THE FORM NCDHHS STATES FOR THESE TWO.
+  # `MANAGED_CARE_ORGANIZATION` was added to `vocabularies.csv` deliberately, on
+  # session 10's PHYSICIAN_PRACTICE footing, because the standing fallback
+  # asserts the form is UNDETERMINED where the state has stated it outright --
+  # which is the one thing RECIPIENT_TYPE_INFERRED's own note forbids. MEDIUM,
+  # not HIGH, because §7 reserves HIGH for a CCN match and this is a form read
+  # off the state's own sentence. It moves NO DOLLAR AND NO ROW COUNT: both are
+  # PASS_THROUGH_UNRESOLVED + Unclear in NEITHER bucket either way, and an MCO
+  # is not a hospital type.
+  "Trillium Health Resources", "MANAGED_CARE_ORGANIZATION", "MEDIUM",
   "an NC Medicaid Tailored Plan and Managed Care Organization (MCO)",
-  FALSE,
+  TRUE,
 
-  "Vaya Health", NA_character_, NA_character_,
+  "Vaya Health", "MANAGED_CARE_ORGANIZATION", "MEDIUM",
   "a public NC Medicaid Managed Care Organization (MCO)",
-  FALSE,
+  TRUE,
 
   # THE ONE THE MACHINE GETS RIGHT AND WRONG AT THE SAME TIME -- see
   # nc_assert_unc_two_spellings().
@@ -755,6 +778,12 @@ NC_HUB_LEAD_FORMS <- tibble::tribble(
         "partnership with the UNC School of Medicine"),
   TRUE,
 
+  # THE ONE STILL OPEN, AND IT IS OPEN ON PURPOSE. NCDHHS states this form too
+  # -- "a comprehensive care management provider" -- and that is NOT an MCO in
+  # North Carolina's own Medicaid vocabulary, which distinguishes the two.
+  # §8's new MANAGED_CARE_ORGANIZATION was NOT WIDENED to swallow it (§0.4), so
+  # this row keeps the standing fallback and stays queued. The queue row is now
+  # ONE recipient rather than three.
   "Access East, Inc.", NA_character_, NA_character_,
   paste("a comprehensive care management provider and participant in North",
         "Carolina's Healthy Opportunities Pilot (HOP) program"),
@@ -1436,9 +1465,14 @@ nc_report <- function() {
   cat("\nQUEUED, AND WORTH $0 EITHER WAY BECAUSE NOTHING IS PRICED\n")
   q <- rows[rows$awardee %in% NC_QUEUED_FORM_ROWS, c("awardee", "recipient_type")]
   print(as.data.frame(q), row.names = FALSE)
-  cat("  Plus THREE Hub Leads whose form NCDHHS STATES and §8 has no code\n")
-  cat("  for: 'Managed Care Organization' (x2), 'comprehensive care\n")
-  cat("  management provider'. No code was invented (§2).\n")
+  cat("  Plus ONE Hub Lead whose form NCDHHS STATES and §8 still has no code\n")
+  cat("  for: Access East, 'a comprehensive care management provider'. The\n")
+  cat("  OTHER TWO were resolved in session 39 -- §8 gained\n")
+  cat("  MANAGED_CARE_ORGANIZATION deliberately, and Trillium and Vaya are\n")
+  cat("  typed from NCDHHS's own sentence. The new code was NOT widened to\n")
+  cat("  reach a care management provider (§0.4), so the queue row went from\n")
+  cat("  THREE recipients to ONE rather than to zero. No dollar and no row\n")
+  cat("  count moved: an MCO is not a hospital type.\n")
 
   cat("\nTHE SECOND TIER -- where North Carolina's hospital money will be --\n")
   cat("NAMES NOBODY. Each Hub Lead runs its own regional opportunities;\n")
