@@ -124,6 +124,12 @@ rhtp_trigger_queue <- function(prior_path = QUEUE_CSV) {
         # returns the same negative). Its own probe re-opens it. Session 19,
         # Texas.
         extraction_status == "INVESTIGATED_NO_LIST" ~ "INVESTIGATED_NO_LIST",
+        # Worked, written down, and NOT re-checkable: no probe exists, so
+        # nothing re-opens the state on its own. It leaves QUEUED because
+        # re-investigating it would repeat work already done, and it is
+        # deliberately NOT INVESTIGATED_NO_LIST, which promises a tripwire
+        # these six do not have. Session 43.
+        extraction_status == "INVESTIGATED_NO_PROBE" ~ "INVESTIGATED_NO_PROBE",
         trigger_source == "NEITHER"      ~ "NOT_TRIGGERED",
         TRUE                             ~ "QUEUED"
       )

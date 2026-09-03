@@ -226,6 +226,63 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN",
 SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM", "NY",
                                         "TX", "WI")
 
+# The states that HAVE been worked and have NO PROBE, so the finding is not
+# re-checkable. Added session 43, at the owner's request, because leaving them
+# at NOT_EXTRACTED says nobody has looked -- which is how a completed
+# investigation gets repeated from scratch -- while calling them
+# INVESTIGATED_NO_LIST would claim something none of them has earned.
+#
+# WHAT INVESTIGATED_NO_LIST REQUIRES, AND WHAT THESE SIX ARE MISSING. That
+# code means a re-checkable negative: a committed evidence archive AND a probe
+# carrying a tripwire that re-opens the state the day it publishes. Every one
+# of the eight states above has both. Of the six below, ONLY HAWAII has an
+# evidence archive at all (data/evidence/HI/, 7 files); for MA, MN, NJ, SC and
+# TN the finding lives in docs/session39_* and docs/session41_* PROSE ALONE,
+# and not one of the six has a probe. So this code is DELIBERATELY WEAKER than
+# the one above it, and the difference is the whole reason it exists.
+#
+# AND TWO OF THE SIX ARE NOT NEGATIVES AT ALL, which is the second reason
+# INVESTIGATED_NO_LIST would have been the wrong answer:
+#
+#   SOUTH CAROLINA HAS AWARDED. Its RHTP page published "Anticipated Notice of
+#   Award -- July 31, 2026" and it hit that date exactly: bulletin MB# 26-026
+#   says SCDHHS "issued Notices of Award Determination for the 712
+#   applications received ... Applicants should check their email". No roster,
+#   no amounts, not even a count of awards -- but the awards exist, and
+#   "publishes no recipient-level list" is true of the LIST and false about the
+#   STAGE.
+#
+#   MASSACHUSETTS IS UNREADABLE, NOT SILENT. Every mass.gov path is Akamai-403
+#   to this environment on four agents, robots.txt included. What Massachusetts
+#   publishes is UNKNOWN to this repository, and a code asserting it publishes
+#   no list would be a statement about the state made from a fact about our
+#   access (spec 0.4, New Hampshire's rule).
+#
+#   HAWAII names ONE award -- SHPDA's own page records a "Notice of Award on
+#   8/28 to Hawaii Primary Care Association" -- whose amount lives only in
+#   HANDS, which is 403 on three agents. One named recipient is not a roster,
+#   and it is not nothing either.
+#
+# MN, NJ and TN are ordinary pre-award negatives and would qualify for
+# INVESTIGATED_NO_LIST the moment somebody archives their sources and writes
+# the tripwires. THE INTENDED NEXT ACTION FOR ALL SIX IS THE PROBE, and the
+# report in docs/session43_* names what each one would watch.
+# AND THE FOURTEEN STATES SESSION 43 READ IN THE SAME SESSION ARE DELIBERATELY
+# NOT HERE. They were worked too, so the code would fit them on its face -- and
+# it does not fit, for the reason INVESTIGATED_NO_LIST's own note gives: a
+# state leaves the QUEUED bucket when there is no further work available on it
+# today. FOUR OF THE FOURTEEN HOLD WORK, and it is the most valuable work in
+# this repository right now: MISSISSIPPI's selection is complete with the
+# Governor's named announcement promised, DELAWARE is a four-row extraction
+# available today, and IDAHO and OHIO each name an awardee already. Moving
+# those out of the queue on the strength of a pass that deliberately did not
+# extract them is how "three of the fourteen are not negatives" becomes "the
+# fourteen are done". The other ten are negatives and could take the code
+# honestly; they stay QUEUED so the queue reads as one thing rather than two.
+# A session that works any of the fourteen properly -- archive, tripwire,
+# probe -- should move it straight to INVESTIGATED_NO_LIST or EXTRACTED.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN", "NJ", "SC", "TN")
+
 
 # -- Inputs ------------------------------------------------------------------
 
@@ -446,6 +503,7 @@ rhtp_rcj_state_survey <- function(records = NULL) {
       extraction_status = dplyr::case_when(
         state %in% SURVEY_EXTRACTED_STATES            ~ "EXTRACTED",
         state %in% SURVEY_INVESTIGATED_NO_LIST_STATES ~ "INVESTIGATED_NO_LIST",
+        state %in% SURVEY_INVESTIGATED_NO_PROBE_STATES ~ "INVESTIGATED_NO_PROBE",
         TRUE                                          ~ "NOT_EXTRACTED"
       ),
 
