@@ -224,25 +224,37 @@ test_that("INVESTIGATED_NO_PROBE is weaker than INVESTIGATED_NO_LIST and says so
 })
 
 
-test_that("the fourteen low-candidate states stay QUEUED, not reclassified", {
-  # Session 43 read all fourteen and deliberately did NOT give them the new
-  # code: four of them hold work (MS, DE, ID, OH), and moving those out of the
-  # queue on a reporting pass is how "three of the fourteen are not negatives"
-  # becomes "the fourteen are done". See R/03k's comment block.
-  fourteen <- c("MT", "MS", "OH", "CO", "WV", "ND", "UT", "VT",
-                "VA", "ID", "WA", "AZ", "DE", "RI")
-  got <- survey$extraction_status[match(fourteen, survey$state)]
-  expect_true(all(got == "NOT_EXTRACTED"),
-              info = paste(fourteen, got, collapse = "; "))
-  expect_length(intersect(fourteen, SURVEY_INVESTIGATED_NO_PROBE_STATES), 0L)
+test_that("session 43's four working states left the queue THROUGH the work", {
+  # Session 43 read all fourteen low-candidate states and deliberately did NOT
+  # reclassify any of them, because four held work (MS, DE, ID, OH) and moving
+  # those out of the queue on a reporting pass is how "three of the fourteen
+  # are not negatives" becomes "the fourteen are done".
+  #
+  # SESSION 44 DID THE WORK, WHICH IS THE ONLY WAY THEY WERE ALLOWED TO MOVE.
+  # DE, ID and OH have award files, evidence archives and probes; MS has an
+  # evidence archive, a probe and a Routine. None of them took the weaker
+  # INVESTIGATED_NO_PROBE code, which is what that code's own note requires.
+  worked <- c(DE = "EXTRACTED", ID = "EXTRACTED", OH = "EXTRACTED",
+              MS = "INVESTIGATED_NO_LIST")
+  got <- survey$extraction_status[match(names(worked), survey$state)]
+  expect_equal(unname(got), unname(worked),
+               info = paste(names(worked), got, collapse = "; "))
+  expect_length(intersect(names(worked), SURVEY_INVESTIGATED_NO_PROBE_STATES),
+                0L)
+
+  # And the ten that session 43 read without finding work are still QUEUED --
+  # a reporting pass alone must never move a state.
+  ten <- c("MT", "CO", "WV", "ND", "UT", "VT", "VA", "WA", "AZ", "RI")
+  expect_true(all(survey$extraction_status[match(ten, survey$state)] ==
+                    "NOT_EXTRACTED"))
 })
 
 
 test_that("the fifty states split four ways and every state has a disposition", {
   tab <- table(survey$extraction_status)
   expect_equal(sum(tab), 50L)
-  expect_equal(unname(tab[["EXTRACTED"]]), 22L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
+  expect_equal(unname(tab[["EXTRACTED"]]), 25L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 9L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 6L)
-  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 14L)
+  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 10L)
 })

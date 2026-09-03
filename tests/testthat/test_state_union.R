@@ -166,7 +166,27 @@ STATE_FILES <- c(
   # EIN. It is in this union because that mixture is exactly what gives §8 a
   # different answer in two places in one file, and because two of its 75 rows
   # NAME NOBODY and carry no `amount` at all.
-  WY = "data/reference/wy_year1_awardees.csv"
+  WY = "data/reference/wy_year1_awardees.csv",
+  # DELAWARE IS THE SMALLEST FILE IN THIS UNION AND THE ONE MOST LIKELY TO
+  # BREAK IT, because it is the only state whose recipient_type is an OVERRIDE
+  # of the shared classifier. §8's name rule returns NONPROFIT_CBO at LOW for
+  # "Beebe Healthcare", "Nemours Children's Health" and "TidalHealth" -- so
+  # left to the machine Delaware's four rows are `No` and the state has no
+  # hospital rows at all, which is §0.3a's own defect reproduced in code. The
+  # type is taken from spec §0.3a, which names these three organisations, and
+  # the machine's answer is preserved on every row in recipient_type_source.
+  # It is in this union so that a future change to the shared classifier meets
+  # the override rather than silently agreeing or silently disagreeing with it.
+  DE = "data/reference/de_year1_awardees.csv",
+  # Idaho is one row, no amount, and NO hospital bucket -- the classifier's
+  # fallback is the RIGHT answer there because Idaho states no form, which is
+  # the exact contrast Delaware needs beside it.
+  ID = "data/reference/id_year1_awardees.csv",
+  # Ohio is one row and the only single-row PRICED state file. It is here
+  # because $10,000,000 to a UNIVERSITY is the largest single misclassification
+  # available in any small file: one wrong recipient_type and a state with no
+  # hospital dollars acquires eight figures of them.
+  OH = "data/reference/oh_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -194,13 +214,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty-three files carry the leading 19 columns, in the same order", {
+test_that("all twenty-six files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty-three files union without a coercion failure", {
+test_that("the twenty-six files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -208,9 +228,9 @@ test_that("the twenty-three files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN", "KS", "MD",
-                 "ME", "MI", "MO", "NC", "NE", "NH", "NV", "OK", "OR", "PA",
-                 "SD", "WY"))
+               c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
+                 "KS", "MD", "ME", "MI", "MO", "NC", "NE", "NH", "NV", "OH",
+                 "OK", "OR", "PA", "SD", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

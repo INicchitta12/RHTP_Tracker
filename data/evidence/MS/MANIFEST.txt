@@ -1,0 +1,29 @@
+MISSISSIPPI -- RHTP evidence archive
+
+Fetched 2026-09-03 by R/03ak_ms_year1_probe.R --fetch.
+Bodies are written with writeBin(), so re-hashing a file on disk
+reproduces its digest below.
+
+THE FILE DIGESTS ARE USELESS AS A CHANGE TEST ON BOTH HOSTS, AND BOTH
+MECHANISMS WERE MEASURED HERE RATHER THAN INHERITED.
+
+mississippirhtp.com: Cloudflare Email Address Obfuscation re-rolls a
+one-byte XOR key per render -- three fetches three seconds apart,
+217,198 bytes EVERY TIME, THREE DISTINCT digests, differing on exactly
+two lines, both inside data-cfemail attributes, reduced text identical
+at 7,185 chars. Session 36's seventh mechanism (Louisiana), recurring.
+
+medicaid.ms.gov: NEW. The WordPress Simple Banner plugin serialises the
+render wall-clock time TO THE MICROSECOND into a <script> body --
+"current_date":{"date":"2026-09-03 19:25:41.029022"} -- three times
+per render. Two fetches seven seconds apart, 101,840 bytes both times,
+one differing line. Fixed-width, so a byte-count check passes it.
+
+--probe compares a CONTENT digest on both.
+
+file  bytes  sha256
+2026-09-03_ms_rhtp_funding.html  217190  b5dd4337e5be9faf593dc4b81ec7055768e1aa559e263fc24584d48b2462c5d8
+2026-09-03_ms_rhtp_home.html  383407  8af58f5a7b66536b3caf1aa5f8a8a87050fc8c018a5ba5aba7dfbfa674278a0a
+2026-09-03_ms_governor_newsroom.html  112637  dd2f38cfa0c66cdc58d2a8f3c6cb4596fe537f40a798d889649714c4cdbb0570
+2026-09-03_ms_dom_completed_procurements.html  101840  77bff95e61b57103f5f76047cdaf60b6a1d65eccc6bdecde40a022627e7a19f0
+2026-09-03_ms_dom_rhtp_programme.html  81433  464c20356349f2311bfadc4d74215d63fd9dc195322477e8653014b6b7b29ce0

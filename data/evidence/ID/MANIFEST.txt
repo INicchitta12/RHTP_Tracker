@@ -1,0 +1,13 @@
+IDAHO -- RHTP evidence archive
+
+Fetched 2026-09-03 by R/03am_id_year1_awardees.R --fetch.
+Bodies are written with writeBin(), so re-hashing reproduces the digest.
+
+THE FUNDING PAGE PRINTS ITS OWN LAST-UPDATED DATE ('Page last updated:
+9-3-2026'), which is a change signal the state maintains itself and is
+cheaper than any digest. --probe compares a CONTENT digest as well,
+because a page can change without its stamp moving.
+
+file  bytes  sha256
+2026-09-03_id_rhtp_funding_opportunities.html  186603  715cd61c403cdb69ac98c683c4ac659c1f5bcdb20e7da805a6e5a80c6c89721b
+2026-09-03_id_rhtp_about.html  184768  d8b276b004dcd3896534bcc9ed9d793ecdd074fdedc60314c8487d8cc767ac11
