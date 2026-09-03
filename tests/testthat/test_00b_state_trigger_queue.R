@@ -148,3 +148,32 @@ test_that("the committed CSV matches the builder", {
 test_that("the assertions pass on the real data", {
   expect_true(rhtp_trigger_queue_assert(queue))
 })
+
+
+test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED", {
+  # Session 43. The six worked-but-unprobed states must not read QUEUED (which
+  # would send a future session to re-investigate them from scratch) and must
+  # not read NOT_TRIGGERED (which describes the discovery layers, not the work
+  # done). The carry-through is what makes the survey's finding visible here.
+  six <- c("HI", "MA", "MN", "NJ", "SC", "TN")
+  got <- queue$queue_status[match(six, queue$state)]
+  expect_true(all(got == "INVESTIGATED_NO_PROBE"),
+              info = paste(six, got, collapse = "; "))
+  expect_true(all(queue$queue_status %in% rhtp_vocabulary("queue_status")))
+})
+
+
+test_that("the QUEUED bucket is exactly the fourteen low-candidate states", {
+  # After session 43 every state sits in a bucket that says what was done to
+  # it, and QUEUED means "nobody has built a file for this" rather than
+  # "nobody has looked". A fifteenth state appearing here, or one of these
+  # fourteen leaving without an extraction or a probe behind it, is a change
+  # worth stopping on.
+  fourteen <- c("MT", "MS", "OH", "CO", "WV", "ND", "UT", "VT",
+                "VA", "ID", "WA", "AZ", "DE", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], fourteen)
+  expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
+               34L)
+  expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
+               2668093442)
+})

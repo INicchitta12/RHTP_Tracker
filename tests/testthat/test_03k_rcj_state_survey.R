@@ -168,3 +168,81 @@ test_that("the survey refuses a record table whose pull is not on disk", {
   saveRDS(fake, tmp)
   expect_error(rhtp_survey_record_table(tmp), "is not on disk")
 })
+
+
+# -- INVESTIGATED_NO_PROBE (session 43) --------------------------------------
+#
+# WHAT THESE ARE DEFENDING. The code exists to say that six states were WORKED
+# and that the finding is NOT re-checkable, and both halves can rot in
+# opposite directions: a future session could quietly promote them to
+# INVESTIGATED_NO_LIST without writing the probes that code promises, or could
+# widen the code onto states that still hold work and empty the queue. So the
+# tests pin the membership, the disjointness, and the fact that the fourteen
+# QUEUED states did NOT take it.
+
+test_that("the six worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
+  six <- c("HI", "MA", "MN", "NJ", "SC", "TN")
+  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, six)
+  got <- survey$extraction_status[match(six, survey$state)]
+  expect_true(all(got == "INVESTIGATED_NO_PROBE"),
+              info = paste(six, got, collapse = "; "))
+})
+
+
+test_that("the code is in the controlled vocabulary, both columns", {
+  # §2 forbids inventing a code mid-session; this is what makes the addition
+  # deliberate rather than incidental.
+  expect_true("INVESTIGATED_NO_PROBE" %in% rhtp_vocabulary("extraction_status"))
+  expect_true("INVESTIGATED_NO_PROBE" %in% rhtp_vocabulary("queue_status"))
+})
+
+
+test_that("the three worked statuses are disjoint", {
+  # A state cannot be extracted AND a negative, nor a re-checkable negative AND
+  # an unprobed one. Overlap would make the disposition unreadable.
+  expect_length(intersect(SURVEY_EXTRACTED_STATES,
+                          SURVEY_INVESTIGATED_NO_LIST_STATES), 0L)
+  expect_length(intersect(SURVEY_EXTRACTED_STATES,
+                          SURVEY_INVESTIGATED_NO_PROBE_STATES), 0L)
+  expect_length(intersect(SURVEY_INVESTIGATED_NO_LIST_STATES,
+                          SURVEY_INVESTIGATED_NO_PROBE_STATES), 0L)
+})
+
+
+test_that("INVESTIGATED_NO_PROBE is weaker than INVESTIGATED_NO_LIST and says so", {
+  # The whole point of the code. If its note ever stops saying it is weaker and
+  # that a probe is the next action, the six states become indistinguishable
+  # from eight re-checkable negatives.
+  vocab <- readr::read_csv(here::here("data/reference/vocabularies.csv"),
+                           show_col_types = FALSE, progress = FALSE)
+  note <- vocab$notes[vocab$column_name == "extraction_status" &
+                        vocab$allowed_value == "INVESTIGATED_NO_PROBE"]
+  expect_length(note, 1L)
+  expect_match(note, "WEAKER THAN INVESTIGATED_NO_LIST")
+  expect_match(note, "WRITE THE PROBE")
+  expect_match(note, "NEVER a claim that the state has awarded nothing")
+})
+
+
+test_that("the fourteen low-candidate states stay QUEUED, not reclassified", {
+  # Session 43 read all fourteen and deliberately did NOT give them the new
+  # code: four of them hold work (MS, DE, ID, OH), and moving those out of the
+  # queue on a reporting pass is how "three of the fourteen are not negatives"
+  # becomes "the fourteen are done". See R/03k's comment block.
+  fourteen <- c("MT", "MS", "OH", "CO", "WV", "ND", "UT", "VT",
+                "VA", "ID", "WA", "AZ", "DE", "RI")
+  got <- survey$extraction_status[match(fourteen, survey$state)]
+  expect_true(all(got == "NOT_EXTRACTED"),
+              info = paste(fourteen, got, collapse = "; "))
+  expect_length(intersect(fourteen, SURVEY_INVESTIGATED_NO_PROBE_STATES), 0L)
+})
+
+
+test_that("the fifty states split four ways and every state has a disposition", {
+  tab <- table(survey$extraction_status)
+  expect_equal(sum(tab), 50L)
+  expect_equal(unname(tab[["EXTRACTED"]]), 22L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 6L)
+  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 14L)
+})
