@@ -8,7 +8,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 7,KS,Kansas,54,54,0,0,50,98763865.8,6096062,55,No,,,,221898008,EXTRACTED,RCJ_ONLY,No
 8,MD,Maryland,42,42,0,0,41,84925071,6340198,42,No,,,,168180838,EXTRACTED,RCJ_ONLY,No
 9,NE,Nebraska,39,33,6,0,35,8446843.67,340000,39,No,,,,218529075,EXTRACTED,RCJ_ONLY,No
-10,IN,Indiana,37,2,35,1,28,162727393.12,16806010.1,40,No,,,,206927897,EXTRACTED,RCJ_ONLY,No
+10,IN,Indiana,37,2,35,1,28,162727393.12,16806010.1,40,Yes,2026-09-03,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-120-million-expand-maternal-infant-health-services-increase-primary,206927897,EXTRACTED,RCJ_AND_CMS,No
 11,OK,Oklahoma,35,34,1,0,25,231614376.02,38020000,49,No,,,,223476949,EXTRACTED,RCJ_ONLY,No
 12,NV,Nevada,34,10,24,0,34,131643055,32300000,35,No,,,,179931608,EXTRACTED,RCJ_ONLY,No
 13,MI,Michigan,31,23,8,0,31,30848878,6000000,31,No,,,,173128201,EXTRACTED,RCJ_ONLY,No
@@ -34,12 +34,12 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 33,OH,Ohio,1,1,0,0,1,10000000,10000000,1,Yes,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,NOT_EXTRACTED,RCJ_AND_CMS,No
 34,ND,North Dakota,1,0,1,0,1,630000,630000,1,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north,198936970,NOT_EXTRACTED,RCJ_AND_CMS,No
 35,VT,Vermont,1,1,0,0,1,323927,323927,1,No,,,,195053740,NOT_EXTRACTED,RCJ_ONLY,Yes
-36,VA,Virginia,1,1,0,0,1,127500,127500,1,Yes,2026-08-28,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,RCJ_AND_CMS,No
+36,VA,Virginia,1,1,0,0,1,127500,127500,1,Yes,2026-08-28,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,RCJ_AND_CMS,No
 37,ID,Idaho,1,0,1,0,1,1,1,1,No,,,,185974368,NOT_EXTRACTED,RCJ_ONLY,Yes
 38,IL,Illinois,1,0,1,0,1,1,1,1,No,,,,193418216,EXTRACTED,RCJ_ONLY,No
-39,AR,Arkansas,0,0,0,0,0,0,,0,No,,,,208779396,EXTRACTED,NEITHER,No
+39,AR,Arkansas,0,0,0,0,0,0,,0,Yes,2026-08-31,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-149-3-million-expand-telehealth-increase-access-specialty-care,208779396,EXTRACTED,CMS_ONLY,No
 40,FL,Florida,0,0,0,0,0,0,,0,No,,,,209938195,EXTRACTED,NEITHER,No
-41,HI,Hawaii,0,0,0,0,0,0,,1,No,,,,188892440,NOT_EXTRACTED,NEITHER,No
+41,HI,Hawaii,0,0,0,0,0,0,,1,Yes,2026-09-01,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-58-million-deliver-new-ambulances-upgrade-emergency-communications-0,188892440,NOT_EXTRACTED,CMS_ONLY,No
 42,KY,Kentucky,0,0,0,0,0,0,,0,No,,,,212905591,INVESTIGATED_NO_LIST,NEITHER,No
 43,MA,Massachusetts,0,0,0,0,0,0,,0,No,,,,162005238,NOT_EXTRACTED,NEITHER,No
 44,MN,Minnesota,0,0,0,0,0,0,,0,No,,,,193090618,NOT_EXTRACTED,NEITHER,No

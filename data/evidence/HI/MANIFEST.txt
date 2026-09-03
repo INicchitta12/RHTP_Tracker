@@ -1,0 +1,23 @@
+HAWAII -- RHTP evidence archive
+
+Fetched 2026-09-03 by hand in session 41 (no R/03 extractor exists for Hawaii yet).
+Bodies are written byte for byte, so re-hashing a file on disk reproduces its
+digest below.
+
+Hawaii publishes on FOUR hosts: engage.hawaii.gov (the plan), health.hawaii.gov/shpda
+(SHPDA's initiative page, which names the ONE award -- 'Notice of Award on 8/28 to
+Hawaii Primary Care Association' -- and points at HANDS), rhtp.hawaii.gov (a new
+landing page, launched by the Governor's 2026-09-01 release) and governor.hawaii.gov.
+hands.ehawaii.gov -- the award system every opportunity is routed through -- answers
+403 to every agent tried and a JavaScript loading screen from a second egress, so it
+is UNREADABLE/UNKNOWN (s0.4). The CMS release of 2026-09-01 is archived by stage 00
+under data/raw/cms/2026-09-03/newsroom/. No rotating-token study was done.
+
+
+file  bytes  sha256  url
+2026-09-03_hi_engage_rhtp_plan.html  54843  1dbf1aeced0e961ef9213add36972dd5435c440b1c891bc5ece9525c9593e632  https://engage.hawaii.gov/rhtp/
+2026-09-03_hi_shpda_rhtp_programme.html  59261  03504f80c1a5d3ba22f75503ef0b03eafb596a7f4b2781f87b7fcc34c5b76a89  https://health.hawaii.gov/shpda/rural-health-transformation-program/
+2026-09-03_hi_rhtp_hawaii_gov_home.html  437609  68428f63d611ef7d554e9207cb24b36f7f94e49359176ee5311f2410ec16a9d0  https://rhtp.hawaii.gov/
+2026-09-03_hi_rhtp_hawaii_gov_funding_opportunities.html  404248  462af3796ecc2ee43bbee6fbd45159a938390fe17b5d59465f7682a28e2d0b6b  https://rhtp.hawaii.gov/funding-opportunities
+2026-09-03_hi_governor_release_58m_2026-09-01.html  73773  260a74c7b7bc644c7653c7ce2f42a8020ed208c0358b6f0910502b7a45b767af  https://governor.hawaii.gov/newsroom/office-of-the-governor-news-release-gov-green-announces-58-million-federal-investment-to-strengthen-rural-healthcare-across-hawai%ca%bbi/
+2026-09-03_hi_shpda_steering_committee_deck_2026-04-07.pdf  1779784  c0ef6be9f1d6cccca7d32b38c530ca2c052e71040bf218536b3c7ceb9d370ead  https://health.hawaii.gov/shpda/files/2026/04/2026-04-07-Steering-Committee-Presentation-HGB-and-RHTP.pdf

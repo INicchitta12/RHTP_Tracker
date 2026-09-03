@@ -1,0 +1,31 @@
+WYOMING -- RHTP evidence archive
+
+Fetched 2026-09-03 by hand in session 41 (no R/03 extractor exists for Wyoming yet).
+Bodies are written byte for byte, so re-hashing a file on disk reproduces its
+digest below.
+
+THE FIVE DRIVE DOCUMENTS ARE THE STATE'S OWN PUBLICATION: health.wyo.gov's RHTP
+page links one Google Drive folder ('View Documents In Google Drive',
+folder 1A1fOg0WLERH2y0EJROAZhdw8TGLIrBcm). 'Statewide Award Notice and
+Narratives' holds CMS's OWN Notice of Award (RHTCMS332082-01-02, Revision
+(Budget), Federal Award Date 05/14/2026, budget period 12/29/2025-10/30/2026,
+$205,004,742.95) and the revised narratives; 'RHT Advisory Committee' holds
+the 2026-08-11 AWARD APPROVALS -- a named, priced list across six
+initiatives -- and the minutes recording each vote. A Drive file is fetched
+through https://drive.google.com/uc?export=download&id=<id>.
+
+health.wyo.gov answers 200 to the project's honest agent and 403 to a bare
+Mozilla/5.0 -- the inverse of michigan.gov (CLAUDE.md s3). Not a change test:
+the file digests below were taken once and no rotating-token study was done.
+
+
+file  bytes  sha256  url
+2026-09-03_wy_wdh_rhtp_programme.html  199951  801ee48bf0d13acf83a6aeaadf056a7fbf8bbee03b3f30e0073eae50490be1cc  https://health.wyo.gov/admin/rural-health-transformation-program/
+2026-09-03_wy_wdh_public_notice_advisory_committee_2026-08-11.html  190068  c4567888b9b1c19d38243bb2eb7fddd535a827e068364dc5ae7f4e3dcfbc953d  https://health.wyo.gov/public-notice-rural-health-transformation-advisory-committee-meeting/
+2026-09-03_wy_wdh_applications_opened_2026-07-01.html  191612  0231174fa49006c4902acbd83d7daa6ad02dff5e9d274489697a4a0d5c34c474  https://health.wyo.gov/applications-opened-july-1-for-wyomings-rural-health-transformation-funding/
+2026-09-03_wy_submittable_no_open_calls.html  37867  fae2bbea39f526190e0bf1659c973b03e0e2178d9cb47515ce590762837eed30  https://wyrhtp.submittable.com/submit
+2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf  195009  30aed248b8186017c5b318b2f5df7d2afaedda061f8000c0393fd169a5c5b372  https://drive.google.com/uc?export=download&id=1jqfbHzZPrX-_xT-uLg3TFXorckp3b3uX
+2026-09-03_wy_advisory_committee_minutes_2026-08-11.pdf  132419  e2690676ef3c8c80d29bf46413276d4e024ee97ea4f09a18ade64104fe964625  https://drive.google.com/uc?export=download&id=1rx0ZDfGkPK2lG4L-W6aie9eXzU1t5pv2
+2026-09-03_wy_advisory_committee_agenda_2026-08-11.pdf  79533  59a25de4bb1c4377dec69ae4050d5a6043fd204026bd2fde2d657be3d42ba1ae  https://drive.google.com/uc?export=download&id=16UYyAzM7WZUqW0Y7NKWrw2Zc85XmIF1O
+2026-09-03_wy_cms_notice_of_award_2026-05-14.pdf  3966281  8f4b0d42c0af899564a7581d24082aab99c902d97fa6bad560e3650d268c4bfa  https://drive.google.com/uc?export=download&id=1lGDh1Ndi_2ji1hwwsFFAyASUFAhk82ut
+2026-09-03_wy_revised_budget_narrative_2026-05-08.pdf  190501  8f9be3beb7797d4f82387db79465d165e55c0c82ad41a31952e20b67e65ea44f  https://drive.google.com/uc?export=download&id=1NFs2qS-q0QjeBOZ6TpbWwRF6H0YUNx-N
