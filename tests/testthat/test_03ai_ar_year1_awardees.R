@@ -641,10 +641,15 @@ test_that("Arkansas reads EXTRACTED in both rebuilt survey tables", {
                        show_col_types = FALSE, progress = FALSE)
   expect_equal(s$extraction_status[s$state == "AR"], "EXTRACTED")
   expect_equal(q$extraction_status[q$state == "AR"], "EXTRACTED")
-  # And it is still `NEITHER` on both discovery layers, which is the finding:
-  # Florida's shape a third time.
-  expect_equal(s$survey_status[s$state == "AR"], "NEITHER")
-  expect_equal(q$trigger_source[q$state == "AR"], "NEITHER")
+  # It was `NEITHER` on both discovery layers when extracted (session 40,
+  # 2026-09-03) -- Florida's shape a third time. CMS then announced Arkansas
+  # on 2026-08-31 and stage 00 picked the release up on 2026-09-03 (session
+  # 41), so the CMS layer now flags it and it reads CMS_ONLY. The finding that
+  # matters is unchanged: the RCJ layer STILL holds zero Tier 3 candidates for
+  # a state with 37 priced award actions, and it was extracted before either
+  # layer flagged it.
+  expect_equal(s$survey_status[s$state == "AR"], "CMS_ONLY")
+  expect_equal(q$trigger_source[q$state == "AR"], "CMS_ONLY")
   expect_equal(s$tier3_candidates[s$state == "AR"], 0L)
 })
 

@@ -338,5 +338,10 @@ described above rather than a re-investigation.
   `rhtp.hawaii.gov` pages, the Governor's release and the steering deck.
 - `tests/testthat/test_00_cms_press_monitor.R` — five pins re-based from nine
   states to twelve.
+- `tests/testthat/test_03ai_ar_year1_awardees.R` — the `trigger_source =
+  NEITHER` pin re-based to `CMS_ONLY`: CMS announced Arkansas on 2026-08-31,
+  after session 40 extracted it on a state that neither layer had flagged.
+  RCJ still holds zero candidates for it. The full suite passes with 1
+  self-skip.
 - **No reference CSV, no classifier, no vocabulary and no state file changed.
   No hospital dollar moved anywhere.**
