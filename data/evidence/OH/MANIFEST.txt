@@ -1,0 +1,18 @@
+OHIO -- RHTP evidence archive
+
+Fetched 2026-09-03 by R/03an_oh_year1_awardees.R --fetch.
+Bodies are written with writeBin(), so re-hashing reproduces the digest.
+
+governor.ohio.gov IS AN IBM WEBSPHERE PORTAL and its pages carry a large
+amount of component scaffolding in HTML comments. The reduction keeps
+them (they are inert), so the CONTENT digest is stable while remaining
+sensitive to the article text, which is what --probe compares.
+
+THE AWARD RELEASE'S CANONICAL PATH IS THE /wps/portal/ ONE. The shorter
+governor.ohio.gov/media/news-and-media/... form answers 200 for the
+ALLOTMENT release but serves a generic shell for this one.
+
+file  bytes  sha256
+2026-09-03_oh_ohio_university_award_release.html  369459  e0f959ecef37e511939d451df5b6aff241d5887c7706c7d5fd4b8f4ce98de026
+2026-09-03_oh_odh_rhtp_programme.html  288083  8cdc5c603737ea496636bd0d651641aa53b62133bc94e75e14303f5f1b6ae2ab
+2026-09-03_oh_allotment_release.html  366115  8e0115a5bf4dce8f29f971879d841726f98edc9a1c39877428365b4ec2c4655e

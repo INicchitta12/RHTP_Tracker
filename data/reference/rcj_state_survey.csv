@@ -21,21 +21,21 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 20,CT,Connecticut,7,5,2,0,6,49854129,21714915,9,No,,,,154249106,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 21,NM,New Mexico,7,0,7,0,7,7,1,7,No,,,,211484741,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 22,LA,Louisiana,6,6,0,0,6,53910000,30000000,7,No,,,,208374448,INVESTIGATED_NO_LIST,RCJ_ONLY,No
-23,DE,Delaware,5,1,4,1,5,11500004,11500000,15,No,,,,157394964,NOT_EXTRACTED,RCJ_ONLY,Yes
+23,DE,Delaware,5,1,4,1,5,11500004,11500000,15,No,,,,157394964,EXTRACTED,RCJ_ONLY,No
 24,AZ,Arizona,4,3,1,0,2,67000000,25000000,6,No,,,,166988956,NOT_EXTRACTED,RCJ_ONLY,Yes
 25,CO,Colorado,4,4,0,0,4,6572000,6450000,4,No,,,,200105604,NOT_EXTRACTED,RCJ_ONLY,Yes
 26,WV,West Virginia,4,0,4,0,4,948542,333828,4,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,NOT_EXTRACTED,RCJ_AND_CMS,No
-27,MS,Mississippi,3,1,2,0,3,50150000,50000000,3,No,,,,205907220,NOT_EXTRACTED,RCJ_ONLY,Yes
+27,MS,Mississippi,3,1,2,0,3,50150000,50000000,3,No,,,,205907220,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 28,RI,Rhode Island,3,0,3,0,3,22250349,13000000,3,No,,,,156169931,NOT_EXTRACTED,RCJ_ONLY,Yes
 29,WA,Washington,2,0,2,0,2,30200001,30200000,2,No,,,,181257515,NOT_EXTRACTED,RCJ_ONLY,Yes
 30,UT,Utah,2,2,0,0,2,6000000,3000000,2,No,,,,195743566,NOT_EXTRACTED,RCJ_ONLY,Yes
 31,MT,Montana,2,1,1,0,2,3184710.4,2000000,5,No,,,,233509359,NOT_EXTRACTED,RCJ_ONLY,Yes
 32,SD,South Dakota,1,1,0,0,1,31500000,31500000,1,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,RCJ_AND_CMS,No
-33,OH,Ohio,1,1,0,0,1,10000000,10000000,1,Yes,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,NOT_EXTRACTED,RCJ_AND_CMS,No
+33,OH,Ohio,1,1,0,0,1,10000000,10000000,1,Yes,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,EXTRACTED,RCJ_AND_CMS,No
 34,ND,North Dakota,1,0,1,0,1,630000,630000,1,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north,198936970,NOT_EXTRACTED,RCJ_AND_CMS,No
 35,VT,Vermont,1,1,0,0,1,323927,323927,1,No,,,,195053740,NOT_EXTRACTED,RCJ_ONLY,Yes
 36,VA,Virginia,1,1,0,0,1,127500,127500,1,Yes,2026-08-28,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,RCJ_AND_CMS,No
-37,ID,Idaho,1,0,1,0,1,1,1,1,No,,,,185974368,NOT_EXTRACTED,RCJ_ONLY,Yes
+37,ID,Idaho,1,0,1,0,1,1,1,1,No,,,,185974368,EXTRACTED,RCJ_ONLY,No
 38,IL,Illinois,1,0,1,0,1,1,1,1,No,,,,193418216,EXTRACTED,RCJ_ONLY,No
 39,AR,Arkansas,0,0,0,0,0,0,,0,Yes,2026-08-31,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-149-3-million-expand-telehealth-increase-access-specialty-care,208779396,EXTRACTED,CMS_ONLY,No
 40,FL,Florida,0,0,0,0,0,0,,0,No,,,,209938195,EXTRACTED,NEITHER,No

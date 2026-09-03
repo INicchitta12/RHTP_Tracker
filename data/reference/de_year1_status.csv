@@ -1,0 +1,17 @@
+state,channel,stage,publishes_roster,year1_budget,note
+DE,School-Based Health Centers,AWARDED_ROSTER_PUBLISHED,Yes,195000,"FOUR award actions to THREE organisations, announced 2026-07-29, with NO per-recipient amount. The Year 1 budget here is DHSS's own programme-page figure and is a BUDGET LINE, not a round total -- it is deliberately NOT in de_year1_awardees.csv (§0.3)."
+DE,Health Hubs,NO_ROSTER_PUBLISHED,No,5483730,Competitive. No recipient named.
+DE,Libraries,NO_ROSTER_PUBLISHED,No,1835000,"Competitive, to rural libraries. No recipient named; NON_HOSPITAL class."
+DE,Hope Centers,NO_ROSTER_PUBLISHED,No,26370000,Two new Hope Centers for the rural homeless population. Nobody named.
+DE,Food Is Medicine infrastructure,NO_ROSTER_PUBLISHED,No,1648000,"A 2026-07-24 release says the pathway would be 'unveiled at the Delaware State Fair'. RCJ carries a multi-recipient field naming University of Delaware, Beebe Healthcare and Deloitte for it; no state award notice names them, so nothing is coded (§0.4)."
+DE,Continuous glucose monitoring,NO_ROSTER_PUBLISHED,No,950000,"The Rural Delaware Diabetes Wellness Pilot. DE Verify.xlsx rows 8 and 9 name Beebe Medical Center and TidalHealth against it from a contract-status page; no state AWARD notice reachable here names them, so they are NOT in this file (§0.4). They are §0.3a's sharper half and blocker 2 owns them."
+DE,Telehealth and remote patient monitoring,NO_ROSTER_PUBLISHED,No,5000000,Vendors. Nobody named.
+DE,Delaware's first 4-year medical school,NO_ROSTER_PUBLISHED,No,42500000,The largest single line. Thomas Jefferson University is named in DE Verify.xlsx; no award notice reachable here.
+DE,Support non-physician clinicians,NO_ROSTER_PUBLISHED,No,1000000,Tuition awards to individuals. Not organisation-level.
+DE,Support medical residents,NO_ROSTER_PUBLISHED,No,1236495,Awards to individual residents.
+DE,Support medical students,NO_ROSTER_PUBLISHED,No,1100000,Tuition awards to individuals.
+DE,Expand training programs,NO_ROSTER_PUBLISHED,No,20910000,§7A codes this Delaware's ONLY hospital-directed initiative and it has published no recipient.
+DE,Workforce data,NO_ROSTER_PUBLISHED,No,2685200,Vendor-managed. Delaware Health Force is named in DE Verify.xlsx only.
+DE,Value-based care transformation,NO_ROSTER_PUBLISHED,No,24322042.48,DHSS's site says awarded and names NOBODY -- DE Verify.xlsx row 10 records exactly that ('Not identified'). §0.3.
+DE,Real-time insurance verification and prior authorization,NO_ROSTER_PUBLISHED,No,6420000,Vendor operation. DHIN is named in DE Verify.xlsx only.
+DE,news.delaware.gov (channel control),PUBLISHES_PRICED_AWARDS_FOR_OTHER_PROGRAMMES,Yes - FOR OTHER PROGRAMMES,NA,"THE CONTROL. The same feed carried '$5 Million in State Arts Grants Heads to All Three Delaware Counties' on the SAME DAY as the RHTP release. Delaware publishes dollar figures when it has them, so the absence of one here is about these awards."

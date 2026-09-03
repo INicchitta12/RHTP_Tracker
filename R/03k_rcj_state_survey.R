@@ -100,9 +100,21 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # $72,661,324 of it to hospitals, sitting in a GOOGLE DRIVE FOLDER that
 # health.wyo.gov links behind five words. Extracted in session 42. FOUR of the
 # fourteen no-signal states checked so far had a published roster.
-SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN",
-                             "KS", "MD", "ME", "MI", "MO", "NC", "NE", "NH",
-                             "NV", "OK", "OR", "PA", "SD", "WY")
+#
+# SESSION 44 ADDS THREE, AND ALL THREE ARE SMALL FILES THAT MOVE NO DOLLAR.
+# DELAWARE is four award actions to three organisations with NO amount on any
+# of them -- and it is the spec's own §0.3a worked example arriving as real
+# data, so it is the first state whose recipient TYPE had to be taken from a
+# governing document because §8's name rule misses all three recipients.
+# IDAHO is ONE named awardee (Comagine Health) with no amount and no hospital.
+# OHIO is ONE named, PRICED award ($10,000,000 to Ohio University) that is a
+# UNIVERSITY and therefore $0 of hospital money. All three came out of session
+# 43's fourteen-state low-candidate queue, where they were deliberately
+# reported and not extracted.
+SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
+                             "IL", "IN", "KS", "MD", "ME", "MI", "MO", "NC",
+                             "NE", "NH", "NV", "OH", "OK", "OR", "PA", "SD",
+                             "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -223,8 +235,18 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN",
 # `INVESTIGATED_NO_LIST` would be a false claim about it. Session 37 left it
 # `NOT_EXTRACTED`, which was true at the time; SESSION 38 EXTRACTED IT, so it
 # is now in SURVEY_EXTRACTED_STATES above. See R/03ah_nc_year1_sources.R.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM", "NY",
-                                        "TX", "WI")
+#
+# MISSISSIPPI JOINS IN SESSION 44, AND IT IS THE MOST IMMINENT MEMBER THIS
+# LIST HAS EVER HAD. It takes the code honestly -- worked against its own
+# sources, evidence archived under data/evidence/MS/, and a probe with
+# tripwires on four surfaces (R/03ak_ms_year1_probe.R) -- and it is a negative
+# only about the ROSTER: `mississippirhtp.com` says "The selection process is
+# complete" for three programmes and that "Governor Tate Reeves will formally
+# announce details regarding all executed sub-awards in the coming weeks".
+# South Carolina's email shape with a public announcement attached. Expect
+# this one to leave the list.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "MS", "NM",
+                                        "NY", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them

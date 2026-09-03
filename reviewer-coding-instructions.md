@@ -67,6 +67,40 @@ an initiative budget across recipients, the task is wrong — stop and ask.
 Four of the first four rows were originally coded `no` because the activity
 happened in schools. All four are hospitals.
 
+**And the mis-coding was wider than those four: it is SEVEN of the eleven.**
+`DE Verify.xlsx` names a Delaware hospital or health system in its `awardee`
+field on rows 1–4 (the school-based health centres), **row 8 — Beebe Medical
+Center**, **row 9 — TidalHealth**, and **row 11**, whose `awardee` reads
+*"University of Delaware, Beebe Healthcare, Deloitte Consulting LLP"*. All seven
+carry `rhtp_award_yn = yes` and `hospital_yn = no`.
+
+**Rows 8 and 9 are the ones this page did not previously help you with, and
+they are the reason the rule has a second half.** They are not rows where an
+activity misled anyone. Both carry an activity — *"Rural Delaware Diabetes
+Wellness Pilot Program"* — and it is **clinical care**, with no school, no
+housing authority, nothing in it that reads as non-hospital. And their `awardee`
+cell is **nothing but a hospital name**. Neither column offered a wrong answer,
+and both rows came back `no` anyway.
+
+> **The second half of the one rule: READ THE RECIPIENT AT ALL.**
+>
+> Refusing to be led by the activity is the first half, and it is what rows 1–4
+> needed. It is not enough on its own. You can apply it perfectly and still
+> return `no` on a row whose `awardee` says *"Beebe Medical Center"* and nothing
+> else — because the failure there is not misreading the recipient field, it is
+> **not reading it**. Before you code any row, say out loud what is in the
+> `awardee` cell and answer whether that organisation is a hospital. If you
+> cannot name the recipient, you are not ready to code the row.
+
+**And a corollary rows 1–4 make concrete: the `awardee` field is not always
+only the awardee.** Delaware's publisher packs the recipient and the site into
+one string — *"Beebe Healthcare – Georgetown Middle School"*, *"TidalHealth –
+Selbyville Middle School"* — so the recipient column **itself** reads as a
+school. Split it and code the half that received the money. Where the field
+names several organisations instead (row 11), that is the `MULTI_RECIPIENT_FIELD`
+case below, and the same instruction applies: find the recipients, then code
+each one.
+
 ## How to decide
 
 **1. Who is named as the recipient?** Read the name, ignore the program

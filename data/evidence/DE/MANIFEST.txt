@@ -1,0 +1,16 @@
+DELAWARE -- RHTP evidence archive
+
+Fetched 2026-09-03 by R/03al_de_year1_awardees.R --fetch.
+Bodies are written with writeBin(), so re-hashing a file on disk
+reproduces its digest below.
+
+THE RELEASE PAGE CARRIES A ROLLING NEWS FEED in its sidebar, so its file
+digest moves whenever Delaware publishes anything at all, about any
+subject. That is not a token mechanism and it is not noise to be
+stripped -- the feed is real content -- so --probe compares a CONTENT
+digest of the ARTICLE region rather than of the page.
+
+file  bytes  sha256
+2026-09-03_de_sbhc_award_release.html  126616  0e6107956fdaae3ad0790d1d8405b5750e02a9afe1033a790625c3e8facc58e9
+2026-09-03_de_dhss_rhtp_programme.html  299145  d95e319f1de931b9f163b40a9329d5d9d75e13ecb66b0afb3addb86fd7b4f511
+2026-09-03_de_initial_rfps_release.html  133236  c4c05ee2e4bd8921d4a79301a34ea2147925f9bc4dbb5bad7125eece6d84c777

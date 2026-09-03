@@ -163,17 +163,24 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
 })
 
 
-test_that("the QUEUED bucket is exactly the fourteen low-candidate states", {
-  # After session 43 every state sits in a bucket that says what was done to
-  # it, and QUEUED means "nobody has built a file for this" rather than
-  # "nobody has looked". A fifteenth state appearing here, or one of these
-  # fourteen leaving without an extraction or a probe behind it, is a change
-  # worth stopping on.
-  fourteen <- c("MT", "MS", "OH", "CO", "WV", "ND", "UT", "VT",
-                "VA", "ID", "WA", "AZ", "DE", "RI")
-  expect_setequal(queue$state[queue$queue_status == "QUEUED"], fourteen)
+test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
+  # Every state sits in a bucket that says what was done to it, and QUEUED
+  # means "nobody has built a file for this" rather than "nobody has looked".
+  # An eleventh state appearing here, or one of these ten leaving without an
+  # extraction or a probe behind it, is a change worth stopping on.
+  #
+  # SESSION 43 LEFT FOURTEEN HERE AND SESSION 44 WORKED FOUR OF THEM OUT --
+  # Delaware, Idaho and Ohio to EXTRACTED (award file, archive, probe) and
+  # Mississippi to INVESTIGATED_NO_LIST (archive, probe, Routine). That is
+  # the only route out of this bucket: session 43 deliberately refused to move
+  # them on the strength of a reporting pass.
+  ten <- c("MT", "CO", "WV", "ND", "UT", "VT", "VA", "WA", "AZ", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], ten)
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               34L)
+               24L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
-               2668093442)
+               1916786628)
+  expect_setequal(queue$state[queue$queue_status == "EXTRACTED" &
+                              queue$state %in% c("DE", "ID", "OH")],
+                  c("DE", "ID", "OH"))
 })

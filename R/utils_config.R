@@ -687,3 +687,179 @@ rhtp_assert_footer_tiers <- function(footers, state = NULL,
 
   invisible(all(checked))
 }
+
+
+# -- §0.2 THE FOOTER'S CMS SHARE, WHICH IS NOT ALWAYS ITS HEADLINE ------------
+#
+# SESSION 44. Every footer this project had ever read was 100% federal, so the
+# headline figure and the CMS share were the same number and nobody had to
+# tell them apart. Measured across the committed corpus before this was
+# written: 215 CMS financial-assistance footer occurrences in 76 files, all of
+# them "100 percent funded by CMS" (154) or "100% funded by CMS" (61), and NO
+# committed source carrying any other percentage at all.
+#
+# MISSISSIPPI IS THE FIRST THAT IS NOT, AND IT DEFEATS THE TIER CHECK WITHOUT
+# BEING WRONG ABOUT ANYTHING. `mississippirhtp.com` prints:
+#
+#   "...as part of a financial assistance award totaling $205,990,180.16, with
+#    99.96% funded by CMS/HHS ($205,907,220.16) and 0.04% funded by
+#    non-government sources ($82,960)."
+#
+# The CMS share matches the §7.1 anchor to the dollar ($205,907,220). The
+# HEADLINE exceeds it by $82,960.16 -- EIGHT TIMES `RHTP_FOOTER_ALLOTMENT_MARGIN`
+# -- so `rhtp_assert_footer_not_allotment()` fed the headline REFUSES it as
+# STATE_ALLOTMENT, correctly (it is not the allotment), and ACCEPTS it as a
+# SOLICITATION pool, WHICH IS WRONG: it is Tier 1 plus a non-federal match and
+# there is no Tier 2 pool in that sentence at all.
+#
+# THE FIX IS TO PARSE THE CMS SHARE, NOT TO WIDEN THE MARGIN. $82,960 is one
+# state's match amount and the next state's will differ, so widening buys
+# nothing and costs the check its only signal. This is §0.2's own rule applied
+# to itself -- a figure that fails the check is a DOCUMENT TO RE-READ -- and
+# the field to re-read is the PERCENTAGE, which this project had never had to
+# look at because it had always been 100.
+#
+# WHERE THE PUBLISHER STATES A PARTIAL SHARE AND NO DOLLAR FIGURE FOR IT, THIS
+# REFUSES TO COMPUTE ONE (§0.4). headline x 99.96% is a number no publisher
+# printed, and a percentage rounded to two places cannot reproduce a cent-exact
+# allotment anyway. `tier_amount` is NA there and the tier check does not run,
+# which is a gap to be read by a human rather than a pass.
+
+#' The CMS financial-assistance footer, parsed into its parts
+#'
+#' @param text Character. Any text that may contain one or more footers --
+#'   a reduced HTML page, a PDF's text layer, a single sentence.
+#'
+#' @return A tibble, one row per footer found, with:
+#'   `headline_amount`   the figure after "totaling"
+#'   `cms_pct`           the stated CMS percentage
+#'   `cms_amount`        the CMS dollar figure IF the footer prints one
+#'   `nonfederal_amount` the non-government figure IF the footer prints one
+#'   `fully_federal`     TRUE when the stated percentage is 100
+#'   `tier_amount`       THE FIGURE TO TIER-CHECK. The CMS amount when stated;
+#'                       the headline when the footer is 100% federal; NA when
+#'                       the share is partial and no CMS figure is printed.
+#'   `sentence`          the matched text, for a reader
+#'
+#' Zero rows when no footer is present -- absence is not an error, because most
+#' pages this is pointed at do not carry one.
+rhtp_footer_parse <- function(text) {
+  empty <- tibble::tibble(
+    headline_amount = numeric(), cms_pct = numeric(), cms_amount = numeric(),
+    nonfederal_amount = numeric(), fully_federal = logical(),
+    tier_amount = numeric(), sentence = character())
+  if (!length(text)) return(empty)
+  txt <- paste(text, collapse = "\n")
+  # Tags and entities first: the footer is often split across <strong> spans.
+  txt <- stringr::str_replace_all(txt, "<[^>]+>", " ")
+  txt <- stringr::str_replace_all(txt, "&nbsp;|&#160;", " ")
+  txt <- stringr::str_replace_all(txt, "&amp;", "&")
+  txt <- stringr::str_replace_all(txt, "[ \t ]+", " ")
+  txt <- stringr::str_replace_all(txt, "\\s+", " ")
+
+  # "totaling [approximately] $N" ... then, within the same sentence, the CMS
+  # percentage. All 18 phrasings measured in the committed corpus put the
+  # percentage after the headline and before "CMS", so the window is bounded
+  # rather than greedy -- a greedy match would reach into the NEXT footer on a
+  # page carrying two (New Hampshire's does).
+  pat <- paste0(
+    "totaling\\s+(?:approximately\\s+)?\\$\\s*([0-9][0-9,]*(?:\\.[0-9]+)?)",
+    "[^.]{0,40}?([0-9]{1,3}(?:\\.[0-9]+)?)\\s*(?:percent|%)",
+    "[^.]{0,60}?CMS")
+  m <- stringr::str_match_all(txt, stringr::regex(pat, ignore_case = TRUE))[[1]]
+  if (!nrow(m)) return(empty)
+
+  starts <- stringr::str_locate_all(txt, stringr::regex(pat, ignore_case = TRUE))[[1]]
+  num <- function(x) as.numeric(stringr::str_remove_all(x, ","))
+
+  rows <- lapply(seq_len(nrow(m)), function(i) {
+    # The tail of THIS footer only: from the match's end to the sentence stop
+    # or the start of the next match, whichever comes first.
+    tail_from <- starts[i, "end"] + 1L
+    tail_to <- if (i < nrow(m)) starts[i + 1L, "start"] - 1L else nchar(txt)
+    tail <- substr(txt, tail_from, min(tail_to, tail_from + 240L))
+    tail <- stringr::str_split(tail, stringr::fixed(". "))[[1]][1]
+
+    # "($205,907,220.16)" immediately after the CMS clause, and the
+    # non-government figure after it. Both optional.
+    cms_amt <- stringr::str_match(
+      tail, "^[^(]{0,40}\\(\\s*\\$\\s*([0-9][0-9,]*(?:\\.[0-9]+)?)\\s*\\)")[, 2]
+    non_amt <- stringr::str_match(
+      tail, paste0("non-?government[^$)]{0,40}\\(?\\s*\\$\\s*",
+                   "([0-9][0-9,]*(?:\\.[0-9]+)?)"))[, 2]
+
+    headline <- num(m[i, 2])
+    pct <- as.numeric(m[i, 3])
+    full <- !is.na(pct) && abs(pct - 100) < 1e-9
+    cms_amount <- if (!is.na(cms_amt)) num(cms_amt) else NA_real_
+    tier <- if (!is.na(cms_amount)) cms_amount else if (full) headline else NA_real_
+
+    tibble::tibble(
+      headline_amount = headline, cms_pct = pct, cms_amount = cms_amount,
+      nonfederal_amount = if (!is.na(non_amt)) num(non_amt) else NA_real_,
+      fully_federal = full, tier_amount = tier,
+      sentence = stringr::str_trim(paste0(m[i, 1], tail)))
+  })
+  dplyr::bind_rows(rows)
+}
+
+#' The one figure from a footer that may be compared against the §7.1 anchor
+#'
+#' @param text Character. Text containing exactly one footer.
+#' @param which Integer. Which footer, when the text carries several (New
+#'   Hampshire's page carries two -- its allotment and FHC's own award).
+#'
+#' @return The CMS share as a single number, or NA with a message when the
+#'   footer states a partial share without printing its dollar figure.
+#'
+#' NEVER RETURNS A COMPUTED FIGURE. See the block above: headline x pct is a
+#' number no publisher printed (§0.4).
+rhtp_footer_cms_share <- function(text, which = 1L) {
+  f <- rhtp_footer_parse(text)
+  if (!nrow(f)) {
+    stop("[§0.2] rhtp_footer_cms_share(): no CMS financial-assistance footer ",
+         "found in this text.", call. = FALSE)
+  }
+  if (which > nrow(f)) {
+    stop("[§0.2] rhtp_footer_cms_share(): asked for footer ", which,
+         " and the text carries ", nrow(f), ".", call. = FALSE)
+  }
+  row <- f[which, ]
+  if (is.na(row$tier_amount)) {
+    message("[§0.2] the footer states ", row$cms_pct,
+            "% funded by CMS and prints NO dollar figure for that share. The ",
+            "headline of $", formatC(row$headline_amount, format = "f",
+                                     digits = 2, big.mark = ","),
+            " is federal money PLUS a match, so it is not the figure to tier-",
+            "check -- and headline x percentage is a number nobody published ",
+            "(§0.4). Read the document.")
+  }
+  row$tier_amount
+}
+
+#' Tier-check a footer read straight out of a document, on its CMS share
+#'
+#' The wrapper the state files should use. `rhtp_assert_footer_not_allotment()`
+#' takes a number and cannot know whether it was handed a headline or a CMS
+#' share; this takes the TEXT, so the distinction is made where the evidence
+#' is, once, rather than by every caller remembering.
+#'
+#' @inheritParams rhtp_assert_footer_not_allotment
+#' @param text Character. The document text carrying the footer.
+#' @param which Integer. Which footer in that text.
+rhtp_assert_footer_text_tier <- function(text, state, declared_tier,
+                                         label = "a footer figure",
+                                         which = 1L,
+                                         margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                                         allotments = NULL) {
+  share <- rhtp_footer_cms_share(text, which = which)
+  if (is.na(share)) {
+    message("[§0.2] ", label, ": the tier check could NOT run -- the footer ",
+            "states a partial CMS share and prints no dollar figure for it. ",
+            "That is a gap, not a pass (§0.4).")
+    return(invisible(NA))
+  }
+  rhtp_assert_footer_not_allotment(
+    amount = share, state = state, declared_tier = declared_tier,
+    label = label, margin = margin, allotments = allotments)
+}
