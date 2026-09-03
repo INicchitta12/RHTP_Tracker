@@ -157,7 +157,16 @@ STATE_FILES <- c(
   # union, exactly as Missouri's Hub Anchors and Maine's cohort are not, but
   # for the opposite reason: those two are not awards at all, while Arkansas's
   # is the same money twice. Adding it would double the state.
-  AR = "data/reference/ar_year1_awardees.csv"
+  AR = "data/reference/ar_year1_awardees.csv",
+  # Wyoming is the first state file assembled from SIX recipient-level tables
+  # inside ONE document, and the first whose recipient FORM is stated by the
+  # publisher for some tables and not others -- 1.1's column is headed
+  # "Hospital", 4.1's eligible class is stated in WDH's own disqualification of
+  # an ineligible applicant, and 3.1's table publishes neither a form nor an
+  # EIN. It is in this union because that mixture is exactly what gives §8 a
+  # different answer in two places in one file, and because two of its 75 rows
+  # NAME NOBODY and carry no `amount` at all.
+  WY = "data/reference/wy_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -185,13 +194,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty-two files carry the leading 19 columns, in the same order", {
+test_that("all twenty-three files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty-two files union without a coercion failure", {
+test_that("the twenty-three files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -201,7 +210,7 @@ test_that("the twenty-two files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN", "KS", "MD",
                  "ME", "MI", "MO", "NC", "NE", "NH", "NV", "OK", "OR", "PA",
-                 "SD"))
+                 "SD", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {
