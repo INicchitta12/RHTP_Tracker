@@ -578,7 +578,9 @@ test_that("a free-text source value fails the assertions", {
 
 # -- The live run, pinned ----------------------------------------------------
 
-test_that("the live newsroom crawl finds nine states, including Virginia", {
+test_that("the live newsroom crawl finds twelve states, including Virginia", {
+  # Nine through session 40; session 41's live run (2026-09-03) added AR
+  # (2026-08-31), HI (2026-09-01) and IN (2026-09-03).
   idx <- here::here("data", "reference", "cms_newsroom_topic_index.csv")
   skip_if_not(file.exists(idx), "the newsroom topic index is not on disk")
 
@@ -587,15 +589,17 @@ test_that("the live newsroom crawl finds nine states, including Virginia", {
       dplyr::mutate(item_date = as.Date(.data$item_date))
   )
   expect_setequal(out$state,
-                  c("AK", "AL", "GA", "ND", "OH", "PA", "SD", "VA", "WV"))
+                  c("AK", "AL", "AR", "GA", "HI", "IN", "ND", "OH", "PA",
+                    "SD", "VA", "WV"))
   expect_equal(out$amount[out$state == "VA"], 122000000)
   expect_equal(out$date[out$state == "VA"], as.Date("2026-08-28"))
 })
 
-test_that("the six titles that say nothing about rural health are still caught", {
-  # SIX of the nine state announcements -- AK, AL, ND, SD, VA, WV -- carry no
-  # "rural" in their headlines. A title filter, the obvious design and the
-  # wrong one, loses two thirds of the trigger list, Virginia included.
+test_that("the eight titles that say nothing about rural health are still caught", {
+  # EIGHT of the twelve state announcements -- AK, AL, HI, IN, ND, SD, VA, WV
+  # -- carry no "rural" in their headlines (six of nine before session 41). A
+  # title filter, the obvious design and the wrong one, loses two thirds of
+  # the trigger list, Virginia included.
   idx <- here::here("data", "reference", "cms_newsroom_topic_index.csv")
   skip_if_not(file.exists(idx), "the newsroom topic index is not on disk")
 
@@ -604,12 +608,17 @@ test_that("the six titles that say nothing about rural health are still caught",
       dplyr::mutate(item_date = as.Date(.data$item_date))
   )
   silent <- out[!grepl("rural", out$title, ignore.case = TRUE), ]
-  expect_setequal(silent$state, c("AK", "AL", "ND", "SD", "VA", "WV"))
-  # Only three of the nine would survive a title filter.
-  expect_equal(nrow(out) - nrow(silent), 3L)
+  expect_setequal(silent$state,
+                  c("AK", "AL", "HI", "IN", "ND", "SD", "VA", "WV"))
+  # Only four of the twelve would survive a title filter.
+  expect_equal(nrow(out) - nrow(silent), 4L)
 })
 
-test_that("the committed trigger list carries Virginia, from the newsroom alone", {
+test_that("the committed trigger list carries Virginia, and medicaid.gov has caught up", {
+  # Session 15 could not size the medicaid.gov lag: Virginia was announced on
+  # 2026-08-28 and only the newsroom carried it. By session 41's run on
+  # 2026-09-03 the secondary carries it too, so the lag closed within six
+  # days; Indiana (announced 2026-09-03) is the one the secondary now lacks.
   csv <- here::here("data", "reference", "cms_state_announcements.csv")
   skip_if_not(file.exists(csv), "the trigger list has not been run")
 
@@ -619,8 +628,9 @@ test_that("the committed trigger list carries Virginia, from the newsroom alone"
   va <- live[live$state == "VA", ]
   expect_equal(nrow(va), 1L)
   expect_equal(va$amount, 122000000)
-  expect_equal(va$source, "CMS_NEWSROOM")
-  expect_equal(dplyr::n_distinct(live$state), 9L)
+  expect_equal(va$source, "BOTH")
+  expect_equal(dplyr::n_distinct(live$state), 12L)
+  expect_equal(live$source[live$state == "IN"], "CMS_NEWSROOM")
 })
 
 test_that("every archived rural release verifies against its manifest digest", {
