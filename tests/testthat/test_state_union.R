@@ -141,7 +141,23 @@ STATE_FILES <- c(
   # ever held because each file had at least one row in some bucket -- and its
   # five PASS_THROUGH_UNRESOLVED rows are what the mandatory-basis check below
   # exists for.
-  NC = "data/reference/nc_year1_awardees.csv"
+  NC = "data/reference/nc_year1_awardees.csv",
+
+  # ARKANSAS IS HERE BECAUSE IT IS THE FIRST FILE WHOSE AWARDS ARE PUBLISHED
+  # AT TWO GRAINS BY TWO PUBLISHERS, and because it carries a column no other
+  # file has: `organisation_award_total`, which REPEATS on both rows of the six
+  # organisations holding an award under both initiatives. Summing it down the
+  # column gives $250,274,844.36 for a state that awarded $149,177,618.45 --
+  # Georgia's trap in a new column name, and the kind of thing that unions fine
+  # until someone sums it. Its 37 rows are also the largest unstated-form
+  # question in the project ($100,723,693.49 on §8's standing fallback), so it
+  # is the file most likely to put a name-derived value outside §8 into the
+  # union. AND `ar_year1_projects.csv` -- the Governor's 50 priced projects,
+  # the SAME $149,177,618.45 at a finer grain -- is deliberately NOT in this
+  # union, exactly as Missouri's Hub Anchors and Maine's cohort are not, but
+  # for the opposite reason: those two are not awards at all, while Arkansas's
+  # is the same money twice. Adding it would double the state.
+  AR = "data/reference/ar_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -169,13 +185,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty-one files carry the leading 19 columns, in the same order", {
+test_that("all twenty-two files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty-one files union without a coercion failure", {
+test_that("the twenty-two files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -183,8 +199,9 @@ test_that("the twenty-one files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS", "MD", "ME",
-                 "MI", "MO", "NC", "NE", "NH", "NV", "OK", "OR", "PA", "SD"))
+               c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN", "KS", "MD",
+                 "ME", "MI", "MO", "NC", "NE", "NH", "NV", "OK", "OR", "PA",
+                 "SD"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

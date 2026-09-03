@@ -85,9 +85,17 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # candidates and no CMS announcement -- and it has published two named rosters
 # totalling 44 recipients. That is Florida's shape a second time, and it is the
 # measured answer to whether the twelve no-signal states are worth opening.
-SURVEY_EXTRACTED_STATES <- c("AK", "AL", "FL", "GA", "IA", "IL", "IN", "KS",
-                             "MD", "ME", "MI", "MO", "NC", "NE", "NH", "NV",
-                             "OK", "OR", "PA", "SD")
+#
+# AND ARKANSAS IS THE THIRD, AND IN DOLLARS THE LARGEST OF THE THREE. Same
+# group of twelve, same `trigger_source = NEITHER`, ZERO Tier 3 candidates --
+# and 31 organisations, 37 priced award actions and $149,177,618.45 already
+# published on a dedicated RHTP domain when session 39 looked, extracted in
+# session 40. Three of the thirteen no-signal states checked so far had a
+# published roster, so the group is worth working in full: a zero here has
+# never meant the state awarded nothing (§0.1).
+SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN",
+                             "KS", "MD", "ME", "MI", "MO", "NC", "NE", "NH",
+                             "NV", "OK", "OR", "PA", "SD")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #

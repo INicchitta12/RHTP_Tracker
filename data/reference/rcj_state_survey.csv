@@ -37,7 +37,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 36,VA,Virginia,1,1,0,0,1,127500,127500,1,Yes,2026-08-28,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,NOT_EXTRACTED,RCJ_AND_CMS,No
 37,ID,Idaho,1,0,1,0,1,1,1,1,No,,,,185974368,NOT_EXTRACTED,RCJ_ONLY,Yes
 38,IL,Illinois,1,0,1,0,1,1,1,1,No,,,,193418216,EXTRACTED,RCJ_ONLY,No
-39,AR,Arkansas,0,0,0,0,0,0,,0,No,,,,208779396,NOT_EXTRACTED,NEITHER,No
+39,AR,Arkansas,0,0,0,0,0,0,,0,No,,,,208779396,EXTRACTED,NEITHER,No
 40,FL,Florida,0,0,0,0,0,0,,0,No,,,,209938195,EXTRACTED,NEITHER,No
 41,HI,Hawaii,0,0,0,0,0,0,,1,No,,,,188892440,NOT_EXTRACTED,NEITHER,No
 42,KY,Kentucky,0,0,0,0,0,0,,0,No,,,,212905591,INVESTIGATED_NO_LIST,NEITHER,No
