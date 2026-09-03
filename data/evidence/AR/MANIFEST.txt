@@ -1,0 +1,97 @@
+Arkansas -- RHTP Year 1. arkansasrhtp.com is a DEDICATED RHTP DOMAIN, the
+second in this project after Kentucky's and the FIRST THAT HAS AWARDED.
+Archived by R/03ai_ar_year1_awardees.R --fetch
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+Throttle: 10s -- robots.txt is 200 and sets `Crawl-delay: 10`, so this is the host's
+own stated policy being honoured, not this project's usual 2s (§3).
+
+Every file is the body the server sent, BYTE FOR BYTE, written with
+writeBin(), so re-hashing a file on disk reproduces its digest below. The
+credential guard runs on every fetch and finds nothing, so there is no
+reduction to explain and the documents are whole.
+
+TWO PUBLISHERS AT TWO GRAINS, RECONCILING TO THE CENT.
+  `roster`   -- DF&A's own "List of Organization and Award amounts":
+                31 organisations x 2 initiatives, 37 priced cells,
+                $149,177,618.45, with the state's own `Total:` row.
+  `governor` -- the Governor's 2026-08-27 release, which enumerates ALL
+                50 PROJECT AWARDS individually, each priced.
+The 50 projects sum to the roster's three column totals exactly. Nothing
+was arranged; the check runs every build.
+
+THE ROSTER'S THREE AMOUNT COLUMNS ARE PAINTED AT ONE y, so the line model
+returns "$2,571,095.00$0.00$2,571,095.00" -- three figures welded into
+one. Session 32's RUN model separates them at Arkansas's own producer's
+boundaries. Do not read this PDF with rhtp_pdf_lines().
+
+THE `Total:` ROW IS PAINTED IN THE SAME SHAPE AS AN AWARD ROW. It is the
+reconciliation target and NEVER a recipient: a parse that does not exclude
+it reports 32 organisations and double the money.
+
+THE AWARD LIST CARRIES NO CMS FOOTER AT ALL. Every other document here
+does, and it is the WEAK form ("This project is supported by") carrying
+$208,779,396.02 -- WHICH IS THE ALLOTMENT, not a pool (§0.2). It sits
+unchanged on the RISE and HEART pages, which describe initiatives that
+have awarded NOTHING: the footer covers the PUBLICATION, not the
+programme (session 26). The provenance is the NOFO headers, the
+Governor's release and the budget narrative.
+
+ALL FOUR INITIATIVE PAGES CARRY THE SAME "What is next? Upcoming
+announcements ..." SENTENCE, including the two that have awarded $149M.
+The initiative pages cannot tell awarded from unawarded; the home page's
+award-list link can.
+
+THE FILE DIGESTS OF THE arkansasrhtp.com PAGES ARE USELESS AS A CHANGE
+TEST, and two fetches seconds apart will not show you that. WordPress
+stamps a `wp_block_styles_on_demand_placeholder:<13 hex>` token into an
+inline <style> body, derived from the RENDER TIMESTAMP: two fetches ten
+seconds apart are BYTE-IDENTICAL, and a copy taken thirty minutes earlier
+differs -- at exactly the same byte length. So --probe compares a CONTENT
+digest (session 34's California lesson, with the failing pair in hand).
+
+SEVEN ORGANISATIONS ARE SPELLED DIFFERENTLY BY THE TWO PUBLISHERS and one
+pair CLASSIFIES DIFFERENTLY: "Arkansas Children's Hospital" (roster) is a
+named hospital worth $301,400 and "Arkansas Children's" (release) is not.
+The award rows carry the ROSTER's spelling, because it is the primary
+source. The divergence is asserted, never repaired (§2).
+
+TWO OF FOUR INITIATIVES HAVE NOT AWARDED -- RISE AR and HEART -- so
+$149,177,618.45 is a PARTIAL YEAR against a $208,779,396 allotment.
+Both NOFOs have closed, NEITHER names an award date, and CMS requires all
+Year 1 funds obligated by 2026-10-30.
+
+Fetched: 2026-09-03
+
+file                                                            bytes  sha256
+--------------------------------------------------------------------------------------------------------------------------------------
+2026-08-27_ar_dfa_year1_thrive_pact_award_list.pdf              53945  fcb36945adbc51cea9d1894b25ac477ff14abb5c3bcb25e83e48bad5f849b45b
+2026-08-27_ar_dfa_year1_thrive_pact_by_county_map.pdf          808602  46b88209989bbba069bb10a39d7a4b357cc679fa71df74e8615ea25c6ad7a7a4
+2026-09-03_ar_rhtp_home.html                                   223159  bb4070508879f975e7ba96d54362f1347cbfd1aa90eab351a1f059d3f7be48c1
+2026-08-27_governor_sanders_nearly_150_million_awarded.html     134725  30e0030b988ea8d2866a8197047992ceaad4791253036b29085042c7ede35888
+2026-09-03_ar_rhtp_thrive.html                                 192658  5a755329293a6a6ce1a10d4acb85e1f334e5f1eb25aeb6b92f39ee6081d0f850
+2026-09-03_ar_rhtp_pact.html                                   189778  d14720f67fba32e7073aced4a86c777228dd3f4634a5bd83e3d4cb007429d132
+2026-09-03_ar_rhtp_rise.html                                   190084  c9fca2e2bd9d16cfb15af5c8db25736b2736eb3c781229280fac4016f4581989
+2026-09-03_ar_rhtp_heart.html                                  190448  4e9168b4fc384b4a1acc6d3c8c8e27f6a0e83a364c9d2bdd2bad7cf070626495
+2026-09-03_ar_rhtp_resources.html                              392804  efb17c99033fdc390bea86df7316522188f46039ddd052f16369e42b678bdd26
+2026-05-11_ar_nofo_thrive.pdf                                  156978  0ffe3086ed451396e704f687517338cb88f62ef9613bdb433172e10422c32627
+2026-06-08_ar_nofo_pact.pdf                                    886548  e23d56205e520baa670ba673b859a02f52603f42af99e3f71d214558cf1ae9e5
+2026-06-22_ar_nofo_rise_ar.pdf                                 802975  1f6ed1f15d344b2a508e989023d07c7e156a7c4bbb2025101ed7db880b53dde7
+2026-06-29_ar_nofo_heart.pdf                                   317790  1a945e6362c0d5976c9a8f58f13edd800d13bd59fd240cf65e3d7c7fc749824d
+2026-05_ar_year1_revised_budget_narrative.pdf                12064855  8e7bd43cbeb0bd921a83c24616f6ce1d8d4743b74bd874af95db2ed2ecfd2225
+
+
+Source URLs
+  roster             https://arkansasrhtp.com/wp-content/uploads/2026/08/ada_RHTP.YR1_.THRIVE.PACT_.pdf
+  map                https://arkansasrhtp.com/wp-content/uploads/2026/08/ada_Arkansas-MAP.THRIVE.PACT_.By-County.pdf
+  home               https://arkansasrhtp.com/
+  governor           https://governor.arkansas.gov/news_post/sanders-announces-nearly-150-million-awarded-in-rural-health-transformation-funds/
+  thrive             https://arkansasrhtp.com/thrive/
+  pact               https://arkansasrhtp.com/pact/
+  rise               https://arkansasrhtp.com/rise/
+  heart              https://arkansasrhtp.com/heart/
+  resources          https://arkansasrhtp.com/resources/
+  nofo_thrive        https://arkansasrhtp.com/wp-content/uploads/2026/05/NOFO_THRIVE_Clean.pdf
+  nofo_pact          https://arkansasrhtp.com/wp-content/uploads/2026/06/ADA_FINAL_NOFO_PACT-06.01.26.pdf
+  nofo_rise          https://arkansasrhtp.com/wp-content/uploads/2026/06/Arkansas.RISE_AR_NOFO_ADA_FINAL_Preflight.pdf
+  nofo_heart         https://arkansasrhtp.com/wp-content/uploads/2026/06/Arkansas_HEART_NOFO_ADA_FINAL_Preflight.pdf
+  budget_narrative   https://arkansasrhtp.com/wp-content/uploads/2026/05/Year-1_AR-Revised-Budget-Narrative_ADAFINAL-2.pdf
