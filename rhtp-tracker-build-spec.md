@@ -30,6 +30,47 @@ Roles:
 
 RCJ's 1,016 Tier 3 records stay useful. They stop being the frame.
 
+#### The six ways an RCJ record can be wrong about an award — a numbered list
+
+Every state extraction since session 19 has met at least one of these, and they
+are numbered here because they are **independent**: a record can pass five of the
+six checks and fail the sixth, and each has cost, or nearly cost, a published
+figure. **Read a candidate against all six before building an extractor from
+it.**
+
+| # | Failure mode | What is wrong | The worked case |
+|---|---|---|---|
+| 1 | **Wrong programme** | The award is real, executed and recipient-level, and it is not RHTP | **Texas** — 53 HHSC notices of award to named rural hospitals, paid from the 88th Legislature's Rider 88 appropriation, RFAs closed before RHTP existed. $16.8M. **California** — eleven named hospitals on real HCAI awards, funded by the state cigarette-tax seismic programme. $5,475,000 |
+| 2 | **Wrong tier** | Every document is genuinely RHTP and the row is a POOL, not a subaward | **Oklahoma** — 35 budget lines whose "awardee" is the administering agency, totalling $231,614,376, more than the whole allotment. **Louisiana** — six rows of one *projected*-funding table |
+| 3 | **Wrong kind of action** | The recipient is named, correctly, and was not awarded anything | **Missouri** — all 27 ToRCH Care Hub Anchors, a governance role its own FAQ says carries no fiscal agency, at $1 each. **Maine** — eleven hospitals *invited* to a cohort, names exactly right, at $1 each |
+| 4 | **Wrong grain** | The row count is not the award count, in either direction | **Michigan** — one row per ORGANISATION where MDHHS publishes one per AWARD, understating by $7,833,333. **California** — two rows for one $780,000 grant |
+| 5 | **Wrong section** | The amounts come from one page and the title from another | **Nebraska** — 24 awards filed under the heading of the *applicant* roster on pages 2–3. Believed, it DISCARDS 24 real awards; read the other way it invents ~115 |
+| 6 | **Wrong state** | The record belongs to a different state entirely | **Wyoming** — five of 29 are UTAH's documents, including *"Utah RHTP Cooperative Agreement Award: $195.7 million for Year 1"*, Utah's own allotment carried as an `UNASSIGNED` **Wyoming** row |
+
+**Failure mode 6 was added in session 42 and it is different in kind from the
+five before it.** Modes 1–5 are defects *in* a record — its programme, its tier,
+its action, its grain, its provenance. Mode 6 is a defect in **which state the
+record is**, so every state-scoped check this project runs — the §6.2 provenance
+registry, the date test, the allotment ceiling, the §8 name rules — is applied
+to the wrong state's data and passes.
+
+`R/02c_state_attribution_sweep.R` measures it across all 5,056 committed
+records, and both halves of the answer matter. **Ten records are another
+state's, in five states** — WY←UT (5), ND←AR (2), MO←MI, UT←OK, WA←FL — so
+Wyoming is not special, merely the largest, and Utah is its mirror. **And not
+one of the ten is Tier 3**, which is the only tier an extractor reads, so the
+defect has not reached a single award file here. That is a measurement of the
+corpus as pulled on 2026-08-27; it is not a property of the aggregator and must
+be re-run rather than assumed.
+
+The sweep **flags and a human reads**. Eight of its 23 flags are Tier 3 and
+every one is a false positive with a legible cause — a state name inside the
+recipient's own legal name (*Providence Health & Services–Washington*, a real
+Alaska awardee), a bare county in a county list (Alabama's *"(Clarke,
+Washington)"*), a street address (*905 Washington Street*). Widening the
+exclusion list until the output is empty would suppress the ten real ones with
+the eight false, so the verdicts are hand-read and visible in `SWEEP_VERDICTS`.
+
 ### 0.1a What this project can and cannot deliver
 
 Delaware and Oklahoma both publish **initiative-level dollars** and **neither publishes recipient-level amounts.** Delaware's budget narrative names four subrecipients across fifteen initiatives and **no hospitals at all** — not Beebe, TidalHealth, Nemours, Bayhealth, or ChristianaCare, despite all five appearing in its CMS abstract as known partners. **No pipeline produces a per-hospital dollar figure**, because states are not publishing one.

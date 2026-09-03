@@ -93,9 +93,16 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # session 40. Three of the thirteen no-signal states checked so far had a
 # published roster, so the group is worth working in full: a zero here has
 # never meant the state awarded nothing (§0.1).
+#
+# WYOMING IS THE FOURTH, AND IT WAS INVISIBLE IN A NEW WAY. Same group, same
+# `trigger_source = NEITHER`, ZERO Tier 3 candidates -- and 75 priced award
+# actions across six recipient-level tables, $135,241,492 named and
+# $72,661,324 of it to hospitals, sitting in a GOOGLE DRIVE FOLDER that
+# health.wyo.gov links behind five words. Extracted in session 42. FOUR of the
+# fourteen no-signal states checked so far had a published roster.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "FL", "GA", "IA", "IL", "IN",
                              "KS", "MD", "ME", "MI", "MO", "NC", "NE", "NH",
-                             "NV", "OK", "OR", "PA", "SD")
+                             "NV", "OK", "OR", "PA", "SD", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
