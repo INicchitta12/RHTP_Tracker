@@ -448,3 +448,68 @@ test_that("the committed CSVs match what the builders produce", {
                                  show_col_types = FALSE, progress = FALSE)
   expect_false(any(grepl("amount", names(status_disk), ignore.case = TRUE)))
 })
+
+
+# -- the revised Y1 budget narrative (session 34's watch, 2026-09-04) ---------
+#
+# DHHS published "State of Maine - Revised Y1 Budget Narrative" (dated
+# 2026-03-25) onto its programme page some time after 2026-09-02. The scheduled
+# probe caught the page changing; the document is a PLAN, and these tests are
+# what keep it one.
+
+test_that("the revised budget narrative is a PLAN and names no recipient", {
+  expect_silent(me_assert_budget_names_no_recipient())
+  b <- me_pdf_text("budget_amended")
+  expect_true(stringr::str_detect(b, stringr::fixed("Revised Y1 Budget Narrative")))
+  # Its own words, counted rather than characterised.
+  expect_gt(stringr::str_count(b, stringr::fixed("TBD")), 40L)
+  expect_gt(stringr::str_count(b, stringr::fixed("competitive procurement")), 20L)
+  expect_equal(stringr::str_count(b, stringr::regex("\\bawarded\\b",
+                                                    ignore_case = TRUE)), 0L)
+})
+
+test_that("it does NOT price the invited eleven, so the cohort guard is untouched", {
+  # This is the one thing that would have made 2026-09-04 a different session.
+  b <- me_pdf_text("budget_amended")
+  expect_equal(stringr::str_count(b, stringr::fixed("HE Cohort")), 0L)
+  expect_equal(stringr::str_count(b,
+    stringr::regex("Rural Hospital Efficiency", ignore_case = TRUE)), 0L)
+  expect_equal(stringr::str_count(b, stringr::fixed("30,000,000")), 0L)
+  # And none of the eleven is named in it.
+  cohort <- rhtp_me_rhef_cohort()
+  expect_false(any(purrr::map_lgl(cohort$organization,
+                                  ~ stringr::str_detect(b, stringr::fixed(.x)))))
+  expect_silent(me_assert_cohort_not_awarded())
+})
+
+test_that("the budget tripwire fires on award language and on a lost marker", {
+  b <- me_pdf_text("budget_amended")
+  for (a in c("has been awarded", "were awarded", "notice of award")) {
+    expect_error(me_assert_budget_names_no_recipient(paste(b, a)),
+                 "THIS IS THE SIGNAL")
+  }
+  # str_remove_all, not str_remove: "competitive procurement" occurs 24 times,
+  # and a control that removes only the first occurrence passes vacuously.
+  for (m in ME_BUDGET_MARKERS) {
+    gone <- stringr::str_remove_all(b, stringr::fixed(m))
+    expect_error(me_assert_budget_names_no_recipient(gone), "PLAN")
+  }
+})
+
+test_that("the hospital-efficiency money is PLANNED, not awarded, in the status table", {
+  row <- me_status[me_status$stage == "PLANNED_RECIPIENT_TBD", ]
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$publishes_roster, "No")
+  expect_true(stringr::str_detect(row$stated_pool, stringr::fixed("$29,000,000")))
+  # The status table still has no amount column, so $29M cannot be summed.
+  expect_false(any(grepl("amount", names(me_status), ignore.case = TRUE)))
+})
+
+test_that("the RHEF's $30M and the budget's $29M are NOT reconciled", {
+  # Different lines, different periods, and a plan is not an award. If a later
+  # session relates them arithmetically, that is §0.3's error and this fails.
+  row <- me_status[me_status$stage == "PLANNED_RECIPIENT_TBD", ]
+  expect_true(stringr::str_detect(row$evidence, stringr::fixed("MUST NOT BE")))
+  awards <- rhtp_me_year1_awardees()
+  expect_equal(sum(awards$amount, na.rm = TRUE), 12000000)
+})

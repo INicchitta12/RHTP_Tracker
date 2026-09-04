@@ -17,16 +17,17 @@ each write). The page digests are stable: two fetches of the programme
 page three seconds apart returned the SAME SHA-256, so unlike Nevada,
 Missouri and Wisconsin a file digest is a usable change test here.
 
-2026-09-02 00:19:57 UTC
+2026-09-04 16:47:59 UTC
 
 KEY            FILE                                                            BYTES  SHA-256
-programme      2026-09-02_me_dhhs_rhtp_programme.html                          46806  61f915ef19d4c7e2e8832b035fed343559899650308308c565aaf12320a0f52c
+programme      2026-09-04_me_dhhs_rhtp_programme.html                          47150  279e53c43dd318a1af8f421d44619a32bc3a2486cad90a00a98e211d1d428f38
 rhef           2026-07-31_me_dhhs_rural_hospital_resiliency.html               29876  bfe6471ee8ceb17a096384b763f011e97c5210884c14f1ecbb4145472def1cc4
 une            2026-07-31_me_dhhs_une_12m_partnership.html                     30904  6c698cfb1b83602bafbabe6f9222161ca2d3803c369336e6fbffb5ac05a1a9f6
 emr            2026-07-10_me_dhhs_emr_modernization.html                       29114  3cbf96973aec402f32c7a97c3cd4efebfe2708bdc7eb9682bd7b5f22b9a74e8c
 advisory_aug   2026-08-05_me_rhtp_advisory_updates.pdf                        753872  c7bfb91fb429d71f0cdd4fb91b94fdd4bdfecf25f54524d98b7bfc1c32c764aa
 advisory_jul   2026-07-01_me_rhtp_advisory_committee.pdf                      751564  b29f6ed537be10bb5ce3bd1818e7b37ddc0f2ae02b83eb6a737ec3261360ea06
-doe            2026-09-02_me_doe_healthcare_careers_exploration.html           50953  ec77203c43c4591f28e2d2ac0bce94cbca39b1906d78b10f9fc3977296a6e348
+doe            2026-09-04_me_doe_healthcare_careers_exploration.html           50174  786f604cefca825130aeb0500dc4d15d8237495574318502918a70436b20bf20
+budget_amended 2026-03-25_me_rhtp_revised_y1_budget_narrative.pdf             475988  0f724327799ef78c99fc0296d47ff1199f0acbb237e8a67e7fdf6fe798fbd3d1
 mcd            2026-09-02_mcd_global_health_maine_rhtp.html                    26508  10ab02665c2e209fbf15b10abaaf7a1fa1eb34c0138cbb247b17bdf78a4d167c
 governor       2025-12-29_governor_mills_rhtp_award.html                       26714  29891d66cfa412e779f0d0ff184a532f63e68170bc52b2d2bd38de600ae9ee70
 news_index     2026-09-02_me_dhhs_news_index.html                              35501  c4924e7f9a65429fc918db45b00c92721cc397e61a05b6fee2de18080c184022
@@ -42,6 +43,7 @@ URLs:
   advisory_aug   https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/20260805%20Advisory%20Updates_F.pdf
   advisory_jul   https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/20260701%20Maine%20RHTP%20Advisory%20Committee.pdf
   doe            https://www.maine.gov/doe/pathways/healthcareexplorations
+  budget_amended https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/Amended%20Budget%20Narrative_RHTP%20Website.pdf
   mcd            https://www.mcd.org/focus-areas/maine-rural-health-transformation-program
   governor       https://www.maine.gov/governor/mills/news/governor-mills-statement-rural-health-transformation-program-award-2025-12-29
   news_index     https://www.maine.gov/dhhs/news

@@ -62,6 +62,22 @@
 # thing present on every RHTP document is a PROGRAMME-SCOPED SENTENCE. Three of
 # them, from three publishers, carry the provenance, and each is asserted.
 #
+# MAINE'S REVISED Y1 BUDGET NARRATIVE (2026-03-25), published onto the
+# programme page after 2026-09-02. A PLAN, in its own words.
+ME_BUDGET_MARKERS <- c(
+  "State of Maine",
+  "Revised Y1 Budget Narrative",
+  "competitive procurement",
+  "Hospital Efficiency"
+)
+# What must stay ABSENT from it. A budget narrative that starts saying who was
+# awarded has stopped being a budget narrative.
+ME_BUDGET_ABSENT <- c(
+  "has been awarded",
+  "were awarded",
+  "notice of award"
+)
+
 # THE POSITIVE CONTROL IS MAINE'S OWN PROCUREMENT ARCHIVE, and it is the largest
 # this project has used: 1,408 solicitations, 1,362 of them carrying a NAMED
 # AWARDED VENDOR, DHHS among the issuing departments. Maine publishes awarded
@@ -120,7 +136,7 @@ ME_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
   "programme",
-  "2026-09-02_me_dhhs_rhtp_programme.html",
+  "2026-09-04_me_dhhs_rhtp_programme.html",
   "https://www.maine.gov/dhhs/ruralhealth",
 
   "rhef",
@@ -152,8 +168,13 @@ ME_SOURCES <- tibble::tribble(
          "20260701%20Maine%20RHTP%20Advisory%20Committee.pdf"),
 
   "doe",
-  "2026-09-02_me_doe_healthcare_careers_exploration.html",
+  "2026-09-04_me_doe_healthcare_careers_exploration.html",
   "https://www.maine.gov/doe/pathways/healthcareexplorations",
+
+  "budget_amended",
+  "2026-03-25_me_rhtp_revised_y1_budget_narrative.pdf",
+  paste0("https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/",
+         "Amended%20Budget%20Narrative_RHTP%20Website.pdf"),
 
   "mcd",
   "2026-09-02_mcd_global_health_maine_rhtp.html",
@@ -631,6 +652,58 @@ me_assert_no_per_hospital_amount <- function(rhef = NULL, deck = NULL) {
 #' DOE's is the sharpest: its own RFA page prints "Award Announcement: August
 #' 31, 2026", which was TWO DAYS BEFORE this file was written, and publishes no
 #' roster. Wisconsin's shape, and Maine's is already overdue.
+#' MAINE'S OWN REVISED BUDGET NARRATIVE NAMES NO RECIPIENT, AND SAYS SO 48 TIMES
+#'
+#' DHHS published "State of Maine - Revised Y1 Budget Narrative", dated
+#' **2026-03-25**, onto its RHTP programme page some time after 2026-09-02 --
+#' the document is five months older than this repository's first read of the
+#' page, and only the LINK is new. It is a PLAN (§0.3, Tier 2), and it is
+#' Kansas's `budget_rev2` shape: it carries **no CMS financial-assistance
+#' footer at all**, because the document is the plan rather than a publication
+#' about the programme.
+#'
+#' WHAT IT SAYS ABOUT MAINE'S HOSPITAL MONEY, AND WHY IT IS NOT AN AWARD.
+#' The two hospital-facing lines are **Hospital Efficiency & Financial
+#' Management Funds (Capital), $29,000,000**, recipient *"Provider TBD via
+#' competitive procurement"*, and **Hospital Efficiency Oversight, planning &
+#' Financial Management Funds, $35,350,000**, recipient *"TBD (Consolidated
+#' Partner Agreement)"*. Across the whole document "TBD" occurs 48 times and
+#' "competitive procurement" 24; "awarded" occurs ZERO times, "invited" ZERO,
+#' and no hospital is named anywhere. The only people it names are DHHS STAFF.
+#'
+#' AND IT DOES NOT PRICE THE INVITED ELEVEN. "Rural Hospital Efficiency" and
+#' "HE Cohort" occur zero times, and neither does $30,000,000. So this document
+#' does NOT confirm the cohort's award amount, and
+#' `me_assert_cohort_not_awarded()` is untouched by it. **The $29,000,000 and
+#' $35,350,000 here are NOT reconciled against the RHEF's announced $30,000,000
+#' and must not be** -- a plan is not an award, they are different lines with
+#' different periods, and relating them arithmetically would be exactly the
+#' §0.3 error this file exists to prevent.
+#'
+#' DESIGNED TO FAIL the day it names a recipient: that would mean Maine has
+#' replaced "TBD via competitive procurement" with an organisation, and the
+#' hospital-efficiency channel would then need reading as an award.
+me_assert_budget_names_no_recipient <- function(budget = NULL) {
+  if (is.null(budget)) budget <- me_pdf_text("budget_amended")
+  for (s in ME_BUDGET_MARKERS) {
+    if (!stringr::str_detect(budget, stringr::fixed(s))) {
+      stop("[ME] the revised Y1 budget narrative no longer carries '", s,
+           "'. Those strings are what make it a PLAN rather than an award ",
+           "list.", call. = FALSE)
+    }
+  }
+  for (tok in ME_BUDGET_ABSENT) {
+    if (stringr::str_detect(budget, stringr::regex(tok, ignore_case = TRUE))) {
+      stop("[ME] the revised Y1 budget narrative now contains '", tok, "'. ",
+           "THIS IS THE SIGNAL: a plan that names a recipient or an award is ",
+           "no longer only a plan. Read it before trusting me_year1_status.csv.",
+           call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+
 me_assert_channels_not_awarded <- function(emr = NULL, doe = NULL,
                                            mcd = NULL, deck = NULL) {
   if (is.null(emr))  emr  <- me_html_text("emr")
@@ -1114,6 +1187,31 @@ rhtp_me_year1_status <- function() {
            "will be published by UNE, and the timeline will be shared once ",
            "finalized.'"),
 
+    "Hospital Efficiency & Financial Management Funds (Capital)",
+    "Maine DHHS / Office of Affordable Health Care",
+    "Sustainable Ecosystems",
+    "$29,000,000 (1/1/26-9/30/28), plus $35,350,000 for oversight and planning",
+    "PLANNED_RECIPIENT_TBD",
+    paste0("NOT YET AN ELIGIBLE CLASS AT ALL -- the recipient is 'Provider ",
+           "TBD via competitive procurement'. The scope names hospitals as ",
+           "the parties PAID ('provides Hospital payments to support senior ",
+           "hospital staff ... and for capital and non-EMR technology needs ",
+           "for vulnerable hospitals'), so this is where Maine's hospital ",
+           "money is planned to go -- and no hospital is named."),
+    "No",
+    paste0("From Maine's own REVISED Y1 BUDGET NARRATIVE, dated 2026-03-25 ",
+           "and published onto the DHHS programme page after 2026-09-02 -- ",
+           "the document is five months older than this repository's first ",
+           "read of that page and only the LINK is new. It is a PLAN (§0.3, ",
+           "Tier 2) and it says so throughout: 'TBD' occurs 48 times and ",
+           "'competitive procurement' 24, while 'awarded' occurs ZERO times ",
+           "and no hospital is named anywhere. Like Kansas's budget narrative ",
+           "it carries NO CMS footer at all, because the document is the ",
+           "plan. **THESE FIGURES ARE NOT RECONCILED AGAINST THE RHEF'S ",
+           "ANNOUNCED $30,000,000 AND MUST NOT BE**: different lines, ",
+           "different periods, and a plan is not an award. ",
+           "me_assert_budget_names_no_recipient() fails the day it names one."),
+
     "State procurement (Vendor Self Service)", "Maine DAFS Office of State Procurement",
     "n/a -- a CHANNEL, not an initiative",
     "n/a",
@@ -1268,6 +1366,7 @@ rhtp_me_assert <- function(strict_footer = FALSE) {
   me_assert_cohort_not_awarded()
   me_assert_no_per_hospital_amount()
   me_assert_channels_not_awarded()
+  me_assert_budget_names_no_recipient()
   me_assert_award_index()
   me_assert_procurement_control()
   me_assert_cohort_no_amount(cohort)
@@ -1390,6 +1489,27 @@ rhtp_me_write_xlsx <- function(awards, cohort, status, dispo) {
 #' Maine's page digests are STABLE -- two fetches three seconds apart return the
 #' same SHA-256 -- so unlike Nevada, Missouri and Wisconsin a file digest is a
 #' usable change test here, and it is used directly.
+#'
+#' RE-MEASURED 2026-09-04, WHEN THE SCHEDULED PROBE REPORTED TWO PAGES CHANGED,
+#' AND THE CLAIM HOLDS. Two fetches of the DOE page four seconds apart are
+#' byte-identical, so there is still no per-request nonce here and no cache
+#' variant of California's kind. Both changes were real:
+#'
+#'   THE PROGRAMME PAGE gained a link -- "Maine RHTP Y1 Budget (Amended)" --
+#'   and that is the finding this probe exists to surface.
+#'
+#'   THE DOE PAGE MOVED ONLY IN ITS DRUPAL NAVIGATION: `/doe/contact` became
+#'   `/doe/about/contact` and `/doe/index.php/about` became `/doe/about`. Its
+#'   REDUCED TEXT IS IDENTICAL to the archive, character for character, and
+#'   `me_assert_channels_not_awarded()` passes unchanged.
+#'
+#' SO A FILE DIGEST HERE OCCASIONALLY FIRES ON SITE CHROME, AND THAT IS A CHEAP
+#' FALSE POSITIVE RATHER THAN THE WRONG MECHANISM. It costs one diff and it
+#' cannot MISS a content change, which is the direction that matters. Do not
+#' switch this to a content digest to silence it: on this host the file digest
+#' is strictly the more sensitive test, and Wisconsin's and California's
+#' reductions exist because their hosts made the file digest USELESS, not
+#' merely noisy.
 me_probe <- function() {
   watched <- c("rhef", "doe", "programme", "mcd")
   message("[ME] LIVE probe, ", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"))
