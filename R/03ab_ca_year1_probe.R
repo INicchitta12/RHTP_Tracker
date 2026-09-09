@@ -186,6 +186,14 @@ CA_SOURCES <- tibble::tribble(
   "2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html",
   "https://hcai.ca.gov/facilities/health-facility-financing/srhrp/",
 
+  "rhpc",
+  "2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html",
+  "https://hcai.ca.gov/rural-health/calrht/rhpc/",
+
+  "rhpc_members",
+  "2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html",
+  "https://hcai.ca.gov/rural-health/calrht/rhpc/rhpc-members-bio/",
+
   "newsroom",
   "2026-09-02_ca_hcai_newsroom_CONTROL.html",
   "https://hcai.ca.gov/media-center/"
@@ -313,6 +321,27 @@ CA_ELIGIBLE_CLASS_MARKERS <- c(
   wcap = "Regional Collaborative or Consortium"
 )
 
+# ROSTER-OF-RECIPIENTS LANGUAGE, for the RHPC pages only. California's main
+# award tripwire counts "(Closed)" headings on the funding page; the council
+# pages need a phrase test instead, because a governance roster turning into an
+# award roster would show up as WORDS rather than as a heading count. The set is
+# deliberately narrow -- no bare "awardees" and no "subrecipient", both of which
+# occur in ordinary biography and programme prose and would cry wolf. Measured
+# against both live pages on 2026-09-09: zero matches.
+CA_RHPC_AWARD_POSTED <- c(
+  "have been awarded", "has been awarded", "list of awardees",
+  "selected for award", "notice of intent to award", "grant recipients",
+  "funded organizations"
+)
+
+# The two RHPC members whose employer is a hospital -- and BOTH hospitals are
+# in RCJ's eleven California Tier 3 candidates (the SRHRP seismic programme).
+# Named here because that overlap is the trap, not because they are recipients.
+CA_RHPC_HOSPITAL_MEMBERS <- c(
+  "Community Memorial Hospital-Ojai",
+  "Plumas District Hospital"
+)
+
 CA_CREDENTIAL_SHAPES <- c(
   mapbox_token   = "[ps]k\\.ey[A-Za-z0-9_-]{10,}",
   google_api_key = "AIza[A-Za-z0-9_-]{30,}",
@@ -427,6 +456,28 @@ ca_write_manifest <- function(entries) {
     "  *_CONTROL.html is HCAI's newsroom, which carries award announcements",
     "  in a recognisable form and NOT ONE mention of CalRHT or RHTP -- so the",
     "  absence of an award announcement is HCAI's, not our channel's.",
+    "",
+    "*_GOVERNANCE.html ARE THE RURAL HEALTH POLICY COUNCIL, ADDED SESSION 36.",
+    "The scheduled watch reported the CalRHT programme page CHANGED for the",
+    "first time on 2026-09-09. The change was ONE navigation link ('Learn",
+    "More') to a council that was ALREADY linked from the archived page, so",
+    "nothing about California's awards moved: the reduced text went 11,162 ->",
+    "11,212 characters and every award tripwire still passes. The council is a",
+    "roster of SEVENTEEN NAMED PEOPLE with employers and biographies, and",
+    "neither of its pages carries roster-of-recipients language (measured:",
+    "zero matches). A council member is not a recipient -- Missouri's 27 Hub",
+    "Anchors and Connecticut's four-person leadership team are the precedents.",
+    "",
+    "  AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAD NOT MET. TWO of the",
+    "  seventeen members are hospital executives -- Community Memorial",
+    "  Hospital-Ojai and Plumas District Hospital -- and BOTH of those",
+    "  hospitals are among the eight distinct awardees in RCJ's eleven",
+    "  California Tier 3 candidates, which are the SRHRP seismic programme",
+    "  funded by the state cigarette-tax. So a session cross-referencing",
+    "  'hospitals named on the CalRHT estate' against the RCJ candidate list",
+    "  MATCHES on two hospitals, from two INDEPENDENT wrong reasons, and",
+    "  neither is an RHTP award. The match would read as corroboration.",
+    "  Both names are pinned by ca_assert_rhpc_is_governance().",
     "",
     "THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE REASON IS TWOFOLD.",
     "hcai.ca.gov carries no per-request nonce -- two fetches seconds apart are",
@@ -902,6 +953,69 @@ ca_assert_newsroom_control <- function(news = NULL) {
 }
 
 #' No award file exists, and the status table cannot grow an amount column
+#' THE RHPC IS GOVERNANCE, NOT AN AWARD ROSTER -- and it names two of the
+#' eleven SRHRP hospitals, which is why it needs a tripwire of its own
+#'
+#' Added session 36, when the scheduled watch reported the CalRHT programme
+#' page CHANGED for the first time. The change was ONE navigation link --
+#' "Learn More", pointing at the Rural Health Policy Council -- and the council
+#' itself was already linked from the archived page, so nothing about
+#' California's awards moved. What the council IS, though, is a named roster on
+#' the CalRHT estate, which is the shape this project has been caught by three
+#' times: Missouri's 27 Hub Anchors, Connecticut's four-person leadership team,
+#' Indiana's fifteen tables of committee members at named hospitals.
+#'
+#' AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAS NOT MET BEFORE. Two of
+#' the seventeen members are hospital executives -- Community Memorial
+#' Hospital-Ojai and Plumas District Hospital -- and BOTH of those hospitals
+#' are among the eight distinct awardees in RCJ's eleven California Tier 3
+#' candidates, which are the SRHRP seismic programme funded by the state
+#' cigarette-tax. So a future session cross-referencing "hospitals named on the
+#' CalRHT estate" against the RCJ candidate list would find a MATCH on two
+#' hospitals, from two INDEPENDENT wrong reasons, neither of which is an RHTP
+#' award. The match would look like corroboration and would be worth part of
+#' the $5,475,000.
+#'
+#' The council pages carry NO award language at all, and that is asserted.
+ca_assert_rhpc_is_governance <- function(rhpc = NULL, members = NULL) {
+  t  <- if (is.null(rhpc)) ca_html_text("rhpc") else rhpc
+  tm <- if (is.null(members)) ca_html_text("rhpc_members") else members
+
+  if (!stringr::str_detect(t, stringr::fixed("Rural Health Policy Council"))) {
+    stop("[CA] the RHPC page no longer names the council. It is archived as a ",
+         "GOVERNANCE channel; if it has become something else, read it.",
+         call. = FALSE)
+  }
+  if (!stringr::str_detect(tm, stringr::fixed("Meet the RHPC Members"))) {
+    stop("[CA] the RHPC members page no longer carries its roster heading.",
+         call. = FALSE)
+  }
+  # It is a roster of PEOPLE, and no page of it may acquire award language.
+  for (nm in c(rhpc = "rhpc", members = "members")) {
+    txt <- if (nm == "rhpc") t else tm
+    hit <- CA_RHPC_AWARD_POSTED[purrr::map_lgl(
+      CA_RHPC_AWARD_POSTED,
+      ~ stringr::str_detect(txt, stringr::regex(.x, ignore_case = TRUE)))]
+    if (length(hit)) {
+      stop("[CA] award language has appeared on the RHPC ", nm, " page: ",
+           paste(hit, collapse = " | "),
+           ". THAT IS THE SIGNAL, NOT A DEFECT -- and read it carefully, ",
+           "because this is a GOVERNANCE roster and a council member is not ",
+           "a recipient (Missouri's Hub Anchors, session 28).", call. = FALSE)
+    }
+  }
+  # The two hospital executives, pinned BY NAME because they are the trap.
+  for (h in CA_RHPC_HOSPITAL_MEMBERS) {
+    if (!stringr::str_detect(tm, stringr::fixed(h))) {
+      stop("[CA] '", h, "' is no longer on the RHPC roster. It is pinned here ",
+           "because that hospital is ALSO in RCJ's SRHRP candidate set, and ",
+           "the overlap is what makes the roster dangerous to cross-reference.",
+           call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
 ca_assert_no_award_file <- function() {
   if (file.exists(here::here(CA_AWARDS_CSV))) {
     stop("[CA] ", CA_AWARDS_CSV, " exists. California has published no ",
@@ -935,6 +1049,7 @@ rhtp_ca_assert <- function(strict_footer = FALSE) {
   ca_assert_srhrp_is_award_control()
   ca_assert_srhrp_eligibility_not_receipt()
   ca_assert_newsroom_control()
+  ca_assert_rhpc_is_governance()
   ca_assert_no_award_file()
   invisible(TRUE)
 }
@@ -1014,6 +1129,28 @@ rhtp_ca_year1_status <- function() {
           "public naming may not be HCAI's at all: subrecipients must submit",
           "press releases to HCAI two weeks in advance and may publish only",
           "after 'HCAI, CalHHS, or the Governor's Office issues a statement'."),
+
+    "Rural Health Policy Council (RHPC) -- GOVERNANCE, NOT AWARDS", "HCAI",
+    "n/a -- no money attached to the role", "GOVERNANCE_ONLY",
+    paste("n/a. Seventeen named individuals with their employers and",
+          "biographies, advising the programme. A council member is not a",
+          "recipient (Missouri's Hub Anchors, session 28; Connecticut's",
+          "leadership team, session 35)."),
+    "No",
+    paste("Added session 36, when the scheduled watch reported the CalRHT",
+          "programme page CHANGED for the first time -- ONE navigation link",
+          "('Learn More') to a council ALREADY linked from the archived page.",
+          "Nothing about California's awards moved, and neither council page",
+          "carries roster-of-recipients language (measured, zero matches).",
+          "IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAS NOT MET BEFORE:",
+          "TWO of the seventeen members are hospital executives -- Community",
+          "Memorial Hospital-Ojai and Plumas District Hospital -- and BOTH of",
+          "those hospitals are among the eight distinct awardees in RCJ's",
+          "eleven California Tier 3 candidates, which are the SRHRP SEISMIC",
+          "programme funded by the state cigarette-tax. So a cross-reference",
+          "of 'hospitals named on the CalRHT estate' against the RCJ",
+          "candidate list MATCHES on two hospitals, from two INDEPENDENT",
+          "wrong reasons, and neither is an RHTP award."),
 
     "Small and Rural Hospital Relief Program (SRHRP) -- NOT RHTP", "HCAI",
     "$46 million available; 29 grants totalling $17.2 million awarded",
@@ -1180,7 +1317,12 @@ rhtp_ca_report <- function() {
 #   funding   the four "(Closed)" headings -- a fifth pool, or one relabelled
 #   calrht    the programme page, where a roster or an award link would appear
 #   newsroom  HCAI's own announcement channel, which mentions RHTP zero times
-CA_PROBE_KEYS <- c("funding", "calrht", "newsroom")
+#   rhpc      the Rural Health Policy Council, and rhpc_members its roster --
+#             watched LIVE from session 45, because a governance roster turning
+#             into an award roster is exactly the transition this project has
+#             been caught by before, and because two of its members' hospitals
+#             are in RCJ's SRHRP candidate set
+CA_PROBE_KEYS <- c("funding", "calrht", "newsroom", "rhpc", "rhpc_members")
 
 #' The change test: a digest of the REDUCED text, not of the file
 #'
@@ -1244,6 +1386,7 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   ca_assert_no_award_roster(funding = txt$funding)
   ca_assert_programme_provenance(calrht = txt$calrht)
   ca_assert_newsroom_control(news = txt$newsroom)
+  ca_assert_rhpc_is_governance(rhpc = txt$rhpc, members = txt$rhpc_members)
   message("[CA] the award tripwires pass against the LIVE bytes: California ",
           "has not published a recipient-level RHTP award roster.")
   if (length(changed)) {

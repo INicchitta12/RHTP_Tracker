@@ -401,3 +401,107 @@ test_that("the probe and the assertions read the SAME reduction", {
 test_that("--validate passes end to end, offline", {
   expect_silent(rhtp_ca_assert())
 })
+
+
+# -- the Rural Health Policy Council: governance, and a compounding trap -------
+#
+# Added session 36, when the scheduled watch reported the CalRHT programme page
+# CHANGED for the first time. The change was ONE navigation link to a council
+# that was already linked from the archived page — so nothing about California's
+# awards moved — but the council is a NAMED ROSTER on the CalRHT estate, which
+# is the shape this project has been caught by three times (Missouri's Hub
+# Anchors, Connecticut's leadership team, Indiana's committee members).
+
+test_that("the RHPC pages are archived and carry a roster of PEOPLE", {
+  expect_silent(ca_assert_rhpc_is_governance())
+  expect_true(file.exists(ca_path("rhpc")))
+  expect_true(file.exists(ca_path("rhpc_members")))
+  expect_true(stringr::str_detect(ca_html_text("rhpc_members"),
+                                  stringr::fixed("Meet the RHPC Members")))
+})
+
+test_that("neither RHPC page carries roster-of-recipients language", {
+  # Measured, not assumed: zero matches on both live pages on 2026-09-09.
+  for (k in c("rhpc", "rhpc_members")) {
+    txt <- ca_html_text(k)
+    for (p in CA_RHPC_AWARD_POSTED) {
+      expect_false(stringr::str_detect(txt, stringr::regex(p, ignore_case = TRUE)),
+                   info = paste(k, p))
+    }
+  }
+})
+
+test_that("the RHPC tripwire fires on each award phrase, on each page", {
+  r <- ca_html_text("rhpc"); m <- ca_html_text("rhpc_members")
+  for (phrase in c("have been awarded", "list of awardees", "grant recipients")) {
+    expect_error(ca_assert_rhpc_is_governance(rhpc = paste(r, phrase),
+                                              members = m),
+                 "award language has appeared", info = phrase)
+    expect_error(ca_assert_rhpc_is_governance(rhpc = r,
+                                              members = paste(m, phrase)),
+                 "award language has appeared", info = phrase)
+  }
+})
+
+test_that("the phrase set excludes words that occur in ordinary bio prose", {
+  # A tripwire that cries wolf gets ignored, and the next CHANGED — which may
+  # be the award roster — gets ignored with it (Missouri's Incapsula lesson).
+  expect_false("subrecipient" %in% CA_RHPC_AWARD_POSTED)
+  expect_false("awardees" %in% CA_RHPC_AWARD_POSTED)
+})
+
+test_that("TWO RHPC members are hospital executives, and both hospitals are in the SRHRP candidate set", {
+  # THE COMPOUNDING TRAP. These two hospitals are named on the CalRHT estate
+  # (as council-member employers) AND carried by RCJ as California Tier 3
+  # candidates (as SRHRP seismic awardees). Two independent wrong reasons
+  # pointing at the same two hospitals: a cross-reference would read as
+  # corroboration and neither is an RHTP award.
+  members <- ca_html_text("rhpc_members")
+  for (h in CA_RHPC_HOSPITAL_MEMBERS) {
+    expect_true(stringr::str_detect(members, stringr::fixed(h)), info = h)
+  }
+  cands <- ca_rcj_candidates()$awardee_name_clean
+  # the roster spells them with a hyphen and without "and Rural Health Clinic";
+  # match on the distinctive stem so the two spellings meet
+  expect_true(any(stringr::str_detect(cands, "Community Memorial Hospital")))
+  expect_true(any(stringr::str_detect(cands, "Plumas District Hospital")))
+})
+
+test_that("losing either pinned hospital stops the build", {
+  m <- ca_html_text("rhpc_members")
+  for (h in CA_RHPC_HOSPITAL_MEMBERS) {
+    stripped <- stringr::str_remove_all(m, stringr::fixed(h))
+    expect_error(ca_assert_rhpc_is_governance(rhpc = ca_html_text("rhpc"),
+                                              members = stripped),
+                 "no longer on the RHPC roster", info = h)
+  }
+})
+
+test_that("the RHPC is in the assert wrapper, so it runs every validate", {
+  expect_silent(rhtp_ca_assert())
+  body <- paste(deparse(rhtp_ca_assert), collapse = " ")
+  expect_true(grepl("ca_assert_rhpc_is_governance", body, fixed = TRUE))
+})
+
+
+test_that("the status table gains the RHPC row and still has no amount column", {
+  status <- rhtp_ca_year1_status()
+  expect_equal(nrow(status), 7L)
+  expect_false(any(c("amount", "round_amount", "amount_announced") %in%
+                     names(status)))
+  row <- status[stringr::str_detect(status$channel, "Rural Health Policy Council"), ]
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$stage, "GOVERNANCE_ONLY")
+  expect_equal(row$publishes_roster, "No")
+})
+
+
+test_that("the RHPC pages are watched LIVE, not only offline", {
+  # Session 25's Indiana lesson: --validate reads the committed copy and can
+  # only answer "was this true when the archive was taken?". The probe is what
+  # answers "is it true now", so the governance tripwire belongs in both.
+  expect_true(all(c("rhpc", "rhpc_members") %in% CA_PROBE_KEYS))
+  expect_true(all(CA_PROBE_KEYS %in% CA_SOURCES$key))
+  body <- paste(deparse(ca_probe), collapse = " ")
+  expect_true(grepl("ca_assert_rhpc_is_governance", body, fixed = TRUE))
+})
