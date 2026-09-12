@@ -409,6 +409,16 @@ ca_fetch <- function(force = FALSE) {
 
 ca_write_manifest <- function(entries) {
   path <- file.path(CA_EVIDENCE_DIR, "MANIFEST.txt")
+  # DERIVED, NOT TYPED. Session 45 found this manifest still carrying session
+  # 34's retracted claim that the file digest was the change test, because the
+  # code that writes it was corrected and --fetch was never re-run. The same
+  # shape cost a stale character count and a stale archive date one session
+  # later: both are read off the archive now, so a re-fetch cannot leave the
+  # manifest asserting a measurement nobody took.
+  taken       <- format(Sys.Date())
+  calrht_path <- ca_path("calrht")
+  calrht_chars <- nchar(ca_reduce_html(
+    readBin(calrht_path, "raw", file.size(calrht_path))))
   writeLines(c(
     "California -- Rural Health Transformation Program (CalRHT), Year 1.",
     "Archived by R/03ab_ca_year1_probe.R --fetch",
@@ -423,7 +433,9 @@ ca_write_manifest <- function(entries) {
     "grant opportunities are all headed '(Closed)' and none names a recipient.",
     "Their own grant guides put award notification in AUGUST / SEPTEMBER 2026",
     "and grant agreements in SEPTEMBER / OCTOBER 2026; WDRR's application",
-    "window closed AUGUST 31, 2026. This archive was taken 2026-09-02.",
+    paste0("window closed AUGUST 31, 2026. The file names carry the date each ",
+           "source"),
+    paste0("was FIRST archived; these bytes were last refreshed ", taken, "."),
     "",
     "THE §6.2 ANCHOR IS CMS'S OWN NOTICE OF AWARD, NOT A FOOTER QUOTING ONE.",
     "  2026-03-31_ca_cms_notice_of_award_revised.pdf is CMS's own form:",
@@ -457,7 +469,7 @@ ca_write_manifest <- function(entries) {
     "  in a recognisable form and NOT ONE mention of CalRHT or RHTP -- so the",
     "  absence of an award announcement is HCAI's, not our channel's.",
     "",
-    "*_GOVERNANCE.html ARE THE RURAL HEALTH POLICY COUNCIL, ADDED SESSION 36.",
+    "*_GOVERNANCE.html ARE THE RURAL HEALTH POLICY COUNCIL, ADDED SESSION 45.",
     "The scheduled watch reported the CalRHT programme page CHANGED for the",
     "first time on 2026-09-09. The change was ONE navigation link ('Learn",
     "More') to a council that was ALREADY linked from the archived page, so",
@@ -486,10 +498,29 @@ ca_write_manifest <- function(entries) {
     "    autosuggest asset block (142,605 or 157,732 bytes), a CACHE VARIANT;",
     "  * the newsroom re-rolls WordPress antispambot() email entities on every",
     "    render -- same length, different bytes, identical rendered text.",
-    "The reduced text is IDENTICAL across both variants of both pages (11,162",
-    "characters), so --probe compares a CONTENT digest via ca_reduce_html(),",
-    "the same reduction the assertions read. robots.txt is 404, so no crawler",
-    "policy is on offer and none is being declined.",
+    paste0("The reduced text is IDENTICAL across both variants of both pages ",
+           "(the programme"),
+    paste0("page reduces to ", format(calrht_chars, big.mark = ","),
+           " characters as archived), so --probe compares a"),
+    "CONTENT digest via ca_reduce_html(), the same reduction the assertions",
+    "read. robots.txt is 404, so no crawler policy is on offer and none is",
+    "being declined.",
+    "",
+    "AND A THIRD MECHANISM, MEASURED 2026-09-12, WHICH IS THE FIRST THAT MOVES",
+    "EVERY WATCHED PAGE AT ONCE: HCAI RENAMED A GLOBAL NAVIGATION LABEL.",
+    "'Reproductive Health Care Access Initiative' became 'Reproductive Health",
+    "and Gender Affirming Care Programs' in the site-wide menu, so ALL FIVE",
+    "probed pages AND the SRHRP control reported CHANGED in the same run, each",
+    "by EXACTLY +12 characters of reduced text. Nothing about RHTP moved and",
+    "every award tripwire passed.",
+    "  THE NAVIGATION IS DELIBERATELY NOT REDUCED AWAY, AND THAT IS THE",
+    "  DECISION WORTH RECORDING. Discarding the global menu would silence this",
+    "  class of false positive for good -- and would also silence a new",
+    "  'CalRHT Awardees' menu item, which is exactly the link this probe",
+    "  exists to catch. The nav is where an award page would first be linked,",
+    "  so the cost is paid on the noise side: the baseline is refreshed and",
+    "  the mechanism is written down (Missouri's Incapsula rule -- a probe",
+    "  that cries wolf trains its reader to ignore the run that matters).",
     "",
     "file  bytes  sha256",
     paste(entries$file, entries$bytes, entries$sha256, sep = "  ")

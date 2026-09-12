@@ -407,3 +407,127 @@ is a `PASS_THROUGH_*` question and §0.3 governs it.
 
 Neither is on a Routine yet. Both `--probe` entry points exist, both ran live
 this session, and both are one `create_trigger` call from a schedule.
+
+---
+
+## 6. The watch's fourth firing, 2026-09-12 — ALL FIVE PAGES CHANGED, AND NONE OF IT IS AN AWARD
+
+The Wed/Sat Routine (`trig_013vujTBLopT2gSmNwWJ94ig`) fired at 17:06 UTC and
+reported **CHANGED on every one of the five watched pages at once**. It is not
+an award, and the shape of the answer is what makes it worth writing down.
+
+### 6.1 Five pages moving together is a statement about the HOST, not the state
+
+Two of the five — both RHPC pages — were archived **three days earlier**. Five
+independent content edits across one estate inside 72 hours is implausible; one
+change to something every page carries is not. The reduced text says which:
+
+| page | reduced chars, archived -> live | bytes served |
+|---|---|---|
+| funding | 12,071 -> 12,083 | 167,530 -> 167,462 |
+| calrht | 11,212 -> 11,224 | 158,290 -> 158,222 |
+| newsroom | 9,906 -> 9,918 | 150,605 -> 150,629 |
+| rhpc | 8,457 -> 8,469 | 148,620 -> 148,552 |
+| rhpc_members | 24,944 -> 24,977 | 166,723 -> 179,610 |
+| srhrp (control, not probed) | 19,067 -> 19,079 | 182,650 -> 182,674 |
+
+**Exactly +12 characters on five of the six.** A word-level diff names it in one
+line: HCAI renamed a label in its **site-wide navigation menu**, from
+*"Reproductive Health Care Access Initiative"* to *"Reproductive Health and
+Gender Affirming Care Programs"* — 42 characters to 54. Nothing to do with RHTP,
+on every page of the estate.
+
+### 6.2 THE THIRD DIGEST MECHANISM ON THIS HOST, AND THE FIRST THAT CANNOT BE ABSORBED
+
+`hcai.ca.gov` has now produced three:
+
+1. **A cache variant** (session 34) — the ~15 KB ElasticPress autosuggest block
+   present or absent. Per-render. The reduction absorbs it.
+2. **`antispambot()` re-rolling email entities** (session 34) — same length,
+   different bytes, identical rendered text. Per-render. Absorbed.
+3. **A global navigation rename** (this firing) — and it is **different in
+   kind**. The first two are noise the same page emits twice; this is a **real,
+   persistent content change** that happens to sit on every page. There is
+   nothing to absorb, only a baseline to refresh.
+
+It is also the fourth time the project has met a mechanism that a back-to-back
+fetch pair cannot see, and the first where the invisibility is not the point:
+the change is real and permanent, so *any* interval exposes it.
+
+### 6.3 THE NAVIGATION IS DELIBERATELY NOT REDUCED AWAY
+
+The obvious fix is to discard the global menu in `ca_reduce_html()`, which would
+retire this class of false positive for good. **It is refused**, and the reason
+is the probe's whole purpose: a new *"CalRHT Awardees"* item in that menu is the
+**first place an award page would be linked from**. Silencing the nav to stop it
+crying wolf would silence the one signal most likely to arrive. So the cost is
+paid on the noise side — refresh the baseline, write the mechanism down — which
+is Missouri's Incapsula rule (session 29) applied to a change that is real
+rather than spurious. A test plants *"CalRHT Awardees have been awarded"* in the
+menu and requires the tripwire to fire on it.
+
+### 6.4 THE MEMBERS PAGE MOVED 33 CHARACTERS, AND THE OTHER 21 ARE THREE BIOGRAPHY EDITS
+
+`rhpc_members` is the one page that moved by more than the nav, and all three
+extra edits are copy fixes inside **existing** biographies:
+
+- *"Joy Dockter, Attorney,"* -> *"Attorney at"* (+2) — a title correction.
+- *"**He** has practiced across communities…"* -> *"**James F. Schlund** has
+  practiced…"* (+14) — a pronoun replaced by the member's own name.
+- *"**She** is currently a board member for Mercy Housing California"* ->
+  *"**Dr. Soni** is currently…"* (+5) — likewise.
+
+12 + 2 + 14 + 5 = **33**, which closes on the measurement exactly. **No member
+was added or removed** (29 heading markers before and after), the three currency
+figures on the page are unchanged ($300, $38, $96 — none of them an award), and
+the single occurrence of *"awarded"* is the **same pre-existing sentence** about
+a scholarship fund that *"has awarded 245 scholarships to date"*. That sentence
+is why `CA_RHPC_AWARD_POSTED` was kept deliberately narrow in session 45, and it
+still does not fire. Both pinned hospitals — **Community Memorial Hospital-Ojai**
+and **Plumas District Hospital** — are still present, so the compounding trap
+§6.1 of this document records is unchanged.
+
+The page's byte jump of **+12,887** is the session-34 cache variant on top of
+the content change; the reduction absorbs that half and reports the other.
+
+### 6.5 What moved in the repository, and what did not
+
+- **All six HTML sources re-fetched and re-baselined.** Every one moved in
+  CONTENT this time, so — unlike session 45, where three files moved in bytes
+  only and were reverted — **there was nothing to revert**. The six PDFs (the
+  NOA, the budget narrative, the four grant guides) are byte-identical.
+- **`ca_year1_status.csv` and `ca_rcj_candidate_disposition.csv` rebuild
+  BYTE-IDENTICAL.** No dollar and no row moved anywhere, in any state.
+- **All five pages now report UNCHANGED** and the tripwires pass against the
+  live bytes.
+- **Three typed values in `ca_write_manifest()` became derived.** Session 45
+  caught this manifest still carrying session 34's *retracted* claim that the
+  file digest was the change test, because the generator was corrected and
+  `--fetch` was never re-run. Two more had gone the same way since: a
+  present-tense character count (*"11,162 characters"*, by then 11,224) and a
+  single archive date (*"taken 2026-09-02"*, for files last refreshed
+  2026-09-12). Both are read off the archive now. **And the governance block
+  said *"ADDED SESSION 36"* when session 45 added it** — a third stale typed
+  value in the same generated artifact, corrected with a test pinning all of
+  them.
+
+### 6.6 THE OPERATIONAL FINDING: SESSION 45's CODE IS NOT ON `main`
+
+`main` is at **session 44** (`1213f0d`, PR #45, which carries session 44's
+work). Session 45's California branch — `claude/ca-ct-nm-watch-8hfcho` at
+`b892894` — **has never been merged**, and the consequence is live rather than
+cosmetic:
+
+- `main`'s `CA_PROBE_KEYS` is the session-34 **three**-page set. The two RHPC
+  pages are not watched there at all.
+- `main` carries neither `ca_assert_rhpc_is_governance()` nor the two
+  `*_GOVERNANCE.html` archives, and its `ca_year1_status.csv` is 6 rows.
+- The Routine's own prompt says to work on `main`, and its guard — `grep -c
+  "ca_probe"` — returns **4** there, so the guard passes and the probe runs.
+  **The guard checks that a probe exists, not that it is the current one.**
+
+So the watch has been running a version three pages narrow since 09-09, and its
+own staleness check could not see that. The remedy is to merge the branch; the
+lesson is that a guard keyed on a function's *existence* does not detect a
+*stale* implementation, and the next probe prompt should pin something that
+moves when the file does.

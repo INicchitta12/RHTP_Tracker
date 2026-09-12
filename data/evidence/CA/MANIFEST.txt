@@ -11,7 +11,8 @@ CALIFORNIA HAS PUBLISHED NO RECIPIENT-LEVEL RHTP AWARD LIST. Four CalRHT
 grant opportunities are all headed '(Closed)' and none names a recipient.
 Their own grant guides put award notification in AUGUST / SEPTEMBER 2026
 and grant agreements in SEPTEMBER / OCTOBER 2026; WDRR's application
-window closed AUGUST 31, 2026. This archive was taken 2026-09-02.
+window closed AUGUST 31, 2026. The file names carry the date each source
+was FIRST archived; these bytes were last refreshed 2026-09-12.
 
 THE §6.2 ANCHOR IS CMS'S OWN NOTICE OF AWARD, NOT A FOOTER QUOTING ONE.
   2026-03-31_ca_cms_notice_of_award_revised.pdf is CMS's own form:
@@ -45,7 +46,7 @@ ONE FILE IS BOTH CONTROLS AT ONCE, AND IT IS NAMED SO.
   in a recognisable form and NOT ONE mention of CalRHT or RHTP -- so the
   absence of an award announcement is HCAI's, not our channel's.
 
-*_GOVERNANCE.html ARE THE RURAL HEALTH POLICY COUNCIL, ADDED SESSION 36.
+*_GOVERNANCE.html ARE THE RURAL HEALTH POLICY COUNCIL, ADDED SESSION 45.
 The scheduled watch reported the CalRHT programme page CHANGED for the
 first time on 2026-09-09. The change was ONE navigation link ('Learn
 More') to a council that was ALREADY linked from the archived page, so
@@ -74,21 +75,38 @@ byte-identical -- but two fetches HALF AN HOUR apart need not be:
     autosuggest asset block (142,605 or 157,732 bytes), a CACHE VARIANT;
   * the newsroom re-rolls WordPress antispambot() email entities on every
     render -- same length, different bytes, identical rendered text.
-The reduced text is IDENTICAL across both variants of both pages (11,162
-characters), so --probe compares a CONTENT digest via ca_reduce_html(),
-the same reduction the assertions read. robots.txt is 404, so no crawler
-policy is on offer and none is being declined.
+The reduced text is IDENTICAL across both variants of both pages (the programme
+page reduces to 11,224 characters as archived), so --probe compares a
+CONTENT digest via ca_reduce_html(), the same reduction the assertions
+read. robots.txt is 404, so no crawler policy is on offer and none is
+being declined.
+
+AND A THIRD MECHANISM, MEASURED 2026-09-12, WHICH IS THE FIRST THAT MOVES
+EVERY WATCHED PAGE AT ONCE: HCAI RENAMED A GLOBAL NAVIGATION LABEL.
+'Reproductive Health Care Access Initiative' became 'Reproductive Health
+and Gender Affirming Care Programs' in the site-wide menu, so ALL FIVE
+probed pages AND the SRHRP control reported CHANGED in the same run, each
+by EXACTLY +12 characters of reduced text. Nothing about RHTP moved and
+every award tripwire passed.
+  THE NAVIGATION IS DELIBERATELY NOT REDUCED AWAY, AND THAT IS THE
+  DECISION WORTH RECORDING. Discarding the global menu would silence this
+  class of false positive for good -- and would also silence a new
+  'CalRHT Awardees' menu item, which is exactly the link this probe
+  exists to catch. The nav is where an award page would first be linked,
+  so the cost is paid on the noise side: the baseline is refreshed and
+  the mechanism is written down (Missouri's Incapsula rule -- a probe
+  that cries wolf trains its reader to ignore the run that matters).
 
 file  bytes  sha256
-2026-09-02_ca_hcai_calrht_programme.html  158290  4a0ad1bd79ddca4d4f959c12110161de4e8f9aa6310abd9e816a0fe2effd509e
-2026-09-02_ca_hcai_calrht_funding_opportunities.html  167530  87dd9f58ddc55db9b80753c722d57615fb2ca957db8f3e50c68869e46a7d84f3
+2026-09-02_ca_hcai_calrht_programme.html  158222  f7a0b9814d3f600929fe0223fbda1b2a677cb5606ce223799b4b1d23edcd151c
+2026-09-02_ca_hcai_calrht_funding_opportunities.html  167462  fafe4c71fe7cd8cd32a46034b66867c0ea26def9dd7e356697315eba076b2dd3
 2026-03-31_ca_cms_notice_of_award_revised.pdf  3474145  827bfe756ba8e077dd144e21897c0c1398ab2fd01f90614c686a48e46ec24f15
 2026-03-27_ca_calrht_budget_narrative.pdf  930118  0871944d3bc9c096707f0631ae0e8bd8e6cf58b2df6986afc5f7c74c3f2a1168
 2026-06-30_ca_calrht_accelerator_partners_grant_guide.pdf  389401  0db27d8ae07b3ea4252bb7a85f8532cd0b1fa751eb82c1da9971bbf507cc3cef
 2026-09-02_ca_calrht_wdrr_grant_guide.pdf  508001  142b296f79bd113a2371c6ec0acc9a96c41994977be1b42dd843a0ec5908fee7
 2026-09-02_ca_calrht_ehr_modernization_grant_guide.pdf  368343  09071722b8b96fe9db88215642de9e7dd1c3443a557caef85cf609af43cb04ee
 2026-09-02_ca_calrht_expand_support_workforce_grant_guide.pdf  351784  72bc79483a35ec879ea9aa6b9d863f4b0fb760fa2edc0e67189eb0bfecfca046
-2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182650  0b8864c37a1e49acdab8d801d66a0b2c7744b80f6898d79196c69d673c4f1a0f
-2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html  148620  cacd167c27143980660b34189644400380f3c6f9f7d6bfdddd88f4ffd1c1ce0b
-2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html  166723  19f59a6e1c2f2715dda33d310aa4ea094f50622eb3a35b4c127193611ee7b747
-2026-09-02_ca_hcai_newsroom_CONTROL.html  150605  2271314782eed4690a64430afe9ddd23548205d6d7a5b5f110e7bfabe6668bc1
+2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182674  6604ac895cc002075e431c5b15d8a2f0a24e819e491271cff8c36f6cdbf16fe0
+2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html  148552  93537609ea15494e8f452df35d94a14446b5d5210355846aa2de282feec34d3e
+2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html  179610  fbbc7c5f0b4458581b0338fd58d6db086e2f5d27268b2b898f66bc7cc333994f
+2026-09-02_ca_hcai_newsroom_CONTROL.html  150629  437a4314d99683aceebde9ae7c18ce198c59d99babfc9c094e6c439c5b7623a2

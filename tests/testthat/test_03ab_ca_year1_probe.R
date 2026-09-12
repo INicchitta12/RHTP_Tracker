@@ -505,3 +505,86 @@ test_that("the RHPC pages are watched LIVE, not only offline", {
   body <- paste(deparse(ca_probe), collapse = " ")
   expect_true(grepl("ca_assert_rhpc_is_governance", body, fixed = TRUE))
 })
+
+# -- session 46: the third digest mechanism, and why the nav stays in ---------
+
+test_that("the THIRD mechanism moves every watched page at once, and it is the nav", {
+  # Measured 2026-09-12, on the watch's fourth firing. HCAI renamed a label in
+  # its SITE-WIDE navigation menu -- 'Reproductive Health Care Access
+  # Initiative' -> 'Reproductive Health and Gender Affirming Care Programs' --
+  # so all five probed pages AND the SRHRP control reported CHANGED in one run,
+  # each by EXACTLY +12 characters of reduced text. Nothing about RHTP moved.
+  #
+  # The two mechanisms above are per-render noise a reduction can absorb. This
+  # one is a REAL, PERSISTENT content change on every page of the estate, so it
+  # cannot be absorbed -- only re-baselined.
+  old_label <- "Reproductive Health Care Access Initiative"
+  new_label <- "Reproductive Health and Gender Affirming Care Programs"
+  expect_equal(nchar(new_label) - nchar(old_label), 12L)
+
+  for (key in CA_PROBE_KEYS) {
+    raw <- readBin(ca_path(key), "raw", file.size(ca_path(key)))
+    # every watched page carries the renamed label, because the menu is global
+    expect_true(grepl(new_label, ca_reduce_html(raw), fixed = TRUE),
+                info = key)
+    # and rolling it back moves the CONTENT digest, not just the bytes: this is
+    # the mechanism reporting CHANGED, reproduced offline
+    rolled <- charToRaw(gsub(new_label, old_label, rawToChar(raw), fixed = TRUE))
+    expect_false(identical(ca_content_digest(raw), ca_content_digest(rolled)),
+                 info = key)
+    expect_equal(nchar(ca_reduce_html(raw)) - nchar(ca_reduce_html(rolled)), 12L,
+                 info = key)
+  }
+})
+
+test_that("the reduction KEEPS the navigation, so an award link in it is catchable", {
+  # THE DECISION, NOT AN ACCIDENT. Discarding the global menu would silence the
+  # mechanism above for good -- and would also silence a new 'CalRHT Awardees'
+  # menu item, which is the first place an award page would be linked from. So
+  # the noise is paid for on the baseline side and the nav stays in scope.
+  raw <- readBin(ca_path("calrht"), "raw", file.size(ca_path("calrht")))
+  txt <- ca_reduce_html(raw)
+
+  # menu items from elsewhere on HCAI's estate survive the reduction
+  expect_true(grepl("Hospital Fair Billing", txt, fixed = TRUE))
+  expect_true(grepl("CalRx Program", txt, fixed = TRUE))
+
+  # and an award link planted in the menu reaches the tripwire
+  planted <- charToRaw(sub("Hospital Fair Billing",
+                           "CalRHT Awardees have been awarded",
+                           rawToChar(raw), fixed = TRUE))
+  expect_false(identical(ca_content_digest(raw), ca_content_digest(planted)))
+  expect_error(ca_assert_rhpc_is_governance(rhpc = ca_reduce_html(planted)),
+               regexp = "awarded|award")
+})
+
+test_that("the MANIFEST's standing claims are derived, never typed", {
+  # Session 45 found this manifest still asserting session 34's RETRACTED claim
+  # that a file digest was the change test, because ca_write_manifest() was
+  # corrected and --fetch was never re-run. Two more typed values had gone the
+  # same way by session 46: a character count and an archive date.
+  man <- readLines(file.path(CA_EVIDENCE_DIR, "MANIFEST.txt"), warn = FALSE)
+  one <- paste(man, collapse = "\n")
+
+  # the governance pages were added in session 45, not 36
+  expect_true(any(grepl("ADDED SESSION 45", man, fixed = TRUE)))
+  expect_false(any(grepl("ADDED SESSION 36", man, fixed = TRUE)))
+
+  # the character count matches the archive it describes, whatever it is today
+  calrht <- readBin(ca_path("calrht"), "raw", file.size(ca_path("calrht")))
+  expect_true(grepl(paste0("reduces to ",
+                           format(nchar(ca_reduce_html(calrht)), big.mark = ",")),
+                    one, fixed = TRUE))
+
+  # no single archive date is claimed for a set of files refreshed on many days
+  expect_false(grepl("This archive was taken", one, fixed = TRUE))
+  expect_true(grepl("bytes were last refreshed", one, fixed = TRUE))
+
+  # and the retracted session-34 claim has not come back
+  expect_false(grepl("digests are STABLE", one, fixed = TRUE))
+  expect_true(grepl("FILE DIGESTS ARE NOT A CHANGE TEST", one, fixed = TRUE))
+
+  # the third mechanism is written down where the next reader will meet it
+  expect_true(grepl("Gender Affirming", one, fixed = TRUE))
+  expect_true(grepl("NOT REDUCED AWAY", one, fixed = TRUE))
+})
