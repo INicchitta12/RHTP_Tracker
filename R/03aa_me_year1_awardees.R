@@ -1510,6 +1510,35 @@ rhtp_me_write_xlsx <- function(awards, cohort, status, dispo) {
 #' is strictly the more sensitive test, and Wisconsin's and California's
 #' reductions exist because their hosts made the file digest USELESS, not
 #' merely noisy.
+#'
+#' AND 2026-09-15 NAMED THE MECHANISM, WHICH IS THE FIRST THING THIS HOST DOES
+#' THAT IS NOT A ONE-OFF EDIT: DRUPAL'S ASSET CACHE-BUSTING QUERY STRING.
+#' Across three consecutive scheduled probes -- 2026-09-08, -09-11 and -09-15 --
+#' the RHEF and programme pages moved their FILE digest twice while their
+#' REDUCED TEXT NEVER CHANGED AT ALL, and the entire difference is SIX LINES
+#' carrying one shared six-character token:
+#'
+#'   dhhs.maine.gov  `gtm.js?tjppp4` -> `gtm.js?tl7o9a`, 3 occurrences per page
+#'                   and THE SAME VALUE ON BOTH PAGES -- so it is Drupal's
+#'                   site-wide `system.css_js_query_string`, re-rolled when the
+#'                   site's asset cache is flushed, not anything per-page.
+#'   maine.gov/doe   `?tl5sr7` -> `?tleqmx`, its own token, PLUS the aggregated
+#'                   CSS filename hash (`css_Qq1Xz...nFk.css` ->
+#'                   `css_Kaj86...dhI.css`) -- which is why the DOE page's BYTE
+#'                   COUNT moves and the two DHHS pages' does not.
+#'
+#' THE TOKEN IS FIXED-WIDTH, SO A BYTE-COUNT CHECK PASSES IT: the RHEF page is
+#' 29,933 bytes on all three runs and its digest moved anyway. That is
+#' Arkansas's fixed-length WordPress token (session 40) on a second platform.
+#'
+#' AND IT IS NOT A PER-REQUEST NONCE, WHICH IS THE MEASUREMENT THAT KEEPS THE
+#' FILE DIGEST. Three fetches of each page FIVE SECONDS APART returned ONE
+#' digest per page on all three, so the rotation is per CACHE FLUSH -- days
+#' apart -- and not per request. Nevada, Missouri, Wisconsin and California
+#' rotate on EVERY fetch, which is what makes their file digests useless;
+#' Maine's fires about once per flush. Still a cheap false positive, still
+#' strictly more sensitive than a content digest, and still NOT to be replaced
+#' by one.
 me_probe <- function() {
   watched <- c("rhef", "doe", "programme", "mcd")
   message("[ME] LIVE probe, ", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"))
