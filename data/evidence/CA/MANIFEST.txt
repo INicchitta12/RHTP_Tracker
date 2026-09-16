@@ -12,7 +12,30 @@ grant opportunities are all headed '(Closed)' and none names a recipient.
 Their own grant guides put award notification in AUGUST / SEPTEMBER 2026
 and grant agreements in SEPTEMBER / OCTOBER 2026; WDRR's application
 window closed AUGUST 31, 2026. The file names carry the date each source
-was FIRST archived; these bytes were last refreshed 2026-09-12.
+was FIRST archived; these bytes were last refreshed 2026-09-16.
+
+TWO REVISIONS OF ONE AWARD ARE ARCHIVED, AND BOTH STAY (session 47).
+  HCAI relabelled its Notice of Award from '(March 31, 2026)' to
+  '(August 28, 2026)' between 09-12 and 09-16, and the document behind
+  it is a different one: RHTCMS332078-01-04, Federal Award Date
+  08/28/2026, Award Action Type 'Revision (NoA Other)' -- a THIRD action
+  type, where every NOA here reads 'New' or 'Revision (Budget)'.
+  IT MOVES NO MONEY AND NO DATE THAT MATTERS. Its own Remarks field:
+  'This notice of award approves the key personnel change per the
+  recipient requests. Michael Valle is now listed as the Authorized
+  Organizational Representative (AOR). All other terms and conditions
+  remain in effect.' The budget period still starts 12/29/2025 and the
+  total is still $233,639,308.47, to the cent, on both documents.
+  SO THE FEDERAL AWARD DATE HAS DRIFTED +92 -> +242 DAYS PAST THE
+  ANCHOR ON ONE AWARD, for a reason that is neither the award nor the
+  budget nor a recipient -- wider than Connecticut's +206. Session 36
+  pinned the anchor to the BUDGET PERIOD START from three states'
+  revised documents and argued the gap would grow with every revision;
+  this is that growth observed twice on a single state. -01-02 is kept
+  rather than replaced, because the drift is only measurable against
+  the revision it drifted from (Alaska's rule, Iowa's 18093/18330).
+  Its approved budget puts $223,227,780.00 -- 95.5% of the award -- in
+  CONTRACTUAL, which is a budget line and names nobody (§0.2, §0.3).
 
 THE §6.2 ANCHOR IS CMS'S OWN NOTICE OF AWARD, NOT A FOOTER QUOTING ONE.
   2026-03-31_ca_cms_notice_of_award_revised.pdf is CMS's own form:
@@ -76,10 +99,16 @@ byte-identical -- but two fetches HALF AN HOUR apart need not be:
   * the newsroom re-rolls WordPress antispambot() email entities on every
     render -- same length, different bytes, identical rendered text.
 The reduced text is IDENTICAL across both variants of both pages (the programme
-page reduces to 11,224 characters as archived), so --probe compares a
+page reduces to 11,219 characters as archived), so --probe compares a
 CONTENT digest via ca_reduce_html(), the same reduction the assertions
 read. robots.txt is 404, so no crawler policy is on offer and none is
 being declined.
+
+AND THE GLOBAL MENU MOVED A SECOND TIME, 2026-09-16: a Data Resources
+item went from 'Financial Health of California Hospitals' to 'Inpatient
+Hospital Costs by Region', -6 characters on every page again. So the
+mechanism below is RECURRING rather than a one-off, and the decision not
+to reduce the navigation away is re-taken each time it fires.
 
 AND A THIRD MECHANISM, MEASURED 2026-09-12, WHICH IS THE FIRST THAT MOVES
 EVERY WATCHED PAGE AT ONCE: HCAI RENAMED A GLOBAL NAVIGATION LABEL.
@@ -98,15 +127,16 @@ every award tripwire passed.
   that cries wolf trains its reader to ignore the run that matters).
 
 file  bytes  sha256
-2026-09-02_ca_hcai_calrht_programme.html  158222  f7a0b9814d3f600929fe0223fbda1b2a677cb5606ce223799b4b1d23edcd151c
-2026-09-02_ca_hcai_calrht_funding_opportunities.html  167462  fafe4c71fe7cd8cd32a46034b66867c0ea26def9dd7e356697315eba076b2dd3
+2026-09-02_ca_hcai_calrht_programme.html  158207  6d7285a4c45d650bc9f0e3d32cbbc019d6b2c85a54aa66e0919d28feacaa79c4
+2026-09-02_ca_hcai_calrht_funding_opportunities.html  167450  e9edc41e2baff0a3d584a89fc44073fa9ac02e52d040f9d4fbff6719ce8680ab
 2026-03-31_ca_cms_notice_of_award_revised.pdf  3474145  827bfe756ba8e077dd144e21897c0c1398ab2fd01f90614c686a48e46ec24f15
+2026-08-28_ca_cms_notice_of_award_r04.pdf  1980950  9b8ae91d0fa6e0071928ffb55b3132976f631e0e85ac3973d5de9a2a2dd80c23
 2026-03-27_ca_calrht_budget_narrative.pdf  930118  0871944d3bc9c096707f0631ae0e8bd8e6cf58b2df6986afc5f7c74c3f2a1168
 2026-06-30_ca_calrht_accelerator_partners_grant_guide.pdf  389401  0db27d8ae07b3ea4252bb7a85f8532cd0b1fa751eb82c1da9971bbf507cc3cef
 2026-09-02_ca_calrht_wdrr_grant_guide.pdf  508001  142b296f79bd113a2371c6ec0acc9a96c41994977be1b42dd843a0ec5908fee7
 2026-09-02_ca_calrht_ehr_modernization_grant_guide.pdf  368343  09071722b8b96fe9db88215642de9e7dd1c3443a557caef85cf609af43cb04ee
 2026-09-02_ca_calrht_expand_support_workforce_grant_guide.pdf  351784  72bc79483a35ec879ea9aa6b9d863f4b0fb760fa2edc0e67189eb0bfecfca046
-2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182674  6604ac895cc002075e431c5b15d8a2f0a24e819e491271cff8c36f6cdbf16fe0
-2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html  148552  93537609ea15494e8f452df35d94a14446b5d5210355846aa2de282feec34d3e
-2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html  179610  fbbc7c5f0b4458581b0338fd58d6db086e2f5d27268b2b898f66bc7cc333994f
-2026-09-02_ca_hcai_newsroom_CONTROL.html  150629  437a4314d99683aceebde9ae7c18ce198c59d99babfc9c094e6c439c5b7623a2
+2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182662  3095da8dd07de2246ddf89820b87d22ac6debc2db00abdb396c94d932de2bb4f
+2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html  148540  59162cb5c80da0d82ec1c4a1fb0a7aaea5f60fdd91ea0e36a5464a30249f9269
+2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html  179598  868df4d1d714518009b9f1e25f211369f7c84ed3a8b024ea5d7429823cea5f77
+2026-09-02_ca_hcai_newsroom_CONTROL.html  150607  41b03eac3b80e2daddd4f3e2dd4020db65ad79103ce85892cd168e919bf9dd14

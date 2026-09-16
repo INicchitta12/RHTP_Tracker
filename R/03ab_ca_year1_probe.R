@@ -156,6 +156,17 @@ CA_SOURCES <- tibble::tribble(
   paste0("https://hcai.ca.gov/wp-content/uploads/2026/04/",
          "NOA_Rural-Health-Transformation-2026-Revised-1.pdf"),
 
+  # REVISION 04, ADDED SESSION 47, AND -01-02 STAYS. Alaska's rule (a rolling
+  # document's movement is only measurable against the snapshot it moved from)
+  # and Iowa's (18093 is superseded by 18330 and both stay). HCAI serves this
+  # one from a STABLE landing path rather than a dated upload, so the URL below
+  # will fetch revision 05 the day CMS issues it -- which is why the file name
+  # carries the revision and `ca_assert_noa_label_current()` watches the
+  # programme page's own label.
+  "cms_noa_r04",
+  "2026-08-28_ca_cms_notice_of_award_r04.pdf",
+  "https://hcai.ca.gov/document/calrht-notice-of-award/",
+
   "budget",
   "2026-03-27_ca_calrht_budget_narrative.pdf",
   paste0("https://hcai.ca.gov/wp-content/uploads/2026/05/",
@@ -199,6 +210,33 @@ CA_SOURCES <- tibble::tribble(
   "https://hcai.ca.gov/media-center/"
 )
 
+# CMS'S OWN NOA, ONE ROW PER REVISION, BECAUSE THE FIELDS THAT MOVE ARE THE
+# WHOLE POINT (session 47). Session 36 pinned the project's NOA anchor to the
+# BUDGET PERIOD START and not to "Federal Award Date", arguing from three
+# states' revised documents that the latter is the date of the LATEST REVISION
+# and that "the error grows with every revision". California is where that
+# stopped being an inference: the SAME award moved 03/31/2026 -> 08/28/2026
+# between two revisions, +92 days to +242, and its budget period start did not
+# move at all. Overwriting the old row would have hidden exactly that.
+CA_NOA_REVISIONS <- tibble::tribble(
+  ~key,          ~award_number,          ~federal_award_date, ~action_type,
+  "cms_noa",     "RHTCMS332078-01-02",   "03/31/2026",        "Revision (Budget)",
+  "cms_noa_r04", "RHTCMS332078-01-04",   "08/28/2026",        "Revision (NoA Other)"
+)
+
+# WHAT NEITHER REVISION MAY CHANGE. Every one of these is asserted against
+# BOTH archived documents, so a future revision that moves any of them is a
+# finding about California's award rather than about its paperwork.
+CA_NOA_INVARIANT <- c(
+  listing      = "Rural Health Transformation Program",
+  recipient    = "CALIFORNIA DEPARTMENT OF HEALTH CARE ACCESS AND INFORMATION",
+  fain         = "RHTCMS332078",
+  amount       = "$233,639,308.47",
+  al_number    = "93.798",
+  budget_start = "12/29/2025",
+  budget_end   = "10/30/2026"
+)
+
 CA_STATED <- list(
   cms_allotment_anchor = 233639308,
   noa_amount           = "$233,639,308.47",
@@ -238,14 +276,6 @@ CA_PROGRAMME_SCOPED <- c(
 CA_FOOTER_STRONG <- "The CalRHT program is supported by the Centers for Medicare & Medicaid Services"
 
 # CMS's OWN NOTICE OF AWARD -- the §6.2 anchor, stronger than any footer.
-CA_NOA_MARKERS <- c(
-  listing   = "Rural Health Transformation Program",
-  recipient = "CALIFORNIA DEPARTMENT OF HEALTH CARE ACCESS AND INFORMATION",
-  award_no  = "RHTCMS332078-01-02",
-  amount    = "$233,639,308.47",
-  al_number = "93.798"
-)
-
 # EVERY CalRHT OPPORTUNITY IS CLOSED AND UNAWARDED, IN HCAI'S OWN MARKUP. The
 # heading suffix is what `ca_assert_no_award_roster()` counts, and it is
 # DESIGNED TO FAIL the day the count moves -- in either direction.
@@ -437,6 +467,29 @@ ca_write_manifest <- function(entries) {
            "source"),
     paste0("was FIRST archived; these bytes were last refreshed ", taken, "."),
     "",
+    "TWO REVISIONS OF ONE AWARD ARE ARCHIVED, AND BOTH STAY (session 47).",
+    "  HCAI relabelled its Notice of Award from '(March 31, 2026)' to",
+    "  '(August 28, 2026)' between 09-12 and 09-16, and the document behind",
+    "  it is a different one: RHTCMS332078-01-04, Federal Award Date",
+    "  08/28/2026, Award Action Type 'Revision (NoA Other)' -- a THIRD action",
+    "  type, where every NOA here reads 'New' or 'Revision (Budget)'.",
+    "  IT MOVES NO MONEY AND NO DATE THAT MATTERS. Its own Remarks field:",
+    "  'This notice of award approves the key personnel change per the",
+    "  recipient requests. Michael Valle is now listed as the Authorized",
+    "  Organizational Representative (AOR). All other terms and conditions",
+    "  remain in effect.' The budget period still starts 12/29/2025 and the",
+    "  total is still $233,639,308.47, to the cent, on both documents.",
+    "  SO THE FEDERAL AWARD DATE HAS DRIFTED +92 -> +242 DAYS PAST THE",
+    "  ANCHOR ON ONE AWARD, for a reason that is neither the award nor the",
+    "  budget nor a recipient -- wider than Connecticut's +206. Session 36",
+    "  pinned the anchor to the BUDGET PERIOD START from three states'",
+    "  revised documents and argued the gap would grow with every revision;",
+    "  this is that growth observed twice on a single state. -01-02 is kept",
+    "  rather than replaced, because the drift is only measurable against",
+    "  the revision it drifted from (Alaska's rule, Iowa's 18093/18330).",
+    "  Its approved budget puts $223,227,780.00 -- 95.5% of the award -- in",
+    "  CONTRACTUAL, which is a budget line and names nobody (§0.2, §0.3).",
+    "",
     "THE §6.2 ANCHOR IS CMS'S OWN NOTICE OF AWARD, NOT A FOOTER QUOTING ONE.",
     "  2026-03-31_ca_cms_notice_of_award_revised.pdf is CMS's own form:",
     "  recipient CALIFORNIA DEPARTMENT OF HEALTH CARE ACCESS AND INFORMATION,",
@@ -505,6 +558,12 @@ ca_write_manifest <- function(entries) {
     "CONTENT digest via ca_reduce_html(), the same reduction the assertions",
     "read. robots.txt is 404, so no crawler policy is on offer and none is",
     "being declined.",
+    "",
+    "AND THE GLOBAL MENU MOVED A SECOND TIME, 2026-09-16: a Data Resources",
+    "item went from 'Financial Health of California Hospitals' to 'Inpatient",
+    "Hospital Costs by Region', -6 characters on every page again. So the",
+    "mechanism below is RECURRING rather than a one-off, and the decision not",
+    "to reduce the navigation away is re-taken each time it fires.",
     "",
     "AND A THIRD MECHANISM, MEASURED 2026-09-12, WHICH IS THE FIRST THAT MOVES",
     "EVERY WATCHED PAGE AT ONCE: HCAI RENAMED A GLOBAL NAVIGATION LABEL.",
@@ -648,36 +707,123 @@ ca_noa_anchor <- function() {
 #' footer quoting it; California is the second. Every field below is read out
 #' of CMS's own form.
 #'
-#' AND IT CARRIES TWO DATES THAT MUST NOT BE CONFUSED. The Federal Award Date
-#' is 03/31/2026 and the Award Action Type is "Revision (Budget)" -- CMS
-#' approving a revised budget and lifting a $50,000,000 restriction. The BUDGET
-#' PERIOD still starts 12/29/2025, which is the project's own NOA anchor in
-#' `cms_state_noa_dates.csv`. A date test keyed on the words "Federal Award
-#' Date" would read California's award as three months later than every other
-#' state's and quarantine work that predates the revision. §0.2's lesson on a
-#' new axis: two official dates on one document, and only the scope separates
-#' them.
-ca_assert_noa_is_cms_award <- function(noa = NULL) {
-  if (is.null(noa)) noa <- ca_pdf_text("cms_noa")
-  for (nm in names(CA_NOA_MARKERS)) {
-    if (!stringr::str_detect(noa, stringr::fixed(CA_NOA_MARKERS[[nm]]))) {
-      stop("[CA] the archived Notice of Award no longer carries '", nm,
-           "' (", CA_NOA_MARKERS[[nm]], "). It is the §6.2 anchor for the ",
-           "whole state.", call. = FALSE)
+#' AND CALIFORNIA NOW PUBLISHES TWO REVISIONS OF ONE AWARD, WHICH IS WHAT MAKES
+#' SESSION 36's DATE PIN MEASURABLE RATHER THAN ARGUED (session 47):
+#'
+#'                   -01-02                    -01-04
+#'   Federal Award   03/31/2026  (+92 days)    08/28/2026  (+242 days)
+#'   Action Type     Revision (Budget)         Revision (NoA Other)
+#'   Budget period   12/29/2025 - 10/30/2026   12/29/2025 - 10/30/2026
+#'   Total           $233,639,308.47           $233,639,308.47
+#'   Remarks         revised budget, and       "approves the key personnel
+#'                   lifting a $50,000,000     change ... Michael Valle is now
+#'                   restriction               listed as the Authorized
+#'                                             Organizational Representative
+#'                                             ... All other terms and
+#'                                             conditions remain in effect."
+#'
+#' SO THE LATER DOCUMENT MOVES NO MONEY AND NO DATE THAT MATTERS. It renames an
+#' official. A date test keyed on the words "Federal Award Date" would now read
+#' California's award as EIGHT MONTHS late -- wider than Connecticut's +206 and
+#' for a reason that has nothing to do with the award, the budget, or a
+#' recipient. The budget period start is the anchor, on both documents.
+#'
+#' AND "Revision (NoA Other)" IS A THIRD ACTION TYPE. Every NOA this project
+#' holds reads "New" (Kentucky) or "Revision (Budget)" (NV/CA/CT/WY), so a
+#' check that pinned the string "Revision (Budget)" as the thing keeping the
+#' Federal Award Date honest was pinning one revision's wording. The invariant
+#' is that the document is a REVISION of this FAIN whose budget period has not
+#' moved -- not which kind of revision it is.
+ca_assert_noa_is_cms_award <- function(noa = NULL, key = "cms_noa") {
+  if (!key %in% CA_NOA_REVISIONS$key) {
+    stop("[CA] unknown Notice of Award revision key: ", key, call. = FALSE)
+  }
+  if (is.null(noa)) noa <- ca_pdf_text(key)
+  rev <- CA_NOA_REVISIONS[CA_NOA_REVISIONS$key == key, ]
+
+  for (nm in names(CA_NOA_INVARIANT)) {
+    if (!stringr::str_detect(noa, stringr::fixed(CA_NOA_INVARIANT[[nm]]))) {
+      stop("[CA] Notice of Award ", rev$award_number, " no longer carries '",
+           nm, "' (", CA_NOA_INVARIANT[[nm]], "). It is the §6.2 anchor for ",
+           "the whole state, and every revision must agree on it.",
+           call. = FALSE)
     }
   }
-  if (!stringr::str_detect(noa, stringr::fixed(CA_STATED$noa_budget_start))) {
-    stop("[CA] the Notice of Award no longer carries its budget period start ",
-         CA_STATED$noa_budget_start, ", which is the 2025-12-29 anchor.",
-         call. = FALSE)
-  }
-  if (!stringr::str_detect(noa, stringr::fixed(CA_STATED$noa_action_type))) {
-    stop("[CA] the Notice of Award no longer calls itself '",
-         CA_STATED$noa_action_type, "'. That word is what keeps its ",
-         "03/31/2026 Federal Award Date from being read as the award date.",
-         call. = FALSE)
+  for (nm in c("award_number", "federal_award_date", "action_type")) {
+    if (!stringr::str_detect(noa, stringr::fixed(rev[[nm]]))) {
+      stop("[CA] Notice of Award ", key, " no longer carries its ", nm, " (",
+           rev[[nm]], "). The per-revision fields are what make the ",
+           "Federal Award Date's drift measurable (§6.2, session 36).",
+           call. = FALSE)
+    }
   }
   invisible(TRUE)
+}
+
+#' EVERY archived revision, checked -- and the drift priced
+#'
+#' The wrapper exists so that adding a revision to `CA_NOA_REVISIONS` without
+#' archiving it, or archiving one whose invariants disagree with the other's,
+#' stops the build rather than being averaged away.
+ca_assert_noa_revisions <- function() {
+  for (k in CA_NOA_REVISIONS$key) ca_assert_noa_is_cms_award(key = k)
+
+  # ca_noa_anchor() returns the anchor as CHARACTER (it is read out of
+  # cms_state_noa_dates.csv and compared as a string elsewhere), so it is
+  # parsed here rather than subtracted directly.
+  anchor <- as.Date(ca_noa_anchor())
+  gaps <- as.integer(
+    as.Date(CA_NOA_REVISIONS$federal_award_date, format = "%m/%d/%Y") - anchor)
+  if (any(gaps <= 0L)) {
+    stop("[CA] a Notice of Award revision does not POSTDATE the ",
+         anchor, " anchor, which is the premise session 36 pinned.",
+         call. = FALSE)
+  }
+  if (!identical(gaps, sort(gaps)) ||
+      length(unique(gaps)) != length(gaps)) {
+    stop("[CA] the NOA revisions are not in strictly increasing Federal ",
+         "Award Date order. Keep them in issue order: the growth of that gap ",
+         "IS the finding (+", paste(gaps, collapse = ", +"), " days).",
+         call. = FALSE)
+  }
+  invisible(gaps)
+}
+
+#' LIVE: has CMS issued a revision we have not archived?
+#'
+#' THIS EXISTS BECAUSE THE WATCH DID NOT CATCH REVISION 04 BY DESIGN -- it
+#' caught it by luck. `cms_noa` is not in `CA_PROBE_KEYS` (a PDF has no
+#' `ca_reduce_html()` reduction), so nothing watched the document itself; what
+#' surfaced the change was the programme page's own label moving from "CalRHT
+#' Notice of Award (March 31, 2026)" to "(August 28, 2026)" inside a reduced
+#' text diff nobody was required to read.
+#'
+#' HCAI dates that label itself, on a page the probe already fetches, so the
+#' cheapest honest tripwire is to require the label to name a revision this
+#' repository HOLDS. It fires the day CMS issues revision 05.
+ca_assert_noa_label_current <- function(calrht = NULL) {
+  if (is.null(calrht)) calrht <- ca_html_text("calrht")
+  label <- stringr::str_match(
+    calrht, "CalRHT Notice of Award \\(([A-Z][a-z]+ [0-9]{1,2}, [0-9]{4})\\)")[, 2]
+  if (is.na(label)) {
+    stop("[CA] the CalRHT programme page no longer carries a dated 'CalRHT ",
+         "Notice of Award (<date>)' label. That label is the only thing ",
+         "watching CMS's own award document for a new revision.",
+         call. = FALSE)
+  }
+  held <- format(as.Date(CA_NOA_REVISIONS$federal_award_date,
+                         format = "%m/%d/%Y"), "%B %e, %Y")
+  held <- stringr::str_squish(gsub("  ", " ", held))
+  if (!stringr::str_squish(label) %in% held) {
+    stop("[CA] HCAI now labels its Notice of Award '", label, "', and this ",
+         "repository holds only ", paste(held, collapse = " and "), ". CMS ",
+         "has issued a revision nobody has read: archive it as a NEW source ",
+         "beside the others (never in place of them) and add a row to ",
+         "CA_NOA_REVISIONS. If it moves the budget period or the amount, ",
+         "that is a finding about the AWARD and not about the paperwork.",
+         call. = FALSE)
+  }
+  invisible(label)
 }
 
 #' The provenance, from PROGRAMME-SCOPED sentences (session 27's axis)
@@ -1069,7 +1215,8 @@ ca_assert_no_award_file <- function() {
 }
 
 rhtp_ca_assert <- function(strict_footer = FALSE) {
-  ca_assert_noa_is_cms_award()
+  ca_assert_noa_revisions()
+  ca_assert_noa_label_current()
   ca_assert_programme_provenance()
   ca_assert_footer_corroborates(strict = strict_footer)
   ca_assert_after_noa()
@@ -1418,6 +1565,7 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   ca_assert_programme_provenance(calrht = txt$calrht)
   ca_assert_newsroom_control(news = txt$newsroom)
   ca_assert_rhpc_is_governance(rhpc = txt$rhpc, members = txt$rhpc_members)
+  ca_assert_noa_label_current(calrht = txt$calrht)
   message("[CA] the award tripwires pass against the LIVE bytes: California ",
           "has not published a recipient-level RHTP award roster.")
   if (length(changed)) {

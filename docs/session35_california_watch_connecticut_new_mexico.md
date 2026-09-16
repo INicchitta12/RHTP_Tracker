@@ -531,3 +531,128 @@ own staleness check could not see that. The remedy is to merge the branch; the
 lesson is that a guard keyed on a function's *existence* does not detect a
 *stale* implementation, and the next probe prompt should pin something that
 moves when the file does.
+
+---
+
+## 7. The watch's fifth firing, 2026-09-16 — CMS REVISED CALIFORNIA'S NOTICE OF AWARD, AND IT IS PAPERWORK
+
+All five pages reported CHANGED again. Two separate things, and only one of
+them matters.
+
+### 7.1 The global menu moved a second time, so §6.2's mechanism RECURS
+
+A Data Resources item went from *"Financial Health of California Hospitals"* to
+*"Inpatient Hospital Costs by Region"* — **−6 characters on every one of the six
+archived HTML sources**, the same shape as the 09-12 nav rename (+12). So HCAI
+edits its global navigation often enough that this is a **recurring** false
+positive rather than a one-off, and the decision in §6.3 above — *do not reduce
+the navigation away, because a new "CalRHT Awardees" item is the first place an
+award page would be linked from* — is re-taken rather than re-argued each time
+it fires. A test now pins both edits.
+
+### 7.2 AND ONE CHANGE ON THE CALRHT PAGE ALONE: THE NOA LABEL
+
+`calrht` moved −5 where every other page moved −6, and the extra character is
+the finding. HCAI's own Additional Resources list relabelled one document:
+
+> CalRHT Notice of Award **(March 31, 2026)** → CalRHT Notice of Award
+> **(August 28, 2026)**
+
+The link is a stable landing path (`/document/calrht-notice-of-award/`) that
+serves the PDF directly, so **the document behind an unchanged URL had been
+replaced**. It is archived as a new source, `cms_noa_r04`, and **`-01-02` is
+kept** — Alaska's rule (a rolling document's movement is only measurable
+against the snapshot it moved from) and Iowa's (18093 is superseded by 18330
+and both stay). Re-fetched from its own dated upload URL, `-01-02` comes back
+**byte-identical**, which is what makes holding both honest.
+
+| | `-01-02` (archived) | `-01-04` (new) |
+|---|---|---|
+| Award # | RHTCMS332078-01-02 | **RHTCMS332078-01-04** |
+| Federal Award Date | 03/31/2026 (**+92 days**) | **08/28/2026 (+242 days)** |
+| Award Action Type | Revision (Budget) | **Revision (NoA Other)** |
+| Budget period | 12/29/2025 – 10/30/2026 | 12/29/2025 – 10/30/2026 |
+| Total | $233,639,308.47 | $233,639,308.47 |
+
+**IT MOVES NO MONEY AND NO DATE THAT MATTERS, AND ITS OWN REMARKS FIELD SAYS
+SO**: *"This notice of award approves the key personnel change per the
+recipient requests. Michael Valle is now listed as the Authorized
+Organizational Representative (AOR). All other terms and conditions remain in
+effect."* The amount agrees **to the cent** and the budget period **to the
+day**. Nothing about California's award changed; an official was renamed.
+
+### 7.3 WHICH MAKES SESSION 36's DATE PIN MEASURED RATHER THAN ARGUED
+
+Session 36 pinned the project's NOA anchor to the **budget period start** and
+not to the field labelled *"Federal Award Date"*, reasoning from **three
+states'** revised documents that the latter is the date of the **latest
+revision** and that *"the error grows with every revision"*. That was an
+inference across states. **California is now the same award, twice:**
+
+```
+anchor (budget period start)   2025-12-29   -- has NOT moved
+-01-02  Federal Award Date     03/31/2026   +92 days
+-01-04  Federal Award Date     08/28/2026   +242 days
+```
+
+**+242 days is the widest gap in this repository**, past Connecticut's +206 —
+and it was produced by a revision that renamed an officer. A date test keyed on
+those three words would now read California's award as **eight months late** and
+quarantine every genuine California row. `ca_assert_noa_revisions()` asserts the
+gaps are strictly increasing and prints them, so the drift is recorded rather
+than overwritten.
+
+### 7.4 "Revision (NoA Other)" IS A THIRD ACTION TYPE, AND IT BREAKS A PINNED STRING
+
+Every NOA this project holds reads **"New"** (Kentucky, the only original) or
+**"Revision (Budget)"** (NV, CA, CT, WY). `-01-04` reads **"Revision (NoA
+Other)"**.
+
+The old `ca_assert_noa_is_cms_award()` pinned the literal `"Revision (Budget)"`
+as *"the word that keeps its 03/31/2026 Federal Award Date from being read as
+the award date"* — which was pinning **one revision's wording** to carry a
+general point. Against the live document that string is simply absent. The
+invariant is now stated as what it always was: **the document is a revision of
+this FAIN whose budget period and amount have not moved**, and *which kind* of
+revision it is lives in `CA_NOA_REVISIONS` as data, one row per document.
+`CA_NOA_MARKERS` is retired into `CA_NOA_INVARIANT` (shared) plus that table
+(per-revision).
+
+### 7.5 THE WATCH DID NOT CATCH THIS BY DESIGN — IT CAUGHT IT BY LUCK
+
+`cms_noa` is **not** in `CA_PROBE_KEYS`, and could not be: a PDF has no
+`ca_reduce_html()` reduction, so nothing in the probe watched CMS's own award
+document at all. What surfaced the change was the programme page's own dated
+label, inside a reduced-text diff **nobody was required to read** — the probe
+would have reported `calrht CHANGED` either way, and a reader who refreshed the
+baseline without diffing would have archived the new label and never opened the
+document.
+
+So the tripwire is now explicit and cheap. `ca_assert_noa_label_current()`
+parses HCAI's own *"CalRHT Notice of Award (<date>)"* label off a page the probe
+already fetches and **fails unless it names a revision this repository holds**.
+It runs against the LIVE bytes in `ca_probe()` (session 25's Indiana lesson) and
+fires the day CMS issues revision 05. Losing the label is also a failure rather
+than a pass, because the label is the only thing watching that document.
+
+### 7.6 One §0.3 note from the new document's budget table
+
+`-01-04`'s approved budget puts **$223,227,780.00 — 95.5% of the award — in
+CONTRACTUAL**, against $3,830,262.47 of personnel, $349,233 of supplies and
+$57,550 of travel; direct costs $227,464,825.47 plus $6,174,483 indirect close
+on $233,639,308.47 exactly. **That is a budget line and it names nobody.** It is
+where every California subaward will come from, and it is not a pool anyone has
+been awarded. The earlier revision is worth reading beside it: `-01-02` lifted a
+**$50,000,000 restriction** on contractual funds and requires *"a complete
+description and cost breakdown ... for each consultant, subrecipient, or
+contract upon selection"* — a CMS reporting obligation that may be what
+eventually produces California's roster.
+
+### 7.7 What moved
+
+- **`cms_noa_r04` archived; `-01-02` kept and byte-identical.** Six HTML
+  baselines refreshed for the menu swap and the label.
+- **Both CA CSVs rebuild BYTE-IDENTICAL.** No dollar, no row, no bucket moved,
+  in California or anywhere else.
+- All five watched pages report UNCHANGED after the refresh; tripwires pass.
+- `main` is **still at session 44** — see §6.6, unchanged and now four firings old.

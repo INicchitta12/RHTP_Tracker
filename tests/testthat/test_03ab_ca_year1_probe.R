@@ -588,3 +588,132 @@ test_that("the MANIFEST's standing claims are derived, never typed", {
   expect_true(grepl("Gender Affirming", one, fixed = TRUE))
   expect_true(grepl("NOT REDUCED AWAY", one, fixed = TRUE))
 })
+
+# -- session 47: two NOA revisions, and the drift that is the finding --------
+
+test_that("BOTH Notice of Award revisions are archived and both pass", {
+  # Alaska's rule and Iowa's: a document's movement is only measurable against
+  # the one it moved from, so -01-02 is KEPT rather than replaced by -01-04.
+  expect_setequal(CA_NOA_REVISIONS$key, c("cms_noa", "cms_noa_r04"))
+  for (k in CA_NOA_REVISIONS$key) {
+    expect_true(file.exists(ca_path(k)), info = k)
+    expect_silent(ca_assert_noa_is_cms_award(key = k))
+  }
+  expect_silent(ca_assert_noa_revisions())
+})
+
+test_that("the two revisions agree on every invariant and differ on the rest", {
+  # THE POINT: what a revision may move is paperwork; what it may not move is
+  # the award. Read out of both PDFs rather than asserted from the table.
+  r02 <- ca_pdf_text("cms_noa")
+  r04 <- ca_pdf_text("cms_noa_r04")
+
+  for (nm in names(CA_NOA_INVARIANT)) {
+    expect_true(stringr::str_detect(r02, stringr::fixed(CA_NOA_INVARIANT[[nm]])),
+                info = paste("r02", nm))
+    expect_true(stringr::str_detect(r04, stringr::fixed(CA_NOA_INVARIANT[[nm]])),
+                info = paste("r04", nm))
+  }
+  # the amount and the budget period are identical TO THE CENT and TO THE DAY
+  expect_true(stringr::str_detect(r04, stringr::fixed("$233,639,308.47")))
+  expect_true(stringr::str_detect(r04, stringr::fixed("12/29/2025")))
+  expect_true(stringr::str_detect(r04, stringr::fixed("10/30/2026")))
+
+  # and the per-revision fields are genuinely different documents
+  expect_true(stringr::str_detect(r02, stringr::fixed("RHTCMS332078-01-02")))
+  expect_false(stringr::str_detect(r02, stringr::fixed("RHTCMS332078-01-04")))
+  expect_true(stringr::str_detect(r04, stringr::fixed("RHTCMS332078-01-04")))
+  expect_false(stringr::str_detect(r04, stringr::fixed("RHTCMS332078-01-02")))
+  expect_false(stringr::str_detect(r04, stringr::fixed("03/31/2026")))
+})
+
+test_that("the later revision moves NO money and says so itself", {
+  # Its own Remarks field is what makes this a paperwork change rather than a
+  # finding about California's award.
+  r04 <- ca_pdf_text("cms_noa_r04")
+  expect_true(stringr::str_detect(r04, stringr::fixed(
+    "approves the key personnel change")))
+  expect_true(stringr::str_detect(r04, stringr::fixed(
+    "All other terms and conditions remain in effect")))
+  # "Revision (NoA Other)" is a THIRD action type: every other NOA in this
+  # repository reads "New" or "Revision (Budget)".
+  expect_true(stringr::str_detect(r04, stringr::fixed("Revision (NoA Other)")))
+  expect_false(stringr::str_detect(r04, stringr::fixed("Revision (Budget)")))
+
+  # 95.5% of the award sits in CONTRACTUAL, and that is a budget line naming
+  # nobody -- not a roster, not a pool anyone has been awarded (§0.2, §0.3).
+  expect_true(stringr::str_detect(r04, stringr::fixed("$223,227,780.00")))
+  expect_true(stringr::str_detect(r04, stringr::fixed("$227,464,825.47")))
+  # the approved budget closes on the award total
+  expect_equal(227464825.47 + 6174483.00, 233639308.47)
+})
+
+test_that("SESSION 36'S DATE PIN IS NOW MEASURED TWICE ON ONE STATE", {
+  # Session 36 pinned the anchor to the budget period start and argued from
+  # THREE states' revised documents that "the error grows with every
+  # revision". California is the same award, twice, and the gap grew.
+  gaps <- ca_assert_noa_revisions()
+  expect_equal(gaps, c(92L, 242L))
+  # wider than Connecticut's +206, which was the widest on record
+  expect_gt(max(gaps), 206L)
+  # and the anchor itself has NOT moved
+  expect_equal(ca_noa_anchor(), "2025-12-29")
+})
+
+test_that("a revision that moved the amount or the budget period would FAIL", {
+  # The counterfactual, driven: the invariants are what separate a paperwork
+  # revision from a finding about the award.
+  r04 <- ca_pdf_text("cms_noa_r04")
+  moved_amount <- stringr::str_replace_all(
+    r04, stringr::fixed("$233,639,308.47"), "$199,000,000.00")
+  expect_error(ca_assert_noa_is_cms_award(noa = moved_amount, key = "cms_noa_r04"),
+               regexp = "amount")
+  moved_period <- stringr::str_replace_all(
+    r04, stringr::fixed("12/29/2025"), "08/28/2026")
+  expect_error(ca_assert_noa_is_cms_award(noa = moved_period, key = "cms_noa_r04"),
+               regexp = "budget_start")
+  # and a key that is not an archived revision is refused rather than guessed
+  expect_error(ca_assert_noa_is_cms_award(key = "cms_noa_r05"),
+               regexp = "unknown Notice of Award revision")
+})
+
+test_that("the programme page's own NOA label is what watches for revision 05", {
+  # THE WATCH DID NOT CATCH -01-04 BY DESIGN -- it caught it by luck, in a
+  # reduced-text diff nobody was required to read, because a PDF has no
+  # ca_reduce_html() reduction and cms_noa is not in CA_PROBE_KEYS.
+  expect_false("cms_noa" %in% CA_PROBE_KEYS)
+  expect_false("cms_noa_r04" %in% CA_PROBE_KEYS)
+
+  calrht <- ca_html_text("calrht")
+  expect_equal(stringr::str_squish(ca_assert_noa_label_current(calrht = calrht)),
+               "August 28, 2026")
+
+  # a label naming a revision this repository does not hold STOPS THE BUILD
+  future <- stringr::str_replace(
+    calrht, stringr::fixed("CalRHT Notice of Award (August 28, 2026)"),
+    "CalRHT Notice of Award (December 1, 2026)")
+  expect_error(ca_assert_noa_label_current(calrht = future),
+               regexp = "issued a revision nobody has read")
+
+  # and losing the label entirely is also a failure, not a pass: it is the
+  # only thing watching CMS's own document
+  gone <- stringr::str_replace_all(
+    calrht, stringr::fixed("CalRHT Notice of Award (August 28, 2026)"), "")
+  expect_error(ca_assert_noa_label_current(calrht = gone),
+               regexp = "no longer carries a dated")
+})
+
+test_that("the global menu moved a SECOND time, so the mechanism recurs", {
+  # 2026-09-12 renamed a nav label (+12 chars on every page); 2026-09-16
+  # swapped a Data Resources item (-6 on every page). Same mechanism, second
+  # firing -- which is why the nav is not reduced away by reflex.
+  old_item <- "Financial Health of California Hospitals"
+  new_item <- "Inpatient Hospital Costs by Region"
+  expect_equal(nchar(new_item) - nchar(old_item), -6L)
+
+  for (key in CA_PROBE_KEYS) {
+    txt <- ca_reduce_html(readBin(ca_path(key), "raw", file.size(ca_path(key))))
+    expect_true(grepl(new_item, txt, fixed = TRUE), info = key)
+    expect_false(grepl(old_item, txt, fixed = TRUE), info = key)
+  }
+})
