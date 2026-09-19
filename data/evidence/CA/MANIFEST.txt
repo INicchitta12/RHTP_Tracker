@@ -12,7 +12,7 @@ grant opportunities are all headed '(Closed)' and none names a recipient.
 Their own grant guides put award notification in AUGUST / SEPTEMBER 2026
 and grant agreements in SEPTEMBER / OCTOBER 2026; WDRR's application
 window closed AUGUST 31, 2026. The file names carry the date each source
-was FIRST archived; these bytes were last refreshed 2026-09-16.
+was FIRST archived; these bytes were last refreshed 2026-09-19.
 
 TWO REVISIONS OF ONE AWARD ARE ARCHIVED, AND BOTH STAY (session 47).
   HCAI relabelled its Notice of Award from '(March 31, 2026)' to
@@ -75,21 +75,28 @@ first time on 2026-09-09. The change was ONE navigation link ('Learn
 More') to a council that was ALREADY linked from the archived page, so
 nothing about California's awards moved: the reduced text went 11,162 ->
 11,212 characters and every award tripwire still passes. The council is a
-roster of SEVENTEEN NAMED PEOPLE with employers and biographies, and
+roster of 19 NAMED PEOPLE with employers and biographies, and
 neither of its pages carries roster-of-recipients language (measured:
 zero matches). A council member is not a recipient -- Missouri's 27 Hub
 Anchors and Connecticut's four-person leadership team are the precedents.
+THE COUNT IS DERIVED FROM THIS ARCHIVE, BECAUSE IT MOVED: seventeen when
+session 45 wrote it down, nineteen when session 48's firing read it.
 
-  AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAD NOT MET. TWO of the
-  seventeen members are hospital executives -- Community Memorial
-  Hospital-Ojai and Plumas District Hospital -- and BOTH of those
-  hospitals are among the eight distinct awardees in RCJ's eleven
-  California Tier 3 candidates, which are the SRHRP seismic programme
-  funded by the state cigarette-tax. So a session cross-referencing
-  'hospitals named on the CalRHT estate' against the RCJ candidate list
-  MATCHES on two hospitals, from two INDEPENDENT wrong reasons, and
-  neither is an RHTP award. The match would read as corroboration.
-  Both names are pinned by ca_assert_rhpc_is_governance().
+  AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAD NOT MET. 4 of the 19 members are
+  hospital executives, and EVERY ONE of their employers is named on
+  HCAI's own SRHRP page -- the state cigarette-tax SEISMIC programme
+  that is this state's wrong-programme trap. Two of them (Community
+  Memorial Hospital-Ojai, Plumas District Hospital) are ALSO among the
+  eight distinct awardees in RCJ's eleven California Tier 3 candidates.
+  THE TWO ADDED AT SESSION 48 ARE NOT, AND THAT IS THE SHARPER HALF:
+  Marshall Medical Center is on the 102-name ELIGIBLE table (§0.3) and
+  Adventist Health is one of the FIVE awards HCAI names and prices here
+  (Reedley, $1,325,000, §0.1) -- an award RCJ does not carry at all. So
+  a session that avoided the aggregator and went to the state's own
+  page would still match, and the match would read as corroboration.
+  All four employers are pinned by ca_assert_rhpc_is_governance(),
+  WITH the position each holds on the SRHRP page, so one moving from
+  the eligible table into the awarded block stops the build.
 
 THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE REASON IS TWOFOLD.
 hcai.ca.gov carries no per-request nonce -- two fetches seconds apart are
@@ -99,7 +106,7 @@ byte-identical -- but two fetches HALF AN HOUR apart need not be:
   * the newsroom re-rolls WordPress antispambot() email entities on every
     render -- same length, different bytes, identical rendered text.
 The reduced text is IDENTICAL across both variants of both pages (the programme
-page reduces to 11,219 characters as archived), so --probe compares a
+page reduces to 11,150 characters as archived), so --probe compares a
 CONTENT digest via ca_reduce_html(), the same reduction the assertions
 read. robots.txt is 404, so no crawler policy is on offer and none is
 being declined.
@@ -127,8 +134,8 @@ every award tripwire passed.
   that cries wolf trains its reader to ignore the run that matters).
 
 file  bytes  sha256
-2026-09-02_ca_hcai_calrht_programme.html  158207  6d7285a4c45d650bc9f0e3d32cbbc019d6b2c85a54aa66e0919d28feacaa79c4
-2026-09-02_ca_hcai_calrht_funding_opportunities.html  167450  e9edc41e2baff0a3d584a89fc44073fa9ac02e52d040f9d4fbff6719ce8680ab
+2026-09-02_ca_hcai_calrht_programme.html  158149  9013cded063286d4a4edde20a544006e8fc842d7c66150e60d83956fbbec217f
+2026-09-02_ca_hcai_calrht_funding_opportunities.html  167300  5280867fee95b6f98f83b675466253828465d94fb924eff68540fccd63c85a49
 2026-03-31_ca_cms_notice_of_award_revised.pdf  3474145  827bfe756ba8e077dd144e21897c0c1398ab2fd01f90614c686a48e46ec24f15
 2026-08-28_ca_cms_notice_of_award_r04.pdf  1980950  9b8ae91d0fa6e0071928ffb55b3132976f631e0e85ac3973d5de9a2a2dd80c23
 2026-03-27_ca_calrht_budget_narrative.pdf  930118  0871944d3bc9c096707f0631ae0e8bd8e6cf58b2df6986afc5f7c74c3f2a1168
@@ -136,7 +143,7 @@ file  bytes  sha256
 2026-09-02_ca_calrht_wdrr_grant_guide.pdf  508001  142b296f79bd113a2371c6ec0acc9a96c41994977be1b42dd843a0ec5908fee7
 2026-09-02_ca_calrht_ehr_modernization_grant_guide.pdf  368343  09071722b8b96fe9db88215642de9e7dd1c3443a557caef85cf609af43cb04ee
 2026-09-02_ca_calrht_expand_support_workforce_grant_guide.pdf  351784  72bc79483a35ec879ea9aa6b9d863f4b0fb760fa2edc0e67189eb0bfecfca046
-2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182662  3095da8dd07de2246ddf89820b87d22ac6debc2db00abdb396c94d932de2bb4f
-2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html  148540  59162cb5c80da0d82ec1c4a1fb0a7aaea5f60fdd91ea0e36a5464a30249f9269
-2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html  179598  868df4d1d714518009b9f1e25f211369f7c84ed3a8b024ea5d7429823cea5f77
-2026-09-02_ca_hcai_newsroom_CONTROL.html  150607  41b03eac3b80e2daddd4f3e2dd4020db65ad79103ce85892cd168e919bf9dd14
+2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182512  41e98800338ffbc3f416f4f8912c2ce3c2b732c0af96f296bbdba9c41bd562eb
+2026-09-09_ca_hcai_calrht_rhpc_GOVERNANCE.html  148390  cb8ddd6f4fd8ba208ffe45e8d475b1690e96649e25e7cb9b0aef9a7daeff6986
+2026-09-09_ca_hcai_calrht_rhpc_members_GOVERNANCE.html  184676  8d8e8a19bb86f193ee26ab77ad24d76333dfe86fa6f070fa2ba69fb9c1640c6f
+2026-09-02_ca_hcai_newsroom_CONTROL.html  150482  a94871311116c4488b9f745560aa0d3f7bb67fb8b2584e42e86fa6b2aabea009

@@ -656,3 +656,184 @@ eventually produces California's roster.
   in California or anywhere else.
 - All five watched pages report UNCHANGED after the refresh; tripwires pass.
 - `main` is **still at session 44** — see §6.6, unchanged and now four firings old.
+
+---
+
+## §8 — Session 48: the council grew, and the trap it carries is no longer
+## bounded by the aggregator
+
+The Wed/Sat Routine (`trig_013vujTBLopT2gSmNwWJ94ig`) fired **2026-09-19 17:05
+UTC** and reported **CHANGED on all five watched pages for the third run
+running**. Two separate things again, and this time the second one is a
+finding about the estate rather than about a document.
+
+### 8.1 The nav moved a THIRD time, and the measurement names it in one line
+
+**Four of the five watched pages moved by exactly −69 characters of reduced
+text, and so did the SRHRP control** — six sources, one delta:
+
+| source | bytes | reduced chars |
+|---|---:|---:|
+| `funding` | 167,450 → 167,300 | 12,077 → 12,008 (**−69**) |
+| `calrht` | 158,207 → 158,149 | 11,219 → 11,150 (**−69**) |
+| `newsroom` | 150,607 → 150,467 | 9,912 → 9,843 (**−69**) |
+| `rhpc` | 148,540 → 148,390 | 8,463 → 8,394 (**−69**) |
+| `srhrp` (control) | — | 19,073 → 19,004 (**−69**) |
+| `rhpc_members` | 179,598 → 184,676 | 24,971 → 27,153 (**+2,182**) |
+
+The cause is HCAI re-populating the **Featured Visualizations** list in its
+site-wide Data Resources menu — five items out, five in:
+
+> *Inpatient Hospital Costs by Region · California Postoperative Sepsis
+> Outcomes … · Patient Flow in California's Hospitals … · Inpatient Mortality
+> Indicators · Healthcare Payments Data (HPD) Inpatient Stay and Outpatient
+> Visits Report*
+
+→
+
+> *Prescription Drugs Introduced to Market · Wholesale Acquisition Cost (WAC)
+> Increase Report Data - Cumulative · WAC Increase Report Data - Current Year ·
+> Post Coronary Artery Bypass Graft (CABG) Readmissions and Complications ·
+> Inpatient Hospital Costs by Region*
+
+**That is the third nav edit in three firings** — session 46's label rename
+(+12), session 47's single-item swap (−6), and now a whole-list replacement
+(−69). The mechanism is confirmed recurring for a third time, and the standing
+decision **not to reduce the navigation away is re-taken rather than
+re-argued**: a new *"CalRHT Awardees"* menu item is the first place an award
+page would be linked from, so discarding the menu would silence the probe
+exactly when it mattered. The cost is paid on the noise side.
+
+**And the SRHRP control moved by the same −69 and by nothing else**, which is
+what says the nav is the whole story on that page: its awarded-grants block is
+**byte-identical** and its eligible table is still **102 rows**.
+
+### 8.2 `rhpc_members` moved +2,182, and −69 of that is the nav
+
+So **+2,251 characters of real council content**. The Rural Health Policy
+Council went from **seventeen members to NINETEEN**, nobody was removed, and
+**both new members are hospital executives**:
+
+- **Dr. Raul Ayala**, Ambulatory Medical Officer and Designated Institutional
+  Official, **Adventist Health**
+- **Martin Entwistle**, M.B., Ch.B., FRCSEd, **CEO (Interim), Marshall Medical
+  Center**
+
+The rest of the page's movement is five title edits and nothing else: Garzon
+gains *"Dr."*, Link *"MSN, CNM"*, Rodriguez *"MSW, MPH"*, Witz *"Director of
+SCA Consulting,"*, and Soni loses the initial *"S."*. **No existing biography
+changed and no award language appeared anywhere** — every tripwire passes
+against the live bytes, `CA_RHPC_AWARD_POSTED` included.
+
+**California has still published nothing.** A council member is not a
+recipient (Missouri's 27 Hub Anchors, Connecticut's four-person leadership
+team), and this is governance.
+
+### 8.3 THE FINDING: the compounding trap now reaches past RCJ entirely
+
+Session 45 recorded the trap as: two of seventeen members are hospital
+executives, and **both their hospitals are in RCJ's eleven California Tier 3
+candidates** — so a session cross-referencing *"hospitals named on the CalRHT
+estate"* against the RCJ candidate list matches on two hospitals, from two
+independent wrong reasons, and the match reads as corroboration.
+
+**The two new members break the boundary that description assumed.** Neither
+Adventist Health nor Marshall Medical Center is among RCJ's eleven. Both are
+on HCAI's own SRHRP page anyway — and one of them is an **award**:
+
+| member | employer | in RCJ's 11 | on the SRHRP page |
+|---|---|---|---|
+| Haady Lashkari | Community Memorial Hospital-Ojai | **yes** | eligible table |
+| Lori Link | Plumas District Hospital | **yes** | eligible table |
+| **Dr. Raul Ayala** | **Adventist Health** | no | **AWARDED AND PRICED** — Reedley, **$1,325,000** |
+| **Martin Entwistle** | **Marshall Medical Center** | no | eligible table |
+
+HCAI names and prices **five** SRHRP awards on that page, and Adventist Health
+Reedley (Sierra Kings Health Care District) is one of them — **an award RCJ
+does not carry at all**. RCJ's eight distinct candidates and HCAI's five named
+awards overlap on only three, so neither source is a complete list of the 29
+grants.
+
+**So a session that avoided the aggregator entirely and went to the state's
+own page — the more careful thing to do — would still match, and would match
+on an award the aggregator never knew about.** The trap was never a property
+of RCJ's coverage; it is a property of HCAI publishing a real seismic award
+programme and a rural-health advisory council on the same estate.
+
+**The two matches are now two DIFFERENT failure modes, side by side:**
+
+- **AWARDED_AND_PRICED** is §0.1's wrong programme — real, executed,
+  recipient-level state cigarette-tax money for Alquist Act seismic
+  compliance, on a page mentioning RHTP zero times.
+- **ELIGIBLE_TABLE_ONLY** is §0.3's eligibility-is-not-receipt — the 102-name
+  table this repository already calls the largest §0.3 table in the project.
+
+### 8.4 What changed in the code, and why each change is the session's own
+### lesson recurring
+
+**(a) The pinned set became a table, and the position is CHECKED.**
+`CA_RHPC_HOSPITAL_MEMBERS` (two names) retires into
+`CA_RHPC_HOSPITAL_EMPLOYERS` (four rows: `member`, `employer`, `srhrp_name`,
+`srhrp_page`, `in_rcj_candidates`, `since_session`).
+`ca_assert_rhpc_is_governance()` now checks each employer is still on the
+roster **and that its position on the SRHRP page is what the table says**, via
+a new `ca_srhrp_position()` that separates the awarded block (*"have been
+awarded, including grants for:"* … *"Acronyms"*) from the eligible table.
+**An employer moving from the eligible table into the awarded block stops the
+build**, because that changes which trap the note describes; a test drives the
+promotion offline and requires the throw.
+
+`srhrp_name` is a separate column from `employer` because the two publishers
+spell them differently — the roster writes *"Community Memorial
+Hospital-Ojai"* and the SRHRP page *"Community Memorial Hospital - Ojai"* —
+and §2 forbids a fuzzy match resolving that silently.
+
+**(b) The member count is DERIVED, and that is sessions 45 and 46's lesson
+arriving in the function those sessions wrote.** *"Seventeen"* was typed into
+the status row, the manifest and the docstrings, and **all of them were wrong
+at once the morning the council gained two members**, with nothing pointing at
+it. `ca_rhpc_member_count()` counts HCAI's own `<h3 class="wp-block-heading">`
+markers on the raw bytes — one per member, nothing else on the page uses that
+class — and refuses to return a number below the pinned employer count. The
+status row now reads *"19 named individuals"* and the manifest *"19 NAMED
+PEOPLE"*, both computed. A test requires that no surviving *"seventeen"* is a
+live count: it may appear in a comment, or in a string that says the count
+**moved**, and nowhere else.
+
+**(c) "Added session 36" → "session 45", in the two places session 46 missed.**
+Session 46 corrected that string in `ca_write_manifest()` and the same wrong
+session number was still in `ca_assert_rhpc_is_governance()`'s docstring and
+in the status table's own text — so the generated CSV carried it. `b892894`
+is the commit that added the function and it is session 45's. §2.1's hazard in
+the smallest possible form, and a test pins both halves.
+
+### 8.5 What moved, and what did not
+
+- **All six HTML sources moved in content**, so — as in session 46 and unlike
+  session 45 — there was **nothing to revert**: every file moved for a real
+  reason, even if the reason on five of them is a menu.
+- **The six PDFs are byte-identical**, both Notice of Award revisions
+  included, and `ca_assert_noa_label_current()` passed against the live
+  programme page: HCAI still labels its NOA *"(August 28, 2026)"*, so there is
+  no revision 05. **That check was added last firing precisely so a replaced
+  PDF would be caught by design rather than by luck, and this is the first run
+  where it did its job silently.**
+- **`ca_rcj_candidate_disposition.csv` rebuilds BYTE-IDENTICAL.**
+- **`ca_year1_status.csv` changes on EXACTLY ONE ROW** — the RHPC row, and only
+  its derived text. `git diff --numstat` reports 1 insertion, 1 deletion.
+- **No dollar, no row and no bucket moved, in California or anywhere else.**
+  California still contributes nothing to any bucket and
+  `ca_year1_awardees.csv` is still asserted absent.
+- All five watched pages report **UNCHANGED** after the refresh.
+- Tests: **5,386 assertions across 52 files, 0 fail, 1 self-skip** (+88; +87 of
+  them in `test_03ab_ca_year1_probe.R`, 221 → 308).
+
+### 8.6 Still outstanding
+
+`main` is **still at session 44** (`1213f0d`, PR #45). The branch
+`claude/ca-ct-nm-watch-8hfcho` now carries four commits and has never been
+merged, so the Routine keeps running `main`'s **three-page** session-34 probe:
+no RHPC pages, no NOA-label tripwire, and none of this session's work. The
+Routine's own guard — `grep -c "ca_probe"` — returns 4 on `main`, so it
+**checks that a probe exists, never that it is the current one**, which is
+recorded here for a fifth firing running.

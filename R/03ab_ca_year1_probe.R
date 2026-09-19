@@ -364,12 +364,46 @@ CA_RHPC_AWARD_POSTED <- c(
   "funded organizations"
 )
 
-# The two RHPC members whose employer is a hospital -- and BOTH hospitals are
-# in RCJ's eleven California Tier 3 candidates (the SRHRP seismic programme).
-# Named here because that overlap is the trap, not because they are recipients.
-CA_RHPC_HOSPITAL_MEMBERS <- c(
-  "Community Memorial Hospital-Ojai",
-  "Plumas District Hospital"
+# THE RHPC MEMBERS WHOSE EMPLOYER IS A HOSPITAL, AND WHERE EACH EMPLOYER TURNS
+# UP ON THE SRHRP PAGE. Named here because the OVERLAP is the trap, never
+# because a council member is a recipient.
+#
+# Session 45 pinned TWO of seventeen members, both of whose hospitals are in
+# RCJ's eleven California Tier 3 candidates -- so a cross-reference of
+# "hospitals named on the CalRHT estate" against the RCJ candidate list matches
+# on two hospitals from two INDEPENDENT wrong reasons.
+#
+# SESSION 48 FOUND THE COUNCIL AT NINETEEN, WITH TWO MORE HOSPITAL EXECUTIVES,
+# AND THEY EXTEND THE TRAP PAST RCJ'S COVERAGE ENTIRELY. Neither Adventist
+# Health nor Marshall Medical Center is among RCJ's eleven -- and BOTH are on
+# HCAI's own SRHRP page, one of them as a NAMED, PRICED AWARD (Adventist Health
+# Reedley, $1,325,000, one of the five HCAI names there). So a session that
+# avoided the aggregator altogether and went to the state's own page -- the
+# more careful thing to do -- would still match, and would match on an award
+# RCJ does not carry. `srhrp_page` records which trap each employer is in:
+# AWARDED_AND_PRICED is §0.1's wrong programme, ELIGIBLE_TABLE_ONLY is §0.3's
+# eligibility-is-not-receipt, and the 102-name eligible table is the largest
+# §0.3 table in this project.
+#
+# `srhrp_name` is separate from `employer` because the two publishers spell
+# them differently -- the roster writes "Community Memorial Hospital-Ojai" and
+# the SRHRP page "Community Memorial Hospital - Ojai" -- and §2 forbids a fuzzy
+# match resolving that silently.
+CA_RHPC_HOSPITAL_EMPLOYERS <- tibble::tribble(
+  ~member,            ~employer,                           ~srhrp_name,
+  ~srhrp_page,            ~in_rcj_candidates, ~since_session,
+
+  "Haady Lashkari",   "Community Memorial Hospital-Ojai",
+  "Community Memorial Hospital - Ojai", "ELIGIBLE_TABLE_ONLY", TRUE,  45L,
+
+  "Lori Link",        "Plumas District Hospital",          "Plumas District Hospital",
+  "ELIGIBLE_TABLE_ONLY", TRUE,  45L,
+
+  "Dr. Raul Ayala",   "Adventist Health",                  "Adventist Health Reedley",
+  "AWARDED_AND_PRICED",  FALSE, 48L,
+
+  "Martin Entwistle", "Marshall Medical Center",           "Marshall Medical Center",
+  "ELIGIBLE_TABLE_ONLY", FALSE, 48L
 )
 
 CA_CREDENTIAL_SHAPES <- c(
@@ -528,21 +562,31 @@ ca_write_manifest <- function(entries) {
     "More') to a council that was ALREADY linked from the archived page, so",
     "nothing about California's awards moved: the reduced text went 11,162 ->",
     "11,212 characters and every award tripwire still passes. The council is a",
-    "roster of SEVENTEEN NAMED PEOPLE with employers and biographies, and",
+    paste0("roster of ", ca_rhpc_member_count(), " NAMED PEOPLE with ",
+           "employers and biographies, and"),
     "neither of its pages carries roster-of-recipients language (measured:",
     "zero matches). A council member is not a recipient -- Missouri's 27 Hub",
     "Anchors and Connecticut's four-person leadership team are the precedents.",
+    "THE COUNT IS DERIVED FROM THIS ARCHIVE, BECAUSE IT MOVED: seventeen when",
+    "session 45 wrote it down, nineteen when session 48's firing read it.",
     "",
-    "  AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAD NOT MET. TWO of the",
-    "  seventeen members are hospital executives -- Community Memorial",
-    "  Hospital-Ojai and Plumas District Hospital -- and BOTH of those",
-    "  hospitals are among the eight distinct awardees in RCJ's eleven",
-    "  California Tier 3 candidates, which are the SRHRP seismic programme",
-    "  funded by the state cigarette-tax. So a session cross-referencing",
-    "  'hospitals named on the CalRHT estate' against the RCJ candidate list",
-    "  MATCHES on two hospitals, from two INDEPENDENT wrong reasons, and",
-    "  neither is an RHTP award. The match would read as corroboration.",
-    "  Both names are pinned by ca_assert_rhpc_is_governance().",
+    paste0("  AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAD NOT MET. ",
+           nrow(CA_RHPC_HOSPITAL_EMPLOYERS), " of the ",
+           ca_rhpc_member_count(), " members are"),
+    "  hospital executives, and EVERY ONE of their employers is named on",
+    "  HCAI's own SRHRP page -- the state cigarette-tax SEISMIC programme",
+    "  that is this state's wrong-programme trap. Two of them (Community",
+    "  Memorial Hospital-Ojai, Plumas District Hospital) are ALSO among the",
+    "  eight distinct awardees in RCJ's eleven California Tier 3 candidates.",
+    "  THE TWO ADDED AT SESSION 48 ARE NOT, AND THAT IS THE SHARPER HALF:",
+    "  Marshall Medical Center is on the 102-name ELIGIBLE table (§0.3) and",
+    "  Adventist Health is one of the FIVE awards HCAI names and prices here",
+    "  (Reedley, $1,325,000, §0.1) -- an award RCJ does not carry at all. So",
+    "  a session that avoided the aggregator and went to the state's own",
+    "  page would still match, and the match would read as corroboration.",
+    "  All four employers are pinned by ca_assert_rhpc_is_governance(),",
+    "  WITH the position each holds on the SRHRP page, so one moving from",
+    "  the eligible table into the awarded block stops the build.",
     "",
     "THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE REASON IS TWOFOLD.",
     "hcai.ca.gov carries no per-request nonce -- two fetches seconds apart are",
@@ -1130,10 +1174,64 @@ ca_assert_newsroom_control <- function(news = NULL) {
 }
 
 #' No award file exists, and the status table cannot grow an amount column
-#' THE RHPC IS GOVERNANCE, NOT AN AWARD ROSTER -- and it names two of the
-#' eleven SRHRP hospitals, which is why it needs a tripwire of its own
+#' How many people are on the council, READ OFF THE ARCHIVE
 #'
-#' Added session 36, when the scheduled watch reported the CalRHT programme
+#' Derived, never typed. Session 45 wrote "seventeen" into the status table,
+#' the report and this file's prose; session 48's firing found nineteen, and
+#' all three were wrong at once with nothing pointing at them. HCAI gives each
+#' member an `<h3 class="wp-block-heading">` and nothing else on the page uses
+#' that class, so the count is the state's own markup rather than a reading of
+#' it. It counts RAW BYTES and not `ca_reduce_html()` output, because the
+#' reduction strips exactly the tags this depends on.
+ca_rhpc_member_count <- function(raw = NULL) {
+  if (is.null(raw)) {
+    p <- ca_path("rhpc_members")
+    raw <- readBin(p, "raw", file.size(p))
+  }
+  txt <- rawToChar(raw[raw != as.raw(0)])
+  hits <- gregexpr('<h3 class="wp-block-heading"', txt, fixed = TRUE)[[1]]
+  n <- if (identical(as.integer(hits), -1L)) 0L else length(hits)
+  if (n < nrow(CA_RHPC_HOSPITAL_EMPLOYERS)) {
+    stop("[CA] the RHPC members page yields ", n, " member headings, fewer ",
+         "than the ", nrow(CA_RHPC_HOSPITAL_EMPLOYERS), " hospital employers ",
+         "pinned in CA_RHPC_HOSPITAL_EMPLOYERS. Either HCAI has changed the ",
+         "roster markup or the council has shrunk -- read the page.",
+         call. = FALSE)
+  }
+  n
+}
+
+#' Where a hospital name sits on the SRHRP page: an AWARD, or an ELIGIBILITY row
+#'
+#' The distinction §0.3 exists for, made mechanically. HCAI prints its awarded
+#' grants in one block -- "29 grants (totaling $17.2 million) have been
+#' awarded, including grants for:" through "Acronyms" -- and its 102 eligible
+#' hospitals in a table below. A name in the first block is a recipient of
+#' STATE cigarette-tax seismic money (§0.1's wrong programme); a name only in
+#' the table is eligible and nothing more (§0.3). Returns NA if the name is
+#' not on the page at all.
+ca_srhrp_position <- function(name, srhrp = NULL) {
+  t <- if (is.null(srhrp)) ca_html_text("srhrp") else srhrp
+  awarded <- stringr::str_match(
+    t, "have been awarded, including grants for:(.*?)Acronyms")[, 2]
+  if (is.na(awarded)) {
+    stop("[CA] the SRHRP page no longer carries its awarded-grants block ",
+         "between 'have been awarded, including grants for:' and 'Acronyms'. ",
+         "That block is the POSITIVE control -- HCAI naming and pricing ",
+         "recipients -- so read the page before working around this.",
+         call. = FALSE)
+  }
+  if (stringr::str_detect(awarded, stringr::fixed(name))) {
+    return("AWARDED_AND_PRICED")
+  }
+  if (stringr::str_detect(t, stringr::fixed(name))) return("ELIGIBLE_TABLE_ONLY")
+  NA_character_
+}
+
+#' THE RHPC IS GOVERNANCE, NOT AN AWARD ROSTER -- and its members' employers
+#' turn up on the SRHRP page, which is why it needs a tripwire of its own
+#'
+#' Added session 45, when the scheduled watch reported the CalRHT programme
 #' page CHANGED for the first time. The change was ONE navigation link --
 #' "Learn More", pointing at the Rural Health Policy Council -- and the council
 #' itself was already linked from the archived page, so nothing about
@@ -1142,19 +1240,33 @@ ca_assert_newsroom_control <- function(news = NULL) {
 #' times: Missouri's 27 Hub Anchors, Connecticut's four-person leadership team,
 #' Indiana's fifteen tables of committee members at named hospitals.
 #'
-#' AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAS NOT MET BEFORE. Two of
-#' the seventeen members are hospital executives -- Community Memorial
-#' Hospital-Ojai and Plumas District Hospital -- and BOTH of those hospitals
-#' are among the eight distinct awardees in RCJ's eleven California Tier 3
-#' candidates, which are the SRHRP seismic programme funded by the state
-#' cigarette-tax. So a future session cross-referencing "hospitals named on the
-#' CalRHT estate" against the RCJ candidate list would find a MATCH on two
-#' hospitals, from two INDEPENDENT wrong reasons, neither of which is an RHTP
-#' award. The match would look like corroboration and would be worth part of
-#' the $5,475,000.
+#' AND IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAS NOT MET BEFORE. Members
+#' of it are hospital executives, and their employers are named on HCAI's own
+#' SRHRP page -- the state cigarette-tax seismic programme that is §0.1's
+#' wrong-programme trap here. So a future session cross-referencing "hospitals
+#' named on the CalRHT estate" against California's SRHRP awards would find
+#' MATCHES, from two INDEPENDENT wrong reasons, and not one of them is an RHTP
+#' award. The match would look like corroboration.
+#'
+#' SESSION 48 MADE THAT MACHINE-CHECKED RATHER THAN DESCRIBED, because the
+#' council GREW and the description went stale in one firing. It went from
+#' seventeen members to NINETEEN, and both new members are hospital
+#' executives -- so the pinned set is four, and the trap is no longer bounded
+#' by RCJ's coverage: Adventist Health is NOT among RCJ's eleven candidates
+#' and IS one of the five awards HCAI names and prices on the SRHRP page
+#' (Reedley, $1,325,000). `CA_RHPC_HOSPITAL_EMPLOYERS` records which trap each
+#' employer sits in and this function CHECKS it, so a hospital moving from the
+#' eligible table into the awarded block stops the build instead of quietly
+#' changing what the note means.
+#'
+#' The member count is DERIVED (`ca_rhpc_member_count()`) and never typed:
+#' "seventeen" was typed in three places and all three were wrong the morning
+#' the council gained two members. That is session 45's and 46's own lesson,
+#' recurring in the function those sessions wrote.
 #'
 #' The council pages carry NO award language at all, and that is asserted.
-ca_assert_rhpc_is_governance <- function(rhpc = NULL, members = NULL) {
+ca_assert_rhpc_is_governance <- function(rhpc = NULL, members = NULL,
+                                         srhrp = NULL) {
   t  <- if (is.null(rhpc)) ca_html_text("rhpc") else rhpc
   tm <- if (is.null(members)) ca_html_text("rhpc_members") else members
 
@@ -1181,12 +1293,25 @@ ca_assert_rhpc_is_governance <- function(rhpc = NULL, members = NULL) {
            "a recipient (Missouri's Hub Anchors, session 28).", call. = FALSE)
     }
   }
-  # The two hospital executives, pinned BY NAME because they are the trap.
-  for (h in CA_RHPC_HOSPITAL_MEMBERS) {
-    if (!stringr::str_detect(tm, stringr::fixed(h))) {
-      stop("[CA] '", h, "' is no longer on the RHPC roster. It is pinned here ",
-           "because that hospital is ALSO in RCJ's SRHRP candidate set, and ",
-           "the overlap is what makes the roster dangerous to cross-reference.",
+  # The hospital executives, pinned BY NAME because they are the trap -- and
+  # each one's position on the SRHRP page checked, because WHICH trap it is
+  # (an award, or an eligibility row) is the whole distinction.
+  for (i in seq_len(nrow(CA_RHPC_HOSPITAL_EMPLOYERS))) {
+    row <- CA_RHPC_HOSPITAL_EMPLOYERS[i, ]
+    if (!stringr::str_detect(tm, stringr::fixed(row$employer))) {
+      stop("[CA] '", row$employer, "' is no longer on the RHPC roster. It is ",
+           "pinned here because that hospital is ALSO named on HCAI's SRHRP ",
+           "page, and the overlap is what makes the roster dangerous to ",
+           "cross-reference.", call. = FALSE)
+    }
+    seen <- ca_srhrp_position(row$srhrp_name, srhrp = srhrp)
+    if (!identical(seen, row$srhrp_page)) {
+      stop("[CA] '", row$srhrp_name, "' now reads ",
+           if (is.na(seen)) "ABSENT" else seen, " on the SRHRP page, against ",
+           "the pinned ", row$srhrp_page, ". THAT IS THE SIGNAL, NOT A ",
+           "DEFECT: a council member's employer moving between the eligible ",
+           "table and the awarded block changes which trap this is (§0.3 ",
+           "against §0.1), and it is still not an RHTP award either way.",
            call. = FALSE)
     }
   }
@@ -1310,25 +1435,34 @@ rhtp_ca_year1_status <- function() {
 
     "Rural Health Policy Council (RHPC) -- GOVERNANCE, NOT AWARDS", "HCAI",
     "n/a -- no money attached to the role", "GOVERNANCE_ONLY",
-    paste("n/a. Seventeen named individuals with their employers and",
-          "biographies, advising the programme. A council member is not a",
-          "recipient (Missouri's Hub Anchors, session 28; Connecticut's",
-          "leadership team, session 35)."),
+    paste0("n/a. ", ca_rhpc_member_count(), " named individuals with their ",
+           "employers and biographies, advising the programme. A council ",
+           "member is not a recipient (Missouri's Hub Anchors, session 28; ",
+           "Connecticut's leadership team, session 35). THE COUNT IS DERIVED ",
+           "from the archived page, because it MOVED: seventeen at session ",
+           "45, nineteen at session 48."),
     "No",
-    paste("Added session 36, when the scheduled watch reported the CalRHT",
-          "programme page CHANGED for the first time -- ONE navigation link",
-          "('Learn More') to a council ALREADY linked from the archived page.",
-          "Nothing about California's awards moved, and neither council page",
-          "carries roster-of-recipients language (measured, zero matches).",
-          "IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAS NOT MET BEFORE:",
-          "TWO of the seventeen members are hospital executives -- Community",
-          "Memorial Hospital-Ojai and Plumas District Hospital -- and BOTH of",
-          "those hospitals are among the eight distinct awardees in RCJ's",
-          "eleven California Tier 3 candidates, which are the SRHRP SEISMIC",
-          "programme funded by the state cigarette-tax. So a cross-reference",
-          "of 'hospitals named on the CalRHT estate' against the RCJ",
-          "candidate list MATCHES on two hospitals, from two INDEPENDENT",
-          "wrong reasons, and neither is an RHTP award."),
+    paste0("Added session 45, when the scheduled watch reported the CalRHT ",
+           "programme page CHANGED for the first time -- ONE navigation link ",
+           "('Learn More') to a council ALREADY linked from the archived ",
+           "page. Nothing about California's awards moved, and neither ",
+           "council page carries roster-of-recipients language (measured, ",
+           "zero matches). IT CARRIES A COMPOUNDING TRAP THIS PROJECT HAS ",
+           "NOT MET BEFORE: ", nrow(CA_RHPC_HOSPITAL_EMPLOYERS),
+           " of the ", ca_rhpc_member_count(), " members are hospital ",
+           "executives, and EVERY ONE of their employers is named on HCAI's ",
+           "own SRHRP page -- the state cigarette-tax SEISMIC programme. Two ",
+           "(Community Memorial Hospital-Ojai, Plumas District Hospital) are ",
+           "also among the eight distinct awardees in RCJ's eleven ",
+           "California Tier 3 candidates. The two added at session 48 are ",
+           "NOT, and that is what makes the trap bigger than the aggregator: ",
+           "Marshall Medical Center is on the 102-name ELIGIBLE table (§0.3) ",
+           "and Adventist Health is one of the FIVE awards HCAI names and ",
+           "prices there (Reedley, $1,325,000, §0.1) -- an award RCJ does ",
+           "not carry at all. So a cross-reference of 'hospitals named on ",
+           "the CalRHT estate' against California's SRHRP awards MATCHES, ",
+           "from two INDEPENDENT wrong reasons, and not one is an RHTP ",
+           "award."),
 
     "Small and Rural Hospital Relief Program (SRHRP) -- NOT RHTP", "HCAI",
     "$46 million available; 29 grants totalling $17.2 million awarded",

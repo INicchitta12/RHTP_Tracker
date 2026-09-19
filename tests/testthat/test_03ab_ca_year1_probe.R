@@ -450,31 +450,168 @@ test_that("the phrase set excludes words that occur in ordinary bio prose", {
   expect_false("awardees" %in% CA_RHPC_AWARD_POSTED)
 })
 
-test_that("TWO RHPC members are hospital executives, and both hospitals are in the SRHRP candidate set", {
-  # THE COMPOUNDING TRAP. These two hospitals are named on the CalRHT estate
-  # (as council-member employers) AND carried by RCJ as California Tier 3
-  # candidates (as SRHRP seismic awardees). Two independent wrong reasons
-  # pointing at the same two hospitals: a cross-reference would read as
-  # corroboration and neither is an RHTP award.
+test_that("FOUR RHPC members are hospital executives, and every employer is on the SRHRP page", {
+  # THE COMPOUNDING TRAP. These hospitals are named on the CalRHT estate (as
+  # council-member employers) AND on HCAI's own SRHRP page (as seismic
+  # awardees or as eligible hospitals). Two independent wrong reasons pointing
+  # at the same hospitals: a cross-reference would read as corroboration and
+  # not one of them is an RHTP award.
   members <- ca_html_text("rhpc_members")
-  for (h in CA_RHPC_HOSPITAL_MEMBERS) {
-    expect_true(stringr::str_detect(members, stringr::fixed(h)), info = h)
+  for (i in seq_len(nrow(CA_RHPC_HOSPITAL_EMPLOYERS))) {
+    r <- CA_RHPC_HOSPITAL_EMPLOYERS[i, ]
+    expect_true(stringr::str_detect(members, stringr::fixed(r$employer)),
+                info = r$employer)
+    expect_true(stringr::str_detect(members, stringr::fixed(r$member)),
+                info = r$member)
+    expect_equal(ca_srhrp_position(r$srhrp_name), r$srhrp_page,
+                 info = r$srhrp_name)
   }
+  expect_equal(nrow(CA_RHPC_HOSPITAL_EMPLOYERS), 4L)
+})
+
+test_that("the SESSION 48 pair is NOT in RCJ's eleven, which is what widens the trap", {
+  # Session 45's two employers overlap RCJ's candidate list, so a session
+  # working from the aggregator matches them. Session 48's two do NOT -- and
+  # they are on the state's own page anyway, one of them as a NAMED, PRICED
+  # AWARD RCJ does not carry. So avoiding the aggregator does not avoid the
+  # trap, which is the half worth testing.
   cands <- ca_rcj_candidates()$awardee_name_clean
+  s45 <- CA_RHPC_HOSPITAL_EMPLOYERS[CA_RHPC_HOSPITAL_EMPLOYERS$since_session == 45L, ]
+  s48 <- CA_RHPC_HOSPITAL_EMPLOYERS[CA_RHPC_HOSPITAL_EMPLOYERS$since_session == 48L, ]
+  expect_equal(nrow(s45), 2L)
+  expect_equal(nrow(s48), 2L)
+  expect_true(all(s45$in_rcj_candidates))
+  expect_false(any(s48$in_rcj_candidates))
+
   # the roster spells them with a hyphen and without "and Rural Health Clinic";
   # match on the distinctive stem so the two spellings meet
   expect_true(any(stringr::str_detect(cands, "Community Memorial Hospital")))
   expect_true(any(stringr::str_detect(cands, "Plumas District Hospital")))
+  # and RCJ genuinely does not carry either session-48 employer
+  expect_false(any(stringr::str_detect(cands, "Adventist")))
+  expect_false(any(stringr::str_detect(cands, "Marshall")))
+
+  # Adventist Health Reedley is one of the five HCAI names AND prices
+  srhrp <- ca_html_text("srhrp")
+  expect_true(grepl("Adventist Health Reedley (Sierra Kings Health Care District) - $1,325,000",
+                    srhrp, fixed = TRUE))
 })
 
-test_that("losing either pinned hospital stops the build", {
+test_that("ca_srhrp_position separates an AWARD from an ELIGIBILITY row", {
+  # §0.3 made mechanical. Both blocks are on one page and the eligible table
+  # is the largest §0.3 table in this project.
+  expect_equal(ca_srhrp_position("Mountains Community Hospital"),
+               "AWARDED_AND_PRICED")
+  expect_equal(ca_srhrp_position("Marshall Medical Center"),
+               "ELIGIBLE_TABLE_ONLY")
+  expect_true(is.na(ca_srhrp_position("Nowhere General Hospital")))
+  # and it refuses rather than guessing if HCAI drops the awarded block
+  gutted <- stringr::str_remove(ca_html_text("srhrp"),
+                                stringr::fixed("have been awarded, including grants for:"))
+  expect_error(ca_srhrp_position("Marshall Medical Center", srhrp = gutted),
+               "no longer carries its awarded-grants block")
+})
+
+test_that("an employer moving into the awarded block stops the build", {
+  # THE COUNTERFACTUAL THAT MATTERS: Marshall Medical Center is eligible and
+  # nothing more today. If HCAI awarded it, the note's meaning changes from
+  # §0.3 to §0.1 -- and that must fail rather than quietly stay true.
+  srhrp <- ca_html_text("srhrp")
+  promoted <- stringr::str_replace(
+    srhrp,
+    stringr::fixed("have been awarded, including grants for:"),
+    "have been awarded, including grants for: Marshall Medical Center - $1 For testing.")
+  expect_error(
+    ca_assert_rhpc_is_governance(srhrp = promoted),
+    "now reads AWARDED_AND_PRICED on the SRHRP page")
+})
+
+test_that("losing any pinned hospital stops the build", {
   m <- ca_html_text("rhpc_members")
-  for (h in CA_RHPC_HOSPITAL_MEMBERS) {
+  for (h in CA_RHPC_HOSPITAL_EMPLOYERS$employer) {
     stripped <- stringr::str_remove_all(m, stringr::fixed(h))
     expect_error(ca_assert_rhpc_is_governance(rhpc = ca_html_text("rhpc"),
                                               members = stripped),
                  "no longer on the RHPC roster", info = h)
   }
+})
+
+test_that("the council GREW, and the member count is derived rather than typed", {
+  # Session 45 typed "seventeen" into the status row, the manifest and this
+  # file's prose. Session 48's firing found NINETEEN and all three were wrong
+  # at once, with nothing pointing at them -- session 46's lesson recurring in
+  # the function session 45 wrote.
+  expect_equal(ca_rhpc_member_count(), 19L)
+
+  # it reads HCAI's own markup, one <h3 class="wp-block-heading"> per member
+  raw <- readBin(ca_path("rhpc_members"), "raw",
+                 file.size(ca_path("rhpc_members")))
+  expect_equal(
+    length(gregexpr('<h3 class="wp-block-heading"', rawToChar(raw),
+                    fixed = TRUE)[[1]]),
+    ca_rhpc_member_count())
+
+  # both new members are on the roster, with their employers
+  members <- ca_html_text("rhpc_members")
+  expect_true(grepl("Dr. Raul Ayala", members, fixed = TRUE))
+  expect_true(grepl("Martin Entwistle", members, fixed = TRUE))
+  expect_true(grepl("Adventist Health", members, fixed = TRUE))
+  expect_true(grepl("Marshall Medical Center", members, fixed = TRUE))
+
+  # and nobody was removed: session 45's seventeen are all still there
+  for (n in c("Ana Acton", "Joy Dockter", "Kirk Fermin", "Hernando Garzon",
+              "Orvin Hanson", "Virginia Q. Hedrick", "Haady Lashkari",
+              "Lori Link", "Rita Nguyen", "Jeffrey Norris", "Tim Rine",
+              "Colleen Rodriguez", "James F. Schlund", "Monica Soni",
+              "Dan Southard", "Colleen Townsend", "Ryan Witz")) {
+    expect_true(grepl(n, members, fixed = TRUE), info = n)
+  }
+
+  # the count refuses to return a number smaller than the pinned employers
+  expect_error(ca_rhpc_member_count(raw = charToRaw("<html>nothing</html>")),
+               "fewer than the 4 hospital employers")
+})
+
+test_that("no typed member count survives in the source or the artifacts", {
+  lines <- readLines(here::here("R", "03ab_ca_year1_probe.R"), warn = FALSE)
+  # "seventeen" may survive as HISTORY -- in a comment, or in a string that
+  # says outright that the count MOVED -- but never as a live count.
+  for (m in grep("[Ss]eventeen", lines, value = TRUE)) {
+    expect_true(grepl("^\\s*#", m) || grepl("MOVED|moved", m), info = m)
+  }
+  status <- readr::read_csv(here::here("data/reference/ca_year1_status.csv"),
+                            show_col_types = FALSE)
+  rhpc <- status[grepl("RHPC", status[[2]]), ]
+  expect_equal(nrow(rhpc), 1L)
+  one <- paste(unlist(rhpc), collapse = " ")
+  expect_true(grepl("19 named individuals", one, fixed = TRUE))
+  expect_false(grepl("Seventeen named", one, fixed = TRUE))
+  # and the session number that session 46 corrected in the manifest was still
+  # wrong here: the RHPC was added in session 45, not 36
+  expect_true(grepl("Added session 45", one, fixed = TRUE))
+  expect_false(grepl("Added session 36", one, fixed = TRUE))
+})
+
+test_that("the FOURTH global-menu move is a list re-population, not a rename", {
+  # 09-12 renamed a nav label (+12 on every page); 09-16 swapped one Data
+  # Resources item (-6); 09-19 replaced the whole Featured Visualizations
+  # list (-69). Three firings, three nav edits, same mechanism -- which is why
+  # the nav is re-baselined rather than reduced away.
+  added <- c("Prescription Drugs Introduced to Market",
+             "Wholesale Acquisition Cost (WAC) Increase Report Data - Cumulative",
+             "Post Coronary Artery Bypass Graft (CABG) Readmissions and Complications")
+  dropped <- c("Inpatient Mortality Indicators",
+               "California Postoperative Sepsis Outcomes for Inpatient Elective Surgeries")
+  for (key in CA_PROBE_KEYS) {
+    txt <- ca_reduce_html(readBin(ca_path(key), "raw", file.size(ca_path(key))))
+    for (a in added)   expect_true(grepl(a, txt, fixed = TRUE), info = paste(key, a))
+    for (d in dropped) expect_false(grepl(d, txt, fixed = TRUE), info = paste(key, d))
+  }
+  # the SRHRP control moved by the SAME -69 and by nothing else: its awarded
+  # block and its 102-row eligible table are untouched
+  srhrp <- ca_html_text("srhrp")
+  expect_equal(length(gregexpr("[0-9]{5} - [A-Z]", srhrp)[[1]]), 102L)
+  expect_equal(length(gregexpr("For MTCAP|For SPC|For MTCAPs", srhrp)[[1]]) > 0, TRUE)
 })
 
 test_that("the RHPC is in the assert wrapper, so it runs every validate", {
