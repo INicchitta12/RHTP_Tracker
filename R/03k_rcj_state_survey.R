@@ -114,7 +114,7 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
                              "IL", "IN", "KS", "MD", "ME", "MI", "MO", "MS",
                              "NC", "NE", "NH", "NV", "OH", "OK", "OR", "PA",
-                             "SD", "WY")
+                             "SC", "SD", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -311,7 +311,17 @@ SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM",
 # honestly; they stay QUEUED so the queue reads as one thing rather than two.
 # A session that works any of the fourteen properly -- archive, tripwire,
 # probe -- should move it straight to INVESTIGATED_NO_LIST or EXTRACTED.
-SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN", "NJ", "SC", "TN")
+#
+# SOUTH CAROLINA LEFT THIS BUCKET IN SESSION 47, AND IT LEFT IT THE WAY THE
+# CODE'S OWN NOTE SAID TO: not by anyone writing the missing probe, but by the
+# STATE PUBLISHING. SCDHHS posted "SC RHTP Year 1 Award List" on 2026-09-15 --
+# 228 named, priced awards, $167,299,900.69 -- so South Carolina went
+# INVESTIGATED_NO_PROBE -> EXTRACTED without ever passing through
+# INVESTIGATED_NO_LIST. That is the weaker code doing its one job: it said
+# what this repository had and had not done, and it never claimed a tripwire
+# that did not exist, so nothing had to be retracted when the state moved.
+# See R/03ao_sc_year1_awardees.R.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN", "NJ", "TN")
 
 
 # -- Inputs ------------------------------------------------------------------

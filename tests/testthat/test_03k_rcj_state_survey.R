@@ -180,12 +180,28 @@ test_that("the survey refuses a record table whose pull is not on disk", {
 # tests pin the membership, the disjointness, and the fact that the fourteen
 # QUEUED states did NOT take it.
 
-test_that("the six worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
-  six <- c("HI", "MA", "MN", "NJ", "SC", "TN")
-  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, six)
-  got <- survey$extraction_status[match(six, survey$state)]
+test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
+  # SESSION 43 PUT SIX STATES HERE AND SESSION 47 TOOK ONE OUT -- not by
+  # writing the probe the code's own note asks for, but because SOUTH CAROLINA
+  # PUBLISHED. SCDHHS posted its Year 1 Award List on 2026-09-15 (228 named,
+  # priced awards, $167,299,900.69), so SC went straight to EXTRACTED without
+  # passing through INVESTIGATED_NO_LIST.
+  #
+  # THAT IS THE CODE WORKING, NOT THE CODE FAILING, AND IT IS WHY THIS TEST
+  # WAS UPDATED RATHER THAN RELAXED. INVESTIGATED_NO_PROBE promised only that
+  # the repository had worked the state and could not re-check it; it never
+  # claimed the state had published nothing. So when the state published,
+  # nothing had to be retracted -- which is exactly what INVESTIGATED_NO_LIST
+  # would have got wrong here, since South Carolina had already awarded.
+  five <- c("HI", "MA", "MN", "NJ", "TN")
+  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, five)
+  got <- survey$extraction_status[match(five, survey$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(six, got, collapse = "; "))
+              info = paste(five, got, collapse = "; "))
+  # And South Carolina is OUT of the bucket and IN the extracted set.
+  expect_false("SC" %in% SURVEY_INVESTIGATED_NO_PROBE_STATES)
+  expect_true("SC" %in% SURVEY_EXTRACTED_STATES)
+  expect_equal(survey$extraction_status[survey$state == "SC"], "EXTRACTED")
 })
 
 
@@ -260,8 +276,10 @@ test_that("session 43's four working states left the queue THROUGH the work", {
 test_that("the fifty states split four ways and every state has a disposition", {
   tab <- table(survey$extraction_status)
   expect_equal(sum(tab), 50L)
-  expect_equal(unname(tab[["EXTRACTED"]]), 26L)
+  # Session 47: South Carolina moves INVESTIGATED_NO_PROBE -> EXTRACTED, so
+  # 26/8/6/10 becomes 27/8/5/10. The QUEUED bucket is untouched.
+  expect_equal(unname(tab[["EXTRACTED"]]), 27L)
   expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 6L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 5L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 10L)
 })

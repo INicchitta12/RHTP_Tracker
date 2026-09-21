@@ -1,0 +1,31 @@
+SOUTH CAROLINA -- RHTP evidence archive
+
+Fetched 2026-09-21 by R/03ao_sc_year1_awardees.R --fetch.
+Bodies are written with writeBin(), so re-hashing a file on disk
+reproduces its digest below.
+
+THE HOST'S DIGESTS HOLD, WHICH IS RARE HERE AND IS MEASURED RATHER THAN
+ASSUMED. Three fetches of the programme page inside one minute returned
+156,103 bytes and the SAME SHA-256 every time, and two fetches of the
+award list PDF likewise. Only MAINE's digests have previously held.
+
+THAT IS NOT A CLAIM THAT THEY ALWAYS WILL. Session 34 established that a
+back-to-back pair is not a stability test -- California's cache variant
+is GUARANTEED to pass one -- so --probe compares a CONTENT digest anyway.
+It costs nothing and it is the only form that survives a host acquiring a
+rotating token later.
+
+THE CMS RELEASE IS REDUCED, the other four are archived as served.
+CMS's page chrome carries a third-party Mapbox token in its Drupal
+settings JSON, which is CMS's to publish and not ours to redistribute
+(§7.1, session 11), so only <main> and the schema.org JSON-LD are kept.
+The full page as served hashes to
+acec2a68b3e6ef80e0519ba78091638f518059d8a8c2ab53b9947e63a6a62f07,
+so provenance still closes.
+
+file  bytes  sha256
+2026-09-21_sc_rhtp_year1_award_list_THE_ROSTER.pdf  194537  586c42ffa4d3dff3325c62f04271b853572f6c1b220ed22f1a5dcc80bba75222
+2026-09-21_scdhhs_grants_rhtp_programme.html  156103  838a7a682ffeebe14ea00b43d51fcbbb855fbe7f56031e7f7234924d7baba80d
+2026-09-21_cms_2026-09-17_sc_228_grants.html  27859  64f7a78875d6e51041d113f293bf7f92bc036063fa88a9b79653161f6d0c3dc3
+2026-09-21_scdhhs_rural_mua_grant_NEGATIVE_CONTROL.html  142744  8669e43b0ac7cf4c04739147fdcc269df1ba5bdbc8b84a6fba35071eec411c5f
+2026-09-21_scdhhs_bh_crisis_13_hospitals_NEGATIVE_CONTROL.html  147855  b18dc39ec9ee4ac97d18cc6d1a9627db89d7f535a3413c08ffa569aab4956259
