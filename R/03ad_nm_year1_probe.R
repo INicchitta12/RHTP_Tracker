@@ -164,7 +164,15 @@ NM_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
   "programme",
-  "2026-09-02_nm_hca_rht_programme.html",
+  "2026-09-21_nm_hca_rht_programme_SIX_HUBS_SELECTED.html",
+  "https://www.hca.nm.gov/rural-health-transformation-program/",
+
+  # THE SUPERSEDED PROGRAMME PAGE, kept rather than overwritten: it is the
+  # evidence that HCA named nobody on 2026-09-02, and therefore the evidence
+  # that the six Healthy Horizons hubs are NEW. Louisiana's device, same
+  # session, same reason.
+  "programme_prior",
+  "2026-09-02_nm_hca_rht_programme_NOBODY_NAMED_SUPERSEDED.html",
   "https://www.hca.nm.gov/rural-health-transformation-program/",
 
   "rhcdf",
@@ -191,7 +199,7 @@ NM_SOURCES <- tibble::tribble(
          "new-mexico-announces-76-2-million-investment-in-rural-health-care/"),
 
   "news",
-  "2026-09-02_nm_hca_news_index_CONTROL.html",
+  "2026-09-21_nm_hca_news_index_CONTROL_HUBS_RELEASE.html",
   "https://www.hca.nm.gov/news/",
 
   "advisory",
@@ -217,7 +225,27 @@ NM_STATED <- list(
   horizons_hubs  = 6L,
   horizons_due   = "Applications are due July 2, 2026",
   innovation_due = "Proposals are due by 5 p.m. MDT on July 27, 2026",
-  rinm_due       = "Submissions due: September 4, 2026 at 5PM MDT"
+  # RE-READ 2026-09-21. Rooted in New Mexico's "Submissions due: September 4,
+  # 2026 at 5PM MDT" has gone: that date passed and HCA moved the row to
+  # "Currently under evaluation", which is the ordinary next step and not an
+  # award. The live deadline on the programme page is now the Data Hub
+  # Administrator's, and it is TODAY.
+  rhdha_due      = "Submissions due: Monday, September 21 at 5:00PM MST",
+  # The six Healthy Horizons Regional Hubs, named by HCA on that same page.
+  horizons_selected = "HCA has selected six Regional Hub Organizations",
+  horizons_regional = "more than $74 million in regional funding",
+  # TWO PUBLISHERS, TWO COUNTS, AND BOTH ARE RIGHT. HCA's programme page names
+  # SIX regions; its 2026-09-18 release says it "has selected five
+  # organizations to lead a new effort". The Regents of the University of New
+  # Mexico hold Regions 2 AND 3, so six regions are five organisations --
+  # North Carolina's ROOTS arithmetic exactly (Trillium held Regions 2 and 5),
+  # and the reason a row count there is "neither a region count nor an
+  # organisation count". Nothing is reconciled away: both figures are pinned,
+  # because an extractor that takes either one as "the number of hubs" is
+  # wrong half the time.
+  horizons_release  = "has selected five organizations",
+  horizons_regions  = 6L,
+  horizons_orgs     = 5L
 )
 
 NM_ARCHIVE_DATE <- as.Date("2026-09-02")
@@ -500,10 +528,47 @@ nm_assert_footer_corroborates <- function(strict = FALSE, programme = NULL) {
 #' award link would appear, and its six procurement blocks are the state's own
 #' statement of where each stands. If it acquires award language, this file
 #' must be REWRITTEN as an award extractor, not patched.
+# THIS LIST MISSED A REAL SELECTION, AND THAT IS WHY IT NOW READS AS IT DOES.
+#
+# On 2026-09-21 HCA's page said "HCA has selected six Regional Hub
+# Organizations to lead Healthy Horizons across New Mexico, with more than $74
+# million in regional funding", and named all six -- three of them New Mexico
+# HOSPITALS. Every phrase below was checked against that sentence and NOT ONE
+# of them matched: "selected organizations" is not "selected six Regional Hub
+# Organizations", and "selected for award" is not "has selected". The tripwire
+# whose entire job was to fire the day New Mexico named a recipient sat quiet
+# while New Mexico named six.
+#
+# The lesson is the one Nebraska taught about titles and Michigan about grain:
+# a marker list built from the phrasings a state has ALREADY used cannot catch
+# the phrasing it uses NEXT. So the verb is matched with its object left open
+# ("has selected", "have been selected"), which is what a state announcing a
+# roster actually writes, and the six named hubs are additionally pinned by
+# name below -- a name is not a phrasing and cannot drift.
 NM_AWARD_POSTED <- c(
   "has been awarded", "have been awarded", "awardees are", "selected for award",
   "notice of intent to award", "list of awardees", "award recipients",
-  "funding recipients", "successful applicant", "selected organizations"
+  "funding recipients", "successful applicant", "selected organizations",
+  "ha(?:s|ve) selected", "(?:were|have been) selected", "has awarded",
+  "intends? to award", "contract(?:s)? (?:has|have) been executed"
+)
+
+# HCA's own words for the stage the six hubs are at. SELECTED IS NOT AWARDED
+# (Missouri's Hub Anchors, session 28) -- and New Mexico's selection is a step
+# STRONGER than Missouri's, because HCA attaches a pool to it ("more than $74
+# million in regional funding") where DSS attached nothing and said outright
+# that its anchors would not be fiscal agents. What New Mexico still does not
+# publish is a per-hub amount, an executed contract, or a subrecipient, and
+# "Opportunities to engage in with Regional Hubs are forthcoming" is HCA
+# saying so. So this is a SELECTION to watch, not a roster to extract, and the
+# markers below are what will tell the next session when it becomes one.
+NM_HORIZONS_HUBS <- c(
+  "Region 1: Cibola General Hospital / Gallup Community Health",
+  "Region 2: The Regents of the University of New Mexico",
+  "Region 3: The Regents of the University of New Mexico",
+  "Region 4: Eastern Plains Council of Governments",
+  "Region 5: Gila Regional Medical Center",
+  "Region 6: Nor-Lea Hospital District"
 )
 
 NM_PENDING_MARKERS <- c(
@@ -518,10 +583,25 @@ NM_PENDING_MARKERS <- c(
 
 nm_assert_no_award_roster <- function(programme = NULL) {
   t <- if (is.null(programme)) nm_html_text("programme") else programme
+
+  # The six hubs are a KNOWN, RECORDED selection, so the generic award-language
+  # sweep runs on the page with HCA's selection sentence removed. Otherwise it
+  # re-fires on the thing this file already says, every run, forever -- which is
+  # how a tripwire gets "adjusted" until it catches nothing. Kentucky's device:
+  # there "Notice of Award" is excluded because all ten occurrences are CMS's
+  # own attached NOA, and here one sentence is excluded because it is the
+  # finding rather than a new one.
+  rest <- stringr::str_remove_all(
+    t, stringr::regex(paste0(
+      "HCA has selected six Regional Hub Organizations.*?",
+      "forthcoming"), dotall = TRUE))
+
   hit <- NM_AWARD_POSTED[purrr::map_lgl(
-    NM_AWARD_POSTED, ~ stringr::str_detect(t, stringr::regex(.x, ignore_case = TRUE)))]
+    NM_AWARD_POSTED,
+    ~ stringr::str_detect(rest, stringr::regex(.x, ignore_case = TRUE)))]
   if (length(hit)) {
-    stop("[NM] award language has appeared on HCA's RHT page: ",
+    stop("[NM] award language has appeared on HCA's RHT page, BEYOND the six ",
+         "Healthy Horizons hubs this file already records: ",
          paste(hit, collapse = " | "),
          ". THAT IS THE SIGNAL, NOT A DEFECT. New Mexico may have published a ",
          "recipient-level roster: read it, and rewrite this file as an award ",
@@ -538,6 +618,86 @@ nm_assert_no_award_roster <- function(programme = NULL) {
   invisible(TRUE)
 }
 
+#' SIX REGIONAL HUBS ARE SELECTED AND NAMED, AND NOT ONE OF THEM IS PRICED
+#'
+#' New Mexico stopped being a clean negative between 2026-09-02 and 2026-09-21,
+#' and this is the assertion that says so out loud rather than leaving it in a
+#' session note. Both halves are asserted together, because either one alone
+#' misreports the state:
+#'
+#'   * the six hubs ARE named -- three of them New Mexico hospitals (Cibola
+#'     General, Gila Regional Medical Center, Nor-Lea Hospital District) -- so
+#'     this file must never again be summarised as "New Mexico names nobody";
+#'   * and NOT ONE carries an amount. The only figure HCA attaches is "more
+#'     than $74 million in regional funding" for all six together, which is a
+#'     POOL (§6.2, Georgia's rule) and must never be divided: $74m/6 is
+#'     $12.3m and is nobody's published figure.
+#'
+#' SELECTED IS NOT AWARDED (§0.3, Missouri's Hub Anchors). HCA's own next
+#' sentence is "Opportunities to engage in with Regional Hubs are
+#' forthcoming", which is the state saying the subrecipient tier does not
+#' exist yet. This is designed to FAIL the day a per-hub amount appears, at
+#' which point New Mexico is an extraction and this file must be REWRITTEN as
+#' an award extractor rather than patched.
+nm_assert_hubs_selected_not_awarded <- function(programme = NULL,
+                                                news = NULL) {
+  t <- if (is.null(programme)) nm_html_text("programme") else programme
+  n <- if (is.null(news)) nm_html_text("news") else news
+
+  # The SECOND publisher, and it is what makes the five/six gap a fact about
+  # New Mexico rather than a reading of one page.
+  if (!stringr::str_detect(n, stringr::fixed(NM_STATED$horizons_release))) {
+    stop("[NM] HCA's news index no longer carries '",
+         NM_STATED$horizons_release, "'. That release is the independent ",
+         "corroboration of the hub selection AND the source of the five-vs-",
+         "six count; without it this file rests on one page.", call. = FALSE)
+  }
+
+  miss <- NM_HORIZONS_HUBS[!purrr::map_lgl(
+    NM_HORIZONS_HUBS, ~ stringr::str_detect(t, stringr::fixed(.x)))]
+  if (length(miss)) {
+    stop("[NM] HCA's Healthy Horizons hub roster no longer names: ",
+         paste(miss, collapse = " | "),
+         ". The six named hubs are the whole of what New Mexico has published ",
+         "at recipient level -- a change to that roster is a document to ",
+         "re-read, not a constant to edit.", call. = FALSE)
+  }
+  for (k in c("horizons_selected", "horizons_regional")) {
+    if (!stringr::str_detect(t, stringr::fixed(NM_STATED[[k]]))) {
+      stop("[NM] HCA no longer states '", NM_STATED[[k]], "'. That sentence ",
+           "is what makes the six a SELECTION with a pool attached rather ",
+           "than an award: losing it changes the finding.", call. = FALSE)
+    }
+  }
+
+  # SIX REGIONS, FIVE ORGANISATIONS, AND NEITHER COUNT IS THE OTHER.
+  if (length(NM_HORIZONS_HUBS) != NM_STATED$horizons_regions ||
+      dplyr::n_distinct(stringr::str_remove(NM_HORIZONS_HUBS, "^Region \\d+: ")) !=
+        NM_STATED$horizons_orgs) {
+    stop("[NM] the hub roster is no longer ", NM_STATED$horizons_regions,
+         " regions held by ", NM_STATED$horizons_orgs, " organisations. That ",
+         "gap is the finding -- UNM holds Regions 2 and 3 -- and HCA's own ",
+         "release says FIVE where its page says SIX. Re-read both before ",
+         "changing either count.", call. = FALSE)
+  }
+
+  # A per-hub amount would be a currency figure inside the hub block. The block
+  # carries exactly one today, the $74 million pool.
+  block <- stringr::str_extract(
+    t, stringr::regex(paste0("HCA has selected six Regional Hub ",
+                             "Organizations.*?forthcoming"), dotall = TRUE))
+  money <- stringr::str_extract_all(block, "\\$[0-9][0-9,.]*")[[1]]
+  if (length(money) > 1L) {
+    stop("[NM] the Healthy Horizons hub block now carries ", length(money),
+         " currency figures (", paste(money, collapse = ", "),
+         ") where it carried one pool figure. NEW MEXICO MAY HAVE PRICED ITS ",
+         "HUBS. That is the signal: read the page and REWRITE this file as an ",
+         "award extractor -- nm_year1_status.csv has no `amount` column by ",
+         "design and nm_year1_awardees.csv is asserted absent.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 #' Every RHTP deadline New Mexico has published, and what it means that they
 #' have passed
 nm_assert_pending_not_awarded <- function(programme = NULL, horizons = NULL,
@@ -545,7 +705,7 @@ nm_assert_pending_not_awarded <- function(programme = NULL, horizons = NULL,
   t  <- if (is.null(programme)) nm_html_text("programme") else programme
   th <- if (is.null(horizons)) nm_html_text("horizons") else horizons
   tf <- if (is.null(fund47)) nm_html_text("fund47") else fund47
-  need <- list(programme = c(t, NM_STATED$rinm_due),
+  need <- list(programme = c(t, NM_STATED$rhdha_due),
                horizons  = c(th, NM_STATED$horizons_due),
                fund47    = c(tf, NM_STATED$innovation_due))
   for (nm in names(need)) {
@@ -730,6 +890,7 @@ rhtp_nm_assert <- function(strict_footer = FALSE) {
   nm_assert_programme_provenance()
   nm_assert_footer_corroborates(strict = strict_footer)
   nm_assert_no_award_roster()
+  nm_assert_hubs_selected_not_awarded()
   nm_assert_pending_not_awarded()
   nm_assert_rhcdf_is_not_rhtp()
   nm_assert_roster_control()
@@ -753,19 +914,31 @@ rhtp_nm_year1_status <- function() {
     ~channel, ~administrator, ~stated_pool, ~stage, ~eligible_class,
     ~publishes_roster, ~evidence,
 
-    "Healthy Horizons -- THE POOL TO WATCH", "HCA",
-    "$76.2 million; six regional hub organizations",
-    "CLOSED_UNAWARDED",
+    "Healthy Horizons -- SIX HUBS SELECTED AND NAMED, NONE PRICED", "HCA",
+    "$76.2 million; 'more than $74 million' across six regional hubs",
+    "SELECTED_NOT_PRICED",
     paste("PROVIDERS AMONG OTHERS. Hubs 'direct funding to providers, Tribal",
           "health programs, community organizations, public health groups and",
           "other partners'. New Hampshire's FHC class, NOT Illinois's ICAHN",
           "class, so §0.3 governs it either way."),
-    "No",
-    paste("HCA 'will select six organizations to manage hub regions'; each",
-          "'must use at least 90% of its award to support local projects'.",
-          "Applications were due 2026-07-02 and the RHT page still reads",
-          "'Currently under evaluation'. MISSOURI'S ToRCH HUB SHAPE: when it",
-          "lands it is a PASS_THROUGH question, not a direct award."),
+    "Yes -- SIX NAMED HUBS, NO PER-HUB AMOUNT",
+    paste("MOVED BETWEEN 2026-09-02 AND 2026-09-21, AND NEW MEXICO IS NO",
+          "LONGER A CLEAN NEGATIVE. HCA 'has selected six Regional Hub",
+          "Organizations to lead Healthy Horizons across New Mexico, with",
+          "more than $74 million in regional funding', and names all six:",
+          "Region 1 Cibola General Hospital / Gallup Community Health;",
+          "Regions 2 and 3 The Regents of the University of New Mexico;",
+          "Region 4 Eastern Plains Council of Governments; Region 5 Gila",
+          "Regional Medical Center; Region 6 Nor-Lea Hospital District.",
+          "THREE ARE NAMED NEW MEXICO HOSPITALS. NOT ONE IS PRICED: the",
+          "$74 million is a POOL across all six and must never be divided",
+          "(§6.2) -- $74m/6 = $12.3m is nobody's published figure. SELECTED",
+          "IS NOT AWARDED (§0.3, Missouri's Hub Anchors), and HCA's own next",
+          "sentence says the subrecipient tier does not exist yet:",
+          "'Opportunities to engage in with Regional Hubs are forthcoming.'",
+          "NOT EXTRACTED HERE -- reported first, Arkansas's and Wyoming's",
+          "footing. nm_assert_hubs_selected_not_awarded() fails the day a",
+          "per-hub amount appears."),
 
     "Rural Health Innovation Fund", "HCA",
     "$47 million",
@@ -1041,12 +1214,19 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
 
   txt <- lapply(bodies, nm_reduce_html)
   nm_assert_no_award_roster(programme = txt$programme)
+  nm_assert_hubs_selected_not_awarded(programme = txt$programme,
+                                      news = txt$news)
   nm_assert_pending_not_awarded(programme = txt$programme)
   nm_assert_programme_provenance(programme = txt$programme)
   nm_assert_roster_control(rhcdf = txt$rhcdf, news = txt$news)
   nm_assert_candidates_are_rhcdf_recipients(rhcdf = txt$rhcdf)
-  message("[NM] the award tripwires pass against the LIVE bytes: New Mexico ",
-          "has not published a recipient-level RHTP award roster.")
+  message("[NM] the award tripwires pass against the LIVE bytes. READ THIS ",
+          "CAREFULLY, because what it now means changed on 2026-09-21: HCA ",
+          "HAS named six Healthy Horizons Regional Hubs -- three of them New ",
+          "Mexico hospitals -- and has priced NOT ONE of them. What still ",
+          "does not exist is a per-recipient amount, an executed contract, or ",
+          "a subrecipient. New Mexico is a SELECTION to watch, no longer a ",
+          "state that names nobody.")
   if (length(changed)) {
     message("[NM] CHANGED, read them: ", paste(changed, collapse = ", "))
   }
@@ -1059,7 +1239,7 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
 if (sys.nframe() == 0L) {
   args  <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
-  if ("--probe" %in% args)    nm_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("NM", nm_probe())
   if ("--fetch" %in% args)    nm_fetch(force = force)
   if ("--validate" %in% args) {
     rhtp_nm_assert(strict_footer = "--strict" %in% args)

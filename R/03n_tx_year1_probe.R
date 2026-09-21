@@ -837,21 +837,172 @@ tx_report <- function() {
 
 
 # -- probe (live) ------------------------------------------------------------
+#
+# A PROBE READS. IT DOES NOT WRITE TO THE EVIDENCE ARCHIVE.
+#
+# From session 19 until session 46 this function called
+# `tx_fetch_sources(force = TRUE)`, so every firing of the Texas Routine
+# re-fetched all eleven sources INTO data/evidence/TX/ and rewrote the
+# manifest. Two things were wrong with that, and the second is worse than the
+# first.
+#
+# The first: the archive's fetch dates stopped meaning "the day this document
+# was read and its finding written down" and started meaning "the last time a
+# Routine fired". The file names still say 2026-08-29 while the bytes under
+# them were whatever HHSC served this morning.
+#
+# The second, and the reason this is a defect rather than untidiness: it
+# DESTROYED THE BASELINE THE PROBE WAS COMPARING AGAINST. `tx_validate()` reads
+# the archive, so after the re-fetch it was re-reading the pages that had just
+# been downloaded -- the probe compared the live site to itself and could only
+# ever report that Texas had not moved. A roster appearing on an RFA page would
+# have been archived first and asserted against second, and the tripwire
+# designed to fail the build would have passed on the roster it was watching
+# for.
+#
+# So the probe now fetches into MEMORY and compares a CONTENT digest against
+# the committed bytes, and the tripwires run against the LIVE text (session
+# 25's Indiana lesson: `--validate` alone reads the archive and therefore
+# passes trivially). `rhtp_probe_run()` snapshots data/evidence/ around this
+# and refuses if anything moved, so the rule is enforced rather than merely
+# written down. Re-dating the archive is what `--fetch --force` is for, and it
+# is a deliberate act a human takes after READING what changed.
 
-#' Re-fetch and re-check: has Texas published an award list yet?
+#' Reduce a served body to the text whose change would mean something
 #'
-#' The only entry point here that touches the network after --fetch. It exists
-#' because this negative is dated, and the honest way to keep it honest is to
-#' re-run the same check against the live pages rather than to re-read a
-#' document from August.
-tx_probe <- function() {
-  tx_fetch_sources(force = TRUE)
-  tx_validate()
-  message("[TX] probe: still no RHTP award roster on any Rural Texas Strong ",
-          "solicitation, and the positive control still fires.")
-  tx_report()
+#' Attributes and script bodies are discarded: eight hosts in this repository
+#' rotate a nonce, a cache-buster or a build stamp inside one or the other, so
+#' a FILE digest moves on every fetch while the page says exactly what it said
+#' before. Whether `resources.hhs.texas.gov` is one of them is not yet
+#' measured, and reducing costs nothing if it is not.
+tx_reduce_html <- function(raw) {
+  txt <- rawToChar(raw[raw != as.raw(0L)])
+  Encoding(txt) <- "UTF-8"
+  txt <- stringr::str_remove_all(
+    txt, stringr::regex("<(script|style|noscript)[^>]*>.*?</\\1>",
+                        dotall = TRUE, ignore_case = TRUE))
+  txt <- stringr::str_replace_all(txt, "<[^>]+>", " ")
+  txt <- stringr::str_replace_all(txt, "&nbsp;|&#160;", " ")
+  txt <- stringr::str_replace_all(txt, "&amp;", "&")
+  txt <- stringr::str_replace_all(txt, "[ \t\u00a0]+", " ")
+  txt <- stringr::str_replace_all(txt, "\\s*\n\\s*", "\n")
+  stringr::str_trim(txt)
 }
 
+#' The content digest of an archived source, or of a body just served
+tx_content_text <- function(key, body = NULL) {
+  if (is.null(body)) {
+    src  <- TX_SOURCES[TX_SOURCES$key == key, ]
+    path <- file.path(TX_EVIDENCE_DIR, src$file)
+    body <- readBin(path, "raw", file.info(path)$size)
+  }
+  tx_reduce_html(body)
+}
+
+#' Fetch one source into memory. Never to disk.
+tx_get <- function(url, label) {
+  message("[TX] fetching ", label)
+  resp <- httr::GET(url, httr::user_agent(TX_USER_AGENT), httr::timeout(120))
+  if (httr::status_code(resp) != 200L) {
+    stop("[TX] HTTP ", httr::status_code(resp), " for ", url, call. = FALSE)
+  }
+  httr::content(resp, as = "raw")
+}
+
+# The four Rural Texas Strong solicitations plus the two STATE-funded controls.
+# The controls are probed as well as the subjects, and that is the point: a
+# site redesign renaming the "Awarded Grant Information" section would
+# otherwise turn this negative silently green forever, because the check would
+# stop finding the string on pages that have awarded as well as on pages that
+# have not.
+TX_PROBE_KEYS <- c("rts_init1p2", "rts_init4r1", "rts_init4r2", "rts_init6p1",
+                   "state_debt_rfa", "state_impr_rfa")
+
+#' Re-check, live: has Texas published an award list yet?
+#'
+#' The only entry point here that touches the network after `--fetch`. It
+#' exists because this negative is dated, and the honest way to keep it honest
+#' is to re-run the same check against the live pages rather than to re-read a
+#' document from August.
+tx_probe <- function(keys = TX_PROBE_KEYS) {
+  live <- list()
+  for (i in seq_along(keys)) {
+    key <- keys[[i]]
+    src <- TX_SOURCES[TX_SOURCES$key == key, ]
+    if (nrow(src) != 1L) stop("[TX] unknown probe key: ", key, call. = FALSE)
+    if (i > 1L) Sys.sleep(TX_HOST_THROTTLE_S)
+    body <- tx_get(src$url, src$file)
+    cur  <- tx_content_text(key, body)
+    held <- tx_content_text(key)
+    live[[key]] <- list(
+      text = cur,
+      sha = digest::digest(cur, algo = "sha256"),
+      held_sha = digest::digest(held, algo = "sha256"),
+      role = src$role, file = src$file, url = src$url)
+    live[[key]]$changed <- !identical(live[[key]]$sha, live[[key]]$held_sha)
+  }
+
+  # The content question, asked of the LIVE bytes rather than the archive.
+  # Both halves matter and they fail for opposite reasons: a Rural Texas Strong
+  # page that GAINS the section means Texas has awarded, and a state-funded
+  # control page that LOSES it means HHSC has renamed the thing we look for
+  # and this check has stopped meaning anything.
+  awarded  <- vapply(keys, function(k) {
+    stringr::str_detect(live[[k]]$text, stringr::fixed(TX_AWARDED_SECTION))
+  }, logical(1))
+  subjects <- keys[vapply(keys, function(k) live[[k]]$role, character(1)) ==
+                     "SOLICITATION"]
+  controls <- setdiff(keys, subjects)
+
+  findings <- character(0)
+  if (any(awarded[subjects])) {
+    findings <- c(findings, paste0(
+      "AWARD ROSTER: ", paste(subjects[awarded[subjects]], collapse = ", "),
+      " now carries an '", TX_AWARDED_SECTION, "' section. TEXAS HAS AWARDED."))
+  }
+  if (!all(awarded[controls])) {
+    findings <- c(findings, paste0(
+      "POSITIVE CONTROL: ", paste(controls[!awarded[controls]], collapse = ", "),
+      " no longer carries an '", TX_AWARDED_SECTION, "' section, and those ",
+      "pages HAVE awarded. The check has stopped being able to see a roster ",
+      "-- re-read the page before trusting any Texas negative."))
+  }
+
+  moved <- vapply(live, function(x) x$changed, logical(1))
+
+  message("[TX] live probe ", format(Sys.time(), tz = "UTC",
+                                     "%Y-%m-%d %H:%M:%S"), " UTC")
+  for (key in names(live)) {
+    message(sprintf("  %-15s %-13s content %-9s awarded-section %s",
+                    key, live[[key]]$role,
+                    if (live[[key]]$changed) "CHANGED" else "unchanged",
+                    if (awarded[[key]]) "PRESENT" else "absent"))
+  }
+
+  if (length(findings)) {
+    message("[TX] ", strrep("-", 68))
+    message("[TX] A TRIPWIRE FIRED. THIS IS THE SIGNAL, NOT A DEFECT.")
+    for (f in findings) message("[TX]   ", f)
+    message("[TX] ", strrep("-", 68))
+    stop("[TX] ", paste(findings, collapse = " | "), call. = FALSE)
+  }
+
+  if (!any(moved)) {
+    message("[TX] UNCHANGED -- all ", length(live), " probed pages are ",
+            "content-identical to the committed archive: no Rural Texas ",
+            "Strong solicitation carries an award roster, and both ",
+            "state-funded controls still carry theirs.")
+  } else {
+    message("[TX] CONTENT CHANGED on: ",
+            paste(names(moved)[moved], collapse = ", "),
+            ". No award roster appeared, so this is a re-flow rather than an ",
+            "award -- but re-fetch and READ it before assuming so.")
+    message("[TX] Re-run: --fetch --force, then --validate, then --build, ",
+            "then COMMIT.")
+  }
+
+  invisible(list(changed = any(moved), findings = findings, sources = live))
+}
 
 # -- CLI ---------------------------------------------------------------------
 
@@ -861,7 +1012,7 @@ if (sys.nframe() == 0L) {
   if ("--validate" %in% args) { tx_validate(); message("[TX] all assertions pass.") }
   if ("--build" %in% args)    tx_build()
   if ("--report" %in% args)   tx_report()
-  if ("--probe" %in% args)    tx_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("TX", tx_probe())
   if (!length(intersect(args, c("--fetch", "--validate", "--build",
                                 "--report", "--probe")))) {
     cat("usage: Rscript R/03n_tx_year1_probe.R",

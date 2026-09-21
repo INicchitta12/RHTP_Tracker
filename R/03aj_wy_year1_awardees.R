@@ -2329,7 +2329,7 @@ if (!interactive() && sys.nframe() == 0L) {
   } else if ("--build" %in% args) {
     wy_build()
   } else if ("--probe" %in% args) {
-    wy_probe()
+    rhtp_probe_run("WY", wy_probe())
   } else if ("--report" %in% args) {
     wy_report()
   } else {

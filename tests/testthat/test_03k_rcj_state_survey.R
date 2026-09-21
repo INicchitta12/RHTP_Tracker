@@ -234,8 +234,15 @@ test_that("session 43's four working states left the queue THROUGH the work", {
   # DE, ID and OH have award files, evidence archives and probes; MS has an
   # evidence archive, a probe and a Routine. None of them took the weaker
   # INVESTIGATED_NO_PROBE code, which is what that code's own note requires.
+  #
+  # AND SESSION 46 MOVED MISSISSIPPI AGAIN, FROM INVESTIGATED_NO_LIST TO
+  # EXTRACTED -- THE FIRST STATE TO LEAVE THAT BUCKET. It is what the code is
+  # FOR: a re-checkable negative with a probe and a Routine watching the
+  # channel the state itself named, which re-opened the state the day it
+  # published. On 2026-09-14 the Governor announced 167 awards, named and
+  # priced, and the probe's whole purpose was served.
   worked <- c(DE = "EXTRACTED", ID = "EXTRACTED", OH = "EXTRACTED",
-              MS = "INVESTIGATED_NO_LIST")
+              MS = "EXTRACTED")
   got <- survey$extraction_status[match(names(worked), survey$state)]
   expect_equal(unname(got), unname(worked),
                info = paste(names(worked), got, collapse = "; "))
@@ -253,8 +260,8 @@ test_that("session 43's four working states left the queue THROUGH the work", {
 test_that("the fifty states split four ways and every state has a disposition", {
   tab <- table(survey$extraction_status)
   expect_equal(sum(tab), 50L)
-  expect_equal(unname(tab[["EXTRACTED"]]), 25L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 9L)
+  expect_equal(unname(tab[["EXTRACTED"]]), 26L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 6L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 10L)
 })

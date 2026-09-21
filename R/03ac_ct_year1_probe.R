@@ -1201,7 +1201,7 @@ ct_probe <- function(keys = CT_PROBE_KEYS) {
 if (sys.nframe() == 0L) {
   args  <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
-  if ("--probe" %in% args)    ct_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("CT", ct_probe())
   if ("--fetch" %in% args)    ct_fetch(force = force)
   if ("--validate" %in% args) {
     rhtp_ct_assert(strict_footer = "--strict" %in% args)

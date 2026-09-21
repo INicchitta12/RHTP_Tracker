@@ -1920,7 +1920,7 @@ if (!interactive() && sys.nframe() == 0L) {
   } else if ("--build" %in% args) {
     ar_build()
   } else if ("--probe" %in% args) {
-    ar_probe()
+    rhtp_probe_run("AR", ar_probe())
   } else if ("--report" %in% args) {
     ar_report()
   } else {

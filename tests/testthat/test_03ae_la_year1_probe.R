@@ -79,33 +79,109 @@ test_that("an anonymous agent is refused, on any host", {
 })
 
 
-# -- SEVEN WINDOWS, ALL CLOSED -- the finding ---------------------------------
+# -- SEVEN WINDOWS, AND LDH SLIPPED EVERY ONE ---------------------------------
 
 test_that("LDH publishes an announcement window for each of seven opportunities", {
-  expect_equal(stringr::str_count(la_prog, stringr::fixed(LA_STATED$noic_early)), 3L)
-  expect_equal(stringr::str_count(la_prog, stringr::fixed(LA_STATED$noic_late)),  4L)
+  # THE INVARIANT, and the only one this control should ever have protected:
+  # every Budget Year 1 solicitation carries an announcement date LDH
+  # published itself, and the seven match the funding page's seven headings.
+  w <- la_parse_windows(la_prog)
+  expect_equal(nrow(w), LA_STATED$opportunities)
   expect_equal(
     stringr::str_count(la_fund, stringr::fixed("Strategic Funding Opportunity Title")),
-    7L)
-  # 3 + 4 = 7. Every opportunity carries a published announcement date, which
-  # is what makes this negative DATED rather than open-ended.
-  expect_equal(3L + 4L, LA_STATED$opportunities)
-  expect_true(la_assert_windows_passed(la_prog, la_fund))
+    LA_STATED$opportunities)
+  expect_true(all(grepl("^Closed$", w$application, ignore.case = TRUE)))
+  expect_true(is.data.frame(la_assert_windows_published(la_prog, la_fund)))
 })
 
-test_that("the windows-passed assertion refuses to claim a future date has passed", {
-  # It is only honest from 2026-09-01; asserted so a re-run before then fails
-  # rather than reporting a finding that is not yet true.
-  expect_error(la_assert_windows_passed(la_prog, la_fund,
-                                        asof = as.Date("2026-08-20")),
-               "only true from 2026-09-01")
+test_that("THE WINDOWS AS PUBLISHED TODAY: 6 x End of September, 1 x Mid-September", {
+  # Session 36 pinned two literal phrases and their counts. LDH re-dated the
+  # block, so the assertion found 0 and 0 and HALTED the Routine -- correctly,
+  # and on a constant that was not wrong when it was written. What the page
+  # says now is read here instead of asserted from memory.
+  w <- la_parse_windows(la_prog)
+  expect_equal(sum(w$window == "End of September"), 6L)
+  expect_equal(sum(w$window == "Mid-September"), 1L)
+  expect_equal(sum(w$window_ends == as.Date("2026-09-30")), 6L)
+  expect_equal(sum(w$window_ends == as.Date("2026-09-15")), 1L)
 })
 
-test_that("a re-dated window fails rather than passing quietly", {
-  moved <- stringr::str_replace_all(la_prog,
-                                    stringr::fixed(LA_STATED$noic_late),
-                                    "Notice of Intent to Contract Announcements: Mid to late October")
-  expect_error(la_assert_windows_passed(moved, la_fund), "no longer reads")
+test_that("which windows have PASSED is derived, never asserted", {
+  # The previous version asserted that ALL SEVEN had passed. That was true
+  # when written and is now false: on 2026-09-21 exactly one has. A claim
+  # about a state read off a constant rather than off the state's page (§0.4).
+  w <- la_assert_windows_published(la_prog, la_fund,
+                                   asof = as.Date("2026-09-21"))
+  expect_equal(sum(w$passed), 1L)
+  expect_equal(w$programme[w$passed],
+               "Rural Health Transformation Program (RHTP) Rural Clinician Credit Bank Program")
+  # And it moves with the date rather than with an edit.
+  expect_equal(sum(la_assert_windows_published(la_prog, la_fund,
+                                               asof = as.Date("2026-10-01"))$passed),
+               7L)
+  expect_equal(sum(la_assert_windows_published(la_prog, la_fund,
+                                               asof = as.Date("2026-09-01"))$passed),
+               0L)
+})
+
+test_that("every window form LDH has used dates correctly", {
+  # The four forms across both snapshots. Take the LAST qualifier and the LAST
+  # month: "Late July to mid August" ends mid-AUGUST, not late July.
+  expect_equal(la_window_deadline("Late July to mid August"), as.Date("2026-08-15"))
+  expect_equal(la_window_deadline("Mid to late August"),      as.Date("2026-08-31"))
+  expect_equal(la_window_deadline("End of September"),        as.Date("2026-09-30"))
+  expect_equal(la_window_deadline("Mid-September"),           as.Date("2026-09-15"))
+})
+
+test_that("a window this file cannot date is REFUSED, not guessed at", {
+  # §0.4: an unparsed date silently treated as absent is how a slipped
+  # deadline reads as an award.
+  expect_error(la_window_deadline("soon"), "cannot date the announcement window")
+})
+
+test_that("THE SLIP IS MEASURED FROM TWO COMMITTED ARCHIVES", {
+  # Not a session note: the 2026-09-02 snapshot carries the July/August
+  # windows and the 2026-09-21 one carries the September windows, and both are
+  # in data/evidence/LA/. That is why the superseded file is kept.
+  sl <- la_assert_windows_slipped()
+  expect_equal(nrow(sl), 7L)
+  expect_true(all(sl$slipped_days > 0L))
+  expect_equal(range(sl$slipped_days), c(30L, 46L))
+  expect_true(all(sl$was %in% c("Late July to mid August", "Mid to late August")))
+})
+
+test_that("a window moving EARLIER, or not at all, fails rather than passing", {
+  expect_error(la_assert_windows_slipped(programme = la_prog, prior = la_prog),
+               "identical windows")
+})
+
+test_that("a solicitation re-opening is a different finding and fails", {
+  reopened <- stringr::str_replace(
+    la_prog, "Application Submission Deadline for Year 1 Funds: Closed",
+    "Application Submission Deadline for Year 1 Funds: Open")
+  expect_error(la_assert_windows_published(reopened, la_fund),
+               "no longer read 'Closed'")
+})
+
+test_that("a window LDH cannot be dated from is REFUSED, not dropped", {
+  # LDH replacing a date with "TBD" is the shape that matters: dropping that
+  # row would shrink the seven silently, and seven-against-seven is the whole
+  # closure. It fails at the PARSE rather than at the count, which is earlier
+  # and therefore better -- the row never reaches a table.
+  dropped <- stringr::str_replace(
+    la_prog,
+    stringr::fixed("Notice of Intent to Contract Announcements: Mid-September"),
+    "Notice of Intent to Contract Announcements: TBD")
+  expect_error(la_assert_windows_published(dropped, la_fund),
+               "could be parsed")
+})
+
+test_that("the seven windows must match the seven solicitations", {
+  # The other direction: the funding page losing a heading.
+  fewer <- stringr::str_replace(
+    la_fund, stringr::fixed("Strategic Funding Opportunity Title"), "Removed")
+  expect_error(la_assert_windows_published(la_prog, fewer),
+               "announcement windows against")
 })
 
 
@@ -295,7 +371,12 @@ test_that("the status table names nine channels and no roster among them", {
   # The Atlas is UNKNOWN, never "No": that is a statement about our access.
   expect_equal(st$publishes_roster[stringr::str_detect(st$channel, "Atlas")],
                "UNKNOWN")
-  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 7L)
+  # SIX PENDING, ONE PASSED -- derived from the page on every build, not
+  # typed. It read 7 x CLOSED_AWARD_DATE_PASSED until session 46, which was a
+  # status table asserting a state had missed its own deadline when six of
+  # seven had not.
+  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PENDING"), 6L)
+  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 1L)
 })
 
 test_that("Louisiana contributes no row and no dollar to any hospital bucket", {

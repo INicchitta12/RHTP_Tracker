@@ -25,7 +25,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 24,AZ,Arizona,4,3,1,0,2,67000000,25000000,6,No,,,,166988956,NOT_EXTRACTED,RCJ_ONLY,Yes
 25,CO,Colorado,4,4,0,0,4,6572000,6450000,4,No,,,,200105604,NOT_EXTRACTED,RCJ_ONLY,Yes
 26,WV,West Virginia,4,0,4,0,4,948542,333828,4,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,NOT_EXTRACTED,RCJ_AND_CMS,No
-27,MS,Mississippi,3,1,2,0,3,50150000,50000000,3,Yes,2026-09-15,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-104-million-transform-rural-healthcare-across-mississippi-through,205907220,INVESTIGATED_NO_LIST,RCJ_AND_CMS,No
+27,MS,Mississippi,3,1,2,0,3,50150000,50000000,3,Yes,2026-09-15,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-104-million-transform-rural-healthcare-across-mississippi-through,205907220,EXTRACTED,RCJ_AND_CMS,No
 28,RI,Rhode Island,3,0,3,0,3,22250349,13000000,3,Yes,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-5-48-million-strengthen-healthcare-workforce-pipeline-rural-rhode,156169931,NOT_EXTRACTED,RCJ_AND_CMS,No
 29,WA,Washington,2,0,2,0,2,30200001,30200000,2,No,,,,181257515,NOT_EXTRACTED,RCJ_ONLY,Yes
 30,UT,Utah,2,2,0,0,2,6000000,3000000,2,No,,,,195743566,NOT_EXTRACTED,RCJ_ONLY,Yes

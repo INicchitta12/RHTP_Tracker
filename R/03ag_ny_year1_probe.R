@@ -659,7 +659,7 @@ if (!interactive()) {
   if ("--fetch" %in% args) ny_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) ny_validate()
   if ("--build" %in% args) ny_build()
-  if ("--probe" %in% args) ny_probe()
+  if ("--probe" %in% args) rhtp_probe_run("NY", ny_probe())
   if ("--report" %in% args) ny_report()
   if (!length(args)) {
     message("Usage: --fetch [--force] | --validate | --build | --probe | --report")

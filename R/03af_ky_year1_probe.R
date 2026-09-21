@@ -801,7 +801,7 @@ if (!interactive()) {
   if ("--fetch" %in% args) ky_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) ky_validate()
   if ("--build" %in% args) ky_build()
-  if ("--probe" %in% args) ky_probe()
+  if ("--probe" %in% args) rhtp_probe_run("KY", ky_probe())
   if ("--report" %in% args) ky_report()
   if (!length(args)) {
     message("Usage: --fetch [--force] | --validate | --build | --probe | --report")

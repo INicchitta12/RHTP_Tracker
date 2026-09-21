@@ -26,21 +26,21 @@ queue_rank,state,state_name,trigger_source,queue_status,rcj_tier3_candidates,rcj
 25,IA,Iowa,RCJ_ONLY,EXTRACTED,15,15,5,,,,209040064,EXTRACTED,2026-08-28
 26,ME,Maine,RCJ_ONLY,EXTRACTED,12,12,12000011,,,,190008051,EXTRACTED,2026-08-28
 27,DE,Delaware,RCJ_ONLY,EXTRACTED,5,5,11500004,,,,157394964,EXTRACTED,2026-08-28
-28,ID,Idaho,RCJ_ONLY,EXTRACTED,1,1,1,,,,185974368,EXTRACTED,2026-08-28
-29,IL,Illinois,RCJ_ONLY,EXTRACTED,1,1,1,,,,193418216,EXTRACTED,2026-08-28
-30,OH,Ohio,BOTH,EXTRACTED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,EXTRACTED,2026-08-28
-31,SD,South Dakota,BOTH,EXTRACTED,1,1,31500000,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,2026-08-28
-32,AR,Arkansas,CMS_ONLY,EXTRACTED,0,0,0,2026-08-31,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-149-3-million-expand-telehealth-increase-access-specialty-care,208779396,EXTRACTED,2026-09-03
-33,FL,Florida,NEITHER,EXTRACTED,0,0,0,,,,209938195,EXTRACTED,2026-08-28
-34,NC,North Carolina,CMS_ONLY,EXTRACTED,0,0,0,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,2026-09-02
-35,WY,Wyoming,NEITHER,EXTRACTED,0,0,0,,,,205004743,EXTRACTED,2026-09-03
-36,TX,Texas,RCJ_ONLY,INVESTIGATED_NO_LIST,68,67,352864058.3,,,,281319361,INVESTIGATED_NO_LIST,2026-08-28
-37,WI,Wisconsin,RCJ_ONLY,INVESTIGATED_NO_LIST,19,19,100139403,,,,203670005,INVESTIGATED_NO_LIST,2026-08-28
-38,CA,California,RCJ_ONLY,INVESTIGATED_NO_LIST,11,8,5475000,,,,233639308,INVESTIGATED_NO_LIST,2026-08-28
-39,CT,Connecticut,BOTH,INVESTIGATED_NO_LIST,7,6,49854129,2026-09-17,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-50-million-optimize-care-delivery-improve-rural-hospital,154249106,INVESTIGATED_NO_LIST,2026-08-28
-40,NM,New Mexico,RCJ_ONLY,INVESTIGATED_NO_LIST,7,7,7,,,,211484741,INVESTIGATED_NO_LIST,2026-08-28
-41,LA,Louisiana,RCJ_ONLY,INVESTIGATED_NO_LIST,6,6,53910000,,,,208374448,INVESTIGATED_NO_LIST,2026-08-28
-42,MS,Mississippi,BOTH,INVESTIGATED_NO_LIST,3,3,50150000,2026-09-15,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-104-million-transform-rural-healthcare-across-mississippi-through,205907220,INVESTIGATED_NO_LIST,2026-08-28
+28,MS,Mississippi,BOTH,EXTRACTED,3,3,50150000,2026-09-15,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-104-million-transform-rural-healthcare-across-mississippi-through,205907220,EXTRACTED,2026-08-28
+29,ID,Idaho,RCJ_ONLY,EXTRACTED,1,1,1,,,,185974368,EXTRACTED,2026-08-28
+30,IL,Illinois,RCJ_ONLY,EXTRACTED,1,1,1,,,,193418216,EXTRACTED,2026-08-28
+31,OH,Ohio,BOTH,EXTRACTED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,EXTRACTED,2026-08-28
+32,SD,South Dakota,BOTH,EXTRACTED,1,1,31500000,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,2026-08-28
+33,AR,Arkansas,CMS_ONLY,EXTRACTED,0,0,0,2026-08-31,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-149-3-million-expand-telehealth-increase-access-specialty-care,208779396,EXTRACTED,2026-09-03
+34,FL,Florida,NEITHER,EXTRACTED,0,0,0,,,,209938195,EXTRACTED,2026-08-28
+35,NC,North Carolina,CMS_ONLY,EXTRACTED,0,0,0,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,2026-09-02
+36,WY,Wyoming,NEITHER,EXTRACTED,0,0,0,,,,205004743,EXTRACTED,2026-09-03
+37,TX,Texas,RCJ_ONLY,INVESTIGATED_NO_LIST,68,67,352864058.3,,,,281319361,INVESTIGATED_NO_LIST,2026-08-28
+38,WI,Wisconsin,RCJ_ONLY,INVESTIGATED_NO_LIST,19,19,100139403,,,,203670005,INVESTIGATED_NO_LIST,2026-08-28
+39,CA,California,RCJ_ONLY,INVESTIGATED_NO_LIST,11,8,5475000,,,,233639308,INVESTIGATED_NO_LIST,2026-08-28
+40,CT,Connecticut,BOTH,INVESTIGATED_NO_LIST,7,6,49854129,2026-09-17,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-50-million-optimize-care-delivery-improve-rural-hospital,154249106,INVESTIGATED_NO_LIST,2026-08-28
+41,NM,New Mexico,RCJ_ONLY,INVESTIGATED_NO_LIST,7,7,7,,,,211484741,INVESTIGATED_NO_LIST,2026-08-28
+42,LA,Louisiana,RCJ_ONLY,INVESTIGATED_NO_LIST,6,6,53910000,,,,208374448,INVESTIGATED_NO_LIST,2026-08-28
 43,HI,Hawaii,CMS_ONLY,INVESTIGATED_NO_PROBE,0,0,0,2026-09-01,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-58-million-deliver-new-ambulances-upgrade-emergency-communications-0,188892440,INVESTIGATED_NO_PROBE,2026-09-03
 44,KY,Kentucky,NEITHER,INVESTIGATED_NO_LIST,0,0,0,,,,212905591,INVESTIGATED_NO_LIST,2026-09-02
 45,MA,Massachusetts,NEITHER,INVESTIGATED_NO_PROBE,0,0,0,,,,162005238,INVESTIGATED_NO_PROBE,2026-09-03

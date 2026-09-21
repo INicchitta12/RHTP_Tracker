@@ -1477,7 +1477,7 @@ if (sys.nframe() == 0L) {
   if ("--fetch" %in% args)    me_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) rhtp_me_assert(strict_footer = "--strict" %in% args)
   if ("--build" %in% args)    rhtp_me_build()
-  if ("--probe" %in% args)    me_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("ME", me_probe())
   if ("--report" %in% args)   rhtp_me_report()
   if (!any(c("--fetch", "--validate", "--build", "--probe", "--report") %in% args)) {
     message("usage: Rscript R/03aa_me_year1_awardees.R ",

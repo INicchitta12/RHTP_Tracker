@@ -388,6 +388,14 @@ RHTP_ORG_TYPE_TO_RECIPIENT_TYPE <- tibble::tribble(
   "Emergency Medical Services",                                  "EMS_OR_PSAP",                 "HIGH",
   "University",                                                  "UNIVERSITY_OR_AHC",           "HIGH",
   "Education organization (Not public university in Alaska)",    "SCHOOL_OR_DISTRICT",          "HIGH",
+  # ALASKA RE-WORDED ITS OWN TOKEN, session 46. The line above is the form as
+  # Alaska printed it through 2026-08-31; this is the same form as it prints
+  # from 2026-09-21 -- re-cased, and with "in Alaska" dropped. Not a new class,
+  # and NOT reached by a fuzzy match: both exact strings are listed, because
+  # the earlier snapshots are still committed and still parsed on every run
+  # (AK_CMS_ANCHOR_FILE), so the old spelling must keep resolving. Two
+  # spellings of one thing, kept apart and both exact.
+  "Education Organization (Not Public University)",              "SCHOOL_OR_DISTRICT",          "HIGH",
   # -- Oregon (session 17). OHA publishes an `Entity type` per PROJECT in its
   # own Catalyst data file, so the state classifies its own awardees and that
   # outranks any reading of the name -- Alaska's rule, second state.
@@ -461,7 +469,27 @@ RHTP_ORG_TYPE_SERVICE_TOKENS <- c(
   # ONLY with these falls to the §8 settled fallback (NONPROFIT_CBO + LOW +
   # RECIPIENT_TYPE_INFERRED) instead of being assigned a form the state never
   # stated.
-  "Behavioral Health Clinic", "Dental Provider", "Other"
+  "Behavioral Health Clinic", "Dental Provider", "Other",
+  # ALASKA, session 46. Its rolling notice grew 185 -> 244 award actions and
+  # three of the 59 new rows carry an organisation-type token this project had
+  # not seen: "Health Care Providers". The classifier REFUSED the whole build
+  # rather than guess, which is the behaviour this list exists to produce.
+  #
+  # It is a SERVICE token and not a form. "Health Care Providers" says the
+  # awardee delivers health care; it does not say whether it is a hospital, a
+  # clinic, an FQHC or a practice, and §8 has no code for the class. Reading it
+  # as HOSPITAL_OR_SYSTEM would add hospital dollars on this pipeline's
+  # authority where Alaska has stated only a class (§0.3, §0.4) -- and it is
+  # the same shape as "Other health care provider" three lines up, which was
+  # settled the same way. All three rows additionally carry "Tribe and/or
+  # Tribal Health Organization", so they type from a token Alaska DID state
+  # rather than falling to the §8 fallback.
+  "Health Care Providers",
+  # And the singular, lower-cased variant, which arrives in the same refresh on
+  # a row carrying NOTHING ELSE. That row therefore falls to §8's standing
+  # fallback (NONPROFIT_CBO + LOW + RECIPIENT_TYPE_INFERRED), which is the
+  # honest answer: Alaska has stated a class and no form.
+  "Health care provider"
 )
 
 
