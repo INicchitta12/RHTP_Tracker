@@ -495,6 +495,18 @@ oh_probe <- function() {
   oh_assert_more_to_come(body = live$release)
   oh_assert_odh_names_nobody(body = live$odh)
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  nm_keys <- c("release", "odh")
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(
+      purrr::map(nm_keys, function(k) oh_html_text(k, live[[k]])), nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, oh_html_text), nm_keys),
+    state = "OH")
+
   message("[OH] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
     message(sprintf("  %-9s content %s", cmp$key[i],

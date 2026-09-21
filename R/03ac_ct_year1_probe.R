@@ -1187,6 +1187,21 @@ ct_probe <- function(keys = CT_PROBE_KEYS) {
                                               nofo = ct_html_text("nofo"))
   ct_assert_leadership_is_not_award(leadership = ct_html_text("leadership"))
   ct_assert_channel_control(ohs_press = txt$ohs_press)
+
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase lists above ask HOW a page
+  # is worded; this asks WHOM it names, against the committed archive. New
+  # Mexico is why: HCA named six Regional Hubs and not one award phrase
+  # matched. Subject pages only -- a control or a press index changes for
+  # reasons that are not this state awarding, and a tripwire that halts on
+  # those is session 46's stale dated anchor in a new costume.
+  rhtp_assert_no_new_organisations_across(
+    live = txt[c("programme", "documents", "opm")],
+    archived = list(
+      programme = ct_html_text("programme"),
+      documents = ct_html_text("documents"),
+      opm = ct_html_text("opm")),
+    state = "CT")
+
   message("[CT] the award tripwires pass against the LIVE bytes: Connecticut ",
           "has not published a recipient-level RHTP award roster.")
   if (length(changed)) {

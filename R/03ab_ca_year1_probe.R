@@ -1244,6 +1244,20 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   ca_assert_no_award_roster(funding = txt$funding)
   ca_assert_programme_provenance(calrht = txt$calrht)
   ca_assert_newsroom_control(news = txt$newsroom)
+
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase lists above ask HOW a page
+  # is worded; this asks WHOM it names, against the committed archive. New
+  # Mexico is why: HCA named six Regional Hubs and not one award phrase
+  # matched. Subject pages only -- a control or a press index changes for
+  # reasons that are not this state awarding, and a tripwire that halts on
+  # those is session 46's stale dated anchor in a new costume.
+  rhtp_assert_no_new_organisations_across(
+    live = txt[c("funding", "calrht")],
+    archived = list(
+      funding = ca_html_text("funding"),
+      calrht = ca_html_text("calrht")),
+    state = "CA")
+
   message("[CA] the award tripwires pass against the LIVE bytes: California ",
           "has not published a recipient-level RHTP award roster.")
   if (length(changed)) {

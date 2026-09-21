@@ -968,6 +968,20 @@ tx_probe <- function(keys = TX_PROBE_KEYS) {
       "-- re-read the page before trusting any Texas negative."))
   }
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control
+  # moves for reasons that are not this state awarding.
+  # Texas's SUBJECT pages are the four Rural Texas Strong RFAs; its controls
+  # are two state-funded 2025 solicitations that have ALREADY awarded, so a
+  # name diff on those would fire on their own rosters every run.
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(purrr::map(subjects, function(k) live[[k]]$text),
+                           subjects),
+    archived = stats::setNames(purrr::map(subjects, tx_read_archive), subjects),
+    state = "TX")
+
   moved <- vapply(live, function(x) x$changed, logical(1))
 
   message("[TX] live probe ", format(Sys.time(), tz = "UTC",

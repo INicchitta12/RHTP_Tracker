@@ -1044,7 +1044,20 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
   # to read, not a failure.
   unreadable <- wi_probe_unreadable()
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  nm_keys <- intersect(c("dhs_rhtp", "dhs_solicit"), names(live))
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(purrr::map(nm_keys, function(k) live[[k]]$text),
+                           nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, wi_html_text), nm_keys),
+    state = "WI")
+
   if (!any(moved) && !length(findings)) {
+
     message("[WI] UNCHANGED -- all ", length(live), " probed sources are ",
             "content-identical to the committed archive: all four DHS ",
             "opportunities still say '", WI_CLOSED_MARKER, "', all four still ",

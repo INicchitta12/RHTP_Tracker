@@ -713,6 +713,18 @@ ky_probe <- function() {
   ky_assert_noa_phrase_is_not_an_award(bodies = live)
   ky_assert_grants_channel_control(body = live$chfs_grants)
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  nm_keys <- c("funding", "programme", "rch")
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(
+      purrr::map(nm_keys, function(k) ky_html_text(k, live[[k]])), nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, ky_html_text), nm_keys),
+    state = "KY")
+
   message("[KY] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
     r <- cmp[i, ]

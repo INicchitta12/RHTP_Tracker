@@ -571,6 +571,27 @@ NM_HORIZONS_HUBS <- c(
   "Region 6: Nor-Lea Hospital District"
 )
 
+# THE NAMES THIS FILE ALREADY RECORDS, so the name tripwire
+# (`rhtp_assert_no_new_organisations()`) stays quiet about them and loud about
+# a SEVENTH. Every entry here is a name a session has READ and written down,
+# with the sentence that justifies it -- never a name added to quiet the
+# output, which is §6.1's rule for `SWEEP_VERDICTS` applied to a tripwire:
+# widening an exclusion list until nothing is left suppresses the real ones
+# along with the false.
+#
+# The six hubs are HCA's own 2026-09-18 selection, recorded in
+# `NM_HORIZONS_HUBS` above and asserted by
+# `nm_assert_hubs_selected_not_awarded()`. Project ECHO and the Data Hub
+# administrator row were both on the page session 35 archived; they are here
+# because the run model reads them as names and they are not new.
+NM_KNOWN_ORGANISATIONS <- c(
+  "Cibola General Hospital", "Gallup Community Health",
+  "The Regents of the University of New Mexico",
+  "Eastern Plains Council of Governments", "Gila Regional Medical Center",
+  "Nor-Lea Hospital District",
+  "Regional Hub Organizations", "Regional Hubs", "Healthy Horizons",
+  "Project ECHO", "Rural Health Data Hub Administrator")
+
 NM_PENDING_MARKERS <- c(
   "Currently under evaluation",
   "Administrative Services Organization (ASO) RFP",
@@ -1220,6 +1241,22 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
   nm_assert_programme_provenance(programme = txt$programme)
   nm_assert_roster_control(rhcdf = txt$rhcdf, news = txt$news)
   nm_assert_candidates_are_rhcdf_recipients(rhcdf = txt$rhcdf)
+
+  # THE NAME TRIPWIRE, AND NEW MEXICO IS WHY IT EXISTS. On 2026-09-21 HCA's
+  # page said "HCA has selected six Regional Hub Organizations to lead Healthy
+  # Horizons" and NOT ONE of `NM_AWARD_POSTED`'s phrases matched it. Run
+  # against the archive session 35 committed, this fires on all six hubs by
+  # NAME -- Cibola General, the Regents, Eastern Plains, Gila Regional,
+  # Nor-Lea -- because it asks what the page NAMES rather than how it phrased
+  # it. The phrase list above stays as the second signal: it is what would
+  # catch New Mexico announcing awards while naming nobody, which no name diff
+  # can see.
+  rhtp_assert_no_new_organisations_across(
+    live = txt[c("programme", "news")],
+    archived = list(programme = nm_html_text("programme"),
+                    news = nm_html_text("news")),
+    state = "NM", known = NM_KNOWN_ORGANISATIONS)
+
   message("[NM] the award tripwires pass against the LIVE bytes. READ THIS ",
           "CAREFULLY, because what it now means changed on 2026-09-21: HCA ",
           "HAS named six Healthy Horizons Regional Hubs -- three of them New ",

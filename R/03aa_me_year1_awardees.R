@@ -1414,6 +1414,18 @@ me_probe <- function() {
   me_assert_channels_not_awarded(emr = me_html_text("emr"), doe = txt$doe,
                                  mcd = txt$mcd,
                                  deck = me_pdf_text("advisory_aug"))
+
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  nm_keys <- intersect(c("rhef", "doe", "programme"), names(txt))
+  rhtp_assert_no_new_organisations_across(
+    live = txt[nm_keys],
+    archived = stats::setNames(purrr::map(nm_keys, me_html_text), nm_keys),
+    state = "ME")
+
   message("[ME] the award tripwires pass against the LIVE bytes: Maine has ",
           "not published a recipient-level award roster.")
   if (length(changed)) {

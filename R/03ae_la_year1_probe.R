@@ -1324,6 +1324,22 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
   la_assert_no_award_roster(programme = prog, funding = fund, council = deck)
   la_assert_windows_published(programme = prog, funding = fund)
   la_assert_deck_is_projected_not_awarded(council = deck)
+
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control
+  # moves for reasons that are not this state awarding.
+  la_live <- list(programme = prog, funding = fund)
+  la_live <- la_live[!vapply(la_live, is.null, logical(1))]
+  if (length(la_live)) {
+    rhtp_assert_no_new_organisations_across(
+      live = la_live,
+      archived = stats::setNames(purrr::map(names(la_live), la_html_text),
+                                 names(la_live)),
+      state = "LA")
+  }
+
   message("[LA] the award tripwires pass against the LIVE bytes: Louisiana ",
           "has not published a recipient-level RHTP award roster.")
   # WHICH PAGES MOVED, not merely that the tripwires passed. This returned

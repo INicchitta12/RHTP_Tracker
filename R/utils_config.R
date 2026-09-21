@@ -1145,3 +1145,326 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   rhtp_probe_log(state, rhtp_probe_rows(res), at = started, path = path)
   invisible(res)
 }
+
+
+# -- The name-based tripwire: what a page NAMES, not how it phrases it -------
+#
+# SESSION 46 WATCHED NEW MEXICO NAME SIX REGIONAL HUBS AND SAID NOTHING. HCA's
+# sentence is "HCA has selected six Regional Hub Organizations to lead Healthy
+# Horizons", and it names Cibola General Hospital, the Regents of the
+# University of New Mexico, Eastern Plains Council of Governments, Gila
+# Regional Medical Center and Nor-Lea Hospital District. Every one of
+# `NM_AWARD_POSTED`'s ten phrases was checked against that sentence and NOT ONE
+# MATCHED -- "selected organizations" is not "selected six Regional Hub
+# Organizations", and the tripwire whose whole job was to fire the day New
+# Mexico named a recipient sat quiet while New Mexico named six.
+#
+# THE DEFECT IS NOT THAT THE LIST WAS TOO SHORT. A marker list is built from
+# the phrasings a state has ALREADY used, so it can never contain the one the
+# state uses NEXT; lengthening it buys one more past tense and leaves the
+# future exactly as uncovered. Session 46 pinned the verb with its object left
+# open, which helps and is the same kind of fix.
+#
+# SO THIS ASKS A DIFFERENT QUESTION. Not "did the page use award language?" but
+# "does the page NAME AN ORGANISATION IT DID NOT NAME BEFORE?" -- which is
+# phrasing-independent, because a roster announced in any words at all adds
+# names. It is a SECOND SIGNAL beside the phrase lists, never a replacement:
+# the phrase lists catch a state that says "awards have been made" while naming
+# nobody (South Dakota's shape, and South Carolina's email notices), which no
+# name diff can see.
+#
+# THE BASELINE IS THE COMMITTED ARCHIVE, NOT A CONSTANT, and that is what makes
+# it maintain itself. A page's chrome, its navigation, its staff list and its
+# agency's own name are in BOTH copies, so they cancel -- which is why the
+# pattern below can afford to be broad where South Dakota's had to be narrow.
+# South Dakota counts organisation-shaped names against a THRESHOLD, so every
+# false positive spends part of its budget; a diff has no budget to spend, and
+# anything stably present costs nothing at all.
+#
+# AND IT INHERITS THE REDUCTION. It runs on the same reduced text the content
+# digest is taken over, so the eleven rotating-token mechanisms this project
+# has measured -- Complianz's randomly-drawn URL, antispambot()'s re-rolled
+# entities, Wyoming's per-render honeypot label -- are already stripped before
+# a name is looked for. Give it raw HTML and it will report the page's script
+# bodies as new organisations, which is why it takes TEXT.
+#
+# RE-BASING IT IS A DELIBERATE ACT (§2.2): `--fetch --force` moves the archive
+# after a human has READ what changed. The probe never does.
+
+# Tokens that make a capitalised run organisation-shaped. The union of South
+# Dakota's list (session 13) and Texas's (session 19), plus what New Mexico
+# needed and nobody had: Council (Eastern Plains Council of Governments),
+# Regents, Community (Gallup Community Health), Authority, Partnership.
+#
+# DELIBERATELY BROAD, AND THE DIRECTION OF FAILURE IS WHY. A false alarm costs
+# one look at a page. A missed roster costs the finding the state file rests
+# on -- and in New Mexico's case it cost twenty days.
+RHTP_ORG_SUFFIX_TOKENS <- c(
+  "Hospital", "Hospitals", "Health", "Healthcare", "Medicine", "Medical",
+  "Clinic", "Clinics", "Center", "Centers", "Centre", "Care",
+  "System", "Systems", "Network", "Networks", "Services", "Service",
+  "University", "College", "Institute", "Academy", "School", "Schools",
+  "District", "Districts", "County", "City", "Township", "Borough",
+  "Foundation", "Association", "Alliance", "Coalition", "Consortium",
+  "Partnership", "Partners", "Collaborative", "Cooperative", "Society",
+  "Authority", "Agency", "Commission", "Council", "Board", "Bureau",
+  "Department", "Division", "Office", "Regents", "Trustees",
+  "Corporation", "Company", "Group", "Incorporated", "Inc", "LLC", "LLP",
+  "PA", "PC", "Ltd", "Institution", "Organization", "Organisation",
+  "Nation", "Tribe", "Tribes", "Pueblo", "Band", "Village", "Corp",
+  "Community", "Communities", "Ministries", "Mission", "Fund", "Program",
+  "Initiative", "Project", "Practice", "Physicians", "Providers", "Home",
+  "Homes", "Lab", "Labs", "Laboratory", "Technologies", "Solutions"
+)
+
+# A DATE IS NOT A NAME, AND LOUISIANA IS WHY THIS IS HERE. Its programme page
+# prints an announcement window in the cell beside each programme's name, and
+# the reduction flattens that cell boundary to a space -- so a run reads "End
+# of September Rural Medicaid Alternative Payment Model Program" as one string.
+# LDH re-dated all seven windows on 2026-09-21 WITHOUT NAMING ANYBODY, and
+# against the committed prior snapshot that produced three "new organisations"
+# whose only new words were the month. Breaking a run on a calendar token drops
+# all three, because what remains is the programme name, which is in both
+# copies and cancels. Measured against those two archived snapshots, not
+# guessed at.
+RHTP_ORG_NAME_BREAK_TOKENS <- c(
+  "January", "February", "March", "April", "May", "June", "July", "August",
+  "September", "October", "November", "December",
+  "Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sept", "Sep", "Oct",
+  "Nov", "Dec",
+  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+  "Sunday")
+
+# Lowercase words a real organisation name carries INSIDE it. Without these,
+# "The Regents of the University of New Mexico" breaks at "of" and
+# "Eastern Plains Council of Governments" loses half its name.
+RHTP_ORG_CONNECTOR_TOKENS <- c("of", "the", "and", "for", "at", "in", "on",
+                               "de", "des", "la", "el", "von", "van")
+
+# Abbreviations that end in a full stop WITHOUT ending a sentence. Texas's list
+# (session 19), kept here as its own copy on purpose: `tx_sentences()` feeds a
+# COMMITTED Texas parse, and re-pointing it at a shared definition would move a
+# committed figure to tidy a duplication (§2.1).
+RHTP_SENTENCE_ABBREVIATIONS <- c("St", "Ste", "Dr", "Mt", "Ft", "Inc", "Co",
+                                 "Corp", "Ltd", "No", "Ave", "Rd", "Blvd",
+                                 "Jr", "Sr", "U.S", "Univ", "Dept", "Assn",
+                                 "Bros", "Mrs", "Ms", "Prof")
+
+#' Split text into sentences without breaking a name at "St."
+rhtp_sentences <- function(txt) {
+  if (!length(txt)) return(character(0))
+  txt <- paste(txt, collapse = " ")
+  guard <- paste0("(?<!\\b", RHTP_SENTENCE_ABBREVIATIONS, ")", collapse = "")
+  parts <- stringr::str_split(txt, paste0(guard, "\\.\\s+(?=[A-Z])"))[[1]]
+  parts <- stringr::str_trim(parts)
+  parts[nzchar(parts)]
+}
+
+#' Normalise a name for COMPARISON only -- never for reporting
+#'
+#' Three things this project has already been bitten by, in one place:
+#'   * the CURLY APOSTROPHE. Arkansas's award list prints U+0027 and the
+#'     Governor's release prints U+2019, so a join on nine apostrophe-bearing
+#'     names failed for a reason neither document shows (session 40).
+#'   * ZERO-WIDTH characters. HCAI's WDRR heading carries one and it broke an
+#'     assertion with nothing to point at (session 34).
+#'   * whitespace. A reduced page re-wraps freely and none of it is a change.
+rhtp_normalise_org_name <- function(x) {
+  x <- stringr::str_replace_all(x, "[‘’ʼ´`]", "'")
+  x <- stringr::str_replace_all(x, "[​‌‍﻿­]", "")
+  x <- stringr::str_replace_all(x, "[‐-―−]", "-")
+  x <- stringr::str_replace_all(x, "\\s+", " ")
+  # A TRAILING FULL STOP IS STRIPPED, AND THIS WAS A DEFECT BEFORE IT WAS A
+  # RULE. Keeping it -- to preserve "Inc." -- meant the LAST name in a page
+  # carried a period its mid-sentence form did not, so every sentence-final
+  # organisation read as new the moment a page gained a sentence after it.
+  # "Inc." and "Inc" collapsing to one key is the correct trade for a
+  # comparison-only normalisation; the reported string is untouched.
+  x <- stringr::str_replace_all(x, "^[^A-Za-z0-9]+|[^A-Za-z0-9]+$", "")
+  tolower(stringr::str_trim(x))
+}
+
+#' Every organisation-shaped name a page carries
+#'
+#' A run of capitalised tokens (connectors allowed between them) that contains
+#' at least one of `RHTP_ORG_SUFFIX_TOKENS`. The run is taken WHOLE rather than
+#' as a fixed window around the suffix, because a window that stops after five
+#' words reports "Eastern Plains Council" for a body called "Eastern Plains
+#' Council of Governments" -- and a truncated name still diffs, so the only
+#' thing a window buys is a worse string in the message a human reads.
+#'
+#' Over-joining two adjacent names into one run is the failure mode, and it is
+#' the SAFE direction: an over-joined string is not in the archive either, so
+#' it fires. Under-matching would be the unsafe one, and is what the breadth of
+#' the suffix list is spent on.
+#'
+#' @param text Reduced page text. NOT raw HTML -- see the note above.
+#' @return Character vector of names AS PRINTED, unique, in page order.
+rhtp_organisation_names <- function(text) {
+  if (!length(text) || !any(nzchar(text))) return(character(0))
+
+  # STRIPPED BEFORE EXTRACTION, NOT ONLY BEFORE COMPARISON, and the difference
+  # is a real defect. A zero-width space inside "Gila\u200bRegional Medical
+  # Center" is not in the name-token class, so the run BREAKS there and the
+  # name comes out as "Regional Medical Center" -- a different string, which
+  # then reads as new. Normalising afterwards cannot repair that, because by
+  # then the first word is gone. Session 34 met the same character in HCAI's
+  # WDRR heading, where it broke an assertion with nothing to point at.
+  text <- stringr::str_replace_all(
+    text, "[\u200b\u200c\u200d\ufeff\u00ad]", "")
+  text <- stringr::str_replace_all(text, "\u00a0", " ")
+
+  cap  <- "[A-Z][A-Za-z0-9&'’.‐-―-]*"
+  conn <- paste0("(?:", paste(RHTP_ORG_CONNECTOR_TOKENS, collapse = "|"), ")")
+  tok  <- paste0("(?:", cap, "|", conn, ")")
+  run  <- paste0(cap, "(?:[  ]+", tok, ")*")
+
+  suffix <- paste0("\\b(?:",
+                   paste(RHTP_ORG_SUFFIX_TOKENS, collapse = "|"),
+                   ")\\b")
+  brk <- paste0("\\b(?:",
+                paste(RHTP_ORG_NAME_BREAK_TOKENS, collapse = "|"),
+                ")\\b")
+
+  hits <- purrr::map(rhtp_sentences(text), function(s) {
+    runs <- stringr::str_extract_all(s, run)[[1]]
+    if (!length(runs)) return(character(0))
+    runs <- stringr::str_trim(runs)
+    # A calendar token ends a run rather than joining it -- see the note on
+    # RHTP_ORG_NAME_BREAK_TOKENS. Done here, after the run is found, so a
+    # month INSIDE a real name ("March of Dimes") still splits rather than
+    # silently extending; that costs a truncated string, never a missed name.
+    runs <- unlist(stringr::str_split(runs, brk))
+    runs <- stringr::str_trim(runs)
+    # Trim a trailing connector ("... Council of") and a leading one, both of
+    # which are artefacts of the run rather than part of a name.
+    drop <- paste0("(?:[ ]+", conn, ")+$")
+    runs <- stringr::str_remove(runs, drop)
+    runs <- stringr::str_remove(runs, paste0("^(?:", conn, "[ ]+)+"))
+    runs[stringr::str_detect(runs, suffix) &
+           stringr::str_detect(runs, "[ ]")]
+  })
+  unique(unlist(hits))
+}
+
+#' Organisation names the LIVE page carries and the ARCHIVED copy does not
+#'
+#' @param live,archived Reduced text, live and from the committed archive.
+#' @param known Names this repository already records for the page -- a
+#'   selection a state file has read and written down (New Mexico's six hubs),
+#'   never a name suppressed to quiet the output. A candidate is dropped when
+#'   its normalised form contains, or is contained by, a known one, so a
+#'   run that over-joined or truncated still matches what a human wrote.
+#' @return Character vector, AS PRINTED on the live page.
+rhtp_new_organisation_names <- function(live, archived, known = character(0)) {
+  new_names <- rhtp_organisation_names(live)
+  if (!length(new_names)) return(character(0))
+
+  old <- rhtp_normalise_org_name(rhtp_organisation_names(archived))
+  kn  <- rhtp_normalise_org_name(known)
+  kn  <- kn[nzchar(kn)]
+
+  norm <- rhtp_normalise_org_name(new_names)
+  seen <- norm %in% old
+  if (length(kn)) {
+    seen <- seen | purrr::map_lgl(norm, function(n) {
+      any(stringr::str_detect(n, stringr::fixed(kn))) ||
+        any(stringr::str_detect(kn, stringr::fixed(n)))
+    })
+  }
+  new_names[!seen]
+}
+
+#' The tripwire: refuse if a watched page names an organisation it did not
+#'
+#' Throws, so `rhtp_probe_run()` logs TRIPWIRE and re-raises. A fired name
+#' tripwire is NOT a defect -- it is the signal, and the message says so, the
+#' way every other tripwire in this repository does.
+#'
+#' IT REFUSES TO PASS ON AN EMPTY BASELINE, which is the check that keeps this
+#' one honest. If the archived copy yields no organisation names at all, the
+#' extractor has failed -- an empty archive, a reducer that now strips the
+#' content, a PDF handed in where text was meant -- and a diff against nothing
+#' either fires on everything or, if the live side is empty too, passes
+#' silently forever. The second is the one that matters: it is precisely the
+#' shape of failure this function was written to end, and it would wear a green
+#' verdict while doing it (§0.4 -- that would be a statement about our reading,
+#' reported as a statement about the state).
+#'
+#' @param state,page For the message and so a human knows where to look.
+#' @param min_baseline Names the archived copy must yield for the comparison to
+#'   mean anything. One is enough to prove the extractor ran; the default of 3
+#'   is comfortably below what every watched page in this repository carries.
+rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
+                                             page = "(page)",
+                                             known = character(0),
+                                             min_baseline = 3L) {
+  base <- rhtp_organisation_names(archived)
+  if (length(base) < min_baseline) {
+    stop("[", state, "] the name tripwire has NO BASELINE on '", page,
+         "': the archived copy yields ", length(base), " organisation-shaped ",
+         "name(s), below the ", min_baseline, " this check needs to prove it ",
+         "is reading anything at all. That is a fact about OUR READING and ",
+         "never about the state (§0.4). Re-check the archive and the ",
+         "reduction before trusting any verdict from this page -- a diff ",
+         "against an empty baseline reports UNCHANGED forever.",
+         call. = FALSE)
+  }
+
+  new_names <- rhtp_new_organisation_names(live, archived, known = known)
+  if (!length(new_names)) return(invisible(character(0)))
+
+  stop("[", state, "] '", page, "' NAMES ", length(new_names),
+       " ORGANISATION(S) THE ARCHIVED COPY DOES NOT: ",
+       paste(utils::head(new_names, 12L), collapse = " | "),
+       if (length(new_names) > 12L)
+         paste0(" (and ", length(new_names) - 12L, " more)") else "",
+       ". THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING ",
+       "somebody new, whatever words it used to do it -- which is the half ",
+       "the phrase lists cannot cover, and the half New Mexico's six Regional ",
+       "Hubs went through. Re-fetch, READ what changed, and then either ",
+       "extract it or add the names to this page's `known` list with the ",
+       "sentence that justifies them. Do NOT widen the suffix list to make ",
+       "this quiet.", call. = FALSE)
+}
+
+#' The same check across several watched pages at once
+#'
+#' Every probe watches more than one page, and the alternative to this is the
+#' same four lines in twenty state files -- which is twenty places for the
+#' check to be dropped when a page is added (§2.2's lesson about a rule that
+#' lives in nineteen files rather than in one).
+#'
+#' @param live,archived Named lists of reduced text, keyed the same way.
+#' @param known Named list of per-page character vectors, or one character
+#'   vector applied to every page. A page with no entry gets none.
+#' @return Invisibly, the names found, per page.
+rhtp_assert_no_new_organisations_across <- function(live, archived,
+                                                    state = "??",
+                                                    known = list(),
+                                                    min_baseline = 3L) {
+  keys <- names(live)
+  if (is.null(keys) || !all(nzchar(keys))) {
+    stop("[", state, "] the name tripwire needs a NAMED list of live page ",
+         "text, so a fired tripwire can say which page named somebody.",
+         call. = FALSE)
+  }
+  missing <- setdiff(keys, names(archived))
+  if (length(missing)) {
+    stop("[", state, "] no archived copy for: ",
+         paste(missing, collapse = ", "),
+         ". A watched page with no baseline is not watched (§0.4).",
+         call. = FALSE)
+  }
+  out <- purrr::map(keys, function(k) {
+    kn <- if (is.list(known)) {
+      if (k %in% names(known)) known[[k]] else character(0)
+    } else {
+      known
+    }
+    rhtp_assert_no_new_organisations(
+      live = live[[k]], archived = archived[[k]], state = state, page = k,
+      known = kn, min_baseline = min_baseline)
+  })
+  invisible(stats::setNames(out, keys))
+}
