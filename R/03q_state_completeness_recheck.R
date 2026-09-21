@@ -72,6 +72,13 @@ source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_pdf_text.R"))
 
 RECHECK_DATE     <- "2026-08-29"
+# The Alaska snapshot the EXTRACTOR carries, read from R/03h's own constant so
+# the two cannot silently diverge. This file's AK arm is only entitled to call
+# an award "withdrawn" when its own download is at least as new as that.
+RECHECK_AK_EXTRACT_SOURCE <- stringr::str_extract(
+  paste(readLines(here::here("R", "03h_ak_year1_awardees.R"), warn = FALSE),
+        collapse = "\n"),
+  "(?<=AK_AWARDS_FILE   <- \")[^\"]+")
 RECHECK_DIR      <- here::here("data", "evidence", "recheck", RECHECK_DATE)
 RECHECK_CSV      <- "data/reference/state_completeness_recheck.csv"
 RECHECK_THROTTLE <- 3
@@ -459,11 +466,38 @@ recheck_ak <- function() {
 
   new_ids <- setdiff(live$App.ID, committed$app_id)
   gone    <- setdiff(committed$app_id, live$App.ID)
-  if (length(gone)) {
+
+  # THIS RE-CHECK'S SNAPSHOT CAN BE OLDER THAN THE EXTRACTION IT IS CHECKING,
+  # AND SESSION 46 IS WHERE THAT FIRST HAPPENED.
+  #
+  # Alaska is refreshed on its own weekly Routine; this file is re-fetched
+  # occasionally. When the Routine runs first, the committed CSV carries
+  # awards that this dated archive -- 2026-08-29 -- could not have contained,
+  # and `gone` fills up with them. Session 46's refresh took the CSV from 185
+  # rows to 244, so the check alleged that ALASKA HAD WITHDRAWN 59 AWARDS.
+  #
+  # It had not. The re-check was reading a three-week-old download. A stale
+  # input is a statement about this file, never about the state (§0.4), so the
+  # staleness is detected and REPORTED rather than dressed up as a finding --
+  # and the withdrawal check still fires for real when the snapshot is current.
+  ak_archive_date <- as.Date(RECHECK_DATE)
+  ak_extract_date <- suppressWarnings(as.Date(
+    stringr::str_extract(RECHECK_AK_EXTRACT_SOURCE, "\\d{4}-\\d{2}-\\d{2}")))
+  stale <- !is.na(ak_extract_date) && ak_archive_date < ak_extract_date
+
+  if (length(gone) && !stale) {
     stop("[recheck] AK: ", length(gone), " award(s) this repository has ",
          "published are absent from the notice. A rolling notice that loses ",
          "rows is a different problem from one that gains them: ",
          paste(head(gone, 5), collapse = ", "), call. = FALSE)
+  }
+  if (length(gone) && stale) {
+    message("[recheck] AK: this re-check's snapshot (", RECHECK_DATE,
+            ") PREDATES the committed extraction (", ak_extract_date,
+            "), so ", length(gone), " award(s) it cannot have contained read ",
+            "as absent. That is this file being stale, NOT Alaska ",
+            "withdrawing awards. Re-run --fetch --force with RECHECK_DATE ",
+            "bumped to re-date the archive.")
   }
 
   update <- paste(rhtp_pdf_text(recheck_path("AK", "cycle_update")), collapse = " ")

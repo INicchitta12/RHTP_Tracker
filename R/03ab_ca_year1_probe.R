@@ -1258,7 +1258,7 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
 if (sys.nframe() == 0L) {
   args  <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
-  if ("--probe" %in% args)    ca_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("CA", ca_probe())
   if ("--fetch" %in% args)    ca_fetch(force = force)
   if ("--validate" %in% args) {
     rhtp_ca_assert(strict_footer = "--strict" %in% args)

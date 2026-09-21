@@ -1117,7 +1117,7 @@ wi_probe_unreadable <- function() {
 if (sys.nframe() == 0L) {
   args  <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
-  if ("--probe" %in% args)    wi_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("WI", wi_probe())
   if ("--fetch" %in% args)    wi_fetch(force = force)
   if ("--validate" %in% args) { rhtp_wi_assert(); message("[WI] all assertions pass.") }
   if ("--build" %in% args)    rhtp_wi_build()

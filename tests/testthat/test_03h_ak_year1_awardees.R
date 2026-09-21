@@ -35,40 +35,92 @@ test_that("161 = 142 Implementation + 19 Planning, on the file CMS described", {
   # Session 12's finding, asserted where it is TRUE -- against the archived
   # 2026-08-28 snapshot, which is the file CMS's 2026-08-25 release described.
   # It is a fact about a committed document and cannot legitimately change.
-  prior <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))
-  expect_equal(nrow(prior), 161L)
-  expect_equal(sum(prior$project_type == "Implementation"), 142L)
-  expect_equal(sum(prior$project_type == "Planning"), 19L)
-  expect_equal(sum(prior$project_type == "Implementation"),
+  #
+  # SESSION 46 SPLIT THIS SNAPSHOT OUT OF AK_PRIOR_FILE. That constant had
+  # been doing two jobs that only looked like one while the file had been
+  # refreshed exactly once: "what did Alaska publish LAST time?" (which must
+  # roll on every refresh) and "which snapshot did CMS describe?" (which is
+  # 2026-08-28 permanently). Rolling the conflated constant forward would have
+  # moved this reconciliation onto a file CMS never described.
+  anchor <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR,
+                                            AK_CMS_ANCHOR_FILE))
+  expect_equal(nrow(anchor), 161L)
+  expect_equal(sum(anchor$project_type == "Implementation"), 142L)
+  expect_equal(sum(anchor$project_type == "Planning"), 19L)
+  expect_equal(sum(anchor$project_type == "Implementation"),
                AK_CMS_STATED_PROJECTS)
+  expect_equal(sum(anchor$project_type == "Planning"), AK_ANCHOR_PLANNING)
+  # And it is a DIFFERENT file from the rolling prior, which is the point.
+  expect_false(identical(AK_CMS_ANCHOR_FILE, AK_PRIOR_FILE))
 })
 
-test_that("the current snapshot is 185 = 166 Implementation + 19 Planning", {
-  # Re-pointing AK_CMS_STATED_PROJECTS at 166 would have made the assertion
-  # above pass and thrown session 12's finding away. The current file is
-  # required to be a SUPERSET of the one CMS described, not equal to it.
-  expect_equal(nrow(records), 185L)
-  expect_equal(sum(records$project_type == "Implementation"), 166L)
-  expect_equal(sum(records$project_type == "Planning"), 19L)
+test_that("the current snapshot is 244 = 218 Implementation + 26 Planning", {
+  # Re-pointing AK_CMS_STATED_PROJECTS at the current count would make the
+  # assertion above pass and throw session 12's finding away. The current file
+  # is required to be a SUPERSET of the one CMS described, not equal to it.
+  expect_equal(nrow(records), 244L)
+  expect_equal(sum(records$project_type == "Implementation"), 218L)
+  expect_equal(sum(records$project_type == "Planning"), 26L)
   expect_gt(sum(records$project_type == "Implementation"),
             AK_CMS_STATED_PROJECTS)
 })
 
-test_that("the rolling growth is 24 new awards and 1 revised, nothing lost", {
-  growth <- rhtp_ak_growth()
-  expect_equal(growth$prior_rows, 161L)
-  expect_equal(growth$rows, 185L)
-  expect_equal(nrow(growth$added), 24L)
-  expect_equal(growth$added_total, 16862504.06)
-  # The revision is NOT a new award and must never be counted as one.
-  expect_equal(nrow(growth$revised), 1L)
-  expect_equal(growth$revised$app_id, "BP1-IA-308")
-  expect_equal(growth$revised_delta, 4306887.29, tolerance = 1e-6)
-  expect_length(growth$vanished, 0L)
-  # 24 new + 1 revised is the WHOLE of the change; nothing else moved.
-  expect_equal(growth$total - growth$prior_total,
-               growth$added_total + growth$revised_delta)
+test_that("ALASKA HAS RESUMED PLANNING AWARDS, 19 -> 26", {
+  # Through 2026-08-31 the Planning count sat at 19 across every snapshot, and
+  # an assertion required it UNCHANGED -- a true observation turned into a
+  # rule, and the rule was wrong. What actually needed pinning is narrower and
+  # is pinned on the ANCHOR: CMS's 142 counts Implementation, so the anchor's
+  # 19 Planning rows are what show CMS was not counting the whole file.
+  prior <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))
+  expect_equal(sum(prior$project_type == "Planning"), 19L)
+  expect_equal(sum(records$project_type == "Planning"), 26L)
+  # It may grow. It may not shrink below the anchor.
+  expect_gte(sum(records$project_type == "Planning"), AK_ANCHOR_PLANNING)
 })
+
+test_that("the App ID prefix still agrees with the Project Type column", {
+  # The independent corroboration, and it survives the growth: two columns
+  # disagreeing would mean the file's own bookkeeping has drifted.
+  expect_equal(sum(grepl("^BP1-PL", records$app_id)),
+               sum(records$project_type == "Planning"))
+  expect_equal(sum(grepl("^BP1-PL", records$app_id)), 26L)
+})
+
+test_that("the rolling growth is 59 new awards, none revised, nothing lost", {
+  growth <- rhtp_ak_growth()
+  expect_equal(growth$prior_rows, 185L)
+  expect_equal(growth$rows, 244L)
+  expect_equal(nrow(growth$added), 59L)
+  expect_equal(growth$added_total, 57314828, tolerance = 1e-6)
+  expect_equal(nrow(growth$revised), 0L)
+  expect_equal(growth$revised_delta, 0)
+  expect_length(growth$vanished, 0L)
+  # 59 new is the WHOLE of the change; nothing else moved.
+  expect_equal(growth$total - growth$prior_total, growth$added_total)
+  expect_equal(growth$total, 239186195, tolerance = 1e-6)
+})
+
+test_that("ALASKA'S OWN WEEKLY TABLE ACCOUNTS FOR THE GROWTH", {
+  # The state-published control, and it is why this is a finding rather than
+  # "we downloaded the file twice". Weeks 5 and 6 are 32 + 27 = 59 award
+  # actions -- exactly the diff of two archived workbooks.
+  weeks <- rhtp_ak_cycle_weeks()
+  expect_equal(nrow(weeks), 6L)
+  expect_equal(sum(weeks$projects), 244L)
+  expect_equal(tail(weeks$projects, 2L), c(32L, 27L))
+  expect_equal(sum(tail(weeks$projects, 2L)), nrow(rhtp_ak_growth()$added))
+  expect_true(rhtp_ak_assert_cycle_control())
+})
+
+test_that("THE SINGLE-WEEK FORM OF THAT CONTROL WOULD NOW FAIL", {
+  # Until session 46 it compared the growth against ONE week's row, which held
+  # only because every refresh had happened to land exactly one week after the
+  # last. This refresh spans three weeks of Alaska's calendar.
+  weeks <- rhtp_ak_cycle_weeks()
+  expect_false(identical(tail(weeks$projects, 1L),
+                         nrow(rhtp_ak_growth()$added)))
+})
+
 
 test_that("Alaska's own weekly counts corroborate the growth", {
   # The positive control. Without it "the file got bigger" is indistinguishable
@@ -76,8 +128,8 @@ test_that("Alaska's own weekly counts corroborate the growth", {
   # here and then looked for in Alaska's text, never read off it.
   expect_true(rhtp_ak_assert_cycle_control())
   text <- rhtp_ak_cycle_update_text()
-  expect_true(grepl("$182M", text, fixed = TRUE))
-  expect_true(grepl("$16.9M", text, fixed = TRUE))
+  expect_true(grepl("$239M", text, fixed = TRUE))
+  expect_true(grepl("$30.1M", text, fixed = TRUE))
   expect_true(grepl("rolling weekly basis", text, fixed = TRUE))
 })
 
@@ -107,7 +159,7 @@ test_that("the App ID prefix corroborates the Project Type column on every row",
   prefix_planning <- grepl("^BP1-PL", records$app_id)
   column_planning <- records$project_type == "Planning"
   expect_equal(prefix_planning, column_planning)
-  expect_equal(sum(prefix_planning), 19L)
+  expect_equal(sum(prefix_planning), 26L)
 })
 
 test_that("nothing is dropped and no average is taken", {
@@ -142,11 +194,15 @@ test_that("the sheet is the one Alaska named, not the first one", {
   expect_equal(AK_SHEET_NAME, "Notice of Intent to Award")
 })
 
-test_that("this snapshot carries the four rolling notification dates", {
-  # Was three. Week 4 (2026-08-28) is the release session 22 picked up, and
-  # there will be a fifth: Alaska announces "on a rolling weekly basis".
+test_that("this snapshot carries the six rolling notification dates", {
+  # Was four at 2026-08-31. Weeks 5 (2026-09-04) and 6 (2026-09-18) are new,
+  # and there will be a seventh: Alaska announces "on a rolling weekly basis".
   expect_setequal(as.character(sort(unique(records$notification_date))),
-                  c("2026-08-07", "2026-08-14", "2026-08-21", "2026-08-28"))
+                  c("2026-08-07", "2026-08-14", "2026-08-21", "2026-08-28",
+                    "2026-09-04", "2026-09-18"))
+  # The dates are Alaska's weeks, and its own weekly table names the same ones.
+  expect_equal(length(unique(records$notification_date)),
+               nrow(rhtp_ak_cycle_weeks()))
 })
 
 
@@ -170,8 +226,8 @@ test_that("recipient_type_source preserves Alaska's own words on every row", {
 
 test_that("awardees whose form varies across their own rows are flagged, not harmonised", {
   varies <- records[records$flag_reason == "RECIPIENT_TYPE_VARIES_IN_SOURCE", ]
-  expect_equal(dplyr::n_distinct(varies$awardee), 7L)
-  expect_equal(nrow(varies), 29L)
+  expect_equal(dplyr::n_distinct(varies$awardee), 9L)
+  expect_equal(nrow(varies), 39L)
 
   # The point of the flag: those awardees still carry MORE THAN ONE
   # recipient_type in the committed data. Harmonising them silently -- in
@@ -234,13 +290,14 @@ test_that("only hospital recipients are coded distributed_to_hospital = Yes", {
                                             "HOSPITAL_AFFILIATED_ENTITY")))
 })
 
-test_that("32 hospital rows hold $49,686,225.25 in preliminary amounts", {
-  # Was 26 rows / $43,379,541.04 at the 2026-08-28 snapshot. Every figure here
-  # is a PRELIMINARY amount on a notice of INTENT to award, and the file is a
-  # snapshot of a weekly release -- it will move again.
+test_that("43 hospital rows hold $62,396,425.47 in preliminary amounts", {
+  # Was 32 rows / $49,686,225.25 at the 2026-08-31 snapshot and 26 rows /
+  # $43,379,541.04 at 2026-08-28. Every figure here is a PRELIMINARY amount on
+  # a notice of INTENT to award, and the file is a snapshot of a weekly
+  # release -- it will move again.
   yes <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(yes), 32L)
-  expect_equal(sum(yes$amount), 49686225.25, tolerance = 1e-6)
+  expect_equal(nrow(yes), 43L)
+  expect_equal(sum(yes$amount), 62396425.47, tolerance = 1e-6)
 })
 
 test_that("determination_basis is populated on every row (§7)", {

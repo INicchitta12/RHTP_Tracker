@@ -867,7 +867,7 @@ if (!interactive()) {
   if ("--fetch" %in% args) de_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) de_validate()
   if ("--build" %in% args) de_build()
-  if ("--probe" %in% args) de_probe()
+  if ("--probe" %in% args) rhtp_probe_run("DE", de_probe())
   if ("--report" %in% args) de_report()
   if (!length(args)) {
     message("Usage: --fetch [--force] | --validate | --build | --probe | --report")

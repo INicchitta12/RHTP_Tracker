@@ -112,9 +112,9 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # 43's fourteen-state low-candidate queue, where they were deliberately
 # reported and not extracted.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
-                             "IL", "IN", "KS", "MD", "ME", "MI", "MO", "NC",
-                             "NE", "NH", "NV", "OH", "OK", "OR", "PA", "SD",
-                             "WY")
+                             "IL", "IN", "KS", "MD", "ME", "MI", "MO", "MS",
+                             "NC", "NE", "NH", "NV", "OH", "OK", "OR", "PA",
+                             "SD", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -239,13 +239,21 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
 # MISSISSIPPI JOINS IN SESSION 44, AND IT IS THE MOST IMMINENT MEMBER THIS
 # LIST HAS EVER HAD. It takes the code honestly -- worked against its own
 # sources, evidence archived under data/evidence/MS/, and a probe with
-# tripwires on four surfaces (R/03ak_ms_year1_probe.R) -- and it is a negative
+# tripwires on four surfaces (R/03ak_ms_year1_awardees.R) -- and it is a negative
 # only about the ROSTER: `mississippirhtp.com` says "The selection process is
 # complete" for three programmes and that "Governor Tate Reeves will formally
 # announce details regarding all executed sub-awards in the coming weeks".
 # South Carolina's email shape with a public announcement attached. Expect
 # this one to leave the list.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "MS", "NM",
+# MISSISSIPPI LEFT THIS SET IN SESSION 46 AND IT IS THE FIRST STATE TO DO SO.
+# Session 44 put it here on the strength of a funding page saying "The
+# selection process is complete" with nobody named, and a Routine watching the
+# channel the state itself said the announcement would come from. On
+# 2026-09-14 the announcement came -- 167 awards, named and priced -- so the
+# probe's whole purpose was served and Mississippi is EXTRACTED. That is what
+# INVESTIGATED_NO_LIST is FOR: a re-checkable negative that re-opens the state
+# the day it publishes, rather than a verdict that goes stale unwatched.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM",
                                         "NY", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not

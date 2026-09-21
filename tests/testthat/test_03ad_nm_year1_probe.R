@@ -31,12 +31,79 @@ test_that("the status table has no amount column, and cannot acquire one", {
   expect_true(all(status$state == "NM"))
 })
 
-test_that("six RHT procurements, and not one publishes a roster", {
+test_that("FIVE procurements still name nobody, and the SIXTH has selected", {
+  # New Mexico stopped being a clean negative between 2026-09-02 and
+  # 2026-09-21. Five of the six RHT procurements are still pre-award in HCA's
+  # own words; Healthy Horizons has SELECTED six named Regional Hubs.
   status <- rhtp_nm_year1_status()
   rht <- status[status$stage %in% c("CLOSED_UNAWARDED", "OPEN",
                                     "NOT_YET_SOLICITED"), ]
-  expect_equal(nrow(rht), 6L)
+  expect_equal(nrow(rht), 5L)
   expect_true(all(rht$publishes_roster == "No"))
+  sel <- status[status$stage == "SELECTED_NOT_PRICED", ]
+  expect_equal(nrow(sel), 1L)
+  expect_match(sel$publishes_roster, "SIX NAMED HUBS, NO PER-HUB AMOUNT")
+})
+
+test_that("SIX HUBS ARE NAMED, THREE OF THEM HOSPITALS, AND NONE IS PRICED", {
+  expect_true(nm_assert_hubs_selected_not_awarded())
+  expect_equal(length(NM_HORIZONS_HUBS), 6L)
+  hospitals <- NM_HORIZONS_HUBS[grepl("Hospital|Medical Center",
+                                      NM_HORIZONS_HUBS)]
+  expect_equal(length(hospitals), 3L)
+  # The only currency figure in the hub block is the POOL, and §6.2 forbids
+  # dividing it: $74m/6 = $12.3m is nobody's published figure.
+  txt <- nm_html_text("programme")
+  block <- stringr::str_extract(
+    txt, stringr::regex("HCA has selected six Regional Hub Organizations.*?forthcoming",
+                        dotall = TRUE))
+  expect_equal(length(stringr::str_extract_all(block, "\\$[0-9][0-9,.]*")[[1]]), 1L)
+})
+
+test_that("SIX REGIONS ARE FIVE ORGANISATIONS, and both counts are pinned", {
+  # HCA's page says six regions; its 2026-09-18 release says it "has selected
+  # five organizations". UNM holds Regions 2 AND 3. North Carolina's ROOTS
+  # arithmetic exactly, and neither count is the other.
+  orgs <- unique(stringr::str_remove(NM_HORIZONS_HUBS, "^Region \\d+: "))
+  expect_equal(length(NM_HORIZONS_HUBS), NM_STATED$horizons_regions)
+  expect_equal(length(orgs), NM_STATED$horizons_orgs)
+  expect_equal(sum(grepl("University of New Mexico", NM_HORIZONS_HUBS)), 2L)
+  expect_true(stringr::str_detect(nm_html_text("news"),
+                                  stringr::fixed(NM_STATED$horizons_release)))
+})
+
+test_that("A PER-HUB AMOUNT STOPS THE BUILD -- that is the signal", {
+  txt <- nm_html_text("programme")
+  priced <- stringr::str_replace(
+    txt, stringr::fixed("Region 5: Gila Regional Medical Center"),
+    "Region 5: Gila Regional Medical Center $12,300,000")
+  expect_error(nm_assert_hubs_selected_not_awarded(programme = priced),
+               "MAY HAVE PRICED ITS HUBS")
+})
+
+test_that("losing a named hub fails rather than passing quietly", {
+  txt <- nm_html_text("programme")
+  gone <- stringr::str_remove(
+    txt, stringr::fixed("Region 6: Nor-Lea Hospital District"))
+  expect_error(nm_assert_hubs_selected_not_awarded(programme = gone),
+               "no longer names")
+})
+
+test_that("THE TRIPWIRE THAT MISSED THE SELECTION NOW CATCHES IT", {
+  # NM_AWARD_POSTED contained ten phrases in session 35 and NOT ONE of them
+  # matched "HCA has selected six Regional Hub Organizations". The tripwire
+  # whose whole job was to fire the day New Mexico named a recipient sat quiet
+  # while New Mexico named six. A marker list built from the phrasings a state
+  # has ALREADY used cannot catch the one it uses NEXT.
+  old_markers <- c("has been awarded", "have been awarded", "awardees are",
+                   "selected for award", "notice of intent to award",
+                   "list of awardees", "award recipients", "funding recipients",
+                   "successful applicant", "selected organizations")
+  sentence <- "HCA has selected six Regional Hub Organizations to lead Healthy Horizons"
+  expect_false(any(stringr::str_detect(
+    sentence, stringr::regex(old_markers, ignore_case = TRUE))))
+  expect_true(any(stringr::str_detect(
+    sentence, stringr::regex(NM_AWARD_POSTED, ignore_case = TRUE))))
 })
 
 
@@ -114,8 +181,15 @@ test_that("all six procurements and their stage words must stay on the page", {
 
 test_that("every published RHTP deadline is on its own source", {
   expect_silent(nm_assert_pending_not_awarded())
+  # RE-READ 2026-09-21. Rooted in New Mexico's "Submissions due: September 4,
+  # 2026" has gone -- that date passed and HCA moved the row to "Currently
+  # under evaluation", which is the ordinary next step and not an award. The
+  # live deadline on the programme page is the Data Hub Administrator's.
   expect_true(stringr::str_detect(nm_html_text("programme"),
-                                  stringr::fixed(NM_STATED$rinm_due)))
+                                  stringr::fixed(NM_STATED$rhdha_due)))
+  expect_false(stringr::str_detect(
+    nm_html_text("programme"),
+    stringr::fixed("Submissions due: September 4, 2026 at 5PM MDT")))
   expect_true(stringr::str_detect(nm_html_text("horizons"),
                                   stringr::fixed(NM_STATED$horizons_due)))
   expect_true(stringr::str_detect(nm_html_text("fund47"),

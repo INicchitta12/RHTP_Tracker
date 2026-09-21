@@ -112,24 +112,45 @@ test_that("Alaska's growth is folded in, and the check compares to the CSV", {
   # snapshot beside it: the check would have gone on reporting a 24-award gap
   # that had been closed. The reference CSV is the thing whose completeness is
   # in question, so that is what it compares against now.
-  ak <- recheck_ak()
-  expect_equal(ak$committed_rows, 185L)
+  #
+  # AND SESSION 46 FOUND THE OTHER DIRECTION. Alaska is refreshed on its own
+  # weekly Routine and this file is re-fetched occasionally, so the COMMITTED
+  # CSV can now be newer than this file's own download: 244 rows against a
+  # 2026-08-29 snapshot holding 185. Left alone the check alleged that ALASKA
+  # HAD WITHDRAWN 59 AWARDS. A stale input is a statement about this file,
+  # never about the state (§0.4).
+  ak <- suppressMessages(recheck_ak())
+  expect_equal(ak$committed_rows, 244L)
   expect_equal(ak$live_rows, 185L)
   expect_length(ak$new_ids, 0L)
-  expect_equal(ak$committed_total, 181871366, tolerance = 1e-6)
+  expect_equal(ak$committed_total, 239186195, tolerance = 1e-6)
   expect_equal(ak$live_total, 181871366, tolerance = 1e-6)
+})
+
+test_that("A STALE RE-CHECK SNAPSHOT REPORTS ITSELF, IT DOES NOT ALLEGE A WITHDRAWAL", {
+  expect_true(as.Date(RECHECK_DATE) <
+                as.Date(stringr::str_extract(RECHECK_AK_EXTRACT_SOURCE,
+                                             "\\d{4}-\\d{2}-\\d{2}")))
+  expect_message(recheck_ak(), "PREDATES the committed extraction")
+  # The withdrawal check is NOT disabled -- it still fires when this file's
+  # download is at least as new as the extraction it is checking.
+  expect_no_error(suppressMessages(recheck_ak()))
 })
 
 test_that("the growth session 21 found is recorded where it happened", {
   # 161 -> 185, of which 24 new awards ($16,862,504) and one existing award
   # revised upward ($4,306,887). The diff lives in R/03h now, against the
   # committed prior snapshot, because that is where the two documents are.
+  # Session 21's 161 -> 185 is now two refreshes back, and the diff R/03h
+  # reports is always against the IMMEDIATELY PRECEDING snapshot. What is
+  # pinned here is the current transition; session 21's is pinned against the
+  # anchor in test_03h_ak_year1_awardees.R, where both documents are.
   growth <- rhtp_ak_growth()
-  expect_equal(growth$prior_rows, 161L)
-  expect_equal(growth$rows, 185L)
-  expect_equal(nrow(growth$added), 24L)
-  expect_equal(growth$added_total, 16862504.06, tolerance = 1e-6)
-  expect_equal(growth$revised_delta, 4306887.29, tolerance = 1e-6)
+  expect_equal(growth$prior_rows, 185L)
+  expect_equal(growth$rows, 244L)
+  expect_equal(nrow(growth$added), 59L)
+  expect_equal(growth$added_total, 57314828, tolerance = 1e-6)
+  expect_equal(growth$revised_delta, 0)
 })
 
 test_that("Alaska's own document corroborates the growth", {
@@ -215,7 +236,7 @@ test_that("the re-check writes only its own summary", {
   ak <- readr::read_csv(here::here("data/reference/ak_year1_awardees.csv"),
                         show_col_types = FALSE, progress = FALSE)
   expect_equal(nrow(ga), 158L)
-  expect_equal(nrow(ak), 185L)
+  expect_equal(nrow(ak), 244L)
 })
 
 test_that("the committed summary CSV matches what the checks produce today", {

@@ -139,11 +139,11 @@ LA_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
   "programme",
-  "2026-09-02_la_ldh_rhtp_programme_SEVEN_WINDOWS_PASSED.html",
+  "2026-09-21_la_ldh_rhtp_programme_SEVEN_WINDOWS_RE_DATED.html",
   "https://ldh.la.gov/page/rural-health-transformation-program",
 
   "funding",
-  "2026-09-02_la_ldh_rhtp_funding_opportunities.html",
+  "2026-09-21_la_ldh_rhtp_funding_opportunities.html",
   "https://ldh.la.gov/page/rhtp-funding-opportunities",
 
   "news",
@@ -165,6 +165,15 @@ LA_SOURCES <- tibble::tribble(
          "louisiana-launches-rural-tech-catalyst-fund-to-advance-",
          "rural-health-care-innovation"),
 
+  # THE SUPERSEDED PROGRAMME PAGE, KEPT RATHER THAN OVERWRITTEN. It is the only
+  # evidence that LDH ever published the July/August windows, and therefore the
+  # only evidence that it SLIPPED them. Alaska's device (session 22): a rolling
+  # page's movement is measurable only against the snapshot it moved from.
+  # Nothing parses it except la_assert_windows_slipped().
+  "programme_prior",
+  "2026-09-02_la_ldh_rhtp_programme_SEVEN_WINDOWS_PASSED_SUPERSEDED.html",
+  "https://ldh.la.gov/page/rural-health-transformation-program",
+
   "atlas",
   "2026-09-02_la_rhtla_atlas_landing_UNREADABLE.html",
   "https://rhtla.net/landing",
@@ -181,10 +190,6 @@ LA_STATED <- list(
   governor_amount = "supported by more than $208 million in federal funding",
   five_year       = "Estimated $1.4 billion over 5 years",
   capital_range   = "$100,000-$10,000,000",
-  noic_early      = "Notice of Intent to Contract Announcements: Late July to mid August",
-  noic_late       = "Notice of Intent to Contract Announcements: Mid to late August",
-  noic_early_n    = 3L,
-  noic_late_n     = 4L,
   opportunities   = 7L,
   obligated_promise = "complete list of obligated funds by entity type"
 )
@@ -197,6 +202,146 @@ LA_CREDENTIAL_SHAPES <- c(
   bearer_token   = "(?i)bearer\\s+[A-Za-z0-9._-]{25,}",
   aws_key        = "AKIA[A-Z0-9]{12,}"
 )
+
+
+# -- the announcement windows, parsed rather than transcribed ----------------
+#
+# LOUISIANA RE-DATED ALL SEVEN WINDOWS, AND THAT IS THE FINDING THIS CONTROL
+# NOW CARRIES (session 46).
+#
+# Session 36 archived a page whose "IMPORTANT DATES - BUDGET YEAR 1" block read
+# "Late July to mid August" x3 and "Mid to late August" x4, and all seven had
+# closed. `la_assert_windows_passed()` pinned those two phrases and their
+# counts, so when LDH moved the dates the assertion stopped the probe dead --
+# 0 and 0 found, Louisiana's Routine halting on every firing from some point
+# before 2026-09-21.
+#
+# The halt was CORRECT and the constant was not wrong: a figure that fails a
+# check is a document to re-read, never a check to loosen (§0.2's rule, applied
+# to a date instead of a dollar). Re-read, LDH's page now says:
+#
+#     End of September   x6   (Collaborative Provider, APM, Care Conveners,
+#                              Food is Medicine, Telehealth, Capital)
+#     Mid-September      x1   (Rural Clinician Credit Bank)
+#
+# Still seven windows against seven solicitations, still every application
+# "Closed", still not one named recipient anywhere on the page. SO THE NEGATIVE
+# IS UNCHANGED AND ONLY ITS CLOCK MOVED: Louisiana did not award, it slipped,
+# by roughly six weeks.
+#
+# What changes here is how the control is written, because pinning two literal
+# phrases is what broke. The windows are now PARSED out of the block and each
+# one's latest date DERIVED, so a further slip re-dates the finding instead of
+# halting the Routine -- while a window DISAPPEARING, or the seven ceasing to
+# match the seven solicitations, still fails hard. The thing worth protecting
+# was never the words "Mid to late August"; it was that every opportunity
+# carries a published announcement date, which is what makes this negative a
+# dated one rather than an open-ended absence.
+
+LA_WINDOW_MONTHS <- c("January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November",
+                      "December")
+
+# Every form LDH has actually used, and no more: "Late July to mid August",
+# "Mid to late August", "End of September", "Mid-September". A window that does
+# not match is REFUSED rather than guessed at (§0.4) -- an unparsed date
+# silently treated as absent is how a slipped deadline reads as an award.
+LA_WINDOW_RX <- paste0(
+  "(?:Early|Mid|Late|End|Beginning)",
+  "(?:[ -]to[ -](?:early|mid|late|end))?",
+  "(?:[ -]of)?[ -]",
+  "(?:", paste(LA_WINDOW_MONTHS, collapse = "|"), ")",
+  "(?:[ -]to[ -](?:early|mid|late|end)[ -]",
+  "(?:", paste(LA_WINDOW_MONTHS, collapse = "|"), "))?")
+
+LA_NOIC_LABEL <- "Notice of Intent to Contract Announcements:"
+
+#' The last date a stated window can mean
+#'
+#' Takes the LAST qualifier and the LAST month named, which is what a range
+#' means: "Late July to mid August" ends mid-August, not late July. Early -> the
+#' 10th, Mid -> the 15th, Late and End -> the month's last day. The latest
+#' reading is deliberate: this date is used to say a window has PASSED, and
+#' claiming that a day early would be this file asserting Louisiana is overdue
+#' when it is not.
+la_window_deadline <- function(window, year = 2026L) {
+  quals  <- stringr::str_extract_all(window,
+                                     "(?i)\\b(early|mid|late|end|beginning)\\b")[[1]]
+  months <- stringr::str_extract_all(
+    window, paste0("(?:", paste(LA_WINDOW_MONTHS, collapse = "|"), ")"))[[1]]
+  if (!length(quals) || !length(months)) {
+    stop("[LA] cannot date the announcement window '", window,
+         "' -- it names no month or no part of one. REFUSING rather than ",
+         "guessing: a window this file cannot date is a window it must not ",
+         "report as passed or pending.", call. = FALSE)
+  }
+  qual  <- tolower(utils::tail(quals, 1L))
+  month <- match(utils::tail(months, 1L), LA_WINDOW_MONTHS)
+  first <- as.Date(sprintf("%d-%02d-01", year, month))
+  last  <- seq(first, by = "month", length.out = 2L)[2L] - 1L
+  switch(qual,
+         "beginning" = first + 9L,
+         "early"     = first + 9L,
+         "mid"       = first + 14L,
+         "late"      = last,
+         "end"       = last)
+}
+
+#' Parse the "IMPORTANT DATES - BUDGET YEAR 1" block into one row per window
+#'
+#' PARSED, NEVER TRANSCRIBED (the §7.1 posture), so the status table cannot
+#' drift from the page and a slip shows up as data rather than as a halt.
+la_parse_windows <- function(programme = NULL) {
+  p <- if (is.null(programme)) la_html_text("programme") else programme
+
+  block <- stringr::str_match(
+    p, "IMPORTANT DATES - BUDGET YEAR 1(.*?)Notice of Funding Opportunities")
+  if (is.na(block[1, 2])) {
+    stop("[LA] LDH's programme page no longer carries an 'IMPORTANT DATES - ",
+         "BUDGET YEAR 1' block closed by 'Notice of Funding Opportunities'. ",
+         "That block is where every announcement date this file reports comes ",
+         "from -- re-read the page.", call. = FALSE)
+  }
+  body <- block[1, 2]
+
+  # Each entry is "<programme> Application Submission Deadline for Year 1
+  # Funds: <deadline> Notice of Intent to Contract Announcements: <window>",
+  # run together with the next entry's programme name. Splitting on the
+  # deadline label gives one chunk per entry, and the window is then anchored
+  # at the head of the chunk's tail.
+  hits <- stringr::str_match_all(
+    body, paste0(LA_NOIC_LABEL, "\\s*(", LA_WINDOW_RX, ")"))[[1]]
+  n_labels <- stringr::str_count(body, stringr::fixed(LA_NOIC_LABEL))
+
+  if (nrow(hits) != n_labels) {
+    stop("[LA] ", n_labels, " announcement windows are published and only ",
+         nrow(hits), " could be parsed. An unparsed window is REFUSED rather ",
+         "than dropped (§0.4): dropping it would shrink the seven silently. ",
+         "Re-read the block -- LDH has used a date form this file has not ",
+         "seen.", call. = FALSE)
+  }
+
+  names <- stringr::str_match_all(
+    body,
+    "([A-Z][^:]*?)\\s*Application Submission Deadline for Year 1 Funds:\\s*(\\w+)")[[1]]
+  if (nrow(names) != nrow(hits)) {
+    stop("[LA] the block names ", nrow(names), " solicitations against ",
+         nrow(hits), " announcement windows. Every opportunity carrying a ",
+         "published date is the finding; a mismatch means the block's shape ",
+         "has changed -- re-read it.", call. = FALSE)
+  }
+
+  tibble::tibble(
+    # The chunk before each deadline label carries the PREVIOUS entry's window
+    # run together with this entry's name, so strip a leading window.
+    programme = stringr::str_squish(stringr::str_remove(
+      names[, 2], paste0("^\\s*", LA_WINDOW_RX, "\\s*"))),
+    application = stringr::str_squish(names[, 3]),
+    window = stringr::str_squish(hits[, 2])) %>%
+    dplyr::mutate(
+      window_ends = purrr::map_vec(.data$window, la_window_deadline),
+      .after = "window")
+}
 
 
 # -- fetch --------------------------------------------------------------------
@@ -580,41 +725,86 @@ la_assert_no_award_roster <- function(programme = NULL, funding = NULL,
   invisible(TRUE)
 }
 
-#' SEVEN OPPORTUNITIES, SEVEN ANNOUNCEMENT WINDOWS, AND ALL SEVEN HAVE CLOSED
+#' SEVEN OPPORTUNITIES, SEVEN PUBLISHED ANNOUNCEMENT WINDOWS
 #'
-#' Read out of the archived page rather than typed, and asserted as COUNTS,
-#' because the closure that matters is 3 + 4 = 7 against the funding page's
-#' seven "Strategic Funding Opportunity Title" headings.
-la_assert_windows_passed <- function(programme = NULL, funding = NULL,
-                                     asof = LA_ARCHIVE_DATE) {
+#' The invariant this control protects, and the only one it ever should have
+#' protected: EVERY Louisiana Budget Year 1 solicitation carries an
+#' announcement date LDH published itself, and the seven windows match the
+#' funding page's seven "Strategic Funding Opportunity Title" headings. That is
+#' what makes this negative a dated one rather than an open-ended absence, and
+#' it survives LDH re-dating the windows -- which LDH has now done.
+#'
+#' Which windows have passed is DERIVED against `asof`, never asserted. On
+#' 2026-09-21 that is one of seven (Rural Clinician Credit Bank, Mid-September);
+#' the other six close on 2026-09-30. A previous version of this function
+#' asserted that all seven had passed, which was true when it was written and
+#' would now be false -- a claim about a state read off a constant rather than
+#' off the state's own page (§0.4).
+la_assert_windows_published <- function(programme = NULL, funding = NULL,
+                                        asof = Sys.Date()) {
   p <- if (is.null(programme)) la_html_text("programme") else programme
   f <- if (is.null(funding)) la_html_text("funding") else funding
 
-  n_early <- stringr::str_count(p, stringr::fixed(LA_STATED$noic_early))
-  n_late  <- stringr::str_count(p, stringr::fixed(LA_STATED$noic_late))
-  n_opps  <- stringr::str_count(f, stringr::fixed(
+  w <- la_parse_windows(p)
+  n_opps <- stringr::str_count(f, stringr::fixed(
     "Strategic Funding Opportunity Title"))
 
-  if (n_early != LA_STATED$noic_early_n || n_late != LA_STATED$noic_late_n) {
-    stop("[LA] LDH's 'IMPORTANT DATES - BUDGET YEAR 1' block no longer reads ",
-         LA_STATED$noic_early_n, " x 'Late July to mid August' and ",
-         LA_STATED$noic_late_n, " x 'Mid to late August' (found ", n_early,
-         " and ", n_late, "). Those windows dating the negative is the whole ",
-         "finding -- if Louisiana has re-dated them, re-read the page.",
+  if (nrow(w) != LA_STATED$opportunities || n_opps != LA_STATED$opportunities) {
+    stop("[LA] ", nrow(w), " announcement windows against ", n_opps,
+         " solicitations, and this file's finding rests on ",
+         LA_STATED$opportunities, " of each. A window that has stopped being ",
+         "published is the case to read first: LDH removing a date is what an ",
+         "award looks like from here.", call. = FALSE)
+  }
+
+  # Every application still closed. If one re-opens, the negative changes shape
+  # -- an unawarded solicitation taking applications again is not the same
+  # finding as one whose window has merely slipped.
+  reopened <- w$programme[!grepl("^Closed$", w$application, ignore.case = TRUE)]
+  if (length(reopened)) {
+    stop("[LA] these solicitations no longer read 'Closed': ",
+         paste(reopened, collapse = "; "),
+         ". Re-read the funding page.", call. = FALSE)
+  }
+
+  invisible(w %>% dplyr::mutate(passed = .data$window_ends < asof))
+}
+
+#' LDH SLIPPED EVERY WINDOW, AND THE SUPERSEDED SNAPSHOT IS WHAT PROVES IT
+#'
+#' Read out of two committed archives rather than out of a session note: the
+#' 2026-09-02 copy carries the July/August windows and the 2026-09-21 copy
+#' carries the September ones. Asserting the movement from the documents is
+#' what stops "Louisiana slipped" becoming a claim this repository makes on its
+#' own authority (§0.4) -- and it is the reason the superseded file is kept
+#' rather than overwritten.
+la_assert_windows_slipped <- function(programme = NULL, prior = NULL) {
+  now_w   <- la_parse_windows(if (is.null(programme)) la_html_text("programme")
+                              else programme)
+  prior_w <- la_parse_windows(if (is.null(prior)) la_html_text("programme_prior")
+                              else prior)
+
+  if (nrow(now_w) != nrow(prior_w)) {
+    stop("[LA] the superseded snapshot carries ", nrow(prior_w),
+         " windows and the current page ", nrow(now_w),
+         ". The slip is only measurable while both name the same seven.",
          call. = FALSE)
   }
-  if (n_early + n_late != n_opps || n_opps != LA_STATED$opportunities) {
-    stop("[LA] the announcement windows (", n_early + n_late, ") no longer ",
-         "match the funding page's solicitations (", n_opps, "). Every ",
-         "opportunity carrying a published announcement date is what makes ",
-         "this negative dated rather than open-ended.", call. = FALSE)
+  if (!all(now_w$window_ends >= prior_w$window_ends)) {
+    stop("[LA] a window has moved EARLIER between the two snapshots. That is ",
+         "not a slip and this file does not describe it -- re-read both.",
+         call. = FALSE)
   }
-  # The latest window closes at the end of August; this is what says it passed.
-  if (asof <= as.Date("2026-08-31")) {
-    stop("[LA] this file's finding is that all seven announcement windows ",
-         "have CLOSED. That is only true from 2026-09-01.", call. = FALSE)
+  if (all(now_w$window_ends == prior_w$window_ends)) {
+    stop("[LA] the two snapshots carry identical windows, so the superseded ",
+         "copy is no longer evidence of anything and this assertion is ",
+         "claiming a slip that did not happen.", call. = FALSE)
   }
-  invisible(TRUE)
+  invisible(tibble::tibble(programme = now_w$programme,
+                           was = prior_w$window, was_ends = prior_w$window_ends,
+                           now = now_w$window, now_ends = now_w$window_ends,
+                           slipped_days = as.integer(now_w$window_ends -
+                                                       prior_w$window_ends)))
 }
 
 #' The deck's column heading is PROJECTED, and its rows are APPLICATIONS
@@ -737,7 +927,8 @@ rhtp_la_assert <- function(strict_footer = FALSE) {
   la_assert_footer_corroborates(strict = strict_footer)
   la_assert_after_noa()
   la_assert_no_award_roster()
-  la_assert_windows_passed()
+  la_assert_windows_published()
+  la_assert_windows_slipped()
   la_assert_deck_is_projected_not_awarded()
   la_assert_announcement_control()
   la_assert_facilities_are_not_awards()
@@ -756,13 +947,20 @@ rhtp_la_assert <- function(strict_footer = FALSE) {
 #' words, which cannot be summed by accident -- and they are PROJECTED figures
 #' in any case, which is the whole finding.
 rhtp_la_year1_status <- function() {
-  tibble::tribble(
-    ~channel, ~administrator, ~stated_pool, ~stage, ~announcement_window,
-    ~eligible_class, ~publishes_roster, ~evidence,
+  # `window_key` is the programme string EXACTLY as LDH's "IMPORTANT DATES"
+  # block prints it, and it is what `stage` and `announcement_window` are
+  # joined on below. An exact hand-written key rather than a fuzzy name match
+  # (§2), visible in the file, on Arkansas's AR_RELEASE_SPELLINGS footing: a
+  # key that stops matching fails the build instead of quietly dropping a row.
+  # The two non-solicitation rows carry NA and keep their own stage.
+  out <- tibble::tribble(
+    ~window_key, ~channel, ~administrator, ~stated_pool, ~stage,
+    ~announcement_window, ~eligible_class, ~publishes_roster, ~evidence,
 
+    "Rural Health Transformation Program (RHTP) Rural Health Facilities Capital Improvement Program",
     "Rural Health Facilities Capital Improvement Program -- THE POOL TO WATCH",
     "LDH", "$41.60 million projected; awards $100,000-$10,000,000",
-    "CLOSED_AWARD_DATE_PASSED", "Late July to mid August",
+    "FROM_PAGE", "FROM_PAGE",
     paste("HOSPITALS AMONG OTHERS. 'Rural Health Clinics (RHCs), Federally",
           "Qualified Health Centers (FQHCs) or look-alikes, Critical Access",
           "Hospitals (CAHs), Rural hospitals, Rural EMS providers, Rural",
@@ -775,8 +973,9 @@ rhtp_la_year1_status <- function() {
           "medical equipment and technology infrastructure, executed through a",
           "Cooperative Endeavor Agreement. RCJ DOES NOT CARRY THIS ROW."),
 
+    "Rural Medicaid Alternative Payment Model Program",
     "Rural Medicaid Alternative Payment Model Program", "LDH",
-    "$30 million projected", "CLOSED_AWARD_DATE_PASSED", "Mid to late August",
+    "$30 million projected", "FROM_PAGE", "FROM_PAGE",
     paste("Rural providers building infrastructure to participate in",
           "value-based care; population of focus is rural Louisiana Medicaid",
           "members and the providers serving them."),
@@ -784,24 +983,25 @@ rhtp_la_year1_status <- function() {
     paste("31 applications. Application deadline 2026-08-07. RCJ's largest",
           "Louisiana candidate at $30,000,000 -- which is this PROJECTED pool."),
 
+    "Rural Health Transformation Program (RHTP) Rural Clinician Credit Bank Program",
     "Rural Clinician Credit Bank", "LDH",
-    "$10 million projected", "CLOSED_AWARD_DATE_PASSED",
-    "Late July to mid August",
+    "$10 million projected", "FROM_PAGE", "FROM_PAGE",
     "Recruitment and retention of talent in rural healthcare settings.",
     "No",
     paste("136 applications. THE LONGEST OVERDUE: the funding page still reads",
           "'Applications currently under review' against an announcement",
           "window of 'Early to Mid-July'."),
 
+    "Rural Health Transformation Program (RHTP) Telehealth Infrastructure for Rural Access Program",
     "Telehealth Infrastructure for Rural Access Program", "LDH",
-    "$4.71 million projected", "CLOSED_AWARD_DATE_PASSED",
-    "Late July to mid August",
+    "$4.71 million projected", "FROM_PAGE", "FROM_PAGE",
     "Telehealth infrastructure investments across rural Louisiana.",
     "No",
     "79 applications. Application deadline 2026-07-10, shown as 'Closed'.",
 
+    "Regional Care Conveners and Navigation Networks Program",
     "Regional Care Conveners and Navigation Networks Program", "LDH",
-    "$3.5 million projected", "CLOSED_AWARD_DATE_PASSED", "Mid to late August",
+    "$3.5 million projected", "FROM_PAGE", "FROM_PAGE",
     paste("Regional conveners aligning providers across acute care,",
           "behavioral health and social services -- Missouri's ToRCH hub",
           "shape, so a PASS_THROUGH_* question when it lands, never a direct",
@@ -809,20 +1009,23 @@ rhtp_la_year1_status <- function() {
     "No",
     "25 applications. Application deadline 2026-08-14.",
 
+    "Rural Collaborative Provider Models Program",
     "Rural Collaborative Provider Models Program", "LDH",
-    "$3 million projected", "CLOSED_AWARD_DATE_PASSED", "Mid to late August",
+    "$3 million projected", "FROM_PAGE", "FROM_PAGE",
     paste("Collaborative provider models extending specialist coverage and",
           "pooling staff across rural FACILITIES -- hospitals among others."),
     "No",
     "37 applications. Application deadline 2026-08-05.",
 
+    "Food is Medicine Program",
     "Food is Medicine Program", "LDH",
-    "$2.7 million projected", "CLOSED_AWARD_DATE_PASSED", "Mid to late August",
+    "$2.7 million projected", "FROM_PAGE", "FROM_PAGE",
     paste("Start-up of food-is-medicine programmes 'in collaboration with",
           "health care providers and community-based organizations'."),
     "No",
     "37 applications. Application deadline 2026-08-14.",
 
+    NA_character_,
     "Rural Tech Catalyst Fund", "LED / Louisiana Innovation (LA.IO)",
     "not stated", "ANNOUNCED_NOT_SOLICITED", "not stated",
     paste("'health care providers, entrepreneurs, investors, universities and",
@@ -834,6 +1037,7 @@ rhtp_la_year1_status <- function() {
           "federal investment over five years'. Names no recipient and no",
           "amount ('award' x0, 'recipient' x0)."),
 
+    NA_character_,
     "Rural Health Atlas (rhtla.net)", "LDH",
     "not applicable", "UNREADABLE", "not applicable",
     "not applicable",
@@ -846,6 +1050,33 @@ rhtp_la_year1_status <- function() {
           "route, /api/facilities, is 3,576 named facilities including 305",
           "hospitals with NO money in it -- the §0.3 control, not a roster.")
   )
+
+  # DERIVED FROM THE PAGE, NOT TRANSCRIBED. `stage` was a hand-typed
+  # CLOSED_AWARD_DATE_PASSED on all seven rows until session 46, which was true
+  # when it was typed and false the moment LDH re-dated the windows -- a status
+  # table asserting a state had passed its own deadline when six of seven had
+  # not. Reading both columns off the block makes the table move when the page
+  # does.
+  w <- la_parse_windows() %>%
+    dplyr::mutate(
+      announcement_window = .data$window,
+      stage = ifelse(.data$window_ends < Sys.Date(),
+                     "CLOSED_AWARD_DATE_PASSED", "CLOSED_AWARD_DATE_PENDING"))
+
+  missing <- setdiff(stats::na.omit(out$window_key), w$programme)
+  if (length(missing)) {
+    stop("[LA] window_key no longer matches LDH's block: ",
+         paste(missing, collapse = "; "),
+         ". An exact key that stops matching fails here rather than dropping ",
+         "the row's date in silence (§2).", call. = FALSE)
+  }
+
+  out %>%
+    dplyr::rows_update(
+      w %>% dplyr::select(window_key = "programme", "stage",
+                          "announcement_window"),
+      by = "window_key", unmatched = "ignore") %>%
+    dplyr::select(-"window_key")
 }
 
 
@@ -1066,6 +1297,7 @@ la_content_digest <- function(body, key) {
 la_probe <- function(keys = LA_PROBE_KEYS) {
   message("[LA] LIVE probe, ", format(Sys.time(), tz = "UTC"), " UTC")
   live <- list()
+  changed <- character(0)
   for (key in keys) {
     body <- la_get(la_source(key, "url"), key)
     p    <- la_path(key)
@@ -1074,6 +1306,7 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
     } else NA_character_
     now  <- la_content_digest(body, key)
     live[[key]] <- body
+    if (!is.na(was) && was != now) changed <- c(changed, key)
     message(sprintf("  %-10s %s  %s", key,
                     if (is.na(was)) "NEW      " else if (was == now) "UNCHANGED" else "CHANGED  ",
                     substr(now, 1, 16)))
@@ -1089,11 +1322,16 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
   } else NULL
 
   la_assert_no_award_roster(programme = prog, funding = fund, council = deck)
-  la_assert_windows_passed(programme = prog, funding = fund)
+  la_assert_windows_published(programme = prog, funding = fund)
   la_assert_deck_is_projected_not_awarded(council = deck)
   message("[LA] the award tripwires pass against the LIVE bytes: Louisiana ",
           "has not published a recipient-level RHTP award roster.")
-  invisible(TRUE)
+  # WHICH PAGES MOVED, not merely that the tripwires passed. This returned
+  # `invisible(TRUE)` until session 46, and `rhtp_probe_log()` cannot tell a
+  # success sentinel from a changed flag -- so the watch log recorded Louisiana
+  # as CHANGED on a run where nothing had. Its siblings (Maine, California,
+  # Connecticut, New Mexico) all return the changed KEYS; this now does too.
+  invisible(list(changed = changed))
 }
 
 
@@ -1102,7 +1340,7 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--fetch" %in% args)    la_fetch(force = "--force" %in% args)
-  if ("--probe" %in% args)    la_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("LA", la_probe())
   if ("--validate" %in% args) {
     rhtp_la_assert()
     la_assert_candidates_are_deck_activities()

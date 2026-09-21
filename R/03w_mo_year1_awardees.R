@@ -1205,7 +1205,7 @@ rhtp_mo_report <- function() {
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   force <- "--force" %in% args
-  if ("--probe" %in% args)    mo_probe()
+  if ("--probe" %in% args)    rhtp_probe_run("MO", mo_probe())
   if ("--fetch" %in% args)    mo_fetch(force = force)
   if ("--validate" %in% args) rhtp_mo_assert()
   if ("--build" %in% args)    rhtp_mo_build()

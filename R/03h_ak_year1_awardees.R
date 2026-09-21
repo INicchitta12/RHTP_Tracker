@@ -120,8 +120,30 @@ AK_PROGRAM_URL <- paste0(
 # stood on the date in its name. Both are kept: the prior one is what makes the
 # growth a diff of two archived documents rather than a claim, and it is the
 # snapshot against which CMS's "142 projects" reconciles exactly (see below).
-AK_AWARDS_FILE   <- "2026-08-31_ak_rhtp_awardsnotice_2026.xlsx"
-AK_PRIOR_FILE    <- "2026-08-28_ak_rhtp_awardsnotice_2026.xlsx"
+AK_AWARDS_FILE   <- "2026-09-21_ak_rhtp_awardsnotice_2026.xlsx"
+AK_PRIOR_FILE    <- "2026-08-31_ak_rhtp_awardsnotice_2026.xlsx"
+
+# THE CMS ANCHOR SNAPSHOT, AND IT DOES NOT ROLL. Session 46 split this out of
+# AK_PRIOR_FILE, which had been doing two jobs that only looked like one while
+# the file had been refreshed exactly once.
+#
+#   * AK_PRIOR_FILE answers "what did Alaska publish LAST time?", so it must
+#     roll forward on every refresh or the growth diff stops being weekly.
+#   * THIS answers "which snapshot did CMS describe when it said 142
+#     projects?", and the answer is 2026-08-28 permanently. It is a fact about
+#     an archived document and cannot legitimately change.
+#
+# Rolling AK_PRIOR_FILE forward with the two conflated would have moved the
+# 142-project reconciliation onto a file CMS never described -- and it would
+# have FAILED loudly rather than drifted, because the 2026-08-31 snapshot holds
+# 166 Implementation rows, not 142. That is the check working; separating the
+# constants is what lets it keep working at the next refresh too.
+AK_CMS_ANCHOR_FILE <- "2026-08-28_ak_rhtp_awardsnotice_2026.xlsx"
+
+# The Planning count on that anchor snapshot. 142 Implementation + 19 Planning
+# = 161, which is what closed session 11's 161-vs-142 question: CMS counts
+# Implementation and Alaska's file counts both. A fact about an archived file.
+AK_ANCHOR_PLANNING <- 19L
 AK_MANIFEST_FILE <- "ak_rhtp_year1_awards.manifest.txt"
 
 # THE POSITIVE CONTROL. Alaska publishes its own weekly cumulative counts in a
@@ -132,7 +154,7 @@ AK_CYCLE_UPDATE_URL <- paste0(
   "https://health.alaska.gov/media/lyrcb3pc/",
   "alaska-rhtp-year-1-funding-cycle-update.pdf"
 )
-AK_CYCLE_UPDATE_FILE <- "2026-08-31_alaska_rhtp_year1_funding_cycle_update.pdf"
+AK_CYCLE_UPDATE_FILE <- "2026-09-21_alaska_rhtp_year1_funding_cycle_update.pdf"
 
 AK_EVIDENCE_DIR <- "data/evidence/AK"
 AK_CSV  <- "data/reference/ak_year1_awardees.csv"
@@ -407,20 +429,94 @@ rhtp_ak_cycle_update_text <- function(
 #' matters: the state has to agree with what this file computed.
 rhtp_ak_assert_cycle_control <- function(growth = rhtp_ak_growth(),
                                          text = rhtp_ak_cycle_update_text()) {
-  want <- c(
-    cumulative_total   = sprintf("$%.0fM", growth$total / 1e6),
-    cumulative_projects = as.character(growth$rows),
-    week_added_total   = sprintf("$%.1fM", round(growth$added_total / 1e6, 1)),
-    week_added_projects = as.character(nrow(growth$added))
-  )
-  missing <- want[!vapply(want, function(w) grepl(w, text, fixed = TRUE),
-                          logical(1))]
-  if (length(missing)) {
-    stop("[AK] Alaska's Year 1 Funding Cycle Update does not state ",
-         paste(paste0(names(missing), " = ", missing), collapse = ", "),
-         ". The award notice and the state's own weekly counts disagree; ",
-         "re-read both before publishing either.", call. = FALSE)
+  weeks <- rhtp_ak_cycle_weeks(text)
+  cum <- stringr::str_match(
+    text, paste0("Cumulative\\s*Total\\s*\\$([0-9.]+)M\\s*",
+                 "Project Awards\\s*(\\d+)\\s*Projects"))
+  if (is.na(cum[1, 1])) {
+    stop("[AK] the funding cycle update no longer states a Cumulative Total. ",
+         "That figure is the state-published corroboration of this file's ",
+         "row count and total; without it 'the file got bigger' is ",
+         "indistinguishable from 'we fetched it twice'.", call. = FALSE)
   }
+  cum_m <- as.numeric(cum[1, 2])
+  cum_n <- as.integer(cum[1, 3])
+
+  # 1. THE CUMULATIVE CLOSURE, which is the strong one: Alaska's own stated
+  #    totals against this file's parse of Alaska's own notice.
+  if (cum_n != growth$rows) {
+    stop("[AK] Alaska states ", cum_n, " cumulative projects and the award ",
+         "notice parses to ", growth$rows, ". The two are the same state's ",
+         "count of the same awards; re-read both before publishing either.",
+         call. = FALSE)
+  }
+  if (abs(cum_m - growth$total / 1e6) > 0.5) {
+    stop("[AK] Alaska states $", cum_m, "M cumulative against a parsed $",
+         round(growth$total / 1e6, 1), "M.", call. = FALSE)
+  }
+
+  # 2. ALASKA'S OWN WEEKS MUST SUM TO ITS OWN CUMULATIVE.
+  if (sum(weeks$projects) != cum_n) {
+    stop("[AK] the weekly rows sum to ", sum(weeks$projects),
+         " projects against a stated cumulative of ", cum_n,
+         ". Alaska's own document disagrees with itself.", call. = FALSE)
+  }
+
+  # 3. THE GROWTH SINCE THE PRIOR SNAPSHOT IS THE SUM OF THE WEEKS BETWEEN
+  #    THEM -- AND THAT IS WHY THIS IS NO LONGER A SINGLE-WEEK CHECK.
+  #
+  #    Until session 46 this compared `growth$added` against ONE week's row,
+  #    which held only because every refresh had happened to land exactly one
+  #    week after the last. The 2026-09-21 refresh spans THREE weeks of
+  #    Alaska's calendar (the prior snapshot is 2026-08-31), so the single-week
+  #    form failed -- correctly, and on a true observation that had been
+  #    mistaken for a rule. Summing the trailing weeks is the same closure
+  #    without that assumption: 32 + 27 = 59 award actions added, which is the
+  #    diff of two archived workbooks, stated independently by the state.
+  #
+  #    The COUNT is required exactly. The MONEY is allowed per-week rounding,
+  #    because Alaska rounds each week to $0.1M and a sum of rounded figures
+  #    is not the rounded sum: $27.1M + $30.1M = $57.2M against an actual
+  #    $57.31M. Tolerating 0.05 per week summed is what that costs.
+  n_new <- nrow(growth$added)
+  tail_n <- 0L; tail_m <- 0; k <- 0L
+  for (i in rev(seq_len(nrow(weeks)))) {
+    if (tail_n >= n_new) break
+    tail_n <- tail_n + weeks$projects[i]
+    tail_m <- tail_m + weeks$dollars_m[i]
+    k <- k + 1L
+  }
+  if (tail_n != n_new) {
+    stop("[AK] this refresh adds ", n_new, " award actions, and no whole ",
+         "number of Alaska's trailing weeks sums to that (nearest: ", tail_n,
+         " across ", k, " weeks). The award notice and the state's own weekly ",
+         "counts disagree; re-read both before publishing either.",
+         call. = FALSE)
+  }
+  # THE TOLERANCE IS MEASURED OFF ALASKA'S OWN DOCUMENT, NOT CHOSEN.
+  #
+  # Two roundings stack here and neither is ours. Each week is printed to
+  # $0.1M, so k weeks carry up to $0.05k of rounding between them; and Alaska's
+  # own six weeks sum to $238.7M against its own stated cumulative of $239M, a
+  # $0.3M gap in the publisher's arithmetic that no reading of ours can close.
+  # Requiring our two-week diff to match Alaska's two-week rows more closely
+  # than Alaska's own figures match each other would be demanding a precision
+  # the source does not have -- so the allowance is the document's own slack
+  # plus the per-week rounding, and it is DERIVED on every run rather than
+  # typed. The exact check is the COUNT above; this corroborates it.
+  doc_slack <- abs(sum(weeks$dollars_m) - cum_m)
+  allow <- 0.05 * k + doc_slack
+  if (abs(tail_m - growth$added_total / 1e6) > allow) {
+    stop("[AK] the trailing ", k, " week(s) state $", tail_m,
+         "M added against a parsed $", round(growth$added_total / 1e6, 2),
+         "M, beyond the $", round(allow, 2), "M that per-week rounding ($",
+         0.05 * k, "M) and Alaska's own weeks-vs-cumulative gap ($",
+         round(doc_slack, 2), "M) explain between them.", call. = FALSE)
+  }
+  message("[AK] cycle control: cumulative ", cum_n, " projects / $", cum_m,
+          "M, and the trailing ", k, " week(s) account for all ", n_new,
+          " award actions added since the prior snapshot.")
+
   # And the control has to be about a ROLLING file, or it is the wrong control.
   if (!grepl("rolling weekly basis", text, fixed = TRUE)) {
     stop("[AK] the funding cycle update no longer says awards are announced ",
@@ -428,6 +524,25 @@ rhtp_ak_assert_cycle_control <- function(growth = rhtp_ak_growth(),
          "makes this file a snapshot; re-read it.", call. = FALSE)
   }
   invisible(TRUE)
+}
+
+#' Alaska's own weekly award table, parsed
+#'
+#' One row per "Week N | <date>  $X M  Project Awards  K Projects" block. The
+#' independent, state-published measure this file's growth diff is checked
+#' against.
+rhtp_ak_cycle_weeks <- function(text = rhtp_ak_cycle_update_text()) {
+  m <- stringr::str_match_all(
+    text, paste0("Week (\\d+) \\| ([A-Za-z]+ \\d+)\\s*\\$([0-9.]+)M",
+                 "\\s*Project Awards\\s*(\\d+)\\s*Projects"))[[1]]
+  if (!nrow(m)) {
+    stop("[AK] the funding cycle update carries no weekly award rows. That ",
+         "table is the state-published control on this file's growth.",
+         call. = FALSE)
+  }
+  tibble::tibble(week = as.integer(m[, 2]), announced = m[, 3],
+                 dollars_m = as.numeric(m[, 4]),
+                 projects = as.integer(m[, 5]))
 }
 
 rhtp_ak_build <- function() {
@@ -520,8 +635,18 @@ rhtp_ak_build <- function() {
     # No new flag code: AMOUNT_PRELIMINARY already means "this may move", and
     # this is that happening. What the row gains is WHICH WAY it moved, in the
     # free text §7 makes mandatory, so a reader is not left comparing archives.
+    # REVISIONS ARE MEASURED AGAINST THE EARLIEST COMMITTED SNAPSHOT, NOT THE
+    # LAST ONE. Until session 46 this diffed against AK_PRIOR_FILE and named
+    # the snapshot pair in a hard-coded string. Both were wrong for a rolling
+    # file: the string went stale the moment the constants rolled, and the
+    # diff would have DROPPED Southcentral Foundation's note the moment a
+    # refresh skipped past the transition that revised it -- which is exactly
+    # what the 2026-09-21 refresh does. A reader asking "has this figure
+    # moved since Alaska first published it?" wants the whole history, so the
+    # baseline is the anchor and the dates are derived.
     dplyr::left_join(
-      rhtp_ak_growth()$revised %>%
+      rhtp_ak_growth(prior = rhtp_ak_parse_awards(
+        here::here(AK_EVIDENCE_DIR, AK_CMS_ANCHOR_FILE)))$revised %>%
         dplyr::select("app_id", "prior_amount"),
       by = "app_id") %>%
     dplyr::mutate(
@@ -530,7 +655,11 @@ rhtp_ak_build <- function() {
         .data$determination_basis,
         paste0(.data$determination_basis,
                " NOTE: Alaska REVISED this preliminary figure between the ",
-               "2026-08-28 and 2026-08-31 snapshots, from ",
+               stringr::str_extract(AK_CMS_ANCHOR_FILE,
+                                    "^\\d{4}-\\d{2}-\\d{2}"),
+               " and ",
+               stringr::str_extract(AK_AWARDS_FILE, "^\\d{4}-\\d{2}-\\d{2}"),
+               " snapshots, from ",
                format(.data$prior_amount, big.mark = ","), " to ",
                format(.data$amount, big.mark = ","),
                ". Both are archived; the state's own update says 'subaward ",
@@ -585,7 +714,8 @@ rhtp_ak_reconcile <- function(records = rhtp_ak_build()) {
     "projects stated by CMS (2026-08-25 release)", as.character(AK_CMS_STATED_PROJECTS),
     "CMS count reconciles to the 2026-08-28 snapshot",
       paste0("yes, exactly -- ",
-             sum(rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))$project_type ==
+             sum(rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR,
+                                                 AK_CMS_ANCHOR_FILE))$project_type ==
                    "Implementation"),
              " Implementation rows on the file CMS described. The CURRENT ",
              "file holds ", sum(impl), ", because Alaska has kept awarding ",
@@ -620,7 +750,13 @@ rhtp_ak_growth_lines <- function(growth = rhtp_ak_growth()) {
   tibble::tribble(
     ~measure, ~value,
     "-- rolling growth since the prior snapshot --", "",
-    "prior snapshot (2026-08-28) rows",       as.character(growth$prior_rows),
+    # DERIVED from the constant, not typed: this label read "(2026-08-28)"
+    # while AK_PRIOR_FILE had already rolled to 2026-08-31, which is a
+    # reconciliation table naming the wrong document (§2.1's hazard in a
+    # single string).
+    paste0("prior snapshot (",
+           stringr::str_extract(AK_PRIOR_FILE, "^\\d{4}-\\d{2}-\\d{2}"),
+           ") rows"),                            as.character(growth$prior_rows),
     "prior snapshot total",                   format(growth$prior_total, big.mark = ","),
     "award actions added since",              as.character(nrow(growth$added)),
     "dollars added since",                    format(growth$added_total, big.mark = ","),
@@ -648,8 +784,10 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
   # THERE -- against the committed 2026-08-28 archive, offline, every run. That
   # is where session 12's finding lives, and it stays checkable however far the
   # rolling file moves on.
+  anchor <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR,
+                                            AK_CMS_ANCHOR_FILE))
   prior <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))
-  n_impl_prior <- sum(prior$project_type == "Implementation")
+  n_impl_prior <- sum(anchor$project_type == "Implementation")
   if (n_impl_prior != AK_CMS_STATED_PROJECTS) {
     stop("[AK] the 2026-08-28 snapshot holds ", n_impl_prior,
          " Implementation rows against CMS's stated ", AK_CMS_STATED_PROJECTS,
@@ -667,7 +805,7 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
          " CMS described. A rolling notice grows; it does not shrink.",
          call. = FALSE)
   }
-  vanished <- setdiff(prior$app_id, records$app_id)
+  vanished <- setdiff(anchor$app_id, records$app_id)
   if (length(vanished)) {
     stop("[AK] ", length(vanished), " award(s) present on 2026-08-28 are gone ",
          "from the current notice: ", paste(vanished, collapse = ", "),
@@ -675,15 +813,44 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
          "finding, not a parse to wave through.", call. = FALSE)
   }
 
-  # The BP1-PL corroboration held at 19 planning awards through the growth, and
-  # is worth pinning: it is the independent check on the Project Type column.
+  # ALASKA HAS RESUMED PLANNING AWARDS, AND THIS ASSERTION IS RE-BASED RATHER
+  # THAN RELAXED (session 46).
+  #
+  # Through 2026-08-31 the Planning count sat at 19 across every snapshot, so
+  # this required it to be UNCHANGED -- which was a true observation turned
+  # into a rule, and the rule was wrong. The 2026-09-21 refresh carries 26.
+  # Nothing is broken: 218 Implementation + 26 Planning = 244, and the App ID
+  # prefix check below agrees row for row.
+  #
+  # What actually needed pinning is narrower, and it is pinned on the ANCHOR
+  # rather than on "last time": CMS's 142 counts IMPLEMENTATION rows, so the
+  # 2026-08-28 snapshot's 19 Planning rows are what establish that the split is
+  # real and that CMS was not counting the whole file. That is a fact about an
+  # archived document. The CURRENT file may grow in either category -- it is a
+  # rolling notice -- and what it may not do is SHRINK, because a Planning
+  # award disappearing would mean one this repository published was withdrawn.
   n_plan <- sum(records$project_type == "Planning")
-  if (n_plan != sum(prior$project_type == "Planning")) {
-    stop("[AK] the Planning count moved from ",
-         sum(prior$project_type == "Planning"), " to ", n_plan,
-         ". Re-read the notice: every award added since 2026-08-28 has been an ",
-         "Implementation award, and a Planning award appearing changes what ",
-         "CMS's project count is counting.", call. = FALSE)
+  n_plan_anchor <- sum(anchor$project_type == "Planning")
+  if (n_plan_anchor != AK_ANCHOR_PLANNING) {
+    stop("[AK] the 2026-08-28 snapshot holds ", n_plan_anchor,
+         " Planning rows against the ", AK_ANCHOR_PLANNING,
+         " recorded. That is a fact about an archived file and cannot ",
+         "legitimately change -- it is what shows CMS's ",
+         AK_CMS_STATED_PROJECTS, " counts Implementation only.",
+         call. = FALSE)
+  }
+  if (n_plan < n_plan_anchor) {
+    stop("[AK] the current notice holds ", n_plan, " Planning rows, FEWER ",
+         "than the ", n_plan_anchor, " on the 2026-08-28 snapshot. A rolling ",
+         "notice grows; it does not shrink.", call. = FALSE)
+  }
+  if (n_plan > sum(prior$project_type == "Planning")) {
+    message("[AK] NOTE: Planning awards have resumed -- ",
+            sum(prior$project_type == "Planning"), " -> ", n_plan,
+            ". Every award added between 2026-08-28 and 2026-08-31 was an ",
+            "Implementation award; that is no longer true, so CMS's ",
+            AK_CMS_STATED_PROJECTS, "-project figure and this file's row ",
+            "count now diverge for TWO reasons rather than one.")
   }
 
   # And the independent corroboration: the App ID prefix must agree with the
@@ -848,7 +1015,7 @@ rhtp_ak_probe <- function() {
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--probe" %in% args) {
-    rhtp_ak_probe()
+    rhtp_probe_run("AK", rhtp_ak_probe())
   } else if ("--fetch" %in% args) {
     rhtp_ak_fetch(force = "--force" %in% args)
   } else if ("--build" %in% args) {

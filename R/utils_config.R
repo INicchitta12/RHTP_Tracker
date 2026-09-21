@@ -863,3 +863,285 @@ rhtp_assert_footer_text_tier <- function(text, state, declared_tier,
     amount = share, state = state, declared_tier = declared_tier,
     label = label, margin = margin, allotments = allotments)
 }
+
+
+# -- Probes: the evidence guard and the results log --------------------------
+#
+# Every state file that carries a `--probe` runs it from a Routine, unattended,
+# on a schedule. Two things follow from that, and both are enforced here rather
+# than in nineteen state files that would each have to remember.
+#
+# FIRST: A PROBE READS. IT DOES NOT WRITE TO THE EVIDENCE ARCHIVE. A probe asks
+# whether the live page still says what the committed archive says. If it
+# rewrites the archive on the way past, it has destroyed the very thing it was
+# comparing against -- the next run compares the live page to itself and reports
+# UNCHANGED forever, and the archive's fetch dates stop meaning "when this
+# document was read" and start meaning "when the Routine last fired".
+#
+# That is not hypothetical. `tx_probe()` called `tx_fetch_sources(force = TRUE)`
+# from session 19 until session 46, so every Texas Routine firing re-dated
+# eleven evidence files and silently re-based the negative it was supposed to be
+# re-checking. `rhtp_probe_run()` is what makes the rule a rule: it snapshots
+# data/evidence/ around the probe and REFUSES if anything moved.
+#
+# SECOND: A VERDICT NOBODY CAN READ IS NOT A VERDICT. A Routine firing leaves
+# its answer inside a session transcript, so "has Mississippi announced?" costs
+# a human the work of opening the fired session to find out. Every probe
+# therefore appends its verdict to logs/probe_results.csv, which is COMMITTED
+# (§0.5), so the history of every watch is in the repository and greppable.
+
+#' Where the probe results log lives
+rhtp_probe_log_path <- function() {
+  cfg <- rhtp_config()
+  if (!is.null(cfg$paths$probe_results)) {
+    here::here(cfg$paths$probe_results)
+  } else {
+    rhtp_path("logs", "probe_results.csv")
+  }
+}
+
+RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note")
+
+# The verdicts a probe row may carry. Deliberately small, and deliberately
+# NOT a free-text field: this log is read by grep and by a human scanning a
+# column, and a fourth spelling of "changed" would defeat both.
+#
+#   UNCHANGED  the live page is content-identical to the committed archive
+#   CHANGED    it is not -- re-fetch and READ it; this is the signal
+#   TRIPWIRE   an assertion fired, so the probe stopped. The strongest verdict
+#              here, and the one most easily lost: an error unwinds the call
+#              stack, so without this the run that MATTERED would be the only
+#              one leaving no trace in the log.
+#   ERROR      the probe could not complete for a reason that is not a
+#              tripwire -- a host refusing, a timeout. A statement about our
+#              access, never about the state (§0.4).
+RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR")
+
+
+#' Snapshot data/evidence/ cheaply enough to do it on every probe
+#'
+#' Path, size and mtime rather than a digest of 109 MB across 329 files. A
+#' re-fetch that writes byte-identical content still moves the mtime, and that
+#' is exactly the case worth catching -- `tx_fetch_sources(force = TRUE)`
+#' rewrote files whose bytes had not changed, and a digest-only snapshot would
+#' have called that clean.
+rhtp_evidence_snapshot <- function(root = rhtp_path("evidence")) {
+  if (!dir.exists(root)) return(tibble::tibble(path = character(0),
+                                               size = numeric(0),
+                                               mtime = numeric(0)))
+  files <- list.files(root, recursive = TRUE, all.files = TRUE,
+                      full.names = TRUE, no.. = TRUE)
+  if (!length(files)) return(tibble::tibble(path = character(0),
+                                            size = numeric(0),
+                                            mtime = numeric(0)))
+  info <- file.info(files)
+  tibble::tibble(path = files,
+                 size = as.numeric(info$size),
+                 mtime = as.numeric(info$mtime)) %>%
+    dplyr::arrange(.data$path)
+}
+
+
+#' Refuse if a probe touched the evidence archive
+#'
+#' @param before,after Snapshots from `rhtp_evidence_snapshot()`.
+#' @param state Two-letter code, for the message.
+rhtp_assert_evidence_untouched <- function(before, after, state = "??") {
+  added   <- setdiff(after$path, before$path)
+  removed <- setdiff(before$path, after$path)
+  common  <- intersect(before$path, after$path)
+
+  b <- before[match(common, before$path), ]
+  a <- after[match(common, after$path), ]
+  moved <- common[b$size != a$size | b$mtime != a$mtime]
+
+  if (!length(added) && !length(removed) && !length(moved)) {
+    return(invisible(TRUE))
+  }
+
+  say <- function(label, paths) {
+    if (!length(paths)) return(character(0))
+    paste0("  ", label, " (", length(paths), "): ",
+           paste(basename(utils::head(paths, 6L)), collapse = ", "),
+           if (length(paths) > 6L) ", ..." else "")
+  }
+  stop("[", state, "] THE PROBE WROTE TO data/evidence/, AND A PROBE READS ",
+       "RATHER THAN WRITES.\n",
+       paste(c(say("added", added), say("removed", removed),
+               say("rewritten", moved)), collapse = "\n"), "\n",
+       "  A probe that re-fetches into the archive destroys the baseline it ",
+       "is comparing against: the next run compares the live page to itself ",
+       "and reports UNCHANGED forever. Fetch into MEMORY and compare a ",
+       "content digest -- `wi_probe()` and `ms_probe()` are the pattern. ",
+       "Re-dating the archive is what `--fetch --force` is for, and it is a ",
+       "deliberate act a human takes after READING what changed.",
+       call. = FALSE)
+}
+
+
+#' Normalise whatever a probe returned into rows for the log
+#'
+#' The nineteen probes were written over twenty sessions and return four
+#' different shapes. Normalising them centrally, once, is what lets the CLI
+#' branch in every state file be the same single line -- the alternative is
+#' nineteen bits of bespoke glue, which is nineteen places for the log to
+#' quietly stop being written.
+#'
+#' Recognised, in order:
+#'   * a data frame with a page-ish column and a changed-ish logical column
+#'     -> one row per page (Mississippi, Wisconsin, Missouri, Kentucky, ...)
+#'   * a list with `$sources`, each carrying `$changed` -> one row per source
+#'   * a list with a scalar `$changed`                  -> one row, page "(all)"
+#'   * a bare logical                                   -> one row, page "(all)"
+#'   * anything else -> one row, verdict UNCHANGED, page "(unreported)". The
+#'     probe ran and did not throw; it simply does not say which page moved.
+#'     Recording that honestly beats inventing a page name (§0.4).
+rhtp_probe_rows <- function(result) {
+  # Vectorised deliberately: isTRUE() collapses a vector to a single FALSE, so
+  # using it here reports every page of a multi-page probe as UNCHANGED -- the
+  # one wrong answer this log must never give.
+  verdict_of <- function(x) {
+    x <- as.logical(x)
+    ifelse(!is.na(x) & x, "CHANGED", "UNCHANGED")
+  }
+  one <- function(page, changed, note = NA_character_) {
+    tibble::tibble(verdict = verdict_of(changed), page = page, note = note)
+  }
+
+  if (is.data.frame(result) && nrow(result) > 0L) {
+    page_col <- intersect(c("page", "key", "source", "name", "file", "url"),
+                          names(result))
+    chg_col  <- intersect(c("content_changed", "changed", "file_changed",
+                            "has_changed"), names(result))
+    if (length(page_col) && length(chg_col)) {
+      return(one(as.character(result[[page_col[1]]]),
+                 as.logical(result[[chg_col[1]]])))
+    }
+  }
+
+  # `[[` rather than `$`: a tibble IS a list, and `$` on one warns about an
+  # unknown column. A probe returning a tibble with neither a page nor a
+  # changed column is a real case (South Dakota's portal probe), so this path
+  # must fall through it silently rather than emitting two warnings per run.
+  has <- function(x, nm) is.list(x) && nm %in% names(x)
+
+  if (has(result, "sources") && length(result[["sources"]])) {
+    src <- result[["sources"]]
+    pages <- names(src)
+    if (is.null(pages)) pages <- paste0("source_", seq_along(src))
+    changed <- vapply(src, function(x) isTRUE(x$changed), logical(1))
+    return(one(pages, changed))
+  }
+
+  # `$changed` means two different things across the nineteen, and guessing
+  # between them is how a watch log reports the wrong answer with confidence.
+  #   * LOGICAL  -> "did anything move?"            (Alaska, Wisconsin, Texas)
+  #   * CHARACTER -> "which pages moved?"           (Maine, California,
+  #                                                  Connecticut, New Mexico)
+  # Both are unambiguous once the TYPE is read, so the type is read.
+  if (has(result, "changed")) {
+    ch <- result[["changed"]]
+    if (is.logical(ch) && length(ch) == 1L) {
+      return(one("(all)", isTRUE(ch)))
+    }
+    if (is.character(ch)) {
+      if (!length(ch)) return(one("(all)", FALSE))
+      return(one(ch, rep(TRUE, length(ch))))
+    }
+  }
+
+  # A bare character vector of changed keys (Wyoming).
+  if (is.character(result)) {
+    if (!length(result)) return(one("(all)", FALSE))
+    return(one(result, rep(TRUE, length(result))))
+  }
+
+  # A BARE LOGICAL IS AMBIGUOUS AND IS DELIBERATELY NOT GUESSED AT. Some probes
+  # have returned `invisible(TRUE)` as a SUCCESS sentinel -- the tripwires
+  # passed -- which is the exact opposite of "this page CHANGED". Reading it
+  # either way is a coin toss recorded as a fact, so it falls through to
+  # (unreported) with the reason. Louisiana was the one such probe and was
+  # given an explicit shape in session 46 rather than a rule bent to fit it.
+  one("(unreported)", FALSE,
+      if (is.logical(result) && length(result) == 1L) {
+        "the probe returned a bare logical, which cannot be told apart from a success sentinel"
+      } else {
+        "the probe returned no per-page detail"
+      })
+}
+
+
+#' Append probe rows to the committed log
+#'
+#' Appends bytes rather than rewriting the file, so a concurrent Routine cannot
+#' lose another's rows, and so the diff of a probe run is exactly the lines it
+#' added.
+rhtp_probe_log <- function(state, rows, at = Sys.time(),
+                           path = rhtp_probe_log_path()) {
+  stopifnot(is.data.frame(rows), all(c("verdict", "page") %in% names(rows)))
+  bad <- setdiff(rows$verdict, RHTP_PROBE_VERDICTS)
+  if (length(bad)) {
+    stop("[probe log] unknown verdict(s): ", paste(unique(bad), collapse = ", "),
+         ". Allowed: ", paste(RHTP_PROBE_VERDICTS, collapse = " | "),
+         ". A new verdict is a deliberate addition here, not a spelling that ",
+         "arrives from a state file.", call. = FALSE)
+  }
+
+  out <- tibble::tibble(
+    state    = toupper(as.character(state)),
+    probed_at = format(as.POSIXct(at, tz = "UTC"), "%Y-%m-%dT%H:%M:%SZ",
+                       tz = "UTC"),
+    verdict  = as.character(rows$verdict),
+    page     = as.character(rows$page),
+    note     = if ("note" %in% names(rows)) as.character(rows$note)
+               else NA_character_)
+
+  dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
+  fresh <- !file.exists(path)
+  # readr writes the header only when the file is new; append otherwise.
+  readr::write_csv(out, path, append = !fresh, col_names = fresh,
+                   na = "", eol = "\n")
+  invisible(out)
+}
+
+
+#' Run a probe: guard the evidence archive, log the verdict, re-raise
+#'
+#' The single entry point every `--probe` CLI branch goes through.
+#'
+#'   if ("--probe" %in% args) rhtp_probe_run("MS", ms_probe())
+#'
+#' `expr` is lazy, so it is evaluated INSIDE the guard rather than before it,
+#' and a tripwire is caught, logged and re-raised rather than silently
+#' swallowed -- the Routine must still fail loudly, because a fired tripwire is
+#' the signal this whole apparatus exists to deliver.
+rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
+                           evidence_root = rhtp_path("evidence")) {
+  started <- Sys.time()
+  before  <- rhtp_evidence_snapshot(evidence_root)
+
+  res <- tryCatch(force(expr), error = function(e) e)
+
+  after <- rhtp_evidence_snapshot(evidence_root)
+
+  if (inherits(res, "error")) {
+    msg <- conditionMessage(res)
+    # A tripwire and a refused host are different claims and the log keeps them
+    # apart: one is a statement about the state, the other about our access.
+    verdict <- if (grepl("HTTP|refused|timed out|timeout|resolve|connect",
+                         msg, ignore.case = TRUE)) "ERROR" else "TRIPWIRE"
+    rhtp_probe_log(state,
+                   tibble::tibble(verdict = verdict, page = "(probe)",
+                                  note = gsub("[\r\n]+", " ", msg)),
+                   at = started, path = path)
+    # The evidence guard still runs, and it outranks the tripwire: a probe that
+    # both fired and wrote has two problems, and the write is the one that
+    # corrupts the archive for every future run.
+    rhtp_assert_evidence_untouched(before, after, state = state)
+    stop(res)
+  }
+
+  rhtp_assert_evidence_untouched(before, after, state = state)
+  rhtp_probe_log(state, rhtp_probe_rows(res), at = started, path = path)
+  invisible(res)
+}

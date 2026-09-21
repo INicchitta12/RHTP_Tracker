@@ -573,7 +573,7 @@ if (!interactive()) {
   if ("--fetch" %in% args) oh_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) oh_validate()
   if ("--build" %in% args) oh_build()
-  if ("--probe" %in% args) oh_probe()
+  if ("--probe" %in% args) rhtp_probe_run("OH", oh_probe())
   if ("--report" %in% args) oh_report()
   if (!length(args)) {
     message("Usage: --fetch [--force] | --validate | --build | --probe | --report")

@@ -50,6 +50,14 @@ STATE_FILES <- c(
   # most likely to give §8 a different answer somewhere, and nothing would catch
   # it until someone tried to combine the file with the others.
   OR = "data/reference/or_year1_awardees.csv",
+  # Mississippi is the first state in this repository to LEAVE
+  # INVESTIGATED_NO_LIST: session 44 recorded a promised announcement and
+  # session 46 parsed it. It is in this test because its roster is a PRESS
+  # RELEASE rather than a table -- 167 awards printed as numbered prose, two of
+  # whose rows break the ordinary "<org> - <county> - $<amount> - <desc>" shape
+  # in different ways. A parse defect there reaches the union as a real
+  # organisation in a county that does not exist, and no total would notice.
+  MS = "data/reference/ms_year1_awardees.csv",
   # Kansas is the first state whose awards came out of PDFs rather than a page
   # or a workbook, and the first whose recipient forms are almost entirely
   # unstated by the publisher: 22 of its 46 rows carry §8's standing fallback.
@@ -214,13 +222,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty-six files carry the leading 19 columns, in the same order", {
+test_that("all twenty-seven files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty-six files union without a coercion failure", {
+test_that("the twenty-seven files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -229,8 +237,8 @@ test_that("the twenty-six files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
-                 "KS", "MD", "ME", "MI", "MO", "NC", "NE", "NH", "NV", "OH",
-                 "OK", "OR", "PA", "SD", "WY"))
+                 "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NV",
+                 "OH", "OK", "OR", "PA", "SD", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

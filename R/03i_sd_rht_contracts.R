@@ -598,7 +598,7 @@ rhtp_sd_write <- function() {
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--probe" %in% args) {
-    print(rhtp_sd_probe(), n = Inf)
+    print(rhtp_probe_run("SD", rhtp_sd_probe()), n = Inf)
   } else if ("--fetch" %in% args) {
     rhtp_sd_fetch(force = "--force" %in% args)
   } else if ("--build" %in% args) {

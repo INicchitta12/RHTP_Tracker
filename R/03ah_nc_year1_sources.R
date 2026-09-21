@@ -1484,7 +1484,7 @@ nc_report <- function() {
 if (!interactive()) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--fetch" %in% args) nc_fetch(force = "--force" %in% args)
-  if ("--probe" %in% args) nc_probe()
+  if ("--probe" %in% args) rhtp_probe_run("NC", nc_probe())
   if ("--validate" %in% args) nc_validate()
   if ("--build" %in% args) nc_build()
   if ("--report" %in% args) nc_report()

@@ -152,6 +152,11 @@ paths:
   title_junk_patterns: "data/reference/title_junk_patterns.csv"
   cms_state_announcements: "data/reference/cms_state_announcements.csv"
   cms_press_manifest: "logs/cms_press_manifest.csv"
+  # Every --probe appends its verdict here: state, timestamp,
+  # CHANGED/UNCHANGED/TRIPWIRE/ERROR, and which page. COMMITTED (§0.5), because
+  # a Routine's answer that lives only inside a fired session transcript costs
+  # a human the work of opening that session to read it.
+  probe_results: "logs/probe_results.csv"
   # The newsroom topic index: one row per newsroom item ever seen, carrying the
   # topic CMS tagged it with. Committed (§0.5), and it is what keeps the
   # twice-weekly run cheap -- an item already in the index is never re-fetched,

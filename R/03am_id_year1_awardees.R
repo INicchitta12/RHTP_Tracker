@@ -517,7 +517,7 @@ if (!interactive()) {
   if ("--fetch" %in% args) id_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) id_validate()
   if ("--build" %in% args) id_build()
-  if ("--probe" %in% args) id_probe()
+  if ("--probe" %in% args) rhtp_probe_run("ID", id_probe())
   if ("--report" %in% args) id_report()
   if (!length(args)) {
     message("Usage: --fetch [--force] | --validate | --build | --probe | --report")
