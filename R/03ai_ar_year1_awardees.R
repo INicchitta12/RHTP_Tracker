@@ -1766,6 +1766,18 @@ ar_probe <- function() {
                 if (out$content_changed[i]) "MOVED" else "same"))
   }
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  nm_keys <- intersect(c("home", "thrive", "pact", "rise", "heart"), out$key)
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(purrr::map(nm_keys, function(k)
+      ar_html_text(k, out$html[out$key == k])), nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, ar_html_text), nm_keys),
+    state = "AR")
+
   home_html <- out$html[out$key == "home"]
   ar_assert_award_index(html = home_html)
   ar_assert_two_initiatives_remain(html = NULL)

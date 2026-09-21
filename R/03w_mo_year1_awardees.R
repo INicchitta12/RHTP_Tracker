@@ -723,7 +723,32 @@ mo_probe <- function(keys = MO_PROBE_KEYS) {
       hub    = mo_html_text("pr_hub")))
   }
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  # THE HUB ANCHOR ROSTER IS A PDF, and that is why the archived side goes
+  # through `mo_content_digest()` rather than `mo_html_text()`: handed the
+  # roster, the HTML reader returns 450 characters of PDF header and the
+  # baseline guard refuses -- correctly, and the guard is what caught it.
+  # Missouri is also the state where this matters most: a TWENTY-EIGHTH Hub
+  # Anchor is a name appearing on a roster whose 27 rows this repository
+  # records, and `mo_assert_anchors_not_awarded()` watches the roster's MONEY
+  # rather than its membership.
+  nm_keys <- intersect(c("program_page", "hub_roster"), names(live))
+  mo_archived_text <- function(k) {
+    mo_content_digest(readBin(mo_path(k), "raw", file.size(mo_path(k))),
+                      mo_probe_kind(k))$text
+  }
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(purrr::map(nm_keys, function(k) live[[k]]$text),
+                           nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, mo_archived_text), nm_keys),
+    state = "MO")
+
   if (!any(moved) && !length(findings)) {
+
     message("[MO] UNCHANGED -- all ", length(live), " probed sources are ",
             "content-identical to the committed archive, ",
             MO_OPEN_SOLICITATION, " is still open with no awardee named, and ",

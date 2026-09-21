@@ -1351,6 +1351,18 @@ nc_probe <- function() {
   mih   <- nc_mih_roster(body = live$pr_mih)
   roots <- nc_hub_lead_roster(body = live$pr_roots)
 
+  # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
+  # this page is worded; this asks WHOM it names, against the committed
+  # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
+  # one of its ten award phrases matched. Subject pages only -- a control or a
+  # press index moves for reasons that are not this state awarding.
+  nm_keys <- c("roots_page", "opportunities", "trillium")
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(
+      purrr::map(nm_keys, function(k) nc_html_text(k, live[[k]])), nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, nc_html_text), nm_keys),
+    state = "NC")
+
   message("[NC] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
     r <- cmp[i, ]

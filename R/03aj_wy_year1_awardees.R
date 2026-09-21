@@ -2304,6 +2304,15 @@ wy_probe <- function() {
       cat("      AWARD LANGUAGE ON THE LIVE PAGE: ",
           paste(hits, collapse = "; "), "\n")
     }
+    # THE NAME TRIPWIRE (§2.3, session 48): the phrase list above asks HOW the
+    # page is worded, this asks WHOM it names. New Mexico named six Regional
+    # Hubs and not one award phrase matched. `submittable` is excluded -- it
+    # is a portal shell whose text is a JavaScript application, not prose.
+    if (k != "submittable") {
+      rhtp_assert_no_new_organisations(
+        live = live_txt, archived = wy_html_text(wy_path(k)),
+        state = "WY", page = k)
+    }
     if (k == "submittable" &&
         !stringr::str_detect(live_txt, stringr::fixed("no open calls for submissions"))) {
       cat("      THE APPLICATION PORTAL HAS AN OPEN CALL. Year 1 may have a\n")
