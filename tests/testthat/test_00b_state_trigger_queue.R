@@ -151,14 +151,20 @@ test_that("the assertions pass on the real data", {
 
 
 test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED", {
-  # Session 43. The six worked-but-unprobed states must not read QUEUED (which
+  # Session 43. The worked-but-unprobed states must not read QUEUED (which
   # would send a future session to re-investigate them from scratch) and must
   # not read NOT_TRIGGERED (which describes the discovery layers, not the work
   # done). The carry-through is what makes the survey's finding visible here.
-  six <- c("HI", "MA", "MN", "NJ", "SC", "TN")
-  got <- queue$queue_status[match(six, queue$state)]
+  # SESSION 47: five, not six. South Carolina left the bucket because the
+  # STATE PUBLISHED -- SCDHHS's Year 1 Award List, 2026-09-15 -- so it reads
+  # EXTRACTED here now. Nothing had to be retracted, which is the whole point
+  # of the weaker code: it described what this repository had done, not what
+  # South Carolina had.
+  five <- c("HI", "MA", "MN", "NJ", "TN")
+  got <- queue$queue_status[match(five, queue$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(six, got, collapse = "; "))
+              info = paste(five, got, collapse = "; "))
+  expect_equal(queue$queue_status[queue$state == "SC"], "EXTRACTED")
   expect_true(all(queue$queue_status %in% rhtp_vocabulary("queue_status")))
 })
 
