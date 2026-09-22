@@ -789,8 +789,17 @@ md_assert_form_not_stated_queued <- function(recs) {
     show_col_types = FALSE, progress = FALSE)
   row <- queue %>%
     dplyr::filter(.data$question_id == MD_FORM_NOT_STATED_QUESTION)
-  if (nrow(row) != 1L || !identical(row$queue_status[[1]], "OPEN")) {
-    stop("[MD] ", MD_FORM_NOT_STATED_QUESTION, " is not an OPEN row in ",
+  # SESSION 49 ANSWERED THIS QUESTION, so "OPEN" is no longer the only
+  # honest state. The invariant this guard exists for is that the row is
+  # FINDABLE and SAYS SOMETHING -- "a disclosure nobody can find is not a
+  # disclosure" -- and a RESOLVED row with its resolution written out
+  # satisfies that as well as an OPEN one does. A row that is RESOLVED and
+  # EMPTY does not, and is still refused.
+  answered <- identical(row$queue_status[[1]], "RESOLVED") &&
+    !is.na(row$resolution[[1]]) && nzchar(row$resolution[[1]])
+  if (nrow(row) != 1L ||
+      !(identical(row$queue_status[[1]], "OPEN") || answered)) {
+    stop("[MD] ", MD_FORM_NOT_STATED_QUESTION, " is not a findable row (OPEN, or RESOLVED with a resolution) in ",
          "classification_review_queue.csv. A disclosure nobody can find is ",
          "not a disclosure.", call. = FALSE)
   }

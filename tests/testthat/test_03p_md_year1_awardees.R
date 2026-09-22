@@ -206,7 +206,14 @@ test_that("the 24 unstated-form rows are queued, with their dollars", {
   row <- queue %>% dplyr::filter(question_id == MD_FORM_NOT_STATED_QUESTION)
   expect_equal(nrow(row), 1L)
   expect_equal(row$state, "MD")
-  expect_equal(row$queue_status, "OPEN")
+  # SESSION 49 ANSWERED IT. The question is RESOLVED and carries its
+  # resolution; the invariant is that the row stays FINDABLE and says
+  # something, not that it stays unanswered forever.
+  expect_equal(row$queue_status, "RESOLVED")
+  expect_true(nzchar(row$resolution))
+  # It moved in BOTH directions, which this row had predicted since
+  # session 22 and is the only queue row in the file that ever did.
+  expect_true(grepl("3,034,792", row$resolution))
   expect_true(grepl("36,558,089", row$dollar_effect))
   expect_true(grepl("14,678,864", row$dollar_effect))
   # Every option a reviewer may choose has to be a real §8 value.

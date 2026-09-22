@@ -388,7 +388,11 @@ test_that("both Wyoming questions are in the review queue", {
   wy <- q[q$question_id %in% WY_QUEUE_KEYS, ]
   expect_equal(nrow(wy), 2L)
   expect_true(all(wy$state == "WY"))
-  expect_true(all(wy$queue_status == "OPEN"))
+  # SESSION 49 RESOLVED BOTH, AND BOTH LANDED ON THE OPTION (b) THEY NAMED:
+  # Powell Valley Health Care ($752,302) and Campbell County Health
+  # ($1,700,000), the exact figures each row had stated.
+  expect_true(all(wy$queue_status == "RESOLVED"))
+  expect_true(all(nzchar(wy$resolution)))
 })
 
 

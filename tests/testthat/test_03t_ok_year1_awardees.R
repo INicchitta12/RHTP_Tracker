@@ -286,7 +286,11 @@ test_that("the review-queue row exists and states the file's own figures", {
                        progress = FALSE)
   row <- q[q$question_id == OK_FORM_NOT_STATED_QUESTION, ]
   expect_equal(nrow(row), 1L)
-  expect_equal(row$queue_status[[1]], "OPEN")
+  # SESSION 49 ANSWERED IT: 6 rows / $235,396.66 moved and Oklahoma went
+  # 20 named-hospital award actions -> 26. The invariant is that the row
+  # stays FINDABLE and says something, not that it stays unanswered.
+  expect_equal(row$queue_status[[1]], "RESOLVED")
+  expect_true(nzchar(row$resolution[[1]]))
   expect_equal(row$state[[1]], "OK")
   expect_true(grepl("1,575,304.25", row$dollar_effect[[1]], fixed = TRUE))
 })
@@ -396,7 +400,9 @@ test_that("the committed CSV matches what the extractor builds", {
   expect_equal(nrow(on_disk), 69L)
   expect_equal(round(sum(on_disk$amount, na.rm = TRUE), 2),
                OK_STATED$microgrant_total)
-  expect_equal(sum(on_disk$distributed_to_hospital == "Yes"), 20L)
+  # 20 -> 26 in session 49: six Oklahoma microgrant recipients whose form
+  # OSDH never stated verified as hospitals, +$235,396.66.
+  expect_equal(sum(on_disk$distributed_to_hospital == "Yes"), 26L)
   expect_true(all(on_disk$state == "OK"))
   expect_true(all(on_disk$validator == "R/03t_ok_year1_awardees.R"))
   expect_true(all(nzchar(on_disk$state_source_url)))

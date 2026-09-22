@@ -384,7 +384,11 @@ test_that("both Michigan review-queue questions are open and state their effect"
     show_col_types = FALSE)
   mi <- queue[queue$state == "MI", ]
   expect_equal(nrow(mi), 2L)
-  expect_true(all(mi$queue_status == "OPEN"))
+  # SESSION 49: the FORM question is RESOLVED (one row moved, $182,197);
+  # MI_MHA_FLOW is a FLOW question and answering the type did not settle it.
+  expect_equal(mi$queue_status[mi$question_id == "MI_RECIPIENT_FORM_NOT_STATED"],
+               "RESOLVED")
+  expect_equal(mi$queue_status[mi$question_id == "MI_MHA_FLOW"], "OPEN")
   expect_setequal(mi$question_id,
                   c("MI_RECIPIENT_FORM_NOT_STATED", "MI_MHA_FLOW"))
   # The MHA question moves $8,625,000 and is NOT the open GHA_RECIPIENT_TYPE

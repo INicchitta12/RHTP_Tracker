@@ -502,7 +502,11 @@ test_that("Georgia's GHA recipient_type divergence is recorded, not resolved", {
                         show_col_types = FALSE, progress = FALSE)
   gha <- ga[ga$awardee == "Georgia Hospital Association", ]
   expect_equal(nrow(gha), 1L)
-  expect_equal(gha$recipient_type[[1]], "HOSPITAL_AFFILIATED_ENTITY")
+  # SESSION 49 SETTLED THIS, AND IT SETTLED ON §10.2's OWN PRESCRIPTION.
+  # Georgia had been the outlier of three (Alaska and Illinois both used
+  # NONPROFIT_CBO); the verification answered NONPROFIT_CBO and the row was
+  # re-typed, which moved $0 exactly as the queue row had always said.
+  expect_equal(gha$recipient_type[[1]], "NONPROFIT_CBO")
   expect_equal(gha$flow_type[[1]], "IN_KIND_BENEFIT")
   expect_equal(gha$distributed_to_hospital[[1]], "No")
 
@@ -510,7 +514,8 @@ test_that("Georgia's GHA recipient_type divergence is recorded, not resolved", {
                            show_col_types = FALSE, progress = FALSE)
   row <- queue[queue$question_id == "GHA_RECIPIENT_TYPE", ]
   expect_equal(nrow(row), 1L)
-  expect_equal(row$queue_status[[1]], "OPEN")
+  expect_equal(row$queue_status[[1]], "RESOLVED")
+  expect_true(nzchar(row$resolution[[1]]))
   expect_equal(row$state[[1]], "GA")
   expect_true(grepl("NONPROFIT_CBO", row$options[[1]], fixed = TRUE))
   expect_true(grepl("HOSPITAL_AFFILIATED_ENTITY", row$options[[1]], fixed = TRUE))

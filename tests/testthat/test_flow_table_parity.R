@@ -175,3 +175,55 @@ off the AWARD, one award at a time", fixed = TRUE)
   # The figure at stake, so the block states its own cost.
   expect_match(block, "$76,190,022", fixed = TRUE)
 })
+
+
+# -- §10.2, hospital foundations (session 49) ---------------------------------
+#
+# THE THIRD BLOCK WRITTEN ONCE AND PASTED INTO ALL THREE. It is the row that
+# moves dollars, so its parity matters more than the two above it: reading a
+# hospital ASSOCIATION's foundation as a hospital's foundation would move
+# $66,547,394 of New Hampshire pass-through money into the hospital total, and
+# a copy of this block that had lost the word "named" would say exactly that.
+FOUNDATION_HEADING <- "Hospital foundations and affiliated arms"
+
+test_that("all three documents carry the hospital-foundation block", {
+  for (key in names(DOCS)) {
+    block <- extract_block(read_doc(key), FOUNDATION_HEADING)
+    expect_false(is.null(block),
+                 info = paste(DOCS[[key]], "is missing the §10.2 hospital-foundation block"))
+    expect_true(nzchar(block), info = DOCS[[key]])
+  }
+})
+
+test_that("the three copies of the hospital-foundation block are byte-identical", {
+  blocks <- vapply(names(DOCS), function(k) extract_block(read_doc(k), FOUNDATION_HEADING),
+                   character(1))
+  expect_identical(blocks[["claude"]], blocks[["spec"]])
+  expect_identical(blocks[["reviewer"]], blocks[["spec"]])
+})
+
+test_that("the block keeps the word that limits it, and both refusals", {
+  block <- extract_block(read_doc("spec"), FOUNDATION_HEADING)
+  # The limit. Without it the row reaches an association's foundation.
+  expect_match(block, "*named*", fixed = TRUE)
+  expect_match(block, "does not reach the foundation of an ASSOCIATION", fixed = TRUE)
+  expect_match(block, "Foundation for Healthy Communities", fixed = TRUE)
+  expect_match(block, "$66,547,394", fixed = TRUE)
+  # The second refusal: a parent that is not a hospital.
+  expect_match(block, "The test is the PARENT", fixed = TRUE)
+  expect_match(block, "Talbot", fixed = TRUE)
+  # And the refusal to promote where the parent is not stated.
+  expect_match(block, "NOT promoted (§0.4)", fixed = TRUE)
+  expect_match(block, "$146,476", fixed = TRUE)
+})
+
+test_that("the flow table in the spec and in CLAUDE.md carries the foundation row", {
+  for (key in c("spec", "claude")) {
+    lines <- read_doc(key)
+    row <- grep("^\\| `DIRECT` . a hospital's own foundation or affiliated arm", lines)
+    expect_length(row, 1L)
+    # It must sit inside the flow table, after the association row.
+    assoc <- grep("^\\| `PASS_THROUGH_DESIGNATED` . hospital trade associations", lines)
+    expect_gt(row, assoc[[1]])
+  }
+})

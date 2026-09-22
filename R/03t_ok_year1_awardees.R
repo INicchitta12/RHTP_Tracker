@@ -1063,8 +1063,17 @@ ok_assert_form_not_stated_queued <- function(recs) {
   q <- readr::read_csv(here::here(OK_REVIEW_QUEUE), show_col_types = FALSE,
                        progress = FALSE)
   row <- q[q$question_id == OK_FORM_NOT_STATED_QUESTION, ]
-  if (nrow(row) != 1L || !identical(row$queue_status[[1]], "OPEN")) {
-    stop("[OK] ", OK_FORM_NOT_STATED_QUESTION, " is not an OPEN row in ",
+  # SESSION 49 ANSWERED THIS QUESTION, so "OPEN" is no longer the only
+  # honest state. The invariant this guard exists for is that the row is
+  # FINDABLE and SAYS SOMETHING -- "a disclosure nobody can find is not a
+  # disclosure" -- and a RESOLVED row with its resolution written out
+  # satisfies that as well as an OPEN one does. A row that is RESOLVED and
+  # EMPTY does not, and is still refused.
+  answered <- identical(row$queue_status[[1]], "RESOLVED") &&
+    !is.na(row$resolution[[1]]) && nzchar(row$resolution[[1]])
+  if (nrow(row) != 1L ||
+      !(identical(row$queue_status[[1]], "OPEN") || answered)) {
+    stop("[OK] ", OK_FORM_NOT_STATED_QUESTION, " is not a findable row (OPEN, or RESOLVED with a resolution) in ",
          OK_REVIEW_QUEUE, ". ", nrow(soft), " rows and $",
          format(sum(soft$amount), big.mark = ",", nsmall = 2),
          " of unstated recipient form are not a note; they are a reviewer's ",
