@@ -7,17 +7,22 @@ source(here::here("R", "03ar_rural_cut_report.R"))
 rows <- rc_rows()
 
 test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partition is intact", {
-  expect_equal(nrow(rows), 939L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 787490159.53,
+  # Session 52: + New York's 35 hospital-lead rows and Kansas's 7 Emerging
+  # Technology hospitals.
+  expect_equal(nrow(rows), 981L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 845025923.32,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
 
-test_that("the rural figure is 151 rows / $157,997,116.60, from three classes of source only", {
+test_that("the rural figure is 164 rows / $171,872,989.39, from three classes of source only", {
   r <- rows[rows$counts_as_rural, ]
-  expect_equal(nrow(r), 151L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 157997116.60, tolerance = 0)
+  # Session 51's 151 / $157,997,116.60, plus 13 NY and KS rows CMS enrols as
+  # a CAH or REH by the CCN each row records (session 52).
+  expect_equal(nrow(r), 164L)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 171872989.39, tolerance = 0)
+  expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_setequal(unique(r$rural_class), c("STATE_SOURCE_RURAL", "FEDERAL_RECORD_CCN"))
   # NOTHING the verifiers knew from general knowledge counts.
   expect_false(any(rows$counts_as_rural[rows$rural_class == "GENERAL_KNOWLEDGE_ONLY"]))
@@ -65,9 +70,9 @@ test_that("the committed report tables match a fresh computation, and no state f
                         progress = FALSE)
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
-  expect_equal(sum(by$rural_rows), 151L)
+  expect_equal(sum(by$rural_rows), 164L)
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE)
-  expect_equal(nrow(committed), 939L)
+  expect_equal(nrow(committed), 981L)
   expect_equal(committed$rural_class, rows$rural_class)
 })

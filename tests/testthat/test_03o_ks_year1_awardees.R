@@ -29,7 +29,12 @@ library(testthat)
 
 source(here::here("R", "03o_ks_year1_awardees.R"))
 
-ks_awards <- rhtp_ks_year1_awardees()
+# SESSION 52 APPENDED A FOURTH POOL (Emerging Technology). The tests below
+# were written about the first three and are kept about the first three, so
+# they still prove what they proved; the fourth is tested on its own at the
+# end of this file.
+ks_all    <- rhtp_ks_year1_awardees()
+ks_awards <- ks_all[ks_all$award_pool != "EMERGING_TECH", ]
 ks_rec    <- rhtp_ks_reconcile(ks_awards)
 ks_links  <- ks_program_page_text()
 
@@ -224,7 +229,8 @@ test_that("the four unawarded programmes are on the page, without a roster", {
   }
   award_shaped <- ks_links %>%
     dplyr::filter(grepl(KS_AWARD_LINK_SHAPE, text))
-  expect_equal(nrow(award_shaped), 2L)
+  # Session 52: Emerging Technology has now awarded, so three award links.
+  expect_equal(nrow(award_shaped), 3L)
 })
 
 
@@ -463,13 +469,56 @@ test_that("the credential stripper removes the node and keeps the links", {
 # -- assertions --------------------------------------------------------------
 
 test_that("all Kansas assertions pass on the committed archive", {
-  expect_true(rhtp_ks_assert(ks_awards))
+  expect_true(rhtp_ks_assert(ks_all))
 })
 
 test_that("the committed CSV matches a fresh parse", {
   on_disk <- readr::read_csv(here::here(KS_CSV), show_col_types = FALSE,
                              progress = FALSE)
-  expect_equal(nrow(on_disk), nrow(ks_awards))
-  expect_equal(sum(on_disk$amount), sum(ks_awards$amount))
-  expect_equal(on_disk$awardee, ks_awards$awardee)
+  expect_equal(nrow(on_disk), nrow(ks_all))
+  expect_equal(sum(on_disk$amount), sum(ks_all$amount))
+  expect_equal(on_disk$awardee, ks_all$awardee)
+})
+
+
+# -- the fourth pool: Emerging Technology (session 52) -------------------------
+
+test_that("Emerging Technology is 14 awards, $16,006,648, appended after row 46", {
+  et <- ks_all[ks_all$award_pool == "EMERGING_TECH", ]
+  expect_equal(nrow(et), 14L)
+  expect_equal(sum(et$amount), 16006648)
+  expect_true(all(ks_all$award_pool[47:60] == "EMERGING_TECH"))
+  expect_true(ks_assert_emerging_tech() %>% nrow() == 14L)
+})
+
+test_that("seven Emerging Technology hospitals, and Attica is held out", {
+  et <- ks_all[ks_all$award_pool == "EMERGING_TECH", ]
+  h <- et[et$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(h), 7L)
+  expect_equal(sum(h$amount), 10176973)
+  att <- et[et$awardee == "Attica Hospital District #1", ]
+  expect_equal(att$distributed_to_hospital, "No")
+  expect_equal(att$recipient_type, "NONPROFIT_CBO")
+  expect_equal(att$flag_reason, "RECIPIENT_TYPE_INFERRED")
+  # The bridges are LOW; nothing claims HIGH.
+  expect_true(all(et$determination_confidence[et$basis_type %in%
+                                                "GENERAL_KNOWLEDGE"] == "LOW"))
+  expect_false(any(et$determination_confidence == "HIGH"))
+})
+
+test_that("the fourth pool's roster tripwire refuses a changed roster", {
+  et <- ks_parse_emerging_tech()
+  expect_error(ks_assert_emerging_tech(et[-1, ]), "headings")
+  bad <- et; bad$amount[1] <- bad$amount[1] + 1
+  expect_error(ks_assert_emerging_tech(bad), "sums to")
+  bad <- et; bad$awardee[1] <- "Brand New Hospital"
+  expect_error(ks_assert_emerging_tech(bad), "no longer matches")
+})
+
+test_that("rows 1..46 of the committed file are the pre-session-52 rows", {
+  d <- readr::read_csv(here::here(KS_CSV), show_col_types = FALSE,
+                       progress = FALSE)
+  expect_equal(nrow(d), 60L)
+  expect_equal(sum(d$amount[1:46]), 80020499)
+  expect_true(all(d$award_pool[47:60] == "EMERGING_TECH"))
 })

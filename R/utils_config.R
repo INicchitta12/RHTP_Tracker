@@ -900,7 +900,8 @@ rhtp_probe_log_path <- function() {
   }
 }
 
-RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note")
+RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note",
+                            "origin")   # origin: session 52, trigger id or "interactive"
 
 # The verdicts a probe row may carry. Deliberately small, and deliberately
 # NOT a free-text field: this log is read by grep and by a human scanning a
