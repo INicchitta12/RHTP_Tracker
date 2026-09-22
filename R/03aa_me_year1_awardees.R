@@ -1390,6 +1390,13 @@ rhtp_me_write_xlsx <- function(awards, cohort, status, dispo) {
 #' Maine's page digests are STABLE -- two fetches three seconds apart return the
 #' same SHA-256 -- so unlike Nevada, Missouri and Wisconsin a file digest is a
 #' usable change test here, and it is used directly.
+# Read and judged NOT a recipient (session 52); matched EXACTLY (§2.3). Two
+# adjacent DOCUMENT LINKS on the programme page -- "Maine RHTP Project
+# Narrative" and "Maine RHTP Y1 Budget" -- which the reduction runs together.
+# They are Maine's own application documents, not a roster.
+ME_NAME_FURNITURE <- list(programme = c(
+  "Maine RHTP Project Narrative Maine RHTP Y1 Budget"))
+
 me_probe <- function() {
   watched <- c("rhef", "doe", "programme", "mcd")
   message("[ME] LIVE probe, ", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"))
@@ -1424,6 +1431,7 @@ me_probe <- function() {
   rhtp_assert_no_new_organisations_across(
     live = txt[nm_keys],
     archived = stats::setNames(purrr::map(nm_keys, me_html_text), nm_keys),
+    furniture = ME_NAME_FURNITURE,
     state = "ME")
 
   message("[ME] the award tripwires pass against the LIVE bytes: Maine has ",

@@ -15,8 +15,12 @@ its digest below.
 MANIFEST.txt is deliberately absent from this listing: a manifest cannot
 record its own digest (session 15).
 
-2b1d81dccb45af0a600efbb95df86349a081d1b4dc8c9a4049e9432ff200461d  2026-08-29_kdhe_rhtp_program_page.html  (142556 bytes, reduce=STRIP_CREDENTIALS)  <- https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program
+5856ae0c6065651eee07355005b93b0950d2a1912aa3a77b9cd869bfc04be80d  2026-09-22_kdhe_rhtp_program_page.html  (145976 bytes, reduce=STRIP_CREDENTIALS)  <- https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program
+    full page as served: e3faeb2c41d023726f42ccbb18e206c9863094573e03c54ceb2562f770250a70
+2b1d81dccb45af0a600efbb95df86349a081d1b4dc8c9a4049e9432ff200461d  2026-08-29_kdhe_rhtp_program_page.html  (142556 bytes, reduce=STRIP_CREDENTIALS)  <- https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program  [KEPT 2026-08-29 snapshot; never re-fetched]
     full page as served: 8a5de351bd724d63c8e008d55081e77e6c48c0293f21b09b1789271f18df2db4
+03969debc53c1cbf5cb252e14dc5da4ff5666a13c260a20ecc1acf3f469d8970  2026-09-22_kdhe_emerging_technology_award_winners.pdf  (30457 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/60464/Emerging-Tech-Project-Descriptions
+    full page as served: 03969debc53c1cbf5cb252e14dc5da4ff5666a13c260a20ecc1acf3f469d8970  (copied from data/evidence/recheck/2026-09-22/KS/ by session 52; re-hashed against a live fetch the same day, identical)
 f248fb9e8bdcfe96c8b1d07201e661c8ba36656e4f2f61e3ba83b9e7f5f75429  2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf  (420323 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/58981/REH-CAP-and-RPGP-Award-Winners-PDF
     full page as served: f248fb9e8bdcfe96c8b1d07201e661c8ba36656e4f2f61e3ba83b9e7f5f75429
 3f8d5a71cbdd091b816685415ec3e00992b57e6781306e0413bf2ca53c9f5be7  2026-08-29_kdhe_chw_afim_project_descriptions.pdf  (99221 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/60037/CHW-AFIM-Project-Descriptions

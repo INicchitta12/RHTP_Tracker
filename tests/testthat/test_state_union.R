@@ -200,7 +200,13 @@ STATE_FILES <- c(
   # publishes NO TOTAL OF ANY KIND, so its completeness rests on each project
   # numbering 1..n and on CMS independently stating 228 grants, not on
   # reconciling to a figure the publisher printed.
-  SC = "data/reference/sc_year1_awardees.csv"
+  SC = "data/reference/sc_year1_awardees.csv",
+
+  # NEW YORK (session 52). 56 RCHI LEAD-APPLICANT rows, $76,190,022 -- one row
+  # per lead, not per award (the Governor counts 90). A hospital was required
+  # in every partnership and the roster names only the lead, so the 21
+  # non-hospital leads are Unclear and in NO bucket (§7's third class).
+  NY = "data/reference/ny_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -228,13 +234,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty-eight files carry the leading 19 columns, in the same order", {
+test_that("all twenty-nine files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty-eight files union without a coercion failure", {
+test_that("the twenty-nine files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -244,7 +250,7 @@ test_that("the twenty-eight files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
                  "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NV",
-                 "OH", "OK", "OR", "PA", "SC", "SD", "WY"))
+                 "NY", "OH", "OK", "OR", "PA", "SC", "SD", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

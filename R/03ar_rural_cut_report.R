@@ -79,7 +79,11 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 RC_ENROLMENTS <- c(
   MS = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_MS.json",
-  SC = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_SC.json")
+  SC = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_SC.json",
+  # Session 52: New York's RCHI leads and Kansas's Emerging Technology rows
+  # carry their CCN in the `ccn` column, typed against these slices.
+  NY = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_NY.json",
+  KS = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_KS.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -121,6 +125,7 @@ rc_named_rows <- function(files = rc_state_files()) {
       rural_designation_raw = rc_col(d, "rural_designation_raw")[keep],
       note = rc_col(d, "note")[keep],
       basis_type = rc_col(d, "basis_type")[keep],
+      ccn_col = rc_col(d, "ccn")[keep],
       basis_text = paste(dplyr::coalesce(rc_col(d, "verified_basis")[keep], ""),
                          dplyr::coalesce(rc_col(d, "determination_basis")[keep], ""))
     )
@@ -138,6 +143,8 @@ rc_ccn_types <- function() {
 #' One evidence class per row, in precedence order. See the file header.
 rc_classify <- function(r) {
   ccn <- stringr::str_match(r$basis_text, "CCN (\\d{2}[0-9A-Z]\\d{3})")[, 2]
+  # A CCN the row records in its own `ccn` column wins (session 52: NY, KS).
+  ccn <- dplyr::coalesce(r$ccn_col, ccn)
   pt <- rc_ccn_types()
   ptype <- pt$provider_type[match(ccn, pt$ccn)]
   if (any(!is.na(ccn) & is.na(ptype))) {
@@ -201,12 +208,15 @@ rc_by_state <- function(rows = rc_rows()) {
 #' The partition is unchanged by construction; assert it.
 rc_assert <- function(rows = rc_rows()) {
   if (!all(rows$rural_class %in% RC_CLASSES)) stop("unknown rural class")
-  # SESSION 51's NAMED_HOSPITAL: 939 rows / $787,490,159.53 / 19 states (session 50 wrote .80).
-  if (nrow(rows) != 939L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 787490159.53) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 19L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 939 rows / $787,490,159.53 ",
-         "/ 19 states; re-state the rural cut against the new partition.",
+  # SESSION 52's NAMED_HOSPITAL: 981 rows / $845,025,923.32 / 20 states --
+  # session 51's 939 / $787,490,159.53 / 19, plus New York's 35 hospital-lead
+  # rows ($47,358,790.79) and Kansas's 7 Emerging Technology hospitals
+  # ($10,176,973).
+  if (nrow(rows) != 981L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 845025923.32) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 20L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 981 rows / $845,025,923.32 ",
+         "/ 20 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

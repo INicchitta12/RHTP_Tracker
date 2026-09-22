@@ -110,8 +110,11 @@ test_that("Kansas's own figures are unchanged by all of the above", {
   # line. It is that Kansas's committed awardee file still says what it said.
   ks <- readr::read_csv(here::here("data/reference/ks_year1_awardees.csv"),
                         show_col_types = FALSE, progress = FALSE)
-  expect_equal(nrow(ks), 46L)
-  expect_equal(sum(ks$amount), 80020499)
+  # The first three pools are unchanged; session 52 APPENDED a fourth
+  # (Emerging Technology, 14 / $16,006,648), which is not a reader change.
+  first3 <- ks[ks$award_pool != "EMERGING_TECH", ]
+  expect_equal(nrow(first3), 46L)
+  expect_equal(sum(first3$amount), 80020499)
   expect_true(any(grepl("Citizens Foundation", ks$awardee)))
   expect_false(any(grepl("Foundat ion", ks$awardee)))
 })
@@ -172,4 +175,39 @@ test_that("runs are returned AS PAINTED, because a run boundary lands on a space
   i <- which(ends_in_space)[1]
   expect_false(identical(paste0(trimws(runs$text[i]), "x"),
                          paste0(runs$text[i], "x")))
+})
+
+
+# -- session 52: the ' operator and % comments ---------------------------------
+
+test_that("KDHE's Emerging Technology roster is READ, not returned empty", {
+  # Its producer paints EVERY string with the ' operator and annotates its
+  # streams with % comments. Before session 52 the reader returned ZERO lines
+  # for it -- an empty answer, the worst failure shape this project has.
+  f <- here::here("data", "evidence", "KS",
+                  "2026-09-22_kdhe_emerging_technology_award_winners.pdf")
+  skip_if_not(file.exists(f))
+  x <- rhtp_pdf_lines(f)
+  expect_gt(nrow(x), 50L)
+  expect_true("CommonSpirit Kansas, Finney County ($2,980,250)" %in%
+                stringr::str_squish(x$text))
+  expect_true("Meade Hospital District, Meade County ($141,098)" %in%
+                stringr::str_squish(x$text))
+  # A comment is not content: "% ... NoClip(18436)" carries a parenthesised
+  # token that a comment-blind scanner reads as a string.
+  expect_false(any(grepl("18436|FitBlackBox|Change co-ordinate", x$text)))
+  expect_setequal(unique(x$page), 1:3)
+})
+
+test_that("Kentucky's CMS NOA attachment: ' strings sit on their own lines now", {
+  # The ONE committed PDF whose output moved with the fix, and it moved toward
+  # correct: the old reader held each ' string as pending and painted it at
+  # the NEXT Tj's position, welding it onto the line above.
+  f <- here::here("data", "evidence", "KY",
+                  "2026-09-02_ky_cms_notice_of_award_attachment_b.pdf")
+  skip_if_not(file.exists(f))
+  x <- rhtp_pdf_lines(f)
+  hit <- x$text[grepl("Recipients must submit a revised budget by COB", x$text)]
+  expect_length(hit, 1L)
+  expect_false(grepl("prior approval", hit))
 })

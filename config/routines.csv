@@ -1,0 +1,17 @@
+state,trigger_id,cron_utc,script,cadence,logging_since
+AK,trig_01U4RxGWMH8yg37UKupHqTki,"0 14 * * 1",R/03h_ak_year1_awardees.R,weekly,2026-09-22T19:30:00Z
+MO,trig_01RyGxdGNv6rrF8t6bT5fQdK,"0 15 * * 3",R/03w_mo_year1_awardees.R,weekly,2026-09-22T19:30:00Z
+WI,trig_01PEixRDWkHzpet4krJtye3b,"0 14 * * 2,5",R/03y_wi_year1_probe.R,twice-weekly,2026-09-22T19:30:00Z
+ME,trig_01ALmis3jAgiLXVb6ZDLCj8Y,"20 16 * * 2,5",R/03aa_me_year1_awardees.R,twice-weekly,2026-09-22T19:30:00Z
+CA,trig_013vujTBLopT2gSmNwWJ94ig,"0 17 * * 3,6",R/03ab_ca_year1_probe.R,twice-weekly,2026-09-22T19:30:00Z
+CT,trig_01DRHN1x1WfzPjC3dpgay8s2,"40 15 * * 1,4",R/03ac_ct_year1_probe.R,twice-weekly,2026-09-22T19:30:00Z
+NM,trig_01DbiFhMJhaZXzYB4gi5JpwX,"40 18 * * 2",R/03ad_nm_year1_probe.R,weekly,2026-09-22T19:30:00Z
+LA,trig_01BqyRZ4d8S8EvKdtCN9nmX5,"50 12 * * 3,6",R/03ae_la_year1_probe.R,twice-weekly,2026-09-22T19:30:00Z
+KY,trig_01FqfAJvnMzz811goNzNZYqi,"30 19 * * 1,4",R/03af_ky_year1_probe.R,twice-weekly,2026-09-22T19:30:00Z
+NY,trig_01G2ZijwemE2YgbAuiBirKs2,"10 11 * * 0,3",R/03ag_ny_year1_probe.R,twice-weekly,2026-09-22T19:30:00Z
+NC,trig_01SepuwJWXSkqpNQ9WgJkxMb,"50 10 * * 6",R/03ah_nc_year1_sources.R,weekly,2026-09-22T19:30:00Z
+AR,trig_01Sw1CDPqYQKXFq4WEVRHH2a,"20 20 * * 0,4",R/03ai_ar_year1_awardees.R,twice-weekly,2026-09-22T19:30:00Z
+WY,trig_016y7C12cyxy7GmGNJDxoAbW,"10 21 * * 2,5",R/03aj_wy_year1_awardees.R,twice-weekly,2026-09-22T19:30:00Z
+MS,trig_01RmgWna5oXyoMCXYrVqGVvE,"40 9 * * 2,5",R/03ak_ms_year1_awardees.R,twice-weekly,2026-09-22T19:30:00Z
+SC,trig_01UdVg36W1aWGTDKs3jfHtfV,"30 8 * * 4",R/03ao_sc_year1_awardees.R,weekly,2026-09-22T19:30:00Z
+KS,trig_01JkvfXqqNaLXuf8xFja5nNR,"10 8 * * 1",R/03o_ks_year1_awardees.R,weekly,2026-09-22T19:30:00Z

@@ -1222,6 +1222,21 @@ ca_content_digest <- function(body) {
 #' TWO FETCHES SECONDS APART IS NOT A STABILITY TEST. That is the transferable
 #' lesson, and it is why the archived bytes are kept exactly as served: the
 #' variant we hold is one of two legitimate responses, not the canonical one.
+#' The name tripwire reads the ARTICLE, not HCAI's mega-menu (session 52)
+#'
+#' Every hcai.ca.gov page opens with a site-wide mega-menu whose "Latest News"
+#' and data columns HCAI edits on its own schedule -- on 2026-09-22 it gained
+#' "HPD Data Release Applications Now Open" and a "Readmissions and
+#' Complications" data link, and both pages halted on them. A known list
+#' cannot keep up with a menu, so the tripwire reads from the page's own
+#' breadcrumb ("... Rural Health California Rural Health Transformation
+#' (CalRHT)") to the site footer, on the live and archived copy alike.
+ca_name_scope <- function(text, page) {
+  rhtp_name_scope(text,
+                  from = "Rural Health California Rural Health Transformation \\(CalRHT\\)",
+                  to = "Subscribe Footer Column 1", state = "CA", page = page)
+}
+
 ca_probe <- function(keys = CA_PROBE_KEYS) {
   message("[CA] LIVE probe, ", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"))
   changed <- character(0)
@@ -1252,10 +1267,11 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   # reasons that are not this state awarding, and a tripwire that halts on
   # those is session 46's stale dated anchor in a new costume.
   rhtp_assert_no_new_organisations_across(
-    live = txt[c("funding", "calrht")],
+    live = list(funding = ca_name_scope(txt$funding, "funding"),
+                calrht = ca_name_scope(txt$calrht, "calrht")),
     archived = list(
-      funding = ca_html_text("funding"),
-      calrht = ca_html_text("calrht")),
+      funding = ca_name_scope(ca_html_text("funding"), "funding"),
+      calrht = ca_name_scope(ca_html_text("calrht"), "calrht")),
     state = "CA")
 
   message("[CA] the award tripwires pass against the LIVE bytes: California ",

@@ -111,10 +111,15 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # UNIVERSITY and therefore $0 of hospital money. All three came out of session
 # 43's fourteen-state low-candidate queue, where they were deliberately
 # reported and not extracted.
+#
+# NEW YORK moved here in session 52, the second state to leave
+# INVESTIGATED_NO_LIST: DOH's RCHI Awardees List, 56 lead rows, $76,190,022.
+# It had been public since 2026-09-04 and its Routine's verdicts never reached
+# `main` -- see R/probe_coverage.R.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
                              "IL", "IN", "KS", "MD", "ME", "MI", "MO", "MS",
-                             "NC", "NE", "NH", "NV", "OH", "OK", "OR", "PA",
-                             "SC", "SD", "WY")
+                             "NC", "NE", "NH", "NV", "NY", "OH", "OK", "OR",
+                             "PA", "SC", "SD", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -254,7 +259,7 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
 # INVESTIGATED_NO_LIST is FOR: a re-checkable negative that re-opens the state
 # the day it publishes, rather than a verdict that goes stale unwatched.
 SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM",
-                                        "NY", "TX", "WI")
+                                        "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them

@@ -1321,6 +1321,17 @@ nc_status_table <- function() {
 #'   3. A THIRD ROSTER. Two opportunities closed with no roster and both their
 #'      application dates have passed (2026-07-17, 2026-08-12), and the Rural
 #'      Health Innovation Fund ($20M annually) "will launch this fall".
+# Read and judged NOT a recipient (session 52); matched EXACTLY (§2.3). Two
+# HEADINGS Trillium added to its Region 2 page over an advisory-board list:
+# an advisory board advises the hub, it receives nothing, and its members are
+# people, which this tripwire does not read. The same page lists five
+# second-tier RFAs "Closed - Under Review" with notification due September /
+# September-October 2026 -- those RFA titles were already in the archive, and
+# the day an AWARDEE appears under them it is a new name and fires.
+NC_NAME_FURNITURE <- list(trillium = c(
+  "About the Advisory Board The NC ROOTS Region",
+  "Advisory Board Members"))
+
 nc_probe <- function() {
   keys <- c("pr_mih", "pr_roots", "roots_page", "opportunities", "trillium")
   live <- purrr::map(keys, function(k) {
@@ -1361,6 +1372,7 @@ nc_probe <- function() {
     live = stats::setNames(
       purrr::map(nm_keys, function(k) nc_html_text(k, live[[k]])), nm_keys),
     archived = stats::setNames(purrr::map(nm_keys, nc_html_text), nm_keys),
+    furniture = NC_NAME_FURNITURE,
     state = "NC")
 
   message("[NC] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")

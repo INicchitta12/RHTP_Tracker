@@ -344,3 +344,114 @@ test_that("every probe that offers --probe also runs the name tripwire", {
   }
   expect_identical(offenders, character(0))
 })
+
+
+# -- session 52: furniture is EXACT, scope is anchored, CLOSED breaks a run ---
+
+test_that("a furniture entry quiets exactly its own string and nothing longer", {
+  arch <- "Kentucky Hospital Association and Pikeville County Board of Health."
+  live <- paste(arch, "Rural Health Transformation Fund.",
+                "Rural Health Transformation Fund Hospital Authority.")
+  # As `known`, containment would swallow the longer one -- the reason
+  # furniture is a separate, exact list.
+  expect_length(rhtp_new_organisation_names(
+    live, arch, known = "Rural Health Transformation Fund"), 0L)
+  got <- rhtp_new_organisation_names(
+    live, arch, furniture = "Rural Health Transformation Fund")
+  expect_identical(sub("[.]$", "", got),
+                   "Rural Health Transformation Fund Hospital Authority")
+})
+
+test_that("the multi-page form passes furniture per page", {
+  arch <- list(a = "Alpha County Board of Health. Beta Medical Center. Gamma Health System.",
+               b = "Alpha County Board of Health. Beta Medical Center. Gamma Health System.")
+  live <- list(a = paste(arch$a, "Advisory Board Members."),
+               b = paste(arch$b, "Advisory Board Members."))
+  expect_error(rhtp_assert_no_new_organisations_across(
+    live, arch, "XX", furniture = list(a = "Advisory Board Members")),
+    "'b' NAMES 1")
+  expect_silent(rhtp_assert_no_new_organisations_across(
+    live, arch, "XX", furniture = "Advisory Board Members"))
+})
+
+test_that("a STATUS LABEL breaks a run, as a date does (Idaho, session 52)", {
+  arch <- "Posted 8/18/26: Healthcare Infrastructure Support FAQ. Alpha Medical Center. Beta Health System."
+  live <- paste("CLOSED 9/18/26: Healthcare Infrastructure Support CLOSED 9/17/26:",
+                "Alpha Medical Center. Beta Health System.")
+  expect_false(any(grepl("CLOSED", rhtp_organisation_names(live))))
+  # Upper case only: a real name carrying the word in title case still joins.
+  expect_true(any(grepl("Closed Loop Health System",
+                        rhtp_organisation_names("The Closed Loop Health System."))))
+})
+
+test_that("a name-tripwire SCOPE refuses a missing anchor and a scope that keeps nothing", {
+  txt <- paste(c("MENU", "Latest News Something Health System",
+                 "Flag Status", "Beebe Healthcare awarded", "Keep up to date by receiving",
+                 rep("footer", 3)), collapse = "\n")
+  s <- rhtp_name_scope(txt, "^Flag Status", "^Keep up to date")
+  expect_false(grepl("Latest News", s))
+  expect_true(grepl("Beebe Healthcare", s))
+  expect_error(rhtp_name_scope(txt, "^NO SUCH ANCHOR"), "was not found")
+  expect_error(rhtp_name_scope(txt, "^Flag Status", "^NO END"), "end anchor")
+  expect_error(rhtp_name_scope(txt, "^Flag Status", "^Beebe", min_keep = 0.5),
+               "keeps")
+})
+
+test_that("each retuned probe is silent on today's archive AND still fires on a recipient", {
+  # The retune must not have bought quiet with blindness: for every page
+  # session 52 gave a furniture list or a scope, a real recipient appended to
+  # the archived text is still reported.
+  inject <- "Pikeville Medical Center"
+  spec <- list(
+    WI = list("R/03y_wi_year1_probe.R", function() list(dhs_solicit = wi_html_text("dhs_solicit")),
+              function() WI_NAME_FURNITURE),
+    ME = list("R/03aa_me_year1_awardees.R", function() list(programme = me_html_text("programme")),
+              function() ME_NAME_FURNITURE),
+    KY = list("R/03af_ky_year1_probe.R", function() list(rch = ky_html_text("rch")),
+              function() KY_NAME_FURNITURE),
+    NC = list("R/03ah_nc_year1_sources.R", function() list(trillium = nc_html_text("trillium")),
+              function() NC_NAME_FURNITURE),
+    ID = list("R/03am_id_year1_awardees.R",
+              function() list(funding = id_html_text("funding"), about = id_html_text("about")),
+              function() ID_NAME_FURNITURE),
+    CA = list("R/03ab_ca_year1_probe.R",
+              function() list(funding = ca_name_scope(ca_html_text("funding"), "funding"),
+                              calrht = ca_name_scope(ca_html_text("calrht"), "calrht")),
+              function() list()),
+    DE = list("R/03al_de_year1_awardees.R",
+              function() list(release = de_name_scope(de_html_text("release"), "release"),
+                              programme = de_name_scope(de_html_text("programme"), "programme")),
+              function() list()))
+  for (st in names(spec)) {
+    f <- spec[[st]][[1]]
+    suppressWarnings(suppressMessages(source(here::here(f))))
+    pages <- spec[[st]][[2]]()
+    fu <- spec[[st]][[3]]()
+    for (k in names(pages)) {
+      arch <- pages[[k]]
+      furn <- if (k %in% names(fu)) fu[[k]] else character(0)
+      expect_gte(length(rhtp_organisation_names(arch)), 3L,
+                 label = paste(st, k, "baseline after scope"))
+      expect_length(rhtp_new_organisation_names(arch, arch, furniture = furn), 0L)
+      live <- paste0(arch, "\n", inject, " has been awarded.\n")
+      expect_true(inject %in% rhtp_new_organisation_names(live, arch, furniture = furn),
+                  label = paste(st, k, "still fires on a recipient"))
+      # And every furniture string is exact: appending one quiets nothing else.
+      for (x in furn) {
+        expect_length(rhtp_new_organisation_names(paste0(arch, "\n", x, "\n"),
+                                                  arch, furniture = furn), 0L)
+      }
+    }
+  }
+})
+
+test_that("Delaware's scope drops the NEWS FEED and keeps the four awards", {
+  suppressWarnings(suppressMessages(source(here::here("R", "03al_de_year1_awardees.R"))))
+  full <- de_html_text("release")
+  s <- de_name_scope(full, "release")
+  expect_true(grepl("NEWS FEED", full, fixed = TRUE))
+  expect_false(grepl("NEWS FEED", s, fixed = TRUE))
+  for (nm in c("Nemours Children's Health", "TidalHealth", "Beebe Healthcare")) {
+    expect_true(grepl(nm, s, fixed = TRUE), label = nm)
+  }
+})

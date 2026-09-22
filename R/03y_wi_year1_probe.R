@@ -995,6 +995,19 @@ wi_probe_kind <- function(key) {
 #' Wisconsin has published, and `R/03y` must then be REWRITTEN as an award
 #' extractor rather than patched -- a status table with no `amount` column
 #' cannot carry awards.
+# Strings the name tripwire has READ and judged NOT a recipient (session 52).
+# Matched EXACTLY, never by containment (§2.3). Each is a solicitation TITLE on
+# DHS's "current solicitations (unawarded)" index, which is the one page whose
+# whole job is to list things that have not been awarded -- a new title there
+# is an opportunity, not a roster. None of the three is RHTP: the first is
+# CDC's National Diabetes Prevention Program, the second says "Opioid
+# Settlement Funds" in its own title, the third is a behavioral-health
+# workforce stipend. Added after the 2026-09-22 halt, read by hand.
+WI_NAME_FURNITURE <- list(dhs_solicit = c(
+  "Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application",
+  "Room and Board Residential Substance Use Disorder Opioid Settlement Funds Request for Application",
+  "Qualified Treatment Trainee Expanding Agency Awards Request for Application"))
+
 wi_probe <- function(keys = WI_PROBE_KEYS) {
   live <- list()
   for (i in seq_along(keys)) {
@@ -1054,6 +1067,7 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
     live = stats::setNames(purrr::map(nm_keys, function(k) live[[k]]$text),
                            nm_keys),
     archived = stats::setNames(purrr::map(nm_keys, wi_html_text), nm_keys),
+    furniture = WI_NAME_FURNITURE,
     state = "WI")
 
   if (!any(moved) && !length(findings)) {
