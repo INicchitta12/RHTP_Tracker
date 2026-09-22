@@ -299,6 +299,7 @@ test_that("the non-RHTP registry entry catches Nevada GME and nothing else", {
   # the sweep calls them from; sourcing it here keeps this test checking the
   # SAME code path the sweep uses rather than a copy of it.
   source(here::here("R", "02_normalize.R"), local = TRUE)
+source(here::here("R", "03ap_verification_queue_2.R"))
   reg <- rhtp_read_state_program_registry()
   row <- reg[reg$program_id == "NV-GME-ROUNDVIII", ]
   expect_equal(nrow(row), 1L)
@@ -423,7 +424,13 @@ test_that("NV_RECIPIENT_FORM_NOT_STATED is queued, with its $0 dollar effect", {
     show_col_types = FALSE, progress = FALSE)
   row <- q[q$question_id == "NV_RECIPIENT_FORM_NOT_STATED", ]
   expect_equal(nrow(row), 1L)
-  expect_equal(row$queue_status, "OPEN")
+  # SESSION 49 ANSWERED IT. The question is RESOLVED and carries its
+  # resolution; the invariant is that the row stays FINDABLE and says
+  # something, not that it stays unanswered forever.
+  expect_equal(row$queue_status, "RESOLVED")
+  expect_true(nzchar(row$resolution))
+  # It moved a COUNT and not a dollar, exactly as the row said it would.
+  expect_true(grepl("27 of 73", row$resolution, fixed = TRUE))
   expect_true(grepl("$0 in either direction", row$dollar_effect, fixed = TRUE))
 })
 
@@ -443,13 +450,24 @@ test_that("nothing was promoted: the soft set is still on §8's fallback", {
 
 # -- the committed CSV --------------------------------------------------------
 
+# SESSION 49: THE COMMITTED CSV IS THE BUILDER'S OUTPUT *PLUS THE COMMITTED
+# VERIFICATION OVERLAY*, and that is the honest form of this claim now. The
+# verification queue re-typed rows in this file; writing those onto the CSV
+# without saying so here would mean the next `--build` silently wiped them and
+# no test complained. `vq_overlay()` reads
+# `data/reference/verification_queue_2_changes.csv`, which is itself derived
+# from a committed, SHA-256-pinned workbook, so the CSV is still fully
+# reproducible from committed inputs -- the dependency is now explicit.
 test_that("the committed CSV matches what the parser produces", {
   skip_if_no_archive()
   skip_if_not(file.exists(NV_OUT_CSV), "nv_year1_awardees.csv not built yet")
   on_disk <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
-  built <- nv_records() %>% dplyr::select(dplyr::all_of(NV_COLUMN_ORDER))
+  built <- vq_overlay(nv_records(), "nv_year1_awardees.csv") %>%
+    dplyr::select(dplyr::all_of(c(NV_COLUMN_ORDER, "basis_type",
+                                  "verified_by", "verified_basis")))
   expect_equal(nrow(on_disk), nrow(built))
-  expect_equal(names(on_disk), NV_COLUMN_ORDER)
+  expect_equal(names(on_disk), c(NV_COLUMN_ORDER, "basis_type",
+                                 "verified_by", "verified_basis"))
   expect_equal(on_disk$awardee, built$awardee)
   expect_true(all(is.na(on_disk$amount)))
 })
@@ -478,9 +496,19 @@ test_that("determination_basis is present and non-empty on every Nevada row", {
 
   # The two rows the sweep named, each now stating the reason it actually
   # carries.
+  # SESSION 49 MOVED INCLINE VILLAGE, AND NOT BY ANSWERING ITS QUEUE ROW.
+  # NV_INCLINE_VILLAGE_FOUNDATION_FLOW came back NONPROFIT_CBO, which settles
+  # nothing about a flow. What moved it is §10.2's NEW hospital-foundation
+  # row: it is the fundraising foundation of Incline Village Community
+  # Hospital -- a NAMED hospital, in its own name -- so it is
+  # HOSPITAL_OR_SYSTEM, and a re-type across that boundary re-runs §10.2's
+  # DIRECT test by construction. Nevada prices nobody, so it moves a ROW and
+  # $0. The PRIOR basis sentence is kept beside the new one (§2.1).
   incline <- recs[grepl("^Incline Village", recs$awardee), ]
   expect_equal(nrow(incline), 1L)
-  expect_equal(incline$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_equal(incline$recipient_type, "HOSPITAL_OR_SYSTEM")
+  expect_equal(incline$flow_type, "DIRECT")
+  expect_true(is.na(incline$amount))
   expect_true(grepl("hospital-affiliated", incline$determination_basis))
   expect_true(grepl("PASS_THROUGH_UNRESOLVED", incline$determination_basis,
                     fixed = TRUE))
@@ -489,9 +517,10 @@ test_that("determination_basis is present and non-empty on every Nevada row", {
   expect_equal(nrow(unnamed), 1L)
   expect_true(grepl("names no recipient", unnamed$determination_basis))
 
-  # Nothing was re-coded: both sentences already existed and described the
-  # codings the file already carried.
-  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 20L)
+  # Session 31 re-coded nothing here; SESSION 49 did, and the count says so:
+  # 20 named-hospital award actions -> 27 of 73, all of them at $0, because
+  # NVHA publishes no per-recipient amount at all (Nevada's rule).
+  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 27L)
   expect_true(all(is.na(recs$amount)))
 })
 

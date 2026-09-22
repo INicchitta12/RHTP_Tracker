@@ -31,7 +31,11 @@ test_that("every categorical column is inside the 8 vocabulary", {
   for (col in c("recipient_type", "distributed_to_hospital",
                 "recipient_confirmed", "amount_confirmed", "flag_reason",
                 "determination_confidence")) {
-    bad <- setdiff(stats::na.omit(unique(records[[col]])),
+    # as.character(): flag_reason is now ENTIRELY NA -- the five back-fitted
+    # rows lost RECIPIENT_TYPE_INFERRED in session 49 when their forms were
+    # verified -- and na.omit() on an all-NA column returns logical(0), which
+    # fails expect_equal() on MODE rather than on content.
+    bad <- setdiff(as.character(stats::na.omit(unique(records[[col]]))),
                    rhtp_vocabulary(col))
     expect_equal(bad, character(0), info = col)
   }
@@ -46,25 +50,42 @@ test_that("UNCLASSIFIED is gone and PHYSICIAN_PRACTICE is a real 8 value", {
 
 # -- The back-fit -------------------------------------------------------------
 
-test_that("exactly the five UNCLASSIFIED rows moved, to NONPROFIT_CBO", {
+test_that("exactly the five UNCLASSIFIED rows moved, and session 49 answered them", {
+  # THE BACK-FIT IS STILL EXACTLY FIVE ROWS. What changed in session 49 is
+  # where those five LANDED: the verification queue answered the same five
+  # recipients, so three Nuvita Health rows are VENDOR_OR_CONTRACTOR and
+  # Empowerq Health Care is PHYSICIAN_PRACTICE. `recipient_type_source` still
+  # holds the OWNER'S "UNCLASSIFIED" on every one of them, which is what makes
+  # the whole chain auditable and reversible.
   moved <- records %>%
     dplyr::filter(recipient_type_source != recipient_type)
   expect_equal(nrow(moved), 5L)
   expect_true(all(moved$recipient_type_source == "UNCLASSIFIED"))
-  expect_true(all(moved$recipient_type == "NONPROFIT_CBO"))
   expect_setequal(
     moved$awardee,
     c("Nuvita Health", "Empowerq Health Care", "North Florida Rural Health Corp")
   )
+  expect_setequal(moved$recipient_type,
+                  c("VENDOR_OR_CONTRACTOR", "PHYSICIAN_PRACTICE",
+                    "NONPROFIT_CBO"))
 })
 
-test_that("a back-fitted row is flagged and marked LOW confidence", {
-  # NONPROFIT_CBO on its own would read as a determined form. The flag and the
-  # LOW confidence are what keep it readable as an inference.
+test_that("a verified row carries its basis and NOT the inferred flag", {
+  # NONPROFIT_CBO on its own would read as a determined form, and until
+  # session 49 the RECIPIENT_TYPE_INFERRED flag and the LOW confidence were
+  # what kept it readable as an inference. Those five are no longer
+  # inferences: each carries a basis_type and the sentence behind it, and the
+  # flag is GONE -- its own note in vocabularies.csv forbids leaving it on a
+  # recipient whose form is stated. The LOW confidence stays wherever the
+  # basis is GENERAL_KNOWLEDGE, which is what a reader subtracts by.
   moved <- records %>%
     dplyr::filter(recipient_type_source != recipient_type)
-  expect_true(all(moved$flag_reason == "RECIPIENT_TYPE_INFERRED"))
-  expect_true(all(moved$determination_confidence == "LOW"))
+  expect_true(all(is.na(moved$flag_reason)))
+  expect_true(all(!is.na(moved$basis_type)))
+  expect_true(all(nzchar(moved$verified_basis)))
+  expect_true(all(moved$determination_confidence %in% c("LOW", "MEDIUM")))
+  expect_true(all(moved$determination_confidence[
+    moved$basis_type == "GENERAL_KNOWLEDGE"] == "LOW"))
 })
 
 test_that("the owner's original recipient_type is preserved on every row", {
@@ -75,18 +96,23 @@ test_that("the owner's original recipient_type is preserved on every row", {
   expect_equal(sum(records$recipient_type_source == "UNCLASSIFIED"), 5L)
 })
 
-test_that("nothing except the five was re-coded", {
-  # This is a vocabulary reconciliation, not a review of Florida's coding.
+test_that("nothing except the five and the verified was re-coded", {
+  # Session 10 was a vocabulary reconciliation, not a review of Florida's
+  # coding, and that still holds for every row NEITHER pass touched.
   untouched <- records %>%
-    dplyr::filter(is.na(flag_reason) | flag_reason != "RECIPIENT_TYPE_INFERRED")
+    dplyr::filter(recipient_type_source != "UNCLASSIFIED",
+                  is.na(basis_type) | !nzchar(basis_type))
   expect_equal(nrow(untouched), 76L)
   expect_true(all(untouched$recipient_type == untouched$recipient_type_source))
 })
 
-test_that("no confidence was invented for a row this session did not judge", {
-  # Florida's workbook carries no confidence column, so a value on an untouched
-  # row would be this pipeline asserting something the owner never did.
-  expect_equal(sum(!is.na(records$determination_confidence)), 5L)
+test_that("no confidence was invented for a row nobody judged", {
+  # Florida's workbook carries no confidence column, so a value on a row
+  # neither pass judged would be this pipeline asserting something the owner
+  # never did. Session 10 judged five; session 49 judged five (the same five).
+  judged <- !is.na(records$basis_type) & nzchar(records$basis_type)
+  expect_equal(sum(!is.na(records$determination_confidence)), sum(judged))
+  expect_equal(sum(judged), 5L)
 })
 
 
@@ -96,10 +122,16 @@ test_that("the eight physician practices stay PHYSICIAN_PRACTICE", {
   # Adding the code to 8 was the decision taken; folding these into
   # NONPROFIT_CBO later would quietly undo it and would assert a form the
   # source contradicts.
-  practices <- records %>% dplyr::filter(recipient_type == "PHYSICIAN_PRACTICE")
+  # SESSION 49 ADDED A NINTH -- Empowerq Health Care, verified a physician
+  # practice -- so the EIGHT are identified by the owner's own code rather
+  # than by a count of the column.
+  practices <- records %>%
+    dplyr::filter(recipient_type == "PHYSICIAN_PRACTICE",
+                  recipient_type_source == "PHYSICIAN_PRACTICE")
   expect_equal(nrow(practices), 8L)
   expect_true(all(practices$distributed_to_hospital == "No"))
   expect_true(all(is.na(practices$flag_reason)))
+  expect_equal(sum(records$recipient_type == "PHYSICIAN_PRACTICE"), 9L)
 })
 
 test_that("no hospital total moved as a result of the reconciliation", {

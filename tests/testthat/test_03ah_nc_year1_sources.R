@@ -14,6 +14,7 @@
 library(testthat)
 
 source(here::here("R", "03ah_nc_year1_sources.R"))
+source(here::here("R", "03ap_verification_queue_2.R"))
 
 skip_without_archive <- function() {
   if (!nc_have_archive()) skip("the NC evidence archive is not on disk")
@@ -527,12 +528,20 @@ test_that("every categorical value is inside §8 and every row cites a source", 
   expect_true(all(rows$amount_confirmed == "No"))
 })
 
+# SESSION 49: THE COMMITTED CSV IS THE BUILDER'S OUTPUT *PLUS THE COMMITTED
+# VERIFICATION OVERLAY*, and that is the honest form of this claim now. The
+# verification queue re-typed rows in this file; writing those onto the CSV
+# without saying so here would mean the next `--build` silently wiped them and
+# no test complained. `vq_overlay()` reads
+# `data/reference/verification_queue_2_changes.csv`, which is itself derived
+# from a committed, SHA-256-pinned workbook, so the CSV is still fully
+# reproducible from committed inputs -- the dependency is now explicit.
 test_that("the committed CSV is what the builder produces", {
   skip_without_archive()
   skip_if_not(file.exists(NC_AWARDEES_CSV))
   on_disk <- readr::read_csv(NC_AWARDEES_CSV, show_col_types = FALSE,
                              progress = FALSE)
-  built <- nc_award_rows()
+  built <- vq_overlay(nc_award_rows(), "nc_year1_awardees.csv")
   expect_equal(nrow(on_disk), nrow(built))
   expect_equal(names(on_disk), names(built))
   expect_equal(on_disk$awardee, built$awardee)

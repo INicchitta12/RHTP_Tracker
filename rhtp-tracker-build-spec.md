@@ -260,6 +260,18 @@ A solicitation listing hospitals among eligible entities is not evidence that a 
 
 A determination without a captured, archived, quotable source is not a determination. Any row with `distributed_to_hospital = Yes` must have a validation URL, a local archived copy, and the confirming sentence stored in the row. QA enforces this.
 
+**§0.4 IS ABOUT THE AWARD, AND `basis_type` IS WHAT KEEPS THE TYPING QUESTION SEPARATE FROM IT (session 49).** The rule above was written about receipt — did this recipient get this money — and every word of it still holds there: a `distributed_to_hospital = Yes` row still needs a validation URL, a local archive and the confirming sentence, and no answer about a recipient's *form* may be used to establish that a recipient exists, or that an award was made, or what it was worth.
+
+**What a state's award document very often does not say is what KIND of organisation the recipient is**, and it was never going to. That is the question eight states' worth of rows have carried on §8's standing fallback for thirty sessions, and answering it needs a different kind of evidence. **A general-knowledge answer is admissible for the typing question**, and `basis_type` records, per row, which kind each answer is:
+
+| `basis_type` | What it means |
+|---|---|
+| `STATE_SOURCE` | The state's own award document states the form — *"Alaska's own project organization type is Pharmacy"*, *"Listed in Maryland's Pillar 2 award offers as a primary care practice"*. |
+| `ORG_WEBSITE` | A second publisher — the organisation's own site, its filings, its association's directory — states the form. |
+| `GENERAL_KNOWLEDGE` | A verifier's own knowledge of the organisation, with no citable source for the form. The AWARD's URL appearing in the basis does not change this: that URL locates the award, not the form. |
+
+**The evidence class is carried in the confidence, not hidden by it.** A `GENERAL_KNOWLEDGE` answer sets `determination_confidence = LOW`; `STATE_SOURCE` and `ORG_WEBSITE` set `MEDIUM`. `HIGH` still requires a CCN match and nothing in this pass has one, so Stage 5 remains what raises any of them. **A reader can therefore subtract**: every hospital figure this project publishes can be re-derived with the general-knowledge rows removed, which is the honest form of admitting them.
+
 ### 0.5 Committed or gone
 
 This project runs in cloud sessions. Each session gets a fresh VM with the repository cloned; **anything not committed to git disappears when the session ends.** The raw landing zone, the evidence archive, and the review queue are all persistence-critical, so all three are committed rather than gitignored. Any code that writes a file the next session needs must be followed by a commit. This inverts the normal convention of gitignoring data directories — see §1.
@@ -728,11 +740,13 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 **`source_doc_type`:** `NOTICE_OF_AWARD` | `NOTICE_OF_INTENT_TO_AWARD` | `PROCUREMENT_PORTAL_POSTING` | `STATE_BUDGET_NARRATIVE` | `AGENCY_PRESS_RELEASE` | `GOVERNOR_PRESS_RELEASE` | `THIRD_PARTY_NEWS` | `OTHER`
 *(Strength ordering matters: the first three are primary; press releases are secondary; third-party news alone can never support a `Yes`.)*
 
-**`recipient_type`:** `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` | `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` | `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` | `VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `PHYSICIAN_PRACTICE` | `MANAGED_CARE_ORGANIZATION` | `NOT_YET_NAMED`
+**`recipient_type`:** `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` | `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` | `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` | `VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `PHYSICIAN_PRACTICE` | `MANAGED_CARE_ORGANIZATION` | `OTHER` | `NOT_YET_NAMED`
 
 `PHYSICIAN_PRACTICE` was added in session 10, for a physician or clinician practice receiving an award directly. Florida awards eight and no other value is true of one: `NONPROFIT_CBO` asserts a form the source contradicts, and `VENDOR_OR_CONTRACTOR` makes a provider receiving a grant look like a supplier to the state. Stage 5 has to be able to tell a practice from a hospital.
 
 `MANAGED_CARE_ORGANIZATION` was added in session 39, **for a condition none of the codes before it was added for: the source states a form this vocabulary does not carry.** Eight states publish a recipient and say nothing at all about its form, and the standing answer for that is `NONPROFIT_CBO` + `LOW` + `RECIPIENT_TYPE_INFERRED`. North Carolina states it: NCDHHS calls Trillium Health Resources *"an NC Medicaid Tailored Plan and Managed Care Organization (MCO)"* and Vaya Health *"a public NC Medicaid Managed Care Organization (MCO)"*. Reaching for the standing fallback there asserts the form is undetermined when the state has stated it outright — which is precisely what the fallback's own rule below forbids. It is not `VENDOR_OR_CONTRACTOR` (an MCO receiving a subaward is not a supplier to the state), and it is not `STATE_AGENCY` even where the state's own word is *"public"* — a public MCO is a local political subdivision managing a benefit, not the awarding agency. It is never a hospital type: an MCO contracts hospitals, it is not one, so the code can only keep dollars out of the hospital total. **It does not reach a care management provider**: Access East, Inc.'s stated form is *"a comprehensive care management provider"*, a different thing in North Carolina's own Medicaid vocabulary, and that row keeps the standing fallback and stays in the review queue rather than having this code widened to swallow it.
+
+`OTHER` was added in session 49, on the footing `PHYSICIAN_PRACTICE` and `MANAGED_CARE_ORGANIZATION` established: **a named recipient whose organisational form IS determined, is not in this list, and is not a hospital.** Thirty-five verified answers are in it — a retail pharmacy, a PACE organisation, a non-emergency medical transport company, a regional workforce investment board, a nursing home, a midwifery practice, a hospice's foundation, a mobile diagnostic-imaging company. It is **not** the standing fallback below, which says the form is *undetermined*: using the fallback for a form somebody has determined asserts an ignorance the record no longer has, which is the same error `MANAGED_CARE_ORGANIZATION` was added to avoid. It is **not** `VENDOR_OR_CONTRACTOR`, which says the recipient supplies the state. And it is **never a hospital type**, so like `MANAGED_CARE_ORGANIZATION` it can only keep dollars *out* of the hospital total — which is what makes it safe to add. A row carrying it must state the determined form in `determination_basis`; `OTHER` with nothing behind it is the fallback wearing a different name, and that is the one use this code does not have.
 
 **A named recipient whose organisational form the source does not state is `NONPROFIT_CBO`, with `determination_confidence = LOW` and `flag_reason = RECIPIENT_TYPE_INFERRED`** — never a free-text placeholder. Florida originally wrote `UNCLASSIFIED` for this and was back-fitted to the Georgia convention in session 10; two answers to one question would split Stage 5's hospital determination. This is for an undetermined form only, never to soften a recipient whose form *is* stated.
 
@@ -945,6 +959,7 @@ At least 6 of 11 Delaware records are hospital recipients. Coded by activity, th
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive (statewide EMD dispatch, HIE infrastructure, shared services consortiums) | `No`, but set `hospital_benefiting = Yes` |
 | `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |
 | `PASS_THROUGH_DESIGNATED` — hospital trade associations and hospital-governed entities | An award to a hospital association, hospital-owned nonprofit, or association foundation, **provided the source shows the funds are administered to or on behalf of member hospitals**. Record the entity in `intermediary_name`. See the worked examples below the table. | `Yes`, with `intermediary_name` populated |
+| `DIRECT` — a hospital's own foundation or affiliated arm | A foundation or affiliated arm of a **named** hospital or health system is `recipient_type = HOSPITAL_OR_SYSTEM` and takes the `DIRECT` row above. The test is the PARENT: a foundation of an ASSOCIATION of hospitals is the row above this one, and a foundation whose parent is not a hospital is not reached at all. See the worked examples below the table. | `Yes` |
 
 `IN_KIND_BENEFIT` deserves its own flag rather than being discarded: it is substantively important to AHA's narrative even though those dollars must never enter a "funds distributed to hospitals" total.
 
@@ -978,6 +993,42 @@ Assessments … for three independent Critical Access Hospitals" — it **names*
 three hospitals and still administers nothing to them, because AHHA performs the
 assessments. Both of the positive examples above move **money** to hospitals
 ("administer the funds to", "reimbursed"); neither negative does.
+
+#### Hospital foundations and affiliated arms
+
+**A foundation or affiliated arm of a *named* hospital or health system is
+`recipient_type = HOSPITAL_OR_SYSTEM`.** Its flow is then §10.2's ordinary
+`DIRECT` row — the recipient-identity test — and its dollars are
+`NAMED_HOSPITAL`, not a pool. A hospital's fundraising arm is the hospital's,
+and the money it receives is the hospital's money.
+
+**The load-bearing word is *named*, and it is what stops this row swallowing
+the one above it.** The rule reaches an entity whose own name, or whose source,
+identifies the single hospital or health system it belongs to: *Sky Lakes
+Foundation* (Sky Lakes Medical Center), *MercyOne North Iowa Foundation*,
+*Incline Village Community Hospital Foundation*, *St. Bernards Development
+Foundation*, *Citizen's Foundation (Citizens Health)*.
+
+**It does not reach the foundation of an ASSOCIATION of hospitals.** New
+Hampshire's Foundation for Healthy Communities is the state hospital
+association's foundation and its eligible class is *"primary care, critical
+access hospitals, EMS, behavioral health, oral health, and community-based
+organizations"* — hospitals among others, which is §0.3 — so it stays
+`PASS_THROUGH_UNRESOLVED` + `Unclear`. Nevada Rural Hospital Partners
+Foundation is the same shape. Reading those two as hospital foundations would
+move **$66,547,394** into the hospital total on this pipeline's authority.
+
+**And it does not reach a foundation whose parent is not a hospital.** Talbot
+Hospice Foundation's parent is a hospice; Cahaba Medical Care Foundation is an
+FQHC incorporated as a foundation; Superior Health Foundation is a conversion
+grantmaker with no parent at all. The test is the PARENT, and it is applied
+before the word *foundation* is read.
+
+**Where the parent is not stated, the row is NOT promoted (§0.4).** Kansas
+publishes two spellings — *Citizen's Foundation (Citizens Health)*, which names
+its parent, and *Citizens Foundation*, which does not — and they classify
+differently, **$146,476** apart, because §2 forbids a machine resolving the
+difference. That divergence is the rule working, not a defect in it.
 
 #### The eligible class of a pass-through, and when a hospital is required
 

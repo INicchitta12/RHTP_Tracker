@@ -355,7 +355,12 @@ test_that("both Arkansas questions are in the review queue and OPEN", {
   expect_equal(nrow(ar), 2L)
   expect_setequal(ar$question_id,
                   c("AR_RECIPIENT_FORM_NOT_STATED", "AR_ARHP_CONSORTIUM_FLOW"))
-  expect_true(all(ar$queue_status == "OPEN"))
+  # SESSION 49: the FORM question is RESOLVED -- 9 rows / $70,613,226 moved
+  # and Arkansas became the largest named-hospital state. The CONSORTIUM
+  # question is a FLOW question and is untouched by a typing answer.
+  expect_equal(ar$queue_status[ar$question_id == "AR_RECIPIENT_FORM_NOT_STATED"],
+               "RESOLVED")
+  expect_equal(ar$queue_status[ar$question_id == "AR_ARHP_CONSORTIUM_FLOW"], "OPEN")
   expect_true(all(nzchar(ar$dollar_effect)))
   expect_true(all(nzchar(ar$why_it_is_open)))
   # The consortium question is a FLOW question, not §8 typing, and its row

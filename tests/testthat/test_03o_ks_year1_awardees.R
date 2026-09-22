@@ -391,7 +391,12 @@ test_that("the open question is in the review queue with its dollars", {
   row <- queue %>% dplyr::filter(question_id == KS_FORM_NOT_STATED_QUESTION)
   expect_equal(nrow(row), 1L)
   expect_equal(row$state, "KS")
-  expect_equal(row$queue_status, "OPEN")
+  # SESSION 49 ANSWERED IT. The question is RESOLVED and carries its
+  # resolution; the invariant is that the row stays FINDABLE and says
+  # something, not that it stays unanswered forever.
+  expect_equal(row$queue_status, "RESOLVED")
+  expect_true(nzchar(row$resolution))
+  expect_true(grepl("52,239,500", row$resolution))
   expect_true(grepl("40,182,073", row$dollar_effect))
   expect_true(grepl("23 rows", row$dollar_effect))
   # The queue row has to SAY why it grew, or the next reader reconciles it

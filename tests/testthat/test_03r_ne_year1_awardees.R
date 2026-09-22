@@ -38,6 +38,7 @@
 library(testthat)
 
 source(here::here("R", "03r_ne_year1_awardees.R"))
+source(here::here("R", "03ap_verification_queue_2.R"))
 
 ne_award_rows <- ne_awards()
 ne_recs       <- ne_records()
@@ -468,9 +469,13 @@ test_that("the near-miss names are NOT auto-matched against the 4.4b roster", {
 test_that("the committed CSV matches what the builder produces", {
   path <- here::here(NE_CSV)
   expect_true(file.exists(path))
+  # SESSION 49: the committed CSV is the builder's output PLUS the committed
+  # verification overlay. See vq_overlay() -- the dependency is explicit so a
+  # later `--build` cannot silently wipe 305 verified rows.
   csv <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
-  expect_equal(nrow(csv), nrow(ne_recs))
-  expect_equal(names(csv), names(ne_recs))
+  built <- vq_overlay(ne_recs, "ne_year1_awardees.csv")
+  expect_equal(nrow(csv), nrow(built))
+  expect_equal(names(csv), names(built))
   expect_equal(round(sum(csv$amount, na.rm = TRUE), 2), 36137614.90)
 })
 

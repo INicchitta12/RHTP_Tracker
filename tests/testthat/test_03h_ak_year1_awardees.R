@@ -10,6 +10,7 @@
 library(testthat)
 
 source(here::here("R", "03h_ak_year1_awardees.R"))
+source(here::here("R", "03ap_verification_queue_2.R"))
 
 records <- rhtp_ak_records()
 archive <- here::here(AK_EVIDENCE_DIR, AK_AWARDS_FILE)
@@ -19,8 +20,16 @@ test_that("every Alaska assertion passes", {
   expect_true(rhtp_ak_assert(records))
 })
 
+# SESSION 49: THE COMMITTED CSV IS THE BUILDER'S OUTPUT *PLUS THE COMMITTED
+# VERIFICATION OVERLAY*, and that is the honest form of this claim now. The
+# verification queue re-typed rows in this file; writing those onto the CSV
+# without saying so here would mean the next `--build` silently wiped them and
+# no test complained. `vq_overlay()` reads
+# `data/reference/verification_queue_2_changes.csv`, which is itself derived
+# from a committed, SHA-256-pinned workbook, so the CSV is still fully
+# reproducible from committed inputs -- the dependency is now explicit.
 test_that("the committed CSV matches a fresh parse of the committed archive", {
-  fresh <- rhtp_ak_build()
+  fresh <- vq_overlay(rhtp_ak_build(), "ak_year1_awardees.csv")
   expect_equal(nrow(fresh), nrow(records))
   expect_equal(fresh$app_id, records$app_id)
   expect_equal(fresh$amount, records$amount)
@@ -225,7 +234,12 @@ test_that("recipient_type_source preserves Alaska's own words on every row", {
 # -- The varying-form flag ---------------------------------------------------
 
 test_that("awardees whose form varies across their own rows are flagged, not harmonised", {
-  varies <- records[records$flag_reason == "RECIPIENT_TYPE_VARIES_IN_SOURCE", ]
+  # NA-SAFE since session 49: nine Alaska rows had RECIPIENT_TYPE_INFERRED as
+  # their only flag and lost it when their form was verified, so a bare `==`
+  # now indexes NA rows into the subset. The 9/39 counts below are
+  # UNCHANGED -- nothing harmonised a varying form, which is the finding.
+  varies <- records[!is.na(records$flag_reason) &
+                      records$flag_reason == "RECIPIENT_TYPE_VARIES_IN_SOURCE", ]
   expect_equal(dplyr::n_distinct(varies$awardee), 9L)
   expect_equal(nrow(varies), 39L)
 

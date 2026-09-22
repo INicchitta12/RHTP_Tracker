@@ -148,6 +148,42 @@ three hospitals and still administers nothing to them, because AHHA performs the
 assessments. Both of the positive examples above move **money** to hospitals
 ("administer the funds to", "reimbursed"); neither negative does.
 
+## Hospital foundations and affiliated arms
+
+**A foundation or affiliated arm of a *named* hospital or health system is
+`recipient_type = HOSPITAL_OR_SYSTEM`.** Its flow is then §10.2's ordinary
+`DIRECT` row — the recipient-identity test — and its dollars are
+`NAMED_HOSPITAL`, not a pool. A hospital's fundraising arm is the hospital's,
+and the money it receives is the hospital's money.
+
+**The load-bearing word is *named*, and it is what stops this row swallowing
+the one above it.** The rule reaches an entity whose own name, or whose source,
+identifies the single hospital or health system it belongs to: *Sky Lakes
+Foundation* (Sky Lakes Medical Center), *MercyOne North Iowa Foundation*,
+*Incline Village Community Hospital Foundation*, *St. Bernards Development
+Foundation*, *Citizen's Foundation (Citizens Health)*.
+
+**It does not reach the foundation of an ASSOCIATION of hospitals.** New
+Hampshire's Foundation for Healthy Communities is the state hospital
+association's foundation and its eligible class is *"primary care, critical
+access hospitals, EMS, behavioral health, oral health, and community-based
+organizations"* — hospitals among others, which is §0.3 — so it stays
+`PASS_THROUGH_UNRESOLVED` + `Unclear`. Nevada Rural Hospital Partners
+Foundation is the same shape. Reading those two as hospital foundations would
+move **$66,547,394** into the hospital total on this pipeline's authority.
+
+**And it does not reach a foundation whose parent is not a hospital.** Talbot
+Hospice Foundation's parent is a hospice; Cahaba Medical Care Foundation is an
+FQHC incorporated as a foundation; Superior Health Foundation is a conversion
+grantmaker with no parent at all. The test is the PARENT, and it is applied
+before the word *foundation* is read.
+
+**Where the parent is not stated, the row is NOT promoted (§0.4).** Kansas
+publishes two spellings — *Citizen's Foundation (Citizens Health)*, which names
+its parent, and *Citizens Foundation*, which does not — and they classify
+differently, **$146,476** apart, because §2 forbids a machine resolving the
+difference. That divergence is the rule working, not a defect in it.
+
 ## The eligible class of a pass-through, and when a hospital is required
 
 **The eligible class is what decides a pass-through, and there are now three
@@ -441,6 +477,49 @@ above. Florida was back-fitted to Georgia's in session 10, and the original
 value is preserved in `recipient_type_source` on every row. Two answers to one
 question would have split Stage 5's hospital determination, which is the
 decision the whole file exists to support.
+
+---
+
+## And when the form IS determinable but is not in §8, or rests on general knowledge
+
+**Session 49 answered 399 of these rows and changed two things about how you
+work them.**
+
+**First, `OTHER` is now a §8 value**, for a named recipient whose form you
+CAN determine, which is not in the list, and which is not a hospital — a
+retail pharmacy, a PACE organisation, a non-emergency medical transport
+company, a workforce investment board, a nursing home, a midwifery practice, a
+mobile-imaging company. Use it INSTEAD of the placeholder when you know the
+answer and §8 has no word for it, and **write the determined form into
+`determination_basis`**. `OTHER` with nothing behind it is the placeholder
+wearing a different name, and that is the one use it does not have. It is
+never a hospital type.
+
+**Second, GENERAL KNOWLEDGE is an admissible basis for the TYPING question,
+and you must say when you are using it.** §0.4 — no determination without a
+captured, archived, quotable source — is about the AWARD, and it is unchanged
+there: whether a recipient received money, and how much, still needs the state
+document. But whether that recipient is a hospital or a food bank is very
+often something the state's award document never says, and waiting for it to
+say so is waiting forever.
+
+So every answer now carries a `basis_type`:
+
+| `basis_type` | Use it when | Confidence |
+|---|---|---|
+| `STATE_SOURCE` | The state's own award document states the form — an organisation-type column, a section heading, *"listed in the primary care award offers"*. | `MEDIUM` |
+| `ORG_WEBSITE` | A second publisher states it — the organisation's own site, its filings, its association's directory. **Quote or link it in the basis.** | `MEDIUM` |
+| `GENERAL_KNOWLEDGE` | You know the organisation and no citable source states the form. | `LOW` |
+
+**Pasting the AWARD's URL into the basis does not make it `STATE_SOURCE`.**
+That URL locates the award; it says nothing about the form, which is why the
+row reached you. If the form came out of your head, say `GENERAL_KNOWLEDGE`
+and let the row sit at `LOW`. That is not a demerit — it is what lets a reader
+subtract those rows from any figure the project publishes, which is the whole
+reason the class is admissible at all.
+
+**`HIGH` is still a CCN match and nothing else**, so none of these reach it
+until Stage 5.
 
 ---
 

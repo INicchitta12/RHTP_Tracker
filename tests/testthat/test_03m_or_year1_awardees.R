@@ -15,6 +15,7 @@ library(testthat)
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
 source(here::here("R", "03m_or_year1_awardees.R"))
+source(here::here("R", "03ap_verification_queue_2.R"))
 
 or <- or_year1_awardees()
 
@@ -408,10 +409,14 @@ test_that("the file matches Florida's leading 19 columns", {
 test_that("the committed CSV is what the parser produces", {
   # The CSV is the source of record; the workbook is a render. If they drift,
   # the render is what people read and the record is what tests check.
+  # SESSION 49: the committed CSV is the builder's output PLUS the committed
+  # verification overlay. See vq_overlay() -- the dependency is explicit so a
+  # later `--build` cannot silently wipe 305 verified rows.
   csv <- readr::read_csv(OR_CSV, show_col_types = FALSE, progress = FALSE)
-  expect_equal(nrow(csv), nrow(or))
-  expect_equal(names(csv), names(or))
-  expect_equal(sum(csv$amount, na.rm = TRUE), sum(or$amount, na.rm = TRUE))
+  built <- vq_overlay(or, "or_year1_awardees.csv")
+  expect_equal(nrow(csv), nrow(built))
+  expect_equal(names(csv), names(built))
+  expect_equal(sum(csv$amount, na.rm = TRUE), sum(built$amount, na.rm = TRUE))
 })
 
 test_that("or_assert_extraction() passes on the committed archives", {

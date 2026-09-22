@@ -371,7 +371,10 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   pooled_named <- parts[parts$bucket == "POOL_NAMED_HOSPITALS", ]
   expect_equal(sort(unique(pooled_named$state)), "NE")
   expect_equal(round(sum(pooled_named$dollars), 2), 18156856.12)
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 6990996.01)
+  # 6,990,996.01 -> 12,606,593.54 in session 49: thirteen Nebraska recipients
+  # whose form DHHS never stated verified as hospitals. The POOLED figure
+  # beside it did NOT move, which is the property this test is really about.
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 12606593.54)
 
   # The three buckets are disjoint by construction, so no dollar is in two of
   # them -- which is the property that lets them be reported side by side.

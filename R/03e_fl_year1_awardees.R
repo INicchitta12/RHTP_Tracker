@@ -137,7 +137,11 @@ rhtp_fl_assert <- function(records = rhtp_fl_records()) {
                 "determination_confidence")) {
     if (!col %in% names(records)) next
     allowed <- rhtp_vocabulary(col)
-    bad <- setdiff(stats::na.omit(unique(records[[col]])), allowed)
+    # as.character() because a column that is now entirely NA comes back
+    # LOGICAL, and setdiff(logical(0), character) is a mode mismatch rather
+    # than a finding. Florida's flag_reason became all-NA in session 49 when
+    # the five back-fitted rows were verified and lost RECIPIENT_TYPE_INFERRED.
+    bad <- setdiff(as.character(stats::na.omit(unique(records[[col]]))), allowed)
     if (length(bad)) {
       fail("`", col, "` carries values outside the §8 vocabulary: ",
            paste(bad, collapse = ", "))
@@ -145,46 +149,92 @@ rhtp_fl_assert <- function(records = rhtp_fl_records()) {
   }
 
   # 2. The back-fit moved exactly the rows it was meant to, and no others.
+  #
+  # SESSION 49 SPLIT THIS CHECK IN TWO, AND THE SPLIT IS THE POINT. Until then
+  # every row whose type differed from the owner's was a session-10 back-fit
+  # row, so one rule covered them all. The verification queue then answered
+  # those same five recipients -- Nuvita Health is VENDOR_OR_CONTRACTOR,
+  # Empowerq Health Care is PHYSICIAN_PRACTICE -- and the old rule read that as
+  # "a row moved to a value the back-fit table does not name", which is true
+  # and is no longer a defect.
+  #
+  # So a moved row must now be ONE of two things, and both are checked:
+  #   * a VERIFIED row -- it carries a basis_type and a verified_basis, which
+  #     only R/03ap writes; or
+  #   * a SESSION-10 BACK-FIT row -- source UNCLASSIFIED, still NONPROFIT_CBO,
+  #     still flagged RECIPIENT_TYPE_INFERRED at LOW confidence.
+  # The five that are still the whole of the back-fit are still the five: what
+  # changed is that they are also verified. A row that is NEITHER is the thing
+  # this check has always been here to refuse.
   moved <- records %>%
     dplyr::filter(.data$recipient_type_source != .data$recipient_type)
-  if (nrow(moved) != 5L) {
-    fail("The recipient_type back-fit moved ", nrow(moved),
+  verified <- if ("basis_type" %in% names(records)) {
+    !is.na(moved$basis_type) & nzchar(moved$basis_type)
+  } else {
+    rep(FALSE, nrow(moved))
+  }
+  if (!all(moved$recipient_type_source == "UNCLASSIFIED")) {
+    fail("A row moved FROM a value the back-fit table does not name.")
+  }
+  backfit <- moved[!verified, , drop = FALSE]
+  if (nrow(backfit) &&
+      (!all(backfit$recipient_type == "NONPROFIT_CBO") ||
+       !all(backfit$flag_reason == "RECIPIENT_TYPE_INFERRED") ||
+       !all(backfit$determination_confidence == "LOW"))) {
+    fail("An UNVERIFIED row moved to a value the back-fit table does not ",
+         "name, or lost its RECIPIENT_TYPE_INFERRED flag or its LOW ",
+         "confidence. The flag is what stops an inferred form reading as a ",
+         "determined one.")
+  }
+  if (sum(records$recipient_type_source == "UNCLASSIFIED") != 5L) {
+    fail("The recipient_type back-fit covered ",
+         sum(records$recipient_type_source == "UNCLASSIFIED"),
          " rows; the five UNCLASSIFIED rows are the whole of it.")
-  }
-  if (!all(moved$recipient_type_source == "UNCLASSIFIED") ||
-      !all(moved$recipient_type == "NONPROFIT_CBO")) {
-    fail("A row moved to or from a value the back-fit table does not name.")
-  }
-  if (!all(moved$flag_reason == "RECIPIENT_TYPE_INFERRED") ||
-      !all(moved$determination_confidence == "LOW")) {
-    fail("A back-fitted row is missing its RECIPIENT_TYPE_INFERRED flag or ",
-         "its LOW confidence. The flag is what stops an inferred form reading ",
-         "as a determined one.")
   }
 
   # 3. UNCLASSIFIED is gone, and nothing else was re-coded on the way past.
   if ("UNCLASSIFIED" %in% records$recipient_type) {
     fail("UNCLASSIFIED survives in recipient_type; it is not a §8 value.")
   }
+  # "Untouched" now means untouched by BOTH passes: not back-fitted in session
+  # 10 and not verified in session 49. Those rows must still carry the owner's
+  # own §8 code, unchanged, which is what makes this a vocabulary
+  # reconciliation rather than a re-review.
   untouched <- records %>%
-    dplyr::filter(is.na(.data$flag_reason) |
-                    .data$flag_reason != "RECIPIENT_TYPE_INFERRED")
+    dplyr::filter(.data$recipient_type_source != "UNCLASSIFIED")
+  if ("basis_type" %in% names(records)) {
+    untouched <- untouched %>%
+      dplyr::filter(is.na(.data$basis_type) | !nzchar(.data$basis_type))
+  }
   if (any(untouched$recipient_type != untouched$recipient_type_source)) {
     fail("A row this file did not flag has a recipient_type differing from the ",
          "owner's. This is a vocabulary reconciliation, not a re-review.")
   }
 
-  # 4. No confidence was invented for a row this session did not judge.
-  if (any(!is.na(records$determination_confidence) &
-          records$flag_reason != "RECIPIENT_TYPE_INFERRED")) {
-    fail("determination_confidence is set on a row this file did not judge. ",
+  # 4. No confidence was invented for a row NOBODY judged. Session 10 set it on
+  #    the five it back-fitted; session 49 set it on the rows a verifier
+  #    answered, which carry a basis_type. Anything else must still be NA --
+  #    Florida's workbook carries no confidence column of its own.
+  judged <- !is.na(records$flag_reason) &
+    records$flag_reason == "RECIPIENT_TYPE_INFERRED"
+  if ("basis_type" %in% names(records)) {
+    judged <- judged |
+      (!is.na(records$basis_type) & nzchar(records$basis_type))
+  }
+  if (any(!is.na(records$determination_confidence) & !judged)) {
+    fail("determination_confidence is set on a row nobody judged. ",
          "Florida's workbook carries no confidence column.")
   }
 
   # 5. The eight physician practices are still physician practices. Adding the
   #    code to §8 was the decision; quietly folding them in later would undo it.
+  # SESSION 49 ADDED A NINTH: Empowerq Health Care, one of the five session-10
+  #    back-fitted rows, was verified a physician practice. The eight are still
+  #    the eight and are checked by their own recipient_type_source; the ninth
+  #    is checked as a verified row.
   practices <- records %>%
-    dplyr::filter(.data$recipient_type == "PHYSICIAN_PRACTICE")
+    dplyr::filter(.data$recipient_type == "PHYSICIAN_PRACTICE",
+                  .data$recipient_type_source == "PHYSICIAN_PRACTICE")
   if (nrow(practices) != 8L) {
     fail("Florida has ", nrow(practices), " PHYSICIAN_PRACTICE rows; 8 expected.")
   }

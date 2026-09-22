@@ -10,6 +10,7 @@
 library(testthat)
 
 source(here::here("R", "03g_al_year1_awardees.R"))
+source(here::here("R", "03ap_verification_queue_2.R"))
 
 records <- rhtp_al_records()
 release_html <- readr::read_file(here::here(AL_EVIDENCE_DIR, AL_RELEASE_FILE))
@@ -19,8 +20,16 @@ test_that("every Alabama assertion passes", {
   expect_true(rhtp_al_assert(records))
 })
 
+# SESSION 49: THE COMMITTED CSV IS THE BUILDER'S OUTPUT *PLUS THE COMMITTED
+# VERIFICATION OVERLAY*, and that is the honest form of this claim now. The
+# verification queue re-typed rows in this file; writing those onto the CSV
+# without saying so here would mean the next `--build` silently wiped them and
+# no test complained. `vq_overlay()` reads
+# `data/reference/verification_queue_2_changes.csv`, which is itself derived
+# from a committed, SHA-256-pinned workbook, so the CSV is still fully
+# reproducible from committed inputs -- the dependency is now explicit.
 test_that("the committed CSV matches a fresh parse of the committed archive", {
-  fresh <- rhtp_al_build()
+  fresh <- vq_overlay(rhtp_al_build(), "al_year1_awardees.csv")
   expect_equal(nrow(fresh), nrow(records))
   expect_equal(fresh$awardee, records$awardee)
   expect_equal(fresh$amount, records$amount)
@@ -93,8 +102,14 @@ test_that("45 amounts are flagged as rounded and 93 are exact", {
   expect_equal(sum(records$amount_precision == "ROUNDED_TO_MILLIONS"), 45L)
   expect_equal(sum(records$amount_precision == "EXACT_AS_PUBLISHED"), 93L)
   rounded <- records[records$amount_precision == "ROUNDED_TO_MILLIONS", ]
-  expect_true(all(rounded$flag_reason == "AMOUNT_ROUNDED_IN_SOURCE" |
-                    !is.na(rounded$flag_reason)))
+  # NA-SAFE since session 49: three of these rows had RECIPIENT_TYPE_INFERRED
+  # as their only flag and lost it when their form was verified, so
+  # flag_reason is now NA on them. An NA is not a missing rounding flag --
+  # `amount_precision` is what carries the rounding, and it is what this test
+  # subsets on.
+  expect_true(all(is.na(rounded$flag_reason) |
+                    grepl("AMOUNT_ROUNDED_IN_SOURCE", rounded$flag_reason,
+                          fixed = TRUE)))
 })
 
 test_that("a rounded amount is stored as the release wrote it", {
@@ -155,10 +170,12 @@ test_that("only hospital recipients are coded distributed_to_hospital = Yes", {
                                             "HOSPITAL_AFFILIATED_ENTITY")))
 })
 
-test_that("60 hospital award actions hold $66,133,019", {
+test_that("62 hospital award actions hold $68,323,619", {
+  # 60 / $66,133,019 -> 62 / $68,323,619 in session 49: two Alabama recipients
+  # whose form the governor's release never stated verified as hospitals.
   yes <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(yes), 60L)
-  expect_equal(sum(yes$amount), 66133019)
+  expect_equal(nrow(yes), 62L)
+  expect_equal(sum(yes$amount), 68323619)
 })
 
 test_that("Cahaba's obstetric training row is IN_KIND_BENEFIT, not a pass-through", {
@@ -195,11 +212,13 @@ test_that("Cahaba's obstetric training row is IN_KIND_BENEFIT, not a pass-throug
 })
 
 test_that("the hospital total is untouched by that move", {
-  # The whole point: the marker change is worth $0. 60 rows, $66,133,019,
-  # before and after -- the figures the block above already asserts.
+  # The whole point: SESSION 31's marker change is worth $0, before and after
+  # -- the figures the block above asserts. (Those figures moved in session 49
+  # for an unrelated reason, the verification of two recipients' FORM; the
+  # marker fix still moves nothing.)
   yes <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(yes), 60L)
-  expect_equal(sum(yes$amount), 66133019)
+  expect_equal(nrow(yes), 62L)
+  expect_equal(sum(yes$amount), 68323619)
 })
 
 test_that("the truncated recipient name is kept as the release published it", {
