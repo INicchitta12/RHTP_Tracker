@@ -186,6 +186,33 @@ test_that("NOTHING WAS PROMOTED and the uncertainty is one-directional", {
   expect_true(ms_assert_form_not_stated_queued(d))
 })
 
+test_that("the BUILD still has 96 fallback rows and the COMMITTED FILE has 2", {
+  skip_without_archive()
+  # THE TWO ARE BOTH TRUE AND THEY ARE NOT THE SAME CLAIM. The builder's output
+  # is what the Governor's release alone supports: 96 rows whose form the state
+  # never states. The committed CSV is that output WITH session 50's typing
+  # overlay on it, which determined 94 of them from federal enrolment records
+  # and REFUSED two. Reading either number as the other is the mistake this
+  # test exists to make hard.
+  expect_equal(sum(ms_year1_awardees()$flag_reason == "RECIPIENT_TYPE_INFERRED",
+                   na.rm = TRUE), 96L)
+  csv <- readr::read_csv(here::here("data/reference/ms_year1_awardees.csv"),
+                         show_col_types = FALSE, progress = FALSE,
+                         na = character())
+  open <- csv$flag_reason != "NA" &
+    grepl("RECIPIENT_TYPE_INFERRED", csv$flag_reason)
+  expect_equal(sum(open), 2L)
+  expect_setequal(csv$awardee[open],
+                  c("CAMHP Foundation",
+                    "Delta Health Transformation Council, Inc."))
+  # And Mississippi's named-hospital figure moved with it: 68 rows /
+  # $47,454,812.18 in the build, 84 / $68,898,204.67 committed.
+  expect_equal(sum(csv$hospital_attribution == "NAMED_HOSPITAL"), 84L)
+  expect_equal(round(sum(as.numeric(
+    csv$amount[csv$hospital_attribution == "NAMED_HOSPITAL"])), 2),
+    68898204.67)
+})
+
 test_that("the descriptions do NOT decide recipient_type (§0.3a)", {
   skip_without_archive()
   # A description describes an ACTIVITY; §0.3a judges the RECIPIENT. Arkansas

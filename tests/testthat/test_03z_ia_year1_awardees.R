@@ -137,11 +137,25 @@ test_that("the footer's amount is TWO tiers and the eleven are never summed", {
   expect_silent(ia_assert_footers_not_summable())
 })
 
-test_that("no footer figure reaches the award file", {
+test_that("no footer figure reaches an AWARD ACTION, and exactly one pool row carries one", {
   skip_if_not(file.exists(IA_CSV))
   rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
   expect_false("round_amount" %in% names(rows))
-  expect_true(all(is.na(rows$amount)))
+  # SESSION 50 NARROWED THIS AND THE NARROWING IS THE POINT. It used to require
+  # `amount` to be NA on every row, which was honest while the file held
+  # nothing but award actions. It now holds ONE pool row -- the Centers of
+  # Excellence, whose $50,000,000 IS a footer figure and is labelled TIER 2 --
+  # so the sharper question is whether any AWARD ACTION carries an amount.
+  pool <- !is.na(rows$flag_reason) &
+    grepl("AMOUNT_IS_POOL_NOT_AWARD", rows$flag_reason)
+  expect_equal(sum(pool), 1L)
+  expect_true(all(is.na(rows$amount[!pool])))
+  expect_equal(rows$amount[pool], 50000000)
+  expect_equal(rows$hospital_attribution[pool], "POOL_NAMED_HOSPITALS")
+  # The figure's tier is on the row, because it is the only thing that keeps a
+  # Tier 2 pool from being read as ten hospitals' awards (§0.2).
+  expect_true(grepl("TIER 2", rows$amount_basis[pool]))
+  expect_true(grepl("POOL ROW", rows$awardee[pool]))
 })
 
 test_that("the footer table states each figure's tier and is not an amount column", {
@@ -263,9 +277,12 @@ test_that("Iowa's zero dollars is not zero hospitals", {
   expect_silent(ia_assert_zero_dollars_is_not_zero_hospitals(rows))
 })
 
-test_that("the committed file is 264 award actions across ten RFPs", {
+test_that("the committed file is 264 award actions across ten RFPs, plus ONE pool row", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  all_rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  expect_equal(nrow(all_rows), 265L)
+  rows <- all_rows[is.na(all_rows$flag_reason) |
+                     !grepl("AMOUNT_IS_POOL_NOT_AWARD", all_rows$flag_reason), ]
   expect_equal(nrow(rows), 264L)
   expect_equal(dplyr::n_distinct(rows$award_pool), 10L)
   expect_true(all(rows$state == "IA"))
