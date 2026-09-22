@@ -1,0 +1,52 @@
+FEDERAL RECORDS -- fetched 2026-09-22 by session 51
+
+WHY THESE ARE HERE. Session 50 typed Mississippi's and South Carolina's
+unstated-form rows against CMS's enrolment files and CITED them by URL without
+archiving them. Session 51 needed them twice -- to settle two of the four
+organisations session 50 refused (Task 2), and to read the rural designation
+CMS itself carries for the rows session 50 matched by CCN (Task 3) -- so the
+MS and SC slices are committed here, as served, and the file that reads them
+(R/03ar_rural_cut_report.R) reads THESE and never the live API (§0.5).
+
+WHAT THEY SETTLE, AND WHAT THEY DO NOT.
+  SC Graceful Health Solutions, LLC  NPPES 1841015161, Spartanburg SC, taxonomy
+                                     'Clinic/Center, Community Health'; in NO CMS
+                                     enrolment file (not an enrolled FQHC or RHC).
+  SC Community Initiatives Inc.      IRS EO BMF EIN 31-1741660, Greenwood SC,
+                                     501(c)(3), NTEE P20 (human services); NPPES
+                                     1235502808, Greenwood SC, 'Voluntary or
+                                     Charitable'. Two federal publishers, one city.
+  MS Delta Health Transformation Council, Inc.  NO record in any of the six CMS
+                                     enrolment files, NPPES, or the MS EO BMF. The
+                                     only Delta Health bodies present are Delta
+                                     Health System (CCN 250082, the hospital) and
+                                     Delta Health Center, Inc. (the FQHC) -- the
+                                     two a stem match would have to choose between.
+  MS CAMHP Foundation                NO record in any of the six CMS files, NPPES,
+                                     or the MS EO BMF.
+
+The IRS files are EXTRACTS (header + the rows searched for). The full files they
+were cut from are https://www.irs.gov/pub/irs-soi/eo_ms.csv (sha256
+6be9ec376ace2d0f939e222e1e5e64d0aa01fa2e1302681d0a1c594632313084) and
+https://www.irs.gov/pub/irs-soi/eo_sc.csv (sha256
+793af544e08c285cdbfda797677df48c158e82c1eee20581e1a4161553efc73e).
+
+file | sha256 | bytes | source
+cms_fqhc_enrollments_MS.json | 27c4ec9253e436dd468cc8acaeedcb99d62f79496c2e3ed6156adb27810e7fb8 | 188149 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=MS&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_SC.json | a4c79767828585688a239ca8d522dda6e96dbd7a1d827c3ed9be384b1cf9f7c9 | 144278 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=SC&size=5000 (FQHC Enrollments)
+cms_hha_enrollments_MS.json | 2e470a7ebc5a12496a4546f762c07bac82b44c2ecb06c36bbd2519f7bb54e036 | 28484 | https://data.cms.gov/data-api/v1/dataset/15f64ab4-3172-4a27-b589-ebd67a6d28aa/data?filter[STATE]=MS&size=5000 (Home Health Agency Enrollments)
+cms_hha_enrollments_SC.json | 0f32e615b2a4735cd7b2a23757229b46157d8ce063cd01b657ec25f32cf94fc2 | 45739 | https://data.cms.gov/data-api/v1/dataset/15f64ab4-3172-4a27-b589-ebd67a6d28aa/data?filter[STATE]=SC&size=5000 (Home Health Agency Enrollments)
+cms_hosp_enrollments_MS.json | 7336a58742b73f7a7d4bb3f5375633604cb1eec0aca3f1d9b9d63488b95bb8b9 | 233931 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MS&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_SC.json | dc9603454c4c0562db7457376d0ef82757e735eda00b177819851ed5b43fe5f8 | 148218 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=SC&size=5000 (Hospital Enrollments)
+cms_hospice_enrollments_MS.json | af2593d7f1b45c38acdc58d7195c8dff40298bc69cf42697612fb084baf6ec9f | 49185 | https://data.cms.gov/data-api/v1/dataset/25704213-e833-4b8b-9dbc-58dd17149209/data?filter[STATE]=MS&size=5000 (Hospice Enrollments)
+cms_hospice_enrollments_SC.json | 653580cce961ec9549b1bf807f6e757a1a97bfb05e4792733c23cea177a28db6 | 51852 | https://data.cms.gov/data-api/v1/dataset/25704213-e833-4b8b-9dbc-58dd17149209/data?filter[STATE]=SC&size=5000 (Hospice Enrollments)
+cms_rhc_enrollments_MS.json | 7e43bde196376efa3b745637d6cb550b17238e6bffb1b6c7d066b2ab66fda6f5 | 155995 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=MS&size=5000 (RHC Enrollments)
+cms_rhc_enrollments_SC.json | 9f2b90086df572eaed88cbea57c36445700422a56eadde0a74d905ad96d644df | 72292 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=SC&size=5000 (RHC Enrollments)
+cms_snf_enrollments_MS.json | 71c6608ff756881276405ce1c63bf7e5314e9f5d4cee356dff3997a4543e36c0 | 138056 | https://data.cms.gov/data-api/v1/dataset/5f2c306f-3b1c-42cd-b037-187b2ce22126/data?filter[STATE]=MS&size=5000 (SNF Enrollments)
+cms_snf_enrollments_SC.json | 959ab0e6cc0f65438051ba67ee9157b31ab57e17848fea670c57b6310e142c24 | 139549 | https://data.cms.gov/data-api/v1/dataset/5f2c306f-3b1c-42cd-b037-187b2ce22126/data?filter[STATE]=SC&size=5000 (SNF Enrollments)
+irs_eo_bmf_MS_extract.csv | 9eadc6d75aaf3eaac78058d51a003801e5e43a1b8afc947eff9f537c8a5da8c2 | 2646 | extract of the IRS EO BMF state file named above
+irs_eo_bmf_SC_extract.csv | 547d749004447dee650975537389d58ffb1108d02c32f41eaa6760f2816f23b2 | 444 | extract of the IRS EO BMF state file named above
+nppes_camhp_MS.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d8973ee | 31 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>
+nppes_community_initiatives_SC.json | fbbc4855f77c0829cbd90d7b2286605a944895b4398ddaae88df8ef314a6f8cd | 1248 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>
+nppes_delta_health_transformation_MS.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d8973ee | 31 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>
+nppes_graceful_health_solutions_SC.json | 658a2c825f8fa911f2d1b7daa59eabc8e1ecb7adb53ea502dfcea49fbb810c47 | 1431 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>

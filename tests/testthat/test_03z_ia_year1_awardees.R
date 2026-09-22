@@ -137,25 +137,48 @@ test_that("the footer's amount is TWO tiers and the eleven are never summed", {
   expect_silent(ia_assert_footers_not_summable())
 })
 
-test_that("no footer figure reaches an AWARD ACTION, and exactly one pool row carries one", {
+test_that("no footer figure reaches ANY row, and there is no pool row", {
   skip_if_not(file.exists(IA_CSV))
   rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
   expect_false("round_amount" %in% names(rows))
-  # SESSION 50 NARROWED THIS AND THE NARROWING IS THE POINT. It used to require
-  # `amount` to be NA on every row, which was honest while the file held
-  # nothing but award actions. It now holds ONE pool row -- the Centers of
-  # Excellence, whose $50,000,000 IS a footer figure and is labelled TIER 2 --
-  # so the sharper question is whether any AWARD ACTION carries an amount.
-  pool <- !is.na(rows$flag_reason) &
-    grepl("AMOUNT_IS_POOL_NOT_AWARD", rows$flag_reason)
-  expect_equal(sum(pool), 1L)
-  expect_true(all(is.na(rows$amount[!pool])))
-  expect_equal(rows$amount[pool], 50000000)
-  expect_equal(rows$hospital_attribution[pool], "POOL_NAMED_HOSPITALS")
-  # The figure's tier is on the row, because it is the only thing that keeps a
-  # Tier 2 pool from being read as ten hospitals' awards (§0.2).
-  expect_true(grepl("TIER 2", rows$amount_basis[pool]))
-  expect_true(grepl("POOL ROW", rows$awardee[pool]))
+  # SESSION 51 RESTORED THE ORIGINAL FORM. Session 50 appended a Centers of
+  # Excellence POOL ROW at $50,000,000 in POOL_NAMED_HOSPITALS; that figure is
+  # the notice's TIER 2 footer, and the bucket's other member (Nebraska) is a
+  # Tier 3 award, so a bucket held two tiers (§0.2). It was removed, and the
+  # figure lives in ia_notice_footers.csv as context.
+  expect_true(all(is.na(rows$amount)))
+  expect_false(any(grepl("AMOUNT_IS_POOL_NOT_AWARD", rows$flag_reason)))
+  expect_false(any(rows$hospital_attribution == "POOL_NAMED_HOSPITALS",
+                   na.rm = TRUE))
+  expect_false(any(grepl("POOL ROW", rows$awardee)))
+})
+
+test_that("a pool row coming back is refused by the Iowa assertion", {
+  skip_if_not(file.exists(IA_CSV))
+  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  back <- rows[1, ]
+  back$amount <- 50000000
+  back$flag_reason <- "AMOUNT_IS_POOL_NOT_AWARD"
+  back$hospital_attribution <- "POOL_NAMED_HOSPITALS"
+  expect_error(ia_assert_no_amount_column_effect(dplyr::bind_rows(rows, back)),
+               "populated")
+  back$amount <- NA
+  expect_error(ia_assert_no_amount_column_effect(dplyr::bind_rows(rows, back)),
+               "pool row")
+  expect_silent(ia_assert_no_amount_column_effect(rows))
+})
+
+test_that("the Centers of Excellence footer carries its context note, as Tier 2", {
+  f <- readr::read_csv(here::here("data/reference/ia_notice_footers.csv"),
+                       show_col_types = FALSE, progress = FALSE)
+  coe <- f[f$rfp == "PHTHORC26008", ]
+  expect_equal(nrow(coe), 1L)
+  expect_equal(coe$footer_tier, "SOLICITATION")
+  expect_equal(coe$footer_amount, 50000000)
+  expect_match(coe$note, "CONTEXT, NOT A HOSPITAL FIGURE", fixed = TRUE)
+  expect_match(coe$note, "a bucket must not mix", fixed = TRUE)
+  # ONLY that row carries it.
+  expect_equal(sum(grepl("CONTEXT, NOT A HOSPITAL FIGURE", f$note)), 1L)
 })
 
 test_that("the footer table states each figure's tier and is not an amount column", {
@@ -277,12 +300,9 @@ test_that("Iowa's zero dollars is not zero hospitals", {
   expect_silent(ia_assert_zero_dollars_is_not_zero_hospitals(rows))
 })
 
-test_that("the committed file is 264 award actions across ten RFPs, plus ONE pool row", {
+test_that("the committed file is 264 award actions across ten RFPs, and nothing else", {
   skip_if_not(file.exists(IA_CSV))
-  all_rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
-  expect_equal(nrow(all_rows), 265L)
-  rows <- all_rows[is.na(all_rows$flag_reason) |
-                     !grepl("AMOUNT_IS_POOL_NOT_AWARD", all_rows$flag_reason), ]
+  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
   expect_equal(nrow(rows), 264L)
   expect_equal(dplyr::n_distinct(rows$award_pool), 10L)
   expect_true(all(rows$state == "IA"))

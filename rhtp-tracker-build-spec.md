@@ -226,6 +226,18 @@ The first two are **Tier 2** — each RFP's own pool. The third is **Tier 1** �
 
 **And the footer's amount and its provenance are two separate readings.** Iowa's footers are programme-scoped and still carry two tiers; Michigan's, Missouri's and Wisconsin's are weak in subject and still carry the allotment correctly. Session 27's axis governs whether the footer establishes that a document is RHTP. This section governs what its number *is*. Answer both, in that order, and never let one stand in for the other.
 
+#### Third worked example — Iowa's Centers of Excellence pool: a bucket must not mix tiers (session 51)
+
+Virginia and Iowa's footers are the tier error *in a source*. This one is the tier error **inside this repository's own aggregation**, and it was made deliberately, labelled, and then undone.
+
+Session 50 found that all ten recipients of Iowa's Centers of Excellence RFP (PHTHORC26008) are hospitals and that Iowa publishes no per-hospital split — `POOL_NAMED_HOSPITALS`'s condition in §8, word for word. It added a pool row carrying **$50,000,000**, the notice's own CMS footer, into that bucket. The bucket's other member was Nebraska's High Value Network, **$18,156,856.12**, off a signed Notice of Award. So one hospital bucket held **a Tier 2 figure** — an RFP's advertised pool, stated as *"approximately"* — **beside a Tier 3 award**, and reported them as one figure: $68,156,856.12.
+
+The labelling was careful: the row said POOL ROW in capitals, carried the tier in its basis, and `rhtp_hospital_total()` already refused to add the buckets together. **None of that repairs it, because the error is not in adding two buckets. It is in the bucket.** Every figure a bucket reports is a sum of its rows, and a sum over two tiers is exactly what this section forbids, whichever column the rows sit in. The same ten awards were also counted twice in row terms: once as ten unpriced `NAMED_HOSPITAL` rows and once as the pool.
+
+**The rule: a bucket must not mix tiers.** Every hospital bucket is Tier 3, full stop. A Tier 2 figure that describes a hospital-only recipient set is **context**, and it lives in the state's own files as context: Iowa's $50,000,000 is in `ia_notice_footers.csv`, marked `SOLICITATION`, with a note saying the recipient set is hospital-only and why the figure is in no bucket. The ten award actions stay in `NAMED_HOSPITAL` at $0, **once**.
+
+**It is enforced where the sum happens, not where somebody looks.** `rhtp_hospital_dollar_partition()` refuses any priced row flagged `AMOUNT_IS_POOL_NOT_AWARD`, in every state, and `ia_assert_no_amount_column_effect()` refuses the pool row returning by either of its two signatures. The flag code is kept in §8 with a note that no row carries it, so the audit trail closes.
+
 ### 0.2a One home per authoritative number
 
 Tier 1 classification produced **274 RCJ records across 50 states** — roughly five per state, each restating the same allotment in a different document. Correctly classified, but Tier 1 no longer sums to $10B.

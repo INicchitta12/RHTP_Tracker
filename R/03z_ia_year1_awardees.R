@@ -135,7 +135,7 @@ IA_AWARDEE_MEDIA_IDS <- c("18093", "18094", "18135", "18136", "18137",
 # `pool_amount` is the figure in that notice's OWN footer and `footer_tier` says
 # what it is. NOTHING downstream sums this column; see ia_write_footers().
 
-# The Centers of Excellence RFP, named once so the pool row, the footer table
+# The Centers of Excellence RFP, named once so the footer table's context note
 # and the roster checks cannot drift apart.
 IA_COE_RFP <- "PHTHORC26008"
 
@@ -859,110 +859,26 @@ IA_NOTE_TAIL <- paste(
 )
 
 #' Every award action Iowa has published, one row each
-#' Iowa's Centers of Excellence POOL ROW -- the one priced row in this file
+#' Iowa's Centers of Excellence pool is NOT a row in this file (session 51)
 #'
-#' SESSION 50, AND IT IS A DELIBERATE EXCEPTION TO THIS FILE'S OWN RULE, SO READ
-#' THE WHOLE NOTE BEFORE TOUCHING IT.
+#' SESSION 50 ADDED A PRICED POOL ROW HERE AND SESSION 51 TOOK IT OUT, AND THE
+#' REASON IS §0.2. PHTHORC26008's ten recipients are all hospitals and Iowa
+#' publishes no per-hospital split, which reads like `POOL_NAMED_HOSPITALS`'s
+#' condition -- but the only figure available is the notice's own CMS footer,
+#' "approximately $50,000,000.00", which is the RFP's advertised POOL: TIER 2.
+#' The bucket's other member, Nebraska's High Value Network ($18,156,856.12),
+#' is a TIER 3 award amount off a signed notice of award. A bucket holding
+#' both is §0.2's error -- two tiers in one figure -- the one this project has
+#' caught in Virginia, Iowa's own footers, Kentucky, North Carolina and
+#' Mississippi, committed inside its own partition.
 #'
-#' `PHTHORC26008` holds TEN award actions and session 49 established that every
-#' one of the ten recipients is a hospital -- eight were already typed so, and
-#' the two on §8's standing fallback (Manning Regional Health Care Center and
-#' Sioux Center Health) both verified. So the pool's recipient set is
-#' HOSPITAL-ONLY: hospitals ARE named, and no per-hospital split is published.
-#' That is `POOL_NAMED_HOSPITALS`'s condition word for word (§8, Nebraska's
-#' code), and this row is where the pool is recorded under it.
-#'
-#' WHAT THE $50,000,000 IS, AND WHAT IT IS NOT. It is the figure the notice's
-#' own CMS footer attaches to this RFP, and that footer is **TIER 2** -- a
-#' SOLICITATION pool, recorded as such in `ia_notice_footers.csv`. It is NOT a
-#' Tier 3 award total, NOT the sum of ten awards, and NOT divisible: $50m / 10 =
-#' $5m is nobody's published figure (§6.2). The notice's own words are
-#' "approximately", and `amount_confirmed` is `No` for that reason.
-#'
-#' THE TENSION THIS ROW CREATES, STATED RATHER THAN HIDDEN. Every other figure
-#' in the hospital partition is Tier 3. This one is Tier 2, so a reader who adds
-#' `POOL_NAMED_HOSPITALS` to `NAMED_HOSPITAL` is adding across §0.2's tiers --
-#' which `rhtp_hospital_total()` already refuses to do, and which the bucket
-#' names already forbid. AND THE TEN AWARD ACTIONS ARE STILL IN
-#' `NAMED_HOSPITAL` AT $0, so the same ten awards appear in two buckets: once as
-#' ten unpriced rows and once as one priced pool. The buckets are never added,
-#' which is what makes that legible rather than double counting -- but a reader
-#' adding the ROW COUNTS would count the Centers of Excellence twice, and that
-#' is why the awardee string says POOL ROW in capitals.
-ia_coe_pool_row <- function() {
-  foot <- IA_NOTICES[IA_NOTICES$rfp == IA_COE_RFP, ]
-  if (nrow(foot) != 1L) {
-    stop("[IA] the Centers of Excellence notice is not uniquely identified by ",
-         IA_COE_RFP, ".", call. = FALSE)
-  }
-  if (!identical(foot$footer_tier, "SOLICITATION")) {
-    stop("[IA] the Centers of Excellence footer is no longer TIER 2. This row ",
-         "exists to carry a SOLICITATION pool figure into ",
-         "POOL_NAMED_HOSPITALS with that tier stated; if the tier has moved, ",
-         "the row must be REWRITTEN, not re-priced (§0.2).", call. = FALSE)
-  }
-  tibble::tibble(
-    state = IA_STATE,
-    row_no = NA_integer_,
-    awardee = paste0("Centers of Excellence (", IA_COE_RFP, ") -- POOL ROW: ",
-                     "the ten named hospitals above, with NO per-hospital split"),
-    amount = foot$footer_amount,
-    recipient_type = "HOSPITAL_OR_SYSTEM",
-    distributed_to_hospital = "Yes",
-    note = paste0(
-      "POOL ROW, NOT AN AWARD ACTION. The ten Centers of Excellence award ",
-      "actions are the ten rows above and each carries an EMPTY amount, ",
-      "because Iowa prices nobody. This row carries the notice's own pool ",
-      "figure so that the hospital-only recipient set is visible in ",
-      "POOL_NAMED_HOSPITALS, and it must never be added to the ten."),
-    recipient_confirmed = "Yes",
-    amount_confirmed = "No",
-    fiscal_year = 2026L,
-    source_document_title = paste0(
-      "Iowa HHS Notice of Intent to Award, RFP #", IA_COE_RFP,
-      " Centers of Excellence"),
-    state_source_url = ia_source("phthorc26008", "url"),
-    validation_source_type = "NOTICE_OF_INTENT_TO_AWARD",
-    extraction_method = "PARSED_PDF_RUNS",
-    validator = "R/03z_ia_year1_awardees.R",
-    ccn = NA_character_, aha_id = NA_character_,
-    rural_designation = NA_character_, reviewer = NA_character_,
-    recipient_type_source = paste0(
-      "The pool's recipient SET, not one organisation: all ten Centers of ",
-      "Excellence recipients are hospitals (session 49 verified the two that ",
-      "were on §8's standing fallback -- Manning Regional Health Care Center ",
-      "and Sioux Center Health)."),
-    determination_confidence = "LOW",
-    flag_reason = "AMOUNT_IS_POOL_NOT_AWARD",
-    award_pool = IA_COE_RFP,
-    budget_period = IA_BUDGET_PERIOD,
-    flow_type = "DIRECT",
-    hospital_benefiting = "Yes",
-    hospital_attribution = "POOL_NAMED_HOSPITALS",
-    intermediary_name = NA_character_,
-    determination_basis = paste(
-      "§8 POOL_NAMED_HOSPITALS. The ten recipients of RFP", IA_COE_RFP,
-      "are all hospitals and Iowa publishes NO per-hospital split, which is",
-      "that code's condition exactly (Nebraska's High Value Network, session",
-      "23). THE FIGURE IS THE NOTICE'S OWN CMS FOOTER AND IT IS TIER 2 --",
-      "a SOLICITATION pool stated as \"approximately\", not an award total and",
-      "not a sum of the ten. It is never divided (§6.2) and never added to a",
-      "Tier 3 figure (§0.2)."),
-    amount_basis = paste0(
-      "TIER 2, APPROXIMATE. The figure is the ", IA_COE_RFP, " notice's own ",
-      "CMS financial-assistance footer, which reads \"a financial assistance ",
-      "award totaling approximately $50,000,000.00\" and is recorded as ",
-      "SOLICITATION in ia_notice_footers.csv. It is the POOL the RFP was ",
-      "advertised at, not what the ten recipients were awarded, and Iowa has ",
-      "published no award total for this or any other RFP."),
-    county = NA_character_, provider_type = NA_character_,
-    round_name = "Centers of Excellence",
-    notice_date = foot$notice_date,
-    source_archive_path = file.path("data/evidence/IA",
-                                    ia_source("phthorc26008", "file")),
-    row_in_pool = NA_integer_
-  )
-}
+#' So the ten award actions stay in `NAMED_HOSPITAL` at $0, exactly once, and
+#' the $50,000,000 lives where every other Iowa footer figure lives: in
+#' `ia_notice_footers.csv`, as TIER 2 context, with the hospital-only recipient
+#' set stated beside it (`ia_footer_table()`). `ia_assert_no_amount_column_
+#' effect()` refuses a pool row coming back, and `rhtp_hospital_dollar_
+#' partition()` refuses any row flagged `AMOUNT_IS_POOL_NOT_AWARD` in every
+#' state, so the mistake cannot be re-made by a later session either.
 
 ia_award_rows <- function() {
   ops <- IA_OPERATIVE()
@@ -1077,11 +993,6 @@ ia_award_rows <- function() {
     row_in_pool = rows$row_in_pool
   )
   out$determination_confidence[is.na(out$determination_confidence)] <- "LOW"
-
-  # THE ONE PRICED ROW, APPENDED LAST so the 264 award actions keep row_no
-  # 1..264 and the pool row is visibly the 265th. See ia_coe_pool_row().
-  out <- dplyr::bind_rows(out, ia_coe_pool_row())
-  out$row_no <- seq_len(nrow(out))
   out
 }
 
@@ -1158,7 +1069,18 @@ ia_footer_table <- function() {
                "allotment in the same slot, and the ", ia_footer_count_words(),
                " sum to ", ia_money(sum(IA_NOTICES$footer_amount)),
                " against a ", ia_money(IA_ALLOTMENT), " allotment (§0.2)."))
-    )
+    ) %>%
+    dplyr::mutate(note = dplyr::if_else(
+      .data$rfp == IA_COE_RFP,
+      paste(.data$note,
+            "CONTEXT, NOT A HOSPITAL FIGURE (session 51): all ten of this RFP's",
+            "recipients are hospitals and Iowa publishes no per-hospital split.",
+            "Session 50 carried this figure into POOL_NAMED_HOSPITALS; session",
+            "51 removed it, because that bucket's other member (Nebraska's High",
+            "Value Network) is a Tier 3 award amount and a bucket must not mix",
+            "tiers. The ten award actions are counted once, in NAMED_HOSPITAL,",
+            "at $0."),
+      .data$note))
 }
 
 
@@ -1251,36 +1173,31 @@ ia_assert_rcj_names_match <- function() {
   invisible(TRUE)
 }
 
-#' `amount` is empty on every AWARD ACTION, and populated on exactly one row
+#' `amount` is empty on EVERY row, and no row is a pool
 #'
-#' SESSION 50 NARROWED THIS ASSERTION AND THE NARROWING IS THE POINT. It used to
-#' require `amount` to be NA on every row, which was the honest statement while
-#' this file held nothing but award actions. It now holds ONE pool row
-#' (`ia_coe_pool_row()`), so the assertion asks the sharper question instead:
-#' is `amount` populated on any row that is NOT that pool row? A per-recipient
-#' figure appearing anywhere else still means Iowa has started pricing
+#' Session 50 narrowed this to "empty on every row but one" when it added a
+#' Tier 2 pool row; session 51 removed that row (see the note above
+#' `ia_award_rows()`), so the assertion is back to its original, stronger form
+#' AND refuses the pool row returning by either of its two signatures. A
+#' per-recipient figure appearing anywhere means Iowa has started pricing
 #' recipients and this file must be REWRITTEN, not patched.
 ia_assert_no_amount_column_effect <- function(rows = NULL) {
   if (is.null(rows)) rows <- ia_award_rows()
-  pool <- !is.na(rows$flag_reason) &
-    stringr::str_detect(rows$flag_reason, "AMOUNT_IS_POOL_NOT_AWARD")
-  if (sum(pool) != 1L) {
-    stop("[IA] expected exactly ONE pool row carrying ",
-         "AMOUNT_IS_POOL_NOT_AWARD and found ", sum(pool), ". The Centers of ",
-         "Excellence pool row is the only priced row this file admits.",
-         call. = FALSE)
+  if (!all(is.na(rows$amount))) {
+    stop("[IA] `amount` is populated on ", sum(!is.na(rows$amount)),
+         " row(s). Iowa publishes no per-recipient figure, so any number ",
+         "there came from this pipeline (§0.1), and ia_year1_awardees.csv ",
+         "must be REWRITTEN rather than patched.", call. = FALSE)
   }
-  if (!all(is.na(rows$amount[!pool]))) {
-    stop("[IA] `amount` is populated on ", sum(!is.na(rows$amount[!pool])),
-         " AWARD ACTION row(s). Iowa publishes no per-recipient figure, so ",
-         "any number there came from this pipeline (§0.1), and ",
-         "ia_year1_awardees.csv must be REWRITTEN rather than patched.",
-         call. = FALSE)
-  }
-  if (!identical(rows$hospital_attribution[pool], "POOL_NAMED_HOSPITALS")) {
-    stop("[IA] the pool row is priced but is not in POOL_NAMED_HOSPITALS. ",
-         "A Tier 2 figure sitting in NAMED_HOSPITAL would read as ten ",
-         "hospitals' awards (§0.2).", call. = FALSE)
+  pool <- (!is.na(rows$flag_reason) &
+             stringr::str_detect(rows$flag_reason, "AMOUNT_IS_POOL_NOT_AWARD")) |
+    (!is.na(rows$hospital_attribution) &
+       rows$hospital_attribution == "POOL_NAMED_HOSPITALS")
+  if (any(pool)) {
+    stop("[IA] ", sum(pool), " pool row(s) found. The Centers of Excellence ",
+         "figure is TIER 2 and was removed from the hospital partition in ",
+         "session 51: a bucket must not mix tiers (§0.2). It belongs in ",
+         "ia_notice_footers.csv, not here.", call. = FALSE)
   }
   invisible(TRUE)
 }

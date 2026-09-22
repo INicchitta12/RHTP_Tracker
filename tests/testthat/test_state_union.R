@@ -365,28 +365,16 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # And Illinois contributes NOTHING to the named-hospital figure.
   expect_false("IL" %in% named$state)
 
-  # THE NAMED POOLED BUCKET HAS TWO STATES SINCE SESSION 50 AND THEY ARE NOT
-  # THE SAME KIND OF FIGURE. Nebraska's $18,156,856.12 is a TIER 3 award amount
-  # from a signed notice of award; Iowa's $50,000,000 is the TIER 2 pool its
-  # own CMS footer attaches to RFP PHTHORC26008, recorded as `SOLICITATION` in
-  # ia_notice_footers.csv. Both belong here for the same structural reason --
-  # the hospitals ARE named and no per-hospital split is published -- and
-  # neither may be added to the Tier 3 named figure (§0.2), which is what the
-  # bucket separation already enforces and what IA_COE_POOL_IS_TIER_2 records.
+  # THE NAMED POOLED BUCKET IS NEBRASKA ALONE, AND ONE TIER. Session 50 added
+  # Iowa's $50,000,000 Centers of Excellence footer here -- a TIER 2 pool --
+  # beside Nebraska's TIER 3 award, and session 51 removed it: a bucket must
+  # not mix tiers (§0.2). The partition now refuses a priced pool row outright.
   pooled_named <- parts[parts$bucket == "POOL_NAMED_HOSPITALS", ]
-  expect_equal(sort(unique(pooled_named$state)), c("IA", "NE"))
-  expect_equal(round(pooled_named$dollars[pooled_named$state == "NE"], 2),
-               18156856.12)
-  expect_equal(round(pooled_named$dollars[pooled_named$state == "IA"], 2),
-               50000000)
-  expect_equal(round(sum(pooled_named$dollars), 2), 68156856.12)
+  expect_equal(sort(unique(pooled_named$state)), "NE")
+  expect_equal(round(sum(pooled_named$dollars), 2), 18156856.12)
 
-  # AND IOWA IS IN BOTH BUCKETS, WHICH IS THE ONE THING A READER MUST NOT
-  # FLATTEN. Its ten Centers of Excellence award ACTIONS are still in
-  # NAMED_HOSPITAL at $0, so the same ten awards are counted once as ten
-  # unpriced rows and once as one priced pool. The buckets are never added, so
-  # no dollar is double counted -- but the ROW COUNTS overlap, and the pool
-  # row's awardee string says POOL ROW in capitals for exactly that reason.
+  # Iowa is in NAMED_HOSPITAL only, at $0, with its ten Centers of Excellence
+  # award actions counted ONCE.
   expect_true("IA" %in% named$state)
   expect_equal(named$dollars[named$state == "IA"], 0)
   # 6,990,996.01 -> 12,606,593.54 in session 49: thirteen Nebraska recipients

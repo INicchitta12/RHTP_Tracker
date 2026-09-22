@@ -1030,6 +1030,26 @@ rhtp_hospital_dollar_partition <- function(records) {
     NA_character_
   }
 
+  # §0.2 -- A BUCKET MUST NOT MIX TIERS (session 51). Every dollar this
+  # partition sums is meant to be Tier 3. A row flagged AMOUNT_IS_POOL_NOT_AWARD
+  # carries an RFP's advertised POOL -- Tier 2 -- and session 50 put exactly
+  # such a figure (Iowa's $50,000,000 Centers of Excellence footer) into
+  # POOL_NAMED_HOSPITALS beside Nebraska's Tier 3 award. A priced pool row is
+  # refused here in every state, so the mistake fails where it would be summed
+  # rather than wherever somebody happens to look.
+  if ("flag_reason" %in% names(records)) {
+    tier2 <- !is.na(records$flag_reason) &
+      grepl("AMOUNT_IS_POOL_NOT_AWARD", records$flag_reason, fixed = TRUE) &
+      !is.na(suppressWarnings(as.numeric(records$amount)))
+    if (any(tier2)) {
+      stop("rhtp_hospital_dollar_partition(): ", sum(tier2), " row(s) carry ",
+           "a priced AMOUNT_IS_POOL_NOT_AWARD figure. That is a TIER 2 pool, ",
+           "and a hospital bucket must not mix tiers (§0.2). Record the pool ",
+           "as context in the state's own files, not as an award row.",
+           call. = FALSE)
+    }
+  }
+
   records %>%
     dplyr::mutate(
       .bucket = rhtp_hospital_attribution(

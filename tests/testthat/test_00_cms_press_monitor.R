@@ -592,10 +592,12 @@ test_that("the live newsroom crawl finds twenty-one states, including Virginia",
     readr::read_csv(idx, show_col_types = FALSE, progress = FALSE) %>%
       dplyr::mutate(item_date = as.Date(.data$item_date))
   )
+  # Session 51's live run added NM (2026-09-21, the $74M hub pool) and MO
+  # (2026-09-22, ~$35M to "20 rural hospital projects", nobody named).
   expect_setequal(out$state,
                   c("AK", "AL", "AR", "CT", "GA", "HI", "IN", "KS", "MI",
-                    "MS", "NC", "ND", "NY", "OH", "PA", "RI", "SC", "SD",
-                    "VA", "VT", "WV"))
+                    "MO", "MS", "NC", "ND", "NM", "NY", "OH", "PA", "RI",
+                    "SC", "SD", "VA", "VT", "WV"))
   expect_equal(out$amount[out$state == "VA"], 122000000)
   expect_equal(out$date[out$state == "VA"], as.Date("2026-08-28"))
 })
@@ -616,8 +618,9 @@ test_that("the ten titles that say nothing about rural health are still caught",
   expect_setequal(silent$state,
                   c("AK", "AL", "HI", "IN", "MI", "ND", "NY", "SD", "VA",
                     "WV"))
-  # Only twelve of the 22 rows would survive a title filter.
-  expect_equal(nrow(out) - nrow(silent), 12L)
+  # Only fourteen of the 24 rows would survive a title filter (session 51's
+  # NM and MO both say "rural").
+  expect_equal(nrow(out) - nrow(silent), 14L)
 })
 
 test_that("the committed trigger list carries Virginia, and medicaid.gov has caught up", {
@@ -638,9 +641,11 @@ test_that("the committed trigger list carries Virginia, and medicaid.gov has cau
   expect_equal(nrow(va), 1L)
   expect_equal(va$amount, 122000000)
   expect_equal(va$source, "BOTH")
-  expect_equal(dplyr::n_distinct(live$state), 21L)
+  expect_equal(dplyr::n_distinct(live$state), 23L)
   expect_equal(live$source[live$state == "IN"], "BOTH")
-  expect_setequal(live$state[live$source == "CMS_NEWSROOM"], c("CT", "SC"))
+  # Session 51: medicaid.gov caught up on CT and SC within five days; MO,
+  # announced the day of the run, is the one only the newsroom carries.
+  expect_setequal(live$state[live$source == "CMS_NEWSROOM"], "MO")
 })
 
 test_that("every archived rural release verifies against its manifest digest", {
