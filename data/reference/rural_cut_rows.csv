@@ -1,0 +1,940 @@
+state,file,row_index,awardee,amount,rural_class,designation,counts_as_rural,ccn,basis_type
+FL,fl_year1_awardees.csv,3,Mayo Clinic Jacksonville,3655556.55,STATE_SOURCE_NOT_RURAL,FL owner workbook: URBAN hospital serving rural areas,FALSE,,
+FL,fl_year1_awardees.csv,4,Medlink Management Services (Lake Butler Hospital),5670158.72,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,5,St. Vincent's Medical Center (Riverside),4393360.65,STATE_SOURCE_NOT_RURAL,FL owner workbook: URBAN hospital serving rural areas,FALSE,,
+FL,fl_year1_awardees.csv,7,Medlink Management Services (Lake Butler Hospital),1319326.2,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,26,North Brevard County Hospital District (Parrish Medical Center),4416943.86,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,36,Lee Health Systems,1950000,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,38,North Brevard County Hospital District (Parrish Medical Center),793064,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,47,Northwest Florida Healthcare (Northwest Florida Community Hospital),4081324.85,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,53,Madison County Hospital Health System,4413823.45,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,54,Calhoun-Liberty Hospital,11244802.13,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,56,North Walton Doctors,4130671.13,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,61,North Walton Doctors Hospital,450787.95,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,62,Holmes County Hospital Corporation (Doctors Memorial Hospital),225393.97,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,65,Holmes County Hospital Corporation (Doctors Memorial Hospital),1950000,NOT_RECORDED,,FALSE,,
+FL,fl_year1_awardees.csv,66,Calhoun Liberty Hospital Association,650000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,11,Appling Healthcare,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,12,Clinch County Hospital Authority,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,13,Colquitt Regional Medical Center,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,14,Crisp Regional Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,15,Dodge County Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,16,"Donalsonville Hospital, Inc.",,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,17,"Effingham Hospital, Inc.",,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,18,Elbert Memorial Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,19,Hospital Authority of Jefferson County and the City of Louisville,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,20,"Jasper Health Services, Inc.",,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,21,Liberty Regional Medical Center,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,22,Memorial Hospital and Manor,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,23,Miller County Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,24,Monroe County Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,25,Putnam General Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,26,"South Georgia Medical Center, Inc.",,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,27,Wills Memorial Hospital,,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,34,Adventhealth Gordon,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,35,Adventhealth Murray,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,36,Appling Healthcare,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,37,Archbold Brooks,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,38,Archbold Grady,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,39,Archbold Memorial,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,40,Archbold Mitchell,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,41,Atrium Health Floyd,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,42,Atrium Health Navicent,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,43,Atrium Health Navicent Baldwin,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,44,Atrium Health Navicent Peach,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,45,Atrium/Advocate Health Floyd Polk Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,46,Bacon County Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,47,Bleckley Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,48,Blue Ridge Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,49,Burke Health,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,50,Candler County Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,51,Candler Hospital,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,52,Chatuge Regional Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,53,Clinch Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,54,"Coffee Regional Medical Center, Inc",750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,55,Colquitt Regional Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,56,Crisp Regional Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,57,Dodge County Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,58,Donalsonville Hospital Inc,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,59,Dorminy Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,60,Early Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,61,Effingham Health System,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,62,Elbert Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,63,Emanuel Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,64,Evans Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,65,Flint River Community Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,66,Hamilton Medical Center,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,67,Higgins General Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,68,Jasper Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,69,Jeff Davis Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,70,Jefferson Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,71,Jenkins County Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,72,Liberty Regional Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,73,Memorial Hospital And Manor,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,74,Miller County Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,75,Monroe County Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,76,Morgan Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,77,Mountain Lakes Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,78,Northeast Georgia Medical Center Habersham,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,79,Northeast Georgia Medical Center Lumpkin,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,80,"Northeast Georgia Medical Center, Inc",750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,81,Phoebe Putney Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,82,Phoebe Sumter Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,83,Phoebe Worth Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,84,Piedmont Mcduffie Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,85,Piedmont Mountainside Hospital Inc,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,86,Piedmont Walton,750000,STATE_SOURCE_RURAL,GA roster: In 126 Rural/Partial Rural Counties,TRUE,,
+GA,ga_great_health_awards.csv,87,Putnam General Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,88,"Redmond Park Hospital, LLC d/b/a Adventhealth Redmond",750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,89,Screven County Hospital d/b/a Optim Medical Center - Screven,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,90,SGMC Health Berrien,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,91,SGMC Health Lanier,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,92,"South Georgia Medical Center, Inc. d/b/a SGMC Health",750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,93,Southeast Georgia Health System- Brunswick Campus,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,94,Southeast Georgia Health System- Camden Campus,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,95,St Joseph's Hospital - Savannah,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,96,St Mary's Good Samaritan Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,97,St Mary's Hospital,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,98,"St Mary's Sacred Heart Hospital, Inc",750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,99,Stephens County Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,100,Tanner Medical Center Carrollton,750000,STATE_SOURCE_RURAL,GA roster: In 126 Rural/Partial Rural Counties,TRUE,,
+GA,ga_great_health_awards.csv,101,Tanner Medical Center Villa Rica,750000,STATE_SOURCE_RURAL,GA roster: In 126 Rural/Partial Rural Counties,TRUE,,
+GA,ga_great_health_awards.csv,102,Taylor Regional Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,103,Tift Regional Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,104,Union General Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,105,Upson Regional Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,106,Warm Springs Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,107,Washington County Regional Medical Center,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,108,Wayne Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,109,Wellstar MCG Health Medical Center,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,110,Wellstar Spalding Regional Hospital,750000,STATE_SOURCE_RURAL,GA roster: In 126 Rural/Partial Rural Counties,TRUE,,
+GA,ga_great_health_awards.csv,111,Wellstar Sylvan Grove Medical Center,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,112,Wellstar West Georgia Medical Center,750000,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,113,Wills Memorial Hospital,750000,STATE_SOURCE_RURAL,GA roster: CAH,TRUE,,
+GA,ga_great_health_awards.csv,115,Irwin Hospital,,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,116,"Southwell Medical, Adel",,STATE_SOURCE_RURAL,GA roster: Rural,TRUE,,
+GA,ga_great_health_awards.csv,117,Piedmont Athens Regional,,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,118,Piedmont Augusta,,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,119,Piedmont Cartersville Medical Center,,STATE_SOURCE_RURAL,GA roster: In 126 Rural/Partial Rural Counties,TRUE,,
+GA,ga_great_health_awards.csv,120,Piedmont Columbus Regional,,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,121,Piedmont Macon Medical Center,,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,129,Irwin County Hospital,356465,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,130,Clinch County Hospital Authority,1069395,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,131,Miller County Hospital,356465,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,132,Coffee Regional Medical Center,712930,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,133,"South Georgia Medical Center, Inc. (Berrien County)",356465,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,134,"South Georgia Medical Center, Inc. (Lanier County)",356465,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,135,Evans Memorial Hospital,712930,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,136,Miller County Hospital,356465,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,145,Morgan Medical Center,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,146,Crisp Regional Hospital,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,147,Hospital Authority of Stephens County,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,148,Piedmont Walton Hospital,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,149,Colquitt Regional Medical Center,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,150,"Piedmont Mountainside Hospital, Inc.",2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,151,University McDuffie County Regional Medical Center,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,152,Archbold Memorial Hospital,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,153,"Coffee Regional Medical Center, Inc.",2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,154,Atrium Health Navicent Baldwin,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,155,"Saint Joseph’s Hospital, Inc.",2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,156,Memorial Hospital and Manor,2000000,NOT_RECORDED,,FALSE,,
+GA,ga_great_health_awards.csv,157,Union General Hospital,2000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,1,Fulton County Medical Center,872891,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,2,Geisinger Bloomsburg Hospital,700000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,3,Geisinger Jersey Shore Hospital,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,4,Geisinger Lewistown Hospital,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,5,Geisinger Medical Center,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,6,GSL Hospital dba Geisinger St. Luke's Hospital,948927,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,8,Lehigh Valley Hospital - Pocono,996328,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,9,St. Luke's Hospital - Monroe Campus,823050,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,10,Wellspan Chambersburg Hospital,940153,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,11,WellSpan Evangelical Community Hospital,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,13,Uniontown Hospital,678456,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,14,Lehigh Valley Hospital Schuylkill,997428,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,15,Armstrong County Memorial Hospital (ACMH),987284,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,16,Bucktail Medical Center,78895,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,17,"Carbon Schuylkill Community Hospital dba St. Luke's Miner's Memorial Hospital, St. Luke's Hospital-Miners Campus",909231,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,18,Clarion Hospital,751107,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,19,St. Luke's Hospital - Carbon Campus,996519,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,20,Barnes-Kasson County Hospital,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,23,Robert Packer Hospital,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,26,Wellspan Waynesboro Hospital,881989,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,27,"Windber Hospital, Inc. dba Chan Soon-Shiong Medical Center at Windber",985100,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,28,"Punxsutawney Area Hospital, Inc.",605721,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,29,Meadville Medical Center dba Meadville Medical Center Health Services (MMCHS),997900,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,30,Corry Memorial Hospital dba LECOM Health Corry Memorial Hospital,1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,43,Clarion Psychiatric Center,998287,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,45,"St. Luke's Hospital of Bethlehem, Pennsylvania dba St. Luke's Hospital - Lehighton Campus, formerly Blue Mountain Hospital",1000000,NOT_RECORDED,,FALSE,,
+PA,pa_year1_awardees.csv,46,DLP Conemaugh Memorial Medical Center LLC dba Conemaugh Memorial Medical Center,999845,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,6,The City of York Health Care Authority DBA Hill Hospital of Sumter County,344269,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,7,Clay County Healthcare Authority,814941,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,8,Gadsden Regional Medical Center LLC,1400000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,10,HH Health System – Athens Limestone LLC,886464,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,11,HH Health System – Jackson LLC,1890000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,12,Infirmary Health System Inc.,3500000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,13,Ivy Creek Healthcare LLC,530600,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AL,al_year1_awardees.csv,18,The Russell Hospital Corporation,839753,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,20,Sylacauga Healthcare Authority,2020000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,22,UAB St. Vincent’s Blount,839753,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,23,UAB St. Vincent’s Chilton LLC,839753,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,24,UAB St. Vincent’s St. Clair,839753,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,27,"The Washington County Health Care Authority, Inc.",27000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,29,Wilcox Hospital Board DBA J. Paul Jones Rural Emergency Hospital,839753,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,31,Andalusia Health,625257,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,32,Andalusia Health,176980,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,39,City of Jackson Healthcare Authority DBA Jackson Medical Center,98300,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,40,Clay County Healthcare Authority,1540000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,41,Crenshaw County Healthcare Authority,1080000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,42,Dale Medical Center,305775,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,43,The DCH Health Care Authority,2000000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,44,The East Alabama Health Care Authority,6770000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,45,The East Alabama Health Care Authority,1290000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,48,Floyd Cherokee Medical Center,500000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,51,Gadsden Regional Medical Center,150000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,52,Affinity Hospital DBA Grandview Medical Center,451350,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,53,Hale County Hospital,2410000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,54,Healthcare Authority of the City of Greenville – L.V. Stabler Hospital,4170000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,55,Huntsville Hospital Health System,2800000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,56,City of York Health Care Authority DBA Hill Hospital of Sumter County,1530000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,57,Infirmary Health System Inc.,386000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,58,Infirmary Health System Inc.,1120000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,59,Ivy Creek Healthcare,1660000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AL,al_year1_awardees.csv,60,Lakeland Community Hospital Inc.,490800,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,61,RCHP-Florence LLC DBA North Alabama Shoals Hospital,179607,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,62,RCHP-Florence LLC DBA North Alabama Shoals Hospital,123000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,65,QHG of Enterprise Inc.,2770000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,69,The Russell Hospital Corporation,1250000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,70,The Russell Hospital Corporation,439720,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,71,Russellville Hospital,1290000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,73,UAB St. Vincent’s Chilton,1210000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,74,Sylacauga Healthcare Authority DBA Coosa Valley Medical Center,5680,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,75,Sylacauga Healthcare Authority DBA Coosa Valley Medical Center,84278,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,76,Tanner Medical Center Alabama Inc.,289921,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,80,The Troy Hospital Health Care Authority,623000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,81,Wiregrass Medical Center,391000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,84,Vaughan Regional Medical Center,780332,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,85,Tombigbee Healthcare Authority DBA Whitfield Regional Hospital,259011,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,86,Wilcox Hospital Board DBA J. Paul Jones Rural Emergency Hospital,116880,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,93,Clay County Healthcare Authority,293000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,94,Cullman Regional Medical Center Inc.,3800000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,95,The DCH Health Care Authority,3000000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,96,East Alabama Health Care Authority,1500000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,99,Gadsden Regional Medical Center LLC,550000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,100,HH Health System – Marshall LLC,935000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,101,Infirmary Health System Inc.,342147,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,105,Sylacauga Healthcare Authority,600000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,106,Triad of Alabama DBA Flowers Hospital,727000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,117,City of Jackson Healthcare Authority DBA Jackson Medical Center,158215,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,119,East Alabama Health Care Authority,731055,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,121,City of York Health Care Authority DBA Hill Hospital of Sumter County,677120,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,131,Floyd Cherokee Medical Center LLC,31152,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,4,Cordova Community Medical Center,155000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,12,Maniilaq Association,828892.8,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,14,Norton Sound Health Corporation,70021.25,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,25,Yukon-Kuskokwim Health Corporation,2636272.39,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,27,Yukon-Kuskokwim Health Corporation,2712511.49,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,30,Alaska Native Tribal Health Consortium,4808670,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,32,Bartlett Regional Hospital,231669,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,33,Bristol Bay Area Health Corporation,75000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,34,Bristol Bay Area Health Corporation,13990.29,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,54,Norton Sound Health Corporation,219980,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,57,South Peninsula Hospital,958193,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,62,Alaska Native Tribal Health Consortium,1603406,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,65,Central Peninsula General Hospital,1950030,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,72,Mat-Su Regional Medical Center,250000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,76,Norton Sound Health Corporation,650748.21,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,79,Providence Health & Services- Washington,772500,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,80,Providence Health & Services- Washington,1080000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,100,Alaska Native Tribal Health Consortium,295994,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,107,Arctic Slope Native Association,2000000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,108,Arctic Slope Native Association,2000000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,110,Arctic Slope Native Association,500000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,112,Bartlett Regional Hospital,341943,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,122,Cordova Community Medical Center,1291355,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,146,Maniilaq Association,1172759.64,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,147,Maniilaq Association,218964,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,157,Norton Sound Health Corporation,398666.23,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,158,Norton Sound Health Corporation,259551,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,163,PeaceHealth Ketchikan Medical Center,6518028.8,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,164,PeaceHealth Ketchikan Medical Center,200767.66,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,165,Petersburg Medical Center,446453,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,166,Petersburg Medical Center,437542,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,168,Providence Health & Services- Washington,381512.34,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,178,Southeast Alaska Regional Health Consortium,1350027,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,187,The Greater Fairbanks Community Hospital Foundation,16009453.33,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,196,Maniilaq Association,430000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,197,Maniilaq Association,1151900,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,199,Norton Sound Health Corporation,4978914,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,200,Norton Sound Health Corporation,364764.4,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,201,Providence Health & Services- Washington,1086793.17,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,202,Providence Health & Services- Washington,871718.47,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,204,South Peninsula Hospital,220481,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,223,Petersburg Medical Center,159947,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,237,Norton Sound Health Corporation,292006,NOT_RECORDED,,FALSE,,
+MI,mi_year1_awardees.csv,14,MyMichigan Health (EMS - Chronic Disease),182197,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+MI,mi_year1_awardees.csv,44,Family Medical Center - Lenawee,76924,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,1,Adventist Columbia Gorge Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,2,Adventist Tillamook Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,3,Asante Ashland Comm Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,4,Bay Area Hosp,1394000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,5,Blue Mountain Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,6,Columbia Memorial Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,7,Coquille Valley Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,8,Curry General Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,9,Good Shepherd Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,10,Grande Ronde Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,11,Harney District Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,12,Lake District Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,13,Legacy Silverton Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,14,Lower Umpqua Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,15,Mercy Medical,1394000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,16,PeaceHealth Cottage Grove,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,17,PeaceHealth Peace Harbor,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,18,Pioneer Memorial - Heppner,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,19,Providence Hood River Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,20,Providence Newberg Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,21,Providence Seaside Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,22,Saint Alphonsus - Baker City,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,23,Saint Alphonsus - Ontario,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,24,Salem Health West Valley Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,25,Samaritan Lebanon Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,26,Samaritan North Lincoln Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,27,Samaritan Pacific Comm Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,28,Santiam Memorial Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,29,Sky Lakes Med Ctr,1394000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,30,Southern Coos Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,31,St. Anthony Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,32,St. Charles - Madras,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,33,St. Charles - Prineville,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,34,Wallowa Memorial Hospital,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,35,Willamette Valley Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
+OR,or_year1_awardees.csv,152,Curry Health District (DBA Curry Health Network),600000,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,160,"Grande Ronde Hospital, Inc.",3208988,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,162,Harney County Health District (DBA Harney District Hospital),2409781.19,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,170,Lower Umpqua Hospital District,650000,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,171,Lower Umpqua Hospital District,1200000,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,175,"Mid-Valley Healthcare, Inc. (DBA Samaritan Lebanon Community Hospital)",796298.3,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,201,PeaceHealth Peace Harbor Medical Center,246020.98,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,205,Providence Health & Services – Oregon (DBA Providence Hood River Memorial Hospital),2294245.23,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,208,Samaritan North Lincoln Hospital,229084.34,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,211,Silverton Health (DBA Legacy Silverton Medical Center),777407.4,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,212,Silverton Health (DBA Legacy Silverton Medical Center),329423.48,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,214,Sky Lakes Foundation (DBA Healthy Klamath),469987.33,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OR,or_year1_awardees.csv,215,Sky Lakes Medical Center,586740,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,228,Wallowa County Health Care District (DBA Wallowa Memorial Hospital / Wallowa Memorial Medical Clinic),516852.93,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,229,Wallowa County Health Care District (DBA Wallowa Memorial Hospital / Wallowa Memorial Medical Clinic),1345688.83,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,2,South Mississippi State Hospital,50000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,4,"Corinth Family Medical Center, PC",98702,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,16,Memorial Health System,650000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,23,Magee Benevolent Association,825000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250124: PART A PROVIDER - HOSPITAL",FALSE,250124,ORG_WEBSITE
+MS,ms_year1_awardees.csv,35,Choctaw Regional Medical Center,46113,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,37,Northwest Mississippi Regional Medical Center,917166,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,38,George County Hospital,330000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,39,Memorial Health System,2980874,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,40,"Baptist Memorial Hospital-Calhoun, Inc.",1491000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,41,George County Hospital,30555,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,42,Memorial Health System,83599,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,43,Copiah County Medical Center,44404,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,44,George County Hospital,84000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,45,Memorial Health System,156000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,46,Claiborne County Hospital d/b/a Claiborne County Medical Center,135070,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,47,George County Hospital,102381,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,48,"The Mississippi Methodist Hospital and Rehabilitation Center, Inc",179900.18,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,49,Covington County Hospital,829240,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,50,Memorial Health System,684325,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,51,University of Mississippi Medical Center,826256,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,52,Northwest Mississippi Regional Medical Center,212674,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,53,"The Mississippi Methodist Hospital and Rehabilitation Center, Inc",87061,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,54,South Mississippi State Hospital,180000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,55,Copiah County Medical Center,55000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,56,South Mississippi State Hospital,16000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,57,South Mississippi State Hospital,30000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,58,George County Hospital,395500,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,59,South Mississippi State Hospital,3600,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,60,South Mississippi State Hospital,17600,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,61,Ochsner MS,3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250069: PART A PROVIDER - HOSPITAL",FALSE,250069,GENERAL_KNOWLEDGE
+MS,ms_year1_awardees.csv,62,Southwest Mississippi Regional Medical Center,50000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,63,Southwest Mississippi Regional Medical Center,30000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,64,Tyler Holmes Memorial Hospital,263270,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,65,Neshoba County General Hospital,255000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,66,Southwest Mississippi Regional Medical Center,18200,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,67,Southwest Mississippi Regional Medical Center,120000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,68,Magee Benevolent Association,2131454,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250124: PART A PROVIDER - HOSPITAL",FALSE,250124,ORG_WEBSITE
+MS,ms_year1_awardees.csv,69,Memorial Health System,2874728,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,70,Tallahatchie General Hospital,125790,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,71,Tippah County Hospital,151300,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,72,Tippah County Hospital,400000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,73,Merit Health River Region,3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250031: PART A PROVIDER - HOSPITAL",FALSE,250031,ORG_WEBSITE
+MS,ms_year1_awardees.csv,74,Delta Health System,891750,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,75,Wayne General Hospital,554357,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,76,Field Memorial Community Hospital,7800,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,77,Winston County Medical Foundation,369150,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250027: PART A PROVIDER - HOSPITAL",FALSE,250027,ORG_WEBSITE
+MS,ms_year1_awardees.csv,78,Winston County Medical Foundation,2085315,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250027: PART A PROVIDER - HOSPITAL",FALSE,250027,ORG_WEBSITE
+MS,ms_year1_awardees.csv,84,King's Daughters Medical Center,326441,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,85,King's Daughters Medical Center,960920,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,88,"Simpson Community Healthcare, Inc.",830000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 251317: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,251317,ORG_WEBSITE
+MS,ms_year1_awardees.csv,90,Independent Healthcare Management Inc,730000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 251300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,251300,ORG_WEBSITE
+MS,ms_year1_awardees.csv,99,Winston County Medical Foundation,1090138.34,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250027: PART A PROVIDER - HOSPITAL",FALSE,250027,ORG_WEBSITE
+MS,ms_year1_awardees.csv,100,University of Mississippi Medical Center Greenwood,3000000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,103,Memorial Health System,1151594,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,105,"Independent Healthcare Management, Inc.",3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 251300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,251300,ORG_WEBSITE
+MS,ms_year1_awardees.csv,107,Tate County Hospital,1500000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,108,Copiah County Medical Center,643700.4,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,109,Yalobusha General Hospital,175000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,111,Progressive Health of Houston,1645000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250785: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,250785,ORG_WEBSITE
+MS,ms_year1_awardees.csv,112,Winston County Medical Foundation,240852.15,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250027: PART A PROVIDER - HOSPITAL",FALSE,250027,ORG_WEBSITE
+MS,ms_year1_awardees.csv,113,North Sunflower Medical Center,1000000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,114,Progressive Health of Houston,1383406,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250785: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,250785,ORG_WEBSITE
+MS,ms_year1_awardees.csv,115,Memorial Health System,1160837,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,116,"Webster Healthcare Services, Inc.",500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250020: PART A PROVIDER - HOSPITAL",FALSE,250020,GENERAL_KNOWLEDGE
+MS,ms_year1_awardees.csv,117,Copiah County Medical Center,29063.6,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,119,South Central Regional Medical Center,3000000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,120,"North Mississippi Medical Center, Inc.",2500000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,122,South Central Regional Medical Center,3000000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,124,Jasper General Hospital,535000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,126,Southwest Mississippi Regional Center,277077,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250097: PART A PROVIDER - HOSPITAL",FALSE,250097,GENERAL_KNOWLEDGE
+MS,ms_year1_awardees.csv,128,George County Hospital,220000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,129,George County Hospital,1501000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,131,Memorial Health System,3000000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,134,Yalobusha General Hospital,275000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,138,Northwest Mississippi Regional Medical Center,834750,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,145,Choctaw Regional Medical Center,394000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,146,Progressive Health of Houston,336000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250785: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,250785,ORG_WEBSITE
+MS,ms_year1_awardees.csv,147,Memorial Health System,1920000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,150,Memorial Health System,72750,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,154,University of Mississippi Medical Center,149100,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,156,Forrest County General Hospital,596026,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,160,Wayne General Hospital,200000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,161,South Central Regional Medical Center,2543900,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,165,Memorial Health System,306515,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,1,Hutchinson Regional Healthcare System,3000000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,2,Gove County Medical Center,3000000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,3,Clara Barton Medical Center,2933500,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,4,Pratt Regional Medical Center,2869082,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,5,Freeman Fort Scott Hospital,2502999,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,6,Hays Medical Center,2478316,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,7,South Central Kansas Health,2378188,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+KS,ks_year1_awardees.csv,8,Labette Health,2145677,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+KS,ks_year1_awardees.csv,10,Wilson Medical Center,1555143,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,11,Memorial Health System,1500000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,12,Hillsboro Community Hospital,837000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,13,Smith County Memorial Hospital,550000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,14,Greeley County Health Services,458286,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+KS,ks_year1_awardees.csv,15,Mercy Hospital Columbus,375981,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,16,Ashland District Hospital,361478,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,18,Children’s Mercy Hospital,6096062,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,19,Stormont Vail Health,5465969,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+KS,ks_year1_awardees.csv,23,Citizen’s Foundation (Citizens Health),2832423,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+KS,ks_year1_awardees.csv,25,Clay County Medical Center,2536000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,26,Coffeyville Regional Medical Center,2500000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,30,Greeley County Health Services,1541906,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+KS,ks_year1_awardees.csv,32,AdventHealth Ottawa,1395814,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+KS,ks_year1_awardees.csv,33,Labette County Medical Center,1383289,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,36,Mercy Hospital Pittsburg,681711,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,40,"Hutchinson Regional Medical Center, Inc",150000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,41,"Hospital District No. 6 of Harper County, Kansas",150000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,42,"Great Plains of Smith County, Inc",150000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+KS,ks_year1_awardees.csv,43,"Hospital District No. 1 of Dickinson County, Kansas, DBA Memorial Health System",150000,NOT_RECORDED,,FALSE,,
+KS,ks_year1_awardees.csv,44,"CommonSpirit Kansas, Inc",149960,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+KS,ks_year1_awardees.csv,46,Newman Memorial County Hospital,110716,NOT_RECORDED,,FALSE,,
+MD,md_year1_awardees.csv,7,Chester River Health System Inc (UM Shore Regional),4913250,NOT_RECORDED,,FALSE,,
+MD,md_year1_awardees.csv,12,Frederick Memorial Hospital,3948645,NOT_RECORDED,,FALSE,,
+MD,md_year1_awardees.csv,14,Garrett Regional Medical Center,1682177,NOT_RECORDED,,FALSE,,
+MD,md_year1_awardees.csv,16,Kennedy Krieger Institute,1000000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+MD,md_year1_awardees.csv,19,MedStar St. Mary's Inc,2522586,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+MD,md_year1_awardees.csv,20,Meritus Health Center,3583406,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+MD,md_year1_awardees.csv,27,TidalHealth,4911052,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+MD,md_year1_awardees.csv,31,Children's Hospital,1100000,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,12,Beatrice Community Hospital (BFIM),303632.96,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,14,Boone County Health Center,340000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,15,Urban Indian Medical Center,338726.41,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,16,Morrill County Community Hospital,340000,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,17,Winnebago Comprehensive Health System,339612.19,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,19,Niobrara Valley Hospital,340000,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,20,Beatrice Community Hospital (Virtual Nursing),334524.04,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,22,Memorial Community Hospital and Health System,152274.61,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,24,Chase Community Hospital,338714.13,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,25,Pawnee County Memorial Hospital,339996.26,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,26,Antelope Memorial Hospital,284957.28,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,27,Gothenburg Health,309749.28,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,28,Memorial Health Care System,339999.92,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,33,Webster County Community Hospital,90000,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,34,Antelope Memorial Hospital,778897.18,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,35,Beatrice Community Hospital & Health Center,278684.02,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,36,Box Butte General Hospital,200000,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,37,CHI Good Samaritan/CHI St. Francis,430601.57,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,38,CHI Health Plainview,355311.03,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,39,CHI Health Schuyler,711629.63,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,40,CHI St. Mary’s,908475.54,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,41,Chase County Community Hospital,195523.2,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,42,Faith Health,578673.7,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,43,Genoa Health Center,200000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,46,Jefferson Community Health & Life,446741.33,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,47,Johnson County Hospital,393220.57,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,48,Mary Lanning Healthcare,460239.4,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,49,Methodist Fremont Health,334176.13,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,53,Pawnee County Memorial Hospital,479692.57,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,54,Providence Medical Center,311698.7,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,55,Regional West Medical Center,736148.14,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,56,Syracuse Area Health,200000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_year1_awardees.csv,57,Winnebago Comprehensive Healthcare System,414693.75,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,58,Boone County Health Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,59,Brodstone Healthcare,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,60,Brown County Hospital,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,61,Butler County Health Care Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,62,Callaway District Hospital,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,63,Cherry County Hospital,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,64,Cozad Community Health System,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,65,Fillmore County Hospital,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,66,Franciscan Healthcare,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,67,Gothenburg Health,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,68,Harlan County Health System,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,69,Howard County Medical Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,70,Jefferson Community Health and Life,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,71,Jennie M. Melham Memorial Medical Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,72,Lexington Regional Health Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,73,Memorial Community Health,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,74,Memorial Health Care Systems,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,75,Sidney Regional Medical Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,76,Tri Valley Health System,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,77,Valley County Health System,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,78,York General Health Care Services,,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,4,Beaver County Memorial Hospital,67298.38,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,9,Choctaw County City of Hugo Hospital Authority,49514.09,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,10,Cimarron Memorial Hospital and Rural Health Clinic,46060.95,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,13,Comanche County Hospital Authority,50000,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,14,DRH Health,24337.82,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OK,ok_year1_awardees.csv,15,Baptist Healthcare,36594,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+OK,ok_year1_awardees.csv,18,St. Francis Health System,25000,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,19,Seiling Municipal Hospital,48990,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,20,"Newman Memorial Hospital, Inc.",49749.95,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,22,Lindsay Municipal Hospital,39799.38,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,25,Jackson County Memorial Hospital Authority,34152.99,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,26,Jackson County Memorial Hospital Authority,34152.99,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,27,Harper County Community Hospital,60360.41,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,31,DRH Health,42270.62,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OK,ok_year1_awardees.csv,32,Mercy Hospital Oklahoma Communities,50000,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,36,"The LeFlore County Hospital Authority, dba Eastern Oklahoma Medical Center (EOMC)",86783,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,39,Fairview Regional Medical Center,100000,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,40,"Marshall County HMA, dba AllianceHealth Madill",47300,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OK,ok_year1_awardees.csv,42,Purcell Municipal Hospital,92167.82,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,45,Arbuckle Memorial Hospital,48657.9,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,51,Baptist Healthcare,36594,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+OK,ok_year1_awardees.csv,55,SSM Health St. Anthony Shawnee,48300,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OK,ok_year1_awardees.csv,62,Memorial Hospital of Texas County Authority,49737,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,64,Wagoner Hospital,49852,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,67,"Alva Hospital Authority, dba Share Medical Center",47809.64,NOT_RECORDED,,FALSE,,
+OK,ok_year1_awardees.csv,68,"Newman Memorial Hospital, Inc.",49419.72,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,1,Banner Churchill Community Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,2,Boulder City Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,7,DVH Hospital Alliance LLN dba Desert View Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,12,Humboldt General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,13,Lincoln County Hospital District dba Grover C. Dils Medical Center,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,14,Mesa View Regional Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,15,Mt. Grant General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,16,Northern Nevada Regional Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,17,Northern Nye County Hospital District Clinic,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,18,Pershing General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,19,Silver Springs Stagecoach Hospital District,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,20,South Lyon Co Hospital District,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,23,Washoe Barton Medical Clinic DBA Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,24,Washoe Barton Medical Clinic DBA Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,25,William Bee Ririe Hospital and Clinics,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,28,William Bee Ririe Hospital and Clinics,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,29,Humboldt General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,30,Incline Village Community Hospital Foundation,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,31,Intermountain Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,36,Northeastern Nevada Regional Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,39,Banner Churchill Community Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,41,Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,47,Humboldt General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,49,Grover C. Dils Medical Center,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,52,Desert View Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,70,Renown Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,71,Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,1,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,2,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,3,Avera Merrill Pioneer Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,4,Boone County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,5,Boone County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,6,Cass County Memorial Hospital DBA Cass Health,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,7,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,8,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,9,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,10,CHI Health Missouri Valley,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,11,CHI Health Missouri Valley,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,12,Clarke County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,18,Crawford County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,19,Dallas County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,20,Davis County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,21,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,22,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,23,Floyd County Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,24,Floyd County Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,25,Floyd Valley Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,26,Floyd Valley Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,27,George C. Grape Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,28,George C. Grape Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,30,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,31,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,32,Guthrie County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,33,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,34,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,35,Hamilton County Hospital dba Van Diest Medical,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,36,Center Hancock County Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,37,Hegg Memorial Hospital DBA Hegg Memorial,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,38,Health Center Humboldt County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,39,Ida County Iowa Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,43,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,44,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,45,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,46,Keokuk Area Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,47,Kossuth Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,48,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,49,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,50,Madison County Healthcare System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,51,Mahaska County Hospital dba Mahaska Health,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,52,Partnership Mahaska County Hospital dba Mahaska Health Partnership,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,53,Manning Regional Healthcare Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,54,Manning Regional Healthcare Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,55,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,56,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,57,"Mercy Health Services- Iowa, Corp.",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,58,MercyOne Clinton Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,59,MercyOne Elkader Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,60,MercyOneGenesis DeWitt Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,61,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,62,MercyOne Newton Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,63,MercyOne North Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,64,MercyOneNorth Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,65,MercyOne North Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,66,Mitchell County Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,68,Center Monroe County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,70,Osceola Community Hospital DBA Osceola Regional Health Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,71,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,72,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,73,Palmer Lutheran Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,74,Palo Alto County Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,75,Pella Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,79,Regional Health Services of Howard County,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,80,Regional Health Services of Howard County,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,81,Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,82,Ringgold County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,83,Ringgold County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,84,Sanford Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,85,"Sanford Health Network - Sioux Falls, SD",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,86,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical Center",,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,87,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical",,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,88,Center Shenandoah Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,89,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,90,Sioux Valley Memorial Hospital Association,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,91,Sioux Valley Memorial Hospital Association,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,92,Spencer Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,93,Spencer Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,94,St. Anthony Regional Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,95,St. Joseph's Mercy Hospital DBA MercyOne,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,96,Centerville Medical Center Stewart Memorial Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,97,UnityPoint Health - Marshalltown,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,98,UnityPoint Health - Marshalltown,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,99,Van Buren County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,100,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,101,Virginia Gay Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,102,Washington County Hospital and Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,103,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,105,WinnMed,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,106,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,107,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,110,Shelby Co. DBA Myrtue Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,111,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,112,Manning Regional Health Care Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,113,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,114,Jennie Edmundson Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,115,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,116,Knoxville Hospital and Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,117,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,118,Central Iowa Hospital Corporation,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,119,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,122,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,123,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,124,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,125,Burgess Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,126,Crawford County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,127,Dallas County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,128,Davis County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,129,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,130,Ellsworth Municipal Hospital DBA Hansen Family Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,131,Floyd Valley Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,132,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,133,Hancock County Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,134,Hawarden Regional Healthcare DBA Hawarden Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,135,Humboldt County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,136,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,137,Mahaska County Hospital dba Mahaska Health Partnership,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,138,Manning Regional Healthcare Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,139,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,140,"Mercy Health Services-Iowa, Corp.",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,141,MercyOne Clinton Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,142,MercyOne Elkader Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,143,MercyOne Genesis Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,144,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,145,MercyOne Newton Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,146,MercyOne North Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,147,MercyOne Oelwein Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,148,Mitchell County Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,149,Orange City Area Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,150,Pella Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,151,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical Center",,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,152,Sioux Valley Memorial Hospital Association,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,153,St. Joseph's Mercy Hospital DBA MercyOne Centerville Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,154,St. Luke's Jones Regional Medical Center DBA Jones Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,155,Van Buren County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,156,Waverly Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,157,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,158,WinnMed,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,159,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,160,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,161,Shenandoah Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,162,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,163,Mary Greeley Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,164,Hegg Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,165,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,166,Henry County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,167,Montgomery County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,168,Floyd County Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,169,Buchanan County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,170,Cass County Memorial Hospital dba Cass Health,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,171,Kossuth Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,172,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,173,Regional Health Services of Howard County,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,174,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,175,CHI Health Missouri Valley,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,176,Ringgold County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,177,Keokuk County Hospitals & Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,178,Guthrie County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,179,Grundy County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,180,Palo Alto County Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,181,Washington County Hospital & Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,182,Iowa Specialty Hospital -Clarion,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,183,Unity Healthcare dba Trinity Muscatine Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,184,Jackson County Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,185,Jefferson County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,186,Knoxville Hospital & Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,187,Spencer Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,188,Emplify Health by Gundersen,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,189,Grinnell Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,190,Southeast Iowa Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,191,Unity Healthcare dba Trinity Muscatine Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,192,Franklin General Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,193,Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,194,Hamilton County Hospital dba Van Diest Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,196,Stewart Memorial Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,197,"Sanford Health Network –Sioux Falls, SD (Rock Rapids)",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,199,Shenandoah Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,200,Boone County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,201,Trinity Regional Medical Center –Ft. Dodge,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,202,Loring Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,203,Clarke County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,204,Hawarden Regional Healthcare dba Hawarden Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,205,"Sanford Health Network –Sioux Falls, SD (Sheldon)",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,206,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,210,Montgomery County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,214,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,215,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,217,Montgomery County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,218,Marengo Memorial Hospital dba Compass Memorial Healthcare,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,219,Marengo Memorial Hospital dba Compass Memorial Healthcare,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,220,Buena Vista Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,221,Palmer Lutheran Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,222,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,223,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,224,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,227,Orange City Area Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,229,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,230,Virginia Gay Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,231,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,232,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,235,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,237,MercyOne Oelwein Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,239,Knoxville Hospital & Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,240,Shelby County Chris A Myrtue Memorial Hospital dba Mrytue Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,241,Lakes Regional Healthcare,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,242,Iowa Specialty Hospital -Clarion,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,243,"Mercy Health Services -Iowa, Corp",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,244,MercyOne Elkader Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,245,Audubon County Memorial Hospita,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,246,Knoxville Hospital & Clinics,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,247,MercyOne Newton Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,248,Clarke County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,258,Audubon County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,261,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,262,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+NC,nc_year1_awardees.csv,9,Cape Fear Valley Mobile Integrated Health (MIH),,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_awardees.csv,4,Arkansas Children's Hospital,301400,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,7,Baptist Health,1926432,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_awardees.csv,8,Baptist Health,15000000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_awardees.csv,9,Baxter Health,7738729.91,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_awardees.csv,10,Baxter Health,12000000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_awardees.csv,14,Conway Regional Health System,795960,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,16,Delta Memorial Hospital,24720,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,19,Jefferson Hospital Association,3000000,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,20,"John Ed Chambers Memorial Hospital, Inc.",2187999.96,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,21,Johnson Regional Medical Center,974455,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,23,Mercy Health Fort Smith Communities,6340043,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_awardees.csv,24,Mercy Health Fort Smith Communities,12716206,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_awardees.csv,25,Methodist Le Bonheur Community Outreach,340725,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_awardees.csv,26,Mississippi County Hospital System,9602657,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,28,North Arkansas Regional Medical Center,3000000,NOT_RECORDED,,FALSE,,
+AR,ar_year1_awardees.csv,30,St. Bernards Development Foundation,5000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_awardees.csv,31,St. Bernards Development Foundation,9551090,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_awardees.csv,36,White County Medical Center,1905496,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,1,Memorial Hospital of Converse County (MHCC),3058000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,2,Sheridan Memorial Hospital,6662685,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,3,Powell Valley Health Care Inc,3128331,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,4,Cody Regional Health,2750000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,5,Johnson County Hospital District,3048158,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,6,North Lincoln County Hospital District dba Star Valley,2500000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,7,Crook County Medical Services District,1647000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,8,Hot Springs County Hospital District,1750000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,9,Memorial Hospital of Sweetwater County,1500000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,10,"South Big Horn County Hospital District, DBA as Thre",2656000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,11,Sublette County Hospital,1750000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,12,Memorial Hospital of Carbon County,5750000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,13,Teton County Hospital District dba St. John’s Health,1250000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,14,South Lincoln Hospital District,5750000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,15,North Big Horn Hospital District,1000000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,16,Evanston Regional Hospital,1250000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,17,Niobrara County Hospital District,1000000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,18,North Platte Valley Medical Center,1750000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
+WY,wy_year1_awardees.csv,19,Cody Regional Health,2200000,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,22,Sheridan Memorial Hospital,2200000,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,23,Crook County Medical Services District,2200000,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,24,North Lincoln County Hospital District dba Star Valley Heal,2200000,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,25,Memorial Hospital of Converse County,2200000,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,26,Campbell County Health (CCH) Emergency Medical Servic,1700000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+WY,wy_year1_awardees.csv,32,Memorial Hospital of Laramie County dba Cheyenne Regional Medical Center,2193968.9,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,33,Powell Valley Health Care,65000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+WY,wy_year1_awardees.csv,34,Johnson County Hospital District,4751700,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,35,Evanston Regional Hospital,2602426,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,37,Memorial Hospital of Laramie County dba Cheyen,415625,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,38,Campbell County Hospital District dba Campbell C,202590,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,40,Powell Valley Health Care,687302,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+WY,wy_year1_awardees.csv,41,Campbell County Hospital District dba Campbell C,381672,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,42,Riverton Memorial Hospital dba SageWest Health,2762508,NOT_RECORDED,,FALSE,,
+WY,wy_year1_awardees.csv,69,Sheridan Memorial Hospital,150660,NOT_RECORDED,,FALSE,,
+DE,de_year1_awardees.csv,1,Nemours Children's Health,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+DE,de_year1_awardees.csv,2,TidalHealth,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+DE,de_year1_awardees.csv,3,Beebe Healthcare,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+DE,de_year1_awardees.csv,4,Beebe Healthcare,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+SC,sc_year1_awardees.csv,6,Lexington Health,250804.9,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420073: PART A PROVIDER - HOSPITAL",FALSE,420073,ORG_WEBSITE
+SC,sc_year1_awardees.csv,7,Carolina Pines Regional Medical Center,268713,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,13,Newberry County Memorial Hospital,488532,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,17,Self Regional Healthcare (Lakelands Region),677000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,18,"Medical University Hospital Authority (MUSC Health, Orangeburg)",725020,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,19,"Prisma Health-Upstate (Oconee, Lee, and Laurens)",1094750,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,20,"Prisma Health-Upstate (Oconee, Laurens)",1349818,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,21,McLeod Health,4158700,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,28,Newberry County Memorial Hospital,158000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,31,Spartanburg Regional Healthcare System,188750,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,32,Newberry County Memorial Hospital,222684.15,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,33,Beaufort Memorial Hospital,225000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,34,AnMed,226396,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,37,Spartanburg Regional Healthcare System,255208,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,41,AnMed,300330,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,42,Allendale County Hospital,314485,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,44,Self Regional Healthcare (Lakelands Region),339734,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,48,Newberry County Memorial Hospital,469795.5,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,49,Self Regional Healthcare (Lakelands Region),630000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,50,Beaufort Memorial Hospital,645918,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,52,AnMed,1141375,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,53,Self Regional Healthcare (Lakelands Region),1330000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,54,Beaufort Memorial Hospital,1482135.89,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,57,The Carolina Center for Behavioral Health,1925000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 424010: PART A PROVIDER - HOSPITAL",FALSE,424010,ORG_WEBSITE
+SC,sc_year1_awardees.csv,58,Hampton Regional Medical Center,2141188,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,59,Medical University Hospital Authority (MUSC Center for Telehealth),4480337,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,60,Acadia Healthcare Co.,5565253,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 424002: PART A PROVIDER - HOSPITAL",FALSE,424002,GENERAL_KNOWLEDGE
+SC,sc_year1_awardees.csv,62,Self Regional Healthcare (Lakelands Region),8250712,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,63,Allendale County Hospital (ACH),75500,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,66,Prisma Health- Upstate (Anderson),428812,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,67,Medical University Hospital Authority,643534,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,68,"Prisma Health-Midlands (Orangeburg, Aiken, Oconee)",869239,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,70,Newberry County Memorial Hospital,2812844.29,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,71,Prisma Health-Upstate,101950,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,74,Self Regional Healthcare (Lakelands Region),124800,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,76,Prisma Health-Upstate,172036,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,77,Self Regional Healthcare (Lakelands Region),200000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,81,Medical University Hospital Authority,255438,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,82,Beaufort Memorial Hospital,297183,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,83,Prisma Health (Oconee),359900,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,84,AnMed,370904,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,88,AnMed,447116,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,91,AnMed,575000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,96,Medical University Hospital Authority,685501,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,98,Prisma Health-Upstate,760000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,100,McLeod Health,842300,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,105,AnMed,1086729,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420027: PART A PROVIDER - HOSPITAL",FALSE,420027,ORG_WEBSITE
+SC,sc_year1_awardees.csv,125,Prisma Health-Upstate (Bishopville),13011,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,126,Prisma Health-Upstate (Bishopville),15482,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,127,Prisma Health-Upstate (Laurens),30000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,128,Prisma Health-Upstate (Laurens),30700,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,130,Prisma Health-Upstate (Laurens),58000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,132,Prisma Health-Upstate (Winnsboro),68000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,133,Newberry County Memorial Hospital,92815.8,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,134,Hampton Regional Medical Center,98280,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,139,Hampton Regional Medical Center,125000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,140,Prisma Health-Upstate (Laurens),130000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,141,Self Regional Healthcare (Lakelands Region),140000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,143,Prisma Health-Upstate (Laurens),149300,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,144,Medical University Hospital Authority (Lancaster),150000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,152,Hampton Regional Medical Center,185267,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,154,Self Regional Healthcare (Saluda),210000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,155,Prisma Health-Upstate (Winnsboro),238360,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,159,Newberry County Memorial Hospital,303827.04,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,160,Self Regional Healthcare (Newberry),310000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,163,"Self Regional Healthcare (Imaging Center, Greenwood)",355000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,164,Newberry County Memorial Hospital,357744.4,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,165,Allendale County Hospital (ACH),363732,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,168,Medical University Hospital Authority (MUSC Health Chester),383000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,170,Medical University Hospital Authority (MUSC Health Lancaster),400000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,172,Self Regional Healthcare (Abbeville),402800,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,173,Medical University Hospital Authority (MUSC Health Chester),405000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,174,Medical University Hospital Authority (MUSC Health Chester),410168,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,177,Hampton Regional Medical Center,537931,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,178,Spartanburg Regional Healthcare System,560050,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,179,Newberry County Memorial Hospital,570075,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,182,Allendale County Hospital,678448,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,183,Medical University Hospital Authority (MUSC Health Lancaster),700000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,184,Tidelands Health,801604,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,185,Prisma Health-Upstate (Laurens),846566,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,186,Edgefield County Healthcare,850000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 421304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,421304,ORG_WEBSITE
+SC,sc_year1_awardees.csv,187,Medical University Hospital Authority (MUSC Health Lancaster),1000000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,188,Edgefield County Healthcare,1031254,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 421304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,421304,ORG_WEBSITE
+SC,sc_year1_awardees.csv,189,Prisma Health-Upstate (Oconee),1042482,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+SC,sc_year1_awardees.csv,190,Medical University Hospital Authority (MUSC Health Pee Dee Division),1100000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,191,"Self Regional Healthcare (Montgomery Center, Greenwood)",1100000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,192,Newberry County Memorial Hospital,1113212.59,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,193,Self Regional Healthcare (Newberry),1165000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,194,Self Regional Healthcare (Lakelands Region),1271622.68,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,195,"Self Regional Healthcare (Optimum Life Rehabilitation Center, Greenwood)",1280000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,196,Newberry County Memorial Hospital,1292978.3,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,197,Hampton Regional Medical Center,1400000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,198,Spartanburg Regional Healthcare System,1440015,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,199,Self Regional Healthcare (Laurens),1460000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,200,Edgefield County Healthcare,1604417,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 421304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,421304,ORG_WEBSITE
+SC,sc_year1_awardees.csv,201,Allendale County Hospital,1614000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,202,Edgefield County Healthcare,1688865.6,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 421304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,421304,ORG_WEBSITE
+SC,sc_year1_awardees.csv,203,Edgefield County Healthcare,1700000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 421304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,421304,ORG_WEBSITE
+SC,sc_year1_awardees.csv,204,Hampton Regional Medical Center,1716000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,205,Medical University Hospital Authority (MUSC Health Orangeburg),2000000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,206,Spartanburg Regional Healthcare System,2069939,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,207,Carolina Pines Regional Medical Center,2163031,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,208,HCA Healthcare Colleton Hospital,2262000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,209,Aiken Regional Medical Center,2519500,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,210,Hampton Regional Medical Center,2638535,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,211,McLeod Health on behalf of McLeod Health Dillon (MHD),2862454,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420005: PART A PROVIDER - HOSPITAL",FALSE,420005,ORG_WEBSITE
+SC,sc_year1_awardees.csv,212,Newberry County Memorial Hospital,2884456.81,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,214,Self Regional Healthcare (Lakelands Region),3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,216,Rebound Behavioral Health,120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 424014: PART A PROVIDER - HOSPITAL",FALSE,424014,ORG_WEBSITE
+SC,sc_year1_awardees.csv,225,Self Regional Healthcare (Lakelands Region),1700000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 420071: PART A PROVIDER - HOSPITAL",FALSE,420071,ORG_WEBSITE
+SC,sc_year1_awardees.csv,226,Hampton Regional Medical Center,2645000,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,227,Hampton Regional Medical Center,1701548,NOT_RECORDED,,FALSE,,
+SC,sc_year1_awardees.csv,228,Medical University Hospital Authority,1869817,NOT_RECORDED,,FALSE,,

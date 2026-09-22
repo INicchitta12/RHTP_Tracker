@@ -82,7 +82,12 @@ UF_SOURCES <- c(
   CMS_FQHC = "https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data (FQHC Enrollments, 2026-07-17)",
   CMS_RHC  = "https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data (RHC Enrollments, 2026-07-17)",
   IRS_990  = "https://projects.propublica.org/nonprofits/ (IRS Business Master File / Form 990)",
-  KNOWN    = "no citable source for the FORM; the answer is this project's own knowledge (§0.4, session 49 policy 3)"
+  KNOWN    = "no citable source for the FORM; the answer is this project's own knowledge (§0.4, session 49 policy 3)",
+  # Added session 51 for two of the four organisations this file had refused.
+  # Both are ARCHIVED under data/evidence/federal_records/2026-09-22/, which is
+  # the difference from the four above: those were cited and not committed.
+  NPPES_IRS = "https://npiregistry.cms.hhs.gov/ (NPPES NPI Registry) + https://www.irs.gov/pub/irs-soi/eo_sc.csv (IRS EO Business Master File), archived data/evidence/federal_records/2026-09-22/",
+  NPPES    = "https://npiregistry.cms.hhs.gov/ (NPPES NPI Registry), archived data/evidence/federal_records/2026-09-22/"
 )
 
 # -- the decision table -------------------------------------------------------
@@ -443,6 +448,16 @@ UF_TYPES <- tibble::tribble(
     "nonprofit community clinic operator",
     "ORG_WEBSITE", "IRS_990",
     "The IRS Business Master File carries Plan A Health Inc as a 501(c)(3) with NTEE E32 (community clinic). Determined as a nonprofit clinic operator, not a hospital.",
+  "SC", "Community Initiatives Inc.",
+    "NONPROFIT_CBO",
+    "501(c)(3) human-services nonprofit (IRS EIN 31-1741660, NTEE P20), Greenwood SC",
+    "ORG_WEBSITE", "NPPES_IRS",
+    "SESSION 51, AND IT WAS REFUSED IN SESSION 50. Two federal publishers carry the state's awardee string exactly and put it in ONE city: the IRS Exempt Organizations Business Master File has 'COMMUNITY INITIATIVES INC', Greenwood SC, a 501(c)(3) with NTEE code P20 (human service organisations), and it is the ONLY organisation of that name in the South Carolina file; NPPES has 'COMMUNITY INITIATIVES, INC.', Greenwood SC, NPI 1235502808, taxonomy 'Voluntary or Charitable'. Neither is a CMS provider enrolment and neither is a hospital. The form is therefore DETERMINED, and it is the one §8's fallback happened to name -- so the type does not move, but the row stops asserting the form is unknown. $0 either way. Both SC rows keep the state's own spelling.",
+  "SC", "Graceful Health Solutions, LLC",
+    "OTHER",
+    "for-profit community health clinic operated as a limited liability company (NPPES taxonomy 'Clinic/Center, Community Health'), Spartanburg SC -- NOT an enrolled FQHC or RHC",
+    "ORG_WEBSITE", "NPPES",
+    "SESSION 51, AND IT WAS REFUSED IN SESSION 50. NPPES carries 'GRACEFUL HEALTH SOLUTIONS LLC', Spartanburg SC, NPI 1841015161, enumerated 2024-11-21, taxonomy 261QC1500X 'Clinic/Center, Community Health' -- the only organisation of that name in South Carolina. It appears in NONE of CMS's FQHC, RHC, hospital, home health, hospice or SNF enrolment files for South Carolina, so FQHC_OR_RHC would assert a federal designation the federal record does not carry. An LLC clinic is not a nonprofit CBO and not a physician practice on any source in hand, so it is §8's OTHER with the determined form stated. Not a hospital: $0 either way.",
   "SC", "AnMed",
     "HOSPITAL_OR_SYSTEM",
     "health system (AnMed Health, CCN 420027)",
@@ -947,18 +962,15 @@ UF_TYPES <- tibble::tribble(
 
 # THE ORGANISATIONS THIS PASS COULD NOT DETERMINE, AND THEY KEEP §8's STANDING
 # FALLBACK AND ITS FLAG. `RECIPIENT_TYPE_INFERRED`'s own note says it means the
-# form is UNDETERMINED, and on these four it still is. The two queue rows shrink
-# to cover exactly these and say so.
+# form is UNDETERMINED, and on these it still is. Session 51 settled the two
+# South Carolina ones from archived federal records; the two left are both
+# Mississippi, and UF_FORM_NOT_DETERMINABLE shrinks to cover exactly them.
 UF_REFUSALS <- tibble::tribble(
   ~state, ~awardee, ~why_not,
   "MS", "CAMHP Foundation",
-    "no reachable source names this organisation's form. The IRS Business Master File's only 'Camhp Foundation' is an Ohio body with an unrelated NTEE code, and nothing ties it to the Franklin County award. Typing it on the word 'Foundation' alone would be §10.2's hospital-foundation row applied with no parent -- the exact refusal session 49 recorded for Winston County before a source was found for that one.",
+    "no reachable source names this organisation's form. The IRS Business Master File's only 'Camhp Foundation' is an Ohio body with an unrelated NTEE code, and nothing ties it to the Franklin County award. Session 51 re-searched the six CMS enrolment files, NPPES and the Mississippi EO BMF (archived, data/evidence/federal_records/2026-09-22/) and found nothing. Typing it on the word 'Foundation' alone would be §10.2's hospital-foundation row applied with no parent -- the exact refusal session 49 recorded for Winston County before a source was found for that one.",
   "MS", "Delta Health Transformation Council, Inc.",
-    "THE LARGEST SINGLE REFUSAL IN THIS PASS AT $3,000,000. No federal enrolment or IRS record carries it, which is consistent with a body incorporated too recently to file. It shares a stem with Delta Health System, the Greenville hospital, and with Delta Health Center, the FQHC -- so a stem match could type it either way and neither would be a determination. It keeps §8's fallback.",
-  "SC", "Community Initiatives Inc.",
-    "a generic corporate name that no reachable source resolves. Nothing distinguishes it from any other nonprofit of that name.",
-  "SC", "Graceful Health Solutions, LLC",
-    "no reachable source names its form; the name states only that it is a limited liability company in health services."
+    "THE LARGEST SINGLE REFUSAL IN THIS PASS AT $3,000,000, AND SESSION 51 RE-SEARCHED IT AND STILL REFUSES IT. No record carries it in any of SIX CMS enrolment files for Mississippi (hospital, FQHC, RHC, home health, hospice, SNF), in NPPES, or in the IRS EO Business Master File -- all archived under data/evidence/federal_records/2026-09-22/, which is what makes this a measured negative rather than a remembered one. The only Delta Health bodies those files do carry are Delta Health System (CCN 250082, the Greenville hospital) and Delta Health Center, Inc. (the FQHC), the two a stem match would have to choose between; typing it as either would be a determination by resemblance (§2). The award's own words ('robotic-assisted surgery ... [Washington County]') point at the Greenville hospital, and that is exactly why they are not used: a description describes the ACTIVITY and §0.3a judges the RECIPIENT. It keeps §8's fallback."
 )
 
 

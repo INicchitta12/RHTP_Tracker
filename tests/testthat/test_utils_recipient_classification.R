@@ -520,3 +520,25 @@ test_that("Georgia's GHA recipient_type divergence is recorded, not resolved", {
   expect_true(grepl("NONPROFIT_CBO", row$options[[1]], fixed = TRUE))
   expect_true(grepl("HOSPITAL_AFFILIATED_ENTITY", row$options[[1]], fixed = TRUE))
 })
+
+test_that("the partition REFUSES a priced Tier 2 pool row: a bucket must not mix tiers", {
+  # Session 51, §0.2. Session 50 put Iowa's $50,000,000 Centers of Excellence
+  # footer -- an RFP's advertised POOL -- into POOL_NAMED_HOSPITALS beside
+  # Nebraska's Tier 3 award. The partition is where the mistake would be
+  # summed, so it is where it fails, in every state.
+  base <- tibble::tibble(
+    state = "NE", amount = "18156856.12", distributed_to_hospital = "Yes",
+    flow_type = "PASS_THROUGH_DESIGNATED", recipient_type = "NONPROFIT_CBO",
+    hospital_attribution = "POOL_NAMED_HOSPITALS", flag_reason = NA_character_)
+  expect_silent(rhtp_hospital_dollar_partition(base))
+  pool <- tibble::tibble(
+    state = "IA", amount = "50000000", distributed_to_hospital = "Yes",
+    flow_type = "DIRECT", recipient_type = "HOSPITAL_OR_SYSTEM",
+    hospital_attribution = "POOL_NAMED_HOSPITALS",
+    flag_reason = "AMOUNT_IS_POOL_NOT_AWARD")
+  expect_error(rhtp_hospital_dollar_partition(dplyr::bind_rows(base, pool)),
+               "must not mix tiers")
+  # An UNPRICED row carrying the flag moves no dollar and is not refused.
+  pool$amount <- NA_character_
+  expect_silent(rhtp_hospital_dollar_partition(dplyr::bind_rows(base, pool)))
+})

@@ -56,11 +56,16 @@ test_that("nothing is typed that no committed row carries", {
   expect_silent(invisible(uf_residual(built = built())))
 })
 
-test_that("four organisations are REFUSED and keep the flag, and that is on purpose", {
+test_that("two organisations are REFUSED and keep the flag, and that is on purpose", {
+  # Session 50 refused FOUR. Session 51 settled the two South Carolina ones
+  # from ARCHIVED federal records (NPPES + the IRS EO BMF) and re-searched the
+  # two Mississippi ones against six CMS enrolment files, NPPES and the BMF
+  # without finding either -- so the refusal is now a measured negative.
   res <- uf_residual(built = built())
-  expect_equal(nrow(res), 4L)
-  expect_equal(sum(res$rows), 5L)
-  expect_equal(sum(res$dollars), 3999320, tolerance = 1e-6)
+  expect_equal(nrow(res), 2L)
+  expect_equal(sum(res$rows), 2L)
+  expect_equal(sum(res$dollars), 3250000, tolerance = 1e-6)
+  expect_true(all(res$state == "MS"))
   # The largest refusal is the one that matters: a $3,000,000 Mississippi row
   # whose stem matches BOTH a hospital and an FQHC, so a stem match could type
   # it either way and neither would be a determination (§2).
@@ -198,7 +203,7 @@ test_that("the overlay is IDEMPOTENT against the committed files", {
 test_that("Mississippi and South Carolina carry the typing, and the residual only", {
   m <- ms(); s <- sc()
   expect_equal(length(uf_open_rows(m)), 2L)
-  expect_equal(length(uf_open_rows(s)), 3L)
+  expect_equal(length(uf_open_rows(s)), 0L)  # session 51 settled the last three SC rows
   expect_equal(sum(m$hospital_attribution == "NAMED_HOSPITAL"), 84L)
   expect_equal(sum(s$hospital_attribution == "NAMED_HOSPITAL"), 113L)
   expect_equal(sum(as.numeric(m$amount[m$hospital_attribution == "NAMED_HOSPITAL"])),
@@ -252,6 +257,49 @@ test_that("every new code is in the vocabulary", {
 
 
 # -- the two queue rows this pass closes and the one it opens -----------------
+
+test_that("the two South Carolina refusals are settled from ARCHIVED federal records", {
+  sc <- sc_now <- readr::read_csv(here::here("data/reference/sc_year1_awardees.csv"),
+                                  col_types = readr::cols(.default = "c"),
+                                  na = character(), progress = FALSE)
+  ci <- sc[sc$awardee == "Community Initiatives Inc.", ]
+  expect_equal(nrow(ci), 2L)
+  expect_true(all(ci$recipient_type == "NONPROFIT_CBO"))
+  expect_true(all(ci$determination_confidence == "MEDIUM"))
+  expect_false(any(grepl("RECIPIENT_TYPE_INFERRED", ci$flag_reason)))
+  gh <- sc[sc$awardee == "Graceful Health Solutions, LLC", ]
+  expect_equal(nrow(gh), 1L)
+  expect_equal(gh$recipient_type, "OTHER")
+  expect_false(grepl("RECIPIENT_TYPE_INFERRED", gh$flag_reason))
+  # Neither is a hospital, so the partition does not move.
+  expect_true(all(c(ci$distributed_to_hospital, gh$distributed_to_hospital) == "No"))
+  # South Carolina has NO row left on §8's standing fallback.
+  expect_false(any(grepl("RECIPIENT_TYPE_INFERRED", sc$flag_reason)))
+
+  # The evidence is committed, and the manifest's digests re-hash.
+  dir <- here::here("data/evidence/federal_records/2026-09-22")
+  man <- readLines(file.path(dir, "MANIFEST.txt"))
+  rows <- grep("^[a-z_]+[A-Z]{2}\\.(json|csv) \\| [0-9a-f]{64}", man, value = TRUE)
+  expect_gte(length(rows), 16L)
+  for (r in rows) {
+    parts <- strsplit(r, " \\| ")[[1]]
+    expect_equal(digest::digest(file = file.path(dir, parts[1]), algo = "sha256"),
+                 parts[2], info = parts[1])
+  }
+  np <- jsonlite::fromJSON(file.path(dir, "nppes_graceful_health_solutions_SC.json"))
+  expect_equal(np$result_count, 1L)
+  expect_equal(np$results$basic$organization_name, "GRACEFUL HEALTH SOLUTIONS LLC")
+  irs <- readr::read_csv(file.path(dir, "irs_eo_bmf_SC_extract.csv"),
+                         col_types = readr::cols(.default = "c"), progress = FALSE)
+  expect_equal(irs$NAME[irs$NAME == "COMMUNITY INITIATIVES INC"], "COMMUNITY INITIATIVES INC")
+  expect_equal(irs$CITY[irs$NAME == "COMMUNITY INITIATIVES INC"], "GREENWOOD")
+  # And the Mississippi negatives are recorded as negatives.
+  for (f in c("nppes_delta_health_transformation_MS.json", "nppes_camhp_MS.json")) {
+    expect_equal(jsonlite::fromJSON(file.path(dir, f))$result_count, 0L)
+  }
+  h <- jsonlite::fromJSON(file.path(dir, "cms_hosp_enrollments_MS.json"))
+  expect_false(any(grepl("TRANSFORMATION COUNCIL|CAMHP", h$`ORGANIZATION NAME`)))
+})
 
 test_that("the Mississippi form and foundation questions read RESOLVED", {
   q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
@@ -308,36 +356,18 @@ test_that("the benchmark comparison is a check and not a target", {
 })
 
 
-# -- Iowa's Centers of Excellence pool row ------------------------------------
+# -- Iowa's Centers of Excellence pool: out of the partition (session 51) -----
 
-test_that("Iowa's pool row is POOL_NAMED_HOSPITALS and carries its tier", {
+test_that("Iowa has NO pool row: session 51 removed it (a bucket must not mix tiers)", {
   ia <- suppressMessages(readr::read_csv(
     here::here("data/reference/ia_year1_awardees.csv"),
     show_col_types = FALSE, progress = FALSE))
-  expect_equal(nrow(ia), 265L)
-  pool <- ia[!is.na(ia$flag_reason) &
-               grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason), ]
-  expect_equal(nrow(pool), 1L)
-  expect_equal(pool$amount, 50000000)
-  expect_equal(pool$hospital_attribution, "POOL_NAMED_HOSPITALS")
-  expect_equal(pool$amount_confirmed, "No")
-  expect_true(grepl("POOL ROW", pool$awardee))
-  expect_true(grepl("TIER 2", pool$amount_basis))
-})
-
-test_that("Iowa still prices NOBODY: every award action's amount is empty", {
-  ia <- suppressMessages(readr::read_csv(
-    here::here("data/reference/ia_year1_awardees.csv"),
-    show_col_types = FALSE, progress = FALSE))
-  actions <- ia[is.na(ia$flag_reason) |
-                  !grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason), ]
-  expect_equal(nrow(actions), 264L)
-  expect_true(all(is.na(actions$amount)))
-  # And the ten Centers of Excellence award ACTIONS are still in NAMED_HOSPITAL
-  # at $0, which is the overlap the pool row's own label warns about: the same
-  # ten awards are in two buckets, once unpriced and once as one priced pool,
-  # and the two must never be added.
-  coe <- actions[actions$award_pool == "PHTHORC26008", ]
+  expect_equal(nrow(ia), 264L)
+  expect_false(any(grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason)))
+  expect_true(all(is.na(ia$amount)))
+  # The ten Centers of Excellence award ACTIONS are in NAMED_HOSPITAL at $0,
+  # ONCE. Session 50's pool row put the same ten awards in a second bucket.
+  coe <- ia[ia$award_pool == "PHTHORC26008", ]
   expect_equal(nrow(coe), 10L)
   expect_true(all(coe$recipient_type == "HOSPITAL_OR_SYSTEM"))
   expect_true(all(coe$hospital_attribution == "NAMED_HOSPITAL"))
@@ -345,8 +375,8 @@ test_that("Iowa still prices NOBODY: every award action's amount is empty", {
 })
 
 test_that("the $50,000,000 is still SOLICITATION in the footer table", {
-  # The whole caveat rests on this. If Iowa's footer tier ever moves, the pool
-  # row must be REWRITTEN rather than re-priced, and ia_coe_pool_row() throws.
+  # The context note in ia_notice_footers.csv rests on this: it says the figure
+  # is Tier 2, and that is why it is not in any hospital bucket.
   f <- suppressMessages(readr::read_csv(
     here::here("data/reference/ia_notice_footers.csv"),
     show_col_types = FALSE, progress = FALSE))
@@ -354,4 +384,16 @@ test_that("the $50,000,000 is still SOLICITATION in the footer table", {
   expect_equal(nrow(coe), 1L)
   expect_equal(coe$footer_tier, "SOLICITATION")
   expect_equal(coe$footer_amount, 50000000)
+})
+
+test_that("IA_COE_POOL_IS_TIER_2 reads RESOLVED, option (b), and UF_FORM_NOT_DETERMINABLE is Mississippi only", {
+  q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
+                       show_col_types = FALSE, progress = FALSE)
+  ia <- q[q$question_id == "IA_COE_POOL_IS_TIER_2", ]
+  expect_equal(ia$queue_status, "RESOLVED")
+  expect_match(ia$resolution, "^OPTION \\(b\\)")
+  expect_match(ia$resolution, "MUST NOT MIX TIERS", fixed = TRUE)
+  uf <- q[q$question_id == "UF_FORM_NOT_DETERMINABLE", ]
+  expect_equal(uf$state, "MS")
+  expect_match(uf$dollar_effect, "^\\$3,250,000 across 2 rows")
 })

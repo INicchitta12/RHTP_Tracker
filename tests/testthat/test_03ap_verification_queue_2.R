@@ -393,11 +393,9 @@ test_that("Sioux Center Health is a hospital and the COE pool is hospital-only",
   expect_equal(nrow(sc), 3L)
   expect_true(all(sc$recipient_type == "HOSPITAL_OR_SYSTEM"))
 
-  # The ten AWARD ACTIONS. Session 50 appended an eleventh row to this pool --
-  # the POOL ROW -- which is not an award action and is excluded here so this
-  # test keeps saying what it was written to say.
-  coe <- ia %>% filter(award_pool == "PHTHORC26008",
-                       !grepl("AMOUNT_IS_POOL_NOT_AWARD", flag_reason))
+  # The ten AWARD ACTIONS. (Session 50 appended a Tier 2 POOL ROW to this pool;
+  # session 51 removed it, so the filter it needed is gone too.)
+  coe <- ia %>% filter(award_pool == "PHTHORC26008")
   expect_equal(nrow(coe), 10L)
   expect_true(all(coe$recipient_type == "HOSPITAL_OR_SYSTEM"))
   expect_true(all(coe$distributed_to_hospital == "Yes"))
@@ -413,16 +411,11 @@ test_that("the $50,000,000 stays TIER 2 and reaches no award row", {
   expect_equal(f$footer_tier, "SOLICITATION")
   ia <- ref("ia_year1_awardees.csv")
   expect_false("round_amount" %in% names(ia))
-  # SESSION 50 PUT THAT FIGURE ON ONE ROW, AND THE TIER IS WHY THIS TEST STILL
-  # HOLDS: it reaches no AWARD row, it is labelled POOL ROW, it is flagged
-  # AMOUNT_IS_POOL_NOT_AWARD and its tier is stated on the row. The claim this
-  # test makes -- that $50,000,000 is not ten hospitals' awards -- is unchanged.
-  pool <- !is.na(ia$flag_reason) & grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason)
-  expect_equal(sum(pool), 1L)
-  expect_true(all(is.na(ia$amount[!pool])))
-  expect_equal(ia$amount[pool], "50000000")
-  expect_equal(ia$hospital_attribution[pool], "POOL_NAMED_HOSPITALS")
-  expect_true(grepl("TIER 2", ia$amount_basis[pool]))
+  # Session 50 put that figure on a pool row; session 51 took it back out, so
+  # it reaches NO row of the award file at all, which is this test's original
+  # claim restored to its original strength.
+  expect_false(any(grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason)))
+  expect_true(all(is.na(ia$amount) | ia$amount == "NA"))
 })
 
 
@@ -440,25 +433,30 @@ test_that("the net move is 118 rows and $107,259,781.21", {
   expect_true(all(outof$state == "MD"))
 })
 
-test_that("the three buckets are what SESSION 50 publishes, and what session 49 added is still inside them", {
+test_that("the three buckets are what SESSION 51 publishes, and what session 49 added is still inside them", {
   # SESSION 49'S OWN FIGURES WERE 865 rows / $706,793,190.35 / 19 states, with
   # BOTH pool buckets unmoved. Session 50 typed Mississippi's and South
   # Carolina's unstated-form rows (+74 rows / +$80,696,969.67) and gave Iowa's
   # Centers of Excellence pool a POOL_NAMED_HOSPITALS row ($50,000,000, TIER
-  # 2). The session-49 contribution is checked by SUBTRACTION below rather than
+  # 2), which session 51 removed. The session-49 contribution is checked by SUBTRACTION below rather than
   # deleted, so this test still says what it was written to say.
   p <- vq_partition()
   t <- vq_bucket_totals(p)
   named <- t %>% filter(bucket == "NAMED_HOSPITAL")
   expect_equal(named$rows, 939L)
-  expect_equal(round(named$dollars, 2), 787490159.80)
+  # Session 51: the computed figure is $787,490,159.53. Session 50 wrote .80,
+  # and expect_equal's default tolerance (~$12 at this size) let the slip pass,
+  # so this pin is now exact to the cent.
+  expect_equal(round(named$dollars, 2), 787490159.53, tolerance = 0)
   expect_equal(named$states, 19L)
   expect_equal(named$rows - 74L, 865L)
-  expect_equal(round(named$dollars - 80696969.67, 2), 706793190.13)
+  expect_equal(round(named$dollars - 80696969.67, 2), 706793189.86, tolerance = 0)
 
   expect_equal(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
-  # POOL_NAMED_HOSPITALS gained Iowa and did NOT gain anything from session 49.
-  expect_equal(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 68156856.12)
+  # POOL_NAMED_HOSPITALS is Nebraska alone again (session 51) -- one Tier 3
+  # award -- and did NOT gain anything from session 49.
+  expect_equal(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 18156856.12)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 1L)
   ne <- p %>% filter(bucket == "POOL_NAMED_HOSPITALS", state == "NE")
   expect_equal(ne$dollars, 18156856.12)
 })

@@ -1,0 +1,24 @@
+RECHECK 2026-09-22 -- ROSTERS FOUND BY SESSION 51's LIVE PROBE PASS, ARCHIVED UNEXTRACTED
+
+These are NEW files beside each state's own archive, not replacements for it:
+the name tripwires' baselines are the state archives and are deliberately NOT
+re-dated here (CLAUDE.md 2.2). Nothing in data/reference reads these yet; each
+is the input the next extraction session starts from.
+
+NY: 56 lead-applicant rows summing to $76,190,022.00 -- RCHI's allocation to the
+    dollar. The Governor's 2026-09-04 release says '90 awards to 56 organizations',
+    so the table is ONE ROW PER LEAD APPLICANT, not per award action (Michigan's
+    grain lesson). Ellenville Regional Hospital appears on two rows.
+KS: Emerging Technology Grant award winners, 14 awards summing to $16,006,648
+    (KDHE: '$16M ... 14 eligible providers'). R/utils_pdf_text.R returns NOTHING
+    for this file: its producer paints text with the ' operator, which the reader
+    does not handle. The figures above came from reading the content streams
+    directly and are a SIZING, not an extraction.
+    The KDHE programme page itself is NOT archived here: it carries the Google
+    Maps key session 20 recorded.
+
+file | sha256 | bytes | source url
+NY/2026-09-22_ny_rchi_awardees_list_THE_ROSTER.html | d809a7769575ee4c34ab7fab3ad4bd7e2287f060e5fb6829fc35117fc182ae9d | 32598 | https://www.health.ny.gov/facilities/transforming_rural_healthcare/awardees.htm
+NY/2026-09-22_ny_governor_2026-09-04_76m_90_awards.html | c17d903498f1f4ea9b4d96a6acad0c91b238c51232958576ea3cbc2aec2dc7b6 | 56605 | https://www.governor.ny.gov/news/governor-hochul-announces-76-million-strengthen-rural-healthcare-across-new-york-state
+NY/2026-09-22_ny_programme_page_links_roster.html | 4c435c363d9f0476f1b4fafa54a69988f95575b0b80fa30bf5076d90d951f7ed | 28505 | https://www.health.ny.gov/facilities/transforming_rural_healthcare/
+KS/2026-09-22_ks_emerging_technology_award_winners.pdf | 03969debc53c1cbf5cb252e14dc5da4ff5666a13c260a20ecc1acf3f469d8970 | 30457 | https://www.kdhe.ks.gov/DocumentCenter/View/60464/Emerging-Tech-Project-Descriptions
