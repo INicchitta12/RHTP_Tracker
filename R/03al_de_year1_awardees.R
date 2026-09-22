@@ -717,6 +717,29 @@ de_disposition <- function() {
 
 # -- the live probe ----------------------------------------------------------
 
+#' The name tripwire reads the ARTICLE, not the site furniture (session 52)
+#'
+#' news.delaware.gov prints a "NEWS FEED" sidebar of ~40 other agencies'
+#' headlines ABOVE the release and replaces it daily -- on 2026-09-22 it
+#' produced eighteen "new organisations", a Family Court nomination and a
+#' deer-disease meeting among them. dhss.delaware.gov prints a mega-menu that
+#' DHSS reshuffled the same week (eleven more). Neither is Delaware awarding
+#' anything, and a known list cannot keep up with a feed, so the tripwire reads
+#' the release from its "Flag Status" line to the subscription footer, and the
+#' programme page from its breadcrumb to "Quick Links" -- live and archived
+#' alike.
+DE_NAME_SCOPE <- list(
+  release = c(from = "^Flag Status", to = "^Keep up to date by receiving"),
+  programme = c(
+    from = "^&gt; Division of Public Health &gt; Rural Health Transformation Program",
+    to = "^Quick Links"))
+
+de_name_scope <- function(text, page) {
+  a <- DE_NAME_SCOPE[[page]]
+  rhtp_name_scope(text, from = a[["from"]], to = a[["to"]], state = "DE",
+                  page = page)
+}
+
 de_probe <- function() {
   keys <- c("release", "programme")
   live <- purrr::map(keys, function(k) {
@@ -749,8 +772,11 @@ de_probe <- function() {
   nm_keys <- c("release", "programme")
   rhtp_assert_no_new_organisations_across(
     live = stats::setNames(
-      purrr::map(nm_keys, function(k) de_html_text(k, live[[k]])), nm_keys),
-    archived = stats::setNames(purrr::map(nm_keys, de_html_text), nm_keys),
+      purrr::map(nm_keys, function(k) de_name_scope(de_html_text(k, live[[k]]), k)),
+      nm_keys),
+    archived = stats::setNames(
+      purrr::map(nm_keys, function(k) de_name_scope(de_html_text(k), k)),
+      nm_keys),
     state = "DE")
 
   message("[DE] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")

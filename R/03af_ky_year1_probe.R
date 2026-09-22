@@ -690,6 +690,25 @@ ky_disposition <- function() {
 #'
 #' --validate reads the committed archive and passes trivially; only a fetch
 #' answers "has Kentucky awarded?". Session 25's Indiana lesson as code.
+# Read and judged NOT a recipient (session 52); matched EXACTLY (§2.3). The
+# Foundation for a Healthy Kentucky's RCH page (the §7 pass-through) replaced
+# its staff list with regional FHKY LIAISONS -- its own staff -- and added a
+# "Program News" item whose headline is about FHKY itself: "Foundation for a
+# Healthy Kentucky to Help Lead New Rural Program that Brings Partners
+# Together to Take On Diabetes and Obesity" (the first three strings are that
+# headline broken at its lowercase words). The rest are the page's REWRITTEN
+# CMS FOOTER and programme blurb: the funder (CMS, HHS) and the programme's own
+# names. No Hub Lead is named -- the page still describes the role only -- and
+# the day one is, it is a new string and fires.
+KY_NAME_FURNITURE <- list(rch = c(
+  "Program News", "Help Lead New Rural Program", "Brings Partners Together",
+  "Rural Health Transformation Program The Commonwealth of Kentucky",
+  "Centers for Medicare", "Medicaid Services",
+  "Rural Health Transformation Fund", "Rural Health Transformation Plan",
+  "About the Program This", "Centers for Medicare and Medicaid Services",
+  "U.S. Department of Health and Human Services",
+  "The Rural Health Transformation"))
+
 ky_probe <- function() {
   keys <- c("funding", "programme", "rch", "chfs_grants")
   live <- purrr::map(keys, function(k) ky_get(ky_source(k, "url"), k))
@@ -723,6 +742,7 @@ ky_probe <- function() {
     live = stats::setNames(
       purrr::map(nm_keys, function(k) ky_html_text(k, live[[k]])), nm_keys),
     archived = stats::setNames(purrr::map(nm_keys, ky_html_text), nm_keys),
+    furniture = KY_NAME_FURNITURE,
     state = "KY")
 
   message("[KY] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")

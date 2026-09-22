@@ -900,7 +900,8 @@ rhtp_probe_log_path <- function() {
   }
 }
 
-RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note")
+RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note",
+                            "origin")   # origin: session 52, trigger id or "interactive"
 
 # The verdicts a probe row may carry. Deliberately small, and deliberately
 # NOT a free-text field: this log is read by grep and by a human scanning a
@@ -1071,6 +1072,17 @@ rhtp_probe_rows <- function(result) {
 }
 
 
+#' Who is running this probe: a Routine's trigger id, or "interactive"
+rhtp_probe_origin <- function() {
+  o <- Sys.getenv("RHTP_PROBE_ORIGIN", "")
+  if (!nzchar(o)) return("interactive")
+  if (!grepl("^(trig_[A-Za-z0-9]+|interactive)$", o)) {
+    stop("[probe log] RHTP_PROBE_ORIGIN must be a trigger id (trig_...) or ",
+         "'interactive', not ", sQuote(o), ".", call. = FALSE)
+  }
+  o
+}
+
 #' Append probe rows to the committed log
 #'
 #' Appends bytes rather than rewriting the file, so a concurrent Routine cannot
@@ -1094,7 +1106,13 @@ rhtp_probe_log <- function(state, rows, at = Sys.time(),
     verdict  = as.character(rows$verdict),
     page     = as.character(rows$page),
     note     = if ("note" %in% names(rows)) as.character(rows$note)
-               else NA_character_)
+               else NA_character_,
+    # WHO RAN IT (session 52). A Routine sets RHTP_PROBE_ORIGIN to its own
+    # trigger id; anything else is "interactive". Without this an interactive
+    # re-run two hours later SATISFIES the coverage check for a Routine firing
+    # that left nothing -- Alaska's lost 9/21 14:00 run was masked exactly so
+    # by a session's 16:37 line. R/probe_coverage.R matches on this column.
+    origin   = rhtp_probe_origin())
 
   dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
   fresh <- !file.exists(path)
@@ -1233,7 +1251,15 @@ RHTP_ORG_NAME_BREAK_TOKENS <- c(
   "Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sept", "Sep", "Oct",
   "Nov", "Dec",
   "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-  "Sunday")
+  "Sunday",
+  # A STATUS LABEL IS NOT A NAME EITHER, AND IDAHO IS THE MEASUREMENT (session
+  # 52). DHW re-labelled every opportunity "CLOSED 9/18/26: <title>" between
+  # the 2026-09-03 archive and 2026-09-22, and the reduction welds the next
+  # item's label onto the previous title, so "Behavioral Health Prevention
+  # CLOSED" read as a new organisation six times over. Upper case only, and
+  # matched case-sensitively: no organisation this repository has met spells
+  # its own name in capitals with this word in it.
+  "CLOSED")
 
 # Lowercase words a real organisation name carries INSIDE it. Without these,
 # "The Regents of the University of New Mexico" breaks at "of" and
@@ -1356,7 +1382,8 @@ rhtp_organisation_names <- function(text) {
 #'   its normalised form contains, or is contained by, a known one, so a
 #'   run that over-joined or truncated still matches what a human wrote.
 #' @return Character vector, AS PRINTED on the live page.
-rhtp_new_organisation_names <- function(live, archived, known = character(0)) {
+rhtp_new_organisation_names <- function(live, archived, known = character(0),
+                                        furniture = character(0)) {
   new_names <- rhtp_organisation_names(live)
   if (!length(new_names)) return(character(0))
 
@@ -1372,7 +1399,63 @@ rhtp_new_organisation_names <- function(live, archived, known = character(0)) {
         any(stringr::str_detect(kn, stringr::fixed(n)))
     })
   }
+  # FURNITURE IS MATCHED EXACTLY, NEVER BY CONTAINMENT (session 52). `known`
+  # tolerates an over-joined run because it records a RECIPIENT and the
+  # over-join is the safe direction. Furniture is the opposite claim -- a
+  # string a human read and judged NOT a recipient -- and containment would
+  # let "Rural Health Transformation Fund" swallow "Rural Health
+  # Transformation Fund Award to Pikeville Medical Center". So a furniture
+  # entry quiets exactly the string it names and nothing longer.
+  fu <- rhtp_normalise_org_name(furniture)
+  seen <- seen | norm %in% fu[nzchar(fu)]
   new_names[!seen]
+}
+
+#' Keep only a page's CONTENT region before the name tripwire reads it
+#'
+#' A `known` or `furniture` list cannot keep up with a region that rotates on
+#' its own schedule -- Delaware's news.delaware.gov NEWS FEED sidebar carries
+#' ~40 other agencies' headlines and replaces them daily, and the DHSS and
+#' HCAI mega-menus reshuffle between fetches (session 52). The fix for those
+#' is to read the article, not to list the sidebar. Applied to the LIVE AND
+#' THE ARCHIVED copy alike, so the diff stays symmetrical.
+#'
+#' THE ANCHORS MUST BE FOUND, OR THIS REFUSES. A redesign that drops an anchor
+#' would otherwise hand back the whole page, or nothing -- and a silently
+#' empty scope passes forever, which is the empty-baseline failure in another
+#' costume (§0.4). It also refuses a scope that keeps less than `min_keep` of
+#' the text, which is what an anchor that moved into the menu looks like.
+#'
+#' @param from,to Regular expressions. The kept region starts at the first
+#'   match of `from` and ends just before the first match of `to` after it.
+#'   `to = NULL` keeps to the end.
+rhtp_name_scope <- function(text, from, to = NULL, state = "??",
+                            page = "(page)", min_keep = 0.05) {
+  text <- paste(text, collapse = "\n")
+  a <- stringr::str_locate(text, stringr::regex(from, multiline = TRUE))
+  if (is.na(a[1, "start"])) {
+    stop("[", state, "] the name-tripwire SCOPE anchor for '", page,
+         "' was not found: ", sQuote(from), ". The page's layout has moved; ",
+         "re-read it and re-anchor the scope rather than reading the whole ",
+         "page's furniture (§2.3).", call. = FALSE)
+  }
+  rest <- substr(text, a[1, "start"], nchar(text))
+  if (!is.null(to)) {
+    b <- stringr::str_locate(rest, stringr::regex(to, multiline = TRUE))
+    if (is.na(b[1, "start"])) {
+      stop("[", state, "] the name-tripwire SCOPE end anchor for '", page,
+           "' was not found after the start: ", sQuote(to), ".",
+           call. = FALSE)
+    }
+    rest <- substr(rest, 1L, b[1, "start"] - 1L)
+  }
+  if (nchar(rest) < min_keep * nchar(text)) {
+    stop("[", state, "] the name-tripwire SCOPE for '", page, "' keeps ",
+         nchar(rest), " of ", nchar(text), " characters -- below ",
+         round(100 * min_keep), "%. An anchor has probably moved into the ",
+         "page chrome; re-anchor it.", call. = FALSE)
+  }
+  rest
 }
 
 #' The tripwire: refuse if a watched page names an organisation it did not
@@ -1398,6 +1481,7 @@ rhtp_new_organisation_names <- function(live, archived, known = character(0)) {
 rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
                                              page = "(page)",
                                              known = character(0),
+                                             furniture = character(0),
                                              min_baseline = 3L) {
   base <- rhtp_organisation_names(archived)
   if (length(base) < min_baseline) {
@@ -1411,7 +1495,8 @@ rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
          call. = FALSE)
   }
 
-  new_names <- rhtp_new_organisation_names(live, archived, known = known)
+  new_names <- rhtp_new_organisation_names(live, archived, known = known,
+                                           furniture = furniture)
   if (!length(new_names)) return(invisible(character(0)))
 
   stop("[", state, "] '", page, "' NAMES ", length(new_names),
@@ -1442,6 +1527,7 @@ rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
 rhtp_assert_no_new_organisations_across <- function(live, archived,
                                                     state = "??",
                                                     known = list(),
+                                                    furniture = list(),
                                                     min_baseline = 3L) {
   keys <- names(live)
   if (is.null(keys) || !all(nzchar(keys))) {
@@ -1462,9 +1548,14 @@ rhtp_assert_no_new_organisations_across <- function(live, archived,
     } else {
       known
     }
+    fu <- if (is.list(furniture)) {
+      if (k %in% names(furniture)) furniture[[k]] else character(0)
+    } else {
+      furniture
+    }
     rhtp_assert_no_new_organisations(
       live = live[[k]], archived = archived[[k]], state = state, page = k,
-      known = kn, min_baseline = min_baseline)
+      known = kn, furniture = fu, min_baseline = min_baseline)
   })
   invisible(stats::setNames(out, keys))
 }

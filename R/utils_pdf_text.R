@@ -386,6 +386,7 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
   y_d   <- 0
   x_m   <- 0
   x_d   <- 0
+  tl    <- 0                 # text leading, set by TL; ' and " move by it
   y_at  <- NA_real_          # the y the current buffer is being written at
   x_at  <- NA_real_          # and the x it started at, for column bucketing
   # The graphics state's vertical translation, and the q/Q stack that restores
@@ -444,6 +445,38 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
 
   while (i <= n) {
     ch <- b[i]
+
+    # A COMMENT RUNS TO THE END OF THE LINE (session 52). KDHE's 2026-09-18
+    # Emerging Technology roster is written by a producer that annotates its
+    # content streams ("% String Format Flags: FitBlackBox, ...
+    # NoClip(18436)"), and a reader that scans a comment as content reads its
+    # words as operators and its parentheses as a STRING. Inside a literal
+    # string '%' is a character, which the string branch below consumes before
+    # this is ever reached.
+    if (ch == 37L) {
+      while (i <= n && b[i] != 10L && b[i] != 13L) i <- i + 1L
+      next
+    }
+
+    # THE ' AND " OPERATORS PAINT TEXT TOO, AND THIS READER DID NOT KNOW IT
+    # (session 52). Both mean "move to the next line (by the text leading TL)
+    # and show the string" -- " also sets word and character spacing first.
+    # KDHE's Emerging Technology roster paints EVERY string with ' after its
+    # own Tm, so the reader held every string as pending, never painted one,
+    # and returned NOTHING: not an error, an empty answer, which reads as "the
+    # state published nothing" (Maryland's session-21 shape). The move is by
+    # TL, which this producer never sets, so the pen stays at the Tm position
+    # -- measured, not assumed: TL does not occur in the file.
+    if (ch == 39L || ch == 34L) {
+      y_d <- y_d - tl
+      if (ch == 34L) pending <- utils::tail(pending, 1L)
+      at_position()
+      buf <- c(buf, pending)
+      pending <- character()
+      nums <- numeric(0)
+      i <- i + 1L
+      next
+    }
 
     if (ch == 40L) {                                    # ( literal string )
       i <- i + 1L
@@ -571,6 +604,8 @@ rhtp_pdf_content_lines <- function(stream, fonts) {
         pending <- character()
         flush()
         y_at <- NA_real_
+      } else if (op == "TL") {
+        if (length(nums) >= 1L) tl <- nums[length(nums)]
       } else if (op == "ET") {
         pending <- character()
       } else if (op %in% c("BDC", "DP", "BMC")) {

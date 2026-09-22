@@ -443,14 +443,17 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   p <- vq_partition()
   t <- vq_bucket_totals(p)
   named <- t %>% filter(bucket == "NAMED_HOSPITAL")
-  expect_equal(named$rows, 939L)
-  # Session 51: the computed figure is $787,490,159.53. Session 50 wrote .80,
-  # and expect_equal's default tolerance (~$12 at this size) let the slip pass,
-  # so this pin is now exact to the cent.
-  expect_equal(round(named$dollars, 2), 787490159.53, tolerance = 0)
-  expect_equal(named$states, 19L)
-  expect_equal(named$rows - 74L, 865L)
-  expect_equal(round(named$dollars - 80696969.67, 2), 706793189.86, tolerance = 0)
+  # Session 52 added New York (35 rows / $47,358,790.79, a 20th state) and
+  # Kansas's Emerging Technology pool (7 rows / $10,176,973) -- subtracted
+  # below, as sessions 50's were, so the older figures are still checked.
+  expect_equal(named$rows, 981L)
+  expect_equal(round(named$dollars, 2), 845025923.32, tolerance = 0)
+  expect_equal(named$states, 20L)
+  expect_equal(named$rows - 42L, 939L)
+  expect_equal(round(named$dollars - 57535763.79, 2), 787490159.53, tolerance = 0)
+  expect_equal(named$rows - 42L - 74L, 865L)
+  expect_equal(round(named$dollars - 57535763.79 - 80696969.67, 2),
+               706793189.86, tolerance = 0)
 
   expect_equal(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
   # POOL_NAMED_HOSPITALS is Nebraska alone again (session 51) -- one Tier 3

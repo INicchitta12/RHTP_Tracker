@@ -433,6 +433,29 @@ id_disposition <- function() {
 
 # -- probe / validate / build / report ---------------------------------------
 
+# Read and judged NOT a recipient (session 52); matched EXACTLY (§2.3). On
+# 2026-09-22 DHW closed every Year 1 opportunity -- "(Updated 9/22/26) All the
+# funding opportunities for the first year of the Rural Health Transformation
+# Program have closed" -- and re-printed each as "CLOSED <date>: <title>". The
+# strings below are those OPPORTUNITY TITLES (plus the programme's own name),
+# and "State Board of Education" / DHW's own typo "Sate Board of Education"
+# are the PARTNER agency named inside two titles. None is an awardee: the one
+# "Awardee:" line on the page is still Comagine Health. The status label
+# itself is handled by the CLOSED break token in RHTP_ORG_NAME_BREAK_TOKENS.
+# The about page's new string is a MEETING NOTICE for the programme's own
+# implementation task force, a governance body.
+ID_NAME_FURNITURE <- list(
+  funding = c(
+    "Rural Health Transformation Program",
+    "Healthcare Infrastructure Support", "State Board of Education",
+    "Statewide Chronic Disease Education Network",
+    "Graduate Medical Education", "Sate Board of Education",
+    "School-Based Family Support Hubs",
+    "Idaho Cognitive Care Pathway Network",
+    "Cognitive Health Workforce Response Network"),
+  about = c(
+    "Idaho Rural Health Transformation Program Implementation Task Force"))
+
 id_probe <- function() {
   keys <- c("funding", "about")
   live <- purrr::map(keys, function(k) {
@@ -459,6 +482,7 @@ id_probe <- function() {
     live = stats::setNames(
       purrr::map(nm_keys, function(k) id_html_text(k, live[[k]])), nm_keys),
     archived = stats::setNames(purrr::map(nm_keys, id_html_text), nm_keys),
+    furniture = ID_NAME_FURNITURE,
     state = "ID")
 
   message("[ID] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")

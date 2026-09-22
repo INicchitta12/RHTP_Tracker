@@ -134,7 +134,9 @@ KS_PROGRAM_PAGE <- "https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Pro
 
 KS_SOURCES <- tibble::tribble(
   ~key,          ~url,                                                        ~file,                                              ~dir,              ~reduce,             ~doc_title,
-  "program_page", KS_PROGRAM_PAGE,                                            "2026-08-29_kdhe_rhtp_program_page.html",           "KS",             "STRIP_CREDENTIALS", "Rural Health Transformation Program | KDHE",
+  "program_page", KS_PROGRAM_PAGE,                                            "2026-09-22_kdhe_rhtp_program_page.html",           "KS",             "STRIP_CREDENTIALS", "Rural Health Transformation Program | KDHE",
+  "program_page_prior", NA_character_,                                        "2026-08-29_kdhe_rhtp_program_page.html",           "KS",             "STRIP_CREDENTIALS", "Rural Health Transformation Program | KDHE (2026-08-29, KEPT)",
+  "emerging_tech", "https://www.kdhe.ks.gov/DocumentCenter/View/60464/Emerging-Tech-Project-Descriptions", "2026-09-22_kdhe_emerging_technology_award_winners.pdf", "KS", "NONE", "Emerging Technology Award Winners and Project Descriptions",
   "reh_cap_rpgp", "https://www.kdhe.ks.gov/DocumentCenter/View/58981/REH-CAP-and-RPGP-Award-Winners-PDF", "2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf", "KS", "NONE", "REH CAP and RPGP Award Winners",
   "chw_afim",     "https://www.kdhe.ks.gov/DocumentCenter/View/60037/CHW-AFIM-Project-Descriptions",      "2026-08-29_kdhe_chw_afim_project_descriptions.pdf",  "KS", "NONE", "Kansas RHTP Community Health Worker (CHW) + Accountable Food is Medicine (AFIM) Awarded Project Descriptions",
   "budget_rev2",  "https://www.kdhe.ks.gov/DocumentCenter/View/60171",         "2026-07_ks_rht_plan_budget_narrative_revision_2.pdf", "NARRATIVE",   "NONE", "Kansas RHT Plan Year 1 Budget Narrative Revision 2: July 2026"
@@ -152,6 +154,12 @@ KS_STATED <- list(
   rpgp_total       = 49915410,
   chw_afim_n       = 7L,
   chw_afim_total   = 1007152,
+  # SESSION 52: the Emerging Technology Grant, the FOURTH pool. KDHE's
+  # programme page: "$16 million in Emerging Technology Grants ... awarded to
+  # 14 eligible providers"; the award document's fourteen figures sum to
+  # $16,006,648, which is what "$16 million" rounds.
+  emerging_tech_n     = 14L,
+  emerging_tech_total = 16006648,
   # KDHE's own statement of the CMS award, on the award document's footer.
   cms_award_stated = 221890007.82,
   # THE SAME FIGURE ON KDHE'S OTHER TWO PUBLICATIONS, both read for the first
@@ -263,7 +271,13 @@ KS_PROVENANCE <- list(
       "an initiative within the Rural Health Transformation Program (RHTP)"),
     chw_afim_scale         = paste(
       "$1,007,152 was awarded to seven rural healthcare organizations"),
-    cms_award_total        = "$221,898,007.82"
+    cms_award_total        = "$221,898,007.82",
+    # Session 52, the fourth pool, in the same programme-scoped grammar: the
+    # GRANT is the subject and RHTP is what it is provided through.
+    emerging_tech_programme = paste(
+      "The Emerging Technology Grant, provided through the Rural Health",
+      "Transformation Program (RHTP) was awarded to 14 eligible providers"),
+    emerging_tech_scale     = "$16 million in Emerging Technology Grants"
   ),
   narrative = c(
     plan_title      = "Kansas RHT Plan Year 1 Budget Narrative",
@@ -285,7 +299,8 @@ KS_PROVENANCE <- list(
 # one would take. See the header: this is the positive control.
 KS_AWARD_LINK_MARKERS <- c(
   reh_cap_rpgp = "REH CAP and RPGP Award Winners",
-  chw_afim     = "CHW \\+ AFIM Award Winners and Project Descriptions"
+  chw_afim     = "CHW \\+ AFIM Award Winners and Project Descriptions",
+  emerging_tech = "Emerging Technology Award Winners and Project Descriptions"
 )
 KS_AWARD_LINK_SHAPE <- "Award Winners|Awarded Project|Awardees|Award Recipients"
 
@@ -331,7 +346,14 @@ ks_fetch_sources <- function(force = FALSE) {
     src  <- KS_SOURCES[i, ]
     dest <- file.path(ks_dir(src$dir), src$file)
 
-    if (file.exists(dest) && !force) {
+    if (is.na(src$url)) {
+      # A KEPT snapshot (session 52): the programme page as it stood before
+      # the Emerging Technology roster was linked. It is evidence of what the
+      # page used to say, so a --force must never overwrite it with today.
+      if (!file.exists(dest)) stop("[KS] kept snapshot missing: ", src$file,
+                                   call. = FALSE)
+      message("[KS] kept, never re-fetched: ", src$file)
+    } else if (file.exists(dest) && !force) {
       # §9.5: a re-run must never re-fetch an unchanged document.
       message("[KS] cached, not re-fetched: ", src$file)
     } else {
@@ -622,6 +644,199 @@ ks_parse_chw_afim <- function(text = NULL) {
   )
 }
 
+# -- THE FOURTH POOL: EMERGING TECHNOLOGY (session 52) -------------------------
+#
+# KDHE announced $16M to 14 providers and linked "Emerging Technology Award
+# Winners and Project Descriptions" (PDF created 2026-09-18). NOTHING NOTICED:
+# Kansas had no probe, and `R/utils_pdf_text.R` returned an EMPTY answer for
+# the file -- its producer paints every string with the `'` operator, which
+# the reader did not implement, and annotates its streams with `%` comments,
+# which the reader scanned as content. Both fixed in the reader, proved inert
+# on 77 of the 78 committed PDFs and a CORRECTION on the 78th (Kentucky's CMS
+# NOA attachment, whose `'` strings had been welded onto the next line).
+#
+# EACH AWARD IS ONE HEADING, "<Recipient>, <County> County ($<amount>)",
+# followed by a bulleted description. The heading is the award; the
+# description describes the WORK and is never used for typing (§0.3a) -- it is
+# read only by the shared flow test, exactly as the other three pools are.
+KS_ET_HEADING_RX <- "^(.+), ([A-Za-z .]+ County) \\(\\$([0-9][0-9,]*)\\)$"
+
+# THE TYPING, HAND-READ, ONE ROW PER RECIPIENT. KDHE states no form, so this
+# is session 50's method: CMS's own enrolment files for Kansas, archived under
+# data/evidence/federal_records/2026-09-22/cms_*_KS.json. `ORG_WEBSITE`/MEDIUM
+# = the recipient string is an exact CMS ORGANIZATION NAME or DBA; a BRIDGE is
+# GENERAL_KNOWLEDGE/LOW and says why; STATE_SOURCE = KDHE's own text states
+# the form. The rest are REFUSED and keep §8's standing fallback.
+KS_ET_TYPES <- tibble::tribble(
+  ~awardee, ~recipient_type, ~basis_type, ~ccn, ~evidence,
+  "CommonSpirit Kansas", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "170023",
+  "CMS Hospital enrolment ORGANIZATION NAME 'COMMONSPIRIT KANSAS INC', Garden City (Finney County, this award's county); it also enrols a CAH in Ulysses",
+  "UKHS Great Bend", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "170191",
+  "CMS Hospital enrolment ORGANIZATION NAME 'UKHS GREAT BEND LLC', Great Bend (Barton County)",
+  "Rooks County Health Center", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "171311",
+  "CMS CRITICAL ACCESS HOSPITAL enrolment, ORGANIZATION NAME, Plainville (Rooks County)",
+  "NMC Health", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "170103",
+  "CMS Hospital enrolment DBA 'NMC HEALTH', Newton (Harvey County)",
+  "Meade Hospital District", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "171321",
+  "CMS CRITICAL ACCESS HOSPITAL enrolment, ORGANIZATION NAME, Meade (Meade County)",
+  "Hospital District #1 Rice County", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "171330",
+  "BRIDGE: CMS enrols 'HOSPITAL DISTRICT NO 1 OF RICE CO' as a CRITICAL ACCESS HOSPITAL in Lyons (Rice County); '#1' for 'No 1' and 'Rice County' for 'of Rice Co' is a reading, not an exact string",
+  "Grisell Memorial Hospital", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "171300",
+  "BRIDGE: CMS enrols 'GRISELL MEMORIAL HOSPITAL DISTRICT 1' as a CRITICAL ACCESS HOSPITAL in Ransom (Ness County, this award's county); the award string drops 'District 1'",
+  "Genesis Family Health", "FQHC_OR_RHC", "STATE_SOURCE", "171041",
+  "KDHE's own description: 'GFH, a federally qualified health center'; CMS FQHC enrolment DBA 'GENESIS FAMILY HEALTH' agrees",
+  "Via Christi Village Hays", "OTHER", "ORG_WEBSITE", "175498",
+  "A SKILLED NURSING FACILITY: CMS SNF enrolment 'VIA CHRISTI VILLAGE HAYS KS LLC' dba 'VIA CHRISTI VILLAGE HAYS', Hays (Ellis County). KDHE's description agrees: '16 participating rural skilled nursing and long-term care facilities'",
+  "Sumner Mental Health Center", "OTHER", "STATE_SOURCE", NA,
+  "A COMMUNITY MENTAL HEALTH CENTRE: the award string itself names a mental health center (session 50 typed Mississippi's CMHCs OTHER on the same footing)"
+)
+
+# REFUSED. None is in any archived CMS enrolment file under its own name, and
+# ATTICA IS THE ONE WORTH READING: its name says "Hospital District" and the
+# shared classifier would type it a hospital on that word, but CMS enrols NO
+# hospital in Attica under any district -- the only Attica record is an RHC of
+# Harper County's hospital district NO. 6, a different body -- and KDHE's own
+# description is about NURSING-HOME capacity ("100% of the Medicaid-certified
+# nursing home capacity in Harper and Barber counties"). A hospital district
+# can exist without operating a hospital. $532,045 is held OUT of the hospital
+# total until a record says otherwise (§0.4).
+KS_ET_REFUSED <- c("Attica Hospital District #1", "GoodLife Innovations",
+                   "Prairie View Inc.", "Valley Hope Association")
+
+ks_parse_emerging_tech <- function(lines = NULL) {
+  if (is.null(lines)) {
+    lines <- rhtp_pdf_lines(ks_archive_path("emerging_tech"))$text
+  }
+  lines <- stringr::str_squish(lines)
+  lines <- lines[nzchar(lines)]
+  head_i <- which(stringr::str_detect(lines, KS_ET_HEADING_RX))
+  if (!length(head_i)) {
+    stop("[KS] the Emerging Technology roster yields NO award heading. If the ",
+         "reader returns nothing, that is a fact about OUR READING (§0.4) -- ",
+         "check the `'` operator first (session 52).", call. = FALSE)
+  }
+  ends <- c(head_i[-1] - 1L, length(lines))
+  m <- stringr::str_match(lines[head_i], KS_ET_HEADING_RX)
+  tibble::tibble(
+    award_pool  = "EMERGING_TECH",
+    awardee     = stringr::str_squish(m[, 2]),
+    county      = m[, 3],
+    amount      = as.numeric(gsub(",", "", m[, 4])),
+    # The producer's bullet is a Symbol-font glyph that decodes as a leading
+    # "x"; it is dropped from the description and never from a name.
+    description = purrr::map2_chr(head_i, ends, function(a, b) {
+      if (b <= a) return("")
+      d <- paste(lines[(a + 1L):b], collapse = " ")
+      stringr::str_squish(stringr::str_remove(d, "^x(?=[A-Z])"))
+    })
+  )
+}
+
+#' The fourth pool is what KDHE says it is: 14 awards, $16,006,648
+ks_assert_emerging_tech <- function(et = ks_parse_emerging_tech()) {
+  if (nrow(et) != KS_STATED$emerging_tech_n) {
+    stop("[KS] the Emerging Technology roster yields ", nrow(et),
+         " headings, not ", KS_STATED$emerging_tech_n, ".", call. = FALSE)
+  }
+  if (sum(et$amount) != KS_STATED$emerging_tech_total) {
+    stop("[KS] the Emerging Technology roster sums to $", sum(et$amount),
+         ", not $", KS_STATED$emerging_tech_total, ".", call. = FALSE)
+  }
+  typed <- c(KS_ET_TYPES$awardee, KS_ET_REFUSED)
+  unread <- setdiff(et$awardee, typed)
+  if (length(unread) || length(setdiff(typed, et$awardee)) ||
+      anyDuplicated(typed)) {
+    stop("[KS] the Emerging Technology typing no longer matches the roster: ",
+         "unread ", paste(sQuote(unread), collapse = ", "), call. = FALSE)
+  }
+  # Every CMS-typed row's CCN is in the archived enrolment slices, and an
+  # ORG_WEBSITE row's string is an exact name there.
+  dir <- here::here("data", "evidence", "federal_records", "2026-09-22")
+  enr <- dplyr::bind_rows(lapply(c("hosp", "fqhc", "rhc", "snf"), function(k)
+    jsonlite::fromJSON(file.path(dir, paste0("cms_", k, "_enrollments_KS.json")))))
+  cms <- KS_ET_TYPES[!is.na(KS_ET_TYPES$ccn), ]
+  if (length(setdiff(cms$ccn, enr$CCN))) {
+    stop("[KS] a typed CCN is not in the archived CMS slices.", call. = FALSE)
+  }
+  norm <- function(x) stringr::str_squish(gsub(
+    "\\b(INC|LLC|KS)\\b|[^A-Z0-9 ]", " ", toupper(gsub("[.']", "", x))))
+  ex <- cms[cms$basis_type == "ORG_WEBSITE", ]
+  for (i in seq_len(nrow(ex))) {
+    e <- enr[enr$CCN == ex$ccn[i], ]
+    if (!norm(ex$awardee[i]) %in% norm(c(e$`ORGANIZATION NAME`,
+                                         e$`DOING BUSINESS AS NAME`))) {
+      stop("[KS] '", ex$awardee[i], "' is typed ORG_WEBSITE but CCN ",
+           ex$ccn[i], " does not carry that name.", call. = FALSE)
+    }
+  }
+  # ATTICA: the refusal is load-bearing, so its evidence is asserted -- no
+  # CMS enrolment of any type carries an Attica hospital.
+  att <- enr[grepl("ATTICA", toupper(paste(enr$`ORGANIZATION NAME`,
+                                           enr$`DOING BUSINESS AS NAME`,
+                                           enr$CITY))), ]
+  if (any(grepl("HOSPITAL", att$`PROVIDER TYPE TEXT`) &
+          !grepl("RURAL HEALTH CLINIC", att$`PROVIDER TYPE TEXT`))) {
+    stop("[KS] CMS now enrols an Attica HOSPITAL; re-read Attica Hospital ",
+         "District #1's refusal.", call. = FALSE)
+  }
+  invisible(et)
+}
+
+#' Apply the hand typing to the classified Emerging Technology rows
+ks_type_emerging_tech <- function(out) {
+  et <- out$award_pool == "EMERGING_TECH"
+  if (!any(et)) return(out)
+  for (col in c("basis_type", "verified_by", "verified_basis", "ccn"))
+    if (!col %in% names(out)) out[[col]] <- NA_character_
+  for (i in which(et)) {
+    nm <- out$awardee[i]
+    t <- KS_ET_TYPES[KS_ET_TYPES$awardee == nm, ]
+    if (nrow(t)) {
+      out$recipient_type[i] <- t$recipient_type
+      out$determination_confidence[i] <-
+        if (t$basis_type == "GENERAL_KNOWLEDGE") "LOW" else "MEDIUM"
+      out$basis_type[i] <- t$basis_type
+      out$ccn[i] <- t$ccn
+      out$verified_by[i] <- "session 52 (hand-read against CMS enrolment)"
+      out$verified_basis[i] <- t$evidence
+      hosp <- t$recipient_type == "HOSPITAL_OR_SYSTEM"
+      if (hosp) {
+        out$flow_type[i] <- "DIRECT"
+        out$distributed_to_hospital[i] <- "Yes"
+        out$hospital_benefiting[i] <- "Yes"
+      } else if (identical(out$flow_type[i], "DIRECT")) {
+        out$flow_type[i] <- "NON_HOSPITAL"
+        out$distributed_to_hospital[i] <- "No"
+      }
+      fr <- setdiff(stringr::str_split(dplyr::coalesce(out$flag_reason[i], ""),
+                                       ";")[[1]], c("", "RECIPIENT_TYPE_INFERRED"))
+      out$flag_reason[i] <- if (length(fr)) paste(fr, collapse = ";") else NA_character_
+      out$determination_basis[i] <- paste0(
+        "RECIPIENT TYPE (session 52): ", t$recipient_type, " [", t$basis_type,
+        "] -- ", t$evidence, ". Flow: ", out$flow_type[i], ". ",
+        out$determination_basis[i])
+    } else {
+      # REFUSED: the classifier's answer is replaced by §8's standing fallback
+      # whatever the NAME suggests, because Attica's name is exactly what a
+      # machine would type as a hospital and the record says otherwise.
+      out$recipient_type[i] <- "NONPROFIT_CBO"
+      out$determination_confidence[i] <- "LOW"
+      out$flag_reason[i] <- "RECIPIENT_TYPE_INFERRED"
+      if (identical(out$flow_type[i], "DIRECT")) {
+        out$flow_type[i] <- "NON_HOSPITAL"
+        out$distributed_to_hospital[i] <- "No"
+        out$hospital_benefiting[i] <- NA_character_
+      }
+      out$determination_basis[i] <- paste0(
+        "RECIPIENT TYPE REFUSED (session 52): no archived CMS enrolment ",
+        "carries this recipient and KDHE states no form; §8's standing ",
+        "fallback. ", out$determination_basis[i])
+    }
+  }
+  out
+}
+
+
 #' The CMS financial-assistance footer on the award document -- CORROBORATING
 #'
 #' KEPT, AND DELIBERATELY NO LONGER THE PROVENANCE. Session 27's audit found
@@ -823,7 +1038,9 @@ ks_assert_rhtp_provenance <- function() {
 
 #' The 46 Kansas Year 1 award actions, in the §8 union schema
 rhtp_ks_year1_awardees <- function() {
-  awards <- dplyr::bind_rows(ks_parse_reh_cap_rpgp(), ks_parse_chw_afim())
+  awards <- dplyr::bind_rows(ks_parse_reh_cap_rpgp(), ks_parse_chw_afim(),
+                             ks_assert_emerging_tech() %>%
+                               dplyr::select(-"county"))
 
   pool_meta <- tibble::tribble(
     ~award_pool, ~source_document_title,                                  ~source_key,
@@ -831,7 +1048,8 @@ rhtp_ks_year1_awardees <- function() {
     "RPGP",      "REH CAP and RPGP Award Winners",                        "reh_cap_rpgp",
     "CHW_AFIM",  paste("Kansas RHTP Community Health Worker (CHW) +",
                        "Accountable Food is Medicine (AFIM) Awarded",
-                       "Project Descriptions"),                           "chw_afim"
+                       "Project Descriptions"),                           "chw_afim",
+    "EMERGING_TECH", "Emerging Technology Award Winners and Project Descriptions", "emerging_tech"
   )
 
   out <- awards %>%
@@ -839,6 +1057,7 @@ rhtp_ks_year1_awardees <- function() {
     dplyr::mutate(state = "KS")
 
   out <- rhtp_classify_records(out, state = "KS", description_col = "description")
+  out <- ks_type_emerging_tech(out)
 
   out %>%
     dplyr::mutate(
@@ -856,7 +1075,7 @@ rhtp_ks_year1_awardees <- function() {
       validation_source_type = "NOTICE_OF_AWARD",
       extraction_method      = "DIRECT_TEXT",
       validator              = "AUTO",
-      ccn                    = NA_character_,
+      ccn                    = if ("ccn" %in% names(.)) ccn else NA_character_,
       aha_id                 = NA_character_,
       rural_designation      = NA_character_,
       reviewer               = NA_character_,
@@ -874,7 +1093,8 @@ rhtp_ks_year1_awardees <- function() {
       # Kansas's own columns, after the leading 19.
       award_pool, flow_type, hospital_benefiting, hospital_attribution,
       determination_confidence, determination_basis, classification_rule,
-      flag_reason, source_archive_path
+      flag_reason, source_archive_path,
+      dplyr::any_of(c("basis_type", "verified_by", "verified_basis"))
     )
 }
 
@@ -937,9 +1157,18 @@ rhtp_ks_assert <- function(awards = NULL) {
   stopifnot(tot[["REH_CAP"]]   == KS_STATED$reh_cap_total)
   stopifnot(tot[["RPGP"]]      == KS_STATED$rpgp_total)
   stopifnot(tot[["CHW_AFIM"]]  == KS_STATED$chw_afim_total)
-  stopifnot(rec$awards_n == 46L)
+  stopifnot(pool[["EMERGING_TECH"]] == KS_STATED$emerging_tech_n)
+  stopifnot(tot[["EMERGING_TECH"]]  == KS_STATED$emerging_tech_total)
+  stopifnot(rec$awards_n == 60L)
   stopifnot(rec$awards_total == KS_STATED$reh_cap_total +
-              KS_STATED$rpgp_total + KS_STATED$chw_afim_total)
+              KS_STATED$rpgp_total + KS_STATED$chw_afim_total +
+              KS_STATED$emerging_tech_total)
+  # The fourth pool is APPENDED, so rows 1..46 keep the indices session 49's
+  # verification overlay is keyed on (R/03ap). A fourth pool sorted into the
+  # middle would re-type the wrong rows, silently.
+  stopifnot(all(awards$award_pool[47:60] == "EMERGING_TECH"))
+  stopifnot(!any(awards$award_pool[1:46] == "EMERGING_TECH"))
+  ks_assert_emerging_tech()
 
   # 4. No award exceeds the state allotment, and none is implausible (§6.2).
   stopifnot(all(awards$amount > 0))
@@ -973,12 +1202,21 @@ rhtp_ks_assert <- function(awards = NULL) {
   # 8. THE FLOOR AND WHAT IS UNDER IT. Both are asserted, so a future change to
   #    the shared classifier that silently moves Kansas dollars into or out of
   #    the hospital total fails here.
-  partition <- rhtp_hospital_dollar_partition(awards)
+  # THE FIRST THREE POOLS keep session 20's machine floor (before session 49's
+  # overlay, which R/03ap re-applies); the fourth is hand-typed and asserted
+  # on its own, so neither figure can drift under the other.
+  first3 <- awards[awards$award_pool != "EMERGING_TECH", ]
+  partition <- rhtp_hospital_dollar_partition(first3)
   named <- partition$dollars[partition$bucket == "NAMED_HOSPITAL"]
   stopifnot(length(named) == 1L, named == KS_STATED$named_hospital_floor)
-  stopifnot(!"POOL_UNNAMED_HOSPITALS" %in% partition$bucket)
+  stopifnot(!"POOL_UNNAMED_HOSPITALS" %in%
+              rhtp_hospital_dollar_partition(awards)$bucket)
+  et <- awards[awards$award_pool == "EMERGING_TECH", ]
+  et_h <- et[et$distributed_to_hospital == "Yes", ]
+  stopifnot(nrow(et_h) == 7L, sum(et_h$amount) == 10176973)
+  stopifnot(!"Attica Hospital District #1" %in% et_h$awardee)
 
-  inferred <- awards %>%
+  inferred <- first3 %>%
     dplyr::filter(determination_confidence == "LOW",
                   flag_reason == "RECIPIENT_TYPE_INFERRED")
   stopifnot(nrow(inferred) == KS_STATED$form_not_stated_n)
@@ -1074,9 +1312,9 @@ rhtp_ks_write <- function() {
   openxlsx::addWorksheet(wb, "Read me first")
   openxlsx::writeData(wb, "Read me first", tibble::tibble(
     `Read this before using any figure` = c(
-      paste0("Kansas Year 1: 46 award actions, $",
+      paste0("Kansas Year 1: ", rec$awards_n, " award actions, $",
              format(rec$awards_total, big.mark = ",", scientific = FALSE),
-             ", across THREE pools KDHE published in TWO documents."),
+             ", across FOUR pools KDHE published in THREE documents."),
       "",
       "READ `award_pool` BEFORE USING ANY FIGURE. REH CAP is capital and",
       "conversion money to hospitals; RPGP is regional partnership money whose",
@@ -1091,11 +1329,15 @@ rhtp_ks_write <- function() {
       "document states $221,890,007.82; CMS's own allotment table states",
       "$221,898,008. The $8,000.18 gap is reported, not resolved (§8).",
       "",
-      "KANSAS HAS NOT FINISHED AWARDING. Four more Year 1 programmes --",
-      "Emerging Technology ($9.5M), Interfacility Transport, Evidence-Based",
-      "Practice, and the KHA Healthworks revenue and credentialing projects --",
-      "had no published awardee list when this was extracted. Their",
-      "application deadlines (10 July and 4 August 2026) are why.",
+      "EMERGING TECHNOLOGY IS THE FOURTH POOL (session 52): 14 awards,",
+      "$16,006,648, read from a PDF the reader could not read until session 52",
+      "(the producer paints every string with the ' operator). Its hospital",
+      "rows are typed against CMS's own Kansas enrolment files; Attica",
+      "Hospital District #1 is held OUT because CMS enrols no Attica hospital.",
+      "",
+      "KANSAS HAS NOT FINISHED AWARDING. Interfacility Transport,",
+      "Evidence-Based Practice and the KHA Healthworks projects had no",
+      "published awardee list when this was extracted.",
       "",
       paste0("THE HOSPITAL FIGURE IS A FLOOR: $",
              format(KS_STATED$named_hospital_floor, big.mark = ",",
@@ -1192,6 +1434,103 @@ rhtp_ks_report <- function() {
 }
 
 
+# -- the live probe (session 52) ----------------------------------------------
+#
+# KANSAS HAD NO WATCH, AND THAT IS WHY NOTHING NOTICED A FOURTH ROSTER FOR FOUR
+# DAYS. This reads the programme page and the four award documents LIVE,
+# runs the award-index control and the provenance sentences against the LIVE
+# page, re-parses the Emerging Technology roster from the LIVE bytes, and runs
+# the name tripwire on the programme page -- a SUBJECT page, because it is
+# where KDHE links each new roster. It writes nothing under data/evidence/
+# (§2.2); re-basing is --fetch --force, after a human reads what moved.
+KS_PROBE_KEYS <- c("program_page", "reh_cap_rpgp", "chw_afim", "emerging_tech")
+
+ks_get_live <- function(key) {
+  resp <- httr::GET(ks_source(key, "url"), httr::user_agent(KS_USER_AGENT),
+                    httr::timeout(180))
+  if (httr::status_code(resp) != 200L) {
+    stop("[KS] HTTP ", httr::status_code(resp), " for ", ks_source(key, "url"),
+         call. = FALSE)
+  }
+  raw <- httr::content(resp, as = "raw")
+  if (identical(ks_source(key, "reduce"), "STRIP_CREDENTIALS")) {
+    raw <- ks_strip_credentials(raw)
+  }
+  raw
+}
+
+ks_page_links <- function(raw) {
+  doc <- xml2::read_html(raw)
+  tibble::tibble(
+    href = xml2::xml_attr(xml2::xml_find_all(doc, "//a"), "href"),
+    text = stringr::str_squish(xml2::xml_text(xml2::xml_find_all(doc, "//a")))
+  ) %>% dplyr::filter(!is.na(.data$text), nzchar(.data$text))
+}
+
+ks_page_prose <- function(raw) {
+  doc <- xml2::read_html(raw)
+  xml2::xml_remove(xml2::xml_find_all(doc, "//script | //style"))
+  stringr::str_squish(xml2::xml_text(doc))
+}
+
+# The name tripwire reads the page as LINES, not as one squished string, so a
+# run cannot join the end of one link to the start of the next.
+ks_page_lines <- function(raw) {
+  doc <- xml2::read_html(raw)
+  xml2::xml_remove(xml2::xml_find_all(doc, "//script | //style"))
+  nodes <- xml2::xml_find_all(doc, "//body//*[not(*)] | //body//a")
+  txt <- stringr::str_squish(xml2::xml_text(nodes))
+  paste(unique(txt[nzchar(txt)]), collapse = "\n")
+}
+
+ks_pdf_digest_raw <- function(raw) {
+  tmp <- tempfile(fileext = ".pdf"); on.exit(unlink(tmp))
+  writeBin(raw, tmp)
+  digest::digest(rhtp_pdf_lines(tmp)$text, algo = "sha256")
+}
+
+ks_probe <- function() {
+  live <- purrr::map(KS_PROBE_KEYS, function(k) {
+    Sys.sleep(KS_HOST_THROTTLE_S); ks_get_live(k)
+  })
+  names(live) <- KS_PROBE_KEYS
+
+  arch <- function(k) readBin(ks_archive_path(k), "raw",
+                              file.size(ks_archive_path(k)))
+  cmp <- purrr::map_dfr(KS_PROBE_KEYS, function(k) {
+    is_pdf <- grepl("\\.pdf$", ks_source(k, "file"))
+    a <- if (is_pdf) ks_pdf_digest_raw(arch(k)) else
+      digest::digest(ks_page_prose(arch(k)), algo = "sha256")
+    l <- if (is_pdf) ks_pdf_digest_raw(live[[k]]) else
+      digest::digest(ks_page_prose(live[[k]]), algo = "sha256")
+    tibble::tibble(key = k, content_changed = a != l)
+  })
+
+  # The control, the provenance and the fourth roster, all against LIVE bytes.
+  ks_assert_award_index(ks_page_links(live$program_page))
+  ks_assert_program_page_provenance(ks_page_prose(live$program_page))
+  tmp <- tempfile(fileext = ".pdf"); writeBin(live$emerging_tech, tmp)
+  ks_assert_emerging_tech(ks_parse_emerging_tech(rhtp_pdf_lines(tmp)$text))
+  unlink(tmp)
+
+  # THE NAME TRIPWIRE (§2.3). A fifth pool linked in words none of the
+  # phrases above anticipate still adds names to this page.
+  rhtp_assert_no_new_organisations_across(
+    live = list(program_page = ks_page_lines(live$program_page)),
+    archived = list(program_page = ks_page_lines(arch("program_page"))),
+    state = "KS")
+
+  message("[KS] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
+  purrr::walk(seq_len(nrow(cmp)), function(i) {
+    message(sprintf("  %-14s content %s", cmp$key[i],
+                    if (cmp$content_changed[i]) "CHANGED" else "unchanged"))
+  })
+  message("[KS] four award documents linked, no fifth; the Emerging ",
+          "Technology roster is the 14 rows already extracted.")
+  invisible(cmp)
+}
+
+
 # --- CLI --------------------------------------------------------------------
 
 if (sys.nframe() == 0L) {
@@ -1207,8 +1546,10 @@ if (sys.nframe() == 0L) {
     rhtp_ks_report()
   } else if ("--report" %in% args) {
     rhtp_ks_report()
+  } else if ("--probe" %in% args) {
+    rhtp_probe_run("KS", ks_probe())
   } else {
     message("Usage: Rscript R/03o_ks_year1_awardees.R ",
-            "[--fetch [--force] | --validate | --build | --report]")
+            "[--fetch [--force] | --validate | --build | --probe | --report]")
   }
 }

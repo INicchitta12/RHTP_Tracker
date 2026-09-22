@@ -277,9 +277,10 @@ test_that("the fifty states split four ways and every state has a disposition", 
   tab <- table(survey$extraction_status)
   expect_equal(sum(tab), 50L)
   # Session 47: South Carolina moves INVESTIGATED_NO_PROBE -> EXTRACTED, so
-  # 26/8/6/10 becomes 27/8/5/10. The QUEUED bucket is untouched.
-  expect_equal(unname(tab[["EXTRACTED"]]), 27L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
+  # 26/8/6/10 becomes 27/8/5/10. Session 52: New York moves
+  # INVESTIGATED_NO_LIST -> EXTRACTED (its RCHI roster), so 28/7/5/10.
+  expect_equal(unname(tab[["EXTRACTED"]]), 28L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 7L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 5L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 10L)
 })

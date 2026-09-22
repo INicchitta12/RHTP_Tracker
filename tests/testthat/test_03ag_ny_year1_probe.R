@@ -19,22 +19,82 @@ skip_without_archive <- function() {
 as_raw_html <- function(txt) charToRaw(enc2utf8(txt))
 
 
-# -- the negative ------------------------------------------------------------
+# -- the award extraction (session 52) ----------------------------------------
 
-test_that("New York names no grantee", {
+test_that("the RCHI roster is 56 lead rows, 55 names, the pool to the dollar", {
   skip_without_archive()
-  expect_true(ny_assert_no_roster())
-  expect_length(ny_award_language(ny_html_text("programme")), 0L)
+  r <- ny_assert_roster()
+  expect_equal(nrow(r), 56L)
+  expect_equal(dplyr::n_distinct(r$awardee), 55L)
+  expect_equal(sum(r$amount), 76190022)
+  expect_equal(sort(r$amount[r$awardee == "Ellenville Regional Hospital"]),
+               c(500000, 3000000))
 })
 
-test_that("the roster tripwire fires on every award phrase", {
+test_that("the roster tripwire fires on a moved figure or an unread lead", {
   skip_without_archive()
-  for (p in NY_AWARD_POSTED) {
-    expect_error(
-      ny_assert_no_roster(bodies = list(programme = as_raw_html(
-        paste("<html><body>", p, "</body></html>")))),
-      "award language has appeared", info = p)
-  }
+  r <- ny_parse_roster()
+  r2 <- r; r2$amount[1] <- r2$amount[1] + 1
+  expect_error(ny_assert_roster(r2), "sums to")
+  r3 <- r; r3$awardee[1] <- "Brand New Rural Hospital"
+  expect_error(ny_assert_roster(r3), "nobody has read|distinct names|no longer on")
+  expect_error(ny_assert_roster(r[-1, ]), "priced rows")
+})
+
+test_that("participation is not receipt: non-hospital leads are Unclear", {
+  skip_without_archive()
+  aw <- ny_award_rows()
+  x <- ny_assert_participation_not_receipt(aw)
+  h <- aw[aw$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(h), 35L)
+  expect_equal(round(sum(h$amount), 2), 47358790.79)
+  expect_equal(round(x$held_out, 2), 28831231.21)
+  expect_true(all(aw$flow_type[aw$recipient_type != "HOSPITAL_OR_SYSTEM"] ==
+                    "PASS_THROUGH_UNRESOLVED"))
+  # THE COUNTERFACTUAL: coding off the eligibility rule would publish the
+  # whole pool as hospital money.
+  bad <- aw; bad$distributed_to_hospital <- "Yes"
+  expect_error(ny_assert_participation_not_receipt(bad), "non-hospital")
+  expect_equal(sum(bad$amount), 76190022)
+})
+
+test_that("the CMS typing is reproducible from the archived enrolment slice", {
+  skip_without_archive()
+  expect_true(ny_assert_cms_typing())
+  aw <- ny_award_rows()
+  br <- aw[aw$basis_type %in% "GENERAL_KNOWLEDGE", ]
+  expect_true(all(br$determination_confidence == "LOW"))
+  expect_equal(round(sum(br$amount[br$distributed_to_hospital == "Yes"]), 2),
+               13961712)
+  expect_false(any(aw$determination_confidence == "HIGH"))
+  # The two stem traps stay refused as named.
+  expect_match(NY_LEAD_TYPES$evidence[NY_LEAD_TYPES$awardee ==
+                                        "Mohawk Valley Health System"],
+               "MOHAWK VALLEY PSYCHIATRIC CENTER")
+  expect_true("Southern Tier Health Care System" %in% NY_LEAD_REFUSED)
+})
+
+test_that("an ORG_WEBSITE row whose name is not in CMS is refused", {
+  skip_without_archive()
+  keep <- NY_LEAD_TYPES
+  NY_LEAD_TYPES$basis_type[NY_LEAD_TYPES$awardee == "Adirondack Health"] <<-
+    "ORG_WEBSITE"
+  on.exit(NY_LEAD_TYPES <<- keep)
+  expect_error(ny_assert_cms_typing(), "BRIDGE")
+})
+
+test_that("the release ties RCHI to RHTP and postdates the NOA", {
+  skip_without_archive()
+  expect_true(ny_assert_release_provenance())
+  expect_true(ny_assert_roster_linked())
+})
+
+test_that("the award file exists and matches the builder", {
+  f <- here::here("data", "reference", "ny_year1_awardees.csv")
+  expect_true(file.exists(f))
+  d <- readr::read_csv(f, show_col_types = FALSE, progress = FALSE)
+  expect_equal(nrow(d), 56L)
+  expect_equal(sum(d$amount), 76190022)
 })
 
 
@@ -159,22 +219,17 @@ test_that("the status table has NO amount column", {
   st <- ny_status_table()
   expect_false("amount" %in% names(st))
   expect_equal(nrow(st), 6L)
-  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 1L)
+  expect_equal(sum(st$stage == "AWARDED_ROSTER_PUBLISHED"), 1L)
 })
 
-test_that("no New York award file exists", {
-  expect_false(file.exists(here::here("data", "reference",
-                                      "ny_year1_awardees.csv")))
-})
-
-test_that("New York reads INVESTIGATED_NO_LIST in both rebuilt tables", {
+test_that("New York reads EXTRACTED in both rebuilt tables", {
   for (f in c("rcj_state_survey.csv", "state_trigger_queue.csv")) {
     path <- here::here("data", "reference", f)
     skip_if_not(file.exists(path), paste(f, "is not on disk"))
     d <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
     col <- if ("extraction_status" %in% names(d)) "extraction_status" else
       "queue_status"
-    expect_equal(d[[col]][d$state == "NY"], "INVESTIGATED_NO_LIST")
+    expect_equal(d[[col]][d$state == "NY"], "EXTRACTED")
   }
 })
 

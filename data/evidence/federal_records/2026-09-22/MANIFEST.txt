@@ -50,3 +50,16 @@ nppes_camhp_MS.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d
 nppes_community_initiatives_SC.json | fbbc4855f77c0829cbd90d7b2286605a944895b4398ddaae88df8ef314a6f8cd | 1248 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>
 nppes_delta_health_transformation_MS.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d8973ee | 31 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>
 nppes_graceful_health_solutions_SC.json | 658a2c825f8fa911f2d1b7daa59eabc8e1ecb7adb53ea502dfcea49fbb810c47 | 1431 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST>
+
+ADDED SESSION 52 -- New York's RCHI leads and Kansas's Emerging Technology
+recipients were typed against these slices (exact ORGANIZATION NAME / DBA
+matches, CCN recorded; bridges named in R/03ag and R/03o). Fetched 2026-09-22
+with the same dataset ids as above, filter[STATE]=NY|KS, size=5000.
+
+cms_fqhc_enrollments_KS.json | fdcf9d620ea6e084f4ea31160938882a03587ed6e2434c77822e0eb9409cc905 | 70699 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=KS&size=5000
+cms_fqhc_enrollments_NY.json | 8c3940e68875daa4f0ac0797f82000a8d5a0cbbaa74ed09c2aa65c5ca320beec | 333008 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=NY&size=5000
+cms_hosp_enrollments_KS.json | a59b9db2744ef0fd7e6e0f29adc1ffd68a2cc920e9bfc30f968043f26b91e350 | 316284 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=KS&size=5000
+cms_hosp_enrollments_NY.json | 6c40ead011c659ad890a49aac8a3f5d968d83fe72048b672a2671d954c7d1f40 | 381485 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NY&size=5000
+cms_rhc_enrollments_KS.json | 8ccd0650876ed80a205bdaa0709a06f32d54505a304d6979acf9f7e7a4fdeb6c | 117185 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=KS&size=5000
+cms_rhc_enrollments_NY.json | 8520e58ef5a7a3dce2da857322c4098cd86da2a8eaf179698687ed8d084b56dd | 36228 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=NY&size=5000
+cms_snf_enrollments_KS.json | aecf5dc747e13dc3fae49478e1f6264cbd9d94f908611f22e360a96f228878c0 | 200487 | https://data.cms.gov/data-api/v1/dataset/5f2c306f-3b1c-42cd-b037-187b2ce22126/data?filter[STATE]=KS&size=5000

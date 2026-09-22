@@ -1,59 +1,90 @@
-state,probed_at,verdict,page,note
-TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init1p2,
-TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init4r1,
-TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init4r2,
-TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init6p1,
-TX,2026-09-21T16:36:13Z,UNCHANGED,state_debt_rfa,
-TX,2026-09-21T16:36:13Z,UNCHANGED,state_impr_rfa,
-LA,2026-09-21T16:36:27Z,UNCHANGED,(all),
-NM,2026-09-21T16:36:38Z,UNCHANGED,(all),
-MS,2026-09-21T16:36:53Z,UNCHANGED,funding,
-MS,2026-09-21T16:36:53Z,UNCHANGED,home,
-MS,2026-09-21T16:36:53Z,UNCHANGED,gov_newsroom,
-MS,2026-09-21T16:36:53Z,UNCHANGED,dom_completed,
-AK,2026-09-21T16:37:05Z,UNCHANGED,(all),
-SC,2026-09-21T17:18:47Z,UNCHANGED,programme,
-SC,2026-09-21T17:18:47Z,UNCHANGED,rmua_control,
-SC,2026-09-21T17:18:47Z,UNCHANGED,bhcs_control,
-SC,2026-09-21T17:18:47Z,UNCHANGED,award_list,
-SC,2026-09-21T18:28:13Z,UNCHANGED,programme,
-SC,2026-09-21T18:28:13Z,UNCHANGED,rmua_control,
-SC,2026-09-21T18:28:13Z,UNCHANGED,bhcs_control,
-SC,2026-09-21T18:28:13Z,UNCHANGED,award_list,
-AK,2026-09-22T18:01:59Z,UNCHANGED,(all),
-SD,2026-09-22T18:02:00Z,UNCHANGED,(unreported),the probe returned no per-page detail
-TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init1p2,
-TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init4r1,
-TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init4r2,
-TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init6p1,
-TX,2026-09-22T18:02:09Z,UNCHANGED,state_debt_rfa,
-TX,2026-09-22T18:02:09Z,UNCHANGED,state_impr_rfa,
-MO,2026-09-22T18:02:23Z,CHANGED,bids,
-MO,2026-09-22T18:02:23Z,UNCHANGED,program_page,
-MO,2026-09-22T18:02:23Z,UNCHANGED,hub_roster,
-WI,2026-09-22T18:02:34Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [WI] 'dhs_solicit' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application | Room and Board Residential Substance Use Disorder Opioid Settlement Funds Request for Application | Qualified Treatment Trainee Expanding Agency Awards Request for Application. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-ME,2026-09-22T18:02:52Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [ME] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Maine RHTP Project Narrative Maine RHTP Y1 Budget. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-CA,2026-09-22T18:03:12Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [CA] 'funding' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Trending Links Reproductive Health and Gender Affirming Care Programs Children and Youth Behavioral Health Initiative | Readmissions and Complications Inpatient Hospital Costs | Region View All Data Bottom Public Meetings Latest News HPD Data Release Applications Now Open Rural Health California Rural Health Transformation. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-CT,2026-09-22T18:03:21Z,CHANGED,documents,
-NM,2026-09-22T18:03:38Z,UNCHANGED,(all),
-LA,2026-09-22T18:03:51Z,UNCHANGED,(all),
-KY,2026-09-22T18:04:02Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [KY] 'rch' NAMES 12 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Program News | Help Lead New Rural Program | Brings Partners Together | Rural Health Transformation Program The Commonwealth of Kentucky | Centers for Medicare | Medicaid Services | Rural Health Transformation Fund | Rural Health Transformation Plan | About the Program This | Centers for Medicare and Medicaid Services | U.S. Department of Health and Human Services | The Rural Health Transformation. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-NY,2026-09-22T18:04:12Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [NY] 'programme' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Strengthen Rural Healthcare Across New York State | Rural Community Health Integration Awardees List. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-NC,2026-09-22T18:04:15Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [NC] 'trillium' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: About the Advisory Board The NC ROOTS Region | Advisory Board Members. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-AR,2026-09-22T18:04:28Z,UNCHANGED,home,
-AR,2026-09-22T18:04:28Z,UNCHANGED,resources,
-AR,2026-09-22T18:04:28Z,UNCHANGED,rise,
-AR,2026-09-22T18:04:28Z,UNCHANGED,heart,
-WY,2026-09-22T18:05:02Z,UNCHANGED,(all),
-MS,2026-09-22T18:05:17Z,UNCHANGED,funding,
-MS,2026-09-22T18:05:17Z,CHANGED,home,
-MS,2026-09-22T18:05:17Z,UNCHANGED,gov_newsroom,
-MS,2026-09-22T18:05:17Z,CHANGED,dom_completed,
-DE,2026-09-22T18:05:29Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [DE] 'release' NAMES 17 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Family Court Judge in Sussex County | Governor Meyer Signs Legislation Renaming Delaware Hospital in Honor of Eleanor Cain | Out-of-State Measles Patient Visits Sussex County | M Film Tax Credit Program | Unclaimed Property MONEY MATCH Program Returns | Diamond State Port Corporation | Delaware Department of Labor | Host Statewide Construction Workforce Expo at POLYTECH High School | Governor’s Supplier Diversity Council | Large Projects Awarded Downtown Development Districts Funding Reservations | Hold Community Meeting on Chronic Wasting Disease Temporary Regulations Affecting Deer | Fairness in Delaware’s Justice System (and 5 more). THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-ID,2026-09-22T18:05:39Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [ID] 'funding' NAMES 9 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Behavioral Health Prevention CLOSED | Healthcare Infrastructure Support CLOSED | State Board of Education CLOSED | Statewide Chronic Disease Education Network CLOSED | Graduate Medical Education | Sate Board of Education | School-Based Family Support Hubs CLOSED | Idaho Cognitive Care Pathway Network CLOSED | Cognitive Health Workforce Response Network CLOSED. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet."
-OH,2026-09-22T18:05:45Z,UNCHANGED,release,
-OH,2026-09-22T18:05:45Z,UNCHANGED,odh,
-SC,2026-09-22T18:05:53Z,UNCHANGED,programme,
-SC,2026-09-22T18:05:53Z,UNCHANGED,rmua_control,
-SC,2026-09-22T18:05:53Z,UNCHANGED,bhcs_control,
-SC,2026-09-22T18:05:53Z,UNCHANGED,award_list,
+state,probed_at,verdict,page,note,origin
+TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init1p2,,interactive
+TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init4r1,,interactive
+TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init4r2,,interactive
+TX,2026-09-21T16:36:13Z,UNCHANGED,rts_init6p1,,interactive
+TX,2026-09-21T16:36:13Z,UNCHANGED,state_debt_rfa,,interactive
+TX,2026-09-21T16:36:13Z,UNCHANGED,state_impr_rfa,,interactive
+LA,2026-09-21T16:36:27Z,UNCHANGED,(all),,interactive
+NM,2026-09-21T16:36:38Z,UNCHANGED,(all),,interactive
+MS,2026-09-21T16:36:53Z,UNCHANGED,funding,,interactive
+MS,2026-09-21T16:36:53Z,UNCHANGED,home,,interactive
+MS,2026-09-21T16:36:53Z,UNCHANGED,gov_newsroom,,interactive
+MS,2026-09-21T16:36:53Z,UNCHANGED,dom_completed,,interactive
+AK,2026-09-21T16:37:05Z,UNCHANGED,(all),,interactive
+SC,2026-09-21T17:18:47Z,UNCHANGED,programme,,interactive
+SC,2026-09-21T17:18:47Z,UNCHANGED,rmua_control,,interactive
+SC,2026-09-21T17:18:47Z,UNCHANGED,bhcs_control,,interactive
+SC,2026-09-21T17:18:47Z,UNCHANGED,award_list,,interactive
+SC,2026-09-21T18:28:13Z,UNCHANGED,programme,,interactive
+SC,2026-09-21T18:28:13Z,UNCHANGED,rmua_control,,interactive
+SC,2026-09-21T18:28:13Z,UNCHANGED,bhcs_control,,interactive
+SC,2026-09-21T18:28:13Z,UNCHANGED,award_list,,interactive
+AK,2026-09-22T18:01:59Z,UNCHANGED,(all),,interactive
+SD,2026-09-22T18:02:00Z,UNCHANGED,(unreported),the probe returned no per-page detail,interactive
+TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init1p2,,interactive
+TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init4r1,,interactive
+TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init4r2,,interactive
+TX,2026-09-22T18:02:09Z,UNCHANGED,rts_init6p1,,interactive
+TX,2026-09-22T18:02:09Z,UNCHANGED,state_debt_rfa,,interactive
+TX,2026-09-22T18:02:09Z,UNCHANGED,state_impr_rfa,,interactive
+MO,2026-09-22T18:02:23Z,CHANGED,bids,,interactive
+MO,2026-09-22T18:02:23Z,UNCHANGED,program_page,,interactive
+MO,2026-09-22T18:02:23Z,UNCHANGED,hub_roster,,interactive
+WI,2026-09-22T18:02:34Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [WI] 'dhs_solicit' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application | Room and Board Residential Substance Use Disorder Opioid Settlement Funds Request for Application | Qualified Treatment Trainee Expanding Agency Awards Request for Application. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ME,2026-09-22T18:02:52Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [ME] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Maine RHTP Project Narrative Maine RHTP Y1 Budget. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CA,2026-09-22T18:03:12Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [CA] 'funding' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Trending Links Reproductive Health and Gender Affirming Care Programs Children and Youth Behavioral Health Initiative | Readmissions and Complications Inpatient Hospital Costs | Region View All Data Bottom Public Meetings Latest News HPD Data Release Applications Now Open Rural Health California Rural Health Transformation. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-09-22T18:03:21Z,CHANGED,documents,,interactive
+NM,2026-09-22T18:03:38Z,UNCHANGED,(all),,interactive
+LA,2026-09-22T18:03:51Z,UNCHANGED,(all),,interactive
+KY,2026-09-22T18:04:02Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [KY] 'rch' NAMES 12 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Program News | Help Lead New Rural Program | Brings Partners Together | Rural Health Transformation Program The Commonwealth of Kentucky | Centers for Medicare | Medicaid Services | Rural Health Transformation Fund | Rural Health Transformation Plan | About the Program This | Centers for Medicare and Medicaid Services | U.S. Department of Health and Human Services | The Rural Health Transformation. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NY,2026-09-22T18:04:12Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [NY] 'programme' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Strengthen Rural Healthcare Across New York State | Rural Community Health Integration Awardees List. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NC,2026-09-22T18:04:15Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [NC] 'trillium' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: About the Advisory Board The NC ROOTS Region | Advisory Board Members. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AR,2026-09-22T18:04:28Z,UNCHANGED,home,,interactive
+AR,2026-09-22T18:04:28Z,UNCHANGED,resources,,interactive
+AR,2026-09-22T18:04:28Z,UNCHANGED,rise,,interactive
+AR,2026-09-22T18:04:28Z,UNCHANGED,heart,,interactive
+WY,2026-09-22T18:05:02Z,UNCHANGED,(all),,interactive
+MS,2026-09-22T18:05:17Z,UNCHANGED,funding,,interactive
+MS,2026-09-22T18:05:17Z,CHANGED,home,,interactive
+MS,2026-09-22T18:05:17Z,UNCHANGED,gov_newsroom,,interactive
+MS,2026-09-22T18:05:17Z,CHANGED,dom_completed,,interactive
+DE,2026-09-22T18:05:29Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [DE] 'release' NAMES 17 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Family Court Judge in Sussex County | Governor Meyer Signs Legislation Renaming Delaware Hospital in Honor of Eleanor Cain | Out-of-State Measles Patient Visits Sussex County | M Film Tax Credit Program | Unclaimed Property MONEY MATCH Program Returns | Diamond State Port Corporation | Delaware Department of Labor | Host Statewide Construction Workforce Expo at POLYTECH High School | Governor’s Supplier Diversity Council | Large Projects Awarded Downtown Development Districts Funding Reservations | Hold Community Meeting on Chronic Wasting Disease Temporary Regulations Affecting Deer | Fairness in Delaware’s Justice System (and 5 more). THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ID,2026-09-22T18:05:39Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [ID] 'funding' NAMES 9 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Behavioral Health Prevention CLOSED | Healthcare Infrastructure Support CLOSED | State Board of Education CLOSED | Statewide Chronic Disease Education Network CLOSED | Graduate Medical Education | Sate Board of Education | School-Based Family Support Hubs CLOSED | Idaho Cognitive Care Pathway Network CLOSED | Cognitive Health Workforce Response Network CLOSED. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+OH,2026-09-22T18:05:45Z,UNCHANGED,release,,interactive
+OH,2026-09-22T18:05:45Z,UNCHANGED,odh,,interactive
+SC,2026-09-22T18:05:53Z,UNCHANGED,programme,,interactive
+SC,2026-09-22T18:05:53Z,UNCHANGED,rmua_control,,interactive
+SC,2026-09-22T18:05:53Z,UNCHANGED,bhcs_control,,interactive
+SC,2026-09-22T18:05:53Z,UNCHANGED,award_list,,interactive
+WI,2026-09-22T19:03:08Z,UNCHANGED,dhs_rhtp,,interactive
+WI,2026-09-22T19:03:08Z,CHANGED,dhs_solicit,,interactive
+WI,2026-09-22T19:03:08Z,UNCHANGED,dhs_deck_0723,,interactive
+ME,2026-09-22T19:03:29Z,CHANGED,rhef,,interactive
+ME,2026-09-22T19:03:29Z,CHANGED,doe,,interactive
+ME,2026-09-22T19:03:29Z,CHANGED,programme,,interactive
+ME,2026-09-22T19:03:29Z,CHANGED,mcd,,interactive
+CA,2026-09-22T19:03:49Z,CHANGED,funding,,interactive
+CA,2026-09-22T19:03:49Z,CHANGED,calrht,,interactive
+CA,2026-09-22T19:03:49Z,CHANGED,newsroom,,interactive
+KY,2026-09-22T19:03:59Z,CHANGED,funding,,interactive
+KY,2026-09-22T19:03:59Z,UNCHANGED,programme,,interactive
+KY,2026-09-22T19:03:59Z,CHANGED,rch,,interactive
+KY,2026-09-22T19:03:59Z,UNCHANGED,chfs_grants,,interactive
+NC,2026-09-22T19:04:12Z,CHANGED,pr_mih,,interactive
+NC,2026-09-22T19:04:12Z,CHANGED,pr_roots,,interactive
+NC,2026-09-22T19:04:12Z,CHANGED,roots_page,,interactive
+NC,2026-09-22T19:04:12Z,CHANGED,opportunities,,interactive
+NC,2026-09-22T19:04:12Z,CHANGED,trillium,,interactive
+DE,2026-09-22T19:04:25Z,UNCHANGED,release,,interactive
+DE,2026-09-22T19:04:25Z,CHANGED,programme,,interactive
+ID,2026-09-22T19:04:36Z,CHANGED,funding,,interactive
+ID,2026-09-22T19:04:36Z,CHANGED,about,,interactive
+NY,2026-09-22T19:13:06Z,UNCHANGED,programme,,interactive
+NY,2026-09-22T19:13:06Z,UNCHANGED,roster,,interactive
+NY,2026-09-22T19:13:06Z,CHANGED,press_index,,interactive
+NY,2026-09-22T19:13:06Z,CHANGED,scr,,interactive
+KS,2026-09-22T19:27:04Z,UNCHANGED,program_page,,interactive
+KS,2026-09-22T19:27:04Z,UNCHANGED,reh_cap_rpgp,,interactive
+KS,2026-09-22T19:27:04Z,UNCHANGED,chw_afim,,interactive
+KS,2026-09-22T19:27:04Z,UNCHANGED,emerging_tech,,interactive
