@@ -1761,7 +1761,18 @@ sc_status_table <- function() {
            "behavioral health department and are not demoted. DELIBERATELY ",
            "NOT IN data/reference/classification_review_queue.csv THIS ",
            "SESSION -- a verification pass is in progress in a separate ",
-           "workbook and a later session moves it there.")
+           "workbook and a later session moves it there. || SESSION 50 TYPED ",
+           "147 OF THE 150 DIRECTLY (R/03aq_unstated_form_typing.R), under ",
+           "session 49's three policies and with basis_type on every row: 58 ",
+           "rows / $59,253,577.18 moved INTO NAMED_HOSPITAL and none moved ",
+           "out, taking South Carolina from 55 rows / $56,587,137.77 to 113 / ",
+           "$115,840,714.95. THIS SENTENCE AND THE COUNTS ABOVE DESCRIBE THE ",
+           "BUILDER'S OUTPUT, WHICH IS WHAT THE AWARD LIST ALONE SUPPORTS; ",
+           "the typing is an OVERLAY applied after the build, so the ",
+           "committed sc_year1_awardees.csv carries 3 flagged rows and not ",
+           "150. The three that remain are Community Initiatives Inc. (2 ",
+           "rows) and Graceful Health Solutions, LLC (1), $749,320 between ",
+           "them, whose form no reachable source states.")
   )
 }
 

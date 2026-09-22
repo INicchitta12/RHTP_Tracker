@@ -392,12 +392,20 @@ test_that("the unstated-form question is flagged in South Carolina's own files",
   expect_equal(nrow(row), 1L)
   expect_equal(row$stage, "OPEN_QUESTION")
   expect_true(grepl("ONE-DIRECTIONAL", row$note, fixed = TRUE))
-  # IT IS DELIBERATELY NOT IN THE SHARED QUEUE THIS SESSION. A verification
-  # pass is in progress in a separate workbook, so the question lives on the
-  # rows and in this status table until a later session moves it.
+  # SESSION 47 KEPT IT OUT OF THE SHARED QUEUE while a verification pass ran in
+  # a separate workbook, and session 50 answered it directly instead -- so it
+  # STILL is not a `SC_RECIPIENT_FORM_NOT_STATED` row there. What South
+  # Carolina does now have in the shared queue is the ONE judgement session 50
+  # made rather than the question session 47 deferred: Acadia Healthcare Co.,
+  # a hospital company awarded over a mixed estate. This test therefore pins
+  # the narrower claim it was always making -- the deferred QUESTION did not
+  # migrate -- rather than a blanket absence that is no longer true.
   q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
                        show_col_types = FALSE, progress = FALSE)
-  expect_false("SC" %in% q$state)
+  expect_false(SC_FORM_NOT_STATED_QUESTION %in% q$question_id)
+  sc_rows <- q[q$state == "SC", ]
+  expect_equal(nrow(sc_rows), 1L)
+  expect_equal(sc_rows$question_id, "SC_ACADIA_PARENT_SCOPE")
 })
 
 

@@ -188,13 +188,28 @@ test_that("Kansas's two Citizens spellings DIVERGE, and that is the rule working
   expect_true("KS_CITIZENS_FOUNDATION_TWO_SPELLINGS" %in% q$question_id)
 })
 
-test_that("Mississippi's foundation was NOT promoted and IS queued", {
+test_that("Mississippi's foundation was not promoted by THIS pass, and session 50 answered it", {
+  # SESSION 49 REFUSED IT AND WAS RIGHT TO: Mississippi was not in the workbook,
+  # nobody had verified it, and the name states a COUNTY. This test now pins
+  # both halves -- that policy 2 did not reach it, and that the question it
+  # left behind was answered by evidence rather than by widening the rule.
+  expect_true("Winston County Medical Foundation" %in%
+                VQ_FOUNDATION_REFUSALS$file_name)
+  expect_equal(sum(CHANGES$name == "Winston County Medical Foundation"), 0L)
+
+  q <- ref("classification_review_queue.csv")
+  row <- q %>% filter(question_id == "MS_FOUNDATION_PARENT_NOT_STATED")
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$queue_status, "RESOLVED")
+  # And the answer did NOT come through §10.2's hospital-foundation row: CMS
+  # carries that exact string as an ORGANIZATION NAME against CCN 250027, so
+  # the foundation IS the hospital rather than an arm of one.
+  expect_true(grepl("250027", row$resolution))
   ms <- ref("ms_year1_awardees.csv")
   w <- ms %>% filter(awardee == "Winston County Medical Foundation")
   expect_equal(nrow(w), 4L)
-  expect_true(all(w$recipient_type == "NONPROFIT_CBO"))
-  q <- ref("classification_review_queue.csv")
-  expect_true("MS_FOUNDATION_PARENT_NOT_STATED" %in% q$question_id)
+  expect_true(all(w$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(w$verified_by == "session 50 unstated-form typing"))
 })
 
 
@@ -378,10 +393,15 @@ test_that("Sioux Center Health is a hospital and the COE pool is hospital-only",
   expect_equal(nrow(sc), 3L)
   expect_true(all(sc$recipient_type == "HOSPITAL_OR_SYSTEM"))
 
-  coe <- ia %>% filter(award_pool == "PHTHORC26008")
+  # The ten AWARD ACTIONS. Session 50 appended an eleventh row to this pool --
+  # the POOL ROW -- which is not an award action and is excluded here so this
+  # test keeps saying what it was written to say.
+  coe <- ia %>% filter(award_pool == "PHTHORC26008",
+                       !grepl("AMOUNT_IS_POOL_NOT_AWARD", flag_reason))
   expect_equal(nrow(coe), 10L)
   expect_true(all(coe$recipient_type == "HOSPITAL_OR_SYSTEM"))
   expect_true(all(coe$distributed_to_hospital == "Yes"))
+  expect_true(all(is.na(coe$amount) | coe$amount == "NA"))
 })
 
 test_that("the $50,000,000 stays TIER 2 and reaches no award row", {
@@ -392,8 +412,17 @@ test_that("the $50,000,000 stays TIER 2 and reaches no award row", {
   expect_equal(f$footer_amount, "50000000")
   expect_equal(f$footer_tier, "SOLICITATION")
   ia <- ref("ia_year1_awardees.csv")
-  expect_true(all(is.na(ia$amount)))
   expect_false("round_amount" %in% names(ia))
+  # SESSION 50 PUT THAT FIGURE ON ONE ROW, AND THE TIER IS WHY THIS TEST STILL
+  # HOLDS: it reaches no AWARD row, it is labelled POOL ROW, it is flagged
+  # AMOUNT_IS_POOL_NOT_AWARD and its tier is stated on the row. The claim this
+  # test makes -- that $50,000,000 is not ten hospitals' awards -- is unchanged.
+  pool <- !is.na(ia$flag_reason) & grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason)
+  expect_equal(sum(pool), 1L)
+  expect_true(all(is.na(ia$amount[!pool])))
+  expect_equal(ia$amount[pool], "50000000")
+  expect_equal(ia$hospital_attribution[pool], "POOL_NAMED_HOSPITALS")
+  expect_true(grepl("TIER 2", ia$amount_basis[pool]))
 })
 
 
@@ -411,17 +440,27 @@ test_that("the net move is 118 rows and $107,259,781.21", {
   expect_true(all(outof$state == "MD"))
 })
 
-test_that("the three buckets are what this session publishes", {
+test_that("the three buckets are what SESSION 50 publishes, and what session 49 added is still inside them", {
+  # SESSION 49'S OWN FIGURES WERE 865 rows / $706,793,190.35 / 19 states, with
+  # BOTH pool buckets unmoved. Session 50 typed Mississippi's and South
+  # Carolina's unstated-form rows (+74 rows / +$80,696,969.67) and gave Iowa's
+  # Centers of Excellence pool a POOL_NAMED_HOSPITALS row ($50,000,000, TIER
+  # 2). The session-49 contribution is checked by SUBTRACTION below rather than
+  # deleted, so this test still says what it was written to say.
   p <- vq_partition()
   t <- vq_bucket_totals(p)
   named <- t %>% filter(bucket == "NAMED_HOSPITAL")
-  expect_equal(named$rows, 865L)
-  expect_equal(round(named$dollars, 2), 706793190.35)
+  expect_equal(named$rows, 939L)
+  expect_equal(round(named$dollars, 2), 787490159.80)
   expect_equal(named$states, 19L)
-  # The two pool buckets did NOT move: nothing in this pass touched a
-  # pass-through award.
-  expect_equal(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 18156856.12)
+  expect_equal(named$rows - 74L, 865L)
+  expect_equal(round(named$dollars - 80696969.67, 2), 706793190.13)
+
   expect_equal(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
+  # POOL_NAMED_HOSPITALS gained Iowa and did NOT gain anything from session 49.
+  expect_equal(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 68156856.12)
+  ne <- p %>% filter(bucket == "POOL_NAMED_HOSPITALS", state == "NE")
+  expect_equal(ne$dollars, 18156856.12)
 })
 
 test_that("North Carolina enters the partition for the first time", {
@@ -433,10 +472,17 @@ test_that("North Carolina enters the partition for the first time", {
   expect_equal(nc$dollars, 0)     # North Carolina prices nobody
 })
 
-test_that("Arkansas is now the largest named-hospital state", {
+test_that("session 49 took Arkansas past Georgia, and session 50 took South Carolina past Arkansas", {
   p <- vq_partition() %>% filter(bucket == "NAMED_HOSPITAL") %>%
     arrange(desc(dollars))
-  expect_equal(p$state[[1]], "AR")
-  expect_equal(round(p$dollars[[1]], 2), 92405913.96)
-  expect_equal(p$state[[2]], "GA")
+  # THE SESSION-49 CLAIM, UNCHANGED WHERE IT STILL APPLIES: Arkansas's
+  # $92,405,913.96 is what the returned workbook produced and it is still ahead
+  # of Georgia, which is the comparison that session made.
+  expect_equal(round(p$dollars[p$state == "AR"], 2), 92405913.96)
+  expect_gt(p$dollars[p$state == "AR"], p$dollars[p$state == "GA"])
+  # And South Carolina is now ahead of both, on session 50's typing pass.
+  expect_equal(p$state[[1]], "SC")
+  expect_equal(round(p$dollars[[1]], 2), 115840714.95)
+  expect_equal(p$state[[2]], "AR")
+  expect_equal(p$state[[3]], "GA")
 })

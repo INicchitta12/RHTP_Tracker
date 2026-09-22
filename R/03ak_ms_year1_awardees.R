@@ -1000,14 +1000,23 @@ ms_assert_nothing_promoted <- function(d = ms_year1_awardees()) {
   invisible(TRUE)
 }
 
-#' The unstated-form question is QUEUED, not answered here
+#' The unstated-form question is RECORDED, and its RESIDUAL is still OPEN
 #'
 #' 96 of 167 rows -- 53.8% of everything Mississippi has awarded -- carry §8's
-#' standing fallback, and a reviewer resolving them is the only thing that
-#' moves them. This asserts the queue row exists and is OPEN, so the
-#' disclosure cannot quietly stop being made while the file keeps reporting a
-#' floor as though it were a total.
+#' standing fallback IN THE BUILDER'S OUTPUT, and that is still what the award
+#' list alone supports. Session 50 typed 94 of them
+#' (`R/03aq_unstated_form_typing.R`) as an OVERLAY applied after the build, so
+#' the question moved from OPEN to RESOLVED and a RESIDUAL question opened
+#' beside it for the two organisations no source could determine.
+#'
+#' THIS ASSERTION FOLLOWED THE QUESTION RATHER THAN BEING DELETED WITH IT. It
+#' used to require the row to be OPEN; it now requires the row to exist and to
+#' be either OPEN or RESOLVED-WITH-A-RESOLUTION, **and** requires the residual
+#' question to exist and be OPEN. A disclosure that is answered is not the same
+#' as one that has quietly stopped being made, and only the second is the
+#' failure this function exists to prevent.
 MS_FORM_NOT_STATED_QUESTION <- "MS_RECIPIENT_FORM_NOT_STATED"
+MS_FORM_RESIDUAL_QUESTION <- "UF_FORM_NOT_DETERMINABLE"
 MS_REVIEW_QUEUE <- file.path("data", "reference",
                              "classification_review_queue.csv")
 
@@ -1016,12 +1025,28 @@ ms_assert_form_not_stated_queued <- function(d = ms_year1_awardees()) {
   q <- readr::read_csv(here::here(MS_REVIEW_QUEUE), show_col_types = FALSE,
                        progress = FALSE)
   row <- q[q$question_id == MS_FORM_NOT_STATED_QUESTION, ]
-  if (nrow(row) != 1L || !identical(row$queue_status[[1]], "OPEN")) {
-    stop("[MS] ", MS_FORM_NOT_STATED_QUESTION, " is not an OPEN row in ",
-         MS_REVIEW_QUEUE, ". ", nrow(fb), " rows and $",
+  answered <- nrow(row) == 1L &&
+    identical(row$queue_status[[1]], "RESOLVED") &&
+    !is.na(row$resolution[[1]]) && nzchar(row$resolution[[1]])
+  if (nrow(row) != 1L ||
+      !(identical(row$queue_status[[1]], "OPEN") || answered)) {
+    stop("[MS] ", MS_FORM_NOT_STATED_QUESTION, " is neither an OPEN row nor a ",
+         "RESOLVED one carrying a resolution, in ", MS_REVIEW_QUEUE, ". ",
+         nrow(fb), " rows and $",
          format(sum(fb$amount), big.mark = ",", nsmall = 2),
          " turn on it, and it is ONE-DIRECTIONAL: resolving any of them can ",
          "only raise Mississippi's hospital figure.", call. = FALSE)
+  }
+  if (answered) {
+    res <- q[q$question_id == MS_FORM_RESIDUAL_QUESTION, ]
+    if (nrow(res) != 1L || !identical(res$queue_status[[1]], "OPEN")) {
+      stop("[MS] the unstated-form question reads RESOLVED but its RESIDUAL, ",
+           MS_FORM_RESIDUAL_QUESTION, ", is not an OPEN row. Session 50 typed ",
+           "94 of the 96 and REFUSED two -- CAMHP Foundation and Delta Health ",
+           "Transformation Council, Inc., $3,250,000 between them -- and those ",
+           "two keep §8's standing fallback. Losing the residual row turns a ",
+           "partial answer into an apparent complete one.", call. = FALSE)
+    }
   }
   # The uncertainty is larger than the figure, as in Kansas, Michigan and
   # Arkansas. If that stops being true the sentence published about
