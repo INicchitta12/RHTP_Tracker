@@ -116,10 +116,13 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # INVESTIGATED_NO_LIST: DOH's RCHI Awardees List, 56 lead rows, $76,190,022.
 # It had been public since 2026-09-04 and its Routine's verdicts never reached
 # `main` -- see R/probe_coverage.R.
-SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
-                             "IL", "IN", "KS", "MD", "ME", "MI", "MO", "MS",
-                             "NC", "NE", "NH", "NV", "NY", "OH", "OK", "OR",
-                             "PA", "SC", "SD", "WY")
+# Session 54: CT (the Governor's $50M release), VT (112 executed agreements)
+# and WV (seven named awards) join -- CT from INVESTIGATED_NO_LIST, VT and WV
+# from the QUEUED ten.
+SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
+                             "ID", "IL", "IN", "KS", "MD", "ME", "MI", "MO",
+                             "MS", "NC", "NE", "NH", "NV", "NY", "OH", "OK",
+                             "OR", "PA", "SC", "SD", "VT", "WV", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -258,8 +261,7 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID",
 # probe's whole purpose was served and Mississippi is EXTRACTED. That is what
 # INVESTIGATED_NO_LIST is FOR: a re-checkable negative that re-opens the state
 # the day it publishes, rather than a verdict that goes stale unwatched.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CT", "KY", "LA", "NM",
-                                        "TX", "WI")
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "LA", "NM", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them

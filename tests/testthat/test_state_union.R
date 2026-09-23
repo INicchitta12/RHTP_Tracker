@@ -206,7 +206,18 @@ STATE_FILES <- c(
   # per lead, not per award (the Governor counts 90). A hospital was required
   # in every partnership and the roster names only the lead, so the 21
   # non-hospital leads are Unclear and in NO bucket (§7's third class).
-  NY = "data/reference/ny_year1_awardees.csv"
+  NY = "data/reference/ny_year1_awardees.csv",
+
+  # SESSION 54. VERMONT: 111 EXECUTED agreements ($84,540,011.33; the GMCB
+  # inter-agency MOU is out of the file), 27 named-hospital rows, three of
+  # them to Mary Hitchcock Memorial Hospital in NEW HAMPSHIRE (facility_state).
+  VT = "data/reference/vt_year1_awardees.csv",
+  # CONNECTICUT: four executed grant agreements, every figure rounded, and the
+  # Hartford HealthCare pair (Windham + Charlotte Hungerford) ONE row with NO
+  # split -- POOL_NAMED_HOSPITALS, Nebraska's code.
+  CT = "data/reference/ct_year1_awardees.csv",
+  # WEST VIRGINIA: seven named, priced awards in five Governor's releases.
+  WV = "data/reference/wv_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -234,13 +245,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all twenty-nine files carry the leading 19 columns, in the same order", {
+test_that("all thirty-two files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the twenty-nine files union without a coercion failure", {
+test_that("the thirty-two files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -248,9 +259,9 @@ test_that("the twenty-nine files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
+               c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
                  "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "SC", "SD", "WY"))
+                 "NY", "OH", "OK", "OR", "PA", "SC", "SD", "VT", "WV", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {
@@ -376,8 +387,14 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # beside Nebraska's TIER 3 award, and session 51 removed it: a bucket must
   # not mix tiers (§0.2). The partition now refuses a priced pool row outright.
   pooled_named <- parts[parts$bucket == "POOL_NAMED_HOSPITALS", ]
-  expect_equal(sort(unique(pooled_named$state)), "NE")
-  expect_equal(round(sum(pooled_named$dollars), 2), 18156856.12)
+  # SESSION 54: CONNECTICUT JOINS IT, AND THE TIER IS THE SAME. Hartford
+  # HealthCare's Windham + Charlotte Hungerford pair is ONE executed award
+  # figure ($12,650,000, Tier 3, rounded in source) for two NAMED hospitals
+  # with no per-hospital split -- the condition this code was added for.
+  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE"))
+  expect_equal(round(pooled_named$dollars[pooled_named$state == "NE"], 2),
+               18156856.12)
+  expect_equal(pooled_named$dollars[pooled_named$state == "CT"], 12650000)
 
   # Iowa is in NAMED_HOSPITAL only, at $0, with its ten Centers of Excellence
   # award actions counted ONCE.

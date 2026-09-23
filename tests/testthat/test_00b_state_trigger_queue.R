@@ -180,12 +180,14 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
   # Mississippi to INVESTIGATED_NO_LIST (archive, probe, Routine). That is
   # the only route out of this bucket: session 43 deliberately refused to move
   # them on the strength of a reporting pass.
-  ten <- c("MT", "CO", "WV", "ND", "UT", "VT", "VA", "WA", "AZ", "RI")
-  expect_setequal(queue$state[queue$queue_status == "QUEUED"], ten)
+  # Session 54: VT and WV left by EXTRACTION, so the ten are eight --
+  # 24 - 5 = 19 candidates, $1,916,786,628 - $394,529,839 = $1,522,256,789.
+  eight <- c("MT", "CO", "ND", "UT", "VA", "WA", "AZ", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], eight)
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               24L)
+               19L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
-               1916786628)
+               1522256789)
   expect_setequal(queue$state[queue$queue_status == "EXTRACTED" &
                               queue$state %in% c("DE", "ID", "OH")],
                   c("DE", "ID", "OH"))
