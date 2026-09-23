@@ -15,3 +15,6 @@ WY,trig_01B1bUdL6DXmH62vYjbFKwTh,"10 21 * * 2,5",R/03aj_wy_year1_awardees.R,twic
 MS,trig_01UDobCSd7hE3ACTRgrLNr7Q,"40 9 * * 2,5",R/03ak_ms_year1_awardees.R,twice-weekly,2026-09-23T14:18:00Z
 SC,trig_017j3hddVSkzAAKn8esPawmR,"30 8 * * 4",R/03ao_sc_year1_awardees.R,weekly,2026-09-23T14:18:00Z
 KS,trig_01YaPKjhaGKGBBpmcC9X7NSJ,"10 8 * * 1",R/03o_ks_year1_awardees.R,weekly,2026-09-23T14:18:00Z
+WV,trig_016jUYvhEgJEvMpEoZChp8AK,"30 11 * * 5",R/03av_wv_year1_awardees.R,weekly,2026-09-23T15:10:00Z
+VT,trig_011gjpEvcXAi5XnXgzo6STJy,"30 11 * * 2",R/03at_vt_year1_awardees.R,weekly,2026-09-23T15:10:00Z
+CMS,trig_0174R4VLbhacyCKCKds8qYxM,"0 13 * * 1,4",R/00_cms_press_monitor.R,twice-weekly,2026-09-23T15:10:00Z

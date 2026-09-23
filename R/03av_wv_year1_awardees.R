@@ -53,8 +53,19 @@
 # A PARTIAL YEAR in West Virginia's own words: "Additional Rural Health
 # Transformation Program awards will be announced".
 #
+# THE PROBE (session 55). `--probe` reads three pages LIVE and never writes
+# to data/evidence/ (§2.2):
+#   * the DoH NEWS INDEX -- the channel all five award releases came through.
+#     It TRIPS on any article whose headline says "Award" and is not one of the
+#     five releases above. It is NOT name-diffed: it is a press index, and WIC
+#     and flood notices move it every week (§2.3, subject pages only).
+#   * the RHTP PROGRAMME page and GRANT OPPORTUNITIES page -- the subject
+#     pages, name-diffed against data/evidence/WV/ (§2.3). Grant Opportunities
+#     reads "No active funding opportunities at this time" today; a new
+#     solicitation there is CHANGED, not a tripwire (Tier 2, §0.2).
+#
 # Usage:
-#   Rscript R/03av_wv_year1_awardees.R --validate | --build | --report
+#   Rscript R/03av_wv_year1_awardees.R --validate | --build | --probe | --report
 
 suppressPackageStartupMessages({
   library(dplyr); library(stringr); library(tibble); library(readr)
@@ -87,6 +98,16 @@ WV_SLUG <- c(
   hin  = "governor-morrisey-announces-855400-award-strengthen-statewide-health-data-infrastructure",
   nurs = "governor-morrisey-announces-award-expand-nursing-education-and-strengthen-west-virginias",
   chg  = "governor-morrisey-announces-first-provider-productivity-support-fund-award-through-rural")
+
+WV_PROBE_DIR <- file.path("data", "evidence", "WV")
+WV_PROBE_PAGES <- tibble::tribble(
+  ~key, ~url, ~file, ~name_diff,
+  "news", "https://health.wv.gov/news", "2026-09-23_wv_news_index.html", FALSE,
+  "rhtp", "https://health.wv.gov/rhtp", "2026-09-23_wv_rhtp_programme.html", TRUE,
+  "grants", "https://health.wv.gov/grant-opportunities",
+  "2026-09-23_wv_grant_opportunities.html", TRUE)
+WV_USER_AGENT <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
+                        "+https://www.aha.org)")
 
 wv_text <- function(key) {
   f <- here::here(WV_DIR, WV_FILES[[key]])
@@ -225,12 +246,88 @@ wv_year1_awardees <- function() {
     source_archive_path = file.path(WV_DIR, WV_FILES[a$key]))
 }
 
+# -- probe (session 55) ------------------------------------------------------
+
+#' The reduced text of a page: <main> if it has one, script and style dropped
+wv_page_text <- function(raw) {
+  h <- xml2::read_html(raw)
+  m <- rvest::html_element(h, "main")
+  stringr::str_squish(rvest::html_text2(if (inherits(m, "xml_missing")) h else m))
+}
+
+#' Every /article/ slug on a news-index page, with the headline it links from
+wv_news_articles <- function(raw) {
+  h <- xml2::read_html(raw)
+  a <- rvest::html_elements(h, "a[href^='/article/']")
+  # The only link per item reads "Full Story"; the headline is in its title
+  # attribute, "Read article: <headline>".
+  tibble::tibble(slug = sub("^/article/", "", rvest::html_attr(a, "href")),
+                 headline = stringr::str_squish(sub(
+                   "^Read article:\\s*", "", rvest::html_attr(a, "title")))) %>%
+    dplyr::filter(!is.na(.data$headline), nzchar(.data$headline)) %>%
+    dplyr::distinct(.data$slug, .keep_all = TRUE)
+}
+
+#' THE TRIPWIRE: an award release on the news index this file has not recorded
+#'
+#' Keyed on the SLUG, which West Virginia derives from the headline, and on the
+#' word "award" in the headline or slug. All five recorded releases say
+#' "Award"; every funding OPPORTUNITY release says "Investment" or "Funding
+#' Opportunity" and none says "Award" -- measured on the 2026-09-23 index, 30
+#' articles, and asserted in the test file.
+wv_assert_no_new_award_release <- function(raw) {
+  arts <- wv_news_articles(raw)
+  if (nrow(arts) < 10L) {
+    stop("[WV] the news index yields ", nrow(arts), " articles; the reader, ",
+         "not West Virginia, has changed (§0.4).", call. = FALSE)
+  }
+  known <- unname(WV_SLUG)
+  if (!all(known %in% arts$slug) && nrow(arts) < 25L) {
+    stop("[WV] a recorded award release has left the news index's first page ",
+         "while the page is short -- re-read it.", call. = FALSE)
+  }
+  new <- arts[grepl("award", paste(arts$headline, arts$slug), ignore.case = TRUE) &
+                !arts$slug %in% known, , drop = FALSE]
+  if (nrow(new)) {
+    stop("[WV] NEW AWARD RELEASE(S) ON THE DoH NEWS INDEX: ",
+         paste0("'", new$headline, "' (/article/", new$slug, ")", collapse = "; "),
+         ". THAT IS THE SIGNAL. West Virginia said more awards would follow; ",
+         "archive the release under data/evidence/ and add the row(s) to ",
+         "WV_AWARDS with the quoted sentence.", call. = FALSE)
+  }
+  invisible(arts)
+}
+
+wv_probe <- function() {
+  live <- list(); arch <- list(); changed <- logical(0)
+  for (i in seq_len(nrow(WV_PROBE_PAGES))) {
+    p <- WV_PROBE_PAGES[i, ]
+    resp <- httr::GET(p$url, httr::user_agent(WV_USER_AGENT), httr::timeout(60))
+    if (httr::status_code(resp) != 200L) {
+      stop("[WV] HTTP ", httr::status_code(resp), " from ", p$url, call. = FALSE)
+    }
+    raw <- httr::content(resp, as = "raw")
+    lt <- wv_page_text(raw)
+    at <- wv_page_text(here::here(WV_PROBE_DIR, p$file))
+    changed[p$key] <- !identical(digest::digest(lt), digest::digest(at))
+    if (p$key == "news") wv_assert_no_new_award_release(raw)
+    if (isTRUE(p$name_diff)) { live[[p$key]] <- lt; arch[[p$key]] <- at }
+  }
+  rhtp_assert_no_new_organisations_across(live = live, archived = arch,
+                                          state = WV_STATE)
+  message("[WV] ", paste0(names(changed), ": ",
+                          ifelse(changed, "CHANGED", "UNCHANGED"), collapse = "; "),
+          " -- no new award release.")
+  invisible(tibble::tibble(key = names(changed), changed = unname(changed)))
+}
+
+
 wv_status_table <- function() {
   tibble::tribble(
     ~state, ~channel, ~stage, ~publishes_roster, ~note,
     WV_STATE, "WV Department of Health / Governor releases",
     "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
-    "Seven named, priced awards in five releases (2026-09-04..22), $6,444,803. Each release says more awards will follow, so this is a PARTIAL year. NO PROBE YET -- worth one.",
+    "Seven named, priced awards in five releases (2026-09-04..22), $6,444,803. Each release says more awards will follow, so this is a PARTIAL year. Watched by `--probe` (session 55).",
     WV_STATE, "2026-08-14 '$4.2 million investment' release",
     "SOLICITATION_TIER_2", "No",
     "Two funding OPPORTUNITIES (Tier 2), not awards. Kept out of the award file (§0.2).",
@@ -270,6 +367,7 @@ if (!interactive()) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--validate" %in% args) wv_validate()
   if ("--build" %in% args) wv_build()
+  if ("--probe" %in% args) rhtp_probe_run("WV", wv_probe())
   if ("--report" %in% args) wv_report()
-  if (!length(args)) message("Usage: --validate | --build | --report")
+  if (!length(args)) message("Usage: --validate | --build | --probe | --report")
 }

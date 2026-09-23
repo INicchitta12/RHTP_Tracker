@@ -823,3 +823,36 @@ test_that("the index records the full page's digest, so provenance still closes"
   # A non-rural item is not archived, so it has no reduction to digest.
   expect_true(all(is.na(d$reduced_sha256[!d$is_rural])))
 })
+
+
+# -- session 55: the run's verdict reaches logs/probe_results.csv ------------
+
+test_that("the CMS run's verdict is UNCHANGED, CHANGED, TRIPWIRE or ERROR", {
+  quiet <- list(delta = list(new_states = character(0),
+                             changed_rows = tibble::tibble()))
+  v <- rhtp_cms_press_verdict(quiet)
+  expect_equal(v$verdict, "UNCHANGED")
+  expect_true(is.na(v$note))
+
+  newst <- list(delta = list(new_states = c("MO", "CT"),
+                             changed_rows = tibble::tibble(x = 1)))
+  v <- rhtp_cms_press_verdict(newst)
+  expect_equal(v$verdict, "CHANGED")
+  expect_match(v$note, "new states: MO CT; changed rows: 1")
+
+  # A refused host is a fact about our access; a parser refusal is a finding.
+  expect_equal(rhtp_cms_press_verdict(simpleError("HTTP 403 from cms.gov"))$verdict,
+               "ERROR")
+  expect_equal(rhtp_cms_press_verdict(simpleError(
+    "two candidate tables score equally"))$verdict, "TRIPWIRE")
+  expect_true(all(c(rhtp_cms_press_verdict(quiet)$verdict,
+                    rhtp_cms_press_verdict(newst)$verdict) %in% RHTP_PROBE_VERDICTS))
+})
+
+test_that("the CMS Routine is registered and its script logs a verdict", {
+  source(here::here("R", "probe_coverage.R"), local = TRUE)
+  r <- rhtp_read_routines()
+  expect_true("CMS" %in% r$state)
+  expect_equal(r$script[r$state == "CMS"], "R/00_cms_press_monitor.R")
+  expect_silent(rhtp_assert_routines_registry(r))
+})
