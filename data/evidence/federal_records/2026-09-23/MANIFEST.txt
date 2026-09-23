@@ -23,3 +23,25 @@ cms_hosp_enrollments_NH.json | 835cccdaae63d19f3296eb41aeb7df19015f9df9c13f77e35
 cms_hosp_enrollments_VT.json | 22179780accfa92772d695d3467b86799fa6167bd0c3a66d1b49d34f01bf7e53 | 34376 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=VT&size=5000 (Hospital Enrollments)
 cms_hosp_enrollments_WV.json | 4ede31fbde383db336f399d93a6a62957072b7b87acc7bda8757065103dc3f1f | 118115 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=WV&size=5000 (Hospital Enrollments)
 cms_snf_enrollments_VT.json | 251431a6a7a2e110dc41e0f2a9c676a3c3a8909bb0c3d2ef13189598b36b53b5 | 24758 | https://data.cms.gov/data-api/v1/dataset/5f2c306f-3b1c-42cd-b037-187b2ce22126/data?filter[STATE]=VT&size=5000 (SNF Enrollments)
+
+ADDED SESSION 57 -- Florida's five Unclear rows (Task 1) and Georgia's pooled
+hospitals (Task 2) were checked against these. Fetched 2026-09-23, bytes as served,
+UA "AHA-RHTP-Tracker/0.1 (+https://www.aha.org)". The IRS file is an EXTRACT (header +
+every row whose NAME starts with the four stems searched: NUVITA, EMPOWERQ, EMPOWER HEALTH,
+NORTH FLORIDA RURAL HEALTH). NUVITA and EMPOWERQ return NO row. Full file:
+https://www.irs.gov/pub/irs-soi/eo_fl.csv (sha256 8a662d47029a227a175b84460e81f6dd9a479ad1968fffcc59e73f38c89b1455).
+
+file | sha256 | bytes | source
+cms_fqhc_enrollments_FL.json | ea9a11bb15c5dbc790cf4ce5ff122e028baf809d5bc42905dcbf94ac2a55d1d9 | 291594 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=FL&size=5000 (FQHC Enrollments)
+cms_hha_enrollments_FL.json | 48f5f6ebc4893cb477bd57de58d63fec26e563c4382331cc0987e5da3f20b3c0 | 720540 | https://data.cms.gov/data-api/v1/dataset/15f64ab4-3172-4a27-b589-ebd67a6d28aa/data?filter[STATE]=FL&size=5000 (Home Health Agency Enrollments)
+cms_hosp_enrollments_FL.json | c6b9930e6c8ce77cfd5ca05e8105c9912ab53c5d682faa4b0caa8474e0480904 | 443176 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=FL&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_GA.json | 80de5479533e75babd18db0036145be0205ec77ac86bfb13be41243eb6ee2eca | 315323 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=GA&size=5000 (Hospital Enrollments)
+cms_hospice_enrollments_FL.json | 232636de8123e3f6b15f5898a77526e7a12ef8b955789e263d6e551046fb3a0d | 36322 | https://data.cms.gov/data-api/v1/dataset/25704213-e833-4b8b-9dbc-58dd17149209/data?filter[STATE]=FL&size=5000 (Hospice Enrollments)
+cms_rhc_enrollments_FL.json | f6f1832fa161f5a669c4a55ce9d64e83ef5f97d3d3d133dd88db77ee2118371a | 88225 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=FL&size=5000 (RHC Enrollments)
+cms_snf_enrollments_FL.json | e850ca42f961e391c3ac24ee296d21375abaee6eb732500afe700bdbb856192c | 530459 | https://data.cms.gov/data-api/v1/dataset/5f2c306f-3b1c-42cd-b037-187b2ce22126/data?filter[STATE]=FL&size=5000 (SNF Enrollments)
+nppes_nuvita_FL.json | cdf3bc2e7fa680ce16b33f1a8ad4b0fd609a2bb7649727111155dd9de1bfbf07 | 2701 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
+nppes_nuvita_US.json | 530d59464ad73997bf5aab52e18a408c824cc81d71c130d69b83bb55ee9b0b3b | 9049 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
+nppes_empowerq_FL.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d8973ee | 31 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
+nppes_empower_health_FL.json | 40faf6c80baa4c322db6b0c3868b026a681f74450237a012dab949b2182c8504 | 5425 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
+nppes_north_florida_rural_health_FL.json | 93e29e8049215e6873b1ed86a53de8a184ed74924d8365598d176542ab8b1f61 | 3051 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
+irs_eo_bmf_FL_extract.csv | 5a03084757b9b186794587002145f210db044e3bef90a3225b162bf8b39c340e | 758 | extract of the IRS EO BMF state file named above
