@@ -1395,7 +1395,7 @@ SC_MUSC_UNIVERSITY         <- "Medical University of South Carolina"
 #' `amount_confirmed` are both Yes -- stronger than Arkansas's or Wyoming's
 #' intents, and stronger than Maryland's offers.
 sc_year1_awardees <- function(d = sc_parse_award_list()) {
-  cls   <- rhtp_classify_recipient_type(d$awardee, SC_STATE)
+  cls   <- sc_classify_recipient(d$awardee)
   rtype <- cls$recipient_type
   conf  <- cls$determination_confidence
 
@@ -1517,6 +1517,45 @@ sc_assert_awards_are_made <- function(path = sc_path("award_list")) {
   invisible(TRUE)
 }
 
+#' §0.3a IN A PARENTHESIS (session 53) -- Michigan's precedent, session 27
+#'
+#' South Carolina packs a recipient and a SITE into one awardee string, as
+#' Delaware's "Beebe Healthcare – Georgetown Middle School" does: Self Regional
+#' Healthcare's rows read "(Lakelands Region)", "(Saluda)", "(Imaging Center,
+#' Greenwood)", "(Montgomery Center, Greenwood)", "(Optimum Life
+#' Rehabilitation Center, Greenwood)" -- and "(Greenwood Pediatrics)". §8's
+#' activity token `pediatrics` reaches that last parenthesis and types the
+#' RECIPIENT `PHYSICIAN_PRACTICE`, while its seven sibling spellings (same
+#' recipient, same shape, a different site) are typed `HOSPITAL_OR_SYSTEM` by
+#' session 50 on CMS's Hospital Enrollment record (CCN 420071). The
+#' recipient is Self Regional Healthcare in all eight; the parenthesis is
+#' where the money is spent. §0.3a's corollary: split the string and code the
+#' half that received the money.
+#'
+#' The override returns §8's standing fallback -- NOT a hospital type -- so the
+#' extractor itself still promotes nothing (§0.4). The form is then typed in
+#' `R/03aq`'s overlay on the same federal record as the siblings, which is
+#' where the evidence for it lives.
+SC_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
+  ~awardee, ~recipient_type, ~confidence, ~why,
+  "Self Regional Healthcare (Greenwood Pediatrics)", "NONPROFIT_CBO", "LOW",
+  paste("The parenthesis is a SITE, not the recipient's form; §8's",
+        "'pediatrics' token would type the recipient PHYSICIAN_PRACTICE,",
+        "which is §0.3a's error (Michigan's 'MyMichigan Health (EMS - Chronic",
+        "Disease)' precedent). Recipient = Self Regional Healthcare ->",
+        "§8 fallback here, typed in R/03aq with its seven sibling spellings.")
+)
+
+#' The shared classifier, then the named overrides above -- and nothing else
+sc_classify_recipient <- function(awardee) {
+  cls <- rhtp_classify_recipient_type(awardee, SC_STATE)
+  i <- match(awardee, SC_RECIPIENT_TYPE_OVERRIDES$awardee)
+  hit <- !is.na(i)
+  cls$recipient_type[hit] <- SC_RECIPIENT_TYPE_OVERRIDES$recipient_type[i[hit]]
+  cls$determination_confidence[hit] <- SC_RECIPIENT_TYPE_OVERRIDES$confidence[i[hit]]
+  cls
+}
+
 #' Every recipient_type is reproducible from the NAME alone
 #'
 #' Arkansas's rule (session 40) and §0.3a's: a description describes an
@@ -1525,7 +1564,8 @@ sc_assert_awards_are_made <- function(path = sc_path("award_list")) {
 #' name, and this asserts that it has not.
 sc_assert_typed_from_the_name <- function(d = sc_parse_award_list(),
                                           aw = sc_year1_awardees(d)) {
-  again <- rhtp_classify_recipient_type(aw$awardee, SC_STATE)
+  # The name alone, through the shared classifier and the NAMED overrides.
+  again <- sc_classify_recipient(aw$awardee)
   if (!identical(again$recipient_type, aw$recipient_type)) {
     stop("[SC] a recipient_type in the award file is NOT reproducible from ",
          "the awardee name alone, so something other than the recipient has ",

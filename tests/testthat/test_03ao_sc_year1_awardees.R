@@ -343,7 +343,9 @@ test_that("nothing was promoted, and the refusal runs both ways", {
   aw <- sc_year1_awardees()
   expect_silent(sc_assert_nothing_promoted(aw))
   fb <- aw[which(aw$flag_reason == "RECIPIENT_TYPE_INFERRED"), ]
-  expect_equal(nrow(fb), 150L)
+  # Session 53: +1 -- Self Regional Healthcare (Greenwood Pediatrics), $145,000,
+  # now reaches the fallback through SC_RECIPIENT_TYPE_OVERRIDES (§0.3a).
+  expect_equal(nrow(fb), 151L)
   expect_true(all(fb$distributed_to_hospital == "No"))
   # UPWARD: the hospital systems this file did not promote.
   for (nm in c("Self Regional Healthcare (Lakelands Region)", "McLeod Health",
@@ -365,9 +367,11 @@ test_that("promoting the fallback is priced rather than done", {
   fb <- aw[which(aw$flag_reason == "RECIPIENT_TYPE_INFERRED"), ]
   floor_d <- sum(aw$amount[aw$distributed_to_hospital == "Yes"])
   expect_equal(floor_d, 56587137.77, tolerance = 1e-6)
-  expect_equal(sum(fb$amount), 92759791.23, tolerance = 1e-6)
+  # Session 53: +1 -- Self Regional Healthcare (Greenwood Pediatrics), $145,000,
+  # now reaches the fallback through SC_RECIPIENT_TYPE_OVERRIDES (§0.3a).
+  expect_equal(sum(fb$amount), 92904791.23, tolerance = 1e-6)
   # THE COUNTERFACTUAL, DRIVEN: promoting every fallback row moves this much.
-  expect_equal(floor_d + sum(fb$amount), 149346929.00, tolerance = 1e-6)
+  expect_equal(floor_d + sum(fb$amount), 149491929.00, tolerance = 1e-6)
   # And the uncertainty EXCEEDS the floor, which is the sentence published.
   expect_gt(sum(fb$amount), floor_d)
 })

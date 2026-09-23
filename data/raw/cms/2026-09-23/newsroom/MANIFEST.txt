@@ -1,0 +1,68 @@
+RHTP tracker archive: the CMS newsroom, filtered to the 'Rural health' topic.
+
+listing_url  : https://www.cms.gov/newsroom/articles
+fetched_utc  : 2026-09-23T13:07:33Z
+listing_pages: 18
+floor_date   : 2025-09-01
+items_seen   : 163
+topics_learnt: 0
+rural_archived (this run): 0
+
+WHAT IS COMMITTED, AND WHAT IS NOT. Each file under releases/ is the
+<main> element plus the schema.org JSON-LD, NOT the page as served.
+CMS's page chrome carries a third-party Mapbox API token in its Drupal
+settings JSON, which is CMS's to publish and not ours to redistribute;
+this is the posture §7.1 took for the allotment table and Session 11
+took for the six state press releases. The JSON-LD is kept because it
+is where CMS publishes the topic -- archiving <main> alone would throw
+away the field the filter reads and leave the archive unre-parseable
+offline. Every file was asserted free of that token shape before it was
+written, and the full page's digest is recorded per release in
+data/reference/cms_newsroom_topic_index.csv (full_page_sha256), so
+provenance still closes against what cms.gov served.
+
+The listing pages under listing/ carry no such token and ARE archived
+byte for byte as served.
+
+Digests are written with writeBin, not writeLines: writeLines appends a
+trailing newline, so the file on disk would be one byte longer than the
+body that was hashed and a reader verifying it would get a mismatch.
+
+THE TOPIC FILTER is CMS's own, read from each release's schema.org
+NewsArticle JSON-LD `about`. CMS's facet URL for the same taxonomy,
+/newsroom/search?about[]=<id>, is refused by Akamai for any
+non-browser client (403 on the bare path, with no query string), so
+the topic is read from the document instead of from a query.
+
+A DISCOVERY source (§0.1). No figure here may enter an AHA-published
+number, and `amount` is never summed (§0.2): CMS mixes the Tier 1
+state allotment and the Tier 3 announcement in the same release --
+Virginia's names $122M in its headline and $189M in a quoted
+statement, and those are two different tiers of the same programme.
+
+sha256 per file. MANIFEST.txt IS NOT LISTED IN ITSELF -- a manifest
+cannot record its own digest, because the value would be stale the
+instant the file is written. It listed itself until a second --run on
+one archive date exposed it: the first run wrote the manifest AFTER
+taking the listing, so the file did not exist to be listed and the
+verification test passed on absence rather than on correctness.
+
+  74bd7f61c2a0312c42b78bd8d7c657acaa1b6bdca7c3c52915657dcd6dfad7e2  listing/articles_page_00.html
+  a97a9c6e73bc68cb3897478703148d976d05d09825a708f405e1918fe33293b5  listing/articles_page_01.html
+  463025cdf4495d77fdc1c5e53b50530a1f02951fddcb0ff885080fdaa365c859  listing/articles_page_02.html
+  39ef29fcca3b442e2a39614e2c4e6a13835fc09bcaf57504e00e6b220d97a801  listing/articles_page_03.html
+  14280fe4ea05c3c3d05ef7a58a5616ea0ab71bfa9d0a3f1be06cf0b6f02f932b  listing/articles_page_04.html
+  9559fcb680e997a674988e3c5a8673128524e324705003de4f4aaba5a93823f7  listing/articles_page_05.html
+  8e21a39d42e23bf53e3bdbe19a4a231d1bdf11a926c76adb72bb5644d7ee467e  listing/articles_page_06.html
+  98a092a5c0e3eaecdf2789b86bbb95e084e624ab2007f72ca816ee858025dc68  listing/articles_page_07.html
+  34d6459782e3eb25d51845db2fe88186740fa31db3077cd5351a65b709a92a62  listing/articles_page_08.html
+  5035dd8b23acd5df488fe7b9e75829a4efb10deb253c1f970ceca6454f5145d5  listing/articles_page_09.html
+  7e9e164e21a89ef9b51b31214d60eeb89d834acbb4d88e2cda484cd875fb6fc3  listing/articles_page_10.html
+  e246e634317d4fad2c4e7610ee18332b2b126cb843ca187c184a3c27eadd2c4e  listing/articles_page_11.html
+  983dcf61606f8283cbfc68d709799c84a5bd1102ce7d0d29bd42aced131798c9  listing/articles_page_12.html
+  a99e28c27297bf94f1058fc97b071be28f3a66cc6bf7df10fd54933975c4512d  listing/articles_page_13.html
+  30c747736c74c8fadb72c737afd6f66864f87a534b5e58df2f8f0a0d26f77497  listing/articles_page_14.html
+  8415d6dafc9d2d0712217c07f5996851ec6080e01855a7fe39738443af2c12d8  listing/articles_page_15.html
+  e8db16e30dbaa53b20d9cb71c217e9a6fefbf6837bf683fe54c82f996a27be96  listing/articles_page_16.html
+  5eddb8d53b2c5c78d3d8e2f70db125fc798a4c8b4201a1c3bf3c50db4374b30a  listing/articles_page_17.html
+
