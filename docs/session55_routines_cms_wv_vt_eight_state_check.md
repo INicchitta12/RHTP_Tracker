@@ -9,9 +9,8 @@
   pushed `3d740ff` to `main`: four page lines, every one carrying its own
   trigger id in `origin`. This is the first *scheduled* v2 firing to reach
   `main` by schedule rather than by a manual fire.
-- **California** (`trig_01XHdPsHkNQFsQET1NnWQ3oX`, 17:00Z): see §1a, filled in
-  when it has fired.
-- The sixteen v1 Routines are deleted once both land (§1a lists them). The v1
+- **California** (`trig_01XHdPsHkNQFsQET1NnWQ3oX`, 17:00Z): see §1a.
+- The sixteen v1 Routines are deleted (§1a lists them). The v1
   Routines fired into containers with no repository, so no verdict of theirs
   ever reached `main` (§2.2a); deleting them loses nothing but duplicate runs.
 - Session 54 had left two one-shot reminders firing into its own session to do
@@ -20,7 +19,27 @@
 
 ### 1a. California and the deletion
 
-*(Recorded at the 17:20Z check — see the commit that adds this section.)*
+- **California** (`trig_01XHdPsHkNQFsQET1NnWQ3oX`, 17:00Z) fired at 17:03 and
+  pushed `d37ef9c` to `main`: three page lines (funding, calrht, newsroom, all
+  CHANGED) under its own trigger id. **Two of two scheduled v2 firings have now
+  published by schedule.**
+- At 17:20Z the **sixteen v1 Routines were deleted**: KS `trig_01JkvfXqqNaLXuf8xFja5nNR`,
+  SC `trig_01UdVg36W1aWGTDKs3jfHtfV`, MS `trig_01RmgWna5oXyoMCXYrVqGVvE`,
+  WY `trig_016y7C12cyxy7GmGNJDxoAbW`, AR `trig_01Sw1CDPqYQKXFq4WEVRHH2a`,
+  NC `trig_01SepuwJWXSkqpNQ9WgJkxMb`, KY `trig_01FqfAJvnMzz811goNzNZYqi`,
+  NY `trig_01G2ZijwemE2YgbAuiBirKs2`, LA `trig_01BqyRZ4d8S8EvKdtCN9nmX5`,
+  NM `trig_01DbiFhMJhaZXzYB4gi5JpwX`, CT `trig_01DRHN1x1WfzPjC3dpgay8s2`,
+  CA `trig_013vujTBLopT2gSmNwWJ94ig`, ME `trig_01ALmis3jAgiLXVb6ZDLCj8Y`,
+  WI `trig_01PEixRDWkHzpet4krJtye3b`, MO `trig_01RyGxdGNv6rrF8t6bT5fQdK`,
+  AK `trig_01U4RxGWMH8yg37UKupHqTki`. Every scheduled RHTP Routine now fires
+  into a runner session that can push to `main`: the 16 v2 state probes, WV,
+  VT and CMS — **nineteen**, all registered in `config/routines.csv`.
+- **Coverage check at 17:25Z**: `Rscript R/probe_coverage.R --check` reads *"0
+  due firing(s) since the logging fix, all logged"*. That is an honest zero,
+  not a pass: `logging_since` is 14:18Z and a firing falls DUE only once its
+  six-hour grace window closes, so MO (15:00) and CA (17:00) become checkable
+  at 21:00Z and 23:00Z. Both already carry their lines on `main`, so both will
+  pass when they fall due.
 
 ## 2. The CMS trigger list now runs in a session that can push
 
@@ -46,9 +65,9 @@ of both sources logs. `config/routines.csv` gains a `CMS` row, and
 `rhtp_assert_routines_registry()` accepts `rhtp_probe_log(` for that row only,
 because `--run` writes the raw landing zone and is deliberately not a probe.
 
-**Until this PR merges**, the CMS Routine runs the pre-session-55 code and
-leaves no probe-log line; its prompt says so. If it merges after Thursday
-2026-09-24 13:00Z, move the CMS row's `logging_since` to the merge time.
+**The logging change reached `main` in PR #57, merged 2026-09-23 15:59Z** —
+before the CMS Routine's first firing (Thursday 2026-09-24 13:00Z), so its
+`logging_since` stands and its first firing is required to leave a line.
 
 ## 3. West Virginia and Vermont on Routines
 
@@ -83,9 +102,9 @@ live probe then read 30 articles and reported UNCHANGED on all three pages.
 if it were the state, written and corrected within a minute, and no Routine's
 coverage depends on it. It is recorded here instead.
 
-The WV Routine's prompt **gates on `wv_probe` being on `main`** and stops
-writing nothing until then. If this PR merges after Friday 2026-09-25 11:30Z,
-move WV's `logging_since` to the merge time. Vermont's probe is already on
+The WV Routine's prompt **gates on `wv_probe` being on `main`**. PR #57
+carried it to `main` at 15:59Z, before WV's first firing (Friday 2026-09-25
+11:30Z), so the gate will pass and WV's `logging_since` stands. Vermont's probe is already on
 `main` and its Routine will log from its first firing (Tue 2026-09-29).
 
 ## 4. The eight untouched states — REPORT ONLY, NOTHING EXTRACTED
