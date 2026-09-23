@@ -14,3 +14,18 @@ WV/wv_y_governor-...-42-million-investment-.html  the 2026-08-14 release: the $4
 WV/wv_grants.html                 https://health.wv.gov/grant-opportunities
 RI/ri_ride_grant101.pdf           RIDE "Rural Health Grant 101" (a /sites/g/files document; every RI HTML host is Cloudflare-challenged, 403)
 CMS release pages were deliberately NOT archived here: their page chrome carries a third-party Mapbox token (§7.1 posture).
+
+SESSION 55 additions (2026-09-23, same UA; bytes as served; report only, NOTHING EXTRACTED).
+Eight untouched states + one side finding. Full disposition: docs/session55_routines_cms_wv_vt_eight_state_check.md
+AZ/  AHCCCS RHTP page, launch release, news index, closed solicitations, grants admin, eCivis RFGA, CRH timeline; azpha third-party post (DISCOVERY ONLY)
+CO/  HCPF RHTP page + history + advisory committee, 2026-06-23 RFA release, Governor news index
+MT/  DPHHS RHTP programme, grants, RFPs, CoE advisory council (§0.3 governance roster), communications; MHA 2026-08-14 post (second publisher)
+ND/  HHS RHTP programme + funding page (25 opportunities, ONE "Awarded", nobody named)
+RI/  EOHHS RHTP 101 deck, 2026-04-02 budget amendment summary, the Cloudflare 403 body (UNREADABLE evidence)
+UT/  DHHS status dashboard, funding opportunities, programme; Bonfire past-opportunities JSON
+VA/  RHT site home, ways-to-apply, implementation (STALE), news, application/award, Governor 2026-08-28 $122M PDF, CMS NOA RHTCMS332088-01-03, RFA navigator, VHHA Foundation
+WA/  HCA RHTP programme (MOVED URL), what-we're-working-on, how-to-participate, 2026-09-16 webinar deck, bids page
+TN/  TDH 2026-09-03 "1st Recipients" release + 2026-RHTP-HART-Grant-Awards-FINAL.xlsx (53 named, NO AMOUNTS)
+     https://www.tn.gov/health/news/2026/9/3/tennessee-department-of-health-announces-1st-recipients-of-rural-health-transformation-program-grants.html
+     https://www.tn.gov/content/dam/tn/health/xlsx/2026-RHTP-HART-Grant-Awards-FINAL.xlsx
+Not saved (carry a Google Maps key): vhcf.org/rural-health/, the DMAS RHT page, the Bonfire HTML portal, the SciQuest page.

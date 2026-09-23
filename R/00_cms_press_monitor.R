@@ -1460,6 +1460,33 @@ rhtp_cms_press_run <- function(fetch_date = Sys.Date(), force = FALSE,
 }
 
 
+#' The run's verdict, in the shape `rhtp_probe_log()` takes
+#'
+#' A new state or a changed amount/date is CHANGED -- the cue to collect that
+#' state's primary sources. A refusal from either parser (a page redesign) is
+#' a TRIPWIRE; a refused host is an ERROR, which is a statement about our
+#' access and never about CMS (§0.4). The same split `rhtp_probe_run()` makes.
+rhtp_cms_press_verdict <- function(res) {
+  if (inherits(res, "error")) {
+    msg <- conditionMessage(res)
+    v <- if (grepl("HTTP|refused|timed out|timeout|resolve|connect", msg,
+                   ignore.case = TRUE)) "ERROR" else "TRIPWIRE"
+    return(tibble::tibble(verdict = v, page = "newsroom+medicaid",
+                          note = stringr::str_trunc(stringr::str_squish(msg), 400)))
+  }
+  d <- res$delta
+  n_new <- length(d$new_states)
+  n_chg <- nrow(d$changed_rows)
+  tibble::tibble(
+    verdict = if (n_new || n_chg) "CHANGED" else "UNCHANGED",
+    page = "newsroom+medicaid",
+    note = if (n_new || n_chg) {
+      paste0("new states: ", if (n_new) paste(d$new_states, collapse = " ") else "none",
+             "; changed rows: ", n_chg)
+    } else NA_character_)
+}
+
+
 rhtp_cms_press_status <- function() {
   path <- here::here(CMS_PRESS_CSV)
   if (!file.exists(path)) {
@@ -1492,8 +1519,18 @@ if (sys.nframe() == 0L) {
     if ("--medicaid" %in% args) "medicaid" else "both"
 
   if ("--run" %in% args) {
-    rhtp_cms_press_run(force = "--force" %in% args, run_type = run_type,
-                       sources = sources)
+    # SESSION 55: the verdict is LOGGED, so the coverage check can see this
+    # Routine's firings the way it sees every state probe's (§2.2a). Only a
+    # PRODUCTION run of BOTH sources is a verdict; --dev and a single-source
+    # run are iterations and leave no line.
+    res <- tryCatch(
+      rhtp_cms_press_run(force = "--force" %in% args, run_type = run_type,
+                         sources = sources),
+      error = function(e) e)
+    if (run_type == "PRODUCTION" && sources == "both") {
+      rhtp_probe_log("CMS", rhtp_cms_press_verdict(res))
+    }
+    if (inherits(res, "error")) stop(res)
   } else if ("--parse" %in% args) {
     rhtp_cms_press_run(fetch = FALSE, run_type = run_type, sources = sources)
   } else if ("--status" %in% args) {

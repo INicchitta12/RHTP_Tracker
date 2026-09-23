@@ -1,0 +1,15 @@
+WEST VIRGINIA -- RHTP probe baseline (session 55)
+
+Fetched 2026-09-23 with the project's honest agent
+"Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)",
+bytes as served. These are the BASELINE `R/03av --probe` compares against;
+re-dating them is `--fetch --force` territory (§2.2), a human act taken after
+reading what changed. Two fetches of /news three seconds apart were
+byte-identical.
+
+The grant-opportunities copy is the same bytes as
+data/evidence/recheck/2026-09-23/WV/wv_grants.html (session 54).
+
+298641a9578a4779166918828b3f17b86289a62741398ef1a202ce5e8947a982  29893  2026-09-23_wv_grant_opportunities.html
+392fb2ea0905b7cfa351159b8d6dd31b61430045baf2c04c3c9ac4f3c892225d  50124  2026-09-23_wv_news_index.html
+47ae017d37a69d88c9b36970cda66a5b21a5ad6b69b91775a6f5a02a1ea8dd7c  33154  2026-09-23_wv_rhtp_programme.html

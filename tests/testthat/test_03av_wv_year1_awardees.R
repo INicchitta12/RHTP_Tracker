@@ -38,3 +38,48 @@ test_that("the committed CSV matches a fresh build", {
   expect_equal(d$awardee, wv$awardee)
   expect_equal(d$amount, wv$amount)
 })
+
+
+# -- session 55: the probe ---------------------------------------------------
+
+wv_news_arch <- here::here(WV_PROBE_DIR, "2026-09-23_wv_news_index.html")
+
+test_that("the news index reads 30 articles and all five award releases", {
+  a <- wv_news_articles(wv_news_arch)
+  expect_equal(nrow(a), 30L)
+  expect_true(all(unname(WV_SLUG) %in% a$slug))
+})
+
+test_that("on the archive, 'award' matches EXACTLY the five recorded releases", {
+  # The tripwire's premise, measured: no funding-OPPORTUNITY release says
+  # "award", so the word separates Tier 3 from Tier 2 on this index today.
+  a <- wv_news_articles(wv_news_arch)
+  hit <- a$slug[grepl("award", paste(a$headline, a$slug), ignore.case = TRUE)]
+  expect_setequal(hit, unname(WV_SLUG))
+  expect_silent(wv_assert_no_new_award_release(wv_news_arch))
+})
+
+test_that("a sixth award release TRIPS, by headline", {
+  raw <- paste(readLines(wv_news_arch, warn = FALSE, encoding = "UTF-8"),
+               collapse = "\n")
+  fake <- paste0('<a href="/article/governor-morrisey-announces-award-mercy-hospital" ',
+                 'title="Read article: Governor Morrisey Announces $1 Million Award ',
+                 'to Example Rural Hospital">Full Story</a>')
+  raw <- sub("</body>", paste0(fake, "</body>"), raw, fixed = TRUE)
+  expect_error(wv_assert_no_new_award_release(charToRaw(raw)),
+               "NEW AWARD RELEASE")
+})
+
+test_that("a reader that finds nothing is refused, not read as silence", {
+  expect_error(wv_assert_no_new_award_release(charToRaw("<html><main></main></html>")),
+               "the reader, not West Virginia")
+})
+
+test_that("both name-diffed pages have a real baseline and are silent on themselves", {
+  for (k in WV_PROBE_PAGES$key[WV_PROBE_PAGES$name_diff]) {
+    t <- wv_page_text(here::here(WV_PROBE_DIR,
+                                 WV_PROBE_PAGES$file[WV_PROBE_PAGES$key == k]))
+    expect_gte(length(rhtp_organisation_names(t)), 3L)
+    expect_silent(rhtp_assert_no_new_organisations(t, t, "WV", k))
+  }
+})
