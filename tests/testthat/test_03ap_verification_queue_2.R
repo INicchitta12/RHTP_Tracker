@@ -446,13 +446,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 52 added New York (35 rows / $47,358,790.79, a 20th state) and
   # Kansas's Emerging Technology pool (7 rows / $10,176,973) -- subtracted
   # below, as sessions 50's were, so the older figures are still checked.
-  expect_equal(named$rows, 981L)
-  expect_equal(round(named$dollars, 2), 845025923.32, tolerance = 0)
+  # Session 53: + Self Regional Healthcare (Greenwood Pediatrics), 1 row /
+  # $145,000, re-typed under §0.3a -- subtracted below with session 52's.
+  expect_equal(named$rows, 982L)
+  expect_equal(round(named$dollars, 2), 845170923.32, tolerance = 0)
   expect_equal(named$states, 20L)
-  expect_equal(named$rows - 42L, 939L)
-  expect_equal(round(named$dollars - 57535763.79, 2), 787490159.53, tolerance = 0)
-  expect_equal(named$rows - 42L - 74L, 865L)
-  expect_equal(round(named$dollars - 57535763.79 - 80696969.67, 2),
+  expect_equal(named$rows - 42L - 1L, 939L)
+  expect_equal(round(named$dollars - 57535763.79 - 145000, 2), 787490159.53, tolerance = 0)
+  expect_equal(named$rows - 42L - 1L - 74L, 865L)
+  expect_equal(round(named$dollars - 57535763.79 - 145000 - 80696969.67, 2),
                706793189.86, tolerance = 0)
 
   expect_equal(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
@@ -483,7 +485,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   expect_gt(p$dollars[p$state == "AR"], p$dollars[p$state == "GA"])
   # And South Carolina is now ahead of both, on session 50's typing pass.
   expect_equal(p$state[[1]], "SC")
-  expect_equal(round(p$dollars[[1]], 2), 115840714.95)
+  expect_equal(round(p$dollars[[1]], 2), 115985714.95)  # + $145,000, session 53
   expect_equal(p$state[[2]], "AR")
   expect_equal(p$state[[3]], "GA")
 })
