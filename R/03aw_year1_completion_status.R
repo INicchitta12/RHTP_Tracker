@@ -374,6 +374,10 @@ y1_build_status <- function() {
 #                 contains a named hospital with no per-hospital amount,
 #                 counted WHOLE -- which is an upper bound, not an estimate,
 #                 because such a pool may also hold a non-hospital recipient.
+#                 Georgia's two do (ga_mixed_pool_split_search.csv): each holds
+#                 a positive, unpublished non-hospital award, so GA's true share
+#                 is STRICTLY below its ceiling. Florida's ceiling equals its
+#                 floor since session 58 settled its five Unclear rows.
 # Pool buckets (POOL_NAMED / POOL_UNNAMED) are reported beside, never added.
 
 y1_hospital_share <- function(status = y1_build_status()) {

@@ -1,15 +1,18 @@
 # R/03ax_fl_ga_ceiling_pools_gaps.R
 #
-# THE TWO COMPLETE STATES, TIGHTENED (session 57). A REPORT -- NO ROW IS
-# RE-CODED HERE. Three questions, one output each:
+# THE TWO COMPLETE STATES, TIGHTENED (session 57). A REPORT, EXCEPT FOR
+# `--apply` (session 58), which re-codes exactly five Florida rows. Three
+# questions, one output each:
 #
-#   1. FLORIDA'S CEILING. Five rows ($6,331,219.97) sit between the
+#   1. FLORIDA'S CEILING. Five rows ($6,331,219.97) sat between the
 #      named-hospital floor ($49,345,213.46, 26.2%) and the ceiling (29.6%)
-#      because they carry distributed_to_hospital = Unclear. Each is checked
+#      because they carried distributed_to_hospital = Unclear. Each is checked
 #      against the archived CMS enrolment files, NPPES and the IRS EO BMF --
-#      Winston County Medical Foundation's route (session 50, CCN 250027) --
-#      and the result is written as a PROPOSAL, never applied to
-#      fl_year1_awardees.csv.
+#      Winston County Medical Foundation's route (session 50, CCN 250027).
+#      Session 57 wrote the result as a PROPOSAL. SESSION 58 APPLIED ALL THREE
+#      ON THE OWNER'S INSTRUCTION (`--apply`), Nuvita Health on the owner's own
+#      identification (Nuvita Cellular Health) at GENERAL_KNOWLEDGE / LOW.
+#      Florida's ceiling now equals its floor.
 #   2. GEORGIA'S POOLS. Two pools name hospitals with no per-hospital split.
 #      This records what was searched, that no split exists, and the
 #      non-hospital member each pool contains. Nothing is apportioned (§6.2).
@@ -22,8 +25,14 @@
 # gap's composition; they are never added to an award total.
 #
 # Usage:
+#   Rscript R/03ax_fl_ga_ceiling_pools_gaps.R --apply    # overlays the 3 FL codings
 #   Rscript R/03ax_fl_ga_ceiling_pools_gaps.R --build    # writes the 3 CSVs
 #   Rscript R/03ax_fl_ga_ceiling_pools_gaps.R --report   # prints them
+#
+# `--apply` IS AN OVERLAY ON fl_year1_awardees.csv, keyed on row_no and
+# idempotent. It must run AFTER session 49's (`R/03ap ... vq_overlay`), which
+# sets these same five rows' recipient_type: rebuild order is R/03e --ingest,
+# then the 03ap overlay for Florida, then this --apply.
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -114,20 +123,35 @@ ax_fl_list_rows <- function() {
   body[, c("row_no", "amount_in_source", "region")]
 }
 
+# The five rows, by the Governor's own row number, and what they carried
+# BEFORE session 58 applied the codings (session 49's overlay; the owner's
+# workbook had UNCLASSIFIED / Unclear on all five).
+AX_FL_ROWS <- tibble::tribble(
+  ~row_no, ~awardee, ~prior_recipient_type, ~prior_distributed_to_hospital,
+  9L,  "Nuvita Health",                   "VENDOR_OR_CONTRACTOR", "Unclear",
+  16L, "Empowerq Health Care",            "PHYSICIAN_PRACTICE",   "Unclear",
+  18L, "Nuvita Health",                   "VENDOR_OR_CONTRACTOR", "Unclear",
+  33L, "Nuvita Health",                   "VENDOR_OR_CONTRACTOR", "Unclear",
+  71L, "North Florida Rural Health Corp", "NONPROFIT_CBO",        "Unclear")
+
 # One entry per ORGANISATION. `stem` is what the CMS/NPPES/IRS searches
 # looked for; evidence_class says whether a federal record carries the state's
-# own string (EXACT), a hand-read bridge to one (BRIDGE), or nothing (NEGATIVE).
+# own string (EXACT), a hand-read bridge to one (BRIDGE), or nothing
+# (NEGATIVE). `decided_by` says who settled the coding that was APPLIED.
 AX_FL_ORGS <- tibble::tribble(
-  ~awardee, ~stem, ~evidence_class, ~proposed_recipient_type, ~proposed_basis_type, ~proposed_confidence, ~determination,
+  ~awardee, ~stem, ~evidence_class, ~applied_recipient_type, ~applied_basis_type, ~applied_confidence, ~decided_by, ~determination,
   "North Florida Rural Health Corp", "NORTH FLORIDA RURAL HEALTH",
   "EXACT_FEDERAL_RECORD", "NONPROFIT_CBO", "ORG_WEBSITE", "MEDIUM",
+  "Federal record (IRS EO BMF); applied on owner instruction, session 58",
   "The state's own string is the IRS EO BMF NAME exactly: EIN 85-2728333, 680 Maple St, Chattahoochee FL, subsection 03 (501(c)(3)), NTEE E30 (ambulatory and primary health care). NPPES carries it twice under the same name and city (1912641341, clinic taxonomies incl. a self-reported FQHC code; 1720849540, pharmacy). It is in NO CMS enrolment file -- not an enrolled FQHC or RHC, and not a hospital. The only CMS-enrolled hospital in Chattahoochee is Florida State Hospital (Florida Department of Children and Families, CCNs 104000/100298), a different body. A 501(c)(3) community clinic: not a hospital.",
   "Empowerq Health Care", "EMPOWERQ",
   "BRIDGE_FEDERAL_RECORD", "NONPROFIT_CBO", "GENERAL_KNOWLEDGE", "LOW",
-  "No federal record carries 'Empowerq' (NPPES 0 results, IRS 0 rows, all six CMS files 0). The verifier's own cited site (empowerhealthcare4all.org) is Empower Healthcare, Inc., a primary-care clinic serving Palm Beach County, which IRS carries as EMPOWER HEALTHCARE, EIN 85-2591676, Pahokee FL, 501(c)(3), NTEE E32 (community clinics), and NPPES as EMPOWER HEALTHCARE, INC 1770170367, Pahokee, taxonomies incl. 'Clinic/Center, Rural Health'. The Governor's list places row 16 in the SOUTHEAST region, which is where Pahokee is. That identification is a HAND-READ BRIDGE (one letter of the state's spelling), hence LOW. Either way no CMS-enrolled Florida hospital's name or DBA contains EMPOWER.",
+  "Hand-read bridge to a federal record; applied on owner instruction, session 58",
+  "No federal record carries 'Empowerq' (NPPES 0 results, IRS 0 rows, all six CMS files 0). The verifier's own cited site (empowerhealthcare4all.org) is Empower Healthcare, Inc., a primary-care clinic serving Palm Beach County, which IRS carries as EMPOWER HEALTHCARE, EIN 85-2591676, Pahokee FL, 501(c)(3), NTEE E32 (community clinics), and NPPES as EMPOWER HEALTHCARE, INC 1770170367, Pahokee, taxonomies incl. 'Clinic/Center, Rural Health'. The Governor's list places row 16 in the SOUTHEAST region, which is where Pahokee is. That identification is a HAND-READ BRIDGE (one letter of the state's spelling), hence LOW on the MATCH. The hospital answer does not depend on it: no CMS-enrolled Florida hospital's name or DBA contains EMPOWER, so it is not a hospital either way.",
   "Nuvita Health", "NUVITA",
-  "NEGATIVE_ONLY", "VENDOR_OR_CONTRACTOR", "ORG_WEBSITE", "MEDIUM",
-  "NO positive federal record. 'Nuvita Health' is in none of the six CMS enrolment files, not in the IRS EO BMF, and not in NPPES; NPPES's only Florida 'Nuvita' organisations are a chiropractor (Tampa) and a multi-specialty clinic enumerated 2025-07-09 (Jacksonville), neither named Nuvita Health and neither a hospital. The form rests on the verifier's reading of the company's own site ('connects patients to wellness providers'). The hospital question is answered only by ABSENCE: no Medicare-enrolled Florida hospital carries the name."
+  "NEGATIVE_ONLY", "VENDOR_OR_CONTRACTOR", "GENERAL_KNOWLEDGE", "LOW",
+  "OWNER-CONFIRMED identification (Nuvita Cellular Health), session 58",
+  "OWNER-CONFIRMED (session 58): 'Nuvita Health' is Nuvita Cellular Health, a cellular preventive medicine and biomarker testing platform -- not a hospital. That identification is the owner's own knowledge with no citable source for the form, hence GENERAL_KNOWLEDGE / LOW. It agrees with the federal records, which carry NO positive record: 'Nuvita Health' is in none of the six CMS enrolment files, not in the IRS EO BMF, and not in NPPES; NPPES's only Florida 'Nuvita' organisations are a chiropractor (Tampa) and a multi-specialty clinic enumerated 2025-07-09 (Jacksonville), neither named Nuvita Health and neither a hospital, and no Medicare-enrolled Florida hospital carries the name."
 )
 
 ax_fl_federal_checks <- function(orgs = AX_FL_ORGS) {
@@ -152,14 +176,17 @@ ax_fl_federal_checks <- function(orgs = AX_FL_ORGS) {
 ax_fl_resolution <- function() {
   fl <- ax_fl()
   lst <- ax_fl_list_rows()
-  u <- fl %>% dplyr::filter(distributed_to_hospital == "Unclear")
-  stopifnot(nrow(u) == 5L,
-            isTRUE(all.equal(sum(u$amount), 6331219.97, tolerance = 0)) ||
-              abs(sum(u$amount) - 6331219.97) < 0.01)
+  u <- fl %>% dplyr::filter(row_no %in% AX_FL_ROWS$row_no)
+  stopifnot(nrow(u) == 5L, abs(sum(u$amount) - 6331219.97) < 0.01,
+            identical(u$awardee[order(u$row_no)], AX_FL_ROWS$awardee))
   chk <- ax_fl_federal_checks()
   out <- u %>%
-    dplyr::select(row_no, awardee, amount, recipient_type,
-                  distributed_to_hospital, verified_basis) %>%
+    dplyr::select(row_no, awardee, amount,
+                  committed_recipient_type = recipient_type,
+                  committed_distributed_to_hospital = distributed_to_hospital,
+                  committed_confidence = determination_confidence,
+                  committed_basis_type = basis_type) %>%
+    dplyr::left_join(AX_FL_ROWS, by = c("row_no", "awardee")) %>%
     dplyr::left_join(lst, by = "row_no") %>%
     dplyr::left_join(AX_FL_ORGS %>% dplyr::select(-stem), by = "awardee") %>%
     dplyr::left_join(chk, by = "awardee") %>%
@@ -170,23 +197,61 @@ ax_fl_resolution <- function() {
                            ". Name, amount and region only -- no form, no project text."),
       why_ambiguous = paste0("Florida publishes no organisation form; the owner's workbook ",
                              "coded it UNCLASSIFIED/Unclear and session 49 re-typed it (",
-                             recipient_type, ", ", verified_basis, ") without settling the ",
-                             "hospital column."),
-      proposed_distributed_to_hospital = "No",
+                             prior_recipient_type, ") without settling the hospital column."),
+      applied_distributed_to_hospital = "No",
       resolves = dplyr::case_when(
         evidence_class == "EXACT_FEDERAL_RECORD" ~ "YES",
         evidence_class == "BRIDGE_FEDERAL_RECORD" ~ "YES_ON_A_BRIDGE",
-        TRUE ~ "NO_POSITIVE_RECORD")) %>%
-    dplyr::rename(current_recipient_type = recipient_type,
-                  current_distributed_to_hospital = distributed_to_hospital) %>%
+        TRUE ~ "NO_POSITIVE_RECORD"),
+      status = ifelse(committed_recipient_type == applied_recipient_type &
+                        committed_distributed_to_hospital == applied_distributed_to_hospital &
+                        committed_confidence %in% applied_confidence &
+                        committed_basis_type %in% applied_basis_type,
+                      "APPLIED", "PENDING")) %>%
     dplyr::select(row_no, awardee, amount, amount_in_source, region,
-                  current_recipient_type, current_distributed_to_hospital,
+                  prior_recipient_type, prior_distributed_to_hospital,
                   source_says, why_ambiguous, cms_hospital_hits, cms_any_file_hits,
                   irs_hits, nppes_hits, evidence_class, resolves,
-                  proposed_recipient_type, proposed_distributed_to_hospital,
-                  proposed_basis_type, proposed_confidence, determination)
+                  applied_recipient_type, applied_distributed_to_hospital,
+                  applied_basis_type, applied_confidence, decided_by, status,
+                  determination)
   ax_assert_fl(out)
   out
+}
+
+#' Session 58's overlay: write the three codings onto the five rows. Keyed on
+#' row_no, checked against the awardee name, idempotent. recipient_type_source
+#' (the owner's original UNCLASSIFIED) is deliberately not touched -- see
+#' vq_overlay() in R/03ap for why.
+ax_fl_overlay <- function(d, res = NULL) {
+  if (is.null(res)) res <- ax_fl_resolution()
+  for (i in seq_len(nrow(res))) {
+    r <- which(as.integer(d$row_no) == res$row_no[i])
+    if (length(r) != 1L || d$awardee[r] != res$awardee[i])
+      stop("[AX] Florida row ", res$row_no[i], " is not ", res$awardee[i])
+    if (!d$distributed_to_hospital[r] %in% c("Unclear", "No"))
+      stop("[AX] Florida row ", res$row_no[i], " is ", d$distributed_to_hospital[r],
+           " -- this overlay only settles Unclear rows")
+    d$recipient_type[r] <- res$applied_recipient_type[i]
+    d$distributed_to_hospital[r] <- res$applied_distributed_to_hospital[i]
+    d$determination_confidence[r] <- res$applied_confidence[i]
+    d$basis_type[r] <- res$applied_basis_type[i]
+    d$verified_by[r] <- res$decided_by[i]
+    d$verified_basis[r] <- res$determination[i]
+  }
+  d
+}
+
+ax_fl_apply <- function() {
+  f <- here::here("data", "reference", "fl_year1_awardees.csv")
+  # read as character with "" kept as "", which round-trips the committed file
+  # byte for byte (no NA literals, no 3e+06).
+  d <- readr::read_csv(f, col_types = readr::cols(.default = "c"), na = character())
+  res <- ax_fl_resolution()
+  d2 <- ax_fl_overlay(d, res)
+  readr::write_csv(d2, f, na = "")
+  message("[AX] applied ", nrow(res), " Florida codings to ", f)
+  invisible(d2)
 }
 
 ax_assert_fl <- function(out) {
@@ -194,6 +259,10 @@ ax_assert_fl <- function(out) {
     stop("[AX] a Florida Unclear amount no longer matches the Governor's list")
   if (any(out$cms_hospital_hits != 0))
     stop("[AX] an Unclear Florida recipient now matches a CMS hospital -- re-read it")
+  if (any(out$applied_basis_type == "GENERAL_KNOWLEDGE" & out$applied_confidence != "LOW"))
+    stop("[AX] a GENERAL_KNOWLEDGE coding must be LOW (§0.4)")
+  if (!all(grepl("OWNER-CONFIRMED", out$determination[out$awardee == "Nuvita Health"])))
+    stop("[AX] Nuvita Health's basis must say it is owner-confirmed")
   nfrhc <- out[out$awardee == "North Florida Rural Health Corp", ]
   if (nfrhc$irs_hits[1] != "852728333")
     stop("[AX] North Florida Rural Health Corp is no longer the IRS record it was settled on")
@@ -205,8 +274,9 @@ ax_assert_fl <- function(out) {
   invisible(TRUE)
 }
 
-#' Florida's floor and ceiling, before and under each reading. The floor
-#' cannot move: nothing resolved TO a hospital.
+#' Florida's floor and ceiling, before and under each reading, and as the
+#' committed file now stands. The floor cannot move: nothing resolved TO a
+#' hospital.
 ax_fl_bounds <- function(res = ax_fl_resolution()) {
   fl <- ax_fl()
   denom <- sum(fl$amount)
@@ -217,7 +287,8 @@ ax_fl_bounds <- function(res = ax_fl_resolution()) {
     "BEFORE (session 56)", sum(res$amount),
     "Remove EXACT federal records only", un(c("YES_ON_A_BRIDGE", "NO_POSITIVE_RECORD")),
     "Also remove the hand-read bridge", un("NO_POSITIVE_RECORD"),
-    "Also remove the measured negative", 0
+    "Also remove the measured negative", 0,
+    "AS COMMITTED (fl_year1_awardees.csv)", sum(fl$amount[fl$distributed_to_hospital == "Unclear"])
   ) %>%
     dplyr::mutate(floor_usd = floor, ceiling_usd = floor + unclear_left_usd,
                   floor_pct = round(100 * floor / denom, 1),
@@ -251,7 +322,22 @@ ax_ga_pools <- function() {
                                    collapse = "; "),
       .groups = "drop")
   stopifnot(nrow(p) == 2L, sum(p$pool_usd) == 22135000, all(p$priced_usd == 0))
+  # The ceiling session 56 reports counts both pools WHOLE. Recomputed here
+  # from the committed award file so this table and year1_complete_hospital_
+  # share.csv cannot drift apart silently (a test holds them equal).
+  denom <- sum(dplyr::distinct(ga, phase, initiative, initiative_amount)$initiative_amount)
+  named <- sum(ga$amount[ga$distributed_to_hospital == "Yes"], na.rm = TRUE)
+  ceil_pct <- round(100 * (named + sum(p$pool_usd - p$priced_usd)) / denom, 1)
   p %>% dplyr::mutate(
+    ga_share_ceiling_pct = ceil_pct,
+    ga_true_share_vs_ceiling = "STRICTLY_BELOW",
+    ga_true_share_bound = sprintf(paste0(
+      "Georgia's true hospital share is STRICTLY BELOW %.1f%%. That ceiling counts ",
+      "both mixed pools whole ($22,135,000), and each pool contains one known ",
+      "NON-hospital recipient that DCH says it funded -- DBHDD's award for a mobile ",
+      "dental clinic (Phase 2) and the assessments of all 87 hospitals (Phase 4) -- ",
+      "whose amount is unpublished but positive. So the ceiling is never attained. ",
+      "How far below it is NOT KNOWN and no figure is imputed (§6.2)."), ceil_pct),
     dch_words = dplyr::case_when(
       phase == 2 ~ "'Connecting to Care ... (Initiative 3) - $6.5 million ... These awards include 17 Rural Stabilization Grant awards to rural hospitals across Georgia and a separate award to DBHDD.' ... 'The award to DBHDD will support deployment of a mobile dental clinic.'",
       phase == 4 ~ "'Transforming for a Sustainable Health System ... (Initiative 1) - $15,635,000: Awards in this initiative provide seven additional rural hospitals with pre-implementation funding ... Additionally, DCH funded personalized assessments of all 87 hospitals to evaluate readiness'"),
@@ -355,6 +441,7 @@ ax_gaps <- function() {
 
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
+  if ("--apply" %in% args) ax_fl_apply()
   fl <- ax_fl_resolution(); ga <- ax_ga_pools(); gaps <- ax_gaps()
   if ("--build" %in% args) {
     readr::write_csv(fl, AX_OUT_FL, na = "")
@@ -366,7 +453,7 @@ if (sys.nframe() == 0L) {
     options(width = 200)
     print(as.data.frame(fl[, c("row_no", "awardee", "amount", "region",
                                "cms_hospital_hits", "irs_hits", "nppes_hits",
-                               "evidence_class", "resolves")]))
+                               "evidence_class", "resolves", "status")]))
     print(as.data.frame(ax_fl_bounds(fl)))
     print(as.data.frame(ga[, c("phase", "pool_usd", "named_hospitals",
                                "non_hospital_member_named", "per_hospital_split_published")]))

@@ -52,6 +52,9 @@ test_that("the hospital share is reported for COMPLETE states only, as a bounded
   expect_setequal(share$state, c("FL", "GA"))
   expect_true(all(share$share_floor_pct <= share$share_ceiling_pct))
   expect_equal(share$share_floor_pct[share$state == "FL"], 26.2)
+  # session 58 settled Florida's five Unclear rows, so its ceiling IS its floor
+  expect_equal(share$share_ceiling_pct[share$state == "FL"], 26.2)
+  expect_equal(share$unclear_priced_usd[share$state == "FL"], 0)
   expect_equal(share$share_floor_pct[share$state == "GA"], 45.8)
   expect_equal(share$mixed_pools_with_unpriced_named_hospitals_usd[share$state == "GA"], 22135000)
 })
