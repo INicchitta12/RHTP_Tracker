@@ -217,7 +217,13 @@ STATE_FILES <- c(
   # split -- POOL_NAMED_HOSPITALS, Nebraska's code.
   CT = "data/reference/ct_year1_awardees.csv",
   # WEST VIRGINIA: seven named, priced awards in five Governor's releases.
-  WV = "data/reference/wv_year1_awardees.csv"
+  WV = "data/reference/wv_year1_awardees.csv",
+
+  # SESSION 59. TENNESSEE: 53 named HART awards, NO AMOUNT on any row (Nevada's
+  # and Iowa's shape). Two are hospitals -- Macon Hospital, Inc (one of TDH's
+  # 31 "governments") and Cookeville Regional Medical Center Foundation (one of
+  # its 22 "nonprofits", §10.2's foundation row) -- 2 rows, $0. READ THE ROWS.
+  TN = "data/reference/tn_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -245,13 +251,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all thirty-two files carry the leading 19 columns, in the same order", {
+test_that("all thirty-three files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the thirty-two files union without a coercion failure", {
+test_that("the thirty-three files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -261,7 +267,7 @@ test_that("the thirty-two files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
                  "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "SC", "SD", "VT", "WV", "WY"))
+                 "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VT", "WV", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

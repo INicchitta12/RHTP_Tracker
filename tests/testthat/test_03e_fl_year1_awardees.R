@@ -68,8 +68,11 @@ test_that("exactly the five UNCLASSIFIED rows moved, and session 49 answered the
   # SESSION 58 settled the same five (R/03ax --apply): Empowerq Health Care is
   # a 501(c)(3) clinic on a hand-read bridge, so NONPROFIT_CBO, and all five
   # are distributed_to_hospital = No.
+  # SESSION 59: Nuvita Health is OTHER, not VENDOR_OR_CONTRACTOR -- a company
+  # receiving a grant does not supply the state (owner instruction, session
+  # 49's footing).
   expect_setequal(moved$recipient_type,
-                  c("VENDOR_OR_CONTRACTOR", "NONPROFIT_CBO"))
+                  c("OTHER", "NONPROFIT_CBO"))
   expect_true(all(moved$distributed_to_hospital == "No"))
 })
 

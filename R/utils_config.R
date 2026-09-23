@@ -741,13 +741,46 @@ rhtp_assert_footer_tiers <- function(footers, state = NULL,
 #'                       the share is partial and no CMS figure is printed.
 #'   `sentence`          the matched text, for a reader
 #'
+#'   `form`              "TOTALING" (every footer before session 59) or
+#'                       "SUBAWARD_OF" (Washington's; see the block below)
+#'   `subaward`          TRUE when the sentence says the page's programme is
+#'                       supported "through a subaward" (Wisconsin's DWD/DPI
+#'                       pages and Washington's RNEP item). The HEADLINE is then
+#'                       still the award TO THE STATE, never the subaward
+#'   `subaward_cms_amount`, `subaward_cms_pct`, `subaward_nonfederal_amount`
+#'                       SUBAWARD_OF form only: the subaward's own federal
+#'                       figure, its percentage and its match, as printed
+#'
 #' Zero rows when no footer is present -- absence is not an error, because most
 #' pages this is pointed at do not carry one.
+#'
+#' SESSION 59: WASHINGTON'S FOOTER IS A SECOND FORM, AND THE PARSER USED TO
+#' RETURN ZERO ROWS ON IT. HCA's RNEP item reads:
+#'
+#'   "supported by CMS/HHS through a subaward as part of a financial assistance
+#'    award of $181,257,515.06 to the Washington State Health Care Authority
+#'    with $3,500,000 and 80 percent funded by CMS/HHS and $914,538 and 20
+#'    percent funded by other source(s)."
+#'
+#' There is no "totaling", so the only pattern this function had never matched.
+#' The sentence carries THREE figures at THREE positions: the award to the state
+#' (Tier 1, Washington's allotment to the cent), the SUBAWARD's federal share
+#' (Tier 3) and the subaward's match. THE PERCENTAGES DESCRIBE THE SUBAWARD, NOT
+#' THE HEADLINE, so they are NOT written to `cms_pct` / `cms_amount` -- doing so
+#' would make `headline - cms_amount == nonfederal_amount`, Mississippi's
+#' identity, false in a way that reads as a publisher error. They go to the
+#' `subaward_*` columns, and `tier_amount` is the HEADLINE: the one figure in
+#' the sentence comparable with the §7.1 anchor. A caller that declares it
+#' STATE_ALLOTMENT is still held to the collision, so a match hidden inside it
+#' would fail loudly rather than pass. The subaward's own total is NOT computed
+#' ($3,500,000 + $914,538 is a number nobody printed, §0.4).
 rhtp_footer_parse <- function(text) {
   empty <- tibble::tibble(
     headline_amount = numeric(), cms_pct = numeric(), cms_amount = numeric(),
     nonfederal_amount = numeric(), fully_federal = logical(),
-    tier_amount = numeric(), sentence = character())
+    tier_amount = numeric(), sentence = character(), form = character(),
+    subaward = logical(), subaward_cms_amount = numeric(),
+    subaward_cms_pct = numeric(), subaward_nonfederal_amount = numeric())
   if (!length(text)) return(empty)
   txt <- paste(text, collapse = "\n")
   # Tags and entities first: the footer is often split across <strong> spans.
@@ -767,10 +800,42 @@ rhtp_footer_parse <- function(text) {
     "[^.]{0,40}?([0-9]{1,3}(?:\\.[0-9]+)?)\\s*(?:percent|%)",
     "[^.]{0,60}?CMS")
   m <- stringr::str_match_all(txt, stringr::regex(pat, ignore_case = TRUE))[[1]]
-  if (!nrow(m)) return(empty)
-
   starts <- stringr::str_locate_all(txt, stringr::regex(pat, ignore_case = TRUE))[[1]]
   num <- function(x) as.numeric(stringr::str_remove_all(x, ","))
+
+  # "through a subaward" earlier in the SAME sentence as the match.
+  said_subaward <- function(from) {
+    head <- substr(txt, max(1L, from - 300L), from - 1L)
+    head <- utils::tail(stringr::str_split(head, stringr::fixed(". "))[[1]], 1L)
+    stringr::str_detect(head, stringr::regex("through\\s+a\\s+subaward",
+                                             ignore_case = TRUE))
+  }
+
+  # Washington's form. Bounded windows, one sentence, and it REQUIRES both the
+  # dollar-before-percentage CMS clause and the "other source(s)" clause, so it
+  # cannot reach a "totaling" footer or a stray "award of $".
+  num_re <- "\\$\\s*([0-9][0-9,]*(?:\\.[0-9]+)?)"
+  pct_re <- "([0-9]{1,3}(?:\\.[0-9]+)?)\\s*(?:percent|%)"
+  sub_pat <- paste0(
+    "award\\s+of\\s+", num_re, "[^.$]{0,120}?\\bwith\\s+", num_re,
+    "\\s+and\\s+", pct_re, "\\s+funded\\s+by\\s+CMS[^.$]{0,20}?\\band\\s+",
+    num_re, "\\s+and\\s+", pct_re,
+    "\\s+funded\\s+by\\s+(?:other|non-?federal|non-?government)[^.]{0,30}")
+  sm <- stringr::str_match_all(txt, stringr::regex(sub_pat, ignore_case = TRUE))[[1]]
+  sl <- stringr::str_locate_all(txt, stringr::regex(sub_pat, ignore_case = TRUE))[[1]]
+  sub_rows <- lapply(seq_len(nrow(sm)), function(i) {
+    tibble::tibble(
+      headline_amount = num(sm[i, 2]), cms_pct = NA_real_,
+      cms_amount = NA_real_, nonfederal_amount = NA_real_,
+      fully_federal = NA, tier_amount = num(sm[i, 2]),
+      sentence = stringr::str_trim(sm[i, 1]), form = "SUBAWARD_OF",
+      subaward = TRUE, subaward_cms_amount = num(sm[i, 3]),
+      subaward_cms_pct = as.numeric(sm[i, 4]),
+      subaward_nonfederal_amount = num(sm[i, 5]),
+      .start = sl[i, "start"])
+  })
+
+  if (!nrow(m) && !nrow(sm)) return(empty)
 
   rows <- lapply(seq_len(nrow(m)), function(i) {
     # The tail of THIS footer only: from the match's end to the sentence stop
@@ -798,9 +863,16 @@ rhtp_footer_parse <- function(text) {
       headline_amount = headline, cms_pct = pct, cms_amount = cms_amount,
       nonfederal_amount = if (!is.na(non_amt)) num(non_amt) else NA_real_,
       fully_federal = full, tier_amount = tier,
-      sentence = stringr::str_trim(paste0(m[i, 1], tail)))
+      sentence = stringr::str_trim(paste0(m[i, 1], tail)), form = "TOTALING",
+      subaward = said_subaward(starts[i, "start"]),
+      subaward_cms_amount = NA_real_, subaward_cms_pct = NA_real_,
+      subaward_nonfederal_amount = NA_real_, .start = starts[i, "start"])
   })
-  dplyr::bind_rows(rows)
+  # Document order across both forms, so `which` in the callers still means
+  # "the n-th footer on the page".
+  dplyr::bind_rows(c(rows, sub_rows)) %>%
+    dplyr::arrange(.data$.start) %>%
+    dplyr::select(-".start")
 }
 
 #' The one figure from a footer that may be compared against the §7.1 anchor

@@ -119,10 +119,14 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # Session 54: CT (the Governor's $50M release), VT (112 executed agreements)
 # and WV (seven named awards) join -- CT from INVESTIGATED_NO_LIST, VT and WV
 # from the QUEUED ten.
+# Session 59: TN (53 named HART awards, no amounts, 2026-09-03) joins from
+# INVESTIGATED_NO_PROBE -- the second state to leave that bucket by the STATE
+# publishing (South Carolina was the first), never passing through
+# INVESTIGATED_NO_LIST. See R/03ay_tn_year1_awardees.R.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
                              "ID", "IL", "IN", "KS", "MD", "ME", "MI", "MO",
                              "MS", "NC", "NE", "NH", "NV", "NY", "OH", "OK",
-                             "OR", "PA", "SC", "SD", "VT", "WV", "WY")
+                             "OR", "PA", "SC", "SD", "TN", "VT", "WV", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -261,7 +265,17 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
 # probe's whole purpose was served and Mississippi is EXTRACTED. That is what
 # INVESTIGATED_NO_LIST is FOR: a re-checkable negative that re-opens the state
 # the day it publishes, rather than a verdict that goes stale unwatched.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "LA", "NM", "TX", "WI")
+# Session 59: CO and ND join from the QUEUED eight. Each is now what this code
+# promises -- archived (data/evidence/recheck/2026-09-23/), worked (session 55)
+# and PROBED with tripwires on a Routine (R/03az, R/03ba). Both are pure
+# negatives: Colorado dates its announcement "by the end of September 2026",
+# North Dakota heads 24 of 25 opportunities "Closed" and ONE "Awarded" naming
+# nobody. VA and WA got probes too and STAY QUEUED: each holds work this
+# repository has not done -- Virginia's eleven named first-tier partners and
+# Washington's priced first-tier sub-recipients -- so moving them would read
+# "worked" where it means "watched" (session 43's reasoning for the fourteen).
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "LA", "ND", "NM", "TX",
+                                        "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them
@@ -328,7 +342,11 @@ SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "LA", "NM", "TX", "WI")
 # what this repository had and had not done, and it never claimed a tripwire
 # that did not exist, so nothing had to be retracted when the state moved.
 # See R/03ao_sc_year1_awardees.R.
-SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN", "NJ", "TN")
+# TENNESSEE LEFT IN SESSION 59, THE SAME WAY: TDH named 53 HART recipients on
+# 2026-09-03 and nothing here noticed for twenty days, because this code says
+# "no probe" and meant it. That is the code's stated cost -- "the finding goes
+# stale by construction" -- paid in full. R/03ay_tn_year1_awardees.R.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN", "NJ")
 
 
 # -- Inputs ------------------------------------------------------------------

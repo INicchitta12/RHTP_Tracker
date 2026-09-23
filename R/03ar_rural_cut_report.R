@@ -90,7 +90,11 @@ RC_ENROLMENTS <- c(
   NH = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_NH.json",
   CT = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_CT.json",
   WV = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_WV.json",
-  MO = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_MO.json")
+  MO = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_MO.json",
+  # Session 59: Tennessee's two hospital rows cite CCN 441305 (Macon, a CAH
+  # number -- on a hand-read BRIDGE) and 440059 (Cookeville, the foundation's
+  # parent).
+  TN = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_TN.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -225,11 +229,14 @@ rc_assert <- function(rows = rc_rows()) {
   # ($1,224,000) and Missouri's 20 UNPRICED Strategic Minor Renovations
   # hospitals ($0). Session 53's figure was session 52's 981 plus Self
   # Regional Healthcare (Greenwood Pediatrics), $145,000.
-  if (nrow(rows) != 1033L ||
+  # SESSION 59: + Tennessee's two UNPRICED hospital rows (Macon Hospital, Inc;
+  # Cookeville Regional Medical Center Foundation) -- 1,035 / $902,386,742.75
+  # / 25 states. Rows and states move; dollars do not.
+  if (nrow(rows) != 1035L ||
       abs(sum(rows$amount, na.rm = TRUE) - 902386742.75) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 24L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,033 rows / $902,386,742.75 ",
-         "/ 24 states; re-state the rural cut against the new partition.",
+      dplyr::n_distinct(rows$state) != 25L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,035 rows / $902,386,742.75 ",
+         "/ 25 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

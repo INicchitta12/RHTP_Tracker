@@ -12,7 +12,10 @@
 #      Session 57 wrote the result as a PROPOSAL. SESSION 58 APPLIED ALL THREE
 #      ON THE OWNER'S INSTRUCTION (`--apply`), Nuvita Health on the owner's own
 #      identification (Nuvita Cellular Health) at GENERAL_KNOWLEDGE / LOW.
-#      Florida's ceiling now equals its floor.
+#      Florida's ceiling now equals its floor. SESSION 59 re-typed Nuvita
+#      VENDOR_OR_CONTRACTOR -> OTHER on the owner's instruction: a company
+#      receiving a grant is not a supplier to the state (session 49's `OTHER`).
+#      distributed_to_hospital stays No, so no figure moves.
 #   2. GEORGIA'S POOLS. Two pools name hospitals with no per-hospital split.
 #      This records what was searched, that no split exists, and the
 #      non-hospital member each pool contains. Nothing is apportioned (§6.2).
@@ -149,9 +152,9 @@ AX_FL_ORGS <- tibble::tribble(
   "Hand-read bridge to a federal record; applied on owner instruction, session 58",
   "No federal record carries 'Empowerq' (NPPES 0 results, IRS 0 rows, all six CMS files 0). The verifier's own cited site (empowerhealthcare4all.org) is Empower Healthcare, Inc., a primary-care clinic serving Palm Beach County, which IRS carries as EMPOWER HEALTHCARE, EIN 85-2591676, Pahokee FL, 501(c)(3), NTEE E32 (community clinics), and NPPES as EMPOWER HEALTHCARE, INC 1770170367, Pahokee, taxonomies incl. 'Clinic/Center, Rural Health'. The Governor's list places row 16 in the SOUTHEAST region, which is where Pahokee is. That identification is a HAND-READ BRIDGE (one letter of the state's spelling), hence LOW on the MATCH. The hospital answer does not depend on it: no CMS-enrolled Florida hospital's name or DBA contains EMPOWER, so it is not a hospital either way.",
   "Nuvita Health", "NUVITA",
-  "NEGATIVE_ONLY", "VENDOR_OR_CONTRACTOR", "GENERAL_KNOWLEDGE", "LOW",
-  "OWNER-CONFIRMED identification (Nuvita Cellular Health), session 58",
-  "OWNER-CONFIRMED (session 58): 'Nuvita Health' is Nuvita Cellular Health, a cellular preventive medicine and biomarker testing platform -- not a hospital. That identification is the owner's own knowledge with no citable source for the form, hence GENERAL_KNOWLEDGE / LOW. It agrees with the federal records, which carry NO positive record: 'Nuvita Health' is in none of the six CMS enrolment files, not in the IRS EO BMF, and not in NPPES; NPPES's only Florida 'Nuvita' organisations are a chiropractor (Tampa) and a multi-specialty clinic enumerated 2025-07-09 (Jacksonville), neither named Nuvita Health and neither a hospital, and no Medicare-enrolled Florida hospital carries the name."
+  "NEGATIVE_ONLY", "OTHER", "GENERAL_KNOWLEDGE", "LOW",
+  "OWNER-CONFIRMED identification (Nuvita Cellular Health), session 58; typed OTHER on owner instruction, session 59",
+  "OWNER-CONFIRMED (session 58): 'Nuvita Health' is Nuvita Cellular Health, a cellular preventive medicine and biomarker testing platform -- not a hospital. DETERMINED FORM (session 59): a private health-technology company RECEIVING A GRANT, so §8 OTHER on session 49's footing -- not VENDOR_OR_CONTRACTOR, which says the recipient supplies the state, and nothing in the Governor's list says Nuvita sells anything to AHCA. That identification is the owner's own knowledge with no citable source for the form, hence GENERAL_KNOWLEDGE / LOW. It agrees with the federal records, which carry NO positive record: 'Nuvita Health' is in none of the six CMS enrolment files, not in the IRS EO BMF, and not in NPPES; NPPES's only Florida 'Nuvita' organisations are a chiropractor (Tampa) and a multi-specialty clinic enumerated 2025-07-09 (Jacksonville), neither named Nuvita Health and neither a hospital, and no Medicare-enrolled Florida hospital carries the name."
 )
 
 ax_fl_federal_checks <- function(orgs = AX_FL_ORGS) {
