@@ -208,14 +208,16 @@ rc_by_state <- function(rows = rc_rows()) {
 #' The partition is unchanged by construction; assert it.
 rc_assert <- function(rows = rc_rows()) {
   if (!all(rows$rural_class %in% RC_CLASSES)) stop("unknown rural class")
-  # SESSION 52's NAMED_HOSPITAL: 981 rows / $845,025,923.32 / 20 states --
-  # session 51's 939 / $787,490,159.53 / 19, plus New York's 35 hospital-lead
-  # rows ($47,358,790.79) and Kansas's 7 Emerging Technology hospitals
-  # ($10,176,973).
-  if (nrow(rows) != 981L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 845025923.32) > 0.005 ||
+  # SESSION 53's NAMED_HOSPITAL: 982 rows / $845,170,923.32 / 20 states --
+  # session 52's 981 / $845,025,923.32, which was session 51's 939 /
+  # $787,490,159.53 / 19 plus New York's 35 hospital-lead rows
+  # ($47,358,790.79) and Kansas's 7 Emerging Technology hospitals
+  # ($10,176,973); plus Self Regional Healthcare (Greenwood Pediatrics),
+  # $145,000, re-typed under §0.3a in session 53.
+  if (nrow(rows) != 982L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 845170923.32) > 0.005 ||
       dplyr::n_distinct(rows$state) != 20L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 981 rows / $845,025,923.32 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 982 rows / $845,170,923.32 ",
          "/ 20 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

@@ -178,11 +178,12 @@ test_that("every OTHER row states the determined form, which is what that code r
 })
 
 test_that("no spelling is merged with another (§2)", {
-  # South Carolina spells Prisma Health TEN ways and Self Regional EIGHT;
+  # South Carolina spells Prisma Health TEN ways and Self Regional NINE (the
+  # ninth, Greenwood Pediatrics, reached this pass in session 53, §0.3a);
   # Mississippi spells Delta Health Center, Independent Healthcare Management,
   # Mantachie and LIFECORE two ways each. Every one is a separate decision row.
   expect_equal(sum(grepl("^Prisma Health", UF_TYPES$awardee)), 10L)
-  expect_equal(sum(grepl("^Self Regional", UF_TYPES$awardee)), 8L)
+  expect_equal(sum(grepl("^Self Regional", UF_TYPES$awardee)), 9L)
   expect_equal(sum(grepl("^Independent Healthcare Management", UF_TYPES$awardee)), 2L)
   expect_equal(sum(grepl("LIFECORE", UF_TYPES$awardee)), 2L)
   expect_equal(nrow(UF_TYPES), length(unique(UF_TYPES$awardee)))
@@ -205,11 +206,11 @@ test_that("Mississippi and South Carolina carry the typing, and the residual onl
   expect_equal(length(uf_open_rows(m)), 2L)
   expect_equal(length(uf_open_rows(s)), 0L)  # session 51 settled the last three SC rows
   expect_equal(sum(m$hospital_attribution == "NAMED_HOSPITAL"), 84L)
-  expect_equal(sum(s$hospital_attribution == "NAMED_HOSPITAL"), 113L)
+  expect_equal(sum(s$hospital_attribution == "NAMED_HOSPITAL"), 114L)  # 113 + Greenwood Pediatrics (session 53)
   expect_equal(sum(as.numeric(m$amount[m$hospital_attribution == "NAMED_HOSPITAL"])),
                68898204.67, tolerance = 1e-6)
   expect_equal(sum(as.numeric(s$amount[s$hospital_attribution == "NAMED_HOSPITAL"])),
-               115840714.95, tolerance = 1e-6)
+               115985714.95, tolerance = 1e-6)
   # Neither state's published total moved. This pass re-TYPES; it re-prices
   # nothing.
   expect_equal(sum(as.numeric(m$amount)), 104115146.80, tolerance = 1e-6)

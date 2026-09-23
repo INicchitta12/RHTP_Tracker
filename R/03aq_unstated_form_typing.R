@@ -957,7 +957,16 @@ UF_TYPES <- tibble::tribble(
     "HOSPITAL_OR_SYSTEM",
     "health system (Self Regional Healthcare, CCN 420071)",
     "ORG_WEBSITE", "CMS_HOSP",
-    "CMS Hospital Enrollments carries ORGANIZATION NAME 'SELF REGIONAL HEALTHCARE', Greenwood SC, against CCN 420071, plus four RHC enrolments. South Carolina spells it EIGHT ways, each with a different site in parentheses; none is merged (§2)."
+    "CMS Hospital Enrollments carries ORGANIZATION NAME 'SELF REGIONAL HEALTHCARE', Greenwood SC, against CCN 420071, plus four RHC enrolments. South Carolina spells it EIGHT ways, each with a different site in parentheses; none is merged (§2).",
+  # SESSION 53: the NINTH spelling. It reached this pass only once R/03ao's
+  # SC_RECIPIENT_TYPE_OVERRIDES stopped §8's 'pediatrics' activity token
+  # typing the recipient PHYSICIAN_PRACTICE off the SITE in the parenthesis
+  # (§0.3a). Same recipient, same federal record, same answer as its siblings.
+  "SC", "Self Regional Healthcare (Greenwood Pediatrics)",
+    "HOSPITAL_OR_SYSTEM",
+    "health system (Self Regional Healthcare, CCN 420071)",
+    "ORG_WEBSITE", "CMS_HOSP",
+    "CMS Hospital Enrollments carries ORGANIZATION NAME 'SELF REGIONAL HEALTHCARE', Greenwood SC, against CCN 420071. The parenthesis names the SITE (a Self Regional pediatrics practice), not the recipient (§0.3a's corollary: code the half that received the money). Session 53: previously PHYSICIAN_PRACTICE on §8's 'pediatrics' token while its seven sibling spellings -- including three other named non-hospital sites -- were HOSPITAL_OR_SYSTEM. None is merged (§2)."
 )
 
 # THE ORGANISATIONS THIS PASS COULD NOT DETERMINE, AND THEY KEEP §8's STANDING

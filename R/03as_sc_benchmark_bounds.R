@@ -7,8 +7,9 @@
 # The benchmark is SC Medicaid's own statement as recorded in session 47 (it is
 # in no committed data file): about 240 awards, about $170M, about half of
 # awards to hospitals, about 60% of dollars to hospitals. Session 50's typing
-# lands the COUNT half almost exactly (113 / 228 = 49.6%) and OVERSHOOTS the
-# DOLLAR half (69.2%). Session 50 named three readings and adopted none. This
+# lands the COUNT half almost exactly (113 / 228 = 49.6%; 114 / 228 = 50.0%
+# after session 53's §0.3a correction) and OVERSHOOTS the DOLLAR half (69.2%;
+# 69.3% after it). Session 50 named three readings and adopted none. This
 # file TESTS each against the committed rows instead of reasoning about it:
 #
 #   1. RURAL-ONLY COUNTING. Restrict the numerator to rows a SOURCE designates
@@ -46,12 +47,15 @@ SC_BOUNDS_CSV <- here::here("data", "reference", "sc_benchmark_bounds.csv")
 SC_BENCHMARK <- list(awards = 240, dollars = 170e6,
                      award_share = 0.50, dollar_share = 0.60)
 
-# Self Regional rows whose own awardee string names a NON-HOSPITAL SITE. The
-# file codes ONE such row (Greenwood Pediatrics) as a physician practice and
-# three that read the same way as the hospital system -- an inconsistency in
-# this repository, recorded here and NOT corrected (this task changes no
-# classification). The strings are matched exactly.
+# Self Regional rows whose own awardee string names a NON-HOSPITAL SITE.
+# Session 52 recorded an inconsistency here: ONE such row (Greenwood
+# Pediatrics, $145,000) was a physician practice and three that read the same
+# way were the hospital system. SESSION 53 CORRECTED IT under §0.3a (the
+# recipient is Self Regional Healthcare; the parenthesis is the site), so all
+# FOUR are HOSPITAL_OR_SYSTEM and this reading now takes all four out
+# together. The strings are matched exactly.
 SC_SELF_SITE_ROWS <- c(
+  "Self Regional Healthcare (Greenwood Pediatrics)",
   "Self Regional Healthcare (Imaging Center, Greenwood)",
   "Self Regional Healthcare (Montgomery Center, Greenwood)",
   "Self Regional Healthcare (Optimum Life Rehabilitation Center, Greenwood)")
@@ -137,7 +141,7 @@ sc_bounds <- function(d = sc_rows()) {
 
   out <- dplyr::bind_rows(
     row("0 as typed", "session 50's typing", nrow(h), tot_n, h_d, tot_d,
-        "113 of 228 rows; $115,840,714.95 of $167,299,900.69."),
+        "114 of 228 rows; $115,985,714.95 of $167,299,900.69 (session 53: +Greenwood Pediatrics, $145,000)."),
     row("0 as typed", "on the benchmark's own denominators", nrow(h),
         SC_BENCHMARK$awards, h_d, SC_BENCHMARK$dollars,
         "~240 awards / ~$170M: the agency counts 12 more awards and ~$2.7M more than the roster prints."),
@@ -171,17 +175,17 @@ sc_bounds <- function(d = sc_rows()) {
                "The agency's own '~240 awards' is ABOVE our 228 rows, so it does not count at organisation grain.")),
     row("3 multi-site", "...and the organisation then coded WHOLESALE (any hospital row makes it all hospital)",
         sum(org$hospital), nrow(org), sum(org$amount[org$hospital]), sum(org$amount),
-        paste0("The only way the grain moves dollars: Self Regional's Greenwood Pediatrics practice row ($145,000) ",
-               "is swept in. Upward, and by 0.1 point.")),
+        paste0("Session 52 found this moved dollars only by sweeping in Self Regional's Greenwood Pediatrics ",
+               "row ($145,000). Session 53 typed that row a hospital under §0.3a, so wholesale coding now moves nothing.")),
     row("3 multi-site", "multi-site rows split into one award per named site",
         nrow(h) + split_extra, tot_n + split_extra, h_d, tot_d,
         paste0(split_extra, " extra awards from ", sum(d$site_list),
                " rows naming a list of sites; dollars unchanged because no per-site split is published.")),
-    row("3 multi-site", "Self Regional's three named non-hospital-site rows treated as its Greenwood Pediatrics row is",
+    row("3 multi-site", "Self Regional's four named non-hospital-site rows treated as non-hospital",
         nrow(h) - nrow(site), tot_n, h_d - sum(site$amount), tot_d,
         paste0("$", format(sum(site$amount), big.mark = ","),
-               " (Imaging Center, Montgomery Center, Optimum Life Rehabilitation Center). The ONLY site variant that moves dollars.")),
-    row("2+3 combined", "psychiatric excluded AND the three site rows treated as non-hospital",
+               " (Greenwood Pediatrics, Imaging Center, Montgomery Center, Optimum Life Rehabilitation Center). The ONLY site variant that moves dollars.")),
+    row("2+3 combined", "psychiatric excluded AND the four site rows treated as non-hospital",
         nrow(h) - nrow(psy) - nrow(site), tot_n,
         h_d - sum(psy$amount) - sum(site$amount), tot_d,
         "The most the two testable readings can do together. Still above 60%.")
@@ -200,7 +204,7 @@ sc_assert_bounds <- function(b = sc_bounds(), d = sc_rows()) {
   # The grain cannot move dollars: the same money summed by organisation.
   stopifnot(isTRUE(all.equal(org$hospital_dollars, base$hospital_dollars)),
             isTRUE(all.equal(org$all_dollars, base$all_dollars)))
-  stopifnot(nrow(d) == 228L, sum(d$hospital) == 113L,
+  stopifnot(nrow(d) == 228L, sum(d$hospital) == 114L,
             isTRUE(all.equal(sum(d$amount), 167299900.69)))
   invisible(TRUE)
 }

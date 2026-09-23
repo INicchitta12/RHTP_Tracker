@@ -8,9 +8,10 @@ rows <- rc_rows()
 
 test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partition is intact", {
   # Session 52: + New York's 35 hospital-lead rows and Kansas's 7 Emerging
-  # Technology hospitals.
-  expect_equal(nrow(rows), 981L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 845025923.32,
+  # Technology hospitals. Session 53: + Self Regional Healthcare (Greenwood
+  # Pediatrics), $145,000 (§0.3a).
+  expect_equal(nrow(rows), 982L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 845170923.32,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -73,6 +74,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   expect_equal(sum(by$rural_rows), 164L)
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE)
-  expect_equal(nrow(committed), 981L)
+  expect_equal(nrow(committed), 982L)
   expect_equal(committed$rural_class, rows$rural_class)
 })
