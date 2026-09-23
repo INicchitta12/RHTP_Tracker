@@ -158,9 +158,9 @@ test_that("the open questions are in the review queue", {
 
 # -- the two real awards -----------------------------------------------------
 
-test_that("Missouri has awarded two named partnerships, $7,232,660.43", {
-  expect_equal(nrow(mo_awards), 2L)
-  expect_equal(round(sum(mo_awards$amount), 2), 7232660.43)
+test_that("Missouri has awarded two priced partnerships, $7,232,660.43, and 20 unpriced hospitals", {
+  expect_equal(nrow(mo_awards), 22L)
+  expect_equal(round(sum(mo_awards$amount, na.rm = TRUE), 2), 7232660.43)
   expect_equal(
     mo_awards$amount[mo_awards$awardee == "Missouri Doula Association"],
     732660.43)
@@ -178,12 +178,45 @@ test_that("MEMSA's figure is rounded AND multi-year, and says so", {
                     mo_html_text("pr_memsa"), fixed = TRUE))
 })
 
-test_that("neither award reaches a hospital, and $0 is a published fact", {
-  expect_true(all(mo_awards$distributed_to_hospital == "No"))
-  part <- rhtp_hospital_dollar_partition(mo_awards)
-  expect_equal(nrow(part), 0L)
+test_that("neither partnership reaches a hospital, and $0 is a published fact", {
+  two <- mo_awards[mo_awards$award_pool != "STRATEGIC_MINOR_RENOVATIONS", ]
+  expect_equal(nrow(two), 2L)
+  expect_true(all(two$distributed_to_hospital == "No"))
+  expect_equal(nrow(rhtp_hospital_dollar_partition(two)), 0L)
 })
 
+
+# -- session 54: the Strategic Minor Renovations Program -----------------------
+
+test_that("the twenty SMRP hospitals are NAMED_HOSPITAL rows at $0 -- READ THE ROW COUNT", {
+  smrp <- mo_awards[mo_awards$award_pool == "STRATEGIC_MINOR_RENOVATIONS", ]
+  expect_equal(nrow(smrp), 20L)
+  expect_identical(smrp$awardee, mo_parse_smrp())
+  expect_true(all(is.na(smrp$amount)))
+  expect_true(all(smrp$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(smrp$flow_type == "DIRECT"))
+  part <- rhtp_hospital_dollar_partition(mo_awards)
+  expect_equal(part$bucket, "NAMED_HOSPITAL")
+  expect_equal(part$rows, 20L)
+  expect_equal(part$dollars, 0)
+})
+
+test_that("the congressman's $1.7M for Salem Memorial is NOT used, and $35M is never divided", {
+  smrp <- mo_awards[mo_awards$award_pool == "STRATEGIC_MINOR_RENOVATIONS", ]
+  expect_false(any(grepl("1,?700,?000|1\\.75", smrp$amount, perl = TRUE)))
+  expect_true(all(grepl("NOT a\\s+state figure", smrp$amount_basis)))
+  expect_false("round_amount" %in% names(mo_awards))
+})
+
+test_that("the SMRP tripwire fires if DSS prices a hospital or changes the roster", {
+  txt <- mo_html_text("smrp_awardees")
+  expect_silent(mo_assert_smrp(txt))
+  priced <- sub("Citizens Memorial Hospital", "Citizens Memorial Hospital $1,750,000", txt,
+                fixed = TRUE)
+  expect_error(mo_assert_smrp(priced), "REWRITTEN")
+  expect_error(mo_assert_smrp(sub("grants to 20 projects", "grants to 21 projects",
+                                  txt, fixed = TRUE)), "no longer says")
+})
 
 # -- the controls ------------------------------------------------------------
 
@@ -346,7 +379,7 @@ test_that("the probe reads the CONTENT digest, not the file digest", {
 })
 
 test_that("the probe covers procurement AND the roster, and knows each kind", {
-  expect_setequal(MO_PROBE_KEYS, c("bids", "program_page", "hub_roster"))
+  expect_setequal(MO_PROBE_KEYS, c("bids", "program_page", "hub_roster", "smrp_awardees"))
   # A schedule that watched procurement and not the roster would miss the
   # larger event: the day a dollar figure lands on the 27, mo_hub_anchors.csv
   # must be REWRITTEN as an award file rather than patched.

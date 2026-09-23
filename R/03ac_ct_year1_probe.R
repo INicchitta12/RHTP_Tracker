@@ -159,7 +159,7 @@ source(here::here("R", "utils_config.R"))
 CT_EVIDENCE_DIR <- here::here("data", "evidence", "CT")
 CT_STATUS_CSV   <- "data/reference/ct_year1_status.csv"
 CT_DISPO_CSV    <- "data/reference/ct_rcj_candidate_disposition.csv"
-CT_AWARDS_CSV   <- "data/reference/ct_year1_awardees.csv"   # MUST NOT EXIST
+CT_AWARDS_CSV   <- "data/reference/ct_year1_awardees.csv"   # built by R/03au, NOT here (session 54)
 CT_HOST_THROTTLE_S <- 3
 
 # portal.ct.gov answers the project's honest agent with HTTP 200 on every path
@@ -787,11 +787,19 @@ ct_assert_ctsource_unreadable <- function(ctsource = NULL) {
 }
 
 ct_assert_no_award_file <- function() {
+  # SESSION 54: CONNECTICUT HAS AWARDED. The Governor's 2026-09-16 release
+  # names four hospitals and a vendor, and R/03au_ct_year1_awardees.R builds
+  # the award file from it. The absence assertion that stood here is deleted
+  # in the same commit, as it asked; what is asserted now is that the award
+  # file is R/03au's and nobody else's -- this file watches DSS's pages, which
+  # still name nobody, and must never write award rows itself.
   if (file.exists(here::here(CT_AWARDS_CSV))) {
-    stop("[CT] ", CT_AWARDS_CSV, " exists. Connecticut has published no ",
-         "recipient-level award list; if that has changed, write the ",
-         "extractor deliberately and delete this assertion in the same ",
-         "commit.", call. = FALSE)
+    v <- unique(readr::read_csv(here::here(CT_AWARDS_CSV),
+                                show_col_types = FALSE)$validator)
+    if (!identical(v, "R/03au_ct_year1_awardees.R")) {
+      stop("[CT] ", CT_AWARDS_CSV, " was not built by ",
+           "R/03au_ct_year1_awardees.R.", call. = FALSE)
+    }
   }
   path <- here::here(CT_STATUS_CSV)
   if (file.exists(path)) {
@@ -1055,7 +1063,7 @@ rhtp_ct_build <- function() {
   ct_assert_no_award_file()
   message("[CT] wrote ", CT_STATUS_CSV, " (", nrow(status), " rows) and ",
           CT_DISPO_CSV, " (", nrow(dispo), " rows).")
-  message("[CT] NO ct_year1_awardees.csv was written, and that is the finding.")
+  message("[CT] the award file is R/03au's (the Governor's 2026-09-16 release); DSS's own pages still name nobody.")
   invisible(list(status = status, disposition = dispo))
 }
 

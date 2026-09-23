@@ -1,0 +1,25 @@
+FEDERAL RECORDS -- fetched 2026-09-23 by session 54
+
+WHY THESE ARE HERE. Session 54 extracted Vermont, Connecticut, West Virginia
+and Missouri's Strategic Minor Renovations Program roster, and typed each
+recipient's FORM against CMS's own enrolment files rather than its name (the
+unstated-form question). Vermont is where that mattered: "1248 Hospital Drive
+Opco LLC" is a SKILLED NURSING FACILITY (SNF CCN 475019B) that §8's name rule
+reads as a hospital, and "Gifford Health Care Inc" is the FQHC (CCN 471852),
+not Gifford Medical Center (the hospital, CCN 471301). NH is here because
+Vermont's three Mary Hitchcock Memorial Hospital rows cite CCN 300003
+(Lebanon NH). R/03ar_rural_cut_report.R reads the hospital slices by CCN.
+
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)".
+Bytes as served. CMS serves Connecticut's CCNs without the leading zero.
+
+file | sha256 | bytes | source
+cms_fqhc_enrollments_VT.json | e2ed5f3ca8661a58a4706a34cb5e994fcdd9b16627f160a4a0ce1b83f29f880e | 43177 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=VT&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_WV.json | bd9465531b32243168b366a2acb3ce0969218a579eb859460d0a3e72aef42840 | 264322 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=WV&size=5000 (FQHC Enrollments)
+cms_hha_enrollments_VT.json | 9a61b57d3071e24c054975cc5acbedab54c52809fda12d776b9633a488028cfa | 6240 | https://data.cms.gov/data-api/v1/dataset/15f64ab4-3172-4a27-b589-ebd67a6d28aa/data?filter[STATE]=VT&size=5000 (Home Health Agency Enrollments)
+cms_hosp_enrollments_CT.json | d18ee773caca8675f53b45e6142131a567bda537a5e0985af418c42f45642ba9 | 72405 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=CT&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_MO.json | f2fc6b6006be3ee6cf84847bd1706d42cf44771222a1e473638fad111d5e3ef6 | 255004 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MO&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_NH.json | 835cccdaae63d19f3296eb41aeb7df19015f9df9c13f77e350afa50406caa717 | 65963 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NH&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_VT.json | 22179780accfa92772d695d3467b86799fa6167bd0c3a66d1b49d34f01bf7e53 | 34376 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=VT&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_WV.json | 4ede31fbde383db336f399d93a6a62957072b7b87acc7bda8757065103dc3f1f | 118115 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=WV&size=5000 (Hospital Enrollments)
+cms_snf_enrollments_VT.json | 251431a6a7a2e110dc41e0f2a9c676a3c3a8909bb0c3d2ef13189598b36b53b5 | 24758 | https://data.cms.gov/data-api/v1/dataset/5f2c306f-3b1c-42cd-b037-187b2ce22126/data?filter[STATE]=VT&size=5000 (SNF Enrollments)
