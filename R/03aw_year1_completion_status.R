@@ -68,7 +68,8 @@ Y1_AWARD_FILES <- c(
   DE = "de_year1_awardees.csv",  ID = "id_year1_awardees.csv",
   OH = "oh_year1_awardees.csv",  SC = "sc_year1_awardees.csv",
   NY = "ny_year1_awardees.csv",  VT = "vt_year1_awardees.csv",
-  CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv"
+  CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv",
+  TN = "tn_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -295,7 +296,12 @@ Y1_STATUS <- tibble::tribble(
   "WV", "PARTIAL", "No", "Yes",
   "2026-09-22",
   "The Governor calls them 'the first implementation awards'; CMS's WV release: 'Additional funding opportunities will also expand access...' (sessions 54-55).",
-  "data/evidence/recheck/2026-09-23/WV/wv_art_first-rural-health-transformation-progra.html; data/raw/cms/2026-09-21/newsroom/releases/trump-administration-announces-4-8-million-strengthen-west-virginias-rural-healthcare-workforce.html"
+  "data/evidence/recheck/2026-09-23/WV/wv_art_first-rural-health-transformation-progra.html; data/raw/cms/2026-09-21/newsroom/releases/trump-administration-announces-4-8-million-strengthen-west-virginias-rural-healthcare-workforce.html",
+
+  "TN", "PARTIAL", "No", "Yes",
+  "2026-09-03",
+  "TDH names 53 HART awards as 'the initial recipients of funding through the Rural Health Transformation Program', one priority of several, and prices none of them (session 59).",
+  "data/evidence/recheck/2026-09-23/TN/tn_doh_2026-09-03_first_recipients.html; data/evidence/recheck/2026-09-23/TN/tn_2026_RHTP_HART_Grant_Awards_FINAL.xlsx"
 )
 
 

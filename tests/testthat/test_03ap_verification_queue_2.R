@@ -452,8 +452,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # $33,350,000), West Virginia (2 / $1,224,000) and Missouri's 20 unpriced
   # SMRP hospitals ($0) -- 51 rows / $57,215,819.43 and four states,
   # subtracted first so every older figure is still checked.
-  expect_equal(named$rows, 1033L)
+  # Session 59: + Tennessee's 2 UNPRICED hospital rows and 1 state, $0 --
+  # subtracted first, like every session before it.
+  expect_equal(named$rows, 1035L)
   expect_equal(round(named$dollars, 2), 902386742.75, tolerance = 0)
+  expect_equal(named$states, 25L)
+  named$rows <- named$rows - 2L
+  named$states <- named$states - 1L
+  expect_equal(named$rows, 1033L)
   expect_equal(named$states, 24L)
   expect_equal(round(named$dollars - 57215819.43, 2), 845170923.32, tolerance = 0)
   named$rows <- named$rows - 51L

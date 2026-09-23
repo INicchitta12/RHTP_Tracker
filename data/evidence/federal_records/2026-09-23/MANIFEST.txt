@@ -45,3 +45,10 @@ nppes_empowerq_FL.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8
 nppes_empower_health_FL.json | 40faf6c80baa4c322db6b0c3868b026a681f74450237a012dab949b2182c8504 | 5425 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
 nppes_north_florida_rural_health_FL.json | 93e29e8049215e6873b1ed86a53de8a184ed74924d8365598d176542ab8b1f61 | 3051 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=<name>*&state=<ST|none>&limit=50
 irs_eo_bmf_FL_extract.csv | 5a03084757b9b186794587002145f210db044e3bef90a3225b162bf8b39c340e | 758 | extract of the IRS EO BMF state file named above
+
+SESSION 59 (Tennessee) -- fetched 2026-09-23 with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)". Bytes as served.
+They settle: Macon Hospital, Inc -> MACON COUNTY GENERAL HOSPITAL INC dba MACON COMMUNITY HOSPITAL, Lafayette, CCN 441305 (a HAND-READ BRIDGE, not the same string); Cookeville Regional Medical Center Foundation -> parent COOKEVILLE REGIONAL MEDICAL CENTER, CCN 440059; The Free Medical Clinic of Oak Ridge is in neither the FQHC nor the RHC file.
+file | sha256 | bytes | source
+cms_hosp_enrollments_TN.json | bd18f35701357880b57ba53bc945aa0f44d47bd1e4cee35523d0af5a2f877bb6 | 242291 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=TN&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_TN.json | 4cf2235718eb641be0a25b3518eec31a3d071c8b837899dfd8c5986ebd7624f4 | 104162 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=TN&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_TN.json | fe67fd82ec5406580415e8cad740901bb1cfb953d368bc1f16010f928ec2146b | 207942 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=TN&size=5000 (RHC Enrollments)

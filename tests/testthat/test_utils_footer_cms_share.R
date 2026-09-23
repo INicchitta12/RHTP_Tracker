@@ -170,3 +170,65 @@ test_that("two footers on one page are parsed separately", {
   expect_equal(rhtp_footer_cms_share(two, which = 2L), 66547394.00)
   expect_error(rhtp_footer_cms_share(two, which = 3L), "carries 2")
 })
+
+
+# -- session 59: Washington's SUBAWARD_OF form -------------------------------
+
+WA_SUBAWARD_FOOTER <- paste(
+  "Disclaimer: This program is supported by CMS/HHS through a subaward as part",
+  "of a financial assistance award of $181,257,515.06 to the Washington State",
+  "Health Care Authority with $3,500,000 and 80 percent funded by CMS/HHS and",
+  "$914,538 and 20 percent funded by other source(s). The contents are those of",
+  "the author(s).")
+
+test_that("Washington's subaward footer parses, where it returned zero rows", {
+  f <- rhtp_footer_parse(WA_SUBAWARD_FOOTER)
+  expect_equal(nrow(f), 1L)
+  expect_equal(f$form, "SUBAWARD_OF")
+  expect_true(f$subaward)
+  # The HEADLINE is the award to the state -- Washington's allotment.
+  expect_equal(f$headline_amount, 181257515.06)
+  expect_equal(f$tier_amount, 181257515.06)
+  # The percentages describe the SUBAWARD, so they are NOT in cms_*.
+  expect_true(is.na(f$cms_pct))
+  expect_true(is.na(f$cms_amount))
+  expect_true(is.na(f$fully_federal))
+  expect_equal(f$subaward_cms_amount, 3500000)
+  expect_equal(f$subaward_cms_pct, 80)
+  expect_equal(f$subaward_nonfederal_amount, 914538)
+})
+
+test_that("its headline tier-checks as the allotment, and never as a pool", {
+  a <- tibble::tibble(state = "WA", fy2026_allotment = 181257515)
+  expect_true(rhtp_assert_footer_text_tier(WA_SUBAWARD_FOOTER, "WA",
+                                           "STATE_ALLOTMENT", allotments = a))
+  expect_error(rhtp_assert_footer_text_tier(WA_SUBAWARD_FOOTER, "WA",
+                                            "SOLICITATION", allotments = a),
+               "almost certainly Tier 1")
+})
+
+test_that("both footers on Washington's archived programme page parse, in order", {
+  f <- rhtp_footer_parse(paste(readLines(here::here(
+    "data/evidence/recheck/2026-09-23/WA/hca_rhtp_programme.html"),
+    warn = FALSE), collapse = " "))
+  expect_equal(f$form, c("SUBAWARD_OF", "TOTALING"))
+  expect_equal(f$headline_amount, c(181257515.06, 181257515.06))
+})
+
+test_that("the TOTALING form now reports whether it is a subaward, and nothing else moved", {
+  wi <- paste("supported by CMS through a subaward as part of a financial",
+              "assistance award made to the State of Wisconsin Department of",
+              "Health Services totaling $203,670,005.21 with 100 percent funded",
+              "by CMS/HHS.")
+  f <- rhtp_footer_parse(wi)
+  expect_equal(f$form, "TOTALING")
+  expect_true(f$subaward)
+  expect_equal(f$tier_amount, 203670005.21)
+  expect_false(rhtp_footer_parse(HUNDRED_PCT)$subaward)
+  expect_equal(rhtp_footer_parse(MS_FOOTER_TEXT)$tier_amount, 205907220.16)
+})
+
+test_that("the subaward pattern does not reach a stray 'award of $'", {
+  expect_equal(nrow(rhtp_footer_parse(
+    "The foundation received an award of $50,000 to the county with thanks.")), 0L)
+})

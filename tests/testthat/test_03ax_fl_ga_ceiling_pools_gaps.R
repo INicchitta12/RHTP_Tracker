@@ -57,7 +57,12 @@ test_that("session 58 applied all three codings, and only to the five rows", {
   expect_true(all(k$recipient_type_source == "UNCLASSIFIED"))
   expect_equal(k$recipient_type[k$awardee == "Empowerq Health Care"], "NONPROFIT_CBO")
   expect_equal(k$recipient_type[k$awardee == "North Florida Rural Health Corp"], "NONPROFIT_CBO")
-  expect_true(all(k$recipient_type[k$awardee == "Nuvita Health"] == "VENDOR_OR_CONTRACTOR"))
+  # Session 59: OTHER, not VENDOR_OR_CONTRACTOR -- a company receiving a grant
+  # does not supply the state (session 49's footing), and OTHER must carry its
+  # determined form in verified_basis.
+  expect_true(all(k$recipient_type[k$awardee == "Nuvita Health"] == "OTHER"))
+  expect_false(any(k$recipient_type == "VENDOR_OR_CONTRACTOR"))
+  expect_true(all(grepl("DETERMINED FORM", k$verified_basis[k$awardee == "Nuvita Health"])))
   # Nuvita is OWNER-CONFIRMED on general knowledge, so LOW (§0.4)
   nv <- k[k$awardee == "Nuvita Health", ]
   expect_true(all(nv$basis_type == "GENERAL_KNOWLEDGE"))
