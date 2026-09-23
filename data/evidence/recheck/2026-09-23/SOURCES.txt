@@ -1,0 +1,16 @@
+Fetched 2026-09-23 with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)". Bytes as served; SHA-256 in MANIFEST.txt. NOT YET EXTRACTED (session 53 reported first).
+MO/mo_dss_smrp_awardees.html      https://dss.mo.gov/rhtp-strategic-minor-renovations-program   (THE ROSTER: 20 named, no amounts)
+MO/mo_dss_rural_health.html       https://dss.mo.gov/mhd/rural-health
+MO/mo_govdelivery_42b4d9f.html    https://content.govdelivery.com/accounts/MODSS/bulletins/42b4d9f
+MO/mo_dss_bids.html               https://dss.mo.gov/bids
+CT/ct_governor_rhtp_50m_release.html https://portal.ct.gov/governor/news/press-releases/2026/09-2026/governor-lamont-announces-rural-health-transformation-program-invests-50-million (THE ROSTER, 2026-09-16)
+CT/ct_dss_rhtp_documents.html     https://portal.ct.gov/dss/rural-health-transformation-program/documents
+VT/vt_year1_awards.html           https://healthcarereform.vermont.gov/rht-year-1-executed-agreements-and-contracts (THE ROSTER: 112 priced rows, $87,175,011.33, executed, partial)
+VT/vt_rfps.html                   https://healthcarereform.vermont.gov/rht-program-rfps-nofos
+VT/vt_dail_release.html           https://dail.vermont.gov/federal-rural-health-transformation-funds-support-rural-nursing-care-facilities
+VT/vt_vdh_release.html            https://healthvermont.gov/media/current-news-releases/federal-rural-health-transformation-funds-support-rural-workforce
+WV/wv_art_*.html                  https://health.wv.gov/article/<slug>  (five award releases, 7 named awards, $6,442,803)
+WV/wv_y_governor-...-42-million-investment-.html  the 2026-08-14 release: the $4.2M is two OPPORTUNITIES (Tier 2)
+WV/wv_grants.html                 https://health.wv.gov/grant-opportunities
+RI/ri_ride_grant101.pdf           RIDE "Rural Health Grant 101" (a /sites/g/files document; every RI HTML host is Cloudflare-challenged, 403)
+CMS release pages were deliberately NOT archived here: their page chrome carries a third-party Mapbox token (§7.1 posture).
