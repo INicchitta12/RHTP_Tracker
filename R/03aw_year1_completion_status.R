@@ -69,7 +69,8 @@ Y1_AWARD_FILES <- c(
   OH = "oh_year1_awardees.csv",  SC = "sc_year1_awardees.csv",
   NY = "ny_year1_awardees.csv",  VT = "vt_year1_awardees.csv",
   CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv",
-  TN = "tn_year1_awardees.csv"
+  TN = "tn_year1_awardees.csv",
+  VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -301,7 +302,15 @@ Y1_STATUS <- tibble::tribble(
   "TN", "PARTIAL", "No", "Yes",
   "2026-09-03",
   "TDH names 53 HART awards as 'the initial recipients of funding through the Rural Health Transformation Program', one priority of several, and prices none of them (session 59).",
-  "data/evidence/recheck/2026-09-23/TN/tn_doh_2026-09-03_first_recipients.html; data/evidence/recheck/2026-09-23/TN/tn_2026_RHTP_HART_Grant_Awards_FINAL.xlsx"
+  "data/evidence/recheck/2026-09-23/TN/tn_doh_2026-09-03_first_recipients.html; data/evidence/recheck/2026-09-23/TN/tn_2026_RHTP_HART_Grant_Awards_FINAL.xlsx",
+  "VA", "PARTIAL", "No", "Yes",
+  "2026-08-28",
+  "The Governor: 'This initial investment of $122 million is the first step in a multi-pronged process' -- eleven first-tier partners, no per-partner figure, sub-grants still at RFA stage (session 60).",
+  "data/evidence/recheck/2026-09-23/VA/gov_release_2026-08-28_122M.pdf; data/evidence/recheck/2026-09-23/VA/rhtva_ways_to_apply.html",
+  "WA", "PARTIAL", "No", "Yes",
+  "2026-09-16",
+  "HCA's deck prices first-tier lines but its competitive pools (incl. 1.4, $10.71M for rural hospitals) name no winners, and 6.4 is 'RFA posted' (session 60).",
+  "data/evidence/recheck/2026-09-23/WA/hca_rhtp_webinar_2026-09-16.pdf"
 )
 
 

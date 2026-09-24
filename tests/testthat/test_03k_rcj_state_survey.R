@@ -274,9 +274,13 @@ test_that("session 43's four working states left the queue THROUGH the work", {
   # route out -- so eight remain.
   # Session 59 worked CO and ND out by PROBING them (archive, tripwires,
   # Routine) -- INVESTIGATED_NO_LIST's own definition -- so six remain.
-  six <- c("MT", "UT", "VA", "WA", "AZ", "RI")
-  expect_true(all(survey$extraction_status[match(six, survey$state)] ==
+  # Session 60 worked VA and WA out by EXTRACTING their first-tier lists,
+  # so four remain.
+  four <- c("MT", "UT", "AZ", "RI")
+  expect_true(all(survey$extraction_status[match(four, survey$state)] ==
                     "NOT_EXTRACTED"))
+  expect_true(all(survey$extraction_status[match(c("VA", "WA"), survey$state)] ==
+                    "EXTRACTED"))
   expect_true(all(survey$extraction_status[match(c("CO", "ND"), survey$state)] ==
                     "INVESTIGATED_NO_LIST"))
   expect_true(all(survey$extraction_status[match(c("VT", "WV", "CT"),
@@ -294,8 +298,9 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # so 31/6/5/8.
   # Session 59: TN (INVESTIGATED_NO_PROBE) -> EXTRACTED; CO and ND (QUEUED)
   # -> INVESTIGATED_NO_LIST, so 32/8/4/6.
-  expect_equal(unname(tab[["EXTRACTED"]]), 32L)
+  # Session 60: VA and WA (QUEUED) -> EXTRACTED, so 34/8/4/4.
+  expect_equal(unname(tab[["EXTRACTED"]]), 34L)
   expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 4L)
-  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 6L)
+  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 4L)
 })

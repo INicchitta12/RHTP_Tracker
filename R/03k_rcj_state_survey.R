@@ -123,10 +123,14 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # INVESTIGATED_NO_PROBE -- the second state to leave that bucket by the STATE
 # publishing (South Carolina was the first), never passing through
 # INVESTIGATED_NO_LIST. See R/03ay_tn_year1_awardees.R.
+# Session 60: VA (11 named first-tier partners, no amounts) and WA (8 priced
+# first-tier lines from HCA's 2026-09-16 deck) join from QUEUED, by
+# EXTRACTION. See R/03be_va_year1_awardees.R and R/03bd_wa_year1_awardees.R.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
                              "ID", "IL", "IN", "KS", "MD", "ME", "MI", "MO",
                              "MS", "NC", "NE", "NH", "NV", "NY", "OH", "OK",
-                             "OR", "PA", "SC", "SD", "TN", "VT", "WV", "WY")
+                             "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
+                             "WV", "WY")
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
