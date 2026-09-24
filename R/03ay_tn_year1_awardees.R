@@ -321,17 +321,61 @@ tn_status_table <- function() {
   )
 }
 
+TN_PROPOSAL_SOURCE_MARKER <- "Announcement of Tennessee's Proposal"
+
 tn_rcj_disposition <- function() {
   rt <- rhtp_record_table_live()
   t <- rt[rt$state == TN_STATE, ]
   hart <- grepl("HART|Healthy Active", paste(t$source_doc_title,
                                              t$program_description),
                 ignore.case = TRUE)
+  t3 <- t$award_tier == "SUBAWARD"
+  prop <- t3 & grepl(TN_PROPOSAL_SOURCE_MARKER, t$source_doc_title, fixed = TRUE)
+  if (any(t3 & !prop)) {
+    stop("[TN] ", sum(t3 & !prop), " Tennessee Tier 3 candidate(s) are not the ",
+         "one row this disposition has read (UTHSC under the Governor's ",
+         "PROPOSAL announcement): ",
+         paste(t$awardee_name_raw[t3 & !prop], collapse = " | "),
+         ". Read them, and reconcile any against tn_year1_awardees.csv, ",
+         "before building.", call. = FALSE)
+  }
+  if (any(t$amount_announced[prop] != 1, na.rm = TRUE)) {
+    stop("[TN] the proposal-document Tier 3 row is no longer the $1 ",
+         "placeholder.", call. = FALSE)
+  }
+  roster <- readr::read_csv(TN_CSV, show_col_types = FALSE)
+  in_roster <- stringr::str_squish(t$awardee_name_clean[prop]) %in%
+    stringr::str_squish(roster$awardee)
+  if (any(in_roster)) {
+    stop("[TN] a proposal-document Tier 3 row now matches a HART awardee in ",
+         "tn_year1_awardees.csv; re-read the disposition.", call. = FALSE)
+  }
+  pulls <- sort(unique(stats::na.omit(t$last_seen)))
   tibble::tribble(
     ~state, ~group, ~records, ~disposition, ~note,
-    TN_STATE, "All RCJ Tennessee records (pull 2026-08-27)", nrow(t),
-    "NO_TIER_3", paste0("Zero SUBAWARD records. The only committed national pull (last_seen ",
-                        max(t$last_seen, na.rm = TRUE), ") predates TDH's 2026-09-03 roster by seven days."),
+    TN_STATE, "All RCJ Tennessee records", nrow(t),
+    "ONE_TIER_3_NOT_AN_AWARD",
+    paste0(sum(t3), " SUBAWARD record(s) of ", nrow(t), " on the pull last ",
+           "seen ", max(t$last_seen, na.rm = TRUE), " (the next group) -- and ",
+           "NONE of TDH's 53 HART awards. The 2026-08-27 pull held ZERO ",
+           "SUBAWARD records and predated TDH's 2026-09-03 roster by seven ",
+           "days; the 2026-09-24 pull, three weeks after the roster, still ",
+           "carries not one of its 53 names, so RCJ is not the route to ",
+           "Tennessee's awards on either pull."),
+    TN_STATE, "University of Tennessee Health Science Center under the Governor's PROPOSAL announcement",
+    sum(prop), "RHTP_BUT_NOT_A_SUBAWARD",
+    paste0("NEW ON THE 2026-09-24 PULL: 'University of Tennessee Health ",
+           "Science Center', $1, AMOUNT_IMPLAUSIBLE_LOW, filed under 'TN - ",
+           "2025 - See Tennessee Gov. Bill Lee's Announcement of Tennessee's ",
+           "Proposal'. The committed RHTP programme page (2026-09-23) links ",
+           "that document by exactly that title beside 'Download the Full ",
+           "Version of Tennessee's Rural Health Transformation Plan' -- it is ",
+           "the announcement of the state's APPLICATION to CMS, a plan ",
+           "(§0.3), and a partner named in a proposal is not a recipient. ",
+           "The $1 is Missouri's placeholder. UTHSC is NOT among the 53 HART ",
+           "awardees in tn_year1_awardees.csv (asserted), is a university ",
+           "(never a hospital dollar), and the 'TN - 2025' prefix is RCJ's ",
+           "year, never a date (§2)."),
     TN_STATE, "HART records", sum(hart),
     "SOLICITATION_STAGE", paste0(sum(hart & t$award_tier == "SOLICITATION"),
       " SOLICITATION + ", sum(hart & t$award_tier == "UNASSIGNED"),

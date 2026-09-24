@@ -1087,31 +1087,94 @@ la_rcj_candidates <- function() {
   rt %>% dplyr::filter(.data$state == "LA", .data$award_tier == "SUBAWARD")
 }
 
-#' Why each of RCJ's six Louisiana Tier 3 candidates is not a subaward
+# The three source documents RCJ files Louisiana's Tier 3 candidates under on
+# the 2026-09-24 pull. Every candidate must match exactly one, or the build
+# stops.
+LA_DECK_SOURCE_MARKER     <- "RHTP Advisory Council"
+LA_UPDATES_SOURCE_MARKER  <- "RHTP Updates September 2026"
+LA_CATALYST_SOURCE_MARKER <- "Rural Tech Catalyst Fund"
+
+#' The six slide-18 rows -- the candidates the deck assertions test
+la_rcj_deck_candidates <- function(cands = NULL) {
+  if (is.null(cands)) cands <- la_rcj_candidates()
+  cands[stringr::str_detect(cands$source_doc_title,
+                            stringr::fixed(LA_DECK_SOURCE_MARKER)), ,
+        drop = FALSE]
+}
+
+# LOUISIANA HAS AWARDED ONE PROGRAMME, AND THIS FILE'S NEGATIVE IS STALE FOR IT.
+# LDH's "Rural Health Transformation Program Updates September 2026" deck
+# (ldh.la.gov/assets/docs/Secretary/RHTP/Shareholder-Presentation-09092026.pdf,
+# linked from the RHTP programme page; read LIVE and READ-ONLY on 2026-09-24,
+# NOT archived; 970,819 bytes, SHA-256 80d73683...86db39) reports the RURAL
+# CLINICIAN CREDIT BANK "As of 8/28/26": "53 awards made, 76% of eligible",
+# "Amount awarded $12,701,996" against a $10.00M allocation, "CEAs due for
+# signature 9/15/26", and by facility type 8 small rural hospitals
+# ($3,291,553), 11 critical access hospitals ($2,948,962) and 1 rural
+# emergency hospital ($45,000) -- "Hospital settings 20 awards $6,285,515".
+# It NAMES only the five "Multi-parish awardees" below; the other 48 are
+# reported by parish only. It carries the CMS footer ("This project supported
+# by ... $208,374,447.57"). These are the five RCJ carries, to the dollar.
+LA_CREDIT_BANK_NAMED <- c(
+  "Ochsner Clinic Foundation" = 1500000,
+  "Outpatient Medical Center" =  292500,
+  "Winnsboro Medical Clinic"  =  116288,
+  "SR Minden, Southern Roots" =   45000,
+  "LaBorde Therapy Center"    =   12000
+)
+LA_CREDIT_BANK_NAMED_TOTAL <- 1965788
+LA_CREDIT_BANK_AWARDED     <- 12701996
+LA_CREDIT_BANK_AWARDS      <- 53L
+
+#' Why each of RCJ's Louisiana Tier 3 candidates is, or is not, a subaward
 #'
-#' The counts and the sum are RE-DERIVED from the record table on every run
+#' The counts and the sums are RE-DERIVED from the record table on every run
 #' (Texas's device), so the day Louisiana's candidate set moves the build fails
-#' instead of this table quietly ceasing to cover it.
+#' instead of this table quietly ceasing to cover it. Every candidate must fall
+#' into exactly one group and the groups must sum to the candidate count.
 rhtp_la_rcj_disposition <- function(cands = NULL) {
   if (is.null(cands)) cands <- la_rcj_candidates()
-  n   <- nrow(cands)
-  amt <- sum(cands$amount_announced, na.rm = TRUE)
-
-  if (n != 6L) {
-    stop("[LA] expected 6 Louisiana Tier 3 candidates, found ", n,
-         ". This disposition covers six specific rows; re-read them before ",
-         "changing the count.", call. = FALSE)
+  prov  <- cands$source_doc_title
+  g_deck <- stringr::str_detect(prov, stringr::fixed(LA_DECK_SOURCE_MARKER))
+  g_upd  <- stringr::str_detect(prov, stringr::fixed(LA_UPDATES_SOURCE_MARKER))
+  g_cat  <- stringr::str_detect(prov, stringr::fixed(LA_CATALYST_SOURCE_MARKER))
+  hits   <- g_deck + g_upd + g_cat
+  if (any(hits != 1L)) {
+    stop("[LA] ", sum(hits != 1L), " Louisiana Tier 3 candidate(s) match no ",
+         "disposition group (or more than one): ",
+         paste(cands$awardee_name_raw[hits != 1L], collapse = " | "),
+         ". Read them before building.", call. = FALSE)
   }
-  if (round(amt) != 53910000) {
-    stop("[LA] the candidate amounts no longer sum to $53,910,000 (found ",
-         format(amt, big.mark = ","), ").", call. = FALSE)
+  amt <- cands$amount_announced
+
+  if (sum(g_deck) != 6L || round(sum(amt[g_deck], na.rm = TRUE)) != 53910000) {
+    stop("[LA] expected the 6 slide-18 rows summing to $53,910,000, found ",
+         sum(g_deck), " rows / $",
+         format(sum(amt[g_deck], na.rm = TRUE), big.mark = ","),
+         ". Re-read them before changing the count.", call. = FALSE)
+  }
+  u   <- cands[g_upd, , drop = FALSE]
+  key <- stringr::str_squish(u$awardee_name_raw)
+  bad <- !(key %in% names(LA_CREDIT_BANK_NAMED)) |
+    abs(u$amount_announced - unname(LA_CREDIT_BANK_NAMED[key])) > 0.5
+  if (nrow(u) != length(LA_CREDIT_BANK_NAMED) || anyNA(bad) || any(bad) ||
+      anyDuplicated(key) ||
+      round(sum(u$amount_announced)) != LA_CREDIT_BANK_NAMED_TOTAL) {
+    stop("[LA] the 'RHTP Updates September 2026' candidates no longer ",
+         "reconcile name-for-name and amount-for-amount to LDH's five named ",
+         "multi-parish Rural Clinician Credit Bank awardees ($1,965,788).",
+         call. = FALSE)
+  }
+  if (sum(g_cat) != 1L || !isTRUE(all(amt[g_cat] == 1))) {
+    stop("[LA] the Rural Tech Catalyst Fund group is no longer one $1 row.",
+         call. = FALSE)
   }
 
-  tibble::tribble(
+  out <- tibble::tribble(
     ~disposition, ~rows, ~rcj_amount, ~mechanism, ~disqualifying_fact,
     ~state_source_url, ~source_archive_path,
 
-    "RHTP_BUT_NOT_A_SUBAWARD", 6L, 53910000,
+    "RHTP_BUT_NOT_A_SUBAWARD", sum(g_deck), sum(amt[g_deck], na.rm = TRUE),
     paste("TIER (Oklahoma's defect), and §6.1's PROGRAM_NAME_AS_AWARDEE on",
           "SIX OF SIX. All six rows are rows of ONE table -- slide 18 of the",
           "2026-08-20 Advisory Council deck, headed 'RHTP Funding Cycle",
@@ -1132,18 +1195,76 @@ rhtp_la_rcj_disposition <- function(cands = NULL) {
           "$53,910,000 against the deck's seven at $95,510,000 -- the",
           "aggregator UNDERSTATES the table it mined by $41,600,000, and the",
           "row it drops is the CAPITAL one, the likeliest to reach a",
-          "hospital. NOT ONE candidate is a named Louisiana organisation of",
-          "any kind."),
+          "hospital. NOT ONE of these six is a named Louisiana organisation",
+          "of any kind (the 2026-09-24 pull's other six are, and are the",
+          "next two groups)."),
     "https://ldh.la.gov/page/rural-health-transformation-program",
     paste0("data/evidence/LA/2026-08-20_la_ldh_rhtp_advisory_council_slides_",
-           "PROJECTED_FUNDING.pdf")
+           "PROJECTED_FUNDING.pdf"),
+
+    "RHTP_AWARD_NOT_IN_A_STATE_FILE", sum(g_upd), sum(amt[g_upd], na.rm = TRUE),
+    paste0("NEW ON THE 2026-09-24 PULL AND THEY ARE REAL: ", sum(g_upd),
+           " NAMED RURAL CLINICIAN CREDIT BANK AWARDS, $",
+           format(sum(amt[g_upd]), big.mark = ",", scientific = FALSE),
+           ", filed under 'LA - 2026 - RHTP Updates September 2026'. They ",
+           "match LDH's own 'Multi-parish awardees' table NAME FOR NAME AND ",
+           "AMOUNT FOR AMOUNT (Ochsner Clinic Foundation $1,500,000; ",
+           "Outpatient Medical Center $292,500; Winnsboro Medical Clinic ",
+           "$116,288; SR Minden, Southern Roots $45,000; LaBorde Therapy ",
+           "Center $12,000; Total $1,965,788). LOUISIANA HAS NO AWARD FILE ",
+           "IN THIS REPOSITORY, SO NONE OF THEM IS IN ONE -- and THIS FILE'S ",
+           "NEGATIVE IS STALE FOR THE CREDIT BANK: LDH reports it AWARDED. ",
+           "Nothing was extracted; the next step is a deliberate archive and ",
+           "an award extractor, not a patch to this probe."),
+    paste0("LDH's 'Rural Health Transformation Program Updates September ",
+           "2026' deck (Shareholder-Presentation-09092026.pdf, linked from ",
+           "the RHTP programme page; READ LIVE 2026-09-24, NOT ARCHIVED, ",
+           "SHA-256 80d736837e46c0c09298463e2ddb9202d9eb8ffbe511489e5ad2933ca",
+           "586db39) says, 'As of 8/28/26': '53 awards made, 76% of ",
+           "eligible', 'Amount awarded $12,701,996' against a $10.00M ",
+           "allocation, 'CEAs due for signature 9/15/26' -- so these are ",
+           "awards pending executed agreements (§8: NOTICE_OF_INTENT_TO_",
+           "AWARD, amount_confirmed = No). By facility type: 8 small rural ",
+           "hospitals $3,291,553, 11 critical access hospitals $2,948,962, ",
+           "1 rural emergency hospital $45,000 -- 'Hospital settings 20 ",
+           "awards $6,285,515' -- but the deck NAMES only these five; the ",
+           "other 48 awards (incl. every hospital-type award except possibly ",
+           "Ochsner's) are reported by PARISH only, so the $6,285,515 is a ",
+           "COUNT and a total with no names (§0.3's South Dakota shape) and ",
+           "no hospital figure may be derived from it. Ochsner Clinic ",
+           "Foundation is Ochsner Health's parent; its form is NOT typed here ",
+           "(§0.4) and its eight parishes are not a split. The deck carries ",
+           "the CMS footer ('This project supported by ... $208,374,447.57'), ",
+           "the weak 'This project' grammar, whose figure is the allotment."),
+    "https://ldh.la.gov/assets/docs/Secretary/RHTP/Shareholder-Presentation-09092026.pdf",
+    "NOT ARCHIVED (read-only live read 2026-09-24; archiving is a deliberate --fetch)",
+
+    "RHTP_BUT_NOT_A_SUBAWARD", sum(g_cat), sum(amt[g_cat], na.rm = TRUE),
+    paste("A STATE ADMINISTRATOR AT THE $1 PLACEHOLDER (Missouri's, Maine's).",
+          "'Louisiana Innovation (LA.IO)', $1, filed under 'LA - 2026 -",
+          "Louisiana Launches Rural Tech Catalyst Fund to Advance Rural Health",
+          "Care Innovation'. It is the fund's MANAGER, not a recipient."),
+    paste("LED's own 2026-05-27 release (archived as the SECOND PUBLISHER)",
+          "says 'The initiative will be managed through Louisiana Innovation",
+          "(LA.IO), a division of LED' -- a division of the state's own",
+          "economic development agency administering a pool, one tier above",
+          "any subaward (§6.1). It names no Catalyst Fund recipient, and RCJ",
+          "carries no amount."),
+    "https://www.opportunitylouisiana.gov/news/",
+    "data/evidence/LA/2026-05-27_la_led_rural_tech_catalyst_fund_SECOND_PUBLISHER.html"
   )
+  if (sum(out$rows) != nrow(cands) ||
+      abs(sum(out$rcj_amount) - sum(amt, na.rm = TRUE)) > 0.5) {
+    stop("[LA] the disposition's groups do not reconcile to the ", nrow(cands),
+         " live candidates.", call. = FALSE)
+  }
+  out
 }
 
-#' The six candidates ARE the deck's activity column, asserted rather than said
+#' The six deck candidates ARE the deck's activity column, asserted rather than said
 la_assert_candidates_are_deck_activities <- function(cands = NULL,
                                                      council = NULL) {
-  if (is.null(cands)) cands <- la_rcj_candidates()
+  if (is.null(cands)) cands <- la_rcj_deck_candidates()
   cyc <- la_deck_funding_cycle(council)
 
   # LETTERS ONLY, SPACES INCLUDED IN THE STRIP. The deck's producer paints
@@ -1183,7 +1304,7 @@ la_assert_candidates_are_deck_activities <- function(cands = NULL,
 
 #' RCJ DROPS THE LARGEST ROW, and it is the capital one
 la_assert_capital_row_dropped <- function(cands = NULL, council = NULL) {
-  if (is.null(cands)) cands <- la_rcj_candidates()
+  if (is.null(cands)) cands <- la_rcj_deck_candidates()
   cyc <- la_deck_funding_cycle(council)
 
   cap <- cyc[stringr::str_detect(cyc$activity, "Capital"), ]
@@ -1227,9 +1348,12 @@ rhtp_la_build <- function() {
 
 rhtp_la_report <- function() {
   cyc   <- la_deck_funding_cycle()
-  cands <- la_rcj_candidates()
+  cands <- la_rcj_deck_candidates()
 
   cat("\nLOUISIANA -- RHTP Year 1. A NEGATIVE, AND SEVEN WINDOWS HAVE CLOSED.\n")
+  cat("  !! STALE FOR ONE PROGRAMME: LDH's September 2026 update deck reports\n")
+  cat("  !! the Rural Clinician Credit Bank AWARDED -- 53 awards, $12,701,996,\n")
+  cat("  !! five named (see la_rcj_candidate_disposition.csv). NOT extracted.\n")
   cat(strrep("-", 74), "\n")
   cat("  Allotment (§7.1)        $", format(la_allotment_anchor(), big.mark = ","),
       "\n", sep = "")

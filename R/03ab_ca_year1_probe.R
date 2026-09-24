@@ -1042,29 +1042,83 @@ ca_rcj_candidates <- function() {
   rt %>% dplyr::filter(state == "CA", award_tier == "SUBAWARD")
 }
 
+#' California Tier 3 records RCJ has WITHDRAWN since an earlier pull
+#'
+#' Kept so the SRHRP group's history is re-derived rather than typed: on the
+#' 2026-09-24 pull RCJ dropped all eleven SRHRP rows, and a group that now
+#' holds zero rows must still say how many it held and where they went.
+ca_rcj_withdrawn <- function() {
+  rt <- rhtp_record_table_live(include_withdrawn = TRUE)
+  rt %>% dplyr::filter(state == "CA", award_tier == "SUBAWARD",
+                       change_status == "WITHDRAWN")
+}
+
 CA_SRHRP_SOURCE_MARKER <- "Small and Rural Hospital Relief Program"
+
+# The 2026-09-24 pull's four new candidates. HCAI's Distressed Hospital Small
+# Grant Program page (read live, READ-ONLY, 2026-09-24; not archived -- the
+# state_source_url RCJ carries on all four rows,
+# hcai.ca.gov/facilities/health-facility-financing/distressed-hospital-loan-program)
+# says the programme "was established through the Budget Act of 2025
+# (Assembly Bill 108)", authorises "up to $25 million in one-time grant
+# funding", says "Any unencumbered funds pursuant to this grant program will
+# revert to the General Fund on June 30, 2026", and names exactly these four
+# awardees at exactly these four figures. The page mentions "Rural Health
+# Transformation", "RHTP", "CalRHT" and "federal" ZERO times (measured on the
+# fetched bytes, SHA-256 ac550e67...cb51).
+CA_DHSGP_SOURCE_MARKER <- "Distressed Hospital Small Grant Program"
+CA_DHSGP_AWARDS <- c(
+  "Southern Inyo Healthcare District" =   400000,
+  "Palo Verde Hospital"               =  3000000,
+  "Watsonville Community Hospital"    = 10600000,
+  "El Centro Regional Medical Center" = 11000000
+)
 
 #' Why each of RCJ's California Tier 3 candidates is not an RHTP award
 #'
 #' The counts are RE-DERIVED from the record table on every run, never typed,
 #' so the day California's candidate set moves the build fails instead of the
-#' table quietly ceasing to cover it.
-rhtp_ca_rcj_disposition <- function(cands = NULL) {
+#' table quietly ceasing to cover it. Every live candidate must fall into a
+#' group, the groups' rows must sum to the candidate count, and the DHSGP rows
+#' must reconcile NAME FOR NAME and AMOUNT FOR AMOUNT to HCAI's own awardee
+#' table; any of those failing stops the build.
+rhtp_ca_rcj_disposition <- function(cands = NULL, withdrawn = NULL) {
   if (is.null(cands)) cands <- ca_rcj_candidates()
-  prov    <- paste(cands$source_doc_title, cands$solicitation_number)
+  if (is.null(withdrawn)) withdrawn <- ca_rcj_withdrawn()
+  prov     <- paste(cands$source_doc_title, cands$solicitation_number)
   is_srhrp <- stringr::str_detect(prov, stringr::fixed(CA_SRHRP_SOURCE_MARKER))
-  amt     <- cands$amount_announced
-  hosp    <- stringr::str_detect(cands$awardee_name_clean,
-                                 stringr::regex("hospital|healthcare district|health care district",
-                                                ignore_case = TRUE))
+  is_dhsgp <- stringr::str_detect(prov, stringr::fixed(CA_DHSGP_SOURCE_MARKER))
+  amt      <- cands$amount_announced
+  hosp     <- stringr::str_detect(cands$awardee_name_clean,
+                                  stringr::regex("hospital|healthcare district|health care district|medical center",
+                                                 ignore_case = TRUE))
+  wprov    <- paste(withdrawn$source_doc_title, withdrawn$solicitation_number)
+  w_srhrp  <- stringr::str_detect(wprov, stringr::fixed(CA_SRHRP_SOURCE_MARKER))
 
-  if (!all(is_srhrp)) {
-    stop("[CA] ", sum(!is_srhrp), " California Tier 3 candidates are NOT from ",
-         "the SRHRP. This file's whole disposition is that all of them are. ",
-         "Read the new ones before building.", call. = FALSE)
+  uncovered <- !(is_srhrp | is_dhsgp)
+  if (any(uncovered)) {
+    stop("[CA] ", sum(uncovered), " California Tier 3 candidates are NOT from ",
+         "the SRHRP or the Distressed Hospital Small Grant Program. This ",
+         "file's whole disposition is that all of them are. Read the new ones ",
+         "before building: ",
+         paste(cands$awardee_name_raw[uncovered], collapse = " | "),
+         call. = FALSE)
   }
 
-  tibble::tribble(
+  # DHSGP: every row must be one of HCAI's four, at HCAI's figure, once each.
+  d <- cands[is_dhsgp, , drop = FALSE]
+  key <- stringr::str_squish(d$awardee_name_raw)
+  bad <- !(key %in% names(CA_DHSGP_AWARDS)) |
+    abs(d$amount_announced - unname(CA_DHSGP_AWARDS[key])) > 0.5
+  if (any(bad, na.rm = TRUE) || anyNA(bad) || anyDuplicated(key) ||
+      (nrow(d) > 0 && nrow(d) != length(CA_DHSGP_AWARDS))) {
+    stop("[CA] the Distressed Hospital Small Grant Program candidates no ",
+         "longer reconcile name-for-name and amount-for-amount to HCAI's four ",
+         "published awards. Re-read them before building.", call. = FALSE)
+  }
+
+  fmt <- function(x) format(x, big.mark = ",", scientific = FALSE)
+  out <- tibble::tribble(
     ~group, ~rows, ~distinct_awardees, ~named_hospital_rows, ~rcj_amount_sum,
     ~disposition, ~why,
 
@@ -1074,8 +1128,13 @@ rhtp_ca_rcj_disposition <- function(cands = NULL) {
     sum(hosp & is_srhrp), sum(amt[is_srhrp], na.rm = TRUE),
     "NOT_RHTP_STATE_PROGRAM",
     paste0(
-      "ALL ", sum(is_srhrp), " OF CALIFORNIA'S TIER 3 CANDIDATES, AND ",
-      sum(hosp & is_srhrp), " OF THEM ARE NAMED CALIFORNIA HOSPITALS WITH ",
+      "THIS GROUP HOLDS ", sum(is_srhrp), " LIVE ROWS ON THE 2026-09-24 PULL ",
+      "BECAUSE RCJ WITHDREW ALL ", sum(w_srhrp), " OF THEM ($",
+      fmt(sum(withdrawn$amount_announced[w_srhrp], na.rm = TRUE)),
+      "); they are kept in the record table as change_status WITHDRAWN and ",
+      "the reason below still stands for every one. On the 2026-08-27 pull ",
+      "they were ALL 11 OF CALIFORNIA'S TIER 3 CANDIDATES, AND 11 OF THEM ",
+      "WERE NAMED CALIFORNIA HOSPITALS WITH ",
       "REAL DOLLAR AMOUNTS. Every one is filed under one source document, ",
       "'CA - 2026 - Small and Rural Hospital Relief Program (SRHRP) - HCAI', ",
       "and the SRHRP is a CALIFORNIA STATE PROGRAMME: HCAI's own page says ",
@@ -1089,18 +1148,56 @@ rhtp_ca_rcj_disposition <- function(cands = NULL) {
       "them: MTCAP, MTCAR, SPC-4D and NPC evaluations are seismic ",
       "engineering deliverables, not health care. TEXAS'S DEFECT WITH ",
       "MAINE'S RATIO -- Texas's 53 rows were 78% of its candidate set; ",
-      "California's are ELEVEN OF ELEVEN, every one a real executed award ",
+      "California's were ELEVEN OF ELEVEN, every one a real executed award ",
       "from the SAME AGENCY that administers CalRHT. An extractor built ",
-      "from this candidate list would publish $",
-      format(sum(amt[is_srhrp], na.rm = TRUE), big.mark = ",",
-             scientific = FALSE),
-      " of state cigarette-tax money as California's RHTP hospital dollars. ",
-      "RCJ ALSO CARRIES COMPONENTS RATHER THAN GRANTS: George L Mee Memorial ",
-      "Hospital appears twice at $500,000 and $280,000, which is HCAI's own ",
+      "from that candidate list would have published $5,475,000 ",
+      "of state cigarette-tax money as California's RHTP hospital dollars. ",
+      "RCJ ALSO CARRIED COMPONENTS RATHER THAN GRANTS: George L Mee Memorial ",
+      "Hospital appeared twice at $500,000 and $280,000, which is HCAI's own ",
       "published $780,000 grant split into its line items -- so even the ",
-      "row COUNT is not the award count.")
+      "row COUNT was not the award count."),
+
+    paste("Distressed Hospital Small Grant Program -- CALIFORNIA STATE",
+          "GENERAL FUND MONEY (Budget Act of 2025, AB 108)"),
+    sum(is_dhsgp), dplyr::n_distinct(cands$awardee_name_clean[is_dhsgp]),
+    sum(hosp & is_dhsgp), sum(amt[is_dhsgp], na.rm = TRUE),
+    "NOT_RHTP_STATE_PROGRAM",
+    paste0(
+      "NEW ON THE 2026-09-24 PULL, AND IT IS THE SRHRP'S REPLACEMENT IN KIND: ",
+      sum(is_dhsgp), " ROWS, ", sum(hosp & is_dhsgp), " OF THEM NAMED ",
+      "CALIFORNIA HOSPITALS, $", fmt(sum(amt[is_dhsgp], na.rm = TRUE)),
+      ", every one a real award from HCAI -- the SAME AGENCY that ",
+      "administers CalRHT -- and NOT ONE OF THEM RHTP. RCJ files all four ",
+      "under 'CA - 2025 - Distressed Hospital Small Grant Program Reference ",
+      "Overview' with state_source_url hcai.ca.gov/.../distressed-hospital-",
+      "loan-program. That page, read live and read-only on 2026-09-24 and NOT ",
+      "archived, says the programme 'was established through the Budget Act ",
+      "of 2025 (Assembly Bill 108)', authorises 'up to $25 million in ",
+      "one-time grant funding', and that 'Any unencumbered funds pursuant to ",
+      "this grant program will revert to the General Fund on June 30, 2026' ",
+      "-- a state appropriation, closing (application due Monday, May 18; ",
+      "award determinations Friday, May 29) before CalRHT had named anyone. ",
+      "It lists exactly these four awardees at exactly RCJ's four figures ",
+      "(Southern Inyo Healthcare District $400,000, Palo Verde Hospital ",
+      "$3,000,000, Watsonville Community Hospital $10,600,000, El Centro ",
+      "Regional Medical Center $11,000,000), which sum to the $25,000,000 ",
+      "authorisation, and it mentions 'Rural Health Transformation', 'RHTP', ",
+      "'CalRHT' and 'federal' ZERO times. HCAI's own navigation, archived ",
+      "2026-09-02 on every CA page here, files 'Distressed Hospital Funding ",
+      "Programs' under Health Facility Financing beside the SRHRP, not ",
+      "under CalRHT. RCJ's amounts are RIGHT and its programme is WRONG, so ",
+      "no amount check catches it. THE §6.2 REGISTRY CATCHES NONE OF THE ",
+      "FOUR: non_rhtp_state_programs.csv has no row for this programme and ",
+      "RCJ's title year is refused as a date, so the sweep reads California ",
+      "clean on the day its whole candidate set is state money.")
   ) %>%
     dplyr::mutate(state = "CA", .before = 1)
+
+  if (sum(out$rows) != nrow(cands)) {
+    stop("[CA] the disposition's groups hold ", sum(out$rows), " rows against ",
+         nrow(cands), " live candidates.", call. = FALSE)
+  }
+  out
 }
 
 

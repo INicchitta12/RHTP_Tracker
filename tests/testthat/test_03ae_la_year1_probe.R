@@ -31,7 +31,8 @@ la_cat   <- la_html_text("catalyst")
 la_deck  <- la_pdf_text("council")
 la_cap   <- la_pdf_text("capital_nofo")
 la_cyc   <- la_deck_funding_cycle(la_deck)
-la_cands <- la_rcj_candidates()
+la_all   <- la_rcj_candidates()
+la_cands <- la_rcj_deck_candidates(la_all)
 
 
 # -- the archive -------------------------------------------------------------
@@ -250,7 +251,8 @@ test_that("even what Louisiana has promised is by TYPE, not by recipient", {
 
 # -- §0.1: the six candidates ARE the activity column ------------------------
 
-test_that("Louisiana holds exactly six Tier 3 candidates summing to $53,910,000", {
+test_that("the 2026-09-24 pull: 12 Tier 3 candidates, six of them slide 18's", {
+  expect_equal(nrow(la_all), 12L)
   expect_equal(nrow(la_cands), 6L)
   expect_equal(sum(la_cands$amount_announced), 53910000)
 })
@@ -282,12 +284,39 @@ test_that("the dropped row is the largest, and the capital one", {
   expect_equal(cap$projected, max(la_cyc$projected))
 })
 
-test_that("the disposition covers all six and is re-derived, not typed", {
-  d <- rhtp_la_rcj_disposition(la_cands)
-  expect_equal(sum(d$rows), nrow(la_cands))
-  expect_equal(sum(d$rcj_amount), sum(la_cands$amount_announced))
-  expect_true(all(file.exists(here::here(d$source_archive_path))))
+test_that("the disposition covers all twelve and is re-derived, not typed", {
+  d <- rhtp_la_rcj_disposition(la_all)
+  expect_equal(nrow(d), 3L)
+  expect_equal(d$rows, c(6L, 5L, 1L))
+  expect_equal(d$rcj_amount, c(53910000, 1965788, 1))
+  expect_equal(sum(d$rows), nrow(la_all))
+  expect_equal(sum(d$rcj_amount), sum(la_all$amount_announced))
+  archived <- d$source_archive_path[!grepl("^NOT ARCHIVED", d$source_archive_path)]
+  expect_true(all(file.exists(here::here(archived))))
   expect_true(all(nzchar(d$disqualifying_fact)))
+})
+
+test_that("LOUISIANA HAS AWARDED THE CREDIT BANK: RCJ's five match LDH's named five", {
+  u <- la_all[grepl(LA_UPDATES_SOURCE_MARKER, la_all$source_doc_title,
+                    fixed = TRUE), ]
+  key <- stringr::str_squish(u$awardee_name_raw)
+  expect_setequal(key, names(LA_CREDIT_BANK_NAMED))
+  expect_equal(unname(u$amount_announced), unname(LA_CREDIT_BANK_NAMED[key]))
+  expect_equal(sum(LA_CREDIT_BANK_NAMED), LA_CREDIT_BANK_NAMED_TOTAL)
+  d <- rhtp_la_rcj_disposition(la_all)
+  expect_equal(d$disposition[2], "RHTP_AWARD_NOT_IN_A_STATE_FILE")
+  expect_true(grepl("NEGATIVE IS STALE", d$mechanism[2]))
+  # a moved amount stops the build
+  bad <- la_all; i <- which(bad$awardee_name_raw == "LaBorde Therapy Center")
+  bad$amount_announced[i] <- 13000
+  expect_error(rhtp_la_rcj_disposition(bad), "no longer reconcile")
+})
+
+test_that("the disposition refuses a candidate it does not cover", {
+  rogue <- la_all[1, ]
+  rogue$source_doc_title <- "LA - 2026 - Something Nobody Has Read"
+  expect_error(rhtp_la_rcj_disposition(dplyr::bind_rows(la_all, rogue)),
+               "match no")
 })
 
 

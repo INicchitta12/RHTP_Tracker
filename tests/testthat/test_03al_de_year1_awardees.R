@@ -186,10 +186,34 @@ test_that("the award postdates the Notice of Award", {
   expect_gt(de_assert_after_noa(), 200L)
 })
 
-test_that("the disposition covers all six candidates", {
+test_that("the disposition covers all twelve 2026-09-24 candidates", {
   d <- de_disposition()
-  expect_equal(sum(d$rcj_rows), 6L)
-  expect_true(any(grepl("PLACEHOLDER", d$disposition)))
+  expect_equal(sum(d$rcj_rows), 12L)
+  expect_equal(d$rcj_rows, c(4L, 1L, 0L, 7L))
+  expect_equal(d$disposition,
+               c("REAL_AWARDS_CARRIED_AT_A_$1_PLACEHOLDER", "TIER_2_BUDGET_LINE",
+                 "NOT_RHTP_FEDERAL_PROVENANCE_ALREADY_QUARANTINED",
+                 "NOT_RHTP_STATE_PROGRAM"))
+  # La Red is withdrawn, and the group says so rather than vanishing
+  expect_true(grepl("WITHDREW", d$evidence[3]))
+})
+
+test_that("the DDD rows are DSHA's seven state rebate lines, to the dollar", {
+  rt <- rhtp_record_table_live()
+  t3 <- rt[rt$state == "DE" & rt$award_tier == "SUBAWARD", ]
+  ddd <- t3[grepl(DE_DDD_SOURCE_MARKER, t3$source_doc_title, ignore.case = TRUE), ]
+  expect_equal(nrow(ddd), 7L)
+  expect_equal(sum(ddd$amount_announced), 3433344)
+  expect_equal(sum(DE_DDD_AWARDS), 3433344)
+})
+
+test_that("the SBHC rows reconcile to de_year1_awardees.csv by name", {
+  rt <- rhtp_record_table_live()
+  t3 <- rt[rt$state == "DE" & rt$award_tier == "SUBAWARD", ]
+  sb <- t3[grepl(DE_SBHC_SOURCE_MARKER, t3$source_doc_title, fixed = TRUE), ]
+  expect_equal(nrow(sb), 4L)
+  expect_true(all(sb$amount_announced == 1))
+  expect_true(all(sb$change_status == "NEW"))
 })
 
 test_that("the status table has no amount column", {

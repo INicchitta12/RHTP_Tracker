@@ -275,9 +275,9 @@ test_that("where Missouri's hospital money will be, stated on its own page", {
 
 # -- §0.1 --------------------------------------------------------------------
 
-test_that("27 of RCJ's 29 Missouri candidates are the governance roster", {
+test_that("27 of RCJ's 30 Missouri candidates are the governance roster", {
   cands <- mo_rcj_candidates()
-  expect_equal(nrow(cands), 29L)
+  expect_equal(nrow(cands), 30L)
   is_anchor <- cands$awardee_name_clean %in% mo_anchors$organization
   expect_equal(sum(is_anchor), 27L)
   # Every one of them carries an amount of $1 -- which is why no plausibility
@@ -286,18 +286,33 @@ test_that("27 of RCJ's 29 Missouri candidates are the governance roster", {
   expect_true(all(cands$amount_announced[is_anchor] == 1))
 })
 
-test_that("RCJ understates the one exact award it holds", {
+test_that("RCJ carries the ONE Doula award TWICE: $732,000 and DSS's exact figure", {
   cands <- mo_rcj_candidates()
   mda <- cands[grepl("Doula", cands$awardee_name_clean), ]
-  expect_equal(nrow(mda), 1L)
-  expect_equal(mda$amount_announced, MO_STATED$rcj_mda_amount)
-  expect_lt(mda$amount_announced, MO_STATED$mda_amount)
+  expect_equal(nrow(mda), 2L)
+  expect_equal(sort(mda$amount_announced),
+               c(MO_STATED$rcj_mda_amount, MO_STATED$mda_amount))
+  # summing RCJ's rows double-counts the award; our file carries it once
+  expect_equal(sum(mo_awards$awardee == "Missouri Doula Association"), 1L)
+  dispo <- rhtp_mo_rcj_disposition()
+  expect_equal(dispo$rows[grepl("Doula", dispo$group)], 2L)
+  expect_true(grepl("TWICE", dispo$why[grepl("Doula", dispo$group)]))
 })
 
 test_that("the disposition covers every candidate, re-derived not typed", {
   dispo <- rhtp_mo_rcj_disposition()
   expect_equal(sum(dispo$rows), nrow(mo_rcj_candidates()))
+  expect_equal(dispo$rows, c(27L, 1L, 2L))
   expect_true("NOT_AN_AWARD_GOVERNANCE_ROLE" %in% dispo$disposition)
+})
+
+test_that("the disposition refuses a candidate it does not cover", {
+  cands <- mo_rcj_candidates()
+  rogue <- cands[1, ]
+  rogue$awardee_name_clean <- "Somebody Nobody Has Read"
+  rogue$awardee_name_raw <- rogue$awardee_name_clean
+  expect_error(rhtp_mo_rcj_disposition(dplyr::bind_rows(cands, rogue)),
+               "fall into no")
 })
 
 

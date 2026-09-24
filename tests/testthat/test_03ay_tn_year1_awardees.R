@@ -94,13 +94,25 @@ test_that("the committed file is what the builder writes", {
   expect_equal(committed$distributed_to_hospital, d$distributed_to_hospital)
 })
 
-test_that("all 53 are RCJ-invisible: the only pull predates the roster", {
-  dispo <- readr::read_csv(TN_DISPO_CSV, show_col_types = FALSE)
-  expect_equal(dispo$disposition[1], "NO_TIER_3")
-  expect_match(dispo$note[1], "predates")
+test_that("all 53 are RCJ-invisible, on BOTH pulls", {
+  # 2026-08-27 predated the roster; 2026-09-24 postdates it and still carries
+  # none of the 53. Its one Tier 3 row is UTHSC under the PROPOSAL document.
+  dispo <- tn_rcj_disposition()
+  expect_equal(dispo$disposition,
+               c("ONE_TIER_3_NOT_AN_AWARD", "RHTP_BUT_NOT_A_SUBAWARD",
+                 "SOLICITATION_STAGE"))
+  expect_equal(dispo$records[2], 1L)
+  expect_match(dispo$note[1], "predated")
   rt <- rhtp_record_table_live()
-  expect_equal(sum(rt$state == "TN" & rt$award_tier == "SUBAWARD"), 0L)
-  expect_true(max(as.Date(rt$last_seen[rt$state == "TN"])) < TN_ANNOUNCED)
+  t3 <- rt[rt$state == "TN" & rt$award_tier == "SUBAWARD", ]
+  expect_equal(nrow(t3), 1L)
+  expect_equal(t3$awardee_name_clean, "University of Tennessee Health Science Center")
+  expect_equal(t3$amount_announced, 1)
+  expect_false(any(stringr::str_squish(rt$awardee_name_clean[rt$state == "TN"]) %in%
+                     stringr::str_squish(committed$awardee)))
+  expect_true(max(as.Date(rt$last_seen[rt$state == "TN"])) > TN_ANNOUNCED)
+  committed_dispo <- readr::read_csv(TN_DISPO_CSV, show_col_types = FALSE)
+  expect_equal(committed_dispo$records, dispo$records)
 })
 
 test_that("RAMP is recorded as STATE money and never as a row", {

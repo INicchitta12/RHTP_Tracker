@@ -1135,6 +1135,29 @@ rhtp_mo_rcj_disposition <- function(cands = NULL) {
                                    "Missouri Emergency Medical Services")
   is_mda    <- stringr::str_detect(cands$awardee_name_clean,
                                    "Missouri Doula Association")
+  hits <- is_anchor + is_memsa + is_mda
+  if (any(hits != 1L)) {
+    stop("[MO] ", sum(hits != 1L), " Missouri Tier 3 candidate(s) fall into no ",
+         "disposition group (or more than one): ",
+         paste(cands$awardee_name_raw[hits != 1L], collapse = " | "),
+         ". Read them before building.", call. = FALSE)
+  }
+  if (sum(is_anchor) != nrow(anchors) || !all(cands$amount_announced[is_anchor] == 1)) {
+    stop("[MO] RCJ no longer carries exactly the ", nrow(anchors),
+         " Hub Anchors, each at $1.", call. = FALSE)
+  }
+  if (sum(is_memsa) != 1L ||
+      !isTRUE(all(abs(cands$amount_announced[is_memsa] -
+                        MO_STATED$memsa_amount) < 0.5))) {
+    stop("[MO] RCJ no longer carries one MEMSA row at DSS's ~$6.5M.",
+         call. = FALSE)
+  }
+  if (sum(is_mda) < 1L ||
+      any(cands$amount_announced[is_mda] > MO_STATED$mda_amount) ||
+      any(MO_STATED$mda_amount - cands$amount_announced[is_mda] > 1000)) {
+    stop("[MO] RCJ's Doula Association rows no longer sit at or just below ",
+         "DSS's $732,660.43.", call. = FALSE)
+  }
 
   tibble::tribble(
     ~group, ~rows, ~disposition, ~why,
@@ -1176,13 +1199,23 @@ rhtp_mo_rcj_disposition <- function(cands = NULL) {
     "Missouri Doula Association -- a real award, RCJ's amount short",
     sum(is_mda),
     "RHTP_AWARD_AMOUNT_UNDERSTATED",
-    paste0("RCJ carries $", format(MO_STATED$rcj_mda_amount, big.mark = ","),
-           " against DSS's own $",
+    paste0("RCJ carries ", sum(is_mda), " row(s) for this ONE award: $",
+           paste(format(sort(cands$amount_announced[is_mda]), big.mark = ",",
+                        nsmall = 2, trim = TRUE), collapse = " and $"),
+           ", against DSS's own $",
            format(MO_STATED$mda_amount, big.mark = ",", nsmall = 2),
            " -- short by $",
-           format(MO_STATED$mda_amount - MO_STATED$rcj_mda_amount,
-                  nsmall = 2),
-           ". The award is real and is in this file at the state's figure.")
+           paste(format(MO_STATED$mda_amount -
+                          sort(cands$amount_announced[is_mda]), nsmall = 2,
+                        trim = TRUE), collapse = " and $"),
+           ". ", if (sum(is_mda) > 1L) paste0(
+             "On the 2026-09-24 pull RCJ carries it TWICE, from two ",
+             "documents ('RHTP Funds Will Help Expand Rural Maternal Health ",
+             "Care' at $732,000 and 'Understanding the RHTP' at DSS's exact ",
+             "$732,660.43) -- one award, two rows, so summing ",
+             "RCJ's rows double-counts it (Connecticut's revision defect). ")
+           else "",
+           "The award is real and is in this file ONCE, at the state's figure.")
   ) %>%
     dplyr::mutate(state = "MO", .before = 1)
 }

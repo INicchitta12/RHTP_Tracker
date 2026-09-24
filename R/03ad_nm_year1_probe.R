@@ -844,7 +844,7 @@ nm_assert_roster_control <- function(rhcdf = NULL, news = NULL) {
 nm_assert_candidates_are_rhcdf_recipients <- function(rhcdf = NULL,
                                                       cands = NULL) {
   tr <- if (is.null(rhcdf)) nm_html_text("rhcdf") else rhcdf
-  if (is.null(cands)) cands <- nm_rcj_candidates()
+  if (is.null(cands)) cands <- nm_rcj_candidates_in_state()
   # Every RCJ awardee name must appear on the RHCDF page. Matched on the
   # distinctive head of the name, because HCA and RCJ punctuate differently
   # (RCJ writes "Cañoncito Band of Navajo Health Center, Inc.").
@@ -873,7 +873,7 @@ nm_assert_candidates_are_rhcdf_recipients <- function(rhcdf = NULL,
 #' EVERY CANDIDATE IS PRICED AT $1 -- Missouri's placeholder, and here it is
 #' what HIDES the other two defects
 nm_assert_placeholder_amounts <- function(cands = NULL) {
-  if (is.null(cands)) cands <- nm_rcj_candidates()
+  if (is.null(cands)) cands <- nm_rcj_candidates_in_state()
   amt <- cands$amount_announced
   if (!all(!is.na(amt) & amt == 1)) {
     stop("[NM] not every New Mexico candidate is priced at $1 any more (",
@@ -1042,6 +1042,30 @@ nm_rcj_candidates <- function() {
   rt %>% dplyr::filter(state == "NM", award_tier == "SUBAWARD")
 }
 
+# §0.1 FAILURE MODE 6. R/02c's hand-read verdicts (committed in
+# rcj_state_attribution_sweep.csv, SWEEP_MISFILED_TIER3 in R/02c) say FOUR of
+# New Mexico's Tier 3 candidates on the 2026-09-24 pull are OREGON's: Wallowa
+# Memorial Hospital / Wallowa County Health Care District, Enterprise OR,
+# under "Wallowa Memorial Hospital and Medical Clinics awarded over $5.4
+# million in federal RHT Funds". They are read from the committed sweep, never
+# typed here, so a change in the sweep's verdicts changes this file's count.
+NM_SWEEP_CSV <- "data/reference/rcj_state_attribution_sweep.csv"
+
+nm_wrong_state_ids <- function() {
+  sw <- readr::read_csv(here::here(NM_SWEEP_CSV), show_col_types = FALSE)
+  sw$record_id[sw$filed_under == "NM" & sw$award_tier == "SUBAWARD" &
+                 sw$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT")]
+}
+
+#' New Mexico's Tier 3 candidates that ARE New Mexico's
+#'
+#' Everything the RHCDF assertions test. The wrong-state rows are disposed of
+#' separately, in `rhtp_nm_rcj_disposition()`.
+nm_rcj_candidates_in_state <- function(cands = NULL) {
+  if (is.null(cands)) cands <- nm_rcj_candidates()
+  cands[!(cands$record_id %in% nm_wrong_state_ids()), , drop = FALSE]
+}
+
 NM_RHCDF_SOURCE_MARKER <- "RHCDF Announces Stabilization Fund"
 
 #' Why each of RCJ's New Mexico Tier 3 candidates is not an RHTP subaward
@@ -1049,23 +1073,28 @@ NM_RHCDF_SOURCE_MARKER <- "RHCDF Announces Stabilization Fund"
 #' The counts are RE-DERIVED from the record table on every run, never typed,
 #' and the disposition REFUSES a candidate it does not cover (California's
 #' rule, session 34).
-rhtp_nm_rcj_disposition <- function(cands = NULL) {
+rhtp_nm_rcj_disposition <- function(cands = NULL, wrong_state = NULL) {
   if (is.null(cands)) cands <- nm_rcj_candidates()
+  if (is.null(wrong_state)) wrong_state <- nm_wrong_state_ids()
+  is_wrong <- cands$record_id %in% wrong_state
   is_rhcdf <- stringr::str_detect(cands$source_doc_title,
-                                  stringr::fixed(NM_RHCDF_SOURCE_MARKER))
-  if (!all(is_rhcdf)) {
-    stop("[NM] ", sum(!is_rhcdf), " New Mexico Tier 3 candidates are NOT from ",
-         "the RHCDF stabilization-fund document. This file's whole ",
-         "disposition is that all of them are. Read the new ones before ",
+                                  stringr::fixed(NM_RHCDF_SOURCE_MARKER)) &
+    !is_wrong
+  if (!all(is_rhcdf | is_wrong)) {
+    stop("[NM] ", sum(!(is_rhcdf | is_wrong)), " New Mexico Tier 3 candidates ",
+         "are NOT from the RHCDF stabilization-fund document and are not on ",
+         "R/02c's wrong-state list. This file's whole disposition is that ",
+         "every candidate is one or the other. Read the new ones before ",
          "building: ",
-         paste(unique(cands$source_doc_title[!is_rhcdf]), collapse = " | "),
+         paste(unique(cands$source_doc_title[!(is_rhcdf | is_wrong)]),
+               collapse = " | "),
          call. = FALSE)
   }
   amt  <- cands$amount_announced
   hosp <- stringr::str_detect(cands$awardee_name_clean,
                               stringr::regex("hospital", ignore_case = TRUE))
 
-  tibble::tribble(
+  out <- tibble::tribble(
     ~group, ~rows, ~distinct_awardees, ~named_hospital_rows, ~rcj_amount_sum,
     ~disposition, ~why,
 
@@ -1075,7 +1104,9 @@ rhtp_nm_rcj_disposition <- function(cands = NULL) {
     sum(hosp & is_rhcdf), sum(amt[is_rhcdf], na.rm = TRUE),
     "NOT_RHTP_STATE_PROGRAM",
     paste0(
-      "ALL ", sum(is_rhcdf), " OF NEW MEXICO'S TIER 3 CANDIDATES, AND THREE ",
+      "ALL ", sum(is_rhcdf), " OF NEW MEXICO'S IN-STATE TIER 3 CANDIDATES (",
+      sum(is_rhcdf), " of ", nrow(cands), " -- the rest are Oregon's, the ",
+      "next group), AND THREE ",
       "RECORDED DEFECTS AT ONCE. (1) THE WRONG PROGRAMME (Texas's, ",
       "California's): the Rural Health Care Delivery Fund is state money. ",
       "The Governor's own release says '41 rural health care providers and ",
@@ -1110,9 +1141,41 @@ rhtp_nm_rcj_disposition <- function(cands = NULL) {
       "administers RHTP. What keeps the cost at $0 here rather than ",
       "California's $5,475,000 is only that RCJ priced them at $1; a session ",
       "that 'repaired' those amounts from the state page would publish state ",
-      "Medicaid stabilization money as New Mexico's RHTP hospital dollars.")
+      "Medicaid stabilization money as New Mexico's RHTP hospital dollars."),
+
+    paste("OREGON's Wallowa Memorial Hospital / Wallowa County Health Care",
+          "District records FILED UNDER NEW MEXICO -- §0.1 FAILURE MODE 6"),
+    sum(is_wrong), dplyr::n_distinct(cands$awardee_name_clean[is_wrong]),
+    sum(hosp & is_wrong), sum(amt[is_wrong], na.rm = TRUE),
+    "WRONG_STATE",
+    paste0(
+      "NEW ON THE 2026-09-24 PULL AND NOT NEW MEXICO'S AT ALL: ",
+      sum(is_wrong), " rows, $",
+      format(sum(amt[is_wrong], na.rm = TRUE), big.mark = ",",
+             scientific = FALSE),
+      ", all under 'NM - 2026 - Wallowa Memorial Hospital and Medical ",
+      "Clinics awarded over $5.4 million in federal RHT Funds'. Wallowa ",
+      "Memorial Hospital is the Wallowa County Health Care District in ",
+      "Enterprise, OREGON, and R/02c's hand-read sweep ",
+      "(rcj_state_attribution_sweep.csv; SWEEP_MISFILED_TIER3) records all ",
+      "four as MISFILED -- the FIRST Tier 3 misfile the sweep has found, so ",
+      "the wrong-state defect has now reached the tier an extractor reads. ",
+      "Every New Mexico check this file runs (the RHCDF roster match, the $1 ",
+      "placeholder) would have been applied to Oregon's data; they are ",
+      "therefore run on the in-state rows only. These rows are OREGON's to ",
+      "reconcile against or_year1_awardees.csv, never New Mexico's to count. ",
+      "Noted for Oregon, not resolved here: RCJ's 'Wallowa Memorial Hospital' ",
+      "$964,000 against OHA's Transformation Fund $963,000; its 'Rural ",
+      "Health Clinics' $400,000 against OHA's four Wallowa clinics at ",
+      "$100,000 each; and its $1,965,251 and $5,464,316 rows match no single ",
+      "committed Oregon row. NEW MEXICO'S EXPOSURE FROM THESE ROWS IS $0.")
   ) %>%
     dplyr::mutate(state = "NM", .before = 1)
+  if (sum(out$rows) != nrow(cands)) {
+    stop("[NM] the disposition's groups hold ", sum(out$rows), " rows against ",
+         nrow(cands), " live candidates.", call. = FALSE)
+  }
+  out
 }
 
 

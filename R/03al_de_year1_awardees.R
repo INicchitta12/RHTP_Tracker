@@ -672,18 +672,84 @@ de_status_table <- function() {
   )
 }
 
+# The 2026-09-24 pull's seven "downtown development districts" rows. DSHA's
+# own release (news.delaware.gov, 2026-09-10; read LIVE and READ-ONLY on
+# 2026-09-24, NOT archived, SHA-256 9b66cef9...8ab9) says "The Delaware State
+# Housing Authority (DSHA) has awarded $3.43 million in funding reservations
+# to eight large revitalization projects ... through Delaware's Downtown
+# Development Districts (DDD) rebate program", that "Every one dollar in STATE
+# DDD investments leverages nearly $15 in private investment", and that the
+# programme dates from "its inception ... in 2014"; it mentions "Rural Health
+# Transformation", "RHTP", "CMS" and "federal" ZERO times. It lists exactly
+# these seven lines (Office Partners XIX Brandywine LLC holds two projects).
+DE_DDD_SOURCE_MARKER <- "downtown development districts"
+DE_DDD_AWARDS <- c(
+  "Office Partners XIX Brandywine LLC (two projects), Wilmington" = 973000,
+  "Loockerman Plaza LLC, Dover"                                   = 680000,
+  "Little Living Org. Inc., Georgetown"                           = 620000,
+  "Mach Investments LLC, Smyrna"                                  = 412000,
+  "Tatnall West II LLC, Wilmington"                               = 343844,
+  "Leroy Tice Esquire, Wilmington"                                = 210000,
+  "Nas Homes LLC, Wilmington"                                     = 194500
+)
+DE_SBHC_SOURCE_MARKER <- "School-Based Health Cen"
+
 de_disposition <- function() {
   rt <- rhtp_record_table_live()
   de <- rt %>% dplyr::filter(.data$state == DE_STATE)
   t3 <- de %>% dplyr::filter(.data$award_tier == "SUBAWARD")
-  if (nrow(t3) != 6L) {
-    stop("[DE] this disposition covers SIX Tier 3 candidates and the record ",
-         "table now holds ", nrow(t3), ". Read the new ones before rebuilding.",
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE) %>%
+    dplyr::filter(.data$state == DE_STATE, .data$award_tier == "SUBAWARD",
+                  .data$change_status == "WITHDRAWN")
+  title <- dplyr::coalesce(t3$source_doc_title, "")
+  g_sbhc <- stringr::str_detect(title, stringr::fixed(DE_SBHC_SOURCE_MARKER))
+  g_dsha <- t3$awardee_name_clean %in% "Delaware State Housing Authority" &
+    !g_sbhc
+  g_ddd  <- stringr::str_detect(title, stringr::regex(DE_DDD_SOURCE_MARKER,
+                                                      ignore_case = TRUE))
+  g_lared <- stringr::str_detect(dplyr::coalesce(t3$awardee_name_raw, ""),
+                                 stringr::fixed("La Red"))
+  hits <- g_sbhc + g_dsha + g_ddd + g_lared
+  if (any(hits != 1L)) {
+    stop("[DE] ", sum(hits != 1L), " Delaware Tier 3 candidate(s) fall into ",
+         "no disposition group (or more than one): ",
+         paste(t3$awardee_name_raw[hits != 1L], collapse = " | "),
+         ". Read the new ones before rebuilding.", call. = FALSE)
+  }
+
+  # School-based centres: reconcile to OUR award file, name for name.
+  norm <- function(x) stringr::str_squish(stringr::str_replace_all(
+    stringr::str_remove(x, "\\s+[\u2013-]\\s+.*$"), "\u2019", "'"))
+  sb_heads <- sort(norm(t3$awardee_name_raw[g_sbhc]))
+  ours <- readr::read_csv(DE_CSV, show_col_types = FALSE)
+  if (!identical(sb_heads, sort(ours$awardee)) ||
+      !all(t3$amount_announced[g_sbhc] == 1)) {
+    stop("[DE] RCJ's school-based health centre rows no longer reconcile ",
+         "name-for-name to de_year1_awardees.csv, or are no longer all at the ",
+         "$1 placeholder. Re-read them.", call. = FALSE)
+  }
+  # DDD: exactly DSHA's seven lines, at DSHA's figures.
+  dk  <- stringr::str_squish(t3$awardee_name_raw[g_ddd])
+  dam <- t3$amount_announced[g_ddd]
+  if (length(dk) != length(DE_DDD_AWARDS) || anyDuplicated(dk) ||
+      !all(dk %in% names(DE_DDD_AWARDS)) ||
+      any(abs(dam - unname(DE_DDD_AWARDS[dk])) > 0.5)) {
+    stop("[DE] the downtown-development-districts rows no longer reconcile ",
+         "to DSHA's seven published lines.", call. = FALSE)
+  }
+  if (sum(g_dsha) != 1L) {
+    stop("[DE] expected one Delaware State Housing Authority budget line.",
          call. = FALSE)
   }
-  tibble::tribble(
+  w_sbhc  <- sum(stringr::str_detect(dplyr::coalesce(wd$source_doc_title, ""),
+                                     stringr::fixed(DE_SBHC_SOURCE_MARKER)))
+  w_lared <- sum(stringr::str_detect(dplyr::coalesce(wd$awardee_name_raw, ""),
+                                     stringr::fixed("La Red")))
+  fmt <- function(x) format(x, big.mark = ",", scientific = FALSE)
+
+  out <- tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
-    DE_STATE, "School-based health centre awards", 4L,
+    DE_STATE, "School-based health centre awards", sum(g_sbhc),
     "REAL_AWARDS_CARRIED_AT_A_$1_PLACEHOLDER",
     paste0("RCJ carries all four, NAMED EXACTLY AS DELAWARE PRINTS THEM ",
            "(site and all), at an amount of $1 each. Missouri's and Maine's ",
@@ -694,24 +760,56 @@ de_disposition <- function() {
            "committed record table, which is the $1 placeholder showing up ",
            "as a plausibility failure four sessions before anyone read the ",
            "release. These four ARE this file's rows, and the amounts come ",
-           "from Delaware -- which published none."),
-    DE_STATE, "Delaware State Housing Authority", 1L,
+           "from Delaware -- which published none. On the 2026-09-24 pull RCJ ",
+           "RE-ISSUED all four under NEW record ids (the ", w_sbhc, " old ",
+           "ids are WITHDRAWN); the names reconcile to de_year1_awardees.csv ",
+           "(Beebe Healthcare x2, Nemours Children's Health, TidalHealth) ",
+           "and that reconciliation is asserted."),
+    DE_STATE, "Delaware State Housing Authority", sum(g_dsha),
     "TIER_2_BUDGET_LINE",
     paste0("$11,500,000, sourced to 'DE - 2025 - Delaware RHTP Executive ",
            "Budget Summary'. A budget-narrative line item, not a subaward ",
            "(Oklahoma's and Connecticut's tier defect). DHSS's programme ",
            "page carries no housing initiative among its fifteen."),
-    DE_STATE, "La Red Health Center, Inc.", 1L,
+    DE_STATE, "La Red Health Center, Inc.", sum(g_lared),
     "NOT_RHTP_FEDERAL_PROVENANCE_ALREADY_QUARANTINED",
-    paste0("$250,000, sourced to 'FY 2025: HRSA's Rural Health Grants ",
+    paste0("THIS GROUP HOLDS ", sum(g_lared), " LIVE ROWS: RCJ WITHDREW the ",
+           "row on the 2026-09-24 pull (", w_lared, " withdrawn record). ",
+           "It was $250,000, sourced to 'FY 2025: HRSA's Rural Health Grants ",
            "Delaware Fact Sheet'. THE ORIGINAL §6.2 FINDING, from Stage 0: ",
            "a different FEDERAL programme's money on a HRSA document, which ",
-           "is why the provenance filter exists at all. It is already ",
-           "QUARANTINED in the record table with `PROVENANCE_MISMATCH`, ",
-           "which is why the 50-state survey counts FIVE Delaware candidates ",
-           "and the record table holds SIX -- the survey counts PASS and ",
-           "FLAGGED rows only. This disposition covers all six.")
+           "is why the provenance filter exists at all. It was QUARANTINED ",
+           "in the record table with `PROVENANCE_MISMATCH`, which is why the ",
+           "50-state survey counted FIVE Delaware candidates while the record ",
+           "table held SIX."),
+    DE_STATE, "Downtown Development Districts (DDD) rebate reservations",
+    sum(g_ddd), "NOT_RHTP_STATE_PROGRAM",
+    paste0("NEW ON THE 2026-09-24 PULL: ", sum(g_ddd), " rows, $",
+           fmt(sum(dam)), ", filed under 'DE - 2026 - large projects ",
+           "awarded downtown development districts funding reservations'. ",
+           "STATE housing-authority money for real-estate revitalisation, ",
+           "not RHTP and not health care: DSHA's own 2026-09-10 release (READ ",
+           "LIVE 2026-09-24, NOT ARCHIVED) says DSHA 'has awarded $3.43 ",
+           "million in funding reservations to eight large revitalization ",
+           "projects ... through Delaware's Downtown Development Districts ",
+           "(DDD) rebate program', calls them 'state DDD investments', dates ",
+           "the programme to 2014, and mentions RHTP, 'Rural Health ",
+           "Transformation', CMS and 'federal' ZERO times. RCJ's seven lines ",
+           "and amounts match the release exactly (Office Partners XIX ",
+           "Brandywine LLC holds two projects, hence 'eight'). The recipients ",
+           "are property developers (LLCs, a law practice) -- no hospital. ",
+           "The Delaware State Housing Authority is also the publisher of the ",
+           "RHTP budget line above, which is presumably how an aggregator ",
+           "keyed on agency filed a housing release under RHTP. The §6.2 ",
+           "registry has no row for this programme, so R/02b catches NONE ",
+           "of the seven.")
   )
+  if (sum(out$rcj_rows) != nrow(t3)) {
+    stop("[DE] the disposition covers ", sum(out$rcj_rows), " Tier 3 ",
+         "candidates and the record table holds ", nrow(t3), ".",
+         call. = FALSE)
+  }
+  out
 }
 
 

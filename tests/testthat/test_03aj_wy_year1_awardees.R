@@ -412,14 +412,26 @@ test_that("the controls hold", {
     WY_ADMINISTRATOR_TOTAL)
 })
 
-test_that("Wyoming carries ZERO Tier 3 candidates and FIVE Utah records", {
+test_that("Wyoming carries ZERO Tier 3 candidates; 2 Utah records remain, 3 re-filed", {
+  # 2026-09-24 pull: RCJ re-filed three of session 42's five Utah documents to
+  # UT (same record ids), which is why Wyoming's record count fell 29 -> 26.
   disp <- wy_rcj_disposition()
   expect_equal(nrow(disp), 3L)
   expect_true("WRONG_STATE_UTAH_FILED_UNDER_WYOMING" %in% disp$disposition_code)
   expect_equal(disp$records[disp$disposition_code ==
-                              "WRONG_STATE_UTAH_FILED_UNDER_WYOMING"], 5L)
+                              "WRONG_STATE_UTAH_FILED_UNDER_WYOMING"], 2L)
   expect_equal(disp$records[disp$disposition_code ==
-                              "NO_TIER_3_CANDIDATE_AT_ALL"], 29L)
+                              "NO_TIER_3_CANDIDATE_AT_ALL"], 26L)
+  expect_equal(disp$records[disp$disposition_code ==
+                              "STATE_PROGRAMME_NOT_RHTP"], 1L)
+  rt <- rhtp_record_table_live()
+  five <- rt[rt$record_id %in% WY_UTAH_RECORD_IDS, ]
+  expect_equal(nrow(five), 5L)
+  expect_equal(sum(five$state == "UT"), 3L)
+  expect_equal(sum(five$state == "WY"), 2L)
+  expect_true(grepl("RE-FILED THE OTHER 3 TO UTAH",
+                    disp$why[disp$disposition_code ==
+                               "WRONG_STATE_UTAH_FILED_UNDER_WYOMING"]))
 })
 
 test_that("all assertions pass together", {

@@ -615,31 +615,69 @@ rhtp_nh_rcj_disposition <- function(cands = NULL) {
   is_admin <- stringr::str_detect(
     nm, "Community College System|Community Behavioral Health|University (System )?of New Hampshire|National Opinion Research|NORC")
   is_other <- !(is_mcm | is_fhc | is_cdfa | is_admin)
+  amt <- cands$amount_announced
 
-  tibble::tribble(
+  # The withdrawn history, re-derived: the 2026-09-24 pull dropped all three
+  # MCM rows and FHC's rounded $66,500,000 Council row.
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE) %>%
+    dplyr::filter(state == "NH", award_tier == "SUBAWARD",
+                  change_status == "WITHDRAWN")
+  wnm <- dplyr::coalesce(wd$awardee_name_clean, "")
+  w_mcm <- sum(stringr::str_detect(wnm, "AmeriHealth Caritas|WellSense|Healthy Families"))
+  w_fhc_rounded <- sum(stringr::str_detect(wnm, "Foundation for Healthy Communities") &
+                         wd$amount_announced == 66500000)
+  fhc_rounded_live <- sum(is_fhc & amt == 66500000)
+
+  # Every "other" row must be one of the three $1 GO-NORTH labels read by
+  # hand; a fourth unread label stops the build rather than being absorbed.
+  other_ok <- stringr::str_detect(
+    nm[is_other], "GO-NORTH Planning Grant Agreement|GO-NORTH Endowment|Governor.s Office of New Opportunities")
+  if (!all(other_ok) || !all(amt[is_other] == 1)) {
+    stop("[NH] a New Hampshire Tier 3 candidate falls outside every read ",
+         "group: ", paste(nm[is_other][!other_ok], collapse = " | "),
+         ". Read it before building.", call. = FALSE)
+  }
+  if (!all(amt[is_fhc] %in% c(1, 66500000))) {
+    stop("[NH] RCJ's FHC rows are no longer only the $1 placeholder and the ",
+         "rounded $66,500,000.", call. = FALSE)
+  }
+
+  out <- tibble::tribble(
     ~group, ~rows, ~disposition, ~why,
 
     "Medicaid Care Management -- NOT RHTP",
     sum(is_mcm),
     "NOT_RHTP_MEDICAID",
-    paste("New Hampshire's Medicaid managed care organisations, carried under",
-          "MCM-titled documents. One of these rows is the $1,898,965,390",
-          "against a $204,016,550 allotment that the §6.2 allotment ceiling",
-          "flagged in session 5 and the provenance sweep independently",
-          "disposed of in session 20 -- TWO §6.2 FILTERS, OPPOSITE",
-          "DIRECTIONS, SAME ROW. Not RHTP, and already quarantined."),
+    paste0(if (sum(is_mcm) == 0L) paste0(
+             "THIS GROUP HOLDS 0 LIVE ROWS ON THE 2026-09-24 PULL: RCJ ",
+             "WITHDREW all ", w_mcm, " MCM rows. The reading stands for the ",
+             "history: ") else "",
+           "New Hampshire's Medicaid managed care organisations, carried under ",
+           "MCM-titled documents. One of these rows is the $1,898,965,390 ",
+           "against a $204,016,550 allotment that the §6.2 allotment ceiling ",
+           "flagged in session 5 and the provenance sweep independently ",
+           "disposed of in session 20 -- TWO §6.2 FILTERS, OPPOSITE ",
+           "DIRECTIONS, SAME ROW. Not RHTP, and already quarantined."),
 
     "Foundation for Healthy Communities -- a real award, RCJ's amount short",
     sum(is_fhc),
     "RHTP_AWARD_AMOUNT_UNDERSTATED",
-    paste0("RCJ carries $66,500,000 -- the Council's ROUNDED figure -- ",
+    paste0("RCJ ", if (fhc_rounded_live == 0L) "carried" else "carries",
+           " $66,500,000 -- the Council's ROUNDED figure -- ",
            "against FHC's own exact $", format(NH_STATED$fhc_award_exact,
                                                big.mark = ","),
            ", short by $", format(NH_STATED$fhc_award_exact - 66500000,
                                   big.mark = ","),
            ". The award is real and is in this file at the recipient's own ",
-           "figure. RCJ carries FHC on ", sum(is_fhc), " rows: the rounded ",
-           "Council figure, and a $1 placeholder."),
+           "figure. RCJ carries FHC on ", sum(is_fhc), " rows",
+           if (fhc_rounded_live == 0L) paste0(
+             ", BOTH at the $1 placeholder: on the 2026-09-24 pull RCJ ",
+             "WITHDREW the rounded $66,500,000 Council row (", w_fhc_rounded,
+             " withdrawn), so the aggregator now carries NO usable figure for ",
+             "New Hampshire's largest award at all (a $1 row from 'GO-NORTH ",
+             "Contracts & Awards' and a $1 row from the Executive Council ",
+             "article).") else
+             ": the rounded Council figure, and a $1 placeholder."),
 
     "CDFA -- a real Council action, RCJ prices a CEILING as an award",
     sum(is_cdfa),
@@ -667,14 +705,26 @@ rhtp_nh_rcj_disposition <- function(cands = NULL) {
     "Placeholder and unresolved rows",
     sum(is_other),
     "AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED",
-    paste("'GO-NORTH Planning Grant Agreement', carried at $1, whose awardee",
-          "is THE AGREEMENT and not an organisation -- §6.1's",
-          "PROGRAM_NAME_AS_AWARDEE. The $1 is Missouri's placeholder mechanism",
-          "again, and it runs through this whole candidate set: FHC and CDFA",
-          "each carry a $1 row too. RCJ publishes a PLACEHOLDER rather than a",
-          "wrong figure, which is the one defect no amount check can see.")
+    paste0("'GO-NORTH Planning Grant Agreement', carried at $1, whose awardee ",
+           "is THE AGREEMENT and not an organisation -- §6.1's ",
+           "PROGRAM_NAME_AS_AWARDEE. The $1 is Missouri's placeholder mechanism ",
+           "again, and it runs through this whole candidate set: FHC and CDFA ",
+           "each carry a $1 row too. RCJ publishes a PLACEHOLDER rather than a ",
+           "wrong figure, which is the one defect no amount check can see. ",
+           "The 2026-09-24 pull re-issues the Planning Grant row under a new ",
+           "id and adds two more of the same kind, all at $1: 'GO-NORTH ",
+           "Endowment Population Health' (a programme/fund name, not an ",
+           "organisation) and the Governor's Office of New Opportunities & ",
+           "Rural Transformational Health (GO-NORTH) itself -- the STATE ",
+           "OFFICE THAT ADMINISTERS the programme, which is the grantor and ",
+           "never a subrecipient (§6.1). ", sum(is_other), " rows.")
   ) %>%
     dplyr::mutate(state = "NH", .before = 1)
+  if (sum(out$rows) != nrow(cands)) {
+    stop("[NH] the disposition's groups hold ", sum(out$rows), " rows against ",
+         nrow(cands), " live candidates.", call. = FALSE)
+  }
+  out
 }
 
 

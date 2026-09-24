@@ -388,13 +388,27 @@ test_that("the award-index control covers BOTH DHHS channels", {
 
 # -- §0.1, and the independent reading ---------------------------------------
 
-test_that("the disposition covers every RCJ candidate, re-derived", {
+test_that("the disposition covers every RCJ candidate, re-derived (2026-09-24: 17)", {
   cands <- me_rcj_candidates()
   d <- rhtp_me_rcj_disposition(cands)
   expect_equal(sum(d$rows), nrow(cands))
-  expect_equal(nrow(cands), 12L)
-  expect_equal(d$rows[d$disposition == "RHTP_COHORT_INVITED_NOT_AWARDED"], 11L)
-  expect_equal(d$rows[d$disposition == "RHTP_AWARD_CARRIED_CORRECTLY"], 1L)
+  expect_equal(nrow(cands), 17L)
+  expect_equal(d$rows, c(11L, 0L, 3L, 3L, 0L))
+  expect_equal(d$disposition,
+               c("RHTP_COHORT_INVITED_NOT_AWARDED", "RHTP_AWARD_CARRIED_CORRECTLY",
+                 "RHTP_BUT_NOT_A_SUBAWARD", "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
+                 "NONE"))
+  expect_true(grepl("WITHDREW", d$why[2]))
+})
+
+test_that("'Anything else' can no longer absorb a candidate silently", {
+  cands <- me_rcj_candidates()
+  rogue <- cands[1, ]
+  rogue$awardee_name_clean <- "Somebody Nobody Has Read"
+  rogue$awardee_name_raw <- rogue$awardee_name_clean
+  rogue$source_doc_title <- "ME - 2026 - Something Else"
+  expect_error(rhtp_me_rcj_disposition(dplyr::bind_rows(cands, rogue)),
+               "fall into no")
 })
 
 test_that("RCJ's eleven names match DHHS's roster NAME FOR NAME", {
@@ -403,17 +417,32 @@ test_that("RCJ's eleven names match DHHS's roster NAME FOR NAME", {
   # OF ACTION -- it carries all eleven as Tier 3 awards at $1 each.
   expect_silent(me_assert_rcj_names_match())
   cands <- me_rcj_candidates()
-  cohort_rows <- cands[cands$awardee_name_clean != "University of New England", ]
+  cohort_rows <- cands[cands$amount_announced == 1, ]
   expect_equal(nrow(cohort_rows), 11L)
-  expect_true(all(cohort_rows$amount_announced == 1))
 })
 
-test_that("RCJ prices the ONE real award correctly, and only that one", {
+test_that("the blog UNE award is WITHDRAWN; UNE now appears only as a plan line", {
   cands <- me_rcj_candidates()
   une <- cands[cands$awardee_name_clean == "University of New England", ]
   expect_equal(nrow(une), 1L)
-  expect_equal(une$amount_announced, 12000000)
-  expect_equal(une$amount_announced, me_awards$amount)
+  expect_equal(une$amount_announced, 12058319)
+  expect_true(grepl(ME_NARRATIVE_SOURCE_MARKER, une$source_doc_title, fixed = TRUE))
+  # and it disagrees with the award in me_year1_awardees.csv, which stands
+  expect_equal(me_awards$amount, 12000000)
+  expect_equal(une$amount_announced - me_awards$amount, 58319)
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE)
+  wd <- wd[wd$state == "ME" & wd$change_status == "WITHDRAWN" &
+             wd$award_tier == "SUBAWARD", ]
+  expect_equal(wd$amount_announced[wd$awardee_name_clean ==
+                                     "University of New England"], 12000000)
+})
+
+test_that("the news rows are the three pool figures, and one is the RHEF pool", {
+  cands <- me_rcj_candidates()
+  news <- cands[grepl(ME_NEWS_SOURCE_MARKER, cands$source_doc_title, fixed = TRUE), ]
+  expect_equal(sort(news$amount_announced),
+               sort(c(ME_EMR_POOL, ME_UNE_AMOUNT, ME_RHEF_POOL)))
+  expect_true("Maine rural hospitals (collective)" %in% news$awardee_name_clean)
 })
 
 test_that("the §6.2 sweep's clean Maine line is about the registry, not Maine", {
@@ -422,9 +451,9 @@ test_that("the §6.2 sweep's clean Maine line is about the registry, not Maine",
     show_col_types = FALSE, progress = FALSE)
   me <- sweep[sweep$state == "ME", ]
   expect_equal(me$caught_total, 0L)
-  # ALL TWELVE ARE UNDATABLE -- RCJ carries no date for any of them -- so the
-  # date test could not have run (Nebraska's lesson, session 23).
-  expect_equal(me$undatable_rows, 12L)
+  # ALL SEVENTEEN ARE UNDATABLE -- RCJ carries no date for any of them -- so
+  # the date test could not have run (Nebraska's lesson, session 23).
+  expect_equal(me$undatable_rows, 17L)
   expect_equal(me$datable_rows, 0L)
 })
 

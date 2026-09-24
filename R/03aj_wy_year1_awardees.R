@@ -2026,6 +2026,18 @@ wy_status_table <- function() {
 #' before it was WRONG ABOUT A RECORD, and this one is wrong about WHICH STATE
 #' THE RECORD BELONGS TO. See `R/02c_state_attribution_sweep.R`, which measures
 #' it across all fifty states.
+# The five Utah documents session 42 read under Wyoming on the 2026-08-27
+# pull, by RCJ record id. HAND-READ HISTORY, not a count: the count of how
+# many are STILL filed under Wyoming, and how many RCJ has since re-filed to
+# Utah, is re-derived from the record table on every run.
+WY_UTAH_RECORD_IDS <- c(
+  "08c60046-77e0-478f-b307-3fc08d8feaf2",  # Utah RHTP Stakeholder Meeting
+  "c98bc19b-4c9f-40b9-a0e7-dca0004dbf7e",  # Utah $195.7M Cooperative Agreement
+  "1d474172-7a1f-4c6c-9d49-caf6aecb96b1",  # Utah RHTP Semantic Data Model RFGA
+  "3e70da1b-5839-44f5-b815-bf645fe11402",  # SPRINT Consortium (Utah DHHS)
+  "58e871aa-51aa-46bf-9c8c-27269a330832"   # PATH 1.4 Community Care Hubs RFGA
+)
+
 wy_rcj_disposition <- function() {
   rt <- rhtp_record_table_live()
   wy <- rt %>%
@@ -2037,13 +2049,34 @@ wy_rcj_disposition <- function() {
   utah <- sum(stringr::str_detect(blob, "\\bUtah\\b"))
   tier3 <- sum(wy$award_tier == "SUBAWARD")
 
+  # Where each of the five original Utah records is filed NOW.
+  five <- rt[rt$record_id %in% WY_UTAH_RECORD_IDS, , drop = FALSE]
+  still_wy <- sum(five$state == WY_STATE)
+  refiled_ut <- sum(five$state == "UT")
+
   if (tier3 != 0L) {
     stop("[WY] Wyoming now carries ", tier3, " Tier 3 candidates. This ",
          "disposition says it carries none; re-derive it.", call. = FALSE)
   }
-  if (utah != 5L) {
-    stop("[WY] ", utah, " of Wyoming's RCJ records mention Utah, not 5. ",
-         "Re-read them before restating the defect.", call. = FALSE)
+  if (nrow(five) != 5L || still_wy + refiled_ut != 5L) {
+    stop("[WY] the five Utah records session 42 read under Wyoming are no ",
+         "longer all live and filed under WY or UT (found ", nrow(five),
+         " live: ", still_wy, " WY, ", refiled_ut, " UT). Re-read them.",
+         call. = FALSE)
+  }
+  buckrail <- sum(stringr::str_detect(
+    dplyr::coalesce(wy$source_doc_title, ""),
+    stringr::fixed("County Health Dept Seeks State Funds")))
+  if (buckrail != 1L) {
+    stop("[WY] expected the one buckrail.com state-funds record, found ",
+         buckrail, ".", call. = FALSE)
+  }
+  if (utah != still_wy) {
+    stop("[WY] ", utah, " of Wyoming's RCJ records mention Utah, but ",
+         still_wy, " of the five known Utah records are still filed under ",
+         "Wyoming. A Utah mention this file has not read has appeared (or one ",
+         "has lost its Utah text). Re-read them before restating the defect.",
+         call. = FALSE)
   }
 
   tibble::tribble(
@@ -2059,7 +2092,16 @@ wy_rcj_disposition <- function() {
     "data/evidence/WY/2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf",
 
     "WRONG_STATE_UTAH_FILED_UNDER_WYOMING", utah,
-    paste("FIVE of the 29 are UTAH'S DOCUMENTS, filed under Wyoming: 'Utah",
+    paste0("ON THE 2026-09-24 PULL ", still_wy, " OF THE ", nrow(wy),
+           " ARE STILL UTAH'S DOCUMENTS FILED UNDER WYOMING (SPRINT Consortium ",
+           "and PATH 1.4 Community Care Hubs), and RCJ has RE-FILED THE OTHER ",
+           refiled_ut, " TO UTAH (same record ids, now state = UT: the ",
+           "Stakeholder Meeting, the $195.7M Cooperative Agreement and the ",
+           "Semantic Data Model RFGA) -- the aggregator correcting itself, ",
+           "which is also why Wyoming's record count fell 29 -> ", nrow(wy),
+           ". R/02c's sweep carries the two that remain as MISFILED. ",
+           "Session 42's reading, kept as the history of the defect: ",
+    paste("FIVE of the 29 were UTAH'S DOCUMENTS, filed under Wyoming: 'Utah",
           "RHTP Stakeholder Meeting September 24, 2025'; 'Utah RHTP",
           "Cooperative Agreement Award: $195.7 million for Year 1' --",
           "UTAH'S OWN ALLOTMENT, carried as an `UNASSIGNED` WYOMING row at",
@@ -2073,15 +2115,15 @@ wy_rcj_disposition <- function() {
           "record; this one is a defect in WHICH STATE THE RECORD IS. It is",
           "harmless in Wyoming only because none of the five is Tier 3 --",
           "had one been, an extractor keyed on the candidate list would have",
-          "published Utah's subawards as Wyoming's."),
+          "published Utah's subawards as Wyoming's.")),
     "data/interim/stage2_record_table.rds",
 
-    "STATE_PROGRAMME_NOT_RHTP", 1L,
+    "STATE_PROGRAMME_NOT_RHTP", buckrail,
     paste("'County Health Dept Seeks State Funds for Rural Health",
           "Initiatives' is a buckrail.com report of a Teton County (WY)",
           "health department seeking STATE funds. Genuinely Wyoming and",
           "genuinely not RHTP -- §6.2's state-programme filter, and the only",
-          "one of the 29 that is."),
+          "one of the", nrow(wy), "that is."),
     "data/interim/stage2_record_table.rds"
   )
 }

@@ -1149,6 +1149,10 @@ me_assert_status_no_amount <- function(status = NULL) {
 
 # -- §0.1: what RCJ carries ---------------------------------------------------
 
+ME_UNE_SOURCE_MARKER       <- "Partnership with University of New England"
+ME_NARRATIVE_SOURCE_MARKER <- "Revised Year 1 Budget Narrative"
+ME_NEWS_SOURCE_MARKER      <- "RHT funds: Where they're really going"
+
 me_rcj_candidates <- function() {
   rt <- rhtp_record_table_live()
   rt %>% dplyr::filter(state == "ME", award_tier == "SUBAWARD",
@@ -1164,11 +1168,43 @@ rhtp_me_rcj_disposition <- function(cands = NULL) {
   cohort <- me_rhef_cohort_names()
   norm <- function(x) stringr::str_squish(stringr::str_replace_all(x, "[‐-―]", "-"))
 
+  title <- dplyr::coalesce(cands$source_doc_title, "")
+  amt   <- cands$amount_announced
   is_cohort <- norm(nm) %in% norm(cohort)
-  is_une    <- stringr::str_detect(nm, "University of New England")
-  is_other  <- !(is_cohort | is_une)
+  # The DHHS-blog UNE award, at DHHS's own figure -- NOT any row naming UNE:
+  # the 2026-09-24 pull carries a budget-narrative UNE line at $12,058,319,
+  # and matching on the name alone would call that plan line an award
+  # "priced correctly".
+  is_une    <- stringr::str_detect(nm, "University of New England") &
+    stringr::str_detect(title, stringr::fixed(ME_UNE_SOURCE_MARKER)) &
+    !is.na(amt) & abs(amt - ME_UNE_AMOUNT) < 0.5
+  is_narr   <- stringr::str_detect(title, stringr::fixed(ME_NARRATIVE_SOURCE_MARKER)) &
+    !is_cohort & !is_une
+  is_news   <- stringr::str_detect(title, stringr::fixed(ME_NEWS_SOURCE_MARKER)) &
+    !is_cohort & !is_une & !is_narr
+  is_other  <- !(is_cohort | is_une | is_narr | is_news)
+  if (any(is_other)) {
+    stop("[ME] ", sum(is_other), " Maine Tier 3 candidate(s) fall into no ",
+         "disposition group: ", paste(nm[is_other], collapse = " | "),
+         ". 'Anything else' used to absorb them silently; read them before ",
+         "building.", call. = FALSE)
+  }
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE) %>%
+    dplyr::filter(state == "ME", award_tier == "SUBAWARD",
+                  change_status == "WITHDRAWN")
+  w_une <- sum(stringr::str_detect(dplyr::coalesce(wd$awardee_name_clean, ""),
+                                   "University of New England"))
+  # The news rows are three POOL descriptors; they must be the three pool
+  # figures DHHS itself states, or the reading below is not the reading.
+  news_amt <- sort(amt[is_news])
+  if (sum(is_news) > 0 &&
+      !identical(news_amt, sort(c(ME_EMR_POOL, ME_UNE_AMOUNT, ME_RHEF_POOL)))) {
+    stop("[ME] the third-party news rows no longer carry exactly the EMR, UNE ",
+         "and RHEF pool figures.", call. = FALSE)
+  }
+  fmt <- function(x) format(x, big.mark = ",", scientific = FALSE)
 
-  tibble::tribble(
+  out <- tibble::tribble(
     ~group, ~rows, ~disposition, ~why,
 
     "The Rural Hospital Efficiency Fund cohort -- ELEVEN NAMED HOSPITALS, AND NOT AWARDS",
@@ -1194,7 +1230,14 @@ rhtp_me_rcj_disposition <- function(cands = NULL) {
     sum(is_une),
     "RHTP_AWARD_CARRIED_CORRECTLY",
     paste0(
-      "RCJ carries $12,000,000, which is DHHS's own '$12 million' exactly. It ",
+      if (sum(is_une) == 0L) paste0(
+        "THIS GROUP HOLDS 0 LIVE ROWS ON THE 2026-09-24 PULL: RCJ WITHDREW ",
+        "the blog-sourced row (", w_une, " withdrawn record naming UNE) and ",
+        "now carries UNE only as a budget-narrative line ($12,058,319, the ",
+        "next group), which is NOT this award. The award itself is ",
+        "unchanged and is in me_year1_awardees.csv at $12,000,000. Session ",
+        "33's reading, kept: ") else "",
+      "RCJ carried $12,000,000, which is DHHS's own '$12 million' exactly. It ",
       "is the ONE Maine candidate that is an award action this repository can ",
       "evidence, it is in me_year1_awardees.csv at the state's figure, and it ",
       "is a UNIVERSITY -- so Maine's named-hospital dollars are $0. RCJ's ",
@@ -1202,18 +1245,67 @@ rhtp_me_rcj_disposition <- function(cands = NULL) {
       "of New England to Expand'), and the document is on the DHHS BLOG, not ",
       "the news index."),
 
+    "State of Maine Revised Year 1 Budget Narrative -- TIER 2 PLAN LINES",
+    sum(is_narr),
+    "RHTP_BUT_NOT_A_SUBAWARD",
+    paste0(
+      "NEW ON THE 2026-09-24 PULL: ", sum(is_narr), " rows, $",
+      fmt(sum(amt[is_narr], na.rm = TRUE)), ", filed under 'ME - 2026 - State ",
+      "of Maine - Revised Year 1 Budget Narrative' -- Medical Care ",
+      "Development TWICE ($33,821,698 and $12,222,021) and the University of ",
+      "New England ($12,058,319). A budget narrative is a PLAN (§0.3; ",
+      "Oklahoma's and Connecticut's tier defect), so none of these is an ",
+      "award amount. UNE's plan line DISAGREES with its award by $58,319 ",
+      "($12,058,319 against DHHS's '$12 million', which is the figure in ",
+      "me_year1_awardees.csv), and the award file is not changed. MEDICAL ",
+      "CARE DEVELOPMENT IS A NAMED RHTP LEAD THAT IS NOT IN ",
+      "me_year1_awardees.csv: MCD Global Health's own page (archived ",
+      "2026-09-02) says it 'was selected to lead digital health, AI, and ",
+      "digital infrastructure activities under the Technology and ",
+      "Innovation Initiative', and DHHS's UNE release names 'a partnership ",
+      "between Medical Care Development Global Health (MCD) and the Maine ",
+      "Community Health Worker Initiative'. Neither publishes an amount, so ",
+      "no Maine document in this repository prices an MCD award; it is ",
+      "REPORTED here and NOT added (§0.1). MCD is not a hospital."),
+
+    "Third-party news: three Maine POOL descriptors ('WV - 2026 - RHT funds: Where they're really going')",
+    sum(is_news),
+    "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
+    paste0(
+      "NEW ON THE 2026-09-24 PULL: ", sum(is_news), " rows, $",
+      fmt(sum(amt[is_news], na.rm = TRUE)), ", from ONE news story that RCJ ",
+      "titles with a WV prefix and files under ME. The rows are about ",
+      "Maine, so the filed state is right and it is NOT mode 6 (R/02c ",
+      "flags no Maine Tier 3 row); the prefix is aggregator metadata (§2). ",
+      "The 'awardees' are not organisations: 'EHR infrastructure in rural ",
+      "Maine' ($30,000,000 -- DHHS's EMR Modernization pool), 'Maine ",
+      "community health workforce and practice infrastructure' ($12,000,000 ",
+      "-- the UNE award's figure) and 'Maine rural hospitals (collective)' ",
+      "($30,000,000 -- THE RHEF COHORT's pool, which DHHS says is NOT YET ",
+      "AWARDED). §6.1's PROGRAM_NAME_AS_AWARDEE on three of three, from ",
+      "THIRD_PARTY_NEWS, which can never support a Yes on its own. The third ",
+      "row is the dangerous one: read at face value it is $30M 'to Maine ",
+      "rural hospitals', the exact misreading me_rhef_cohort.csv exists to ",
+      "prevent."),
+
     "Anything else",
     sum(is_other),
     "NONE",
     paste0(
-      "Maine's candidate set is unusually clean: twelve rows, eleven of one ",
-      "roster and one real award, with no Medicaid rows, no state ",
-      "appropriations and no unrelated procurement. The §6.2 sweep catches ",
-      "ZERO Maine rows and all twelve are undatable -- RCJ carries no date ",
-      "for any of them -- so the sweep's clean line here is a statement about ",
-      "the registry's coverage and not about Maine (Nebraska's lesson).")
+      "ZERO rows, and the build now STOPS if that changes (on the 2026-09-24 ",
+      "pull this group silently held five rows before the two groups above ",
+      "were written). There are no Medicaid rows, no state appropriations ",
+      "and no unrelated procurement. The §6.2 sweep catches ZERO Maine rows ",
+      "and all ", nrow(cands), " are undatable -- RCJ carries no date for any ",
+      "of them -- so the sweep's clean line here is a statement about the ",
+      "registry's coverage and not about Maine (Nebraska's lesson).")
   ) %>%
     dplyr::mutate(state = "ME", .before = 1)
+  if (sum(out$rows) != nrow(cands)) {
+    stop("[ME] the disposition's groups hold ", sum(out$rows), " rows against ",
+         nrow(cands), " live candidates.", call. = FALSE)
+  }
+  out
 }
 
 #' RCJ's eleven names match DHHS's roster NAME FOR NAME

@@ -214,10 +214,31 @@ test_that("nh.gov is recorded as UNREACHABLE, which is not a negative", {
 
 test_that("the disposition covers every candidate, re-derived not typed", {
   cands <- nh_rcj_candidates()
+  expect_equal(nrow(cands), 26L)
   dispo <- rhtp_nh_rcj_disposition(cands)
   expect_equal(sum(dispo$rows), nrow(cands))
+  expect_equal(dispo$rows, c(0L, 2L, 5L, 16L, 3L))
   expect_true(all(dispo$state == "NH"))
   expect_false(any(is.na(dispo$why)))
+})
+
+test_that("the disposition refuses a label it has not read", {
+  cands <- nh_rcj_candidates()
+  rogue <- cands[1, ]
+  rogue$awardee_name_clean <- "Somebody Nobody Has Read"
+  rogue$amount_announced <- 1
+  expect_error(rhtp_nh_rcj_disposition(dplyr::bind_rows(cands, rogue)),
+               "outside every read")
+})
+
+test_that("RCJ now carries FHC only at $1: the rounded $66.5M row is withdrawn", {
+  cands <- nh_rcj_candidates()
+  fhc <- cands[grepl("Foundation for Healthy Communities",
+                     cands$awardee_name_clean), ]
+  expect_equal(nrow(fhc), 2L)
+  expect_true(all(fhc$amount_announced == 1))
+  dispo <- rhtp_nh_rcj_disposition(cands)
+  expect_true(grepl("WITHDREW the rounded", dispo$why[2], fixed = TRUE))
 })
 
 test_that("RCJ prices ONE Council action at three different amounts", {
@@ -241,17 +262,24 @@ test_that("the $1 placeholder runs through the candidate set (Missouri's tell)",
   expect_true(any(grepl("PLACEHOLDER", dispo$disposition)))
 })
 
-test_that("the Medicaid rows are NOT RHTP, and §6.2 caught one twice", {
+test_that("the Medicaid rows are NOT RHTP, §6.2 caught one twice, and RCJ withdrew all three", {
   # The $1,898,965,390 row against a $204,016,550 allotment: flagged by the
   # allotment ceiling in session 5 and independently disposed of by the
-  # provenance sweep in session 20. Two §6.2 filters, opposite directions.
+  # provenance sweep in session 20. On the 2026-09-24 pull RCJ withdrew it
+  # and both other MCM rows; the group stays, at 0 rows, saying so.
   cands <- nh_rcj_candidates()
-  mcm <- cands[grepl("AmeriHealth Caritas|WellSense|Healthy Families",
-                     cands$awardee_name_clean), ]
-  expect_gte(nrow(mcm), 3L)
+  expect_equal(sum(grepl("AmeriHealth Caritas|WellSense|Healthy Families",
+                         cands$awardee_name_clean)), 0L)
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE)
+  mcm <- wd[wd$state == "NH" & wd$change_status == "WITHDRAWN" &
+              grepl("AmeriHealth Caritas|WellSense|Healthy Families",
+                    wd$awardee_name_clean), ]
+  expect_equal(nrow(mcm), 3L)
   expect_true(any(mcm$amount_announced > NH_STATED$cms_allotment_anchor))
   dispo <- rhtp_nh_rcj_disposition(cands)
-  expect_true(any(dispo$disposition == "NOT_RHTP_MEDICAID"))
+  expect_equal(dispo$rows[dispo$disposition == "NOT_RHTP_MEDICAID"], 0L)
+  expect_true(grepl("WITHDREW all 3",
+                    dispo$why[dispo$disposition == "NOT_RHTP_MEDICAID"]))
 })
 
 
