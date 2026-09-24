@@ -80,7 +80,13 @@
 #
 # -- §0.1 -- WHAT RCJ GOT WRONG, AND IT IS A SHAPE THIS PROJECT HAD NOT MET --
 #
-# RCJ holds 31 Michigan Tier 3 candidates. They decompose exactly:
+# RCJ held 31 Michigan Tier 3 candidates on the 2026-08-27 pull. They
+# decomposed exactly as below. SESSION 62 (pull 2026-09-24): 149 candidates.
+# RCJ WITHDREW the 14 and the 8, now carries the roster ONE ROW PER AWARD (132
+# rows, 131 matching the file on name AND amount), and adds five documents'
+# worth of rows including South Dakota's Rural Strong round (WRONG_STATE) and
+# two LEO awards that are on the LIVE roster and NOT in this file. See
+# mi_disposition_table() for the current reading.
 #
 #   14  real awards -- but ONE ROW PER ORGANISATION where MDHHS publishes one
 #       row per AWARD. Five organisations hold more than one award and RCJ
@@ -1120,73 +1126,112 @@ mi_assert_form_not_stated_queued <- function(recs) {
   invisible(TRUE)
 }
 
-#' §0.1: RCJ's 31 candidates, re-derived from the record table every run
-mi_rcj_candidates <- function() {
+#' §0.1: RCJ's candidates, re-derived from the record table every run.
+#'
+#' SESSION 62 RE-READ (RCJ pull 2026-09-24): 31 -> 149. RCJ WITHDREW all 14
+#' one-row-per-organisation "RHTP Subrecipients Award" rows and all 8 opioid
+#' settlement rows, and now carries the MDHHS roster ONE ROW PER AWARD (132
+#' rows under "RHTP Subrecipients"), plus 8 rows from five other documents.
+#' Every group below is read off the table; an unread shape is UNCLASSIFIED and
+#' the build stops.
+MI_WRONG_STATE_ID <- "42b92bd8-03bc-459c-8e58-9a920022d44d"
+MI_RCJ_CANDIDATES_EXPECTED <- 149L
+
+mi_rcj_candidates <- function(recs = NULL) {
+  if (is.null(recs)) recs <- rhtp_mi_year1_awardees()
+  on_roster <- paste(recs$awardee, recs$amount)
   rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(.data$state == "MI", .data$award_tier == "SUBAWARD") %>%
     dplyr::transmute(
+      record_id = .data$record_id,
       awardee = .data$awardee_name_clean,
       rcj_amount = .data$amount_announced,
       doc = .data$source_doc_title,
       group = dplyr::case_when(
+        .data$record_id == MI_WRONG_STATE_ID ~ "WRONG_STATE",
         grepl("Budget Narrative", .data$source_doc_title) ~ "BUDGET_NARRATIVE",
         grepl("Subrecipients Award", .data$source_doc_title) ~ "SUBRECIPIENTS_AWARD",
         grepl("substance use", .data$source_doc_title, ignore.case = TRUE) ~ "OPIOID_SETTLEMENT",
+        .data$source_doc_title == "MI - 2026 - RHTP Subrecipients" &
+          paste(.data$awardee_name_clean, .data$amount_announced) %in%
+            on_roster ~ "ROSTER_PER_AWARD_IN_FILE",
+        .data$source_doc_title == "MI - 2026 - RHTP Subrecipients" &
+          .data$awardee_name_clean == "Michigan Veterans Affairs Agency (MVAA)" &
+          .data$amount_announced == 2000000 ~ "ROSTER_ROW_NOT_IN_FILE",
+        grepl("September 2026 RHTP Newsletter|Visits Michigan to Explore RHT",
+              .data$source_doc_title) &
+          .data$awardee_name_clean %in% c("Michigan High-Speed Internet Office",
+                                          "Office of Rural Prosperity")
+          ~ "LEO_AWARDS_NOT_IN_FILE_ROUNDED",
+        grepl("community violence intervention|Suicide Prevention Council",
+              .data$source_doc_title, ignore.case = TRUE)
+          ~ "NOT_ON_COMPLETE_ROSTER",
         TRUE ~ "UNCLASSIFIED"))
 }
 
 mi_assert_rcj_disposition <- function(recs) {
-  cand <- mi_rcj_candidates()
+  cand <- mi_rcj_candidates(recs)
   if (any(cand$group == "UNCLASSIFIED")) {
     stop("[MI] ", sum(cand$group == "UNCLASSIFIED"), " RCJ candidate(s) fall ",
          "into no disposition group. The candidate set has moved; read the ",
          "new documents before rebuilding.", call. = FALSE)
   }
-  n <- table(cand$group)
-  want <- c(BUDGET_NARRATIVE = 9L, OPIOID_SETTLEMENT = 8L,
-            SUBRECIPIENTS_AWARD = 14L)
-  for (g in names(want)) {
-    if (!identical(as.integer(n[[g]]), want[[g]])) {
-      stop("[MI] RCJ group ", g, " has ", n[[g]], " rows; expected ", want[[g]],
-           call. = FALSE)
+  if (nrow(cand) != MI_RCJ_CANDIDATES_EXPECTED) {
+    stop("[MI] the record table holds ", nrow(cand), " Michigan Tier 3 ",
+         "candidates; this disposition was read at ",
+         MI_RCJ_CANDIDATES_EXPECTED, ".", call. = FALSE)
+  }
+  n <- table(factor(cand$group, levels = names(MI_RCJ_GROUP_COUNTS)))
+  for (g in names(MI_RCJ_GROUP_COUNTS)) {
+    if (!identical(as.integer(n[[g]]), MI_RCJ_GROUP_COUNTS[[g]])) {
+      stop("[MI] RCJ group ", g, " has ", n[[g]], " rows; expected ",
+           MI_RCJ_GROUP_COUNTS[[g]], call. = FALSE)
     }
   }
-  # THE DEFLATION. RCJ keeps ONE ROW PER ORGANISATION where MDHHS publishes one
-  # row per AWARD, so five organisations lose their second and later awards.
-  real <- cand[cand$group == "SUBRECIPIENTS_AWARD", ]
-  if (!all(real$awardee %in% recs$awardee)) {
-    missing <- setdiff(real$awardee, recs$awardee)
-    stop("[MI] RCJ names ", length(missing), " 'RHTP Subrecipients Award' ",
-         "awardee(s) not on the roster: ", paste(missing, collapse = ", "),
+  # The WRONG_STATE row is the §0.1 mode-6 sweep's verdict (R/02c,
+  # SWEEP_MISFILED_TIER3): South Dakota's Rural Strong round in a multi-state
+  # digest, filed under Michigan.
+  ws <- cand[cand$group == "WRONG_STATE", ]
+  if (nrow(ws) != 1L || !grepl("^South Dakota", ws$awardee) ||
+      ws$rcj_amount != 31500000) {
+    stop("[MI] the South Dakota row filed under Michigan has moved.",
          call. = FALSE)
   }
-  roster_for <- recs %>%
-    dplyr::filter(.data$awardee %in% real$awardee) %>%
-    dplyr::group_by(.data$awardee) %>%
-    dplyr::summarise(roster = sum(.data$amount), n_awards = dplyr::n(),
-                     .groups = "drop")
-  j <- dplyr::left_join(real, roster_for, by = "awardee")
-  deflation <- sum(j$roster) - sum(j$rcj_amount)
-  if (deflation <= 0) {
-    stop("[MI] RCJ no longer understates the awards it does hold. The ",
-         "one-row-per-organisation finding has changed; re-read it.",
-         call. = FALSE)
+  # RCJ now carries the roster PER AWARD. Reconcile both directions.
+  per_award <- cand[cand$group %in% c("ROSTER_PER_AWARD_IN_FILE",
+                                      "ROSTER_ROW_NOT_IN_FILE"), ]
+  file_not_rcj <- recs[!paste(recs$awardee, recs$amount) %in%
+                         paste(per_award$awardee, per_award$rcj_amount), ]
+  if (nrow(file_not_rcj) != 8L ||
+      sum(file_not_rcj$amount) != 69883392 - 65150059) {
+    stop("[MI] the file-vs-RCJ roster reconciliation moved (", nrow(file_not_rcj),
+         " file rows RCJ does not carry per award).", call. = FALSE)
   }
-  if (sum(j$n_awards > 1L) < 1L) {
-    stop("[MI] no RCJ awardee holds more than one MDHHS award, so the ",
-         "deduplication defect is no longer demonstrable here.", call. = FALSE)
+  # The rows NOT on MDHHS's roster must still be absent from the file, and the
+  # rows that ARE real-but-missing must still be missing (so the finding is
+  # re-stated, not silently absorbed).
+  for (nm in c("Michigan Veterans Affairs Agency (MVAA)",
+               "Crim Fitness Foundation, Flint",
+               "University of Michigan Injury Prevention Center")) {
+    if (nm %in% recs$awardee) {
+      stop("[MI] '", nm, "' is now in mi_year1_awardees.csv; restate the ",
+           "RCJ disposition.", call. = FALSE)
+    }
   }
-  # And the eight opioid-settlement rows must NOT be on the roster at their
-  # own amounts -- the check that keeps them disposable.
-  op <- cand[cand$group == "OPIOID_SETTLEMENT", ]
-  pairs <- paste(recs$awardee, recs$amount)
-  if (any(paste(op$awardee, op$rcj_amount) %in% pairs)) {
-    stop("[MI] an opioid-settlement candidate matches a roster row on both ",
-         "name AND amount. It may be RHTP after all; read it.", call. = FALSE)
+  if (any(grepl("Labor and Economic Opportunity|Veterans Affairs",
+                recs$awardee))) {
+    stop("[MI] the LEO / MVAA awards are now in the file; restate the ",
+         "disposition.", call. = FALSE)
   }
   invisible(cand)
 }
+
+MI_RCJ_GROUP_COUNTS <- c(
+  ROSTER_PER_AWARD_IN_FILE = 131L, ROSTER_ROW_NOT_IN_FILE = 1L,
+  SUBRECIPIENTS_AWARD = 0L, BUDGET_NARRATIVE = 9L, OPIOID_SETTLEMENT = 0L,
+  LEO_AWARDS_NOT_IN_FILE_ROUNDED = 2L, NOT_ON_COMPLETE_ROSTER = 5L,
+  WRONG_STATE = 1L)
 
 mi_validate <- function() {
   mi_assert_rhtp_funded()
@@ -1211,49 +1256,75 @@ mi_validate <- function() {
 # -- the RCJ disposition table ------------------------------------------------
 
 mi_disposition_table <- function(recs) {
-  cand <- mi_rcj_candidates()
-  real <- cand[cand$group == "SUBRECIPIENTS_AWARD", ]
-  roster_for <- recs %>%
-    dplyr::filter(.data$awardee %in% real$awardee) %>%
-    dplyr::group_by(.data$awardee) %>%
-    dplyr::summarise(roster = sum(.data$amount), .groups = "drop")
-  j <- dplyr::left_join(real, roster_for, by = "awardee")
+  cand <- mi_rcj_candidates(recs)
+  g <- function(x) cand[cand$group == x, ]
+  n <- function(x) nrow(g(x))
+  d <- function(x) sum(g(x)$rcj_amount)
+  roster_url <- paste0(MI_RHTP, "/rhtp-subrecipients")
+  roster_arc <- file.path("data", "evidence", "MI", mi_source("roster", "file"))
 
   tibble::tribble(
     ~group, ~rcj_rows, ~rcj_amount_sum, ~disposition, ~why,
     ~disqualifying_evidence, ~state_source_url, ~source_archive_path,
 
+    "Real awards on the MDHHS roster, now carried ONE ROW PER AWARD",
+    n("ROSTER_PER_AWARD_IN_FILE"), d("ROSTER_PER_AWARD_IN_FILE"),
+    "RHTP_SUBAWARD_IN_FILE",
+    paste0(
+      "NEW in the 2026-09-24 pull, under 'MI - 2026 - RHTP Subrecipients'. ",
+      "Every one matches a row of mi_year1_awardees.csv on BOTH the exact ",
+      "awardee string AND the amount; no RCJ amount disagrees. RCJ now carries ",
+      "132 roster rows where the file has 139: 8 file rows ($4,733,333) are ",
+      "not carried per award -- five (Berrien County HD $150,000, Chippewa ",
+      "County HD $150,000, Chippewa-Luce-Mackinac CAA $350,000, MiHIA ",
+      "$1,500,000, UPCAP $1,500,000) exist in RCJ only as the Budget Narrative ",
+      "rows below at the same amount, and three (Harbor Beach Community School ",
+      "District School Wellness Program $83,333; PACE Central Michigan and ",
+      "PACE Northeast Michigan $500,000 each) are in RCJ as UNASSIGNED, not ",
+      "Tier 3. The session-27 one-row-per-organisation deflation is gone."),
+    "exact (awardee, amount) match against mi_year1_awardees.csv",
+    roster_url, roster_arc,
+
+    "Real award on the LIVE MDHHS roster, NOT in the committed file",
+    n("ROSTER_ROW_NOT_IN_FILE"), d("ROSTER_ROW_NOT_IN_FILE"),
+    "RHTP_SUBAWARD_NOT_IN_FILE",
+    paste(
+      "Michigan Veterans Affairs Agency (MVAA), $2,000,000, Care Closer to Home",
+      "/ Advancing Rural Behavioral Health Blueprint. NOT on the committed",
+      "2026-09-01 roster archive. A read-only in-memory fetch of the live",
+      "roster on 2026-09-24 (not archived; data/evidence/ untouched) shows",
+      "MDHHS has ADDED SIX ROWS since 2026-09-01 -- 145 rows / $101,318,437",
+      "against the file's 139 / $69,883,392 -- and this is one of them.",
+      "The file's 'TOTAL, not a floor' claim is stale until MI is re-fetched",
+      "and re-extracted. NOT added here."),
+    "absent from the committed roster archive; present on the live roster 2026-09-24",
+    roster_url, roster_arc,
+
     paste("Real awards, but ONE ROW PER ORGANISATION where MDHHS publishes",
           "one row per AWARD"),
-    nrow(real), sum(real$rcj_amount), "RHTP_SUBAWARD_IN_FILE",
-    paste0(
-      "All ", nrow(real), " are genuine Michigan RHTP subrecipients and every ",
-      "one is in mi_year1_awardees.csv, asserted by name. But RCJ carries a ",
-      "single row per organisation while MDHHS's roster carries one row per ",
-      "award, so five organisations lose their second and later awards. RCJ's ",
-      "$", format(sum(real$rcj_amount), big.mark = ","), " against the $",
-      format(sum(j$roster), big.mark = ","), " those same organisations hold: ",
-      "IT DEFLATES BY $", format(sum(j$roster) - sum(real$rcj_amount),
-                                 big.mark = ","),
-      ". The largest single loss is the Michigan Center for Rural Health -- ",
-      "RCJ $3,000,000, MDHHS five awards totalling $7,275,000. This is ",
-      "Kansas's Greeley County defect (RCJ kept one of a recipient's two ",
-      "awards) at five times the scale."),
-    "one RCJ row per organisation vs one MDHHS row per award",
-    paste0(MI_RHTP, "/rhtp-subrecipients"),
-    file.path("data", "evidence", "MI", mi_source("roster", "file")),
+    n("SUBRECIPIENTS_AWARD"), d("SUBRECIPIENTS_AWARD"), "RHTP_SUBAWARD_IN_FILE",
+    paste(
+      "HISTORY. On the 2026-08-27 pull this group held 14 genuine",
+      "subrecipients under 'RHTP Subrecipients Award', one row per",
+      "organisation, $19,484,032 against the $27,317,365 those organisations",
+      "hold on the roster -- a $7,833,333 DEFLATION (the Michigan Center for",
+      "Rural Health: RCJ $3,000,000, MDHHS five awards totalling $7,275,000).",
+      "On the 2026-09-24 pull RCJ WITHDREW all 14 and replaced them with the",
+      "per-award rows above, so the group holds 0 rows."),
+    "one RCJ row per organisation vs one MDHHS row per award (2026-08-27)",
+    roster_url, roster_arc,
 
     "State Of Michigan RHTP Budget Narrative line items",
-    sum(cand$group == "BUDGET_NARRATIVE"),
-    sum(cand$rcj_amount[cand$group == "BUDGET_NARRATIVE"]),
+    n("BUDGET_NARRATIVE"), d("BUDGET_NARRATIVE"),
     "RHTP_BUT_NOT_A_SUBAWARD",
     paste(
       "Genuinely RHTP and one tier too high (§0.2, Oklahoma's defect). These",
       "are planning figures out of Michigan's own RHTP Budget Narrative, not",
-      "award actions. Four of the nine names do later appear on the roster as",
-      "real awardees AT DIFFERENT AMOUNTS -- Berrien County Health Department",
-      "is $150,000 in the narrative and holds $150,000 + $100,000 on the",
-      "roster -- and five appear nowhere on it at all, including 'Northern",
+      "award actions. Five of the nine names appear on the roster at the SAME",
+      "amount as one of their awards (Berrien $150,000, Chippewa County HD",
+      "$150,000, Chippewa-Luce-Mackinac CAA $350,000, MiHIA $1,500,000, UPCAP",
+      "$1,500,000) -- and RCJ does not carry those five roster awards per award",
+      "at all -- while four appear nowhere on it, including 'Northern",
       "Michigan Center for Rural Health (Technical Assistance for Hubs)' and",
       "'Thumb Alliance - Sanilac County Health Department', which are project",
       "labels rather than the recipient names MDHHS awarded under."),
@@ -1261,24 +1332,66 @@ mi_disposition_table <- function(recs) {
     MI_RHTP, file.path("data", "evidence", "MI", mi_source("program", "file")),
 
     "MDHHS youth substance-use prevention grants -- OPIOID SETTLEMENT money",
-    sum(cand$group == "OPIOID_SETTLEMENT"),
-    sum(cand$rcj_amount[cand$group == "OPIOID_SETTLEMENT"]),
+    n("OPIOID_SETTLEMENT"), d("OPIOID_SETTLEMENT"),
     "NOT_RHTP_STATE_PROGRAM",
     paste(
-      "MDHHS's 2026-06-24 release awards 'nearly $3.75 million to 12",
-      "organizations' for youth substance-use prevention, and its own",
+      "HISTORY, and the §6.2 negative control stays. MDHHS's 2026-06-24",
+      "release awards 'nearly $3.75 million to 12 organizations' and its own",
       "sub-headline states the funding source: 'New opioid settlement-funded",
-      "grants support 12 organizations'. The words 'Rural Health",
-      "Transformation', 'RHTP' and 'rural' appear ZERO times in it. RCJ files",
-      "eight of the twelve as Michigan RHTP Tier 3 candidates. This is",
-      "Nevada's GME defect -- state money under an RHTP-titled feed -- and",
-      "opioid settlement money was already a named non-RHTP funding stream in",
-      "non_rhtp_state_programs.csv (session 20). The automated §6.2 sweep",
-      "catches none of these, because RCJ's source-document title is the",
-      "release HEADLINE and the funding source is in the SUB-headline."),
+      "grants support 12 organizations'; 'Rural Health Transformation', 'RHTP'",
+      "and 'rural' appear ZERO times in it. RCJ filed eight of the twelve",
+      "($2,214,846) as Michigan RHTP Tier 3 candidates on the 2026-08-27 pull",
+      "and WITHDREW all eight on 2026-09-24, so the group holds 0 rows."),
     "\"New opioid settlement-funded grants support 12 organizations\"",
     paste0(MI_BASE, "/mdhhs/inside-mdhhs/newsroom/2026/06/24/prevention-grants"),
-    file.path("data", "evidence", "MI", mi_source("prevention", "file"))
+    file.path("data", "evidence", "MI", mi_source("prevention", "file")),
+
+    "LEO interagency awards named in secondary documents, ROUNDED, NOT in the file",
+    n("LEO_AWARDS_NOT_IN_FILE_ROUNDED"), d("LEO_AWARDS_NOT_IN_FILE_ROUNDED"),
+    "RHTP_SUBAWARD_NOT_IN_FILE",
+    paste(
+      "'Michigan High-Speed Internet Office' $9,100,000 (September 2026 RHTP",
+      "Newsletter) and 'Office of Rural Prosperity' $16,700,000 (the CMS site",
+      "visit release). Neither is on the committed roster. The live roster",
+      "read on 2026-09-24 (in memory, not archived) carries 'Michigan",
+      "Department of Labor and Economic Opportunity (LEO) - Michigan High",
+      "Speed Internet Office' $9,104,425 and 'LEO - Office of Rural",
+      "Prosperity' $16,130,623 + $600,000 = $16,730,623 across two funds. So",
+      "these are REAL RHTP AWARDS (to a state agency) NOT in our file, and",
+      "RCJ's figures are the secondary documents' ROUNDINGS, not the roster's:",
+      "-$4,425 and -$30,623. Two further live-roster rows (MDE Office of CTE,",
+      "$2,099,997 and $1,500,000) are carried by RCJ nowhere."),
+    "absent from the committed roster archive; rounded restatements of live-roster rows",
+    roster_url, roster_arc,
+
+    "Not on the roster MDHHS calls complete (CVI grants; suicide-prevention contract)",
+    n("NOT_ON_COMPLETE_ROSTER"), d("NOT_ON_COMPLETE_ROSTER"),
+    "NOT_AN_RHTP_SUBAWARD_PER_COMPLETENESS_CLAIM",
+    paste(
+      "NEW. Four $300,000 grants from 'MDHHS awards $1.5 million for",
+      "community violence intervention efforts' (Crim Fitness Foundation,",
+      "DLIVE, Detroit Peoples Community, Present Pillars) and a $100,000",
+      "contract to the University of Michigan Injury Prevention Center from",
+      "the 'Michigan Suicide Prevention Council Report'. None is on the",
+      "committed roster, nor on the live roster read 2026-09-24, and MDHHS",
+      "says that page features 'all RHTP Subrecipients'. The completeness",
+      "claim, not RCJ's RHTP label, decides them: not RHTP subawards. Their",
+      "source documents are not archived here, so the funding stream is not",
+      "named; recorded as such."),
+    "absent from the roster MDHHS calls complete",
+    roster_url, roster_arc,
+
+    "Another state's record (§0.1 mode 6)",
+    n("WRONG_STATE"), d("WRONG_STATE"),
+    "WRONG_STATE",
+    paste(
+      "'South Dakota (Rural Strong grants)', $31,500,000, from a multi-state",
+      "H.R. 1 digest ('July 2026: Responding to H.R. 1, States Are",
+      "Communicating ...'). It is South Dakota's 28-grant round (R/03j), filed",
+      "under Michigan. The §0.1 mode-6 sweep's final verdict (R/02c,",
+      "SWEEP_MISFILED_TIER3)."),
+    "R/02c SWEEP_MISFILED_TIER3", NA_character_,
+    "data/reference/rcj_state_attribution_sweep.csv"
   )
 }
 
@@ -1383,17 +1496,17 @@ mi_report <- function() {
   cat("  distributed_to_hospital = No, so resolving any can only RAISE the\n")
   cat("  hospital figure. NOTHING WAS PROMOTED (§0.4).\n")
 
-  cat("\n§0.1 -- RCJ'S 31 CANDIDATES\n"); cat(strrep("-", 74), "\n")
+  cat("\n§0.1 -- RCJ'S ", nrow(mi_rcj_candidates(recs)), " CANDIDATES (31 on 2026-08-27)\n",
+      sep = ""); cat(strrep("-", 74), "\n")
   disp <- mi_disposition_table(recs)
   for (i in seq_len(nrow(disp))) {
     cat(sprintf("  %3d  %-24s %s\n", disp$rcj_rows[i], disp$disposition[i],
                 substr(disp$group[i], 1, 44)))
   }
-  cat("\n  AND THIS ONE DEFLATES. RCJ keeps one row per ORGANISATION where\n")
-  cat("  MDHHS publishes one per AWARD, so an extractor built from the\n")
-  cat("  candidate list would have published $19,484,032 -- 28% of what\n")
-  cat("  Michigan has awarded -- with $2,214,846 of OPIOID SETTLEMENT money\n")
-  cat("  mixed into it.\n")
+  cat("\n  ON 2026-08-27 THIS ONE DEFLATED: one row per ORGANISATION, $19,484,032\n")
+  cat("  (28% of the roster) with $2,214,846 of OPIOID SETTLEMENT money mixed\n")
+  cat("  in. On 2026-09-24 RCJ withdrew both and carries the roster per award;\n")
+  cat("  it also carries awards the live roster has and this file does not.\n")
 
   cat("\n§6.2 -- WITH THE FOOTER DOWNGRADED (session 27's audit)\n")
   cat(strrep("-", 74), "\n")
@@ -1407,7 +1520,7 @@ mi_report <- function() {
   cat("    release      : 2025-12-30, the day after the CMS Notice of Award\n")
   cat("  NEGATIVE CONTROL: MDHHS's own prevention release says \"New OPIOID\n")
   cat("  SETTLEMENT-funded grants\" and never says RHTP -- and eight of RCJ's\n")
-  cat("  candidates are its recipients.\n")
+  cat("  2026-08-27 candidates were its recipients (withdrawn 2026-09-24).\n")
 
   invisible(recs)
 }

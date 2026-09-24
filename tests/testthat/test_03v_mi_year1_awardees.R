@@ -403,51 +403,75 @@ test_that("both Michigan review-queue questions are open and state their effect"
 
 # -- §0.1: RCJ ---------------------------------------------------------------
 
-test_that("RCJ's 31 candidates decompose exactly, and the count is re-derived", {
+test_that("RCJ's 149 candidates decompose exactly, and the count is re-derived", {
   expect_true(!is.null(mi_assert_rcj_disposition(mi_recs)))
-  cand <- mi_rcj_candidates()
-  expect_equal(nrow(cand), 31L)
-  expect_equal(sum(cand$group == "SUBRECIPIENTS_AWARD"), 14L)
-  expect_equal(sum(cand$group == "BUDGET_NARRATIVE"), 9L)
-  expect_equal(sum(cand$group == "OPIOID_SETTLEMENT"), 8L)
-  expect_equal(sum(cand$group == "UNCLASSIFIED"), 0L)
+  cand <- mi_rcj_candidates(mi_recs)
+  expect_equal(nrow(cand), 149L)
+  n <- function(g) sum(cand$group == g)
+  expect_equal(n("ROSTER_PER_AWARD_IN_FILE"), 131L)
+  expect_equal(n("ROSTER_ROW_NOT_IN_FILE"), 1L)
+  expect_equal(n("SUBRECIPIENTS_AWARD"), 0L)
+  expect_equal(n("BUDGET_NARRATIVE"), 9L)
+  expect_equal(n("OPIOID_SETTLEMENT"), 0L)
+  expect_equal(n("LEO_AWARDS_NOT_IN_FILE_ROUNDED"), 2L)
+  expect_equal(n("NOT_ON_COMPLETE_ROSTER"), 5L)
+  expect_equal(n("WRONG_STATE"), 1L)
+  expect_equal(n("UNCLASSIFIED"), 0L)
+  disp <- mi_disposition_table(mi_recs)
+  expect_equal(sum(disp$rcj_rows), nrow(cand))
 })
 
-test_that("RCJ DEFLATES Michigan: one row per organisation, not per award", {
-  cand <- mi_rcj_candidates()
-  real <- cand[cand$group == "SUBRECIPIENTS_AWARD", ]
-  roster_for <- mi_recs %>%
-    dplyr::filter(.data$awardee %in% real$awardee) %>%
-    dplyr::group_by(.data$awardee) %>%
-    dplyr::summarise(roster = sum(.data$amount), n = dplyr::n(), .groups = "drop")
-  expect_equal(sum(real$rcj_amount), 19484032)
-  expect_equal(sum(roster_for$roster), 27317365)
-  expect_equal(sum(roster_for$roster) - sum(real$rcj_amount), 7833333)
-  # Kansas's Greeley County defect at five times the scale: five organisations
-  # hold more than one MDHHS award and RCJ kept one of each.
-  expect_equal(sum(roster_for$n > 1L), 4L)
-  mcrh <- roster_for[roster_for$awardee == "Michigan Center for Rural Health (MCRH)", ]
-  expect_equal(mcrh$n, 5L)
-  expect_equal(mcrh$roster, 7275000)
-  expect_equal(real$rcj_amount[real$awardee == mcrh$awardee], 3000000)
-  # EVERY §0.1 defect before Michigan's inflated. This one deflates.
-  expect_gt(sum(roster_for$roster), sum(real$rcj_amount))
+test_that("RCJ now carries the roster PER AWARD, and every amount agrees", {
+  cand <- mi_rcj_candidates(mi_recs)
+  in_file <- cand[cand$group == "ROSTER_PER_AWARD_IN_FILE", ]
+  expect_equal(sum(in_file$rcj_amount), 65150059)
+  # Both directions: 8 file rows RCJ does not carry per award ...
+  per_award <- cand[cand$group %in% c("ROSTER_PER_AWARD_IN_FILE",
+                                      "ROSTER_ROW_NOT_IN_FILE"), ]
+  miss <- mi_recs[!paste(mi_recs$awardee, mi_recs$amount) %in%
+                    paste(per_award$awardee, per_award$rcj_amount), ]
+  expect_equal(nrow(miss), 8L)
+  expect_equal(sum(miss$amount), 4733333)
+  expect_true(all(c("Harbor Beach Community School District School Wellness Program",
+                    "Berrien County Health Department") %in% miss$awardee))
+  # ... and one RCJ roster row the committed file does not have.
+  extra <- cand[cand$group == "ROSTER_ROW_NOT_IN_FILE", ]
+  expect_equal(extra$awardee, "Michigan Veterans Affairs Agency (MVAA)")
+  expect_equal(extra$rcj_amount, 2000000)
+  expect_false(extra$awardee %in% mi_recs$awardee)
 })
 
-test_that("the opioid-settlement candidates are not roster rows", {
-  cand <- mi_rcj_candidates()
-  op <- cand[cand$group == "OPIOID_SETTLEMENT", ]
-  expect_equal(sum(op$rcj_amount), 2214846)
-  # None matches a roster row on name AND amount. One name collides -- Child
-  # and Family Charities holds a real $208,333 RHTP award and a separate
-  # $232,925 opioid-settlement grant -- which is exactly why the check is on
-  # the PAIR and not the name.
+test_that("the LEO awards and the South Dakota row are dispositioned, not absorbed", {
+  cand <- mi_rcj_candidates(mi_recs)
+  leo <- cand[cand$group == "LEO_AWARDS_NOT_IN_FILE_ROUNDED", ]
+  expect_setequal(leo$rcj_amount, c(9100000, 16700000))
+  expect_false(any(grepl("Labor and Economic Opportunity", mi_recs$awardee)))
+  ws <- cand[cand$group == "WRONG_STATE", ]
+  expect_equal(ws$record_id, "42b92bd8-03bc-459c-8e58-9a920022d44d")
+  expect_equal(ws$rcj_amount, 31500000)
+  noc <- cand[cand$group == "NOT_ON_COMPLETE_ROSTER", ]
+  expect_equal(sum(noc$rcj_amount), 1300000)
+  expect_false(any(noc$awardee %in% mi_recs$awardee))
+})
+
+test_that("HISTORY: the deflation and the opioid rows were WITHDRAWN by RCJ", {
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE)
+  wd <- wd[wd$state == "MI" & wd$award_tier == "SUBAWARD" &
+             wd$change_status == "WITHDRAWN", ]
+  real <- wd[grepl("Subrecipients Award", wd$source_doc_title), ]
+  op   <- wd[grepl("substance use", wd$source_doc_title, ignore.case = TRUE), ]
+  expect_equal(nrow(real), 14L)
+  expect_equal(sum(real$amount_announced), 19484032)
+  expect_equal(nrow(op), 8L)
+  expect_equal(sum(op$amount_announced), 2214846)
+  # The opioid-settlement rows were never roster rows: checked on the PAIR,
+  # because Child and Family Charities holds a real $208,333 RHTP award too.
   pairs <- paste(mi_recs$awardee, mi_recs$amount)
-  expect_false(any(paste(op$awardee, op$rcj_amount) %in% pairs))
+  expect_false(any(paste(op$awardee_name_clean, op$amount_announced) %in% pairs))
   expect_true("Child and Family Charities" %in% mi_recs$awardee)
 })
 
-test_that("the §6.2 registry catches all eight, with no false positives", {
+test_that("the §6.2 registry row stays; the sweep catches 0 because RCJ withdrew all eight", {
   reg <- readr::read_csv(
     here::here("data", "reference", "non_rhtp_state_programs.csv"),
     show_col_types = FALSE)
@@ -455,25 +479,19 @@ test_that("the §6.2 registry catches all eight, with no false positives", {
   expect_equal(nrow(row), 1L)
   expect_equal(row$disposition, "NOT_RHTP_STATE_PROGRAM")
   expect_equal(row$match_scope, "source")
+  # On the 2026-08-27 pull the sweep caught all eight with no false positives.
+  # On 2026-09-24 RCJ WITHDREW them, so the live sweep catches none -- which
+  # is the measurement, not a regression.
   sweep <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_by_state.csv"),
     show_col_types = FALSE)
   mi <- sweep[sweep$state == "MI", ]
-  expect_equal(mi$caught_total, 8L)
-  expect_equal(mi$caught_state_program, 8L)
-  # And none of the caught rows is one this file publishes.
+  expect_equal(mi$caught_total, 0L)
+  expect_equal(mi$caught_state_program, 0L)
   flagged <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_flagged_rows.csv"),
     show_col_types = FALSE)
-  caught <- flagged[flagged$state == "MI", ]
-  expect_equal(nrow(caught), 8L)
-  expect_true(all(caught$registry_program == "MI-SUD-PREVENTION-2026"))
-  # NO FALSE POSITIVES: not one caught row is a Michigan award this file
-  # publishes, matched on the (name, amount) PAIR because one name legitimately
-  # appears on both lists.
-  pairs <- paste(mi_recs$awardee, mi_recs$amount)
-  expect_false(any(paste(caught$awardee_name_raw,
-                         caught$amount_announced) %in% pairs))
+  expect_equal(nrow(flagged[flagged$state == "MI", ]), 0L)
 })
 
 

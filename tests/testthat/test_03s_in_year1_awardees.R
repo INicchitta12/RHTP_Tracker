@@ -167,9 +167,15 @@ test_that("the §6.2 negative control is a trailer and carries no RHTP", {
   txt <- in_award_text("control_87613")
   expect_true(grepl("Hydraulic", txt, fixed = TRUE))
   expect_false(grepl("Rural Health Transformation", txt, fixed = TRUE))
-  # RCJ nonetheless labels it RHTP -- that is the §0.1 finding.
+  # RCJ labelled it RHTP on the 2026-08-27 pull -- the §0.1 finding -- and
+  # WITHDREW it on 2026-09-24; the record table keeps it as WITHDRAWN.
   cands <- in_rcj_candidates()
-  expect_true(any(grepl("Trail Trailer Purchase RHTP", cands$source_doc_title)))
+  expect_false(any(grepl("Trail Trailer Purchase RHTP", cands$source_doc_title)))
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE)
+  wd <- wd[wd$state == "IN" & grepl("Trail Trailer Purchase RHTP",
+                                    wd$source_doc_title), ]
+  expect_true(nrow(wd) >= 1L)
+  expect_true(all(wd$change_status == "WITHDRAWN"))
 })
 
 
@@ -233,24 +239,49 @@ test_that("the seven proposers are applicants and only one was selected", {
 
 # -- §0.1, the disposition ----------------------------------------------------
 
-test_that("the RCJ disposition closes at 37 and is derived, not typed", {
+test_that("the RCJ disposition closes at 214 and is derived, not typed", {
   expect_silent(in_assert_rcj_disposition())
   disp <- in_rcj_disposition()
   expect_equal(sum(disp$rcj_rows), nrow(in_rcj_candidates()))
-  expect_equal(sum(disp$rcj_rows), 37L)
-  expect_equal(disp$rcj_rows[disp$disposition == "RHTP_SUBAWARD"], 6L)
+  expect_equal(sum(disp$rcj_rows), 214L)
+  by <- setNames(disp$rcj_rows, disp$group)
+  expect_equal(unname(by["RHTP award rows (26-87448, 26-87449, 26-87450)"]), 6L)
+  expect_equal(unname(by["RHTP award row, RFP 26-87556 Preceptor Registry (Concourse Tech)"]), 1L)
+  expect_equal(unname(by["Indiana Community Connect (via Indiana 211)"]), 1L)
+  expect_equal(unname(by["988 Contact Centers Services (RFP 26-84962)"]), 3L)
+  expect_equal(unname(by["Other IDOA state procurement"]), 14L)
+  expect_equal(unname(by["Not on the committed IDOA register (RCJ-appended RHTP label)"]), 2L)
+  expect_equal(unname(by["GROW Regional Grants -- region-level award rows"]), 2L)
+  expect_equal(unname(by["GROW Regional Grants -- recipient-organisation rows at $1"]), 185L)
   expect_equal(sum(disp$rcj_rows[disp$disposition ==
-                                   "NOT_RHTP_STATE_PROCUREMENT"]), 30L)
-  expect_equal(disp$rcj_rows[disp$disposition == "RHTP_BUT_NOT_A_SUBAWARD"], 1L)
+                                   "RHTP_REGIONAL_AWARD_NOT_IN_AWARD_FILE"]), 187L)
+  expect_equal(sum(disp$rcj_rows[disp$disposition ==
+                                   "NOT_RHTP_STATE_PROCUREMENT"]), 17L)
 })
 
-test_that("RCJ misses the two awards whose titles never say RHTP", {
+test_that("RCJ still misses Deloitte, and now holds Concourse at a non-state figure", {
   cands <- in_rcj_candidates()
   expect_false(any(grepl("Deloitte", cands$awardee_name_clean, ignore.case = TRUE)))
-  expect_false(any(grepl("Concourse", cands$awardee_name_clean, ignore.case = TRUE)))
-  # But this file publishes both.
+  conc <- cands[grepl("Concourse", cands$awardee_name_clean, ignore.case = TRUE), ]
+  expect_equal(nrow(conc), 1L)
+  expect_equal(conc$amount_announced, 809500)
+  # This file publishes both, and Concourse with NO amount: the state prints none.
   expect_true(any(grepl("Deloitte", IN_TEST_AWARDS$awardee)))
-  expect_true(any(grepl("Concourse", IN_TEST_AWARDS$awardee)))
+  cf <- IN_TEST_AWARDS[grepl("Concourse", IN_TEST_AWARDS$awardee), ]
+  expect_true(is.na(cf$amount))
+})
+
+test_that("GROW regional recipients: real awards, NOT in the award file, reconciled", {
+  rr <- in_regional_reconcile()
+  expect_equal(nrow(rr$rcj), 185L)
+  expect_equal(nrow(rr$state), 186L)
+  expect_true(all(rr$rcj$amount_announced == 1))
+  expect_identical(rr$rcj_not_state, "St. Mary's")
+  expect_setequal(rr$state_not_rcj, c("Ascension St. Vincent",
+    "Putnam County Emergency Medical Services (EMS) - Mobile Integrated Health (MIH) Program"))
+  # Not one GROW regional row has been added to the award file.
+  expect_equal(nrow(IN_TEST_AWARDS), 7L)
+  expect_false(any(grepl("Region", IN_TEST_AWARDS$award_pool)))
 })
 
 test_that("Indiana Community Connect is a BUDGET LINE, not an award", {

@@ -109,6 +109,13 @@
 #   ---------------------------------------------------------------------------
 #   37 rows   = `rcj_state_survey.csv`'s own candidate count for Indiana
 #
+# SESSION 62 (RCJ pull 2026-09-24): 37 -> 214. RCJ WITHDREW 13 (four 988
+# rows, nine "other" rows including the trailer) and added 190 -- 187 GROW
+# Regional Grants rows (185 recipient organisations at $1 + two region totals,
+# REAL RHTP awards NOT YET in the award file), Concourse Tech at $809,500 (in
+# our file with no amount), and two unregistered procurement rows. The table
+# above is the 2026-08-27 reading; IN_DISPOSITIONS carries the current one.
+#
 # The 30 are the dangerous ones and the mechanism is new. RCJ does not merely
 # mis-title these; it APPENDS AN RHTP LABEL THEY DO NOT HAVE. Its own document
 # titles include "Indiana Negotiated Bid 26-87613 For Hydraulic Trail Trailer
@@ -1047,6 +1054,23 @@ in_rcj_candidates <- function() {
 # The disposition of every Indiana candidate that is NOT an RHTP award row.
 # Each carries the disqualifying evidence and the state document that holds it,
 # following Texas's and Nebraska's tables.
+#
+# SESSION 62 RE-READ (RCJ pull 2026-09-24). The candidate set went 37 -> 214:
+# 13 of the 37 were WITHDRAWN by RCJ (4 of the 988 rows, 9 of the "other IDOA"
+# rows -- the hydraulic trailer among them) and 190 are NEW. 187 of the 190 are
+# the GROW Regional Grants, which Indiana AWARDED on 2026-09-03 and which are
+# archived (NOT extracted) under data/evidence/recheck/2026-09-24/IN/. They are
+# REAL RHTP AWARDS NOT YET IN in_year1_awardees.csv; they are dispositioned
+# here and deliberately NOT added to the award file (a later session's task).
+# Groups keep their history: a group whose count fell says why in its `why`.
+IN_REGIONAL_EVIDENCE_DIR <- here::here("data", "evidence", "recheck",
+                                       "2026-09-24", "IN")
+# The Governor's eight region releases state one figure per region; RCJ holds
+# the two below as region-level award rows. Read out of the archived PDFs by
+# in_assert_rcj_disposition(), never trusted as typed.
+IN_REGION_FIGURES <- c(`4` = "$15.2 million", `6` = "$13 million")
+IN_RCJ_CANDIDATES_EXPECTED <- 214L
+
 IN_DISPOSITIONS <- tibble::tribble(
   ~group, ~disposition, ~why, ~state_evidence,
   "RHTP award rows (26-87448, 26-87449, 26-87450)",
@@ -1055,6 +1079,18 @@ IN_DISPOSITIONS <- tibble::tribble(
         "solicitation Scope of Work carries the CMS financial-assistance",
         "footer totalling $206,927,896.80."),
   "data/evidence/IN/RFP_26-87448_RHTP_MOCC_20260728.zip and siblings",
+
+  "RHTP award row, RFP 26-87556 Preceptor Registry (Concourse Tech)",
+  "RHTP_SUBAWARD",
+  paste("NEW in the 2026-09-24 pull, under the RCJ title 'Indiana Preceptor",
+        "Registry (Indiana Department Of Health) RHTP 2026 Award",
+        "Announcement'. It is award row 6 of in_year1_awardees.csv",
+        "('Concourse Tech Inc'), which RCJ had MISSED until now. RCJ carries",
+        "$809,500; the committed IDOA Preliminary Notice (2026-08-06)",
+        "publishes NO amount, so RCJ's figure is not a state figure and is",
+        "NOT copied into the award file (§0.1). Deloitte (26-87667) is still",
+        "absent from RCJ."),
+  "data/evidence/IN/RFP_26-87556_Preceptor_Registry_20260806.zip",
 
   "Indiana Community Connect (via Indiana 211)",
   "RHTP_BUT_NOT_A_SUBAWARD",
@@ -1073,45 +1109,132 @@ IN_DISPOSITIONS <- tibble::tribble(
   paste("Indiana's 988 crisis-line operators. IDOA's register titles this",
         "'RFP-26-84962 988 Contact Centers Services' with no RHTP marker, and",
         "its solicitation carries no CMS RHTP footer. RCJ appends 'RHTP 2026",
-        "Award Announcement' to the title."),
+        "Award Announcement' to the title. Was 7 rows; RCJ WITHDREW 4 in the",
+        "2026-09-24 pull, leaving 3 under 'Indiana 988 Contact Center",
+        "Services RHTP 2026 Award Announcement'."),
   "data/evidence/IN/2026-08-31_idoa_award_recommendations.html",
 
   "Other IDOA state procurement",
   "NOT_RHTP_STATE_PROCUREMENT",
-  paste("Disability determination consultants, a tobacco quitline, a workforce",
-        "diploma programme, hearing aids, communication equipment, an Indiana",
-        "Veterans' Home therapy contract, an ELECTRIC GENERATING FACILITY FUEL",
-        "COST ANALYSIS, and a hydraulic tail trailer. All are on IDOA's",
-        "general award register; none is RHTP-titled and none carries the CMS",
-        "footer. Seven are filed by RCJ under the bare title 'IN - 2026 - RHTP",
-        "Update' and three under a captured page header (§0.1",
-        "PAGE_CHROME_TITLE)."),
-  "data/evidence/IN/2026-08-31_idoa_award_recommendations.html"
+  paste("Disability determination consultants, a tobacco quitline, hearing",
+        "aids, an Indiana Veterans' Home therapy contract, MIECHV",
+        "administration, a centralized billing office, and similar. All are",
+        "on IDOA's general award register; none is RHTP-titled and none",
+        "carries the CMS footer. Was 23 rows; RCJ WITHDREW 9 in the",
+        "2026-09-24 pull -- among them the hydraulic tail trailer (NB",
+        "26-87613, the §6.2 negative control, still archived), the workforce",
+        "diploma programme, the communication-equipment QPA and the three",
+        "Commissioner's-Office page-header rows (§0.1 PAGE_CHROME_TITLE)."),
+  "data/evidence/IN/2026-08-31_idoa_award_recommendations.html",
+
+  "Not on the committed IDOA register (RCJ-appended RHTP label)",
+  "UNDECIDED_NOT_IN_COMMITTED_EVIDENCE",
+  paste("NEW in the 2026-09-24 pull: University of Indianapolis ($11,822,694,",
+        "I-SEAL Special Education Alternative License, Department of",
+        "Education) and Imagine SLP Consultants ($1,267,200, FSSA-DDB speech",
+        "and language consultation). Both titles carry RCJ's appended 'RHTP",
+        "2026 Award Announcement' suffix, neither names one of Indiana's five",
+        "RHTP RFPs, and neither appears on the committed 2026-08-31 IDOA",
+        "register snapshot, so the disposition cannot be decided from",
+        "committed evidence. The shape is the 988/trailer shape (state",
+        "procurement with an invented label), which is what a re-fetch of the",
+        "register should confirm or refute. Not RHTP until shown to be."),
+  "(none committed -- posted after data/evidence/IN/2026-08-31_idoa_award_recommendations.html)",
+
+  "GROW Regional Grants -- region-level award rows",
+  "RHTP_REGIONAL_AWARD_NOT_IN_AWARD_FILE",
+  paste("NEW. REAL RHTP AWARDS NOT YET IN in_year1_awardees.csv. RCJ carries",
+        "two of Indiana's eight regions as awardees at a region total --",
+        "'East Central Indiana Region (Region 4)' $15,200,000 and 'Southeast",
+        "Indiana Region (Region 6)' $13,000,000 -- which match the Governor's",
+        "archived region releases ('$15.2 million', '$13 million') to the",
+        "rounding the releases print. A REGION IS NOT A RECIPIENT: each figure",
+        "is the pool of that region's named recipients (Tier 3 at pool level,",
+        "no per-organisation split published). The other six region figures",
+        "($12.6M, $20.7M, $9.7M, $16.7M, $13.1M, $11.4M; $112.4M across all",
+        "eight) are not carried as rows by RCJ."),
+  "data/evidence/recheck/2026-09-24/IN/idoh_region_{4,6}_press_release.pdf",
+
+  "GROW Regional Grants -- recipient-organisation rows at $1",
+  "RHTP_REGIONAL_AWARD_NOT_IN_AWARD_FILE",
+  paste("NEW. REAL RHTP AWARDS NOT YET IN in_year1_awardees.csv. 185 rows",
+        "under 'IN - 2026 - Grow Rural Health: Regional Grants', every one at",
+        "$1 (RCJ's placeholder; its own description says 'The issuer",
+        "publishes a regional total but not an individual recipient",
+        "amount'). The archived regional-grants page names 186 recipient rows",
+        "across the eight regions. RCJ matches 184 of them exactly",
+        "(normalised), DROPS one (Region 5 'Putnam County Emergency Medical",
+        "Services (EMS) - Mobile Integrated Health (MIH) Program') and",
+        "RE-NAMES one: Region 8's 'Ascension St. Vincent' is carried as",
+        "\"St. Mary's\", a name the state page does not contain anywhere.",
+        "No per-organisation amount exists; none may be imputed (§6.2)."),
+  "data/evidence/recheck/2026-09-24/IN/grow_regional_grants_page.html (parse: DERIVED_grow_regional_recipients.csv, NOT a state file)"
 )
 
 #' §0.1 -- the arithmetic must close, and it is derived, not typed.
-in_rcj_disposition <- function() {
-  cands <- in_rcj_candidates()
-
+in_rcj_group_of <- function(cands) {
   is_award <- !is.na(cands$rfp) &
     vapply(strsplit(cands$rfp, ";"),
            function(v) any(v %in% IN_RHTP_RFPS), logical(1))
+  is_preceptor <- grepl("Preceptor Registry", cands$source_doc_title,
+                        fixed = TRUE) &
+    grepl("Concourse", cands$awardee_name_clean, ignore.case = TRUE)
   is_narrative <- grepl("Indiana Community Connect", cands$awardee_name_clean,
                         fixed = TRUE)
   is_988 <- grepl("84962", cands$rfp) |
     grepl("988 Contact Cent", cands$source_doc_title)
+  is_regional_org <- grepl("Grow Rural Health: Regional Grants",
+                           cands$source_doc_title, fixed = TRUE)
+  is_region <- grepl("^Gov\\. Braun Awards Grant to Transform Rural Healthcare",
+                     sub("^IN - 2026 - ", "", cands$source_doc_title)) &
+    grepl("Region \\(Region [1-8]\\)$", cands$awardee_name_raw)
+  is_unregistered <- grepl("I-SEAL|Speech And Language Consultation",
+                           cands$source_doc_title)
+  dplyr::case_when(
+    is_award        ~ "RHTP award rows (26-87448, 26-87449, 26-87450)",
+    is_preceptor    ~ "RHTP award row, RFP 26-87556 Preceptor Registry (Concourse Tech)",
+    is_narrative    ~ "Indiana Community Connect (via Indiana 211)",
+    is_988          ~ "988 Contact Centers Services (RFP 26-84962)",
+    is_regional_org ~ "GROW Regional Grants -- recipient-organisation rows at $1",
+    is_region       ~ "GROW Regional Grants -- region-level award rows",
+    is_unregistered ~ "Not on the committed IDOA register (RCJ-appended RHTP label)",
+    TRUE            ~ "Other IDOA state procurement"
+  )
+}
 
-  tibble::tibble(
-    group = c("RHTP award rows (26-87448, 26-87449, 26-87450)",
-              "Indiana Community Connect (via Indiana 211)",
-              "988 Contact Centers Services (RFP 26-84962)",
-              "Other IDOA state procurement"),
-    rcj_rows = c(sum(is_award), sum(is_narrative),
-                 sum(is_988 & !is_award & !is_narrative),
-                 sum(!is_award & !is_narrative & !is_988))
-  ) %>%
+in_rcj_disposition <- function() {
+  cands <- in_rcj_candidates()
+  cands$group <- in_rcj_group_of(cands)
+  counts <- cands %>%
+    dplyr::group_by(group) %>%
+    dplyr::summarise(rcj_rows = dplyr::n(),
+                     rcj_amount_sum = sum(amount_announced, na.rm = TRUE),
+                     .groups = "drop")
+  IN_DISPOSITIONS %>%
+    dplyr::select(group) %>%
+    dplyr::left_join(counts, by = "group") %>%
+    dplyr::mutate(rcj_rows = dplyr::coalesce(rcj_rows, 0L),
+                  rcj_amount_sum = dplyr::coalesce(rcj_amount_sum, 0)) %>%
     dplyr::left_join(IN_DISPOSITIONS, by = "group") %>%
     dplyr::mutate(state = IN_STATE, .before = 1)
+}
+
+#' The GROW regional recipient rows, reconciled against the archived page
+#' (through session 61's DERIVED parse of it) in both directions.
+in_regional_reconcile <- function() {
+  cands <- in_rcj_candidates()
+  rcj <- cands[in_rcj_group_of(cands) ==
+                 "GROW Regional Grants -- recipient-organisation rows at $1", ]
+  st <- readr::read_csv(file.path(IN_REGIONAL_EVIDENCE_DIR,
+                                  "DERIVED_grow_regional_recipients.csv"),
+                        comment = "#", show_col_types = FALSE,
+                        progress = FALSE)
+  norm <- function(x) tolower(gsub("[^A-Za-z0-9]", "", x))
+  list(rcj = rcj, state = st,
+       rcj_not_state = sort(unique(rcj$awardee_name_raw[
+         !norm(rcj$awardee_name_raw) %in% norm(st$org)])),
+       state_not_rcj = sort(unique(st$org[
+         !norm(st$org) %in% norm(rcj$awardee_name_raw)])))
 }
 
 in_assert_rcj_disposition <- function() {
@@ -1122,14 +1245,42 @@ in_assert_rcj_disposition <- function() {
     stop("[IN] the disposition covers ", sum(disp$rcj_rows), " of ",
          nrow(cands), " Indiana Tier 3 candidates.", call. = FALSE)
   }
-  # The survey's own count for Indiana, so a moved candidate set fails here.
-  survey <- readr::read_csv(
-    here::here("data", "reference", "rcj_state_survey.csv"),
-    show_col_types = FALSE, progress = FALSE)
-  expect <- survey$tier3_candidates[survey$state == IN_STATE]
-  if (nrow(cands) != expect) {
+  # Session 62: the survey is rebuilt separately and no longer the pin; the
+  # count measured on the 2026-09-24 pull is, so a moved set still fails here.
+  if (nrow(cands) != IN_RCJ_CANDIDATES_EXPECTED) {
     stop("[IN] the record table holds ", nrow(cands), " Indiana Tier 3 ",
-         "candidates; rcj_state_survey.csv says ", expect, ".", call. = FALSE)
+         "candidates; this disposition was read at ",
+         IN_RCJ_CANDIDATES_EXPECTED, ". Read the new rows before rebuilding.",
+         call. = FALSE)
+  }
+  # The regional recipient rows: all placeholders, and reconciled both ways.
+  rr <- in_regional_reconcile()
+  if (nrow(rr$rcj) != 185L || nrow(rr$state) != 186L ||
+      any(rr$rcj$amount_announced != 1)) {
+    stop("[IN] the GROW regional recipient rows moved (RCJ ", nrow(rr$rcj),
+         ", page ", nrow(rr$state), "), or RCJ now carries a per-organisation ",
+         "amount the state does not publish.", call. = FALSE)
+  }
+  if (!identical(rr$rcj_not_state, "St. Mary's") ||
+      !setequal(rr$state_not_rcj, c("Ascension St. Vincent",
+        "Putnam County Emergency Medical Services (EMS) - Mobile Integrated Health (MIH) Program"))) {
+    stop("[IN] the RCJ-vs-page regional name reconciliation moved; ",
+         "restate the dropped/renamed rows.", call. = FALSE)
+  }
+  # The two region-level rows must match the archived Governor's releases.
+  reg <- cands[in_rcj_group_of(cands) ==
+                 "GROW Regional Grants -- region-level award rows", ]
+  if (!setequal(reg$amount_announced, c(15200000, 13000000))) {
+    stop("[IN] RCJ's region-level GROW rows no longer carry $15.2M / $13M.",
+         call. = FALSE)
+  }
+  for (r in names(IN_REGION_FIGURES)) {
+    tx <- paste(rhtp_pdf_text(file.path(IN_REGIONAL_EVIDENCE_DIR,
+      sprintf("idoh_region_%s_press_release.pdf", r))), collapse = " ")
+    if (!grepl(IN_REGION_FIGURES[[r]], tx, fixed = TRUE)) {
+      stop("[IN] the archived Region ", r, " release no longer states ",
+           IN_REGION_FIGURES[[r]], ".", call. = FALSE)
+    }
   }
   # RCJ holds SIX of the seven award actions and misses two recipients
   # outright -- the two whose titles never say RHTP.
@@ -1139,17 +1290,30 @@ in_assert_rcj_disposition <- function() {
     stop("[IN] expected 6 RCJ rows on the three RHTP-titled solicitations, ",
          "found ", awarded_rows, ".", call. = FALSE)
   }
-  for (missed in c("Deloitte", "Concourse")) {
-    if (any(grepl(missed, cands$awardee_name_clean, ignore.case = TRUE))) {
-      stop("[IN] RCJ now holds '", missed, "'. It did not when this file was ",
-           "written, and the §0.1 finding that it misses the two ",
-           "non-RHTP-titled awards must be restated.", call. = FALSE)
-    }
+  # Deloitte is still missed. Concourse is NOT any more (session 62): RCJ now
+  # holds it at $809,500, a figure the committed award notice does not print.
+  if (any(grepl("Deloitte", cands$awardee_name_clean, ignore.case = TRUE))) {
+    stop("[IN] RCJ now holds 'Deloitte'. The §0.1 finding that it misses the ",
+         "26-87667 award must be restated.", call. = FALSE)
   }
-  # And the label RCJ invents must still be there to be found.
-  if (!any(grepl("Trail Trailer Purchase RHTP", cands$source_doc_title))) {
-    stop("[IN] RCJ no longer files the trailer purchase under an RHTP title; ",
-         "the §0.1 example in this file's header is stale.", call. = FALSE)
+  conc <- cands[grepl("Concourse", cands$awardee_name_clean,
+                      ignore.case = TRUE), ]
+  if (nrow(conc) != 1L || conc$amount_announced != 809500) {
+    stop("[IN] RCJ's Concourse Tech row moved; restate the Preceptor ",
+         "Registry disposition.", call. = FALSE)
+  }
+  # The trailer: RCJ WITHDREW it in the 2026-09-24 pull. The §0.1 example in
+  # this file's header is now history, kept in the record table as WITHDRAWN.
+  if (any(grepl("Trail Trailer Purchase RHTP", cands$source_doc_title))) {
+    stop("[IN] RCJ re-lists the trailer under an RHTP title; it was ",
+         "WITHDRAWN on 2026-09-24 and the disposition says so.", call. = FALSE)
+  }
+  wd <- rhtp_record_table_live(include_withdrawn = TRUE) %>%
+    dplyr::filter(state == IN_STATE, award_tier == "SUBAWARD",
+                  grepl("Trail Trailer Purchase RHTP", source_doc_title))
+  if (!nrow(wd) || !all(wd$change_status == "WITHDRAWN")) {
+    stop("[IN] the withdrawn trailer row is no longer in the record table.",
+         call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -1407,7 +1571,9 @@ in_report <- function() {
   cat("  because their SCOPE OF WORK says so. Keyed on the award document\n")
   cat("  alone, both would have been dropped.\n")
 
-  cat("\n§0.1 -- RCJ's 37 Indiana candidates, and the worst ratio in the project:\n")
+  cat("\n§0.1 -- RCJ's ", nrow(in_rcj_candidates()), " Indiana candidates (37 on the ",
+      "2026-08-27 pull; 214 on 2026-09-24, 187 of them GROW Regional Grants):\n",
+      sep = "")
   print(as.data.frame(disp[, c("group", "rcj_rows", "disposition")]),
         row.names = FALSE)
   cat("\n  RCJ does not merely mis-title the 30. It APPENDS AN RHTP LABEL THEY\n")
@@ -1418,8 +1584,11 @@ in_report <- function() {
   cat("  Update', among them an ELECTRIC GENERATING FACILITY FUEL COST\n")
   cat("  ANALYSIS. An extractor built from the candidate list would have\n")
   cat("  published roughly $147M of unrelated state procurement as RHTP.\n")
-  cat("\n  And RCJ MISSES two of the seven real awards -- Deloitte and\n")
-  cat("  Concourse Tech -- the two whose titles never say RHTP.\n")
+  cat("\n  And RCJ MISSED two of the seven real awards -- Deloitte and\n")
+  cat("  Concourse Tech -- the two whose titles never say RHTP. On the\n")
+  cat("  2026-09-24 pull it holds Concourse (at $809,500, a figure the state\n")
+  cat("  notice does not print) and still misses Deloitte. The trailer was\n")
+  cat("  WITHDRAWN by RCJ on that pull.\n")
 
   cat("\nTHE POSITIVE CONTROL: IDOA's award register carries 456 award\n")
   cat("  recommendations in one uniform form, and this file parses seven names\n")
