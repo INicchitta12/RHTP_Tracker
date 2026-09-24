@@ -126,4 +126,60 @@ Rebuilt from `R/03k`'s constants, never hand-edited.
 - The QUEUED four (MT UT AZ RI) hold 6 candidates, not 11. AZ's three webinar rows are now
   Stage-2-quarantined as pre-NOA, and RI's three opioid rows were withdrawn.
 
-<!-- §6 onwards: the state dispositions, written after the four re-reads. -->
+## 6. Every state disposition, re-read
+
+Twelve builders failed as designed. **Seven more passed while writing prose their own new
+counts contradicted.** Arkansas read "33 Tier 3 candidates ... NOT_IN_THE_AGGREGATOR_AT_ALL";
+South Carolina read "227 candidates against 33 RCJ records"; New Jersey read "11 SUBAWARD
+records ... NO_TIER_3"; Maine's "Anything else ... NONE" group had quietly absorbed 5 rows.
+**A builder that passes is not the same as a builder that tells the truth.**
+
+Every builder below now assigns each candidate to a group by rule and throws on an
+unassigned candidate or a moved group count. Texas and Nevada had defaulted an unmatched row
+into an existing group; that path is gone. Groups emptied by RCJ keep their history at 0 rows.
+Pairing to our award files is exact name + exact amount, or an explicit hand-read
+`record_id -> row` entry; nothing is fuzzy-matched (§2).
+
+**No award figure in this repository moved.** Dispositions describe what RCJ carries; award
+files are built from state sources and were restored after every `--build`.
+
+| State | 08-27 → 09-24 | What RCJ carries now |
+|---|---|---|
+| TX | 68 → 85 | Still 0 RHTP subawards. New: HOPES and nurse-violence grants (predate the NOA); Nurse-Family Partnership $133.9M (state + TANF) and Mobile Stroke Unit $3.25M (state) — **read live, not archived** |
+| NE | 39 → 52 | **Initiative 5.3 Intent to Award (09-01, 13 awards, $5,549,692.25) is RHTP and not in our file.** RCJ drops Regional West Medical Center ($93,867) |
+| OK | 35 → 36 | one more Tier 2 budget line |
+| NV | 34 → 42 | 3 budget lines; 5 contractors ($1.94M) from an unarchived CMS report — undecidable |
+| IN | 37 → 214 | 185 GROW regional recipients at $1 (184 match the archived page); 2 region pools; 2 undecided |
+| MI | 31 → 149 | 131 roster rows per award; SD's row WRONG_STATE. **The live MDHHS roster is 145 rows / $101.3M against our 139 / $69.9M** — Michigan's "total, not a floor" is stale |
+| MS | 3 → 173 | all 167 awards to the cent; 4 duplicates |
+| SC | 0 → 227 | 227 of 228 to the cent; SC Dept of Corrections ($6,836,679) held UNASSIGNED by Stage 2 |
+| AR | 0 → 33 | 31 orgs at org totals; Mercy Fort Smith rounded (−$56,249); BDO GS admin vendor |
+| NJ | 0 → 11 | 10 awards; the old builder read the wrong key in awards.json |
+| CA | 11 → 4 | SRHRP withdrawn; 4 Distressed Hospital Small Grant rows ($25M, AB 108 state money — read live) |
+| NM | 7 → 11 | 7 RHCDF state rows; Wallowa's 4 WRONG_STATE |
+| LA | 6 → 12 | **THE NEGATIVE IS STALE.** 5 named Rural Clinician Credit Bank awards match LDH's 09-09 deck, which reports 53 awards / $12,701,996 (read live) |
+| WY | no Tier 3 | Utah documents 5 → 2 (RCJ re-filed three) |
+| DE | 6 → 12 | 4 SBHC awards re-issued at $1; 7 Downtown Development District rows (state money, read live) |
+| ME | 12 → 17 | budget-narrative lines; **Medical Care Development is a named RHTP lead not in our file**, no amount |
+| MO | 29 → 30 | RCJ double-carries the MDA award |
+| NH | 27 → 26 | Medicaid rows withdrawn; FHC now only at $1 |
+| TN | 0 → 1 | one UTHSC plan row; RCJ still holds none of the 53 HART awards |
+
+## 7. Not done, and what is owed
+
+- **Task 1, Indiana GROW regional extraction and probe, not started.** Note that
+  `in_assert_regional_not_awarded()` passes only because it reads the 08-31 archive.
+- **Evidence read live and not archived** (each disposition records the SHA-256): TX
+  HHS0016568 and HHS0016736, CA Distressed Hospital page, DE DSHA release, LA shareholder deck,
+  NE 5.3 notice, MI live roster. Archive each via the state's `--fetch` before relying on it.
+- **Extractions owed:** Louisiana (53 Credit Bank awards; R/03ae becomes an extractor),
+  Nebraska 5.3, Michigan's six new roster rows, Indiana's regions.
+- **Registry rows to add to `non_rhtp_state_programs.csv`:** CA Distressed Hospital Small
+  Grant Program, DE Downtown Development Districts. Annotate TX-ATLIS-MCO and TX-IGT as
+  matching nothing since RCJ withdrew them.
+- **Stage 2 tiering:** SC Dept of Corrections and three Michigan roster rows (Harbor Beach,
+  both PACE) sit UNASSIGNED while comparable rows are SUBAWARD.
+- **Unread new candidates in states with no disposition file:** AK 248 (re-keyed), FL 80,
+  KS 39, SD 28, VT 12, MN 10, CO 8, WV 8, GA 5, WA 5.
+- `ca_year1_status.csv` prose still says all eleven candidates are SRHRP.
+
