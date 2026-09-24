@@ -92,9 +92,20 @@ test_that("NEITHER never means the state has awarded nothing", {
   # Florida Tier 3 candidates, so it is RCJ_ONLY now -- and the evidence is
   # carried by ILLINOIS ($50,008,264 to ICAHN, zero candidates) and WYOMING
   # (77 award actions, zero candidates).
+  #
+  # Session 67: the CMS half of trigger_source is rebuilt from the live CMS
+  # list, which the CMS Routine grows. A CMS release for IL, WY or FL moves
+  # that state's code (NEITHER -> CMS_ONLY, RCJ_ONLY -> BOTH) and that is
+  # the monitor working, not a regression. So each pin applies only while
+  # CMS has not announced the state; the RCJ half, from a committed pull,
+  # is still pinned.
+  cms_states <- unique(cms_list$state)
   expect_gt(nrow(neither_extracted), 0L)
-  expect_true(all(c("IL", "WY") %in% neither_extracted$state))
-  expect_equal(queue$trigger_source[queue$state == "FL"], "RCJ_ONLY")
+  for (st in setdiff(c("IL", "WY"), cms_states)) {
+    expect_true(st %in% neither_extracted$state, info = st)
+  }
+  expect_equal(queue$trigger_source[queue$state == "FL"],
+               if ("FL" %in% cms_states) "BOTH" else "RCJ_ONLY")
 })
 
 
@@ -108,9 +119,14 @@ test_that("Illinois is queued -- but on a $1 signal, near the bottom", {
   # SESSION 62: RCJ withdrew that $1 row on the 2026-09-24 pull, so the union
   # no longer catches Illinois at all -- NEITHER, with $50,008,264 extracted.
   il <- queue[queue$state == "IL", ]
-  expect_equal(il$trigger_source, "NEITHER")
   expect_equal(il$rcj_tier3_candidates, 0L)
-  expect_true(is.na(il$cms_announced_date))
+  # Session 67: conditional on the live CMS list (see above).
+  if ("IL" %in% cms_list$state) {
+    expect_equal(il$trigger_source, "CMS_ONLY")
+  } else {
+    expect_equal(il$trigger_source, "NEITHER")
+    expect_true(is.na(il$cms_announced_date))
+  }
 
   # Illinois is now extracted, so it is out of the QUEUED backlog.
   expect_equal(il$queue_status, "EXTRACTED")

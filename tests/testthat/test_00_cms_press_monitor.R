@@ -327,9 +327,12 @@ test_that("CMS's Georgia figure corroborates the DCH Phase 4 total", {
   csv <- here::here("data", "reference", "cms_state_announcements.csv")
   skip_if_not(file.exists(csv), "the trigger list has not been run")
   live <- readr::read_csv(csv, show_col_types = FALSE, progress = FALSE)
-  ga <- live[live$state == "GA", ]
+  # Session 67: keyed on the RELEASE DATE, not on "Georgia's one row". CMS
+  # now issues second releases per state (WV 09-09, AR and SD 09-24), and this
+  # file is rewritten by the CMS Routine, so a second Georgia release must not
+  # break the corroboration of the first.
+  ga <- live[live$state == "GA" & as.Date(live$date) == as.Date("2026-08-27"), ]
   expect_equal(nrow(ga), 1L)
-  expect_equal(ga$date, as.Date("2026-08-27"))
   expect_equal(ga$amount, 93300000)
   expect_lt(abs(ga$amount - 93330827), 40000)
 })
@@ -604,8 +607,11 @@ test_that("the live newsroom crawl finds twenty-one states, including Virginia",
                     "MO", "MS", "NC", "ND", "NM", "NY", "OH", "PA", "RI",
                     "SC", "SD", "VA", "VT", "WV") %in% out$state))
   expect_true(all(out$state %in% rhtp_cms_states()$state))
-  expect_equal(out$amount[out$state == "VA"], 122000000)
-  expect_equal(out$date[out$state == "VA"], as.Date("2026-08-28"))
+  # Session 67: the 2026-08-28 release is looked up by date, so a second
+  # Virginia release (AR, SD and WV already have one) cannot break it.
+  va <- out[out$state == "VA" & out$date == as.Date("2026-08-28"), ]
+  expect_equal(nrow(va), 1L)
+  expect_equal(va$amount, 122000000)
 })
 
 test_that("the ten titles that say nothing about rural health are still caught", {
@@ -645,12 +651,18 @@ test_that("the committed trigger list carries Virginia, and medicaid.gov has cau
   live <- readr::read_csv(csv, show_col_types = FALSE, progress = FALSE)
   skip_if_not("source" %in% names(live), "the trigger list predates the union")
 
-  va <- live[live$state == "VA", ]
+  # Session 67: each state's FIRST release is keyed by date. A later release
+  # for the same state arrives CMS_NEWSROOM and only turns BOTH once
+  # medicaid.gov catches up, so "VA's one row is BOTH" would fail on the
+  # first new Virginia release for a reason the recency check below already
+  # owns.
+  va <- live[live$state == "VA" & as.Date(live$date) == as.Date("2026-08-28"), ]
   expect_equal(nrow(va), 1L)
   expect_equal(va$amount, 122000000)
   expect_equal(va$source, "BOTH")
   expect_gte(dplyr::n_distinct(live$state), 23L)
-  expect_equal(live$source[live$state == "IN"], "BOTH")
+  in_first <- live[live$state == "IN" & as.Date(live$date) == as.Date("2026-09-03"), ]
+  expect_equal(in_first$source, "BOTH")
   # Session 51 pinned the newsroom-only set as exactly "MO". By 2026-09-24
   # medicaid.gov had caught up on MO and the newsroom alone carried DE and
   # new AR and SD releases -- so the pin failed on the very run that found
