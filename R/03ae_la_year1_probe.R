@@ -1,4 +1,23 @@
 # 03ae_la_year1_probe.R --------------------------------------------------------
+# LOUISIANA, YEAR 1 -- NO LONGER A NEGATIVE (session 64). ONE OF SEVEN
+# SOLICITATIONS HAS AWARDED, AND IT NAMES FIVE OF FIFTY-THREE RECIPIENTS.
+#
+# LDH's September 3, 2026 stakeholder webinar deck reports the Rural Clinician
+# Credit Bank "As of 8/28/26": 53 awards, $12,701,996, CEAs "due for signature
+# 9/15/26", 20 of them "Hospital settings" ($6,285,515). It NAMES FIVE -- the
+# "Multi-parish awardees", $1,965,788, none of them typed as a hospital -- and
+# the other 48 ($10,736,208, LDH's parish table) nowhere. So this file now
+# WRITES data/reference/la_year1_awardees.csv: five named rows and ONE
+# unnamed aggregate (South Dakota's device, `amount` empty). NO ROW REACHES A
+# HOSPITAL BUCKET: no hospital is named, and the hospital-setting count is a
+# split of the whole round that LDH does not map onto the named five. See the
+# "session 64" section below.
+#
+# EVERYTHING BELOW THIS BLOCK IS THE NEGATIVE AS IT STOOD FOR THE OTHER SIX
+# SOLICITATIONS, AND IT STILL HOLDS FOR THEM: the tripwire, the windows and the
+# probe all keep watching.
+#
+# (the original header follows)
 # LOUISIANA, YEAR 1 -- A NEGATIVE, AND THE ONE WHOSE ANNOUNCEMENT WINDOWS HAVE
 # ALL CLOSED AT ONCE.
 #
@@ -104,8 +123,9 @@
 # Usage:
 #   --fetch [--force]  archive the 8 sources + SHA-256 manifest
 #   --validate         the assertions and both controls, offline
-#   --build            write the two status CSVs (there is NO award file)
-#   --probe            LIVE: has Louisiana awarded yet?
+#   --build            write the status + disposition CSVs AND, since session
+#                      64, la_year1_awardees.csv (the RCCB round)
+#   --probe            LIVE: has Louisiana awarded anything MORE?
 #   --report           the negative, and the seven windows that have closed
 
 suppressPackageStartupMessages({
@@ -120,7 +140,7 @@ source(here::here("R", "utils_config.R"))
 LA_EVIDENCE_DIR <- here::here("data", "evidence", "LA")
 LA_STATUS_CSV   <- "data/reference/la_year1_status.csv"
 LA_DISPO_CSV    <- "data/reference/la_rcj_candidate_disposition.csv"
-LA_AWARDS_CSV   <- "data/reference/la_year1_awardees.csv"   # MUST NOT EXIST
+LA_AWARDS_CSV   <- "data/reference/la_year1_awardees.csv"   # session 64: the RCCB
 LA_HOST_THROTTLE_S <- 3
 
 # THE RFC WELL-BEHAVED-CRAWLER CONVENTION, AND IT IS THE HONEST AGENT.
@@ -689,13 +709,20 @@ la_assert_after_noa <- function(capital = NULL) {
   invisible(TRUE)
 }
 
-#' THE TRIPWIRE: Louisiana has named no RHTP recipient
+#' THE TRIPWIRE: no WATCHED surface carries award language
 #'
 #' DESIGNED TO FAIL. Three surfaces at once -- the programme page (which
 #' carries the announcement dates), the funding-opportunities page (which
 #' carries the seven solicitations) and the Advisory Council deck (which is
-#' where Louisiana reports progress to its own Council). If any acquires award
-#' language, this file must be REWRITTEN as an award extractor, not patched.
+#' where Louisiana reports progress to its own Council).
+#'
+#' SESSION 64: LOUISIANA HAS AWARDED ONE SOLICITATION, AND NOT ON THESE
+#' SURFACES. The Rural Clinician Credit Bank's 53 awards were reported in a
+#' separate stakeholder deck (LA_RCCB_ARCHIVE), which is now an award source
+#' for la_year1_awardees.csv. This tripwire keeps watching the three pages for
+#' the OTHER six solicitations -- and for the RCCB's missing 48 names. If it
+#' fires, read the page: new names for the RCCB move out of the aggregate row;
+#' a roster for another solicitation is a new pool in the award file.
 LA_AWARD_POSTED <- c(
   "has been awarded", "have been awarded", "awardees are",
   "selected for award", "list of awardees", "grant recipients",
@@ -901,26 +928,12 @@ la_assert_facilities_are_not_awards <- function(body = NULL) {
   invisible(TRUE)
 }
 
-la_assert_no_award_file <- function() {
-  if (file.exists(here::here(LA_AWARDS_CSV))) {
-    stop("[LA] ", LA_AWARDS_CSV, " exists. Louisiana has published no ",
-         "recipient-level RHTP award list; if that has changed, write the ",
-         "extractor deliberately and delete this assertion in the same ",
-         "commit.", call. = FALSE)
-  }
-  path <- here::here(LA_STATUS_CSV)
-  if (file.exists(path)) {
-    cols <- names(readr::read_csv(path, n_max = 0, show_col_types = FALSE))
-    bad  <- intersect(cols, c("amount", "round_amount", "amount_announced"))
-    if (length(bad)) {
-      stop("[LA] la_year1_status.csv carries an amount column (",
-           paste(bad, collapse = ", "), "). It is a STATUS table: Louisiana ",
-           "has named no RHTP recipient, so no sum over it could mean ",
-           "anything.", call. = FALSE)
-    }
-  }
-  invisible(TRUE)
-}
+# la_assert_no_award_file() WAS RETIRED IN SESSION 64. It asserted that
+# la_year1_awardees.csv did not exist, and it said in its own error message
+# what to do the day that changed: "write the extractor deliberately and
+# delete this assertion in the same commit". Louisiana awarded the Rural
+# Clinician Credit Bank, so the file exists; la_assert_award_file() and
+# la_assert_status_has_no_amount() (below, in the RCCB section) replace it.
 
 rhtp_la_assert <- function(strict_footer = FALSE) {
   la_assert_programme_provenance()
@@ -932,7 +945,8 @@ rhtp_la_assert <- function(strict_footer = FALSE) {
   la_assert_deck_is_projected_not_awarded()
   la_assert_announcement_control()
   la_assert_facilities_are_not_awards()
-  la_assert_no_award_file()
+  la_assert_status_has_no_amount()
+  la_assert_rccb_award()
   invisible(TRUE)
 }
 
@@ -942,10 +956,11 @@ rhtp_la_assert <- function(strict_footer = FALSE) {
 #' What each Louisiana RHTP channel publishes
 #'
 #' DELIBERATELY NO `amount` COLUMN (Texas's device, and Wisconsin's, Maine's,
-#' California's, Connecticut's and New Mexico's after it). Louisiana has named
-#' no RHTP recipient; the pool figures live in `stated_pool` as the state's own
-#' words, which cannot be summed by accident -- and they are PROJECTED figures
-#' in any case, which is the whole finding.
+#' California's, Connecticut's and New Mexico's after it). Since session 64 the
+#' one priced Louisiana round -- the Rural Clinician Credit Bank -- lives in
+#' la_year1_awardees.csv; the pool figures here stay the state's own words in
+#' `stated_pool`, which cannot be summed by accident, and six of seven are
+#' still PROJECTED figures.
 rhtp_la_year1_status <- function() {
   # `window_key` is the programme string EXACTLY as LDH's "IMPORTANT DATES"
   # block prints it, and it is what `stage` and `announcement_window` are
@@ -1071,12 +1086,36 @@ rhtp_la_year1_status <- function() {
          "the row's date in silence (§2).", call. = FALSE)
   }
 
-  out %>%
+  out <- out %>%
     dplyr::rows_update(
       w %>% dplyr::select(window_key = "programme", "stage",
                           "announcement_window"),
-      by = "window_key", unmatched = "ignore") %>%
-    dplyr::select(-"window_key")
+      by = "window_key", unmatched = "ignore")
+
+  # SESSION 64: THE RCCB HAS AWARDED, AND ITS STAGE IS READ OFF THE DECK, NOT
+  # OFF THE WINDOW. The programme page still prints its "Mid-September"
+  # window and the funding page still reads "Applications currently under
+  # review", while LDH's own September 3 deck reports 53 awards made as of
+  # 8/28/26. The pages lag the deck; the deck is the award source. The stage
+  # is only set here while la_assert_rccb_award() holds.
+  la_assert_rccb_award()
+  rccb <- !is.na(out$window_key) & stringr::str_detect(out$window_key,
+                                                       "Clinician Credit Bank")
+  out$stage[rccb] <- "AWARDED_5_OF_53_NAMED"
+  out$stated_pool[rccb] <- paste(
+    "$10 million projected ('Allocation of record $10.00M'); $12,701,996",
+    "awarded across 53 awards as of 8/28/26")
+  out$publishes_roster[rccb] <- "Partial -- 5 of 53 awardees named"
+  out$evidence[rccb] <- paste(
+    "136 applications, 70 eligible, 53 awards made, $12,701,996 awarded 'As",
+    "of 8/28/26', CEAs 'due for signature 9/15/26' (LDH's September 3, 2026",
+    "stakeholder deck). Five 'Multi-parish awardees' are named and priced",
+    "($1,965,788) and are rows of la_year1_awardees.csv; the other 48",
+    "($10,736,208, LDH's parish table) are named nowhere and are ONE",
+    "aggregate row there. 20 of the 53 are 'Hospital settings' ($6,285,515)",
+    "and none of those is named. The programme page's window and the funding",
+    "page's 'Applications currently under review' LAG the deck.")
+  out %>% dplyr::select(-"window_key")
 }
 
 
@@ -1191,8 +1230,8 @@ rhtp_la_rcj_disposition <- function(cands = NULL) {
     paste0(
       "REAL LOUISIANA RHTP AWARDS, AND THE FIRST THIS REPOSITORY HAS SEEN. ",
       nrow(rccb), " of Louisiana's ", n_all, " live Tier 3 candidates, first ",
-      "seen on the 2026-09-24 pull, all from LDH's 2026-09-09 stakeholder ",
-      "webinar deck (RCJ: 'LA - 2026 - RHTP Updates September 2026', linked ",
+      "seen on the 2026-09-24 pull, all from LDH's September 3, 2026 ",
+      "stakeholder webinar deck, served as Shareholder-Presentation-09092026.pdf (RCJ: 'LA - 2026 - RHTP Updates September 2026', linked ",
       "from the RHTP programme page as 'Webinar Slides'). RCJ's names and ",
       "amounts are LDH's own, to the dollar ($", money(rccb$amount_announced),
       " between them): ", paste(rccb$awardee_name_clean, collapse = "; "),
@@ -1210,11 +1249,13 @@ rhtp_la_rcj_disposition <- function(cands = NULL) {
       "The other 48 awards, including all 20 hospital awards, are counted and ",
       "unnamed (§0.3: a count is not a list). LOUISIANA IS THEREFORE NO ",
       "LONGER A CLEAN NEGATIVE: it has awarded one of its seven Budget Year ",
-      "1 solicitations. NOT EXTRACTED here and in no award file (Louisiana ",
-      "has none); la_year1_status.csv still reads the RCCB as unawarded and ",
-      "must be re-read. Ochsner Clinic Foundation's $1,500,000 is LDH's ",
-      "stated 'Ceiling applied per multi-entity system'; its recipient form ",
-      "is not stated by LDH and is NOT typed here (§0.4)."),
+      "1 solicitations. EXTRACTED IN SESSION 64 FROM LDH'S OWN DECK, NOT ",
+      "FROM THESE ROWS: the five are rows 1-5 of la_year1_awardees.csv, ",
+      "read from the deck's own table cells, and the other 48 are ONE ",
+      "aggregate row there with an empty amount and LDH's parish-table sum ",
+      "($10,736,208) in round_amount. Ochsner Clinic Foundation's $1,500,000 ",
+      "is LDH's stated 'Ceiling applied per multi-entity system'; its ",
+      "recipient form is not stated by LDH and is NOT typed here (§0.4)."),
     "https://ldh.la.gov/page/rural-health-transformation-program",
     LA_RCCB_ARCHIVE,
 
@@ -1334,6 +1375,522 @@ la_assert_capital_row_dropped <- function(cands = NULL, council = NULL) {
 }
 
 
+# -- session 64: THE RURAL CLINICIAN CREDIT BANK AWARD FILE -------------------
+#
+# LOUISIANA HAS AWARDED ONE OF ITS SEVEN BUDGET YEAR 1 SOLICITATIONS, AND IT
+# NAMES FIVE OF FIFTY-THREE RECIPIENTS.
+#
+# LDH's September 3, 2026 stakeholder webinar deck -- linked from the RHTP
+# programme page under "September 3, 2026 ... Webinar Slides", served as
+# Shareholder-Presentation-09092026.pdf -- reports the Rural Clinician Credit
+# Bank "As of 8/28/26": "Awards made 53", "Amount awarded $12,701,996", "CEAs
+# due for signature 9/15/26". It names exactly five awardees, in a table
+# headed "Multi-parish awardees", each with a printed amount. The other 48 are
+# counted and located (a "Parishes by dollars awarded" table) and NOT NAMED.
+#
+# THE FILE HOLDS EVERY AWARD EXACTLY ONCE, AND THAT IS WHY IT HAS NO
+# HOSPITAL-ONLY AGGREGATE ROW. LDH also splits the 53 by facility type -- 20
+# "Hospital settings" awards / $6,285,515 against 33 "Clinic and outpatient
+# settings" / $6,416,481 -- but it never says which facility type any of the
+# five NAMED awardees is. So a "20 unnamed hospital awards" row would overlap
+# the named rows by up to five awards and $1,965,788 in a way nobody can
+# resolve from the document. What the document DOES resolve exactly is the
+# other partition: its parish table covers the 48 single-home-parish awards and
+# sums to $10,736,208, which is $12,701,996 - $1,965,788 TO THE DOLLAR, and
+# 48 + 5 = 53. So the file is five named rows plus ONE aggregate row for the 48
+# unnamed awards (South Dakota's / Oklahoma ROOTS' device: `amount` empty, the
+# figure in `round_amount`). That aggregate is a MIXED class -- between 15 and
+# 20 of its 48 are hospital-setting awards, and LDH does not say which -- so it
+# is South Dakota's `Unclear`, and it enters NO hospital bucket. The
+# hospital-setting figure is carried as the state's own words in the row and in
+# la_year1_status.csv, never as a summable column.
+#
+# EVERY ROW IS PRE-AGREEMENT. LDH's own process is a "Notice of Intent to
+# Contract" followed by a Cooperative Endeavor Agreement, and the CEAs were
+# "due for signature 9/15/26", after the deck's as-of date. So every row is
+# NOTICE_OF_INTENT_TO_AWARD + amount_confirmed = No (Maryland's and Wyoming's
+# posture).
+
+LA_RCCB_STATED <- list(
+  as_of              = "As of 8/28/26",
+  applications       = 136L,
+  eligible           = 70L,
+  awards             = 53L,
+  awarded            = 12701996,
+  application_close  = as.Date("2026-06-25"),
+  cea_due            = "9/15/26",
+  hospital_awards    = 20L,
+  hospital_amount    = 6285515,
+  clinic_awards      = 33L,
+  clinic_amount      = 6416481,
+  named_awards       = 5L,
+  named_total        = 1965788,
+  single_parish      = 48L,
+  single_parish_total = 10736208,
+  multi_entity_ceiling = 1500000,
+  footer_amount      = "$208,374,447.57",
+  webinar_date       = as.Date("2026-09-03")
+)
+
+LA_RCCB_HOSPITAL_TYPES <- c("Small rural hospital", "Critical access hospital",
+                            "Rural emergency hospital")
+
+la_rccb_runs <- function() {
+  if (!exists("rhtp_pdf_runs")) source(here::here("R", "utils_pdf_text.R"))
+  r <- rhtp_pdf_runs(here::here(LA_RCCB_ARCHIVE))
+  r[nzchar(trimws(r$text)), , drop = FALSE]
+}
+
+# One painted line of one page, as its runs.
+la_rccb_lines <- function(runs, pg) {
+  x <- runs[runs$page == pg, , drop = FALSE]
+  unname(split(trimws(x$text), x$line))
+}
+
+la_money <- function(x) as.numeric(stringr::str_remove_all(x, "[$,]"))
+
+#' The five NAMED awardees, read from their own painted cells (page 10)
+la_rccb_named <- function(runs = NULL) {
+  if (is.null(runs)) runs <- la_rccb_runs()
+  ln <- la_rccb_lines(runs, 10)
+  hdr <- which(vapply(ln, function(v) identical(v, c("Awardee", "Parishes", "Award")),
+                      logical(1)))
+  tot <- which(vapply(ln, function(v) length(v) == 2L && v[1] == "Total",
+                      logical(1)))
+  tot <- tot[tot > hdr[1]]
+  if (length(hdr) != 1L || !length(tot)) {
+    stop("[LA] the deck's 'Multi-parish awardees' table is no longer where ",
+         "this file reads it (page 10: header 'Awardee | Parishes | Award' ",
+         "then a 'Total' line).", call. = FALSE)
+  }
+  body <- ln[(hdr + 1):(tot[1] - 1)]
+  bad <- !vapply(body, function(v) length(v) == 3L &&
+                   grepl("^\\d+$", v[2]) && grepl("^\\$[0-9,]+$", v[3]),
+                 logical(1))
+  if (any(bad)) {
+    stop("[LA] a 'Multi-parish awardees' row is not name | parishes | $amount: ",
+         paste(vapply(body[bad], paste, character(1), collapse = " | "),
+               collapse = " ;; "), call. = FALSE)
+  }
+  tibble::tibble(
+    awardee  = vapply(body, `[`, character(1), 1),
+    parishes = as.integer(vapply(body, `[`, character(1), 2)),
+    amount   = la_money(vapply(body, `[`, character(1), 3)),
+    printed_total = la_money(ln[[tot[1]]][2])
+  )
+}
+
+#' The facility-type table (page 8): six types and a Total line
+la_rccb_facility_types <- function(runs = NULL) {
+  if (is.null(runs)) runs <- la_rccb_runs()
+  ln <- la_rccb_lines(runs, 8)
+  rows <- Filter(function(v) length(v) == 6L && grepl("^\\d+$", v[2]) &&
+                   grepl("^\\$[0-9,]+$", v[4]), ln)
+  tibble::tibble(
+    facility_type = vapply(rows, `[`, character(1), 1),
+    awards        = as.integer(vapply(rows, `[`, character(1), 2)),
+    amount        = la_money(vapply(rows, `[`, character(1), 4))
+  )
+}
+
+#' The parish table (page 10): two parish/award/amount triples per line
+la_rccb_parishes <- function(runs = NULL) {
+  if (is.null(runs)) runs <- la_rccb_runs()
+  ln <- la_rccb_lines(runs, 10)
+  rows <- Filter(function(v) length(v) == 6L && grepl("^\\d+$", v[2]) &&
+                   grepl("^\\$[0-9,]+$", v[3]), ln)
+  dplyr::bind_rows(lapply(rows, function(v) tibble::tibble(
+    parish = v[c(1, 4)], awards = as.integer(v[c(2, 5)]),
+    amount = la_money(v[c(3, 6)]))))
+}
+
+#' EVERYTHING THE DECK STATES ABOUT THE RCCB ROUND, CLOSED ON ITSELF
+#'
+#' Four independent closures, none arranged by this file: the facility table
+#' sums to its own Total line; the three hospital types sum to the deck's
+#' "Hospital settings" figure and the other three to "Clinic and outpatient
+#' settings"; the five named awards sum to the table's own printed Total; and
+#' the parish table (the 48 single-home-parish awards) plus the five named
+#' multi-parish awards is the whole round, to the dollar. Plus provenance: the
+#' deck is LDH's RHTP update, its footer is the Tier 1 allotment (WEAK form,
+#' corroborating the amount only, §0.2), the solicitation closed after the NOA,
+#' and the RCCB is one of the seven solicitations LDH's funding page carries.
+la_assert_rccb_award <- function(txt = NULL, runs = NULL, funding = NULL,
+                                 programme = NULL) {
+  if (is.null(txt)) txt <- la_rccb_text()
+  if (is.null(runs)) runs <- la_rccb_runs()
+  if (is.null(funding)) funding <- la_html_text("funding")
+  if (is.null(programme)) programme <- la_html_text("programme")
+  S <- LA_RCCB_STATED
+  money <- function(x) format(x, big.mark = ",", scientific = FALSE, trim = TRUE)
+
+  for (need in c("Rural Health Transformation Program Updates",
+                 "Rural Clinician Credit Bank", S$as_of,
+                 paste0("Awards made", S$awards),
+                 paste0("Amount awarded$", money(S$awarded)),
+                 paste0("CEAs due for signature", S$cea_due),
+                 "Application close6/25/26",
+                 paste0("Ceiling applied per multi-entity system$",
+                        money(S$multi_entity_ceiling)),
+                 paste0(S$single_parish, " awards with a single home parish"),
+                 "5 multi-parish awardees",
+                 paste0("financial assistance award totaling ", S$footer_amount))) {
+    if (!stringr::str_detect(txt, stringr::fixed(need))) {
+      stop("[LA] LDH's September 2026 deck no longer reads '", need, "'. The ",
+           "RCCB award file rests on it.", call. = FALSE)
+    }
+  }
+
+  # PROVENANCE. The footer is "This project supported by" -- session 27's WEAK
+  # form -- and its figure IS the allotment, so it is Tier 1 and corroborates
+  # nothing about the RCCB except that the deck is LDH's RHTP publication.
+  rhtp_assert_footer_not_allotment(la_money(S$footer_amount), "LA",
+                                   "STATE_ALLOTMENT",
+                                   label = "LDH's September 2026 deck footer")
+  if (!stringr::str_detect(funding, stringr::fixed(
+        "Strategic Funding Opportunity Title: Rural Clinician Credit Bank"))) {
+    stop("[LA] the funding page no longer lists the Rural Clinician Credit Bank ",
+         "among its RHTP solicitations. That is what ties the deck's awards to ",
+         "one of LDH's seven Budget Year 1 opportunities.", call. = FALSE)
+  }
+  if (!stringr::str_detect(programme, stringr::fixed("September 3, 2026"))) {
+    stop("[LA] the programme page no longer lists the 'September 3, 2026' ",
+         "webinar whose slides this file reads.", call. = FALSE)
+  }
+  if (S$application_close <= la_noa_anchor()) {
+    stop("[LA] the RCCB application close no longer postdates the NOA.",
+         call. = FALSE)
+  }
+
+  ft <- la_rccb_facility_types(runs)
+  tot <- ft[ft$facility_type == "Total", ]
+  ft  <- ft[ft$facility_type != "Total", ]
+  if (nrow(ft) != 6L || nrow(tot) != 1L ||
+      sum(ft$awards) != S$awards || sum(ft$amount) != S$awarded ||
+      tot$awards != S$awards || tot$amount != S$awarded) {
+    stop("[LA] the facility-type table no longer closes on 53 awards / ",
+         "$12,701,996.", call. = FALSE)
+  }
+  hosp <- ft[ft$facility_type %in% LA_RCCB_HOSPITAL_TYPES, ]
+  if (nrow(hosp) != 3L || sum(hosp$awards) != S$hospital_awards ||
+      sum(hosp$amount) != S$hospital_amount ||
+      !stringr::str_detect(txt, stringr::fixed(paste0(
+        S$hospital_awards, " awards · $", money(S$hospital_amount))))) {
+    stop("[LA] the three hospital facility types no longer sum to the deck's ",
+         "'Hospital settings 20 awards $6,285,515'.", call. = FALSE)
+  }
+  clin <- ft[!ft$facility_type %in% LA_RCCB_HOSPITAL_TYPES, ]
+  if (sum(clin$awards) != S$clinic_awards || sum(clin$amount) != S$clinic_amount) {
+    stop("[LA] the other three facility types no longer sum to 'Clinic and ",
+         "outpatient settings 33 awards $6,416,481'.", call. = FALSE)
+  }
+
+  nm <- la_rccb_named(runs)
+  if (nrow(nm) != S$named_awards || sum(nm$amount) != S$named_total ||
+      nm$printed_total[1] != S$named_total) {
+    stop("[LA] the 'Multi-parish awardees' table no longer names five ",
+         "awardees summing to its own printed $1,965,788.", call. = FALSE)
+  }
+  pa <- la_rccb_parishes(runs)
+  if (sum(pa$awards) != S$single_parish ||
+      sum(pa$amount) != S$single_parish_total) {
+    stop("[LA] the parish table no longer carries 48 awards / $10,736,208.",
+         call. = FALSE)
+  }
+  if (S$single_parish + nrow(nm) != S$awards ||
+      S$single_parish_total + sum(nm$amount) != S$awarded) {
+    stop("[LA] the 48 unnamed single-parish awards plus the five named ",
+         "multi-parish awards no longer make the whole round.", call. = FALSE)
+  }
+  invisible(list(named = nm, facility = ft, parishes = pa))
+}
+
+#' The Louisiana award file: five named RCCB awards and ONE unnamed aggregate
+rhtp_la_year1_awardees <- function(runs = NULL) {
+  if (!exists("rhtp_classify_recipient_type")) {
+    source(here::here("R", "utils_recipient_classification.R"))
+  }
+  if (is.null(runs)) runs <- la_rccb_runs()
+  nm <- la_rccb_named(runs)
+  S  <- LA_RCCB_STATED
+  title <- "Rural Health Transformation Program Updates -- September 2026 (LDH stakeholder webinar, 2026-09-03)"
+  desc  <- paste("Rural Clinician Credit Bank: recruitment and retention of",
+                 "clinicians in rural healthcare settings")
+
+  machine <- rhtp_classify_recipient_type(nm$awardee, state_code = "LA")
+
+  # "Outpatient Medical Center" hits §8's "Medical Center" token and the
+  # classifier answers HOSPITAL_OR_SYSTEM at HIGH. It is REFUSED -- sent to the
+  # standing fallback, where an undetermined form belongs (Michigan's
+  # parenthesis override, session 27) -- because the name's own first word
+  # says OUTPATIENT, LDH's own deck sorts its awards into "Hospital settings"
+  # and "Clinic and OUTPATIENT settings", and no source states this
+  # recipient's form. Keeping the machine's answer would put $292,500 into
+  # NAMED_HOSPITAL on a token the name itself contradicts; refusing it is
+  # one-directional and queued. Nothing is PROMOTED here, and nothing is
+  # demoted on this pipeline's private knowledge: the reason is on the page.
+  refuse <- nm$awardee %in% "Outpatient Medical Center"
+  rtype  <- ifelse(refuse, "NONPROFIT_CBO", machine$recipient_type)
+  conf   <- ifelse(refuse, "LOW", machine$determination_confidence)
+  if (any(rtype %in% c("HOSPITAL_OR_SYSTEM", "HOSPITAL_AFFILIATED_ENTITY"))) {
+    stop("[LA] a named RCCB awardee now types as a hospital: ",
+         paste(nm$awardee[rtype %in% c("HOSPITAL_OR_SYSTEM",
+                                       "HOSPITAL_AFFILIATED_ENTITY")],
+               collapse = "; "),
+         ". LDH states no awardee's form; re-read before letting a name ",
+         "rule move a dollar into NAMED_HOSPITAL.", call. = FALSE)
+  }
+  flow <- rhtp_classify_flow(rtype, rep(desc, length(rtype)))
+
+  source_note <- ifelse(
+    refuse,
+    paste0("§8's shared classifier returns '", machine$recipient_type,
+           "' at ", machine$determination_confidence, " on the 'Medical ",
+           "Center' token. REFUSED and sent to §8's standing fallback: the ",
+           "name's own first word is 'Outpatient', LDH's deck groups ",
+           "awards into 'Hospital settings' and 'Clinic and outpatient ",
+           "settings', and no source states this recipient's form. The ",
+           "machine answer is kept here so the refusal is auditable and ",
+           "reversible."),
+    paste0("§8's shared classifier: '", machine$recipient_type, "' at ",
+           machine$determination_confidence, ". LDH names this recipient and ",
+           "states nothing about its form."))
+
+  ochsner_note <- paste(
+    "LDH's deck prints 'Ceiling applied per multi-entity system $1,500,000'",
+    "and this is the only $1,500,000 award, so LDH is describing this",
+    "awardee as a MULTI-ENTITY SYSTEM whose request was capped. It does not",
+    "say what kind of system, and it is NOT typed as a hospital here (§0.4);",
+    "queued.")
+
+  named <- tibble::tibble(
+    state = "LA",
+    row_no = seq_len(nrow(nm)),
+    awardee = nm$awardee,
+    amount = nm$amount,
+    recipient_type = rtype,
+    distributed_to_hospital = flow$distributed_to_hospital,
+    note = paste0(
+      "Rural Clinician Credit Bank, Year 1. One of LDH's five named ",
+      "'Multi-parish awardees' (", nm$parishes, " parishes), $",
+      format(nm$amount, big.mark = ",", scientific = FALSE, trim = TRUE),
+      ", as of 8/28/26. CEAs were due for signature 9/15/26, so this is an ",
+      "award LDH reports as made whose agreement was not yet executed.",
+      ifelse(nm$awardee == "Ochsner Clinic Foundation",
+             paste0(" ", ochsner_note), ""),
+      ifelse(nm$awardee == "SR Minden, Southern Roots",
+             paste0(" LDH prints this as ONE awardee string with ONE amount; ",
+                    "Stage 2 flags it MULTI_RECIPIENT_FIELD, but it is one ",
+                    "award and is not split (§6.2)."), "")),
+    recipient_confirmed = "Yes",
+    amount_confirmed = "No",
+    fiscal_year = "FY2026 (Year 1)",
+    source_document_title = title,
+    state_source_url = LA_RCCB_URL,
+    validation_source_type = "NOTICE_OF_INTENT_TO_AWARD",
+    extraction_method = "DIRECT_TEXT",
+    validator = "R/03ae_la_year1_probe.R",
+    ccn = NA_character_, aha_id = NA_character_,
+    rural_designation = NA_character_, reviewer = NA_character_,
+    awardee_as_published = nm$awardee,
+    parishes_served = nm$parishes,
+    recipient_type_source = source_note,
+    determination_confidence = conf,
+    flag_reason = ifelse(rtype == "NONPROFIT_CBO" & conf == "LOW",
+                         "RECIPIENT_TYPE_INFERRED", NA_character_),
+    award_pool = "Rural Clinician Credit Bank",
+    budget_period = "Budget Year 1",
+    flow_type = flow$flow_type,
+    hospital_benefiting = flow$hospital_benefiting,
+    hospital_attribution = "NOT_HOSPITAL",
+    intermediary_name = NA_character_,
+    determination_basis = paste0(
+      "LDH's September 3, 2026 stakeholder deck, slide 'Awards across 28 ",
+      "parishes', table 'Multi-parish awardees', names this recipient and ",
+      "prints its award; the round is 'Awards made 53 ... Amount awarded ",
+      "$12,701,996 ... As of 8/28/26'. recipient_confirmed = Yes, ",
+      "amount_confirmed = No because the CEAs were 'due for signature ",
+      "9/15/26' (Maryland's offers, Wyoming's approvals). LDH states no ",
+      "recipient's organisational form and no facility type for any named ",
+      "awardee, so the type is §8's standing fallback and the row is ",
+      "distributed_to_hospital = ", flow$distributed_to_hospital,
+      "; the uncertainty is one-directional and queued, and nothing is ",
+      "promoted on this pipeline's own knowledge (§0.4)."),
+    amount_basis = "STATED_PER_RECIPIENT",
+    round_awards = NA_integer_,
+    round_amount = NA_real_,
+    recipient_class = NA_character_,
+    as_of_date = as.Date("2026-08-28"),
+    announcement_date = S$webinar_date,
+    source_archive_path = LA_RCCB_ARCHIVE
+  )
+
+  agg <- tibble::tibble(
+    state = "LA",
+    row_no = nrow(nm) + 1L,
+    awardee = paste("48 Rural Clinician Credit Bank awards (single home parish)",
+                    "- recipient names not published"),
+    amount = NA_real_,
+    recipient_type = "NOT_YET_NAMED",
+    distributed_to_hospital = "Unclear",
+    note = paste(
+      "LDH reports 53 RCCB awards and names five. The other 48 are counted in",
+      "its 'Parishes by dollars awarded' table (48 awards with a single home",
+      "parish, 20 parish lines summing to $10,736,208) and NAMED NOWHERE (§0.3:",
+      "a count is not a list). The round's facility split is 20 'Hospital",
+      "settings' awards / $6,285,515 (8 small rural hospitals $3,291,553; 11",
+      "critical access hospitals $2,948,962; 1 rural emergency hospital",
+      "$45,000) and 33 'Clinic and outpatient settings' / $6,416,481 -- but",
+      "LDH never says which type any named awardee is, so between 15 and 20",
+      "of THESE 48 are hospital-setting awards and the row cannot be split",
+      "by class without imputing."),
+    recipient_confirmed = "No",
+    amount_confirmed = "No",
+    fiscal_year = "FY2026 (Year 1)",
+    source_document_title = title,
+    state_source_url = LA_RCCB_URL,
+    validation_source_type = "NOTICE_OF_INTENT_TO_AWARD",
+    extraction_method = "DIRECT_TEXT",
+    validator = "R/03ae_la_year1_probe.R",
+    ccn = NA_character_, aha_id = NA_character_,
+    rural_designation = NA_character_, reviewer = NA_character_,
+    awardee_as_published = NA_character_,
+    parishes_served = NA_integer_,
+    recipient_type_source = paste(
+      "LDH names none of these 48 recipients. It states a facility-type split",
+      "for the whole round of 53 and not for these 48."),
+    determination_confidence = "LOW",
+    flag_reason = "RECIPIENT_NAMES_NOT_CAPTURED",
+    award_pool = "Rural Clinician Credit Bank",
+    budget_period = "Budget Year 1",
+    flow_type = "PASS_THROUGH_UNRESOLVED",
+    hospital_benefiting = "Yes",
+    hospital_attribution = "NOT_HOSPITAL",
+    intermediary_name = NA_character_,
+    determination_basis = paste(
+      "South Dakota's aggregate-round device, for South Dakota's reason: a",
+      "MIXED recipient class with no names. §7 codes a page that 'names no",
+      "recipients' Unclear, mechanically. It is NOT Georgia's",
+      "surgical-robotics row (a stated all-hospital class coded Yes): LDH's",
+      "hospital-setting figure (20 awards / $6,285,515) is a split of the",
+      "WHOLE round of 53, the five named multi-parish awardees are inside it",
+      "in facility types LDH does not disclose, and a hospital-only aggregate",
+      "row would therefore overlap the named rows by up to five awards and",
+      "$1,965,788 with no way to resolve it from the document. And it is NOT",
+      "POOL_UNNAMED_HOSPITALS: that code is Illinois's executed award to a",
+      "pass-through INTERMEDIARY restricted to hospitals, and there is no",
+      "intermediary here and no hospitals-only class. This row therefore",
+      "enters no hospital bucket; hospital_benefiting = Yes because LDH says",
+      "at least 15 of these 48 awards are to hospital settings. 'Facility",
+      "type' is LDH's description of the funded facility, which is not",
+      "necessarily the legal recipient (§0.3a) -- a second reason not to read",
+      "it as a recipient count. `amount` is deliberately EMPTY and the",
+      "$10,736,208 is in round_amount, so no sum over `amount` can read it as",
+      "a per-recipient figure (§6.2); it is LDH's own parish table summed,",
+      "and it equals $12,701,996 - $1,965,788 to the dollar."),
+    amount_basis = "ROUND_TOTAL_NOT_PER_RECIPIENT",
+    round_awards = S$single_parish,
+    round_amount = S$single_parish_total,
+    recipient_class = paste(
+      "Mixed: of the full round of 53, 20 hospital-setting awards / $6,285,515",
+      "and 33 clinic/outpatient-setting / $6,416,481; of these 48, between 15",
+      "and 20 are hospital-setting (LDH does not map the named five)."),
+    as_of_date = as.Date("2026-08-28"),
+    announcement_date = S$webinar_date,
+    source_archive_path = LA_RCCB_ARCHIVE
+  )
+
+  dplyr::bind_rows(named, agg)
+}
+
+#' The award file's own invariants
+la_assert_award_file <- function(awards = NULL) {
+  if (is.null(awards)) {
+    path <- here::here(LA_AWARDS_CSV)
+    if (!file.exists(path)) {
+      stop("[LA] ", LA_AWARDS_CSV, " is missing. Louisiana has awarded the ",
+           "Rural Clinician Credit Bank (session 64); run --build.",
+           call. = FALSE)
+    }
+    awards <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE,
+                              col_types = readr::cols(.default = "c"))
+  }
+  num <- function(x) suppressWarnings(as.numeric(x))
+  S <- LA_RCCB_STATED
+  if (nrow(awards) != S$named_awards + 1L) {
+    stop("[LA] the award file has ", nrow(awards), " rows; it should be five ",
+         "named awards and ONE unnamed aggregate. A new row means LDH named ",
+         "more of the 48 -- re-read the source, and move those awards out of ",
+         "the aggregate rather than adding beside it.", call. = FALSE)
+  }
+  if (sum(num(awards$amount), na.rm = TRUE) != S$named_total) {
+    stop("[LA] sum(amount) is no longer the five named awards' $1,965,788.",
+         call. = FALSE)
+  }
+  agg <- awards[awards$recipient_type == "NOT_YET_NAMED", ]
+  if (nrow(agg) != 1L || !is.na(num(agg$amount)) ||
+      num(agg$round_amount) != S$single_parish_total ||
+      as.integer(agg$round_awards) != S$single_parish) {
+    stop("[LA] the unnamed aggregate must be ONE row with an EMPTY amount and ",
+         "$10,736,208 / 48 awards in round_amount / round_awards (§6.2).",
+         call. = FALSE)
+  }
+  if (num(agg$round_amount) + sum(num(awards$amount), na.rm = TRUE) !=
+      S$awarded) {
+    stop("[LA] named amounts plus the aggregate's round_amount no longer ",
+         "equal the round's $12,701,996.", call. = FALSE)
+  }
+  if (any(awards$distributed_to_hospital == "Yes")) {
+    stop("[LA] a Louisiana row is distributed_to_hospital = Yes. LDH names no ",
+         "hospital; a Yes here would be a hospital row with no hospital ",
+         "named on it.", call. = FALSE)
+  }
+  vocab_of <- c(recipient_type = "recipient_type",
+                distributed_to_hospital = "distributed_to_hospital",
+                flow_type = "flow_type",
+                hospital_attribution = "hospital_attribution",
+                hospital_benefiting = "hospital_benefiting",
+                determination_confidence = "determination_confidence",
+                validation_source_type = "source_doc_type",
+                extraction_method = "extraction_method",
+                recipient_confirmed = "recipient_confirmed",
+                amount_confirmed = "amount_confirmed")
+  for (col in names(vocab_of)) {
+    bad <- setdiff(stats::na.omit(awards[[col]]), rhtp_vocabulary(vocab_of[[col]]))
+    if (length(bad)) {
+      stop("[LA] ", col, " carries values outside §8: ",
+           paste(bad, collapse = ", "), call. = FALSE)
+    }
+  }
+  fl <- unlist(strsplit(stats::na.omit(awards$flag_reason), ";"))
+  bad <- setdiff(fl, rhtp_vocabulary("flag_reason"))
+  if (length(bad)) {
+    stop("[LA] flag_reason carries values outside §8: ",
+         paste(bad, collapse = ", "), call. = FALSE)
+  }
+  if (any(!nzchar(awards$determination_basis))) {
+    stop("[LA] every row needs a determination_basis (§7).", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' The status table stays a STATUS table: no amount column
+la_assert_status_has_no_amount <- function() {
+  path <- here::here(LA_STATUS_CSV)
+  if (file.exists(path)) {
+    cols <- names(readr::read_csv(path, n_max = 0, show_col_types = FALSE))
+    bad  <- intersect(cols, c("amount", "round_amount", "amount_announced"))
+    if (length(bad)) {
+      stop("[LA] la_year1_status.csv carries an amount column (",
+           paste(bad, collapse = ", "), "). It is a STATUS table; the RCCB ",
+           "money lives in la_year1_awardees.csv, and two files claiming one ",
+           "figure is how a figure gets counted twice.", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+
 # -- build / report -----------------------------------------------------------
 
 rhtp_la_build <- function() {
@@ -1351,23 +1908,32 @@ rhtp_la_build <- function() {
   readr::write_csv(dispo, here::here(LA_DISPO_CSV), na = "")
   message("[LA] wrote ", nrow(dispo), " disposition rows -> ", LA_DISPO_CSV)
 
-  la_assert_no_award_file()
-  invisible(list(status = status, disposition = dispo))
+  awards <- rhtp_la_year1_awardees()
+  la_assert_award_file(awards %>% dplyr::mutate(dplyr::across(
+    dplyr::everything(), as.character)))
+  readr::write_csv(awards, here::here(LA_AWARDS_CSV), na = "")
+  message("[LA] wrote ", nrow(awards), " award rows -> ", LA_AWARDS_CSV)
+  la_assert_award_file()
+
+  la_assert_status_has_no_amount()
+  invisible(list(status = status, disposition = dispo, awards = awards))
 }
 
 rhtp_la_report <- function() {
   cyc   <- la_deck_funding_cycle()
   cands <- la_deck_candidates()
 
-  cat("\nLOUISIANA -- RHTP Year 1. A NEGATIVE, AND SEVEN WINDOWS HAVE CLOSED.\n")
+  cat("\nLOUISIANA -- RHTP Year 1. ONE OF SEVEN AWARDED (RCCB); SIX STILL PENDING.\n")
   cat(strrep("-", 74), "\n")
   cat("  Allotment (§7.1)        $", format(la_allotment_anchor(), big.mark = ","),
       "\n", sep = "")
-  cat("  Recipient-level roster   NONE. BUT (session 63) LDH's 2026-09-09 deck\n")
+  cat("  Recipient-level roster   PARTIAL (session 64). LDH's September 3 deck\n")
   cat("                           reports 53 Rural Clinician Credit Bank awards,\n")
-  cat("                           $12,701,996, and NAMES FIVE -- see the\n")
-  cat("                           disposition. Not extracted.\n")
-  cat("  Named hospital dollars   $0.   Named hospital rows: 0.\n\n")
+  cat("                           $12,701,996 as of 8/28/26, and NAMES FIVE\n")
+  cat("                           ($1,965,788). la_year1_awardees.csv: 5 named\n")
+  cat("                           rows + 1 aggregate (48 unnamed, $10,736,208).\n")
+  cat("  Hospital settings        20 awards / $6,285,515 -- NONE NAMED, so no\n")
+  cat("                           hospital bucket. Named hospital rows: 0.\n\n")
 
   cat("  LDH's own 'IMPORTANT DATES - BUDGET YEAR 1', and the deck's slide 18:\n\n")
   norm <- function(x) tolower(stringr::str_remove_all(x, "[^A-Za-z]"))
@@ -1505,8 +2071,8 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
       state = "LA")
   }
 
-  message("[LA] the award tripwires pass against the LIVE bytes: Louisiana ",
-          "has not published a recipient-level RHTP award roster.")
+  message("[LA] the award tripwires pass against the LIVE bytes: no watched ",
+          "page carries a roster beyond the RCCB deck's five named awards.")
   # WHICH PAGES MOVED, not merely that the tripwires passed. This returned
   # `invisible(TRUE)` until session 46, and `rhtp_probe_log()` cannot tell a
   # success sentinel from a changed flag -- so the watch log recorded Louisiana
@@ -1526,6 +2092,8 @@ if (sys.nframe() == 0L) {
     rhtp_la_assert()
     la_assert_candidates_are_deck_activities()
     la_assert_capital_row_dropped()
+    la_assert_rccb_rows_are_ldh_awards()
+    la_assert_award_file()
     message("[LA] all assertions pass.")
   }
   if ("--build" %in% args)    rhtp_la_build()
