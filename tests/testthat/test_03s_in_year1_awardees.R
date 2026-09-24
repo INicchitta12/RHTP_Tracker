@@ -167,9 +167,15 @@ test_that("the §6.2 negative control is a trailer and carries no RHTP", {
   txt <- in_award_text("control_87613")
   expect_true(grepl("Hydraulic", txt, fixed = TRUE))
   expect_false(grepl("Rural Health Transformation", txt, fixed = TRUE))
-  # RCJ nonetheless labels it RHTP -- that is the §0.1 finding.
+  # RCJ labelled it RHTP on the 08-27 pull -- the §0.1 finding -- and the
+  # 2026-09-24 pull WITHDREW that record. It is a finding about 08-27.
   cands <- in_rcj_candidates()
-  expect_true(any(grepl("Trail Trailer Purchase RHTP", cands$source_doc_title)))
+  expect_false(any(grepl("Trail Trailer Purchase RHTP", cands$source_doc_title)))
+  all_rt <- rhtp_record_table_live(include_withdrawn = TRUE)
+  tr <- all_rt[all_rt$state == "IN" &
+                 grepl("Trail Trailer Purchase RHTP", all_rt$source_doc_title), ]
+  expect_gt(nrow(tr), 0L)
+  expect_true(all(tr$change_status == "WITHDRAWN"))
 })
 
 
@@ -200,12 +206,21 @@ test_that("a fifth RHTP row on the register fails the control", {
 
 # -- §0.3, the two traps ------------------------------------------------------
 
-test_that("Regional Grants has NOT awarded, and the page still says so", {
-  expect_silent(in_assert_regional_not_awarded())
-  txt <- in_html_text("grow_regional")
-  expect_true(grepl(IN_REGIONAL_LAUNCH_SENTENCE, txt, fixed = TRUE))
-  # The launch date is in the future relative to the build.
-  expect_true(IN_REGIONAL_LAUNCH_DATE > as.Date("2026-08-31") - 1)
+test_that("Regional Grants HAS awarded (2026-09-03), and is extracted in R/03bi", {
+  expect_silent(in_assert_regional_awarded())
+  expect_false(exists("in_assert_regional_not_awarded"))
+  # WHY THE OLD NEGATIVE WAS RETIRED: the re-read page still carries every
+  # pre-award sentence it keyed on, BESIDE the new roster, so it could not
+  # fail. A negative keyed on a sentence being present cannot see an award
+  # being added.
+  now <- in_html_text_raw_path(IN_REGIONAL_RECHECK)
+  expect_true(grepl(IN_REGIONAL_LAUNCH_SENTENCE, now, fixed = TRUE))
+  expect_true(grepl("RFF Applications submitted July 1", now, fixed = TRUE))
+  expect_true(grepl("nearly 200 subrecipients have been selected", now, fixed = TRUE))
+  # The seven vendors and the regional roster never merge.
+  g <- readr::read_csv(IN_GROW_REGIONAL_CSV, show_col_types = FALSE)
+  expect_equal(nrow(g), 186L)
+  expect_false(any(IN_TEST_AWARDS$awardee %in% g$awardee))
 })
 
 test_that("committee hospitals are named on the page and in NO award row", {
@@ -233,24 +248,51 @@ test_that("the seven proposers are applicants and only one was selected", {
 
 # -- §0.1, the disposition ----------------------------------------------------
 
-test_that("the RCJ disposition closes at 37 and is derived, not typed", {
+test_that("the RCJ disposition closes at 214 on the 2026-09-24 pull and is derived", {
   expect_silent(in_assert_rcj_disposition())
   disp <- in_rcj_disposition()
   expect_equal(sum(disp$rcj_rows), nrow(in_rcj_candidates()))
-  expect_equal(sum(disp$rcj_rows), 37L)
-  expect_equal(disp$rcj_rows[disp$disposition == "RHTP_SUBAWARD"], 6L)
-  expect_equal(sum(disp$rcj_rows[disp$disposition ==
-                                   "NOT_RHTP_STATE_PROCUREMENT"]), 30L)
+  expect_equal(sum(disp$rcj_rows), 214L)
+  n <- stats::setNames(disp$rcj_rows, disp$group)
+  expect_equal(unname(n["GROW Regional Grants recipients"]), 185L)
+  expect_equal(unname(n["GROW region totals carried as awardees"]), 2L)
+  expect_equal(disp$rcj_rows[disp$disposition == "RHTP_SUBAWARD"], 7L)
+  expect_equal(sum(disp$rcj_rows[disp$disposition == "NOT_RHTP_STATE_PROCUREMENT"]), 19L)
   expect_equal(disp$rcj_rows[disp$disposition == "RHTP_BUT_NOT_A_SUBAWARD"], 1L)
+  expect_false(anyNA(disp$disposition))
+  expect_silent(rhtp_assert_disposition_prose(disp, "IN"))
 })
 
-test_that("RCJ misses the two awards whose titles never say RHTP", {
+test_that("the groups COVER the live set: an unread candidate cannot be absorbed", {
+  cands <- in_rcj_candidates()
+  expect_equal(length(in_rcj_groups(cands)), nrow(cands))
+  # Every GROW candidate lands on a row of in_grow_regional_awardees.csv, by
+  # exact (region, name) or the ONE hand-read rename -- and a new spelling fails.
+  j <- in_rcj_grow_join(cands)
+  expect_true(all(j$rcj$in_file))
+  expect_equal(sum(j$rcj$page_name != j$rcj$awardee_name_clean), 1L)
+  expect_equal(j$page_rows_not_in_rcj$awardee,
+               "Putnam County Emergency Medical Services (EMS) - Mobile Integrated Health (MIH) Program")
+  expect_true(all(j$rcj$amount_announced == 1))
+  bad <- cands
+  bad$awardee_name_clean[bad$awardee_name_clean == "Woodlawn Hospital"] <- "Woodlawn Hosp."
+  expect_false(all(in_rcj_grow_join(bad)$rcj$in_file))
+})
+
+test_that("RCJ now holds Concourse and still misses Deloitte", {
   cands <- in_rcj_candidates()
   expect_false(any(grepl("Deloitte", cands$awardee_name_clean, ignore.case = TRUE)))
-  expect_false(any(grepl("Concourse", cands$awardee_name_clean, ignore.case = TRUE)))
-  # But this file publishes both.
+  expect_true(any(grepl("Concourse", cands$awardee_name_clean, ignore.case = TRUE)))
+  # The file publishes both, and keeps Concourse's amount EMPTY: RCJ's
+  # $809,500 is on no archived state document (§0.1).
   expect_true(any(grepl("Deloitte", IN_TEST_AWARDS$awardee)))
-  expect_true(any(grepl("Concourse", IN_TEST_AWARDS$awardee)))
+  expect_true(is.na(IN_TEST_AWARDS$amount[grepl("Concourse", IN_TEST_AWARDS$awardee)]))
+})
+
+test_that("the region totals RCJ carries as awardees are the page's own figures", {
+  cands <- in_rcj_candidates()
+  reg <- cands[in_rcj_groups(cands) == "GROW region totals carried as awardees", ]
+  expect_setequal(reg$amount_announced, c(15200000, 13000000))
 })
 
 test_that("Indiana Community Connect is a BUDGET LINE, not an award", {
