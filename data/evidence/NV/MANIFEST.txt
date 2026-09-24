@@ -11,13 +11,38 @@ credential guard that caught CMS's Mapbox token, Illinois's and Oregon's,
 and Kansas's Google Maps key runs on every fetch here and finds nothing,
 so there is no reduction to explain and the pages are whole.
 
-THE ROSTER IS `..._rht_funded_projects_bp1.html`. Three accordion
-sections, one per awarded pool, each a Subrecipient/Project/County-Service
-Area table: 25 + 27 + 20 = 72 named award actions AND NO AMOUNT ANYWHERE
-ON THE PAGE. That absence is the finding, not a fetch failure, and it is
+THE ROSTER IS `2026-09-24_nv_rht_funded_projects_bp1.html` (session 64).
+SEVEN accordion sections, one per awarded pool, each a Subrecipient/
+Project/Service-Area table: Flex 39, WRRAP Recruitment and Retention 26,
+Apprenticeship and Training 20, Medical Residency 4, Rural Health
+Innovation and Technology 24, Rural Health Outcomes Accelerator 36,
+Tribal 6 = 155 named award actions AND NO AMOUNT ANYWHERE ON THE PAGE.
+It was fetched READ-ONLY by session 63 with curl (user-agent
+'RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)')
+into data/evidence/recheck/2026-09-24/NV/, and copied here byte for byte;
+its digest below equals the digest recorded there. A live in-memory read
+on 2026-09-24 reduced to identical text, so it is the probe's baseline.
+
+`2026-08-31_nv_rht_funded_projects_bp1.html` IS THE PRIOR SNAPSHOT OF THE
+SAME URL and is FROZEN: three sections, 25 + 27 + 20 = 72 award actions.
+Rows 1..72 of nv_year1_awardees.csv are parsed from it, in its order, and
+it is the only evidence that NVHA once listed '93 X 95 NV' (Recruitment
+and Retention), which the 2026-09-24 page no longer carries.
+
+The absence of amounts is the finding, not a fetch failure, and it is
 corroborated by `..._rhtsc_program_fiscal_update.pdf`, whose own
 'Flex Funds - Funded Projects' slides list the same recipients under the
 same three column headings and also carry no amounts.
+
+THE ROSTER PAGE'S WHOLE-FILE DIGEST IS NOT STABLE AND MUST NOT BE USED
+AS A CHANGE TEST. Its footer carries a rotating "state symbol" widget --
+two fetches minutes apart served the Lahontan Cutthroat Trout and the
+Vivid Dancer Damselfly -- so the page digest differs on EVERY fetch while
+nothing about the awards has moved. The roster TABLES are stable and
+hash identically across those same fetches, so `nv_roster_digest()` is
+what a completeness re-check compares. This is the South Dakota
+ServiceNow-token problem in a new costume: a reader verifying the page
+digest gets a mismatch that means nothing.
 
 `..._cms_notice_of_award_rhtcms332074-01-02.pdf` IS THE FEDERAL AWARD
 DOCUMENT. Recipient 'Nevada Health Authority', Assistance Listing 93.798
@@ -37,10 +62,11 @@ DOCUMENT CARRIES THE CMS FINANCIAL-ASSISTANCE FOOTER ON EVERY PAGE while
 two of the three programmes it describes are state-funded, which is why
 the footer alone is not a provenance test.
 
-Fetched: 2026-08-31
+Manifest written: 2026-09-24. Each file's fetch date is the date in its name; nothing was re-fetched to write this.
 
 file                                                                bytes  sha256
 ------------------------------------------------------------------------------------------------------------------------------------------
+2026-09-24_nv_rht_funded_projects_bp1.html                         505894  72ace8b7a70592acefbf37955c398cbbe187613afcfe979d0d75ca49861fed96
 2026-08-31_nv_rht_funded_projects_bp1.html                         401124  7d6116b0052f1b91f26204f97da750aa090610237477494c14f68c39ef8d5b45
 2026-08-31_nv_rht_nofos.html                                        61765  97d5ed6179aab2136060a6648b66fb23ccb2dbb9685c6a49a54b9fb0f3b9729f
 2026-08-31_nv_rhtp_about.html                                       48806  de248fd16e73e369569cf95f01cc6494bf470246241b4f805ac107f65a656670
@@ -56,6 +82,7 @@ file                                                                bytes  sha25
 
 Source URLs
   roster         https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
+  roster_prior   https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
   nofos          https://www.nvha.nv.gov/RHTP/rht-nofos/
   about          https://www.nvha.nv.gov/RHTP/rhtp-about
   rhtsc          https://www.nvha.nv.gov/RHTP/rhtsc
