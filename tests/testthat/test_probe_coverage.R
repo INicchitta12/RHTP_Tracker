@@ -129,3 +129,29 @@ test_that("the counterfactual: the pre-fix Routines fail this check", {
                                routines = r),
     "NY 2026-09-20 11:10Z")
 })
+
+test_that("an explained gap is a committed diagnosis, never a blanket pass (session 65)", {
+  g <- rhtp_read_probe_gaps()
+  # WA's 2026-09-24 10:10Z firing is the first explained miss, and it is still
+  # a miss: the coverage table reports it NOT logged.
+  expect_true(any(g$state == "WA" &
+                    format(g$scheduled, "%Y-%m-%dT%H:%M") == "2026-09-24T10:10"))
+  cov <- rhtp_assert_probe_coverage(rhtp_probe_coverage_as_of_log())
+  wa <- cov[cov$state == "WA" &
+              format(cov$scheduled, "%Y-%m-%dT%H:%M") == "2026-09-24T10:10", ]
+  expect_false(wa$logged)
+  expect_true(wa$explained)
+  # a row that explains a firing which DID leave a line is refused
+  tf <- tempfile(fileext = ".csv")
+  readr::write_csv(tibble::tibble(
+    state = "SC", scheduled_utc = "2026-09-24T08:30Z",
+    trigger_id = "trig_017j3hddVSkzAAKn8esPawmR", cause = "x", evidence = "y"), tf)
+  expect_error(rhtp_assert_probe_coverage(rhtp_probe_coverage_as_of_log(),
+                                           explained = rhtp_read_probe_gaps(tf)),
+               "not missed firings")
+  # a row with no evidence is refused
+  readr::write_csv(tibble::tibble(
+    state = "WA", scheduled_utc = "2026-09-24T10:10Z",
+    trigger_id = "trig_01XkZWESmQbqfq58cKuQ84i9", cause = "503", evidence = ""), tf)
+  expect_error(rhtp_read_probe_gaps(tf), "cause AND evidence")
+})
