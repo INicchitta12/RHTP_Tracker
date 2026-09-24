@@ -1115,7 +1115,7 @@ rhtp_mo_year1_awardees <- function() {
 # -- RCJ disposition ---------------------------------------------------------
 
 mo_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(state == "MO", is.na(superseded_by),
                   award_tier == "SUBAWARD")

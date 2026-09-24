@@ -334,7 +334,7 @@ test_that("RCJ's 39 Nebraska candidates are accounted for to the cent", {
   skip_if_not(file.exists(here::here("data/interim/stage2_record_table.rds")))
   expect_true(ne_assert_rcj_disposition(ne_award_rows))
 
-  rt <- readRDS(here::here("data/interim/stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD" &
              is.na(rt$superseded_by), ]
   expect_equal(nrow(ne), 39L)
@@ -351,7 +351,7 @@ test_that("RCJ's 39 Nebraska candidates are accounted for to the cent", {
 
 test_that("RCJ holds NONE of Initiative 4.4b -- $27.7M it never saw", {
   skip_if_not(file.exists(here::here("data/interim/stage2_record_table.rds")))
-  rt <- readRDS(here::here("data/interim/stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD" &
              is.na(rt$superseded_by), ]
   b <- ne_award_rows[ne_award_rows$source_key == "noa_4_4b", ]

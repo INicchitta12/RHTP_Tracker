@@ -1563,14 +1563,13 @@ ar_status_table <- function() {
 
 #' Arkansas holds NO RCJ Tier 3 candidate at all
 ar_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>% dplyr::filter(.data$state == AR_STATE, .data$award_tier == "SUBAWARD")
 }
 
 ar_disposition <- function() {
   cand <- ar_rcj_candidates()
-  all_ar <- readRDS(here::here("data", "interim",
-                               "stage2_record_table.rds")) %>%
+  all_ar <- rhtp_record_table_live() %>%
     dplyr::filter(.data$state == AR_STATE)
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,

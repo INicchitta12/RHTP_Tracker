@@ -673,7 +673,7 @@ de_status_table <- function() {
 }
 
 de_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   de <- rt %>% dplyr::filter(.data$state == DE_STATE)
   t3 <- de %>% dplyr::filter(.data$award_tier == "SUBAWARD")
   if (nrow(t3) != 6L) {

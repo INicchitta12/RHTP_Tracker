@@ -2027,7 +2027,7 @@ wy_status_table <- function() {
 #' THE RECORD BELONGS TO. See `R/02c_state_attribution_sweep.R`, which measures
 #' it across all fifty states.
 wy_rcj_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   wy <- rt %>%
     dplyr::filter(.data$state == WY_STATE,
                   is.na(.data$superseded_by) | .data$superseded_by == "")

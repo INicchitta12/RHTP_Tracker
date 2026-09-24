@@ -183,7 +183,7 @@ SWEEP_NOTES <- c(
 )
 
 sweep_records <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(is.na(.data$superseded_by) | .data$superseded_by == "",
                   !is.na(.data$state), .data$state %in% rhtp_cms_states()$state)

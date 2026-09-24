@@ -2973,7 +2973,12 @@ rhtp_normalize_pull <- function(pull_date = Sys.Date(),
   reclassified <- attr(record_table, "reclassified")
   if (is.null(reclassified)) reclassified <- record_table[0, ]
 
-  live <- record_table %>% dplyr::filter(is.na(superseded_by))
+  # WITHDRAWN rows keep superseded_by = NA (nothing replaced them), so a
+  # superseded_by filter alone would carry a record RCJ has dropped into every
+  # derived table. On a one-pull table there are none; from the second pull
+  # on there are (session 62). Same definition as rhtp_record_table_live().
+  live <- record_table %>%
+    dplyr::filter(is.na(superseded_by), change_status != "WITHDRAWN")
   change_set <- live %>% dplyr::filter(change_status %in% c("NEW", "CHANGED"))
 
   collisions <- live %>%

@@ -268,7 +268,7 @@ rhtp_write_noa_dates <- function() {
 #' markers also match a Pennsylvania RHTP award row and Alaska's Year 1
 #' announcement; source-scoped they match nothing that is RHTP.
 rhtp_provenance_sweep <- function(records = NULL) {
-  if (is.null(records)) records <- readRDS(here::here(SWEEP_RECORD_TABLE))
+  if (is.null(records)) records <- rhtp_record_table_live(path = here::here(SWEEP_RECORD_TABLE))
 
   registry  <- rhtp_read_state_program_registry()
   patterns  <- rhtp_read_patterns("non_rhtp_patterns.csv")

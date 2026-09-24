@@ -98,7 +98,7 @@ test_that("all 53 are RCJ-invisible: the only pull predates the roster", {
   dispo <- readr::read_csv(TN_DISPO_CSV, show_col_types = FALSE)
   expect_equal(dispo$disposition[1], "NO_TIER_3")
   expect_match(dispo$note[1], "predates")
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   expect_equal(sum(rt$state == "TN" & rt$award_tier == "SUBAWARD"), 0L)
   expect_true(max(as.Date(rt$last_seen[rt$state == "TN"])) < TN_ANNOUNCED)
 })

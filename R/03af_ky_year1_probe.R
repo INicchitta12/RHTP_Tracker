@@ -665,7 +665,7 @@ ky_status_table <- function() {
 }
 
 ky_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   ky <- rt %>% dplyr::filter(.data$state == KY_STATE)
   n_t3 <- sum(ky$award_tier == "SUBAWARD")
   tibble::tribble(

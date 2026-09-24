@@ -469,7 +469,7 @@ nj_status_table <- function() {
 }
 
 nj_rcj_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   t <- rt[rt$state == NJ_STATE, ]
   aw <- jsonlite::fromJSON(here::here("data", "raw", "rcj", "2026-09-24", "awards.json"))
   aw <- if (is.data.frame(aw)) aw else aw$data

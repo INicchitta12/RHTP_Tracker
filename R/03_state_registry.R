@@ -770,7 +770,7 @@ rhtp_state_registry <- function(allotments = TRUE, worksheet = TRUE,
 
     state_sources <- readRDS(sources_path)
     records <- if (file.exists(records_path)) {
-      readRDS(records_path) %>% dplyr::filter(is.na(superseded_by))
+      rhtp_record_table_live(path = records_path)
     } else {
       NULL
     }

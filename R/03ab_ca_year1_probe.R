@@ -1038,7 +1038,7 @@ rhtp_ca_year1_status <- function() {
 # -- RCJ candidate disposition ------------------------------------------------
 
 ca_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>% dplyr::filter(state == "CA", award_tier == "SUBAWARD")
 }
 

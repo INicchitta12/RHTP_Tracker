@@ -100,7 +100,7 @@ test_that("eligibility language is not read as an award", {
 })
 
 test_that("every RCJ Texas Tier 3 candidate is accounted for, and none survives", {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   actual <- sum(rt$state == "TX" & rt$award_tier == "SUBAWARD", na.rm = TRUE)
   disp <- tx_build_disposition()
 
