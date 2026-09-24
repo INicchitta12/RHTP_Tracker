@@ -23,7 +23,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 22,ME,Maine,17,6,11,0,16,130102049,33821698,17,No,,,,190008051,EXTRACTED,RCJ_ONLY,No
 23,IA,Iowa,15,0,15,0,15,5,1,15,No,,,,209040064,EXTRACTED,RCJ_ONLY,No
 24,VT,Vermont,13,7,6,0,11,221897105.93,74720667,13,Yes,2026-09-10,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-11-7-million-expand-access-improve-patient-care-facilities-strengthen,195053740,EXTRACTED,RCJ_AND_CMS,No
-25,LA,Louisiana,12,10,2,0,12,55875789,30000000,13,No,,,,208374448,INVESTIGATED_NO_LIST,RCJ_ONLY,No
+25,LA,Louisiana,12,10,2,0,12,55875789,30000000,13,No,,,,208374448,EXTRACTED,RCJ_ONLY,No
 26,CO,Colorado,12,6,6,0,12,29129899,13093600,12,No,,,,200105604,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 27,DE,Delaware,12,1,11,0,12,14933348,11500000,18,No,,,,157394964,EXTRACTED,RCJ_ONLY,No
 28,WV,West Virginia,12,7,5,0,11,8893345,2400000,12,Yes,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,EXTRACTED,RCJ_AND_CMS,No
