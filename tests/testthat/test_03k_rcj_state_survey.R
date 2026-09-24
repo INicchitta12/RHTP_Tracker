@@ -125,7 +125,11 @@ test_that("Illinois is in the survey and its candidate is noise", {
   il <- survey[survey$state == "IL", ]
   expect_equal(il$tier3_candidates, 0L)
   expect_true(is.na(il$rcj_amount_max))
-  expect_equal(il$in_cms_announcements, "No")
+  # Session 67: in_cms_announcements is read from the live CMS list, which the
+  # CMS Routine grows. The day CMS announces Illinois this flips to "Yes" and
+  # that is the monitor working; the pin holds only while CMS has not.
+  expect_equal(il$in_cms_announcements,
+               if ("IL" %in% rhtp_survey_cms_list()$state) "Yes" else "No")
 })
 
 

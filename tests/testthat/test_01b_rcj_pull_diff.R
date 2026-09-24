@@ -12,16 +12,17 @@ test_that("fifty states, and new rows reconcile to the per-state counts", {
   expect_equal(sum(by_state$award_rows_new_id), nrow(rows))
 })
 
-test_that("EXPOSED is exactly the states on no Routine", {
+test_that("every state on no Routine is in the committed EXPOSED set", {
+  # Session 67: a SUPERSET check, not an equality. `exposed` is frozen when
+  # R/01b last built, while config/routines.csv grows every time a state goes
+  # on a Routine (sessions 61, 64 and 65 each hand-edited the old count of
+  # 18). Adding a Routine can only SHRINK exposure, so the committed set may
+  # be larger than today's; a state on no Routine that the diff does NOT call
+  # exposed means a Routine was removed or the diff is wrong, and that fails.
   r <- readr::read_csv(here::here("config", "routines.csv"), show_col_types = FALSE)
-  expect_setequal(by_state$state[by_state$exposed], setdiff(by_state$state, r$state))
-  # Session 61: 27 -> 21. DE ID OH SD TX and NJ went on Routines; session 64:
-  # 21 -> 20, Indiana (R/03bi, trig_01NZAAixvNoKcZMBKAiCUCYD). (The
-  # NEWSROOM sweep watches 18 states' newsrooms, but it is a net, not a
-  # per-state watch, so it does not take a state out of this set.)
-  # Session 65: 20 -> 18, Nebraska (trig_019qmwzbTMo9k83etPqjJV7z) and
-  # Nevada (trig_012WYj2vrKgD7oxuURp3ygCb).
-  expect_equal(sum(by_state$exposed), 18L)
+  unscheduled <- setdiff(by_state$state, r$state)
+  expect_true(all(unscheduled %in% by_state$state[by_state$exposed]))
+  expect_gt(length(unscheduled), 0L)
 })
 
 test_that("an unscheduled probe is not a watch", {
