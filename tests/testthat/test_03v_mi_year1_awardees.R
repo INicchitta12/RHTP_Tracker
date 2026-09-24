@@ -488,14 +488,17 @@ test_that("the §6.2 registry catches all eight, with no false positives", {
   # SESSION 62/63: RCJ WITHDREW all eight rows on the 2026-09-24 pull, so the
   # live sweep catches none. R/02b's own tests re-label the withdrawn rows
   # live to prove the registry entry still catches them.
-  expect_equal(mi$caught_total, 0L)
-  expect_equal(mi$caught_state_program, 0L)
+  # SESSION 64: the four live CVI rows are caught by MI-MDHHS-CVI-2026, and
+  # nothing Michigan-SUD is.
+  expect_equal(mi$caught_total, 4L)
+  expect_equal(mi$caught_state_program, 4L)
   # And none of the caught rows is one this file publishes.
   flagged <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_flagged_rows.csv"),
     show_col_types = FALSE)
   caught <- flagged[flagged$state == "MI", ]
-  expect_equal(nrow(caught), 0L)
+  expect_equal(nrow(caught), 4L)
+  expect_true(all(grepl("community violence intervention", caught$source_doc_title)))
   # NO FALSE POSITIVES: not one caught row is a Michigan award this file
   # publishes, matched on the (name, amount) PAIR because one name legitimately
   # appears on both lists.
