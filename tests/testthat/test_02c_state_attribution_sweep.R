@@ -91,7 +91,7 @@ test_that("the assertion fails if the misfiled Tier 3 set moves either way", {
 test_that("seven verdicts are RETIRED by the corpus and say why", {
   expect_equal(nrow(SWEEP_RETIRED_VERDICTS), 7L)
   expect_equal(sum(grepl("WITHDRAWN", SWEEP_RETIRED_VERDICTS$retired_because)), 3L)
-  expect_equal(sum(grepl("UT", SWEEP_RETIRED_VERDICTS$retired_because)), 4L)
+  expect_equal(sum(grepl("UT|Utah", SWEEP_RETIRED_VERDICTS$retired_because)), 4L)
 })
 
 test_that("the other Tier 3 flags are false positives, each legible", {

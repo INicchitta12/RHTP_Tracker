@@ -87,8 +87,14 @@ test_that("NEITHER never means the state has awarded nothing", {
   # header has lost its evidence and must be re-examined, not quietly kept.
   neither_extracted <- queue[queue$trigger_source == "NEITHER" &
                                queue$extraction_status == "EXTRACTED", ]
+  #
+  # SESSION 62: Florida LEFT the bucket -- the 2026-09-24 pull carries 80
+  # Florida Tier 3 candidates, so it is RCJ_ONLY now -- and the evidence is
+  # carried by ILLINOIS ($50,008,264 to ICAHN, zero candidates) and WYOMING
+  # (77 award actions, zero candidates).
   expect_gt(nrow(neither_extracted), 0L)
-  expect_true("FL" %in% neither_extracted$state)
+  expect_true(all(c("IL", "WY") %in% neither_extracted$state))
+  expect_equal(queue$trigger_source[queue$state == "FL"], "RCJ_ONLY")
 })
 
 
@@ -98,10 +104,12 @@ test_that("Illinois is queued -- but on a $1 signal, near the bottom", {
   # 2025 Medicaid contract. So the union widens the net without making it fine
   # enough to have caught this award on its merits, and overstating that would
   # be the same error in the other direction.
+  #
+  # SESSION 62: RCJ withdrew that $1 row on the 2026-09-24 pull, so the union
+  # no longer catches Illinois at all -- NEITHER, with $50,008,264 extracted.
   il <- queue[queue$state == "IL", ]
-  expect_equal(il$trigger_source, "RCJ_ONLY")
-  expect_equal(il$rcj_tier3_candidates, 1L)
-  expect_equal(il$rcj_federal_amount_sum, 1)
+  expect_equal(il$trigger_source, "NEITHER")
+  expect_equal(il$rcj_tier3_candidates, 0L)
   expect_true(is.na(il$cms_announced_date))
 
   # Illinois is now extracted, so it is out of the QUEUED backlog.
@@ -195,8 +203,12 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
   # $1,123,214,215 - $189,544,888 - $181,257,515 = $752,411,812.
   four <- c("MT", "UT", "AZ", "RI")
   expect_setequal(queue$state[queue$queue_status == "QUEUED"], four)
+  # Session 62 (2026-09-24 pull): 11 -> 6 candidates -- AZ's three webinar
+  # rows are now QUARANTINED by Stage 2 on PROVENANCE_PREDATES_NOA and RCJ
+  # withdrew RI's three opioid rows (one new RI row). The four states and
+  # their allotments are unchanged.
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               11L)
+               6L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
                752411812)
   expect_equal(queue$queue_status[match(c("CO", "ND"), queue$state)],
