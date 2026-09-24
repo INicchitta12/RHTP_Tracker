@@ -1,0 +1,20 @@
+# file	url	fetched_utc	http_status	user_agent	sha256_of_saved_bytes	note
+massgov_rhtp_programme_403_NOT_ALLOWED.html	https://www.mass.gov/rural-health-transformation-program-rhtp	2026-09-24T13:55:16Z	403	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	26b23043bd1443d248d3bf873ba18c79f73adbd9ec7265635dc63b7653481b5e	scripts stripped
+commbuys_bidDetail_26EHSKWRHTPRFQ_not_found.html	https://www.commbuys.com/bso/external/bidDetail.sdo?docId=26EHSKWRHTPRFQ&external=true&parentUrl=close	2026-09-24T13:57:09Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	f0e939cc362a4f923b7d1b452df65185fd96c7164f70f9445363391e3007965b	scripts stripped
+athol_daily_news_2026-08-03_advisory_council.html	https://atholdailynews.com/2026/08/03/massachusetts-forms-rural-health-council/	2026-09-24T13:55:57Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	e2490fc11c59ed34721ccf07d49e2b57377c081480fb4a617872f0421c7dcd05	scripts stripped
+healthcarenews_advisory_council.html	https://healthcarenews.com/rural-health-transformation-program-appoints-community-advisory-council-members/	2026-09-24T13:58:38Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	b2e979ab5a382bc7e3ca20f397b9569b22a8e3ec5fc5ddb2bb7bc3b23fb6a245	scripts stripped
+wayback_available_rhtp_programme.json	https://archive.org/wayback/available?url=mass.gov/rural-health-transformation-program-rhtp	2026-09-24T13:56:03Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	aeb7e92bf280a17275d8fdcfa9ae7e3f0366ab5e5f259678493969c6a55134dc	
+# NOT SAVED (all returned the same 14 KB mass.gov "Not allowed | Mass Gov" body; one copy saved above):
+# https://www.mass.gov/rural-health-transformation-program-rhtp	2026-09-24T13:55:18Z	403	Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+# https://www.mass.gov/rural-health-transformation-program-rhtp	2026-09-24T13:55:20Z	403	Mozilla/5.0
+# https://www.mass.gov/rural-health-transformation-program-rhtp	2026-09-24T13:55:23Z	403	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+# https://www.mass.gov/robots.txt	2026-09-24T13:55:25Z	403	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+# https://www.mass.gov/robots.txt	2026-09-24T13:55:27Z	403	Mozilla/5.0
+# https://www.mass.gov/info-details/about-the-rural-health-transformation-program	2026-09-24T13:55:30Z	403	Chrome UA; and 13:58:34Z	403	RFC UA
+# https://www.mass.gov/news/healey-driscoll-administration-announces-membership-of-the-rural-health-transformation-program-community-advisory-council	2026-09-24T13:55:59Z	403	honest UA
+# https://www.mass.gov/info-details/key-dates-and-opportunities	2026-09-24T13:58:31Z	403	RFC UA
+# https://www.mass.gov/rural-health-transformation-program	2026-09-24T13:58:36Z	403	Mozilla/5.0
+# WebFetch tool on https://www.mass.gov/rural-health-transformation-program-rhtp: 403
+# https://web.archive.org/web/2026/https://www.mass.gov/rural-health-transformation-program-rhtp	13:56:11Z	curl (35) connection reset (blocker 7 unchanged)
+# Wayback availability API: rhtp page snapshot 20260909215045; key-dates 20260701201623; about page 20251203222418 (none fetchable)
+# https://www.commbuys.com/bso/view/search/external/advancedSearchBid.xhtml?q=26EHSKWRHTPRFQ	13:57:12Z	200	login/JSF shell, no results rendered (not saved)

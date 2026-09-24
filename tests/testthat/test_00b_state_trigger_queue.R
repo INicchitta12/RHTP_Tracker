@@ -188,12 +188,14 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
   # Session 59: CO and ND left for INVESTIGATED_NO_LIST THROUGH THE WORK --
   # archive, probe with tripwires, Routine -- so six remain: 19 - 4 - 1 = 14
   # candidates, $1,522,256,789 - $200,105,604 - $198,936,970 = $1,123,214,215.
-  six <- c("MT", "UT", "VA", "WA", "AZ", "RI")
-  expect_setequal(queue$state[queue$queue_status == "QUEUED"], six)
+  # Session 60: VA and WA left by EXTRACTION -- 14 - 1 - 2 = 11 candidates,
+  # $1,123,214,215 - $189,544,888 - $181,257,515 = $752,411,812.
+  four <- c("MT", "UT", "AZ", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], four)
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               14L)
+               11L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
-               1123214215)
+               752411812)
   expect_equal(queue$queue_status[match(c("CO", "ND"), queue$state)],
                c("INVESTIGATED_NO_LIST", "INVESTIGATED_NO_LIST"))
   expect_setequal(queue$state[queue$queue_status == "EXTRACTED" &

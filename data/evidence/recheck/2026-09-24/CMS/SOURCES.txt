@@ -1,0 +1,5 @@
+# file	url	fetched_utc	http_status	user_agent	sha256_of_saved_bytes	note
+cms_newsroom_articles_p0.html	https://www.cms.gov/newsroom/articles?page=0	2026-09-24T13:57:53Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	5b3ff903b02628449074b0093b37a3da01b3b08aee6cc592d5b3749c69ef115e	scripts stripped
+cms_newsroom_articles_p1.html	https://www.cms.gov/newsroom/articles?page=1	2026-09-24T13:57:56Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	973bf0e90ff6d2dd0db59cb7d70a55cd095f604b4a257961278e627a521cd23e	scripts stripped
+cms_newsroom_articles_p2.html	https://www.cms.gov/newsroom/articles?page=2	2026-09-24T13:57:58Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	a4284523cfb3e9455423828e15d6d10739d5ced890315100f562982b8a657956	scripts stripped
+cms_newsroom_articles_p3.html	https://www.cms.gov/newsroom/articles?page=3	2026-09-24T13:58:01Z	200	AHA-RHTP-Tracker/0.1 (+https://www.aha.org)	98e04ba80a454fa6b0999b8b9f1ecfe45ec7d2786199fd0c13027c0e9a87872d	scripts stripped
