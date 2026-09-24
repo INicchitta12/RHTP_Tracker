@@ -23,3 +23,10 @@ VA,trig_01QU6u3VFCJY1xWCrjmFeLcp,"20 10 * * 2,5",R/03bb_va_year1_probe.R,twice-w
 ND,trig_01DUE8JsjXhHGDndT2N26Phf,"20 9 * * 3",R/03ba_nd_year1_probe.R,weekly,2026-09-23T19:45:14Z
 WA,trig_01XkZWESmQbqfq58cKuQ84i9,"10 10 * * 4",R/03bc_wa_year1_probe.R,weekly,2026-09-23T19:45:14Z
 TN,trig_01Ad384uvudquMnQXVHokXTX,"30 9 * * 6",R/03ay_tn_year1_awardees.R,weekly,2026-09-23T19:45:14Z
+DE,trig_01RB9PBF3nqSifh14FHmdKCb,"40 11 * * 1",R/03al_de_year1_awardees.R,weekly,2026-09-24T14:46:28Z
+ID,trig_013y1xkMRKbEs1uHGY2MaoJx,"40 12 * * 2",R/03am_id_year1_awardees.R,weekly,2026-09-24T14:46:43Z
+OH,trig_011zGFcAQj1a7MAREdXE4aD2,"40 13 * * 3",R/03an_oh_year1_awardees.R,weekly,2026-09-24T14:46:51Z
+SD,trig_01KnvNUxLstaNqbvVWSshPcm,"20 12 * * 4",R/03i_sd_rht_contracts.R,weekly,2026-09-24T14:47:00Z
+TX,trig_014qMqhzF59uszwLjSJEC5qg,"20 13 * * 5",R/03n_tx_year1_probe.R,weekly,2026-09-24T14:47:10Z
+NJ,trig_01UPrPJ31h2G3aLBc68QyB12,"10 12 * * 6",R/03bf_nj_year1_awardees.R,weekly,2026-09-24T14:47:19Z
+NEWSROOM,trig_01PFM6vKqJWHtik1CcZ7ZemA,"50 16 * * 1,4",R/03bg_newsroom_sweep.R,twice-weekly,2026-09-24T14:47:30Z

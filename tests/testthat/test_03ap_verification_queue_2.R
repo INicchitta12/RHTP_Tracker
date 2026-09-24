@@ -454,6 +454,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # subtracted first so every older figure is still checked.
   # Session 59: + Tennessee's 2 UNPRICED hospital rows and 1 state, $0 --
   # subtracted first, like every session before it.
+  # Session 61: + New Jersey, 35 rows / $35,275,076 and a 26th state --
+  # subtracted first, like every session before it.
+  expect_equal(named$rows, 1070L)
+  expect_equal(round(named$dollars, 2), 937661818.75, tolerance = 0)
+  expect_equal(named$states, 26L)
+  named$rows <- named$rows - 35L
+  named$dollars <- named$dollars - 35275076
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1035L)
   expect_equal(round(named$dollars, 2), 902386742.75, tolerance = 0)
   expect_equal(named$states, 25L)

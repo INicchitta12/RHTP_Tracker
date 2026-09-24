@@ -126,9 +126,13 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # Session 60: VA (11 named first-tier partners, no amounts) and WA (8 priced
 # first-tier lines from HCA's 2026-09-16 deck) join from QUEUED, by
 # EXTRACTION. See R/03be_va_year1_awardees.R and R/03bd_wa_year1_awardees.R.
+# Session 61: NJ (103 priced awards, $83,060,837, 2026-07-31) joins from
+# INVESTIGATED_NO_PROBE -- the THIRD state to leave that bucket by the state
+# publishing, and the one that sat longest unseen (55 days). See
+# R/03bf_nj_year1_awardees.R.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
                              "ID", "IL", "IN", "KS", "MD", "ME", "MI", "MO",
-                             "MS", "NC", "NE", "NH", "NV", "NY", "OH", "OK",
+                             "MS", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                              "WV", "WY")
 
@@ -350,7 +354,9 @@ SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "LA", "ND", "NM", "TX"
 # 2026-09-03 and nothing here noticed for twenty days, because this code says
 # "no probe" and meant it. That is the code's stated cost -- "the finding goes
 # stale by construction" -- paid in full. R/03ay_tn_year1_awardees.R.
-SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN", "NJ")
+# NEW JERSEY LEFT IN SESSION 61, THE THIRD: its 2026-07-31 roster was found in
+# session 60, 55 days after publication. R/03bf_nj_year1_awardees.R.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN")
 
 
 # -- Inputs ------------------------------------------------------------------

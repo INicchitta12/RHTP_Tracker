@@ -231,7 +231,13 @@ STATE_FILES <- c(
   # HCA's deck, the state hospital association's $42M Unclear and in NEITHER
   # bucket. Neither state reaches a hospital bucket.
   VA = "data/reference/va_year1_awardees.csv",
-  WA = "data/reference/wa_year1_awardees.csv"
+  WA = "data/reference/wa_year1_awardees.csv",
+
+  # SESSION 61. NEW JERSEY: 103 priced awards in six categories, $83,060,837,
+  # published 2026-07-31 only through newsrooms. 35 named-hospital rows typed
+  # on CMS's NJ enrolment files; AtlantiCare Health Services is the FQHC, not
+  # the hospital, and Virtua Health Inc. is the one LOW bridge.
+  NJ = "data/reference/nj_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -259,13 +265,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all thirty-five files carry the leading 19 columns, in the same order", {
+test_that("all thirty-six files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the thirty-five files union without a coercion failure", {
+test_that("the thirty-six files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -274,7 +280,7 @@ test_that("the thirty-five files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
-                 "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NV",
+                 "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))
 })

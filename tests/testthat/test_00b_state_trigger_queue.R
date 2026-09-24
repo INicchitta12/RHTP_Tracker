@@ -162,12 +162,15 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
   # South Carolina had.
   # SESSION 59: four. Tennessee left the same way -- TDH named 53 HART
   # recipients on 2026-09-03.
-  four <- c("HI", "MA", "MN", "NJ")
-  got <- queue$queue_status[match(four, queue$state)]
+  # SESSION 61: three. New Jersey left the same way -- its 2026-07-31
+  # allocations PDF, found in session 60 and extracted in session 61.
+  three <- c("HI", "MA", "MN")
+  got <- queue$queue_status[match(three, queue$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(four, got, collapse = "; "))
+              info = paste(three, got, collapse = "; "))
   expect_equal(queue$queue_status[queue$state == "SC"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "TN"], "EXTRACTED")
+  expect_equal(queue$queue_status[queue$state == "NJ"], "EXTRACTED")
   expect_true(all(queue$queue_status %in% rhtp_vocabulary("queue_status")))
 })
 

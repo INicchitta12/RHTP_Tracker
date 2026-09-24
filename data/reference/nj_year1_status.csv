@@ -1,0 +1,5 @@
+state,channel,stage,publishes_roster,note
+NJ,"Governor + DOH + DHS newsrooms, 2026-07-31, and the linked allocations PDF",AWARDED_ROSTER_PUBLISHED,Yes,"103 priced awards, six categories, $83,060,837 (sum of the rows; the PDF prints no total). 'The first round'. DOH administers ~$95M of competitive funding, so ~$12M of it, plus DHS's lead-agency share, is in no public roster: a PARTIAL year."
+NJ,"nj.gov/rural-health-transformation (programme page, launched 2026-08-21)",DOES_NOT_LINK_THE_AWARDS,No,On 2026-09-24 it reads 'Subrecipient grants awarded -- In progress' and links no roster; the PDF sits under its /documents/ path but is reachable only from the DOH newsroom item. Tennessee's shape.
+NJ,DOH Office of Rural Health page,STALE,No,"Still says New Jersey 'applied for' the funding (session 39, re-read session 60)."
+NJ,DOH Notice of Grant Opportunity index (healthapps.nj.gov),INDEX_ONLY,No,Where a second-round NGO would appear; it names no award.

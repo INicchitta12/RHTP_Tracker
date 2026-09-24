@@ -94,7 +94,11 @@ RC_ENROLMENTS <- c(
   # Session 59: Tennessee's two hospital rows cite CCN 441305 (Macon, a CAH
   # number -- on a hand-read BRIDGE) and 440059 (Cookeville, the foundation's
   # parent).
-  TN = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_TN.json")
+  TN = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_TN.json",
+  # Session 61: New Jersey's 33 federal-record hospital rows; a CCN is cited
+  # singly only where it is the facility (a bracketed site, or a
+  # single-hospital corporation).
+  NJ = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_NJ.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -232,11 +236,12 @@ rc_assert <- function(rows = rc_rows()) {
   # SESSION 59: + Tennessee's two UNPRICED hospital rows (Macon Hospital, Inc;
   # Cookeville Regional Medical Center Foundation) -- 1,035 / $902,386,742.75
   # / 25 states. Rows and states move; dollars do not.
-  if (nrow(rows) != 1035L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 902386742.75) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 25L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,035 rows / $902,386,742.75 ",
-         "/ 25 states; re-state the rural cut against the new partition.",
+  # Session 61: NEW JERSEY adds 35 rows / $35,275,076 and a 26th state.
+  if (nrow(rows) != 1070L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 937661818.75) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 26L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,070 rows / $937,661,818.75 ",
+         "/ 26 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)
