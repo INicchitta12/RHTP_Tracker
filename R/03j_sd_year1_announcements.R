@@ -23,19 +23,29 @@
 # The class and the count are confirmed; the names are not captured; nothing is
 # imputed (spec 0.3, 0.4).
 #
-# WHERE THE NAMES WOULD BE, ALL CHECKED THIS SESSION AND ALL NEGATIVE:
+# WHERE THE NAMES WOULD BE, AS CHECKED IN SESSION 13 (all negative then):
 #
 #   news.sd.gov       reachable  both releases fetched -- neither names anyone
 #   doh.sd.gov        reachable  press index, RHT project page, RHT resources &
 #                                FAQs, press search on "awarded" -- no roster
-#   open.sd.gov       reachable  re-probed via R/03i --probe: the RHT series is
-#                                still 13 administrative contracts / $5,618,367,
-#                                "Rural Strong" still returns ZERO rows. The
-#                                July release says contracts post there "once
-#                                finalized"; five weeks on, they have not.
-#   ruralhealthtransformation.sd.gov   REFUSED at CONNECT. Both releases name
-#                                this host as the resource site. It is the
-#                                remaining candidate and is worth asking for.
+#   open.sd.gov       reachable  the RHT series was 13 administrative contracts
+#                                / $5,618,367 and "Rural Strong" returned ZERO
+#                                rows.
+#   ruralhealthtransformation.sd.gov   302s to doh.sd.gov (session 14).
+#
+# SESSION 64: OPEN.SD.GOV NOW NAMES EIGHT OF THE 28 RURAL STRONG GRANTS. The
+# register's RHT series carries 8 contracts ($1,879,152) whose own description
+# is "Implementation of a Rural Strong Grant as a part of the federal Rural
+# Health Transformation Program". They are extracted in R/03i
+# (sd_rht_contracts.csv, round_id = "RS") and they are INSIDE this file's
+# $31,500,000 round_amount -- the SAME money, read at a finer grain for eight of
+# its grants -- so the two figures are NEVER added (§6.2). This file's RS row
+# stays the aggregate the release published: recipient_confirmed = No (the
+# release names nobody), with the eight named elsewhere recorded in
+# `named_elsewhere_grants` / `named_elsewhere_amount`, DERIVED from
+# sd_rht_contracts.csv on every build. The remaining 20 grants' amount is
+# stated by no source and is NOT computed by subtraction. The $90M round has
+# no contract on the register at all.
 #
 # THE AMOUNT COLUMN IS DELIBERATELY EMPTY, AND THAT IS GEORGIA'S RULE (6.2).
 # The published figure is a ROUND total, not a recipient's award. Putting
@@ -393,9 +403,9 @@ SD_Y1_NOTE <- c(
     "Governor Rhoden announced 28 'Rural Strong' grants totalling $31.5M ",
     "supporting projects 'across 20 health systems'. THE RELEASE NAMES NO ",
     "RECIPIENT. It also states the contracts will be published on OpenSD ",
-    "'once finalized'; five weeks later they are not there (R/03i --probe: ",
-    "the RHT series is 13 administrative contracts, 'Rural Strong' returns ",
-    "zero rows)."
+    "'once finalized'. As of 2026-09-24 some are: see named_elsewhere_grants ",
+    "-- those contracts are in sd_rht_contracts.csv (round_id RS), INSIDE ",
+    "this row's round_amount and never to be added to it."
   ),
   TD = paste0(
     "Governor Rhoden announced 82 technology and data grants totalling $90M ",
@@ -418,17 +428,51 @@ SD_Y1_BASIS <- paste0(
   "`amount` is deliberately empty -- the published figure is a ROUND total, ",
   "not one recipient's award, and it lives in `round_amount` so no sum over ",
   "`amount` can read as a per-recipient total (6.2, the Georgia rule). ",
-  "This row is NOT part of South Dakota's 13 administrative RHT contracts ",
-  "($5,618,367, data/reference/sd_rht_contracts.csv); the two must never be ",
-  "added together without reading both files' headers."
+  "RELATION TO data/reference/sd_rht_contracts.csv: that file's ",
+  "ADMINISTRATIVE pool is NOT part of either round, and its RURAL STRONG ",
+  "pool (round_id RS) is INSIDE the Rural Strong row's round_amount -- the ",
+  "same money named at a finer grain -- so no sum may add a round_amount here ",
+  "to any amount there without reading both files' headers."
 )
 
 #' Build the two aggregate round rows, in Florida's leading-19 schema
+#' The round grants South Dakota has since named on OpenSD, per round
+#'
+#' DERIVED from sd_rht_contracts.csv (R/03i) on every build, never typed. A
+#' contract there carries round_id = "RS" only when its own detail page says
+#' "Implementation of a Rural Strong Grant".
+rhtp_sd_year1_named_elsewhere <- function(path = SD_Y1_CONTRACTS_CSV) {
+  full <- here::here(path)
+  empty <- tibble::tibble(round_id = SD_Y1_ROUNDS$round_id,
+                          named_elsewhere_grants = 0L,
+                          named_elsewhere_amount = 0)
+  if (!file.exists(full)) return(empty)
+  contracts <- readr::read_csv(full, show_col_types = FALSE, progress = FALSE)
+  if (!"round_id" %in% names(contracts)) return(empty)
+  named <- contracts %>%
+    dplyr::filter(!is.na(.data$round_id)) %>%
+    dplyr::group_by(.data$round_id) %>%
+    dplyr::summarise(named_elsewhere_grants = dplyr::n(),
+                     named_elsewhere_amount = sum(.data$amount),
+                     .groups = "drop")
+  empty %>%
+    dplyr::select("round_id") %>%
+    dplyr::left_join(named, by = "round_id") %>%
+    dplyr::mutate(
+      named_elsewhere_grants = dplyr::coalesce(.data$named_elsewhere_grants, 0L),
+      named_elsewhere_amount = dplyr::coalesce(.data$named_elsewhere_amount, 0)
+    )
+}
+
+SD_Y1_CONTRACTS_CSV <- "data/reference/sd_rht_contracts.csv"
+
+
 rhtp_sd_year1_build <- function() {
   releases <- rhtp_sd_year1_releases()
 
   SD_Y1_ROUNDS %>%
     dplyr::left_join(releases, by = "kb_number") %>%
+    dplyr::left_join(rhtp_sd_year1_named_elsewhere(), by = "round_id") %>%
     dplyr::mutate(
       state        = SD_Y1_STATE,
       row_no       = dplyr::row_number(),
@@ -468,10 +512,15 @@ rhtp_sd_year1_build <- function() {
       amount_basis             = "NOT_PUBLISHED",
       amount_precision         = "NOT_PUBLISHED",
       disbursement_status      = dplyr::if_else(
-        .data$round_id == "RS", "CONTRACTS_PENDING", "AWARDED"
+        .data$round_id == "RS",
+        dplyr::if_else(.data$named_elsewhere_grants > 0L,
+                       "CONTRACTS_PARTLY_POSTED", "CONTRACTS_PENDING"),
+        "AWARDED"
       ),
       classification_rule      = "AGGREGATE_ROUND",
-      kb_permalink             = paste0(SD_Y1_KBVIEW_URL, .data$kb_number)
+      kb_permalink             = paste0(SD_Y1_KBVIEW_URL, .data$kb_number),
+      named_elsewhere_file     = dplyr::if_else(
+        .data$named_elsewhere_grants > 0L, SD_Y1_CONTRACTS_CSV, NA_character_)
     ) %>%
     dplyr::select(
       "state", "row_no", "awardee", "amount", "recipient_type",
@@ -484,7 +533,9 @@ rhtp_sd_year1_build <- function() {
       "source_archive_path", "recipient_names_source_url", "amount_basis",
       "amount_precision", "disbursement_status", "classification_rule",
       "round_id", "round_name", "kb_number", "announced_date", "grant_count",
-      "round_amount", "recipient_class", "kb_permalink"
+      "round_amount", "recipient_class", "kb_permalink",
+      # -- appended session 64 -- INSIDE round_amount, never added to it --
+      "named_elsewhere_grants", "named_elsewhere_amount", "named_elsewhere_file"
     )
 }
 
@@ -550,6 +601,29 @@ rhtp_sd_year1_assert <- function(records) {
          "recipient.", call. = FALSE)
   }
 
+  # THE NAMED-ELSEWHERE CONTRACTS ARE INSIDE THE ROUND (§6.2). They can never
+  # outnumber or out-price the round they belong to, and the published round
+  # total is never reduced by them -- a round total minus its named part would
+  # price the unnamed remainder, a figure no source states.
+  over <- records %>%
+    dplyr::filter(.data$named_elsewhere_grants > .data$grant_count |
+                    .data$named_elsewhere_amount > .data$round_amount)
+  if (nrow(over)) {
+    stop("[SD-Y1] the contracts named on OpenSD for round ",
+         paste(over$round_id, collapse = ", "), " exceed the round the ",
+         "release announced. They are INSIDE it; re-read both files.",
+         call. = FALSE)
+  }
+  if (!identical(records$round_amount, SD_Y1_ROUNDS$round_amount)) {
+    stop("[SD-Y1] round_amount must stay the release's own figure; it is ",
+         "never netted against contracts named elsewhere.", call. = FALSE)
+  }
+  if (any(records$named_elsewhere_grants > 0L &
+          records$recipient_confirmed != "No")) {
+    stop("[SD-Y1] the release still names nobody; contracts named on OpenSD ",
+         "do not make this aggregate row a confirmed recipient.", call. = FALSE)
+  }
+
   # The archives must exist and must still parse (which re-fires the tripwire).
   for (p in records$source_archive_path) {
     if (!file.exists(here::here(p))) {
@@ -564,27 +638,44 @@ rhtp_sd_year1_assert <- function(records) {
 # -- Reconcile ---------------------------------------------------------------
 
 rhtp_sd_year1_reconcile <- function(records = rhtp_sd_year1_build()) {
-  contracts_csv <- here::here("data/reference/sd_rht_contracts.csv")
-  admin <- if (file.exists(contracts_csv)) {
-    sum(readr::read_csv(contracts_csv, show_col_types = FALSE,
-                        progress = FALSE)$amount, na.rm = TRUE)
+  contracts_csv <- here::here(SD_Y1_CONTRACTS_CSV)
+  contracts <- if (file.exists(contracts_csv)) {
+    readr::read_csv(contracts_csv, show_col_types = FALSE, progress = FALSE)
   } else {
-    NA_real_
+    NULL
   }
+  in_round <- if (!is.null(contracts) && "round_id" %in% names(contracts)) {
+    !is.na(contracts$round_id)
+  } else {
+    rep(FALSE, NROW(contracts))
+  }
+  admin_n <- if (is.null(contracts)) NA_integer_ else sum(!in_round)
+  admin   <- if (is.null(contracts)) NA_real_ else sum(contracts$amount[!in_round], na.rm = TRUE)
+  rs <- records[records$round_id == "RS", ]
 
-  tibble::tribble(
+  out <- tibble::tribble(
     ~measure,                                          ~grants,               ~amount,
     "Rural Strong project grants (2026-07-23)",        28L,                   31500000,
+    "  of which named on open.sd.gov (INSIDE the line above, never added)", rs$named_elsewhere_grants, rs$named_elsewhere_amount,
+    "  of which named nowhere (amount stated by no source; not computed)",  28L - rs$named_elsewhere_grants, NA_real_,
     "Technology and data grants (2026-08-19)",         82L,                   90000000,
-    "Announced, recipients NOT published",             SD_Y1_TOTAL_GRANTS,    SD_Y1_TOTAL_ANNOUNCED,
+    "Announced rounds, total",                         SD_Y1_TOTAL_GRANTS,    SD_Y1_TOTAL_ANNOUNCED,
     "Named recipients captured from these releases",   0L,                    0,
-    "Administrative contracts on open.sd.gov (R/03i)", 13L,                   admin,
+    "Administrative contracts on open.sd.gov (R/03i, NOT in either round)", admin_n, admin,
     "CMS Year 1 award to South Dakota",                NA_integer_,           SD_Y1_CMS_AWARD,
-    "Unaccounted against the CMS award",               NA_integer_,           SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED - admin
+    "Unaccounted against the CMS award (announced rounds + administrative only)", NA_integer_, SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED - admin
   ) %>%
     dplyr::mutate(
       share_of_cms_award = round(.data$amount / SD_Y1_CMS_AWARD * 100, 2)
     )
+
+  # NO DOUBLE COUNT: the unaccounted figure subtracts the announced rounds and
+  # the ADMINISTRATIVE pool only. Subtracting the Rural Strong contracts as
+  # well would remove $1.9M twice.
+  stopifnot(isTRUE(all.equal(
+    out$amount[stringr::str_starts(out$measure, "Unaccounted")],
+    SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED - admin)))
+  out
 }
 
 
@@ -604,15 +695,19 @@ SD_Y1_README <- tibble::tribble(
   paste0("The published figure is a ROUND total, not a recipient's award. It ",
          "is in `round_amount`. Summing `amount` gives 0, by design (6.2)."),
   "Hospital dollars confirmed",
-  "$0. No recipient is named, so no dollar can be traced to a hospital.",
+  paste0("$0 from these releases: they name nobody. The Rural Strong ",
+         "contracts later named on OpenSD include hospital rows, and those ",
+         "dollars are counted in sd_rht_contracts.csv ONLY -- never here."),
   "Where the names would be",
-  paste0("ruralhealthtransformation.sd.gov (named as the resource site in ",
-         "both releases, refused at CONNECT), or open.sd.gov once contracts ",
-         "are finalised (re-probed this session: still not there)."),
+  paste0("open.sd.gov, as contracts are finalised: 8 of the 28 Rural Strong ",
+         "grants are there as of 2026-09-24 (R/03i); none of the 82 ",
+         "Technology and data grants."),
   "Do not add this to",
-  paste0("data/reference/sd_rht_contracts.csv ($5,618,367 of ADMINISTRATIVE ",
-         "spend, 13 contracts). Different documents, different tiers of ",
-         "certainty; read both headers before combining."),
+  paste0("data/reference/sd_rht_contracts.csv. Its ADMINISTRATIVE pool is in ",
+         "neither round; its RURAL STRONG pool (round_id RS) is INSIDE the ",
+         "$31.5M round here -- the same money named at a finer grain. Read ",
+         "named_elsewhere_grants / named_elsewhere_amount, and both headers, ",
+         "before combining anything."),
   "Rebuild",
   "Rscript R/03j_sd_year1_announcements.R --build"
 )

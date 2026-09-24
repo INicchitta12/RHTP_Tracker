@@ -1,0 +1,20 @@
+FEDERAL RECORDS -- fetched 2026-09-24 by session 64 (South Dakota)
+
+WHY THESE ARE HERE. R/03i_sd_rht_contracts.R extracted the eight Rural Strong grant
+contracts open.sd.gov now carries. The register publishes a vendor name and city and
+nothing about the vendor's FORM. One vendor, PHILIP HEALTH SERVICES INC (Philip SD),
+carries no hospital token and falls to §8's fallback on its name; CMS's own Hospital
+Enrollments file carries that EXACT string as an ORGANIZATION NAME, city PHILIP,
+CCN 431319, a critical access hospital (dba HANS P PETERSON MEMORIAL HOSPITAL). R/03i
+reads these files at build time and types a row from them ONLY on an exact ORGANIZATION
+NAME or DBA match in the same city -- never a stem or a fuzzy match (§2). The FQHC and
+RHC files are kept because they are what says the two remaining Rural Strong vendors
+(COMPLETE HEALTH CENTER OF BH, SD URBAN INDIAN HEALTH) are FQHCs under DIFFERENT
+strings -- which is why neither is re-typed.
+
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)". Bytes as served.
+
+file | sha256 | bytes | source
+cms_hosp_enrollments_SD.json | 55219f998863dcd92e8451e847aa9d7a5e316b7724ee90959708760be84150c3 | 129842 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=SD&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_SD.json | 92619ab24b69b91ac673ce51f13b28bd30d6d31a599f399b4d5ea4eee86a9ef6 | 24592 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=SD&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_SD.json | 1730cfed2eb8c0fe7517bcebed85f310118304718e453472669c41d6187d92f5 | 36656 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=SD&size=5000 (RHC Enrollments)

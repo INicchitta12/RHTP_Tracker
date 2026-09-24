@@ -374,18 +374,21 @@ test_that("the counts are derived from the record table, never typed", {
                dplyr::n_distinct(cands$awardee_name_clean))
 })
 
-test_that("the §6.2 sweep does NOT catch the Distressed Hospital rows, and says so", {
-  # The date test cannot reach them (HCAI awarded 2026-05-29, after the NOA,
-  # and RCJ dates them only by a refused title-year), and the state-programme
-  # registry has no entry for this programme. Recorded, not patched here: the
-  # disposition is what keeps them out of any award file.
+test_that("the §6.2 sweep catches the Distressed Hospital rows by REGISTRY, not by date", {
+  # The date test still cannot reach them (HCAI awarded after the NOA, and RCJ
+  # dates them only by a refused title-year). Session 64 registered the
+  # programme (CA-DISTRESSED-HOSPITAL-SMALL-GRANT, non_rhtp_state_programs.csv),
+  # so the registry now catches all four. Through session 63 it caught none.
   swept <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_by_state.csv"),
     show_col_types = FALSE)
   ca <- swept[swept$state == "CA", ]
   expect_equal(ca$tier3_candidates, nrow(ca_rcj_candidates()))
-  expect_equal(ca$caught_total, 0L)
+  expect_equal(ca$caught_total, 4L)
+  expect_equal(ca$caught_by_registry, 4L)
+  expect_equal(ca$caught_predates_noa, 0L)
   expect_equal(ca$refused_rcj_year, 4L)
+  expect_equal(ca$caught_amount, 25000000)
 })
 
 test_that("California reads INVESTIGATED_NO_LIST, so it cannot rank 1 again", {

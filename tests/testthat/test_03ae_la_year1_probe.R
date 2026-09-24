@@ -1,6 +1,16 @@
 # test_03ae_la_year1_probe.R ---------------------------------------------------
-# LOUISIANA -- the negative whose seven announcement windows have all closed.
-# Reads committed artifacts only: no network, no quota.
+# LOUISIANA -- a negative for six solicitations, and since session 64 an
+# EXTRACTION for the seventh: the Rural Clinician Credit Bank, 53 awards /
+# $12,701,996 as of 8/28/26, five of them named. Reads committed artifacts
+# only: no network, no quota.
+#
+#   0. (session 64) THE RCCB FILE OVERSTATES HOSPITALS. LDH names five
+#      awardees and none as a hospital; 20 of 53 awards are "hospital
+#      settings" and LDH names none of them. The tests below drive the three
+#      ways a hospital dollar could creep in -- a name rule typing
+#      "Outpatient Medical Center" a hospital, a hospital-only aggregate that
+#      overlaps the named rows, and a round total written into `amount` --
+#      and require each to be refused.
 #
 # WHAT THIS FILE IS DEFENDING, IN ORDER OF HOW BADLY IT WOULD HURT.
 #
@@ -397,34 +407,204 @@ test_that("the facility control fires if money ever appears in it", {
 
 # -- the status table and the absent award file ------------------------------
 
-test_that("there is no Louisiana award file, and the status table has no amount", {
-  expect_false(file.exists(here::here(LA_AWARDS_CSV)))
-  expect_true(la_assert_no_award_file())
+test_that("the status table has no amount column (the money is in the award file)", {
+  expect_true(la_assert_status_has_no_amount())
   cols <- names(readr::read_csv(here::here(LA_STATUS_CSV), n_max = 0,
                                 show_col_types = FALSE))
   expect_false(any(c("amount", "round_amount", "amount_announced") %in% cols))
 })
 
-test_that("the status table names nine channels and no roster among them", {
+test_that("the status table names nine channels; only the RCCB publishes a (partial) roster", {
   st <- readr::read_csv(here::here(LA_STATUS_CSV), show_col_types = FALSE)
   expect_equal(nrow(st), 9L)
-  expect_true(all(st$publishes_roster %in% c("No", "UNKNOWN")))
+  rccb <- st[st$channel == "Rural Clinician Credit Bank", ]
+  expect_equal(rccb$stage, "AWARDED_5_OF_53_NAMED")
+  expect_equal(rccb$publishes_roster, "Partial -- 5 of 53 awardees named")
+  others <- st[st$channel != "Rural Clinician Credit Bank", ]
+  expect_true(all(others$publishes_roster %in% c("No", "UNKNOWN")))
   # The Atlas is UNKNOWN, never "No": that is a statement about our access.
   expect_equal(st$publishes_roster[stringr::str_detect(st$channel, "Atlas")],
                "UNKNOWN")
-  # SIX PENDING, ONE PASSED -- derived from the page on every build, not
-  # typed. It read 7 x CLOSED_AWARD_DATE_PASSED until session 46, which was a
-  # status table asserting a state had missed its own deadline when six of
-  # seven had not.
-  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PENDING"), 6L)
-  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 1L)
+  # THE OTHER SIX ARE STILL UNAWARDED, and whether each window has passed is
+  # derived from the page on every build (session 46), never typed.
+  six <- st[stringr::str_detect(st$stage, "^CLOSED_AWARD_DATE_"), ]
+  expect_equal(nrow(six), 6L)
 })
 
-test_that("Louisiana contributes no row and no dollar to any hospital bucket", {
-  expect_false(file.exists(here::here(LA_AWARDS_CSV)))
+test_that("the status table's RCCB stage is read off the deck, not the window", {
+  # The programme page still prints the window and the funding page still
+  # says 'under review': the pages LAG the deck, and the stage must follow the
+  # deck.
+  expect_true(stringr::str_detect(la_fund, stringr::fixed(
+    "Rural Clinician Credit Bank, Budget Year 1 Purpose")))
+  expect_true(stringr::str_detect(la_fund, stringr::fixed(
+    "Applications currently under review")))
+  st <- rhtp_la_year1_status()
+  expect_equal(st$stage[st$channel == "Rural Clinician Credit Bank"],
+               "AWARDED_5_OF_53_NAMED")
+})
+
+
+# -- session 64: THE RURAL CLINICIAN CREDIT BANK AWARD FILE -------------------
+
+la_runs   <- la_rccb_runs()
+la_rtxt   <- la_rccb_text()
+la_awards <- readr::read_csv(here::here(LA_AWARDS_CSV), show_col_types = FALSE,
+                             col_types = readr::cols(.default = "c"))
+
+test_that("the deck closes on itself four ways, and the provenance holds", {
+  r <- la_assert_rccb_award(la_rtxt, la_runs, la_fund, la_prog)
+  ft <- r$facility[r$facility$facility_type != "Total", ]
+  expect_equal(nrow(ft), 6L)
+  expect_equal(sum(ft$awards), 53L)
+  expect_equal(sum(ft$amount), 12701996)
+  hosp <- ft[ft$facility_type %in% LA_RCCB_HOSPITAL_TYPES, ]
+  expect_equal(hosp$awards, c(8L, 11L, 1L))
+  expect_equal(sum(hosp$amount), 6285515)
+  expect_equal(sum(r$parishes$awards), 48L)
+  expect_equal(sum(r$parishes$amount), 10736208)
+  expect_equal(sum(r$parishes$amount) + sum(r$named$amount), 12701996)
+})
+
+test_that("the deck's footer is the Tier 1 ALLOTMENT, not an RCCB figure (§0.2)", {
+  expect_true(stringr::str_detect(la_rtxt, stringr::fixed(
+    "This project supported by the Centers for Medicare")))
+  expect_true(rhtp_assert_footer_not_allotment(208374447.57, "LA",
+                                               "STATE_ALLOTMENT"))
+  expect_error(rhtp_assert_footer_not_allotment(208374447.57, "LA",
+                                                "SOLICITATION"),
+               "almost certainly Tier 1")
+})
+
+test_that("the round postdates the NOA: application close 6/25/26, as of 8/28/26", {
+  expect_true(stringr::str_detect(la_rtxt, stringr::fixed("Application close6/25/26")))
+  expect_true(stringr::str_detect(la_rtxt, stringr::fixed("As of 8/28/26")))
+  expect_gt(as.numeric(LA_RCCB_STATED$application_close - la_noa_anchor()), 0)
+})
+
+test_that("the deck is the one the programme page links as the September 3 webinar", {
+  raw <- readChar(la_path("programme"), file.size(la_path("programme")),
+                  useBytes = TRUE)
+  i <- regexpr("Shareholder-Presentation-09092026.pdf", raw, fixed = TRUE)
+  expect_gt(i, 0)
+  expect_true(grepl("September 3, 2026", substr(raw, i - 200, i), fixed = TRUE))
+  expect_true(stringr::str_detect(la_rtxt, stringr::fixed("September 3")))
+})
+
+test_that("a deck that stops saying what the file rests on is refused", {
+  for (need in c("Awards made53", "CEAs due for signature9/15/26",
+                 "As of 8/28/26", "5 multi-parish awardees")) {
+    expect_error(la_assert_rccb_award(
+      stringr::str_remove_all(la_rtxt, stringr::fixed(need)), la_runs,
+      la_fund, la_prog), "no longer reads", info = need)
+  }
+  expect_error(la_assert_rccb_award(la_rtxt, la_runs,
+    stringr::str_remove_all(la_fund, "Strategic Funding Opportunity Title: Rural Clinician Credit Bank"),
+    la_prog), "no longer lists the Rural Clinician Credit Bank")
+})
+
+test_that("the five named awardees are read from the DECK's cells and are RCJ's five", {
+  nm <- la_rccb_named(la_runs)
+  expect_equal(nm$awardee, c("Ochsner Clinic Foundation",
+                             "Outpatient Medical Center",
+                             "Winnsboro Medical Clinic",
+                             "SR Minden, Southern Roots",
+                             "LaBorde Therapy Center"))
+  expect_equal(nm$amount, c(1500000, 292500, 116288, 45000, 12000))
+  expect_equal(nm$parishes, c(8L, 6L, 7L, 4L, 4L))
+  rccb <- la_rows_from(la_all, LA_RCCB_SOURCE_MARKER)
+  expect_setequal(rccb$awardee_name_clean, nm$awardee)
+  expect_equal(sum(rccb$amount_announced), sum(nm$amount))
+})
+
+test_that("the award file is five named rows plus ONE unnamed aggregate", {
+  expect_true(la_assert_award_file())
+  expect_equal(nrow(la_awards), 6L)
+  expect_equal(sum(as.numeric(la_awards$amount), na.rm = TRUE), 1965788)
+  agg <- la_awards[la_awards$recipient_type == "NOT_YET_NAMED", ]
+  expect_equal(nrow(agg), 1L)
+  expect_true(is.na(agg$amount))
+  expect_equal(as.numeric(agg$round_amount), 10736208)
+  expect_equal(agg$round_awards, "48")
+  expect_equal(agg$flag_reason, "RECIPIENT_NAMES_NOT_CAPTURED")
+  expect_equal(agg$distributed_to_hospital, "Unclear")
+  expect_equal(agg$recipient_confirmed, "No")
+  expect_true(all(la_awards$amount_confirmed == "No"))
+  expect_true(all(la_awards$validation_source_type == "NOTICE_OF_INTENT_TO_AWARD"))
+  # every award exactly once: 5 named + 48 unnamed = 53
+  expect_equal(nrow(la_awards) - 1L + as.integer(agg$round_awards), 53L)
+})
+
+test_that("the file rebuilds from the deck exactly", {
+  built <- rhtp_la_year1_awardees(la_runs) %>%
+    dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
+  expect_equal(names(built), names(la_awards))
+  expect_equal(built$awardee, la_awards$awardee)
+  expect_equal(built$amount, la_awards$amount)
+  expect_equal(built$recipient_type, la_awards$recipient_type)
+  expect_equal(built$distributed_to_hospital, la_awards$distributed_to_hospital)
+  expect_equal(as.numeric(built$round_amount), as.numeric(la_awards$round_amount))
+})
+
+test_that("the file carries the leading 19 columns the state union requires", {
+  expect_equal(names(la_awards)[1:19], c(
+    "state", "row_no", "awardee", "amount", "recipient_type",
+    "distributed_to_hospital", "note", "recipient_confirmed", "amount_confirmed",
+    "fiscal_year", "source_document_title", "state_source_url",
+    "validation_source_type", "extraction_method", "validator", "ccn", "aha_id",
+    "rural_designation", "reviewer"))
+})
+
+test_that("OUTPATIENT Medical Center is REFUSED as a hospital, and the refusal is auditable", {
+  source(here::here("R", "utils_recipient_classification.R"))
+  m <- rhtp_classify_recipient_type("Outpatient Medical Center", state_code = "LA")
+  # The machine says hospital on the 'Medical Center' token ...
+  expect_equal(m$recipient_type, "HOSPITAL_OR_SYSTEM")
+  # ... and the file does not follow it.
+  row <- la_awards[la_awards$awardee == "Outpatient Medical Center", ]
+  expect_equal(row$recipient_type, "NONPROFIT_CBO")
+  expect_equal(row$distributed_to_hospital, "No")
+  expect_true(stringr::str_detect(row$recipient_type_source, "REFUSED"))
+  expect_true(stringr::str_detect(row$recipient_type_source, "HOSPITAL_OR_SYSTEM"))
+  # Priced: following the machine would have put $292,500 into NAMED_HOSPITAL.
+  expect_equal(as.numeric(row$amount), 292500)
+})
+
+test_that("Louisiana contributes NO row and NO dollar to any hospital bucket", {
+  source(here::here("R", "utils_recipient_classification.R"))
+  d <- la_awards %>% dplyr::mutate(amount = as.numeric(.data$amount))
+  parts <- rhtp_hospital_dollar_partition(d)
+  expect_equal(nrow(parts), 0L)
+  expect_false(any(la_awards$distributed_to_hospital == "Yes"))
   ref <- list.files(here::here("data", "reference"), pattern = "^la_")
   expect_setequal(ref, c("la_rcj_candidate_disposition.csv",
-                         "la_year1_status.csv"))
+                         "la_year1_status.csv", "la_year1_awardees.csv"))
+})
+
+test_that("the three ways a hospital dollar could creep in are each refused", {
+  num <- function(x) suppressWarnings(as.numeric(x))
+  # (1) the round total written into `amount` on the aggregate
+  a <- la_awards; a$amount[a$recipient_type == "NOT_YET_NAMED"] <- "10736208"
+  expect_error(la_assert_award_file(a), "sum\\(amount\\)|EMPTY amount")
+  # (2) a hospital-only aggregate beside the named rows (overlap)
+  b <- dplyr::bind_rows(la_awards, la_awards[6, ] %>%
+         dplyr::mutate(row_no = "7", round_awards = "20",
+                       round_amount = "6285515"))
+  expect_error(la_assert_award_file(b), "rows")
+  # (3) any row coded Yes with no hospital named on it
+  c0 <- la_awards; c0$distributed_to_hospital[6] <- "Yes"
+  expect_error(la_assert_award_file(c0), "distributed_to_hospital = Yes")
+  # and a named row typed a hospital by a name rule is stopped at build
+  expect_true(all(la_awards$recipient_type != "HOSPITAL_OR_SYSTEM"))
+})
+
+test_that("the hospital-setting figure is the state's words, never a summable column", {
+  agg <- la_awards[la_awards$recipient_type == "NOT_YET_NAMED", ]
+  expect_true(stringr::str_detect(agg$recipient_class, stringr::fixed("$6,285,515")))
+  expect_true(stringr::str_detect(agg$recipient_class, "between 15\\s+and 20"))
+  # No column of the award file carries the hospital-setting figure as a number.
+  expect_false(any(vapply(la_awards, function(x) any(x %in% "6285515"),
+                          logical(1))))
 })
 
 
@@ -435,8 +615,13 @@ test_that("Louisiana cannot rank first again and be re-investigated", {
                        show_col_types = FALSE)
   q <- readr::read_csv(here::here("data/reference/state_trigger_queue.csv"),
                        show_col_types = FALSE)
-  expect_equal(s$extraction_status[s$state == "LA"], "INVESTIGATED_NO_LIST")
-  expect_equal(q$queue_status[q$state == "LA"], "INVESTIGATED_NO_LIST")
+  # Session 64 extracted the RCCB round, so the survey is expected to move LA
+  # to EXTRACTED (R/03k's constants, edited outside this file). Either status
+  # keeps Louisiana out of the queue; NOT_EXTRACTED or QUEUED would not.
+  expect_true(s$extraction_status[s$state == "LA"] %in%
+                c("INVESTIGATED_NO_LIST", "EXTRACTED"))
+  expect_true(q$queue_status[q$state == "LA"] %in%
+                c("INVESTIGATED_NO_LIST", "EXTRACTED"))
   expect_equal(s$investigate[s$state == "LA"], "No")
 })
 
@@ -490,4 +675,6 @@ test_that("the full assertion set runs clean on the committed archive", {
   expect_true(rhtp_la_assert())
   expect_true(la_assert_candidates_are_deck_activities())
   expect_true(la_assert_capital_row_dropped())
+  expect_true(la_assert_rccb_rows_are_ldh_awards())
+  expect_true(la_assert_award_file())
 })

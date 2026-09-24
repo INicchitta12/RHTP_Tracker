@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head><meta charset="utf-8" /><title>
+	Open SD
+</title><meta http-equiv="x-ua-compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta HTTP-EQUIV="Pragma" content="no-cache" /><meta HTTP-EQUIV="Cache-Control" content="no-cache,no-Store" /><link rel="icon" type="image/png" href="/img/favicon.png" />
+<SCRIPT language="JAVASCRIPT">
+
+    if (top.frames.length != 0)
+        top.location = self.document.location;
+
+</SCRIPT>
+
+
+   
+    <link href="/inc/styles/styles.css" type="text/css" rel="stylesheet" /> 
+    <script src="/inc/scripts/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="/inc/scripts/jquery-scrolltofixed-min.js" type="text/javascript">
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".nav-button").click(function () {
+            $("nav > #navigation > ul").toggleClass("open");
+        });
+
+        $("nav > #navigation > ul > li > a").click(function (e) {
+
+            if ($(this).parent("li").has("ul").length) {
+                e.preventDefault();
+                
+            }
+          //  else {
+             $("nav > #navigation > ul > li:hover > ul").toggleClass("open1");
+          //  }
+               // return;
+           
+        });
+
+        $("nav > #navigation > ul > li > ul > li").click(function () {
+            
+           $("nav > #navigation > ul > li > ul > li:hover > ul").toggleClass("open2");
+            $("nav > #navigation > ul > li:hover > ul").addClass("open1");
+        });
+
+        if ($(window).width() > 1000) {
+            var stickyNavTop = $('nav').offset().top;
+
+        var stickyNav = function () {
+            var scrollTop = $(window).scrollTop();
+
+            if (scrollTop > stickyNavTop) {
+                $('nav').addClass('sticky');
+            } else {
+                $('nav').removeClass('sticky');
+            }
+        };
+
+        stickyNav();
+
+        $(window).scroll(function () {
+            stickyNav();
+        });
+        }
+        else {
+            $('nav').removeClass('sticky');
+        }
+
+        SizeChange();
+        
+
+        if ($(window).width() <= 1000) {
+            $("#navigation > ul > li").each(function (index) {
+                if ($(this).children("ul").length > 0) {
+                  
+                }
+                else {
+                    $(this).children("a").css("width", "100%");
+    
+                }
+            });
+
+        }
+
+    });
+
+  
+ //   var listItems = $("#navigation > ul").children();
+  //  var count = listItems.length;
+
+var windowsize = $(window).width();
+
+    $(window).resize(function () {
+        var windowsize = $(window).width();
+        SizeChange();
+    });
+
+   
+    
+
+    function SizeChange() {  
+        if ($(window).width() <= 1000) {
+
+            $("nav > #navigation > ul > li").width("95%");
+        }
+        else {
+            var listItems = $("#navigation > ul").children();
+            var count = listItems.length;
+            $("nav > #navigation > ul > li").width(100 / count + "%");
+        }
+    }
+
+    </script>
+</head>
+<body>
+    <form method="post" action="./contracts.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNjgzMjg3Mjc0D2QWAgIED2QWCAIDDw8WAh4EVGV4dAXeGDx1bD48bGk+PGEgaWQ9Jzc5JyB0YXJnZXQ9J19ibGFuaycgaHJlZj0naHR0cDovL2F0Zy5zZC5nb3YvT3BlbkdvdmVybm1lbnQuYXNweCc+U3RhdHV0ZXMgYW5kIFJ1bGVzPC9hPjx1bD48bGk+PGEgaWQ9JzgxJyB0YXJnZXQ9J19ibGFuaycgaHJlZj0naHR0cHM6Ly9zZGxlZ2lzbGF0dXJlLmdvdi9TdGF0dXRlcy8nPlNEIFN0YXR1dGVzPC9hPjwvbGk+PGxpPjxhIGlkPSc4MicgdGFyZ2V0PSdfYmxhbmsnIGhyZWY9J2h0dHBzOi8vcnVsZXMuc2QuZ292Jz5Qcm9wb3NlZCBSdWxlczwvYT48L2xpPjxsaT48YSBpZD0nODMnIHRhcmdldD0nX2JsYW5rJyBocmVmPSdodHRwczovL3NkbGVnaXNsYXR1cmUuZ292L1J1bGVzLyc+UHJvbXVsZ2F0ZWQgUnVsZXM8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhIGlkPSc4NScgdGFyZ2V0PSdfYmxhbmsnIGhyZWY9Jyc+Qm9hcmRzICYgQ29tbWlzc2lvbnM8L2E+PHVsPjxsaT48YSBpZD0nMTU0JyB0YXJnZXQ9J19ibGFuaycgaHJlZj0naHR0cHM6Ly9ib2FyZHNhbmRjb21taXNzaW9ucy5zZC5nb3YvJz5TdGF0ZSBHb3Zlcm5tZW50PC9hPjwvbGk+PGxpPjxhIGlkPScxNTUnIHRhcmdldD0nX2JsYW5rJyBocmVmPSdodHRwczovL3NkbG9jYWxnb3YuYXBwc3NkLnNkLmdvdi8nPkxvY2FsIEdvdmVybm1lbnQ8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhIGlkPSc4NicgdGFyZ2V0PScnIGhyZWY9Jy9JbmZvX3ByLmFzcHgnPlBheXJvbGw8L2E+PHVsPjxsaT48YSBpZD0nODcnIHRhcmdldD0nJyBocmVmPScvZW1wbG95ZWVzLmFzcHgnPkVtcGxveWVlIFNhbGFyaWVzPC9hPjwvbGk+PGxpPjxhIGlkPSc4OCcgdGFyZ2V0PScnIGhyZWY9Jy9leGVjdXRpdmVfc2FsYXJpZXMuYXNweCc+RXhlY3V0aXZlIFNhbGFyaWVzPC9hPjwvbGk+PGxpPjxhIGlkPSc4OScgdGFyZ2V0PScnIGhyZWY9Jy9qb2JfY2xhc3NpZmljYXRpb24uYXNweCc+Sm9iIENsYXNzaWZpY2F0aW9uczwvYT48L2xpPjxsaT48YSBpZD0nOTAnIHRhcmdldD0nJyBocmVmPScvUVRfU3RhZmZpbmcuYXNweCc+Q3VycmVudCBTdGFmZmluZyBMZXZlbDwvYT48L2xpPjwvdWw+PC9saT48bGk+PGEgaWQ9JzkxJyB0YXJnZXQ9JycgaHJlZj0nJz5DaGVja2Jvb2s8L2E+PHVsPjxsaT48YSBpZD0nOTInIHRhcmdldD0nJyBocmVmPSdodHRwczovL3NvdXRoZGFrb3RhLnNwZW5kaW5nLnNvY3JhdGEuY29tLyMhL3llYXIvMjAyNi8nPk9wZW4gQ2hlY2tib29rIC0gSW50ZXJhY3RpdmU8L2E+PC9saT48bGk+PGEgaWQ9JzE1NycgdGFyZ2V0PScnIGhyZWY9J2h0dHBzOi8vb3Blbi5zZC5nb3YvdmVuZG9yLmFzcHgnPlZlbmRvciBQYXltZW50IExpc3RpbmcgLSA1IHlyczwvYT48L2xpPjxsaT48YSBpZD0nMTM5JyB0YXJnZXQ9JycgaHJlZj0naHR0cHM6Ly9vcGVuLnNkLmdvdi9jb3ZpZDE5X2V4cGVuZGl0dXJlcy5hc3B4Jz5BbGwgQ09WSUQgU3BlbmRpbmc8L2E+PC9saT48bGk+PGEgaWQ9JzkzJyB0YXJnZXQ9JycgaHJlZj0naHR0cHM6Ly9vcGVuLnNkLmdvdi9Db3ZpZDE5X0FMTF8yMDAwLmFzcHgnPlNlYXJjaCBDT1ZJRCBTdGltdWx1cyBWZW5kb3IgUGF5bWVudHM8L2E+PC9saT48L3VsPjwvbGk+PGxpPjxhIGlkPSc5NCcgdGFyZ2V0PScnIGhyZWY9JyMnPkNvbnRyYWN0cy9HcmFudHM8L2E+PHVsPjxsaT48YSBpZD0nOTUnIHRhcmdldD0nJyBocmVmPScvY29udHJhY3RzLmFzcHgnPkNvbnRyYWN0L0dyYW50IFNlYXJjaDwvYT48L2xpPjxsaT48YSBpZD0nOTYnIHRhcmdldD0nX2JsYW5rJyBocmVmPSdodHRwczovL3d3dy5zZC5nb3YvYmhyYT9pZD1jc19rYl9hcnRpY2xlX3ZpZXcmc3lzcGFybV9hcnRpY2xlPUtCMDA0NDc4NyZzeXNfa2JfaWQ9ZjY1NzE1ZDI5NzYwN2U5MDdmYzFiNDgwZjA1M2FmZmEmc3BhPTEnPkNvbW1vZGl0eSBDb250cmFjdCBMaXN0PC9hPjwvbGk+PGxpPjxhIGlkPScxMzInIHRhcmdldD0nX2JsYW5rJyBocmVmPSdodHRwczovL3NvdXJjaW5nLmVzbXNvbHV0aW9ucy5jb20vcG9zdGluZ2JvYXJkL2VudGl0aWVzLzM0NDRhNDA0LTM4MTgtNDk0Zi04NGM1LTJhODUwYWNkNzc3OSc+UkZQL0JpZCBTZWFyY2g8L2E+PC9saT48bGk+PGEgaWQ9Jzk3JyB0YXJnZXQ9JycgaHJlZj0nL3JmcC5hc3B4Jz5SRlAgUmVnaXN0ZXIgb2YgUHJvcG9zYWxzPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBpZD0nOTgnIHRhcmdldD0nJyBocmVmPScjJz5TdGF0ZSBCdWRnZXQ8L2E+PHVsPjxsaT48YSBpZD0nMTM4JyB0YXJnZXQ9JycgaHJlZj0naHR0cHM6Ly9zb3V0aGRha290YS5idWRnZXQuc29jcmF0YS5jb20vIyEveWVhci9kZWZhdWx0Jz5PcGVuIEJ1ZGdldDwvYT48L2xpPjxsaT48YSBpZD0nOTknIHRhcmdldD0nX2JsYW5rJyBocmVmPSdodHRwOi8vYmZtLnNkLmdvdi9idWRnZXQnPkJ1ZGdldCBEb2N1bWVudHM8L2E+PC9saT48bGk+PGEgaWQ9JzEwMicgdGFyZ2V0PScnIGhyZWY9Jy9idWRnZXR0cmFuc2ZlcnMuYXNweCc+QnVkZ2V0IFRyYW5zZmVyczwvYT48L2xpPjxsaT48YSBpZD0nMTAzJyB0YXJnZXQ9JycgaHJlZj0nL1RheF9FeHBlbmRpdHVyZXMuYXNweCc+VGF4IEV4cGVuZGl0dXJlczwvYT48L2xpPjwvdWw+PC9saT48bGk+PGEgaWQ9JzUnIHRhcmdldD0nY29udGVudCcgaHJlZj0naHR0cDovL3d3dy5zdGF0ZS5zZC51cy9iZm0vbGVkZ2VyL2luZm9fZnAuaHRtJz5GaW5hbmNpYWwgUHVibGljYXRpb25zPC9hPjx1bD48bGk+PGEgaWQ9JzEwNScgdGFyZ2V0PSdfYmxhbmsnIGhyZWY9J2h0dHA6Ly9iZm0uc2QuZ292L2Rhc2hib2FyZHMvRGVmYXVsdC5hc3B4Jz5GaW5hbmNpYWwgTWV0cmljczwvYT48L2xpPjxsaT48YSBpZD0nMTMwJyB0YXJnZXQ9J190YXJnZXQnIGhyZWY9J2h0dHA6Ly9iZm0uc2QuZ292L2x0ZnAvJz5Mb25nIFRlcm0gRmluYW5jaWFsIFBsYW48L2E+PC9saT48bGk+PGEgaWQ9JzEwOCcgdGFyZ2V0PScnIGhyZWY9Jy9JbmZvX2JiLmFzcHgnPkJ1ZGdldCBpbiBCcmllZjwvYT48L2xpPjxsaT48YSBpZD0nMTA5JyB0YXJnZXQ9JycgaHJlZj0nL0luZm9fZnIuYXNweCc+QW5udWFsIEZpbmFuY2lhbCBSZXBvcnRzPC9hPjwvbGk+PC91bD48L2xpPjxsaT48YSBpZD0nMTEwJyB0YXJnZXQ9J19ibGFuaycgaHJlZj0naHR0cHM6Ly9zZHJlYWR5dG93b3JrLmNvbS9hYm91dC11cy9wdWJsaWMtcmVjb3Jkcy8nPkVjb25vbWljIERldmVsb3BtZW50PC9hPjwvbGk+PC91bD5kZAIGDw8WAh8ABRU5LzI0LzIwMjYgMTI6MzA6NTQgUE1kZAIIDxBkDxYiZgIBAgICAwIEAgUCBgIHAggCCQIKAgsCDAINAg4CDwIQAhECEgITAhQCFQIWAhcCGAIZAhoCGwIcAh0CHgIfAiACIRYiEAUIIEFMTCAoICkFATBnEAUkQUdSSUNVTFRVUkUgJiBOQVQuIFJFU09VUkNFUyAgICgwMyApBQMwMyBnEAUkQVRUT1JORVkgR0VORVJBTCAgICAgICAgICAgICAgICgyOSApBQMyOSBnEAUkQkhSQSBBRE1JTklTVFJBVElPTiAgICAgICAgICAgICgwMTIpBQMwMTJnEAUkQkhSQSBIVU1BTiBSRVNPVVJDRVMgICAgICAgICAgICgwMTQpBQMwMTRnEAUkQk9BUkQgT0YgUkVHRU5UUyAgICAgICAgICAgICAgICgxNSApBQMxNSBnEAUkQlVSRUFVIE9GIEZJTkFOQ0UgJiBNQU5BR0VNRU5UICgwMTEpBQMwMTFnEAUkQlVSRUFVIE9GIElORk9STUFUSU9OICYgVEVDSCAgICgwMTMpBQMwMTNnEAUkQ09SUkVDVElPTlMgICAgICAgICAgICAgICAgICAgICgxOCApBQMxOCBnEAUkRURVQ0FUSU9OICAgICAgICAgICAgICAgICAgICAgICgxMiApBQMxMiBnEAUkR0FNRSwgRklTSCBBTkQgUEFSS1MgICAgICAgICAgICgwNiApBQMwNiBnEAUkR09WRVJOT1InUyBPRkZJQ0UgICAgICAgICAgICAgICgwMTApBQMwMTBnEAUkSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgICgwOSApBQMwOSBnEAUkSFVNQU4gU0VSVklDRVMgICAgICAgICAgICAgICAgICgxOSApBQMxOSBnEAUkSU5WRVNUTUVOVCBDT1VOQ0lMICAgICAgICAgICAgICgzMjEpBQMzMjFnEAUkTEFCT1IgQU5EIFJFR1VMQVRJT04gICAgICAgICAgICgxMCApBQMxMCBnEAUkTEVHSVNMQVRJVkUgQVVESVQgICAgICAgICAgICAgICgyODgpBQMyODhnEAUkTEVHSVNMQVRJVkUgUkVTRUFSQ0ggQ09VTkNJTCAgICgyODEpBQMyODFnEAUkTE9UVEVSWSAgICAgICAgICAgICAgICAgICAgICAgICgwMjgpBQMwMjhnEAUkTUlMSVRBUlkgICAgICAgICAgICAgICAgICAgICAgICgxNiApBQMxNiBnEAUkUFVCTElDIFNBRkVUWSAgICAgICAgICAgICAgICAgICgxNCApBQMxNCBnEAUkUFVCTElDIFVUSUxJVElFUyBDT01NSVNTSU9OICAgICgyNiApBQMyNiBnEAUkUkVUSVJFTUVOVCBTWVNURU0gICAgICAgICAgICAgICgyNSApBQMyNSBnEAUkUkVWRU5VRSAgICAgICAgICAgICAgICAgICAgICAgICgwMiApBQMwMiBnEAUkU0NIT09MICYgUFVCTElDIExBTkRTICAgICAgICAgICgzMCApBQMzMCBnEAUkU0VDUkVUQVJZIE9GIFNUQVRFICAgICAgICAgICAgICgzMSApBQMzMSBnEAUkU09DSUFMIFNFUlZJQ0VTICAgICAgICAgICAgICAgICgwOCApBQMwOCBnEAUkU1RBVEUgQVVESVRPUiAgICAgICAgICAgICAgICAgICgzMyApBQMzMyBnEAUkU1RBVEUgVFJFQVNVUkVSICAgICAgICAgICAgICAgICgzMjApBQMzMjBnEAUkVE9VUklTTSAgICAgICAgICAgICAgICAgICAgICAgICgwNCApBQMwNCBnEAUkVFJBTlNQT1JUQVRJT04gICAgICAgICAgICAgICAgICgxMSApBQMxMSBnEAUkVFJJQkFMIFJFTEFUSU9OUyAgICAgICAgICAgICAgICgwNyApBQMwNyBnEAUkVU5JRklFRCBKVURJQ0lBTCBTWVNURU1TICAgICAgICgyNyApBQMyNyBnEAUkVkVURVJBTlMnIEFGRkFJUlMgICAgICAgICAgICAgICgxNyApBQMxNyBnZGQCGg8PFgIfAAWbSjx0YWJsZSBpZD0nY29udHJhY3RzJz48dGhlYWQ+PHRyPjx0aD48YSBjbGFzcz0ndGl0bGUnPkNvbnRyYWN0L0dyYW50PC9hPjxkaXYgY2xhc3M9J2RlZmluaXRpb24nPjxoND5Db250cmFjdDwvaDQ+VHlwZXMgb2Ygc3RhdGUgY29udHJhY3RzOjxwPjx1bD48bGk+U2VydmljZSBjb250cmFjdHMgYXJlIGFncmVlbWVudHMgdG8gcHJvdmlkZSBzZXJ2aWNlcyBpbnN0ZWFkIG9mIGEgc3VwcGx5IG9yIG1hdGVyaWFsIGFuZCBtYXkgYmUga2VwdCBieSB0aGUgaW5kaXZpZHVhbCBhZ2VuY3kgZW50ZXJpbmcgaW50byB0aGUgY29udHJhY3QuPGxpPkNvbnN1bHRhbnQgY29udHJhY3RzIGFyZSBhIHN1YnNldCBvZiBzZXJ2aWNlIGNvbnRyYWN0cywgdXNlZCB0byBvYnRhaW4gY29uc3VsdGluZyBzZXJ2aWNlcy4gIENvbnN1bHRhbnQgY29udHJhY3RzIGFyZSByZXF1aXJlZCB0byBiZSBmaWxlZCB3aXRoIHRoZSBzdGF0ZSBhdWRpdG9yJ3Mgb2ZmaWNlIGFuZCBjb3BpZXMgY2FuIGJlIG9idGFpbmVkIHRoZXJlLjxsaT5Qcm9jdXJlbWVudCBjb250cmFjdHMgYXJlIGlzc3VlZCBieSB0aGUgT2ZmaWNlIG9mIFByb2N1cmVtZW50IGZvciBzdXBwbGllcyBhbmQgbWF0ZXJpYWxzIGFuZCBhcmUgYXZhaWxhYmxlIG9uIHRoZSA8YSBocmVmPSJodHRwOi8vd3d3LnN0YXRlLnNkLnVzL2JvYS9vcG0vIiB0YXJnZXQ9Im5ldyI+T1BNIHdlYnNpdGU8L2E+LjxsaT5MZWdhbCBjb250cmFjdHMgYXJlIGZpbGVkIHdpdGggdGhlIGF0dG9ybmV5IGdlbmVyYWwncyBvZmZpY2UuPC91bD48L2Rpdj4gTnVtYmVyPC90aD48dGg+RGVzY3JpcHRpb248L3RoPjx0aD5WZW5kb3IgTmFtZTwvdGg+PHRoPjxhIGNsYXNzPSd0aXRsZSc+QWdlbmN5PC9hPjxkaXYgY2xhc3M9J2RlZmluaXRpb24nPjxoND5BZ2VuY3k8L2g0PlRoZSB0ZXJtICJhZ2VuY3kiIGlzIHVzZWQgdG8gcmVmZXIgdG8gdGhlIGRlcGFydG1lbnRzLCBidXJlYXVzLCBhbmQgb2ZmaWNlcyB0aGF0IGNvbXByaXNlIHN0YXRlIGdvdmVybm1lbnQuICBBZ2VuY2llcyBhcmUgaGVhZGVkIGJ5IGEgY2FiaW5ldCBTZWNyZXRhcnkgb3IgQ29tbWlzc2lvbmVyLCBvciBieSBhbiBlbGVjdGVkIG9mZmljaWFsLiAgTnVtZXJpY2FsIGNvZGVzIGFzc2lnbmVkIHRvIGFnZW5jaWVzIGFyZSBsaXN0ZWQgPGEgdGFyZ2V0PSJuZXciIGhyZWY9ImluZm9fYWdlbmNpZXMuaHRtIj5oZXJlPC9hPi48L2Rpdj4gYW5kIE5hbWU8L3RoPjx0aD5CZWdpbiBEYXRlPC90aD48dGg+QW1vdW50PC90aD48L3RyPjwvdGhlYWQ+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAyNisrKysrKyc+MjdSSFQwMDAyNiAgICAgIDwvYT48L3RkPjx0ZD5Qcm92aWRlIGdyYW50IGFuZCBhZG1pbmlzdHJhdGl2ZSBzdXBwb3J0IGZvciB0aGUgUnVyYWwgSGVhbHRoIFRyYW5zZm9ybWF0aW8uLi48L3RkPjx0ZD5FTkdJTkVFUklORyBTT0xVVElPTlMgSU5DICAgICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDkwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDY1MCwwMDA8L3RkPjwvdHI+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAyNSsrKysrKyc+MjdSSFQwMDAyNSAgICAgIDwvYT48L3RkPjx0ZD5JbXBsZW1lbnRhdGlvbiBvZiBhIFJ1cmFsIFN0cm9uZyBHcmFudCBhcyBhIHBhcnQgb2YgdGhlIGZlZGVyYWwgUnVyYWwgSGVhbHQuLi48L3RkPjx0ZD5CRU5ORVRUIENPVU5UWSBIT1NQSVRBTCAgICAgICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDgwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDI0OCwwMDA8L3RkPjwvdHI+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAyMCsrKysrKyc+MjdSSFQwMDAyMCAgICAgIDwvYT48L3RkPjx0ZD5Qcm92aWRlIHN0cmF0ZWdpYyBsZWFkZXJzaGlwIGFuZCBvcGVyYXRpb25hbCBzdXBwb3J0IHdpdGhpbiB0aGUgT2ZmaWNlIG9mIFIuLi48L3RkPjx0ZD5CTEFDSyBISUxMUyBTUEVDSUFMIFNFUlZJQ0VTICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDgwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDQ0OSw0MDI8L3RkPjwvdHI+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAxOCsrKysrKyc+MjdSSFQwMDAxOCAgICAgIDwvYT48L3RkPjx0ZD5JbXBsZW1lbnRhdGlvbiBvZiBhIFJ1cmFsIFN0cm9uZyBHcmFudCBhcyBhIHBhcnQgb2YgdGhlIGZlZGVyYWwgUnVyYWwgSGVhbHQuLi48L3RkPjx0ZD5DT01NVU5JVFkgTUVNT1JJQUwgSE9TUElUQUwgICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDgwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDE0NSw1MDA8L3RkPjwvdHI+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAyNCsrKysrKyc+MjdSSFQwMDAyNCAgICAgIDwvYT48L3RkPjx0ZD5JbXBsZW1lbnRhdGlvbiBvZiBhIFJ1cmFsIFN0cm9uZyBHcmFudCBhcyBhIHBhcnQgb2YgdGhlIGZlZGVyYWwgUnVyYWwgSGVhbHQuLi48L3RkPjx0ZD5DT01NVU5JVFkgTUVNT1JJQUwgSE9TUElUQUwgICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDgwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDEwMyw3MDA8L3RkPjwvdHI+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAxNysrKysrKyc+MjdSSFQwMDAxNyAgICAgIDwvYT48L3RkPjx0ZD5JbXBsZW1lbnRhdGlvbiBvZiBhIFJ1cmFsIFN0cm9uZyBHcmFudCBhcyBhIHBhcnQgb2YgdGhlIGZlZGVyYWwgUnVyYWwgSGVhbHQuLi48L3RkPjx0ZD5DT01QTEVURSBIRUFMVEggQ0VOVEVSIE9GIEJIICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDgwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDM3MCw1NjI8L3RkPjwvdHI+PHRyPjx0ZD48YSBocmVmPSdjb250cmFjdHNEb2NTaG93LmFzcHg/RG9jSUQ9MjdSSFQwMDAyMisrKysrKyc+MjdSSFQwMDAyMiAgICAgIDwvYT48L3RkPjx0ZD5JbXBsZW1lbnRhdGlvbiBvZiBhIFJ1cmFsIFN0cm9uZyBHcmFudCBhcyBhIHBhcnQgb2YgdGhlIGZlZGVyYWwgUnVyYWwgSGVhbHQuLi48L3RkPjx0ZD5GQVVMS1RPTiBBUkVBIE1FRElDQUwgQ0VOVEVSICA8L3RkPjx0ZD4wOSAgLSBIRUFMVEggICAgICAgICAgICAgICAgICAgICAgICA8L3RkPjx0ZD4yMDI2MDgwMTwvdGQ+PHRkIGFsaWduPSdyaWdodCc+JDM4LDAwMDwvdGQ+PC90cj48dHI+PHRkPjxhIGhyZWY9J2NvbnRyYWN0c0RvY1Nob3cuYXNweD9Eb2NJRD0yN1JIVDAwMDIzKysrKysrJz4yN1JIVDAwMDIzICAgICAgPC9hPjwvdGQ+PHRkPkltcGxlbWVudGF0aW9uIG9mIGEgUnVyYWwgU3Ryb25nIEdyYW50IGFzIGEgcGFydCBvZiB0aGUgZmVkZXJhbCBSdXJhbCBIZWFsdC4uLjwvdGQ+PHRkPlBISUxJUCBIRUFMVEggU0VSVklDRVMgSU5DICAgIDwvdGQ+PHRkPjA5ICAtIEhFQUxUSCAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+PHRkPjIwMjYwODAxPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4kMTgxLDYwMDwvdGQ+PC90cj48dHI+PHRkPjxhIGhyZWY9J2NvbnRyYWN0c0RvY1Nob3cuYXNweD9Eb2NJRD0yN1JIVDAwMDE1KysrKysrJz4yN1JIVDAwMDE1ICAgICAgPC9hPjwvdGQ+PHRkPkltcGxlbWVudGF0aW9uIG9mIGEgUnVyYWwgU3Ryb25nIEdyYW50IGFzIGEgcGFydCBvZiB0aGUgZmVkZXJhbCBSdXJhbCBIZWFsdC4uLjwvdGQ+PHRkPlNEIFVSQkFOIElORElBTiBIRUFMVEggICAgICAgIDwvdGQ+PHRkPjA5ICAtIEhFQUxUSCAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+PHRkPjIwMjYwODAxPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4kNDY3LDc5MDwvdGQ+PC90cj48dHI+PHRkPjxhIGhyZWY9J2NvbnRyYWN0c0RvY1Nob3cuYXNweD9Eb2NJRD0yN1JIVDAwMDExKysrKysrJz4yN1JIVDAwMDExICAgICAgPC9hPjwvdGQ+PHRkPk9mZmVyIHNwZWNpYWxpemVkIHRyYWluaW5nIGFuZCBjZXJ0aWZpY2FpdG9uL2VkdWNhdGlvbiBmb3IgQ0hXcyBhbmQgQ0hScyBpbi4uLjwvdGQ+PHRkPlNPVVRIRUFTVCBURUNITklDQUwgQ09MTEVHRSAgIDwvdGQ+PHRkPjA5ICAtIEhFQUxUSCAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+PHRkPjIwMjYwODAxPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4kODgsODAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMTYrKysrKysnPjI3UkhUMDAwMTYgICAgICA8L2E+PC90ZD48dGQ+SW1wbGVtZW50YXRpb24gb2YgYSBSdXJhbCBTdHJvbmcgR3JhbnQgYXMgYSBwYXJ0IG9mIHRoZSBmZWRlcmFsIFJ1cmFsIEhlYWx0Li4uPC90ZD48dGQ+VU5JVkVSU0lUWSBPRiBTT1VUSCBEQUtPVEEgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA4MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQzMjQsMDAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMTMrKysrKysnPjI3UkhUMDAwMTMgICAgICA8L2E+PC90ZD48dGQ+VG8gZXN0YWJsaXNoIHJlZ2lvbmFsIEVNUyBodWJzIHRoYXQgaW1wcm92ZSBjb29yZGluYXRpb24sIHJlc291cmNlIHNoYXJpbmcsLi4uPC90ZD48dGQ+U0QgRk9VTkRBVElPTiBGT1IgTUVESUNBTCBDQVJFPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MTc8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQ3MTksMDg1PC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMDgrKysrKysnPjI3UkhUMDAwMDggICAgICA8L2E+PC90ZD48dGQ+RGV2ZWxvcCwgbGF1bmNoLCBhbmQgZXZhbHVhdGUgYSBDYXJlZ2l2ZXIgQ29uY2llcmdlIG1vYmlsZSBhcHBsaWNhdGlvbiB0aGF0Li4uPC90ZD48dGQ+QUNUSVZFIEdFTkVSQVRJT04gICAgICAgICAgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQyMjYsOTMwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMDkrKysrKysnPjI3UkhUMDAwMDkgICAgICA8L2E+PC90ZD48dGQ+UmVjcnVpdCBhbmQgc3VwcG9ydCBpbmRpdmlkdWFscyBmcm9tIHByaW9yaXR5IGFuZCB1bmRlcnNlcnZlZCBjb21tdW5pdGllcyB0Li4uPC90ZD48dGQ+U0QgRk9VTkRBVElPTiBGT1IgTUVESUNBTCBDQVJFPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQxMzAsNTcxPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMTArKysrKysnPjI3UkhUMDAwMTAgICAgICA8L2E+PC90ZD48dGQ+UnVyYWwgSGVhbHRoIFRyYW5zZm9ybWF0aW9uIGluaXRpYXRpdmUgaXMgYSBzdGF0ZXdpZGUgZWZmb3J0IGZvY3VzZWQgb24gc3RyLi4uPC90ZD48dGQ+U0QgRk9VTkRBVElPTiBGT1IgTUVESUNBTCBDQVJFPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQxNzAsODE2PC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMTQrKysrKysnPjI3UkhUMDAwMTQgICAgICA8L2E+PC90ZD48dGQ+RXhwYW5kIGFuZCBzdHJlbmd0aGVuIHRoZSBkb3VsYSB3b3JrZm9yY2UgaW4gU291dGggRGFrb3RhIHRocm91Z2ggcmVjcnVpdG1lLi4uPC90ZD48dGQ+U09VVEggREFLT1RBIERPVUxBUyAgICAgICAgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQxMzMsMzUyPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMjErKysrKysnPjI3UkhUMDAwMjEgICAgICA8L2E+PC90ZD48dGQ+RGVzaWduLCBpbXBsZW1lbnQsIGhvc3QsIGFuZCBtYWludGFpbiBhIHN0YXRld2lkZSBlZHVjYXRpb24gYW5kIHRyYWluaW5nIHBsLi4uPC90ZD48dGQ+U09VVEggREFLT1RBIFNUQVRFIFVOSVZFUlNJVFkgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQxODUsNjc2PC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMTkrKysrKysnPjI3UkhUMDAwMTkgICAgICA8L2E+PC90ZD48dGQ+RGVzaWduLCBpbXBsZW1lbnQsIGhvc3QsIGFuZCBtYWludGFpbiBhIHN0YXRld2lkZSBlZHVjYXRpb24gYW5kIHRyYWluaW5nIHBsLi4uPC90ZD48dGQ+VU5JVkVSU0lUWSBPRiBTT1VUSCBEQUtPVEEgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA3MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQzMDcsMjI4PC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMDUrKysrKysnPjI3UkhUMDAwMDUgICAgICA8L2E+PC90ZD48dGQ+Q29uZHVjdCB0aGUgU3RhdGV3aWRlIE1hdGVybmFsIEhlYWx0aCBBY2Nlc3MgYW5kIFNlcnZpY2VzIEFzc2Vzc21lbnQgZm9yIHRoLi4uPC90ZD48dGQ+R1VJREVIT1VTRSBJTkMgICAgICAgICAgICAgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA2MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQ1NjcsMzUwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMTIrKysrKysnPjI3UkhUMDAwMTIgICAgICA8L2E+PC90ZD48dGQ+VGhpcyB2ZW5kb3Igd2lsbCBhc3Npc3QgaW4gZXZhbHVhdGluZyB0aGUgY3VycmVudCBiaWxsaW5nLCBkYXRhIGNvbGxlY3Rpb24sLi4uPC90ZD48dGQ+SEVBTFRIIE1BTkFHRU1FTlQgQVNTT0NJQVRFUyAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA2MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQ0MjUsMDAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMDcrKysrKysnPjI3UkhUMDAwMDcgICAgICA8L2E+PC90ZD48dGQ+VGhlIHB1cnBvc2Ugb2YgdGhpcyBjb250cmFjdCBpcyB0byBhc3Npc3QgdGhlIFN0YXRlIGluIGRldmVsb3BpbmcgYSBwb3B1bGF0Li4uPC90ZD48dGQ+TVlFUlMgJiBTVEFVRkZFUiBMTEMgICAgICAgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA2MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQ0NTAsMDAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI2UkhUMDAwMDQrKysrKysnPjI2UkhUMDAwMDQgICAgICA8L2E+PC90ZD48dGQ+UHJvdmlkZSB0ZWNobmljYWwgYXNzaXN0YW5jZSwgcHJvZ3JhbSBkZXZlbG9wbWVudCwgcHJvZmVzc2lvbmFsIGRldmVsb3BtZW50Li4uPC90ZD48dGQ+Q09NTVVOSVRZIEhFQUxUSCBXT1JLRVIgQ09MTEFCPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA1MDc8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQzOTksMDEzPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI3UkhUMDAwMDErKysrKysnPjI3UkhUMDAwMDEgICAgICA8L2E+PC90ZD48dGQ+VG8gcHJvdmlkZSBwcm9qZWN0IG1hbmFnZW1lbnQgc3VwcG9ydCBmb3IgdGhlIENocm9uaWMgRGlzZWFzZSBNYW5hZ2VtZW50IEluLi4uPC90ZD48dGQ+QkxBQ0sgSElMTFMgU1BFQ0lBTCBTRVJWSUNFUyAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA1MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQ1MDMsMDAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI2UkhUMDAwMDMrKysrKysnPjI2UkhUMDAwMDMgICAgICA8L2E+PC90ZD48dGQ+UHJvdmlkZSBQcm9qZWN0IE1hbmFnZW1lbnQsIGNvb3JkaW5hdGlvbiwgYW5kIHRlY2huaWNhbCBzdXBwb3J0IHRvIERTUyBhY3JvLi4uPC90ZD48dGQ+QlVTSU5FU1MgQ09OQ0VQVFMgJiBBUFBTIElOQyAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA1MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQyNTAsMDAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI2UkhUMDAwMDYrKysrKysnPjI2UkhUMDAwMDYgICAgICA8L2E+PC90ZD48dGQ+VGhlIHB1cnBvc2Ugb2YgdGhlIGNvbnRyYWN0IGlzIHRvIGltcGxlbWVudCBDaHJvbmljIERpc2Vhc2UgU2VsZi1NYW5hZ2VtZW50Li4uPC90ZD48dGQ+U09VVEggREFLT1RBIFNUQVRFIFVOSVZFUlNJVFkgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA1MDE8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQyMjUsMDAwPC90ZD48L3RyPjx0cj48dGQ+PGEgaHJlZj0nY29udHJhY3RzRG9jU2hvdy5hc3B4P0RvY0lEPTI2UkhUMDAwMDIrKysrKysnPjI2UkhUMDAwMDIgICAgICA8L2E+PC90ZD48dGQ+UHJvdmlkZSBjb25zdWx0YW50IHNlcnZpY2VzIHRvIFNEIEhlYWx0aCBMaW5rIHRvIGhlbHAgbWFuYWdlIHRoZSBEaWdpdGFsIEhlLi4uPC90ZD48dGQ+Tk9SVEggU1RBUiBTT0xVVElPTlMgTExDICAgICAgPC90ZD48dGQ+MDkgIC0gSEVBTFRIICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD48dGQ+MjAyNjA0MTU8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPiQxLDQ2Miw4MDI8L3RkPjwvdHI+PC90YWJsZT4qKiBUbyB2aWV3IHRoZSBhbW91bnQgb3IgZGVzY3JpcHRpb24gZm9yIGNvbnRyYWN0cyBlbnRlcmVkIHByaW9yIHRvIDA3LzAxLzIwMTYgeW91IG1heSBuZWVkIHRvIHZpZXcgdGhlIGFjdHVhbCBjb250cmFjdC5kZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WBQUGUmFkaW8xBQZSYWRpbzIFBlJhZGlvMgUGUmFkaW8zBQZSYWRpbzPblKNMgr/toWsMPJY9IpYwt4mVFw==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C541E659" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdACs3b5stfNUhDUMe8zMOkUaKmYOy734x5yOenrHD/CNcyAB3NPxwqghWo2Zy62HCsJIy0mBNmtDfEYEZBrodEAOwGtmlxdWuDWN1fIkvWR1NL3L46IZ0m7bxmwBQmjBhv0UhK1yN5DzsZ6inX8XDVy2thIn521QoA2EIUN/VRJAG3DyGbTFexQfpaxYDgY8fYOVxNGGmO0p9U5yvQ1JfwxKcQxAvwMipmxsizF+mTm4zT4qqVDoQ7vu6vt2sJU33wMTAqUQ7giDx9DIOlTpJUlhtAjccCkUQCSq8zy5yTsgtM8F1S0K+lrojlcD1TsOPnacLvUzsWOO3rrspb73ir5o8DGqOAxSeDCBO7sqZXSnfeGKX/eF5/gUmCWIslST3P/m1R78grlTOtNuU5hnhY4wBdOz2BOZZY+PAsY+Vtto8k+xfRDIomF0efR8E7kujclfAr1VLcNkrSdYlkvhbMjUQC/dlmCKfhzJCMF6o+vt9l6DK2m0/eoOEhpu0THZHQUj2q6Wdp8kX7uF0Q0flUNMjCQcVIzDeQeW+Tr0wvTwEDrkAaWfVsW/BaNH4xSUWG2yhnqiBqO1Dum8NKUTjpBQA+PjxTLtNHEDcVJYE/HHf462FvKCmkJgKksUSALjH+x0d6DUjwFBCUHHpprnx6SdigRodimUfzajfRPBOSX8s33BlBspzk9v9cXeVeXYMfrsi6iFqcSlKFqA3KPLxx0IWzC2N2EcTKsyom5bCT37JekPibIA2L3dqwgbuO4mtebqRO8fEgCA2Z9JvMYBtZnfQPawAHUOJzSNLmcdlBWD2pQ1PW/WQmrhjmeKsSW1gWdXAaBJjP1fJmVouvLfF3Ls6Hf/mbbbuXTqLA+Skho9o97sCdCov+1FPMh8ojWXysH8JlS2Y+xnf1lTpVsTt8/FJi3hIykEBT+jxWow68yua3I1IjHA=" /> 
+        <header>
+            <a id="logo" href="/">Open <span id="sd">SD</span></a>
+            <div id="title">South Dakota Transparency Website</div>
+            <div class="nav-button"><img src="/img/menu.png" alt="Menu Icon" /></div>
+        </header>  
+
+
+<nav>
+    <span id="navigation"><ul><li><a id='79' target='_blank' href='http://atg.sd.gov/OpenGovernment.aspx'>Statutes and Rules</a><ul><li><a id='81' target='_blank' href='https://sdlegislature.gov/Statutes/'>SD Statutes</a></li><li><a id='82' target='_blank' href='https://rules.sd.gov'>Proposed Rules</a></li><li><a id='83' target='_blank' href='https://sdlegislature.gov/Rules/'>Promulgated Rules</a></li></ul></li><li><a id='85' target='_blank' href=''>Boards & Commissions</a><ul><li><a id='154' target='_blank' href='https://boardsandcommissions.sd.gov/'>State Government</a></li><li><a id='155' target='_blank' href='https://sdlocalgov.appssd.sd.gov/'>Local Government</a></li></ul></li><li><a id='86' target='' href='/Info_pr.aspx'>Payroll</a><ul><li><a id='87' target='' href='/employees.aspx'>Employee Salaries</a></li><li><a id='88' target='' href='/executive_salaries.aspx'>Executive Salaries</a></li><li><a id='89' target='' href='/job_classification.aspx'>Job Classifications</a></li><li><a id='90' target='' href='/QT_Staffing.aspx'>Current Staffing Level</a></li></ul></li><li><a id='91' target='' href=''>Checkbook</a><ul><li><a id='92' target='' href='https://southdakota.spending.socrata.com/#!/year/2026/'>Open Checkbook - Interactive</a></li><li><a id='157' target='' href='https://open.sd.gov/vendor.aspx'>Vendor Payment Listing - 5 yrs</a></li><li><a id='139' target='' href='https://open.sd.gov/covid19_expenditures.aspx'>All COVID Spending</a></li><li><a id='93' target='' href='https://open.sd.gov/Covid19_ALL_2000.aspx'>Search COVID Stimulus Vendor Payments</a></li></ul></li><li><a id='94' target='' href='#'>Contracts/Grants</a><ul><li><a id='95' target='' href='/contracts.aspx'>Contract/Grant Search</a></li><li><a id='96' target='_blank' href='https://www.sd.gov/bhra?id=cs_kb_article_view&sysparm_article=KB0044787&sys_kb_id=f65715d297607e907fc1b480f053affa&spa=1'>Commodity Contract List</a></li><li><a id='132' target='_blank' href='https://sourcing.esmsolutions.com/postingboard/entities/3444a404-3818-494f-84c5-2a850acd7779'>RFP/Bid Search</a></li><li><a id='97' target='' href='/rfp.aspx'>RFP Register of Proposals</a></li></ul></li><li><a id='98' target='' href='#'>State Budget</a><ul><li><a id='138' target='' href='https://southdakota.budget.socrata.com/#!/year/default'>Open Budget</a></li><li><a id='99' target='_blank' href='http://bfm.sd.gov/budget'>Budget Documents</a></li><li><a id='102' target='' href='/budgettransfers.aspx'>Budget Transfers</a></li><li><a id='103' target='' href='/Tax_Expenditures.aspx'>Tax Expenditures</a></li></ul></li><li><a id='5' target='content' href='http://www.state.sd.us/bfm/ledger/info_fp.htm'>Financial Publications</a><ul><li><a id='105' target='_blank' href='http://bfm.sd.gov/dashboards/Default.aspx'>Financial Metrics</a></li><li><a id='130' target='_target' href='http://bfm.sd.gov/ltfp/'>Long Term Financial Plan</a></li><li><a id='108' target='' href='/Info_bb.aspx'>Budget in Brief</a></li><li><a id='109' target='' href='/Info_fr.aspx'>Annual Financial Reports</a></li></ul></li><li><a id='110' target='_blank' href='https://sdreadytowork.com/about-us/public-records/'>Economic Development</a></li></ul></span>
+            
+        </nav>
+        
+        <section id="main">
+            
+                <h2>Grants and Contracts</h2>
+                <p>as required by <a target="_blank" href="http://sdlegislature.gov/Statutes/Codified_Laws/DisplayStatute.aspx?Type=Statute&Statute=1-56-10">SDCL 1-56-10</a> and <a target="_blank" href="http://sdlegislature.gov/Statutes/Codified_Laws/DisplayStatute.aspx?Type=Statute&Statute=1-27-46">SDCL 1-27-46</a><br />
+
+                as of <span id="lbl_Date">9/24/2026 12:30:54 PM</span>
+            </p>
+                
+            
+                <div class="fbox">
+                    <div class="lbox">
+                        <strong>Department:</strong>
+                    </div>
+                    <div class="rbox">
+                        <select name="ddl_DoA" id="ddl_DoA">
+	<option selected="selected" value="0"> ALL ( )</option>
+	<option value="03 ">AGRICULTURE &amp; NAT. RESOURCES   (03 )</option>
+	<option value="29 ">ATTORNEY GENERAL               (29 )</option>
+	<option value="012">BHRA ADMINISTRATION            (012)</option>
+	<option value="014">BHRA HUMAN RESOURCES           (014)</option>
+	<option value="15 ">BOARD OF REGENTS               (15 )</option>
+	<option value="011">BUREAU OF FINANCE &amp; MANAGEMENT (011)</option>
+	<option value="013">BUREAU OF INFORMATION &amp; TECH   (013)</option>
+	<option value="18 ">CORRECTIONS                    (18 )</option>
+	<option value="12 ">EDUCATION                      (12 )</option>
+	<option value="06 ">GAME, FISH AND PARKS           (06 )</option>
+	<option value="010">GOVERNOR&#39;S OFFICE              (010)</option>
+	<option value="09 ">HEALTH                         (09 )</option>
+	<option value="19 ">HUMAN SERVICES                 (19 )</option>
+	<option value="321">INVESTMENT COUNCIL             (321)</option>
+	<option value="10 ">LABOR AND REGULATION           (10 )</option>
+	<option value="288">LEGISLATIVE AUDIT              (288)</option>
+	<option value="281">LEGISLATIVE RESEARCH COUNCIL   (281)</option>
+	<option value="028">LOTTERY                        (028)</option>
+	<option value="16 ">MILITARY                       (16 )</option>
+	<option value="14 ">PUBLIC SAFETY                  (14 )</option>
+	<option value="26 ">PUBLIC UTILITIES COMMISSION    (26 )</option>
+	<option value="25 ">RETIREMENT SYSTEM              (25 )</option>
+	<option value="02 ">REVENUE                        (02 )</option>
+	<option value="30 ">SCHOOL &amp; PUBLIC LANDS          (30 )</option>
+	<option value="31 ">SECRETARY OF STATE             (31 )</option>
+	<option value="08 ">SOCIAL SERVICES                (08 )</option>
+	<option value="33 ">STATE AUDITOR                  (33 )</option>
+	<option value="320">STATE TREASURER                (320)</option>
+	<option value="04 ">TOURISM                        (04 )</option>
+	<option value="11 ">TRANSPORTATION                 (11 )</option>
+	<option value="07 ">TRIBAL RELATIONS               (07 )</option>
+	<option value="27 ">UNIFIED JUDICIAL SYSTEMS       (27 )</option>
+	<option value="17 ">VETERANS&#39; AFFAIRS              (17 )</option>
+
+</select>
+                    </div>
+                </div>
+                <div class="fbox">
+                    <div class="lbox">
+                        <strong>Vendor Name contains:</strong>
+                    </div>
+                    <div class="rbox">
+                        <input name="tb_Vendor" type="text" id="tb_Vendor" />
+                    </div>
+                </div>
+                <div class="fbox">
+                    <div class="lbox">
+                        <strong>Document Description contains:</strong>
+                    </div>
+                    <div class="rbox">
+                        <input name="tb_Doc_Descp" type="text" id="tb_Doc_Descp" />
+                    </div>
+                </div>
+                <div class="fbox">
+                    <div class="lbox">
+                        <strong>Contract/Grant Number contains:</strong>
+                    </div>
+                    <div class="rbox">
+                        <input name="tb_Contract_number" type="text" value="RHT" id="tb_Contract_number" />
+                    </div>
+                </div>
+                <div class="fbox">
+                    <div class="lbox">
+                        <strong>Filter:</strong>
+					</div>
+					<div class="rbox">
+						<input id="Radio1" type="radio" name="RadioGroup1" value="Radio1" checked="checked" /><label for="Radio1">All</label>
+						<input id="Radio2" type="radio" name="RadioGroup1" value="Radio2" /><label for="Radio2">Contracts Only</label>
+						<input id="Radio3" type="radio" name="RadioGroup1" value="Radio3" /><label for="Radio3">Grants Only</label>
+					</div>
+				
+				</div>
+				
+
+                <input type="submit" name="btn_Search" value="Search" id="btn_Search" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="btn_Reset" value="Reset" id="btn_Reset" /><br /><br />
+            
+
+                <span id="lbl_Contracts"><table id='contracts'><thead><tr><th><a class='title'>Contract/Grant</a><div class='definition'><h4>Contract</h4>Types of state contracts:<p><ul><li>Service contracts are agreements to provide services instead of a supply or material and may be kept by the individual agency entering into the contract.<li>Consultant contracts are a subset of service contracts, used to obtain consulting services.  Consultant contracts are required to be filed with the state auditor's office and copies can be obtained there.<li>Procurement contracts are issued by the Office of Procurement for supplies and materials and are available on the <a href="http://www.state.sd.us/boa/opm/" target="new">OPM website</a>.<li>Legal contracts are filed with the attorney general's office.</ul></div> Number</th><th>Description</th><th>Vendor Name</th><th><a class='title'>Agency</a><div class='definition'><h4>Agency</h4>The term "agency" is used to refer to the departments, bureaus, and offices that comprise state government.  Agencies are headed by a cabinet Secretary or Commissioner, or by an elected official.  Numerical codes assigned to agencies are listed <a target="new" href="info_agencies.htm">here</a>.</div> and Name</th><th>Begin Date</th><th>Amount</th></tr></thead><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00026++++++'>27RHT00026      </a></td><td>Provide grant and administrative support for the Rural Health Transformatio...</td><td>ENGINEERING SOLUTIONS INC     </td><td>09  - HEALTH                        </td><td>20260901</td><td align='right'>$650,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00025++++++'>27RHT00025      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>BENNETT COUNTY HOSPITAL       </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$248,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00020++++++'>27RHT00020      </a></td><td>Provide strategic leadership and operational support within the Office of R...</td><td>BLACK HILLS SPECIAL SERVICES  </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$449,402</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00018++++++'>27RHT00018      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>COMMUNITY MEMORIAL HOSPITAL   </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$145,500</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00024++++++'>27RHT00024      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>COMMUNITY MEMORIAL HOSPITAL   </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$103,700</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00017++++++'>27RHT00017      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>COMPLETE HEALTH CENTER OF BH  </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$370,562</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00022++++++'>27RHT00022      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>FAULKTON AREA MEDICAL CENTER  </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$38,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00023++++++'>27RHT00023      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>PHILIP HEALTH SERVICES INC    </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$181,600</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00015++++++'>27RHT00015      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>SD URBAN INDIAN HEALTH        </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$467,790</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00011++++++'>27RHT00011      </a></td><td>Offer specialized training and certificaiton/education for CHWs and CHRs in...</td><td>SOUTHEAST TECHNICAL COLLEGE   </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$88,800</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00016++++++'>27RHT00016      </a></td><td>Implementation of a Rural Strong Grant as a part of the federal Rural Healt...</td><td>UNIVERSITY OF SOUTH DAKOTA    </td><td>09  - HEALTH                        </td><td>20260801</td><td align='right'>$324,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00013++++++'>27RHT00013      </a></td><td>To establish regional EMS hubs that improve coordination, resource sharing,...</td><td>SD FOUNDATION FOR MEDICAL CARE</td><td>09  - HEALTH                        </td><td>20260717</td><td align='right'>$719,085</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00008++++++'>27RHT00008      </a></td><td>Develop, launch, and evaluate a Caregiver Concierge mobile application that...</td><td>ACTIVE GENERATION             </td><td>09  - HEALTH                        </td><td>20260701</td><td align='right'>$226,930</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00009++++++'>27RHT00009      </a></td><td>Recruit and support individuals from priority and underserved communities t...</td><td>SD FOUNDATION FOR MEDICAL CARE</td><td>09  - HEALTH                        </td><td>20260701</td><td align='right'>$130,571</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00010++++++'>27RHT00010      </a></td><td>Rural Health Transformation initiative is a statewide effort focused on str...</td><td>SD FOUNDATION FOR MEDICAL CARE</td><td>09  - HEALTH                        </td><td>20260701</td><td align='right'>$170,816</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00014++++++'>27RHT00014      </a></td><td>Expand and strengthen the doula workforce in South Dakota through recruitme...</td><td>SOUTH DAKOTA DOULAS           </td><td>09  - HEALTH                        </td><td>20260701</td><td align='right'>$133,352</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00021++++++'>27RHT00021      </a></td><td>Design, implement, host, and maintain a statewide education and training pl...</td><td>SOUTH DAKOTA STATE UNIVERSITY </td><td>09  - HEALTH                        </td><td>20260701</td><td align='right'>$185,676</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00019++++++'>27RHT00019      </a></td><td>Design, implement, host, and maintain a statewide education and training pl...</td><td>UNIVERSITY OF SOUTH DAKOTA    </td><td>09  - HEALTH                        </td><td>20260701</td><td align='right'>$307,228</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00005++++++'>27RHT00005      </a></td><td>Conduct the Statewide Maternal Health Access and Services Assessment for th...</td><td>GUIDEHOUSE INC                </td><td>09  - HEALTH                        </td><td>20260601</td><td align='right'>$567,350</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00012++++++'>27RHT00012      </a></td><td>This vendor will assist in evaluating the current billing, data collection,...</td><td>HEALTH MANAGEMENT ASSOCIATES  </td><td>09  - HEALTH                        </td><td>20260601</td><td align='right'>$425,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00007++++++'>27RHT00007      </a></td><td>The purpose of this contract is to assist the State in developing a populat...</td><td>MYERS & STAUFFER LLC          </td><td>09  - HEALTH                        </td><td>20260601</td><td align='right'>$450,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=26RHT00004++++++'>26RHT00004      </a></td><td>Provide technical assistance, program development, professional development...</td><td>COMMUNITY HEALTH WORKER COLLAB</td><td>09  - HEALTH                        </td><td>20260507</td><td align='right'>$399,013</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=27RHT00001++++++'>27RHT00001      </a></td><td>To provide project management support for the Chronic Disease Management In...</td><td>BLACK HILLS SPECIAL SERVICES  </td><td>09  - HEALTH                        </td><td>20260501</td><td align='right'>$503,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=26RHT00003++++++'>26RHT00003      </a></td><td>Provide Project Management, coordination, and technical support to DSS acro...</td><td>BUSINESS CONCEPTS & APPS INC  </td><td>09  - HEALTH                        </td><td>20260501</td><td align='right'>$250,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=26RHT00006++++++'>26RHT00006      </a></td><td>The purpose of the contract is to implement Chronic Disease Self-Management...</td><td>SOUTH DAKOTA STATE UNIVERSITY </td><td>09  - HEALTH                        </td><td>20260501</td><td align='right'>$225,000</td></tr><tr><td><a href='contractsDocShow.aspx?DocID=26RHT00002++++++'>26RHT00002      </a></td><td>Provide consultant services to SD Health Link to help manage the Digital He...</td><td>NORTH STAR SOLUTIONS LLC      </td><td>09  - HEALTH                        </td><td>20260415</td><td align='right'>$1,462,802</td></tr></table>** To view the amount or description for contracts entered prior to 07/01/2016 you may need to view the actual contract.</span>
+
+          
+        </section>
+        <div id="Popup">
+              <div id="PopupDef"></div>
+              <br clear="all"/><br /><span id="glossary"><a href="/glossary.aspx">Glossary</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="close">Close</span><br /><br />
+          </div>
+<footer>
+            &copy; Copyright 2019<br /><br />
+            <a href="http://sd.gov">SD.Gov</a> | <a href="mailto:bfminfo@state.sd.us?subject=OpenSD">Feedback</a> | <a href="http://bfm.sd.gov/ContactUs.aspx">Contact Us</a> | <a href="http://sd.gov/accpolicy.aspx">Accessibility</a> | <a href="http://sd.gov/disclaim.aspx">Disclaimer</a> | <a href="http://sd.gov/privacy.aspx">Privacy Policy</a>
+        </footer>
+
+ <script>
+
+        $(document).ready(function () {
+            $('div#Popup').hide();
+            $('.title').mousedown(function (e) {
+                var moveLeft = 10;
+                var moveDown = 20;
+                var htmlstring = $(this).next().html()
+                document.getElementById('PopupDef').innerHTML = htmlstring;
+                if (windowsize <= 1000) {
+                    
+                    $("div#Popup").css('top', e.pageY + moveDown).css('padding-left', moveLeft);
+                }
+                else {
+                    moveLeft = -50;
+                    $("div#Popup").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+                }
+                $('div#Popup').show();
+            });
+        });
+        $('#close').click(function () {
+            $("#Popup").hide();
+        });
+
+    </script></form>
+   
+</body>
+</html>

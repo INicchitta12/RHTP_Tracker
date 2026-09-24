@@ -100,7 +100,12 @@ RC_ENROLMENTS <- c(
   # single-hospital corporation).
   NJ = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_NJ.json",
   # Session 63: Indiana's GROW regional recipients, typed on CMS's IN files.
-  IN = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_IN.json")
+  IN = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_IN.json",
+  # Session 64: Nebraska's six Initiative 5.3 hospital rows and South Dakota's
+  # Rural Strong hospital rows carry CCNs typed against these slices. Each
+  # extraction archived its slice beside its own evidence.
+  NE = "data/evidence/NE/2026-09-24_cms_hosp_enrollments_NE.json",
+  SD = "data/evidence/SD/federal_records/2026-09-24/cms_hosp_enrollments_SD.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -241,11 +246,11 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 61: NEW JERSEY adds 35 rows / $35,275,076 and a 26th state.
   # Session 63: INDIANA's GROW regional recipients add 44 UNPRICED rows and
   # (Indiana being new to the bucket) a 27th state. Dollars do not move.
-  if (nrow(rows) != 1114L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 937661818.75) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 27L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,114 rows / $937,661,818.75 ",
-         "/ 27 states; re-state the rural cut against the new partition.",
+  if (nrow(rows) != 1140L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 940203621.03) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 28L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,140 rows / $940,203,621.03 ",
+         "/ 28 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

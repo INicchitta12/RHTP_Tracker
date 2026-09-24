@@ -271,6 +271,11 @@ AK,ak_year1_awardees.csv,202,Providence Health & Services- Washington,871718.47,
 AK,ak_year1_awardees.csv,204,South Peninsula Hospital,220481,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,223,Petersburg Medical Center,159947,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,237,Norton Sound Health Corporation,292006,NOT_RECORDED,,FALSE,,
+SD,sd_rht_contracts.csv,18,COMMUNITY MEMORIAL HOSPITAL,145500,NOT_RECORDED,,FALSE,,
+SD,sd_rht_contracts.csv,22,FAULKTON AREA MEDICAL CENTER,38000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431301,
+SD,sd_rht_contracts.csv,23,PHILIP HEALTH SERVICES INC,181600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431319: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431319,
+SD,sd_rht_contracts.csv,24,COMMUNITY MEMORIAL HOSPITAL,103700,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431316,
+SD,sd_rht_contracts.csv,25,BENNETT COUNTY HOSPITAL,248000,NOT_RECORDED,,FALSE,,
 MI,mi_year1_awardees.csv,14,MyMichigan Health (EMS - Chronic Disease),182197,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 MI,mi_year1_awardees.csv,44,Family Medical Center - Lenawee,76924,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,1,Adventist Columbia Gorge Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
@@ -506,6 +511,12 @@ NE,ne_year1_awardees.csv,75,Sidney Regional Medical Center,,NOT_RECORDED,,FALSE,
 NE,ne_year1_awardees.csv,76,Tri Valley Health System,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,77,Valley County Health System,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,78,York General Health Care Services,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,79,Alegent Creighton Health DBA CHI Health Plainview,245101.8,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281346: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281346,ORG_WEBSITE
+NE,ne_year1_awardees.csv,80,Alegent Creighton Health DBA CHI Health Schuyler,235795.27,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281323,ORG_WEBSITE
+NE,ne_year1_awardees.csv,83,Dundy County Hospital,73953.48,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281340: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281340,ORG_WEBSITE
+NE,ne_year1_awardees.csv,86,The Mary Lanning Memorial Hospital Association DBA Mary Lanning Memorial Healthcare,1049999.73,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280032: PART A PROVIDER - HOSPITAL",FALSE,280032,ORG_WEBSITE
+NE,ne_year1_awardees.csv,87,Methodist Fremont Health,126285,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280077: PART A PROVIDER - HOSPITAL",FALSE,280077,ORG_WEBSITE
+NE,ne_year1_awardees.csv,89,Regional West Medical Center,93867,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280061: PART A PROVIDER - HOSPITAL",FALSE,280061,ORG_WEBSITE
 OK,ok_year1_awardees.csv,4,Beaver County Memorial Hospital,67298.38,NOT_RECORDED,,FALSE,,
 OK,ok_year1_awardees.csv,9,Choctaw County City of Hugo Hospital Authority,49514.09,NOT_RECORDED,,FALSE,,
 OK,ok_year1_awardees.csv,10,Cimarron Memorial Hospital and Rural Health Clinic,46060.95,NOT_RECORDED,,FALSE,,
@@ -559,6 +570,21 @@ NV,nv_year1_awardees.csv,49,Grover C. Dils Medical Center,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,52,Desert View Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,70,Renown Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,71,Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,80,Mt. Grant General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,81,Incline Village Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,82,N. Nye Hospital District,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,91,William Bee Ririe Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,92,Mt. Grant General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,93,Humboldt General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,94,Northeastern Nevada Regional Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,102,South Lyon Medical Center,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,103,Mesa View Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,107,Grover c. Dils Medical Center,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,108,Pershing General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,110,Desert View Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,120,Humboldt General Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,123,Desert View Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,140,Pershing General Hospital,,NOT_RECORDED,,FALSE,,
 MO,mo_year1_awardees.csv,3,Citizens Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260195: PART A PROVIDER - HOSPITAL",FALSE,260195,
 MO,mo_year1_awardees.csv,4,Golden Valley Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260175: PART A PROVIDER - HOSPITAL",FALSE,260175,
 MO,mo_year1_awardees.csv,5,John Fitzgibbon Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260142: PART A PROVIDER - HOSPITAL",FALSE,260142,

@@ -26,22 +26,22 @@ queue_rank,state,state_name,trigger_source,queue_status,rcj_tier3_candidates,rcj
 25,IA,Iowa,RCJ_ONLY,EXTRACTED,15,15,5,,,,209040064,EXTRACTED,2026-08-28
 26,VT,Vermont,BOTH,EXTRACTED,13,11,221897105.93,2026-09-10,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-11-7-million-expand-access-improve-patient-care-facilities-strengthen,195053740,EXTRACTED,2026-08-28
 27,DE,Delaware,RCJ_ONLY,EXTRACTED,12,12,14933348,,,,157394964,EXTRACTED,2026-08-28
-28,WV,West Virginia,BOTH,EXTRACTED,12,11,8893345,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,EXTRACTED,2026-08-28
-29,NJ,New Jersey,RCJ_ONLY,EXTRACTED,11,11,31969407,,,,147250806,EXTRACTED,2026-09-03
-30,CT,Connecticut,BOTH,EXTRACTED,7,6,49854129,2026-09-17,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-50-million-optimize-care-delivery-improve-rural-hospital,154249106,EXTRACTED,2026-08-28
-31,WA,Washington,RCJ_ONLY,EXTRACTED,6,6,103760000,,,,181257515,EXTRACTED,2026-08-28
-32,ID,Idaho,RCJ_ONLY,EXTRACTED,1,1,1,,,,185974368,EXTRACTED,2026-08-28
-33,NC,North Carolina,BOTH,EXTRACTED,1,1,195000,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,2026-09-02
-34,OH,Ohio,BOTH,EXTRACTED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,EXTRACTED,2026-08-28
-35,TN,Tennessee,RCJ_ONLY,EXTRACTED,1,1,1,,,,206888882,EXTRACTED,2026-09-03
-36,VA,Virginia,BOTH,EXTRACTED,1,1,127500,2026-08-28,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,EXTRACTED,2026-08-28
-37,IL,Illinois,NEITHER,EXTRACTED,0,0,0,,,,193418216,EXTRACTED,2026-08-28
-38,NY,New York,CMS_ONLY,EXTRACTED,0,0,0,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-76-million-strengthen-regional-coordination-modernize-healthcare,212058208,EXTRACTED,2026-09-02
-39,WY,Wyoming,NEITHER,EXTRACTED,0,0,0,,,,205004743,EXTRACTED,2026-09-03
-40,TX,Texas,RCJ_ONLY,INVESTIGATED_NO_LIST,32,32,439775920,,,,281319361,INVESTIGATED_NO_LIST,2026-08-28
-41,WI,Wisconsin,RCJ_ONLY,INVESTIGATED_NO_LIST,19,19,100139403,,,,203670005,INVESTIGATED_NO_LIST,2026-08-28
-42,CO,Colorado,RCJ_ONLY,INVESTIGATED_NO_LIST,12,12,29129899,,,,200105604,INVESTIGATED_NO_LIST,2026-08-28
-43,LA,Louisiana,RCJ_ONLY,INVESTIGATED_NO_LIST,12,12,55875789,,,,208374448,INVESTIGATED_NO_LIST,2026-08-28
+28,LA,Louisiana,RCJ_ONLY,EXTRACTED,12,12,55875789,,,,208374448,EXTRACTED,2026-08-28
+29,WV,West Virginia,BOTH,EXTRACTED,12,11,8893345,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-4-2-million-expand-medical-transportation-improve-patient-access-care,199476099,EXTRACTED,2026-08-28
+30,NJ,New Jersey,RCJ_ONLY,EXTRACTED,11,11,31969407,,,,147250806,EXTRACTED,2026-09-03
+31,CT,Connecticut,BOTH,EXTRACTED,7,6,49854129,2026-09-17,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-50-million-optimize-care-delivery-improve-rural-hospital,154249106,EXTRACTED,2026-08-28
+32,WA,Washington,RCJ_ONLY,EXTRACTED,6,6,103760000,,,,181257515,EXTRACTED,2026-08-28
+33,ID,Idaho,RCJ_ONLY,EXTRACTED,1,1,1,,,,185974368,EXTRACTED,2026-08-28
+34,NC,North Carolina,BOTH,EXTRACTED,1,1,195000,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,2026-09-02
+35,OH,Ohio,BOTH,EXTRACTED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,EXTRACTED,2026-08-28
+36,TN,Tennessee,RCJ_ONLY,EXTRACTED,1,1,1,,,,206888882,EXTRACTED,2026-09-03
+37,VA,Virginia,BOTH,EXTRACTED,1,1,127500,2026-08-28,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,EXTRACTED,2026-08-28
+38,IL,Illinois,NEITHER,EXTRACTED,0,0,0,,,,193418216,EXTRACTED,2026-08-28
+39,NY,New York,CMS_ONLY,EXTRACTED,0,0,0,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-76-million-strengthen-regional-coordination-modernize-healthcare,212058208,EXTRACTED,2026-09-02
+40,WY,Wyoming,NEITHER,EXTRACTED,0,0,0,,,,205004743,EXTRACTED,2026-09-03
+41,TX,Texas,RCJ_ONLY,INVESTIGATED_NO_LIST,32,32,439775920,,,,281319361,INVESTIGATED_NO_LIST,2026-08-28
+42,WI,Wisconsin,RCJ_ONLY,INVESTIGATED_NO_LIST,19,19,100139403,,,,203670005,INVESTIGATED_NO_LIST,2026-08-28
+43,CO,Colorado,RCJ_ONLY,INVESTIGATED_NO_LIST,12,12,29129899,,,,200105604,INVESTIGATED_NO_LIST,2026-08-28
 44,NM,New Mexico,BOTH,INVESTIGATED_NO_LIST,11,11,8793574,2026-09-21,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-74-million-expand-specialty-maternal-behavioral-healthcare-across-0,211484741,INVESTIGATED_NO_LIST,2026-08-28
 45,MN,Minnesota,RCJ_ONLY,INVESTIGATED_NO_PROBE,10,10,3861811,,,,193090618,INVESTIGATED_NO_PROBE,2026-09-03
 46,CA,California,RCJ_ONLY,INVESTIGATED_NO_LIST,4,4,25000000,,,,233639308,INVESTIGATED_NO_LIST,2026-08-28

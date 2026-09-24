@@ -86,9 +86,43 @@
 #   39 rows  $8,446,843.67  = `rcj_state_survey.csv`'s own figure for Nebraska.
 #
 # (That is the 2026-08-27 pull. The 2026-09-24 pull adds 12 rows from DHHS's
-# FOURTH notice -- Initiative 5.3, an INTENT to award, 13 applicants, which
-# this file does NOT extract -- and one hospital's own $1,500,000 summary of
-# its grants: 52 rows, $15,402,668.92. See ne_write_disposition().)
+# FOURTH notice -- Initiative 5.3, an INTENT to award, 13 applicants -- and one
+# hospital's own $1,500,000 summary of its grants: 52 rows, $15,402,668.92.
+# See ne_write_disposition(). Session 64 EXTRACTED the 5.3 notice; see below.)
+#
+# SESSION 64 -- THE FOURTH NOTICE, AND IT IS AN INTENT, NOT AN AWARD. DHHS
+# linked a fourth PDF from the programme page after this file's 2026-08-31
+# archive: "RHTP Initiative 5.3 Awards 09/01/2026", Initiative 5.3
+# Modification of Existing Clinical Facilities for Mental Health Crisis. Its
+# FILE NAME says "Public-Notice-of-Award" like the other three, and its body
+# does not: it is headed "Intent to Award" and says "DHHS intends to award
+# subawards to the following applicants". The other three notices carry no
+# such heading. So its 13 rows ($5,549,692.25, reconciled to the cent) are
+# NOTICE_OF_INTENT_TO_AWARD + amount_confirmed = No, weaker than the 57 above,
+# and `ne_assert_5_3_is_intent()` fails the day DHHS re-issues it as an award.
+# It carries the same CMS footer ($218,529,075.01), its RFA closed 2026-08-31
+# (after the 2025-12-29 NOA), and it has NO applicant section -- the one
+# §0.3 trap 4.4a carries is absent here, and that absence is asserted.
+#
+# THE 13 ROWS ARE APPENDED AFTER THE EXISTING 78, NEVER INTERLEAVED. Session
+# 49's verification overlay is keyed on (file, ROW INDEX), and 29 of its rows
+# point into this file; inserting a pool anywhere but the end would silently
+# re-point those determinations at the wrong organisations.
+# `ne_assert_overlay_rows()` compares every overlaid index's awardee with the
+# name the changes file recorded, on every build.
+#
+# 5.3's recipient FORM is typed on an ARCHIVED FEDERAL RECORD where one carries
+# the exact string (R/03bf's method): CMS's Nebraska Hospital Enrollment file,
+# archived here, carries six of the thirteen as an ORGANIZATION NAME or DBA
+# (CHI Health Plainview and CHI Health Schuyler as the DBA of Alegent
+# Creighton Health's two rows, Dundy County Hospital, The Mary Lanning Memorial
+# Hospital Association, Methodist Fremont Health, Regional West Medical
+# Center). Six more carry §8's standing fallback. The thirteenth, the
+# Winnebago Tribe of Nebraska, is REFUSED promotion although CMS enrols the
+# tribe's own name as a hospital provider (Twelve Clans Unity Hospital): the
+# awardee is a tribal government doing business as a comprehensive health
+# SYSTEM, the hospital is one of its operations, and no source says which
+# receives this money (South Carolina's Acadia shape). It keeps TRIBAL_ORG.
 #
 # The 24 are the finding. Nebraska's 4.4a notice carries the award list on page
 # 1 and, on pages 2-3, a separate roster headed "The following organizations
@@ -187,10 +221,11 @@
 # Neither has published an awardee list, so neither is in this file at all.
 #
 # Usage:
-#   Rscript R/03r_ne_year1_awardees.R --fetch     # archive 6 sources + SHA-256
+#   Rscript R/03r_ne_year1_awardees.R --fetch     # archive 9 sources + SHA-256
 #   Rscript R/03r_ne_year1_awardees.R --validate  # assertions, offline
 #   Rscript R/03r_ne_year1_awardees.R --build     # writes CSV + xlsx
 #   Rscript R/03r_ne_year1_awardees.R --report    # the pools, and the soft edge
+#   Rscript R/03r_ne_year1_awardees.R --probe     # LIVE, READ-ONLY: a fifth notice?
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -224,11 +259,25 @@ NE_GRANT_DOC_BASE <- paste0(NE_BASE, "/Grants%20and%20Contract%20Opportunity%20D
 
 NE_SOURCES <- tibble::tribble(
   ~key,           ~url,                                                              ~file,                                       ~doc_title,
-  "program_page", paste0(NE_BASE, "/Pages/Rural-Health-Transformation.aspx"),        "2026-08-31_ne_dhhs_rhtp_program_page.html", "Rural Health Transformation | Nebraska Department of Health and Human Services",
+  # SESSION 64: the programme page as served 2026-09-24, carrying the FOURTH
+  # "Awardees" link (Initiative 5.3). It is the positive control's and the
+  # probe's baseline. The 2026-08-31 copy is KEPT as `program_page_prior`: it
+  # is the only evidence the page once carried three links, and the reduced
+  # text of the two differs by exactly that one link (measured, not assumed).
+  "program_page", paste0(NE_BASE, "/Pages/Rural-Health-Transformation.aspx"),        "2026-09-24_ne_dhhs_rhtp_program_page.html", "Rural Health Transformation | Nebraska Department of Health and Human Services",
+  "program_page_prior", paste0(NE_BASE, "/Pages/Rural-Health-Transformation.aspx"),  "2026-08-31_ne_dhhs_rhtp_program_page.html", "Rural Health Transformation | Nebraska DHHS (2026-08-31 copy: three Awardees links)",
   "grant_opps",   paste0(NE_BASE, "/Pages/Grant-Opportunities.aspx"),                "2026-08-31_ne_dhhs_grant_opportunities.html", "Grant Opportunities | Nebraska Department of Health and Human Services",
   "noa_3_3",      paste0(NE_DOC_BASE, "RHTP-Public-Notice-of-Award-3.3.pdf"),        "2026-08-31_ne_dhhs_public_notice_of_award_3.3.pdf",  "RHTP Initiative 3.3 Awards -- Rural Health Care Workforce Incentive and Sustainability Model",
   "noa_4_4a",     paste0(NE_DOC_BASE, "RHTP-Public-Notice-of-Award-4.4a.pdf"),       "2026-08-31_ne_dhhs_public_notice_of_award_4.4a.pdf", "RHTP Initiative 4.4a Awards -- Chronic Disease Navigation and Education",
   "noa_4_4b",     paste0(NE_DOC_BASE, "RHTP-Public-Notice-of-Award-4.4b.pdf"),       "2026-08-31_ne_dhhs_public_notice_of_award_4.4b.pdf", "RHTP Initiative 4.4b Awards -- Remote Patient Monitoring in Facilities and at Home",
+  # The FOURTH notice. Same file-name shape, but its body is headed "Intent
+  # to Award" -- see the header. Byte-identical to session 63's recheck copy
+  # (sha256 2af6a430...).
+  "noa_5_3",      paste0(NE_DOC_BASE, "RHTP-Public-Notice-of-Award-5.3.pdf"),        "2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf",  "RHTP Initiative 5.3 Awards (headed 'Intent to Award') -- Modification of Existing Clinical Facilities for Mental Health Crisis",
+  # CMS's own Nebraska Hospital Enrollment slice, as served. The FEDERAL
+  # RECORD 5.3's hospital rows are typed on (R/03bf's method); nothing in the
+  # three 2026 notices above is re-typed from it.
+  "cms_hosp_NE",  "https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NE&size=5000", "2026-09-24_cms_hosp_enrollments_NE.json", "CMS Hospital Enrollments, STATE = NE (data.cms.gov)",
   # The §6.2 NEGATIVE CONTROL. Not an RHTP document and archived precisely
   # because it is not: it is what a DHHS Office of Procurement and Grants
   # solicitation looks like when the money is the STATE's.
@@ -264,9 +313,18 @@ NE_STATED <- list(
   rcj_non_rhtp_rows    = 1L,
   rcj_5_3_rows         = 12L,
   rcj_org_summary_rows = 1L,
-  # Initiative 5.3's notice (09/01/2026), archived by session 63 and NOT
-  # extracted into the award file -- see ne_notice_5_3().
-  n_5_3   = 13L,
+  # Initiative 5.3's notice (09/01/2026, headed "Intent to Award"), archived
+  # by session 63 and EXTRACTED by session 64 -- see ne_notice_5_3(). Its
+  # thirteen rows are appended after the 78 above (the overlay keys on row
+  # index) and are counted SEPARATELY from the 57 notices of award, because
+  # they are a weaker kind of action.
+  n_5_3   = 13L,  total_5_3 = 5549692.25,
+  n_priced_all = 70L, total_priced_all = 41687307.15,
+  n_rows_all   = 91L,
+  # 5.3's typing: six hospital rows on an exact CMS enrolment record, six on
+  # §8's standing fallback, one tribal government.
+  hospital_rows_5_3  = 6L,  hospital_total_5_3 = 1825002.28,
+  fallback_rows_5_3  = 6L,  fallback_total_5_3 = 3671074.88,
   # The named-hospital floor and the uncertainty beside it. DHHS publishes no
   # organisation-type column, so every recipient_type outside the 21 NHVN
   # member rows is derived from the recipient's own NAME.
@@ -305,7 +363,8 @@ NE_RFA_CLOSE_DATES <- as.Date(c(
   "2026-04-24",  # 4.4b
   "2026-05-01",  # 3.3, round 2
   "2026-06-01",  # 3.3, round 3
-  "2026-07-10"   # 3.3, community colleges
+  "2026-07-10",  # 3.3, community colleges
+  "2026-08-31"   # 5.3 (the intent notice, session 64)
 ))
 
 # The three award links that must be on the programme page, and the shape a
@@ -313,8 +372,19 @@ NE_RFA_CLOSE_DATES <- as.Date(c(
 NE_AWARD_LINK_FILES <- c(
   noa_3_3  = "RHTP-Public-Notice-of-Award-3.3.pdf",
   noa_4_4a = "RHTP-Public-Notice-of-Award-4.4a.pdf",
-  noa_4_4b = "RHTP-Public-Notice-of-Award-4.4b.pdf"
+  noa_4_4b = "RHTP-Public-Notice-of-Award-4.4b.pdf",
+  # Session 64: the fourth link, on the 2026-09-24 page. A FIFTH still fails.
+  noa_5_3  = "RHTP-Public-Notice-of-Award-5.3.pdf"
 )
+# The three that are notices of AWARD on their own terms, and the one that is
+# an intent (see the header). Kept apart so no check reads one as the other.
+NE_NOA_KEYS    <- c("noa_3_3", "noa_4_4a", "noa_4_4b")
+NE_INTENT_KEYS <- c("noa_5_3")
+NE_5_3_POOL <- "Initiative 5.3 Modification of Existing Clinical Facilities for Mental Health Crisis"
+# DHHS's own words on the 5.3 notice. ne_assert_5_3_is_intent() requires both,
+# and requires the other three notices to carry NEITHER.
+NE_INTENT_SENTENCES <- c("Intent to Award",
+                         "DHHS intends to award subawards to the following applicants")
 NE_AWARD_LINK_SHAPE <- "(?i)notice[- ]of[- ]award|awardee|award recipients"
 
 # The sentence that ties Nebraska's subawards to CMS RHTP money, printed by
@@ -416,7 +486,7 @@ ne_write_manifest <- function(entries) {
     "Archived by R/03r_ne_year1_awardees.R --fetch",
     paste0("User-agent: ", NE_USER_AGENT),
     "",
-    "All six files are the body the server sent, BYTE FOR BYTE. None carries a",
+    "Every file is the body the server sent, BYTE FOR BYTE. None carries a",
     "third-party credential; the guard that caught CMS's Mapbox token,",
     "Illinois's and Oregon's, and Kansas's Google Maps key runs on every fetch",
     "here and finds nothing, so there is no reduction to explain. Files are",
@@ -430,6 +500,14 @@ ne_write_manifest <- function(entries) {
     "funds'. Its applications closed 2025-05-21, seven months before Nebraska's",
     "CMS Notice of Award. It is why an 'Intent to Award' from this office is",
     "not, by itself, evidence of RHTP.",
+    "",
+    "SESSION 64 added three files. The 2026-09-24 programme page carries a",
+    "FOURTH Awardees link (Initiative 5.3); the 2026-08-31 copy is kept beside",
+    "it and the reduced text of the two differs by that one link. The 5.3",
+    "notice is byte-identical to session 63's copy under",
+    "data/evidence/recheck/2026-09-24/NE/; its file name says Notice of Award",
+    "and its body is headed 'Intent to Award'. The CMS Hospital Enrollment",
+    "slice for Nebraska is the federal record 5.3's hospital rows are typed on.",
     "",
     "MANIFEST.txt is deliberately absent from this listing: a manifest cannot",
     "record its own digest (session 15).",
@@ -450,16 +528,31 @@ ne_program_doc <- function(path = ne_path("program_page")) {
   xml2::read_html(path)
 }
 
-ne_program_text <- function() {
-  doc <- ne_program_doc()
+ne_program_text <- function(path = ne_path("program_page")) {
+  doc <- ne_program_doc(path)
+  xml2::xml_remove(xml2::xml_find_all(doc, "//script|//style"))
+  stringr::str_squish(xml2::xml_text(doc))
+}
+
+#' The reduced TEXT of the programme page, archived (key) or live (body, raw).
+#' Scripts and styles dropped, whitespace squished: the same reduction the
+#' positive control and the §6.2 footer check read, so the probe and the
+#' assertions cannot drift apart. Measured 2026-09-24: the 2026-08-31 archive
+#' and the live page reduce to texts that differ by exactly ONE token (the
+#' fourth "Awardees" link), so SharePoint's per-request tokens live in the
+#' script bodies this drops.
+ne_html_text <- function(key = "program_page", body = NULL) {
+  if (is.null(body)) return(ne_program_text(ne_path(key)))
+  doc <- xml2::read_html(body)
   xml2::xml_remove(xml2::xml_find_all(doc, "//script|//style"))
   stringr::str_squish(xml2::xml_text(doc))
 }
 
 ne_pdf_text <- function(key) rhtp_pdf_text(ne_path(key))
 
-#' THE POSITIVE CONTROL. Exactly three "Awardees" links, pointing at the three
-#' PDFs this file parses -- no more and no fewer.
+#' THE POSITIVE CONTROL. Exactly FOUR "Awardees" links (three until session
+#' 64), pointing at the four PDFs this file parses -- no more and no fewer. A
+#' FIFTH still fails, and must be READ, not added to the list to make it pass.
 #'
 #' Without this, "Nebraska has published no other roster" is indistinguishable
 #' from "we searched for the wrong string". DHHS's RFA timeline table carries an
@@ -503,7 +596,7 @@ ne_assert_award_index <- function(path = ne_path("program_page")) {
 
 #' §6.2's first question, answered by the awarding agency on the award document.
 ne_assert_rhtp_funded <- function() {
-  for (key in c("noa_3_3", "noa_4_4a", "noa_4_4b")) {
+  for (key in c(NE_NOA_KEYS, NE_INTENT_KEYS)) {
     txt <- stringr::str_squish(paste(ne_pdf_text(key), collapse = " "))
     if (!stringr::str_detect(txt, NE_CMS_SENTENCE)) {
       stop("[NE] ", key, " does not carry the CMS financial-assistance ",
@@ -533,7 +626,7 @@ ne_assert_rhtp_funded <- function() {
 #' so a republished notice with a different date fails here.
 ne_assert_after_noa <- function() {
   txt <- stringr::str_squish(paste(
-    unlist(lapply(c("noa_3_3", "noa_4_4a", "noa_4_4b"), ne_pdf_text)),
+    unlist(lapply(c(NE_NOA_KEYS, NE_INTENT_KEYS), ne_pdf_text)),
     collapse = " "))
   # DHHS does not word this identically on every round: five of the six read
   # "selected for award for the Request for Application which closed <date>",
@@ -546,7 +639,7 @@ ne_assert_after_noa <- function() {
   )[[1]][, 2]
   found <- sort(unique(as.Date(found, format = "%B %d, %Y")))
   if (!length(found)) {
-    stop("[NE] no RFA close date could be read from the three notices. The ",
+    stop("[NE] no RFA close date could be read from the four notices. The ",
          "§6.2 date test cannot be run, so it is not silently skipped.",
          call. = FALSE)
   }
@@ -827,14 +920,15 @@ ne_assert_nha_absent <- function(recs) {
 }
 
 #' Initiative 5.3's notice -- DHHS's FOURTH "Public Notice of Award", linked
-#' from the programme page after this file's 2026-08-31 archive. Session 63
-#' archived it to dispose of RCJ's 5.3 rows; it is deliberately NOT a source of
-#' `ne_year1_awardees.csv` (the task was a disposition re-read, not an
-#' extraction). It is headed "Intent to Award" and "DHHS intends to award
-#' subawards", so its rows would be `NOTICE_OF_INTENT_TO_AWARD`, weaker than
-#' the three notices this file parses.
-NE_5_3_NOTICE <- file.path("data", "evidence", "recheck", "2026-09-24", "NE",
+#' from the programme page after the 2026-08-31 archive. Session 63 archived it
+#' under recheck/ to dispose of RCJ's 5.3 rows; session 64 moved a
+#' byte-identical copy into data/evidence/NE/ and EXTRACTED it. It is headed
+#' "Intent to Award" and "DHHS intends to award subawards", so its rows are
+#' `NOTICE_OF_INTENT_TO_AWARD`, weaker than the three notices of award.
+NE_5_3_NOTICE <- file.path("data", "evidence", "NE",
                            "2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf")
+NE_5_3_RECHECK_COPY <- file.path("data", "evidence", "recheck", "2026-09-24",
+                                 "NE", "2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf")
 NE_5_3_URL <- "https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-5.3.pdf"
 
 #' The 5.3 roster as printed: applicant + amount. Two names wrap onto a second
@@ -857,13 +951,175 @@ ne_notice_5_3 <- function(path = here::here(NE_5_3_NOTICE)) {
   }
   if (nzchar(buf)) stop("[NE] unterminated 5.3 row: ", buf, call. = FALSE)
   out <- tibble::tibble(
-    awardee = stringr::str_squish(stringr::str_remove(rows, "\\$\\s*[0-9,.]+$")),
+    awardee = stringr::str_squish(stringr::str_remove(rows, "\\s*\\$\\s*[0-9,.]+$")),
     amount = as.numeric(gsub("[$, ]", "", stringr::str_extract(rows, "\\$\\s*[0-9,.]+$"))))
   if (nrow(out) != NE_STATED$n_5_3) {
     stop("[NE] the 5.3 notice lists ", nrow(out), " applicants, not ",
          NE_STATED$n_5_3, ".", call. = FALSE)
   }
+  if (abs(sum(out$amount) - NE_STATED$total_5_3) > 0.005) {
+    stop("[NE] the 5.3 notice sums to ", sprintf("%.2f", sum(out$amount)),
+         ", expected ", sprintf("%.2f", NE_STATED$total_5_3), call. = FALSE)
+  }
   out
+}
+
+#' THE 5.3 NOTICE IS AN INTENT, IN DHHS'S OWN WORDS, AND THE OTHER THREE ARE NOT.
+#'
+#' Its file name ("RHTP-Public-Notice-of-Award-5.3.pdf") and its title ("RHTP
+#' Initiative 5.3 Awards") read exactly like the three notices of award; its
+#' body is headed "Intent to Award" and says "DHHS intends to award subawards".
+#' Session 63's disposition called it an intent and that is what it is. The
+#' check runs in both directions: 5.3 must carry both sentences, the three
+#' notices of award must carry neither -- a re-issue of 5.3 as an award, or of
+#' an award as an intent, changes validation_source_type and must fail here.
+#' It also asserts §0.3's trap is ABSENT: unlike 4.4a, this notice has no
+#' "submitted applications" section, so every name on it is a selected one.
+ne_assert_5_3_is_intent <- function(path = here::here(NE_5_3_NOTICE)) {
+  txt <- stringr::str_squish(paste(rhtp_pdf_text(path), collapse = " "))
+  for (sn in NE_INTENT_SENTENCES) {
+    if (!stringr::str_detect(txt, stringr::fixed(sn))) {
+      stop("[NE] the 5.3 notice no longer says \"", sn, "\". Its rows are ",
+           "coded NOTICE_OF_INTENT_TO_AWARD on that sentence; re-read it -- ",
+           "DHHS may have issued the award.", call. = FALSE)
+    }
+  }
+  if (stringr::str_detect(txt, "(?i)submitted applications")) {
+    stop("[NE] the 5.3 notice now carries an applicant section. §0.3: ",
+         "separate it from the selected rows before extracting.", call. = FALSE)
+  }
+  for (key in NE_NOA_KEYS) {
+    t2 <- stringr::str_squish(paste(ne_pdf_text(key), collapse = " "))
+    if (any(stringr::str_detect(t2, stringr::fixed(NE_INTENT_SENTENCES)))) {
+      stop("[NE] ", key, " now reads as an intent, not an award. Its rows are ",
+           "coded NOTICE_OF_AWARD; re-read it.", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+#' CMS's Nebraska Hospital Enrollment slice, archived (session 64).
+ne_federal_hosp <- function(path = ne_path("cms_hosp_NE")) {
+  h <- jsonlite::fromJSON(path)
+  tibble::tibble(ccn = h$CCN, org = h$`ORGANIZATION NAME`,
+                 dba = h$`DOING BUSINESS AS NAME`, city = h$CITY,
+                 provider_type = h$`PROVIDER TYPE TEXT`)
+}
+
+#' R/03bf's normalisation: case, punctuation, a leading THE, a trailing INC.
+#' For an EXACT comparison against a federal record, never a fuzzy one.
+ne_fed_norm <- function(x) {
+  x <- toupper(x)
+  x <- gsub("[^A-Z0-9 ]", "", gsub("[.,'’/&-]", "", x))
+  x <- stringr::str_squish(x)
+  x <- sub("^THE ", "", x)
+  sub(" INC$", "", x)
+}
+
+#' The EXACT federal record(s) for an awardee string, or none.
+#'
+#' Where the state prints "X DBA Y", Y is matched against CMS's DBA first --
+#' it names the FACILITY -- and X against CMS's organisation name only if Y
+#' finds nothing. Matching X first would tie "Alegent Creighton Health DBA CHI
+#' Health Plainview" to Alegent's Omaha and Papillion hospitals as well, which
+#' is three CCNs where the state named one facility.
+ne_federal_match <- function(awardee, f = ne_federal_hosp()) {
+  a <- ne_fed_norm(awardee)
+  parts <- stringr::str_split(a, " DBA ")[[1]]
+  if (length(parts) == 2L) {
+    hit <- f[ne_fed_norm(f$dba) == parts[2], ]
+    if (nrow(hit)) return(hit)
+    hit <- f[ne_fed_norm(f$org) == parts[1], ]
+    if (nrow(hit)) return(hit)
+  }
+  f[ne_fed_norm(f$org) == a | ne_fed_norm(f$dba) == a, ]
+}
+
+# THE ONE HAND-READ REFUSAL. CMS enrols the Winnebago Tribe of Nebraska ITSELF
+# as a hospital provider (Twelve Clans Unity Hospital, Winnebago), so the
+# organisation half of the state's string matches a hospital record exactly.
+# The awardee is a TRIBAL GOVERNMENT doing business as a comprehensive health
+# SYSTEM; the hospital is one of its operations, and no source says which
+# receives this money. Promoting it would be South Carolina's Acadia question
+# (a parent over a mixed estate) answered on this pipeline's authority. It
+# keeps the classifier's TRIBAL_ORG and is reported as an open question.
+NE_5_3_REFUSED <- c(
+  "Winnebago Tribe of Nebraska DBA Winnebago Comprehensive Healthcare System")
+
+#' Type the 5.3 rows: the shared classifier, then an EXACT federal record.
+ne_type_5_3 <- function(n53 = ne_notice_5_3(), f = ne_federal_hosp()) {
+  cls <- rhtp_classify_records(
+    n53 %>% dplyr::mutate(desc = NE_5_3_POOL),
+    state = NE_STATE, description_col = "desc")
+  out <- vector("list", nrow(cls))
+  for (i in seq_len(nrow(cls))) {
+    a <- cls$awardee[i]
+    hit <- ne_federal_match(a, f)
+    six <- sort(unique(hit$ccn[grepl("^[0-9]{6}$", hit$ccn)]))
+    row <- cls[i, ]
+    row$ccn <- NA_character_
+    row$recipient_type_source <- "DERIVED_FROM_NAME"
+    row$basis_type <- NA_character_
+    if (nrow(hit) && !(a %in% NE_5_3_REFUSED)) {
+      row$recipient_type <- "HOSPITAL_OR_SYSTEM"
+      row$determination_confidence <- "MEDIUM"
+      row$flow_type <- "DIRECT"
+      row$distributed_to_hospital <- "Yes"
+      row$hospital_benefiting <- "Yes"
+      row$flag_reason <- NA_character_
+      row$classification_rule <- "FEDERAL_RECORD_EXACT"
+      row$recipient_type_source <- "FEDERAL_RECORD_EXACT"
+      row$basis_type <- "ORG_WEBSITE"
+      row$ccn <- if (length(six) == 1L) six else NA_character_
+      row$determination_basis <- paste0(
+        "§10.2 DIRECT. EXACT federal record: CMS Hospital Enrollment (NE, ",
+        "archived 2026-09-24) carries this string's ",
+        if (length(stringr::str_split(ne_fed_norm(a), " DBA ")[[1]]) == 2L)
+          "DBA or organisation half " else "",
+        "as an ORGANIZATION NAME or DBA (normalised for case, punctuation, a ",
+        "leading THE and a trailing INC) at CCN ",
+        paste(sort(unique(hit$ccn)), collapse = "/"), " (",
+        paste(unique(hit$provider_type), collapse = "; "), "). Classifier said ",
+        cls$recipient_type[i], "/", cls$determination_confidence[i],
+        ". MEDIUM, not HIGH: the source is an intent notice and no Stage 5 ",
+        "CCN match has run. §0.3a: the recipient is a hospital whatever the ",
+        "activity (mental health crisis facility modification).")
+    } else if (a %in% NE_5_3_REFUSED) {
+      row$recipient_type_source <- "DERIVED_FROM_NAME"
+      row$determination_basis <- paste0(
+        row$determination_basis, " HAND-READ REFUSAL (session 64): CMS enrols ",
+        "the tribe's own name as a hospital provider (Twelve Clans Unity ",
+        "Hospital, CCN ", paste(sort(unique(hit$ccn)), collapse = "/"),
+        "), but the awardee is the tribal government doing business as a ",
+        "comprehensive health SYSTEM and no source says the hospital receives ",
+        "this money. Not promoted (§0.4).")
+    }
+    out[[i]] <- row
+  }
+  dplyr::bind_rows(out)
+}
+
+#' SESSION 49's OVERLAY IS KEYED ON ROW INDEX, SO EVERY OVERLAID INDEX MUST
+#' STILL HOLD THE ORGANISATION IT WAS WRITTEN FOR. 5.3 is appended after the 78
+#' existing rows precisely so this holds; this is what proves it did.
+ne_assert_overlay_rows <- function(recs) {
+  path <- here::here("data", "reference", "verification_queue_2_changes.csv")
+  if (!file.exists(path)) {
+    stop("[NE] verification_queue_2_changes.csv is missing.", call. = FALSE)
+  }
+  ch <- readr::read_csv(path, col_types = readr::cols(.default = "c"),
+                        progress = FALSE)
+  ch <- ch[ch$file == "ne_year1_awardees.csv", ]
+  if (!nrow(ch)) stop("[NE] no overlay rows for this file.", call. = FALSE)
+  idx <- as.integer(ch$row)
+  bad <- idx > nrow(recs) | recs$awardee[pmin(idx, nrow(recs))] != ch$name
+  if (any(bad)) {
+    stop("[NE] ", sum(bad), " overlaid row index(es) no longer hold the ",
+         "organisation session 49 verified: ",
+         paste0(idx[bad], " (", ch$name[bad], ")", collapse = "; "),
+         ". A pool was inserted rather than appended.", call. = FALSE)
+  }
+  invisible(nrow(ch))
 }
 
 #' §0.1. RCJ's Nebraska candidates, accounted for to the cent.
@@ -930,11 +1186,14 @@ ne_assert_rcj_disposition <- function(awards) {
     stop("[NE] ", nrow(miss), " RCJ 5.3 row(s) match no amount on DHHS's ",
          "notice: ", paste(miss$awardee_name_raw, collapse = "; "), call. = FALSE)
   }
-  # And none of the 5.3 applicants is in the award file: this file parses 3.3,
-  # 4.4a and 4.4b only. The day that changes, this disposition must say so.
-  if (any(awards$source_key == "noa_5_3")) {
-    stop("[NE] 5.3 is now extracted; rewrite its disposition row.",
-         call. = FALSE)
+  # Session 64 extracted 5.3. RCJ's twelve must be twelve of the file's
+  # thirteen 5.3 rows, and the one it drops must be Regional West Medical
+  # Center -- the only 5.3 row nobody else carries.
+  dropped <- n53[!(round(n53$amount, 2) %in% round(r53$amount_announced, 2)), ]
+  if (nrow(dropped) != NE_STATED$n_5_3 - NE_STATED$rcj_5_3_rows ||
+      !identical(dropped$awardee, "Regional West Medical Center")) {
+    stop("[NE] RCJ's 5.3 coverage has moved: it now drops ",
+         paste(dropped$awardee, collapse = "; "), call. = FALSE)
   }
 
   # And RCJ holds NONE of 4.4b. Stated as an identity rather than a search:
@@ -1059,7 +1318,28 @@ ne_records <- function() {
       city = .data$city
     )
 
-  all_rows <- dplyr::bind_rows(direct, members)
+  # SESSION 64: Initiative 5.3's thirteen intent rows, APPENDED LAST. Session
+  # 49's overlay is keyed on row index into this file; anything inserted
+  # before row 78 would re-point 29 verified determinations at the wrong
+  # organisations (ne_assert_overlay_rows() checks it on every build).
+  ne_assert_5_3_is_intent()
+  intents <- ne_type_5_3() %>%
+    dplyr::mutate(
+      source_key = "noa_5_3",
+      award_pool = NE_5_3_POOL,
+      state = NE_STATE,
+      note = paste0(NE_5_3_POOL, ". INTENT TO AWARD (DHHS 09/01/2026: ",
+                    "\"DHHS intends to award subawards to the following ",
+                    "applicants\"); not yet an award."),
+      intermediary_name = NA_character_,
+      hospital_attribution_explicit = NA_character_,
+      nhvn_member_of = NA_character_,
+      city = NA_character_)
+
+  all_rows <- dplyr::bind_rows(
+    direct %>% dplyr::mutate(ccn = NA_character_, basis_type = NA_character_),
+    members %>% dplyr::mutate(ccn = NA_character_, basis_type = NA_character_),
+    intents)
 
   titles <- vapply(all_rows$source_key, function(k) ne_source(k, "doc_title"),
                    character(1), USE.NAMES = FALSE)
@@ -1073,14 +1353,18 @@ ne_records <- function() {
       row_no = dplyr::row_number(),
       # DHHS's own words: "The following have been selected for award".
       recipient_confirmed = "Yes",
-      amount_confirmed = dplyr::if_else(is.na(.data$amount), "No", "Yes"),
+      # An INTENT's amount is not yet an awarded amount (Oregon's, Maryland's
+      # and Wyoming's posture), so 5.3's thirteen are amount_confirmed = No.
+      amount_confirmed = dplyr::if_else(
+        is.na(.data$amount) | .data$source_key %in% NE_INTENT_KEYS, "No", "Yes"),
       fiscal_year = "FY2026",
       source_document_title = titles,
       state_source_url = urls,
-      validation_source_type = "NOTICE_OF_AWARD",
+      validation_source_type = dplyr::if_else(
+        .data$source_key %in% NE_INTENT_KEYS,
+        "NOTICE_OF_INTENT_TO_AWARD", "NOTICE_OF_AWARD"),
       extraction_method = "DIRECT_TEXT",
       validator = "AUTO",
-      ccn = NA_character_,
       aha_id = NA_character_,
       rural_designation = NA_character_,
       reviewer = NA_character_,
@@ -1099,8 +1383,80 @@ ne_records <- function() {
       "recipient_type_source", "determination_confidence", "flag_reason",
       "award_pool", "budget_period", "flow_type", "hospital_benefiting",
       "hospital_attribution", "intermediary_name", "nhvn_member_of", "city",
-      "determination_basis", "classification_rule", "source_archive_path"
+      "determination_basis", "classification_rule", "source_archive_path",
+      "basis_type"
     )
+}
+
+
+# -- probe (READ-ONLY, §2.2) ----------------------------------------------------
+
+#' One live GET into memory. Never writes anywhere.
+ne_live_get <- function(url) {
+  resp <- httr::GET(url, httr::user_agent(NE_USER_AGENT), httr::timeout(180))
+  if (httr::status_code(resp) != 200L) {
+    stop("[NE] HTTP ", httr::status_code(resp), " for ", url, call. = FALSE)
+  }
+  httr::content(resp, as = "raw")
+}
+
+#' LIVE, READ-ONLY: has Nebraska published a FIFTH notice, or re-issued one?
+#'
+#' Watches the programme page (a CONTENT digest of the reduced text, the
+#' positive control run against the LIVE bytes, and the name tripwire against
+#' the committed archive) and the four notices (byte digests -- they are
+#' static PDFs, and a re-issue, e.g. 5.3 turning from an intent into an award,
+#' is exactly what this should notice). The live page goes to a tempfile only
+#' because ne_assert_award_index() reads a path; nothing touches
+#' data/evidence/, and rhtp_probe_run() proves it.
+ne_probe <- function() {
+  page_raw <- ne_live_get(ne_source("program_page", "url"))
+  live_txt <- ne_html_text(body = page_raw)
+  arch_txt <- ne_html_text("program_page")
+  tmp <- tempfile(fileext = ".html")
+  on.exit(unlink(tmp), add = TRUE)
+  writeBin(page_raw, tmp)
+
+  # THE POSITIVE CONTROL, ON THE LIVE PAGE: four known links, and a FIFTH
+  # fails. Session 25's Indiana lesson -- the archive passes trivially.
+  ne_assert_award_index(tmp)
+  if (!stringr::str_detect(live_txt, NE_CMS_SENTENCE)) {
+    stop("[NE] the live programme page no longer carries the CMS ",
+         "financial-assistance footer.", call. = FALSE)
+  }
+  # THE NAME TRIPWIRE (§2.3). A subject page only; the baseline is the
+  # 2026-09-24 archive (session 64), which already carries the fourth link.
+  rhtp_assert_no_new_organisations_across(
+    live = list(program_page = live_txt),
+    archived = list(program_page = arch_txt),
+    state = NE_STATE)
+
+  cmp <- tibble::tibble(
+    key = "program_page",
+    changed = digest::digest(live_txt, algo = "sha256") !=
+      digest::digest(arch_txt, algo = "sha256"))
+  for (k in c(NE_NOA_KEYS, NE_INTENT_KEYS)) {
+    Sys.sleep(NE_HOST_THROTTLE_S)
+    live <- ne_live_get(ne_source(k, "url"))
+    cmp <- dplyr::bind_rows(cmp, tibble::tibble(
+      key = k,
+      changed = digest::digest(live, algo = "sha256", serialize = FALSE) !=
+        digest::digest(file = ne_path(k), algo = "sha256")))
+  }
+
+  message("[NE] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
+  purrr::walk(seq_len(nrow(cmp)), function(i) {
+    message(sprintf("  %-13s %s", cmp$key[i],
+                    if (cmp$changed[i]) "CHANGED" else "unchanged"))
+  })
+  if (any(cmp$changed)) {
+    message("[NE] CHANGED. Read what moved before re-archiving (--fetch ",
+            "--force is a deliberate act, §2.2). A changed 5.3 notice may be ",
+            "the intent becoming an award.")
+  } else {
+    message("[NE] UNCHANGED. Four notices (three awards, one intent), no fifth.")
+  }
+  invisible(cmp)
 }
 
 
@@ -1143,13 +1499,31 @@ ne_validate <- function() {
          call. = FALSE)
   }
 
-  stopifnot(nrow(recs) == NE_STATED$n_all + NE_STATED$nhvn_members)
+  stopifnot(nrow(recs) == NE_STATED$n_rows_all,
+            NE_STATED$n_rows_all ==
+              NE_STATED$n_all + NE_STATED$nhvn_members + NE_STATED$n_5_3)
   priced <- recs %>% dplyr::filter(!is.na(.data$amount))
-  stopifnot(nrow(priced) == NE_STATED$n_all, all(priced$amount > 0))
-  if (abs(sum(priced$amount) - NE_STATED$total_all) > 0.005) {
+  stopifnot(nrow(priced) == NE_STATED$n_priced_all, all(priced$amount > 0))
+  if (abs(sum(priced$amount) - NE_STATED$total_priced_all) > 0.005) {
     stop("[NE] priced rows sum to ", sprintf("%.2f", sum(priced$amount)),
          call. = FALSE)
   }
+  # The 57 notices of award still sum to their own figure, and the 5.3
+  # intents to theirs -- two kinds of action, reconciled separately.
+  noa <- priced %>% dplyr::filter(.data$validation_source_type == "NOTICE_OF_AWARD")
+  int <- priced %>%
+    dplyr::filter(.data$validation_source_type == "NOTICE_OF_INTENT_TO_AWARD")
+  stopifnot(nrow(noa) == NE_STATED$n_all, nrow(int) == NE_STATED$n_5_3,
+            abs(sum(noa$amount) - NE_STATED$total_all) < 0.005,
+            abs(sum(int$amount) - NE_STATED$total_5_3) < 0.005,
+            all(int$award_pool == NE_5_3_POOL),
+            all(int$amount_confirmed == "No"))
+  # Appended, never interleaved: the 5.3 rows are the LAST thirteen.
+  stopifnot(identical(which(recs$award_pool == NE_5_3_POOL),
+                      seq(NE_STATED$n_rows_all - NE_STATED$n_5_3 + 1L,
+                          NE_STATED$n_rows_all)))
+  ne_assert_overlay_rows(recs)
+  ne_assert_5_3_typing(recs)
   # The twenty-one member rows must stay un-priced, or the $18.2M is counted
   # twice: once on NHVN's row and again across its members.
   members <- recs %>% dplyr::filter(!is.na(.data$nhvn_member_of))
@@ -1163,6 +1537,33 @@ ne_validate <- function() {
   invisible(recs)
 }
 
+#' Initiative 5.3's typing, pinned: six hospital rows on an EXACT CMS
+#' enrolment record, six on §8's standing fallback, the tribe refused.
+ne_assert_5_3_typing <- function(recs) {
+  r <- recs %>% dplyr::filter(.data$award_pool == NE_5_3_POOL)
+  h <- r %>% dplyr::filter(.data$distributed_to_hospital == "Yes")
+  fb <- r %>% dplyr::filter(.data$flag_reason == "RECIPIENT_TYPE_INFERRED")
+  if (nrow(h) != NE_STATED$hospital_rows_5_3 ||
+      abs(sum(h$amount) - NE_STATED$hospital_total_5_3) > 0.005 ||
+      !all(h$recipient_type_source == "FEDERAL_RECORD_EXACT")) {
+    stop("[NE] 5.3's hospital rows have moved: ", nrow(h), " rows, $",
+         sprintf("%.2f", sum(h$amount)), call. = FALSE)
+  }
+  if (nrow(fb) != NE_STATED$fallback_rows_5_3 ||
+      abs(sum(fb$amount) - NE_STATED$fallback_total_5_3) > 0.005 ||
+      any(fb$distributed_to_hospital != "No")) {
+    stop("[NE] 5.3's unstated-form rows have moved: ", nrow(fb), " rows, $",
+         sprintf("%.2f", sum(fb$amount)), call. = FALSE)
+  }
+  w <- r[r$awardee %in% NE_5_3_REFUSED, ]
+  if (nrow(w) != 1L || w$recipient_type != "TRIBAL_ORG" ||
+      w$distributed_to_hospital != "No") {
+    stop("[NE] the Winnebago Tribe row is no longer the recorded refusal.",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 #' THE FIGURE IS A FLOOR AND THE UNCERTAINTY IS DISCLOSED WHERE SOMEONE WILL
 #' FIND IT. Kansas's device, a third time.
 #'
@@ -1173,6 +1574,11 @@ ne_validate <- function() {
 #' data/reference/classification_review_queue.csv and its presence is asserted
 #' every run.
 ne_assert_form_not_stated_queued <- function(recs) {
+  # SESSION 64: scoped to the three NOTICES OF AWARD, which is what the queue
+  # row's figure describes. 5.3's own fallback rows are asserted separately in
+  # ne_assert_5_3_typing(), and the queue row's figure is NOT silently moved:
+  # that file is not this file's to rewrite.
+  recs <- recs %>% dplyr::filter(.data$award_pool != NE_5_3_POOL)
   # Scoped to the rows that are BOTH unstated and still open -- see NE_STATED.
   inferred <- recs %>%
     dplyr::filter(.data$determination_confidence == "LOW",
@@ -1246,8 +1652,23 @@ ne_bucket <- function(part, bucket) {
 
 ne_build <- function() {
   recs <- ne_validate()
-  readr::write_csv(recs, here::here(NE_CSV), na = "")
-  message("[NE] wrote ", NE_CSV, " (", nrow(recs), " rows)")
+  # SESSION 49's VERIFICATION OVERLAY, RE-APPLIED FOR THIS FILE ONLY. The
+  # builder's output is not the committed file: 29 rows carry a verified form
+  # keyed on their row INDEX. Before session 64 a bare --build wrote `recs`
+  # and silently wiped them. Sourced into its own environment so 03ap's CLI
+  # guard cannot fire on this script's arguments; never a bare `--apply`.
+  vq <- new.env()
+  suppressMessages(source(here::here("R", "03ap_verification_queue_2.R"),
+                          local = vq))
+  out <- vq$vq_overlay(recs, "ne_year1_awardees.csv")
+  ne_assert_overlay_rows(out)
+  ch <- vq$vq_changes()
+  ch <- ch[ch$file == "ne_year1_awardees.csv", ]
+  stopifnot(all(out$recipient_type[as.integer(ch$row)] == ch$new_type),
+            all(is.na(out$verified_by[-as.integer(ch$row)])))
+  readr::write_csv(out, here::here(NE_CSV), na = "")
+  message("[NE] wrote ", NE_CSV, " (", nrow(out), " rows; session 49 overlay ",
+          "re-applied to ", nrow(ch), ")")
 
   ne_write_disposition()
 
@@ -1256,7 +1677,12 @@ ne_build <- function() {
   wb <- openxlsx::createWorkbook()
   openxlsx::addWorksheet(wb, "READ ME FIRST")
   openxlsx::writeData(wb, "READ ME FIRST", tibble::tibble(note = c(
-    "NEBRASKA RHTP YEAR 1 -- NOTICES OF AWARD.",
+    "NEBRASKA RHTP YEAR 1 -- THREE NOTICES OF AWARD AND ONE INTENT.",
+    "",
+    "SESSION 64: DHHS's FOURTH notice, Initiative 5.3 (09/01/2026, 13 rows,",
+    "$5,549,692.25), is headed \"Intent to Award\" and its 13 rows are",
+    "NOTICE_OF_INTENT_TO_AWARD with amount_confirmed = No. They are the LAST 13",
+    "rows. Everything below about AWARDS is about the other three notices.",
     "",
     "These are AWARDS. Each of DHHS's three notices says \"The following have",
     "been selected for award for the Request for Application which closed",
@@ -1299,7 +1725,7 @@ ne_build <- function() {
     "NEBRASKA HAS SIXTEEN MORE INITIATIVE ROWS WITH NO PUBLISHED ROSTER. That",
     "absence is real, not unlooked-for: DHHS's RFA timeline table carries an",
     "\"Awardees\" link wherever a roster exists, and this file's positive",
-    "control asserts all three present and refuses a fourth."
+    "control asserts all four present and refuses a fifth."
   )))
 
   openxlsx::addWorksheet(wb, "Awards")
@@ -1311,7 +1737,8 @@ ne_build <- function() {
     item = c("Initiative 3.3 -- awards",
              "Initiative 4.4a -- awards",
              "Initiative 4.4b -- awards",
-             "All published awards",
+             "All published awards (the three notices of award)",
+             "Initiative 5.3 -- INTENTS to award (13 rows)",
              "CMS FY2026 allotment (§7.1)",
              "Published share of the allotment (%)",
              "Nebraska High Value Network (one award, 21 named hospitals)",
@@ -1321,7 +1748,7 @@ ne_build <- function() {
              "Recipient form NOT STATED by DHHS (§8 fallback rows)",
              "RCJ Tier 3 candidates (§0.1, never a figure)"),
     value = c(NE_STATED$total_3_3, NE_STATED$total_4_4a, NE_STATED$total_4_4b,
-              NE_STATED$total_all, NE_STATED$cms_allotment,
+              NE_STATED$total_all, NE_STATED$total_5_3, NE_STATED$cms_allotment,
               round(100 * NE_STATED$total_all / NE_STATED$cms_allotment, 2),
               NE_STATED$nhvn_amount,
               ne_bucket(part, "NAMED_HOSPITAL"),
@@ -1345,8 +1772,6 @@ ne_write_disposition <- function() {
   n53 <- ne_notice_5_3()
   r53 <- ne[grp == "intent_5_3", ]
   dropped <- n53[!(round(n53$amount, 2) %in% round(r53$amount_announced, 2)), ]
-  hosp53 <- n53$awardee[stringr::str_detect(
-    n53$awardee, "(?i)hospital|medical center|health (plainview|schuyler)|fremont health")]
   ml <- ne[grp == "org_summary", ]
   ml_file <- ne_awards()
   ml_file <- ml_file[stringr::str_detect(ml_file$awardee, "(?i)mary lanning"), ]
@@ -1388,27 +1813,27 @@ ne_write_disposition <- function() {
           "before the state had the federal money (§6.2)."),
     "2025-04-22_ne_dhhs_rfa_4533_nhap_legal_services.pdf",
 
-    "Initiative 5.3 intents to award -- NOT in ne_year1_awardees.csv",
-    nrow(r53), round(sum(r53$amount_announced), 2), "RHTP_SUBAWARD",
-    paste0("Real RHTP award actions this file does not carry. DHHS's fourth ",
+    "Initiative 5.3 intents to award -- extracted (session 64)",
+    nrow(r53), round(sum(r53$amount_announced), 2), "RHTP_SUBAWARD_EXTRACTED",
+    paste0("Real RHTP award actions, now the last rows of ne_year1_awardees.csv ",
+           "as NOTICE_OF_INTENT_TO_AWARD (amount_confirmed = No). DHHS's fourth ",
            "notice, 'RHTP Initiative 5.3 Awards' (09/01/2026, Modification of ",
            "Existing Clinical Facilities for Mental Health Crisis), is headed ",
            "'Intent to Award' -- 'DHHS intends to award subawards to the ",
-           "following applicants' -- and lists ", nrow(n53), " applicants, $",
-           format(sum(n53$amount), big.mark = ",", nsmall = 2), ", under the ",
-           "same CMS footer ($218,529,075.01). RCJ carries ", nrow(r53),
-           " of them, each at the notice's exact amount, and DROPS ",
+           "following applicants' -- under the same CMS footer ",
+           "($218,529,075.01); its RFA closed 2026-08-31, after the NOA. The ",
+           "notice's roster sums to $",
+           format(sum(n53$amount), big.mark = ",", nsmall = 2),
+           ". RCJ's rows each carry the notice's exact amount, and RCJ DROPS ",
            paste0(dropped$awardee, " ($", format(dropped$amount, big.mark = ",",
                   nsmall = 2), ")", collapse = "; "),
-           ". ", length(hosp53), " names carry a hospital-shaped token (",
-           paste(hosp53, collapse = "; "), "); none was typed here, and §8 ",
-           "typing belongs to the extraction. ",
-           "The notice was published after this file's 2026-08-31 programme-page ",
-           "archive, so ne_assert_award_index() -- which refuses a FOURTH notice ",
-           "link -- will fire on a live read. Nebraska's award file is now ",
-           "INCOMPLETE: extract 5.3 as NOTICE_OF_INTENT_TO_AWARD rows in a ",
-           "session that owns it."),
-    "recheck/2026-09-24/NE/2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf",
+           ", a hospital on CMS's Nebraska enrolment file. Six rows are typed ",
+           "HOSPITAL_OR_SYSTEM on an exact CMS Hospital Enrollment record; six ",
+           "keep §8's standing fallback; the Winnebago Tribe of Nebraska keeps ",
+           "TRIBAL_ORG although CMS enrols the tribe's name as a hospital ",
+           "provider, because the awardee is the tribal government's health ",
+           "system and no source says the hospital receives the money."),
+    "2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf",
 
     "Mary Lanning Healthcare's own summary of its RHTP grants",
     nrow(ml), round(sum(ml$amount_announced), 2), "RHTP_BUT_NOT_A_SUBAWARD",
@@ -1423,7 +1848,7 @@ ne_write_disposition <- function() {
            format(sum(ml_53$amount), big.mark = ",", nsmall = 2),
            " on the 5.3 intent notice. The four-grant count is NOT reconciled ",
            "against a state source; nothing here divides or adds RCJ's figure."),
-    "recheck/2026-09-24/NE/2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf"
+    "2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf"
   )
   if (sum(disp$rcj_rows) != nrow(ne) || any(grp == "undescribed")) {
     stop("[NE] the disposition covers ", sum(disp$rcj_rows), " of ", nrow(ne),
@@ -1491,7 +1916,8 @@ if (sys.nframe() == 0L) {
   if ("--validate" %in% args) ne_validate()
   if ("--build" %in% args) ne_build()
   if ("--report" %in% args) ne_report()
-  if (!any(c("--fetch", "--validate", "--build", "--report") %in% args)) {
-    cat("Usage: Rscript R/03r_ne_year1_awardees.R [--fetch|--validate|--build|--report]\n")
+  if ("--probe" %in% args) rhtp_probe_run("NE", ne_probe())
+  if (!any(c("--fetch", "--validate", "--build", "--report", "--probe") %in% args)) {
+    cat("Usage: Rscript R/03r_ne_year1_awardees.R [--fetch|--validate|--build|--report|--probe]\n")
   }
 }

@@ -131,7 +131,7 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # publishing, and the one that sat longest unseen (55 days). See
 # R/03bf_nj_year1_awardees.R.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
-                             "ID", "IL", "IN", "KS", "MD", "ME", "MI", "MO",
+                             "ID", "IL", "IN", "KS", "LA", "MD", "ME", "MI", "MO",
                              "MS", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                              "WV", "WY")
@@ -282,7 +282,9 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
 # repository has not done -- Virginia's eleven named first-tier partners and
 # Washington's priced first-tier sub-recipients -- so moving them would read
 # "worked" where it means "watched" (session 43's reasoning for the fourteen).
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "LA", "ND", "NM", "TX",
+# Session 64: LOUISIANA LEFT -- the Rural Clinician Credit Bank awarded 53
+# (5 named) per LDH's 2026-09-03 webinar deck; la_year1_awardees.csv exists.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "ND", "NM", "TX",
                                         "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not

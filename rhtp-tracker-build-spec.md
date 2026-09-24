@@ -174,9 +174,11 @@ RHTP money moves CMS → state → subrecipient. RCJ mixes all three tiers in a 
 |---|---|---|---|
 | 1 | `STATE_ALLOTMENT` | CMS award to a state | Missouri FY2026, $216.0M |
 | 2 | `SOLICITATION` | State-announced funding pool / NOFO budget | Ohio Rural CIN & Innovation Hubs, $61.7M |
-| 3 | `SUBAWARD` | Executed or intended award to a named recipient | GA Dual Track Remote Critical Care, $900K to 4 rural hospitals |
+| 3 | `SUBAWARD` | Executed or intended award to a named recipient | GA GREAT Health Workforce Retention Technology, $2,000,000 each to 13 named hospitals on DCH's signed Notice of Award |
 
 **Only Tier 3 answers the project question.** Tiers 1 and 2 live in separate reference tables, on separate Excel sheets, and are never unioned with Tier 3. Aggregation functions must hard-fail if passed mixed tiers.
+
+> **The Tier 3 example was re-pointed in session 64, because the old one was not RHTP.** This row used to read *"GA Dual Track Remote Critical Care, $900K to 4 rural hospitals"*. That is DCH's **Dual Track Rural Hospital Remote Critical Care Services** round (RFGA released 2026-05-12, up to four awards of $225,000, *"subject to the availability of appropriated funds"*, managed by the **State Office of Rural Health**): a Georgia **state** grant series first solicited 2023-11-15, before the RHTP statute existed, whose RFGAs contain "Rural Health Transformation", "RHTP", "GREAT Health" and "Centers for Medicare" **zero times each** (`data/evidence/rcj_dispositions/2026-09-24/GA/`). It is a correct example of a Tier 3 award and a wrong example of an RHTP one — §6.1 failure mode 1, the wrong programme, sitting in the spec's own worked example. The replacement is an award on a signed DCH notice of award that is already in `ga_great_health_awards.csv`.
 
 #### Worked example — Virginia, two tiers on one page
 
@@ -966,7 +968,7 @@ At least 6 of 11 Delaware records are hospital recipients. Coded by activity, th
 | `flow_type` | Test | `distributed_to_hospital` |
 |---|---|---|
 | `DIRECT` | Named recipient matches a hospital in AHA/POS | `Yes` |
-| `PASS_THROUGH_DESIGNATED` | Intermediary receives funds, but the source document **names** hospital subrecipients or restricts eligibility to hospitals *and* the award has been made (e.g. Georgia's Dual Track Rural Hospital Remote Critical Care NOI naming four rural hospitals) | `Yes`, with `intermediary_name` populated |
+| `PASS_THROUGH_DESIGNATED` | Intermediary receives funds, but the source document **names** hospital subrecipients or restricts eligibility to hospitals *and* the award has been made (e.g. Nebraska's $18,156,856.12 award to the Nebraska High Value Network, whose signed notice names 21 hospital subrecipients; not Georgia's Dual Track Remote Critical Care NOI, which is state money and awards hospitals directly) | `Yes`, with `intermediary_name` populated |
 | `PASS_THROUGH_UNRESOLVED` | Intermediary administers a pool where hospitals are among eligible entities, recipients not yet named (most VHHA Foundation and FHC solicitations today) | `Unclear` — **do not impute** |
 | `IN_KIND_BENEFIT` | Funds go to a vendor or state system that hospitals use but do not receive (statewide EMD dispatch, HIE infrastructure, shared services consortiums) | `No`, but set `hospital_benefiting = Yes` |
 | `NON_HOSPITAL` | Recipient is clearly not a hospital — a school district, a university, an EMS agency, a vendor. **Judge the recipient, never the activity (§0.3a):** Nebraska's school kitchen modernization awarded to the Department of Education is `NON_HOSPITAL`; Delaware's school-based health center awarded to Beebe Healthcare is `DIRECT`. Same setting, different recipients, different codes. | `No` |

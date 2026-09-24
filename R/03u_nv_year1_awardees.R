@@ -5,6 +5,22 @@
 # queue rank 1, 34 Tier 3 candidates on the 2026-08-27 pull (42 on 09-24), 34 distinct awardees, a $179,931,608
 # allotment, no CMS press release.
 #
+# SESSION 64 -- RE-EXTRACTED FROM THE 2026-09-24 PAGE, AND GIVEN A PROBE.
+# NVHA's Funded Projects page grew from 3 sections / 72 award actions
+# (2026-08-31) to SEVEN sections / 155 (2026-09-24): Flex 25 -> 39, WRRAP
+# Recruitment and Retention 27 -> 26, Apprenticeship and Training 20, Medical
+# Residency 0 -> 4 NAMED, and three new rosters -- RHIT 24, RHOAP 36, Tribal 6.
+# STILL NO AMOUNT ANYWHERE, so everything below about `amount` holds.
+# The file is 156 rows: rows 1..72 are the 2026-08-31 page's rows IN THAT
+# ORDER (session 49's overlay is keyed on row index -- see
+# nv_ordered_awards()), row 48 ("93 X 95 NV") is on the old page and not the
+# new one and is KEPT as Unclear, and rows 73..156 are the 84 new ones. The
+# Rural Medical Residency AGGREGATE row ("Recipients not named by NVHA") is
+# GONE: its claim was that nobody was named, and four now are. RHIT, RHOAP,
+# Tribal and the 14 new Flex rows carry NO round total (NVHA has published
+# none). Counts in the older prose below (73 rows, 20/23 hospitals, 23 on the
+# fallback) describe the 2026-08-31 file and are kept as its history (§2.1).
+#
 # NEVADA IS A SHAPE THIS PROJECT HAS NOT MET: A COMPLETE, NAMED,
 # RECIPIENT-LEVEL ROSTER WITH NO AMOUNTS ON IT AT ALL.
 # The Nevada Health Authority publishes `RHTP/rht-funded-projects---bp1/`, a
@@ -152,6 +168,7 @@ suppressPackageStartupMessages({
 
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
+source(here::here("R", "utils_page_watch.R"))
 
 NV_STATE <- "NV"
 NV_EVIDENCE_DIR <- here::here("data", "evidence", "NV")
@@ -183,27 +200,60 @@ NV_CMS_AWARD_NUMBER <- "RHTCMS332074-01-02"
 NV_ASSISTANCE_LISTING <- "93.798"
 NV_NOA_DATE <- as.Date("2025-12-29")
 
-# The four pools, their published round totals, and the document each comes
-# from. `roster` says whether NVHA has published the recipients.
+# The SEVEN pools on NVHA's Funded Projects page as archived 2026-09-24, in
+# page order, with the section heading the page prints for each, the round
+# total NVHA has PUBLISHED for it (NA where it has published none) and the
+# number of award actions the 2026-09-24 page lists under it.
+#
+# SESSION 64 RE-EXTRACTED NEVADA. The 2026-08-31 page carried three sections
+# and 72 award actions; the 2026-09-24 page carries SEVEN sections and 155,
+# still with NO AMOUNT against anybody. RHIT and RHOAP (decisions due 8/10 and
+# 8/14) and the Tribal RFA have published rosters, the Medical Residency pool
+# now NAMES its four recipients, the Flex Fund grew 25 -> 39, and ONE
+# Recruitment and Retention row ("93 X 95 NV") is no longer on the page.
+# NVHA has published NO round total for RHIT, RHOAP, Tribal, or for the 14
+# Flex rows first listed after 2026-08-31, so those carry `round_amount = NA`
+# -- a figure nobody published is not filled in, and a Tier 2 "available" or
+# "cap" figure is not an award total (§0.2).
 NV_POOLS <- tibble::tribble(
-  ~award_pool,                      ~round_id, ~round_name,                                              ~round_amount, ~round_awards, ~roster, ~amount_source,
-  "FLEX_FUND",                      "FLEX",    "Rural Health System Flex Fund",                              36000000,  25L, TRUE,  "press_flex",
-  "WRRAP_RECRUITMENT_RETENTION",    "WRRAP-RR","Workforce Recruitment and Rural Access Program - Recruitment and Retention Fund", 32300000, 27L, TRUE,  "press_wrrap",
-  "WRRAP_APPRENTICESHIP_TRAINING",  "WRRAP-AT","Workforce Recruitment and Rural Access Program - Apprenticeship and Training Fund", 14300000, 20L, TRUE, "press_wrrap",
-  "WRRAP_RURAL_MEDICAL_RESIDENCY",  "WRRAP-RES","Workforce Recruitment and Rural Access Program - Rural Medical Residency",         4800000,  NA_integer_, FALSE, "press_wrrap"
+  ~award_pool,                      ~round_id,  ~section,                                                                          ~round_name,                                                                                    ~round_amount, ~round_awards, ~roster, ~amount_source,
+  "FLEX_FUND",                      "FLEX",     "Rural Health System Flex Fund",                                                   "Rural Health System Flex Fund",                                                                36000000,  39L, TRUE, "press_flex",
+  "WRRAP_RECRUITMENT_RETENTION",    "WRRAP-RR", "Workforce Recruitment and Rural Access Program - Recruitment and Retention Fund", "Workforce Recruitment and Rural Access Program - Recruitment and Retention Fund",            32300000,  26L, TRUE, "press_wrrap",
+  "WRRAP_APPRENTICESHIP_TRAINING",  "WRRAP-AT", "Workforce Recruitment and Rural Access Program - Apprenticeship and Training Fund", "Workforce Recruitment and Rural Access Program - Apprenticeship and Training Fund",       14300000,  20L, TRUE, "press_wrrap",
+  "WRRAP_RURAL_MEDICAL_RESIDENCY",  "WRRAP-RES","Workforce Recruitment and Rural Access Program - Medical Residency Program",       "Workforce Recruitment and Rural Access Program - Rural Medical Residency",                      4800000,   4L, TRUE, "press_wrrap",
+  "RHIT",                           "RHIT",     "Rural Health Innovation and Technology Fund",                                     "Nevada Rural Health Innovation and Technology (RHIT) Initiative",                              NA_real_, 24L, TRUE, NA_character_,
+  "RHOAP",                          "RHOAP",    "Rural Health Outcomes Accelerator Program",                                       "Nevada Rural Health Outcomes Accelerator Program (RHOAP)",                                     NA_real_, 36L, TRUE, NA_character_,
+  "TRIBAL",                         "TRIBAL",   "Tribal",                                                                          "Nevada Rural Tribal Health System Transformation Program",                                     NA_real_,  6L, TRUE, NA_character_
 )
+
+# The Flex Fund's $36 million is NVHA's 2026-06-09 "First Round" release. The
+# 25 Flex rows on the 2026-08-31 page are that round; the 14 first listed on
+# the 2026-09-24 page carry NO published round total, so they get their own
+# round id and an NA `round_amount` rather than a figure they may not be in.
+NV_FLEX_ADDED_ROUND <- list(
+  round_id = "FLEX-ADDED",
+  round_name = paste0("Rural Health System Flex Fund -- rows first listed on ",
+                      "NVHA's page after 2026-08-31 (no round total published)"))
 
 NV_STATED <- list(
   flex_round_total      = 36000000,      # 2026-06-09 release: "$36 million"
   wrrap_rr_awarded      = 32300000,      # 2026-07-29 release
   wrrap_at_awarded      = 14300000,      # 2026-07-29 release
   wrrap_residency       = 4800000,       # 2026-07-29 release
-  announced_total       = 87400000,      # the four pools, summed over DISTINCT pools
-  flex_rows             = 25L,
-  wrrap_rr_rows         = 27L,
+  announced_total       = 87400000,      # the four PUBLISHED round totals, over DISTINCT rounds
+  # Award actions on the 2026-09-24 page, per section.
+  flex_rows             = 39L,
+  flex_rows_first_round = 25L,           # the 2026-08-31 page's Flex rows
+  wrrap_rr_rows         = 26L,
   wrrap_at_rows         = 20L,
-  roster_rows           = 72L,
-  total_rows            = 73L,
+  residency_rows        = 4L,
+  rhit_rows             = 24L,
+  rhoap_rows            = 36L,
+  tribal_rows           = 6L,
+  roster_rows           = 155L,          # named award actions on the current page
+  prior_roster_rows     = 72L,           # ... and on the 2026-08-31 page
+  withdrawn_rows        = 1L,            # on 08-31, not on 09-24: "93 X 95 NV"
+  total_rows            = 156L,          # 155 current + 1 withdrawn, KEPT
   # The 2026-06-09 fiscal deck's "available" figures. Kept because they are the
   # other half of the conflict this file refuses to resolve.
   deck_flex_available   = 35986322,
@@ -218,6 +268,13 @@ NV_STATED <- list(
   rcj_candidates        = 42L,
   rcj_distinct_awardees = 42L
 )
+
+# The one row the 2026-08-31 page carried and the 2026-09-24 page does not. It
+# is KEPT (row 48 of the file, in its original place), because the state
+# published it and a disappearance is a fact to record rather than a row to
+# delete (§0.4); the session-49 verification of it returned UNKNOWN and is
+# queued as NV_UNIDENTIFIED_RECIPIENT.
+NV_WITHDRAWN_AWARDEES <- c("93 X 95 NV")
 
 # THE COMBINED WRRAP FIGURE IS STABLE UNDER THE CONFLICT, and this is the
 # arithmetic that says so.
@@ -278,24 +335,38 @@ NV_GME_AWARDS <- tibble::tribble(
   "University of Nevada, Reno SOM - Pulmonary Disease and Critical Care Medicine", 919303
 )
 
-# The six closed opportunities with NO published roster. Each is a tripwire.
+# The closed opportunities with NO published roster. Each is a tripwire.
+# SESSION 64: THREE OF SESSION 26's SIX HAVE AWARDED -- RHIT, RHOAP and the
+# Rural Tribal Health RFA now have sections on the Funded Projects page -- and
+# are recorded in NV_AWARDED_SINCE_0831 rather than deleted, so the history of
+# what was pending stays readable. These three are still pending: none has a
+# section on the 2026-09-24 page.
 NV_PENDING_OPPORTUNITIES <- c(
-  "Nevada Rural Health Innovation and Technology (RHIT) Initiative",
-  "Nevada's Rural Health Outcome Accelerator Program (RHOAP)",
   "Rural Presidential Fitness Test Implementation",
   "Rural Correctional Health Transformation",
-  "Rural Veterans Health Transformation",
-  "Rural Tribal Health Transformation"
+  "Rural Veterans Health Transformation"
+)
+# The page-section pattern each pending opportunity would carry if awarded.
+# NOT a bare "correction": the RHIT roster names the Nevada Department of
+# Corrections as a subrecipient, and that is a recipient, not a section.
+NV_PENDING_SECTION_PATTERN <- "(?i)presidential fitness|correctional health|veterans? health"
+
+# Pending on 2026-08-31 (session 26), awarded by 2026-09-24: the NOFO page's
+# name for each, and the Funded Projects section that now carries its roster.
+NV_AWARDED_SINCE_0831 <- tibble::tribble(
+  ~opportunity,                                                          ~section,
+  "Nevada Rural Health Innovation and Technology (RHIT) Initiative",     "Rural Health Innovation and Technology Fund",
+  "Nevada's Rural Health Outcome Accelerator Program (RHOAP)",           "Rural Health Outcomes Accelerator Program",
+  "Nevada Rural Tribal Health System Transformation Program",            "Tribal"
 )
 
-# The three roster sections NVHA publishes, by their table heading order on the
-# Funded Projects page. A FOURTH means Nevada has awarded something this file
-# does not carry.
-NV_ROSTER_SECTIONS <- c(
-  "Rural Health System Flex Fund",
-  "Workforce Recruitment and Rural Access Program - Recruitment and Retention Fund",
-  "Workforce Recruitment and Rural Access Program - Apprenticeship and Training Fund"
-)
+# The SEVEN roster sections NVHA publishes, in page order. An EIGHTH means
+# Nevada has awarded something this file does not carry.
+NV_ROSTER_SECTIONS <- NV_POOLS$section
+
+# The three sections the 2026-08-31 page carried -- what rows 1..72 of the file
+# were parsed from, and what session 49's row-indexed overlay is keyed on.
+NV_PRIOR_ROSTER_SECTIONS <- NV_POOLS$section[1:3]
 
 
 # -- sources ------------------------------------------------------------------
@@ -304,8 +375,17 @@ NV_BASE <- "https://www.nvha.nv.gov"
 
 NV_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
-  # THE ROSTER. Three tables, 72 named subrecipients, no amounts.
-  "roster", "2026-08-31_nv_rht_funded_projects_bp1.html",
+  # THE ROSTER, AS OF 2026-09-24. Seven tables, 155 named subrecipients, no
+  # amounts. First archived by session 63 into data/evidence/recheck/ (curl,
+  # one read-only fetch) and copied here byte for byte by session 64, which
+  # made it the extraction source and the probe's baseline.
+  "roster", "2026-09-24_nv_rht_funded_projects_bp1.html",
+  paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
+  # THE PRIOR SNAPSHOT of the same URL: three tables, 72 subrecipients. KEPT,
+  # because rows 1..72 of the award file were parsed from it, session 49's
+  # overlay is keyed on that order, and it is the only evidence that NVHA once
+  # listed "93 X 95 NV". FROZEN: `--fetch --force` never overwrites it.
+  "roster_prior", "2026-08-31_nv_rht_funded_projects_bp1.html",
   paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
   # The positive control: ten funding opportunities, rosters for three.
   "nofos", "2026-08-31_nv_rht_nofos.html",
@@ -350,6 +430,11 @@ NV_SOURCES <- tibble::tribble(
 
 # -- fetch --------------------------------------------------------------------
 
+# Snapshots that are evidence of what a page SAID ON A DATE. A forced re-fetch
+# must never overwrite them with today's bytes (§2.2's lesson about re-dating
+# an archive, applied to --fetch itself).
+NV_FROZEN_KEYS <- c("roster_prior")
+
 nv_source <- function(key, field) {
   row <- NV_SOURCES[NV_SOURCES$key == key, ]
   if (nrow(row) != 1L) stop("[NV] unknown source key: ", key, call. = FALSE)
@@ -388,7 +473,7 @@ nv_fetch <- function(force = FALSE) {
   entries <- purrr::map_dfr(seq_len(nrow(NV_SOURCES)), function(i) {
     src <- NV_SOURCES[i, ]
     dest <- file.path(NV_EVIDENCE_DIR, src$file)
-    if (file.exists(dest) && !force) {
+    if (file.exists(dest) && (!force || src$key %in% NV_FROZEN_KEYS)) {
       message("[NV] cached, not re-fetched: ", src$file)
     } else {
       if (i > 1L) Sys.sleep(NV_HOST_THROTTLE_S)
@@ -420,10 +505,25 @@ nv_write_manifest <- function(entries) {
     "and Kansas's Google Maps key runs on every fetch here and finds nothing,",
     "so there is no reduction to explain and the pages are whole.",
     "",
-    "THE ROSTER IS `..._rht_funded_projects_bp1.html`. Three accordion",
-    "sections, one per awarded pool, each a Subrecipient/Project/County-Service",
-    "Area table: 25 + 27 + 20 = 72 named award actions AND NO AMOUNT ANYWHERE",
-    "ON THE PAGE. That absence is the finding, not a fetch failure, and it is",
+    "THE ROSTER IS `2026-09-24_nv_rht_funded_projects_bp1.html` (session 64).",
+    "SEVEN accordion sections, one per awarded pool, each a Subrecipient/",
+    "Project/Service-Area table: Flex 39, WRRAP Recruitment and Retention 26,",
+    "Apprenticeship and Training 20, Medical Residency 4, Rural Health",
+    "Innovation and Technology 24, Rural Health Outcomes Accelerator 36,",
+    "Tribal 6 = 155 named award actions AND NO AMOUNT ANYWHERE ON THE PAGE.",
+    "It was fetched READ-ONLY by session 63 with curl (user-agent",
+    "'RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)')",
+    "into data/evidence/recheck/2026-09-24/NV/, and copied here byte for byte;",
+    "its digest below equals the digest recorded there. A live in-memory read",
+    "on 2026-09-24 reduced to identical text, so it is the probe's baseline.",
+    "",
+    "`2026-08-31_nv_rht_funded_projects_bp1.html` IS THE PRIOR SNAPSHOT OF THE",
+    "SAME URL and is FROZEN: three sections, 25 + 27 + 20 = 72 award actions.",
+    "Rows 1..72 of nv_year1_awardees.csv are parsed from it, in its order, and",
+    "it is the only evidence that NVHA once listed '93 X 95 NV' (Recruitment",
+    "and Retention), which the 2026-09-24 page no longer carries.",
+    "",
+    "The absence of amounts is the finding, not a fetch failure, and it is",
     "corroborated by `..._rhtsc_program_fiscal_update.pdf`, whose own",
     "'Flex Funds - Funded Projects' slides list the same recipients under the",
     "same three column headings and also carry no amounts.",
@@ -432,7 +532,7 @@ nv_write_manifest <- function(entries) {
     "AS A CHANGE TEST. Its footer carries a rotating \"state symbol\" widget --",
     "two fetches minutes apart served the Lahontan Cutthroat Trout and the",
     "Vivid Dancer Damselfly -- so the page digest differs on EVERY fetch while",
-    "nothing about the awards has moved. The three roster TABLES are stable and",
+    "nothing about the awards has moved. The roster TABLES are stable and",
     "hash identically across those same fetches, so `nv_roster_digest()` is",
     "what a completeness re-check compares. This is the South Dakota",
     "ServiceNow-token problem in a new costume: a reader verifying the page",
@@ -456,7 +556,8 @@ nv_write_manifest <- function(entries) {
     "two of the three programmes it describes are state-funded, which is why",
     "the footer alone is not a provenance test.",
     "",
-    paste0("Fetched: ", Sys.Date()),
+    paste0("Manifest written: ", Sys.Date(), ". Each file's fetch date is the ",
+           "date in its name; nothing was re-fetched to write this."),
     "",
     sprintf("%-62s %10s  %s", "file", "bytes", "sha256"),
     strrep("-", 62 + 12 + 64)
@@ -492,8 +593,8 @@ nv_html_doc <- function(key) xml2::read_html(nv_read_text(key))
 #' sentences with markup and `&nbsp;` inside them -- "December 29, 2025:&nbsp;
 #' Received <a title=\"Notice of Award\" href=...>" -- so a `str_detect` on the
 #' source bytes fails on a sentence that is plainly on the page.
-nv_html_text <- function(key) {
-  doc <- nv_html_doc(key)
+nv_html_text <- function(key, raw = NULL) {
+  doc <- if (is.null(raw)) nv_html_doc(key) else xml2::read_html(raw)
   xml2::xml_remove(xml2::xml_find_all(doc, "//script | //style"))
   stringr::str_squish(xml2::xml_text(doc))
 }
@@ -510,15 +611,38 @@ nv_pdf_text <- function(key) {
 
 nv_pdf_flat <- function(key) stringr::str_squish(paste(nv_pdf_text(key), collapse = " "))
 
-#' The three roster tables, in page order.
+#' The roster tables, in page order, each named by its section heading.
 #'
 #' The page ships them server-rendered inside accordion sections; the "Show"
 #' toggles are presentation. Nothing here depends on JavaScript running.
-nv_roster_tables <- function() {
-  doc <- nv_html_doc("roster")
+#'
+#' Each table is named by the accordion heading it sits under, read off the
+#' page rather than assumed from table order: the nearest preceding heading
+#' whose text (less the trailing "Show" toggle) is one of the sections this
+#' file knows, or the raw heading text if it is not -- so an eighth section
+#' arrives with its own name on it.
+#'
+#' @param key The archive key ("roster" or "roster_prior").
+#' @param raw Optional raw bytes of a LIVE page (the probe), read instead.
+nv_roster_tables <- function(key = "roster", raw = NULL) {
+  doc <- if (is.null(raw)) nv_html_doc(key) else xml2::read_html(raw)
   xml2::xml_remove(xml2::xml_find_all(doc, "//script | //style"))
-  lapply(rvest::html_table(rvest::html_elements(doc, "table"), trim = TRUE),
-         nv_promote_header)
+  nodes <- xml2::xml_find_all(doc, "//table")
+  heads <- vapply(nodes, nv_table_section, character(1))
+  tabs <- lapply(rvest::html_table(nodes, trim = TRUE), nv_promote_header)
+  stats::setNames(tabs, heads)
+}
+
+#' The accordion heading a roster table sits under.
+nv_table_section <- function(node) {
+  prev <- xml2::xml_find_all(node,
+    "preceding::*[self::button or self::h2 or self::h3 or self::h4]")
+  txt <- stringr::str_squish(xml2::xml_text(prev))
+  txt <- stringr::str_squish(sub("\\s*Show$", "", txt))
+  txt <- txt[nzchar(txt) & txt != "Show All Sections"]
+  known <- txt[txt %in% c(NV_ROSTER_SECTIONS, NV_PRIOR_ROSTER_SECTIONS)]
+  if (length(known)) return(utils::tail(known, 1L))
+  if (length(txt)) utils::tail(txt, 1L) else NA_character_
 }
 
 #' Promote a first data row to the header when the source marked it up with
@@ -556,31 +680,41 @@ nv_roster_digest <- function() {
                  algo = "sha256")
 }
 
-#' Nevada's 72 published award actions.
+#' The award actions a roster page publishes, one row per table row.
 #'
-#' One row per table row. Nothing is de-duplicated: Washoe Barton Medical
-#' Clinic DBA Carson Valley Health holds TWO Flex Fund rows (a chiller
-#' replacement and sterile processing equipment) which are two projects and not
-#' a duplicate, and several recipients appear in more than one pool.
-#' @param tables Optional pre-read tables, so a test can feed the parser a
-#'   modified page and require a refusal without mocking the reader.
-nv_roster_awards <- function(tables = NULL) {
+#' Nothing is de-duplicated: Washoe Barton Medical Clinic DBA Carson Valley
+#' Health holds TWO Flex Fund rows (a chiller replacement and sterile
+#' processing equipment) which are two projects and not a duplicate, Nevada
+#' Health Centers holds FIVE RHIT rows, and several recipients appear in more
+#' than one pool.
+#'
+#' @param tables Optional pre-read tables (named by section), so a test can
+#'   feed the parser a modified page and require a refusal without mocking the
+#'   reader.
+#' @param sections The sections the page is expected to carry, in order.
+nv_roster_awards <- function(tables = NULL, sections = NV_ROSTER_SECTIONS) {
   tabs <- if (is.null(tables)) nv_roster_tables() else tables
-  if (length(tabs) != length(NV_ROSTER_SECTIONS)) {
+  if (length(tabs) != length(sections)) {
     stop("[NV] the Funded Projects page now carries ", length(tabs),
-         " tables, not ", length(NV_ROSTER_SECTIONS),
+         " tables, not ", length(sections),
          ". Nevada has published a roster this file does not carry -- re-read ",
          "it before trusting any figure here.", call. = FALSE)
   }
+  got <- names(tabs)
+  if (!is.null(got) && !identical(unname(got), unname(sections))) {
+    stop("[NV] the Funded Projects page's sections are now: ",
+         paste(got, collapse = " | "), " -- not the ", length(sections),
+         " this file extracts. Nevada has re-arranged or added a roster; ",
+         "re-read the page.", call. = FALSE)
+  }
 
-  pools <- NV_POOLS[NV_POOLS$roster, ]
   out <- purrr::map_dfr(seq_along(tabs), function(i) {
     tb <- tabs[[i]]
     nms <- tolower(names(tb))
     # Resolve by synonym rather than by position: the third column is headed
-    # "County-Service Area" on the Flex table and "Service Area" on the two
-    # WRRAP tables, which is exactly the kind of drift that silently shifts a
-    # positional read by one column.
+    # "County-Service Area" on the Flex table and "Service Area" on the others,
+    # which is exactly the kind of drift that silently shifts a positional read
+    # by one column.
     col_recipient <- which(stringr::str_detect(nms, "subrecipient|applicant|recipient"))
     col_project   <- which(stringr::str_detect(nms, "project"))
     col_area      <- which(stringr::str_detect(nms, "area|county"))
@@ -591,7 +725,8 @@ nv_roster_awards <- function(tables = NULL) {
            paste(names(tb), collapse = " | "), call. = FALSE)
     }
     tibble::tibble(
-      award_pool = pools$award_pool[i],
+      award_pool = NV_POOLS$award_pool[match(sections[i], NV_POOLS$section)],
+      section = sections[i],
       row_in_pool = seq_len(nrow(tb)),
       awardee = stringr::str_squish(tb[[col_recipient]]),
       project_description = stringr::str_squish(tb[[col_project]]),
@@ -617,6 +752,61 @@ nv_roster_awards <- function(tables = NULL) {
     stop("[NV] the roster now carries a dollar figure. Nevada has started ",
          "publishing per-recipient amounts and this file must be rewritten: ",
          "`amount` is empty on every row by design.", call. = FALSE)
+  }
+  out
+}
+
+#' The award file's rows, IN FILE ORDER, and where each came from.
+#'
+#' SESSION 49's VERIFICATION OVERLAY IS KEYED ON (file, ROW INDEX), so the
+#' order is load-bearing. Rows 1..72 are the 2026-08-31 page's rows in that
+#' page's order, whatever order NVHA prints them in today; every later row is
+#' a row the 2026-09-24 page adds, in that page's order. A 2026-08-31 row is
+#' matched to today's page on (section, subrecipient, project, service area)
+#' AND its occurrence number, so a recipient listed twice cannot be matched
+#' twice. A prior row with no match today is KEPT and marked withdrawn.
+#'
+#' @param current,prior Parsed award rows (nv_roster_awards output).
+nv_ordered_awards <- function(current = nv_roster_awards(),
+                              prior = nv_roster_awards(
+                                nv_roster_tables("roster_prior"),
+                                NV_PRIOR_ROSTER_SECTIONS)) {
+  keyed <- function(d) {
+    d %>%
+      dplyr::mutate(.key = paste(.data$section, .data$awardee,
+                                 .data$project_description,
+                                 .data$service_area, sep = " || ")) %>%
+      dplyr::group_by(.data$.key) %>%
+      dplyr::mutate(.occ = dplyr::row_number()) %>%
+      dplyr::ungroup()
+  }
+  cur <- keyed(current)
+  pri <- keyed(prior)
+
+  kept <- pri %>%
+    dplyr::select(".key", ".occ", "award_pool", "section", "awardee",
+                  "project_description", "service_area",
+                  prior_row_in_pool = "row_in_pool") %>%
+    dplyr::left_join(cur %>% dplyr::select(".key", ".occ", "row_in_pool"),
+                     by = c(".key", ".occ")) %>%
+    dplyr::mutate(on_current_page = !is.na(.data$row_in_pool),
+                  listed_from = "2026-08-31")
+  added <- cur %>%
+    dplyr::anti_join(pri %>% dplyr::select(".key", ".occ"),
+                     by = c(".key", ".occ")) %>%
+    dplyr::mutate(on_current_page = TRUE, listed_from = "2026-09-24",
+                  prior_row_in_pool = NA_integer_)
+
+  out <- dplyr::bind_rows(kept, added) %>%
+    dplyr::select(-".key", -".occ")
+
+  gone <- out$awardee[!out$on_current_page]
+  if (!setequal(gone, NV_WITHDRAWN_AWARDEES) ||
+      length(gone) != NV_STATED$withdrawn_rows) {
+    stop("[NV] the rows on the 2026-08-31 page that the current page no ",
+         "longer carries are: ", paste(gone, collapse = "; "),
+         " -- not the recorded ", paste(NV_WITHDRAWN_AWARDEES, collapse = "; "),
+         ". Read both snapshots before trusting row order.", call. = FALSE)
   }
   out
 }
@@ -805,15 +995,21 @@ nv_assert_rfas_postdate_noa <- function() {
 
 # -- positive controls --------------------------------------------------------
 
-#' NVHA publishes rosters in a recognisable form -- and for exactly three pools.
+#' NVHA publishes rosters in a recognisable form -- and for exactly seven pools.
 #'
 #' Without this, "Nevada has published no roster for its other initiatives" is
 #' indistinguishable from "we looked in the wrong place". The Funded Projects
 #' page carries one accordion section per awarded pool, each with a
-#' Subrecipient/Project/Service-Area table, and there are three. A FOURTH means
-#' Nevada has awarded something this file does not carry.
-nv_assert_award_index <- function() {
-  txt <- nv_html_text("roster")
+#' Subrecipient/Project/Service-Area table. On 2026-08-31 there were three; on
+#' 2026-09-24 there are SEVEN, and the four new ones are the rosters session
+#' 26 recorded as pending. An EIGHTH means Nevada has awarded something this
+#' file does not carry, and a changed ROW COUNT in any section means it has
+#' added to (or taken from) a roster it already published -- both fail.
+#'
+#' @param tables Optional parsed tables (the probe hands in the LIVE page's).
+#' @param text Optional rendered text to read the section headings from.
+nv_assert_award_index <- function(tables = NULL, text = NULL) {
+  txt <- if (is.null(text)) nv_html_text("roster") else text
   for (section in NV_ROSTER_SECTIONS) {
     if (!stringr::str_detect(txt, stringr::fixed(section))) {
       stop("[NV] the Funded Projects page no longer carries the section '",
@@ -821,37 +1017,74 @@ nv_assert_award_index <- function() {
            call. = FALSE)
     }
   }
-  tabs <- nv_roster_tables()
+  tabs <- if (is.null(tables)) nv_roster_tables() else tables
   if (length(tabs) != length(NV_ROSTER_SECTIONS)) {
     stop("[NV] the Funded Projects page carries ", length(tabs),
          " roster tables, not ", length(NV_ROSTER_SECTIONS),
          ". Nevada has published a roster this file does not carry.",
          call. = FALSE)
   }
+  a <- nv_roster_awards(tabs)
+  counts <- as.integer(table(factor(a$award_pool, levels = NV_POOLS$award_pool)))
+  moved <- counts != NV_POOLS$round_awards
+  if (any(moved)) {
+    stop("[NV] the Funded Projects page's section counts have moved: ",
+         paste0(NV_POOLS$section[moved], " ", NV_POOLS$round_awards[moved],
+                " -> ", counts[moved], collapse = "; "),
+         ". NVHA has added to or removed from a published roster -- read the ",
+         "page and re-extract.", call. = FALSE)
+  }
   invisible(TRUE)
 }
 
-#' The six closed opportunities with no roster. DESIGNED TO FAIL.
+#' What was pending on 2026-08-31, what has since awarded, and what still has
+#' not. DESIGNED TO FAIL.
 #'
-#' NVHA is running ten Budget Period 1 funding opportunities and has published
-#' recipients for three. The other six named here have closed and named nobody;
-#' the day one of them appears on the Funded Projects page this file is
-#' materially incomplete, and the failure is the signal.
-nv_assert_pending_not_awarded <- function() {
-  nofos <- nv_html_text("nofos")
-  roster <- nv_html_text("roster")
-  for (opp in NV_PENDING_OPPORTUNITIES) {
-    if (stringr::str_detect(roster, stringr::fixed(opp))) {
-      stop("[NV] '", opp, "' now appears on the Funded Projects page. Nevada ",
-           "has awarded an opportunity this file records as pending -- ",
-           "re-extract before using any figure here.", call. = FALSE)
+#' Session 26 recorded six closed opportunities with no roster. By 2026-09-24
+#' THREE HAVE AWARDED -- RHIT, RHOAP and the Rural Tribal Health RFA each have
+#' a section on the Funded Projects page -- and this asserts BOTH halves: the
+#' three that awarded must still have their sections (else a roster this file
+#' extracts has gone), and the three still pending must still have none (else
+#' Nevada has awarded something this file does not carry). The day either half
+#' breaks, the failure is the signal.
+#'
+#' @param text,nofos_text Optional rendered texts (the probe hands in LIVE
+#'   ones); default to the archive.
+nv_assert_pending_not_awarded <- function(text = NULL, nofos_text = NULL,
+                                          sections = NULL) {
+  roster <- if (is.null(text)) nv_html_text("roster") else text
+  nofos <- if (is.null(nofos_text)) nv_html_text("nofos") else nofos_text
+  # The SECTION headings, read off the tables themselves -- not a text search,
+  # because "Tribal" is also inside recipients' names on this page.
+  if (is.null(sections)) sections <- names(nv_roster_tables())
+
+  for (sec in NV_AWARDED_SINCE_0831$section) {
+    if (!sec %in% sections) {
+      stop("[NV] '", sec, "' -- recorded as AWARDED since 2026-08-31 -- is no ",
+           "longer a section of the Funded Projects page.", call. = FALSE)
     }
   }
-  # And the funding-opportunities page must still show them, or the control
-  # itself has gone.
+  # None of the three still-pending opportunities may appear on the page. The
+  # page names programmes in its section headings only, so a mention is a
+  # section (and nv_assert_award_index() separately refuses an eighth table).
+  hit <- stringr::str_extract(roster, NV_PENDING_SECTION_PATTERN)
+  if (!is.na(hit)) {
+    stop("[NV] '", hit, "' now appears on the Funded Projects page. Nevada ",
+         "has awarded an opportunity this file records as pending (",
+         paste(NV_PENDING_OPPORTUNITIES, collapse = "; "), ") -- re-extract ",
+         "before using any figure here.", call. = FALSE)
+  }
+  # And the funding-opportunities page must still list all three, or the
+  # control itself has gone.
   if (!stringr::str_detect(nofos, stringr::fixed("Requests for Applications"))) {
     stop("[NV] the funding-opportunities page no longer lists Requests for ",
          "Applications; the positive control is gone.", call. = FALSE)
+  }
+  for (opp in NV_PENDING_OPPORTUNITIES) {
+    if (!stringr::str_detect(nofos, stringr::fixed(opp))) {
+      stop("[NV] the funding-opportunities page no longer lists '", opp,
+           "', which this file records as closed and unawarded.", call. = FALSE)
+    }
   }
   invisible(TRUE)
 }
@@ -945,12 +1178,78 @@ nv_assert_no_per_recipient_amounts <- function() {
 
 # -- records ------------------------------------------------------------------
 
-#' Nevada's 73 rows in the Florida schema (§8, test_state_union).
+# -- Nevada-local typing corrections (session 64) -----------------------------
+#
+# The 2026-09-24 page added 84 rows, and the shared classifier misreads two
+# groups of them. Both corrections keep dollars OUT of the hospital total or
+# move none (Nevada prices nobody), and each is PROPOSED for the shared
+# override table in R/utils_recipient_classification.R, which this session
+# was not scoped to edit. Until it is moved there, it lives here.
+#
+#   * "Nevada Rural Hospital Partners" (RHOAP). The hospital NAME rule reaches
+#     the word "Hospital" and returns HOSPITAL_OR_SYSTEM/DIRECT -- the MHA
+#     trap (session 27) a third time. The shared override table already types
+#     its Foundation HOSPITAL_AFFILIATED_ENTITY as "the charitable foundation of
+#     Nevada Rural Hospital Partners, the state's rural hospital association";
+#     the association itself takes the same code, and §10.2 then reads its
+#     project ("Support rural hospitals to build capacity to participate in
+#     multi-payer alternative payment strategies") as IN_KIND_BENEFIT -- no
+#     money moves to a hospital.
+#   * Twelve "NSHE ..." rows (RHOAP). NSHE is the Nevada System of Higher
+#     Education, and the page's own Medical Residency section writes
+#     "Board of Regents, NSHE, obo University of Nevada, Reno". The classifier
+#     returned §8's fallback on most of them, STATE_AGENCY on "NSHE, UNLV
+#     Department of Gynecologic Surgery and Obstetrics" (the word
+#     "Department") and TRIBAL_ORG AT HIGH on "NSHE, UNR Reno Extension Tribal
+#     Program" -- the word "Tribal" in a university extension PROGRAMME's name,
+#     which is §0.3a exactly: the name of the activity, not the recipient.
+#     The recipient string states the form, so UNIVERSITY_OR_AHC at MEDIUM.
+NV_LOCAL_TYPE_OVERRIDES <- tibble::tribble(
+  ~pattern,                               ~recipient_type,              ~confidence, ~why,
+  "^Nevada Rural Hospital Partners$",     "HOSPITAL_AFFILIATED_ENTITY", "MEDIUM",
+  "Nevada Rural Hospital Partners is the state's rural hospital association (the shared override table's own description of it, on its Foundation's row) -- an association, not a hospital; the hospital name rule reads the word 'Hospital' in its name (§10.2, the MHA trap)",
+  "^NSHE\\b",                             "UNIVERSITY_OR_AHC",          "MEDIUM",
+  "the recipient string names NSHE, the Nevada System of Higher Education, and a UNR or UNLV unit -- the page's own Medical Residency section writes 'Board of Regents, NSHE, obo University of Nevada, Reno'; a university unit, whatever its programme is called (§0.3a)"
+)
+
+#' The shared classifier, with Nevada's two local corrections applied first.
+nv_classify_recipient <- function(name) {
+  hit <- which(vapply(NV_LOCAL_TYPE_OVERRIDES$pattern,
+                      function(p) grepl(p, name, perl = TRUE), logical(1)))
+  if (length(hit) > 1L) {
+    stop("[NV] '", name, "' matches ", length(hit), " local overrides.",
+         call. = FALSE)
+  }
+  if (length(hit) == 1L) {
+    o <- NV_LOCAL_TYPE_OVERRIDES[hit, ]
+    return(list(recipient_type = o$recipient_type,
+                determination_confidence = o$confidence,
+                recipient_type_basis = paste0("Nevada override (session 64): ",
+                                              o$why, "."),
+                rule = "OVERRIDE"))
+  }
+  rhtp_classify_recipient_type(name, NV_STATE)
+}
+
+#' Nevada's rows in the Florida schema (§8, test_state_union).
+#'
+#' 156 rows: the 155 award actions on NVHA's 2026-09-24 page, plus the ONE row
+#' the 2026-08-31 page carried and today's does not ("93 X 95 NV"), kept in
+#' its original place. Rows 1..72 are in the 2026-08-31 page's order and every
+#' later row is appended in the 2026-09-24 page's order -- see
+#' nv_ordered_awards() for why the order is load-bearing.
+#'
+#' SESSION 64 REMOVED THE RURAL MEDICAL RESIDENCY AGGREGATE ROW (formerly row
+#' 73, "Recipients not named by NVHA"). Its whole claim was that NVHA had named
+#' nobody for the $4.8 million, and the 2026-09-24 page names four; the four
+#' named rows carry the pool's round total in `round_amount` instead. It was
+#' the LAST row of the file, so removing it moves no row index session 49's
+#' overlay is keyed on, and no overlay row pointed at it.
 nv_records <- function() {
-  awards <- nv_roster_awards()
+  awards <- nv_ordered_awards()
 
   classified <- purrr::map_dfr(seq_len(nrow(awards)), function(i) {
-    ct <- rhtp_classify_recipient_type(awards$awardee[i], NV_STATE)
+    ct <- nv_classify_recipient(awards$awardee[i])
     fl <- rhtp_classify_flow(ct$recipient_type, awards$project_description[i])
     tibble::tibble(
       recipient_type = ct$recipient_type,
@@ -965,27 +1264,62 @@ nv_records <- function() {
     )
   })
 
-  pools <- NV_POOLS
+  pools <- NV_POOLS %>% dplyr::select(-"section")
   roster <- dplyr::bind_cols(awards, classified) %>%
     dplyr::left_join(pools, by = "award_pool") %>%
     dplyr::mutate(
+      # The Flex Fund's $36M is the June first round. A Flex row first listed
+      # after 2026-08-31 carries NO published round total, so it gets its own
+      # round id and an NA -- never a figure it may not be inside.
+      flex_added = .data$award_pool == "FLEX_FUND" &
+        .data$listed_from == "2026-09-24",
+      round_id = dplyr::if_else(.data$flex_added, NV_FLEX_ADDED_ROUND$round_id,
+                                .data$round_id),
+      round_name = dplyr::if_else(.data$flex_added,
+                                  NV_FLEX_ADDED_ROUND$round_name,
+                                  .data$round_name),
+      round_amount = dplyr::if_else(.data$flex_added, NA_real_,
+                                    .data$round_amount),
+      withdrawn = !.data$on_current_page,
+      row_in_pool = dplyr::if_else(.data$withdrawn,
+                                   .data$prior_row_in_pool,
+                                   .data$row_in_pool),
+      roster_key = dplyr::if_else(.data$withdrawn, "roster_prior", "roster"),
       state = NV_STATE,
       note = paste0(
         .data$project_description, " Service area: ", .data$service_area, ".",
         " Published by the Nevada Health Authority on its RHT Funded Projects -",
         " Budget Period 1 page, which names every subrecipient and PUBLISHES NO",
-        " AMOUNT FOR ANY OF THEM. The pool's own round total is in",
-        " `round_amount`; it is NEVER divided across recipients (§6.2)."),
+        " AMOUNT FOR ANY OF THEM.",
+        dplyr::case_when(
+          .data$withdrawn ~ paste0(
+            " LISTED ON THE 2026-08-31 PAGE AND ABSENT FROM THE 2026-09-24 ",
+            "PAGE: NVHA has removed this row and said nothing about why. It is ",
+            "KEPT, from the frozen prior snapshot, because NVHA published it; ",
+            "whether the award stands is not known (recipient_confirmed = ",
+            "Unclear)."),
+          .data$flex_added ~ paste0(
+            " First listed on the 2026-09-24 page. NVHA's $36 million Flex ",
+            "figure is its 2026-06-09 FIRST-ROUND release, and no document ",
+            "says whether this row is inside it, so this row carries no round ",
+            "total."),
+          is.na(.data$round_amount) ~ paste0(
+            " NVHA has published NO round total for this pool, so ",
+            "`round_amount` is empty."),
+          TRUE ~ paste0(" The pool's own round total is in `round_amount`; it ",
+                        "is NEVER divided across recipients (§6.2).")),
+        " Source snapshot: ", .data$listed_from, "."),
       # THE RECIPIENT IS CONFIRMED AND THE AMOUNT DOES NOT EXIST. §9.3 splits
       # these two questions precisely so a missing figure cannot drag a
-      # confirmed recipient down with it.
-      recipient_confirmed = "Yes",
+      # confirmed recipient down with it. A row NVHA has since removed is
+      # neither confirmed nor refuted.
+      recipient_confirmed = dplyr::if_else(.data$withdrawn, "Unclear", "Yes"),
       amount_confirmed = "No",
       amount = NA_real_,
       fiscal_year = 2026L,
       budget_period = "BP1 (12/29/2025 - 10/30/2026)",
       source_document_title = paste0(
-        "Nevada RHT Funded Projects - Budget Period 1: ", .data$round_name),
+        "Nevada RHT Funded Projects - Budget Period 1: ", .data$section),
       state_source_url = nv_source("roster", "url"),
       # NVHA calls the page "RHT Funded Projects" and its releases say
       # "awarded". Its own June process slide nonetheless puts a Letter of
@@ -999,79 +1333,25 @@ nv_records <- function() {
       ccn = NA_character_, aha_id = NA_character_,
       rural_designation = NA_character_, reviewer = NA_character_,
       recipient_type_source = .data$classifier_basis,
-      amount_basis = "NVHA publishes NO per-recipient amount; the pool round total is in round_amount",
+      amount_basis = dplyr::if_else(
+        is.na(.data$round_amount),
+        "NVHA publishes NO per-recipient amount and NO round total for this row's pool",
+        "NVHA publishes NO per-recipient amount; the pool round total is in round_amount"),
       county = .data$service_area,
       initiative = dplyr::case_when(
         .data$award_pool == "FLEX_FUND" ~ "Rural Health System Flex Fund",
+        .data$award_pool == "RHIT" ~ "Rural Health Innovation and Technology (RHIT)",
+        .data$award_pool == "RHOAP" ~ "Rural Health Outcomes Accelerator Program (RHOAP)",
+        .data$award_pool == "TRIBAL" ~ "Rural Tribal Health System Transformation",
         TRUE ~ "Workforce Recruitment and Rural Access Program (WRRAP)"),
       initiative_fund_use = .data$round_name,
       intermediary_name = NA_character_,
-      source_archive_path = file.path("data/evidence/NV", nv_source("roster", "file"))
+      source_archive_path = file.path(
+        "data/evidence/NV",
+        vapply(.data$roster_key, nv_source, character(1), field = "file"))
     )
 
-  # -- the Rural Medical Residency aggregate row ------------------------------
-  # $4,800,000 announced, four projects described, NO RECIPIENT NAMED. South
-  # Dakota's device: an empty `amount`, the total in `round_amount`, and
-  # NOT_YET_NAMED, so no sum over `amount` can read as a per-recipient figure.
-  res_pool <- pools[pools$award_pool == "WRRAP_RURAL_MEDICAL_RESIDENCY", ]
-  residency <- tibble::tibble(
-    award_pool = res_pool$award_pool,
-    row_in_pool = 1L,
-    awardee = "Recipients not named by NVHA",
-    project_description = paste0(
-      "NVHA announced $4.8 million in rural medical residency investments and ",
-      "described four projects -- a new rural obstetrics fellowship, a new ",
-      "advanced practice registered nursing fellowship, a new rural family ",
-      "medicine residency track in Fallon, and a statewide Rural Graduate ",
-      "Medical Education Consortium -- WITHOUT NAMING A SINGLE RECIPIENT."),
-    service_area = "Rural Nevada",
-    recipient_type = "NOT_YET_NAMED",
-    determination_confidence = "LOW",
-    classifier_basis = "no recipient is named in the source",
-    classifier_rule = "SOURCE_NAMES_NOBODY",
-    flow_type = "PASS_THROUGH_UNRESOLVED",
-    distributed_to_hospital = "Unclear",
-    hospital_benefiting = "Unclear",
-    flow_basis = paste0(
-      "§0.3: NVHA describes four residency and fellowship projects and names ",
-      "no recipient of any of them. A description is not a list, and nothing ",
-      "here says a hospital received money."),
-    flow_flag = NA_character_,
-    round_id = res_pool$round_id, round_name = res_pool$round_name,
-    round_amount = res_pool$round_amount, round_awards = res_pool$round_awards,
-    roster = res_pool$roster, amount_source = res_pool$amount_source,
-    state = NV_STATE,
-    note = paste0(
-      "ONE AGGREGATE ROW, NOT A RECIPIENT. NVHA's 2026-07-29 release states ",
-      "it 'awarded $4.8 million in rural medical residency investments' and ",
-      "names nobody, so this row carries an EMPTY `amount` with the round ",
-      "total in `round_amount` (South Dakota's device, §6.2). IT IS NOT THE ",
-      "GME GRANT PROGRAM: NVHA announced $15,755,068 of STATE GENERAL FUND ",
-      "money to nine named residency programmes seven days earlier, and those ",
-      "nine are dispositioned NOT_RHTP_STATE_PROGRAM in ",
-      "nv_rcj_candidate_disposition.csv."),
-    recipient_confirmed = "No",
-    amount_confirmed = "No",
-    amount = NA_real_,
-    fiscal_year = 2026L,
-    budget_period = "BP1 (12/29/2025 - 10/30/2026)",
-    source_document_title = "Nevada Invests Over $50 Million to Strengthen Rural Healthcare Workforce and Expand Access Across the State",
-    state_source_url = nv_source("press_wrrap", "url"),
-    validation_source_type = "AGENCY_PRESS_RELEASE",
-    extraction_method = "PARSED_PDF_PROSE",
-    validator = "R/03u_nv_year1_awardees.R",
-    ccn = NA_character_, aha_id = NA_character_,
-    rural_designation = NA_character_, reviewer = NA_character_,
-    recipient_type_source = "no recipient is named in the source",
-    amount_basis = "round total as published; NVHA names no recipient, so it is never divided",
-    county = "Rural Nevada",
-    initiative = "Workforce Recruitment and Rural Access Program (WRRAP)",
-    initiative_fund_use = res_pool$round_name,
-    intermediary_name = NA_character_,
-    source_archive_path = file.path("data/evidence/NV", nv_source("press_wrrap", "file"))
-  )
-
-  recs <- dplyr::bind_rows(roster, residency) %>%
+  recs <- roster %>%
     dplyr::mutate(
       hospital_attribution = dplyr::case_when(
         .data$distributed_to_hospital == "Yes" &
@@ -1167,35 +1447,46 @@ nv_assert_vocabulary <- function(recs) {
 
 # -- reconciliation -----------------------------------------------------------
 
-#' Nevada's published total, summed over DISTINCT pools.
+#' Nevada's published total, summed over DISTINCT rounds.
 #'
-#' GEORGIA'S TRAP, IN A NEW STATE. `round_amount` repeats its pool's total on
-#' every row of that pool, so summing the column gives $2,062,900,000 for a
+#' GEORGIA'S TRAP, IN A NEW STATE. `round_amount` repeats its round's total on
+#' every row of that round, so summing the column gives $2,077,300,000 for a
 #' state that announced $87,400,000. Nothing may sum `round_amount` down the
 #' column; this is the function that does it correctly.
+#'
+#' SESSION 64: FOUR ROUNDS HAVE A PUBLISHED TOTAL AND FOUR DO NOT (RHIT,
+#' RHOAP, Tribal, and the Flex rows first listed after 2026-08-31). The
+#' announced total is the sum of the four published ones, unchanged at
+#' $87,400,000; the other four are reported beside it, never imputed.
 nv_reconcile <- function(recs = NULL) {
   if (is.null(recs)) recs <- nv_records()
   pools <- recs %>%
-    dplyr::distinct(.data$award_pool, .data$round_name, .data$round_amount) %>%
+    dplyr::distinct(.data$award_pool, .data$round_id, .data$round_name,
+                    .data$round_amount) %>%
     dplyr::arrange(dplyr::desc(.data$round_amount))
-  if (nrow(pools) != nrow(NV_POOLS)) {
-    stop("[NV] reconciliation found ", nrow(pools), " distinct pools, not ",
-         nrow(NV_POOLS), ".", call. = FALSE)
+  if (nrow(pools) != nrow(NV_POOLS) + 1L) {
+    stop("[NV] reconciliation found ", nrow(pools), " distinct rounds, not ",
+         nrow(NV_POOLS) + 1L, " (seven pools, the Flex Fund in two rounds).",
+         call. = FALSE)
   }
-  total <- sum(pools$round_amount)
+  if (anyDuplicated(pools$round_id)) {
+    stop("[NV] a round carries two different round totals.", call. = FALSE)
+  }
+  total <- sum(pools$round_amount, na.rm = TRUE)
   if (total != NV_STATED$announced_total) {
-    stop("[NV] the four pools sum to $", format(total, big.mark = ","),
+    stop("[NV] the published round totals sum to $", format(total, big.mark = ","),
          " against Nevada's announced $",
          format(NV_STATED$announced_total, big.mark = ","), ".", call. = FALSE)
   }
   # And the wrong sum must stay visibly wrong, so the trap cannot quietly close.
-  naive <- sum(recs$round_amount)
+  naive <- sum(recs$round_amount, na.rm = TRUE)
   if (naive <= total) {
     stop("[NV] summing `round_amount` down the column no longer overstates ",
          "the total. The repeat-per-row design has changed and every ",
          "assertion keyed on it needs re-reading.", call. = FALSE)
   }
   list(pools = pools, total = total, naive_column_sum = naive,
+       unpriced_rounds = pools$round_id[is.na(pools$round_amount)],
        pct_of_allotment = 100 * total / rhtp_nv_allotment())
 }
 
@@ -1404,14 +1695,15 @@ nv_disposition_table <- function() {
       "Real Nevada RHTP awards, and all ten are in nv_year1_awardees.csv -- ",
       "asserted by name, not assumed. They are the ONLY genuine subawards in ",
       "the candidate set: RCJ holds ", n_of("RHTP_SUBAWARD_IN_FILE"), " of the ",
-      nrow(recs) - 1L, " named award actions in this file. AND THIS FILE IS NOW ",
-      "INCOMPLETE: NVHA's live Funded Projects page, archived 2026-09-24, ",
-      "carries ", nrow(live), " sections and ", sum(live$awards),
-      " named award actions (", paste0(live$section, " ", live$awards,
-      collapse = "; "), ") -- still with NO amount anywhere. RHIT and RHOAP, ",
-      "whose decisions were due in August, have published rosters; the ",
-      "Residency pool now names its recipients; Flex grew. None of those is ",
-      "extracted here. EVERY ONE of RCJ's ten CARRIES AN AMOUNT OF $1. They were mined out of the ",
+      sum(live$awards), " named award actions on NVHA's Funded Projects page ",
+      "as archived 2026-09-24, which carries ", nrow(live), " sections (",
+      paste0(live$section, " ", live$awards, collapse = "; "), ") -- still ",
+      "with NO amount anywhere. Session 64 extracted all of them: RHIT and ",
+      "RHOAP, whose decisions were due in August, the Tribal RFA, and the ",
+      "Medical Residency pool (which now names its four recipients) have ",
+      "published rosters since 2026-08-31, and the Flex Fund grew 25 -> 39. ",
+      "RCJ's pull predates all of it. ",
+      "EVERY ONE of RCJ's ten CARRIES AN AMOUNT OF $1. They were mined out of the ",
       "2026-06-09 RHT Steering Committee fiscal deck, whose 'Flex Funds - ",
       "Funded Projects' slides list recipients with NO amounts, so the $1 is ",
       "a placeholder for a figure that does not exist -- and RCJ's title for ",
@@ -1472,25 +1764,12 @@ nv_disposition_table <- function() {
     rhtp_assert_disposition_prose(NV_STATE)
 }
 
-#' NVHA's LIVE Funded Projects page as archived by session 63: one count per
-#' accordion section. The award file is built from the 2026-08-31 archive,
-#' which carried three sections and 72 award actions.
-NV_LIVE_ROSTER_0924 <- file.path("data", "evidence", "recheck", "2026-09-24",
-                                 "NV", "2026-09-24_nv_rht_funded_projects_bp1.html")
-nv_live_roster_sections <- function(path = here::here(NV_LIVE_ROSTER_0924)) {
-  doc <- xml2::read_html(path)
-  tabs <- xml2::xml_find_all(doc, "//table")
-  heads <- vapply(tabs, function(t) {
-    h <- xml2::xml_find_all(t, "preceding::*[normalize-space(text())!='']")
-    txt <- stringr::str_squish(xml2::xml_text(h))
-    txt <- txt[txt != "Show" & nzchar(txt)]
-    hit <- rev(txt)[stringr::str_detect(rev(txt),
-      "(?i)Flex Fund|Workforce Recruitment|Innovation and Technology|Outcomes Accelerator|^Tribal$")][1]
-    dplyr::coalesce(hit, NA_character_)
-  }, character(1))
-  tibble::tibble(section = heads,
-                 awards = vapply(tabs, function(t)
-                   length(xml2::xml_find_all(t, ".//tr")) - 1L, integer(1)))
+#' NVHA's Funded Projects page as archived 2026-09-24: award actions per
+#' accordion section, read through the same parser the award file uses.
+nv_live_roster_sections <- function() {
+  nv_roster_awards() %>%
+    dplyr::count(.data$section, name = "awards") %>%
+    dplyr::arrange(match(.data$section, NV_ROSTER_SECTIONS))
 }
 
 
@@ -1560,6 +1839,31 @@ nv_candidate_inflation <- function() {
 
 # -- validate / build / report ------------------------------------------------
 
+#' Session 49's verification overlay names a row INDEX and a recipient NAME
+#' for every row it re-types in this file. Both must still agree.
+#'
+#' `vq_overlay()` writes by index and never checks the name, so a re-extraction
+#' that shifted one row would silently move a verified hospital type onto the
+#' wrong recipient. That is why rows 1..72 keep the 2026-08-31 order and every
+#' new row is appended; this is the assertion that the order held.
+nv_assert_overlay_rows_aligned <- function(recs) {
+  path <- here::here("data", "reference", "verification_queue_2_changes.csv")
+  if (!file.exists(path)) return(invisible(TRUE))
+  ch <- suppressMessages(readr::read_csv(path,
+          col_types = readr::cols(.default = "c"), progress = FALSE))
+  ch <- ch[ch$file == "nv_year1_awardees.csv", ]
+  idx <- as.integer(ch$row)
+  bad <- idx > nrow(recs) | recs$awardee[pmin(idx, nrow(recs))] != ch$name
+  if (any(bad)) {
+    stop("[NV] session 49's overlay names row(s) ",
+         paste0(idx[bad], " = '", ch$name[bad], "'", collapse = "; "),
+         " and the file now carries something else there. Row order has ",
+         "shifted; the overlay would re-type the wrong recipient.",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 nv_validate <- function() {
   recs <- nv_records()
 
@@ -1567,17 +1871,29 @@ nv_validate <- function() {
     stop("[NV] ", nrow(recs), " rows, not ", NV_STATED$total_rows, ".",
          call. = FALSE)
   }
-  by_pool <- table(recs$award_pool)
-  expect <- c(FLEX_FUND = NV_STATED$flex_rows,
-              WRRAP_RECRUITMENT_RETENTION = NV_STATED$wrrap_rr_rows,
-              WRRAP_APPRENTICESHIP_TRAINING = NV_STATED$wrrap_at_rows,
-              WRRAP_RURAL_MEDICAL_RESIDENCY = 1L)
+  by_pool <- table(recs$award_pool[!recs$withdrawn])
+  expect <- stats::setNames(NV_POOLS$round_awards, NV_POOLS$award_pool)
   for (p in names(expect)) {
     if (!identical(as.integer(by_pool[[p]]), as.integer(expect[[p]]))) {
-      stop("[NV] pool ", p, " has ", by_pool[[p]], " rows, not ", expect[[p]],
-           ".", call. = FALSE)
+      stop("[NV] pool ", p, " has ", by_pool[[p]], " current rows, not ",
+           expect[[p]], ".", call. = FALSE)
     }
   }
+  if (sum(!recs$withdrawn) != NV_STATED$roster_rows ||
+      sum(recs$withdrawn) != NV_STATED$withdrawn_rows) {
+    stop("[NV] ", sum(!recs$withdrawn), " current and ", sum(recs$withdrawn),
+         " withdrawn rows, not ", NV_STATED$roster_rows, " and ",
+         NV_STATED$withdrawn_rows, ".", call. = FALSE)
+  }
+  if (sum(recs$award_pool == "FLEX_FUND" & recs$listed_from == "2026-08-31") !=
+      NV_STATED$flex_rows_first_round) {
+    stop("[NV] the Flex Fund's first-round rows no longer number ",
+         NV_STATED$flex_rows_first_round, ".", call. = FALSE)
+  }
+  # SESSION 49's OVERLAY IS KEYED ON ROW INDEX. Every index it names must still
+  # hold the recipient it names, or the overlay writes one organisation's
+  # verified type onto another's row.
+  nv_assert_overlay_rows_aligned(recs)
 
   # THE CENTRAL INVARIANT. Nevada publishes no per-recipient amount, so the
   # column is empty on every row and sums to zero. A non-empty `amount` here
@@ -1604,7 +1920,7 @@ nv_validate <- function() {
   rec <- nv_reconcile(recs)
 
   message("[NV] OK -- ", nrow(recs), " rows across ", nrow(rec$pools),
-          " pools; $", format(rec$total, big.mark = ","), " announced (",
+          " rounds; $", format(rec$total, big.mark = ","), " announced (",
           round(rec$pct_of_allotment, 1), "% of allotment); ",
           "sum(amount) = 0 by design.")
   invisible(recs)
@@ -1622,14 +1938,32 @@ NV_COLUMN_ORDER <- c(
   "intermediary_name", "determination_basis", "amount_basis", "county",
   "project_description",
   "round_id", "round_name", "round_awards", "round_amount", "initiative",
-  "initiative_fund_use", "source_archive_path", "service_area", "row_in_pool"
+  "initiative_fund_use", "source_archive_path", "service_area", "row_in_pool",
+  # Session 64: which accordion section of NVHA's page the row sits under, and
+  # which snapshot first listed it (2026-08-31 or 2026-09-24).
+  "section", "listed_from"
 )
 
-nv_build <- function() {
-  recs <- nv_validate()
+#' The builder's output WITH session 49's verification overlay applied.
+#'
+#' The overlay is keyed on (file, row index), so it is applied here, to this
+#' one file, by `vq_overlay()` -- never by a bare `R/03ap --apply`, which
+#' re-derives its plan from already-overlaid files (session 52). The overlay's
+#' own index/name pairing is asserted first (nv_assert_overlay_rows_aligned).
+nv_with_overlay <- function(recs = nv_records()) {
+  vq <- new.env()
+  suppressMessages(source(here::here("R", "03ap_verification_queue_2.R"),
+                          local = vq))
+  nv_assert_overlay_rows_aligned(recs)
   out <- recs %>%
     dplyr::select(dplyr::all_of(NV_COLUMN_ORDER)) %>%
     dplyr::arrange(.data$row_no)
+  vq$vq_overlay(out, "nv_year1_awardees.csv")
+}
+
+nv_build <- function() {
+  recs <- nv_validate()
+  out <- nv_with_overlay(recs)
   readr::write_csv(out, NV_OUT_CSV, na = "")
   message("[NV] wrote ", NV_OUT_CSV, " (", nrow(out), " rows)")
 
@@ -1654,7 +1988,12 @@ nv_assert_form_not_stated_queued <- function(recs = NULL) {
     stop("[NV] NV_RECIPIENT_FORM_NOT_STATED is not in ",
          "classification_review_queue.csv exactly once.", call. = FALSE)
   }
-  soft <- recs[stringr::str_detect(recs$flag_reason, "RECIPIENT_TYPE_INFERRED"), ]
+  # The queue row was written about the 2026-08-31 file, so it is checked
+  # against the rows that file carried. The 2026-09-24 rows on the fallback are
+  # a NEW question (session 64 proposes it; this session could not write the
+  # queue) and are counted by nv_report(), not here.
+  soft <- recs[stringr::str_detect(recs$flag_reason, "RECIPIENT_TYPE_INFERRED") &
+                 recs$listed_from == "2026-08-31", ]
   if (!stringr::str_detect(row$row_key, paste0("^", nrow(soft), " rows"))) {
     stop("[NV] the queue row says '", row$row_key, "' but the file carries ",
          nrow(soft), " rows on §8's fallback.", call. = FALSE)
@@ -1680,47 +2019,53 @@ nv_assert_form_not_stated_queued <- function(recs = NULL) {
 nv_write_workbook <- function(out, disp) {
   wb <- openxlsx::createWorkbook()
 
+  hosp <- sum(out$hospital_attribution == "NAMED_HOSPITAL")
+  soft <- sum(grepl("RECIPIENT_TYPE_INFERRED", out$flag_reason))
   warning_sheet <- tibble::tibble(
     `READ THIS FIRST` = c(
       "NEVADA PUBLISHES A COMPLETE, NAMED RECIPIENT ROSTER WITH NO AMOUNTS ON IT.",
       "",
-      "The `amount` column is EMPTY ON ALL 73 ROWS and sums to $0. That is not a",
+      paste0("The `amount` column is EMPTY ON ALL ", nrow(out),
+             " ROWS and sums to $0. That is not a"),
       "parse failure and it is NOT a claim that Nevada awarded nothing. It is the",
       "honest total of what the Nevada Health Authority has published PER",
       "RECIPIENT, which is nothing at all.",
       "",
-      "NEVADA HAS 20 NAMED-HOSPITAL AWARD ACTIONS AND $0 OF NAMED-HOSPITAL",
-      "DOLLARS. Both are true. rhtp_hospital_dollar_partition() reports Nevada as",
-      "rows = 20, dollars = 0 -- READ THE ROW COUNT. Taking the 0 and not the 20",
-      "gives the exact opposite of what NVHA has published.",
+      paste0("NEVADA HAS ", hosp, " NAMED-HOSPITAL AWARD ACTIONS AND $0 OF ",
+             "NAMED-HOSPITAL DOLLARS."),
+      "Both are true. READ THE ROW COUNT -- taking the 0 and not the count gives",
+      "the exact opposite of what NVHA has published.",
       "",
-      "WHAT NEVADA HAS ANNOUNCED, BY POOL (never per recipient):",
-      "  Rural Health System Flex Fund              25 awards   $36,000,000",
-      "  WRRAP - Recruitment and Retention Fund     27 awards   $32,300,000",
-      "  WRRAP - Apprenticeship and Training Fund   20 awards   $14,300,000",
-      "  WRRAP - Rural Medical Residency         NAMES NOBODY   $ 4,800,000",
-      "                                                         -----------",
-      "                                                         $87,400,000",
+      "SESSION 64: NVHA's page (2026-09-24) carries SEVEN sections and 155 award",
+      "actions: Flex 39, WRRAP Recruitment and Retention 26, Apprenticeship and",
+      "Training 20, Medical Residency 4, RHIT 24, RHOAP 36, Tribal 6. Rows 1-72",
+      "are the 2026-08-31 page's rows in its order (session 49's overlay is keyed",
+      "on that order); later rows are new. '93 X 95 NV' (row 48) was on the",
+      "2026-08-31 page and is NOT on the 2026-09-24 page; it is kept, Unclear.",
       "",
-      "`round_amount` REPEATS ITS POOL'S TOTAL ON EVERY ROW OF THAT POOL. Summing",
-      "the column gives $2,062,900,000. Sum DISTINCT (award_pool, round_amount)",
-      "pairs instead -- nv_reconcile() does it correctly.",
+      "ROUND TOTALS NVHA HAS PUBLISHED (never per recipient):",
+      "  Rural Health System Flex Fund, first round   $36,000,000  (25 rows)",
+      "  WRRAP - Recruitment and Retention Fund       $32,300,000",
+      "  WRRAP - Apprenticeship and Training Fund     $14,300,000",
+      "  WRRAP - Rural Medical Residency              $ 4,800,000",
+      "                                               -----------",
+      "                                               $87,400,000",
+      "NO ROUND TOTAL is published for RHIT, RHOAP, Tribal, or the 14 Flex rows",
+      "first listed after 2026-08-31; their `round_amount` is empty.",
+      "",
+      "`round_amount` REPEATS ITS ROUND'S TOTAL ON EVERY ROW OF THAT ROUND.",
+      "Summing the column overstates Nevada ~24-fold. Sum DISTINCT rounds",
+      "instead -- nv_reconcile() does it correctly.",
       "",
       "TWO NVHA DOCUMENTS DISAGREE ABOUT WHICH WRRAP FUND GOT $32.3M AND WHICH",
-      "GOT $14.3M. The 2026-06-09 fiscal deck and the 2026-07-29 press release",
-      "swap them. `round_amount` takes the press release (an award announcement",
-      "outranks a pre-award planning deck on what was awarded) and both WRRAP",
-      "rosters carry POOL_AMOUNT_CONFLICTS_ACROSS_SOURCES. THE COMBINED WRRAP",
-      "WORKFORCE FIGURE IS ~$46.6M EITHER WAY.",
+      "GOT $14.3M; both WRRAP rosters carry POOL_AMOUNT_CONFLICTS_ACROSS_SOURCES.",
+      "THE COMBINED WRRAP WORKFORCE FIGURE IS ~$46.6M EITHER WAY.",
       "",
       "THE NINE GME AWARDS ARE NOT IN THIS FILE AND MUST NOT BE ADDED TO IT.",
-      "NVHA announced $15,755,068 to nine residency programmes on 2026-07-22.",
-      "That is STATE GENERAL FUND money -- NVHA's own workforce publication says",
-      "so -- and seventeen of RCJ's 34 Nevada candidates are those nine awards.",
+      "They are STATE GENERAL FUND money ($15,755,068, 2026-07-22).",
       "",
-      "23 rows carry §8's standing fallback (NONPROFIT_CBO + LOW): NVHA states no",
-      "recipient's organisational form. Renown Health, Carson Valley Health and",
-      "Intermountain Health are among them. Nothing was promoted (§0.4)."))
+      paste0(soft, " rows carry §8's standing fallback (NONPROFIT_CBO + LOW):"),
+      "NVHA states no recipient's organisational form. Nothing was promoted (§0.4)."))
 
   openxlsx::addWorksheet(wb, "READ THIS FIRST")
   openxlsx::writeData(wb, "READ THIS FIRST", warning_sheet)
@@ -1861,6 +2206,55 @@ nv_report <- function() {
 }
 
 
+# -- the watch (session 64) ----------------------------------------------------
+#
+# NEVADA HAD NO PROBE UNTIL SESSION 64, which is how a roster that grew from 72
+# award actions to 155 -- four new sections -- sat on NVHA's page unread until
+# session 63 happened to look. This is it: READ-ONLY (§2.2), through
+# rhtp_probe_run() and the shared page watch, never writing to data/evidence/.
+#
+# THE BASELINE IS THE 2026-09-24 ARCHIVE, the page the award file is now
+# extracted from, so a probe against the live page reports UNCHANGED until
+# NVHA changes something -- and fails when it does. Three tripwires, then the
+# name tripwire:
+#   1. The roster must still carry exactly the SEVEN sections, each with the
+#      row count the file extracted (nv_assert_award_index), and NO dollar
+#      figure (nv_roster_awards refuses one -- the file would need rewriting).
+#   2. The three still-pending opportunities (Presidential Fitness Test,
+#      Correctional, Veterans) must have no section, the three that awarded
+#      since 2026-08-31 must still have theirs, and the NOFO page must still
+#      list the pending three (nv_assert_pending_not_awarded).
+#   3. The name tripwire (§2.3) on both pages: an organisation neither archive
+#      names is the signal, whatever words NVHA uses to add it.
+# The footer's rotating state-symbol widget (session 26) sits OUTSIDE <main>,
+# so rhtp_watch_reduce() never reads it and it cannot move the content digest.
+NV_PROBE_PAGES <- tibble::tribble(
+  ~key, ~url, ~file, ~name_diff,
+  "roster", paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
+  "data/evidence/NV/2026-09-24_nv_rht_funded_projects_bp1.html", TRUE,
+  "nofos", paste0(NV_BASE, "/RHTP/rht-nofos/"),
+  "data/evidence/NV/2026-08-31_nv_rht_nofos.html", TRUE
+)
+
+nv_probe <- function() {
+  w <- rhtp_watch_pages(NV_PROBE_PAGES, NV_USER_AGENT)
+  live_tabs <- nv_roster_tables(raw = w$raw$roster)
+  nv_assert_award_index(tables = live_tabs,
+                        text = nv_html_text(raw = w$raw$roster))
+  nv_assert_pending_not_awarded(text = nv_html_text(raw = w$raw$roster),
+                                nofos_text = nv_html_text(raw = w$raw$nofos),
+                                sections = names(live_tabs))
+  rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+                                          state = NV_STATE)
+  message("[NV] ", paste0(w$changed$key, ": ",
+                          ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
+                          collapse = "; "),
+          " -- seven sections, ", sum(NV_POOLS$round_awards),
+          " award actions, no amount, no new organisation.")
+  invisible(w$changed)
+}
+
+
 # `sys.nframe() == 0L` is the repo's CLI guard: it is FALSE when the file is
 # sourced by a test or another stage, so nothing here runs then.
 if (sys.nframe() == 0L) {
@@ -1869,8 +2263,9 @@ if (sys.nframe() == 0L) {
   if ("--validate" %in% args) nv_validate()
   if ("--build" %in% args) nv_build()
   if ("--report" %in% args) nv_report()
-  if (!any(c("--fetch", "--validate", "--build", "--report") %in% args)) {
+  if ("--probe" %in% args) rhtp_probe_run("NV", nv_probe())
+  if (!any(c("--fetch", "--validate", "--build", "--report", "--probe") %in% args)) {
     cat("Usage: Rscript R/03u_nv_year1_awardees.R",
-        "[--fetch [--force]] [--validate] [--build] [--report]\n")
+        "[--fetch [--force]] [--validate] [--build] [--report] [--probe]\n")
   }
 }

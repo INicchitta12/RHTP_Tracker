@@ -227,3 +227,28 @@ test_that("the flow table in the spec and in CLAUDE.md carries the foundation ro
     expect_gt(row, assoc[[1]])
   }
 })
+
+# SESSION 64. The spec's own Tier 3 and PASS_THROUGH_DESIGNATED examples were
+# Georgia's Dual Track Remote Critical Care round -- a State Office of Rural
+# Health grant series paid from state appropriations, not RHTP. Neither the
+# §0.2 tier table nor the §10.2 flow table may cite it as an example again, and
+# the RFGA that disqualifies it must still say what it says.
+test_that("no document cites Georgia's Dual Track as an RHTP worked example", {
+  for (key in c("spec", "claude")) {
+    lines <- read_doc(key)
+    tier3 <- grep("^\\| 3 \\| `SUBAWARD`", lines, value = TRUE)
+    expect_length(tier3, 1L)
+    expect_false(grepl("Dual Track", tier3), info = DOCS[[key]])
+    pt <- grep("^\\| `PASS_THROUGH_DESIGNATED` \\| Intermediary", lines, value = TRUE)
+    expect_false(any(grepl("e\\.g\\. Georgia's Dual Track", pt)), info = DOCS[[key]])
+  }
+  rfga <- here::here("data/evidence/rcj_dispositions/2026-09-24/GA",
+                     "dch_dual_track_rccs26_rfga_2026-05-12.pdf")
+  skip_if_not(file.exists(rfga))
+  source(here::here("R/utils_pdf_text.R"))
+  txt <- paste(rhtp_pdf_text(rfga), collapse = "\n")
+  expect_match(txt, "subject to the availability of appropriated", fixed = TRUE)
+  expect_match(txt, "State Office of Rural Health", fixed = TRUE)
+  for (p in c("Rural Health Transformation", "RHTP", "Centers for Medicare"))
+    expect_false(grepl(p, txt, fixed = TRUE), info = p)
+})

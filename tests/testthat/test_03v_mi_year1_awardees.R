@@ -3,7 +3,9 @@
 # Michigan is the first state file in this repository whose publisher calls its
 # own roster COMPLETE, the first extracted from a host that refuses every
 # honest user-agent, and the first where 139 priced awards yield ONE named
-# hospital. Each of those is pinned here.
+# hospital. Each of those is pinned here. Session 64 re-extracted it from the
+# 145-row roster "as of August 31, 2026": six STATE-AGENCY rows appended as
+# 140-145, the 139 keeping their indices for session 49's overlay.
 
 source(here::here("R", "03v_mi_year1_awardees.R"))
 
@@ -74,10 +76,13 @@ test_that("the anonymous user-agent is scoped to michigan.gov and nowhere else",
 
 # -- the roster ---------------------------------------------------------------
 
-test_that("the roster is 139 award actions and $69,883,392", {
-  expect_equal(nrow(mi_recs), 139L)
-  expect_equal(sum(mi_recs$amount), 69883392)
-  expect_equal(dplyr::n_distinct(mi_recs$awardee), 122L)
+test_that("the roster is 145 award actions and $101,318,437", {
+  expect_equal(nrow(mi_recs), 145L)
+  expect_equal(sum(mi_recs$amount), 101318437)
+  expect_equal(dplyr::n_distinct(mi_recs$awardee), 126L)
+  # The 139 of sessions 27-63 are rows 1-139, unchanged; the six are 140-145.
+  expect_equal(sum(mi_recs$amount[1:139]), 69883392)
+  expect_equal(sum(mi_recs$amount[140:145]), 31435045)
   # Michigan publishes an amount on EVERY row. An empty one here is a parse
   # failure, not a finding -- Nevada is the state where it is a finding.
   expect_false(any(is.na(mi_recs$amount)))
@@ -88,11 +93,11 @@ test_that("the five initiative sections are the roster's, read from the DOM", {
   expect_true(mi_assert_roster_sections(mi_recs))
   expect_setequal(unique(mi_recs$initiative), MI_SECTIONS)
   by_init <- table(mi_recs$initiative)
-  expect_equal(as.integer(by_init[["Interoperability in Action Initiative"]]), 20L)
+  expect_equal(as.integer(by_init[["Interoperability in Action Initiative"]]), 23L)
   expect_equal(as.integer(
     by_init[["Transforming Rural Health Through Partnerships Initiative"]]), 71L)
-  expect_equal(as.integer(by_init[["Workforce for Wellness Initiative"]]), 19L)
-  expect_equal(as.integer(by_init[["Care Closer to Home Initiative"]]), 16L)
+  expect_equal(as.integer(by_init[["Workforce for Wellness Initiative"]]), 21L)
+  expect_equal(as.integer(by_init[["Care Closer to Home Initiative"]]), 17L)
   expect_equal(as.integer(by_init[["Tribal Government"]]), 13L)
 })
 
@@ -342,7 +347,7 @@ test_that("every categorical is inside §8's controlled vocabulary", {
 
 # -- the hospital figure ------------------------------------------------------
 
-test_that("139 priced awards yield ONE named-hospital award action", {
+test_that("145 priced awards yield ONE named-hospital award action", {
   expect_true(mi_assert_hospital_shape(mi_recs))
   parts <- rhtp_hospital_dollar_partition(mi_recs)
   named <- parts[parts$bucket == "NAMED_HOSPITAL", ]
@@ -418,30 +423,87 @@ test_that("RCJ's live candidates decompose exactly, and the count is re-derived"
   expect_equal(sum(cand$group %in% c("SUBRECIPIENTS_AWARD", "OPIOID_SETTLEMENT")), 0L)
 })
 
-test_that("the disposition's groups cover the live set, and 131 roster rows are in the file", {
+test_that("the disposition's groups cover the live set, and 132 roster rows are in the file", {
   d <- mi_disposition_table(mi_recs)
   rt <- rhtp_record_table_live()
   expect_equal(sum(d$rcj_rows), sum(rt$state == "MI" & rt$award_tier == "SUBAWARD"))
-  expect_equal(d$rcj_rows[1], 131L)
+  expect_equal(d$rcj_rows[1], 132L)
   expect_silent(rhtp_assert_disposition_prose(d, "MI"))
   m <- mi_roster_match(mi_rcj_candidates(), mi_recs)
-  expect_equal(sum(m$in_file), 131L)
-  expect_equal(length(m$file_not_in_rcj), 8L)
+  expect_equal(sum(m$in_file), 132L)
+  # the 8 of before, plus the five LEO/MDE rows RCJ carries at no exact grain
+  expect_equal(length(m$file_not_in_rcj), 13L)
+  expect_equal(nrow(d), 6L)
   committed_d <- readr::read_csv(MI_DISPOSITION_CSV, show_col_types = FALSE)
   expect_equal(committed_d$rcj_rows, d$rcj_rows)
   expect_equal(committed_d$why, d$why)
 })
 
-test_that("MDHHS's live roster ADDED six state-agency rows the file does not carry", {
+test_that("MDHHS's roster ADDED six state-agency rows, now rows 140-145", {
   added <- mi_live_roster_added()
   expect_equal(nrow(added), 6L)
   expect_equal(sum(added$amount), 31435045)
   expect_true(all(grepl("^Michigan (Department|Veterans)", added$awardee)))
-  expect_false(any(added$awardee %in% mi_recs$awardee))
+  six <- mi_recs[140:145, ]
+  expect_equal(six$awardee, added$awardee)
+  expect_equal(six$amount, added$amount)
+  # STATE AGENCIES AS SUBRECIPIENTS, not the grantor. The name rule gets LEO
+  # right and MDE (school token) and MVAA (fallback) wrong; both are overridden.
+  expect_true(all(six$recipient_type == "STATE_AGENCY"))
+  expect_true(all(six$distributed_to_hospital == "No"))
+  expect_true(all(six$hospital_attribution == "NOT_HOSPITAL"))
+  expect_equal(rhtp_classify_recipient_type(six$awardee[4], "MI")$recipient_type,
+               "SCHOOL_OR_DISTRICT")
+  expect_equal(rhtp_classify_recipient_type(six$awardee[6], "MI")$recipient_type,
+               "NONPROFIT_CBO")
+  expect_false(any(grepl("Department of Health and Human Services", mi_recs$awardee)))
+  expect_true(all(grepl("^MDHHS RHTP subrecipient.*ADDED to the roster between",
+                        six$note)))
+  # Every RCJ roster row is now in the file, MVAA included.
   cand <- mi_rcj_candidates()
   ros <- cand[cand$group == "SUBRECIPIENTS_ROSTER", ]
-  new <- ros[!mi_roster_match(cand, mi_recs)$in_file, ]
-  expect_equal(new$awardee, "Michigan Veterans Affairs Agency (MVAA)")
+  expect_equal(nrow(ros[!mi_roster_match(cand, mi_recs)$in_file, ]), 0L)
+})
+
+test_that("the 139 prior rows keep their indices, so session 49's overlay lands", {
+  # MDHHS inserts alphabetically, mid-table; read in page order the six would
+  # shift 100+ rows and the index-keyed overlay would re-type the wrong
+  # organisations. The prior roster, in its own order, is rows 1-139.
+  prior <- mi_roster_tables("roster_prior")
+  expect_equal(nrow(prior), 139L)
+  expect_equal(mi_recs$awardee[1:139], prior$awardee)
+  expect_equal(mi_recs$amount[1:139], mi_parse_amount(prior$amount_raw))
+  expect_true(grepl(MI_ROSTER_PRIOR_ASOF_SENTENCE, mi_html_text("roster_prior"),
+                    fixed = TRUE))
+  # And at every overlaid index the name is the one session 49 verified.
+  ch <- readr::read_csv(here::here("data", "reference",
+                                   "verification_queue_2_changes.csv"),
+                        col_types = readr::cols(.default = "c"))
+  ch <- ch[ch$file == "mi_year1_awardees.csv", ]
+  expect_equal(nrow(ch), 86L)
+  expect_equal(mi_recs$awardee[as.integer(ch$row)], ch$name)
+  csv <- readr::read_csv(here::here("data", "reference", "mi_year1_awardees.csv"),
+                         col_types = readr::cols(.default = "c"))
+  expect_equal(csv$awardee[as.integer(ch$row)], ch$name)
+  expect_equal(csv$recipient_type[as.integer(ch$row)], ch$new_type)
+  # the committed (overlaid) partition: 2 named-hospital rows, $259,121
+  csv$amount <- as.numeric(csv$amount)
+  parts <- rhtp_hospital_dollar_partition(csv)
+  expect_equal(parts$rows[parts$bucket == "NAMED_HOSPITAL"], 2L)
+  expect_equal(parts$dollars[parts$bucket == "NAMED_HOSPITAL"], 259121)
+  expect_equal(sum(csv$flag_reason %in% "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED"), 2L)
+})
+
+test_that("a row dropped from the prior roster stops the build", {
+  local({
+    saved <- get("mi_roster_tables", envir = globalenv())
+    on.exit(assign("mi_roster_tables", saved, envir = globalenv()), add = TRUE)
+    mi_roster_tables <<- function(key = "roster") {
+      d <- saved(key)
+      if (key == "roster") d[-5, ] else d
+    }
+    expect_error(mi_roster_in_file_order(), "not on the current one")
+  })
 })
 
 test_that("the 08-27 findings still hold on the WITHDRAWN rows", {
@@ -488,14 +550,17 @@ test_that("the §6.2 registry catches all eight, with no false positives", {
   # SESSION 62/63: RCJ WITHDREW all eight rows on the 2026-09-24 pull, so the
   # live sweep catches none. R/02b's own tests re-label the withdrawn rows
   # live to prove the registry entry still catches them.
-  expect_equal(mi$caught_total, 0L)
-  expect_equal(mi$caught_state_program, 0L)
+  # SESSION 64: the four live CVI rows are caught by MI-MDHHS-CVI-2026, and
+  # nothing Michigan-SUD is.
+  expect_equal(mi$caught_total, 4L)
+  expect_equal(mi$caught_state_program, 4L)
   # And none of the caught rows is one this file publishes.
   flagged <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_flagged_rows.csv"),
     show_col_types = FALSE)
   caught <- flagged[flagged$state == "MI", ]
-  expect_equal(nrow(caught), 0L)
+  expect_equal(nrow(caught), 4L)
+  expect_true(all(grepl("community violence intervention", caught$source_doc_title)))
   # NO FALSE POSITIVES: not one caught row is a Michigan award this file
   # publishes, matched on the (name, amount) PAIR because one name legitimately
   # appears on both lists.
@@ -508,14 +573,14 @@ test_that("the §6.2 registry catches all eight, with no false positives", {
 # -- reconciliation -----------------------------------------------------------
 
 test_that("nothing is divided, invented, or double-counted", {
-  expect_equal(mi_assert_reconciliation(mi_recs), 69883392)
+  expect_equal(mi_assert_reconciliation(mi_recs), 101318437)
   # round_amount stays EMPTY. Michigan publishes no pool totals on the roster,
   # so there is nothing for it to carry -- and populating it would import
   # Georgia's and Nevada's double-counting trap into a file that does not have
   # it.
   expect_true(all(is.na(mi_recs$round_amount)))
   expect_true(sum(mi_recs$amount) < rhtp_mi_allotment())
-  expect_equal(round(100 * sum(mi_recs$amount) / rhtp_mi_allotment(), 1), 40.4)
+  expect_equal(round(100 * sum(mi_recs$amount) / rhtp_mi_allotment(), 1), 58.5)
 })
 
 test_that("the committed CSV matches what the parser produces", {
@@ -523,5 +588,5 @@ test_that("the committed CSV matches what the parser produces", {
                          show_col_types = FALSE)
   expect_equal(nrow(csv), nrow(mi_recs))
   expect_equal(sum(csv$amount), sum(mi_recs$amount))
-  expect_equal(sort(csv$awardee), sort(mi_recs$awardee))
+  expect_equal(csv$awardee, mi_recs$awardee)
 })

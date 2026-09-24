@@ -13,15 +13,17 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 20 unpriced SMRP hospitals (+51 rows / +$57,215,819.43). Session 59: +TN's
   # two unpriced hospital rows ($0). Session 61: + New Jersey, 35 rows /
   # $35,275,076 (none rural: no NJ awardee is a CAH or REH). Session 63: +
-  # Indiana's 44 UNPRICED GROW hospital rows ($0).
-  expect_equal(nrow(rows), 1114L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 937661818.75,
+  # Indiana's 44 UNPRICED GROW hospital rows ($0). Session 64: + NV 15
+  # unpriced, NE 6 / $1,825,002.28 (Initiative 5.3), SD 5 / $716,800 (Rural
+  # Strong) -- 1,140 rows / $940,203,621.03 / 28 states.
+  expect_equal(nrow(rows), 1140L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 940203621.03,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
 
-test_that("the rural figure is 201 rows / $176,578,205.56, from three classes of source only", {
+test_that("the rural figure is 207 rows / $177,456,356.11, from three classes of source only", {
   r <- rows[rows$counts_as_rural, ]
   # Session 51's 151 / $157,997,116.60, plus 13 NY and KS rows CMS enrols as
   # a CAH or REH by the CCN each row records (session 52).
@@ -29,9 +31,11 @@ test_that("the rural figure is 201 rows / $176,578,205.56, from three classes of
   # ($4,705,216.17) and 6 of Missouri's unpriced SMRP hospitals ($0).
   # Session 59: + Macon Hospital, Inc (TN), which CMS enrols as a CAH (CCN
   # 441305) -- on a hand-read BRIDGE, and unpriced ($0).
-  expect_equal(nrow(r), 201L)
+  # Session 64: + 3 Nebraska 5.3 rows ($554,850.55) and 3 South Dakota Rural
+  # Strong rows ($323,300) that CMS enrols as a CAH by the row's own CCN.
+  expect_equal(nrow(r), 207L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 176578205.56, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 177456356.11, tolerance = 0)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 9L)
   expect_equal(sum(r$state == "MO"), 6L)
@@ -83,11 +87,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 201L)
+  expect_equal(sum(by$rural_rows), 207L)
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1114L)
+  expect_equal(nrow(committed), 1140L)
   expect_equal(committed$rural_class, rows$rural_class)
 })

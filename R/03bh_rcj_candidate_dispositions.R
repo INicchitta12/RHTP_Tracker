@@ -280,14 +280,6 @@ DISPO_HAND_READ <- tibble::tribble(
   "{rows} row(s), {amount}. REAL AND NOT IN THE FILE. The Governor's 2026-05-21 release names VHCC's $127,500 LPN expansion as Virginia's first RHTP sub-award, matching RCJ exactly (session 15). va_year1_awardees.csv holds the eleven first-tier partners of 2026-08-28 and omits it; a community college, so NON_HOSPITAL either way. Reported, not extracted. Evidence: data/evidence/VA/2026-05-21_governor_vhcc_first_rhtp_grant.pdf. {new} first seen after 08-27.",
 
   # ---- South Dakota ---------------------------------------------------------
-  "SD", "RHTP Contract & Grant Awards", "", "Rural Strong Grant",
-  "Rural Strong grants now posted to OpenSD", "RHTP_SUBAWARD_NOT_IN_FILE",
-  "{rows} row(s), {amount}. REAL AND NOT IN ANY SOUTH DAKOTA FILE. open.sd.gov's RHT series, re-read 2026-09-24, now carries these contracts (27RHT00015-00018 and 27RHT00022-00025), each described 'Implementation of a Rural Strong Grant as a part of the federal Rural Health Transformation Program' -- the round of 28 grants, $31.5M, that the July release promised to OpenSD and that sessions 12-13 could not find. Bennett County Hospital, Community Memorial Hospital (twice), Faulkton Area Medical Center and Philip Health Services are HOSPITALS by name. sd_rht_contracts.csv (13 rows, 2026-08-28) predates them; sd_year1_awardees.csv still carries the round as one unnamed row. Reported, not extracted. Evidence: " %>% paste0(DISPO_NEW_EVIDENCE, "/SD/open_sd_contracts_rural_strong.html. {new} first seen after 08-27."),
-
-  "SD", "RHTP Contract & Grant Awards", "", "",
-  "New RHT-series administrative contracts not in the 08-28 file", "RHTP_ADMINISTRATIVE_CONTRACT_NOT_IN_FILE",
-  "{rows} row(s), {amount}. Real RHT-series contracts posted to open.sd.gov after sd_rht_contracts.csv was built: project management and support (Black Hills Special Services, Engineering Solutions), doula workforce (South Dakota Doulas) and a statewide training platform (South Dakota State University, University of South Dakota). Administrative and workforce spend, the same kind the file already holds; none a hospital. Reported, not extracted. Evidence: " %>% paste0(DISPO_NEW_EVIDENCE, "/SD/open_sd_contracts_RHT_series.html. {new} first seen after 08-27."),
-
   "SD", "First Awards for RHT Grant Program Management", "", "",
   "Program-management consultants from DOH's release, priced by the release", "RHTP_ADMINISTRATIVE_CONTRACT_PRICED_ELSEWHERE",
   "{rows} row(s), {amount}. The same consultants the portal carries (session 14): Black Hills Special Services Cooperative at a $1 placeholder, and Business Concepts & Applications at the release's $500,000 against the portal contract's $250,000 -- two figures, neither corrected (§8). Evidence: data/evidence/SD/2026-08-28_open_sd_contract_search_RHT.html. {new} first seen after 08-27.",

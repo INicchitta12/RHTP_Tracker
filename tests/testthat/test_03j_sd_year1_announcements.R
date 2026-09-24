@@ -223,3 +223,47 @@ test_that("the committed CSV matches a fresh build", {
   expect_equal(names(on_disk), names(fresh))
   expect_equal(on_disk$round_amount, fresh$round_amount)
 })
+
+
+test_that("the Rural Strong contracts named on OpenSD are INSIDE the round, never added", {
+  # Session 64: open.sd.gov now carries 8 of the 28 Rural Strong grants
+  # (sd_rht_contracts.csv, round_id RS). They are the same money as the round
+  # row here, read at a finer grain, so nothing may add them to round_amount
+  # and nothing may net them out of it to price the unnamed 20 (§6.2).
+  records <- rhtp_sd_year1_build()
+  rs <- records[records$round_id == "RS", ]
+  contracts <- readr::read_csv(here::here(SD_Y1_CONTRACTS_CSV),
+                               show_col_types = FALSE, progress = FALSE)
+  in_rs <- contracts[contracts$round_id %in% "RS", ]
+  expect_equal(rs$named_elsewhere_grants, nrow(in_rs))
+  expect_equal(rs$named_elsewhere_amount, sum(in_rs$amount))
+  expect_equal(rs$named_elsewhere_grants, 8L)
+  expect_equal(rs$named_elsewhere_amount, 1879152)
+  expect_equal(rs$round_amount, 31500000)          # NOT 31,500,000 - 1,879,152
+  expect_equal(rs$recipient_confirmed, "No")       # the release still names nobody
+  expect_equal(rs$disbursement_status, "CONTRACTS_PARTLY_POSTED")
+  td <- records[records$round_id == "TD", ]
+  expect_equal(td$named_elsewhere_grants, 0L)
+
+  # and the assertion refuses a round that is out-named or netted
+  bad <- records
+  bad$named_elsewhere_amount[bad$round_id == "RS"] <- 40000000
+  expect_error(rhtp_sd_year1_assert(bad), "INSIDE it")
+  bad <- records
+  bad$round_amount[bad$round_id == "RS"] <- 31500000 - 1879152
+  expect_error(rhtp_sd_year1_assert(bad), "never netted|round totals sum")
+})
+
+
+test_that("the reconciliation does not subtract the Rural Strong contracts twice", {
+  recon <- rhtp_sd_year1_reconcile()
+  contracts <- readr::read_csv(here::here(SD_Y1_CONTRACTS_CSV),
+                               show_col_types = FALSE, progress = FALSE)
+  admin <- sum(contracts$amount[is.na(contracts$round_id)])
+  expect_equal(admin, 7344025)
+  unacc <- recon$amount[startsWith(recon$measure, "Unaccounted")]
+  expect_equal(unacc, SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED - admin)
+  # the wrong answer -- every contract subtracted on top of the rounds
+  expect_false(isTRUE(all.equal(unacc, SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED -
+                                  sum(contracts$amount))))
+})
