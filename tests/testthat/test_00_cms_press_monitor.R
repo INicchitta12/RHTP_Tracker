@@ -594,10 +594,16 @@ test_that("the live newsroom crawl finds twenty-one states, including Virginia",
   )
   # Session 51's live run added NM (2026-09-21, the $74M hub pool) and MO
   # (2026-09-22, ~$35M to "20 rural hospital projects", nobody named).
-  expect_setequal(out$state,
-                  c("AK", "AL", "AR", "CT", "GA", "HI", "IN", "KS", "MI",
+  # SESSION 66: A FLOOR, NEVER AN EQUALITY. This test reads a file the
+  # CMS Routine itself rewrites, so pinning the set exactly made EVERY new
+  # announcement a suite failure -- and the Routine, which runs the suite
+  # before it commits, then refused to commit the new state. The monitor that
+  # exists to detect a new state could not record one. A state DISAPPEARING
+  # is still a failure; a state APPEARING is the signal, and `--run` reports it.
+  expect_true(all(c("AK", "AL", "AR", "CT", "GA", "HI", "IN", "KS", "MI",
                     "MO", "MS", "NC", "ND", "NM", "NY", "OH", "PA", "RI",
-                    "SC", "SD", "VA", "VT", "WV"))
+                    "SC", "SD", "VA", "VT", "WV") %in% out$state))
+  expect_true(all(out$state %in% rhtp_cms_states()$state))
   expect_equal(out$amount[out$state == "VA"], 122000000)
   expect_equal(out$date[out$state == "VA"], as.Date("2026-08-28"))
 })
@@ -615,12 +621,14 @@ test_that("the ten titles that say nothing about rural health are still caught",
       dplyr::mutate(item_date = as.Date(.data$item_date))
   )
   silent <- out[!grepl("rural", out$title, ignore.case = TRUE), ]
-  expect_setequal(silent$state,
-                  c("AK", "AL", "HI", "IN", "MI", "ND", "NY", "SD", "VA",
-                    "WV"))
-  # Only fourteen of the 24 rows would survive a title filter (session 51's
-  # NM and MO both say "rural").
-  expect_equal(nrow(out) - nrow(silent), 14L)
+  # Session 66: floors, for the reason given in the test above -- new
+  # announcements land in this file between commits.
+  expect_true(all(c("AK", "AL", "HI", "IN", "MI", "ND", "NY", "SD", "VA",
+                    "WV") %in% silent$state))
+  # At least fourteen rows would survive a title filter (session 51's NM and
+  # MO both say "rural"), and at least ten would be lost by it.
+  expect_gte(nrow(out) - nrow(silent), 14L)
+  expect_gte(nrow(silent), 10L)
 })
 
 test_that("the committed trigger list carries Virginia, and medicaid.gov has caught up", {
@@ -641,11 +649,19 @@ test_that("the committed trigger list carries Virginia, and medicaid.gov has cau
   expect_equal(nrow(va), 1L)
   expect_equal(va$amount, 122000000)
   expect_equal(va$source, "BOTH")
-  expect_equal(dplyr::n_distinct(live$state), 23L)
+  expect_gte(dplyr::n_distinct(live$state), 23L)
   expect_equal(live$source[live$state == "IN"], "BOTH")
-  # Session 51: medicaid.gov caught up on CT and SC within five days; MO,
-  # announced the day of the run, is the one only the newsroom carries.
-  expect_setequal(live$state[live$source == "CMS_NEWSROOM"], "MO")
+  # Session 51 pinned the newsroom-only set as exactly "MO". By 2026-09-24
+  # medicaid.gov had caught up on MO and the newsroom alone carried DE and
+  # new AR and SD releases -- so the pin failed on the very run that found
+  # them. What session 15 and 41 actually established is that the lag is
+  # measured in DAYS: every newsroom-only row must be recent relative to the
+  # file's own latest first_seen. A row stuck newsroom-only for weeks is the
+  # finding (medicaid.gov stopped updating, or its parse regressed).
+  only <- live[live$source == "CMS_NEWSROOM", ]
+  latest <- max(as.Date(live$first_seen))
+  expect_true(all(latest - as.Date(only$date) <= 21))
+  expect_false(any(live$source == "MEDICAID_GOV" & live$state == "VA"))
 })
 
 test_that("every archived rural release verifies against its manifest digest", {

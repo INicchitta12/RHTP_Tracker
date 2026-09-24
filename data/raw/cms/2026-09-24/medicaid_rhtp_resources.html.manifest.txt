@@ -1,0 +1,14 @@
+RHTP tracker archive: the CMS RHTP resources page (the trigger list).
+
+source_url  : https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources
+fetched_utc : 2026-09-24T18:53:06Z
+http_status : 200
+bytes       : 149861
+sha256      : 77f329f6ca657f5b10420f2387b895b8ffdda716104c806111b544c8f1c267f2
+rows_parsed : 24
+shape       : TABLE
+
+This is a DISCOVERY source (§0.1). No figure on this page may enter an
+AHA-published number; it says which states to go and collect, and the
+state's own notice of award remains the record for every figure.
+

@@ -149,7 +149,23 @@ test_that("the committed CSV matches the builder", {
   on_disk <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
   expect_equal(nrow(on_disk), 50L)
   expect_equal(on_disk$state, queue$state)
-  expect_equal(on_disk$trigger_source, queue$trigger_source)
+  # Session 66: the builder reads cms_state_announcements.csv, which the CMS
+  # Routine rewrites and commits; the Routine may not rebuild this file. So a
+  # state CMS announces between rebuilds makes the committed queue lag the
+  # builder by exactly one CMS flag -- RCJ_ONLY -> BOTH or NEITHER -> CMS_ONLY.
+  # Pinning equality made every new announcement a suite failure, and the
+  # Routine (which runs the suite before committing) then refused to record
+  # it. That lag is expected and is reported; any OTHER mismatch is still a
+  # hand edit or a builder change and still fails.
+  lag_ok <- (on_disk$trigger_source == "RCJ_ONLY" & queue$trigger_source == "BOTH") |
+    (on_disk$trigger_source == "NEITHER" & queue$trigger_source == "CMS_ONLY")
+  same <- on_disk$trigger_source == queue$trigger_source
+  expect_true(all(same | lag_ok))
+  if (any(lag_ok)) {
+    message("state_trigger_queue.csv lags the CMS list for: ",
+            paste(on_disk$state[lag_ok], collapse = ", "),
+            " -- rebuild with Rscript R/00b_state_trigger_queue.R --build")
+  }
 })
 
 
