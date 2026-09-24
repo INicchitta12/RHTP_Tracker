@@ -1664,3 +1664,127 @@ rhtp_assert_no_new_organisations_across <- function(live, archived,
   })
   invisible(stats::setNames(out, keys))
 }
+
+
+# -- a disposition's prose may not disagree with its own counts (session 63) --
+
+#' Word numbers a disposition file writes in capitals ("ELEVEN OF ELEVEN")
+RHTP_WORD_NUMBERS <- c(zero = 0, no = 0, none = 0, one = 1, two = 2,
+                       three = 3, four = 4, five = 5, six = 6, seven = 7,
+                       eight = 8, nine = 9, ten = 10, eleven = 11,
+                       twelve = 12)
+
+#' Disposition codes that assert the aggregator holds NOTHING for the state
+RHTP_ABSENCE_DISPOSITION_PATTERN <-
+  "NOT_IN_THE_AGGREGATOR|NO_(RCJ_)?TIER_?3|NO_CANDIDATE|ZERO_(RCJ_)?(TIER|CANDIDATE)"
+
+#' The claims a disposition row makes about how many Tier 3 candidates exist
+#'
+#' Reads only the shapes that speak for the state as a whole. A bare "TWO
+#' candidates" (Connecticut's revision double-count) is a sub-count and is
+#' not read; "Tier 3" has to be in the phrase. A historical count survives
+#' only when the text says it is historical -- "on the 2026-08-27 pull",
+#' "(08-27)", "was N" -- which is how a disposition should write one.
+#'
+#' @return a tibble of `claim` (the matched text) and `value` (integer)
+rhtp_disposition_count_claims <- function(text) {
+  text <- stringr::str_squish(dplyr::coalesce(as.character(text), ""))
+  num <- paste0("(\\d[\\d,]*|", paste(names(RHTP_WORD_NUMBERS),
+                                      collapse = "|"), ")")
+  pats <- c(
+    # "holds 33 Tier 3 candidates", "carries ZERO RCJ Tier 3 candidates",
+    # "NO RCJ Tier 3 candidate", "ALL 11 OF CALIFORNIA'S TIER 3 CANDIDATES"
+    paste0("(?i)\\b", num, "\\s+(?:of\\s+[A-Za-z .']+?'s\\s+)?",
+           "(?:RCJ\\s+)?(?:live\\s+)?Tier[ _]?3\\s+candidates?\\b"),
+    # "0 SUBAWARD records", "Zero SUBAWARD records"
+    paste0("(?i)\\b", num, "\\s+(?:live\\s+)?SUBAWARD\\s+records?\\b"),
+    # "RCJ's only Idaho Tier 3 candidate"
+    "(?i)\\b(only|sole)\\s+(?:[A-Za-z .]+\\s+)?Tier[ _]?3\\s+candidate\\b"
+  )
+  out <- purrr::map_dfr(pats, function(p) {
+    loc <- stringr::str_locate_all(text, p)[[1]]
+    if (nrow(loc) == 0) return(tibble::tibble())
+    purrr::map_dfr(seq_len(nrow(loc)), function(i) {
+      s <- loc[i, 1]; e <- loc[i, 2]
+      m <- substr(text, s, e)
+      before <- substr(text, max(1, s - 30), s - 1)
+      after  <- substr(text, e + 1, min(nchar(text), e + 40))
+      historical <-
+        stringr::str_detect(before, "(?i)\\b(was|were|had|previously)\\s*$") ||
+        stringr::str_detect(after, "(?i)^\\W{0,3}(on|in|at|from)?\\s*(the\\s+)?(2026-)?08-27|^\\s*\\((on\\s+)?(the\\s+)?(2026-)?08-27")
+      first <- tolower(stringr::str_extract(m, paste0("(?i)", num, "|only|sole")))
+      v <- if (first %in% c("only", "sole")) 1L else
+        if (first %in% names(RHTP_WORD_NUMBERS)) as.integer(RHTP_WORD_NUMBERS[[first]]) else
+          as.integer(gsub(",", "", first))
+      tibble::tibble(claim = m, value = v, historical = historical)
+    })
+  })
+  if (nrow(out) == 0) {
+    return(tibble::tibble(claim = character(), value = integer(),
+                          historical = logical()))
+  }
+  out
+}
+
+#' Refuse a disposition table whose prose contradicts its counts
+#'
+#' Session 62 re-read the candidate sets after the 2026-09-24 pull, and seven
+#' files passed every assertion while their narrative still described the old
+#' figures: Arkansas's row read "33 candidates" beside the code
+#' `NOT_IN_THE_AGGREGATOR_AT_ALL`. A count column was re-derived from the
+#' record table and a sentence was not, and nothing compared the two.
+#'
+#' Two rules, both per row:
+#'   1. a disposition code asserting absence requires a count of 0;
+#'   2. every non-historical claim of "N Tier 3 candidates" in the row's prose
+#'      must equal that row's count or the file's total.
+#'
+#' @param disp a disposition table (any of the column layouts in use)
+#' @param state label for the error message
+#' @return `disp`, invisibly
+rhtp_assert_disposition_prose <- function(disp, state = "??") {
+  # `records` counts ALL of a state's RCJ records (TN, NJ, WY), not its Tier 3
+  # candidates, so a table in that layout must carry `tier3_candidates` too.
+  count_col <- intersect(c("tier3_candidates", "rcj_rows", "rows",
+                           "rcj_candidates"), names(disp))[1]
+  code_col <- intersect(c("disposition", "disposition_code"), names(disp))[1]
+  if (is.na(count_col) || is.na(code_col)) {
+    stop("[", state, "] disposition table has no Tier 3 count column ",
+         "(tier3_candidates / rcj_rows / rows / rcj_candidates) or no code ",
+         "column (", paste(names(disp), collapse = ", "), "). A `records` ",
+         "column counts every RCJ record and is not one.", call. = FALSE)
+  }
+  prose_cols <- setdiff(
+    names(disp)[vapply(disp, is.character, logical(1))],
+    c("state", "group", code_col, "state_source_url", "source_url",
+      "source_archive_path", "rcj_source_document", "as_of"))
+  counts <- as.integer(disp[[count_col]])
+  total <- sum(counts, na.rm = TRUE)
+  problems <- character(0)
+  for (i in seq_len(nrow(disp))) {
+    code <- as.character(disp[[code_col]][i])
+    if (stringr::str_detect(code, RHTP_ABSENCE_DISPOSITION_PATTERN) &&
+        !identical(counts[i], 0L)) {
+      problems <- c(problems, sprintf(
+        "row %d: code %s asserts absence but %s = %s", i, code, count_col,
+        counts[i]))
+    }
+    prose <- paste(vapply(prose_cols, function(cc) as.character(disp[[cc]][i]),
+                          character(1)), collapse = " ")
+    cl <- rhtp_disposition_count_claims(prose)
+    cl <- cl[!cl$historical, , drop = FALSE]
+    bad <- cl[!(cl$value %in% c(counts[i], total)), , drop = FALSE]
+    for (j in seq_len(nrow(bad))) {
+      problems <- c(problems, sprintf(
+        "row %d (%s = %s, file total %s): prose says \"%s\"", i, count_col,
+        counts[i], total, bad$claim[j]))
+    }
+  }
+  if (length(problems)) {
+    stop("[", state, "] disposition prose disagrees with its counts:\n  ",
+         paste(problems, collapse = "\n  "),
+         "\nRe-derive the sentence from the count, or mark a historical ",
+         "figure as one (\"N on the 2026-08-27 pull\").", call. = FALSE)
+  }
+  invisible(disp)
+}
