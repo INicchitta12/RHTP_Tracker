@@ -104,23 +104,84 @@ test_that("every RCJ Texas Tier 3 candidate is accounted for, and none survives"
   actual <- sum(rt$state == "TX" & rt$award_tier == "SUBAWARD", na.rm = TRUE)
   disp <- tx_build_disposition()
 
+  # Session 62: 68 -> 85 at the 2026-09-24 re-pull (9 withdrawn, 26 new).
   expect_equal(sum(disp$rcj_rows), actual)
-  expect_equal(actual, 68L)
+  expect_equal(actual, 85L)
+  expect_equal(sum(disp$rcj_rows_withdrawn), 9L)
   expect_false(any(disp$disposition == "RHTP_SUBAWARD"))
-  # 53 of the 68 are a different, state-appropriated programme. That single
-  # number is the §0.1 finding.
+  # The Rider 88 53 are unchanged; the Mobile Stroke Unit's 3 are state
+  # money too.
   expect_equal(sum(disp$rcj_rows[disp$disposition == "NOT_RHTP_STATE_APPROPRIATION"]),
-               53L)
+               56L)
+  expect_equal(sum(disp$rcj_rows[grepl("HHS00151|HHS00156", disp$group)]), 53L)
   expect_true(all(nzchar(disp$why)))
+})
+
+test_that("the 2026-09-24 re-pull is measured group by group", {
+  disp <- tx_build_disposition()
+  got <- stats::setNames(disp$rcj_rows, disp$group)
+  expect_equal(got[names(TX_DISPOSITION_EXPECTED)], TX_DISPOSITION_EXPECTED)
+
+  # ATLIS and IGT emptied because RCJ WITHDREW them, not because a rule moved.
+  wd <- stats::setNames(disp$rcj_rows_withdrawn, disp$group)
+  expect_equal(unname(wd["ATLIS incentive payments to Medicaid MCOs"]), 5L)
+  expect_equal(unname(wd["Suggested Intergovernmental Transfers"]), 4L)
+  expect_equal(unname(got["ATLIS incentive payments to Medicaid MCOs"]), 0L)
+  expect_match(disp$why[disp$group == "Suggested Intergovernmental Transfers"],
+               "0 LIVE ROWS")
+
+  # The four new groups, each with its disqualifying reason.
+  amt <- stats::setNames(disp$rcj_amount_sum, disp$group)
+  expect_equal(unname(amt["HHS0016568 Texas Nurse-Family Partnership"]),
+               133864170)
+  expect_equal(unname(amt["HHS0016736 Mobile Stroke Unit ('Sheet1')"]),
+               3250000)
+  expect_equal(disp$disposition[disp$group ==
+                 "HHS0016121 Workplace Violence Against Nurses"],
+               "NOT_RHTP_PREDATES_NOA")
+  expect_equal(disp$disposition[disp$group ==
+                 "HHS0015358 HOPES (Family Support Services)"],
+               "NOT_RHTP_PREDATES_NOA")
+  expect_match(disp$why[disp$group == "HHS0016568 Texas Nurse-Family Partnership"],
+               "TANF")
+
+  # The two predates-NOA findings rest on the COMMITTED RFA index.
+  idx <- paste(readLines(file.path(TX_EVIDENCE_DIR,
+                                   "2026-08-29_hhsc_rfa_index.html"),
+                         warn = FALSE), collapse = " ")
+  expect_match(idx, "HHS0015358")
+  expect_match(idx, "HHS0016121")
 })
 
 test_that("the disposition count is derived, not typed", {
   # If Texas's candidate set moves under the table, the run must FAIL rather
-  # than let the table quietly stop covering it. That is the difference between
-  # a finding and a stale constant that still says 68.
+  # than let the table quietly stop covering it.
   expect_error(tx_assert_candidates_accounted(actual = 71L),
                "candidate set has changed")
-  expect_silent(tx_assert_candidates_accounted(actual = 68L))
+  expect_silent(tx_assert_candidates_accounted(actual = 85L))
+
+  # A group whose count moves fails even when the TOTAL still agrees.
+  disp <- tx_build_disposition()
+  disp$rcj_rows[1] <- disp$rcj_rows[1] + 1L
+  disp$rcj_rows[2] <- disp$rcj_rows[2] - 1L
+  expect_error(tx_assert_candidates_accounted(actual = 85L, disp = disp),
+               "in group")
+
+  # A candidate no rule reaches stops the build and names itself.
+  cand <- tx_rcj_candidates()
+  cand_bad <- cand
+  cand_bad$source_doc_title[1] <- "TX - 2026 - A document nobody has read"
+  rules_check <- function(c) {
+    hit <- vapply(seq_len(nrow(TX_DISPOSITION_RULES)), function(i) {
+      r <- TX_DISPOSITION_RULES[i, ]
+      grepl(r$doc_pattern, c$source_doc_title, perl = TRUE) &
+        (is.na(r$awardee_pattern) |
+           grepl(r$awardee_pattern, c$awardee_name_raw, perl = TRUE))
+    }, logical(nrow(c)))
+    rowSums(hit)
+  }
+  expect_true(all(rules_check(cand) == 1L))
+  expect_equal(sum(rules_check(cand_bad) == 0L), 1L)
 
   # And a candidate that turns out to BE an RHTP subaward retires this file.
   disp <- tx_build_disposition()

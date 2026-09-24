@@ -5,7 +5,8 @@
 # THERE IS NO TEXAS AWARD FILE, AND THAT IS WHAT THIS FILE RECORDS.
 #
 # Texas led the remaining queue by every measure `state_trigger_queue.csv`
-# carries: rank 1, 68 RCJ Tier 3 candidates across 67 distinct awardees, and
+# carries: rank 1, 68 RCJ Tier 3 candidates (85 after the 2026-09-24 re-pull,
+# none of them RHTP) across 67 distinct awardees, and
 # the largest FY2026 allotment in the country at $281,319,361. It has no CMS
 # press release, so it is `RCJ_ONLY` and no session before this one had looked
 # at it.
@@ -550,20 +551,106 @@ tx_build_status <- function() {
     )
 }
 
+#' Which disposition group does each Texas Tier 3 candidate belong to?
+#'
+#' Session 62 (the 2026-09-24 re-pull). The per-group counts used to be TYPED
+#' into the table below, and only their SUM was checked against the record
+#' table. That let a re-pull withdraw nine rows and add twenty-six new ones
+#' while the total happened to be the only thing anybody compared. Every group
+#' is now ASSIGNED by a rule over the candidate's own source-document title,
+#' every candidate must land in exactly one group, and the counts are
+#' COUNTED rather than written down. A candidate no rule reaches stops the
+#' build and names itself: a new HHSC award document is a thing to READ, never
+#' a thing to route into the nearest existing group.
+TX_DISPOSITION_RULES <- tibble::tribble(
+  ~group,                                         ~doc_pattern,                          ~awardee_pattern,
+  "HHS0015180 Rural Hospital Debt Reduction",    "HHS0015180",                          NA_character_,
+  "HHS0015677 Rural Hospital Improvement",       "HHS0015677",                          NA_character_,
+  "ATLIS incentive payments to Medicaid MCOs",   "ATLIS Incentive Payments",            NA_character_,
+  "Suggested Intergovernmental Transfers",       "Suggested Intergovernmental Transfer", NA_character_,
+  "Budget Period 1 narrative line items",        "Rural Texas Strong Program \\(RHTP\\)|^TX - 2026 - Texas RHTP$", "^(?!80 Rural Hospital Districts)",
+  "'80 Rural Hospital Districts' pool",          "^TX - 2026 - Texas RHTP$",            "^80 Rural Hospital Districts",
+  "HHS0015358 HOPES (Family Support Services)",  "HHS0015358",                          NA_character_,
+  "HHS0016121 Workplace Violence Against Nurses", "HHS0016121",                         NA_character_,
+  "HHS0016568 Texas Nurse-Family Partnership",   "HHS0016568",                          NA_character_,
+  "HHS0016736 Mobile Stroke Unit ('Sheet1')",    "^TX - 2026 - Sheet1$",                NA_character_
+)
+
+#' The counts measured on 2026-09-24, against which the derived counts must
+#' agree. Movement in any group -- not only the total -- fails the build.
+TX_DISPOSITION_EXPECTED <- c(
+  "HHS0015180 Rural Hospital Debt Reduction"     = 21L,
+  "HHS0015677 Rural Hospital Improvement"        = 32L,
+  "ATLIS incentive payments to Medicaid MCOs"    = 0L,
+  "Suggested Intergovernmental Transfers"        = 0L,
+  "Budget Period 1 narrative line items"         = 5L,
+  "'80 Rural Hospital Districts' pool"           = 1L,
+  "HHS0015358 HOPES (Family Support Services)"   = 5L,
+  "HHS0016121 Workplace Violence Against Nurses" = 4L,
+  "HHS0016568 Texas Nurse-Family Partnership"    = 14L,
+  "HHS0016736 Mobile Stroke Unit ('Sheet1')"     = 3L
+)
+
+#' Texas Tier 3 candidates from the committed record table, each assigned a
+#' group. `include_withdrawn = TRUE` also returns the rows RCJ dropped, with
+#' their change_status, so a group that emptied can say WHY it emptied.
+tx_rcj_candidates <- function(include_withdrawn = FALSE,
+                              path = here::here("data", "interim",
+                                                "stage2_record_table.rds")) {
+  if (!file.exists(path)) {
+    stop("[TX] stage2_record_table.rds is missing; run R/02_normalize.R.",
+         call. = FALSE)
+  }
+  rt <- rhtp_record_table_live(path = path,
+                               include_withdrawn = include_withdrawn)
+  cand <- rt %>%
+    dplyr::filter(state == TX_STATE, award_tier == "SUBAWARD") %>%
+    dplyr::select(record_id, source_endpoint, source_doc_title,
+                  awardee_name_raw, amount_announced, change_status)
+  hit <- vapply(seq_len(nrow(TX_DISPOSITION_RULES)), function(i) {
+    r <- TX_DISPOSITION_RULES[i, ]
+    d <- grepl(r$doc_pattern, cand$source_doc_title, perl = TRUE)
+    a <- if (is.na(r$awardee_pattern)) TRUE else
+      grepl(r$awardee_pattern, cand$awardee_name_raw, perl = TRUE)
+    d & a
+  }, logical(nrow(cand)))
+  if (is.null(dim(hit))) hit <- matrix(hit, nrow = nrow(cand))
+  n_hit <- rowSums(hit)
+  if (any(n_hit != 1L)) {
+    bad <- cand[n_hit != 1L, ]
+    stop("[TX] ", nrow(bad), " Texas Tier 3 candidate(s) fall into ",
+         "no disposition group, or into more than one. READ them before ",
+         "writing a rule:\n",
+         paste0("  ", bad$record_id, " | ", bad$source_doc_title, " | ",
+                bad$awardee_name_raw, " | ", bad$amount_announced,
+                collapse = "\n"),
+         call. = FALSE)
+  }
+  cand$group <- TX_DISPOSITION_RULES$group[max.col(hit, ties.method = "first")]
+  cand
+}
+
 #' Why each RCJ Texas Tier 3 candidate group is NOT an RHTP award
 #'
 #' §0.4 in table form: one row per group, the count, the disqualifying fact,
 #' and the state document that carries it. The point of writing it down is that
 #' the next session's survey will put Texas back at the top of the queue on the
-#' same 68 candidates, and re-deriving this from scratch is how a project
+#' same candidates, and re-deriving this from scratch is how a project
 #' eventually gets it wrong once.
-tx_build_disposition <- function() {
+#'
+#' Session 62: `rcj_rows` is COUNTED from the live record table and
+#' `rcj_rows_withdrawn` counts the rows RCJ dropped at the 2026-09-24 re-pull.
+#' A group that now holds 0 rows keeps its row and its history.
+tx_build_disposition <- function(cand = tx_rcj_candidates(),
+                                 withdrawn = tx_rcj_candidates(
+                                   include_withdrawn = TRUE) %>%
+                                   dplyr::filter(change_status == "WITHDRAWN")) {
   ctrl <- tx_state_programme_state()
   stopifnot(all(ctrl$has_award_roster))
 
-  tibble::tribble(
-    ~group, ~rcj_rows, ~rcj_source_document, ~disposition, ~why, ~state_source_key,
-    "HHS0015180 Rural Hospital Debt Reduction", 21L,
+  prose <- tibble::tribble(
+    ~group, ~rcj_source_document, ~disposition, ~why, ~state_source_key, ~as_of,
+    "HHS0015180 Rural Hospital Debt Reduction",
     "TX - 2026 - HHSC PCS Grant Awards - HHS0015180",
     "NOT_RHTP_STATE_APPROPRIATION",
     paste0("A real, executed, recipient-level HHSC award list -- 21 rural ",
@@ -573,34 +660,44 @@ tx_build_disposition <- function() {
            "hospitals ... House Bill 1 ... Article II Rider 88 appropriated ",
            "the grant funding.' The RFA was released 2025-03-24 and closed ",
            "2025-04-24 -- before OBBBA created RHTP, and nine months before ",
-           "CMS issued Texas its RHTP Notice of Award on 2025-12-29."),
-    "state_rhf_page",
+           "CMS issued Texas its RHTP Notice of Award on 2025-12-29. ",
+           "Unchanged by the 2026-09-24 re-pull; R/02b's registry catches ",
+           "these rows by solicitation number."),
+    "state_rhf_page", "2026-08-29",
 
-    "HHS0015677 Rural Hospital Improvement", 32L,
+    "HHS0015677 Rural Hospital Improvement",
     "TX - 2026 - HHSC PCS Grant Awards - HHS0015677",
     "NOT_RHTP_STATE_APPROPRIATION",
     paste0("The same appropriation and the same page: 33 rural Texas ",
            "hospitals at $350,000 each, RFA released 2025-03-11, closed ",
            "2025-04-09. RCJ captured 32 of the 33 rows, which is a second, ",
-           "smaller §0.1 defect sitting inside the first."),
-    "state_rhf_page",
+           "smaller §0.1 defect sitting inside the first -- still 32 after ",
+           "the 2026-09-24 re-pull."),
+    "state_rhf_page", "2026-08-29",
 
-    "ATLIS incentive payments to Medicaid MCOs", 5L,
+    "ATLIS incentive payments to Medicaid MCOs",
     "TX - 2025 - ATLIS Incentive Payments for Medicaid Managed Care Organizations",
     "NOT_RHTP_MEDICAID",
     paste0("Molina, Superior Health Plan, UnitedHealthcare Community Plan, ",
            "Community First and Wellpoint. Medicaid managed care incentive ",
-           "payments, not RHTP, and not to hospitals."),
-    NA_character_,
+           "payments, not RHTP, and not to hospitals. HOLDS 0 LIVE ROWS SINCE ",
+           "2026-09-24: RCJ dropped all five at the re-pull (change_status ",
+           "WITHDRAWN, counted in rcj_rows_withdrawn), so R/02b's ",
+           "TX-ATLIS-MCO registry entry now matches no candidate. The group ",
+           "is kept so the history closes."),
+    NA_character_, "2026-09-24",
 
-    "Suggested Intergovernmental Transfers", 4L,
+    "Suggested Intergovernmental Transfers",
     "TX - 2025 - Suggested Intergovernmental Transfer (IGT)",
     "NOT_RHTP_MEDICAID",
-    paste0("Medicaid IGT figures. Not an RHTP award action in any tier."),
-    NA_character_,
+    paste0("Medicaid IGT figures. Not an RHTP award action in any tier. ",
+           "HOLDS 0 LIVE ROWS SINCE 2026-09-24: RCJ dropped all four at the ",
+           "re-pull (WITHDRAWN), so R/02b's TX-IGT registry entry now matches ",
+           "no candidate."),
+    NA_character_, "2026-09-24",
 
-    "Budget Period 1 narrative line items", 5L,
-    "TX - 2026 - Rural Texas Strong Program (RHTP)",
+    "Budget Period 1 narrative line items",
+    "TX - 2026 - Rural Texas Strong Program (RHTP); TX - 2026 - Texas RHTP",
     "RHTP_BUT_NOT_A_SUBAWARD",
     paste0("Genuinely RHTP, and genuinely not Tier 3 award actions: two DSHS ",
            "AMBUS interagency contracts at $20,000,000, two DSHS BRFSS ",
@@ -608,9 +705,9 @@ tx_build_disposition <- function() {
            "support at $1,750,000. Planned state-agency and vendor spend read ",
            "out of the budget narrative. Every one is NON_HOSPITAL on its ",
            "recipient (§0.3a) whatever its status."),
-    "programme",
+    "programme", "2026-08-29",
 
-    "'80 Rural Hospital Districts' pool", 1L,
+    "'80 Rural Hospital Districts' pool",
     "TX - 2026 - Texas RHTP", "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
     paste0("$250,000,000 against an awardee named '80 Rural Hospital ",
            "Districts with a publicly owned and operated hospital', whose own ",
@@ -619,22 +716,120 @@ tx_build_disposition <- function() {
            "an award -- North Dakota's '15 selected CAHs' (session 11) at a ",
            "thousand times the size. §0.3: eligibility is not receipt, and a ",
            "plan is not an award action."),
-    "programme"
-  ) %>%
+    "programme", "2026-08-29",
+
+    "HHS0015358 HOPES (Family Support Services)",
+    "TX - 2026 - HHSC PCS Grant Award - HHS0015358",
+    "NOT_RHTP_PREDATES_NOA",
+    paste0("NEW AT THE 2026-09-24 RE-PULL. BCFS Health and Human Services, ",
+           "Easter Seals Rio Grande Valley, El Paso Center for Children, and ",
+           "two United Ways, $1.6M-$2.25M each. HHSC's own RFA index -- ",
+           "archived 2026-08-29 -- lists HHS0015358 under 'Awarded Grant ",
+           "Opportunities' as 'HHSC Family Support Services Healthy Outcomes ",
+           "through Prevention and Early Support (HOPES)', released ",
+           "2024-12-17, submission deadline 2025-02-12: before OBBBA created ",
+           "RHTP and ten months before Texas's 2025-12-29 Notice of Award. ",
+           "Money the state did not have cannot have funded it. None is a ",
+           "hospital."),
+    "rfa_index", "2026-09-24",
+
+    "HHS0016121 Workplace Violence Against Nurses",
+    "TX - 2026 - HHSC PCS Grant Award - HHS0016121",
+    "NOT_RHTP_PREDATES_NOA",
+    paste0("NEW AT THE 2026-09-24 RE-PULL, AND FOUR NAMED HOSPITALS: Parkland ",
+           "($200,000), Midland Health ($82,737), Shannon Medical Center ",
+           "($184,595), JPS Health Network ($199,668). HHSC's archived RFA ",
+           "index (2026-08-29) lists HHS0016121 as 'DSHS Workplace Violence ",
+           "Against Nurses Prevention Program -- Texas Center for Nursing ",
+           "Workforce Studies (TCNWS)', released 2025-09-24, submission ",
+           "deadline 2025-11-04 -- CLOSED BEFORE the 2025-12-29 NOA, so the ",
+           "date test disposes of it (the Rider 88 shape a second time). RCJ's ",
+           "activity feed saw its documents while crawling the pfd.hhs RHTP ",
+           "page; that is where RCJ looked, not a statement that HHSC funds it ",
+           "from RHTP, and the archived programme page does not name it."),
+    "rfa_index", "2026-09-24",
+
+    "HHS0016568 Texas Nurse-Family Partnership",
+    "TX - 2026 - HHSC PCS Grant Award HHS0016568 - Texas Nurse-Family Partnership (TNFP) Program",
+    "NOT_RHTP_STATE_AND_TANF",
+    paste0("NEW AT THE 2026-09-24 RE-PULL: 14 awards, $133,864,170 by RCJ's ",
+           "rows (RCJ's own document field says $111,284,483 -- the two do ",
+           "not agree), including five hospitals/hospital districts ",
+           "(Bexar, Dallas, El Paso County Hospital Districts, Doctors ",
+           "Hospital at Renaissance, Hillcrest Baptist). Released 2026-01-26, ",
+           "AFTER the NOA, so the date test does NOT catch it -- the funding ",
+           "clause does. RFA HHS0016568 §1.3: 'State funds for this Grant ",
+           "Project are authorized under the Texas General Appropriations ",
+           "Act, Article II' and federal funds under PRWORA, 'Temporary ",
+           "Assistance for Needy Families (TANF) Grant', ALN 93.558, ACF -- ",
+           "not CMS ALN 93.798; 'RHTP' / 'Rural Health Transformation' occur ",
+           "0 times. HHSC's award notice matches all 14 RCJ names and amounts ",
+           "to the dollar and says each is 'the total potential award, ",
+           "inclusive of the initial grant term and any allowable renewals'. ",
+           "READ LIVE 2026-09-24, NOT ARCHIVED (RFA pdf sha256 2ee70502..., ",
+           "award notice 02b65496...): archive with a deliberate --fetch ",
+           "before anything relies on it."),
+    "rfa_hhs0016568_live", "2026-09-24",
+
+    "HHS0016736 Mobile Stroke Unit ('Sheet1')",
+    "TX - 2026 - Sheet1",
+    "NOT_RHTP_STATE_APPROPRIATION",
+    paste0("NEW AT THE 2026-09-24 RE-PULL: Dell Seton ($1,500,000), UMC El ",
+           "Paso ($750,000), Memorial Hermann ($1,000,000), under a document ",
+           "RCJ titles only 'Sheet1'. It is HHSC's 'Awarded Grants' workbook ",
+           "for RFA HHS0016736, Comprehensive Rehabilitation Services Mobile ",
+           "Stroke Unit (released 2026-01-09; listed as awarded on the ",
+           "archived 2026-08-29 RFA index): its one sheet is named Sheet1 and ",
+           "carries exactly these three grantees and amounts. The RFA: 'State ",
+           "funds for this Grant Project are authorized under General ",
+           "Appropriations Act' -- STATE money, three urban hospitals. The ",
+           "worksheet name as a document title is §0.1's page-chrome defect. ",
+           "READ LIVE 2026-09-24, NOT ARCHIVED (xlsx sha256 d605b36e..., RFA ",
+           "217f919d...)."),
+    "rfa_hhs0016736_live", "2026-09-24"
+  )
+
+  live_n <- cand %>% dplyr::count(group, name = "rcj_rows")
+  wd_n   <- withdrawn %>% dplyr::count(group, name = "rcj_rows_withdrawn")
+  live_amt <- cand %>% dplyr::group_by(group) %>%
+    dplyr::summarise(rcj_amount_sum = sum(amount_announced, na.rm = TRUE),
+                     .groups = "drop")
+
+  missing_prose <- setdiff(TX_DISPOSITION_RULES$group, prose$group)
+  if (length(missing_prose)) {
+    stop("[TX] disposition group(s) with a rule and no written reason: ",
+         paste(missing_prose, collapse = "; "), call. = FALSE)
+  }
+
+  live_urls <- c(
+    rfa_hhs0016568_live = "https://resources.hhs.texas.gov/rfa/hhs0016568",
+    rfa_hhs0016736_live = "https://resources.hhs.texas.gov/rfa/hhs0016736"
+  )
+
+  prose %>%
+    dplyr::left_join(live_n, by = "group") %>%
+    dplyr::left_join(wd_n, by = "group") %>%
+    dplyr::left_join(live_amt, by = "group") %>%
     dplyr::mutate(
+      rcj_rows = dplyr::coalesce(rcj_rows, 0L),
+      rcj_rows_withdrawn = dplyr::coalesce(rcj_rows_withdrawn, 0L),
+      rcj_amount_sum = dplyr::coalesce(rcj_amount_sum, 0),
       state = TX_STATE,
-      state_source_url = TX_SOURCES$url[match(state_source_key, TX_SOURCES$key)],
+      state_source_url = dplyr::case_when(
+        state_source_key %in% names(live_urls) ~ live_urls[state_source_key],
+        TRUE ~ TX_SOURCES$url[match(state_source_key, TX_SOURCES$key)]
+      ),
       source_archive_path = dplyr::if_else(
-        is.na(state_source_key), NA_character_,
+        is.na(state_source_key) | state_source_key %in% names(live_urls),
+        NA_character_,
         file.path("data/evidence/TX",
                   TX_SOURCES$file[match(state_source_key, TX_SOURCES$key)])
-      ),
-      as_of = "2026-08-29"
+      )
     ) %>%
-    dplyr::select(state, group, rcj_rows, rcj_source_document, disposition,
-                  why, state_source_url, source_archive_path, as_of)
+    dplyr::select(state, group, rcj_rows, rcj_rows_withdrawn, rcj_amount_sum,
+                  rcj_source_document, disposition, why, state_source_url,
+                  source_archive_path, as_of)
 }
-
 
 # -- assertions --------------------------------------------------------------
 
@@ -670,6 +865,22 @@ tx_assert_candidates_accounted <- function(actual = tx_rcj_candidate_count(),
       "Read the rows that moved -- do not adjust the table to match.",
       call. = FALSE
     )
+  }
+
+  # Session 62: the TOTAL agreeing is not enough -- a re-pull withdrew nine
+  # rows and added twenty-six, and a total check sees only the net. Every
+  # group's COUNTED rows must equal the count measured on 2026-09-24.
+  got <- stats::setNames(disp$rcj_rows, disp$group)
+  exp <- TX_DISPOSITION_EXPECTED
+  if (!setequal(names(got), names(exp)) ||
+      any(got[names(exp)] != exp)) {
+    moved <- names(exp)[is.na(got[names(exp)]) | got[names(exp)] != exp]
+    stop("[TX] Texas's candidate set has changed since this negative was ",
+         "established, in group(s): ",
+         paste0(moved, " (", got[moved], " vs ", exp[moved], ")",
+                collapse = "; "),
+         ". Read the rows that moved -- do not adjust the table to match.",
+         call. = FALSE)
   }
 
   # And not one of them survives as an RHTP subaward.

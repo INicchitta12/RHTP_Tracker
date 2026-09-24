@@ -303,12 +303,19 @@ test_that("the Oklahoma Hospital Association is on no award row", {
 
 # -- §0.1 ---------------------------------------------------------------------
 
-test_that("NOT ONE of RCJ's 35 candidates is one of Oklahoma's 68 awards", {
+test_that("NOT ONE of RCJ's 36 candidates is one of Oklahoma's 68 awards", {
   skip_if_no_archive()
   recs <- ok_records()
   expect_silent(ok_assert_rcj_disposition(recs))
   cand <- ok_rcj_candidates()
   expect_equal(nrow(cand), OK_STATED$rcj_candidates)
+  # Session 62: 35 -> 36 at the 2026-09-24 re-pull.
+  expect_equal(nrow(cand), 36L)
+  expect_equal(round(sum(cand$amount_announced), 2), 237814376.02)
+  hie <- cand[grepl("Health Information Exchange", cand$awardee_name_raw), ]
+  expect_equal(nrow(hie), 1L)
+  expect_equal(hie$amount_announced, 6200000)
+  expect_match(hie$source_doc_title, "Initiative Funding Summary")
   expect_equal(dplyr::n_distinct(cand$awardee_name_clean),
                OK_STATED$rcj_distinct_awardees)
 
@@ -328,6 +335,10 @@ test_that("the disposition table covers every candidate, by document", {
   skip_if_no_archive()
   disp <- ok_write_disposition()
   expect_equal(sum(disp$rcj_rows), OK_STATED$rcj_candidates)
+  expect_equal(disp$rcj_rows, unname(OK_STATED$rcj_group_rows))
+  expect_equal(disp$rcj_rows[disp$group == "Budget Period 1 Initiative Funding Summary lines"], 9L)
+  expect_match(disp$basis[disp$group == "Budget Period 1 Initiative Funding Summary lines"],
+               "HIE")
   expect_true(all(disp$disposition %in% c("RHTP_BUT_NOT_A_SUBAWARD",
                                           "RHTP_BUT_A_PLATFORM_NOT_A_SUBAWARD")))
   # No candidate is dispositioned as an extracted award: RCJ holds none of

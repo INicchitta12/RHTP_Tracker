@@ -330,15 +330,25 @@ test_that("the absence assertion fires if NHA is ever awarded", {
 
 # -- §0.1: RCJ's 39 candidates ------------------------------------------------
 
-test_that("RCJ's 39 Nebraska candidates are accounted for to the cent", {
+test_that("RCJ's 52 Nebraska candidates are accounted for to the cent", {
   skip_if_not(file.exists(here::here("data/interim/stage2_record_table.rds")))
   expect_true(ne_assert_rcj_disposition(ne_award_rows))
 
   rt <- rhtp_record_table_live()
   ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD" &
              is.na(rt$superseded_by), ]
-  expect_equal(nrow(ne), 39L)
-  expect_equal(round(sum(ne$amount_announced, na.rm = TRUE), 2), 8446843.67)
+  # Session 62: 39 -> 52 at the 2026-09-24 re-pull (13 new, 0 withdrawn).
+  expect_equal(nrow(ne), 52L)
+  expect_equal(round(sum(ne$amount_announced, na.rm = TRUE), 2), 15402668.92)
+  grp <- ne_rcj_group(ne)
+  expect_false(any(grp == "UNASSIGNED"))
+  expect_equal(sum(grp == "intent_5_3"), 12L)
+  expect_equal(round(sum(ne$amount_announced[grp == "intent_5_3"]), 2),
+               5455825.25)
+  expect_equal(sum(grp == "news_aggregate"), 1L)
+  # The row RCJ drops from DHHS's 5.3 notice is a HOSPITAL.
+  expect_false(any(grepl("(?i)regional west", ne$awardee_name_raw[grp == "intent_5_3"],
+                         perl = TRUE)))
 
   # The 24 that RCJ filed under the APPLICANT section's heading are 4.4a's
   # AWARDS: their amounts reconcile to 4.4a's award table to the cent, which
@@ -365,16 +375,27 @@ test_that("RCJ holds NONE of Initiative 4.4b -- $27.7M it never saw", {
   expect_equal(round(sum(b$amount), 2), 27690777.23)
 })
 
-test_that("the disposition table covers all 39 candidates", {
+test_that("the disposition table covers all 52 candidates", {
   path <- here::here(NE_DISPOSITION_CSV)
   skip_if_not(file.exists(path))
   disp <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
-  expect_equal(sum(disp$rcj_rows), 39L)
+  expect_equal(sum(disp$rcj_rows), 52L)
   expect_true("NOT_RHTP_STATE_PROGRAM" %in% disp$disposition)
+  i53 <- disp[disp$disposition == "RHTP_INTENT_NOT_EXTRACTED", ]
+  expect_equal(i53$rcj_rows, 12L)
+  expect_true(grepl("Regional West", i53$basis))
+  expect_true(grepl("NOT", i53$basis) && grepl("archived", i53$basis))
   nlf <- disp[disp$disposition == "NOT_RHTP_STATE_PROGRAM", ]
   expect_equal(nlf$rcj_rows, 1L)
   expect_true(grepl("awarding state funds", nlf$basis))
   expect_true(grepl("2025-05-21", nlf$basis))
+  expect_true(grepl("STILL LIVE", nlf$basis))
+})
+
+test_that("a candidate no rule reaches fails the RCJ disposition", {
+  fake <- tibble::tibble(source_doc_title = "NE - 2026 - Something new",
+                         awardee_name_raw = "Anybody")
+  expect_equal(ne_rcj_group(fake), "UNASSIGNED")
 })
 
 

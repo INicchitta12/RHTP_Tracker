@@ -248,12 +248,27 @@ NE_STATED <- list(
   nhvn_amount      = 18156856.12,
   nhvn_members     = 21L,
   # RCJ, for §0.1 corroboration only. Never a published figure.
-  rcj_candidates   = 39L,
-  rcj_amount_sum   = 8446843.67,
+  # Session 62: 39 -> 52 at the 2026-09-24 re-pull (13 new, 0 withdrawn).
+  rcj_candidates   = 52L,
+  rcj_amount_sum   = 15402668.92,
   rcj_4_4a_rows    = 24L,
   rcj_3_3_rows     = 9L,
   rcj_placeholder_rows = 5L,
   rcj_non_rhtp_rows    = 1L,
+  # NEW 2026-09-24: Initiative 5.3's Intent to Award (DHHS, 09/01/2026). RCJ
+  # holds 12 rows / $5,455,825.25; DHHS's notice, READ LIVE 2026-09-24 and
+  # NOT archived (sha256 2af6a430...), lists 13 / $5,549,692.25 -- RCJ drops
+  # Regional West Medical Center, $93,867.00, a HOSPITAL. NOT in the award
+  # file: extracting it is a deliberate --fetch and extractor change.
+  rcj_5_3_rows     = 12L,
+  rcj_5_3_amount   = 5455825.25,
+  notice_5_3_rows  = 13L,
+  notice_5_3_total = 5549692.25,
+  # NEW 2026-09-24: one row priced $1,500,000 against a news document
+  # ("Mary Lanning Healthcare Successful in Rhtp Grant Applications", RCJ
+  # discovered 2026-08-27). An AGGREGATE of several awards, not one action.
+  rcj_news_rows    = 1L,
+  rcj_news_amount  = 1500000,
   # The named-hospital floor and the uncertainty beside it. DHHS publishes no
   # organisation-type column, so every recipient_type outside the 21 NHVN
   # member rows is derived from the recipient's own NAME.
@@ -835,18 +850,21 @@ ne_assert_rcj_disposition <- function(awards) {
     stop("[NE] RCJ's Nebraska amount sum has moved.", call. = FALSE)
   }
 
-  grp <- dplyr::case_when(
-    stringr::str_detect(ne$source_doc_title,
-                        "Organizations Submitted Applications") ~ "mislabelled_4_4a",
-    stringr::str_detect(ne$source_doc_title,
-                        stringr::fixed("RHTP Initiative 3.3 Awards")) ~ "awards_3_3",
-    stringr::str_detect(ne$source_doc_title, "Initiative 3\\.3") ~ "placeholder_3_3",
-    TRUE ~ "non_rhtp"
-  )
+  grp <- ne_rcj_group(ne)
+  if (any(grp == "UNASSIGNED")) {
+    bad <- ne[grp == "UNASSIGNED", ]
+    stop("[NE] ", nrow(bad), " RCJ Nebraska candidate(s) fall into no ",
+         "disposition group. READ them before writing a rule:\n",
+         paste0("  ", bad$record_id, " | ", bad$source_doc_title, " | ",
+                bad$awardee_name_raw, " | ", bad$amount_announced,
+                collapse = "\n"), call. = FALSE)
+  }
   counts <- c(mislabelled_4_4a = NE_STATED$rcj_4_4a_rows,
               awards_3_3       = NE_STATED$rcj_3_3_rows,
               placeholder_3_3  = NE_STATED$rcj_placeholder_rows,
-              non_rhtp         = NE_STATED$rcj_non_rhtp_rows)
+              non_rhtp         = NE_STATED$rcj_non_rhtp_rows,
+              intent_5_3       = NE_STATED$rcj_5_3_rows,
+              news_aggregate   = NE_STATED$rcj_news_rows)
   for (nm in names(counts)) {
     if (sum(grp == nm) != counts[[nm]]) {
       stop("[NE] RCJ disposition group ", nm, " holds ", sum(grp == nm),
@@ -867,15 +885,49 @@ ne_assert_rcj_disposition <- function(awards) {
     }
   }
 
+  # Initiative 5.3 (new 2026-09-24) is NOT in this file's award rows, so it
+  # reconciles against the stated notice figures instead: RCJ's 12 are the
+  # notice's 13 less Regional West Medical Center's $93,867.00.
+  s53 <- sum(ne$amount_announced[grp == "intent_5_3"], na.rm = TRUE)
+  if (abs(s53 - NE_STATED$rcj_5_3_amount) > 0.005 ||
+      abs(NE_STATED$notice_5_3_total - s53 - 93867) > 0.005) {
+    stop("[NE] RCJ's Initiative 5.3 rows sum to ", sprintf("%.2f", s53),
+         "; the disposition was written against $5,455,825.25 (the DHHS ",
+         "notice's $5,549,692.25 less Regional West's $93,867).", call. = FALSE)
+  }
+  if (any(stringr::str_detect(ne$awardee_name_raw[grp == "intent_5_3"],
+                              "(?i)regional west"))) {
+    stop("[NE] RCJ now carries Regional West Medical Center under 5.3; ",
+         "re-read the disposition.", call. = FALSE)
+  }
+
   # And RCJ holds NONE of 4.4b. Stated as an identity rather than a search:
-  # the four groups above exhaust all 39 rows, so there is no room for one.
-  if (sum(grp == "non_rhtp") + sum(grp == "placeholder_3_3") +
-      NE_STATED$rcj_4_4a_rows + NE_STATED$rcj_3_3_rows !=
-      NE_STATED$rcj_candidates) {
+  # every row is in a named group above and none of them is 4.4b.
+  if (sum(counts) != NE_STATED$rcj_candidates) {
     stop("[NE] RCJ's candidate groups no longer exhaust the candidate set.",
          call. = FALSE)
   }
   invisible(TRUE)
+}
+
+#' The RCJ disposition group of each Nebraska Tier 3 candidate. A row no rule
+#' reaches is UNASSIGNED, and ne_assert_rcj_disposition() refuses it.
+ne_rcj_group <- function(ne) {
+  dplyr::case_when(
+    stringr::str_detect(ne$source_doc_title,
+                        "Organizations Submitted Applications") ~ "mislabelled_4_4a",
+    stringr::str_detect(ne$source_doc_title,
+                        stringr::fixed("RHTP Initiative 3.3 Awards")) ~ "awards_3_3",
+    stringr::str_detect(ne$source_doc_title, "Initiative 3\\.3") ~ "placeholder_3_3",
+    stringr::str_detect(ne$source_doc_title,
+                        stringr::fixed("RHTP Initiative 5.3 Awards")) ~ "intent_5_3",
+    stringr::str_detect(ne$source_doc_title,
+                        "Successful in Rhtp Grant Application") ~ "news_aggregate",
+    stringr::str_detect(ne$source_doc_title, "Intent to Award") &
+      stringr::str_detect(ne$awardee_name_raw,
+                          "Nebraska Lawyers Foundation") ~ "non_rhtp",
+    TRUE ~ "UNASSIGNED"
+  )
 }
 
 
@@ -1286,8 +1338,45 @@ ne_write_disposition <- function() {
           "whose solicitation RFA 4533 says DHHS is \"awarding state funds\"",
           "and closed 2025-05-21, seven months before Nebraska's CMS Notice of",
           "Award of 2025-12-29. State money, and a solicitation that closed",
-          "before the state had the federal money (§6.2)."),
-    "2025-04-22_ne_dhhs_rfa_4533_nhap_legal_services.pdf"
+          "before the state had the federal money (§6.2). STILL LIVE after",
+          "the 2026-09-24 re-pull (not withdrawn, not re-tiered); its title",
+          "now ends in a zero-width space, and it is on none of the four",
+          "notices including 5.3. R/02b's NE-RFA4533 registry entry matches",
+          "it NOW AS BEFORE: never, because the title carries no identifier --",
+          "which is why this row is disposed by hand."),
+    "2025-04-22_ne_dhhs_rfa_4533_nhap_legal_services.pdf",
+
+    "Initiative 5.3 intent to award -- NOT IN THIS FILE",
+    NE_STATED$rcj_5_3_rows, NE_STATED$rcj_5_3_amount,
+    "RHTP_INTENT_NOT_EXTRACTED",
+    paste("NEW AT THE 2026-09-24 RE-PULL, AND A FINDING: a real RHTP award",
+          "document this file does not extract. DHHS's 'RHTP Initiative 5.3",
+          "Awards' (09/01/2026, Modification of Existing Clinical Facilities",
+          "for Mental Health Crisis) is an Intent to Award -- 'DHHS intends to",
+          "award subawards to the following applicants' -- carrying the CMS",
+          "footer's $218,529,075.01. It lists 13 applicants / $5,549,692.25;",
+          "RCJ holds 12 / $5,455,825.25, matching the notice row for row and",
+          "DROPPING Regional West Medical Center ($93,867.00, a hospital).",
+          "RCJ's own document field says $5,776,987.25, which matches neither.",
+          "Hospital recipients on the notice include CHI Health Plainview and",
+          "Schuyler, Dundy County Hospital, Mary Lanning, Methodist Fremont and",
+          "Regional West. The notice was READ LIVE 2026-09-24 and is NOT",
+          "archived (sha256 2af6a43034d8...); it must be fetched and extracted",
+          "deliberately, not added by this disposition."),
+    "https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-5.3.pdf (live, not archived)",
+
+    "Mary Lanning news aggregate", NE_STATED$rcj_news_rows,
+    NE_STATED$rcj_news_amount, "AGGREGATE_NOT_AN_AWARD_ACTION",
+    paste("NEW AT THE 2026-09-24 RE-PULL: $1,500,000 against Mary Lanning",
+          "Healthcare under a document RCJ titles 'Mary Lanning Healthcare",
+          "Successful in Rhtp Grant Applications' (discovered 2026-08-27).",
+          "Plural in its own title: an aggregate of several awards, not one",
+          "award action. This file already holds Mary Lanning's 4.4b award",
+          "($460,239.40) and DHHS's 5.3 notice names it at $1,049,999.73; the",
+          "document is not a state source and is not archived, so which awards",
+          "make up the $1.5M could NOT BE DECIDED FROM COMMITTED EVIDENCE.",
+          "Never add it to the award rows it overlaps."),
+    NA_character_
   )
   readr::write_csv(disp, here::here(NE_DISPOSITION_CSV), na = "")
   message("[NE] wrote ", NE_DISPOSITION_CSV, " (", nrow(disp), " rows)")

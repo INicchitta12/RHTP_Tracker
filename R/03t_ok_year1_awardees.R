@@ -46,6 +46,8 @@
 # §0.1 -- AND THE INDIANA LESSON IS WHY THE CANDIDATE LIST IS NOT THE INPUT.
 # NOT ONE of RCJ's 35 Oklahoma Tier 3 candidates is one of these 68 awards.
 # Every one of the 35 is a BUDGET LINE mined out of a Tier 2 planning document:
+# (Session 62: 36 after the 2026-09-24 re-pull, the Funding Summary gaining a
+# ninth line, $6.2M HIE Interoperability; $237,814,376 in all.)
 # 8 from the Budget Narrative, 8 from the Initiative Funding Summary, 17 from
 # the two Legislative Quarterly Reports, 1 from a touchpoint webinar deck and 1
 # $1 placeholder. Their "awardees" are OHCA, OSDH, OSDE,
@@ -177,9 +179,14 @@ OK_STATED <- list(
   initiative_allocated     = 204900000,    # OK_initiative_table.xlsx, all 28 uses
   initiative_hospital      = 99800000,     # has_hospital_recipient == "Yes"
   initiative_pct_hospital  = 48.7,
-  rcj_candidates           = 35L,
-  rcj_distinct_awardees    = 25L,
-  rcj_amount_sum           = 231614376.02
+  # Session 62: 35 -> 36 at the 2026-09-24 re-pull (1 new, 0 withdrawn):
+  # a NINTH Initiative Funding Summary line, HIE Interoperability, $6,200,000.
+  rcj_candidates           = 36L,
+  rcj_distinct_awardees    = 26L,
+  rcj_amount_sum           = 237814376.02,
+  # Per-document group counts, measured 2026-09-24. A move in ANY group --
+  # not only the total -- fails the disposition.
+  rcj_group_rows = c(bn = 8L, ifs = 9L, q = 17L, tp = 1L, pul = 1L)
 )
 
 OK_NOA_DATE       <- as.Date("2025-12-29")   # cross-checked against the anchor
@@ -941,6 +948,19 @@ ok_assert_rcj_disposition <- function(recs) {
          stray$source_doc_title[1], "'. Re-read them.", call. = FALSE)
   }
 
+  # Session 62: and every per-document group holds what it held when the
+  # disposition prose was last written.
+  pats <- c(bn = "(?i)budget_?narrative", ifs = "(?i)initiative funding summary",
+            q = "(?i)legislative quarterly report", tp = "(?i)touchpoint",
+            pul = "(?i)pulsara")
+  got <- vapply(pats, function(p) sum(stringr::str_detect(cand$source_doc_title, p)),
+                integer(1))
+  if (!identical(got, OK_STATED$rcj_group_rows)) {
+    stop("[OK] an RCJ disposition group has moved: ",
+         paste0(names(got), "=", got, collapse = ", "),
+         ". Read the rows that moved.", call. = FALSE)
+  }
+
   # And NOT ONE of the 68 awardees is in the candidate set. This is the §0.1
   # finding stated as an assertion rather than a sentence.
   micro <- recs %>% dplyr::filter(.data$award_pool == "MICROGRANTS")
@@ -1223,10 +1243,10 @@ ok_build <- function() {
     "the source in the same shape as the other 68 and are deliberately NOT",
     "rows here.",
     "",
-    "RCJ HOLDS NONE OF THIS. All 35 of its Oklahoma Tier 3 candidates are",
+    "RCJ HOLDS NONE OF THIS. All 36 of its Oklahoma Tier 3 candidates are",
     "BUDGET LINES from four Tier 2 planning documents, and their 'awardees'",
     "are the administering agencies (OHCA, OSDH, OSDE, OSU, OUHSC, SWODA).",
-    "Taken at face value they would have published $231,614,376 of programme",
+    "Taken at face value they would have published $237,814,376 of programme",
     "allocations as subawards -- MORE THAN THE WHOLE ALLOTMENT. See",
     "ok_rcj_candidate_disposition.csv."
   )))
@@ -1367,6 +1387,14 @@ ok_write_disposition <- function() {
          " of ", nrow(cand), " candidates. A candidate has arrived from a ",
          "document this table does not describe.", call. = FALSE)
   }
+  got <- c(bn = bn$n, ifs = ifs$n, q = q$n, tp = tp$n, pul = pul$n)
+  if (!identical(got, OK_STATED$rcj_group_rows)) {
+    stop("[OK] an RCJ disposition group has moved: ",
+         paste0(names(got), "=", got, collapse = ", "), " against ",
+         paste0(names(OK_STATED$rcj_group_rows), "=", OK_STATED$rcj_group_rows,
+                collapse = ", "), ". Read the rows that moved and re-write ",
+         "the prose; do not adjust the constant to match.", call. = FALSE)
+  }
 
   disp <- tibble::tribble(
     ~group, ~rcj_rows, ~rcj_amount, ~disposition, ~basis, ~state_document,
@@ -1386,7 +1414,12 @@ ok_write_disposition <- function() {
           "OK_initiative_table.xlsx. Every line is a 'Funding Allocated:'",
           "figure against a named lead agency (OSU, OU/OSU, the Oklahoma",
           "Hospital Association, SWODA, OHCA). An allocation to an",
-          "administering agency is Tier 2 and may never be unioned with Tier 3."),
+          "administering agency is Tier 2 and may never be unioned with Tier 3.",
+          "SESSION 62: 8 -> 9 at the 2026-09-24 re-pull. The new row's",
+          "'awardee' is 'Building Health Data Utility: Health Information",
+          "Exchange (HIE) Interoperability' at $6,200,000 -- the packet's own",
+          "initiative 34 heading and its 'Funding Allocated: $6,200,000', a",
+          "PROGRAMME name as awardee (§6.1) naming nobody at all."),
     "2026-03-10_ok_rhtp_initiative_funding_summary.pdf",
 
     "Legislative Quarterly Report Q1 and Q2 programme rows",

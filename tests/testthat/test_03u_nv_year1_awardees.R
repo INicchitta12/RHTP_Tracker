@@ -359,12 +359,15 @@ test_that("a SECOND document corroborates that no per-recipient amount exists", 
 
 # -- §0.1: RCJ's 34 candidates -------------------------------------------------
 
-test_that("all 34 candidates are dispositioned, and the arithmetic closes", {
+test_that("all 42 candidates are dispositioned, and the arithmetic closes", {
   skip_if_no_archive()
   expect_true(nv_assert_candidate_disposition())
   cand <- nv_classify_candidates()
   expect_equal(nrow(cand), NV_STATED$rcj_candidates)
+  # Session 62: 34 -> 42 at the 2026-09-24 re-pull.
+  expect_equal(nrow(cand), 42L)
   expect_false(any(is.na(cand$disposition)))
+  expect_false(any(cand$disposition == "UNASSIGNED"))
   d <- nv_disposition_table()
   expect_equal(sum(d$rcj_rows), nrow(cand))
   expect_equal(sum(d$rcj_amount_sum), sum(cand$amount_announced, na.rm = TRUE))
@@ -390,6 +393,27 @@ test_that("seventeen candidates are STATE money and seven are the pool totals", 
   expect_equal(sum(cand$disposition == "RHTP_SUBAWARD_IN_FILE"), 10L)
 })
 
+test_that("the eight new 2026-09-24 candidates: 3 initiative lines, 5 contractors", {
+  skip_if_no_archive()
+  cand <- nv_classify_candidates()
+  il <- cand[cand$disposition == "RHTP_INITIATIVE_BUDGET_LINE", ]
+  expect_equal(nrow(il), 3L)
+  expect_equal(sum(il$amount_announced), 40000000 + 26989741 + 1298985)
+  ac <- cand[cand$disposition == "RHTP_ADMIN_CONTRACT_NOT_IN_FILE", ]
+  expect_equal(nrow(ac), 5L)
+  expect_equal(round(sum(ac$amount_announced), 2), 1935762.88)
+  # None of the five contractors is in the award file, and none is added.
+  recs <- nv_records()
+  expect_equal(intersect(tolower(ac$awardee_name_clean), tolower(recs$awardee)),
+               character(0))
+  # A candidate nobody has read falls into no group.
+  fake <- cand[1, ]
+  fake$source_doc_title <- "NV - 2026 - Something new"
+  fake$awardee_name_clean <- "Nobody In Particular"
+  fake$amount_announced <- 12345
+  expect_equal(nv_classify_candidates(fake)$disposition, "UNASSIGNED")
+})
+
 test_that("the ten real candidates are IN the file, and all carry $1", {
   skip_if_no_archive()
   cand <- nv_classify_candidates()
@@ -404,8 +428,8 @@ test_that("the ten real candidates are IN the file, and all carry $1", {
 test_that("§0.1: the candidate list at face value is mostly not Nevada RHTP subawards", {
   skip_if_no_archive()
   inf <- nv_candidate_inflation()
-  expect_equal(inf$candidates, 34L)
-  expect_equal(inf$face_value, 131643055)
+  expect_equal(inf$candidates, 42L)
+  expect_equal(round(inf$face_value, 2), 201867543.88)
   expect_gt(inf$state_money, 28000000)
   expect_equal(inf$real_award_amount, 10)
   # RCJ holds ten of Nevada's seventy-two published award actions.

@@ -214,8 +214,15 @@ NV_STATED <- list(
   deck_at_requested     = 44305961,
   press_rr_requested    = 41900000,      # "with $41.9 million requested"
   # RCJ, re-derived from the record table on every run -- never typed.
-  rcj_candidates        = 34L,
-  rcj_distinct_awardees = 34L
+  # Session 62: 34 -> 42 at the 2026-09-24 re-pull (8 new, 0 withdrawn).
+  rcj_candidates        = 42L,
+  rcj_distinct_awardees = 42L,
+  # Per-disposition counts, measured 2026-09-24. Movement in ANY group fails.
+  rcj_group_rows = c(NOT_RHTP_STATE_PROGRAM = 17L,
+                     RHTP_BUT_NOT_A_SUBAWARD = 7L,
+                     RHTP_SUBAWARD_IN_FILE = 10L,
+                     RHTP_INITIATIVE_BUDGET_LINE = 3L,
+                     RHTP_ADMIN_CONTRACT_NOT_IN_FILE = 5L)
 )
 
 # THE COMBINED WRRAP FIGURE IS STABLE UNDER THE CONFLICT, and this is the
@@ -1302,8 +1309,25 @@ nv_classify_candidates <- function(cand = NULL) {
           "(?i)^(provider recruitment and retention|apprenticeship and training|rural medical residency)") ~
           "RHTP_BUT_NOT_A_SUBAWARD",
         # A line item out of the RFA's budget-narrative TEMPLATE.
-        stringr::str_detect(.data$source_doc_title, "(?i)budget narrative") ~
+        stringr::str_detect(.data$source_doc_title,
+                            "(?i)attachment c: budget narrative") ~
           "RHTP_BUT_NOT_A_SUBAWARD",
+        # Session 62 (new at the 2026-09-24 re-pull): INITIATIVE-level
+        # budget lines -- an initiative or programme name as the awardee --
+        # out of NVHA's RHT Budget Narrative and its 02.26 stakeholder deck.
+        stringr::str_detect(.data$source_doc_title,
+          "(?i)nevada rht budget narrative|rht-stakeholder-meetings") ~
+          "RHTP_INITIATIVE_BUDGET_LINE",
+        # Session 62: five named CONTRACTORS out of Nevada's CMS Programmatic
+        # Annual Report. RCJ's "2025" title prefix is aggregator metadata and
+        # is never read as a date (§2).
+        stringr::str_detect(.data$source_doc_title,
+                            "(?i)CMS Programmatic Annual Report") ~
+          "RHTP_ADMIN_CONTRACT_NOT_IN_FILE",
+        # The ten Flex Fund awardees, off the steering committee's agenda slide.
+        stringr::str_detect(.data$source_doc_title,
+                            "(?i)^NV - 2026 - Agenda Nevada RHT Program Activity$") ~
+          "RHTP_SUBAWARD_IN_FILE",
         # The nine GME programmes, under either of the two titles RCJ files
         # them beneath. Matched on the AMOUNT and on the name: RCJ publishes
         # UNLV Ophthalmology at $2,995,893 under one title and $2,995,890 --
@@ -1314,7 +1338,8 @@ nv_classify_candidates <- function(cand = NULL) {
           stringr::str_detect(.data$awardee_name_clean,
             "(?i)residency|fellowship|ophthalmolog|otolaryngolog|radiolog|gynecolog|pulmonary|family medicine|internal medicine|general surgery") ~
           "NOT_RHTP_STATE_PROGRAM",
-        TRUE ~ "RHTP_SUBAWARD_IN_FILE"),
+        # Session 62: nothing falls through into a group by default any more.
+        TRUE ~ "UNASSIGNED"),
       .after = "awardee_name_clean")
 }
 
@@ -1395,7 +1420,45 @@ nv_disposition_table <- function() {
       "came off the wrong page)."),
     "amount_announced = $1 on all ten; the title is the agenda slide's text",
     "https://www.nvha.nv.gov/RHTP/rht-meetings/",
-    "data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf"
+    "data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf",
+
+    "Initiative budget lines from the RHT Budget Narrative and the 02.26 stakeholder deck",
+    n_of("RHTP_INITIATIVE_BUDGET_LINE"), amt_of("RHTP_INITIATIVE_BUDGET_LINE"),
+    "RHTP_INITIATIVE_BUDGET_LINE",
+    paste0(
+      "NEW AT THE 2026-09-24 RE-PULL. Genuinely RHTP and Tier 2 (§0.2): the ",
+      "'awardee' is an INITIATIVE or PROGRAMME name, not a recipient (§6.1's ",
+      "PROGRAM_NAME_AS_AWARDEE) -- 'Nevada Rural Health System Flex Fund' ",
+      "($40,000,000, a five-year budget-narrative line) and, from the ",
+      "February 2026 stakeholder deck, 'Rural Health Innovation and ",
+      "Technology (RHIT)' ($26,989,741) and 'Presidential Fitness Test' ",
+      "($1,298,985). RCJ carries sibling lines from the same two documents ",
+      "(RHOAP, Tribal, Veterans, Corrections, WRRAP) as Tier 2 already; ",
+      "these three are the ones its tiering let through. The Flex Fund's ",
+      "real awards are the 25 named rows in nv_year1_awardees.csv, which ",
+      "carry no amount; $40M divided by anything is nobody's figure (§6.2)."),
+    "an initiative name as awardee, from two planning documents",
+    "https://www.nvha.nv.gov/RHTP/",
+    NA_character_,
+
+    "Five TA and staffing contractors from Nevada's CMS Programmatic Annual Report",
+    n_of("RHTP_ADMIN_CONTRACT_NOT_IN_FILE"), amt_of("RHTP_ADMIN_CONTRACT_NOT_IN_FILE"),
+    "RHTP_ADMIN_CONTRACT_NOT_IN_FILE",
+    paste0(
+      "NEW AT THE 2026-09-24 RE-PULL, AND A FINDING THIS FILE DOES NOT ",
+      "EXTRACT: Health Management Associates ($588,000), Health Services ",
+      "Advisory Group ($429,574), Manatt Health Strategies ($305,000), ",
+      "Milliman Inc ($468,440) and Reliable Health Care Services ",
+      "($144,748.88) -- named contractors under a document RCJ titles 'CMS ",
+      "Programmatic Annual Report'. They are administrative/technical-",
+      "assistance spend (South Dakota's contract shape, session 12), not the ",
+      "Funded Projects roster this file extracts, and none is a hospital. The ",
+      "annual report is NOT in data/evidence/NV, so neither the figures nor ",
+      "that every one is RHTP-funded could be decided from committed ",
+      "evidence; they are NOT added to the award file."),
+    "no committed state source; RCJ-hosted annual report only",
+    NA_character_,
+    NA_character_
   )
 }
 
@@ -1414,10 +1477,22 @@ nv_assert_candidate_disposition <- function() {
     stop("[NV] the disposition table accounts for ", sum(d$rcj_rows),
          " candidates of ", nrow(cand), ".", call. = FALSE)
   }
-  # NOT ONE of the 34 may be missing a disposition.
-  if (any(is.na(cand$disposition))) {
-    stop("[NV] ", sum(is.na(cand$disposition)),
-         " Nevada candidates have no disposition.", call. = FALSE)
+  # NOT ONE may be missing a disposition, or fall into no group.
+  if (any(is.na(cand$disposition) | cand$disposition == "UNASSIGNED")) {
+    bad <- cand[is.na(cand$disposition) | cand$disposition == "UNASSIGNED", ]
+    stop("[NV] ", nrow(bad), " Nevada candidates fall into no disposition ",
+         "group. READ them:\n",
+         paste0("  ", bad$record_id, " | ", bad$source_doc_title, " | ",
+                bad$awardee_name_clean, " | ", bad$amount_announced,
+                collapse = "\n"), call. = FALSE)
+  }
+  # Session 62: every group holds what it held when its prose was written.
+  got <- vapply(names(NV_STATED$rcj_group_rows),
+                function(g) sum(cand$disposition == g), integer(1))
+  if (!identical(got, NV_STATED$rcj_group_rows)) {
+    stop("[NV] an RCJ disposition group has moved: ",
+         paste0(names(got), "=", got, collapse = ", "),
+         ". Read the rows that moved.", call. = FALSE)
   }
   # The state-money group must cover the nine GME programmes and nothing else:
   # every distinct amount in it is one the GME release published.
@@ -1622,7 +1697,7 @@ nv_write_workbook <- function(out, disp) {
       "THE NINE GME AWARDS ARE NOT IN THIS FILE AND MUST NOT BE ADDED TO IT.",
       "NVHA announced $15,755,068 to nine residency programmes on 2026-07-22.",
       "That is STATE GENERAL FUND money -- NVHA's own workforce publication says",
-      "so -- and seventeen of RCJ's 34 Nevada candidates are those nine awards.",
+      "so -- and seventeen of RCJ's 42 Nevada candidates (34 before 2026-09-24) are those nine.",
       "",
       "23 rows carry §8's standing fallback (NONPROFIT_CBO + LOW): NVHA states no",
       "recipient's organisational form. Renown Health, Carson Valley Health and",
