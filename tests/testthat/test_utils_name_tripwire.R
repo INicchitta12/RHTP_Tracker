@@ -331,7 +331,11 @@ test_that("every probe that offers --probe also runs the name tripwire", {
   # a twentieth state file cannot quietly ship a probe with only a phrase
   # list. Alaska and South Dakota are the two recorded exemptions and they say
   # why in their own source.
-  exempt <- c("03h_ak_year1_awardees.R", "03i_sd_rht_contracts.R")
+  # Session 61 adds the NEWSROOM SWEEP: every page it reads is a press index,
+  # the page §2.3 names as moving for reasons that are not the state awarding.
+  # Its phrase test is scoped to headlines ABSENT from the baseline instead.
+  exempt <- c("03h_ak_year1_awardees.R", "03i_sd_rht_contracts.R",
+              "03bg_newsroom_sweep.R")
   files <- list.files(here::here("R"), pattern = "\\.R$", full.names = TRUE)
   offenders <- character(0)
   for (f in files) {

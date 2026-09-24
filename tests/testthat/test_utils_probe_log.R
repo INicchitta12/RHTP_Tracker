@@ -204,7 +204,10 @@ test_that("the committed log exists and every row is well formed", {
   got <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
   expect_equal(names(got), RHTP_PROBE_LOG_COLUMNS)
   expect_true(all(got$verdict %in% RHTP_PROBE_VERDICTS))
-  expect_true(all(nchar(got$state) == 2L))
+  # A state code, or one of the two registered multi-state probes: CMS (the
+  # trigger list) and NEWSROOM (session 61's 18-state sweep, whose page
+  # column carries the state as "<ST>:<key>").
+  expect_true(all(nchar(got$state) == 2L | got$state %in% c("CMS", "NEWSROOM")))
   expect_false(anyNA(got$probed_at))
 })
 

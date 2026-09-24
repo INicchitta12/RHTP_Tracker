@@ -1,0 +1,9 @@
+FEDERAL RECORDS -- fetched 2026-09-24 by session 61
+
+WHY THESE ARE HERE. R/03bf_nj_year1_awardees.R types New Jersey's hospital and FQHC recipients against CMS's own NJ enrolment files rather than their names. AtlantiCare Health Services, Inc. is enrolled ONLY as an FQHC here (not the hospital, which is AtlantiCare Regional Medical Center, CCN 310064). R/03ar_rural_cut_report.R reads the hospital slice by CCN.
+
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)". Bytes as served.
+
+file | sha256 | bytes | source
+cms_hosp_enrollments_NJ.json | 8006fc674515b383e46e153493803e2186fabce053210498c30c1f9dba5c1985 | 156429 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NJ&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_NJ.json | b03f2512c1cd7eced03f8b70d3fea2ad4236c046c9ba2ed4d0c0cd44c04d8860 | 70806 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=NJ&size=5000 (FQHC Enrollments)

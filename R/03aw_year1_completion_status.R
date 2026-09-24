@@ -70,7 +70,8 @@ Y1_AWARD_FILES <- c(
   NY = "ny_year1_awardees.csv",  VT = "vt_year1_awardees.csv",
   CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv",
   TN = "tn_year1_awardees.csv",
-  VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv"
+  VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv",
+  NJ = "nj_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -310,7 +311,11 @@ Y1_STATUS <- tibble::tribble(
   "WA", "PARTIAL", "No", "Yes",
   "2026-09-16",
   "HCA's deck prices first-tier lines but its competitive pools (incl. 1.4, $10.71M for rural hospitals) name no winners, and 6.4 is 'RFA posted' (session 60).",
-  "data/evidence/recheck/2026-09-23/WA/hca_rhtp_webinar_2026-09-16.pdf"
+  "data/evidence/recheck/2026-09-23/WA/hca_rhtp_webinar_2026-09-16.pdf",
+  "NJ", "PARTIAL", "No", "Yes",
+  "2026-07-31",
+  "The Governor: 'the first round of grant awards ... investing $83 million', against 'the Department of Health administering approximately $95 million in competitive grant funding' (session 61).",
+  "data/evidence/recheck/2026-09-24/NJ/governor_release_2026-07-31_first_round_awards.html"
 )
 
 

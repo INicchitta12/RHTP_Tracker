@@ -38,7 +38,9 @@ DIFF_NEW_ROWS <- "data/reference/rcj_pull_new_award_rows.csv"
 # file's CLI offers --probe; none is in config/routines.csv). Hand-kept, and
 # the build refuses if one of them turns up in routines.csv, so the list
 # cannot silently go stale in the direction that overstates exposure.
-DIFF_PROBE_NO_ROUTINE <- c("DE", "ID", "OH", "SD", "TX")
+# SESSION 61: all five are now on Routines (config/routines.csv), so the list
+# is empty. It stays, so a future unscheduled probe has somewhere to go.
+DIFF_PROBE_NO_ROUTINE <- character(0)
 
 
 diff_read <- function(pull_date, endpoint) {

@@ -1,0 +1,3 @@
+state,group,records,disposition,note
+NJ,"RCJ New Jersey records, pull 2026-08-27 (stage 2 record table)",17,NO_TIER_3,0 SUBAWARD records. The 08-27 pull predates nothing: the roster was public from 2026-07-31 and RCJ had not caught it.
+NJ,"RCJ New Jersey /awards rows, pull 2026-09-24 (raw)",0,PARTIAL_COVERAGE,Session 60 read 11 of the 103 awards here. A discovery signal only (§0.1); every row in nj_year1_awardees.csv is built from the state PDF.

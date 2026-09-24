@@ -44,7 +44,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 43,MA,Massachusetts,0,0,0,0,0,0,,0,No,,,,162005238,INVESTIGATED_NO_PROBE,NEITHER,No
 44,MN,Minnesota,0,0,0,0,0,0,,0,No,,,,193090618,INVESTIGATED_NO_PROBE,NEITHER,No
 45,NC,North Carolina,0,0,0,0,0,0,,0,Yes,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,CMS_ONLY,No
-46,NJ,New Jersey,0,0,0,0,0,0,,0,No,,,,147250806,INVESTIGATED_NO_PROBE,NEITHER,No
+46,NJ,New Jersey,0,0,0,0,0,0,,0,No,,,,147250806,EXTRACTED,NEITHER,No
 47,NY,New York,0,0,0,0,0,0,,0,Yes,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-76-million-strengthen-regional-coordination-modernize-healthcare,212058208,EXTRACTED,CMS_ONLY,No
 48,SC,South Carolina,0,0,0,0,0,0,,0,Yes,2026-09-17,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-167-million-build-rural-care-sites-upgrade-health-technology,200030252,EXTRACTED,CMS_ONLY,No
 49,TN,Tennessee,0,0,0,0,0,0,,0,No,,,,206888882,EXTRACTED,NEITHER,No

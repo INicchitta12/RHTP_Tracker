@@ -1,0 +1,188 @@
+# DERIVED_grow_regional_recipients.csv: parsed by session 61 from grow_regional_grants_page.html (the 'Grant Recipient Organizations' table under each region). NOT a state file. 186 rows / 178 distinct names; NO per-organisation amount is published anywhere. classifier_type is the shared §8 name rule's answer and is NOT a determination (it misses Franciscan, IU Health, Parkview Huntington, Union Health, Ascension St. Vincent Jennings, St. Elizabeth Dearborn, and wrongly reaches Cummins Behavioral Health Systems).
+region,org,classifier_type
+1,Affiliated Service Providers of Indiana,NONPROFIT_CBO
+1,enFocus Inc.,NONPROFIT_CBO
+1,Maple City Health Care Center,NONPROFIT_CBO
+1,"NWI Food Council, Inc.",NONPROFIT_CBO
+1,University of Notre Dame,UNIVERSITY_OR_AHC
+1,Community Hospital of Bremen,HOSPITAL_OR_SYSTEM
+1,Franciscan Health Rensselaer,NONPROFIT_CBO
+1,Marshall County Community Foundation,NONPROFIT_CBO
+1,Pulaski Memorial Hospital,HOSPITAL_OR_SYSTEM
+1,Woodlawn Hospital,HOSPITAL_OR_SYSTEM
+1,CoAction,NONPROFIT_CBO
+1,Goshen Health System,HOSPITAL_OR_SYSTEM
+1,"Marshall County HOPE, Inc.",NONPROFIT_CBO
+1,"REAL Services, Inc.",NONPROFIT_CBO
+1,Community Foundation of Elkhart County,NONPROFIT_CBO
+1,HealthLinc,NONPROFIT_CBO
+1,Michiana Behavioral Health,NONPROFIT_CBO
+1,Saint Joseph Regional Medical Center Plymouth Campus Inc.,HOSPITAL_OR_SYSTEM
+1,Cultivate Food Rescue,NONPROFIT_CBO
+1,Indiana Immunization Coalition,NONPROFIT_CBO
+1,NorthShore Health Centers,NONPROFIT_CBO
+1,Saint Joseph's College,UNIVERSITY_OR_AHC
+1,Elkhart General Hospital,HOSPITAL_OR_SYSTEM
+1,Jasper Newton Foundation Inc.,NONPROFIT_CBO
+1,Northwest Health Starke Hospital,HOSPITAL_OR_SYSTEM
+1,Starke County EMS,EMS_OR_PSAP
+2,Adams County Memorial Hospital,HOSPITAL_OR_SYSTEM
+2,Cole Center Young Men's Christian Association Inc.,NONPROFIT_CBO
+2,Kosciusko Community YMCA,NONPROFIT_CBO
+2,Parkview Hospital,HOSPITAL_OR_SYSTEM
+2,Well County Council on Aging,NONPROFIT_CBO
+2,Ball State University,UNIVERSITY_OR_AHC
+2,Kosciusko County Clubhouse,NONPROFIT_CBO
+2,LaGrange County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+2,Parkview Huntington Family Young Men's Christian Association,NONPROFIT_CBO
+2,YMCA of Dekalb County Inc,NONPROFIT_CBO
+2,Bluffton Health System LLC,HOSPITAL_OR_SYSTEM
+2,Dukes Health System LLC,HOSPITAL_OR_SYSTEM
+2,"Living Well in Wabash County CoA, Inc",NONPROFIT_CBO
+2,Steuben County Council on Aging,NONPROFIT_CBO
+2,YMCA of Greater Fort Wayne,NONPROFIT_CBO
+2,Cameron Memorial Community Hospital Inc.,HOSPITAL_OR_SYSTEM
+2,Healthy Community Coalition of Kosciusko County,NONPROFIT_CBO
+2,Miami County Young Men's Christian Association,NONPROFIT_CBO
+2,The Community Health Clinic,NONPROFIT_CBO
+2,YMCA of Steuben County,NONPROFIT_CBO
+2,Cass Area Transit Inc,NONPROFIT_CBO
+2,Huntington County Council on Aging,NONPROFIT_CBO
+2,"Noble County Council on Aging, Inc",NONPROFIT_CBO
+2,Turnstone Center for Children and Adults with Disabilities Inc,NONPROFIT_CBO
+2,"YWCA of Northeast Indiana, Inc.",NONPROFIT_CBO
+2,City of Warsaw,LOCAL_GOVT_OR_PUBLIC_HEALTH
+2,"Indiana Health Centers, Inc.",NONPROFIT_CBO
+2,Northeastern Center,NONPROFIT_CBO
+2,Wabash County YMCA,NONPROFIT_CBO
+3,"Area IV Agency on Aging and Community Action Programs, Inc",NONPROFIT_CBO
+3,Clinton County EMS,EMS_OR_PSAP
+3,"Health Communities of Clinton County, Inc",NONPROFIT_CBO
+3,"OPEN DOOR HEALTH CLINIC, INC.",NONPROFIT_CBO
+3,"St. Vincent Williamsport Hospital, Inc.",HOSPITAL_OR_SYSTEM
+3,Benton County Emergency Ambulance Service,EMS_OR_PSAP
+3,Clinton County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+3,Indiana Diaper Bank,NONPROFIT_CBO
+3,"Paul Phillippe Resource Center, Inc.",NONPROFIT_CBO
+3,"Valley Oaks Health, Inc",NONPROFIT_CBO
+3,"Boone County Senior Services, Inc",NONPROFIT_CBO
+3,Community Action Program Inc of Western Indiana,NONPROFIT_CBO
+3,"Indiana Immunization Coalition, Inc.",NONPROFIT_CBO
+3,Phoenix Paramedic Solutions LLC,NONPROFIT_CBO
+3,"White County Council on Aging, Inc.",NONPROFIT_CBO
+3,"Carroll County Council on Aging, Inc.",NONPROFIT_CBO
+3,Crawfordsville Area Transit,NONPROFIT_CBO
+3,"Indiana University Health, Inc",UNIVERSITY_OR_AHC
+3,Purdue University,UNIVERSITY_OR_AHC
+3,City of Crawfordsville - Mobile Integrated Health,LOCAL_GOVT_OR_PUBLIC_HEALTH
+3,Franciscan Health Foundation,NONPROFIT_CBO
+3,Monticello Fire Department,NONPROFIT_CBO
+3,"Riggs Community Health Center, Inc",FQHC_OR_RHC
+4,"Aspire Indiana, Inc.",NONPROFIT_CBO
+4,"Damar Services, Inc.",NONPROFIT_CBO
+4,Ivy Tech Community Colleges-Henry County,NONPROFIT_CBO
+4,New Castle EMS,EMS_OR_PSAP
+4,"St. Vincent Randolph Hospital, Inc.",HOSPITAL_OR_SYSTEM
+4,Ball State University,UNIVERSITY_OR_AHC
+4,Henry County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+4,"LifeStream Services, Inc.",NONPROFIT_CBO
+4,Randolph County EMS,EMS_OR_PSAP
+4,Union County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+4,"Bridges to Health, Inc.",NONPROFIT_CBO
+4,"Indiana Association of SkillsUSA, Incorporated",NONPROFIT_CBO
+4,Madison County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+4,Randolph Eastern School Building Corporation,NONPROFIT_CBO
+4,Wayne County Auditor,NONPROFIT_CBO
+4,"Carey Services, Inc.",NONPROFIT_CBO
+4,Indiana District 6 Healthcare Coalition,NONPROFIT_CBO
+4,"Marion General Hospital, Inc.",HOSPITAL_OR_SYSTEM
+4,"Reid Hospital & Health Care Services, Inc.",HOSPITAL_OR_SYSTEM
+4,"Well Care Community Health, Inc.",NONPROFIT_CBO
+4,"Centerstone of Indiana, Inc.",NONPROFIT_CBO
+4,"Indiana University Health, Inc",UNIVERSITY_OR_AHC
+4,"Neighborhood Health Center, Inc.",NONPROFIT_CBO
+4,"SPIRIT MEDICAL TRANSPORT, LLC",NONPROFIT_CBO
+5,Area 10 Council on Aging of Monroe and Owen Co Inc,NONPROFIT_CBO
+5,Harsha Behavioral Center,NONPROFIT_CBO
+5,Putnam County Hospital,HOSPITAL_OR_SYSTEM
+5,Union Health Inc.,NONPROFIT_CBO
+5,"Cummins Behavioral Health Systems, Inc.",HOSPITAL_OR_SYSTEM
+5,"Indiana Health Centers, Inc.",NONPROFIT_CBO
+5,St. Vincent Clay Hospital Inc.,HOSPITAL_OR_SYSTEM
+5,Union Hospital Clinton,HOSPITAL_OR_SYSTEM
+5,Greene County General Hospital,HOSPITAL_OR_SYSTEM
+5,Owen County EMS,EMS_OR_PSAP
+5,Sullivan County Ambulance Service,EMS_OR_PSAP
+5,Valley Professionals Community Health Center,FQHC_OR_RHC
+5,"Hamilton Center, Inc.",NONPROFIT_CBO
+5,Putnam County Emergency Medical Services (EMS) - Mobile Integrated Health (MIH) Program,EMS_OR_PSAP
+5,Sullivan County Community Hospital,HOSPITAL_OR_SYSTEM
+5,"West Central Indiana Economic Development District, Inc.",NONPROFIT_CBO
+6,Aging and Community Services of South Central Indiana,NONPROFIT_CBO
+6,Decatur Shelby County YMCA,NONPROFIT_CBO
+6,Jennings County Coordinating Council,NONPROFIT_CBO
+6,Ripley County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,Switzerland County YMCA,NONPROFIT_CBO
+6,Aspire Indiana Health,NONPROFIT_CBO
+6,"East Indiana Area Health Education Center, Inc.",AHEC
+6,Jennings County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,Rush Memorial Hospital,HOSPITAL_OR_SYSTEM
+6,Tech Literacy Services,NONPROFIT_CBO
+6,Ascension St. Vincent Jennings,NONPROFIT_CBO
+6,Franklin County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,"LifeSpan Resources, Inc.",NONPROFIT_CBO
+6,Scott County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,Valcore Recover LLC,NONPROFIT_CBO
+6,Centerstone,NONPROFIT_CBO
+6,INcompass Healthcare,NONPROFIT_CBO
+6,LifeStream,NONPROFIT_CBO
+6,"The Scott County Partnership, Inc.",NONPROFIT_CBO
+6,"Well Care Community Health, Inc.",NONPROFIT_CBO
+6,Dearborn County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,Infants in BLOOM LLC,NONPROFIT_CBO
+6,LifeTime Resources,NONPROFIT_CBO
+6,Southeast Indiana YMCA,NONPROFIT_CBO
+6,Decatur County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,"Inspire Success, Inc.",NONPROFIT_CBO
+6,Margaret Mary Community Hospital,HOSPITAL_OR_SYSTEM
+6,St. Elizabeth Dearborn,NONPROFIT_CBO
+6,Decatur County Memorial Hospital,HOSPITAL_OR_SYSTEM
+6,Jefferson County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,Ohio County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+6,Switzerland County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+7,"Boys & Girls Club of Seymour, Inc.",NONPROFIT_CBO
+7,Hoosier Uplands Economic Development Corporation,NONPROFIT_CBO
+7,Journey Together RCO Inc.,NONPROFIT_CBO
+7,Southern Indiana Community Health Care Inc,NONPROFIT_CBO
+7,Valcore Recover LLC,NONPROFIT_CBO
+7,Centerstone,NONPROFIT_CBO
+7,Indiana Health Centers Inc,NONPROFIT_CBO
+7,LIFE House Living in Freedom Every Day Corp.,NONPROFIT_CBO
+7,"St. Vincent Salem Hospital, Inc.",HOSPITAL_OR_SYSTEM
+7,Youth First Inc,NONPROFIT_CBO
+7,Engleking RX LLC,NONPROFIT_CBO
+7,Indiana Immunization Coalition,NONPROFIT_CBO
+7,Lifespring Inc.,NONPROFIT_CBO
+7,Team OC Inc,NONPROFIT_CBO
+7,Fathers Forever Coalition Inc,NONPROFIT_CBO
+7,Indiana University Health Inc,UNIVERSITY_OR_AHC
+7,Perry Central Community School,NONPROFIT_CBO
+7,Team Peace Inc.,NONPROFIT_CBO
+7,Harrison County Hospital,HOSPITAL_OR_SYSTEM
+7,Jackson County Schneck Memorial Hospital,HOSPITAL_OR_SYSTEM
+7,Perry County Memorial Hospital,HOSPITAL_OR_SYSTEM
+7,Trustees of Indiana University,UNIVERSITY_OR_AHC
+8,Deaconess Hospital Inc.,HOSPITAL_OR_SYSTEM
+8,Good Samaritan Family Health Center Inc.,NONPROFIT_CBO
+8,Posey County EMS,EMS_OR_PSAP
+8,Ascension St. Vincent,NONPROFIT_CBO
+8,Vanderburgh County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+8,Gibson County Ambulance Service,EMS_OR_PSAP
+8,Good Samaritan Hospital,HOSPITAL_OR_SYSTEM
+8,"Southwestern Behavioral Healthcare, Inc.",NONPROFIT_CBO
+8,Trustees of Indiana University,UNIVERSITY_OR_AHC
+8,"YouthFirst, Inc.",NONPROFIT_CBO
+8,Gibson County Health Department,LOCAL_GOVT_OR_PUBLIC_HEALTH
+8,"LifsSpring, Inc.",NONPROFIT_CBO
+8,"Spencer County Emergency Ambulance Service, Inc.",EMS_OR_PSAP
+8,University of Southern Indiana,UNIVERSITY_OR_AHC
