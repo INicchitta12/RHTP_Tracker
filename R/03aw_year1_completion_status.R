@@ -71,7 +71,8 @@ Y1_AWARD_FILES <- c(
   CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv",
   TN = "tn_year1_awardees.csv",
   VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv",
-  NJ = "nj_year1_awardees.csv"
+  NJ = "nj_year1_awardees.csv",
+  LA = "la_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -195,6 +196,11 @@ Y1_STATUS <- tibble::tribble(
   "Governor's release: the Workforce Expansion Initiative and Psychiatric Emergency Services (EmPATH) 'are currently being reviewed and will be announced in the next 30 to 45 days'; two further opportunities launch in October (session 46).",
   "data/evidence/MS/2026-09-14_ms_governor_167_awards_ROSTER.html",
 
+  "LA", "PARTIAL", "No", "Yes",
+  "2026-09-21",
+  "One of seven Budget Year 1 solicitations has awarded (the Rural Clinician Credit Bank, 53 awards as of 8/28, session 64); LDH's programme page still dates the other six announcement windows to the end of September 2026.",
+  "data/evidence/LA/2026-09-21_la_ldh_rhtp_programme_SEVEN_WINDOWS_RE_DATED.html",
+
   "KS", "PARTIAL", "No", "Yes",
   "2026-09-22",
   "KDHE's programme page: 'Open RHTP Funding Opportunities -- More funding opportunities coming soon.' Interfacility Transport (RFA webinar 2026-07-08), Evidence-Based Practice and KHA Healthworks have published no award.",
@@ -221,9 +227,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/OK/2026-08-31_ok_rhtp_funding.html",
 
   "NV", "PARTIAL", "No", "Yes",
-  "2026-08-31",
-  "RHIT and RHOAP closed with decisions due 8/10 and 8/14 and no roster; NVHA: 'All RHT subawards for BP1 to be finalized by October 1, 2026' (session 26).",
-  "data/evidence/NV/2026-08-31_nv_rht_nofos.html; data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf",
+  "2026-09-24",
+  "RHIT, RHOAP and a Tribal section have since awarded (155 named actions, session 64), but the Presidential Fitness Test, Correctional and Veterans opportunities still have no section, and NVHA: 'All RHT subawards for BP1 to be finalized by October 1, 2026' (session 26).",
+  "data/evidence/NV/2026-09-24_nv_rht_funded_projects_bp1.html; data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf",
 
   "MO", "PARTIAL", "No", "Yes",
   "2026-09-23",

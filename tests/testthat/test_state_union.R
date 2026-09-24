@@ -243,7 +243,13 @@ STATE_FILES <- c(
   # regions, NO per-organisation amount (amount empty, the region figure in
   # round_amount). 44 named-hospital rows and $0 -- READ THE ROW COUNT. A
   # second Indiana file beside the seven procurement vendors.
-  IN_GROW = "data/reference/in_grow_regional_awardees.csv"
+  IN_GROW = "data/reference/in_grow_regional_awardees.csv",
+
+  # SESSION 64. LOUISIANA'S RURAL CLINICIAN CREDIT BANK: 5 named awards
+  # ($1,965,788) and ONE aggregate row for the 48 LDH names nowhere (amount
+  # empty, $10,736,208 in round_amount). LDH's "20 hospital-setting awards"
+  # names none of the 20, so Louisiana reaches NO hospital bucket.
+  LA = "data/reference/la_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -277,7 +283,7 @@ test_that("all thirty-seven files carry the leading 19 columns, in the same orde
   }
 })
 
-test_that("the thirty-seven files union without a coercion failure", {
+test_that("the thirty-eight files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -286,7 +292,7 @@ test_that("the thirty-seven files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
-                 "KS", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NJ", "NV",
+                 "KS", "LA", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))
 })
@@ -430,7 +436,11 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # 6,990,996.01 -> 12,606,593.54 in session 49: thirteen Nebraska recipients
   # whose form DHHS never stated verified as hospitals. The POOLED figure
   # beside it did NOT move, which is the property this test is really about.
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 12606593.54)
+  # 12,606,593.54 -> 14,431,595.82 in session 64: six Initiative 5.3 intended
+  # awardees typed on exact CMS Nebraska Hospital Enrollment records.
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 14431595.82)
+  # Louisiana (session 64) names no hospital and reaches no bucket.
+  expect_false("LA" %in% named$state)
 
   # The three buckets are disjoint by construction, so no dollar is in two of
   # them -- which is the property that lets them be reported side by side.

@@ -158,7 +158,8 @@ test_that("THE COUNTERFACTUAL: the rule does not reach an ASSOCIATION's foundati
 
   nv <- ref("nv_year1_awardees.csv")
   nrhp <- nv %>% filter(awardee == "Nevada Rural Hospital Partners Foundation")
-  expect_equal(nrow(nrhp), 2L)
+  # 2 through session 63; session 64's RHIT section adds a third, typed the same way.
+  expect_equal(nrow(nrhp), 3L)
   expect_true(all(nrhp$recipient_type != "HOSPITAL_OR_SYSTEM"))
   expect_true(all(nrhp$flow_type == "IN_KIND_BENEFIT"))
 })
