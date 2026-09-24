@@ -90,6 +90,23 @@ rhtp_read_routines <- function(path = RHTP_ROUTINES_CSV) {
     stop("[coverage] a logging_since in config/routines.csv does not parse.",
          call. = FALSE)
   }
+  # Session 66: a Routine recreated under a new id keeps its predecessor in
+  # old_trigger_id / old_logging_since. Firings in [old_logging_since,
+  # logging_since) belong to the OLD id, firings from logging_since on to the
+  # new one, so a past miss stays attributed to the Routine that missed it.
+  for (col in c("old_trigger_id", "old_logging_since")) {
+    if (!col %in% names(r)) r[[col]] <- NA_character_
+  }
+  r$old_trigger_id[!is.na(r$old_trigger_id) & !nzchar(r$old_trigger_id)] <- NA
+  r$old_logging_since <- as.POSIXct(r$old_logging_since,
+                                    format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+  if (any(!is.na(r$old_trigger_id) & is.na(r$old_logging_since))) {
+    stop("[coverage] a row with old_trigger_id has no parseable ",
+         "old_logging_since.", call. = FALSE)
+  }
+  if (any(!is.na(r$old_logging_since) & r$old_logging_since > r$logging_since)) {
+    stop("[coverage] old_logging_since is after logging_since.", call. = FALSE)
+  }
   if (anyDuplicated(r$state)) {
     stop("[coverage] a state appears twice in config/routines.csv.",
          call. = FALSE)
@@ -154,20 +171,32 @@ rhtp_probe_coverage <- function(as_of = Sys.time(),
   grace <- grace_hours * 3600
   purrr::map_dfr(seq_len(nrow(routines)), function(i) {
     r <- routines[i, ]
-    fires <- rhtp_cron_firings(r$cron_utc, r$logging_since, as_of - grace)
-    if (!length(fires)) return(NULL)
+    segs <- list(list(id = r$trigger_id, from = r$logging_since,
+                      to = as_of - grace))
+    old_id <- if ("old_trigger_id" %in% names(r)) r$old_trigger_id else NA
+    if (!is.na(old_id)) {
+      segs <- c(list(list(id = old_id, from = r$old_logging_since,
+                          to = min(r$logging_since, as_of - grace))), segs)
+    }
     # A line counts for a firing only if THAT Routine wrote it. A line with no
     # origin at all predates session 52's column and is accepted as legacy;
     # "interactive" never is.
     org <- if ("origin" %in% names(log)) log$origin else rep(NA_character_, nrow(log))
-    mine <- log$state == r$state &
-      (is.na(org) | !nzchar(org) | org == r$trigger_id)
-    lines <- log$probed_at[mine]
-    tibble::tibble(
-      state = r$state, trigger_id = r$trigger_id, scheduled = fires,
-      logged = purrr::map_lgl(fires, function(f) {
-        any(lines >= f & lines < f + grace, na.rm = TRUE)
-      }))
+    purrr::map_dfr(segs, function(sg) {
+      # An empty segment (a re-bind later than as_of, or a test that moves
+      # logging_since before old_logging_since) has no firings to assert.
+      if (is.na(sg$from) || sg$from >= sg$to) return(NULL)
+      fires <- rhtp_cron_firings(r$cron_utc, sg$from, sg$to)
+      if (!length(fires)) return(NULL)
+      mine <- log$state == r$state &
+        (is.na(org) | !nzchar(org) | org == sg$id)
+      lines <- log$probed_at[mine]
+      tibble::tibble(
+        state = r$state, trigger_id = sg$id, scheduled = fires,
+        logged = purrr::map_lgl(fires, function(f) {
+          any(lines >= f & lines < f + grace, na.rm = TRUE)
+        }))
+    })
   })
 }
 

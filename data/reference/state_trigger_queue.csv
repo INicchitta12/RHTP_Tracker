@@ -19,7 +19,7 @@ queue_rank,state,state_name,trigger_source,queue_status,rcj_tier3_candidates,rcj
 18,OK,Oklahoma,RCJ_ONLY,EXTRACTED,36,26,237814376.02,,,,223476949,EXTRACTED,2026-08-28
 19,AR,Arkansas,BOTH,EXTRACTED,33,33,172553206.45,2026-08-31,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-149-3-million-expand-telehealth-increase-access-specialty-care,208779396,EXTRACTED,2026-09-03
 20,NV,Nevada,RCJ_ONLY,EXTRACTED,33,33,186112475.88,,,,179931608,EXTRACTED,2026-08-28
-21,MO,Missouri,BOTH,EXTRACTED,30,30,7964687.43,2026-09-22,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-45-million-upgrade-rural-missouri-hospitals-connect-families,216276818,EXTRACTED,2026-08-28
+21,MO,Missouri,BOTH,EXTRACTED,30,30,7964687.43,2026-09-22,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-45-million-upgrade-rural-missouri-hospitals-connect-families,216276818,EXTRACTED,2026-08-28
 22,SD,South Dakota,BOTH,EXTRACTED,29,23,41223178,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,2026-08-28
 23,NH,New Hampshire,RCJ_ONLY,EXTRACTED,23,15,302352411,,,,204016550,EXTRACTED,2026-08-28
 24,ME,Maine,RCJ_ONLY,EXTRACTED,17,16,130102049,,,,190008051,EXTRACTED,2026-08-28
@@ -30,7 +30,7 @@ queue_rank,state,state_name,trigger_source,queue_status,rcj_tier3_candidates,rcj
 29,NJ,New Jersey,RCJ_ONLY,EXTRACTED,11,11,31969407,,,,147250806,EXTRACTED,2026-09-03
 30,CT,Connecticut,BOTH,EXTRACTED,7,6,49854129,2026-09-17,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-50-million-optimize-care-delivery-improve-rural-hospital,154249106,EXTRACTED,2026-08-28
 31,WA,Washington,RCJ_ONLY,EXTRACTED,6,6,103760000,,,,181257515,EXTRACTED,2026-08-28
-32,DE,Delaware,RCJ_ONLY,EXTRACTED,5,5,11500004,,,,157394964,EXTRACTED,2026-08-28
+32,DE,Delaware,BOTH,EXTRACTED,5,5,11500004,2026-09-24,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-nearly-23-million-modernize-rural-health-centers-expand-mobile-care,157394964,EXTRACTED,2026-08-28
 33,ID,Idaho,RCJ_ONLY,EXTRACTED,1,1,1,,,,185974368,EXTRACTED,2026-08-28
 34,NC,North Carolina,BOTH,EXTRACTED,1,1,195000,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,2026-09-02
 35,OH,Ohio,BOTH,EXTRACTED,1,1,10000000,2026-08-26,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-3-15-million-expand-pharmacy-connectivity-throughout-rural-ohio,202030262,EXTRACTED,2026-08-28
