@@ -1,0 +1,28 @@
+Louisiana -- the source that disposes of RCJ's six NEW Louisiana Tier 3
+candidates on the 2026-09-24 pull (session 63). Archived read-only, one fetch,
+by the session-63 disposition re-read.
+User-agent: Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+  (LA_USER_AGENT in R/03ae; the host wants the Mozilla prefix, §3)
+URL: https://ldh.la.gov/assets/docs/Secretary/RHTP/Shareholder-Presentation-09092026.pdf
+Linked from https://ldh.la.gov/page/rural-health-transformation-program as
+"Webinar Slides". RCJ titles it 'LA - 2026 - RHTP Updates September 2026'
+(its activity feed first recorded it as 'LA - 2026 - Webinar Slides',
+discovered 2026-09-10).
+
+The body the server sent, BYTE FOR BYTE, so re-hashing reproduces the digest.
+
+WHAT IT SAYS -- AND IT MEANS LOUISIANA HAS AWARDED.
+  "Rural Clinician Credit Bank Awards -- Year 1 NOFO: $10.0M advertised,
+  $12.70M awarded ... As of 8/28/26": 136 applications, 70 eligible,
+  "Awards made 53", "Amount awarded $12,701,996", "CEAs due for signature
+  9/15/26". By facility type: small rural hospital 8 / $3,291,553, critical
+  access hospital 11 / $2,948,962, rural emergency hospital 1 / $45,000
+  ("Hospital settings 20 awards $6,285,515"). ONLY FIVE AWARDEES ARE NAMED,
+  in the "Multi-parish awardees" table: Ochsner Clinic Foundation $1,500,000,
+  Outpatient Medical Center $292,500, Winnsboro Medical Clinic $116,288,
+  SR Minden, Southern Roots $45,000, LaBorde Therapy Center $12,000 (total
+  $1,965,788) -- exactly RCJ's five rows. The other 48 are unnamed.
+  NOT EXTRACTED: this archive is evidence for the disposition only.
+
+file  bytes  sha256
+2026-09-09_la_ldh_rhtp_stakeholder_webinar_RCCB_53_AWARDS.pdf  970819  80d736837e46c0c09298463e2ddb9202d9eb8ffbe511489e5ad2933ca586db39

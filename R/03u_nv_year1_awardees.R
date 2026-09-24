@@ -2,7 +2,7 @@
 # Nevada Year 1 -> data/reference/nv_year1_awardees.csv
 #
 # WHY NEVADA. It led `state_trigger_queue.csv` once Oklahoma was worked out --
-# queue rank 1, 34 Tier 3 candidates, 34 distinct awardees, a $179,931,608
+# queue rank 1, 34 Tier 3 candidates on the 2026-08-27 pull (42 on 09-24), 34 distinct awardees, a $179,931,608
 # allotment, no CMS press release.
 #
 # NEVADA IS A SHAPE THIS PROJECT HAS NOT MET: A COMPLETE, NAMED,
@@ -213,9 +213,10 @@ NV_STATED <- list(
   deck_rr_requested     = 33621591,
   deck_at_requested     = 44305961,
   press_rr_requested    = 41900000,      # "with $41.9 million requested"
-  # RCJ, re-derived from the record table on every run -- never typed.
-  rcj_candidates        = 34L,
-  rcj_distinct_awardees = 34L
+  # RCJ, pinned against the record table on every run. 34 / 34 on the
+  # 2026-08-27 pull; the 2026-09-24 pull adds eight (session 63).
+  rcj_candidates        = 42L,
+  rcj_distinct_awardees = 42L
 )
 
 # THE COMBINED WRRAP FIGURE IS STABLE UNDER THE CONFLICT, and this is the
@@ -1267,7 +1268,7 @@ nv_assert_name_variants_unresolved <- function(recs = NULL) {
 }
 
 
-# -- §0.1: what RCJ's 34 Nevada candidates actually are -----------------------
+# -- §0.1: what RCJ's Nevada candidates actually are (34 on 08-27, 42 on 09-24) --
 
 #' The committed Tier 3 candidate set for Nevada, re-derived on every run.
 #'
@@ -1285,7 +1286,7 @@ nv_rcj_candidates <- function() {
                   is.na(.data$superseded_by))
 }
 
-#' Which of the 34 is which, keyed on the source document RCJ took it from.
+#' Which candidate is which, keyed on the source document RCJ took it from.
 nv_classify_candidates <- function(cand = NULL) {
   if (is.null(cand)) cand <- nv_rcj_candidates()
   gme_names <- tolower(NV_GME_AWARDS$awardee)
@@ -1302,8 +1303,22 @@ nv_classify_candidates <- function(cand = NULL) {
           "(?i)^(provider recruitment and retention|apprenticeship and training|rural medical residency)") ~
           "RHTP_BUT_NOT_A_SUBAWARD",
         # A line item out of the RFA's budget-narrative TEMPLATE.
-        stringr::str_detect(.data$source_doc_title, "(?i)budget narrative") ~
+        stringr::str_detect(.data$source_doc_title,
+                            "(?i)attachment c: budget narrative") ~
           "RHTP_BUT_NOT_A_SUBAWARD",
+        # Session 63 (the 2026-09-24 pull): INITIATIVE funding lines out of
+        # the state's own plan documents -- the Nevada RHT Budget Narrative
+        # and the February 2026 stakeholder deck, whose figures carry
+        # "*Pending approval of revised budget". Tier 2 (§0.2).
+        stringr::str_detect(.data$source_doc_title,
+                            "(?i)nevada rht budget narrative|rht-stakeholder-meetings") ~
+          "TIER_2_BUDGET_LINE_NOT_A_SUBAWARD",
+        # Session 63: five named contractors RCJ mined from NVHA's CMS
+        # programmatic annual-report walkthrough. Their amounts are on an
+        # image-only slide this reader cannot read -- UNRESOLVED, not a finding.
+        stringr::str_detect(.data$source_doc_title,
+                            "(?i)CMS Programmatic Annual Report") ~
+          "AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED",
         # The nine GME programmes, under either of the two titles RCJ files
         # them beneath. Matched on the AMOUNT and on the name: RCJ publishes
         # UNLV Ophthalmology at $2,995,893 under one title and $2,995,890 --
@@ -1323,6 +1338,9 @@ nv_disposition_table <- function() {
   cand <- nv_classify_candidates()
   recs <- nv_records()
 
+  t2 <- cand$disposition == "TIER_2_BUDGET_LINE_NOT_A_SUBAWARD"
+  ven <- cand$disposition == "AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED"
+  live <- nv_live_roster_sections()
   n_of <- function(d) sum(cand$disposition == d)
   amt_of <- function(d) sum(cand$amount_announced[cand$disposition == d],
                             na.rm = TRUE)
@@ -1385,8 +1403,15 @@ nv_disposition_table <- function() {
     paste0(
       "Real Nevada RHTP awards, and all ten are in nv_year1_awardees.csv -- ",
       "asserted by name, not assumed. They are the ONLY genuine subawards in ",
-      "the candidate set: RCJ holds 10 of Nevada's 72 published award ",
-      "actions. EVERY ONE CARRIES AN AMOUNT OF $1. They were mined out of the ",
+      "the candidate set: RCJ holds ", n_of("RHTP_SUBAWARD_IN_FILE"), " of the ",
+      nrow(recs) - 1L, " named award actions in this file. AND THIS FILE IS NOW ",
+      "INCOMPLETE: NVHA's live Funded Projects page, archived 2026-09-24, ",
+      "carries ", nrow(live), " sections and ", sum(live$awards),
+      " named award actions (", paste0(live$section, " ", live$awards,
+      collapse = "; "), ") -- still with NO amount anywhere. RHIT and RHOAP, ",
+      "whose decisions were due in August, have published rosters; the ",
+      "Residency pool now names its recipients; Flex grew. None of those is ",
+      "extracted here. EVERY ONE of RCJ's ten CARRIES AN AMOUNT OF $1. They were mined out of the ",
       "2026-06-09 RHT Steering Committee fiscal deck, whose 'Flex Funds - ",
       "Funded Projects' slides list recipients with NO amounts, so the $1 is ",
       "a placeholder for a figure that does not exist -- and RCJ's title for ",
@@ -1395,8 +1420,77 @@ nv_disposition_table <- function() {
       "came off the wrong page)."),
     "amount_announced = $1 on all ten; the title is the agenda slide's text",
     "https://www.nvha.nv.gov/RHTP/rht-meetings/",
-    "data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf"
-  )
+    "data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf",
+
+    "Initiative funding lines from the RHT Budget Narrative and the 02.26 stakeholder deck",
+    n_of("TIER_2_BUDGET_LINE_NOT_A_SUBAWARD"), amt_of("TIER_2_BUDGET_LINE_NOT_A_SUBAWARD"),
+    "TIER_2_BUDGET_LINE_NOT_A_SUBAWARD",
+    paste0(
+      "New on the 2026-09-24 pull, and not awards: ",
+      paste0("'", cand$awardee_name_clean[t2], "' ($",
+             formatC(cand$amount_announced[t2], format = "f", digits = 0,
+                     big.mark = ","), ")",
+             collapse = "; "),
+      ". Each 'awardee' is an INITIATIVE or a State Policy Action, not an ",
+      "organisation (§6.1 PROGRAM_NAME_AS_AWARDEE). NVHA's February 2026 ",
+      "stakeholder deck prints 'Rural Health Innovation and Technology ",
+      "Funding: $26,989,741*' and 'Presidential Fitness Test $1,298,985*' ",
+      "under '*Pending approval of revised budget' -- a plan (§0.3), Tier 2 ",
+      "(§0.2). $26,989,741 is also exactly NVHA's 15% 'Provider Payments ",
+      "(Category B)' spending CAP in its annual-report walkthrough, and the ",
+      "Presidential Fitness Test is a CMS State Policy Action ('NVHA ",
+      "anticipates activity towards this SPA in BP2'). The Flex Fund row is a ",
+      "line of the RHT Budget Narrative (not archived here). Flex's and ",
+      "RHIT's AWARDS are named rosters with no amounts on NVHA's live page -- ",
+      "see the Flex row -- and never these figures."),
+    "'Funding: $26,989,741*' / '$1,298,985* Presidential Fitness Test' / '*Pending approval of revised budget'",
+    "https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-stakeholder-meetings-02.26.pdf",
+    "data/evidence/recheck/2026-09-24/NV/2026-02_nv_rht_stakeholder_meetings_02.26.pdf",
+
+    "Five contractors from NVHA's CMS annual-report walkthrough",
+    n_of("AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED"),
+    amt_of("AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED"),
+    "AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED",
+    paste0(
+      "UNRESOLVED. RCJ files ", paste(cand$awardee_name_clean[ven], collapse = "; "),
+      " under 'NV - 2025 - CMS Programmatic Annual Report' at ",
+      paste0("$", formatC(cand$amount_announced[ven], format = "f", digits = 2,
+                          big.mark = ","), collapse = ", "),
+      ". The state document at that title (NVHA's 2026-09-08 walkthrough deck, ",
+      "archived) carries NONE of these names or figures in its text layer; ",
+      "its 'Downstream Reporting Tab' slide is an image this reader cannot ",
+      "read. RCJ's own descriptions (machine-generated, non-quotable, §6) ",
+      "call them technical assistance, 1115-waiver support and contract ",
+      "staff for NVHA -- the ADMINISTRATOR's contractors, not subrecipients on ",
+      "NVHA's Funded Projects roster, and none is in nv_year1_awardees.csv. ",
+      "Whether they are RHTP administrative contracts (South Dakota's R/03i ",
+      "shape) needs the report itself; nothing here promotes them (§0.1)."),
+    "no name or figure in the archived deck's text layer; slide 11 is image-only",
+    "https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-workshops/rhtsc---programmatic-annual-report.pdf",
+    "data/evidence/recheck/2026-09-24/NV/2026-09-08_nv_rhtsc_programmatic_annual_report_walkthrough.pdf"
+  ) %>%
+    rhtp_assert_disposition_prose(NV_STATE)
+}
+
+#' NVHA's LIVE Funded Projects page as archived by session 63: one count per
+#' accordion section. The award file is built from the 2026-08-31 archive,
+#' which carried three sections and 72 award actions.
+NV_LIVE_ROSTER_0924 <- file.path("data", "evidence", "recheck", "2026-09-24",
+                                 "NV", "2026-09-24_nv_rht_funded_projects_bp1.html")
+nv_live_roster_sections <- function(path = here::here(NV_LIVE_ROSTER_0924)) {
+  doc <- xml2::read_html(path)
+  tabs <- xml2::xml_find_all(doc, "//table")
+  heads <- vapply(tabs, function(t) {
+    h <- xml2::xml_find_all(t, "preceding::*[normalize-space(text())!='']")
+    txt <- stringr::str_squish(xml2::xml_text(h))
+    txt <- txt[txt != "Show" & nzchar(txt)]
+    hit <- rev(txt)[stringr::str_detect(rev(txt),
+      "(?i)Flex Fund|Workforce Recruitment|Innovation and Technology|Outcomes Accelerator|^Tribal$")][1]
+    dplyr::coalesce(hit, NA_character_)
+  }, character(1))
+  tibble::tibble(section = heads,
+                 awards = vapply(tabs, function(t)
+                   length(xml2::xml_find_all(t, ".//tr")) - 1L, integer(1)))
 }
 
 
@@ -1414,7 +1508,7 @@ nv_assert_candidate_disposition <- function() {
     stop("[NV] the disposition table accounts for ", sum(d$rcj_rows),
          " candidates of ", nrow(cand), ".", call. = FALSE)
   }
-  # NOT ONE of the 34 may be missing a disposition.
+  # NOT ONE candidate may be missing a disposition.
   if (any(is.na(cand$disposition))) {
     stop("[NV] ", sum(is.na(cand$disposition)),
          " Nevada candidates have no disposition.", call. = FALSE)

@@ -524,6 +524,7 @@ id_build <- function() {
   readr::write_csv(st, ID_STATUS_CSV)
   message("[ID] wrote ", ID_STATUS_CSV, " (", nrow(st), " rows)")
   dp <- id_disposition()
+  rhtp_assert_disposition_prose(dp, "ID")
   readr::write_csv(dp, ID_DISPO_CSV)
   message("[ID] wrote ", ID_DISPO_CSV, " (", nrow(dp), " rows)")
   invisible(list(awards = d, status = st, disposition = dp))

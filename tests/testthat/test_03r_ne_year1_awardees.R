@@ -328,17 +328,17 @@ test_that("the absence assertion fires if NHA is ever awarded", {
 })
 
 
-# -- §0.1: RCJ's 39 candidates ------------------------------------------------
+# -- §0.1: RCJ's candidates (39 on 08-27, 52 on 09-24) ------------------------
 
-test_that("RCJ's 39 Nebraska candidates are accounted for to the cent", {
+test_that("RCJ's Nebraska candidates are accounted for to the cent", {
   skip_if_not(file.exists(here::here("data/interim/stage2_record_table.rds")))
   expect_true(ne_assert_rcj_disposition(ne_award_rows))
 
   rt <- rhtp_record_table_live()
   ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD" &
              is.na(rt$superseded_by), ]
-  expect_equal(nrow(ne), 39L)
-  expect_equal(round(sum(ne$amount_announced, na.rm = TRUE), 2), 8446843.67)
+  expect_equal(nrow(ne), 52L)
+  expect_equal(round(sum(ne$amount_announced, na.rm = TRUE), 2), 15402668.92)
 
   # The 24 that RCJ filed under the APPLICANT section's heading are 4.4a's
   # AWARDS: their amounts reconcile to 4.4a's award table to the cent, which
@@ -365,16 +365,43 @@ test_that("RCJ holds NONE of Initiative 4.4b -- $27.7M it never saw", {
   expect_equal(round(sum(b$amount), 2), 27690777.23)
 })
 
-test_that("the disposition table covers all 39 candidates", {
+test_that("the disposition table covers every live candidate", {
   path <- here::here(NE_DISPOSITION_CSV)
   skip_if_not(file.exists(path))
   disp <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
-  expect_equal(sum(disp$rcj_rows), 39L)
+  rt <- rhtp_record_table_live()
+  ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD", ]
+  expect_equal(sum(disp$rcj_rows), nrow(ne))
+  expect_false(any(ne_rcj_group(ne) == "undescribed"))
+  expect_silent(rhtp_assert_disposition_prose(disp, "NE"))
+  # a candidate no group describes refuses the build
+  extra <- ne[1, ]; extra$source_doc_title <- "NE - 2026 - Something Else"
+  extra$awardee_name_raw <- "Some Other Hospital"
+  expect_equal(ne_rcj_group(extra), "undescribed")
   expect_true("NOT_RHTP_STATE_PROGRAM" %in% disp$disposition)
   nlf <- disp[disp$disposition == "NOT_RHTP_STATE_PROGRAM", ]
   expect_equal(nlf$rcj_rows, 1L)
   expect_true(grepl("awarding state funds", nlf$basis))
   expect_true(grepl("2025-05-21", nlf$basis))
+})
+
+test_that("Initiative 5.3's intent notice: 13 applicants, RCJ carries 12, NONE in the award file", {
+  skip_if_not(file.exists(here::here(NE_5_3_NOTICE)))
+  n53 <- ne_notice_5_3()
+  expect_equal(nrow(n53), 13L)
+  expect_equal(round(sum(n53$amount), 2), 5549692.25)
+  rt <- rhtp_record_table_live()
+  ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD", ]
+  r53 <- ne[ne_rcj_group(ne) == "intent_5_3", ]
+  expect_equal(nrow(r53), 12L)
+  expect_true(all(round(r53$amount_announced, 2) %in% round(n53$amount, 2)))
+  dropped <- n53[!(round(n53$amount, 2) %in% round(r53$amount_announced, 2)), ]
+  expect_equal(dropped$awardee, "Regional West Medical Center")
+  # the award file parses 3.3, 4.4a and 4.4b only
+  expect_false(any(ne_award_rows$source_key == "noa_5_3"))
+  expect_false(any(round(ne_award_rows$amount, 2) %in% round(n53$amount, 2)))
+  disp <- readr::read_csv(here::here(NE_DISPOSITION_CSV), show_col_types = FALSE)
+  expect_match(disp$basis[disp$disposition == "RHTP_SUBAWARD"], "INCOMPLETE")
 })
 
 

@@ -468,20 +468,105 @@ nj_status_table <- function() {
   )
 }
 
-nj_rcj_disposition <- function() {
-  rt <- rhtp_record_table_live()
+#' RCJ's spellings that differ from the state PDF's, HAND-READ (§2 forbids a
+#' machine resolving a name). Each is matched only together with its pool and
+#' its exact amount; the name map alone decides nothing.
+NJ_RCJ_NAME_MAP <- c(
+  # RCJ welds the SITE into the awardee; the PDF prints "AHS Hospital Corp."
+  # with the site in brackets (the §0.3a awardee-field corollary)
+  "AHS Hospital Corp. Hackettstown Medical Center" = "AHS Hospital Corp.",
+  # RCJ welds the PROJECT into the awardee
+  "Atlantic Mobile Integrated Health services and Ambulance Corporation" =
+    "Atlantic Ambulance Corporation",
+  # punctuation only
+  "Center for Health Equity a Public Health Institute, Inc." =
+    "Center for Health Equity a Public Health Institute Inc.")
+
+#' ...and the site RCJ welded in, which is what separates AHS's two
+#' $1,460,000 Building Rural Hospital Capacity awards (Hackettstown, Newton)
+NJ_RCJ_SITE_MAP <- c(
+  "AHS Hospital Corp. Hackettstown Medical Center" = "Hackettstown Medical Center")
+
+#' Why each RCJ New Jersey Tier 3 candidate is, or is not, an RHTP subaward
+#'
+#' Session 61 wrote this against a pull with no New Jersey Tier 3 candidate.
+#' Session 63 re-read it against the 2026-09-24 pull: every candidate but one
+#' is a real award already in `nj_year1_awardees.csv`, matched on pool AND
+#' exact amount AND a name that is either identical or in the hand-read map
+#' above. The remaining one is a CLASS from a multi-state digest.
+#'
+#' `records` counts every RCJ New Jersey record in the group and
+#' `tier3_candidates` the SUBAWARD ones; the groups partition both, and a
+#' candidate no group describes refuses the build.
+nj_rcj_disposition <- function(rt = rhtp_record_table_live(), a = NULL) {
+  if (is.null(a)) {
+    a <- readr::read_csv(NJ_CSV, show_col_types = FALSE,
+                         col_types = readr::cols(ccn = "c", site = "c"))
+  }
   t <- rt[rt$state == NJ_STATE, ]
-  aw <- jsonlite::fromJSON(here::here("data", "raw", "rcj", "2026-09-24", "awards.json"))
-  aw <- if (is.data.frame(aw)) aw else aw$data
-  n24 <- sum(aw$state == NJ_STATE, na.rm = TRUE)
-  tibble::tribble(
-    ~state, ~group, ~records, ~disposition, ~note,
-    NJ_STATE, "RCJ New Jersey records, pull 2026-08-27 (stage 2 record table)", nrow(t),
-    "NO_TIER_3", paste0(sum(t$award_tier == "SUBAWARD", na.rm = TRUE),
-                        " SUBAWARD records. The 08-27 pull predates nothing: the roster was public from 2026-07-31 and RCJ had not caught it."),
-    NJ_STATE, "RCJ New Jersey /awards rows, pull 2026-09-24 (raw)", n24,
-    "PARTIAL_COVERAGE", "Session 60 read 11 of the 103 awards here. A discovery signal only (§0.1); every row in nj_year1_awardees.csv is built from the state PDF."
+  c <- t[t$award_tier == "SUBAWARD", ]
+  pool <- c$source_doc_title %>%
+    stringr::str_remove("^NJ - \\d{4} - RHTP 2026: ") %>%
+    stringr::str_remove("\\s*-?\\s*Request for Applications \\(RFA\\)$")
+  state_name <- dplyr::coalesce(unname(NJ_RCJ_NAME_MAP[c$awardee_name_raw]),
+                                c$awardee_name_raw)
+  state_site <- unname(NJ_RCJ_SITE_MAP[c$awardee_name_raw])
+  in_file <- purrr::map_lgl(seq_len(nrow(c)), function(i) {
+    hit <- a$award_pool == pool[i] &
+      a$amount == suppressWarnings(as.numeric(c$amount_announced[i])) &
+      a$awardee == state_name[i] &
+      (is.na(state_site[i]) | dplyr::coalesce(a$site == state_site[i], FALSE))
+    sum(hit) == 1L
+  })
+  renamed <- in_file & c$awardee_name_raw %in% names(NJ_RCJ_NAME_MAP)
+  exact <- in_file & !renamed
+  fqhc <- !in_file & c$awardee_name_raw == "Federally Qualified Health Centers (FQHCs)" &
+    grepl("How States Are Using the RHTP", c$source_doc_title, fixed = TRUE)
+  if (any(!(in_file | fqhc))) {
+    stop("[NJ] RCJ carries ", sum(!(in_file | fqhc)), " New Jersey Tier 3 ",
+         "candidate(s) this disposition does not describe: ",
+         paste(c$awardee_name_raw[!(in_file | fqhc)], collapse = "; "),
+         ". Read them against the state PDF before rebuilding.", call. = FALSE)
+  }
+  held <- table(factor(pool[in_file], levels = names(table(a$award_pool))))
+  cover <- paste0(held[held > 0], " of ", table(a$award_pool)[names(held)[held > 0]],
+                  " in ", names(held)[held > 0], collapse = "; ")
+  lag <- as.integer(min(as.Date(c$first_seen[in_file])) - NJ_ANNOUNCED)
+  out <- tibble::tribble(
+    ~state, ~group, ~records, ~tier3_candidates, ~disposition, ~note,
+    NJ_STATE, "Real awards in nj_year1_awardees.csv, spelled as the state PDF prints them",
+    sum(exact), sum(exact), "RHTP_SUBAWARD_IN_FILE",
+    paste0(sum(exact), " candidates match one row of the state's roster on pool, ",
+           "exact amount and name. RCJ first carried any New Jersey award on ",
+           min(c$first_seen[in_file]), ", ", lag, " days after the 2026-07-31 ",
+           "roster, and holds ", sum(in_file), " of its ", nrow(a), " award ",
+           "actions: ", cover, ". Every row in nj_year1_awardees.csv is built ",
+           "from the state PDF, never from RCJ (§0.1)."),
+    NJ_STATE, "Real awards in the file under a name RCJ has re-written",
+    sum(renamed), sum(renamed), "RHTP_SUBAWARD_IN_FILE",
+    paste0(sum(renamed), " candidates match on pool and exact amount; the name ",
+           "is RCJ's, hand-read to the PDF's in NJ_RCJ_NAME_MAP: a SITE welded ",
+           "into the awardee ('AHS Hospital Corp. Hackettstown Medical Center', ",
+           "the §0.3a corollary), a PROJECT welded into it ('Atlantic Mobile ",
+           "Integrated Health services and Ambulance Corporation' for Atlantic ",
+           "Ambulance Corporation), and punctuation. RCJ's 'NJ - 2030' prefix on the EMS ",
+           "document's title is the aggregator's, never a date (§2)."),
+    NJ_STATE, "'Federally Qualified Health Centers (FQHCs)' from a multi-state digest",
+    sum(fqhc), sum(fqhc), "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
+    paste0("A class, priced at $", paste(unique(trimws(c$amount_announced[fqhc])), collapse = "/"),
+           " (the placeholder), mined from '", paste(unique(c$source_doc_title[fqhc]), collapse = "; "),
+           "' -- a multi-state digest whose New Jersey sentence says the RHT2 ",
+           "infrastructure initiative 'directs funding to FQHCs'. It names no ",
+           "organisation (§6.1 PROGRAM_NAME_AS_AWARDEE's cousin, North ",
+           "Dakota's '15 selected CAHs'). Filed under the right state; the ",
+           "'MI' prefix is the digest's."),
+    NJ_STATE, "All other RCJ New Jersey records", nrow(t) - nrow(c), 0L,
+    "NO_TIER_3",
+    paste0(paste(names(table(t$award_tier[t$award_tier != "SUBAWARD"])),
+                 table(t$award_tier[t$award_tier != "SUBAWARD"]), collapse = ", "),
+           ": solicitations, the allotment and programme material.")
   )
+  rhtp_assert_disposition_prose(out, NJ_STATE)
 }
 
 nj_validate <- function() {
@@ -498,7 +583,7 @@ nj_build <- function() {
   a <- nj_validate()
   readr::write_csv(a, NJ_CSV, na = "")
   readr::write_csv(nj_status_table(), NJ_STATUS_CSV, na = "")
-  readr::write_csv(nj_rcj_disposition(), NJ_DISPO_CSV, na = "")
+  readr::write_csv(nj_rcj_disposition(a = a), NJ_DISPO_CSV, na = "")
   h <- a[a$distributed_to_hospital == "Yes", ]
   message(sprintf("[NJ] wrote 103 award rows; %d named-hospital rows, $%s.",
                   nrow(h), format(sum(h$amount), big.mark = ",")))

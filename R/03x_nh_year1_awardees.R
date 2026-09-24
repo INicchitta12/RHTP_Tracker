@@ -600,79 +600,142 @@ nh_rcj_candidates <- function() {
   rt %>% dplyr::filter(state == "NH", award_tier == "SUBAWARD")
 }
 
-#' Why each of RCJ's NH Tier 3 candidates is, or is not, an award row
+#' RCJ's NH Tier 3 rows that it has WITHDRAWN since they were first read
+#'
+#' The live set is what the disposition must cover; the withdrawn set is what
+#' it must still be able to speak to, because a finding about a row RCJ has
+#' dropped is history and not a deletion (session 63).
+nh_rcj_withdrawn <- function() {
+  rhtp_record_table_live(include_withdrawn = TRUE) %>%
+    dplyr::filter(state == "NH", award_tier == "SUBAWARD",
+                  change_status %in% "WITHDRAWN")
+}
+
+#' Why each of RCJ's live NH Tier 3 candidates is, or is not, an award row
 #'
 #' The counts are RE-DERIVED from the record table on every run (Texas's rule),
 #' so the day New Hampshire's candidate set moves this fails instead of quietly
-#' ceasing to cover it.
-rhtp_nh_rcj_disposition <- function(cands = NULL) {
+#' ceasing to cover it. Session 63 re-read it against the 2026-09-24 pull: 27
+#' candidates became 26. RCJ WITHDREW all three Medicaid Care Management rows
+#' (the $1.9bn one included) and FHC's $66.5M row, and re-keyed four
+#' "GO-NORTH Contracts & Awards" placeholders, adding two more.
+rhtp_nh_rcj_disposition <- function(cands = NULL, withdrawn = NULL) {
   if (is.null(cands)) cands <- nh_rcj_candidates()
+  if (is.null(withdrawn)) withdrawn <- nh_rcj_withdrawn()
   nm <- cands$awardee_name_clean
+  mcm_pat <- "AmeriHealth Caritas|WellSense|Healthy Families"
 
-  is_mcm   <- stringr::str_detect(nm, "AmeriHealth Caritas|WellSense|Healthy Families")
+  is_mcm   <- stringr::str_detect(nm, mcm_pat)
   is_fhc   <- stringr::str_detect(nm, "Foundation for Healthy Communities")
   is_cdfa  <- stringr::str_detect(nm, "Community Development Finance Authority")
   is_admin <- stringr::str_detect(
     nm, "Community College System|Community Behavioral Health|University (System )?of New Hampshire|National Opinion Research|NORC")
-  is_other <- !(is_mcm | is_fhc | is_cdfa | is_admin)
+  is_other <- stringr::str_detect(nm, "GO-NORTH") &
+    !(is_mcm | is_fhc | is_cdfa | is_admin)
+  covered <- is_mcm | is_fhc | is_cdfa | is_admin | is_other
+  if (any(!covered)) {
+    stop("[NH] RCJ candidate(s) no disposition group describes: ",
+         paste(nm[!covered], collapse = "; "),
+         ". Read them before extending a group.", call. = FALSE)
+  }
+
+  money <- function(x) paste0("$", format(x, big.mark = ",", scientific = FALSE,
+                                          trim = TRUE))
+  mcm_w <- withdrawn[stringr::str_detect(withdrawn$awardee_name_clean,
+                                         mcm_pat), ]
+  fhc_w <- withdrawn[stringr::str_detect(withdrawn$awardee_name_clean,
+                                         "Foundation for Healthy Communities"), ]
+  fhc_amt <- cands$amount_announced[is_fhc]
+  fhc_priced <- fhc_amt[fhc_amt > 1]
+  cdfa_amt <- cands$amount_announced[is_cdfa]
+  cdfa_priced <- sort(cdfa_amt[cdfa_amt > 1], decreasing = TRUE)
 
   tibble::tribble(
     ~group, ~rows, ~disposition, ~why,
 
-    "Medicaid Care Management -- NOT RHTP",
+    "Medicaid Care Management -- NOT RHTP (withdrawn by RCJ)",
     sum(is_mcm),
     "NOT_RHTP_MEDICAID",
-    paste("New Hampshire's Medicaid managed care organisations, carried under",
-          "MCM-titled documents. One of these rows is the $1,898,965,390",
-          "against a $204,016,550 allotment that the §6.2 allotment ceiling",
-          "flagged in session 5 and the provenance sweep independently",
-          "disposed of in session 20 -- TWO §6.2 FILTERS, OPPOSITE",
-          "DIRECTIONS, SAME ROW. Not RHTP, and already quarantined."),
+    paste0("New Hampshire's Medicaid managed care organisations, carried ",
+           "under MCM-titled documents. RCJ carried ", nrow(mcm_w) + sum(is_mcm),
+           " such rows on the 2026-08-27 pull and ",
+           if (sum(is_mcm) == 0) "WITHDREW ALL OF THEM" else
+             paste(nrow(mcm_w), "have since been withdrawn"),
+           " on the 2026-09-24 pull, so ", sum(is_mcm), " are live. KEPT AS ",
+           "HISTORY: one of them was the ",
+           money(max(c(mcm_w$amount_announced, 0), na.rm = TRUE)),
+           " against a $204,016,550 allotment that the §6.2 allotment ",
+           "ceiling flagged in session 5 and the provenance sweep ",
+           "independently disposed of in session 20 -- TWO §6.2 FILTERS, ",
+           "OPPOSITE DIRECTIONS, SAME ROW. Not RHTP. The tests re-label the ",
+           "withdrawn rows live so both filters are still proven to catch ",
+           "them if RCJ puts them back."),
 
-    "Foundation for Healthy Communities -- a real award, RCJ's amount short",
+    "Foundation for Healthy Communities -- a real award, RCJ now prices it at $1 only",
     sum(is_fhc),
-    "RHTP_AWARD_AMOUNT_UNDERSTATED",
-    paste0("RCJ carries $66,500,000 -- the Council's ROUNDED figure -- ",
-           "against FHC's own exact $", format(NH_STATED$fhc_award_exact,
-                                               big.mark = ","),
-           ", short by $", format(NH_STATED$fhc_award_exact - 66500000,
-                                  big.mark = ","),
-           ". The award is real and is in this file at the recipient's own ",
-           "figure. RCJ carries FHC on ", sum(is_fhc), " rows: the rounded ",
-           "Council figure, and a $1 placeholder."),
+    if (length(fhc_priced)) "RHTP_AWARD_AMOUNT_UNDERSTATED" else
+      "REAL_AWARD_CARRIED_AT_A_$1_PLACEHOLDER",
+    paste0("FHC's own exact award is $", format(NH_STATED$fhc_award_exact,
+                                                big.mark = ","),
+           " and it is in this file at that figure. RCJ carries FHC on ",
+           sum(is_fhc), " live rows, ",
+           if (length(fhc_priced)) paste0("priced at ",
+                                          paste(money(fhc_priced), collapse = ", "),
+                                          " and the rest at $1") else
+             "every one at a $1 placeholder",
+           ". Its priced row -- ",
+           paste(money(fhc_w$amount_announced[fhc_w$amount_announced > 1]),
+                 collapse = ", "),
+           ", the Council's ROUNDED figure, short of FHC's by $",
+           format(NH_STATED$fhc_award_exact - 66500000, big.mark = ","),
+           " -- was WITHDRAWN on the 2026-09-24 pull, so the aggregator no ",
+           "longer prices New Hampshire's largest award at all."),
 
     "CDFA -- a real Council action, RCJ prices a CEILING as an award",
     sum(is_cdfa),
     "RHTP_AWARD_AMOUNT_IS_A_CEILING",
-    paste0("RCJ carries CDFA on ", sum(is_cdfa), " rows under three ",
-           "spellings of one organisation, at $43,810,000, $43,800,000 ",
-           "(twice), $40,000,000 and a $1 placeholder. CDFA's own statement ",
+    paste0("RCJ carries CDFA on ", sum(is_cdfa), " rows under ",
+           dplyr::n_distinct(nm[is_cdfa]), " spellings of one organisation, ",
+           "at ", paste(money(cdfa_priced), collapse = ", "),
+           if (any(cdfa_amt <= 1)) " and a $1 placeholder" else "",
+           ". CDFA's own statement ",
            "says 'up to $40 million A YEAR' -- a programme ceiling, not an ",
            "award figure -- so this file carries CDFA with an EMPTY `amount` ",
-           "and the ceiling in `round_amount`. THREE DISTINCT PRICES FOR ONE ",
+           "and the ceiling in `round_amount`. ",
+           dplyr::n_distinct(cdfa_priced), " DISTINCT PRICES FOR ONE ",
            "COUNCIL ACTION IS THE TELL: the aggregator is pricing DOCUMENTS, ",
            "not awards, and §2 forbids a machine merging the spellings."),
 
     "Other GO-NORTH administrators -- named, but no amount this file can source",
     sum(is_admin),
     "RHTP_ADMINISTRATOR_NO_PRIMARY_AMOUNT",
-    paste("CCSNH, CBHA, USNH and NORC appear as GO-NORTH administrators and",
-          "each is plausibly a real Council-approved award. NONE publishes its",
-          "own award figure on a host this repository can reach, and the",
-          "State's own sites are Akamai-403, so there is no primary source for",
-          "an amount. §0.1 forbids publishing RCJ's figure in its place, so",
-          "they are in nh_year1_status.csv and NOT in the award file. THAT IS",
-          "A STATEMENT ABOUT OUR ACCESS, NOT ABOUT NEW HAMPSHIRE (§0.4)."),
+    paste0("CCSNH, CBHA, USNH/UNH and NORC appear as GO-NORTH administrators ",
+           "(", sum(is_admin), " rows, ", sum(cands$amount_announced[is_admin] <= 1),
+           " of them at $1) and each is plausibly a real Council-approved ",
+           "award. NONE publishes its own award figure on a host this ",
+           "repository can reach, and the State's own sites are Akamai-403, ",
+           "so there is no primary source for an amount. §0.1 forbids ",
+           "publishing RCJ's figure in its place, so they are in ",
+           "nh_year1_status.csv and NOT in the award file. THAT IS A ",
+           "STATEMENT ABOUT OUR ACCESS, NOT ABOUT NEW HAMPSHIRE (§0.4)."),
 
     "Placeholder and unresolved rows",
     sum(is_other),
     "AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED",
-    paste("'GO-NORTH Planning Grant Agreement', carried at $1, whose awardee",
-          "is THE AGREEMENT and not an organisation -- §6.1's",
-          "PROGRAM_NAME_AS_AWARDEE. The $1 is Missouri's placeholder mechanism",
-          "again, and it runs through this whole candidate set: FHC and CDFA",
-          "each carry a $1 row too. RCJ publishes a PLACEHOLDER rather than a",
-          "wrong figure, which is the one defect no amount check can see.")
+    paste0(sum(is_other), " rows (",
+           sum(cands$amount_announced[is_other] <= 1), " at $1) whose ",
+           "'awardee' is not an ",
+           "organisation that received money: ",
+           paste(sQuote(sort(unique(nm[is_other])), q = FALSE),
+                 collapse = ", "),
+           ". An agreement and an endowment line are §6.1's ",
+           "PROGRAM_NAME_AS_AWARDEE; GO-NORTH itself is the State's own ",
+           "administering office, i.e. the grantor filed as its own ",
+           "recipient. The $1 is Missouri's placeholder mechanism again, and ",
+           "it runs through this whole candidate set: FHC, CDFA and the ",
+           "administrators carry $1 rows too. RCJ publishes a PLACEHOLDER ",
+           "rather than a wrong figure, which is the one defect no amount ",
+           "check can see.")
   ) %>%
     dplyr::mutate(state = "NH", .before = 1)
 }
@@ -751,7 +814,9 @@ rhtp_nh_build <- function() {
   rhtp_nh_assert(awards)
   readr::write_csv(awards, here::here(NH_CSV), na = "")
   readr::write_csv(rhtp_nh_status(), here::here(NH_STATUS_CSV), na = "")
-  readr::write_csv(rhtp_nh_rcj_disposition(), here::here(NH_DISPO_CSV), na = "")
+  dispo <- rhtp_nh_rcj_disposition()
+  rhtp_assert_disposition_prose(dispo, "NH")
+  readr::write_csv(dispo, here::here(NH_DISPO_CSV), na = "")
   message("[NH] wrote ", NH_CSV, " (", nrow(awards), " rows), ",
           NH_STATUS_CSV, ", ", NH_DISPO_CSV)
   invisible(awards)

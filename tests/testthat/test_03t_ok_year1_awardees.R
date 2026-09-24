@@ -6,7 +6,7 @@
 #     lose them -- the block model is regular enough to produce 74 plausible
 #     rows from a page that publishes 68 awards;
 #   * that RCJ's 35 candidates stay OUT, since taking them at face value
-#     publishes $231,614,376 of Tier 2 allocations, more than Oklahoma's whole
+#     publishes $231,614,376 (08-27; $237,814,376 on 09-24) of Tier 2 allocations, more than Oklahoma's whole
 #     allotment; and
 #   * that the §7A comparison keeps saying what the data says -- two claims
 #     over two different universes, not one number checking another.
@@ -303,7 +303,7 @@ test_that("the Oklahoma Hospital Association is on no award row", {
 
 # -- §0.1 ---------------------------------------------------------------------
 
-test_that("NOT ONE of RCJ's 35 candidates is one of Oklahoma's 68 awards", {
+test_that("NOT ONE of RCJ's Tier 3 candidates is one of Oklahoma's 68 awards", {
   skip_if_no_archive()
   recs <- ok_records()
   expect_silent(ok_assert_rcj_disposition(recs))
@@ -338,6 +338,25 @@ test_that("the disposition table covers every candidate, by document", {
   for (f in unique(disp$state_document)) {
     expect_true(file.exists(file.path(OK_EVIDENCE_DIR, f)), info = f)
   }
+})
+
+test_that("the disposition's groups cover the LIVE 2026-09-24 candidate set", {
+  skip_if_no_archive()
+  rt <- rhtp_record_table_live()
+  live <- rt[rt$state == "OK" & rt$award_tier == "SUBAWARD", ]
+  disp <- readr::read_csv(here::here(OK_DISPOSITION_CSV), show_col_types = FALSE)
+  expect_equal(sum(disp$rcj_rows), nrow(live))
+  expect_equal(nrow(live), 36L)
+  # the one new row: a FUND USE carried as the awardee, in the IFS group
+  hie <- live[grepl("^Building Health Data Utility", live$awardee_name_clean), ]
+  expect_equal(nrow(hie), 1L)
+  expect_match(hie$source_doc_title, "Initiative Funding Summary")
+  expect_equal(as.numeric(hie$amount_announced), 6200000)
+  expect_equal(disp$rcj_rows[grepl("Initiative Funding Summary", disp$group)], 9)
+  expect_match(disp$basis[grepl("Initiative Funding Summary", disp$group)],
+               "PROGRAM_NAME_AS_AWARDEE")
+  # the prose may not contradict the counts
+  expect_silent(rhtp_assert_disposition_prose(disp, "OK"))
 })
 
 

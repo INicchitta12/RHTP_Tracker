@@ -1,0 +1,37 @@
+Michigan -- the sources that dispose of RCJ's NEW Michigan Tier 3 candidates on
+the 2026-09-24 pull, and the live roster that shows mi_year1_awardees.csv is now
+INCOMPLETE (session 63).
+Archived read-only, one fetch each (curl), 2026-09-24 ~16:40Z, HTTP 200.
+User-agent: Mozilla/5.0 -- the recorded michigan.gov-ONLY exception (CLAUDE.md
+§3; see data/evidence/MI/MANIFEST.txt). R/03v's credential guard
+(mi_assert_credential_free) ran on each HTML body and found nothing.
+The bodies the server sent, BYTE FOR BYTE; re-hashing reproduces the digests.
+
+2026-09-24_mi_rhtp_subrecipients.html
+  <- https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-subrecipients
+  MDHHS's roster. Against the 2026-09-01 archive the award file is built
+  from it has ADDED six rows and removed none: LEO High Speed Internet Office
+  $9,104,425; LEO Office of Rural Prosperity $16,130,623 and $600,000; MDE
+  Office of Career and Technical Education $2,099,997 and $1,500,000; Michigan
+  Veterans Affairs Agency $2,000,000 -- $31,435,045, all state agencies.
+  NOT extracted.
+
+2026-09-21_mi_mdhhs_cvi_grants.html
+  <- https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2026/09/21/cvi-grants
+  "MDHHS awards $1.5 million for community violence intervention efforts":
+  five urban organisations at $300,000 each. "Rural Health Transformation",
+  "RHTP" and "rural" occur zero times. Disposes of four RCJ rows.
+
+2026-09-16_mi_mdhhs_suicide_prevention_council_release.html
+  <- https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2026/09/16/suicide-prevention
+2026_mi_suicide_prevention_council_report.pdf
+  <- https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Safety-and-Injury-Prevention/Injury-and-Violence-Prevention/Suicide-Prevention/Suicide_Prevention_Council_Report_Final_approved.pdf?rev=47dea0f86f964adeaff9a7f9e6089692&hash=701E78A3A6B369B4F030FC08055A57F2
+  "The State of Michigan appropriated $125,000 in funding to establish the
+  Michigan Suicide Prevention Council"; $100,000 line; thanks the University
+  of Michigan Injury Prevention Center. Disposes of one RCJ row.
+
+file  bytes  sha256
+2026-09-24_mi_rhtp_subrecipients.html  770247  4f371674912d76bbc644ba6cdcc147b3fd46c0b2f5699c5463413de6d5036831
+2026-09-21_mi_mdhhs_cvi_grants.html  747157  478f8c12634cfc95b515e1e9e6dd66b26b5bda94b273950486325800ad962cf9
+2026-09-16_mi_mdhhs_suicide_prevention_council_release.html  746411  b51d8318c51457d1e251f3a7a3c6195ba47b60848dd7f5eabed2a88c0dbf5211
+2026_mi_suicide_prevention_council_report.pdf  264640  d419e27a9ec8605b7593472063aa0fba2db2edb563f8083d76ac7107e15e51ce

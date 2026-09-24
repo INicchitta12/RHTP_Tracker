@@ -463,15 +463,22 @@ oh_disposition <- function() {
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
     OH_STATE, "Ohio University", 1L, "REAL_AWARD_CARRIED_CORRECTLY",
-    paste0("RCJ's only Ohio Tier 3 candidate is 'Ohio University' at ",
-           "$10,000,000, sourced to 'Governor DeWine Announces First RHTP ",
-           "Award to Ohio University for $10 Million'. THE CORRECT RECIPIENT ",
+    # Session 63: the cross-state examples this sentence used to list
+    # (Missouri, Maine, Delaware, Michigan ...) went stale with the
+    # 2026-09-24 pull, so it now names only the failure MODES (§6.1) and the
+    # one neighbour whose row this repository re-read that day (Idaho).
+    paste0("RCJ's only Ohio Tier 3 candidate is '", t3$awardee_name_clean,
+           "' at $", format(t3$amount_announced, big.mark = ",",
+                            scientific = FALSE),
+           ", sourced to '", sub("^OH - [0-9]{4} - ", "", t3$source_doc_title),
+           "'. THE CORRECT RECIPIENT ",
            "AT THE CORRECT AMOUNT FROM THE CORRECT DOCUMENT -- which is rare ",
-           "enough to be worth stating: Missouri, Maine, Delaware and Idaho ",
-           "all carry real awards at a $1 placeholder, Michigan understates ",
-           "by grain, Oklahoma and Connecticut carry the wrong tier. Ohio is ",
-           "one of very few states where the aggregator gets the name AND the ",
-           "figure right. It is still not the source: this file's row is ",
+           "enough to be worth stating: elsewhere the aggregator more often ",
+           "carries a real recipient at a $1 placeholder (Idaho's, unchanged ",
+           "on the 2026-09-24 pull), at the wrong grain, or at the wrong tier ",
+           "(§6.1). Ohio is one of few states where the aggregator gets the ",
+           "name AND the figure right, and the row was unchanged on the ",
+           "2026-09-24 pull. It is still not the source: this file's row is ",
            "built from the Governor's release (§0.1).")
   )
 }
@@ -546,6 +553,7 @@ oh_build <- function() {
   readr::write_csv(st, OH_STATUS_CSV)
   message("[OH] wrote ", OH_STATUS_CSV, " (", nrow(st), " rows)")
   dp <- oh_disposition()
+  rhtp_assert_disposition_prose(dp, "OH")
   readr::write_csv(dp, OH_DISPO_CSV)
   message("[OH] wrote ", OH_DISPO_CSV, " (", nrow(dp), " rows)")
   invisible(list(awards = d, status = st, disposition = dp))

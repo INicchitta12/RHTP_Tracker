@@ -123,3 +123,31 @@ test_that("the watch fires on a new RHTP award headline and on a roster link", {
   rhtp2 <- sub("</body>", "<a href='documents/njrht-round-2.pdf'>x</a></body>", rhtp)
   expect_error(nj_assert_watch(news, rhtp2), "links a document")
 })
+
+test_that("RCJ's New Jersey Tier 3 candidates are ten real awards and one class", {
+  rt <- rhtp_record_table_live()
+  t <- rt[rt$state == NJ_STATE, ]
+  x <- nj_rcj_disposition(rt = rt, a = committed)
+  # the groups partition every live record and every live candidate
+  expect_equal(sum(x$records), nrow(t))
+  expect_equal(sum(x$tier3_candidates), sum(t$award_tier == "SUBAWARD"))
+  expect_equal(sum(x$tier3_candidates), 11L)
+  expect_equal(sum(x$tier3_candidates[x$disposition == "RHTP_SUBAWARD_IN_FILE"]), 10L)
+  expect_equal(x$tier3_candidates[x$disposition == "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT"], 1L)
+  expect_false(any(grepl("NO_TIER_3", x$disposition[x$tier3_candidates > 0])))
+  # a candidate matching no roster row refuses the build
+  extra <- t[t$award_tier == "SUBAWARD", ][1, ]
+  extra$awardee_name_raw <- "Some New Jersey Hospital"
+  expect_error(nj_rcj_disposition(rt = rbind(rt, extra), a = committed),
+               "does not describe")
+  # a name match alone is not enough: the amount must match too
+  wrong <- rt
+  k <- which(wrong$state == NJ_STATE & wrong$award_tier == "SUBAWARD" &
+               wrong$awardee_name_raw == "Acenda, Inc.")
+  wrong$amount_announced[k] <- "510113"
+  expect_error(nj_rcj_disposition(rt = wrong, a = committed), "Acenda")
+  # the committed CSV is what the builder writes
+  dispo <- readr::read_csv(NJ_DISPO_CSV, show_col_types = FALSE)
+  expect_equal(dispo$tier3_candidates, x$tier3_candidates)
+  expect_equal(dispo$note, x$note)
+})

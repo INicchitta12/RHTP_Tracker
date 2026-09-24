@@ -85,6 +85,11 @@
 #   --------------------------------------------------------------------------
 #   39 rows  $8,446,843.67  = `rcj_state_survey.csv`'s own figure for Nebraska.
 #
+# (That is the 2026-08-27 pull. The 2026-09-24 pull adds 12 rows from DHHS's
+# FOURTH notice -- Initiative 5.3, an INTENT to award, 13 applicants, which
+# this file does NOT extract -- and one hospital's own $1,500,000 summary of
+# its grants: 52 rows, $15,402,668.92. See ne_write_disposition().)
+#
 # The 24 are the finding. Nebraska's 4.4a notice carries the award list on page
 # 1 and, on pages 2-3, a separate roster headed "The following organizations
 # submitted applications for the aforementioned Request for Application" --
@@ -247,13 +252,21 @@ NE_STATED <- list(
   # The Nebraska High Value Network, and the twenty-one hospitals it names.
   nhvn_amount      = 18156856.12,
   nhvn_members     = 21L,
-  # RCJ, for §0.1 corroboration only. Never a published figure.
-  rcj_candidates   = 39L,
-  rcj_amount_sum   = 8446843.67,
+  # RCJ, for §0.1 corroboration only. Never a published figure. Re-derived on
+  # the 2026-09-24 pull (session 63): 39 rows / $8,446,843.67 on the
+  # 2026-08-27 pull. The thirteen new rows are Initiative 5.3's INTENT notice
+  # (12 of its 13 names) and one hospital's own summary of its grants.
+  rcj_candidates   = 52L,
+  rcj_amount_sum   = 15402668.92,
   rcj_4_4a_rows    = 24L,
   rcj_3_3_rows     = 9L,
   rcj_placeholder_rows = 5L,
   rcj_non_rhtp_rows    = 1L,
+  rcj_5_3_rows         = 12L,
+  rcj_org_summary_rows = 1L,
+  # Initiative 5.3's notice (09/01/2026), archived by session 63 and NOT
+  # extracted into the award file -- see ne_notice_5_3().
+  n_5_3   = 13L,
   # The named-hospital floor and the uncertainty beside it. DHHS publishes no
   # organisation-type column, so every recipient_type outside the 21 NHVN
   # member rows is derived from the recipient's own NAME.
@@ -813,7 +826,47 @@ ne_assert_nha_absent <- function(recs) {
   invisible(TRUE)
 }
 
-#' §0.1. RCJ's 39 Nebraska candidates, accounted for to the cent.
+#' Initiative 5.3's notice -- DHHS's FOURTH "Public Notice of Award", linked
+#' from the programme page after this file's 2026-08-31 archive. Session 63
+#' archived it to dispose of RCJ's 5.3 rows; it is deliberately NOT a source of
+#' `ne_year1_awardees.csv` (the task was a disposition re-read, not an
+#' extraction). It is headed "Intent to Award" and "DHHS intends to award
+#' subawards", so its rows would be `NOTICE_OF_INTENT_TO_AWARD`, weaker than
+#' the three notices this file parses.
+NE_5_3_NOTICE <- file.path("data", "evidence", "recheck", "2026-09-24", "NE",
+                           "2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf")
+NE_5_3_URL <- "https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-5.3.pdf"
+
+#' The 5.3 roster as printed: applicant + amount. Two names wrap onto a second
+#' line, so a line without a dollar figure is joined to the next one.
+ne_notice_5_3 <- function(path = here::here(NE_5_3_NOTICE)) {
+  lines <- stringr::str_squish(rhtp_pdf_text(path))
+  start <- which(stringr::str_detect(lines, "^Applicant\\s*Award Amount"))
+  end <- which(stringr::str_detect(lines, "^Thank you for your interest"))
+  if (length(start) != 1L || length(end) != 1L || end <= start) {
+    stop("[NE] the 5.3 notice's roster block is not where it was.",
+         call. = FALSE)
+  }
+  body <- lines[(start + 1L):(end - 1L)]
+  rows <- character(0); buf <- ""
+  for (ln in body) {
+    buf <- stringr::str_squish(paste(buf, ln))
+    if (stringr::str_detect(buf, "\\$\\s*[0-9,]+\\.[0-9]{2}$")) {
+      rows <- c(rows, buf); buf <- ""
+    }
+  }
+  if (nzchar(buf)) stop("[NE] unterminated 5.3 row: ", buf, call. = FALSE)
+  out <- tibble::tibble(
+    awardee = stringr::str_squish(stringr::str_remove(rows, "\\$\\s*[0-9,.]+$")),
+    amount = as.numeric(gsub("[$, ]", "", stringr::str_extract(rows, "\\$\\s*[0-9,.]+$"))))
+  if (nrow(out) != NE_STATED$n_5_3) {
+    stop("[NE] the 5.3 notice lists ", nrow(out), " applicants, not ",
+         NE_STATED$n_5_3, ".", call. = FALSE)
+  }
+  out
+}
+
+#' §0.1. RCJ's Nebraska candidates, accounted for to the cent.
 ne_assert_rcj_disposition <- function(awards) {
   path <- here::here("data", "interim", "stage2_record_table.rds")
   if (!file.exists(path)) {
@@ -835,18 +888,19 @@ ne_assert_rcj_disposition <- function(awards) {
     stop("[NE] RCJ's Nebraska amount sum has moved.", call. = FALSE)
   }
 
-  grp <- dplyr::case_when(
-    stringr::str_detect(ne$source_doc_title,
-                        "Organizations Submitted Applications") ~ "mislabelled_4_4a",
-    stringr::str_detect(ne$source_doc_title,
-                        stringr::fixed("RHTP Initiative 3.3 Awards")) ~ "awards_3_3",
-    stringr::str_detect(ne$source_doc_title, "Initiative 3\\.3") ~ "placeholder_3_3",
-    TRUE ~ "non_rhtp"
-  )
+  grp <- ne_rcj_group(ne)
+  if (any(grp == "undescribed")) {
+    stop("[NE] ", sum(grp == "undescribed"), " RCJ candidate(s) belong to no ",
+         "disposition group: ",
+         paste(ne$awardee_name_raw[grp == "undescribed"], collapse = "; "),
+         ". Read them before rebuilding.", call. = FALSE)
+  }
   counts <- c(mislabelled_4_4a = NE_STATED$rcj_4_4a_rows,
               awards_3_3       = NE_STATED$rcj_3_3_rows,
               placeholder_3_3  = NE_STATED$rcj_placeholder_rows,
-              non_rhtp         = NE_STATED$rcj_non_rhtp_rows)
+              non_rhtp         = NE_STATED$rcj_non_rhtp_rows,
+              intent_5_3       = NE_STATED$rcj_5_3_rows,
+              org_summary      = NE_STATED$rcj_org_summary_rows)
   for (nm in names(counts)) {
     if (sum(grp == nm) != counts[[nm]]) {
       stop("[NE] RCJ disposition group ", nm, " holds ", sum(grp == nm),
@@ -867,15 +921,47 @@ ne_assert_rcj_disposition <- function(awards) {
     }
   }
 
+  # Initiative 5.3: every RCJ row is one of the notice's rows, matched on the
+  # exact amount (to the cent) -- and the notice has one RCJ does not carry.
+  n53 <- ne_notice_5_3()
+  r53 <- ne[grp == "intent_5_3", ]
+  miss <- r53[!(round(r53$amount_announced, 2) %in% round(n53$amount, 2)), ]
+  if (nrow(miss)) {
+    stop("[NE] ", nrow(miss), " RCJ 5.3 row(s) match no amount on DHHS's ",
+         "notice: ", paste(miss$awardee_name_raw, collapse = "; "), call. = FALSE)
+  }
+  # And none of the 5.3 applicants is in the award file: this file parses 3.3,
+  # 4.4a and 4.4b only. The day that changes, this disposition must say so.
+  if (any(awards$source_key == "noa_5_3")) {
+    stop("[NE] 5.3 is now extracted; rewrite its disposition row.",
+         call. = FALSE)
+  }
+
   # And RCJ holds NONE of 4.4b. Stated as an identity rather than a search:
-  # the four groups above exhaust all 39 rows, so there is no room for one.
-  if (sum(grp == "non_rhtp") + sum(grp == "placeholder_3_3") +
-      NE_STATED$rcj_4_4a_rows + NE_STATED$rcj_3_3_rows !=
-      NE_STATED$rcj_candidates) {
+  # the groups above exhaust every row, so there is no room for one.
+  if (sum(counts) != NE_STATED$rcj_candidates) {
     stop("[NE] RCJ's candidate groups no longer exhaust the candidate set.",
          call. = FALSE)
   }
   invisible(TRUE)
+}
+
+#' The disposition group of each RCJ Nebraska Tier 3 candidate. Anything this
+#' does not recognise is "undescribed", and the build refuses it.
+ne_rcj_group <- function(ne) {
+  dplyr::case_when(
+    stringr::str_detect(ne$source_doc_title,
+                        "Organizations Submitted Applications") ~ "mislabelled_4_4a",
+    stringr::str_detect(ne$source_doc_title,
+                        stringr::fixed("RHTP Initiative 3.3 Awards")) ~ "awards_3_3",
+    stringr::str_detect(ne$source_doc_title, "Initiative 3\\.3") ~ "placeholder_3_3",
+    stringr::str_detect(ne$source_doc_title,
+                        stringr::fixed("RHTP Initiative 5.3 Awards")) ~ "intent_5_3",
+    stringr::str_detect(ne$source_doc_title,
+                        "Mary Lanning Healthcare Successful") ~ "org_summary",
+    ne$awardee_name_raw == "Nebraska Lawyers Foundation" ~ "non_rhtp",
+    TRUE ~ "undescribed"
+  )
 }
 
 
@@ -1253,6 +1339,18 @@ ne_build <- function() {
 #' Why each of RCJ's 39 Nebraska candidates is, or is not, an RHTP award row.
 #' Texas's precedent: the disposition is a committed table, not a comment.
 ne_write_disposition <- function() {
+  rt <- rhtp_record_table_live()
+  ne <- rt[rt$state == NE_STATE & rt$award_tier == "SUBAWARD", ]
+  grp <- ne_rcj_group(ne)
+  n53 <- ne_notice_5_3()
+  r53 <- ne[grp == "intent_5_3", ]
+  dropped <- n53[!(round(n53$amount, 2) %in% round(r53$amount_announced, 2)), ]
+  hosp53 <- n53$awardee[stringr::str_detect(
+    n53$awardee, "(?i)hospital|medical center|health (plainview|schuyler)|fremont health")]
+  ml <- ne[grp == "org_summary", ]
+  ml_file <- ne_awards()
+  ml_file <- ml_file[stringr::str_detect(ml_file$awardee, "(?i)mary lanning"), ]
+  ml_53 <- n53[stringr::str_detect(n53$awardee, "(?i)mary\\s*lanning"), ]
   disp <- tibble::tribble(
     ~group, ~rcj_rows, ~rcj_amount, ~disposition, ~basis, ~state_document,
     "Initiative 4.4a awards, filed by RCJ under the applicant section's heading",
@@ -1260,7 +1358,8 @@ ne_write_disposition <- function() {
     paste("The names and amounts are Initiative 4.4a's AWARD table, page 1 of",
           "the notice. RCJ took the document TITLE from pages 2-3, which are a",
           "separate roster of ~115 organisations that SUBMITTED APPLICATIONS.",
-          "Read at face value the title would have discarded 24 real awards as",
+          "Read at face value the title would have discarded",
+          NE_STATED$rcj_4_4a_rows, "real awards as",
           "applications (a deflation); read the other way round it would have",
           "invented ~115 awards from an applicant list (§0.3)."),
     "2026-08-31_ne_dhhs_public_notice_of_award_4.4a.pdf",
@@ -1287,8 +1386,50 @@ ne_write_disposition <- function() {
           "and closed 2025-05-21, seven months before Nebraska's CMS Notice of",
           "Award of 2025-12-29. State money, and a solicitation that closed",
           "before the state had the federal money (§6.2)."),
-    "2025-04-22_ne_dhhs_rfa_4533_nhap_legal_services.pdf"
+    "2025-04-22_ne_dhhs_rfa_4533_nhap_legal_services.pdf",
+
+    "Initiative 5.3 intents to award -- NOT in ne_year1_awardees.csv",
+    nrow(r53), round(sum(r53$amount_announced), 2), "RHTP_SUBAWARD",
+    paste0("Real RHTP award actions this file does not carry. DHHS's fourth ",
+           "notice, 'RHTP Initiative 5.3 Awards' (09/01/2026, Modification of ",
+           "Existing Clinical Facilities for Mental Health Crisis), is headed ",
+           "'Intent to Award' -- 'DHHS intends to award subawards to the ",
+           "following applicants' -- and lists ", nrow(n53), " applicants, $",
+           format(sum(n53$amount), big.mark = ",", nsmall = 2), ", under the ",
+           "same CMS footer ($218,529,075.01). RCJ carries ", nrow(r53),
+           " of them, each at the notice's exact amount, and DROPS ",
+           paste0(dropped$awardee, " ($", format(dropped$amount, big.mark = ",",
+                  nsmall = 2), ")", collapse = "; "),
+           ". ", length(hosp53), " names carry a hospital-shaped token (",
+           paste(hosp53, collapse = "; "), "); none was typed here, and §8 ",
+           "typing belongs to the extraction. ",
+           "The notice was published after this file's 2026-08-31 programme-page ",
+           "archive, so ne_assert_award_index() -- which refuses a FOURTH notice ",
+           "link -- will fire on a live read. Nebraska's award file is now ",
+           "INCOMPLETE: extract 5.3 as NOTICE_OF_INTENT_TO_AWARD rows in a ",
+           "session that owns it."),
+    "recheck/2026-09-24/NE/2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf",
+
+    "Mary Lanning Healthcare's own summary of its RHTP grants",
+    nrow(ml), round(sum(ml$amount_announced), 2), "RHTP_BUT_NOT_A_SUBAWARD",
+    paste0("One row at $", format(sum(ml$amount_announced), big.mark = ","),
+           " from 'NE - 2026 - Mary Lanning Healthcare Successful in RHTP Grant ",
+           "Applications' -- by its title the recipient's own announcement, ",
+           "not a DHHS notice (not archived here) -- of FOUR grants at ONE ",
+           "figure (§6.1 mode 4, wrong grain). ",
+           "The state's notices price Mary Lanning at $",
+           format(sum(ml_file$amount), big.mark = ",", nsmall = 2), " (",
+           nrow(ml_file), " row(s) in this file) plus $",
+           format(sum(ml_53$amount), big.mark = ",", nsmall = 2),
+           " on the 5.3 intent notice. The four-grant count is NOT reconciled ",
+           "against a state source; nothing here divides or adds RCJ's figure."),
+    "recheck/2026-09-24/NE/2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf"
   )
+  if (sum(disp$rcj_rows) != nrow(ne) || any(grp == "undescribed")) {
+    stop("[NE] the disposition covers ", sum(disp$rcj_rows), " of ", nrow(ne),
+         " live candidates.", call. = FALSE)
+  }
+  rhtp_assert_disposition_prose(disp, NE_STATE)
   readr::write_csv(disp, here::here(NE_DISPOSITION_CSV), na = "")
   message("[NE] wrote ", NE_DISPOSITION_CSV, " (", nrow(disp), " rows)")
   invisible(disp)

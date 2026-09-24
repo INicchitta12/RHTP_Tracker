@@ -202,6 +202,16 @@ test_that("Kentucky carries no Tier 3 candidate at all", {
   expect_equal(d$rcj_rows, 0L)
   expect_equal(d$disposition, "NO_TIER_3_SIGNAL_AT_ALL")
   expect_match(d$evidence, "never about the state")
+  expect_silent(rhtp_assert_disposition_prose(d, "KY"))
+  # Session 63: the prose is derived, so it cannot go stale the way "one of
+  # TWELVE states" and "Florida had 81 awards and no candidate" did.
+  expect_false(grepl("TWELVE states", d$evidence, fixed = TRUE))
+  expect_false(grepl("Florida had 81 awards and no candidate", d$evidence,
+                     fixed = TRUE))
+  expect_match(d$evidence, "2026-08-27 pull")
+  committed <- readr::read_csv(KY_DISPO_CSV, show_col_types = FALSE)
+  expect_equal(committed$evidence, d$evidence)
+  expect_equal(committed$rcj_rows, d$rcj_rows)
 })
 
 

@@ -1,0 +1,44 @@
+Texas -- the sources that dispose of 23 of RCJ's 26 NEW Texas Tier 3 candidates
+on the 2026-09-24 pull (the other three, an untitled RCJ 'Sheet1' XLSX, have no
+state source located) (session 63, the disposition re-read in R/03n_tx_year1_probe.R).
+Archived read-only, one fetch each, with curl, bytes exactly as served (cp from
+the fetch, no rewriting), so re-hashing a file reproduces its digest below.
+User-agent: AHA-RHTP-Tracker/0.1 (research use; +https://www.aha.org)
+Hosts: resources.hhs.texas.gov/rfa/<id> and
+       resources.hhs.texas.gov/sites/default/files/documents/<file>
+Credential check: the three HTML pages carry no AIza / pk.ey / sk.ey / api_key /
+token string; the PDFs are HHSC's own RFA and award notices.
+
+This directory is NOT data/evidence/TX/: that archive is the probe's baseline and
+its MANIFEST verifies exactly eleven files (session 19). These are new sources.
+
+WHAT THEY SAY.
+  HHS0016568 Texas Nurse-Family Partnership (TNFP). HHSC, released 2026-01-26.
+    RFA s1.3: "State funds for this Grant Project are authorized under the Texas
+    General Appropriations Act, Article II" and "Federal funding ... Temporary
+    Assistance for Needy Families (TANF) ... Assistance Listing 93.558". NOT RHTP
+    (Assistance Listing 93.798). Notice of award: 14 grantees, $133,864,170.
+  HHS0016121 DSHS Workplace Violence Against Nurses Prevention Program (TCNWS).
+    Released 2025-09-24, closed 2025-11-04 -- BEFORE the 2025-12-29 NOA. RFA
+    s1.3: "Texas Health and Safety Code, Section 105.011 ... General
+    Appropriations Act Article VIII, Rider 3, House Bill 1, 88th Legislature".
+    A STATE APPROPRIATION. Notice of award: 4 grantees (JPS, Shannon, Midland,
+    Parkland).
+  HHS0015358 Healthy Outcomes through Prevention and Early Support (HOPES),
+    HHSC Family Support Services. Released 2024-12-17, closed 2025-02-12. RFA
+    s1.3: state GAA Article II funds plus federal CAPTA / Community-Based Child
+    Abuse Prevention, Assistance Listing 93.590. NOT RHTP. Grants awarded: 27+
+    rows; RCJ carries five of them.
+"Rural Health Transformation" occurs ZERO times in all three RFAs and all three
+award notices (text read through R/utils_pdf_text.R).
+
+file  bytes  sha256
+2026-09-24_hhs0015358_hopes_grants_awarded.pdf  91868  f9b6ddbf9d3a712ca5095c82894289996f20baa6ebd9743a96720ec17682ba2b
+2026-09-24_hhs0016121_wvan_notice_of_award.pdf  33283  fa8251d25012a9362e0be51ef090c730cb82e22801a4bd2691eeae4d48a0e0b2
+2026-09-24_hhs0016568_tnfp_notice_of_award.pdf  47459  02b65496be3da481ad8fbed3ea3c242e325c2276f5c7e18cd647c0663abb9efa
+2026-09-24_rfa_hhs0015358_hopes_page.html  16451  a915a78bf5693063b5e48a24c6d57d39dbff356e70106255cf7aee437c4741cc
+2026-09-24_rfa_hhs0015358_hopes_rfa_STATE_GR_AND_CBCAP.pdf  664969  cc92887e47516bae6cfbbcde3f90953b801501ba3597b7c6114dd72deef4d957
+2026-09-24_rfa_hhs0016121_wvan_page.html  12847  6f833203797d5acd94f107888de8f8f235f1ad5dc7fb430020f71ffb5f6f3d78
+2026-09-24_rfa_hhs0016121_wvan_rfa_STATE_RIDER.pdf  420908  a5b3f9d927718957e3297aeb0820043007fb708d0a49501c9a3ea3553a19e329
+2026-09-24_rfa_hhs0016568_tnfp_page.html  13320  38d31719d947c26d4c4d28b93cba085f41b71b28d3bb927d44d991f63d8dd331
+2026-09-24_rfa_hhs0016568_tnfp_rfa_STATE_GR_AND_TANF.pdf  579820  2ee705024a81c994caf10c2fc8a261b626f2a5fd3d03fb8b5133ee1f9a7b2006

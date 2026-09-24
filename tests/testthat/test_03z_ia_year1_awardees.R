@@ -340,3 +340,19 @@ test_that("the disposition covers every RCJ Iowa candidate", {
   expect_equal(sum(d$rcj_rows), nrow(ia_rcj_candidates()))
   expect_true(all(nzchar(d$evidence)))
 })
+
+
+# -- session 63: the disposition after the 2026-09-24 pull -------------------
+
+test_that("the IA disposition covers the live candidates and its prose agrees", {
+  skip_if_not(file.exists(here::here("data", "interim",
+                                     "stage2_record_table.rds")))
+  rt <- rhtp_record_table_live()
+  live <- sum(rt$state == "IA" & rt$award_tier == "SUBAWARD")
+  d <- ia_disposition()
+  expect_equal(sum(d$rcj_rows), live)
+  expect_silent(rhtp_assert_disposition_prose(d, "IA"))
+  committed <- readr::read_csv(IA_DISPOSITION_CSV, show_col_types = FALSE)
+  expect_equal(committed$rcj_rows, d$rcj_rows)
+  expect_equal(committed[[ncol(committed)]], d[[ncol(d)]])
+})

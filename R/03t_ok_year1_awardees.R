@@ -2,7 +2,7 @@
 # Oklahoma Year 1 -> data/reference/ok_year1_awardees.csv
 #
 # WHY OKLAHOMA. It led `state_trigger_queue.csv` after Indiana was worked out --
-# queue rank 1, 35 Tier 3 candidates, 25 distinct awardees, a $223,476,949
+# queue rank 1, 35 Tier 3 candidates on the 2026-08-27 pull, 25 distinct awardees, a $223,476,949
 # allotment, no CMS press release. And it is the ONE state where a
 # recipient-level extraction can be checked against a §7A initiative table this
 # repository already holds: `OK_initiative_table.xlsx`, 28 fund uses,
@@ -44,17 +44,19 @@
 # closed 2025-04-24, eight months before its state had the money.
 #
 # §0.1 -- AND THE INDIANA LESSON IS WHY THE CANDIDATE LIST IS NOT THE INPUT.
-# NOT ONE of RCJ's 35 Oklahoma Tier 3 candidates is one of these 68 awards.
-# Every one of the 35 is a BUDGET LINE mined out of a Tier 2 planning document:
-# 8 from the Budget Narrative, 8 from the Initiative Funding Summary, 17 from
-# the two Legislative Quarterly Reports, 1 from a touchpoint webinar deck and 1
-# $1 placeholder. Their "awardees" are OHCA, OSDH, OSDE,
+# NOT ONE of RCJ's Oklahoma Tier 3 candidates is one of these 68 awards --
+# 35 on the 2026-08-27 pull, 36 on 2026-09-24 (the 36th is a ninth Initiative
+# Funding Summary line, the $6,200,000 HIE Interoperability fund use, carried
+# with the FUND USE's name as its awardee). Every one is a BUDGET LINE mined out
+# of a Tier 2 planning document: 8 from the Budget Narrative, 9 from the
+# Initiative Funding Summary, 17 from the two Legislative Quarterly Reports, 1
+# from a touchpoint webinar deck and 1 $1 placeholder. Their "awardees" are OHCA, OSDH, OSDE,
 # OSU, OUHSC, SWODA, the Oklahoma Hospital Association and the Foundation for a
 # Healthy Oklahoma -- the ADMINISTERING agencies, not subrecipients -- and the
 # amounts are what the Q2 report itself defines, in its own glossary, as
 # "Y1 Budget Allocation: The amount of funds dedicated to the program."
 # An extractor built from the candidate list would have published
-# **$231,614,376** of programme allocations as Oklahoma's Tier 3 subawards --
+# **$231,614,376** (08-27; $237,814,376 on 09-24) of programme allocations as Oklahoma's Tier 3 subawards --
 # MORE THAN THE ENTIRE $223,476,949 ALLOTMENT, and 65 times the $3,572,120.71
 # Oklahoma has actually awarded to named recipients. Texas's $16.8M and
 # Indiana's ~$147M in a state that has published a real roster the aggregator
@@ -177,9 +179,12 @@ OK_STATED <- list(
   initiative_allocated     = 204900000,    # OK_initiative_table.xlsx, all 28 uses
   initiative_hospital      = 99800000,     # has_hospital_recipient == "Yes"
   initiative_pct_hospital  = 48.7,
-  rcj_candidates           = 35L,
-  rcj_distinct_awardees    = 25L,
-  rcj_amount_sum           = 231614376.02
+  # Re-derived on the 2026-09-24 pull (session 63): 35 / 25 / $231,614,376.02
+  # on the 2026-08-27 pull; the one new row is the Initiative Funding Summary's
+  # $6,200,000 HIE Interoperability fund use (see ok_write_disposition()).
+  rcj_candidates           = 36L,
+  rcj_distinct_awardees    = 26L,
+  rcj_amount_sum           = 237814376.02
 )
 
 OK_NOA_DATE       <- as.Date("2025-12-29")   # cross-checked against the anchor
@@ -322,7 +327,7 @@ ok_write_manifest <- function(entries) {
     "OK_initiative_table.xlsx, and the two Legislative Quarterly Reports",
     "publish a per-programme \"Y1 Budget Allocation\", which their own glossary",
     "defines as \"the amount of funds dedicated to the program\". They are",
-    "archived because they are what disposes of all 35 RCJ Tier 3 candidates,",
+    "archived because they are what disposes of every RCJ Tier 3 candidate,",
     "and because the Q2 report independently corroborates both award counts:",
     "\"OSDH issued 68 awards through the competitive Microgrant application\"",
     "and \"60 awards totalling $600K to local schools\".",
@@ -906,7 +911,7 @@ ok_assert_vocabulary <- function(recs) {
   invisible(TRUE)
 }
 
-#' §0.1 -- not one of RCJ's 35 Oklahoma candidates is one of these 68 awards.
+#' §0.1 -- not one of RCJ's Oklahoma candidates is one of these 68 awards.
 #' The counts are RE-DERIVED from the committed record table on every run, so
 #' the day Oklahoma's candidate set moves this fails instead of quietly ceasing
 #' to cover it (Texas's, Nebraska's and Indiana's rule).
@@ -1223,10 +1228,10 @@ ok_build <- function() {
     "the source in the same shape as the other 68 and are deliberately NOT",
     "rows here.",
     "",
-    "RCJ HOLDS NONE OF THIS. All 35 of its Oklahoma Tier 3 candidates are",
+    paste("RCJ HOLDS NONE OF THIS. All", OK_STATED$rcj_candidates, "of its Oklahoma Tier 3 candidates are"),
     "BUDGET LINES from four Tier 2 planning documents, and their 'awardees'",
     "are the administering agencies (OHCA, OSDH, OSDE, OSU, OUHSC, SWODA).",
-    "Taken at face value they would have published $231,614,376 of programme",
+    paste0("Taken at face value they would have published $", format(round(OK_STATED$rcj_amount_sum), big.mark = ","), " of programme"),
     "allocations as subawards -- MORE THAN THE WHOLE ALLOTMENT. See",
     "ok_rcj_candidate_disposition.csv."
   )))
@@ -1348,7 +1353,8 @@ ok_initiative_comparison <- function(recs = ok_records()) {
   )
 }
 
-#' Why each of RCJ's 35 Oklahoma candidates is not an RHTP subaward row.
+#' Why each of RCJ's Oklahoma Tier 3 candidates is not an RHTP subaward row.
+#' Every count in the prose is derived from the group, never typed (session 63).
 #' Texas's precedent: the disposition is a committed table, not a comment.
 ok_write_disposition <- function() {
   cand <- ok_rcj_candidates()
@@ -1361,6 +1367,8 @@ ok_write_disposition <- function() {
   q   <- grp("(?i)legislative quarterly report")
   tp  <- grp("(?i)touchpoint")
   pul <- grp("(?i)pulsara")
+  ifs_fund <- sum(stringr::str_detect(cand$source_doc_title, "(?i)initiative funding summary") &
+                    stringr::str_detect(cand$awardee_name_clean, "^Building Health Data Utility"))
 
   if (bn$n + ifs$n + q$n + tp$n + pul$n != nrow(cand)) {
     stop("[OK] the disposition groups cover ", bn$n + ifs$n + q$n + tp$n + pul$n,
@@ -1373,7 +1381,7 @@ ok_write_disposition <- function() {
 
     "Budget Narrative initiative allocations (OHCA fund uses)",
     bn$n, bn$amt, "RHTP_BUT_NOT_A_SUBAWARD",
-    paste("Eight lines lifted from Oklahoma's RHTP Budget Narrative, an",
+    paste(bn$n, "lines lifted from Oklahoma's RHTP Budget Narrative, an",
           "application document. Their 'awardees' are OHCA plus the fund use",
           "-- 'Oklahoma Health Care Authority (OHCA) - EHR expansion' -- which",
           "is a PROGRAMME and an administering agency, not a recipient (§6.1's",
@@ -1385,8 +1393,13 @@ ok_write_disposition <- function() {
     paste("The CMS-approved BP1 allocation packet -- the §7A source for",
           "OK_initiative_table.xlsx. Every line is a 'Funding Allocated:'",
           "figure against a named lead agency (OSU, OU/OSU, the Oklahoma",
-          "Hospital Association, SWODA, OHCA). An allocation to an",
-          "administering agency is Tier 2 and may never be unioned with Tier 3."),
+          "Hospital Association, SWODA, OHCA) -- or, on", ifs_fund, "row(s)",
+          "new on the 2026-09-24 pull, against no agency at all: RCJ carries",
+          "'Building Health Data Utility: Health Information Exchange (HIE)",
+          "Interoperability' as the awardee, which is the packet's INITIATIVE and",
+          "FUND USE heading ('Funding Allocated: $6,200,000'), a programme name",
+          "(§6.1's PROGRAM_NAME_AS_AWARDEE). An allocation is Tier 2 and may",
+          "never be unioned with Tier 3."),
     "2026-03-10_ok_rhtp_initiative_funding_summary.pdf",
 
     "Legislative Quarterly Report Q1 and Q2 programme rows",
@@ -1419,6 +1432,7 @@ ok_write_disposition <- function() {
           "OSDH has published no recipient-level award against it."),
     "2026-08-31_ok_rhtp_home.html"
   )
+  rhtp_assert_disposition_prose(disp, OK_STATE)
   readr::write_csv(disp, here::here(OK_DISPOSITION_CSV), na = "")
   message("[OK] wrote ", OK_DISPOSITION_CSV, " (", nrow(disp), " rows)")
   invisible(disp)

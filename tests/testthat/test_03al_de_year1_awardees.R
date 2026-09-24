@@ -186,10 +186,36 @@ test_that("the award postdates the Notice of Award", {
   expect_gt(de_assert_after_noa(), 200L)
 })
 
-test_that("the disposition covers all six candidates", {
+test_that("the disposition covers every live candidate (twelve on 2026-09-24)", {
   d <- de_disposition()
-  expect_equal(sum(d$rcj_rows), 6L)
+  live <- de_rcj_candidates()
+  expect_equal(nrow(live), 12L)
+  expect_equal(sum(d$rcj_rows), nrow(live))
+  expect_equal(d$rcj_rows, c(4L, 7L, 1L, 0L))
+  expect_equal(d$withdrawn_rows, c(4L, 0L, 0L, 1L))
   expect_true(any(grepl("PLACEHOLDER", d$disposition)))
+  expect_silent(rhtp_assert_disposition_prose(d, "DE"))
+})
+
+test_that("the seven DDD rows are DSHA's state rebate reservations, archived", {
+  p <- here::here(DE_DDD_ARCHIVE)
+  expect_equal(digest::digest(file = p, algo = "sha256"),
+               "9b66cef9a3af3813dfb9fd56a2295be199941a755f7ab33e608f4af9529e8ab9")
+  live <- de_rcj_candidates()
+  ddd <- live[grepl(DE_DDD_MARKER, live$source_doc_title, ignore.case = TRUE), ]
+  expect_equal(nrow(ddd), 7L)
+  expect_equal(sum(ddd$amount_announced), 3433344)
+  expect_true(de_assert_ddd_is_state_money(ddd))
+  bad <- ddd; bad$amount_announced[1] <- 1
+  expect_error(de_assert_ddd_is_state_money(bad), "not a DDD reservation")
+})
+
+test_that("the disposition refuses a live candidate no group describes", {
+  live <- de_rcj_candidates()
+  rogue <- live[1, ]
+  rogue$source_doc_title <- "DE - 2026 - Something Nobody Has Read"
+  expect_error(de_disposition(dplyr::bind_rows(live, rogue)),
+               "No group")
 })
 
 test_that("the status table has no amount column", {

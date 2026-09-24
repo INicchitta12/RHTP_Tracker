@@ -403,48 +403,74 @@ test_that("both Michigan review-queue questions are open and state their effect"
 
 # -- §0.1: RCJ ---------------------------------------------------------------
 
-test_that("RCJ's 31 candidates decompose exactly, and the count is re-derived", {
+test_that("RCJ's live candidates decompose exactly, and the count is re-derived", {
   expect_true(!is.null(mi_assert_rcj_disposition(mi_recs)))
   cand <- mi_rcj_candidates()
-  expect_equal(nrow(cand), 31L)
-  expect_equal(sum(cand$group == "SUBRECIPIENTS_AWARD"), 14L)
+  expect_equal(nrow(cand), 149L)
+  expect_equal(sum(cand$group == "SUBRECIPIENTS_ROSTER"), 132L)
   expect_equal(sum(cand$group == "BUDGET_NARRATIVE"), 9L)
-  expect_equal(sum(cand$group == "OPIOID_SETTLEMENT"), 8L)
+  expect_equal(sum(cand$group == "LEO_ALLOCATION"), 2L)
+  expect_equal(sum(cand$group == "CVI_STATE_GRANTS"), 4L)
+  expect_equal(sum(cand$group == "SUICIDE_COUNCIL"), 1L)
+  expect_equal(sum(cand$group == "WRONG_STATE_SD"), 1L)
   expect_equal(sum(cand$group == "UNCLASSIFIED"), 0L)
+  # the per-organisation and opioid rows of the 08-27 pull are gone
+  expect_equal(sum(cand$group %in% c("SUBRECIPIENTS_AWARD", "OPIOID_SETTLEMENT")), 0L)
 })
 
-test_that("RCJ DEFLATES Michigan: one row per organisation, not per award", {
+test_that("the disposition's groups cover the live set, and 131 roster rows are in the file", {
+  d <- mi_disposition_table(mi_recs)
+  rt <- rhtp_record_table_live()
+  expect_equal(sum(d$rcj_rows), sum(rt$state == "MI" & rt$award_tier == "SUBAWARD"))
+  expect_equal(d$rcj_rows[1], 131L)
+  expect_silent(rhtp_assert_disposition_prose(d, "MI"))
+  m <- mi_roster_match(mi_rcj_candidates(), mi_recs)
+  expect_equal(sum(m$in_file), 131L)
+  expect_equal(length(m$file_not_in_rcj), 8L)
+  committed_d <- readr::read_csv(MI_DISPOSITION_CSV, show_col_types = FALSE)
+  expect_equal(committed_d$rcj_rows, d$rcj_rows)
+  expect_equal(committed_d$why, d$why)
+})
+
+test_that("MDHHS's live roster ADDED six state-agency rows the file does not carry", {
+  added <- mi_live_roster_added()
+  expect_equal(nrow(added), 6L)
+  expect_equal(sum(added$amount), 31435045)
+  expect_true(all(grepl("^Michigan (Department|Veterans)", added$awardee)))
+  expect_false(any(added$awardee %in% mi_recs$awardee))
   cand <- mi_rcj_candidates()
-  real <- cand[cand$group == "SUBRECIPIENTS_AWARD", ]
+  ros <- cand[cand$group == "SUBRECIPIENTS_ROSTER", ]
+  new <- ros[!mi_roster_match(cand, mi_recs)$in_file, ]
+  expect_equal(new$awardee, "Michigan Veterans Affairs Agency (MVAA)")
+})
+
+test_that("the 08-27 findings still hold on the WITHDRAWN rows", {
+  all <- mi_rcj_candidates(rhtp_record_table_live(include_withdrawn = TRUE))
+  gone <- all[all$change_status == "WITHDRAWN", ]
+  expect_equal(sum(gone$group == "SUBRECIPIENTS_AWARD"), 14L)
+  expect_equal(sum(gone$group == "OPIOID_SETTLEMENT"), 8L)
+  real <- gone[gone$group == "SUBRECIPIENTS_AWARD", ]
   roster_for <- mi_recs %>%
     dplyr::filter(.data$awardee %in% real$awardee) %>%
     dplyr::group_by(.data$awardee) %>%
     dplyr::summarise(roster = sum(.data$amount), n = dplyr::n(), .groups = "drop")
   expect_equal(sum(real$rcj_amount), 19484032)
-  expect_equal(sum(roster_for$roster), 27317365)
   expect_equal(sum(roster_for$roster) - sum(real$rcj_amount), 7833333)
-  # Kansas's Greeley County defect at five times the scale: five organisations
-  # hold more than one MDHHS award and RCJ kept one of each.
-  expect_equal(sum(roster_for$n > 1L), 4L)
-  mcrh <- roster_for[roster_for$awardee == "Michigan Center for Rural Health (MCRH)", ]
-  expect_equal(mcrh$n, 5L)
-  expect_equal(mcrh$roster, 7275000)
-  expect_equal(real$rcj_amount[real$awardee == mcrh$awardee], 3000000)
-  # EVERY §0.1 defect before Michigan's inflated. This one deflates.
-  expect_gt(sum(roster_for$roster), sum(real$rcj_amount))
-})
-
-test_that("the opioid-settlement candidates are not roster rows", {
-  cand <- mi_rcj_candidates()
-  op <- cand[cand$group == "OPIOID_SETTLEMENT", ]
+  op <- gone[gone$group == "OPIOID_SETTLEMENT", ]
   expect_equal(sum(op$rcj_amount), 2214846)
-  # None matches a roster row on name AND amount. One name collides -- Child
-  # and Family Charities holds a real $208,333 RHTP award and a separate
-  # $232,925 opioid-settlement grant -- which is exactly why the check is on
-  # the PAIR and not the name.
   pairs <- paste(mi_recs$awardee, mi_recs$amount)
   expect_false(any(paste(op$awardee, op$rcj_amount) %in% pairs))
-  expect_true("Child and Family Charities" %in% mi_recs$awardee)
+})
+
+test_that("the CVI and suicide-council rows are state money, read from the state", {
+  cvi <- stringr::str_squish(xml2::xml_text(xml2::xml_find_first(xml2::read_html(
+    here::here("data/evidence/recheck/2026-09-24/MI/2026-09-21_mi_mdhhs_cvi_grants.html")), "//main")))
+  expect_match(cvi, "awarded \\$1.5 million to five organizations")
+  expect_false(grepl("Rural Health Transformation|RHTP", cvi))
+  source(here::here("R", "utils_pdf_text.R"))
+  rep <- paste(rhtp_pdf_text(here::here("data/evidence/recheck/2026-09-24/MI/2026_mi_suicide_prevention_council_report.pdf")),
+               collapse = " ")
+  expect_match(rep, "appropriated \\$125,000")
 })
 
 test_that("the §6.2 registry catches all eight, with no false positives", {
@@ -459,15 +485,17 @@ test_that("the §6.2 registry catches all eight, with no false positives", {
     here::here("data", "reference", "provenance_sweep_by_state.csv"),
     show_col_types = FALSE)
   mi <- sweep[sweep$state == "MI", ]
-  expect_equal(mi$caught_total, 8L)
-  expect_equal(mi$caught_state_program, 8L)
+  # SESSION 62/63: RCJ WITHDREW all eight rows on the 2026-09-24 pull, so the
+  # live sweep catches none. R/02b's own tests re-label the withdrawn rows
+  # live to prove the registry entry still catches them.
+  expect_equal(mi$caught_total, 0L)
+  expect_equal(mi$caught_state_program, 0L)
   # And none of the caught rows is one this file publishes.
   flagged <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_flagged_rows.csv"),
     show_col_types = FALSE)
   caught <- flagged[flagged$state == "MI", ]
-  expect_equal(nrow(caught), 8L)
-  expect_true(all(caught$registry_program == "MI-SUD-PREVENTION-2026"))
+  expect_equal(nrow(caught), 0L)
   # NO FALSE POSITIVES: not one caught row is a Michigan award this file
   # publishes, matched on the (name, amount) PAIR because one name legitimately
   # appears on both lists.

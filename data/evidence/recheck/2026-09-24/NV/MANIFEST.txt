@@ -1,0 +1,37 @@
+Nevada -- the sources that dispose of RCJ's eight NEW Nevada Tier 3 candidates
+on the 2026-09-24 pull, and the live roster that shows nv_year1_awardees.csv
+is now INCOMPLETE (session 63).
+Archived read-only, one fetch each (curl), 2026-09-24 ~16:30Z, HTTP 200.
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+The bodies the server sent, BYTE FOR BYTE; re-hashing reproduces the digests.
+
+2026-09-24_nv_rht_funded_projects_bp1.html
+  <- https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
+  NVHA's Funded Projects page, which the award file was built from on
+  2026-08-31 (three sections, 72 named award actions). It now carries SEVEN
+  sections and 155 named award actions -- Flex 39, WRRAP Recruitment and
+  Retention 26, Apprenticeship and Training 20, Medical Residency 4, Rural
+  Health Innovation and Technology 24, Rural Health Outcomes Accelerator 36,
+  Tribal 6 -- and still NO dollar figure. NOT extracted. The footer's rotating
+  state-symbol widget (session 26) makes the file digest useless as a change
+  test; the page also carries the site's public Azure Application Insights
+  connection string, exactly as the committed 2026-08-31 archive does.
+
+2026-02_nv_rht_stakeholder_meetings_02.26.pdf
+  <- https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-stakeholder-meetings-02.26.pdf
+  Linked from https://www.nvha.nv.gov/RHTP/rht-meetings/. "Rural Health
+  Innovation and Technology Funding: $26,989,741*", "$1,298,985* Presidential
+  Fitness Test", "*Pending approval of revised budget" -- initiative lines
+  (Tier 2), the source of two of RCJ's new candidates.
+
+2026-09-08_nv_rhtsc_programmatic_annual_report_walkthrough.pdf
+  <- https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-workshops/rhtsc---programmatic-annual-report.pdf
+  "CMS Programmatic Annual Report -- Basic and General Walkthrough", 2026-09-08.
+  RCJ files five contractors under this title; NONE of their names or amounts
+  is in this deck's text layer (slide 11 "Downstream Reporting Tab" is an
+  image). Slide 12: "Provider Payments (Category B): 15% - $26,989,741".
+
+file  bytes  sha256
+2026-09-24_nv_rht_funded_projects_bp1.html  505894  72ace8b7a70592acefbf37955c398cbbe187613afcfe979d0d75ca49861fed96
+2026-02_nv_rht_stakeholder_meetings_02.26.pdf  2157338  01ef0e1c6c4ad621f18802d22b2d014fc918e43b78a283cdc5b6f956fe6be916
+2026-09-08_nv_rhtsc_programmatic_annual_report_walkthrough.pdf  829851  5e056d1c38009b7433241441f2739f79637c3130698967a9501236e3c1a43b14

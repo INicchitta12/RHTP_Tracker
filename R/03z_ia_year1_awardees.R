@@ -1109,6 +1109,17 @@ ia_disposition <- function() {
   n_bb  <- sum(!coe)
   roster_coe <- sort(ia_roster("phthorc26008")$awardee)
   matched <- identical(sort(cand$awardee_name_raw[coe]), roster_coe)
+  # Session 63: the counts below were prose; they are now derived.
+  n_docs <- dplyr::n_distinct(cand$source_doc_title)
+  n_actions <- if (file.exists(IA_OUT_CSV)) {
+    nrow(readr::read_csv(IA_OUT_CSV, show_col_types = FALSE))
+  } else NA_integer_
+  if (any(cand$amount_announced[coe] != 0) ||
+      any(cand$amount_announced[!coe] != 1)) {
+    stop("[IA] RCJ now prices an Iowa candidate other than at $0 (Centers of ",
+         "Excellence) or $1 (Best and Brightest). Re-read the disposition.",
+         call. = FALSE)
+  }
 
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
@@ -1132,11 +1143,13 @@ ia_disposition <- function() {
     IA_STATE,
     "The other NINE notices",
     0L, "NOT_IN_THE_AGGREGATOR_AT_ALL",
-    paste0("RCJ holds candidates from TWO of Iowa's ELEVEN notices. The other ",
-           "nine -- including all three June ones and every single-recipient ",
-           "technical-assistance award -- are absent entirely. Iowa ranked ",
-           "FIRST on the RCJ_ONLY queue at 15 candidates and has published 264 ",
-           "award actions: a low candidate count is not evidence that a state ",
+    paste0("RCJ holds candidates from ", n_docs, " of Iowa's ",
+           nrow(IA_NOTICES), " notices (unchanged on the 2026-09-24 pull). The ",
+           "other ", nrow(IA_NOTICES) - n_docs, " -- including all three June ",
+           "ones and every single-recipient technical-assistance award -- are ",
+           "absent entirely. Iowa ranked FIRST on the RCJ_ONLY queue at 15 ",
+           "candidates on the 2026-08-27 pull and has published ", n_actions,
+           " award actions: a low candidate count is not evidence that a state ",
            "has published little.")
   )
 }
@@ -1249,6 +1262,7 @@ ia_build <- function() {
   message("[IA] wrote ", IA_FOOTERS_CSV, " (", nrow(foot), " rows)")
 
   disp <- ia_disposition()
+  rhtp_assert_disposition_prose(disp, "IA")
   readr::write_csv(disp, IA_DISPOSITION_CSV, na = "")
   message("[IA] wrote ", IA_DISPOSITION_CSV, " (", nrow(disp), " rows)")
   invisible(rows)

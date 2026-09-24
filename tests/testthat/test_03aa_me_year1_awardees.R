@@ -392,9 +392,25 @@ test_that("the disposition covers every RCJ candidate, re-derived", {
   cands <- me_rcj_candidates()
   d <- rhtp_me_rcj_disposition(cands)
   expect_equal(sum(d$rows), nrow(cands))
-  expect_equal(nrow(cands), 12L)
-  expect_equal(d$rows[d$disposition == "RHTP_COHORT_INVITED_NOT_AWARDED"], 11L)
-  expect_equal(d$rows[d$disposition == "RHTP_AWARD_CARRIED_CORRECTLY"], 1L)
+  # Twelve on the 2026-08-27 pull; seventeen on the 2026-09-24 pull.
+  expect_equal(nrow(cands), 17L)
+  g <- stats::setNames(d$rows, d$disposition)
+  expect_equal(g[["RHTP_COHORT_INVITED_NOT_AWARDED"]], 11L)
+  expect_equal(g[["TIER_2_BUDGET_LINE"]], 3L)
+  expect_equal(g[["RHTP_BUT_A_CLASS_NOT_A_RECIPIENT"]], 3L)
+  # RCJ WITHDREW the UNE row it priced correctly; the group stays, at 0.
+  expect_equal(g[["RHTP_AWARD_WITHDRAWN_BY_THE_AGGREGATOR"]], 0L)
+  expect_silent(rhtp_assert_disposition_prose(d, "ME"))
+})
+
+test_that("a candidate no group describes stops the build", {
+  cands <- me_rcj_candidates()
+  extra <- cands[1, ]
+  extra$awardee_name_clean <- "An Organisation Nobody Has Read"
+  extra$source_doc_title <- "ME - 2026 - Something New"
+  extra$amount_announced <- 12345
+  expect_error(rhtp_me_rcj_disposition(dplyr::bind_rows(cands, extra)),
+               "fit no group")
 })
 
 test_that("RCJ's eleven names match DHHS's roster NAME FOR NAME", {
@@ -403,17 +419,31 @@ test_that("RCJ's eleven names match DHHS's roster NAME FOR NAME", {
   # OF ACTION -- it carries all eleven as Tier 3 awards at $1 each.
   expect_silent(me_assert_rcj_names_match())
   cands <- me_rcj_candidates()
-  cohort_rows <- cands[cands$awardee_name_clean != "University of New England", ]
+  norm <- function(x) stringr::str_squish(stringr::str_replace_all(x, "[‐-―]", "-"))
+  cohort_rows <- cands[norm(cands$awardee_name_clean) %in%
+                         norm(me_rhef_cohort_names()), ]
   expect_equal(nrow(cohort_rows), 11L)
   expect_true(all(cohort_rows$amount_announced == 1))
 })
 
-test_that("RCJ prices the ONE real award correctly, and only that one", {
+test_that("RCJ no longer carries the ONE real award at DHHS's figure", {
+  # On the 2026-08-27 pull RCJ priced UNE at $12,000,000, DHHS's own figure.
+  # That row was withdrawn; what RCJ carries for UNE now is a Tier 2 budget
+  # line that is NOT the award figure, and the award file does not move.
   cands <- me_rcj_candidates()
   une <- cands[cands$awardee_name_clean == "University of New England", ]
   expect_equal(nrow(une), 1L)
-  expect_equal(une$amount_announced, 12000000)
-  expect_equal(une$amount_announced, me_awards$amount)
+  expect_true(grepl("Budget Narrative", une$source_doc_title))
+  expect_false(une$amount_announced == me_awards$amount)
+  expect_equal(me_awards$amount, ME_UNE_AMOUNT)
+})
+
+test_that("the digest's three 'awardees' are pools this file already records", {
+  cands <- me_rcj_candidates()
+  dg <- cands[grepl(ME_RCJ_DIGEST_TITLE, cands$source_doc_title, fixed = TRUE), ]
+  expect_equal(nrow(dg), 3L)
+  expect_true(all(dg$amount_announced %in%
+                    c(ME_EMR_POOL, ME_RHEF_POOL, ME_UNE_AMOUNT)))
 })
 
 test_that("the §6.2 sweep's clean Maine line is about the registry, not Maine", {
@@ -422,9 +452,9 @@ test_that("the §6.2 sweep's clean Maine line is about the registry, not Maine",
     show_col_types = FALSE, progress = FALSE)
   me <- sweep[sweep$state == "ME", ]
   expect_equal(me$caught_total, 0L)
-  # ALL TWELVE ARE UNDATABLE -- RCJ carries no date for any of them -- so the
-  # date test could not have run (Nebraska's lesson, session 23).
-  expect_equal(me$undatable_rows, 12L)
+  # EVERY candidate is undatable -- RCJ carries no date for any of them -- so
+  # the date test could not have run (Nebraska's lesson, session 23).
+  expect_equal(me$undatable_rows, nrow(me_rcj_candidates()))
   expect_equal(me$datable_rows, 0L)
 })
 

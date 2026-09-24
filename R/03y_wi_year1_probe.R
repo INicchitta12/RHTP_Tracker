@@ -867,6 +867,7 @@ rhtp_wi_build <- function() {
   status <- rhtp_wi_year1_status()
   dispo  <- rhtp_wi_rcj_disposition()
   readr::write_csv(status, here::here(WI_STATUS_CSV))
+  rhtp_assert_disposition_prose(dispo, "WI")
   readr::write_csv(dispo,  here::here(WI_DISPO_CSV))
   wi_assert_no_award_file()
   message("[WI] wrote ", WI_STATUS_CSV, " (", nrow(status), " rows) and ",

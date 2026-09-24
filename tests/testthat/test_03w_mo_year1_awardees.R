@@ -275,9 +275,10 @@ test_that("where Missouri's hospital money will be, stated on its own page", {
 
 # -- §0.1 --------------------------------------------------------------------
 
-test_that("27 of RCJ's 29 Missouri candidates are the governance roster", {
+test_that("27 of RCJ's 30 live Missouri candidates are the governance roster", {
+  # 29 on the 2026-08-27 pull; 30 on 2026-09-24 (MDA carried twice).
   cands <- mo_rcj_candidates()
-  expect_equal(nrow(cands), 29L)
+  expect_equal(nrow(cands), 30L)
   is_anchor <- cands$awardee_name_clean %in% mo_anchors$organization
   expect_equal(sum(is_anchor), 27L)
   # Every one of them carries an amount of $1 -- which is why no plausibility
@@ -286,18 +287,42 @@ test_that("27 of RCJ's 29 Missouri candidates are the governance roster", {
   expect_true(all(cands$amount_announced[is_anchor] == 1))
 })
 
-test_that("RCJ understates the one exact award it holds", {
+test_that("RCJ carries the one Doula award twice, once short and once exact", {
   cands <- mo_rcj_candidates()
   mda <- cands[grepl("Doula", cands$awardee_name_clean), ]
-  expect_equal(nrow(mda), 1L)
-  expect_equal(mda$amount_announced, MO_STATED$rcj_mda_amount)
-  expect_lt(mda$amount_announced, MO_STATED$mda_amount)
+  expect_equal(nrow(mda), 2L)
+  expect_equal(sort(mda$amount_announced),
+               c(MO_STATED$rcj_mda_amount, MO_STATED$mda_amount),
+               tolerance = 0.01)
+  expect_equal(dplyr::n_distinct(mda$source_doc_title), 2L)
 })
 
-test_that("the disposition covers every candidate, re-derived not typed", {
+test_that("RCJ carries none of the twenty SMRP hospital awards", {
+  dispo <- rhtp_mo_rcj_disposition()
+  smrp <- dispo[dispo$disposition == "NOT_IN_THE_AGGREGATOR_AT_ALL", ]
+  expect_equal(nrow(smrp), 1L)
+  expect_equal(smrp$rows, 0L)
+  expect_true(grepl("20 rural hospital projects", smrp$why, fixed = TRUE))
+})
+
+test_that("the disposition covers every live candidate, re-derived not typed", {
   dispo <- rhtp_mo_rcj_disposition()
   expect_equal(sum(dispo$rows), nrow(mo_rcj_candidates()))
   expect_true("NOT_AN_AWARD_GOVERNANCE_ROLE" %in% dispo$disposition)
+  expect_silent(rhtp_assert_disposition_prose(dispo, "MO"))
+  # A candidate no group describes stops the build rather than going uncounted.
+  cands <- mo_rcj_candidates()
+  extra <- cands[1, ]
+  extra$awardee_name_clean <- "Some Organisation Nobody Has Read"
+  expect_error(rhtp_mo_rcj_disposition(dplyr::bind_rows(cands, extra)),
+               "no disposition group")
+})
+
+test_that("the committed disposition is what the builder derives", {
+  committed <- readr::read_csv(here::here(MO_DISPO_CSV), show_col_types = FALSE)
+  built <- rhtp_mo_rcj_disposition()
+  expect_equal(committed$rows, built$rows)
+  expect_equal(committed$why, built$why)
 })
 
 

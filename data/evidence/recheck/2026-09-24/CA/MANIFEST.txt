@@ -1,0 +1,27 @@
+California -- the source that disposes of RCJ's four NEW California Tier 3
+candidates on the 2026-09-24 pull (session 63).
+Archived read-only, one fetch, by the session-63 disposition re-read, through
+ca_get() in R/03ab_ca_year1_probe.R (credential guard ran and found nothing).
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+URL: https://hcai.ca.gov/facilities/health-facility-financing/distressed-hospital-loan-program/
+
+The body the server sent, BYTE FOR BYTE (writeBin), so re-hashing the file
+reproduces the digest below.
+
+WHAT IT SAYS. HCAI's "Distressed Hospital Funding Programs" page: "The
+Distressed Hospital Small Grant Program was established through the Budget Act
+of 2025 (Assembly Bill 108) ... authorizes up to $25 million in one-time grant
+funding", with "Grant Awardees": Southern Inyo Healthcare District $400,000,
+Palo Verde Hospital $3,000,000, Watsonville Community Hospital $10,600,000,
+El Centro Regional Medical Center $11,000,000 ($25,000,000 in all), and "Any
+unencumbered funds pursuant to this grant program will revert to the General
+Fund on June 30, 2026." A CALIFORNIA STATE APPROPRIATION. "RHTP", "Rural Health
+Transformation" and "federal" each occur ZERO times on the page.
+
+RCJ files all four under 'CA - 2025 - Distressed Hospital Small Grant Program
+Reference Overview' as California RHTP Tier 3 candidates, at exactly these
+amounts. Same agency (HCAI) that administers CalRHT; same defect as the eleven
+SRHRP seismic rows RCJ withdrew on this pull (§0.1 mode 1, wrong programme).
+
+file  bytes  sha256
+2026-09-24_ca_hcai_distressed_hospital_funding_programs_STATE_GENERAL_FUND.html  144752  ac550e673fe873fe1835f5331916dfcdfd66b18afd6cf8be62e70aa2cab5cb51
