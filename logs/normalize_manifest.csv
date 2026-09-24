@@ -23,3 +23,6 @@ run_timestamp_utc,pull_date,stage,rules_version,source_endpoint,records_read,rec
 2026-08-27T18:20:01Z,2026-08-27,stage2_normalization,0.1.0-preflight,awards,1429,1429,9,425,995,0,0,1372,57,0,199,0,0,1429,TRUE,PRODUCTION,
 2026-08-27T18:20:01Z,2026-08-27,stage2_normalization,0.1.0-preflight,documents,3092,3092,111,279,2702,225,1060,0,1807,43,0,0,0,3092,TRUE,PRODUCTION,
 2026-08-27T18:20:01Z,2026-08-27,stage2_normalization,0.1.0-preflight,opportunities,631,631,3,22,606,49,467,0,115,0,0,0,0,631,TRUE,PRODUCTION,
+2026-09-24T15:51:27Z,2026-09-24,stage2_normalization,0.1.0-preflight,awards,2534,2534,72,552,1910,0,0,2447,87,0,217,1347,0,1187,TRUE,PRODUCTION,
+2026-09-24T15:51:27Z,2026-09-24,stage2_normalization,0.1.0-preflight,documents,3608,3611,186,330,3095,249,1210,0,2152,47,0,529,234,2848,TRUE,PRODUCTION,
+2026-09-24T15:51:27Z,2026-09-24,stage2_normalization,0.1.0-preflight,opportunities,701,701,6,23,672,49,509,0,143,0,0,94,66,541,TRUE,PRODUCTION,
