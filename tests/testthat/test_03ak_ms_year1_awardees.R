@@ -363,10 +363,38 @@ test_that("the status table has no amount column AND the award file now exists",
   expect_equal(sum(st$stage == "AWARDED_ROSTER_PUBLISHED"), 3L)
 })
 
-test_that("the disposition covers all three candidates and refuses a fourth", {
+test_that("the disposition covers all 173 live candidates, paired to our file", {
+  # 2026-08-27: three candidates, none an award. 2026-09-24: RCJ carries the
+  # Governor's roster, and every one of its 167 rows pairs one-to-one to
+  # ms_year1_awardees.csv by name AND amount -- six by hand, never fuzzily.
   d <- ms_disposition()
-  expect_equal(sum(d$rcj_rows), 3L)
-  expect_true(all(grepl("NOT_", d$disposition)))
+  expect_equal(sum(d$rcj_rows), 173L)
+  expect_equal(d$rcj_rows[d$disposition == "REAL_AWARD_IN_OUR_FILE"], 167L)
+  expect_equal(d$rcj_rows[d$disposition == "DUPLICATE_OF_A_PAIRED_ROW"], 4L)
+  # QIPP was WITHDRAWN by RCJ; its group is kept, at zero, for its history.
+  expect_equal(d$rcj_rows[d$disposition ==
+                            "NOT_RHTP_MEDICAID_AND_A_DOCUMENT_TITLE"], 0L)
+  p <- ms_rcj_pairing()
+  expect_equal(nrow(p$rcj_unpaired), 0L)
+  expect_equal(nrow(p$ours_unpaired), 0L)
+  expect_equal(sum(p$pairs$how == "HAND_READ"), 6L)
+  expect_equal(sum(abs(p$pairs$rcj_amount - p$pairs$amount)), 0)
+  expect_equal(sum(p$pairs$rcj_amount), 104115146.80, tolerance = 1e-9)
+  # RCJ carries LIFECORE as "Northeast Mental Health" -- session 46's defect.
+  lc <- p$pairs[p$pairs$record_id == "9867d935-dca7-47c3-b304-94ca137d42de", ]
+  expect_equal(lc$awardee_name_raw, "Northeast Mental Health")
+  expect_match(lc$awardee, "LIFECORE")
+})
+
+test_that("a candidate in no group, or an unpaired award, stops the build", {
+  cand <- ms_rcj_candidates()
+  extra <- cand[1, ]
+  extra$record_id <- "x"; extra$awardee_name_raw <- "Invented Clinic"
+  p <- ms_rcj_pairing(dplyr::bind_rows(cand, extra))
+  expect_equal(nrow(p$rcj_unpaired), 1L)
+  aw <- readr::read_csv(MS_AWARDEES_CSV, show_col_types = FALSE)
+  p2 <- ms_rcj_pairing(cand, aw[-1, ])
+  expect_equal(nrow(p2$rcj_unpaired), 1L)
 })
 
 test_that("Mississippi now contributes 68 rows and $47.5M, and that is new", {

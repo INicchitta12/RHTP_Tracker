@@ -1816,28 +1816,193 @@ sc_status_table <- function() {
   )
 }
 
+#' RCJ's hand-read pairs to sc_year1_awardees.csv
+#'
+#' On the 2026-09-24 pull RCJ carries the award list as 227 Tier 3 rows. 193
+#' carry a name IDENTICAL to ours (after lower-casing and dropping every
+#' non-alphanumeric) and an identical amount. THE OTHER 34 ARE THE ROWS THIS
+#' FILE'S OWN PARSE HAD TO WORK HARDEST FOR, AND RCJ GOT EVERY ONE OF THEIR
+#' NAMES WRONG. Most are rows whose name WRAPS over two lines (session 47's
+#' third shape); the rest are the `I2` row and names RCJ clipped. RCJ reads
+#' the wrapped ones in line order: each name comes out as THE TAIL OF THE
+#' PREVIOUS ROW'S PARENTHETICAL welded onto THE HEAD OF ITS OWN, cut at the
+#' wrap -- "(Aiken Barnwell Mental Health Center) SCDBHDD Office of Mental
+#' Health (Beckman Center for" is our row 122, the Beckman Center, whose
+#' predecessor (row 121) is the Aiken Barnwell centre. EVERY AMOUNT IS RIGHT.
+#' Each pair was read by hand: the amount, the welded prefix (which names the
+#' PREVIOUS row) and the surviving head of the name all agree with the row
+#' given. Where two rows share an amount (162,945; 172,797.60; 182,470;
+#' 1,100,000) the prefix is what decides it. Never a fuzzy match (§2).
+SC_RCJ_HAND_PAIRS <- tibble::tribble(
+  ~record_id, ~row_no,
+  "9bb7eb68-f3bb-4007-9417-c7ff8b3dd7f4", 107L,
+  "0bf305b6-cdcf-40dd-ad78-8d7ae6eeab41", 108L,  # prefix = row 107 (Greater Greenville)
+  "5d64ff52-65cd-4c88-985f-1edcfc9c1f77", 109L,  # prefix = row 108 (Columbia Area)
+  "80d6dd36-1af1-459e-9a27-5c77dfd36972", 110L,
+  "1873c32a-2752-4639-a404-1b2a9bec4760", 111L,  # prefix = row 110 (Anderson-Oconee-Pickens)
+  "f3f62875-fb9f-4ee1-a15c-7816b906a359", 112L,  # prefix = row 111 (Catawba)
+  "13255b1c-b292-46aa-b739-3d28c11d8769", 113L,
+  "3a8eda14-b495-49fa-bf84-cc832e73824c", 114L,
+  "2c558720-17eb-4ff8-8a85-37c65c078ee1", 115L,  # prefix = row 114 (Pee Dee)
+  "012ef64e-457a-4d39-ad43-bfe4a74b789a", 116L,  # prefix = row 115 (Aiken-Barnwell)
+  "ce1ced3e-b57a-4b0c-8c20-e80e861a0688", 117L,
+  "5c46d2d3-a73c-4485-b65e-94ec986b6043", 118L,
+  "a2f9d2a3-ad32-4568-85ca-b6d1c208e3c8", 119L,
+  "7288229d-fd57-4c16-84e2-0a9eadafa305", 120L,
+  "970f7df6-7527-412d-a548-214459c0e102", 121L,
+  "5a2a8bc6-1cc2-4d67-81fa-76435f0c2028", 122L,
+  "2af9162c-2a52-4fec-83f5-5ed955b0e6e3", 123L,
+  "7c120978-ffd3-4ca1-9ab0-e264eb136fe2", 124L,
+  "f0a58312-1867-4304-b548-b38ea0fec3a3", 131L,  # "South Carolina Comprehensive Treatment Center" (clipped)
+  "cfe74399-da90-44fb-bfc7-bdd42cd75eed", 180L,  # "Beaufort Jasper Hampton Comprehensive Health" (clipped)
+  "d910e74f-2a40-4edd-8214-1f6e548f0bcf", 18L,
+  "36257bec-eed4-42f6-b1cf-bb4282822b6a", 59L,
+  "dfca68bf-eeff-4cf6-8294-9bda7cdb47dd", 168L,
+  "2fcd0941-6aa5-4e1b-ad61-547d696ad09d", 170L,
+  "b5803b0d-194b-4405-b29c-eae8b284997f", 173L,
+  "56a35d78-1991-43f7-8cb3-178db64958d7", 174L,  # prefix "Chester)" = row 173
+  "13e04219-43fe-4d7a-9e11-6d9168a300ba", 183L,
+  "fa919cf9-5192-4e17-a60b-6160e11922e4", 187L,
+  "521e2169-1d27-4c47-bfac-6775e8974517", 190L,  # "(MUSC Health Pee" -- Pee Dee Division
+  "96c94d7e-f2d6-49e4-b639-606bee96c565", 191L,  # prefix "Dee Division)" = row 190
+  "cbbc3075-863c-45f1-869e-3817919caf45", 195L,
+  "2a4870d9-2fbe-4e5c-91b3-4b76c5fcf3a5", 205L,
+  "5df86509-9416-496b-b081-34b613fb365b", 211L,  # "(MHD)" clipped
+  "cc772402-7384-4703-a69f-fb935ff3574b", 216L   # "I2 Rebound Behavioral Health": RCJ kept the I2
+)
+
+#' Our one row RCJ does NOT carry as a Tier 3 candidate
+#'
+#' South Carolina Department of Corrections, $6,836,679 (Modernize Health IT,
+#' row 61). RCJ HAS the record and tiers it UNASSIGNED with
+#' STATE_AGENCY_AS_AWARDEE -- a state agency is not read as a subrecipient by
+#' stage 2's tier rules -- so it is in the aggregator and not in the candidate
+#' set. That is why RCJ's 227 is one short of the state's 228.
+SC_RCJ_UNASSIGNED_OURS <- tibble::tribble(
+  ~record_id, ~row_no,
+  "df650f88-1a00-4eb5-9f84-9cff046a6904", 61L
+)
+
+sc_rcj_norm <- function(x) gsub("[^a-z0-9]", "", tolower(x))
+
+sc_rcj_candidates <- function() {
+  rhtp_record_table_live() %>%
+    dplyr::filter(.data$state == SC_STATE, .data$award_tier == "SUBAWARD")
+}
+
+#' Pair RCJ's Tier 3 candidates to sc_year1_awardees.csv, one to one
+sc_rcj_pairing <- function(cand = sc_rcj_candidates(),
+                           aw = readr::read_csv(SC_AWARDEES_CSV,
+                                                show_col_types = FALSE)) {
+  keyed <- function(nm, amt) paste(sc_rcj_norm(nm), sprintf("%.2f", amt))
+  hand <- SC_RCJ_HAND_PAIRS %>%
+    dplyr::inner_join(cand %>% dplyr::select("record_id", "awardee_name_raw",
+                                             rcj_amount = "amount_announced"),
+                      by = "record_id") %>%
+    dplyr::inner_join(aw %>% dplyr::select("row_no", "awardee", "amount"),
+                      by = "row_no") %>%
+    dplyr::mutate(how = "HAND_READ")
+  if (nrow(hand) != nrow(SC_RCJ_HAND_PAIRS)) {
+    stop("[SC] ", nrow(SC_RCJ_HAND_PAIRS) - nrow(hand), " hand-read pair(s) ",
+         "no longer resolve: RCJ dropped or re-keyed a record. Re-read them.",
+         call. = FALSE)
+  }
+  r <- cand %>% dplyr::filter(!.data$record_id %in% hand$record_id) %>%
+    dplyr::mutate(k = keyed(.data$awardee_name_raw, .data$amount_announced)) %>%
+    dplyr::group_by(.data$k) %>% dplyr::mutate(s = dplyr::row_number()) %>%
+    dplyr::ungroup()
+  o <- aw %>% dplyr::filter(!.data$row_no %in% hand$row_no) %>%
+    dplyr::mutate(k = keyed(.data$awardee, .data$amount)) %>%
+    dplyr::group_by(.data$k) %>% dplyr::mutate(s = dplyr::row_number()) %>%
+    dplyr::ungroup()
+  exact <- r %>%
+    dplyr::inner_join(o %>% dplyr::select("k", "s", "row_no", "awardee",
+                                          "amount"), by = c("k", "s")) %>%
+    dplyr::transmute(.data$record_id, .data$row_no, .data$awardee_name_raw,
+                     rcj_amount = .data$amount_announced, .data$awardee,
+                     .data$amount, how = "EXACT_NAME_AND_AMOUNT")
+  pairs <- dplyr::bind_rows(exact, hand)
+  list(pairs = pairs,
+       rcj_unpaired = cand %>% dplyr::filter(!.data$record_id %in% pairs$record_id),
+       ours_unpaired = aw %>% dplyr::filter(!.data$row_no %in% pairs$row_no))
+}
+
 #' Why each of RCJ's South Carolina Tier 3 candidates is, or is not, an award
 sc_disposition <- function() {
   n <- sc_rcj_candidate_count()
+  aw <- readr::read_csv(SC_AWARDEES_CSV, show_col_types = FALSE)
+  p <- sc_rcj_pairing(aw = aw)
+  if (nrow(p$rcj_unpaired) > 0L) {
+    stop("[SC] ", nrow(p$rcj_unpaired), " RCJ Tier 3 candidate(s) pair to no ",
+         "row of sc_year1_awardees.csv. Read them and give them a group or a ",
+         "HAND-READ pair; never a fuzzy match (§2).", call. = FALSE)
+  }
+  missing <- p$ours_unpaired
+  if (!setequal(missing$row_no, SC_RCJ_UNASSIGNED_OURS$row_no)) {
+    stop("[SC] the rows of sc_year1_awardees.csv that RCJ does not carry as ",
+         "Tier 3 have changed: ", paste(missing$row_no, collapse = ", "),
+         ". Read them.", call. = FALSE)
+  }
+  un <- rhtp_record_table_live() %>%
+    dplyr::filter(.data$record_id %in% SC_RCJ_UNASSIGNED_OURS$record_id)
+  if (nrow(un) != nrow(SC_RCJ_UNASSIGNED_OURS) ||
+      !all(un$amount_announced == missing$amount)) {
+    stop("[SC] RCJ's UNASSIGNED record for the Department of Corrections has ",
+         "moved or re-priced. Read it.", call. = FALSE)
+  }
+  bad <- p$pairs %>% dplyr::filter(abs(.data$rcj_amount - .data$amount) > 0.005)
+  if (nrow(bad) > 0L) {
+    stop("[SC] ", nrow(bad), " paired row(s) where RCJ's amount disagrees with ",
+         "the award list. Report them rather than pairing past them.",
+         call. = FALSE)
+  }
+  if (nrow(p$pairs) != n) {
+    stop("[SC] ", n - nrow(p$pairs), " candidates fall into no group.",
+         call. = FALSE)
+  }
+  n_hand <- sum(p$pairs$how == "HAND_READ")
+  money <- function(x) paste0("$", format(x, big.mark = ",", nsmall = 2))
   tibble::tibble(
     state = SC_STATE,
-    disposition = "NO_RCJ_TIER3_CANDIDATES",
-    rcj_candidates = n,
-    note = paste0(
-      "South Carolina carries ", n, " RCJ Tier 3 candidates -- against 33 RCJ ",
-      "records in total, all SOLICITATION, STATE_ALLOTMENT or UNASSIGNED -- ",
-      "while publishing 228 named, priced award actions worth ",
-      "$167,299,900.69. A ZERO HERE IS A FACT ABOUT THE DISCOVERY LAYER AND ",
-      "NEVER ABOUT THE STATE (§0.1). Florida, North Carolina, Arkansas and ",
-      "Wyoming are the standing proofs and South Carolina is the fifth, at ",
-      "$167.3M the third largest of the five in dollars after Florida's ",
-      "$188.2M and Wyoming's $173.9M. IT IS NOT QUITE THEIR SHAPE, THOUGH, ",
-      "AND THE DIFFERENCE IS WORTH KEEPING: those four were invisible to ",
-      "BOTH discovery layers (trigger_source = NEITHER), while South Carolina ",
-      "is invisible to RCJ alone and reached the trigger list through CMS's ",
-      "newsroom on 2026-09-17 -- two days AFTER SCDHHS had already posted the ",
-      "roster, so the trigger followed the publication rather than finding ",
-      "it."),
+    disposition = c("REAL_AWARD_IN_OUR_FILE", "OUR_ROW_RCJ_TIERS_UNASSIGNED",
+                    "NO_RCJ_TIER3_CANDIDATES"),
+    rcj_candidates = c(nrow(p$pairs), 0L, 0L),
+    note = c(
+      paste0(
+        "On the 2026-09-24 pull RCJ carries South Carolina's award list as ",
+        nrow(p$pairs), " Tier 3 candidates, ", money(sum(p$pairs$rcj_amount)),
+        ", and EVERY ONE PAIRS ONE-TO-ONE to a row of sc_year1_awardees.csv ",
+        "(228 rows, ", money(sum(aw$amount)), ") WITH THE AMOUNT AGREEING TO ",
+        "THE CENT. ", nrow(p$pairs) - n_hand, " pair on an identical name and ",
+        "amount; ", n_hand, " are hand-read pairs (SC_RCJ_HAND_PAIRS), and ",
+        "THOSE ARE THE ROWS WHOSE NAMES WRAP: RCJ reads them in line order and ",
+        "welds the tail of the PREVIOUS row's parenthetical onto the head of ",
+        "its own, cut at the wrap ('(Aiken Barnwell Mental Health Center) ",
+        "SCDBHDD Office of Mental Health (Beckman Center for' is row 122). ",
+        "Session 47's interleaved-line-id finding, reproduced by the ",
+        "aggregator. RCJ also keeps the misprinted 'I2' as part of Rebound ",
+        "Behavioral Health's name. Every name RCJ carries for those rows is ",
+        "welded or clipped; every amount is right. A discovery signal only (§0.1); the ",
+        "file is built from the award list itself."),
+      paste0(
+        "ONE ROW OF OURS IS NOT AN RCJ TIER 3 CANDIDATE: South Carolina ",
+        "Department of Corrections, $6,836,679 (Modernize Health IT, row 61). ",
+        "RCJ carries it (record df650f88-1a00-4eb5-9f84-9cff046a6904) but ",
+        "tiers it UNASSIGNED with STATE_AGENCY_AS_AWARDEE, so the candidate ",
+        "set is 227 against the state's 228. It is not missing from the ",
+        "aggregator; it is missing from Tier 3."),
+      paste0(
+        "HISTORY, KEPT: on the 2026-08-27 pull South Carolina carried ZERO RCJ ",
+        "Tier 3 candidates -- against 33 RCJ records, all SOLICITATION, ",
+        "STATE_ALLOTMENT or UNASSIGNED -- while SCDHHS had issued Notices of ",
+        "Award Determination by email (2026-07-31) and then published 228 ",
+        "priced awards (2026-09-15). A zero there was a fact about the ",
+        "discovery layer and never about the state (§0.1); Florida, North ",
+        "Carolina, Arkansas and Wyoming were the standing proofs. It was not ",
+        "quite their shape: South Carolina reached the trigger list through ",
+        "CMS's newsroom on 2026-09-17, two days AFTER the roster was posted. ",
+        "This group holds no live row since the 2026-09-24 pull, which caught ",
+        "the roster nine days after SCDHHS posted it.")),
     source_url = sc_source("award_list", "url"))
 }
 

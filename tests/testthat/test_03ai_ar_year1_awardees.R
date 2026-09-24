@@ -628,14 +628,38 @@ test_that("the status table has FOUR initiatives and NO `amount` column", {
   expect_true(all(st$award_date_published == "No"))
 })
 
-test_that("Arkansas holds ZERO RCJ Tier 3 candidates, and that is about RCJ", {
-  d <- readr::read_csv(AR_DISPOSITION_CSV, show_col_types = FALSE,
-                       progress = FALSE)
-  expect_equal(nrow(d), 1L)
-  expect_equal(d$rcj_rows, 0L)
-  expect_equal(d$disposition, "NOT_IN_THE_AGGREGATOR_AT_ALL")
-  expect_true(grepl("NEITHER", d$evidence, fixed = TRUE))
-  expect_true(grepl("DISCOVERY LAYER", d$evidence, fixed = TRUE))
+test_that("RCJ now carries Arkansas's award list, paired to our 31 organisations", {
+  # 2026-08-27: ZERO candidates (kept as a history row). 2026-09-24: 33.
+  d <- ar_disposition()
+  expect_equal(sum(d$rcj_rows), 33L)
+  expect_equal(d$rcj_rows[d$disposition == "NOT_IN_THE_AGGREGATOR_AT_ALL"], 0L)
+  expect_true(grepl("NEITHER", d$evidence[d$disposition ==
+                                            "NOT_IN_THE_AGGREGATOR_AT_ALL"],
+                    fixed = TRUE))
+  expect_equal(d$rcj_rows[d$disposition ==
+                            "REAL_AWARD_IN_OUR_FILE_AT_ORGANISATION_GRAIN"], 31L)
+  p <- ar_rcj_pairing()
+  expect_equal(nrow(p$rcj_unpaired), 0L)
+  expect_equal(nrow(p$ours_unpaired), 0L)
+  expect_equal(sum(p$pairs$amount_announced), 149177618.45, tolerance = 1e-9)
+  # RCJ's Mercy digest row disagrees with the award list by the rounding.
+  expect_true(grepl("$56,249.00", d$evidence[d$disposition ==
+                                              "ROUNDED_DUPLICATE_OF_A_PAIRED_ROW"],
+                    fixed = TRUE))
+  # The two mode-6 misfiled records are counted and named, never Tier 3.
+  expect_true(grepl("2 of which the", d$evidence[4], fixed = TRUE))
+  # The committed CSV is the same measurement.
+  csv <- readr::read_csv(AR_DISPOSITION_CSV, show_col_types = FALSE,
+                         progress = FALSE)
+  expect_equal(sum(csv$rcj_rows), 33L)
+})
+
+test_that("an unread Arkansas candidate stops the disposition", {
+  cand <- ar_rcj_candidates()
+  extra <- cand[1, ]
+  extra$record_id <- "x"; extra$source_doc_title <- "AR - 2026 - Something"
+  expect_error(ar_disposition(cand = dplyr::bind_rows(cand, extra)),
+               "have changed")
 })
 
 test_that("Arkansas reads EXTRACTED in both rebuilt survey tables", {
@@ -653,9 +677,14 @@ test_that("Arkansas reads EXTRACTED in both rebuilt survey tables", {
   # matters is unchanged: the RCJ layer STILL holds zero Tier 3 candidates for
   # a state with 37 priced award actions, and it was extracted before either
   # layer flagged it.
-  expect_equal(s$survey_status[s$state == "AR"], "CMS_ONLY")
-  expect_equal(q$trigger_source[q$state == "AR"], "CMS_ONLY")
-  expect_equal(s$tier3_candidates[s$state == "AR"], 0L)
+  #
+  # AND THE 2026-09-24 RCJ PULL CAUGHT THE AWARD LIST (33 candidates), so
+  # the rebuilt survey reads RCJ_AND_CMS and the queue BOTH. The finding that
+  # survives is the dated one: on 2026-08-27 RCJ held ZERO.
+  expect_equal(s$survey_status[s$state == "AR"], "RCJ_AND_CMS")
+  expect_equal(q$trigger_source[q$state == "AR"], "BOTH")
+  expect_equal(s$tier3_candidates[s$state == "AR"], nrow(ar_rcj_candidates()))
+  expect_equal(s$tier3_candidates[s$state == "AR"], 33L)
 })
 
 test_that("the evidence manifest lists every archived file and verifies", {

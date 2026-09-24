@@ -427,10 +427,40 @@ test_that("the RCJ candidate count is DERIVED, never typed", {
   rec <- rhtp_record_table_live()
   expect_equal(n, sum(rec$state == "SC" & rec$award_tier == "SUBAWARD",
                       na.rm = TRUE))
-  expect_equal(n, 0L)
-  # South Carolina holds RCJ records; it holds no Tier 3 CANDIDATES. The
-  # difference is what makes the zero a fact about the discovery layer.
-  expect_gt(sum(rec$state == "SC", na.rm = TRUE), 0L)
+  # 2026-08-27: ZERO. 2026-09-24: RCJ has caught the award list, 227 of 228.
+  expect_equal(n, 227L)
+  expect_gt(sum(rec$state == "SC", na.rm = TRUE), n)
+})
+
+test_that("every RCJ candidate pairs to our file by name AND amount", {
+  skip_if_no_archive()
+  p <- sc_rcj_pairing()
+  expect_equal(nrow(p$pairs), 227L)
+  expect_equal(nrow(p$rcj_unpaired), 0L)
+  expect_equal(sum(p$pairs$how == "HAND_READ"), 34L)
+  expect_equal(sum(abs(p$pairs$rcj_amount - p$pairs$amount)), 0)
+  # The one row RCJ lacks as Tier 3 is the Department of Corrections, which
+  # it carries UNASSIGNED; the two halves close on the state's 228.
+  expect_equal(p$ours_unpaired$row_no, 61L)
+  expect_equal(p$ours_unpaired$amount, 6836679)
+  expect_equal(sum(p$pairs$rcj_amount) + 6836679, 167299900.69,
+               tolerance = 1e-9)
+  # RCJ welds the previous row's site onto a wrapped name.
+  b <- p$pairs[p$pairs$row_no == 122L, ]
+  expect_match(b$awardee_name_raw, "^\\(Aiken Barnwell")
+  expect_match(b$awardee, "Beckman")
+  d <- sc_disposition()
+  expect_equal(sum(d$rcj_candidates), 227L)
+  expect_true("NO_RCJ_TIER3_CANDIDATES" %in% d$disposition)  # history kept
+})
+
+test_that("an RCJ candidate pairing to nothing stops the disposition", {
+  skip_if_no_archive()
+  cand <- sc_rcj_candidates()
+  extra <- cand[1, ]
+  extra$record_id <- "x"; extra$awardee_name_raw <- "Invented Clinic"
+  p <- sc_rcj_pairing(dplyr::bind_rows(cand, extra))
+  expect_equal(nrow(p$rcj_unpaired), 1L)
 })
 
 test_that("--build writes what the report reads", {

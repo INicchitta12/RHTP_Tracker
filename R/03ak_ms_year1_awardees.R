@@ -4,8 +4,9 @@
 # MISSISSIPPI -- THE MOST IMMINENT STATE IN THIS REPOSITORY, AND THE FIRST
 # WHOSE CMS FOOTER IS NOT 100% FEDERAL.
 #
-# Mississippi holds $205,907,220 (§7.1) and carries THREE RCJ Tier 3
-# candidates, none of them an RHTP subaward (see ms_disposition()). It has
+# Mississippi holds $205,907,220 (§7.1). On the 2026-08-27 pull it carried
+# THREE RCJ Tier 3 candidates, none of them an RHTP subaward; on the 2026-09-24
+# pull RCJ carries the 167-award roster too (see ms_disposition()). It had
 # published NO recipient-level award list -- and unlike every other negative in
 # this project, it has SAID IT IS ABOUT TO. `mississippirhtp.com` is a
 # DEDICATED RHTP DOMAIN, the third after Kentucky's and Arkansas's, and
@@ -1169,20 +1170,168 @@ ms_status_table <- function() {
   )
 }
 
-ms_disposition <- function() {
-  rt <- rhtp_record_table_live()
-  ms <- rt %>% dplyr::filter(.data$state == MS_STATE)
-  t3 <- ms %>% dplyr::filter(.data$award_tier == "SUBAWARD")
-  n_t3 <- nrow(t3)
-  if (n_t3 != 3L) {
-    stop("[MS] this disposition covers THREE Tier 3 candidates and the record ",
-         "table now holds ", n_t3, ". Read the new ones before rebuilding ",
-         "(§0.1 -- a disposition that does not cover its candidates is worse ",
-         "than none).", call. = FALSE)
+# -- RCJ's candidates, reconciled to the award file ---------------------------
+#
+# On the 2026-08-27 pull RCJ held THREE Mississippi Tier 3 candidates and not
+# one was an RHTP subaward. On the 2026-09-24 pull it holds 173 live (the QIPP
+# row is WITHDRAWN), because RCJ has now caught the Governor's 2026-09-14
+# release. The disposition below pairs every one of those rows to a row of
+# ms_year1_awardees.csv BY NAME AND AMOUNT, and it is still designed to fail:
+# a candidate in no group, a pair whose amounts disagree, or a total that does
+# not reconcile each stops the build.
+#
+# THE PAIRING IS NOT FUZZY. A row pairs automatically only when its name is
+# IDENTICAL to ours after lower-casing and dropping every non-alphanumeric
+# character, AND its amount is identical to the cent. Everything else is an
+# EXPLICIT, HAND-READ pair below, keyed on RCJ's record_id and our row_no.
+# Repeated (name, amount) keys pair in document order.
+
+#' The six hand-read pairs, and what each says about RCJ's parse
+#'
+#' THREE OF THE SIX ARE RCJ SPLITTING A NAME ON A HYPHEN -- the defect session
+#' 46 guards against in our own parse (RCGC 30). RCJ made it, and it made it
+#' on a hospital: "Baptist Memorial Hospital-Calhoun, Inc." is carried as
+#' "Baptist Memorial Hospital". The other three are RCJ leaving the release's
+#' HTML apostrophe entity (&#8217;) undecoded. Every amount agrees.
+MS_RCJ_HAND_PAIRS <- tibble::tribble(
+  ~record_id, ~row_no, ~reason,
+  "8016d979-1288-42bd-94fa-a6387aa6bc5c", 40L,
+  "RCJ 'Baptist Memorial Hospital' $1,491,000 = our RTG 'Baptist Memorial Hospital-Calhoun, Inc.' $1,491,000 (Calhoun County). RCJ CUT THE NAME AT THE HYPHEN, dropping the campus.",
+  "46cb53e1-3b53-4ec7-ae4a-4e772db93c2a", 85L,
+  "RCJ 'King&#8217;s Daughters Medical Center' $960,920 = our RTG row 85, same amount. Undecoded HTML apostrophe; the two King's Daughters awards are told apart by AMOUNT.",
+  "7b75b135-4959-4cc4-9312-82becffecbaf", 84L,
+  "RCJ 'King&#8217;s Daughters Medical Center' $326,441 = our RTG row 84, same amount. Undecoded HTML apostrophe.",
+  "86c43274-f2dd-4cad-ba1f-d2acc89894cb", 13L,
+  "RCJ 'Mississippi Children&#8217;s Home Society dba Canopy Children&#8217;s Solutions' $320,250 = our RTG row 13, same amount. Undecoded HTML apostrophes.",
+  "9867d935-dca7-47c3-b304-94ca137d42de", 127L,
+  "RCJ 'Northeast Mental Health' $27,600 = our RCGC 30 'Northeast Mental Health - Mental Retardation Commission d.b.a. LIFECORE Health Group' $27,600. RCJ MADE SESSION 46'S LIFECORE ERROR: it split the legal name on ' - ' and kept the first half, an organisation that does not exist.",
+  "65d7c50f-4ae8-4013-ad2d-3432df6728ef", 87L,
+  "RCJ 'P & S Clinic OB' $115,643 = our RTG 'P & S Clinic OB-GYN, PLLC' $115,643. RCJ CUT THE NAME AT THE HYPHEN."
+)
+
+#' RCJ's second capture of the same release, under a second document title
+#'
+#' Four rows sit under "MS - 2025 - Governor Reeves Announces 167 RHTP Awards
+#' Totaling More Than $104 Million" -- the release's own headline, with RCJ's
+#' title-year prefix (a 2025 prefix on a 2026-09-14 release is aggregator
+#' metadata, never a date, §2). Each repeats an award RCJ ALSO carries under
+#' the 167-row capture: RTG rows 1, 2, 4 and 5. Counting them would add
+#' $671,252 that nobody awarded twice.
+MS_RCJ_DUPLICATE_TITLE <- paste0("MS - 2025 - Governor Reeves Announces 167 ",
+                                 "RHTP Awards Totaling More Than $104 Million")
+MS_RCJ_RELEASE_TITLE <- "MS - 2026 - Governor Reeves Announces 167 RHTP Awards"
+
+ms_rcj_norm <- function(x) gsub("[^a-z0-9]", "", tolower(x))
+
+ms_rcj_candidates <- function(include_withdrawn = FALSE) {
+  rhtp_record_table_live(include_withdrawn = include_withdrawn) %>%
+    dplyr::filter(.data$state == MS_STATE, .data$award_tier == "SUBAWARD")
+}
+
+#' Pair RCJ's release capture to ms_year1_awardees.csv, one to one
+ms_rcj_pairing <- function(cand = ms_rcj_candidates(),
+                           aw = readr::read_csv(MS_AWARDEES_CSV,
+                                                show_col_types = FALSE)) {
+  rel <- cand %>% dplyr::filter(.data$source_doc_title == MS_RCJ_RELEASE_TITLE)
+  keyed <- function(nm, amt) paste(ms_rcj_norm(nm), sprintf("%.2f", amt))
+  hand <- MS_RCJ_HAND_PAIRS %>%
+    dplyr::inner_join(rel %>% dplyr::select("record_id", "awardee_name_raw",
+                                            rcj_amount = "amount_announced"),
+                      by = "record_id") %>%
+    dplyr::inner_join(aw %>% dplyr::select("row_no", "awardee", "amount"),
+                      by = "row_no") %>%
+    dplyr::mutate(how = "HAND_READ")
+  if (nrow(hand) != nrow(MS_RCJ_HAND_PAIRS)) {
+    stop("[MS] ", nrow(MS_RCJ_HAND_PAIRS) - nrow(hand), " hand-read pair(s) ",
+         "no longer resolve: RCJ dropped or re-keyed a record. Re-read them.",
+         call. = FALSE)
   }
+  r <- rel %>% dplyr::filter(!.data$record_id %in% hand$record_id) %>%
+    dplyr::mutate(k = keyed(.data$awardee_name_raw, .data$amount_announced)) %>%
+    dplyr::group_by(.data$k) %>% dplyr::mutate(s = dplyr::row_number()) %>%
+    dplyr::ungroup()
+  o <- aw %>% dplyr::filter(!.data$row_no %in% hand$row_no) %>%
+    dplyr::mutate(k = keyed(.data$awardee, .data$amount)) %>%
+    dplyr::group_by(.data$k) %>% dplyr::mutate(s = dplyr::row_number()) %>%
+    dplyr::ungroup()
+  exact <- r %>% dplyr::inner_join(o %>% dplyr::select("k", "s", "row_no",
+                                                       "awardee", "amount"),
+                                   by = c("k", "s")) %>%
+    dplyr::transmute(.data$record_id, .data$row_no, .data$awardee_name_raw,
+                     rcj_amount = .data$amount_announced, .data$awardee,
+                     .data$amount, how = "EXACT_NAME_AND_AMOUNT")
+  pairs <- dplyr::bind_rows(exact, hand %>% dplyr::select(-"reason"))
+  list(pairs = pairs,
+       rcj_unpaired = rel %>% dplyr::filter(!.data$record_id %in% pairs$record_id),
+       ours_unpaired = aw %>% dplyr::filter(!.data$row_no %in% pairs$row_no))
+}
+
+ms_disposition <- function() {
+  cand <- ms_rcj_candidates()
+  withdrawn <- ms_rcj_candidates(include_withdrawn = TRUE) %>%
+    dplyr::filter(.data$change_status == "WITHDRAWN")
+  aw <- readr::read_csv(MS_AWARDEES_CSV, show_col_types = FALSE)
+  p <- ms_rcj_pairing(cand, aw)
+  if (nrow(p$rcj_unpaired) > 0L || nrow(p$ours_unpaired) > 0L) {
+    stop("[MS] RCJ's release capture no longer pairs one-to-one with ",
+         "ms_year1_awardees.csv: ", nrow(p$rcj_unpaired), " RCJ row(s) and ",
+         nrow(p$ours_unpaired), " of our rows are unpaired. Read them and add ",
+         "a HAND-READ pair or a group; never a fuzzy match (§2).",
+         call. = FALSE)
+  }
+  bad <- p$pairs %>% dplyr::filter(abs(.data$rcj_amount - .data$amount) > 0.005)
+  if (nrow(bad) > 0L) {
+    stop("[MS] ", nrow(bad), " paired row(s) where RCJ's amount disagrees with ",
+         "the Governor's release. Report them in the disposition rather than ",
+         "pairing past them.", call. = FALSE)
+  }
+  dup <- cand %>% dplyr::filter(.data$source_doc_title == MS_RCJ_DUPLICATE_TITLE)
+  dup_keys <- paste(ms_rcj_norm(dup$awardee_name_raw), dup$amount_announced)
+  rel_keys <- paste(ms_rcj_norm(p$pairs$awardee_name_raw), p$pairs$rcj_amount)
+  if (!all(dup_keys %in% rel_keys)) {
+    stop("[MS] a row under the second release title is NOT a repeat of a ",
+         "row RCJ carries under the 167-row capture. Read it.", call. = FALSE)
+  }
+  one <- function(pattern) sum(grepl(pattern, cand$awardee_name_raw))
+  n_horne <- one("^Horne LLP$"); n_premier <- one("^Premier Healthcare Solutions")
+  n_qipp <- one("^QIPP ")
+  n_grouped <- nrow(p$pairs) + nrow(dup) + n_horne + n_premier + n_qipp
+  if (n_grouped != nrow(cand)) {
+    stop("[MS] ", nrow(cand) - n_grouped, " of ", nrow(cand), " live Tier 3 ",
+         "candidates fall into no group. Read them before rebuilding (§0.1 -- ",
+         "a disposition that does not cover its candidates is worse than ",
+         "none).", call. = FALSE)
+  }
+  n_hand <- sum(p$pairs$how == "HAND_READ")
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
-    MS_STATE, "RHTP planning consultant (Horne LLP)", 1L,
+    MS_STATE, "Governor's 167-award release, paired to ms_year1_awardees.csv",
+    nrow(p$pairs), "REAL_AWARD_IN_OUR_FILE",
+    paste0(nrow(p$pairs), " rows under '", MS_RCJ_RELEASE_TITLE, "', ",
+           "$", format(sum(p$pairs$rcj_amount), big.mark = ",", nsmall = 2),
+           " -- EVERY ONE PAIRED ONE-TO-ONE to a row of ms_year1_awardees.csv ",
+           "(167 rows, $", format(sum(aw$amount), big.mark = ",", nsmall = 2),
+           "), and EVERY AMOUNT AGREES TO THE CENT. ",
+           nrow(p$pairs) - n_hand, " pair on an identical name and amount; ",
+           n_hand, " are hand-read pairs (MS_RCJ_HAND_PAIRS), and THREE OF ",
+           "THOSE ARE RCJ CUTTING A NAME AT A HYPHEN -- including LIFECORE, ",
+           "session 46's own defect, which RCJ carries as 'Northeast Mental ",
+           "Health', and a hospital, 'Baptist Memorial Hospital-Calhoun, Inc.' ",
+           "carried as 'Baptist Memorial Hospital'. RCJ lacks none of our ",
+           "rows. On the 2026-08-27 pull RCJ held NONE of these: the release ",
+           "is dated 2026-09-14. Still a discovery signal only (§0.1); every ",
+           "row of our file is built from the release itself."),
+    MS_STATE, "The same release captured again under its headline",
+    nrow(dup), "DUPLICATE_OF_A_PAIRED_ROW",
+    paste0(nrow(dup), " rows, $", format(sum(dup$amount_announced),
+                                         big.mark = ","),
+           ", under '", MS_RCJ_DUPLICATE_TITLE, "'. Each repeats a ",
+           "name and amount RCJ also carries under the 167-row capture (the ",
+           "RTG rows 1, 2, 4 and 5: Singing River Services, South Mississippi ",
+           "State Hospital, Corinth Family Medical Center, Kinder Mind). The ",
+           "'2025' in the title is RCJ's metadata, never a date (§2). Adding ",
+           "them would count $671,252 twice."),
+    MS_STATE, "RHTP planning consultant (Horne LLP)", n_horne,
     "NOT_A_SUBAWARD_PREDATES_NOA",
     paste0("$150,000 to Horne LLP under 'Notice Of Contract Award RHTP - ",
            "Consultant Quotation #20250728 Emergency Contract #8400003450'. ",
@@ -1194,7 +1343,7 @@ ms_disposition <- function() {
            "did not yet have cannot have funded it. Session 20's provenance ",
            "sweep already flagged this row PROVENANCE_PREDATES_NOA off the ",
            "document title's own date -- machine and hand agree."),
-    MS_STATE, "Comprehensive State Health Plan RFP", 1L,
+    MS_STATE, "Comprehensive State Health Plan RFP", n_premier,
     "NOT_RHTP_STATE_PROCUREMENT",
     paste0("Premier Healthcare Solutions, Inc, amount $0, under 'Notice of ",
            "Intent to Award June 9, 2026 RFP RFx#3180002944 - Comprehensive ",
@@ -1202,7 +1351,7 @@ ms_disposition <- function() {
            "State Health Plan, which is a statutory planning document and ",
            "not an RHTP initiative. Indiana's appended-label shape: the ",
            "publisher is right, the programme label is the aggregator's."),
-    MS_STATE, "Quality Incentive Payment Program (QIPP)", 1L,
+    MS_STATE, "Quality Incentive Payment Program (QIPP)", n_qipp,
     "NOT_RHTP_MEDICAID_AND_A_DOCUMENT_TITLE",
     paste0("$50,000,000 against an 'awardee' of 'QIPP PPHR, PPC, and AM-PPC ",
            "Presentation - July 2025' -- which is A DOCUMENT TITLE, not an ",
@@ -1210,7 +1359,9 @@ ms_disposition <- function() {
            "Mississippi's Quality Incentive Payment Program, a Medicaid ",
            "supplemental payment programme, and the deck is dated July 2025, ",
            "five months before the NOA. Two independent disqualifications ",
-           "on one row.")
+           "on one row. HOLDS 0 LIVE ROWS SINCE THE 2026-09-24 PULL: RCJ ",
+           "dropped the record (", nrow(withdrawn), " WITHDRAWN row kept in ",
+           "the record table), so this group is kept for its history.")
   )
 }
 

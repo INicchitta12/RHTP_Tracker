@@ -468,19 +468,123 @@ nj_status_table <- function() {
   )
 }
 
-nj_rcj_disposition <- function() {
+#' RCJ's New Jersey Tier 3 candidates, reconciled to the award file
+#'
+#' ZERO on the 2026-08-27 pull. ELEVEN on the 2026-09-24 pull: ten real awards,
+#' every one in nj_year1_awardees.csv at the same amount, and one $1 CLASS row.
+#' Eight pair on an identical name (lower-cased, non-alphanumerics dropped) and
+#' amount; the two below are HAND-READ, never fuzzy (§2).
+NJ_RCJ_HAND_PAIRS <- tibble::tribble(
+  ~record_id, ~row_no, ~reason,
+  "fd0839d8-f8bb-483a-b718-6a93fc9b5923", 62L,
+  "RCJ 'AHS Hospital Corp. Hackettstown Medical Center' $1,460,000 = our 'AHS Hospital Corp.' [site: Hackettstown Medical Center] $1,460,000. RCJ WELDED THE BRACKETED SITE INTO THE AWARDEE -- the §0.3a corollary this file's site column exists for. Newton (row 63) is also $1,460,000; the site decides it.",
+  "dda198e0-1a0a-49ea-986c-1a648cfac118", 1L,
+  "RCJ 'Atlantic Mobile Integrated Health services and Ambulance Corporation' $614,190 = our 'Atlantic Ambulance Corporation' $614,190, the only row at that amount. The allocations PDF prints 'Atlantic Ambulance Corporation'; RCJ's longer name is not on the award list."
+)
+NJ_RCJ_CLASS_ROW <- "798fe5fa-3407-4104-b7d4-ffefe7221502"
+
+nj_rcj_candidates <- function() {
+  rhtp_record_table_live() %>%
+    dplyr::filter(.data$state == NJ_STATE, .data$award_tier == "SUBAWARD")
+}
+
+nj_rcj_pairing <- function(cand = nj_rcj_candidates(),
+                           aw = readr::read_csv(NJ_CSV, show_col_types = FALSE,
+                                                col_types = readr::cols(ccn = "c", site = "c"))) {
+  norm <- function(x) gsub("[^a-z0-9]", "", tolower(x))
+  keyed <- function(nm, amt) paste(norm(nm), sprintf("%.2f", amt))
+  cand <- cand %>% dplyr::filter(.data$record_id != NJ_RCJ_CLASS_ROW)
+  hand <- NJ_RCJ_HAND_PAIRS %>%
+    dplyr::inner_join(cand %>% dplyr::select("record_id", "awardee_name_raw",
+                                             rcj_amount = "amount_announced"),
+                      by = "record_id") %>%
+    dplyr::inner_join(aw %>% dplyr::select("row_no", "awardee", "amount"),
+                      by = "row_no") %>%
+    dplyr::mutate(how = "HAND_READ") %>% dplyr::select(-"reason")
+  if (nrow(hand) != nrow(NJ_RCJ_HAND_PAIRS)) {
+    stop("[NJ] a hand-read RCJ pair no longer resolves. Re-read it.",
+         call. = FALSE)
+  }
+  r <- cand %>% dplyr::filter(!.data$record_id %in% hand$record_id) %>%
+    dplyr::mutate(k = keyed(.data$awardee_name_raw, .data$amount_announced)) %>%
+    dplyr::group_by(.data$k) %>% dplyr::mutate(s = dplyr::row_number()) %>%
+    dplyr::ungroup()
+  o <- aw %>% dplyr::filter(!.data$row_no %in% hand$row_no) %>%
+    dplyr::mutate(k = keyed(.data$awardee, .data$amount)) %>%
+    dplyr::group_by(.data$k) %>% dplyr::mutate(s = dplyr::row_number()) %>%
+    dplyr::ungroup()
+  exact <- r %>%
+    dplyr::inner_join(o %>% dplyr::select("k", "s", "row_no", "awardee",
+                                          "amount"), by = c("k", "s")) %>%
+    dplyr::transmute(.data$record_id, .data$row_no, .data$awardee_name_raw,
+                     rcj_amount = .data$amount_announced, .data$awardee,
+                     .data$amount, how = "EXACT_NAME_AND_AMOUNT")
+  pairs <- dplyr::bind_rows(exact, hand)
+  list(pairs = pairs,
+       rcj_unpaired = cand %>% dplyr::filter(!.data$record_id %in% pairs$record_id),
+       ours_unpaired = aw %>% dplyr::filter(!.data$row_no %in% pairs$row_no))
+}
+
+nj_rcj_disposition <- function(cand = nj_rcj_candidates()) {
   rt <- rhtp_record_table_live()
   t <- rt[rt$state == NJ_STATE, ]
-  aw <- jsonlite::fromJSON(here::here("data", "raw", "rcj", "2026-09-24", "awards.json"))
-  aw <- if (is.data.frame(aw)) aw else aw$data
-  n24 <- sum(aw$state == NJ_STATE, na.rm = TRUE)
+  aw <- readr::read_csv(NJ_CSV, show_col_types = FALSE,
+                        col_types = readr::cols(ccn = "c", site = "c"))
+  p <- nj_rcj_pairing(cand, aw)
+  if (nrow(p$rcj_unpaired) > 0L) {
+    stop("[NJ] ", nrow(p$rcj_unpaired), " RCJ Tier 3 candidate(s) pair to no ",
+         "row of nj_year1_awardees.csv and are in no group. Read them (§0.1).",
+         call. = FALSE)
+  }
+  cls <- cand %>% dplyr::filter(.data$record_id == NJ_RCJ_CLASS_ROW)
+  if (nrow(cls) != 1L || cls$amount_announced != 1) {
+    stop("[NJ] the $1 FQHC class row has moved or re-priced. Read it.",
+         call. = FALSE)
+  }
+  if (nrow(p$pairs) + nrow(cls) != nrow(cand)) {
+    stop("[NJ] candidates fall into no group.", call. = FALSE)
+  }
+  bad <- p$pairs %>% dplyr::filter(abs(.data$rcj_amount - .data$amount) > 0.005)
+  if (nrow(bad) > 0L) {
+    stop("[NJ] RCJ's amount disagrees with the allocations PDF on ", nrow(bad),
+         " paired row(s). Report them rather than pairing past them.",
+         call. = FALSE)
+  }
+  money <- function(x) paste0("$", format(x, big.mark = ",", nsmall = 0))
   tibble::tribble(
     ~state, ~group, ~records, ~disposition, ~note,
-    NJ_STATE, "RCJ New Jersey records, pull 2026-08-27 (stage 2 record table)", nrow(t),
-    "NO_TIER_3", paste0(sum(t$award_tier == "SUBAWARD", na.rm = TRUE),
-                        " SUBAWARD records. The 08-27 pull predates nothing: the roster was public from 2026-07-31 and RCJ had not caught it."),
-    NJ_STATE, "RCJ New Jersey /awards rows, pull 2026-09-24 (raw)", n24,
-    "PARTIAL_COVERAGE", "Session 60 read 11 of the 103 awards here. A discovery signal only (§0.1); every row in nj_year1_awardees.csv is built from the state PDF."
+    NJ_STATE, "RCJ New Jersey records, pull 2026-08-27 (stage 2 record table)", 17L,
+    "NO_TIER_3", paste0("HISTORY, KEPT: 0 SUBAWARD records of 17 on the 2026-08-27 ",
+                        "pull. The roster was public from 2026-07-31 and RCJ had ",
+                        "not caught it. This group holds no live row since the ",
+                        "2026-09-24 pull, which carries ", nrow(t), " live New ",
+                        "Jersey records and ", nrow(cand), " Tier 3 candidates."),
+    NJ_STATE, "RCJ Tier 3 candidates paired to nj_year1_awardees.csv, pull 2026-09-24",
+    nrow(p$pairs), "PARTIAL_COVERAGE",
+    paste0(nrow(p$pairs), " real awards, ", money(sum(p$pairs$rcj_amount)),
+           ", EACH PAIRED to a row of nj_year1_awardees.csv at the SAME ",
+           "AMOUNT (", sum(p$pairs$how == "HAND_READ"), " by hand: RCJ welds ",
+           "AHS's bracketed Hackettstown site into the awardee, and prints ",
+           "'Atlantic Mobile Integrated Health services and Ambulance ",
+           "Corporation' where the PDF says 'Atlantic Ambulance ",
+           "Corporation'). RCJ files all ten under RFA document titles, not ",
+           "under the allocations PDF -- which it DOES hold, as an UNASSIGNED ",
+           "document record ('NJ - 2026 - RHTP Funding Allocations - July 31, ",
+           "2026'). RCJ LACKS ",
+           nrow(p$ours_unpaired), " OF OUR 103 ROWS, ",
+           money(sum(p$ours_unpaired$amount)), ". RCJ's eleven New Jersey ",
+           "Tier 3 rows are these ten plus the $1 class row below. A discovery ",
+           "signal only (§0.1); every row in nj_year1_awardees.csv is built ",
+           "from the state PDF."),
+    NJ_STATE, "A class, not a recipient, in a multi-state digest",
+    nrow(cls), "CLASS_PLACEHOLDER_NOT_A_RECIPIENT",
+    paste0("'Federally Qualified Health Centers (FQHCs)' at $1 under 'MI - ",
+           "2026 - How States Are Using the RHTP to Advance Access to Rural ",
+           "Primary Care'. A class of provider, not an organisation (§6.1 ",
+           "PROGRAM_NAME_AS_AWARDEE), at Missouri's $1 placeholder, in a ",
+           "digest about several states whose title carries RCJ's 'MI' prefix. ",
+           "The §0.1 mode-6 sweep (R/02c) did not read it as misfiled; it is ",
+           "no award to anyone, in any state.")
   )
 }
 

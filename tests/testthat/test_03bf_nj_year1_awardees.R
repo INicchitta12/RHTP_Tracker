@@ -123,3 +123,30 @@ test_that("the watch fires on a new RHTP award headline and on a roster link", {
   rhtp2 <- sub("</body>", "<a href='documents/njrht-round-2.pdf'>x</a></body>", rhtp)
   expect_error(nj_assert_watch(news, rhtp2), "links a document")
 })
+
+test_that("RCJ's eleven Tier 3 candidates: ten paired awards and one $1 class row", {
+  # 2026-08-27: zero. 2026-09-24: eleven. The count is derived, never typed.
+  cand <- nj_rcj_candidates()
+  expect_equal(nrow(cand), 11L)
+  p <- nj_rcj_pairing(cand)
+  expect_equal(nrow(p$pairs), 10L)
+  expect_equal(nrow(p$rcj_unpaired), 0L)
+  expect_equal(sum(p$pairs$how == "HAND_READ"), 2L)
+  expect_equal(sum(abs(p$pairs$rcj_amount - p$pairs$amount)), 0)
+  expect_equal(sum(p$pairs$rcj_amount), 31969406)
+  # RCJ lacks 93 of our 103 rows, and the halves close on the state's total.
+  expect_equal(nrow(p$ours_unpaired), 93L)
+  expect_equal(sum(p$ours_unpaired$amount) + sum(p$pairs$amount), 83060837)
+  d <- nj_rcj_disposition()
+  expect_equal(d$records[d$disposition == "PARTIAL_COVERAGE"], 10L)
+  expect_equal(d$records[d$disposition == "CLASS_PLACEHOLDER_NOT_A_RECIPIENT"], 1L)
+  expect_true(grepl("HISTORY", d$note[d$disposition == "NO_TIER_3"]))
+})
+
+test_that("an unread New Jersey candidate stops the disposition", {
+  cand <- nj_rcj_candidates()
+  extra <- cand[1, ]
+  extra$record_id <- "x"; extra$awardee_name_raw <- "Invented Clinic"
+  expect_error(nj_rcj_disposition(dplyr::bind_rows(cand, extra)),
+               "pair to no")
+})

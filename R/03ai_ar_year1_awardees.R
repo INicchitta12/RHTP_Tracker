@@ -4,9 +4,10 @@
 # ARKANSAS -- RHTP Year 1. Arkansas runs its programme from `arkansasrhtp.com`,
 # a DEDICATED RHTP DOMAIN -- the second in this project after Kentucky's
 # `ruralhealthplan.ky.gov`, and THE FIRST THAT HAS AWARDED. It was invisible to
-# both discovery layers: ZERO RCJ Tier 3 candidates and no CMS state release,
-# `trigger_source = NEITHER`, which is FLORIDA'S SHAPE (session 36's existence
-# proof) a third time after North Carolina.
+# both discovery layers on the 2026-08-27 pull: ZERO RCJ Tier 3 candidates and
+# no CMS state release, `trigger_source = NEITHER`, which is FLORIDA'S SHAPE
+# (session 36's existence proof) a third time after North Carolina. The
+# 2026-09-24 pull caught the award list (see ar_disposition()).
 #
 # WHAT ARKANSAS PUBLISHES.
 #
@@ -1561,32 +1562,141 @@ ar_status_table <- function() {
     )
 }
 
-#' Arkansas holds NO RCJ Tier 3 candidate at all
+#' Arkansas's RCJ Tier 3 candidates, live
+#'
+#' ZERO on the 2026-08-27 pull; 33 on the 2026-09-24 pull, 31 of them the
+#' award list at ORGANISATION grain.
 ar_rcj_candidates <- function() {
   rt <- rhtp_record_table_live()
   rt %>% dplyr::filter(.data$state == AR_STATE, .data$award_tier == "SUBAWARD")
 }
 
-ar_disposition <- function() {
-  cand <- ar_rcj_candidates()
+#' The two candidates that are not the award list, each read by hand
+#'
+#' BDO GS: the Year 1 Revised Budget Narrative's "Contracted Administrative
+#' Costs* $4,375,588.00 *BDO GS has been selected as the vendor for
+#' contractual administrative costs" -- the programme-management vendor, a
+#' budget line, not a subaward and not in our file. MERCY FORT SMITH: RCJ's
+#' $19,000,000 under a listserv news digest of the Governor's release is a
+#' ROUNDED restatement of an organisation RCJ ALSO carries exactly under the
+#' award list (Mercy Health Fort Smith Communities, $19,056,249.00); the
+#' digest is not archived here and its figure disagrees with the award list by
+#' $56,249.
+AR_RCJ_OTHER <- tibble::tribble(
+  ~record_id, ~kind, ~amount,
+  "e8ee6b22-2dcc-4cca-a6cf-9ae0b2f7327c", "BDO", 4375588,
+  "e598ecbc-4213-47d4-a477-88b04966bc3a", "MERCY", 19000000
+)
+AR_RCJ_AWARD_LIST_TITLE <- "AR - 2026 - Arkansas RHTP Award and Sub-Award Summary"
+
+#' Pair RCJ's award-list capture to our ORGANISATIONS, one to one
+#'
+#' RCJ carries one row per organisation at the organisation's TOTAL; our file
+#' is one row per organisation x initiative (37). So the pairing is to the 31
+#' distinct (awardee, organisation_award_total) pairs, on an IDENTICAL name
+#' (lower-cased, non-alphanumerics dropped) and an identical amount. No fuzzy
+#' matching (§2); on the 2026-09-24 pull all 31 pair that way.
+ar_rcj_pairing <- function(cand = ar_rcj_candidates(),
+                           aw = readr::read_csv(AR_OUT_CSV,
+                                                show_col_types = FALSE)) {
+  norm <- function(x) gsub("[^a-z0-9]", "", tolower(x))
+  keyed <- function(nm, amt) paste(norm(nm), sprintf("%.2f", amt))
+  rel <- cand %>% dplyr::filter(.data$source_doc_title == AR_RCJ_AWARD_LIST_TITLE)
+  orgs <- aw %>% dplyr::distinct(.data$awardee, .data$organisation_award_total) %>%
+    dplyr::mutate(k = keyed(.data$awardee, .data$organisation_award_total))
+  r <- rel %>% dplyr::mutate(k = keyed(.data$awardee_name_raw,
+                                       .data$amount_announced))
+  pairs <- r %>% dplyr::inner_join(orgs, by = "k")
+  list(pairs = pairs,
+       rcj_unpaired = rel %>% dplyr::filter(!.data$record_id %in% pairs$record_id),
+       ours_unpaired = orgs %>% dplyr::filter(!.data$k %in% pairs$k),
+       other = cand %>% dplyr::filter(.data$source_doc_title != AR_RCJ_AWARD_LIST_TITLE))
+}
+
+ar_disposition <- function(cand = ar_rcj_candidates()) {
   all_ar <- rhtp_record_table_live() %>%
     dplyr::filter(.data$state == AR_STATE)
+  aw <- readr::read_csv(AR_OUT_CSV, show_col_types = FALSE)
+  p <- ar_rcj_pairing(cand, aw)
+  if (nrow(p$rcj_unpaired) > 0L || nrow(p$ours_unpaired) > 0L) {
+    stop("[AR] RCJ's award-list capture no longer pairs one-to-one with our 31 ",
+         "organisations: ", nrow(p$rcj_unpaired), " RCJ row(s), ",
+         nrow(p$ours_unpaired), " organisation(s) unpaired. Read them.",
+         call. = FALSE)
+  }
+  oth <- p$other %>% dplyr::left_join(AR_RCJ_OTHER, by = "record_id")
+  if (nrow(oth) != nrow(AR_RCJ_OTHER) || anyNA(oth$kind) ||
+      !all(oth$amount_announced == oth$amount)) {
+    stop("[AR] the non-award-list candidates have changed (", nrow(oth),
+         " now, ", nrow(AR_RCJ_OTHER), " hand-read). Read them before ",
+         "rebuilding (§0.1).", call. = FALSE)
+  }
+  if (nrow(p$pairs) + nrow(oth) != nrow(cand)) {
+    stop("[AR] ", nrow(cand) - nrow(p$pairs) - nrow(oth), " candidates fall ",
+         "into no group.", call. = FALSE)
+  }
+  mercy_ours <- aw$organisation_award_total[
+    aw$awardee == "Mercy Health Fort Smith Communities"][1]
+  n_multi <- sum(table(aw$awardee) > 1L)
+  # Records RCJ files under Arkansas that the §0.1 mode-6 sweep (R/02c) read
+  # as ANOTHER STATE'S: Mississippi's 167-award release and CMS's Georgia
+  # release. Neither is Tier 3; both are inside `all_ar`.
+  misfiled <- c("0b2d4ebd-6740-43d3-881d-870b5fa3b571",
+                "8dfc67c9-12d7-466a-8751-8a08a2b23bf4")
+  n_misfiled <- sum(all_ar$record_id %in% misfiled)
+  money <- function(x) paste0("$", format(x, big.mark = ",", nsmall = 2))
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
-    AR_STATE,
-    "RCJ Tier 3 candidates for Arkansas",
-    nrow(cand), "NOT_IN_THE_AGGREGATOR_AT_ALL",
-    paste0("Arkansas holds ", nrow(cand), " Tier 3 candidates against ",
-           nrow(all_ar), " RCJ records in total, and no CMS state release ",
-           "either -- `trigger_source = NEITHER` on BOTH discovery layers, ",
-           "which is why nobody had looked. It had meanwhile published 31 ",
+    AR_STATE, "DF&A award list, paired to our 31 organisations",
+    nrow(p$pairs), "REAL_AWARD_IN_OUR_FILE_AT_ORGANISATION_GRAIN",
+    paste0("On the 2026-09-24 pull RCJ carries DF&A's award list as ",
+           nrow(p$pairs), " Tier 3 rows under '", AR_RCJ_AWARD_LIST_TITLE,
+           "', ", money(sum(p$pairs$amount_announced)), " -- ALL ",
+           nrow(p$pairs), " PAIR ONE-TO-ONE, on an identical name and ",
+           "amount, to the 31 organisations of ar_year1_awardees.csv at ",
+           "their ORGANISATION TOTAL, and the sum is Arkansas's own Total: ",
+           "row to the cent. RCJ's GRAIN IS THE ORGANISATION, OURS THE AWARD ",
+           "ACTION (37 rows): the ", n_multi, " organisations holding an ",
+           "award under BOTH THRIVE and PACT are one RCJ row each, so RCJ ",
+           "lacks ", nrow(aw) - nrow(p$pairs), " of our award-action rows and ",
+           "$0 -- Michigan's grain defect (session 27) without its dollar ",
+           "cost, because RCJ took the total column. It carries no initiative ",
+           "split at all. A discovery signal only (§0.1)."),
+    AR_STATE, "Governor's release, restated by a news digest",
+    sum(oth$kind == "MERCY"), "ROUNDED_DUPLICATE_OF_A_PAIRED_ROW",
+    paste0("RCJ 'Mercy Fort Smith' $19,000,000 under 'Sanders Announces Nearly ",
+           "$150 Million Awarded in RHT Funds (2026-08-28-listserv-RHTP News ",
+           "Digest)'. The same organisation RCJ ALSO carries exactly under the ",
+           "award list, where it is Mercy Health Fort Smith Communities at ",
+           money(mercy_ours), ": AN AMOUNT DISAGREEMENT OF ",
+           money(mercy_ours - 19e6), ", which is the digest rounding. The ",
+           "digest is not archived here; our figure is the award list's. ",
+           "Counting both would add $19,000,000 nobody awarded twice."),
+    AR_STATE, "Programme-management vendor (budget line)",
+    sum(oth$kind == "BDO"), "NOT_A_SUBAWARD_ADMINISTRATIVE_VENDOR",
+    paste0("RCJ 'BDO GS' $4,375,588 under the Year 1 Revised Budget Narrative, ",
+           "which reads 'Contracted Administrative Costs* $4,375,588.00 *BDO GS ",
+           "has been selected as the vendor for contractual administrative ",
+           "costs' and says the State 'has engaged BDO GS to manage and ",
+           "implement the RHT Program's initiatives'. A Tier 2 budget line for ",
+           "the lead agency's contractor, not a subaward, and not in our file."),
+    AR_STATE, "RCJ Tier 3 candidates for Arkansas, pull 2026-08-27",
+    0L, "NOT_IN_THE_AGGREGATOR_AT_ALL",
+    paste0("HISTORY, KEPT: on the 2026-08-27 pull Arkansas held ZERO Tier 3 ",
+           "candidates against 38 RCJ records, and no CMS state release either ",
+           "-- `trigger_source = NEITHER` on BOTH discovery layers, which is ",
+           "why nobody had looked. It had meanwhile published 31 ",
            "organisations, 37 priced award actions and ",
            ar_money(AR_TOTAL_YR1), " -- 71.5% of its allotment -- on a ",
            "dedicated RHTP domain, plus a 50-project roster from the ",
            "Governor. FLORIDA'S SHAPE (session 36's existence proof) a third ",
-           "time after North Carolina, and the largest of the three in ",
-           "dollars. A zero here is a fact about the DISCOVERY LAYER and ",
-           "never about the state (§0.1).")
+           "time after North Carolina. A zero there was a fact about the ",
+           "DISCOVERY LAYER and never about the state (§0.1). This group holds ",
+           "no live row since the 2026-09-24 pull, which carries ",
+           nrow(cand), " Tier 3 candidates against ", nrow(all_ar), " live RCJ ",
+           "Arkansas records -- ", n_misfiled, " of which the §0.1 mode-6 ",
+           "sweep (R/02c) reads as ANOTHER STATE'S (Mississippi's 167-award ",
+           "release; CMS's Georgia release), neither of them Tier 3.")
   )
 }
 
