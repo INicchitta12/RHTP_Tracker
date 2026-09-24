@@ -106,16 +106,19 @@ test_that("Oregon: RCJ carries a hundred Catalyst awards twice", {
   expect_gte(sum(or$rcj_rows[or$disposition == "DUPLICATE_OF_EXTRACTED_AWARD"]), 100L)
 })
 
-test_that("South Dakota: the Rural Strong grants on OpenSD are real and in no SD file", {
+test_that("South Dakota: the Rural Strong grants are now IN the SD file (session 64)", {
+  # Session 63 found 8 Rural Strong contracts on OpenSD in no SD file; session
+  # 64 extracted them into sd_rht_contracts.csv, so they now match exactly and
+  # the hand-read group that described them is gone.
   sd <- tables[["SD"]]
-  rs <- sd[sd$group == "Rural Strong grants now posted to OpenSD", ]
-  expect_equal(rs$disposition, "RHTP_SUBAWARD_NOT_IN_FILE")
-  expect_equal(rs$rcj_rows, 8L)
+  expect_false("Rural Strong grants now posted to OpenSD" %in% sd$group)
+  inf <- sd[sd$disposition == "RHTP_SUBAWARD_IN_FILE", ]
+  expect_equal(sum(inf$rcj_rows), 26L)
   html <- paste(readLines(here::here(DISPO_NEW_EVIDENCE, "SD", "open_sd_contracts_rural_strong.html"),
                           warn = FALSE), collapse = " ")
   expect_true(grepl("BENNETT COUNTY HOSPITAL", html, fixed = TRUE))
   contracts <- readr::read_csv(rhtp_path("reference", "sd_rht_contracts.csv"), show_col_types = FALSE)
-  expect_false(any(grepl("BENNETT", toupper(contracts$awardee))))
+  expect_true(any(grepl("BENNETT", toupper(contracts$awardee))))
 })
 
 test_that("Kansas: the new ids are the KRHIA deck, the Emerging Technology list and the Year 2 plan", {
