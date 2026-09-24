@@ -31,7 +31,10 @@ la_cat   <- la_html_text("catalyst")
 la_deck  <- la_pdf_text("council")
 la_cap   <- la_pdf_text("capital_nofo")
 la_cyc   <- la_deck_funding_cycle(la_deck)
-la_cands <- la_rcj_candidates()
+la_all   <- la_rcj_candidates()
+# The slide-18 subset: since the 2026-09-24 pull, six further candidates come
+# from other documents and are disposed of separately (session 63).
+la_cands <- la_deck_candidates(la_all)
 
 
 # -- the archive -------------------------------------------------------------
@@ -250,7 +253,8 @@ test_that("even what Louisiana has promised is by TYPE, not by recipient", {
 
 # -- §0.1: the six candidates ARE the activity column ------------------------
 
-test_that("Louisiana holds exactly six Tier 3 candidates summing to $53,910,000", {
+test_that("Louisiana holds twelve live Tier 3 candidates; six are slide 18's", {
+  expect_equal(nrow(la_all), 12L)
   expect_equal(nrow(la_cands), 6L)
   expect_equal(sum(la_cands$amount_announced), 53910000)
 })
@@ -282,12 +286,49 @@ test_that("the dropped row is the largest, and the capital one", {
   expect_equal(cap$projected, max(la_cyc$projected))
 })
 
-test_that("the disposition covers all six and is re-derived, not typed", {
-  d <- rhtp_la_rcj_disposition(la_cands)
-  expect_equal(sum(d$rows), nrow(la_cands))
-  expect_equal(sum(d$rcj_amount), sum(la_cands$amount_announced))
+test_that("the disposition covers every live candidate and is re-derived, not typed", {
+  d <- rhtp_la_rcj_disposition(la_all)
+  expect_equal(d$rows, c(5L, 6L, 1L))
+  expect_equal(sum(d$rows), nrow(la_all))
+  expect_equal(sum(d$rcj_amount), sum(la_all$amount_announced))
+  expect_equal(d$disposition, c("RHTP_SUBAWARD", "RHTP_BUT_NOT_A_SUBAWARD",
+                                "RHTP_BUT_NOT_A_SUBAWARD"))
   expect_true(all(file.exists(here::here(d$source_archive_path))))
   expect_true(all(nzchar(d$disqualifying_fact)))
+  expect_silent(rhtp_assert_disposition_prose(d, "LA"))
+})
+
+test_that("the disposition REFUSES a candidate it does not cover", {
+  rogue <- la_all[1, ]
+  rogue$record_id <- "rogue"
+  rogue$source_doc_title <- "LA - 2026 - Something Nobody Has Read"
+  expect_error(rhtp_la_rcj_disposition(dplyr::bind_rows(la_all, rogue)),
+               "No group describes them")
+})
+
+# -- session 63: LOUISIANA HAS AWARDED ONE SOLICITATION ------------------------
+
+test_that("the five RCCB rows are LDH's named, priced awards, to the dollar", {
+  rccb <- la_rows_from(la_all, LA_RCCB_SOURCE_MARKER)
+  expect_equal(nrow(rccb), 5L)
+  expect_equal(sum(rccb$amount_announced), 1965788)
+  p <- here::here(LA_RCCB_ARCHIVE)
+  expect_equal(digest::digest(file = p, algo = "sha256"),
+               "80d736837e46c0c09298463e2ddb9202d9eb8ffbe511489e5ad2933ca586db39")
+  txt <- la_rccb_text()
+  expect_true(la_assert_rccb_rows_are_ldh_awards(rccb, txt))
+  expect_true(stringr::str_detect(txt, stringr::fixed("Total$1,965,788")))
+  # a mispriced row is refused
+  bad <- rccb; bad$amount_announced[1] <- bad$amount_announced[1] + 1
+  expect_error(la_assert_rccb_rows_are_ldh_awards(bad, txt), "not a named")
+})
+
+test_that("LA.IO is the fund's administering state division, not a recipient", {
+  rtcf <- la_rows_from(la_all, LA_RTCF_SOURCE_MARKER)
+  expect_equal(nrow(rtcf), 1L)
+  expect_equal(rtcf$amount_announced, 1)
+  expect_true(stringr::str_detect(la_cat, stringr::fixed(
+    "managed through Louisiana Innovation (LA.IO), a division of LED")))
 })
 
 

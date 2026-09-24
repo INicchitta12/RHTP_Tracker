@@ -427,10 +427,46 @@ test_that("the RCJ candidate count is DERIVED, never typed", {
   rec <- rhtp_record_table_live()
   expect_equal(n, sum(rec$state == "SC" & rec$award_tier == "SUBAWARD",
                       na.rm = TRUE))
-  expect_equal(n, 0L)
-  # South Carolina holds RCJ records; it holds no Tier 3 CANDIDATES. The
-  # difference is what makes the zero a fact about the discovery layer.
-  expect_gt(sum(rec$state == "SC", na.rm = TRUE), 0L)
+  # ZERO on the 2026-08-27 pull; the aggregator picked the award list up by
+  # the 2026-09-24 pull, nine days after SCDHHS posted it.
+  expect_equal(n, 227L)
+  expect_gt(sum(rec$state == "SC", na.rm = TRUE), n)
+})
+
+test_that("the disposition covers every live candidate, re-derived", {
+  skip_if_no_archive()
+  cands <- sc_rcj_candidates()
+  d <- sc_disposition(cands)
+  expect_equal(sum(d$rcj_candidates), nrow(cands))
+  g <- stats::setNames(d$rcj_candidates, d$disposition)
+  expect_equal(g[["RHTP_SUBAWARD_IN_FILE"]], 193L)
+  expect_equal(g[["RHTP_SUBAWARD_IN_FILE_UNDER_A_CORRUPTED_NAME"]], 34L)
+  expect_equal(g[["RHTP_SUBAWARD_OFF_TIER_3_IN_STAGE_2"]], 0L)
+  expect_silent(rhtp_assert_disposition_prose(d, "SC"))
+})
+
+test_that("RCJ's garbled names are EXACTLY this file's hard rows", {
+  skip_if_no_archive()
+  # The 33 wrapped rows and the I2 row are the rows the line model cannot
+  # assemble. The aggregator got the money right on every one and the name
+  # right on none -- and that is asserted as a multiset of amounts, never by
+  # renaming a row (§2).
+  m <- sc_rcj_match()
+  expect_equal(sum(m$match == "CORRUPTED_NAME"), attr(m, "hard_rows"))
+  expect_equal(attr(m, "hard_rows"), SC_WRAPPED_ROWS + 1L)
+  expect_true(any(grepl("^I2 Rebound", m$awardee_name_raw)))
+  # One award action has no Tier 3 candidate, and it is OUR rule, not RCJ's:
+  # Stage 2 routes an agency-named record to UNASSIGNED (§6.1).
+  unc <- attr(m, "uncovered")
+  expect_equal(unc$awardee, "South Carolina Department of Corrections")
+})
+
+test_that("a leftover candidate whose amount pairs with no hard row stops", {
+  skip_if_no_archive()
+  cands <- sc_rcj_candidates()
+  i <- which(grepl("^I2 Rebound", cands$awardee_name_raw))
+  cands$amount_announced[i] <- cands$amount_announced[i] + 1
+  expect_error(sc_disposition(cands), "not the same multiset")
 })
 
 test_that("--build writes what the report reads", {

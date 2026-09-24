@@ -668,18 +668,32 @@ ky_disposition <- function() {
   rt <- rhtp_record_table_live()
   ky <- rt %>% dplyr::filter(.data$state == KY_STATE)
   n_t3 <- sum(ky$award_tier == "SUBAWARD")
+  # Every number below is DERIVED from the live record table (session 63): on
+  # the 2026-08-27 pull this row said "one of TWELVE states" and cited Florida
+  # as a state with no candidate, and the 2026-09-24 pull made both false.
+  states <- rhtp_cms_states()$state
+  t3 <- rt %>% dplyr::filter(.data$award_tier == "SUBAWARD") %>%
+    dplyr::count(.data$state)
+  zero <- sort(setdiff(states, t3$state[t3$n > 0]))
+  n_fl <- sum(t3$n[t3$state == "FL"])
+  tiers <- ky %>% dplyr::count(.data$award_tier)
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
     KY_STATE, "Tier 3 (SUBAWARD) candidates", n_t3,
     "NO_TIER_3_SIGNAL_AT_ALL",
-    paste0("Kentucky is one of TWELVE states carrying NO RCJ Tier 3 ",
-           "candidate. It holds ", nrow(ky), " RCJ records in total -- ",
-           "SOLICITATION and STATE_ALLOTMENT rows for its own RFAs and its ",
-           "CMS award -- and NOT ONE is a subaward. The aggregator is right ",
-           "about Kentucky, which is the unusual case: the state has awarded ",
-           "nobody publicly, so there is nothing for it to get wrong. A zero ",
-           "here is a fact about the DISCOVERY LAYER and never about the ",
-           "state (§0.1) -- Florida had 81 awards and no candidate either.")
+    paste0("Kentucky is one of ", length(zero), " states carrying NO RCJ ",
+           "Tier 3 candidate on the 2026-09-24 pull (",
+           paste(zero, collapse = ", "), "; it was one of twelve on the ",
+           "2026-08-27 pull). It holds ", nrow(ky), " RCJ records in total -- ",
+           paste0(tiers$n, " ", tiers$award_tier, collapse = ", "),
+           " -- rows for its own RFAs and its CMS award, and NOT ONE is a ",
+           "subaward. The aggregator is right about Kentucky, which is the ",
+           "unusual case: the state had awarded nobody publicly at its last ",
+           "probe, so there is nothing for it to get wrong. A zero here is a ",
+           "fact about the DISCOVERY LAYER and never about the state (§0.1) -- ",
+           "Florida carried no candidate on the 2026-08-27 pull while its 81 ",
+           "awards were already published and extracted here, and RCJ has ",
+           "since caught up to ", n_fl, " Florida rows.")
   )
 }
 
@@ -797,6 +811,7 @@ ky_build <- function() {
   readr::write_csv(st, KY_STATUS_CSV)
   message("[KY] wrote ", KY_STATUS_CSV, " (", nrow(st), " rows)")
   d <- ky_disposition()
+  rhtp_assert_disposition_prose(d, "KY")
   readr::write_csv(d, KY_DISPO_CSV)
   message("[KY] wrote ", KY_DISPO_CSV, " (", nrow(d), " rows)")
   invisible(list(status = st, disposition = d))

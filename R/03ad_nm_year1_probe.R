@@ -844,7 +844,7 @@ nm_assert_roster_control <- function(rhcdf = NULL, news = NULL) {
 nm_assert_candidates_are_rhcdf_recipients <- function(rhcdf = NULL,
                                                       cands = NULL) {
   tr <- if (is.null(rhcdf)) nm_html_text("rhcdf") else rhcdf
-  if (is.null(cands)) cands <- nm_rcj_candidates()
+  if (is.null(cands)) cands <- nm_rhcdf_candidates()
   # Every RCJ awardee name must appear on the RHCDF page. Matched on the
   # distinctive head of the name, because HCA and RCJ punctuate differently
   # (RCJ writes "Cañoncito Band of Navajo Health Center, Inc.").
@@ -873,7 +873,7 @@ nm_assert_candidates_are_rhcdf_recipients <- function(rhcdf = NULL,
 #' EVERY CANDIDATE IS PRICED AT $1 -- Missouri's placeholder, and here it is
 #' what HIDES the other two defects
 nm_assert_placeholder_amounts <- function(cands = NULL) {
-  if (is.null(cands)) cands <- nm_rcj_candidates()
+  if (is.null(cands)) cands <- nm_rhcdf_candidates()
   amt <- cands$amount_announced
   if (!all(!is.na(amt) & amt == 1)) {
     stop("[NM] not every New Mexico candidate is priced at $1 any more (",
@@ -1027,9 +1027,11 @@ rhtp_nm_year1_status <- function() {
           "a fund 'originally established in 2023' topped up 'during the",
           "October 2025 special session', and HCA's own webinar deck calls it",
           "'a $50 million STATE investment' while containing RHTP, 'Rural",
-          "Health Transformation', 'CMS' and 'federal' ZERO TIMES. ALL SEVEN",
-          "RCJ NEW MEXICO CANDIDATES COME FROM HERE, and its 2026-08-04 cycle",
-          "names SIX HOSPITALS.")
+          "Health Transformation', 'CMS' and 'federal' ZERO TIMES.",
+          nrow(nm_rhcdf_candidates()), "OF RCJ'S", nrow(nm_rcj_candidates()),
+          "LIVE NEW MEXICO CANDIDATES COME FROM HERE (the rest are OREGON'S,",
+          "misfiled -- see the disposition), and its 2026-08-04 cycle names",
+          "SIX HOSPITALS.")
   ) %>%
     dplyr::mutate(state = "NM", .before = 1)
 }
@@ -1044,38 +1046,109 @@ nm_rcj_candidates <- function() {
 
 NM_RHCDF_SOURCE_MARKER <- "RHCDF Announces Stabilization Fund"
 
-#' Why each of RCJ's New Mexico Tier 3 candidates is not an RHTP subaward
+# Session 63: the 2026-09-24 pull files four records from an OREGON hospital's
+# own release under New Mexico. R/02c's SWEEP_MISFILED_DOCUMENTS carries the
+# same title; this is the hand-read disposition of those four rows.
+NM_WALLOWA_SOURCE_MARKER <- "Wallowa Memorial Hospital and Medical Clinics"
+
+#' The RHCDF-document rows only -- the set the RHCDF assertions describe
 #'
-#' The counts are RE-DERIVED from the record table on every run, never typed,
-#' and the disposition REFUSES a candidate it does not cover (California's
-#' rule, session 34).
+#' The two RHCDF tripwires below were written when every New Mexico candidate
+#' came from that one document. Since the 2026-09-24 pull four do not (the
+#' misfiled Oregon rows), so they read this subset rather than the whole set;
+#' the disposition's coverage check is what refuses anything else.
+nm_rhcdf_candidates <- function(cands = NULL) {
+  if (is.null(cands)) cands <- nm_rcj_candidates()
+  cands[stringr::str_detect(cands$source_doc_title,
+                            stringr::fixed(NM_RHCDF_SOURCE_MARKER)), ,
+        drop = FALSE]
+}
+
+#' Oregon's own award rows that the four misfiled New Mexico records restate
+#'
+#' Hand-read pairings (§2: never a fuzzy hospital merge), each checked against
+#' the committed OREGON award file, which is built from OHA's own documents.
+#' Returns one row per RCJ record with the OHA figure it corresponds to.
+nm_wallowa_vs_oregon <- function(cands = NULL) {
+  if (is.null(cands)) cands <- nm_rcj_candidates()
+  w  <- cands[stringr::str_detect(cands$source_doc_title,
+                                  stringr::fixed(NM_WALLOWA_SOURCE_MARKER)), ,
+              drop = FALSE]
+  or <- readr::read_csv(here::here("data", "reference",
+                                   "or_year1_awardees.csv"),
+                        show_col_types = FALSE, progress = FALSE)
+  hosp_tf <- or$amount[or$awardee == "Wallowa Memorial Hospital"]
+  rhc     <- or$amount[stringr::str_detect(
+    or$awardee, "^Wallowa Memorial Medical Clinic - ")]
+  cat_p1  <- or[stringr::str_detect(or$awardee,
+                                    "^Wallowa County Health Care District") &
+                  stringr::str_detect(or$note, "Project 1"), , drop = FALSE]
+  y2 <- as.numeric(gsub(",", "", stringr::str_match(
+    cat_p1$note, "Year 2 expected: ([0-9,.]+)")[, 2]))
+  if (length(hosp_tf) != 1L || length(rhc) != 4L || nrow(cat_p1) != 1L ||
+      is.na(y2)) {
+    stop("[NM] or_year1_awardees.csv no longer carries the Wallowa rows the ",
+         "misfiled New Mexico records restate. Re-read both.", call. = FALSE)
+  }
+  oha <- c(mri = hosp_tf, rhc = sum(rhc),
+           catalyst = cat_p1$amount + y2, headline = NA_real_)
+  kind <- dplyr::case_when(
+    stringr::str_detect(w$awardee_name_clean, "Rural Health Clinics") ~ "rhc",
+    stringr::str_detect(w$awardee_name_clean, "Maternal and Newborn") ~ "catalyst",
+    stringr::str_detect(w$awardee_name_clean, "and Medical Clinics") ~ "headline",
+    w$awardee_name_clean == "Wallowa Memorial Hospital" ~ "mri",
+    TRUE ~ NA_character_)
+  if (any(is.na(kind)) || anyDuplicated(kind)) {
+    stop("[NM] a misfiled Wallowa record no longer matches one of the four ",
+         "hand-read pairings: ",
+         paste(w$awardee_name_clean[is.na(kind)], collapse = " | "),
+         call. = FALSE)
+  }
+  tibble::tibble(awardee = w$awardee_name_clean, rcj = w$amount_announced,
+                 kind = kind, oha = unname(oha[kind]))
+}
+
+#' Why each of RCJ's New Mexico Tier 3 candidates is not a New Mexico subaward
+#'
+#' Every count and figure in the prose is DERIVED on every run, never typed,
+#' and the disposition REFUSES a candidate no group covers (California's rule,
+#' session 34).
 rhtp_nm_rcj_disposition <- function(cands = NULL) {
   if (is.null(cands)) cands <- nm_rcj_candidates()
-  is_rhcdf <- stringr::str_detect(cands$source_doc_title,
-                                  stringr::fixed(NM_RHCDF_SOURCE_MARKER))
-  if (!all(is_rhcdf)) {
-    stop("[NM] ", sum(!is_rhcdf), " New Mexico Tier 3 candidates are NOT from ",
-         "the RHCDF stabilization-fund document. This file's whole ",
-         "disposition is that all of them are. Read the new ones before ",
-         "building: ",
-         paste(unique(cands$source_doc_title[!is_rhcdf]), collapse = " | "),
+  is_rhcdf   <- stringr::str_detect(cands$source_doc_title,
+                                    stringr::fixed(NM_RHCDF_SOURCE_MARKER))
+  is_wallowa <- stringr::str_detect(cands$source_doc_title,
+                                    stringr::fixed(NM_WALLOWA_SOURCE_MARKER))
+  uncovered <- !(is_rhcdf | is_wallowa)
+  if (any(uncovered)) {
+    stop("[NM] ", sum(uncovered), " New Mexico Tier 3 candidates are from ",
+         "neither the RHCDF stabilization-fund document nor the misfiled ",
+         "Wallowa (Oregon) release. No group describes them. Read the new ",
+         "ones before building: ",
+         paste(unique(cands$source_doc_title[uncovered]), collapse = " | "),
          call. = FALSE)
   }
   amt  <- cands$amount_announced
   hosp <- stringr::str_detect(cands$awardee_name_clean,
-                              stringr::regex("hospital", ignore_case = TRUE))
+                              stringr::regex("hospital|health care district",
+                                             ignore_case = TRUE))
+  money <- function(x) format(sum(x, na.rm = TRUE), big.mark = ",",
+                              scientific = FALSE, nsmall = 0)
+  wv <- if (any(is_wallowa)) nm_wallowa_vs_oregon(cands) else NULL
+  pick <- function(k, col) wv[[col]][wv$kind == k]
+  n_all <- nrow(cands)
 
-  tibble::tribble(
-    ~group, ~rows, ~distinct_awardees, ~named_hospital_rows, ~rcj_amount_sum,
-    ~disposition, ~why,
-
-    paste("Rural Health Care Delivery Fund recipients -- NEW MEXICO STATE",
-          "MEDICAID STABILIZATION MONEY"),
-    sum(is_rhcdf), dplyr::n_distinct(cands$awardee_name_clean[is_rhcdf]),
-    sum(hosp & is_rhcdf), sum(amt[is_rhcdf], na.rm = TRUE),
-    "NOT_RHTP_STATE_PROGRAM",
-    paste0(
-      "ALL ", sum(is_rhcdf), " OF NEW MEXICO'S TIER 3 CANDIDATES, AND THREE ",
+  rhcdf_row <- tibble::tibble(
+    group = paste("Rural Health Care Delivery Fund recipients -- NEW MEXICO",
+                  "STATE MEDICAID STABILIZATION MONEY"),
+    rows = sum(is_rhcdf),
+    distinct_awardees = dplyr::n_distinct(cands$awardee_name_clean[is_rhcdf]),
+    named_hospital_rows = sum(hosp & is_rhcdf),
+    rcj_amount_sum = sum(amt[is_rhcdf], na.rm = TRUE),
+    disposition = "NOT_RHTP_STATE_PROGRAM",
+    why = paste0(
+      sum(is_rhcdf), " OF NEW MEXICO'S ", n_all, " LIVE TIER 3 CANDIDATES, ",
+      "UNCHANGED SINCE THE 2026-08-27 PULL, AND THREE ",
       "RECORDED DEFECTS AT ONCE. (1) THE WRONG PROGRAMME (Texas's, ",
       "California's): the Rural Health Care Delivery Fund is state money. ",
       "The Governor's own release says '41 rural health care providers and ",
@@ -1099,19 +1172,65 @@ rhtp_nm_rcj_disposition <- function(cands = NULL) {
       "partial in its own telling way: seven of the roster's first EIGHT ",
       "names in document order, DROPPING Gallup Community Health (Texas's ",
       "32-of-33, Kansas's Greeley County). (3) THE $1 PLACEHOLDER ",
-      "(Missouri's, session 28; Maine's, session 33): every row is priced at ",
-      "$1, so New Mexico's whole rcj_federal_amount_sum is $7 -- and HERE ",
-      "THAT IS WHAT HIDES THE OTHER TWO, because a row priced at $1 reads as ",
-      "missing data rather than as the wrong programme. ",
-      sum(hosp & is_rhcdf), " OF THE ", sum(is_rhcdf), " ARE NAMED NEW ",
-      "MEXICO HOSPITALS (Alta Vista Regional Hospital, Cibola General ",
-      "Hospital), which is California's SRHRP shape again -- real, executed, ",
-      "named state awards to rural hospitals from THE SAME AGENCY that ",
-      "administers RHTP. What keeps the cost at $0 here rather than ",
-      "California's $5,475,000 is only that RCJ priced them at $1; a session ",
-      "that 'repaired' those amounts from the state page would publish state ",
-      "Medicaid stabilization money as New Mexico's RHTP hospital dollars.")
-  ) %>%
+      "(Missouri's, session 28; Maine's, session 33): every one of these ",
+      "rows is priced at $1, so together they sum to $",
+      money(amt[is_rhcdf]), " -- and HERE THAT IS WHAT HIDES THE OTHER ",
+      "TWO, because a row priced at $1 reads as missing data rather than as ",
+      "the wrong programme. ", sum(hosp & is_rhcdf), " OF THE ",
+      sum(is_rhcdf), " ARE NAMED NEW MEXICO HOSPITALS (",
+      paste(sort(unique(cands$awardee_name_clean[hosp & is_rhcdf])),
+            collapse = ", "), "), which is California's SRHRP shape again -- ",
+      "real, executed, named state awards to rural hospitals from THE SAME ",
+      "AGENCY that administers RHTP. What keeps the cost at $0 here is only ",
+      "that RCJ priced them at $1; a session that 'repaired' those amounts ",
+      "from the state page would publish state Medicaid stabilization money ",
+      "as New Mexico's RHTP hospital dollars."))
+
+  if (!any(is_wallowa)) return(rhcdf_row %>% dplyr::mutate(state = "NM", .before = 1))
+
+  wallowa_row <- tibble::tibble(
+    group = paste("Wallowa Memorial Hospital (Enterprise, OREGON) --",
+                  "OREGON'S RHTP AWARDS, FILED UNDER NEW MEXICO"),
+    rows = sum(is_wallowa),
+    distinct_awardees = dplyr::n_distinct(cands$awardee_name_clean[is_wallowa]),
+    named_hospital_rows = sum(hosp & is_wallowa),
+    rcj_amount_sum = sum(amt[is_wallowa], na.rm = TRUE),
+    disposition = "WRONG_STATE_OREGON_FILED_UNDER_NEW_MEXICO",
+    why = paste0(
+      sum(is_wallowa), " of New Mexico's ", n_all, " live Tier 3 candidates ",
+      "are NOT NEW MEXICO'S AT ALL. First seen on the 2026-09-24 pull, all ",
+      "from one document RCJ titles 'NM - 2026 - Wallowa Memorial Hospital ",
+      "and Medical Clinics awarded over $5.4 million in federal RHT Funds' ",
+      "-- Wallowa Memorial Hospital is in Enterprise, OREGON (Wallowa County ",
+      "Health Care District), and only one of the four rows' descriptions ",
+      "says 'Eastern Oregon'; the other three name no state at all. §0.1 ",
+      "FAILURE MODE 6 (the wrong state), and the first time it has reached ",
+      "Tier 3: R/02c lists the document in SWEEP_MISFILED_DOCUMENTS. THEY ARE ",
+      "REAL RHTP AWARDS -- OREGON'S -- and three of the four restate rows ",
+      "already in or_year1_awardees.csv, built from OHA's own documents, so ",
+      "the evidence is Oregon's: the RURAL HEALTH CLINICS row ($",
+      money(pick("rhc", "rcj")), ") is OHA's four Wallowa Memorial Medical ",
+      "Clinic RHC awards, $", money(pick("rhc", "oha")), " between them; the ",
+      "MRI row ($", money(pick("mri", "rcj")), ") is OHA's Transformation ",
+      "Fund hospital award to Wallowa Memorial Hospital, which OHA prints as ",
+      "$", money(pick("mri", "oha")), " -- RCJ is $",
+      money(pick("mri", "rcj") - pick("mri", "oha")), " off; the Rural ",
+      "Maternal and Newborn row ($", money(pick("catalyst", "rcj")), ") is ",
+      "OHA's Catalyst Project 1 award to Wallowa County Health Care District ",
+      "at Budget Year 1 PLUS Year 2 ($",
+      formatC(pick("catalyst", "oha"), format = "f", digits = 2,
+              big.mark = ","), "), where Oregon's ",
+      "file carries Year 1 only -- a TWO-YEAR figure. The fourth row ($",
+      money(pick("headline", "rcj")), ") is the release's own headline ",
+      "aggregate captured as an award of its own (§0.1 mode 4, the wrong grain) ",
+      "and is no award of any state. NEW MEXICO'S HOSPITAL FIGURE IS NOT ",
+      "TOUCHED BY ANY OF THEM (New Mexico has no award file); OREGON'S IS ",
+      "BUILT FROM OHA, NOT RCJ, so it is not touched either. A New Mexico ",
+      "extractor that took these four would publish $",
+      money(amt[is_wallowa]), " of Oregon's money, and a sum over both ",
+      "states would count three Oregon awards twice."))
+
+  dplyr::bind_rows(rhcdf_row, wallowa_row) %>%
     dplyr::mutate(state = "NM", .before = 1)
 }
 
@@ -1122,6 +1241,7 @@ rhtp_nm_build <- function() {
   rhtp_nm_assert()
   status <- rhtp_nm_year1_status()
   dispo  <- rhtp_nm_rcj_disposition()
+  rhtp_assert_disposition_prose(dispo, "NM")
   readr::write_csv(status, here::here(NM_STATUS_CSV))
   readr::write_csv(dispo,  here::here(NM_DISPO_CSV))
   nm_assert_no_award_file()
@@ -1162,7 +1282,7 @@ rhtp_nm_report <- function() {
     cat(sprintf("      named hospitals among them: %d of %d\n",
                 dispo$named_hospital_rows[i], dispo$rows[i]))
   }
-  cat("  RHTP subawards among them      0\n\n")
+  cat("  New Mexico RHTP subawards among them  0 (the Wallowa rows are OREGON'S)\n\n")
 
   cat("  THREE RECORDED DEFECTS IN ONE CANDIDATE SET:\n")
   cat("    1. the wrong PROGRAMME  -- a state fund (Texas, California)\n")

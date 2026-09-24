@@ -1,0 +1,14 @@
+# RCJ candidate dispositions (R/03bh), sources read 2026-09-24. Read-only fetches,
+# bytes as served. SHA-256 of the saved bytes. Honest agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org).
+# GA/dch_grant_announcements.html          https://dch.georgia.gov/grant-announcements
+# GA/dch_dual_track_fy26_rfga_2026-01-21.pdf https://dch.georgia.gov/document/document/dual-track-fy26-rfga-1-21-26/download
+# GA/dch_dual_track_rccs26_rfga_2026-05-12.pdf https://dch.georgia.gov/document/document/dual-track-rfga-rccs26-solicitation-final/download
+# GA/dch_dual_track_rfga_2023-11-15.pdf    https://dch.georgia.gov/document/document/dualtrackrfgafinal111523/download
+# SD/open_sd_contracts_RHT_series.html     https://open.sd.gov/contracts.aspx  POST, contract number contains "RHT" (R/03i rhtp_sd_portal_search(), in memory; not logged)
+# SD/open_sd_contracts_rural_strong.html   https://open.sd.gov/contracts.aspx  POST, description contains "Rural Strong"
+33b418cfb4597fb62d4fd6a14927117ed7d6df5b6876732f28200be42b97cff0  GA/dch_dual_track_fy26_rfga_2026-01-21.pdf
+bf4e8976318b7549d1fb4546d2338fc599ba700058d67d0040511b398f4d082a  GA/dch_dual_track_rccs26_rfga_2026-05-12.pdf
+81d44fc7602d05dbd2c1ce1334c43e220c51fa62e74753ea203f1cb527dd1407  GA/dch_dual_track_rfga_2023-11-15.pdf
+3ed4449eb5751e316bbd2aa092ff11dc0d549622557e419e553c8a2c5a3a93c9  GA/dch_grant_announcements.html
+1233b7ffd195da336328dd8e9604e3b2685760f4a7f0301d22323a04f6c8cff6  SD/open_sd_contracts_RHT_series.html
+35ea6b936fc787994d9bee7f562636d8ff601aa5128eaaa2163b56d81defcc5e  SD/open_sd_contracts_rural_strong.html

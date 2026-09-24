@@ -456,6 +456,12 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # subtracted first, like every session before it.
   # Session 61: + New Jersey, 35 rows / $35,275,076 and a 26th state --
   # subtracted first, like every session before it.
+  # Session 63: + Indiana's GROW regional recipients, 44 UNPRICED hospital
+  # rows ($0) and a 27th state -- subtracted first, like every session before.
+  expect_equal(named$rows, 1114L)
+  expect_equal(named$states, 27L)
+  named$rows <- named$rows - 44L
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1070L)
   expect_equal(round(named$dollars, 2), 937661818.75, tolerance = 0)
   expect_equal(named$states, 26L)

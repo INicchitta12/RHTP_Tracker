@@ -84,7 +84,10 @@
 # ORGANISATION -- Missouri's is the wrong KIND OF ACTION, and it is the one an
 # amount check cannot see, because RCJ publishes $1 rather than a wrong figure.
 # It also understates the one exact award it holds: $732,000 against DSS's
-# $732,660.43.
+# $732,660.43. (That is the 2026-08-27 pull. On 2026-09-24 RCJ re-keyed MDA and
+# MEMSA onto new documents and now carries MDA TWICE -- once at $732,000, once
+# at the exact figure -- so the live set is 30. It still carries none of the
+# twenty SMRP hospitals. Session 63; see `rhtp_mo_rcj_disposition()`.)
 #
 # ONE HOST IS UNREACHABLE AND IS RECORDED AS UNREACHABLE, NOT AS A NEGATIVE.
 # `memsa.org/rht-funding/` -- where MEMSA's own sub-awardee list would be --
@@ -1121,11 +1124,13 @@ mo_rcj_candidates <- function() {
                   award_tier == "SUBAWARD")
 }
 
-#' Why each of RCJ's 29 Missouri Tier 3 candidates is, or is not, an award
+#' Why each of RCJ's live Missouri Tier 3 candidates is, or is not, an award
 #'
 #' The counts are RE-DERIVED from the record table on every run, so the day
 #' Missouri's candidate set moves this fails instead of quietly ceasing to
-#' cover it (Texas's rule).
+#' cover it (Texas's rule). Session 63 re-read it against the 2026-09-24 pull:
+#' 29 candidates became 30, because RCJ re-keyed its Doula Association and
+#' MEMSA rows onto new documents and now carries the Doula award TWICE.
 rhtp_mo_rcj_disposition <- function(cands = NULL) {
   if (is.null(cands)) cands <- mo_rcj_candidates()
   anchors <- rhtp_mo_hub_anchors()
@@ -1135,28 +1140,60 @@ rhtp_mo_rcj_disposition <- function(cands = NULL) {
                                    "Missouri Emergency Medical Services")
   is_mda    <- stringr::str_detect(cands$awardee_name_clean,
                                    "Missouri Doula Association")
+  # The twenty SMRP hospitals (session 54), matched EXACTLY on DSS's own
+  # spelling and never on a stem (§2). A Hub Anchor row that happens to share
+  # a name is an anchor row, not an SMRP one.
+  is_smrp   <- cands$awardee_name_clean %in% MO_SMRP_AWARDEES$awardee &
+    !is_anchor
+
+  covered <- is_anchor | is_memsa | is_mda | is_smrp
+  if (any(!covered) || any((is_anchor + is_memsa + is_mda + is_smrp) > 1)) {
+    stop("[MO] RCJ candidate(s) no disposition group describes, or in two: ",
+         paste(cands$awardee_name_clean[!covered], collapse = "; "),
+         ". Read them before extending a group.", call. = FALSE)
+  }
+
+  # Hospital counts come from the COMMITTED roster, which carries session 49's
+  # verification (14 -> 19); the builder's own machine typing does not.
+  committed <- here::here(MO_HUB_CSV)
+  n_hosp <- if (file.exists(committed)) {
+    sum(readr::read_csv(committed, show_col_types = FALSE)$is_hospital_or_system
+        %in% c("Yes", "TRUE", TRUE))
+  } else sum(anchors$is_hospital_or_system)
+  n_anchor_rows <- sum(is_anchor)
+
+  mda_amt <- cands$amount_announced[is_mda]
+  mda_exact <- sum(abs(mda_amt - MO_STATED$mda_amount) < 0.01)
+  mda_short <- sum(abs(mda_amt - MO_STATED$rcj_mda_amount) < 0.01)
+  fmt <- function(x) format(x, big.mark = ",", nsmall = 2)
 
   tibble::tribble(
     ~group, ~rows, ~disposition, ~why,
     "Hub Anchor selections carried as awards at $1",
-    sum(is_anchor),
+    n_anchor_rows,
     "NOT_AN_AWARD_GOVERNANCE_ROLE",
-    paste("RCJ files all 27 ToRCH Care Hub Anchors as Tier 3 award records,",
-          "each with an amount of $1. They are organisations SELECTED TO",
-          "CONVENE a hub. DSS's own FAQ: 'Hub Anchors will not act as the",
-          "fiscal agent' (Q36); its release: participation is 'subject to",
-          "execution of a Hub Anchor Participation Agreement'. No dollar",
-          "figure is attached to the role anywhere. 14 of the 27 are hospitals",
-          "or health systems on the name rule and 11 more carry §8's standing",
-          "fallback, so believed at face value this publishes at least 14",
-          "named hospitals as RHTP recipients with no money behind any."),
+    paste0("RCJ files ", n_anchor_rows, " of the ", nrow(anchors), " ToRCH ",
+           "Care Hub Anchors as Tier 3 award records, each with an amount of ",
+           "$1. They are organisations SELECTED TO CONVENE a hub. DSS's own ",
+           "FAQ: 'Hub Anchors will not act as the fiscal agent' (Q36); its ",
+           "release: participation is 'subject to execution of a Hub Anchor ",
+           "Participation Agreement'. No dollar figure is attached to the role ",
+           "anywhere. ", n_hosp, " of the ", nrow(anchors), " are hospitals or ",
+           "health systems on the committed roster (session 49's verification; ",
+           "the name rule alone reaches ", sum(anchors$is_hospital_or_system),
+           "), so believed at face value this ",
+           "publishes ", n_hosp, " named hospitals as RHTP recipients with no ",
+           "money behind any. These rows are unchanged since the 2026-08-27 ",
+           "pull."),
 
     "Missouri EMS Association -- a real partnership, amount approximate",
     sum(is_memsa),
     "RHTP_AWARD_PASS_THROUGH",
     paste0("RCJ's $6,500,000 matches DSS's 'around $6.5M'. It is in this ",
            "file, as a PASS_THROUGH_UNRESOLVED to rural EMS agencies MEMSA ",
-           "has not named -- not a hospital dollar. WHETHER MEMSA HAS NAMED ",
+           "has not named -- not a hospital dollar. RCJ re-keyed it on the ",
+           "2026-09-24 pull onto an 'Understanding the RHTP' document; one ",
+           "award either way. WHETHER MEMSA HAS NAMED ",
            "THEM IS UNKNOWN, NOT NO: ", MO_MEMSA_HOST, " answers HTTP ",
            MO_MEMSA_STATUS, " with a ", MO_MEMSA_GATE, " interstitial, re-",
            "tested ", MO_MEMSA_RETESTED, " and unchanged. It is NOT a user-",
@@ -1173,16 +1210,34 @@ rhtp_mo_rcj_disposition <- function(cands = NULL) {
            "dollars: DSS states the eligible class and it is rural EMS ",
            "agencies."),
 
-    "Missouri Doula Association -- a real award, RCJ's amount short",
+    "Missouri Doula Association -- ONE real award carried on several rows",
     sum(is_mda),
-    "RHTP_AWARD_AMOUNT_UNDERSTATED",
-    paste0("RCJ carries $", format(MO_STATED$rcj_mda_amount, big.mark = ","),
-           " against DSS's own $",
-           format(MO_STATED$mda_amount, big.mark = ",", nsmall = 2),
-           " -- short by $",
-           format(MO_STATED$mda_amount - MO_STATED$rcj_mda_amount,
-                  nsmall = 2),
-           ". The award is real and is in this file at the state's figure.")
+    "RHTP_AWARD_DUPLICATED_ACROSS_DOCUMENTS",
+    paste0("RCJ carries this one award on ", sum(is_mda), " rows from ",
+           dplyr::n_distinct(cands$source_doc_title[is_mda]), " documents: ",
+           mda_exact, " at DSS's own $", fmt(MO_STATED$mda_amount), " and ",
+           mda_short, " at $", format(MO_STATED$rcj_mda_amount, big.mark = ","),
+           ", short by $", fmt(MO_STATED$mda_amount - MO_STATED$rcj_mda_amount),
+           ". Summed, RCJ's rows give $", fmt(sum(mda_amt)), " for a ",
+           "$", fmt(MO_STATED$mda_amount), " award -- §0.1's wrong-grain defect ",
+           "(one row per DOCUMENT, not per award). The award is real and is in ",
+           "this file ONCE, at the state's figure."),
+
+    paste0("Strategic Minor Renovations Program -- ", MO_STATED$smrp_n,
+           " hospital awards RCJ does not carry"),
+    sum(is_smrp),
+    "NOT_IN_THE_AGGREGATOR_AT_ALL",
+    paste0("DSS names ", MO_STATED$smrp_n, " rural hospitals as SMRP awardees ",
+           "('approximately $35 million', no per-recipient amount), which is ",
+           "CMS's own '20 rural hospital projects' (its 2026-09-22 release); they are ",
+           "in this file as ", MO_STATED$smrp_n, " NAMED_HOSPITAL rows at $0 ",
+           "(session 54). RCJ carries none of them as a Tier 3 candidate on ",
+           "the 2026-09-24 pull, matched exactly on DSS's spelling. ",
+           sum(MO_SMRP_AWARDEES$awardee %in% anchors$organization), " of the ",
+           MO_STATED$smrp_n, " SMRP hospitals are also Hub Anchors under the ",
+           "same spelling and appear above only as the ",
+           "$1 anchor rows, which are a different action. A row here means RCJ ",
+           "has caught up and this disposition must be re-read.")
   ) %>%
     dplyr::mutate(state = "MO", .before = 1)
 }
@@ -1312,6 +1367,7 @@ rhtp_mo_build <- function() {
 
   readr::write_csv(awards,  here::here(MO_CSV), na = "")
   readr::write_csv(anchors, here::here(MO_HUB_CSV), na = "")
+  rhtp_assert_disposition_prose(dispo, "MO")
   readr::write_csv(dispo,   here::here(MO_DISPO_CSV), na = "")
 
   wb <- openxlsx::createWorkbook()

@@ -105,13 +105,58 @@ test_that("every RCJ Texas Tier 3 candidate is accounted for, and none survives"
   disp <- tx_build_disposition()
 
   expect_equal(sum(disp$rcj_rows), actual)
-  expect_equal(actual, 68L)
+  expect_equal(actual, 85L)   # 68 on the 2026-08-27 pull
   expect_false(any(disp$disposition == "RHTP_SUBAWARD"))
-  # 53 of the 68 are a different, state-appropriated programme. That single
-  # number is the §0.1 finding.
-  expect_equal(sum(disp$rcj_rows[disp$disposition == "NOT_RHTP_STATE_APPROPRIATION"]),
+  # 53 of the 68 were Rider 88, and are still; the 2026-09-24 pull added four
+  # more Workplace Violence Against Nurses rows, also a state appropriation.
+  expect_equal(sum(disp$rcj_rows[disp$group %in%
+                                   c("HHS0015180 Rural Hospital Debt Reduction",
+                                     "HHS0015677 Rural Hospital Improvement")]),
                53L)
+  expect_equal(sum(disp$rcj_rows[disp$disposition == "NOT_RHTP_STATE_APPROPRIATION"]),
+               57L)
+  expect_equal(sum(disp$rcj_rows[disp$disposition == "NOT_RHTP_STATE_PROGRAM"]),
+               19L)
+  expect_equal(sum(disp$rcj_rows[disp$disposition ==
+                                   "UNRESOLVED_NO_STATE_SOURCE_LOCATED"]), 3L)
   expect_true(all(nzchar(disp$why)))
+  expect_silent(rhtp_assert_disposition_prose(disp, "TX"))
+})
+
+test_that("the nine Medicaid rows RCJ withdrew stay as history, at 0 live", {
+  disp <- tx_build_disposition()
+  med <- disp[disp$disposition == "NOT_RHTP_MEDICAID", ]
+  expect_equal(nrow(med), 2L)
+  expect_equal(sum(med$rcj_rows), 0L)
+  expect_true(all(grepl("withdrawn 5|withdrawn 4", med$why)))
+})
+
+test_that("every live candidate lands in exactly one group, or the build stops", {
+  cands <- tx_rcj_candidates()
+  extra <- cands[1, ]
+  extra$source_doc_title <- "TX - 2026 - A document nobody has read"
+  extra$awardee_name_clean <- "Somebody"
+  expect_error(tx_build_disposition(dplyr::bind_rows(cands, extra)),
+               "no disposition")
+  committed <- readr::read_csv(TX_DISPOSITION_CSV, show_col_types = FALSE)
+  built <- tx_build_disposition()
+  expect_equal(committed$rcj_rows, built$rcj_rows)
+  expect_equal(committed$why, built$why)
+})
+
+test_that("the three new HHSC programmes rest on archived RFAs", {
+  disp <- tx_build_disposition()
+  new <- disp[grepl("^HHS001(6568|6121|5358)", disp$group), ]
+  expect_equal(nrow(new), 3L)
+  expect_true(all(file.exists(here::here(new$source_archive_path))))
+  man <- readLines(here::here(TX_RECHECK_DIR, "MANIFEST.txt"), warn = FALSE)
+  rows <- stringr::str_match(man, "^(\\S+)\\s+(\\d+)\\s+([0-9a-f]{64})$")
+  rows <- rows[!is.na(rows[, 1]), , drop = FALSE]
+  expect_equal(nrow(rows), 9L)
+  for (i in seq_len(nrow(rows))) {
+    f <- here::here(TX_RECHECK_DIR, rows[i, 2])
+    expect_equal(unname(digest::digest(file = f, algo = "sha256")), rows[i, 4])
+  }
 })
 
 test_that("the disposition count is derived, not typed", {
@@ -120,7 +165,7 @@ test_that("the disposition count is derived, not typed", {
   # a finding and a stale constant that still says 68.
   expect_error(tx_assert_candidates_accounted(actual = 71L),
                "candidate set has changed")
-  expect_silent(tx_assert_candidates_accounted(actual = 68L))
+  expect_silent(tx_assert_candidates_accounted(actual = 85L))
 
   # And a candidate that turns out to BE an RHTP subaward retires this file.
   disp <- tx_build_disposition()

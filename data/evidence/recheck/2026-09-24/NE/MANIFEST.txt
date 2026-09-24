@@ -1,0 +1,24 @@
+Nebraska -- the source that disposes of RCJ's twelve NEW Initiative 5.3 Tier 3
+candidates on the 2026-09-24 pull (session 63).
+Archived read-only, one fetch (curl), by the session-63 disposition re-read.
+Found as the FOURTH "RHTP-Public-Notice-of-Award" link on DHHS's live
+programme page (https://dhhs.ne.gov/Pages/Rural-Health-Transformation.aspx),
+which the committed 2026-08-31 archive of that page does not carry.
+User-agent: RHTP-Tracker/0.1 (AHA Data & Policy research; +https://www.aha.org)
+URL: https://dhhs.ne.gov/Documents/RHTP-Public-Notice-of-Award-5.3.pdf
+Fetched: 2026-09-24T16:27:40Z, HTTP 200, application/pdf.
+
+The body the server sent, BYTE FOR BYTE, so re-hashing the file reproduces the
+digest below.
+
+WHAT IT SAYS. "RHTP Initiative 5.3 Awards 09/01/2026", Initiative 5.3
+Modification of Existing Clinical Facilities for Mental Health Crisis. Headed
+"Intent to Award": "DHHS intends to award subawards to the following
+applicants ... The following have been selected for award for the Request for
+Application which closed August 31, 2026." THIRTEEN applicants, $5,549,692.25,
+under the CMS footer "$218,529,075.01 with 100 percent funded by CMS/US HHS".
+RCJ carries twelve (it drops Regional West Medical Center, $93,867.00).
+NOT extracted into ne_year1_awardees.csv; see ne_rcj_candidate_disposition.csv.
+
+file  bytes  sha256
+2026-09-24_ne_dhhs_public_notice_of_award_5.3.pdf  67890  2af6a43034d8226e87416134713659f682d2bd77a3014fb7bdb0d17bee52768c

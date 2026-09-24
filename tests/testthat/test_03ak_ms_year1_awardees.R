@@ -363,10 +363,48 @@ test_that("the status table has no amount column AND the award file now exists",
   expect_equal(sum(st$stage == "AWARDED_ROSTER_PUBLISHED"), 3L)
 })
 
-test_that("the disposition covers all three candidates and refuses a fourth", {
-  d <- ms_disposition()
-  expect_equal(sum(d$rcj_rows), 3L)
-  expect_true(all(grepl("NOT_", d$disposition)))
+test_that("the disposition covers every live candidate, re-derived", {
+  skip_without_archive()
+  # Three rows on the 2026-08-27 pull, none an award. On the 2026-09-24 pull
+  # RCJ carries the Governor's roster, so the groups are a reconciliation.
+  cands <- ms_rcj_candidates()
+  d <- ms_disposition(cands)
+  expect_equal(sum(d$rcj_rows), nrow(cands))
+  expect_equal(nrow(cands), 173L)
+  g <- stats::setNames(d$rcj_rows, d$disposition)
+  expect_equal(g[["RHTP_SUBAWARD_IN_FILE"]], 161L)
+  expect_equal(g[["RHTP_SUBAWARD_IN_FILE_UNDER_A_CORRUPTED_NAME"]], 6L)
+  expect_equal(g[["RHTP_AWARD_DUPLICATED_ACROSS_DOCUMENTS"]], 4L)
+  expect_equal(g[["NOT_A_SUBAWARD_PREDATES_NOA"]], 1L)
+  expect_equal(g[["NOT_RHTP_STATE_PROCUREMENT"]], 1L)
+  # QIPP was WITHDRAWN by RCJ; its row stays so the audit trail closes.
+  expect_equal(g[["NOT_RHTP_MEDICAID_AND_A_DOCUMENT_TITLE"]], 0L)
+  expect_silent(rhtp_assert_disposition_prose(d, "MS"))
+})
+
+test_that("RCJ holds all 167 awards and prices every one correctly", {
+  skip_without_archive()
+  m <- ms_rcj_match()
+  expect_equal(attr(m, "roster_rows_held"), 167L)
+  expect_equal(attr(m, "roster_rows"), 167L)
+  # Every candidate carrying a roster name is matched at the roster's figure:
+  # nothing is left unmatched but the two procurement notices.
+  expect_equal(sort(m$awardee_name_raw[is.na(m$match)]),
+               c("Horne LLP", "Premier Healthcare Solutions, Inc"))
+  # The LIFECORE truncation is the aggregator making this file's own guarded
+  # parse defect -- and it is matched only through the hand-read map (§2).
+  expect_true("Northeast Mental Health" %in% names(MS_RCJ_NAME_REPAIRS))
+})
+
+test_that("a candidate no group describes stops the build", {
+  skip_without_archive()
+  cands <- ms_rcj_candidates()
+  extra <- cands[1, ]
+  extra$record_id <- "synthetic"
+  extra$awardee_name_raw <- "An Organisation Nobody Has Read"
+  extra$amount_announced <- 12345
+  expect_error(ms_disposition(dplyr::bind_rows(cands, extra)),
+               "fit no group")
 })
 
 test_that("Mississippi now contributes 68 rows and $47.5M, and that is new", {

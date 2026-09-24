@@ -98,7 +98,9 @@ RC_ENROLMENTS <- c(
   # Session 61: New Jersey's 33 federal-record hospital rows; a CCN is cited
   # singly only where it is the facility (a bracketed site, or a
   # single-hospital corporation).
-  NJ = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_NJ.json")
+  NJ = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_NJ.json",
+  # Session 63: Indiana's GROW regional recipients, typed on CMS's IN files.
+  IN = "data/evidence/federal_records/2026-09-24/cms_hosp_enrollments_IN.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -237,11 +239,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Cookeville Regional Medical Center Foundation) -- 1,035 / $902,386,742.75
   # / 25 states. Rows and states move; dollars do not.
   # Session 61: NEW JERSEY adds 35 rows / $35,275,076 and a 26th state.
-  if (nrow(rows) != 1070L ||
+  # Session 63: INDIANA's GROW regional recipients add 44 UNPRICED rows and
+  # (Indiana being new to the bucket) a 27th state. Dollars do not move.
+  if (nrow(rows) != 1114L ||
       abs(sum(rows$amount, na.rm = TRUE) - 937661818.75) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 26L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,070 rows / $937,661,818.75 ",
-         "/ 26 states; re-state the rural cut against the new partition.",
+      dplyr::n_distinct(rows$state) != 27L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,114 rows / $937,661,818.75 ",
+         "/ 27 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

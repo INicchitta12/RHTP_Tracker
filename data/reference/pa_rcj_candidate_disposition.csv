@@ -1,0 +1,2 @@
+state,group,rcj_rows,rcj_amount_sum,disposition,evidence
+PA,"In the award file, name and amount exact -- PA - 2025 - Rural Health Selected Projects: Pa RHT Plan (RHTP) Authorized Project Awards",66,42198309.8,RHTP_SUBAWARD_IN_FILE,"66 row(s), $42,198,310. Each matches a row of pa_year1_awardees.csv on the normalised name and the amount to the dollar -- a real award this repository extracted from the state's own document, not from RCJ. 0 first seen after 08-27. Evidence: data/evidence/PA/2026-08-28_dhs_rural_health_selected_projects.html."

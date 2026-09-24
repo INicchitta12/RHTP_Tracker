@@ -1087,63 +1087,191 @@ la_rcj_candidates <- function() {
   rt %>% dplyr::filter(.data$state == "LA", .data$award_tier == "SUBAWARD")
 }
 
-#' Why each of RCJ's six Louisiana Tier 3 candidates is not a subaward
+LA_DECK_SOURCE_MARKER <- "RHTP Advisory Council"
+LA_RCCB_SOURCE_MARKER <- "RHTP Updates September 2026"
+LA_RTCF_SOURCE_MARKER <- "Rural Tech Catalyst Fund"
+
+# Session 63: the LDH deck that disposes of the five NEW Rural Clinician Credit
+# Bank rows on the 2026-09-24 pull. Archived read-only with its own manifest;
+# it is NOT in LA_SOURCES, because the probe does not watch it.
+LA_RCCB_ARCHIVE <- file.path(
+  "data", "evidence", "recheck", "2026-09-24", "LA",
+  "2026-09-09_la_ldh_rhtp_stakeholder_webinar_RCCB_53_AWARDS.pdf")
+LA_RCCB_URL <- paste0("https://ldh.la.gov/assets/docs/Secretary/RHTP/",
+                      "Shareholder-Presentation-09092026.pdf")
+
+la_rows_from <- function(cands, marker) {
+  cands[stringr::str_detect(cands$source_doc_title, stringr::fixed(marker)), ,
+        drop = FALSE]
+}
+
+#' The candidates mined from slide 18 of the 2026-08-20 Advisory Council deck
 #'
-#' The counts and the sum are RE-DERIVED from the record table on every run
-#' (Texas's device), so the day Louisiana's candidate set moves the build fails
+#' The two deck assertions below were written when every Louisiana candidate
+#' came from that table. Since the 2026-09-24 pull six do not, so they read
+#' this subset; the disposition's coverage check refuses anything else.
+la_deck_candidates <- function(cands = NULL) {
+  if (is.null(cands)) cands <- la_rcj_candidates()
+  la_rows_from(cands, LA_DECK_SOURCE_MARKER)
+}
+
+la_rccb_text <- function() {
+  if (!exists("rhtp_pdf_text")) source(here::here("R", "utils_pdf_text.R"))
+  stringr::str_squish(paste(rhtp_pdf_text(here::here(LA_RCCB_ARCHIVE)),
+                            collapse = " "))
+}
+
+#' The five RCCB rows ARE the deck's named multi-parish awardees, to the dollar
+#'
+#' LDH's 2026-09-09 stakeholder deck names five of its 53 Rural Clinician
+#' Credit Bank awards (the "Multi-parish awardees" table) and prices each.
+#' The deck's producer welds the parish count onto the name
+#' ("Ochsner Clinic Foundation8$1,500,000"), so the match allows it.
+la_assert_rccb_rows_are_ldh_awards <- function(cands = NULL, txt = NULL) {
+  if (is.null(cands)) cands <- la_rows_from(la_rcj_candidates(),
+                                            LA_RCCB_SOURCE_MARKER)
+  if (is.null(txt)) txt <- la_rccb_text()
+  for (need in c("Awards made53", "Amount awarded$12,701,996",
+                 "CEAs due for signature9/15/26")) {
+    if (!stringr::str_detect(txt, stringr::fixed(need))) {
+      stop("[LA] LDH's 2026-09-09 deck no longer reads '", need, "'.",
+           call. = FALSE)
+    }
+  }
+  for (i in seq_len(nrow(cands))) {
+    pat <- paste0(stringr::str_replace_all(cands$awardee_name_clean[i],
+                                           "([.()$^*+?|\\[\\]\\\\])", "\\\\\\1"),
+                  "\\s?\\d{1,2}\\s?\\$",
+                  format(cands$amount_announced[i], big.mark = ",",
+                         scientific = FALSE))
+    if (!stringr::str_detect(txt, pat)) {
+      stop("[LA] RCJ's '", cands$awardee_name_clean[i], "' at $",
+           format(cands$amount_announced[i], big.mark = ","),
+           " is not a named, priced awardee on LDH's 2026-09-09 deck. The ",
+           "disposition rests on all five being exactly that.", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+#' Why each of RCJ's Louisiana Tier 3 candidates is, or is not, a subaward
+#'
+#' The counts and the sums are RE-DERIVED from the record table on every run
+#' (Texas's device), and the table REFUSES a live candidate no group
+#' describes, so the day Louisiana's candidate set moves the build fails
 #' instead of this table quietly ceasing to cover it.
 rhtp_la_rcj_disposition <- function(cands = NULL) {
   if (is.null(cands)) cands <- la_rcj_candidates()
-  n   <- nrow(cands)
-  amt <- sum(cands$amount_announced, na.rm = TRUE)
-
-  if (n != 6L) {
-    stop("[LA] expected 6 Louisiana Tier 3 candidates, found ", n,
-         ". This disposition covers six specific rows; re-read them before ",
-         "changing the count.", call. = FALSE)
+  deck <- la_rows_from(cands, LA_DECK_SOURCE_MARKER)
+  rccb <- la_rows_from(cands, LA_RCCB_SOURCE_MARKER)
+  rtcf <- la_rows_from(cands, LA_RTCF_SOURCE_MARKER)
+  covered <- nrow(deck) + nrow(rccb) + nrow(rtcf)
+  if (covered != nrow(cands) ||
+      anyDuplicated(c(deck$record_id, rccb$record_id, rtcf$record_id))) {
+    stop("[LA] ", nrow(cands) - covered, " Louisiana Tier 3 candidate(s) come ",
+         "from none of the three documents this disposition covers (slide 18 ",
+         "of the Advisory Council deck; LDH's September 2026 update deck; ",
+         "LED's Rural Tech Catalyst Fund release). No group describes them. ",
+         "Read the new ones before building: ",
+         paste(setdiff(unique(cands$source_doc_title),
+                       c(deck$source_doc_title, rccb$source_doc_title,
+                         rtcf$source_doc_title)), collapse = " | "),
+         call. = FALSE)
   }
-  if (round(amt) != 53910000) {
-    stop("[LA] the candidate amounts no longer sum to $53,910,000 (found ",
-         format(amt, big.mark = ","), ").", call. = FALSE)
-  }
+  money <- function(x) format(sum(x, na.rm = TRUE), big.mark = ",",
+                              scientific = FALSE)
+  n_all <- nrow(cands)
 
   tibble::tribble(
-    ~disposition, ~rows, ~rcj_amount, ~mechanism, ~disqualifying_fact,
+    ~group, ~disposition, ~rows, ~rcj_amount, ~mechanism, ~disqualifying_fact,
     ~state_source_url, ~source_archive_path,
 
-    "RHTP_BUT_NOT_A_SUBAWARD", 6L, 53910000,
-    paste("TIER (Oklahoma's defect), and §6.1's PROGRAM_NAME_AS_AWARDEE on",
-          "SIX OF SIX. All six rows are rows of ONE table -- slide 18 of the",
-          "2026-08-20 Advisory Council deck, headed 'RHTP Funding Cycle",
-          "Budget Year 1'. The 'awardee' is the ACTIVITY column ('Alternative",
-          "Payment Model', 'Care conveners / navigation network', 'Food is",
-          "Medicine', 'Telehealth', 'Rural Clinician Credit Bank',",
-          "'Collaborative Provider Model'), which are fund uses and not",
-          "organisations at all -- and `named_recipient_test` reads PASS on",
-          "every one. The amount is the 'Projected BY 1 Funding' column times",
-          "a million."),
-    paste("The deck's own column heading reads 'ProjectedBY 1 Funding'",
-          "against '# Applications Received', and the seven rows record 505",
-          "APPLICATIONS with not one award named. Oklahoma's Legislative",
-          "Quarterly Reports had to be read to their glossary to establish",
-          "the same thing; Louisiana says PROJECTED in the heading. AND RCJ",
-          "DROPS THE LARGEST ROW: Capital Improvement, 160 applications and",
-          "$41.60 million, is not among the six, so the six sum to",
-          "$53,910,000 against the deck's seven at $95,510,000 -- the",
-          "aggregator UNDERSTATES the table it mined by $41,600,000, and the",
-          "row it drops is the CAPITAL one, the likeliest to reach a",
-          "hospital. NOT ONE candidate is a named Louisiana organisation of",
-          "any kind."),
+    "Rural Clinician Credit Bank -- LDH's five named multi-parish awardees",
+    "RHTP_SUBAWARD", nrow(rccb), sum(rccb$amount_announced, na.rm = TRUE),
+    paste0(
+      "REAL LOUISIANA RHTP AWARDS, AND THE FIRST THIS REPOSITORY HAS SEEN. ",
+      nrow(rccb), " of Louisiana's ", n_all, " live Tier 3 candidates, first ",
+      "seen on the 2026-09-24 pull, all from LDH's 2026-09-09 stakeholder ",
+      "webinar deck (RCJ: 'LA - 2026 - RHTP Updates September 2026', linked ",
+      "from the RHTP programme page as 'Webinar Slides'). RCJ's names and ",
+      "amounts are LDH's own, to the dollar ($", money(rccb$amount_announced),
+      " between them): ", paste(rccb$awardee_name_clean, collapse = "; "),
+      ". Stage 2 flags 'SR Minden, Southern Roots' MULTI_RECIPIENT_FIELD; ",
+      "LDH prints it as ONE awardee string, so it is one award, not split."),
+    paste0(
+      "Nothing disqualifies them, and that is the finding. The deck says ",
+      "'Rural Clinician Credit Bank Awards -- Year 1 NOFO: $10.0M ",
+      "advertised, $12.70M awarded ... As of 8/28/26': 136 applications, 70 ",
+      "eligible, 'Awards made 53', 'Amount awarded $12,701,996', 'CEAs due ",
+      "for signature 9/15/26'. By facility type it gives 8 small rural ",
+      "hospitals ($3,291,553), 11 critical access hospitals ($2,948,962) and ",
+      "1 rural emergency hospital ($45,000) -- 'Hospital settings 20 awards ",
+      "$6,285,515' -- and NAMES ONLY THESE FIVE, the 'Multi-parish awardees'. ",
+      "The other 48 awards, including all 20 hospital awards, are counted and ",
+      "unnamed (§0.3: a count is not a list). LOUISIANA IS THEREFORE NO ",
+      "LONGER A CLEAN NEGATIVE: it has awarded one of its seven Budget Year ",
+      "1 solicitations. NOT EXTRACTED here and in no award file (Louisiana ",
+      "has none); la_year1_status.csv still reads the RCCB as unawarded and ",
+      "must be re-read. Ochsner Clinic Foundation's $1,500,000 is LDH's ",
+      "stated 'Ceiling applied per multi-entity system'; its recipient form ",
+      "is not stated by LDH and is NOT typed here (§0.4)."),
+    "https://ldh.la.gov/page/rural-health-transformation-program",
+    LA_RCCB_ARCHIVE,
+
+    "Slide 18 of the 2026-08-20 Advisory Council deck -- fund uses, PROJECTED",
+    "RHTP_BUT_NOT_A_SUBAWARD", nrow(deck), sum(deck$amount_announced, na.rm = TRUE),
+    paste0(
+      "TIER (Oklahoma's defect), and §6.1's PROGRAM_NAME_AS_AWARDEE on ",
+      nrow(deck), " OF ", nrow(deck), ", unchanged since the 2026-08-27 ",
+      "pull. All are rows of ONE table -- slide 18 of the 2026-08-20 ",
+      "Advisory Council deck, headed 'RHTP Funding Cycle Budget Year 1'. The ",
+      "'awardee' is the ACTIVITY column (",
+      paste(deck$awardee_name_clean, collapse = "; "), "), which are fund ",
+      "uses and not organisations at all -- and `named_recipient_test` reads ",
+      "PASS on every one. The amount is the 'Projected BY 1 Funding' column ",
+      "times a million. One of them, 'Rural Clinician Credit Bank', is the ",
+      "programme whose five named awards sit in the row above: the $",
+      money(deck$amount_announced[stringr::str_detect(
+        deck$awardee_name_clean, "Credit Bank")]),
+      " here is the PROJECTION, against $12,701,996 awarded."),
+    paste0(
+      "The deck's own column heading reads 'ProjectedBY 1 Funding' against ",
+      "'# Applications Received', and its seven rows record 505 APPLICATIONS ",
+      "with not one award named. Louisiana says PROJECTED in the heading. ",
+      "AND RCJ DROPS THE LARGEST ROW: Capital Improvement, 160 applications ",
+      "and $41.60 million, is not among these rows, so they sum to $",
+      money(deck$amount_announced), " against the deck's seven at ",
+      "$95,510,000 -- the aggregator UNDERSTATES the table it mined by ",
+      "$41,600,000, and the row it drops is the CAPITAL one, the likeliest ",
+      "to reach a hospital."),
     "https://ldh.la.gov/page/rural-health-transformation-program",
     paste0("data/evidence/LA/2026-08-20_la_ldh_rhtp_advisory_council_slides_",
-           "PROJECTED_FUNDING.pdf")
+           "PROJECTED_FUNDING.pdf"),
+
+    "Louisiana Innovation (LA.IO) -- the Rural Tech Catalyst Fund's administrator",
+    "RHTP_BUT_NOT_A_SUBAWARD", nrow(rtcf), sum(rtcf$amount_announced, na.rm = TRUE),
+    paste0(
+      nrow(rtcf), " of Louisiana's ", n_all, " live Tier 3 candidates, first ",
+      "seen on the 2026-09-24 pull, from LED's 2026-05-27 launch release, ",
+      "priced at $", money(rtcf$amount_announced), " (Missouri's ",
+      "placeholder). The 'awardee' is the STATE UNIT THAT RUNS THE FUND, not ",
+      "a recipient of it: §6.1's administering agency as awardee."),
+    paste0(
+      "LED's own release: 'The initiative will be managed through Louisiana ",
+      "Innovation (LA.IO), a division of LED' -- a state agency division -- ",
+      "and it announces the fund's LAUNCH with applications open; it names ",
+      "no award and no recipient."),
+    paste0("https://www.opportunitylouisiana.gov/news/louisiana-launches-",
+           "rural-tech-catalyst-fund-to-advance-rural-health-care-innovation"),
+    paste0("data/evidence/LA/2026-05-27_la_led_rural_tech_catalyst_fund_",
+           "SECOND_PUBLISHER.html")
   )
 }
 
 #' The six candidates ARE the deck's activity column, asserted rather than said
 la_assert_candidates_are_deck_activities <- function(cands = NULL,
                                                      council = NULL) {
-  if (is.null(cands)) cands <- la_rcj_candidates()
+  if (is.null(cands)) cands <- la_deck_candidates()
   cyc <- la_deck_funding_cycle(council)
 
   # LETTERS ONLY, SPACES INCLUDED IN THE STRIP. The deck's producer paints
@@ -1183,7 +1311,7 @@ la_assert_candidates_are_deck_activities <- function(cands = NULL,
 
 #' RCJ DROPS THE LARGEST ROW, and it is the capital one
 la_assert_capital_row_dropped <- function(cands = NULL, council = NULL) {
-  if (is.null(cands)) cands <- la_rcj_candidates()
+  if (is.null(cands)) cands <- la_deck_candidates()
   cyc <- la_deck_funding_cycle(council)
 
   cap <- cyc[stringr::str_detect(cyc$activity, "Capital"), ]
@@ -1212,12 +1340,14 @@ rhtp_la_build <- function() {
   rhtp_la_assert()
   la_assert_candidates_are_deck_activities()
   la_assert_capital_row_dropped()
+  la_assert_rccb_rows_are_ldh_awards()
 
   status <- rhtp_la_year1_status()
   readr::write_csv(status, here::here(LA_STATUS_CSV), na = "")
   message("[LA] wrote ", nrow(status), " channels -> ", LA_STATUS_CSV)
 
   dispo <- rhtp_la_rcj_disposition()
+  rhtp_assert_disposition_prose(dispo, "LA")
   readr::write_csv(dispo, here::here(LA_DISPO_CSV), na = "")
   message("[LA] wrote ", nrow(dispo), " disposition rows -> ", LA_DISPO_CSV)
 
@@ -1227,13 +1357,16 @@ rhtp_la_build <- function() {
 
 rhtp_la_report <- function() {
   cyc   <- la_deck_funding_cycle()
-  cands <- la_rcj_candidates()
+  cands <- la_deck_candidates()
 
   cat("\nLOUISIANA -- RHTP Year 1. A NEGATIVE, AND SEVEN WINDOWS HAVE CLOSED.\n")
   cat(strrep("-", 74), "\n")
   cat("  Allotment (§7.1)        $", format(la_allotment_anchor(), big.mark = ","),
       "\n", sep = "")
-  cat("  Recipient-level roster   NONE, on any reachable Louisiana host.\n")
+  cat("  Recipient-level roster   NONE. BUT (session 63) LDH's 2026-09-09 deck\n")
+  cat("                           reports 53 Rural Clinician Credit Bank awards,\n")
+  cat("                           $12,701,996, and NAMES FIVE -- see the\n")
+  cat("                           disposition. Not extracted.\n")
   cat("  Named hospital dollars   $0.   Named hospital rows: 0.\n\n")
 
   cat("  LDH's own 'IMPORTANT DATES - BUDGET YEAR 1', and the deck's slide 18:\n\n")
@@ -1259,7 +1392,7 @@ rhtp_la_report <- function() {
   cat("\n  505 APPLICATIONS RECEIVED, NOT ONE AWARD NAMED (§0.3), and every\n")
   cat("  announcement window above closed before ", as.character(LA_ARCHIVE_DATE),
       ".\n", sep = "")
-  cat("\n  §0.1: all SIX RCJ candidates are rows of that table -- the ACTIVITY\n")
+  cat("\n  §0.1: all SIX slide-18 RCJ candidates are rows of that table -- the ACTIVITY\n")
   cat("  column read as an awardee (§6.1 PROGRAM_NAME_AS_AWARDEE, six of six)\n")
   cat("  and the PROJECTED column read as an amount. They sum to $",
       format(sum(cands$amount_announced, na.rm = TRUE), big.mark = ",",

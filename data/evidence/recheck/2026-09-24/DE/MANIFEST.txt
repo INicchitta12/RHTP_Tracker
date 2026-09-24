@@ -1,0 +1,21 @@
+Delaware -- the source that disposes of RCJ's seven NEW Delaware Tier 3
+candidates on the 2026-09-24 pull (session 63). Archived read-only, one fetch,
+through de_get() in R/03al_de_year1_awardees.R, credential guard passed.
+User-agent: DE_USER_AGENT (R/03al)
+URL: https://news.delaware.gov/2026/09/10/large-projects-awarded-downtown-development-districts-funding-reservations/
+
+The body the server sent, BYTE FOR BYTE (writeBin).
+
+WHAT IT SAYS. "The Delaware State Housing Authority (DSHA) has awarded $3.43
+million in funding reservations to eight large revitalization projects ...
+through Delaware's Downtown Development Districts (DDD) rebate program" -- a
+STATE programme ("Every one dollar in state DDD investments", "Since the
+inception of the DDD program in 2014 ... $47.4 million in state funds",
+"thankful for the state appropriations"). Seven investors, eight projects,
+exactly RCJ's seven rows at exactly these figures. Real-estate revitalization
+rebates, not health care. "RHTP", "Rural Health Transformation", "federal" and
+"CMS" occur ZERO times. The release's own dateline region carries no CMS
+footer, which is why R/03al's RHTP-release reader refuses it (correctly).
+
+file  bytes  sha256
+2026-09-10_de_dsha_downtown_development_districts_STATE_PROGRAM.html  126370  9b66cef9a3af3813dfb9fd56a2295be199941a755f7ab33e608f4af9529e8ab9

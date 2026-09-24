@@ -336,3 +336,18 @@ test_that("the 403 path is REPORTED, never asserted", {
   expect_length(WI_UNREADABLE_AGENTS, 4L)
 })
 
+
+# -- session 63: the disposition after the 2026-09-24 pull -------------------
+
+test_that("the WI disposition covers the live candidates and its prose agrees", {
+  skip_if_not(file.exists(here::here("data", "interim",
+                                     "stage2_record_table.rds")))
+  rt <- rhtp_record_table_live()
+  live <- sum(rt$state == "WI" & rt$award_tier == "SUBAWARD")
+  d <- rhtp_wi_rcj_disposition()
+  expect_equal(sum(d$rows), live)
+  expect_silent(rhtp_assert_disposition_prose(d, "WI"))
+  committed <- readr::read_csv(here::here(WI_DISPO_CSV), show_col_types = FALSE)
+  expect_equal(committed$rows, d$rows)
+  expect_equal(committed[[ncol(committed)]], d[[ncol(d)]])
+})

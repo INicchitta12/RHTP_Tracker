@@ -628,14 +628,58 @@ test_that("the status table has FOUR initiatives and NO `amount` column", {
   expect_true(all(st$award_date_published == "No"))
 })
 
-test_that("Arkansas holds ZERO RCJ Tier 3 candidates, and that is about RCJ", {
-  d <- readr::read_csv(AR_DISPOSITION_CSV, show_col_types = FALSE,
-                       progress = FALSE)
-  expect_equal(nrow(d), 1L)
-  expect_equal(d$rcj_rows, 0L)
-  expect_equal(d$disposition, "NOT_IN_THE_AGGREGATOR_AT_ALL")
-  expect_true(grepl("NEITHER", d$evidence, fixed = TRUE))
-  expect_true(grepl("DISCOVERY LAYER", d$evidence, fixed = TRUE))
+test_that("the disposition covers every live candidate, re-derived", {
+  skip_without_archive()
+  # ZERO on the 2026-08-27 pull -- a fact about the discovery layer. By the
+  # 2026-09-24 pull RCJ carries DF&A's list at ORGANISATION grain.
+  cands <- ar_rcj_candidates()
+  d <- ar_disposition(cands)
+  expect_equal(sum(d$rcj_rows), nrow(cands))
+  expect_equal(nrow(cands), 33L)
+  g <- stats::setNames(d$rcj_rows, d$disposition)
+  expect_equal(g[["RHTP_SUBAWARD_IN_FILE"]], 25L)
+  expect_equal(g[["RHTP_AWARD_AT_ORGANISATION_GRAIN"]], 6L)
+  expect_equal(g[["RHTP_AWARD_DUPLICATED_ACROSS_DOCUMENTS"]], 1L)
+  expect_equal(g[["RHTP_BUT_NOT_A_SUBAWARD"]], 1L)
+  expect_false(any(grepl("NOT_IN_THE_AGGREGATOR", d$disposition)))
+  expect_silent(rhtp_assert_disposition_prose(d, "AR"))
+  # The committed file is what the builder produces.
+  on_disk <- readr::read_csv(AR_DISPOSITION_CSV, show_col_types = FALSE,
+                             progress = FALSE)
+  expect_equal(on_disk$rcj_rows, d$rcj_rows)
+})
+
+test_that("RCJ holds every organisation and every dollar, at the wrong grain", {
+  skip_without_archive()
+  m <- ar_rcj_match()
+  expect_equal(attr(m, "orgs_covered"), 31L)
+  expect_equal(attr(m, "rows_covered"), 37L)
+  org <- m[m$match == "ORG_TOTAL", ]
+  # Each organisation-grain row is the SUM of the two award actions.
+  rows <- ar_award_rows()
+  for (i in seq_len(nrow(org))) {
+    expect_equal(org$amount_announced[i],
+                 sum(rows$amount[rows$awardee == org$awardee_name_raw[i]]),
+                 tolerance = 1e-9)
+  }
+})
+
+test_that("the prose rule refuses the session-40 sentence it was written for", {
+  # "33 candidates" beside NOT_IN_THE_AGGREGATOR_AT_ALL is the worked example
+  # of the defect rhtp_assert_disposition_prose() exists to catch.
+  bad <- tibble::tibble(state = "AR", group = "x", rcj_rows = 33L,
+                        disposition = "NOT_IN_THE_AGGREGATOR_AT_ALL",
+                        evidence = "Arkansas holds 33 Tier 3 candidates.")
+  expect_error(rhtp_assert_disposition_prose(bad, "AR"), "asserts absence")
+})
+
+test_that("a candidate no group describes stops the build", {
+  skip_without_archive()
+  cands <- ar_rcj_candidates()
+  extra <- cands[1, ]
+  extra$awardee_name_raw <- "An Organisation Nobody Has Read"
+  extra$amount_announced <- 12345
+  expect_error(ar_disposition(dplyr::bind_rows(cands, extra)), "fit no group")
 })
 
 test_that("Arkansas reads EXTRACTED in both rebuilt survey tables", {
@@ -649,13 +693,14 @@ test_that("Arkansas reads EXTRACTED in both rebuilt survey tables", {
   # It was `NEITHER` on both discovery layers when extracted (session 40,
   # 2026-09-03) -- Florida's shape a third time. CMS then announced Arkansas
   # on 2026-08-31 and stage 00 picked the release up on 2026-09-03 (session
-  # 41), so the CMS layer now flags it and it reads CMS_ONLY. The finding that
-  # matters is unchanged: the RCJ layer STILL holds zero Tier 3 candidates for
-  # a state with 37 priced award actions, and it was extracted before either
-  # layer flagged it.
-  expect_equal(s$survey_status[s$state == "AR"], "CMS_ONLY")
-  expect_equal(q$trigger_source[q$state == "AR"], "CMS_ONLY")
-  expect_equal(s$tier3_candidates[s$state == "AR"], 0L)
+  # 41), so the CMS layer flagged it (CMS_ONLY). By the 2026-09-24 pull RCJ
+  # carries the list too and both layers flag it. The finding that matters is
+  # unchanged: the RCJ layer held zero Tier 3 candidates for a state with 37
+  # priced award actions, and it was extracted before either layer flagged
+  # it. The survey's count is the live one, not a typed pin.
+  expect_equal(s$tier3_candidates[s$state == "AR"],
+               nrow(ar_rcj_candidates()))
+  expect_equal(q$trigger_source[q$state == "AR"], "BOTH")
 })
 
 test_that("the evidence manifest lists every archived file and verifies", {

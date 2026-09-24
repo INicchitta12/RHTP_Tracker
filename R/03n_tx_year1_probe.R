@@ -22,7 +22,12 @@
 #    September 1 and every initiative's programme period starts in or after
 #    September 2026.
 #
-# 2. RCJ'S 68 TIER 3 CANDIDATES ARE NOT RHTP AWARDS. NOT ONE OF THEM. This is
+# 2. RCJ'S 68 TIER 3 CANDIDATES ARE NOT RHTP AWARDS. NOT ONE OF THEM. (68 on the
+#    2026-08-27 pull. On 2026-09-24 RCJ withdrew the nine Medicaid rows and
+#    added twenty-six from three MORE state/other-federal HHSC programmes and
+#    an untitled spreadsheet -- 85 live. 23 of the 26 are disposed of on HHSC's
+#    own RFAs; three have no state source located and are UNRESOLVED, not
+#    RHTP. Session 63; see tx_build_disposition().) This is
 #    §0.1's warned-of defect -- "non-RHTP records in the RHTP feed" -- at a
 #    scale nothing in this project has met before, and it is the reason the
 #    disqualification is done here in code against archived state sources
@@ -554,52 +559,116 @@ tx_build_status <- function() {
 #'
 #' §0.4 in table form: one row per group, the count, the disqualifying fact,
 #' and the state document that carries it. The point of writing it down is that
-#' the next session's survey will put Texas back at the top of the queue on the
-#' same 68 candidates, and re-deriving this from scratch is how a project
-#' eventually gets it wrong once.
-tx_build_disposition <- function() {
+#' the next session's survey will put Texas back at the top of the queue, and
+#' re-deriving this from scratch is how a project eventually gets it wrong once.
+#'
+#' SESSION 63 RE-READ IT AGAINST THE 2026-09-24 PULL: 68 candidates became 85.
+#' RCJ WITHDREW the nine ATLIS / IGT Medicaid rows and ADDED twenty-six, from
+#' three more HHSC grant programmes and one untitled spreadsheet. Every count is
+#' now DERIVED from the live record table by source document; every live
+#' candidate must land in exactly one group or the build stops. The three new
+#' HHSC programmes are disposed of on HHSC's own RFAs, archived under
+#' data/evidence/recheck/2026-09-24/TX/ (not the probe's eleven-file baseline).
+#'
+#' @param cands the live Texas Tier 3 candidates (default: the record table)
+#' @param withdrawn the Texas Tier 3 rows RCJ has withdrawn (default: likewise)
+TX_RECHECK_DIR <- "data/evidence/recheck/2026-09-24/TX"
+TX_RFA_URL <- function(id) paste0("https://resources.hhs.texas.gov/rfa/", id)
+
+tx_rcj_candidates <- function(include_withdrawn = FALSE) {
+  rt <- rhtp_record_table_live(include_withdrawn = include_withdrawn)
+  rt[rt$state == TX_STATE & rt$award_tier == "SUBAWARD", , drop = FALSE]
+}
+
+tx_build_disposition <- function(cands = NULL, withdrawn = NULL) {
   ctrl <- tx_state_programme_state()
   stopifnot(all(ctrl$has_award_roster))
+  if (is.null(cands)) cands <- tx_rcj_candidates()
+  if (is.null(withdrawn)) {
+    withdrawn <- tx_rcj_candidates(include_withdrawn = TRUE)
+    withdrawn <- withdrawn[withdrawn$change_status %in% "WITHDRAWN", ,
+                           drop = FALSE]
+  }
+
+  doc <- dplyr::coalesce(cands$source_doc_title, "")
+  nm  <- dplyr::coalesce(cands$awardee_name_clean, "")
+  g <- dplyr::case_when(
+    stringr::str_detect(doc, "HHS0015180") ~ "debt",
+    stringr::str_detect(doc, "HHS0015677") ~ "impr",
+    stringr::str_detect(doc, "ATLIS") ~ "atlis",
+    stringr::str_detect(doc, "Intergovernmental Transfer") ~ "igt",
+    stringr::str_detect(nm, "^80 Rural Hospital Districts") ~ "class",
+    doc %in% c("TX - 2026 - Rural Texas Strong Program (RHTP)",
+               "TX - 2026 - Texas RHTP") ~ "narrative",
+    stringr::str_detect(doc, "HHS0016568") ~ "tnfp",
+    stringr::str_detect(doc, "HHS0016121") ~ "wvan",
+    stringr::str_detect(doc, "HHS0015358") ~ "hopes",
+    doc == "TX - 2026 - Sheet1" ~ "sheet1",
+    TRUE ~ NA_character_
+  )
+  if (anyNA(g)) {
+    stop("[TX] ", sum(is.na(g)), " live Tier 3 candidate(s) no disposition ",
+         "group describes: ", paste(unique(doc[is.na(g)]), collapse = "; "),
+         ". Read the rows before extending a group.", call. = FALSE)
+  }
+  n <- function(k) sum(g == k)
+  wd <- dplyr::coalesce(withdrawn$source_doc_title, "")
+  n_w_atlis <- sum(stringr::str_detect(wd, "ATLIS"))
+  n_w_igt   <- sum(stringr::str_detect(wd, "Intergovernmental Transfer"))
+  money <- function(x) paste0("$", format(sum(x), big.mark = ",",
+                                          scientific = FALSE, trim = TRUE))
+  amt <- function(k) cands$amount_announced[g == k]
+  names_of <- function(k) paste(sort(unique(nm[g == k])), collapse = "; ")
+  tnfp_hosp <- sort(unique(nm[g == "tnfp" &
+                                stringr::str_detect(nm, "Hospital|Medical Center")]))
 
   tibble::tribble(
-    ~group, ~rcj_rows, ~rcj_source_document, ~disposition, ~why, ~state_source_key,
-    "HHS0015180 Rural Hospital Debt Reduction", 21L,
+    ~group, ~rcj_rows, ~rcj_source_document, ~disposition, ~why,
+    ~state_source_key, ~url_override, ~archive_override, ~as_of,
+
+    "HHS0015180 Rural Hospital Debt Reduction", n("debt"),
     "TX - 2026 - HHSC PCS Grant Awards - HHS0015180",
     "NOT_RHTP_STATE_APPROPRIATION",
     paste0("A real, executed, recipient-level HHSC award list -- 21 rural ",
-           "Texas hospitals at $250,000 each -- funded by STATE money. HHSC: ",
+           "Texas hospitals at $250,000 each, of which RCJ carries ",
+           n("debt"), " -- funded by STATE money. HHSC: ",
            "'The 88th Texas Legislature appropriated $50 million to HHSC for ",
            "the 2024-2025 biennium to establish grant programs for rural ",
            "hospitals ... House Bill 1 ... Article II Rider 88 appropriated ",
            "the grant funding.' The RFA was released 2025-03-24 and closed ",
            "2025-04-24 -- before OBBBA created RHTP, and nine months before ",
            "CMS issued Texas its RHTP Notice of Award on 2025-12-29."),
-    "state_rhf_page",
+    "state_rhf_page", NA_character_, NA_character_, "2026-08-29",
 
-    "HHS0015677 Rural Hospital Improvement", 32L,
+    "HHS0015677 Rural Hospital Improvement", n("impr"),
     "TX - 2026 - HHSC PCS Grant Awards - HHS0015677",
     "NOT_RHTP_STATE_APPROPRIATION",
     paste0("The same appropriation and the same page: 33 rural Texas ",
            "hospitals at $350,000 each, RFA released 2025-03-11, closed ",
-           "2025-04-09. RCJ captured 32 of the 33 rows, which is a second, ",
-           "smaller §0.1 defect sitting inside the first."),
-    "state_rhf_page",
+           "2025-04-09. RCJ captured ", n("impr"), " of the 33 rows, which is ",
+           "a second, smaller §0.1 defect sitting inside the first."),
+    "state_rhf_page", NA_character_, NA_character_, "2026-08-29",
 
-    "ATLIS incentive payments to Medicaid MCOs", 5L,
+    "ATLIS incentive payments to Medicaid MCOs (withdrawn by RCJ)", n("atlis"),
     "TX - 2025 - ATLIS Incentive Payments for Medicaid Managed Care Organizations",
     "NOT_RHTP_MEDICAID",
     paste0("Molina, Superior Health Plan, UnitedHealthcare Community Plan, ",
            "Community First and Wellpoint. Medicaid managed care incentive ",
-           "payments, not RHTP, and not to hospitals."),
-    NA_character_,
+           "payments, not RHTP, and not to hospitals. RCJ carried ",
+           n_w_atlis + n("atlis"), " such rows on the 2026-08-27 pull and has ",
+           "withdrawn ", n_w_atlis, "; ", n("atlis"), " are live. Kept as ",
+           "history, and so the row says what they were if RCJ restores them."),
+    NA_character_, NA_character_, NA_character_, "2026-08-29",
 
-    "Suggested Intergovernmental Transfers", 4L,
+    "Suggested Intergovernmental Transfers (withdrawn by RCJ)", n("igt"),
     "TX - 2025 - Suggested Intergovernmental Transfer (IGT)",
     "NOT_RHTP_MEDICAID",
-    paste0("Medicaid IGT figures. Not an RHTP award action in any tier."),
-    NA_character_,
+    paste0("Medicaid IGT figures. Not an RHTP award action in any tier. RCJ ",
+           "carried ", n_w_igt + n("igt"), " such rows on the 2026-08-27 pull ",
+           "and has withdrawn ", n_w_igt, "; ", n("igt"), " are live."),
+    NA_character_, NA_character_, NA_character_, "2026-08-29",
 
-    "Budget Period 1 narrative line items", 5L,
+    "Budget Period 1 narrative line items", n("narrative"),
     "TX - 2026 - Rural Texas Strong Program (RHTP)",
     "RHTP_BUT_NOT_A_SUBAWARD",
     paste0("Genuinely RHTP, and genuinely not Tier 3 award actions: two DSHS ",
@@ -608,9 +677,9 @@ tx_build_disposition <- function() {
            "support at $1,750,000. Planned state-agency and vendor spend read ",
            "out of the budget narrative. Every one is NON_HOSPITAL on its ",
            "recipient (§0.3a) whatever its status."),
-    "programme",
+    "programme", NA_character_, NA_character_, "2026-08-29",
 
-    "'80 Rural Hospital Districts' pool", 1L,
+    "'80 Rural Hospital Districts' pool", n("class"),
     "TX - 2026 - Texas RHTP", "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
     paste0("$250,000,000 against an awardee named '80 Rural Hospital ",
            "Districts with a publicly owned and operated hospital', whose own ",
@@ -619,17 +688,85 @@ tx_build_disposition <- function() {
            "an award -- North Dakota's '15 selected CAHs' (session 11) at a ",
            "thousand times the size. §0.3: eligibility is not receipt, and a ",
            "plan is not an award action."),
-    "programme"
+    "programme", NA_character_, NA_character_, "2026-08-29",
+
+    "HHS0016568 Texas Nurse-Family Partnership", n("tnfp"),
+    "TX - 2026 - HHSC PCS Grant Award HHS0016568 - Texas Nurse-Family Partnership (TNFP) Program",
+    "NOT_RHTP_STATE_PROGRAM",
+    paste0("A real, executed HHSC award list (14 grantees, $133,864,170) for ",
+           "the Texas Nurse-Family Partnership home-visiting programme, RFA ",
+           "released 2026-01-26. Its own s1.3: 'State funds for this Grant ",
+           "Project are authorized under the Texas General Appropriations Act, ",
+           "Article II' and federal funding through 'Temporary Assistance for ",
+           "Needy Families (TANF)', Assistance Listing 93.558 -- not RHTP's ",
+           "93.798. 'Rural Health Transformation' occurs ZERO times in the RFA ",
+           "or the award notice. RCJ carries ", n("tnfp"), " of the 14 grantees (",
+           money(amt("tnfp")), "), ", length(tnfp_hosp), " of them hospital ",
+           "districts or hospitals (", paste(tnfp_hosp, collapse = "; "),
+           ") -- ",
+           "Texas's Rider 88 shape again, and larger: §0.1 failure mode 1, ",
+           "the wrong programme, with real hospital names on real awards."),
+    NA_character_, TX_RFA_URL("hhs0016568"),
+    file.path(TX_RECHECK_DIR, "2026-09-24_rfa_hhs0016568_tnfp_rfa_STATE_GR_AND_TANF.pdf"),
+    "2026-09-24",
+
+    "HHS0016121 Workplace Violence Against Nurses", n("wvan"),
+    "TX - 2026 - HHSC PCS Grant Award - HHS0016121",
+    "NOT_RHTP_STATE_APPROPRIATION",
+    paste0("DSHS's Texas Center for Nursing Workforce Studies Workplace ",
+           "Violence Against Nurses Prevention Program. RFA released ",
+           "2025-09-24, closed 2025-11-04 -- BEFORE the 2025-12-29 NOA -- and ",
+           "its s1.3 names the money: 'Texas Health and Safety Code, Section ",
+           "105.011 ... General Appropriations Act Article VIII, Rider 3, ",
+           "House Bill 1, 88th Legislature'. A state appropriation. RCJ ",
+           "carries all ", n("wvan"), " grantees (", names_of("wvan"), "; ",
+           money(amt("wvan")), "), every one a hospital district or ",
+           "hospital, and RCJ's machine description calls them 'rural health ",
+           "transformation initiatives', which §6 says is never evidence."),
+    NA_character_, TX_RFA_URL("hhs0016121"),
+    file.path(TX_RECHECK_DIR, "2026-09-24_rfa_hhs0016121_wvan_rfa_STATE_RIDER.pdf"),
+    "2026-09-24",
+
+    "HHS0015358 HOPES family support", n("hopes"),
+    "TX - 2026 - HHSC PCS Grant Award - HHS0015358",
+    "NOT_RHTP_STATE_PROGRAM",
+    paste0("HHSC Family Support Services' Healthy Outcomes through Prevention ",
+           "and Early Support (HOPES). RFA released 2024-12-17, closed ",
+           "2025-02-12, a year before the NOA; its s1.3 names state GAA ",
+           "Article II funds and federal Community-Based Child Abuse ",
+           "Prevention money, Assistance Listing 93.590. Not RHTP. RCJ carries ",
+           n("hopes"), " of the award list's 27 rows (", money(amt("hopes")),
+           ") -- a partial capture of the wrong programme."),
+    NA_character_, TX_RFA_URL("hhs0015358"),
+    file.path(TX_RECHECK_DIR, "2026-09-24_rfa_hhs0015358_hopes_rfa_STATE_GR_AND_CBCAP.pdf"),
+    "2026-09-24",
+
+    "'Sheet1' -- an untitled spreadsheet with no state source", n("sheet1"),
+    "TX - 2026 - Sheet1",
+    "UNRESOLVED_NO_STATE_SOURCE_LOCATED",
+    paste0(n("sheet1"), " rows (", names_of("sheet1"), "; ",
+           money(amt("sheet1")), "), all hospitals or health systems, from an ",
+           "XLSX ",
+           "RCJ titles 'Sheet1' and carries with no state source URL and no ",
+           "description; RCJ says it discovered the file 2026-05-15, before ",
+           "the first Rural Texas Strong Notice-of-Award date HHSC published ",
+           "(2026-06-19). No HHSC page read by this repository names these ",
+           "three awards, so WHAT PROGRAMME THEY BELONG TO IS UNKNOWN, NOT ",
+           "ESTABLISHED (§0.4). They are in no award file -- Texas has none -- ",
+           "and nothing here treats them as RHTP. Resolving them needs the ",
+           "state document RCJ read, which this repository does not have."),
+    NA_character_, NA_character_, NA_character_, "2026-09-24"
   ) %>%
     dplyr::mutate(
       state = TX_STATE,
-      state_source_url = TX_SOURCES$url[match(state_source_key, TX_SOURCES$key)],
-      source_archive_path = dplyr::if_else(
-        is.na(state_source_key), NA_character_,
-        file.path("data/evidence/TX",
-                  TX_SOURCES$file[match(state_source_key, TX_SOURCES$key)])
-      ),
-      as_of = "2026-08-29"
+      state_source_url = dplyr::coalesce(
+        url_override, TX_SOURCES$url[match(state_source_key, TX_SOURCES$key)]),
+      source_archive_path = dplyr::coalesce(
+        archive_override,
+        dplyr::if_else(
+          is.na(state_source_key), NA_character_,
+          file.path("data/evidence/TX",
+                    TX_SOURCES$file[match(state_source_key, TX_SOURCES$key)])))
     ) %>%
     dplyr::select(state, group, rcj_rows, rcj_source_document, disposition,
                   why, state_source_url, source_archive_path, as_of)
@@ -798,6 +935,7 @@ tx_build <- function() {
   disp   <- tx_build_disposition()
 
   readr::write_csv(status, TX_STATUS_CSV, na = "")
+  rhtp_assert_disposition_prose(disp, "TX")
   readr::write_csv(disp, TX_DISPOSITION_CSV, na = "")
 
   message("[TX] wrote ", nrow(status), " solicitation rows -> ", TX_STATUS_CSV)

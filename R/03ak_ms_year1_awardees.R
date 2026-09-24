@@ -4,10 +4,11 @@
 # MISSISSIPPI -- THE MOST IMMINENT STATE IN THIS REPOSITORY, AND THE FIRST
 # WHOSE CMS FOOTER IS NOT 100% FEDERAL.
 #
-# Mississippi holds $205,907,220 (§7.1) and carries THREE RCJ Tier 3
-# candidates, none of them an RHTP subaward (see ms_disposition()). It has
-# published NO recipient-level award list -- and unlike every other negative in
-# this project, it has SAID IT IS ABOUT TO. `mississippirhtp.com` is a
+# Mississippi holds $205,907,220 (§7.1). On the 2026-08-27 pull RCJ carried
+# three rows at Tier 3 and none was an RHTP subaward; on the 2026-09-24 pull it
+# carries the Governor's roster (see ms_disposition()). Before the roster it
+# had published NO recipient-level award list -- and unlike every other
+# negative in this project, it had SAID IT WAS ABOUT TO. `mississippirhtp.com` is a
 # DEDICATED RHTP DOMAIN, the third after Kentucky's and Arkansas's, and
 # Arkansas's was the one that had already awarded $149M.
 #
@@ -1169,20 +1170,150 @@ ms_status_table <- function() {
   )
 }
 
-ms_disposition <- function() {
-  rt <- rhtp_record_table_live()
-  ms <- rt %>% dplyr::filter(.data$state == MS_STATE)
-  t3 <- ms %>% dplyr::filter(.data$award_tier == "SUBAWARD")
-  n_t3 <- nrow(t3)
-  if (n_t3 != 3L) {
-    stop("[MS] this disposition covers THREE Tier 3 candidates and the record ",
-         "table now holds ", n_t3, ". Read the new ones before rebuilding ",
+# -- §0.1: what the aggregator carries, and why ------------------------------
+#
+# ON THE 2026-08-27 PULL RCJ carried three Mississippi rows at Tier 3 and none
+# was an award. ON THE 2026-09-24 PULL IT CARRIES THE GOVERNOR'S ROSTER, and
+# the disposition is now mostly a reconciliation: every candidate is matched
+# against the roster THIS FILE parsed from the Governor's release, on (name,
+# amount) and never on a name alone (§2). What is left is small and each piece
+# is named: the names RCJ rendered wrongly, the rows it carries twice, and the
+# two procurement notices that were never awards.
+
+#' RCJ's live Mississippi Tier 3 candidates
+ms_rcj_candidates <- function() {
+  rhtp_record_table_live() %>%
+    dplyr::filter(.data$state == MS_STATE, .data$award_tier == "SUBAWARD")
+}
+
+#' RCJ's spelling -> the Governor's, HAND-READ, one entry per defect
+#'
+#' Not a fuzzy match (§2). Each entry was read against the release and is a
+#' TRUNCATION: RCJ cut the name at a hyphen. The second is the defect
+#' `ms_assert_odd_shape_rows()` guards this file's own parse against -- an
+#' organisation whose legal name contains " - " -- and the aggregator made it.
+#' HTML numeric entities (`&#8217;`) are decoded before this map is read; that
+#' is decoding, not matching.
+MS_RCJ_NAME_REPAIRS <- c(
+  "Baptist Memorial Hospital" = "Baptist Memorial Hospital-Calhoun, Inc.",
+  "Northeast Mental Health" = paste0(
+    "Northeast Mental Health - Mental Retardation Commission d.b.a. ",
+    "LIFECORE Health Group"),
+  "P & S Clinic OB" = "P & S Clinic OB-GYN, PLLC"
+)
+
+#' Match each live candidate to the parsed roster, on (name, amount)
+#'
+#' Returns the candidates with a `match` column: IN_FILE (the state's name and
+#' amount exactly), CORRUPTED_NAME (the right award at the right amount under
+#' a name RCJ rendered wrongly), DUPLICATE (a (name, amount) pair already
+#' consumed by an earlier candidate -- the same award carried twice), or NA.
+#' Candidates from the document carrying the most roster rows are read first,
+#' so a second document's copy is the one called the duplicate.
+ms_rcj_match <- function(cands = ms_rcj_candidates(), d = ms_parse_release()) {
+  key <- function(nm, amt) {
+    paste(stringr::str_squish(nm), formatC(round(amt, 2), format = "f",
+                                           digits = 2), sep = " | ")
+  }
+  decode <- function(x) {
+    x <- stringr::str_replace_all(x, "&#8217;|&#x2019;|’", "'")
+    stringr::str_squish(x)
+  }
+  roster <- key(decode(d$awardee), d$amount)
+  doc_rank <- cands %>% dplyr::count(.data$source_doc_id, name = "n_doc")
+  cands <- cands %>%
+    dplyr::left_join(doc_rank, by = "source_doc_id") %>%
+    dplyr::arrange(dplyr::desc(.data$n_doc), .data$record_id)
+  raw <- stringr::str_squish(cands$awardee_name_raw)
+  fixed <- decode(raw)
+  hit <- fixed %in% names(MS_RCJ_NAME_REPAIRS)
+  fixed[hit] <- MS_RCJ_NAME_REPAIRS[fixed[hit]]
+  used <- rep(FALSE, length(roster))
+  cands$match <- NA_character_
+  for (i in seq_len(nrow(cands))) {
+    k <- key(fixed[i], cands$amount_announced[i])
+    j <- which(roster == k & !used)
+    if (length(j)) {
+      used[j[1]] <- TRUE
+      cands$match[i] <- if (raw[i] == stringr::str_squish(d$awardee[j[1]]))
+        "IN_FILE" else "CORRUPTED_NAME"
+    } else if (k %in% roster) {
+      cands$match[i] <- "DUPLICATE"
+    }
+  }
+  attr(cands, "roster_rows_held") <- sum(used)
+  attr(cands, "roster_rows") <- length(roster)
+  cands
+}
+
+ms_disposition <- function(cands = ms_rcj_candidates(), d = ms_parse_release()) {
+  m <- ms_rcj_match(cands, d)
+  is_horne <- is.na(m$match) & stringr::str_detect(m$awardee_name_raw,
+                                                   "^Horne LLP")
+  is_premier <- is.na(m$match) &
+    stringr::str_detect(m$awardee_name_raw, "^Premier Healthcare Solutions")
+  is_qipp <- is.na(m$match) & stringr::str_detect(m$awardee_name_raw, "^QIPP")
+  loose <- is.na(m$match) & !(is_horne | is_premier | is_qipp)
+  if (any(loose)) {
+    stop("[MS] ", sum(loose), " live Tier 3 candidate(s) fit no group in ",
+         "this disposition: ",
+         paste0(m$awardee_name_raw[loose], " ($", m$amount_announced[loose],
+                ")", collapse = "; "),
+         ". Read them against the Governor's release before rebuilding ",
          "(§0.1 -- a disposition that does not cover its candidates is worse ",
          "than none).", call. = FALSE)
   }
-  tibble::tribble(
+  n_in <- sum(m$match %in% "IN_FILE")
+  n_bad <- sum(m$match %in% "CORRUPTED_NAME")
+  n_dup <- sum(m$match %in% "DUPLICATE")
+  held <- attr(m, "roster_rows_held")
+  n_roster <- attr(m, "roster_rows")
+  bad <- m[m$match %in% "CORRUPTED_NAME", ]
+  n_trunc <- sum(stringr::str_squish(bad$awardee_name_raw) %in%
+                   names(MS_RCJ_NAME_REPAIRS))
+  dup <- m[m$match %in% "DUPLICATE", ]
+  dup_docs <- unique(dup$source_doc_title)
+  money <- function(x) paste0("$", formatC(x, format = "f", digits = 2,
+                                           big.mark = ","))
+
+  disp <- tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
-    MS_STATE, "RHTP planning consultant (Horne LLP)", 1L,
+    MS_STATE, "The Governor's roster, carried exactly", n_in,
+    "RHTP_SUBAWARD_IN_FILE",
+    paste0(n_in, " rows carry an award in ms_year1_awardees.csv under the ",
+           "Governor's own spelling AND at the Governor's own figure. RCJ ",
+           "holds ", held, " of the release's ", n_roster, " awards in all ",
+           "(this group and the next), and it prices every one of them ",
+           "correctly: not one candidate matches a roster name at a ",
+           "different amount. §0.1 still governs: the file is built from the ",
+           "archived release, never from RCJ, and this row is the aggregator ",
+           "agreeing with it."),
+    MS_STATE, "The Governor's roster, under a name RCJ rendered wrongly",
+    n_bad, "RHTP_SUBAWARD_IN_FILE_UNDER_A_CORRUPTED_NAME",
+    paste0(n_bad, " rows are real awards at the right amount under a name ",
+           "that is not the state's: ",
+           paste0("'", bad$awardee_name_raw, "' (", money(bad$amount_announced),
+                  ")", collapse = "; "),
+           ". Two defects. RCJ leaves the release's HTML apostrophe entity ",
+           "undecoded, and it TRUNCATES ", n_trunc, " names at a hyphen -- one ",
+           "of them ",
+           "is LIFECORE, whose legal name contains ' - ', which is exactly ",
+           "the parse defect ms_assert_odd_shape_rows() guards this file ",
+           "against. The aggregator made it; the money survived it. Matched ",
+           "through MS_RCJ_NAME_REPAIRS, a hand-read map, never a fuzzy ",
+           "merge (§2)."),
+    MS_STATE, "The same award carried twice, from a second document", n_dup,
+    "RHTP_AWARD_DUPLICATED_ACROSS_DOCUMENTS",
+    paste0(n_dup, " rows repeat an award RCJ already carries from the ",
+           "release, same name and same figure, under a second document (",
+           paste0("'", dup_docs, "'", collapse = "; "), "): ",
+           paste0(dup$awardee_name_raw, " ", money(dup$amount_announced),
+                  collapse = "; "),
+           ". A partial second capture of the same release, so summing ",
+           "RCJ's Mississippi rows overstates the round by ",
+           money(sum(dup$amount_announced)), ". The document's '2025' title ",
+           "prefix is aggregator metadata, never a date (§2)."),
+    MS_STATE, "RHTP planning consultant (Horne LLP)", sum(is_horne),
     "NOT_A_SUBAWARD_PREDATES_NOA",
     paste0("$150,000 to Horne LLP under 'Notice Of Contract Award RHTP - ",
            "Consultant Quotation #20250728 Emergency Contract #8400003450'. ",
@@ -1191,10 +1322,9 @@ ms_disposition <- function() {
            "8/13/2025' and 'the selection of HORNE LLP', which is 138 days ",
            "BEFORE Mississippi's 2025-12-29 Notice of Award. It is the ",
            "consultant hired to help WRITE THE APPLICATION; money the state ",
-           "did not yet have cannot have funded it. Session 20's provenance ",
-           "sweep already flagged this row PROVENANCE_PREDATES_NOA off the ",
-           "document title's own date -- machine and hand agree."),
-    MS_STATE, "Comprehensive State Health Plan RFP", 1L,
+           "did not yet have cannot have funded it. Stage 2 now quarantines ",
+           "it PROVENANCE_PREDATES_NOA itself -- machine and hand agree."),
+    MS_STATE, "Comprehensive State Health Plan RFP", sum(is_premier),
     "NOT_RHTP_STATE_PROCUREMENT",
     paste0("Premier Healthcare Solutions, Inc, amount $0, under 'Notice of ",
            "Intent to Award June 9, 2026 RFP RFx#3180002944 - Comprehensive ",
@@ -1202,16 +1332,19 @@ ms_disposition <- function() {
            "State Health Plan, which is a statutory planning document and ",
            "not an RHTP initiative. Indiana's appended-label shape: the ",
            "publisher is right, the programme label is the aggregator's."),
-    MS_STATE, "Quality Incentive Payment Program (QIPP)", 1L,
+    MS_STATE, "Quality Incentive Payment Program (QIPP)", sum(is_qipp),
     "NOT_RHTP_MEDICAID_AND_A_DOCUMENT_TITLE",
-    paste0("$50,000,000 against an 'awardee' of 'QIPP PPHR, PPC, and AM-PPC ",
-           "Presentation - July 2025' -- which is A DOCUMENT TITLE, not an ",
+    paste0("RCJ WITHDREW this row on the 2026-09-24 pull; it is kept so the ",
+           "audit trail closes, and the build re-reads it if it returns. It ",
+           "carried $50,000,000 against an 'awardee' of 'QIPP PPHR, PPC, and ",
+           "AM-PPC Presentation - July 2025' -- A DOCUMENT TITLE, not an ",
            "organisation (§6.1 PROGRAM_NAME_AS_AWARDEE). QIPP is ",
            "Mississippi's Quality Incentive Payment Program, a Medicaid ",
            "supplemental payment programme, and the deck is dated July 2025, ",
-           "five months before the NOA. Two independent disqualifications ",
-           "on one row.")
+           "five months before the NOA.")
   )
+  rhtp_assert_disposition_prose(disp, MS_STATE)
+  disp
 }
 
 

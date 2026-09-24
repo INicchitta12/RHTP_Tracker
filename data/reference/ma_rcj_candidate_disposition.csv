@@ -1,0 +1,2 @@
+state,group,rcj_rows,rcj_amount_sum,disposition,evidence
+MA,A project-management RFQ at $1,1,1,RHTP_BUT_NOT_A_SUBAWARD,"1 row(s), $1. An RFQ for RHTP project-management services (26EHSKWRHTPRFQ) with Deloitte at a $1 placeholder. Whether it was awarded is UNKNOWN, not no: COMMBUYS returns no bid detail and every mass.gov path is 403 (§0.4). An administrative vendor, never a hospital. Evidence: data/evidence/recheck/2026-09-24/MA/commbuys_bidDetail_26EHSKWRHTPRFQ_not_found.html. 1 first seen after 08-27."

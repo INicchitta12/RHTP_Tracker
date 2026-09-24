@@ -1,0 +1,2 @@
+state,group,rcj_rows,rcj_amount_sum,disposition,evidence
+MN,Estimated MAXIMUM tribal awards from the notice of grant opportunity,10,3861811,TIER_2_ESTIMATED_MAXIMUM,"10 row(s), $3,861,811. The wrong TIER: MDH's tribal notice of grant opportunity prints 'Tribal Nation Estimated Maximum Award in Budget Period 1' for each of ten Tribal Nations -- ceilings each 'may request up to', not awards. RCJ's amounts equal the table's to the dollar. Evidence: data/evidence/recheck/2026-09-24/MN/tribal_nogo_ESTIMATED_MAXIMUM_awards_table.pdf. 10 first seen after 08-27."

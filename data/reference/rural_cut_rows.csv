@@ -1069,3 +1069,47 @@ NJ,nj_year1_awardees.csv,91,Cooper Health System,178711,FEDERAL_RECORD_CCN,"CMS 
 NJ,nj_year1_awardees.csv,93,Hunterdon Medical Center,147117,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 310005: PART A PROVIDER - HOSPITAL",FALSE,310005,ORG_WEBSITE
 NJ,nj_year1_awardees.csv,100,Shore Memorial Hospital,45021,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 310047: PART A PROVIDER - HOSPITAL",FALSE,310047,ORG_WEBSITE
 NJ,nj_year1_awardees.csv,102,Virtua Health Inc.,427709,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,6,Community Hospital of Bremen,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151300,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,7,Franciscan Health Rensselaer,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151324: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151324,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,9,Pulaski Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151305,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,10,Woodlawn Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151313,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,12,Goshen Health System,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150026: PART A PROVIDER - HOSPITAL",FALSE,150026,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,17,Michiana Behavioral Health,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 154047: PART A PROVIDER - HOSPITAL",FALSE,154047,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,18,Saint Joseph Regional Medical Center Plymouth Campus Inc.,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150076: PART A PROVIDER - HOSPITAL",FALSE,150076,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,23,Elkhart General Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150018: PART A PROVIDER - HOSPITAL",FALSE,150018,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,25,Northwest Health Starke Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150102: PART A PROVIDER - HOSPITAL",FALSE,150102,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,27,Adams County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151330: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151330,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,30,Parkview Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150021: PART A PROVIDER - HOSPITAL",FALSE,150021,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,37,Bluffton Health System LLC,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150075: PART A PROVIDER - HOSPITAL",FALSE,150075,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,38,Dukes Health System LLC,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151318: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151318,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,42,Cameron Memorial Community Hospital Inc.,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151315: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151315,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,54,Northeastern Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 154050: PART A PROVIDER - HOSPITAL",FALSE,154050,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,60,"St. Vincent Williamsport Hospital, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151307,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,73,"Indiana University Health, Inc",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150056: PART A PROVIDER - HOSPITAL",FALSE,150056,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,76,Franciscan Health Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,83,"St. Vincent Randolph Hospital, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151301,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,96,"Marion General Hospital, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150011: PART A PROVIDER - HOSPITAL",FALSE,150011,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,97,"Reid Hospital & Health Care Services, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150048: PART A PROVIDER - HOSPITAL",FALSE,150048,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,100,"Indiana University Health, Inc",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150056: PART A PROVIDER - HOSPITAL",FALSE,150056,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,104,Harsha Behavioral Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 154054: PART A PROVIDER - HOSPITAL",FALSE,154054,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,105,Putnam County Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151333: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151333,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,106,Union Health Inc.,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150023: PART A PROVIDER - HOSPITAL",FALSE,150023,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,109,St. Vincent Clay Hospital Inc.,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151309,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,110,Union Hospital Clinton,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151326,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,111,Greene County General Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151317: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151317,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,115,"Hamilton Center, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 154009: PART A PROVIDER - HOSPITAL",FALSE,154009,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,117,Sullivan County Community Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151327,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,127,Rush Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151304,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,129,Ascension St. Vincent Jennings,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151303,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,135,INcompass Healthcare,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 154011: PART A PROVIDER - HOSPITAL",FALSE,154011,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,145,Margaret Mary Community Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151329: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151329,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,146,St. Elizabeth Dearborn,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150086: PART A PROVIDER - HOSPITAL",FALSE,150086,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,147,Decatur County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151332: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151332,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,159,"St. Vincent Salem Hospital, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151314,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,166,Indiana University Health Inc,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150056: PART A PROVIDER - HOSPITAL",FALSE,150056,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,169,Harrison County Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151331: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151331,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,170,Jackson County Schneck Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150065: PART A PROVIDER - HOSPITAL",FALSE,150065,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,171,Perry County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 151322: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,151322,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,173,Deaconess Hospital Inc.,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150082: PART A PROVIDER - HOSPITAL",FALSE,150082,ORG_WEBSITE
+IN,in_grow_regional_awardees.csv,176,Ascension St. Vincent,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150100: PART A PROVIDER - HOSPITAL",FALSE,150100,GENERAL_KNOWLEDGE
+IN,in_grow_regional_awardees.csv,179,Good Samaritan Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150042: PART A PROVIDER - HOSPITAL",FALSE,150042,ORG_WEBSITE

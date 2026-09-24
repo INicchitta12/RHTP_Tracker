@@ -2015,7 +2015,11 @@ wy_status_table <- function() {
 
 #' Why Wyoming's RCJ record set contains no award, and whose documents it holds
 #'
-#' Wyoming carries ZERO Tier 3 candidates against 29 RCJ records -- Florida's,
+#' SESSION 63: on the 2026-09-24 pull the record count is re-derived (RCJ
+#' re-filed three of the five Utah documents under Utah) and the table gains a
+#' `tier3_candidates` column, because `records` counts every RCJ record.
+#'
+#' Wyoming carried ZERO Tier 3 candidates against 29 RCJ records -- Florida's,
 #' North Carolina's and Arkansas's shape a fourth time, and the fourth proof
 #' that a zero here is a fact about the DISCOVERY LAYER and never about the
 #' state (§0.1). Wyoming had published 75 priced award actions the whole time.
@@ -2026,62 +2030,114 @@ wy_status_table <- function() {
 #' before it was WRONG ABOUT A RECORD, and this one is wrong about WHICH STATE
 #' THE RECORD BELONGS TO. See `R/02c_state_attribution_sweep.R`, which measures
 #' it across all fifty states.
+# The Utah documents RCJ files under Wyoming, hand-read (session 42), and the
+# three it re-filed under Utah on the 2026-09-24 pull (session 62's sweep;
+# session 63's disposition). Exact titles, never a pattern (§2).
+WY_UTAH_DOCUMENTS <- c(
+  "WY - 2026 - PATH 1.4 Community Care Hubs RFGA",
+  "WY - 2026 - SPRINT Consortium RHTP Grant Application")
+WY_UTAH_REFILED_UNDER_UT <- c(
+  "UT - 2025 - Utah RHTP Stakeholder Meeting September 24, 2025",
+  "UT - 2025 - Utah RHTP Cooperative Agreement Award: $195.7 million for Year 1",
+  "UT - 2026 - Utah RHTP – Semantic Data Model RFGA")
+
 wy_rcj_disposition <- function() {
   rt <- rhtp_record_table_live()
-  wy <- rt %>%
-    dplyr::filter(.data$state == WY_STATE,
-                  is.na(.data$superseded_by) | .data$superseded_by == "")
+  wy <- rt %>% dplyr::filter(.data$state == WY_STATE)
   blob <- paste(dplyr::coalesce(wy$source_doc_title, ""),
                 dplyr::coalesce(wy$program_description, ""),
                 dplyr::coalesce(wy$awardee_name_raw, ""))
-  utah <- sum(stringr::str_detect(blob, "\\bUtah\\b"))
+  is_utah  <- stringr::str_detect(blob, "\\bUtah\\b") |
+    wy$source_doc_title %in% WY_UTAH_DOCUMENTS
+  is_teton <- stringr::str_detect(wy$source_doc_title,
+                                  stringr::fixed("County Health Dept Seeks State Funds"))
   tier3 <- sum(wy$award_tier == "SUBAWARD")
+  n_rec <- nrow(wy)
 
   if (tier3 != 0L) {
     stop("[WY] Wyoming now carries ", tier3, " Tier 3 candidates. This ",
          "disposition says it carries none; re-derive it.", call. = FALSE)
   }
-  if (utah != 5L) {
-    stop("[WY] ", utah, " of Wyoming's RCJ records mention Utah, not 5. ",
-         "Re-read them before restating the defect.", call. = FALSE)
+  # The Utah documents, read by hand: FIVE on the 2026-08-27 pull. On the
+  # 2026-09-24 pull RCJ re-filed THREE of them under Utah (R/02c's
+  # SWEEP_RETIRED_VERDICTS), so the live set is the other two, named here.
+  if (!setequal(wy$source_doc_title[is_utah], WY_UTAH_DOCUMENTS)) {
+    stop("[WY] the Utah documents filed under Wyoming are no longer exactly ",
+         paste(WY_UTAH_DOCUMENTS, collapse = " | "), " (found: ",
+         paste(wy$source_doc_title[is_utah], collapse = " | "),
+         "). Re-read them before restating the defect.", call. = FALSE)
   }
+  # Measured by RECORD ID, not by title: a superseded version filed under
+  # Wyoming whose live version is filed under Utah. (Utah also carries its own
+  # copy of the stakeholder-meeting document, so a title count reads four.)
+  all_v <- readRDS(rhtp_path("interim", "stage2_record_table.rds"))
+  was_wy <- all_v$record_id[all_v$state == WY_STATE &
+                              !(is.na(all_v$superseded_by) |
+                                  all_v$superseded_by == "")]
+  refiled <- rt %>%
+    dplyr::filter(.data$state == "UT", .data$record_id %in% was_wy)
+  if (!setequal(refiled$source_doc_title, WY_UTAH_REFILED_UNDER_UT)) {
+    stop("[WY] the three Utah documents RCJ re-filed under Utah on the ",
+         "2026-09-24 pull are no longer all live under UT.", call. = FALSE)
+  }
+  n_utah_0827 <- sum(is_utah) + nrow(refiled)
+  n_rec_0827  <- dplyr::n_distinct(all_v$record_id[
+    all_v$state == WY_STATE & as.character(all_v$first_seen) == "2026-08-27"])
+
+  # The shape this row names, measured rather than remembered: the states
+  # that carried NO Tier 3 candidate on the 2026-08-27 pull while having a
+  # published roster, and what RCJ carries for them now.
+  q <- readr::read_csv(here::here("data", "reference",
+                                  "state_trigger_queue.csv"),
+                       show_col_types = FALSE, progress = FALSE)
+  trig <- q$trigger_source[q$state == WY_STATE]
+  peers <- c("FL", "NC", "AR")
+  peer_n <- vapply(peers, function(s) sum(rt$state == s &
+                                            rt$award_tier == "SUBAWARD"),
+                   integer(1))
+  peer_txt <- paste(paste0(peers, " ", peer_n), collapse = ", ")
 
   tibble::tribble(
-    ~disposition_code, ~records, ~why, ~evidence,
-    "NO_TIER_3_CANDIDATE_AT_ALL", nrow(wy),
-    paste("Wyoming carries ZERO Tier 3 candidates against", nrow(wy), "RCJ",
-          "records -- and had published SEVENTY-FIVE priced award actions,",
-          "$135,241,492, at the time this ran. It also has no CMS state",
-          "release, so `trigger_source = NEITHER` on BOTH discovery layers:",
-          "Florida's shape a fourth time after North Carolina and Arkansas,",
-          "and the fourth proof that a zero here is a fact about the",
-          "DISCOVERY LAYER and never about the state (§0.1)."),
+    ~disposition_code, ~records, ~tier3_candidates, ~why, ~evidence,
+    "NO_TIER_3_CANDIDATE_AT_ALL", n_rec, tier3,
+    paste0("Wyoming carries ZERO Tier 3 candidates against ", n_rec, " live ",
+           "RCJ records on the 2026-09-24 pull (", n_rec_0827, " on the ",
+           "2026-08-27 pull; ",
+           "the difference is the Utah documents RCJ re-filed, below) -- and ",
+           "had published SEVENTY-FIVE priced award actions, $135,241,492, ",
+           "when it was extracted. Its trigger source is ", trig, ", so no ",
+           "discovery layer flags it. On the 2026-08-27 pull Florida, North ",
+           "Carolina and Arkansas had the same shape; on this pull RCJ ",
+           "carries Tier 3 candidates for them (", peer_txt, ") and not for ",
+           "Wyoming. A zero here is a fact about the DISCOVERY LAYER and ",
+           "never about the state (§0.1)."),
     "data/evidence/WY/2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf",
 
-    "WRONG_STATE_UTAH_FILED_UNDER_WYOMING", utah,
-    paste("FIVE of the 29 are UTAH'S DOCUMENTS, filed under Wyoming: 'Utah",
-          "RHTP Stakeholder Meeting September 24, 2025'; 'Utah RHTP",
-          "Cooperative Agreement Award: $195.7 million for Year 1' --",
-          "UTAH'S OWN ALLOTMENT, carried as an `UNASSIGNED` WYOMING row at",
-          "$195,700,000 against Wyoming's $205,004,743; 'Utah RHTP - Semantic",
-          "Data Model RFGA'; 'SPRINT Consortium RHTP Grant Application'",
-          "(its description opens 'Utah DHHS is soliciting applications');",
-          "and 'PATH 1.4 Community Care Hubs RFGA', Utah's PATH initiative.",
-          "A NEW §0.1 FAILURE MODE: wrong PROGRAMME (Texas), wrong TIER",
-          "(Oklahoma), wrong KIND OF ACTION (Missouri), wrong GRAIN",
-          "(Michigan) and wrong SECTION (Nebraska) are all defects in a",
-          "record; this one is a defect in WHICH STATE THE RECORD IS. It is",
-          "harmless in Wyoming only because none of the five is Tier 3 --",
-          "had one been, an extractor keyed on the candidate list would have",
-          "published Utah's subawards as Wyoming's."),
+    "WRONG_STATE_UTAH_FILED_UNDER_WYOMING", sum(is_utah), 0L,
+    paste0(n_utah_0827, " of the ", n_rec_0827, " records on the ",
+           "2026-08-27 pull were ",
+           "UTAH'S DOCUMENTS, filed under Wyoming, including 'Utah RHTP ",
+           "Cooperative Agreement Award: $195.7 million for Year 1' -- UTAH'S ",
+           "OWN ALLOTMENT, carried as an `UNASSIGNED` WYOMING row. ON THE ",
+           "2026-09-24 PULL RCJ RE-FILED ", nrow(refiled), " OF THEM UNDER ",
+           "UTAH (", paste(WY_UTAH_REFILED_UNDER_UT, collapse = "; "),
+           "), so the aggregator corrected itself on those. ", sum(is_utah),
+           " remain filed under Wyoming: ",
+           paste(sort(wy$source_doc_title[is_utah]), collapse = "; "),
+           " -- Utah's PATH 1.4 and SPRINT solicitations (the SPRINT ",
+           "description opens 'Utah DHHS is soliciting applications'). §0.1 ",
+           "FAILURE MODE 6, the wrong state. Harmless in Wyoming because ",
+           "none of them is Tier 3; had one been, an extractor keyed on the ",
+           "candidate list would have published Utah's subawards as ",
+           "Wyoming's. R/02c measures it across all fifty states."),
     "data/interim/stage2_record_table.rds",
 
-    "STATE_PROGRAMME_NOT_RHTP", 1L,
+    "STATE_PROGRAMME_NOT_RHTP", sum(is_teton), 0L,
     paste("'County Health Dept Seeks State Funds for Rural Health",
           "Initiatives' is a buckrail.com report of a Teton County (WY)",
           "health department seeking STATE funds. Genuinely Wyoming and",
           "genuinely not RHTP -- §6.2's state-programme filter, and the only",
-          "one of the 29 that is."),
+          "one of Wyoming's live records that is."),
     "data/interim/stage2_record_table.rds"
   )
 }
@@ -2105,6 +2161,7 @@ wy_build <- function() {
   message("[WY] wrote ", WY_STATUS_CSV, " (", nrow(st), " rows)")
 
   disp <- wy_rcj_disposition()
+  rhtp_assert_disposition_prose(disp, "WY")
   readr::write_csv(disp, WY_DISPOSITION_CSV, na = "")
   message("[WY] wrote ", WY_DISPOSITION_CSV, " (", nrow(disp), " rows)")
   invisible(rows)

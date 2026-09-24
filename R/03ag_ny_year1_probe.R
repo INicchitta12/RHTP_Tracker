@@ -6,7 +6,10 @@
 # AWARD.
 #
 # New York holds $212,058,208 (§7.1) and was one of TWELVE states carrying NO
-# RCJ Tier 3 signal. It has published NO recipient-level award list.
+# RCJ Tier 3 signal. It had published NO recipient-level award list WHEN THIS
+# HEADER WAS WRITTEN (session 37). IT HAS SINCE AWARDED: RCHI's awardees list,
+# 2026-09-04, extracted in session 52 -- see "THE AWARD EXTRACTION" below. The
+# negative that follows is kept as the record of what was true on 2026-09-02.
 #
 # ITS ONE RECIPIENT-LEVEL SOLICITATION HAS RUN AND ITS CONTRACT START DATE HAS
 # PASSED. The Rural Community Health Integration (RCHI) funding opportunity
@@ -570,17 +573,50 @@ ny_disposition <- function() {
   rt <- rhtp_record_table_live()
   ny <- rt %>% dplyr::filter(.data$state == NY_STATE)
   n_t3 <- sum(ny$award_tier == "SUBAWARD")
+  # Every number below is DERIVED (session 63). The 2026-08-27 text said New
+  # York "has awarded nobody publicly", and session 52 extracted the RCHI
+  # roster it had published on 2026-09-04; it also called New York "one of
+  # TWELVE" and cited Florida as a state with no candidate, both since false.
+  states <- rhtp_cms_states()$state
+  t3 <- rt %>% dplyr::filter(.data$award_tier == "SUBAWARD") %>%
+    dplyr::count(.data$state)
+  zero <- sort(setdiff(states, t3$state[t3$n > 0]))
+  n_fl <- sum(t3$n[t3$state == "FL"])
+  tiers <- ny %>% dplyr::count(.data$award_tier)
+  roster_doc <- ny %>%
+    dplyr::filter(stringr::str_detect(.data$source_doc_title,
+                                      "RCHI\\) Awardees List"))
+  aw <- if (file.exists(NY_AWARDS_CSV)) {
+    readr::read_csv(NY_AWARDS_CSV, show_col_types = FALSE)
+  } else ny_award_rows()
   tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
     NY_STATE, "Tier 3 (SUBAWARD) candidates", n_t3,
     "NO_TIER_3_SIGNAL_AT_ALL",
-    paste0("New York is one of TWELVE states carrying NO RCJ Tier 3 ",
-           "candidate. It holds ", nrow(ny), " RCJ records in total -- the ",
-           "fewest of any state investigated so far -- all SOLICITATION, ",
-           "STATE_ALLOTMENT or UNASSIGNED. NOT ONE is a subaward, and that ",
-           "is correct: New York has awarded nobody publicly. A zero here is ",
-           "a fact about the DISCOVERY LAYER and never about the state ",
-           "(§0.1); Florida had 81 awards and no candidate either.")
+    paste0("New York is one of ", length(zero), " states carrying NO RCJ ",
+           "Tier 3 candidate on the 2026-09-24 pull (",
+           paste(zero, collapse = ", "), "; one of twelve on the 2026-08-27 ",
+           "pull). It holds ", nrow(ny), " RCJ records in total -- ",
+           paste0(tiers$n, " ", tiers$award_tier, collapse = ", "),
+           " -- and NOT ONE is a subaward. THAT IS NOW A GAP IN THE ",
+           "AGGREGATOR, NOT A FACT ABOUT NEW YORK: DOH published the Rural ",
+           "Community Health Integration Awardees List (announced ",
+           format(NY_RELEASE_DATE), ", '", NY_RCHI_AWARDS, " awards to ",
+           NY_ROSTER_ROWS, " organizations') and session 52 extracted it -- ",
+           nrow(aw), " lead-applicant rows, $",
+           format(sum(aw$amount, na.rm = TRUE), big.mark = ","), ", ",
+           sum(aw$hospital_attribution == "NAMED_HOSPITAL", na.rm = TRUE),
+           " of them hospital leads -- in ny_year1_awardees.csv. ",
+           if (nrow(roster_doc)) paste0(
+             "RCJ has held that very document since ",
+             min(roster_doc$first_seen), ", as ", nrow(roster_doc), " ",
+             paste(unique(roster_doc$award_tier), collapse = "/"),
+             " record with no amount, and parsed none of its priced rows ",
+             "into an award record (§6.4's unparsed-award shape). ") else "",
+           "A zero here is a fact about the DISCOVERY LAYER and never about ",
+           "the state (§0.1) -- Florida carried no candidate on the 2026-08-27 ",
+           "pull while its 81 awards were already published and extracted ",
+           "here, and RCJ has since caught up to ", n_fl, " Florida rows.")
   )
 }
 
@@ -1034,6 +1070,7 @@ ny_build <- function() {
   readr::write_csv(st, NY_STATUS_CSV)
   message("[NY] wrote ", NY_STATUS_CSV, " (", nrow(st), " rows)")
   d <- ny_disposition()
+  rhtp_assert_disposition_prose(d, "NY")
   readr::write_csv(d, NY_DISPO_CSV)
   message("[NY] wrote ", NY_DISPO_CSV, " (", nrow(d), " rows)")
   invisible(list(status = st, disposition = d))

@@ -6,6 +6,11 @@
 # Tier 3 candidates, and ELEVEN OF THE ELEVEN ARE NAMED CALIFORNIA HOSPITALS
 # CARRYING REAL DOLLAR AMOUNTS. Not one of them is an RHTP award.
 #
+# SESSION 63: on the 2026-09-24 pull RCJ WITHDREW all eleven and filed FOUR
+# rows from a second HCAI state programme -- the Distressed Hospital Small
+# Grant Program (Budget Act of 2025, AB 108, General Fund), $25,000,000 to
+# four named hospitals. Same defect, new money; see rhtp_ca_rcj_disposition().
+#
 # WHAT CALIFORNIA HAS PUBLISHED.
 #
 #   California brands RHTP as CalRHT, run by the Department of Health Care
@@ -1029,7 +1034,9 @@ rhtp_ca_year1_status <- function() {
           "130075), for seismic compliance under the Alfred E. Alquist",
           "Hospital Facilities Seismic Safety Act (HSC 129675) -- and the",
           "page mentions RHTP, 'Rural Health Transformation' and 'federal'",
-          "ZERO times. ALL ELEVEN RCJ CALIFORNIA CANDIDATES COME FROM HERE.")
+          "ZERO times. ALL ELEVEN RCJ CALIFORNIA CANDIDATES ON THE",
+          "2026-08-27 PULL CAME FROM HERE; RCJ WITHDREW THEM ON THE",
+          "2026-09-24 PULL.")
   ) %>%
     dplyr::mutate(state = "CA", .before = 1)
 }
@@ -1037,68 +1044,165 @@ rhtp_ca_year1_status <- function() {
 
 # -- RCJ candidate disposition ------------------------------------------------
 
-ca_rcj_candidates <- function() {
-  rt <- rhtp_record_table_live()
+ca_rcj_candidates <- function(include_withdrawn = FALSE) {
+  rt <- rhtp_record_table_live(include_withdrawn = include_withdrawn)
   rt %>% dplyr::filter(state == "CA", award_tier == "SUBAWARD")
 }
 
 CA_SRHRP_SOURCE_MARKER <- "Small and Rural Hospital Relief Program"
+CA_DHSG_SOURCE_MARKER  <- "Distressed Hospital Small Grant Program"
+
+# Session 63: the source that disposes of the four NEW candidates on the
+# 2026-09-24 pull. Archived read-only, byte for byte, with its own manifest.
+CA_DHSG_ARCHIVE <- file.path(
+  "data", "evidence", "recheck", "2026-09-24", "CA",
+  "2026-09-24_ca_hcai_distressed_hospital_funding_programs_STATE_GENERAL_FUND.html")
+CA_DHSG_URL <- paste0("https://hcai.ca.gov/facilities/health-facility-",
+                      "financing/distressed-hospital-loan-program/")
+
+# What HCAI's page says, verbatim -- each must still be on the archived page,
+# or the disposition of those four rows has lost its evidence.
+CA_DHSG_STATE_FUNDED <- c(
+  statute = "established through the Budget Act of 2025 (Assembly Bill 108)",
+  pool    = "authorizes up to $25 million in one-time grant funding",
+  revert  = "will revert to the General Fund on June 30, 2026"
+)
+
+#' HCAI's Distressed Hospital Small Grant Program is STATE money
+#'
+#' Refuses if the archived page stops naming its state funding source, or
+#' starts naming RHTP -- either would change what the four rows are.
+ca_assert_dhsg_is_not_rhtp <- function(txt = NULL) {
+  if (is.null(txt)) {
+    p <- here::here(CA_DHSG_ARCHIVE)
+    txt <- ca_reduce_html(readBin(p, "raw", file.size(p)))
+  }
+  for (nm in names(CA_DHSG_STATE_FUNDED)) {
+    if (!stringr::str_detect(txt, stringr::fixed(CA_DHSG_STATE_FUNDED[[nm]]))) {
+      stop("[CA] the Distressed Hospital Small Grant page no longer says '",
+           CA_DHSG_STATE_FUNDED[[nm]], "'. Re-read it before trusting ",
+           "ca_rcj_candidate_disposition.csv.", call. = FALSE)
+    }
+  }
+  if (stringr::str_detect(txt, "(?i)RHTP|Rural Health Transformation|CalRHT")) {
+    stop("[CA] the Distressed Hospital Small Grant page now mentions RHTP. ",
+         "Re-read it: the four RCJ rows may no longer be state money.",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
 
 #' Why each of RCJ's California Tier 3 candidates is not an RHTP award
 #'
-#' The counts are RE-DERIVED from the record table on every run, never typed,
-#' so the day California's candidate set moves the build fails instead of the
-#' table quietly ceasing to cover it.
-rhtp_ca_rcj_disposition <- function(cands = NULL) {
+#' Every count and every figure in the prose is DERIVED from the record table
+#' on every run, never typed, and the table REFUSES a live candidate no group
+#' describes -- so the day California's candidate set moves the build fails
+#' instead of the table quietly ceasing to cover it.
+#'
+#' SESSION 63: RCJ WITHDREW all eleven SRHRP seismic rows on the 2026-09-24
+#' pull and filed four new ones from a DIFFERENT HCAI state programme. The
+#' SRHRP group is kept, at 0 live rows with the 11 withdrawn rows counted in
+#' `withdrawn_rows`, because what it records -- a named, priced, executed
+#' state-money hospital roster sitting in the RHTP feed -- is exactly what the
+#' four new rows repeat, and it is still a §6.2 lesson if RCJ re-files them.
+rhtp_ca_rcj_disposition <- function(cands = NULL, withdrawn = NULL) {
   if (is.null(cands)) cands <- ca_rcj_candidates()
-  prov    <- paste(cands$source_doc_title, cands$solicitation_number)
-  is_srhrp <- stringr::str_detect(prov, stringr::fixed(CA_SRHRP_SOURCE_MARKER))
-  amt     <- cands$amount_announced
-  hosp    <- stringr::str_detect(cands$awardee_name_clean,
-                                 stringr::regex("hospital|healthcare district|health care district",
-                                                ignore_case = TRUE))
-
-  if (!all(is_srhrp)) {
-    stop("[CA] ", sum(!is_srhrp), " California Tier 3 candidates are NOT from ",
-         "the SRHRP. This file's whole disposition is that all of them are. ",
-         "Read the new ones before building.", call. = FALSE)
+  if (is.null(withdrawn)) {
+    all_c <- ca_rcj_candidates(include_withdrawn = TRUE)
+    withdrawn <- all_c[all_c$change_status %in% "WITHDRAWN", , drop = FALSE]
   }
+  prov_of  <- function(x) paste(x$source_doc_title, x$solicitation_number)
+  is_srhrp <- stringr::str_detect(prov_of(cands),
+                                  stringr::fixed(CA_SRHRP_SOURCE_MARKER))
+  is_dhsg  <- stringr::str_detect(prov_of(cands),
+                                  stringr::fixed(CA_DHSG_SOURCE_MARKER))
+  w_srhrp  <- stringr::str_detect(prov_of(withdrawn),
+                                  stringr::fixed(CA_SRHRP_SOURCE_MARKER))
+  hosp_re  <- stringr::regex(
+    "hospital|healthcare district|health care district|medical center",
+    ignore_case = TRUE)
+  hosp     <- stringr::str_detect(cands$awardee_name_clean, hosp_re)
+  amt      <- cands$amount_announced
+  money    <- function(x) format(sum(x, na.rm = TRUE), big.mark = ",",
+                                 scientific = FALSE)
 
+  uncovered <- !(is_srhrp | is_dhsg)
+  if (any(uncovered)) {
+    stop("[CA] ", sum(uncovered), " live California Tier 3 candidates are ",
+         "from neither the SRHRP nor the Distressed Hospital Small Grant ",
+         "Program. No group describes them. Read the new ones before ",
+         "building.", call. = FALSE)
+  }
+  if (any(w_srhrp) && nrow(withdrawn) != sum(w_srhrp)) {
+    stop("[CA] a withdrawn California candidate is not an SRHRP row. Read it.",
+         call. = FALSE)
+  }
+  ca_assert_dhsg_is_not_rhtp()
+
+  n_w <- sum(w_srhrp)
   tibble::tribble(
-    ~group, ~rows, ~distinct_awardees, ~named_hospital_rows, ~rcj_amount_sum,
-    ~disposition, ~why,
+    ~group, ~rows, ~withdrawn_rows, ~distinct_awardees, ~named_hospital_rows,
+    ~rcj_amount_sum, ~disposition, ~why, ~state_source_url,
+    ~source_archive_path,
+
+    paste("Distressed Hospital Small Grant Program -- CALIFORNIA STATE",
+          "GENERAL FUND MONEY (Budget Act of 2025, AB 108)"),
+    sum(is_dhsg), 0L, dplyr::n_distinct(cands$awardee_name_clean[is_dhsg]),
+    sum(hosp & is_dhsg), sum(amt[is_dhsg], na.rm = TRUE),
+    "NOT_RHTP_STATE_PROGRAM",
+    paste0(
+      sum(is_dhsg), " of California's ", nrow(cands), " live Tier 3 ",
+      "candidates, first seen on the 2026-09-24 pull, all filed under 'CA - ",
+      "2025 - Distressed Hospital Small Grant Program Reference Overview', ",
+      "and ", sum(hosp & is_dhsg), " of them are NAMED CALIFORNIA HOSPITALS ",
+      "(", paste(sort(unique(cands$awardee_name_clean[is_dhsg])),
+                 collapse = ", "), ") at $", money(amt[is_dhsg]), " between ",
+      "them -- which is HCAI's own published awardee table to the dollar. It ",
+      "is a CALIFORNIA STATE PROGRAMME: HCAI's page says the program 'was ",
+      "established through the Budget Act of 2025 (Assembly Bill 108)', ",
+      "'authorizes up to $25 million in one-time grant funding', and that ",
+      "unencumbered funds 'will revert to the General Fund on June 30, ",
+      "2026'. The page mentions 'RHTP', 'Rural Health Transformation' and ",
+      "'federal' ZERO times. §0.1 failure mode 1 (wrong programme), from the ",
+      "SAME AGENCY that administers CalRHT, and the SRHRP's defect a second ",
+      "time: RCJ withdrew one HCAI state hospital roster and filed another ",
+      "on the same pull. THE DATE TEST CANNOT CATCH THESE: HCAI released the ",
+      "award determinations 2026-05-29, after the 2025-12-29 NOA, and RCJ ",
+      "dates the rows only by its '2025' title prefix, which §6.2 refuses. ",
+      "An extractor built from the candidate list would publish $",
+      money(amt[is_dhsg]), " of state General Fund money as California's ",
+      "RHTP hospital dollars."),
+    CA_DHSG_URL, CA_DHSG_ARCHIVE,
 
     paste("Small and Rural Hospital Relief Program (SRHRP) seismic",
-          "compliance grants -- CALIFORNIA STATE CIGARETTE-TAX MONEY"),
-    sum(is_srhrp), dplyr::n_distinct(cands$awardee_name_clean[is_srhrp]),
+          "compliance grants -- CALIFORNIA STATE CIGARETTE-TAX MONEY",
+          "(WITHDRAWN BY RCJ)"),
+    sum(is_srhrp), n_w,
+    dplyr::n_distinct(withdrawn$awardee_name_clean[w_srhrp]),
     sum(hosp & is_srhrp), sum(amt[is_srhrp], na.rm = TRUE),
     "NOT_RHTP_STATE_PROGRAM",
     paste0(
-      "ALL ", sum(is_srhrp), " OF CALIFORNIA'S TIER 3 CANDIDATES, AND ",
-      sum(hosp & is_srhrp), " OF THEM ARE NAMED CALIFORNIA HOSPITALS WITH ",
-      "REAL DOLLAR AMOUNTS. Every one is filed under one source document, ",
-      "'CA - 2026 - Small and Rural Hospital Relief Program (SRHRP) - HCAI', ",
-      "and the SRHRP is a CALIFORNIA STATE PROGRAMME: HCAI's own page says ",
-      "'Ten percent of the funds from the California Electronic Cigarette ",
-      "Excise Tax will be allocated to [HCAI] to operate the SRHRP (HSC ",
-      "Section 130075)', and its statutory purpose is seismic compliance ",
-      "under the Alfred E. Alquist Hospital Facilities Seismic Safety Act ",
-      "(HSC Section 129675). The page mentions 'RHTP' ZERO times, 'Rural ",
-      "Health Transformation' ZERO times and 'federal' ZERO times. THE ",
-      "DESCRIPTIONS GIVE IT AWAY IN THE AGGREGATOR ITSELF and nobody read ",
-      "them: MTCAP, MTCAR, SPC-4D and NPC evaluations are seismic ",
-      "engineering deliverables, not health care. TEXAS'S DEFECT WITH ",
-      "MAINE'S RATIO -- Texas's 53 rows were 78% of its candidate set; ",
-      "California's are ELEVEN OF ELEVEN, every one a real executed award ",
-      "from the SAME AGENCY that administers CalRHT. An extractor built ",
-      "from this candidate list would publish $",
-      format(sum(amt[is_srhrp], na.rm = TRUE), big.mark = ",",
-             scientific = FALSE),
-      " of state cigarette-tax money as California's RHTP hospital dollars. ",
-      "RCJ ALSO CARRIES COMPONENTS RATHER THAN GRANTS: George L Mee Memorial ",
-      "Hospital appears twice at $500,000 and $280,000, which is HCAI's own ",
-      "published $780,000 grant split into its line items -- so even the ",
-      "row COUNT is not the award count.")
+      "RCJ WITHDREW ALL ", n_w, " SRHRP ROWS ON THE 2026-09-24 PULL; ",
+      sum(is_srhrp), " are live today. They were all ", n_w, " of ",
+      "California's Tier 3 candidates on the 2026-08-27 pull, every one a ",
+      "named California hospital with a real amount ($",
+      money(withdrawn$amount_announced[w_srhrp]), " in all), filed under ",
+      "'CA - 2026 - Small and Rural Hospital Relief Program (SRHRP) - HCAI'. ",
+      "The SRHRP is a CALIFORNIA STATE PROGRAMME: HCAI's own page says 'Ten ",
+      "percent of the funds from the California Electronic Cigarette Excise ",
+      "Tax will be allocated to [HCAI] to operate the SRHRP (HSC Section ",
+      "130075)', for seismic compliance under the Alfred E. Alquist Hospital ",
+      "Facilities Seismic Safety Act (HSC Section 129675), and it mentions ",
+      "'RHTP', 'Rural Health Transformation' and 'federal' ZERO times. RCJ's ",
+      "own descriptions (MTCAP, MTCAR, SPC-4D and NPC evaluations) are ",
+      "seismic engineering deliverables, and it carried COMPONENTS rather ",
+      "than grants: George L Mee Memorial Hospital twice at $500,000 and ",
+      "$280,000, HCAI's own $780,000 grant. KEPT, NOT DELETED: withdrawal is ",
+      "a fact about the aggregator, not a verdict on the rows, and the ",
+      "Distressed Hospital rows above show the same defect recurring. If RCJ ",
+      "re-files them, this group describes them again."),
+    "https://hcai.ca.gov/facilities/health-facility-financing/srhrp/",
+    "data/evidence/CA/2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html"
   ) %>%
     dplyr::mutate(state = "CA", .before = 1)
 }
@@ -1110,6 +1214,7 @@ rhtp_ca_build <- function() {
   rhtp_ca_assert()
   status <- rhtp_ca_year1_status()
   dispo  <- rhtp_ca_rcj_disposition()
+  rhtp_assert_disposition_prose(dispo, "CA")
   readr::write_csv(status, here::here(CA_STATUS_CSV))
   readr::write_csv(dispo,  here::here(CA_DISPO_CSV))
   ca_assert_no_award_file()

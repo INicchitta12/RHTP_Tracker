@@ -3,10 +3,12 @@
 #
 # ARKANSAS -- RHTP Year 1. Arkansas runs its programme from `arkansasrhtp.com`,
 # a DEDICATED RHTP DOMAIN -- the second in this project after Kentucky's
-# `ruralhealthplan.ky.gov`, and THE FIRST THAT HAS AWARDED. It was invisible to
-# both discovery layers: ZERO RCJ Tier 3 candidates and no CMS state release,
-# `trigger_source = NEITHER`, which is FLORIDA'S SHAPE (session 36's existence
-# proof) a third time after North Carolina.
+# `ruralhealthplan.ky.gov`, and THE FIRST THAT HAS AWARDED. When it was
+# extracted it was invisible to both discovery layers: no RCJ row at Tier 3 on
+# the 2026-08-27 pull and no CMS state release, `trigger_source = NEITHER`,
+# which is FLORIDA'S SHAPE (session 36's existence proof) a third time after
+# North Carolina. By the 2026-09-24 pull RCJ carries DF&A's list, at
+# organisation grain (see ar_disposition()).
 #
 # WHAT ARKANSAS PUBLISHES.
 #
@@ -1561,33 +1563,158 @@ ar_status_table <- function() {
     )
 }
 
-#' Arkansas holds NO RCJ Tier 3 candidate at all
+#' RCJ's live Arkansas Tier 3 candidates
 ar_rcj_candidates <- function() {
   rt <- rhtp_record_table_live()
   rt %>% dplyr::filter(.data$state == AR_STATE, .data$award_tier == "SUBAWARD")
 }
 
-ar_disposition <- function() {
-  cand <- ar_rcj_candidates()
+#' RCJ rows that are a THIRD-PARTY restatement of one award list organisation
+#'
+#' HAND-READ, one entry per row (§2 forbids a fuzzy hospital merge). The RCJ
+#' name is the key; the value is the award list's spelling of the same
+#' organisation.
+AR_RCJ_DIGEST_RESTATEMENTS <- c(
+  "Mercy Fort Smith" = "Mercy Health Fort Smith Communities"
+)
+
+#' The vendor Arkansas's own budget narrative names for administration
+AR_ADMIN_VENDOR <- "BDO GS"
+AR_ADMIN_VENDOR_QUOTE <- paste0("BDO GS has been selected as the vendor for ",
+                                "contractual administrative costs")
+
+#' Match each live candidate to the award list, on (name, amount)
+#'
+#' Four outcomes, each keyed on an exact figure and never on a name alone:
+#' IN_FILE (an organisation x initiative row, name and amount), ORG_TOTAL (an
+#' organisation holding TWO award actions, carried once at its organisation
+#' total -- the grain Arkansas prices is the pair), DIGEST_RESTATEMENT (a
+#' hand-read third-party rounding of an organisation total), ADMIN_VENDOR
+#' (the budget narrative's administration vendor), or NA.
+ar_rcj_match <- function(cands = ar_rcj_candidates(), rows = ar_award_rows()) {
+  sq <- stringr::str_squish
+  cents <- function(x) round(x, 2)
+  used <- rep(FALSE, nrow(rows))
+  cands$match <- NA_character_
+  for (i in seq_len(nrow(cands))) {
+    nm <- sq(cands$awardee_name_raw[i]); a <- cents(cands$amount_announced[i])
+    j <- which(!used & sq(rows$awardee) == nm & cents(rows$amount) == a)
+    if (length(j)) {
+      used[j[1]] <- TRUE
+      cands$match[i] <- "IN_FILE"
+    }
+  }
+  for (i in which(is.na(cands$match))) {
+    nm <- sq(cands$awardee_name_raw[i]); a <- cents(cands$amount_announced[i])
+    j <- which(!used & sq(rows$awardee) == nm)
+    if (length(j) >= 2L &&
+        all(cents(rows$organisation_award_total[j]) == a) &&
+        cents(sum(rows$amount[j])) == a) {
+      used[j] <- TRUE
+      cands$match[i] <- "ORG_TOTAL"
+    } else if (nm %in% names(AR_RCJ_DIGEST_RESTATEMENTS) &&
+               AR_RCJ_DIGEST_RESTATEMENTS[[nm]] %in% rows$awardee) {
+      cands$match[i] <- "DIGEST_RESTATEMENT"
+    } else if (nm == AR_ADMIN_VENDOR) {
+      cands$match[i] <- "ADMIN_VENDOR"
+    }
+  }
+  attr(cands, "rows_covered") <- sum(used)
+  attr(cands, "rows") <- nrow(rows)
+  attr(cands, "orgs_covered") <- dplyr::n_distinct(rows$awardee[used])
+  attr(cands, "orgs") <- dplyr::n_distinct(rows$awardee)
+  cands
+}
+
+#' Why each of RCJ's Arkansas Tier 3 candidates is, or is not, an award row
+#'
+#' ON THE 2026-08-27 PULL RCJ carried no Arkansas row at Tier 3, while DF&A
+#' had published 37 priced award actions -- a fact about the discovery layer
+#' (§0.1). By the 2026-09-24 pull it carries DF&A's list at ORGANISATION grain,
+#' plus two rows from other documents. Every count below is derived.
+ar_disposition <- function(cand = ar_rcj_candidates(), rows = ar_award_rows()) {
+  m <- ar_rcj_match(cand, rows)
+  if (any(is.na(m$match))) {
+    stop("[AR] ", sum(is.na(m$match)), " live Tier 3 candidate(s) fit no ",
+         "group in this disposition: ",
+         paste0(m$awardee_name_raw[is.na(m$match)], " ($",
+                m$amount_announced[is.na(m$match)], ")", collapse = "; "),
+         ". Read them against DF&A's award list before rebuilding (§0.1).",
+         call. = FALSE)
+  }
+  bn <- stringr::str_squish(paste(rhtp_pdf_text(ar_path("budget_narrative")),
+                                  collapse = " "))
+  vend <- m[m$match == "ADMIN_VENDOR", ]
+  if (nrow(vend) && !(stringr::str_detect(bn, stringr::fixed(
+    AR_ADMIN_VENDOR_QUOTE)) && stringr::str_detect(bn, stringr::fixed(
+      ar_money(vend$amount_announced[1]) %>% stringr::str_remove("\\.00$") %>%
+        stringr::str_remove("^\\$"))))) {
+    stop("[AR] the archived budget narrative no longer carries the ",
+         "administration-vendor sentence or its figure, so the BDO GS row's ",
+         "disposition rests on nothing. Re-read the narrative.", call. = FALSE)
+  }
   all_ar <- rhtp_record_table_live() %>%
     dplyr::filter(.data$state == AR_STATE)
-  tibble::tribble(
+  n <- function(code) sum(m$match == code)
+  org <- m[m$match == "ORG_TOTAL", ]
+  dig <- m[m$match == "DIGEST_RESTATEMENT", ]
+  dig_true <- rows$organisation_award_total[match(
+    AR_RCJ_DIGEST_RESTATEMENTS[stringr::str_squish(dig$awardee_name_raw)],
+    rows$awardee)]
+
+  disp <- tibble::tribble(
     ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
-    AR_STATE,
-    "RCJ Tier 3 candidates for Arkansas",
-    nrow(cand), "NOT_IN_THE_AGGREGATOR_AT_ALL",
-    paste0("Arkansas holds ", nrow(cand), " Tier 3 candidates against ",
-           nrow(all_ar), " RCJ records in total, and no CMS state release ",
-           "either -- `trigger_source = NEITHER` on BOTH discovery layers, ",
-           "which is why nobody had looked. It had meanwhile published 31 ",
-           "organisations, 37 priced award actions and ",
-           ar_money(AR_TOTAL_YR1), " -- 71.5% of its allotment -- on a ",
-           "dedicated RHTP domain, plus a 50-project roster from the ",
-           "Governor. FLORIDA'S SHAPE (session 36's existence proof) a third ",
-           "time after North Carolina, and the largest of the three in ",
-           "dollars. A zero here is a fact about the DISCOVERY LAYER and ",
-           "never about the state (§0.1).")
+    AR_STATE, "DF&A's award list, carried exactly", n("IN_FILE"),
+    "RHTP_SUBAWARD_IN_FILE",
+    paste0(n("IN_FILE"), " rows carry an organisation x initiative award in ",
+           "ar_year1_awardees.csv under DF&A's spelling and at DF&A's figure ",
+           "-- the organisations that hold ONE award. Between this group and ",
+           "the next, RCJ covers ", attr(m, "orgs_covered"), " of DF&A's ",
+           attr(m, "orgs"), " organisations and ", attr(m, "rows_covered"),
+           " of its ", attr(m, "rows"), " award actions, and every dollar of ",
+           ar_money(AR_TOTAL_YR1), ". On the 2026-08-27 pull it carried none ",
+           "of them, while the list had been public since 2026-08-27 -- a ",
+           "fact about the DISCOVERY LAYER and never about the state (§0.1). ",
+           "The file is built from the archived PDF, never from RCJ."),
+    AR_STATE, "DF&A's award list, at ORGANISATION grain",
+    n("ORG_TOTAL"), "RHTP_AWARD_AT_ORGANISATION_GRAIN",
+    paste0(n("ORG_TOTAL"), " rows are an organisation that holds an award ",
+           "under BOTH initiatives, carried ONCE at its organisation total: ",
+           paste0(org$awardee_name_raw, " ", ar_money(org$amount_announced),
+                  collapse = "; "),
+           ". Each figure is the sum of that organisation's two award ",
+           "actions to the cent, so the MONEY is right and the GRAIN is not: ",
+           "DF&A prices the organisation x initiative pair. Michigan's defect ",
+           "(session 27) without Michigan's loss, because RCJ kept the total ",
+           "rather than one award -- a reader counting award actions from RCJ ",
+           "still undercounts Arkansas by ", n("ORG_TOTAL"), "."),
+    AR_STATE, "A third-party digest restating one organisation, rounded",
+    n("DIGEST_RESTATEMENT"), "RHTP_AWARD_DUPLICATED_ACROSS_DOCUMENTS",
+    paste0(n("DIGEST_RESTATEMENT"), " row(s) from a listserv news digest RCJ ",
+           "ingested ('", paste(unique(dig$source_doc_title), collapse = "; "),
+           "'): ", paste0("'", dig$awardee_name_raw, "' at ",
+                          ar_money(dig$amount_announced), collapse = "; "),
+           ", which is ", paste0(AR_RCJ_DIGEST_RESTATEMENTS[
+             stringr::str_squish(dig$awardee_name_raw)], " (",
+             ar_money(dig_true), " on DF&A's list)", collapse = "; "),
+           " restated and rounded. The Governor's release does not print the ",
+           "rounded figure; THIRD_PARTY_NEWS alone can never support a row ",
+           "(§8), and adding it to the list double-counts the organisation. ",
+           "Matched through AR_RCJ_DIGEST_RESTATEMENTS, hand-read (§2)."),
+    AR_STATE, "The budget narrative's administration vendor",
+    n("ADMIN_VENDOR"), "RHTP_BUT_NOT_A_SUBAWARD",
+    paste0(n("ADMIN_VENDOR"), " row: ", AR_ADMIN_VENDOR, " at ",
+           ar_money(vend$amount_announced), ", which is the Year 1 Revised ",
+           "Budget Narrative's 'Contracted Administrative Costs' line, and ",
+           "the narrative says '", AR_ADMIN_VENDOR_QUOTE, "'. Genuinely RHTP ",
+           "and a real vendor selection, and still not a subaward: it is the ",
+           "third-party administrator of the programme, paid from the state's ",
+           "administrative line in a PLAN (§0.3), not a recipient of ",
+           "THRIVE, PACT, RISE AR or HEART money. Arkansas holds ",
+           nrow(all_ar), " RCJ records in all.")
   )
+  rhtp_assert_disposition_prose(disp, AR_STATE)
+  disp
 }
 
 

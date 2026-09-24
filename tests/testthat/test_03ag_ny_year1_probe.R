@@ -239,4 +239,13 @@ test_that("New York carries no Tier 3 candidate at all", {
   d <- ny_disposition()
   expect_equal(d$rcj_rows, 0L)
   expect_equal(d$disposition, "NO_TIER_3_SIGNAL_AT_ALL")
+  expect_silent(rhtp_assert_disposition_prose(d, "NY"))
+  # Session 63: New York HAS awarded (session 52), so the zero is a gap in the
+  # aggregator; the prose must say so and must not repeat the 08-27 claims.
+  expect_false(grepl("has awarded nobody publicly", d$evidence, fixed = TRUE))
+  expect_false(grepl("TWELVE states", d$evidence, fixed = TRUE))
+  expect_match(d$evidence, "session 52 extracted it")
+  expect_match(d$evidence, "76,190,022", fixed = TRUE)
+  committed <- readr::read_csv(NY_DISPO_CSV, show_col_types = FALSE)
+  expect_equal(committed$evidence, d$evidence)
 })

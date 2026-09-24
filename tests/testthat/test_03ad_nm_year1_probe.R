@@ -323,48 +323,89 @@ test_that("the $50M state roster names hospitals, which is the whole danger", {
 
 # -- the RCJ disposition ------------------------------------------------------
 
-test_that("all seven candidates are RHCDF recipients", {
+test_that("eleven live candidates: seven RHCDF rows and four misfiled Oregon rows", {
+  # Session 63: the 2026-09-24 pull adds four records from an OREGON hospital's
+  # release, filed under New Mexico (§0.1 mode 6).
   cands <- nm_rcj_candidates()
-  expect_equal(nrow(cands), 7L)
+  expect_equal(nrow(cands), 11L)
   dispo <- rhtp_nm_rcj_disposition(cands)
-  expect_equal(nrow(dispo), 1L)
-  expect_equal(dispo$rows, 7L)
-  expect_equal(dispo$disposition, "NOT_RHTP_STATE_PROGRAM")
-  expect_equal(dispo$state, "NM")
+  expect_equal(nrow(dispo), 2L)
+  expect_equal(dispo$rows, c(7L, 4L))
+  expect_equal(dispo$disposition,
+               c("NOT_RHTP_STATE_PROGRAM",
+                 "WRONG_STATE_OREGON_FILED_UNDER_NEW_MEXICO"))
+  expect_true(all(dispo$state == "NM"))
+  expect_silent(rhtp_assert_disposition_prose(dispo, "NM"))
 })
 
-test_that("every candidate is priced at $1 -- Missouri's placeholder", {
-  expect_silent(nm_assert_placeholder_amounts())
+test_that("the disposition's groups cover every live candidate", {
   cands <- nm_rcj_candidates()
+  expect_equal(sum(rhtp_nm_rcj_disposition(cands)$rows), nrow(cands))
+})
+
+test_that("every RHCDF candidate is priced at $1 -- Missouri's placeholder", {
+  expect_silent(nm_assert_placeholder_amounts())
+  cands <- nm_rhcdf_candidates()
+  expect_equal(nrow(cands), 7L)
   expect_true(all(cands$amount_announced == 1))
-  # so New Mexico's whole survey figure is $7, which is the tell
-  dispo <- rhtp_nm_rcj_disposition(cands)
-  expect_equal(dispo$rcj_amount_sum, 7)
+  dispo <- rhtp_nm_rcj_disposition()
+  expect_equal(dispo$rcj_amount_sum[1], 7)
+  # The survey's figure now carries the Oregon rows as well, which is why the
+  # $7 is no longer New Mexico's whole survey figure.
   survey <- readr::read_csv(
     here::here("data", "reference", "rcj_state_survey.csv"),
     show_col_types = FALSE, progress = FALSE)
-  expect_equal(dispo$rcj_amount_sum,
+  expect_equal(sum(dispo$rcj_amount_sum),
                survey$rcj_federal_amount_sum[survey$state == "NM"])
 })
 
 test_that("the placeholder assertion fires if RCJ repairs the amounts", {
-  cands <- nm_rcj_candidates()
+  cands <- nm_rhcdf_candidates()
   cands$amount_announced[1] <- 250000
   expect_error(nm_assert_placeholder_amounts(cands = cands),
                "priced at \\$1")
 })
 
-test_that("TWO of the seven are named hospitals, and that is stated", {
-  cands <- nm_rcj_candidates()
-  dispo <- rhtp_nm_rcj_disposition(cands)
-  expect_equal(dispo$named_hospital_rows, 2L)
+test_that("TWO of the seven RHCDF rows are named hospitals, and that is stated", {
+  cands <- nm_rhcdf_candidates()
+  dispo <- rhtp_nm_rcj_disposition()
+  expect_equal(dispo$named_hospital_rows[1], 2L)
   hosp <- cands$awardee_name_clean[stringr::str_detect(
     cands$awardee_name_clean, stringr::regex("hospital", ignore_case = TRUE))]
   expect_setequal(stringr::str_squish(hosp),
                   c("Alta Vista Regional Hospital", "Cibola General Hospital"))
 })
 
-test_that("every candidate name is on the RHCDF roster, and Gallup is not", {
+test_that("the four Wallowa rows are OREGON'S awards, checked against OHA's file", {
+  wv <- nm_wallowa_vs_oregon()
+  expect_equal(nrow(wv), 4L)
+  expect_setequal(wv$kind, c("rhc", "mri", "catalyst", "headline"))
+  # the RHC row is OHA's four $100,000 clinic awards exactly
+  expect_equal(wv$rcj[wv$kind == "rhc"], wv$oha[wv$kind == "rhc"])
+  # the MRI row is $1,000 off OHA's printed Transformation award
+  expect_equal(wv$rcj[wv$kind == "mri"] - wv$oha[wv$kind == "mri"], 1000)
+  # the maternal row is Catalyst Project 1 at Year 1 PLUS Year 2, to the dollar
+  expect_equal(round(wv$oha[wv$kind == "catalyst"]), wv$rcj[wv$kind == "catalyst"])
+  # and the headline row is no award
+  expect_true(is.na(wv$oha[wv$kind == "headline"]))
+  # R/02c holds the same document as wholly another state's.
+  src <- paste(readLines(here::here("R", "02c_state_attribution_sweep.R"),
+                         warn = FALSE), collapse = "\n")
+  expect_true(stringr::str_detect(src, stringr::fixed(
+    "Wallowa Memorial Hospital and Medical Clinics")))
+})
+
+test_that("the Healthy Horizons hubs are NOT among the Tier 3 candidates", {
+  # HCA named six Regional Hub Organizations (session 46). RCJ carries the
+  # $74M only at pool level (an UNASSIGNED CMS-release row) and names no hub
+  # as a Tier 3 candidate, so nothing here needs a disposition for them.
+  cands <- nm_rcj_candidates()
+  expect_false(any(stringr::str_detect(
+    paste(cands$awardee_name_clean, cands$source_doc_title),
+    "(?i)Healthy Horizons|Regional Hub|Gila Regional|Nor-Lea|Eastern Plains")))
+})
+
+test_that("every RHCDF candidate name is on the RHCDF roster, and Gallup is not", {
   # The partial capture is its own tell -- Texas's 32-of-33 and Kansas's
   # Greeley County a third time.
   expect_silent(nm_assert_candidates_are_rhcdf_recipients())
@@ -375,7 +416,7 @@ test_that("every candidate name is on the RHCDF roster, and Gallup is not", {
 })
 
 test_that("the roster check fires if a candidate is not on the RHCDF page", {
-  cands <- nm_rcj_candidates()
+  cands <- nm_rhcdf_candidates()
   rogue <- cands[1, ]; rogue$awardee_name_clean <- "Nowhere Regional Medical"
   expect_error(
     nm_assert_candidates_are_rhcdf_recipients(
@@ -389,12 +430,12 @@ test_that("the disposition REFUSES a candidate it does not cover", {
   rogue <- cands[1, ]
   rogue$source_doc_title <- "NM - 2026 - Something Nobody Has Read"
   expect_error(rhtp_nm_rcj_disposition(dplyr::bind_rows(cands, rogue)),
-               "NOT from the RHCDF")
+               "No group describes them")
 })
 
 test_that("the title is a FUTURE opportunity's and the names are a PAST roster's", {
   # Nebraska's defect (session 23): title from one section, rows from another.
-  cands <- nm_rcj_candidates()
+  cands <- nm_rhcdf_candidates()
   expect_true(all(stringr::str_detect(
     cands$source_doc_title, stringr::fixed("Funding Opportunity for FY27-29"))))
   # while the names are the FY26-27 recipients printed further down the page

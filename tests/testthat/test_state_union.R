@@ -237,7 +237,13 @@ STATE_FILES <- c(
   # published 2026-07-31 only through newsrooms. 35 named-hospital rows typed
   # on CMS's NJ enrolment files; AtlantiCare Health Services is the FQHC, not
   # the hospital, and Virtua Health Inc. is the one LOW bridge.
-  NJ = "data/reference/nj_year1_awardees.csv"
+  NJ = "data/reference/nj_year1_awardees.csv",
+
+  # SESSION 63. INDIANA'S GROW REGIONAL GRANTS: 186 recipient rows in eight
+  # regions, NO per-organisation amount (amount empty, the region figure in
+  # round_amount). 44 named-hospital rows and $0 -- READ THE ROW COUNT. A
+  # second Indiana file beside the seven procurement vendors.
+  IN_GROW = "data/reference/in_grow_regional_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -265,13 +271,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all thirty-six files carry the leading 19 columns, in the same order", {
+test_that("all thirty-seven files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the thirty-six files union without a coercion failure", {
+test_that("the thirty-seven files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%

@@ -412,14 +412,27 @@ test_that("the controls hold", {
     WY_ADMINISTRATOR_TOTAL)
 })
 
-test_that("Wyoming carries ZERO Tier 3 candidates and FIVE Utah records", {
+test_that("Wyoming carries ZERO Tier 3 candidates; RCJ re-filed 3 of 5 Utah records", {
+  # Session 63: 29 records on the 2026-08-27 pull, 26 live on 2026-09-24 --
+  # RCJ re-filed three of the five Utah documents under Utah.
   disp <- wy_rcj_disposition()
   expect_equal(nrow(disp), 3L)
-  expect_true("WRONG_STATE_UTAH_FILED_UNDER_WYOMING" %in% disp$disposition_code)
+  expect_true("tier3_candidates" %in% names(disp))
+  expect_equal(disp$tier3_candidates, c(0L, 0L, 0L))
   expect_equal(disp$records[disp$disposition_code ==
-                              "WRONG_STATE_UTAH_FILED_UNDER_WYOMING"], 5L)
+                              "WRONG_STATE_UTAH_FILED_UNDER_WYOMING"], 2L)
   expect_equal(disp$records[disp$disposition_code ==
-                              "NO_TIER_3_CANDIDATE_AT_ALL"], 29L)
+                              "NO_TIER_3_CANDIDATE_AT_ALL"], 26L)
+  expect_silent(rhtp_assert_disposition_prose(disp, "WY"))
+  expect_true(grepl("5 of the 29 records on the 2026-08-27 pull",
+                    disp$why[2], fixed = TRUE))
+})
+
+test_that("the disposition covers every live Tier 3 candidate (there are none)", {
+  rt <- rhtp_record_table_live()
+  live <- rt[rt$state == WY_STATE & rt$award_tier == "SUBAWARD", ]
+  expect_equal(nrow(live), 0L)
+  expect_equal(sum(wy_rcj_disposition()$tier3_candidates), nrow(live))
 })
 
 test_that("all assertions pass together", {

@@ -94,13 +94,37 @@ test_that("the committed file is what the builder writes", {
   expect_equal(committed$distributed_to_hospital, d$distributed_to_hospital)
 })
 
-test_that("all 53 are RCJ-invisible: the only pull predates the roster", {
+test_that("RCJ carries the roster's announcement and none of its 53 recipients", {
   dispo <- readr::read_csv(TN_DISPO_CSV, show_col_types = FALSE)
-  expect_equal(dispo$disposition[1], "NO_TIER_3")
-  expect_match(dispo$note[1], "predates")
   rt <- rhtp_record_table_live()
-  expect_equal(sum(rt$state == "TN" & rt$award_tier == "SUBAWARD"), 0L)
-  expect_true(max(as.Date(rt$last_seen[rt$state == "TN"])) < TN_ANNOUNCED)
+  t <- rt[rt$state == "TN", ]
+  # the 2026-09-24 pull postdates the roster, so timing no longer explains it
+  expect_true(max(as.Date(t$last_seen)) > TN_ANNOUNCED)
+  expect_equal(dispo$disposition[1], "NO_TIER_3")
+  expect_equal(dispo$tier3_candidates[1], 0)
+  expect_match(dispo$note[1], "extracts none of its 53 named recipients")
+  # none of TDH's 53 names is an RCJ Tier 3 row
+  c <- t[t$award_tier == "SUBAWARD", ]
+  expect_false(any(tolower(c$awardee_name_raw) %in% tolower(committed$awardee)))
+})
+
+test_that("the disposition's groups cover every live Tennessee record", {
+  rt <- rhtp_record_table_live()
+  t <- rt[rt$state == "TN", ]
+  x <- tn_rcj_disposition(rt = rt, d = committed)
+  expect_equal(sum(x$records), nrow(t))
+  expect_equal(sum(x$tier3_candidates), sum(t$award_tier == "SUBAWARD"))
+  expect_equal(sum(x$tier3_candidates), 1L)
+  expect_equal(x$disposition[x$tier3_candidates > 0], "RHTP_BUT_NOT_A_SUBAWARD")
+  # a Tier 3 candidate no group describes refuses the build
+  extra <- t[t$award_tier == "SUBAWARD", ][1, ]
+  extra$source_doc_title <- "TN - 2026 - Some Other Roster"
+  expect_error(tn_rcj_disposition(rt = rbind(rt, extra), d = committed),
+               "does not describe")
+  # and the committed CSV is what the builder writes
+  dispo <- readr::read_csv(TN_DISPO_CSV, show_col_types = FALSE)
+  expect_equal(dispo$tier3_candidates, x$tier3_candidates)
+  expect_equal(dispo$note, x$note)
 })
 
 test_that("RAMP is recorded as STATE money and never as a row", {

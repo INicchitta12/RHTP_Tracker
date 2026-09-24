@@ -672,45 +672,146 @@ de_status_table <- function() {
   )
 }
 
-de_disposition <- function() {
-  rt <- rhtp_record_table_live()
-  de <- rt %>% dplyr::filter(.data$state == DE_STATE)
-  t3 <- de %>% dplyr::filter(.data$award_tier == "SUBAWARD")
-  if (nrow(t3) != 6L) {
-    stop("[DE] this disposition covers SIX Tier 3 candidates and the record ",
-         "table now holds ", nrow(t3), ". Read the new ones before rebuilding.",
+# Session 63: the source that disposes of the seven NEW candidates on the
+# 2026-09-24 pull. Archived read-only with its own manifest.
+DE_DDD_ARCHIVE <- file.path(
+  "data", "evidence", "recheck", "2026-09-24", "DE",
+  "2026-09-10_de_dsha_downtown_development_districts_STATE_PROGRAM.html")
+DE_SBHC_MARKER <- "Four New School-Based Health Centers"
+DE_DDD_MARKER  <- "downtown development districts"
+DE_BUDGET_MARKER <- "Executive Budget Summary"
+DE_HRSA_MARKER <- "HRSA"
+
+de_rcj_candidates <- function(include_withdrawn = FALSE) {
+  rhtp_record_table_live(include_withdrawn = include_withdrawn) %>%
+    dplyr::filter(.data$state == DE_STATE, .data$award_tier == "SUBAWARD")
+}
+
+#' The DDD release names RCJ's seven rows, at RCJ's figures, as STATE money
+de_assert_ddd_is_state_money <- function(rows, txt = NULL) {
+  if (is.null(txt)) {
+    p <- here::here(DE_DDD_ARCHIVE)
+    txt <- de_reduce_html(readBin(p, "raw", file.size(p)))
+  }
+  for (need in c("Downtown Development Districts (DDD) rebate program",
+                 "thankful for the state appropriations")) {
+    if (!stringr::str_detect(txt, stringr::fixed(need))) {
+      stop("[DE] the DSHA release no longer reads '", need, "'.", call. = FALSE)
+    }
+  }
+  if (stringr::str_detect(txt, "(?i)RHTP|Rural Health Transformation")) {
+    stop("[DE] the DSHA DDD release now mentions RHTP. Re-read it.",
          call. = FALSE)
   }
+  for (i in seq_len(nrow(rows))) {
+    line <- paste0(rows$awardee_name_clean[i], "\n$",
+                   format(rows$amount_announced[i], big.mark = ",",
+                          scientific = FALSE))
+    if (!stringr::str_detect(txt, stringr::fixed(line))) {
+      stop("[DE] RCJ's '", rows$awardee_name_clean[i], "' at $",
+           rows$amount_announced[i], " is not a DDD reservation on DSHA's ",
+           "release.", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+#' Why each of RCJ's Delaware Tier 3 candidates is, or is not, an award row
+#'
+#' Every count is derived from the record table, the prose is built from the
+#' counts, and the table REFUSES a live candidate no group describes.
+de_disposition <- function(t3 = NULL, wd = NULL) {
+  if (is.null(t3)) t3 <- de_rcj_candidates()
+  if (is.null(wd)) {
+    all <- de_rcj_candidates(include_withdrawn = TRUE)
+    wd  <- all[all$change_status %in% "WITHDRAWN", , drop = FALSE]
+  }
+  has <- function(x, m) stringr::str_detect(x$source_doc_title,
+                                            stringr::fixed(m))
+  sbhc <- t3[has(t3, DE_SBHC_MARKER), , drop = FALSE]
+  ddd  <- t3[stringr::str_detect(t3$source_doc_title,
+                                 stringr::regex(DE_DDD_MARKER,
+                                                ignore_case = TRUE)), ,
+             drop = FALSE]
+  bud  <- t3[has(t3, DE_BUDGET_MARKER), , drop = FALSE]
+  hrsa <- t3[has(t3, DE_HRSA_MARKER), , drop = FALSE]
+  n_cov <- nrow(sbhc) + nrow(ddd) + nrow(bud) + nrow(hrsa)
+  if (n_cov != nrow(t3)) {
+    stop("[DE] ", nrow(t3) - n_cov, " live Delaware Tier 3 candidate(s) come ",
+         "from none of the documents this disposition covers. No group ",
+         "describes them. Read the new ones before rebuilding.", call. = FALSE)
+  }
+  # The four school-based rows ARE this file's four award rows: the awardee
+  # half of RCJ's "<recipient> - <site>" string, one row each.
+  aw <- de_year1_awardees()
+  rcj_rec <- stringr::str_remove(sbhc$awardee_name_clean, " - .*$")
+  if (!identical(sort(rcj_rec), sort(aw$awardee))) {
+    stop("[DE] RCJ's school-based health centre rows no longer name exactly ",
+         "the recipients in de_year1_awardees.csv.", call. = FALSE)
+  }
+  if (nrow(ddd)) de_assert_ddd_is_state_money(ddd)
+  w_sbhc <- sum(has(wd, DE_SBHC_MARKER))
+  w_hrsa <- sum(has(wd, DE_HRSA_MARKER))
+  if (w_sbhc + w_hrsa != nrow(wd)) {
+    stop("[DE] a withdrawn Delaware candidate is neither a re-keyed school-",
+         "based row nor La Red's HRSA row. Read it.", call. = FALSE)
+  }
+  money <- function(x) format(sum(x, na.rm = TRUE), big.mark = ",",
+                              scientific = FALSE)
+  n_all <- nrow(t3)
+
   tibble::tribble(
-    ~state, ~group, ~rcj_rows, ~disposition, ~evidence,
-    DE_STATE, "School-based health centre awards", 4L,
+    ~state, ~group, ~rcj_rows, ~withdrawn_rows, ~disposition, ~evidence,
+    DE_STATE, "School-based health centre awards", nrow(sbhc), w_sbhc,
     "REAL_AWARDS_CARRIED_AT_A_$1_PLACEHOLDER",
-    paste0("RCJ carries all four, NAMED EXACTLY AS DELAWARE PRINTS THEM ",
-           "(site and all), at an amount of $1 each. Missouri's and Maine's ",
-           "placeholder mechanism: the aggregator is RIGHT about the ",
-           "recipients and says nothing usable about the money, so no amount ",
-           "check can see the defect -- EXCEPT THAT STAGE 2 ALREADY CAUGHT ",
-           "IT: all four carry `flag_reason = AMOUNT_IMPLAUSIBLE_LOW` in the ",
-           "committed record table, which is the $1 placeholder showing up ",
-           "as a plausibility failure four sessions before anyone read the ",
-           "release. These four ARE this file's rows, and the amounts come ",
-           "from Delaware -- which published none."),
-    DE_STATE, "Delaware State Housing Authority", 1L,
+    paste0("RCJ carries all ", nrow(sbhc), ", NAMED EXACTLY AS DELAWARE ",
+           "PRINTS THEM (site and all), at an amount of $1 each. Missouri's ",
+           "and Maine's placeholder mechanism: the aggregator is RIGHT about ",
+           "the recipients and says nothing usable about the money, so no ",
+           "amount check can see the defect -- EXCEPT THAT STAGE 2 ALREADY ",
+           "CAUGHT IT: every one carries `flag_reason = ",
+           "AMOUNT_IMPLAUSIBLE_LOW`, which is the $1 placeholder showing up ",
+           "as a plausibility failure. These ARE this file's rows, and the ",
+           "amounts come from Delaware -- which published none. ON THE ",
+           "2026-09-24 PULL RCJ RE-KEYED THEM: the ", w_sbhc, " rows first ",
+           "seen 2026-08-27 were WITHDRAWN and the same ", nrow(sbhc),
+           " recipients re-filed under new record ids with rewritten ",
+           "descriptions -- the same four awards, not new ones."),
+    DE_STATE, "Downtown Development Districts rebate reservations -- DSHA",
+    nrow(ddd), 0L, "NOT_RHTP_STATE_PROGRAM",
+    paste0(nrow(ddd), " of Delaware's ", n_all, " live Tier 3 candidates, ",
+           "first seen on the 2026-09-24 pull, all from DSHA's 2026-09-10 ",
+           "release 'Large Projects Awarded Downtown Development Districts ",
+           "Funding Reservations' ($", money(ddd$amount_announced), " to ",
+           "real-estate investors: ", paste(ddd$awardee_name_clean,
+                                            collapse = "; "), "). §0.1 ",
+           "FAILURE MODE 1, the wrong programme, and not health care at all: ",
+           "DSHA's Downtown Development Districts rebate program, established ",
+           "2014, funded by 'state appropriations' ('$47.4 million in state ",
+           "funds'), reserving rebates for commercial and residential ",
+           "revitalisation. The release mentions RHTP, 'Rural Health ",
+           "Transformation', 'federal' and 'CMS' ZERO times. It shares only ",
+           "a publisher (news.delaware.gov) with the school-based release. ",
+           "Archived: ", DE_DDD_ARCHIVE, "."),
+    DE_STATE, "Delaware State Housing Authority", nrow(bud), 0L,
     "TIER_2_BUDGET_LINE",
-    paste0("$11,500,000, sourced to 'DE - 2025 - Delaware RHTP Executive ",
-           "Budget Summary'. A budget-narrative line item, not a subaward ",
-           "(Oklahoma's and Connecticut's tier defect). DHSS's programme ",
-           "page carries no housing initiative among its fifteen."),
-    DE_STATE, "La Red Health Center, Inc.", 1L,
-    "NOT_RHTP_FEDERAL_PROVENANCE_ALREADY_QUARANTINED",
-    paste0("$250,000, sourced to 'FY 2025: HRSA's Rural Health Grants ",
-           "Delaware Fact Sheet'. THE ORIGINAL §6.2 FINDING, from Stage 0: ",
-           "a different FEDERAL programme's money on a HRSA document, which ",
-           "is why the provenance filter exists at all. It is already ",
-           "QUARANTINED in the record table with `PROVENANCE_MISMATCH`, ",
-           "which is why the 50-state survey counts FIVE Delaware candidates ",
-           "and the record table holds SIX -- the survey counts PASS and ",
-           "FLAGGED rows only. This disposition covers all six.")
+    paste0("$", money(bud$amount_announced), ", sourced to 'DE - 2025 - ",
+           "Delaware RHTP Executive Budget Summary'. A budget-narrative line ",
+           "item, not a subaward (Oklahoma's and Connecticut's tier defect): ",
+           "RCJ's own description is the renovation of two state-owned ",
+           "buildings as Rural Hope Centers, which is DHSS's 'Hope Centers' ",
+           "initiative -- one of its fifteen, with a Year 1 budget and no ",
+           "recipient named (de_year1_status.csv)."),
+    DE_STATE, "La Red Health Center, Inc. (WITHDRAWN BY RCJ)", nrow(hrsa),
+    w_hrsa, "NOT_RHTP_FEDERAL_PROVENANCE_ALREADY_QUARANTINED",
+    paste0("RCJ WITHDREW THIS ROW ON THE 2026-09-24 PULL; ", nrow(hrsa),
+           " live. It was $250,000, sourced to 'FY 2025: HRSA's Rural Health ",
+           "Grants Delaware Fact Sheet'. THE ORIGINAL §6.2 FINDING, from ",
+           "Stage 0: a different FEDERAL programme's money on a HRSA ",
+           "document, which is why the provenance filter exists at all; it ",
+           "was QUARANTINED with `PROVENANCE_MISMATCH`. Kept, not deleted: ",
+           "withdrawal is a fact about the aggregator, and if RCJ re-files ",
+           "it this group describes it again.")
   )
 }
 
@@ -827,6 +928,7 @@ de_build <- function() {
   message("[DE] wrote ", DE_STATUS_CSV, " (", nrow(st), " rows)")
 
   dp <- de_disposition()
+  rhtp_assert_disposition_prose(dp, "DE")
   readr::write_csv(dp, DE_DISPO_CSV)
   message("[DE] wrote ", DE_DISPO_CSV, " (", nrow(dp), " rows)")
 

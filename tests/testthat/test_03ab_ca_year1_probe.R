@@ -9,6 +9,11 @@
 # awards, and they are a state cigarette-tax seismic programme. Nothing about
 # them looks wrong. So the tests that matter most are the ones that would fail
 # if the SRHRP page ever stopped saying what disqualifies it.
+#
+# SESSION 63: RCJ withdrew all eleven on the 2026-09-24 pull and filed four
+# rows from a SECOND HCAI state hospital programme (the Distressed Hospital
+# Small Grant Program, Budget Act of 2025). Same defect, new money; both are
+# pinned below.
 
 source(here::here("R", "03ab_ca_year1_probe.R"))
 
@@ -286,25 +291,79 @@ test_that("the newsroom tripwire fires the day CalRHT appears there", {
 
 # -- §0.1: the candidate set --------------------------------------------------
 
-test_that("all eleven RCJ candidates are SRHRP, and eleven are named hospitals", {
+test_that("the live candidates are the Distressed Hospital Small Grant rows", {
+  # Session 63: on the 2026-09-24 pull RCJ withdrew the eleven SRHRP rows and
+  # filed four from HCAI's Distressed Hospital Small Grant Program -- a second
+  # HCAI STATE hospital programme, at exactly HCAI's published awards.
   cands <- ca_rcj_candidates()
-  expect_equal(nrow(cands), 11L)
+  expect_equal(nrow(cands), 4L)
   prov <- paste(cands$source_doc_title, cands$solicitation_number)
   expect_true(all(stringr::str_detect(prov,
-                                      stringr::fixed(CA_SRHRP_SOURCE_MARKER))))
+                                      stringr::fixed(CA_DHSG_SOURCE_MARKER))))
+  expect_equal(sum(cands$amount_announced), 25000000)
   dispo <- rhtp_ca_rcj_disposition(cands)
-  expect_equal(nrow(dispo), 1L)
-  expect_equal(dispo$rows[1], 11L)
-  expect_equal(dispo$named_hospital_rows[1], 11L)
-  expect_equal(dispo$rcj_amount_sum[1], 5475000)
-  expect_equal(dispo$disposition[1], "NOT_RHTP_STATE_PROGRAM")
+  expect_equal(nrow(dispo), 2L)
+  expect_equal(dispo$rows, c(4L, 0L))
+  expect_equal(dispo$withdrawn_rows, c(0L, 11L))
+  expect_equal(dispo$named_hospital_rows, c(4L, 0L))
+  expect_equal(dispo$rcj_amount_sum, c(25000000, 0))
+  expect_true(all(dispo$disposition == "NOT_RHTP_STATE_PROGRAM"))
+  expect_silent(rhtp_assert_disposition_prose(dispo, "CA"))
+})
+
+test_that("the disposition's groups cover every live candidate", {
+  cands <- ca_rcj_candidates()
+  dispo <- rhtp_ca_rcj_disposition(cands)
+  expect_equal(sum(dispo$rows), nrow(cands))
+})
+
+test_that("the Distressed Hospital Small Grant Program is STATE money, archived", {
+  p <- here::here(CA_DHSG_ARCHIVE)
+  expect_true(file.exists(p))
+  expect_equal(digest::digest(file = p, algo = "sha256"),
+               "ac550e673fe873fe1835f5331916dfcdfd66b18afd6cf8be62e70aa2cab5cb51")
+  txt <- ca_reduce_html(readBin(p, "raw", file.size(p)))
+  expect_silent(ca_assert_dhsg_is_not_rhtp(txt))
+  # HCAI's table and RCJ's four rows agree to the dollar.
+  cands <- ca_rcj_candidates()
+  for (i in seq_len(nrow(cands))) {
+    expect_true(stringr::str_detect(txt, stringr::fixed(
+      paste0(cands$awardee_name_clean[i], " $",
+             format(cands$amount_announced[i], big.mark = ",",
+                    scientific = FALSE)))))
+  }
+  expect_error(
+    ca_assert_dhsg_is_not_rhtp(stringr::str_remove(
+      txt, stringr::fixed(CA_DHSG_STATE_FUNDED[["revert"]]))),
+    "no longer says")
+  expect_error(ca_assert_dhsg_is_not_rhtp(paste(txt, "CalRHT")), "mentions RHTP")
+})
+
+test_that("the SRHRP finding survives its withdrawal", {
+  all_c <- ca_rcj_candidates(include_withdrawn = TRUE)
+  w <- all_c[all_c$change_status %in% "WITHDRAWN", ]
+  expect_equal(nrow(w), 11L)
+  expect_true(all(stringr::str_detect(w$source_doc_title,
+                                      stringr::fixed(CA_SRHRP_SOURCE_MARKER))))
+  expect_equal(sum(w$amount_announced), 5475000)
+  # RCJ carried components, not grants: George L Mee's $780,000 as two rows.
+  mee <- w$amount_announced[stringr::str_detect(w$awardee_name_clean,
+                                                stringr::fixed("George L Mee"))]
+  expect_equal(sum(mee), 780000)
+  expect_true(stringr::str_detect(ca_html_text("srhrp"),
+                                  stringr::fixed("$780,000")))
+  # Re-labelled live, the SRHRP group describes them again.
+  back <- w; back$change_status <- "NEW"
+  dispo <- rhtp_ca_rcj_disposition(dplyr::bind_rows(ca_rcj_candidates(), back),
+                                   withdrawn = w[0, ])
+  expect_equal(dispo$rows, c(4L, 11L))
 })
 
 test_that("the disposition refuses a candidate it does not cover", {
   cands <- ca_rcj_candidates()
   cands$source_doc_title[1] <- "CA - 2026 - CalRHT Accelerator Partner Awards"
   cands$solicitation_number[1] <- NA_character_
-  expect_error(rhtp_ca_rcj_disposition(cands), "are NOT from")
+  expect_error(rhtp_ca_rcj_disposition(cands), "No group describes them")
 })
 
 test_that("the counts are derived from the record table, never typed", {
@@ -315,31 +374,18 @@ test_that("the counts are derived from the record table, never typed", {
                dplyr::n_distinct(cands$awardee_name_clean))
 })
 
-test_that("RCJ carries components, not grants -- so the row count is not the award count", {
-  # George L Mee Memorial Hospital appears twice at $500,000 and $280,000,
-  # which is HCAI's own published $780,000 grant split into its line items.
-  cands <- ca_rcj_candidates()
-  mee <- cands$amount_announced[
-    stringr::str_detect(cands$awardee_name_clean,
-                        stringr::fixed("George L Mee"))]
-  expect_length(mee, 2L)
-  expect_equal(sum(mee), 780000)
-  expect_true(stringr::str_detect(ca_html_text("srhrp"),
-                                  stringr::fixed("$780,000")))
-})
-
-test_that("the §6.2 registry catches all eleven, and by two filters", {
+test_that("the §6.2 sweep does NOT catch the Distressed Hospital rows, and says so", {
+  # The date test cannot reach them (HCAI awarded 2026-05-29, after the NOA,
+  # and RCJ dates them only by a refused title-year), and the state-programme
+  # registry has no entry for this programme. Recorded, not patched here: the
+  # disposition is what keeps them out of any award file.
   swept <- readr::read_csv(
     here::here("data", "reference", "provenance_sweep_by_state.csv"),
     show_col_types = FALSE)
   ca <- swept[swept$state == "CA", ]
-  expect_equal(ca$tier3_candidates, 11L)
-  expect_equal(ca$caught_by_registry, 11L)
-  # And the date test reaches them independently: the registry row supplies a
-  # programme date (HCAI's own 2025-02-19 SRHRP webinar) for rows RCJ carries
-  # no date for at all. New Hampshire's pattern -- two §6.2 filters, one row.
-  expect_equal(ca$caught_predates_noa, 11L)
-  expect_equal(ca$caught_amount, 5475000)
+  expect_equal(ca$tier3_candidates, nrow(ca_rcj_candidates()))
+  expect_equal(ca$caught_total, 0L)
+  expect_equal(ca$refused_rcj_year, 4L)
 })
 
 test_that("California reads INVESTIGATED_NO_LIST, so it cannot rank 1 again", {

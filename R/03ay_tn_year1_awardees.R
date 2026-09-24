@@ -321,22 +321,85 @@ tn_status_table <- function() {
   )
 }
 
-tn_rcj_disposition <- function() {
-  rt <- rhtp_record_table_live()
+#' Why each RCJ Tennessee record is, or is not, an RHTP subaward
+#'
+#' Session 59 wrote this against the 2026-08-27 pull, which held no Tennessee
+#' Tier 3 candidate and predated TDH's roster by seven days. Session 63 re-read
+#' it against the 2026-09-24 pull, which postdates the roster by 21 days and
+#' STILL carries none of its 53 recipients: RCJ holds TDH's announcement as a
+#' single UNASSIGNED document record and extracted nobody from it. Its one
+#' live Tier 3 candidate is a $1 row from the Governor's announcement of the
+#' state's APPLICATION.
+#'
+#' `records` counts every RCJ Tennessee record in the group; `tier3_candidates`
+#' counts the SUBAWARD ones, and the groups partition both. Every figure in the
+#' prose is derived here, never typed.
+tn_rcj_disposition <- function(rt = rhtp_record_table_live(),
+                               d = NULL) {
   t <- rt[rt$state == TN_STATE, ]
-  hart <- grepl("HART|Healthy Active", paste(t$source_doc_title,
-                                             t$program_description),
-                ignore.case = TRUE)
-  tibble::tribble(
-    ~state, ~group, ~records, ~disposition, ~note,
-    TN_STATE, "All RCJ Tennessee records (pull 2026-08-27)", nrow(t),
-    "NO_TIER_3", paste0("Zero SUBAWARD records. The only committed national pull (last_seen ",
-                        max(t$last_seen, na.rm = TRUE), ") predates TDH's 2026-09-03 roster by seven days."),
-    TN_STATE, "HART records", sum(hart),
-    "SOLICITATION_STAGE", paste0(sum(hart & t$award_tier == "SOLICITATION"),
-      " SOLICITATION + ", sum(hart & t$award_tier == "UNASSIGNED"),
-      " UNASSIGNED: RCJ held RFA #34320-18526 (HART) as an opportunity -- one copy titled 'TN - 2024 - ...', the aggregator's year prefix, never a date (§2).")
+  if (is.null(d)) d <- readr::read_csv(TN_CSV, show_col_types = FALSE)
+  tier3 <- t$award_tier == "SUBAWARD"
+  txt <- paste(t$source_doc_title, t$program_description)
+  roster <- grepl("1ST Recipients of Rural Health Transformation", txt,
+                  ignore.case = TRUE)
+  proposal <- tier3 & grepl("Announcement of Tennessee's Proposal",
+                            t$source_doc_title, fixed = TRUE)
+  hart <- !roster & !proposal &
+    grepl("HART|Healthy Active", txt, ignore.case = TRUE)
+  other <- !(roster | proposal | hart)
+  # Coverage: every live Tier 3 candidate must sit in a group that says why.
+  if (any(tier3 & !proposal)) {
+    stop("[TN] RCJ carries ", sum(tier3 & !proposal), " Tennessee Tier 3 ",
+         "candidate(s) this disposition does not describe: ",
+         paste(t$awardee_name_raw[tier3 & !proposal], collapse = "; "),
+         ". Read them before rebuilding.", call. = FALSE)
+  }
+  uthsc_on_roster <- any(grepl("Health Science Center", d$awardee,
+                               ignore.case = TRUE))
+  if (uthsc_on_roster) {
+    stop("[TN] UTHSC now appears on TDH's roster; re-read the proposal row.",
+         call. = FALSE)
+  }
+  pull <- max(t$last_seen, na.rm = TRUE)
+  lag <- as.integer(as.Date(pull) - TN_ANNOUNCED)
+  out <- tibble::tribble(
+    ~state, ~group, ~records, ~tier3_candidates, ~disposition, ~note,
+    TN_STATE, "TDH's 2026-09-03 HART award announcement", sum(roster),
+    sum(tier3 & roster), "NO_TIER_3",
+    paste0("RCJ's pull of ", pull, " postdates TDH's roster by ", lag,
+           " days and carries the announcement as ", sum(roster),
+           " ", paste(unique(t$award_tier[roster]), collapse = "/"),
+           " document record -- and extracts none of its ", nrow(d),
+           " named recipients. On the 2026-08-27 pull the only reason was ",
+           "timing; on this one the aggregator has the document and did not ",
+           "parse it. tn_year1_awardees.csv is built from TDH's own workbook, ",
+           "never from RCJ (§0.1)."),
+    TN_STATE, "University of Tennessee Health Science Center, from the Governor's application announcement",
+    sum(proposal), sum(tier3 & proposal), "RHTP_BUT_NOT_A_SUBAWARD",
+    paste0("RCJ's only Tennessee Tier 3 candidate, priced at $",
+           paste(unique(trimws(t$amount_announced[proposal])), collapse = "/"),
+           " (Missouri's placeholder), under a document titled '",
+           unique(t$source_doc_title[proposal]),
+           "' -- the announcement that Tennessee had SUBMITTED ITS APPLICATION, ",
+           "before the ", format(TN_NOA_DATE), " Notice of Award. A partner named in ",
+           "a plan is not a recipient (§0.3), and UTHSC is on none of the ",
+           nrow(d), " rows of TDH's award roster. Its 'TN - 2025' prefix is the ",
+           "aggregator's, never a date (§2)."),
+    TN_STATE, "HART records", sum(hart), sum(tier3 & hart),
+    "SOLICITATION_STAGE",
+    paste0(sum(hart & t$award_tier == "SOLICITATION"), " SOLICITATION + ",
+           sum(hart & t$award_tier == "UNASSIGNED"),
+           " UNASSIGNED: RCJ held RFA #34320-18526 (HART) as an opportunity -- ",
+           "one copy titled 'TN - 2024 - ...', the aggregator's year prefix, ",
+           "never a date (§2)."),
+    TN_STATE, "All other RCJ Tennessee records", sum(other),
+    sum(tier3 & other), "NO_TIER_3",
+    paste0(paste(names(table(t$award_tier[other])), table(t$award_tier[other]),
+                 collapse = ", "),
+           ": solicitations, amendments, the allotment and programme material. ",
+           "None names a recipient.")
   )
+  rhtp_assert_disposition_prose(out, TN_STATE)
 }
 
 tn_validate <- function() {
@@ -356,7 +419,7 @@ tn_build <- function() {
   d <- tn_validate()
   readr::write_csv(d, TN_CSV, na = "")
   readr::write_csv(tn_status_table(), TN_STATUS_CSV, na = "")
-  readr::write_csv(tn_rcj_disposition(), TN_DISPO_CSV, na = "")
+  readr::write_csv(tn_rcj_disposition(d = d), TN_DISPO_CSV, na = "")
   message("[TN] wrote 53 award rows, 2 named-hospital rows, $0.")
 }
 

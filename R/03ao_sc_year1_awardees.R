@@ -1816,29 +1816,144 @@ sc_status_table <- function() {
   )
 }
 
+#' RCJ's live South Carolina Tier 3 candidates
+sc_rcj_candidates <- function() {
+  rhtp_record_table_live() %>%
+    dplyr::filter(.data$state == SC_STATE, .data$award_tier == "SUBAWARD")
+}
+
+#' Match each live candidate to the parsed award list
+#'
+#' ON (NAME, AMOUNT) FIRST, and never on a name alone (§2). What is left is
+#' then paired to this file's own HARD rows -- the 33 whose name wraps and the
+#' one printed `I2` -- ON AMOUNT, and only as a MULTISET: the leftover
+#' candidates' amounts must be exactly the hard rows' amounts, or the build
+#' stops. That is a claim that RCJ carries those awards at the right figure
+#' under a name it assembled wrongly, and nothing more: it never re-names a
+#' row. Returns the candidates with `match` (IN_FILE | CORRUPTED_NAME | NA)
+#' and, as an attribute, the award-list rows no candidate covers.
+sc_rcj_match <- function(cands = sc_rcj_candidates(),
+                         d = sc_parse_award_list()) {
+  key <- function(nm, amt) {
+    paste(stringr::str_squish(nm), formatC(round(amt, 2), format = "f",
+                                           digits = 2), sep = " | ")
+  }
+  roster <- key(d$awardee, d$amount)
+  used <- rep(FALSE, nrow(d))
+  cands$match <- NA_character_
+  for (i in seq_len(nrow(cands))) {
+    j <- which(roster == key(cands$awardee_name_raw[i],
+                             cands$amount_announced[i]) & !used)
+    if (length(j)) {
+      used[j[1]] <- TRUE
+      cands$match[i] <- "IN_FILE"
+    }
+  }
+  hard <- which(!used & (d$name_lines > 1L |
+                           d$row_label == SC_MALFORMED_ROW_LABEL))
+  left <- which(is.na(cands$match))
+  a_left <- sort(round(cands$amount_announced[left], 2))
+  a_hard <- sort(round(d$amount[hard], 2))
+  if (!identical(a_left, a_hard)) {
+    stop("[SC] after the exact (name, amount) match, ", length(left),
+         " candidate(s) remain against ", length(hard), " wrapped or ",
+         "malformed award-list row(s), and their amounts are not the same ",
+         "multiset. The pairing below is only honest when they are; read the ",
+         "leftover candidates before rebuilding (§0.1).", call. = FALSE)
+  }
+  cands$match[left] <- "CORRUPTED_NAME"
+  used[hard] <- TRUE
+  attr(cands, "hard_rows") <- length(hard)
+  attr(cands, "uncovered") <- d[!used, , drop = FALSE]
+  attr(cands, "roster_rows") <- nrow(d)
+  cands
+}
+
 #' Why each of RCJ's South Carolina Tier 3 candidates is, or is not, an award
-sc_disposition <- function() {
-  n <- sc_rcj_candidate_count()
-  tibble::tibble(
-    state = SC_STATE,
-    disposition = "NO_RCJ_TIER3_CANDIDATES",
-    rcj_candidates = n,
-    note = paste0(
-      "South Carolina carries ", n, " RCJ Tier 3 candidates -- against 33 RCJ ",
-      "records in total, all SOLICITATION, STATE_ALLOTMENT or UNASSIGNED -- ",
-      "while publishing 228 named, priced award actions worth ",
-      "$167,299,900.69. A ZERO HERE IS A FACT ABOUT THE DISCOVERY LAYER AND ",
-      "NEVER ABOUT THE STATE (§0.1). Florida, North Carolina, Arkansas and ",
-      "Wyoming are the standing proofs and South Carolina is the fifth, at ",
-      "$167.3M the third largest of the five in dollars after Florida's ",
-      "$188.2M and Wyoming's $173.9M. IT IS NOT QUITE THEIR SHAPE, THOUGH, ",
-      "AND THE DIFFERENCE IS WORTH KEEPING: those four were invisible to ",
-      "BOTH discovery layers (trigger_source = NEITHER), while South Carolina ",
-      "is invisible to RCJ alone and reached the trigger list through CMS's ",
-      "newsroom on 2026-09-17 -- two days AFTER SCDHHS had already posted the ",
-      "roster, so the trigger followed the publication rather than finding ",
-      "it."),
-    source_url = sc_source("award_list", "url"))
+#'
+#' ON THE 2026-08-27 PULL RCJ carried no South Carolina row at Tier 3 at all,
+#' which was a fact about the discovery layer (§0.1). By the 2026-09-24 pull it
+#' carries the award list SCDHHS posted on 2026-09-15, so the disposition is a
+#' reconciliation against this file's own parse.
+sc_disposition <- function(cands = sc_rcj_candidates(),
+                           d = sc_parse_award_list()) {
+  m <- sc_rcj_match(cands, d)
+  if (any(is.na(m$match))) {
+    stop("[SC] ", sum(is.na(m$match)), " live Tier 3 candidate(s) fit no ",
+         "group in this disposition. Read them before rebuilding.",
+         call. = FALSE)
+  }
+  n_in <- sum(m$match == "IN_FILE")
+  n_bad <- sum(m$match == "CORRUPTED_NAME")
+  unc <- attr(m, "uncovered")
+  rt <- rhtp_record_table_live()
+  all_sc <- rt[rt$state == SC_STATE, , drop = FALSE]
+  # Where does the uncovered award sit in the record table, if anywhere?
+  where <- purrr::map_chr(seq_len(nrow(unc)), function(i) {
+    hit <- all_sc[!is.na(all_sc$amount_announced) &
+                    abs(all_sc$amount_announced - unc$amount[i]) < 0.005 &
+                    stringr::str_squish(all_sc$awardee_name_raw) ==
+                    stringr::str_squish(unc$awardee[i]), , drop = FALSE]
+    if (nrow(hit) == 0) return(paste0(unc$awardee[i], " -- not in RCJ at all"))
+    paste0(unc$awardee[i], " ($", formatC(unc$amount[i], format = "f",
+                                          digits = 2, big.mark = ","),
+           ") -- RCJ carries it, and Stage 2 tiered it ", hit$award_tier[1],
+           " (", dplyr::coalesce(hit$flag_reason[1], "no flag"), ")")
+  })
+  money <- function(x) paste0("$", formatC(x, format = "f", digits = 2,
+                                           big.mark = ","))
+  bad <- m[m$match == "CORRUPTED_NAME", ]
+  spliced <- bad$awardee_name_raw[stringr::str_detect(
+    bad$awardee_name_raw, "^[^()]*\\) ")]
+  n_splice <- length(spliced)
+  n_label <- sum(stringr::str_detect(
+    bad$awardee_name_raw, paste0("^", SC_MALFORMED_ROW_LABEL, " ")))
+
+  disp <- tibble::tribble(
+    ~state, ~group, ~rcj_candidates, ~disposition, ~note, ~source_url,
+    SC_STATE, "The award list, carried exactly", n_in,
+    "RHTP_SUBAWARD_IN_FILE",
+    paste0(n_in, " rows carry an award in sc_year1_awardees.csv under ",
+           "SCDHHS's own spelling AND at SCDHHS's own figure. RCJ holds ",
+           n_in + n_bad, " of the list's ", attr(m, "roster_rows"),
+           " award actions in all (this group and the next), against ",
+           nrow(all_sc), " South Carolina RCJ records, and prices every one ",
+           "it holds correctly. On the 2026-08-27 pull it carried none of ",
+           "them: the roster was posted 2026-09-15, CMS's newsroom followed ",
+           "on 2026-09-17, and the aggregator by the 2026-09-24 pull. §0.1 ",
+           "still governs -- the file is built from the archived PDF, never ",
+           "from RCJ."),
+    sc_source("award_list", "url"),
+    SC_STATE, "The award list's HARD rows, under a name RCJ assembled wrongly",
+    n_bad, "RHTP_SUBAWARD_IN_FILE_UNDER_A_CORRUPTED_NAME",
+    paste0(n_bad, " rows are EXACTLY this file's ", attr(m, "hard_rows"),
+           " hard rows -- the ", sum(d$name_lines > 1L), " whose name wraps ",
+           "over two lines with the number and amount painted at the ",
+           "midpoint, plus the row printed '", SC_MALFORMED_ROW_LABEL, "' -- ",
+           "and RCJ carries every one at the right figure (paired as a ",
+           "multiset of amounts, never renamed) under a name it welded from ",
+           "the wrong lines. ", n_splice, " of them OPEN on a stray fragment, ",
+           "the tail of a parenthetical from another painted line, e.g. ",
+           paste0("'", utils::head(spliced, 2), "'", collapse = " and "),
+           ", so such a name does not reliably identify the award's own ",
+           "facility, while the money is right.",
+           if (n_label) paste0(" ", n_label, " carries the '",
+                               SC_MALFORMED_ROW_LABEL, "' row label INTO the ",
+                               "awardee name.") else "",
+           " Session 47's interleaving finding, made by the aggregator: a ",
+           "line-model reader cannot assemble these rows either."),
+    sc_source("award_list", "url"),
+    SC_STATE, "Award-list rows that are not a Tier 3 candidate", 0L,
+    "RHTP_SUBAWARD_OFF_TIER_3_IN_STAGE_2",
+    paste0(nrow(unc), " award action(s) have no Tier 3 candidate: ",
+           paste(where, collapse = "; "), ". This is THIS PIPELINE'S rule ",
+           "and not the aggregator dropping a row: §6.1 never defaults an ",
+           "agency-named record to SUBAWARD. The award is in ",
+           "sc_year1_awardees.csv from the state's own list."),
+    sc_source("award_list", "url")
+  )
+  rhtp_assert_disposition_prose(disp, SC_STATE)
+  disp
 }
 
 #' The candidate count, re-derived from the committed record table every run

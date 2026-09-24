@@ -357,9 +357,9 @@ test_that("a SECOND document corroborates that no per-recipient amount exists", 
 })
 
 
-# -- §0.1: RCJ's 34 candidates -------------------------------------------------
+# -- §0.1: RCJ's candidates (34 on 08-27, 42 on 09-24) ------------------------
 
-test_that("all 34 candidates are dispositioned, and the arithmetic closes", {
+test_that("every live candidate is dispositioned, and the arithmetic closes", {
   skip_if_no_archive()
   expect_true(nv_assert_candidate_disposition())
   cand <- nv_classify_candidates()
@@ -368,6 +368,50 @@ test_that("all 34 candidates are dispositioned, and the arithmetic closes", {
   d <- nv_disposition_table()
   expect_equal(sum(d$rcj_rows), nrow(cand))
   expect_equal(sum(d$rcj_amount_sum), sum(cand$amount_announced, na.rm = TRUE))
+  # the groups cover the LIVE set, read directly rather than through the builder
+  rt <- rhtp_record_table_live()
+  expect_equal(sum(d$rcj_rows),
+               sum(rt$state == "NV" & rt$award_tier == "SUBAWARD"))
+  expect_equal(sum(d$rcj_rows), 42L)
+  expect_silent(rhtp_assert_disposition_prose(d, "NV"))
+  # the committed CSV is what the builder writes
+  committed_d <- readr::read_csv(NV_DISPOSITION_CSV, show_col_types = FALSE)
+  expect_equal(committed_d$rcj_rows, d$rcj_rows)
+  expect_equal(committed_d$disposition, d$disposition)
+})
+
+test_that("the eight 2026-09-24 additions: three Tier 2 lines and five unresolved contractors", {
+  skip_if_no_archive()
+  cand <- nv_classify_candidates()
+  t2 <- cand[cand$disposition == "TIER_2_BUDGET_LINE_NOT_A_SUBAWARD", ]
+  expect_setequal(t2$awardee_name_clean,
+                  c("Nevada Rural Health System Flex Fund", "Presidential Fitness Test",
+                    "Rural Health Innovation and Technology (RHIT)"))
+  ven <- cand[cand$disposition == "AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED", ]
+  expect_equal(nrow(ven), 5L)
+  expect_true(all(grepl("CMS Programmatic Annual Report", ven$source_doc_title)))
+  # none of the eight is in the award file
+  recs <- nv_records()
+  expect_false(any(tolower(c(t2$awardee_name_clean, ven$awardee_name_clean)) %in%
+                     tolower(recs$awardee)))
+  # the stakeholder deck is what makes the two initiative lines Tier 2
+  deck <- paste(rhtp_pdf_text(here::here("data/evidence/recheck/2026-09-24/NV/2026-02_nv_rht_stakeholder_meetings_02.26.pdf")),
+                collapse = " ")
+  expect_match(deck, "Funding: \\$26,989,741\\*")
+  expect_match(deck, "\\$1,298,985\\*")
+  expect_match(deck, "Pending approval of revised budget")
+})
+
+test_that("NVHA's live roster (archived 09-24) is larger than the award file", {
+  skip_if_no_archive()
+  live <- nv_live_roster_sections()
+  expect_equal(nrow(live), 7L)
+  expect_equal(sum(live$awards), 155L)
+  expect_false(any(is.na(live$section)))
+  recs <- nv_records()
+  expect_equal(sum(!is.na(recs$awardee) & recs$award_pool != "WRRAP_RURAL_MEDICAL_RESIDENCY"), 72L)
+  d <- nv_disposition_table()
+  expect_match(d$why[d$disposition == "RHTP_SUBAWARD_IN_FILE"], "NOW INCOMPLETE")
 })
 
 test_that("the Rural Medical Residency POOL rows are Tier 2, not GME state money", {
@@ -404,8 +448,8 @@ test_that("the ten real candidates are IN the file, and all carry $1", {
 test_that("§0.1: the candidate list at face value is mostly not Nevada RHTP subawards", {
   skip_if_no_archive()
   inf <- nv_candidate_inflation()
-  expect_equal(inf$candidates, 34L)
-  expect_equal(inf$face_value, 131643055)
+  expect_equal(inf$candidates, 42L)
+  expect_equal(round(inf$face_value, 2), 131643055 + 68288726 + 1935762.9)
   expect_gt(inf$state_money, 28000000)
   expect_equal(inf$real_award_amount, 10)
   # RCJ holds ten of Nevada's seventy-two published award actions.
