@@ -293,7 +293,9 @@ test_that("the Texas candidates: 53 caught, and the 9 Medicaid rows WITHDRAWN", 
   # has no registry row for.
   tx <- swept %>% dplyr::filter(state == "TX")
   expect_equal(nrow(tx), 85)
-  expect_equal(sum(tx$caught), 53)
+  # 53 Rider 88 rows, plus (session 64) the three HHSC programmes registered
+  # from the dispositions: TNFP 14, Workplace Violence 4, HOPES 5.
+  expect_equal(sum(tx$caught), 53 + 14 + 4 + 5)
   all_rt <- readRDS(here::here(SWEEP_RECORD_TABLE))
   wd <- all_rt %>% dplyr::filter(state == "TX", award_tier == "SUBAWARD",
                                  change_status == "WITHDRAWN")
@@ -392,7 +394,7 @@ test_that("Rhode Island's opioid settlement rows are WITHDRAWN, and still caught
 
 # -- The sweep as a whole ----------------------------------------------------
 
-test_that("the sweep catches 66 rows in 4 states, and the arithmetic closes", {
+test_that("the sweep catches 111 rows in 8 states, and the arithmetic closes", {
   # 101 rows in 9 states through session 61 (history in git: TX 62, CA 11,
   # NV 9, MI 8, NH 3, AZ 3, RI 3, MS 1, IL 1). ON THE 2026-09-24 PULL
   # (session 62) RCJ WITHDREW every candidate five registry rows existed to
@@ -402,11 +404,49 @@ test_that("the sweep catches 66 rows in 4 states, and the arithmetic closes", {
   # candidate set too. The aggregator dropping rows this filter caught is a
   # finding about the aggregator, and the registry keeps those entries
   # (they match nothing today and say so) so a re-appearance is caught.
-  expect_equal(sum(swept$caught), 66)
-  expect_equal(sum(by_state$caught_total > 0), 4)
-  expect_equal(sum(by_state$caught_total), 66)
+  # 66 in 4 states on that pull before session 64 registered seven state
+  # programmes the dispositions had found by hand: CA Distressed Hospital 4,
+  # TX TNFP 14 / WVAN 4 / HOPES 5, DE Downtown Development 7, MI CVI 4,
+  # GA Dual Track 7 -- +45.
+  expect_equal(sum(swept$caught), 111)
+  expect_equal(sum(by_state$caught_total > 0), 8)
+  expect_equal(sum(by_state$caught_total), 111)
   expect_setequal(by_state$state[by_state$caught_total > 0],
-                  c("TX", "NV", "AZ", "MS"))
+                  c("TX", "NV", "AZ", "MS", "CA", "DE", "MI", "GA"))
+})
+
+test_that("session 64's seven registry rows each catch exactly their programme", {
+  want <- c("CA-DISTRESSED-HOSPITAL-SMALL-GRANT" = 4, "TX-HHS0016568" = 14,
+            "TX-HHS0016121" = 4, "TX-HHS0015358" = 5,
+            "DE-DSHA-DOWNTOWN-DEVELOPMENT" = 7, "MI-MDHHS-CVI-2026" = 4,
+            "GA-SORH-DUAL-TRACK" = 7)
+  got <- table(swept$registry_program[swept$caught])
+  for (k in names(want)) expect_equal(unname(got[k]), unname(want[k]), info = k)
+  expect_equal(sum(swept$amount_announced[swept$registry_program %in%
+                                            "CA-DISTRESSED-HOSPITAL-SMALL-GRANT"]),
+               25000000)
+  # Only the two pre-NOA Texas RFAs are ALSO caught by the date test.
+  pre <- swept %>% dplyr::filter(registry_program %in% names(want),
+                                 !is.na(flag_predates_noa))
+  expect_setequal(unique(pre$registry_program), c("TX-HHS0016121", "TX-HHS0015358"))
+  # Michigan's row must not claim a state appropriation its release never states.
+  mi <- registry %>% dplyr::filter(program_id == "MI-MDHHS-CVI-2026")
+  expect_match(mi$disqualifying_fact, "DOES NOT NAME ITS FUNDING SOURCE", fixed = TRUE)
+  # Georgia's series date is deliberately NOT typed: it would mark 2026 rounds pre-NOA.
+  expect_true(is.na(registry$program_date[registry$program_id == "GA-SORH-DUAL-TRACK"]))
+})
+
+test_that("Dual Track's five same-name hospitals are exempt only while amounts differ", {
+  expect_equal(nrow(rhtp_sweep_published_overlap(swept)), 0)
+  # Counterfactual: if a caught Dual Track row carried an amount some published
+  # GA row for that hospital also carries, the exemption must stop holding.
+  ga <- readr::read_csv(here::here("data/reference/ga_great_health_awards.csv"),
+                        show_col_types = FALSE)
+  upson_amt <- ga$amount[grepl("^Upson Regional", ga$awardee) & !is.na(ga$amount)][1]
+  forged <- swept %>% dplyr::mutate(amount_announced = dplyr::if_else(
+    registry_program %in% "GA-SORH-DUAL-TRACK" & grepl("^Upson", awardee_name_raw),
+    upson_amt, amount_announced))
+  expect_gt(nrow(rhtp_sweep_published_overlap(forged)), 0)
 })
 
 test_that("California's eleven SRHRP rows are WITHDRAWN, not un-caught", {
@@ -420,7 +460,10 @@ test_that("California's eleven SRHRP rows are WITHDRAWN, not un-caught", {
   ca_wd_swept <- rhtp_provenance_sweep(ca_wd %>% dplyr::mutate(
     superseded_by = NA_character_, change_status = "UNCHANGED"))
   expect_true(all(ca_wd_swept$registry_program == "CA-SRHRP-SEISMIC"))
-  expect_equal(sum(swept$caught[swept$state == "CA"]), 0)
+  # the SRHRP rows are gone; the four Distressed Hospital rows (session 64) are what CA catches now
+  expect_equal(sum(swept$caught[swept$state == "CA" &
+                                  swept$registry_program %in% "CA-SRHRP-SEISMIC"]), 0)
+  expect_equal(sum(swept$caught[swept$state == "CA"]), 4)
 })
 
 test_that("Nevada's caught rows are the nine GME programmes, and no Nevada RHTP row", {

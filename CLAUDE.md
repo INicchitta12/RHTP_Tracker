@@ -43,7 +43,7 @@ processing:
 |---|---|---|---|
 | 1 | `STATE_ALLOTMENT` | CMS award to a state | Missouri FY2026, $216.0M |
 | 2 | `SOLICITATION` | State-announced funding pool / NOFO budget | Ohio Rural CIN & Innovation Hubs, $61.7M |
-| 3 | `SUBAWARD` | Executed or intended award to a named recipient | GA Dual Track Remote Critical Care, $900K to 4 rural hospitals |
+| 3 | `SUBAWARD` | Executed or intended award to a named recipient | GA GREAT Health Workforce Retention Technology, $2,000,000 each to 13 named hospitals on DCH's signed Notice of Award |
 
 Only Tier 3 answers the project question. Tiers 1 and 2 live in separate
 reference tables, on separate Excel sheets, and are **never** unioned with Tier

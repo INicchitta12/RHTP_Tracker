@@ -401,6 +401,24 @@ rhtp_provenance_sweep_rows <- function(swept = NULL) {
 #' sources, not from RCJ, so they are the independent check on this filter:
 #' anything the sweep catches that one of them publishes is a false positive by
 #' construction.
+# SAME HOSPITAL, DIFFERENT PROGRAMME -- READ BY HAND (session 64). The overlap
+# check keys on (state, recipient NAME), so a hospital that holds a real RHTP
+# award AND a separate state grant looks like a false positive. Georgia's Dual
+# Track state grants went to five hospitals that also hold GREAT Health (RHTP)
+# awards in ga_great_health_awards.csv. Each pair below was read, and the
+# exemption is not a name list: rhtp_sweep_published_overlap() re-checks on
+# every run that NO published row for that hospital carries the caught row's
+# amount, so the day a published figure coincides with a state-grant figure
+# the pair fails again and a human reads it.
+SWEEP_OVERLAP_SAME_NAME_OTHER_PROGRAMME <- tibble::tribble(
+  ~state, ~registry_program,    ~published_name,
+  "GA",   "GA-SORH-DUAL-TRACK", "memorial hospital and manor",
+  "GA",   "GA-SORH-DUAL-TRACK", "upson regional medical center",
+  "GA",   "GA-SORH-DUAL-TRACK", "wayne memorial hospital",
+  "GA",   "GA-SORH-DUAL-TRACK", "coffee regional medical center inc",
+  "GA",   "GA-SORH-DUAL-TRACK", "tift regional medical center"
+)
+
 rhtp_sweep_published_overlap <- function(swept) {
   norm <- function(x) {
     stringr::str_squish(stringr::str_to_lower(
@@ -417,14 +435,35 @@ rhtp_sweep_published_overlap <- function(swept) {
                     names(d))
     if (length(nm) == 0 || !"state" %in% names(d)) return(NULL)
     tibble::tibble(published_file = f, state = d[["state"]],
-                   published_name = norm(d[[nm[1]]]))
+                   published_name = norm(d[[nm[1]]]),
+                   published_amount = suppressWarnings(as.numeric(
+                     if ("amount" %in% names(d)) d[["amount"]] else NA)))
   })
 
-  swept %>%
+  hits <- swept %>%
     dplyr::filter(caught) %>%
     dplyr::mutate(published_name = norm(awardee_name_raw)) %>%
-    dplyr::inner_join(published, by = c("state", "published_name")) %>%
+    dplyr::inner_join(published, by = c("state", "published_name"),
+                      relationship = "many-to-many") %>%
     dplyr::filter(nzchar(published_name))
+
+  # A read exemption holds only while no published row for that hospital
+  # carries the caught row's own amount.
+  amount_coincides <- hits %>%
+    dplyr::group_by(record_id, state, published_name) %>%
+    dplyr::summarise(coincides = any(abs(published_amount - amount_announced) < 0.5,
+                                     na.rm = TRUE), .groups = "drop")
+  exempt <- hits %>%
+    dplyr::distinct(record_id, state, registry_program, published_name) %>%
+    dplyr::inner_join(SWEEP_OVERLAP_SAME_NAME_OTHER_PROGRAMME,
+                      by = c("state", "registry_program", "published_name")) %>%
+    dplyr::inner_join(amount_coincides, by = c("record_id", "state", "published_name")) %>%
+    dplyr::filter(!coincides)
+
+  hits %>%
+    dplyr::anti_join(exempt, by = c("record_id", "state", "published_name")) %>%
+    dplyr::select(-published_amount) %>%
+    dplyr::distinct()
 }
 
 

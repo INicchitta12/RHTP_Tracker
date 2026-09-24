@@ -1,15 +1,17 @@
 state,state_name,tier3_candidates,caught_total,caught_state_program,caught_by_registry,caught_by_text_marker,caught_predates_noa,datable_rows,undatable_rows,refused_rcj_year,caught_amount
-TX,Texas,85,53,53,53,0,53,53,32,32,16450000
+TX,Texas,85,76,76,76,0,62,76,9,9,160994170
 NV,Nevada,42,9,9,9,0,0,9,33,25,15755068
+GA,Georgia,117,7,7,7,0,0,3,114,114,2400000
+DE,Delaware,12,7,7,7,0,0,7,5,5,3433344
+MI,Michigan,149,4,4,4,0,0,4,145,145,1200000
+CA,California,4,4,4,4,0,0,0,4,4,25000000
 AZ,Arizona,4,3,0,0,0,3,3,1,1,55000000
 MS,Mississippi,173,1,0,0,0,1,1,172,171,150000
 OR,Oregon,388,0,0,0,0,0,0,388,388,0
 AK,Alaska,247,0,0,0,0,0,0,247,247,0
 SC,South Carolina,227,0,0,0,0,0,0,227,227,0
 IN,Indiana,214,0,0,0,0,0,7,207,197,0
-MI,Michigan,149,0,0,0,0,0,0,149,149,0
 AL,Alabama,138,0,0,0,0,0,0,138,138,0
-GA,Georgia,117,0,0,0,0,0,3,114,114,0
 KS,Kansas,93,0,0,0,0,0,19,74,74,0
 FL,Florida,80,0,0,0,0,0,0,80,80,0
 PA,Pennsylvania,66,0,0,0,0,0,0,66,66,0
@@ -25,7 +27,6 @@ ME,Maine,17,0,0,0,0,0,0,17,17,0
 IA,Iowa,15,0,0,0,0,0,0,15,15,0
 VT,Vermont,13,0,0,0,0,0,0,13,12,0
 CO,Colorado,12,0,0,0,0,0,0,12,12,0
-DE,Delaware,12,0,0,0,0,0,0,12,12,0
 LA,Louisiana,12,0,0,0,0,0,6,6,6,0
 WV,West Virginia,12,0,0,0,0,0,0,12,8,0
 NJ,New Jersey,11,0,0,0,0,0,0,11,11,0
@@ -33,7 +34,6 @@ NM,New Mexico,11,0,0,0,0,0,0,11,11,0
 MN,Minnesota,10,0,0,0,0,0,0,10,10,0
 CT,Connecticut,7,0,0,0,0,0,2,5,5,0
 WA,Washington,6,0,0,0,0,0,0,6,6,0
-CA,California,4,0,0,0,0,0,0,4,4,0
 HI,Hawaii,2,0,0,0,0,0,0,2,2,0
 MT,Montana,2,0,0,0,0,0,1,1,1,0
 UT,Utah,2,0,0,0,0,0,0,2,2,0
