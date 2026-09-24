@@ -14,9 +14,15 @@
 #
 #   2. THE POSITIVE CONTROL. "Nebraska has published no other roster" means
 #      nothing unless DHHS demonstrably publishes rosters in a recognisable
-#      form. It does: an "Awardees" link on its RFA timeline table, three of
-#      them, pointing at the three PDFs this file parses. The control fails in
-#      both directions -- a vanished link and a fourth link are both failures.
+#      form. It does: an "Awardees" link on its RFA timeline table, FOUR of
+#      them since session 64, pointing at the four PDFs this file parses. The
+#      control fails in both directions -- a vanished link and a FIFTH are
+#      failures.
+#
+#   6. SESSION 64: THE FOURTH NOTICE IS AN INTENT, APPENDED LAST. Initiative
+#      5.3's 13 rows are NOTICE_OF_INTENT_TO_AWARD in DHHS's own words, and
+#      they sit after the 78 existing rows because session 49's overlay is
+#      keyed on row index.
 #
 #   3. THE TEXAS CHECK, WITH A NEGATIVE CONTROL THIS TIME. DHHS's Office of
 #      Procurement and Grants publishes Intent to Award notices for many grant
@@ -47,7 +53,7 @@ ne_roster_tbl <- ne_nhvn_roster()
 
 # -- the archive --------------------------------------------------------------
 
-test_that("all six Nebraska sources are archived and verify against the manifest", {
+test_that("every Nebraska source is archived and verifies against the manifest", {
   for (key in NE_SOURCES$key) {
     expect_true(file.exists(ne_path(key)), info = key)
   }
@@ -82,14 +88,18 @@ test_that("the manifest does not list itself and lists everything on disk", {
 
 # -- the positive control -----------------------------------------------------
 
-test_that("the programme page links exactly three notices of award", {
+test_that("the programme page links exactly FOUR notices (session 64)", {
   expect_true(ne_assert_award_index())
 
   doc <- ne_program_doc()
   hrefs <- xml2::xml_attr(xml2::xml_find_all(doc, "//a[@href]"), "href")
   noa <- unique(hrefs[stringr::str_detect(
     hrefs, stringr::fixed("RHTP-Public-Notice-of-Award"))])
-  expect_equal(length(noa), 3L)
+  expect_equal(length(noa), 4L)
+  # And the 2026-08-31 copy, kept as `program_page_prior`, links three -- the
+  # evidence that the fourth is new.
+  expect_error(ne_assert_award_index(ne_path("program_page_prior")),
+               "no longer links")
   for (f in NE_AWARD_LINK_FILES) {
     expect_true(any(stringr::str_detect(noa, stringr::fixed(f))), info = f)
   }
@@ -106,8 +116,8 @@ test_that("the control fails if a known award link disappears", {
   expect_error(ne_assert_award_index(tmp), "no longer links")
 })
 
-test_that("the control fails if a FOURTH award link appears", {
-  # The other direction: a fourth link means Nebraska published a pool this
+test_that("the control fails if a FIFTH award link appears", {
+  # The other direction: a fifth link means Nebraska published a pool this
   # file does not carry, which must never pass silently.
   html <- readLines(ne_path("program_page"), warn = FALSE)
   injected <- c(html,
@@ -120,9 +130,9 @@ test_that("the control fails if a FOURTH award link appears", {
 
 # -- §6.2: the Texas check, and its negative control --------------------------
 
-test_that("all three notices carry the CMS financial-assistance footer", {
+test_that("all four notices carry the CMS financial-assistance footer", {
   expect_true(ne_assert_rhtp_funded())
-  for (key in c("noa_3_3", "noa_4_4a", "noa_4_4b")) {
+  for (key in c(NE_NOA_KEYS, NE_INTENT_KEYS)) {
     txt <- stringr::str_squish(paste(ne_pdf_text(key), collapse = " "))
     expect_true(stringr::str_detect(
       txt, stringr::fixed("financial assistance award totaling $218,529,075.01")),
@@ -140,10 +150,12 @@ test_that("DHHS's stated award agrees with the §7.1 CMS anchor", {
 test_that("every RFA behind these awards closed AFTER the 2025-12-29 NOA", {
   expect_true(ne_assert_after_noa())
   expect_true(all(NE_RFA_CLOSE_DATES > NE_STATED$noa_date))
-  # Six rounds across three notices; the community-college round is worded
-  # differently from the other five and must still be found.
-  expect_equal(length(NE_RFA_CLOSE_DATES), 6L)
+  # Seven rounds across four notices; the community-college round is worded
+  # differently from the other five and must still be found, and 5.3's closed
+  # 2026-08-31, one day before its intent notice.
+  expect_equal(length(NE_RFA_CLOSE_DATES), 7L)
   expect_true(as.Date("2026-07-10") %in% NE_RFA_CLOSE_DATES)
+  expect_true(as.Date("2026-08-31") %in% NE_RFA_CLOSE_DATES)
 })
 
 test_that("RFA 4533 is the §6.2 negative control: state funds, and pre-NOA", {
@@ -216,8 +228,11 @@ test_that("Initiative 4.4a's applicant roster is present and is NOT extracted", 
   overlap_rows <- ne_recs[rhtp_ne_norm(ne_recs$awardee) %in% also_elsewhere, ]
   expect_false(any(overlap_rows$award_pool ==
                      "Initiative 4.4a Chronic Disease Navigation and Education"))
+  # Session 64: or a 5.3 intent -- Dundy County Hospital, Methodist Fremont
+  # Health and Regional West applied to 4.4a and hold a 5.3 intent.
   expect_true(all(is.na(overlap_rows$amount) |
-                    grepl("4\\.4b", overlap_rows$award_pool)))
+                    grepl("4\\.4b", overlap_rows$award_pool) |
+                    overlap_rows$award_pool == NE_5_3_POOL))
 })
 
 test_that("well-known applicants who were NOT awarded stay out of the file", {
@@ -261,10 +276,16 @@ test_that("the 21 NHVN member rows carry NO amount", {
   expect_true(all(members$recipient_confirmed == "Yes"))
 })
 
-test_that("summing amount gives the state's published total, not more", {
-  expect_equal(round(sum(ne_recs$amount, na.rm = TRUE), 2), 36137614.90)
-  expect_equal(sum(!is.na(ne_recs$amount)), 57L)
-  expect_equal(nrow(ne_recs), 78L)
+test_that("summing amount gives the published totals, and nothing more", {
+  expect_equal(nrow(ne_recs), 91L)
+  expect_equal(sum(!is.na(ne_recs$amount)), 70L)
+  expect_equal(round(sum(ne_recs$amount, na.rm = TRUE), 2), 41687307.15)
+  # Two kinds of action, reconciled separately and never merged.
+  noa <- ne_recs[ne_recs$validation_source_type == "NOTICE_OF_AWARD", ]
+  int <- ne_recs[ne_recs$validation_source_type == "NOTICE_OF_INTENT_TO_AWARD", ]
+  expect_equal(round(sum(noa$amount, na.rm = TRUE), 2), 36137614.90)
+  expect_equal(nrow(int), 13L)
+  expect_equal(round(sum(int$amount), 2), 5549692.25)
 })
 
 test_that("Jefferson appears twice and DHHS's own warning is recorded", {
@@ -296,7 +317,10 @@ test_that("POOL_NAMED_HOSPITALS is in §8 and is never added to the others", {
   part <- rhtp_hospital_dollar_partition(ne_recs)
   expect_setequal(part$bucket, c("NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS"))
   expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2),
-               6990996.01)
+               8815998.29)
+  # The three notices of award alone still give session 23's floor.
+  p3 <- rhtp_hospital_dollar_partition(ne_recs[ne_recs$award_pool != NE_5_3_POOL, ])
+  expect_equal(round(p3$dollars[p3$bucket == "NAMED_HOSPITAL"], 2), 6990996.01)
   expect_equal(round(part$dollars[part$bucket == "POOL_NAMED_HOSPITALS"], 2),
                18156856.12)
   # And the function that refuses to total them must still refuse, and must
@@ -385,11 +409,17 @@ test_that("the disposition table covers every live candidate", {
   expect_true(grepl("2025-05-21", nlf$basis))
 })
 
-test_that("Initiative 5.3's intent notice: 13 applicants, RCJ carries 12, NONE in the award file", {
-  skip_if_not(file.exists(here::here(NE_5_3_NOTICE)))
+test_that("Initiative 5.3: 13 intents extracted, appended LAST; RCJ carries 12", {
   n53 <- ne_notice_5_3()
   expect_equal(nrow(n53), 13L)
   expect_equal(round(sum(n53$amount), 2), 5549692.25)
+  # The committed copy is byte-identical to session 63's recheck copy.
+  expect_equal(digest::digest(file = here::here(NE_5_3_NOTICE), algo = "sha256"),
+               digest::digest(file = here::here(NE_5_3_RECHECK_COPY), algo = "sha256"))
+  # Extracted, in the notice's order, as the last thirteen rows.
+  expect_equal(ne_recs$awardee[79:91], n53$awardee)
+  expect_equal(ne_recs$amount[79:91], n53$amount)
+  skip_if_not(file.exists(here::here("data/interim/stage2_record_table.rds")))
   rt <- rhtp_record_table_live()
   ne <- rt[rt$state == "NE" & rt$award_tier == "SUBAWARD", ]
   r53 <- ne[ne_rcj_group(ne) == "intent_5_3", ]
@@ -397,11 +427,74 @@ test_that("Initiative 5.3's intent notice: 13 applicants, RCJ carries 12, NONE i
   expect_true(all(round(r53$amount_announced, 2) %in% round(n53$amount, 2)))
   dropped <- n53[!(round(n53$amount, 2) %in% round(r53$amount_announced, 2)), ]
   expect_equal(dropped$awardee, "Regional West Medical Center")
-  # the award file parses 3.3, 4.4a and 4.4b only
-  expect_false(any(ne_award_rows$source_key == "noa_5_3"))
-  expect_false(any(round(ne_award_rows$amount, 2) %in% round(n53$amount, 2)))
   disp <- readr::read_csv(here::here(NE_DISPOSITION_CSV), show_col_types = FALSE)
-  expect_match(disp$basis[disp$disposition == "RHTP_SUBAWARD"], "INCOMPLETE")
+  row <- disp[grepl("Initiative 5.3", disp$group), ]
+  expect_equal(row$disposition, "RHTP_SUBAWARD_EXTRACTED")
+  expect_match(row$basis, "Regional West Medical Center")
+})
+
+test_that("the 5.3 notice is an INTENT in DHHS's words, and the others are not", {
+  expect_true(ne_assert_5_3_is_intent())
+  txt <- stringr::str_squish(paste(ne_pdf_text("noa_5_3"), collapse = " "))
+  expect_true(stringr::str_detect(txt, stringr::fixed("Intent to Award")))
+  expect_true(stringr::str_detect(txt, stringr::fixed(
+    "DHHS intends to award subawards to the following applicants")))
+  # No applicant section on this notice (§0.3's 4.4a trap is absent here).
+  expect_false(stringr::str_detect(txt, "(?i)submitted applications"))
+  for (k in NE_NOA_KEYS) {
+    t2 <- stringr::str_squish(paste(ne_pdf_text(k), collapse = " "))
+    expect_false(stringr::str_detect(t2, stringr::fixed("Intent to Award")),
+                 info = k)
+  }
+})
+
+test_that("5.3 typing: six hospitals on an EXACT CMS record, six fallback, the tribe refused", {
+  expect_true(ne_assert_5_3_typing(ne_recs))
+  r <- ne_recs[ne_recs$award_pool == NE_5_3_POOL, ]
+  h <- r[r$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(h), 6L)
+  expect_equal(round(sum(h$amount), 2), 1825002.28)
+  expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(h$determination_confidence == "MEDIUM"))
+  expect_setequal(h$ccn, c("281346", "281323", "281340", "280032", "280077",
+                           "280061"))
+  # The DBA half names the facility: Plainview is ONE facility, not Alegent's
+  # Omaha and Papillion hospitals too.
+  pv <- ne_federal_match("Alegent Creighton Health DBA CHI Health Plainview")
+  expect_setequal(pv$ccn, c("281346", "28Z346"))
+  fb <- r[r$flag_reason %in% "RECIPIENT_TYPE_INFERRED", ]
+  expect_equal(nrow(fb), 6L)
+  expect_equal(round(sum(fb$amount), 2), 3671074.88)
+  expect_true(all(fb$recipient_type == "NONPROFIT_CBO" &
+                    fb$determination_confidence == "LOW"))
+  # The Winnebago Tribe: CMS enrols the tribe's name as a hospital provider
+  # and the row is STILL not promoted -- the recipient is the government.
+  w <- r[r$awardee %in% NE_5_3_REFUSED, ]
+  expect_equal(nrow(ne_federal_match(w$awardee)), 1L)
+  expect_equal(w$recipient_type, "TRIBAL_ORG")
+  expect_equal(w$distributed_to_hospital, "No")
+  expect_match(w$determination_basis, "HAND-READ REFUSAL")
+})
+
+test_that("session 49's overlay indexes still hold their organisations", {
+  expect_equal(ne_assert_overlay_rows(ne_recs), 29L)
+  # Inserting 5.3 anywhere but the end would re-point them: prove it fails.
+  shuffled <- ne_recs[c(79:91, 1:78), ]
+  expect_error(ne_assert_overlay_rows(shuffled), "appended")
+})
+
+test_that("the probe runs through the guard and its name baseline is real", {
+  src <- paste(readLines(here::here("R", "03r_ne_year1_awardees.R")),
+               collapse = "\n")
+  expect_true(grepl('rhtp_probe_run("NE", ne_probe())', src, fixed = TRUE))
+  # The baseline is the 2026-09-24 archive: silent against itself, with a
+  # real baseline, and firing on a name the page never carried.
+  txt <- ne_html_text("program_page")
+  expect_gte(length(rhtp_organisation_names(txt)), 3L)
+  expect_silent(rhtp_assert_no_new_organisations(txt, txt, "NE", "program_page"))
+  expect_error(rhtp_assert_no_new_organisations(
+    paste(txt, "Awardees: Sandhills Regional Medical Center."), txt, "NE",
+    "program_page"), "NAMES")
 })
 
 
@@ -428,19 +521,27 @@ test_that("every categorical column is inside §8", {
   }
 })
 
-test_that("every row is a NOTICE_OF_AWARD -- DHHS's own word", {
-  # Nebraska is on a stronger footing than Oregon, Alaska or Maryland, all of
-  # which publish intents or offers. "The following have been selected for
-  # award" is §7's NOTICE_OF_AWARD on its own terms.
-  expect_true(all(ne_recs$validation_source_type == "NOTICE_OF_AWARD"))
+test_that("the 78 rows are NOTICES OF AWARD and 5.3's 13 are INTENTS", {
+  # Nebraska's three notices are on a stronger footing than Oregon, Alaska or
+  # Maryland: "The following have been selected for award" is §7's
+  # NOTICE_OF_AWARD on its own terms. The fourth is headed "Intent to Award".
+  first <- ne_recs[seq_len(78), ]
+  expect_true(all(first$validation_source_type == "NOTICE_OF_AWARD"))
   expect_true(all(ne_recs$recipient_confirmed == "Yes"))
   txt <- stringr::str_squish(paste(ne_pdf_text("noa_4_4a"), collapse = " "))
   expect_true(stringr::str_detect(
     txt, stringr::fixed("have been selected for award")))
+  last <- ne_recs[79:91, ]
+  expect_true(all(last$validation_source_type == "NOTICE_OF_INTENT_TO_AWARD"))
+  expect_true(all(last$amount_confirmed == "No"))
+  expect_true(all(last$award_pool == NE_5_3_POOL))
 })
 
 test_that("the 21 NHVN members are the only rows whose form is STATED", {
   stated <- ne_recs[ne_recs$recipient_type_source == "STATED_IN_SOURCE", ]
+  fed <- ne_recs[ne_recs$recipient_type_source == "FEDERAL_RECORD_EXACT", ]
+  expect_equal(nrow(fed), 6L)
+  expect_true(all(fed$award_pool == NE_5_3_POOL))
   expect_equal(nrow(stated), 21L)
   expect_true(all(stated$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # §7 reserves HIGH for a CCN match, which this project cannot yet do.
@@ -448,14 +549,15 @@ test_that("the 21 NHVN members are the only rows whose form is STATED", {
   expect_true(all(grepl("individual hospitals receiving funding",
                         stated$determination_basis)))
   derived <- ne_recs[ne_recs$recipient_type_source == "DERIVED_FROM_NAME", ]
-  expect_equal(nrow(derived), 57L)
+  expect_equal(nrow(derived), 64L)  # 57 + 5.3's six fallback rows + the tribe
 })
 
 test_that("nothing was promoted: the unstated-form question is queued", {
   expect_true(ne_assert_form_not_stated_queued(ne_recs))
   soft <- ne_recs[ne_recs$determination_confidence == "LOW" &
                     ne_recs$flag_reason == "RECIPIENT_TYPE_INFERRED" &
-                    is.na(ne_recs$intermediary_name), ]
+                    is.na(ne_recs$intermediary_name) &
+                    ne_recs$award_pool != NE_5_3_POOL, ]
   # Session 27: 30 -> 29. Southeast District Health Department left this
   # question when the shared classifier's county-health-department rule was
   # widened to district and regional ones (Michigan awards eleven). It was
@@ -473,7 +575,9 @@ test_that("nothing was promoted: the unstated-form question is queued", {
   # The names a reviewer will reach for first must still be UNPROMOTED.
   for (nm in c("CHI St. Mary’s", "Mary Lanning Healthcare",
                "Methodist Fremont Health", "Faith Health")) {
-    row <- ne_recs[ne_recs$awardee == nm, ]
+    # Scoped to the three notices of award: 5.3's "Methodist Fremont Health"
+    # is a separate intent row, typed on an EXACT CMS record (session 64).
+    row <- ne_recs[ne_recs$awardee == nm & ne_recs$award_pool != NE_5_3_POOL, ]
     expect_equal(nrow(row), 1L, info = nm)
     expect_equal(row$recipient_type, "NONPROFIT_CBO", info = nm)
     expect_equal(row$determination_confidence, "LOW", info = nm)
@@ -503,7 +607,11 @@ test_that("the committed CSV matches what the builder produces", {
   built <- vq_overlay(ne_recs, "ne_year1_awardees.csv")
   expect_equal(nrow(csv), nrow(built))
   expect_equal(names(csv), names(built))
-  expect_equal(round(sum(csv$amount, na.rm = TRUE), 2), 36137614.90)
+  expect_equal(round(sum(csv$amount, na.rm = TRUE), 2), 41687307.15)
+  expect_equal(csv$awardee, built$awardee)
+  expect_equal(csv$recipient_type, built$recipient_type)
+  # Session 49's 29 verified rows still sit at the index they were written for.
+  expect_equal(ne_assert_overlay_rows(csv), 29L)
 })
 
 test_that("every row points at an archived source that exists", {
@@ -511,5 +619,6 @@ test_that("every row points at an archived source that exists", {
     expect_true(file.exists(here::here(p)), info = p)
   }
   expect_setequal(
-    unique(ne_recs$validation_source_type), "NOTICE_OF_AWARD")
+    unique(ne_recs$validation_source_type),
+    c("NOTICE_OF_AWARD", "NOTICE_OF_INTENT_TO_AWARD"))
 })
