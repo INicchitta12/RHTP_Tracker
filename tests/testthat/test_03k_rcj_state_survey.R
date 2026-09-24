@@ -195,12 +195,15 @@ test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
   # would have got wrong here, since South Carolina had already awarded.
   # SESSION 59: TENNESSEE LEFT THE SAME WAY -- TDH published 53 named HART
   # recipients on 2026-09-03 -- so four remain.
-  four <- c("HI", "MA", "MN", "NJ")
-  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, four)
-  got <- survey$extraction_status[match(four, survey$state)]
+  # SESSION 61: NEW JERSEY LEFT THE SAME WAY -- its 2026-07-31 allocations
+  # PDF -- so three remain.
+  three <- c("HI", "MA", "MN")
+  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, three)
+  got <- survey$extraction_status[match(three, survey$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(four, got, collapse = "; "))
+              info = paste(three, got, collapse = "; "))
   expect_equal(survey$extraction_status[survey$state == "TN"], "EXTRACTED")
+  expect_equal(survey$extraction_status[survey$state == "NJ"], "EXTRACTED")
   # And South Carolina is OUT of the bucket and IN the extracted set.
   expect_false("SC" %in% SURVEY_INVESTIGATED_NO_PROBE_STATES)
   expect_true("SC" %in% SURVEY_EXTRACTED_STATES)
@@ -299,8 +302,9 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 59: TN (INVESTIGATED_NO_PROBE) -> EXTRACTED; CO and ND (QUEUED)
   # -> INVESTIGATED_NO_LIST, so 32/8/4/6.
   # Session 60: VA and WA (QUEUED) -> EXTRACTED, so 34/8/4/4.
-  expect_equal(unname(tab[["EXTRACTED"]]), 34L)
+  # Session 61: NJ (INVESTIGATED_NO_PROBE) -> EXTRACTED, so 35/8/3/4.
+  expect_equal(unname(tab[["EXTRACTED"]]), 35L)
   expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 4L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 3L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 4L)
 })
