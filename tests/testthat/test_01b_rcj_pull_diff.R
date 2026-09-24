@@ -19,7 +19,9 @@ test_that("EXPOSED is exactly the states on no Routine", {
   # 21 -> 20, Indiana (R/03bi, trig_01NZAAixvNoKcZMBKAiCUCYD). (The
   # NEWSROOM sweep watches 18 states' newsrooms, but it is a net, not a
   # per-state watch, so it does not take a state out of this set.)
-  expect_equal(sum(by_state$exposed), 20L)
+  # Session 65: 20 -> 18, Nebraska (trig_019qmwzbTMo9k83etPqjJV7z) and
+  # Nevada (trig_012WYj2vrKgD7oxuURp3ygCb).
+  expect_equal(sum(by_state$exposed), 18L)
 })
 
 test_that("an unscheduled probe is not a watch", {

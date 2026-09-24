@@ -581,6 +581,28 @@ test_that("Louisiana contributes NO row and NO dollar to any hospital bucket", {
                          "la_year1_status.csv", "la_year1_awardees.csv"))
 })
 
+test_that("LA_RCCB_HOSPITAL_SETTINGS_UNNAMED is resolved to NO bucket (session 65)", {
+  # A state COUNT and TOTAL of hospital awards that names none of them is Tier
+  # 3 but enters no bucket: no bucket describes a direct award to unnamed
+  # hospitals, and it overlaps the named rows by an amount the deck does not
+  # resolve. The overlap is what makes any bucket figure double-countable.
+  q <- readr::read_csv(here::here("data", "reference",
+                                  "classification_review_queue.csv"),
+                       col_types = readr::cols(.default = "c"),
+                       progress = FALSE)
+  r <- q[q$question_id == "LA_RCCB_HOSPITAL_SETTINGS_UNNAMED", ]
+  expect_equal(nrow(r), 1L)
+  expect_equal(r$queue_status, "RESOLVED")
+  expect_true(startsWith(r$resolution, "(a)"))
+  s <- LA_RCCB_STATED
+  # the facility-type rows the deck prints sum to its hospital-settings line
+  expect_equal(3291553 + 2948962 + 45000, s$hospital_amount)
+  # the unresolved overlap: up to all five named awards could be hospital sites
+  expect_equal(s$hospital_amount - s$named_total, 4319727)
+  expect_equal(s$hospital_awards - s$named_awards, 15L)
+  expect_lte(s$named_awards, s$hospital_awards)
+})
+
 test_that("the three ways a hospital dollar could creep in are each refused", {
   num <- function(x) suppressWarnings(as.numeric(x))
   # (1) the round total written into `amount` on the aggregate

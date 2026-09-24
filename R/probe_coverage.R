@@ -36,6 +36,45 @@ RHTP_ROUTINES_CSV <- here::here("config", "routines.csv")
 # that left NOTHING, not to police latency.
 RHTP_PROBE_GRACE_HOURS <- 6
 
+# A MISSED FIRING THAT HAS BEEN DIAGNOSED (session 65). The assertion below
+# fails until a gap is "explained", and an explanation is a committed row, not
+# a line in the log: the log records what a Routine WROTE, so back-filling it
+# would forge a verdict. config/probe_gaps_explained.csv carries one row per
+# (state, scheduled firing, trigger_id) with the cause and the evidence that
+# establishes it. An explained firing is still reported by --report as NOT
+# logged -- it is a known hole in the record, never a covered one -- and a row
+# that names no real scheduled firing is REFUSED, so the file cannot quietly
+# become a blanket exemption.
+RHTP_PROBE_GAPS_CSV <- here::here("config", "probe_gaps_explained.csv")
+
+rhtp_read_probe_gaps <- function(path = RHTP_PROBE_GAPS_CSV) {
+  empty <- tibble::tibble(state = character(0),
+                          scheduled = as.POSIXct(character(0), tz = "UTC"),
+                          trigger_id = character(0), cause = character(0),
+                          evidence = character(0))
+  if (!file.exists(path)) return(empty)
+  g <- readr::read_csv(path, col_types = readr::cols(.default = "c"),
+                       progress = FALSE)
+  need <- c("state", "scheduled_utc", "trigger_id", "cause", "evidence")
+  miss <- setdiff(need, names(g))
+  if (length(miss)) {
+    stop("[coverage] config/probe_gaps_explained.csv lacks: ",
+         paste(miss, collapse = ", "), call. = FALSE)
+  }
+  if (any(!nzchar(stringr::str_squish(c(g$cause, g$evidence))) |
+          is.na(c(g$cause, g$evidence)))) {
+    stop("[coverage] every explained gap needs a cause AND evidence; an ",
+         "exemption with nothing behind it is a blanket pass.", call. = FALSE)
+  }
+  g$scheduled <- as.POSIXct(g$scheduled_utc, format = "%Y-%m-%dT%H:%MZ",
+                            tz = "UTC")
+  if (anyNA(g$scheduled)) {
+    stop("[coverage] a scheduled_utc in config/probe_gaps_explained.csv does ",
+         "not parse (want YYYY-MM-DDTHH:MMZ).", call. = FALSE)
+  }
+  g[, c("state", "scheduled", "trigger_id", "cause", "evidence")]
+}
+
 rhtp_read_routines <- function(path = RHTP_ROUTINES_CSV) {
   r <- readr::read_csv(path, col_types = readr::cols(.default = "c"),
                        progress = FALSE)
@@ -148,10 +187,28 @@ rhtp_probe_coverage_as_of_log <- function(log = rhtp_read_probe_log()) {
 rhtp_assert_probe_coverage <- function(as_of = Sys.time(),
                                        routines = rhtp_read_routines(),
                                        log = rhtp_read_probe_log(),
-                                       grace_hours = RHTP_PROBE_GRACE_HOURS) {
+                                       grace_hours = RHTP_PROBE_GRACE_HOURS,
+                                       explained = rhtp_read_probe_gaps()) {
   cov <- rhtp_probe_coverage(as_of, routines, log, grace_hours)
   if (!nrow(cov)) return(invisible(cov))
-  gaps <- cov[!cov$logged, , drop = FALSE]
+  # A row must name a firing the schedule actually produced, by the Routine
+  # that owned it, and one that really left no line; otherwise it is stale or
+  # mistyped and would exempt nothing -- or the wrong thing.
+  key <- function(st, tm, id) paste(st, format(tm, "%Y-%m-%dT%H:%M"), id)
+  cov_key <- key(cov$state, cov$scheduled, cov$trigger_id)
+  exp_key <- key(explained$state, explained$scheduled, explained$trigger_id)
+  due_key <- cov_key[!cov$logged]
+  bad <- exp_key[!exp_key %in% due_key &
+                   explained$scheduled < as.POSIXct(as_of, tz = "UTC") -
+                   grace_hours * 3600]
+  if (length(bad)) {
+    stop("[coverage] config/probe_gaps_explained.csv explains firing(s) that ",
+         "are not missed firings of a registered Routine: ",
+         paste(bad, collapse = "; "), ". Remove or correct the row.",
+         call. = FALSE)
+  }
+  cov$explained <- cov_key %in% exp_key
+  gaps <- cov[!cov$logged & !cov$explained, , drop = FALSE]
   if (nrow(gaps)) {
     stop("[coverage] ", nrow(gaps), " SCHEDULED PROBE FIRING(S) LEFT NO LINE ",
          "IN logs/probe_results.csv: ",
@@ -197,8 +254,10 @@ if (sys.nframe() == 0L) {
   if ("--check" %in% args) {
     rhtp_assert_routines_registry()
     cov <- rhtp_assert_probe_coverage()
-    message("[coverage] ", nrow(cov), " due firing(s) since the logging fix, ",
-            "all logged.")
+    n_exp <- sum(!cov$logged & cov$explained)
+    message("[coverage] ", nrow(cov), " due firing(s) since the logging fix; ",
+            "all logged", if (n_exp) paste0(" except ", n_exp, " EXPLAINED ",
+            "miss(es) in config/probe_gaps_explained.csv") else "", ".")
   } else if ("--report" %in% args) {
     cov <- rhtp_probe_coverage()
     if (!nrow(cov)) {
