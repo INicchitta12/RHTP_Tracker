@@ -15,8 +15,10 @@
 
 source(here::here("R", "03ac_ct_year1_probe.R"))
 
-test_that("no Connecticut award file exists, deliberately", {
-  expect_false(file.exists(here::here(CT_AWARDS_CSV)))
+test_that("the Connecticut award file is R/03au's, not this probe's (session 54)", {
+  # Session 35-53 asserted NO award file. Connecticut awarded on 2026-09-16
+  # and the file is built from the Governor's release by R/03au.
+  expect_true(file.exists(here::here(CT_AWARDS_CSV)))
   expect_silent(ct_assert_no_award_file())
 })
 

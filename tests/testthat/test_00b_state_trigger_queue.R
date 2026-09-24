@@ -160,11 +160,14 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
   # EXTRACTED here now. Nothing had to be retracted, which is the whole point
   # of the weaker code: it described what this repository had done, not what
   # South Carolina had.
-  five <- c("HI", "MA", "MN", "NJ", "TN")
-  got <- queue$queue_status[match(five, queue$state)]
+  # SESSION 59: four. Tennessee left the same way -- TDH named 53 HART
+  # recipients on 2026-09-03.
+  four <- c("HI", "MA", "MN", "NJ")
+  got <- queue$queue_status[match(four, queue$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(five, got, collapse = "; "))
+              info = paste(four, got, collapse = "; "))
   expect_equal(queue$queue_status[queue$state == "SC"], "EXTRACTED")
+  expect_equal(queue$queue_status[queue$state == "TN"], "EXTRACTED")
   expect_true(all(queue$queue_status %in% rhtp_vocabulary("queue_status")))
 })
 
@@ -180,12 +183,19 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
   # Mississippi to INVESTIGATED_NO_LIST (archive, probe, Routine). That is
   # the only route out of this bucket: session 43 deliberately refused to move
   # them on the strength of a reporting pass.
-  ten <- c("MT", "CO", "WV", "ND", "UT", "VT", "VA", "WA", "AZ", "RI")
-  expect_setequal(queue$state[queue$queue_status == "QUEUED"], ten)
+  # Session 54: VT and WV left by EXTRACTION, so the ten are eight --
+  # 24 - 5 = 19 candidates, $1,916,786,628 - $394,529,839 = $1,522,256,789.
+  # Session 59: CO and ND left for INVESTIGATED_NO_LIST THROUGH THE WORK --
+  # archive, probe with tripwires, Routine -- so six remain: 19 - 4 - 1 = 14
+  # candidates, $1,522,256,789 - $200,105,604 - $198,936,970 = $1,123,214,215.
+  six <- c("MT", "UT", "VA", "WA", "AZ", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], six)
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               24L)
+               14L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
-               1916786628)
+               1123214215)
+  expect_equal(queue$queue_status[match(c("CO", "ND"), queue$state)],
+               c("INVESTIGATED_NO_LIST", "INVESTIGATED_NO_LIST"))
   expect_setequal(queue$state[queue$queue_status == "EXTRACTED" &
                               queue$state %in% c("DE", "ID", "OH")],
                   c("DE", "ID", "OH"))

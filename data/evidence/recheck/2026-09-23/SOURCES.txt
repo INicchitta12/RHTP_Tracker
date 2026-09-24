@@ -14,3 +14,32 @@ WV/wv_y_governor-...-42-million-investment-.html  the 2026-08-14 release: the $4
 WV/wv_grants.html                 https://health.wv.gov/grant-opportunities
 RI/ri_ride_grant101.pdf           RIDE "Rural Health Grant 101" (a /sites/g/files document; every RI HTML host is Cloudflare-challenged, 403)
 CMS release pages were deliberately NOT archived here: their page chrome carries a third-party Mapbox token (§7.1 posture).
+
+SESSION 55 additions (2026-09-23, same UA; bytes as served; report only, NOTHING EXTRACTED).
+Eight untouched states + one side finding. Full disposition: docs/session55_routines_cms_wv_vt_eight_state_check.md
+AZ/  AHCCCS RHTP page, launch release, news index, closed solicitations, grants admin, eCivis RFGA, CRH timeline; azpha third-party post (DISCOVERY ONLY)
+CO/  HCPF RHTP page + history + advisory committee, 2026-06-23 RFA release, Governor news index
+MT/  DPHHS RHTP programme, grants, RFPs, CoE advisory council (§0.3 governance roster), communications; MHA 2026-08-14 post (second publisher)
+ND/  HHS RHTP programme + funding page (25 opportunities, ONE "Awarded", nobody named)
+RI/  EOHHS RHTP 101 deck, 2026-04-02 budget amendment summary, the Cloudflare 403 body (UNREADABLE evidence)
+UT/  DHHS status dashboard, funding opportunities, programme; Bonfire past-opportunities JSON
+VA/  RHT site home, ways-to-apply, implementation (STALE), news, application/award, Governor 2026-08-28 $122M PDF, CMS NOA RHTCMS332088-01-03, RFA navigator, VHHA Foundation
+WA/  HCA RHTP programme (MOVED URL), what-we're-working-on, how-to-participate, 2026-09-16 webinar deck, bids page
+TN/  TDH 2026-09-03 "1st Recipients" release + 2026-RHTP-HART-Grant-Awards-FINAL.xlsx (53 named, NO AMOUNTS)
+     https://www.tn.gov/health/news/2026/9/3/tennessee-department-of-health-announces-1st-recipients-of-rural-health-transformation-program-grants.html
+     https://www.tn.gov/content/dam/tn/health/xlsx/2026-RHTP-HART-Grant-Awards-FINAL.xlsx
+Not saved (carry a Google Maps key): vhcf.org/rural-health/, the DMAS RHT page, the Bonfire HTML portal, the SciQuest page.
+
+SESSION 57 (Florida ceiling, Georgia pools, allotment gaps) -- fetched 2026-09-23
+FL/fl_ahca_revised_budget_narrative_2026-02-10.pdf <- https://ahca.myflorida.com/file/rhtp/FL%20Revised%20Budget%202.10.26.pdf
+   (linked from AHCA's RHTP page as "AHCA's Revised Rural Health Transformation Program Budget Narrative"). A PLAN (Tier 2), not an award.
+GA/ga_cms_noa_revision_budget_2026-02-10.pdf <- https://greathealth.georgia.gov/document/document/cms-notice-awardrhtcms332046-01-2-10-26/download
+   CMS's own NOA, Revision (Budget), Federal Award Date 02/10/2026. IMAGE-ONLY: no text layer; section 33 (Approved Budget) was read from the rendered page image.
+GA/ga_cms_noa_original_2025-12-29.pdf <- https://greathealth.georgia.gov/document/document/cms-notice-awardrhtcms332046-01-12-29-25/download
+GA/ga_find_funding_opportunities_2026-09-23.html <- https://greathealth.georgia.gov/find-funding-opportunities
+GA/ga_greathealth_news_2026-09-23.html <- https://greathealth.georgia.gov/about-program/news
+GA/ga_value_based_care_2026-09-23.html <- https://greathealth.georgia.gov/about-program/value-based-care
+GA/ga_application_initiative_{one,two,three,four,five}.html <- https://greathealth.georgia.gov/about-program/georgias-application/4-proposed-initiatives-and-use-funds/initiative-<n>
+   The APPLICATION's Budget Period 1 figures. A PLAN, not an award.
+GA/ga_sorh_rural_hospital_stabilization_participants_STATE_PROGRAM.html <- https://dch.georgia.gov/divisionsoffices/state-office-rural-health/rural-hospital-stabilization-program/rhs-participants
+   §0.1 NEGATIVE CONTROL: the STATE-funded Rural Hospital Stabilization Program's participant list (Phases 1-7, maps dated 082022). NOT the RHTP Initiative 3 split.

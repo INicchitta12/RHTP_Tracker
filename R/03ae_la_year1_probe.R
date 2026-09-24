@@ -1294,6 +1294,28 @@ la_content_digest <- function(body, key) {
   digest::digest(txt, algo = "sha256")
 }
 
+#' The name tripwire reads the PAGE BODY, not LDH's mega-menu (session 54)
+#'
+#' Every ldh.la.gov page opens with a ~12,000-character navigation menu (For
+#' Businesses, For Providers, Health Info & Services, Offices &
+#' Administration ...) that LDH edits on its own schedule. On 2026-09-23 the
+#' probe halted on two "new organisations" that were an Office of Public
+#' Health programme list inside that menu. The body starts where the page
+#' prints its own title twice ("Rural Health Transformation Program Rural
+#' Health Transformation Program", "RHTP Funding Opportunities RHTP Funding
+#' Opportunities") and ends at the footer's "Surgeon General" signature.
+LA_NAME_SCOPE <- list(
+  programme = c(from = "Rural Health Transformation Program Rural Health Transformation Program The Louisiana",
+                to = "Surgeon General Evelyn Griffin"),
+  funding   = c(from = "RHTP Funding Opportunities RHTP Funding Opportunities Initiative 1",
+                to = "Surgeon General Evelyn Griffin"))
+
+la_name_scope <- function(text, page) {
+  a <- LA_NAME_SCOPE[[page]]
+  rhtp_name_scope(stringr::str_squish(text), from = a[["from"]], to = a[["to"]],
+                  state = "LA", page = page)
+}
+
 la_probe <- function(keys = LA_PROBE_KEYS) {
   message("[LA] LIVE probe, ", format(Sys.time(), tz = "UTC"), " UTC")
   live <- list()
@@ -1330,13 +1352,23 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
   # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
   # one of its ten award phrases matched. Subject pages only -- a control
   # moves for reasons that are not this state awarding.
+  # SCOPED TO THE PAGE BODY (session 54), Delaware's and California's fix.
+  # On 2026-09-23 this halted on LDH's site-wide navigation mega-menu -- an
+  # Office of Public Health programme list ("Bureau of Sanitarian Services
+  # Beach Monitoring Program ... Center for Vital Records") that LDH
+  # reshuffled without naming anybody. A known list cannot keep up with a
+  # menu, so both copies are read from the page's own doubled heading to the
+  # footer's "Surgeon General" signature.
   la_live <- list(programme = prog, funding = fund)
   la_live <- la_live[!vapply(la_live, is.null, logical(1))]
   if (length(la_live)) {
     rhtp_assert_no_new_organisations_across(
-      live = la_live,
-      archived = stats::setNames(purrr::map(names(la_live), la_html_text),
-                                 names(la_live)),
+      live = stats::setNames(
+        purrr::map(names(la_live), function(k) la_name_scope(la_live[[k]], k)),
+        names(la_live)),
+      archived = stats::setNames(
+        purrr::map(names(la_live), function(k) la_name_scope(la_html_text(k), k)),
+        names(la_live)),
       state = "LA")
   }
 

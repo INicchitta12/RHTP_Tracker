@@ -421,6 +421,11 @@ test_that("each retuned probe is silent on today's archive AND still fires on a 
     DE = list("R/03al_de_year1_awardees.R",
               function() list(release = de_name_scope(de_html_text("release"), "release"),
                               programme = de_name_scope(de_html_text("programme"), "programme")),
+              function() list()),
+    # Session 54: Louisiana, scoped past LDH's navigation mega-menu.
+    LA = list("R/03ae_la_year1_probe.R",
+              function() list(programme = la_name_scope(la_html_text("programme"), "programme"),
+                              funding = la_name_scope(la_html_text("funding"), "funding")),
               function() list()))
   for (st in names(spec)) {
     f <- spec[[st]][[1]]
@@ -454,4 +459,19 @@ test_that("Delaware's scope drops the NEWS FEED and keeps the four awards", {
   for (nm in c("Nemours Children's Health", "TidalHealth", "Beebe Healthcare")) {
     expect_true(grepl(nm, s, fixed = TRUE), label = nm)
   }
+})
+
+test_that("Louisiana's scope drops LDH's mega-menu and keeps the programme body (session 54)", {
+  # The 2026-09-23 halt: an Office of Public Health programme list inside the
+  # site navigation read as two "new organisations". The menu is outside the
+  # scope; the page's own Capital Improvement solicitation is inside it.
+  suppressWarnings(suppressMessages(source(here::here("R", "03ae_la_year1_probe.R"))))
+  full <- la_html_text("programme")
+  s <- la_name_scope(full, "programme")
+  expect_true(grepl("Building and Premises Program", full, fixed = TRUE))
+  expect_false(grepl("Building and Premises Program", s, fixed = TRUE))
+  expect_false(grepl("Center for Vital Records", s, fixed = TRUE))
+  fs <- la_name_scope(la_html_text("funding"), "funding")
+  expect_true(grepl("Rural Health Facilities Capital Improvement Program", fs, fixed = TRUE))
+  expect_false(grepl("Surgeon General", fs, fixed = TRUE))
 })

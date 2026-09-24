@@ -33,10 +33,17 @@ https://memsa.org/rht-funding/ answers HTTP 202 with an sgcaptcha
 redirect to every client tried, so whether MEMSA has named its EMS
 sub-awardees is UNKNOWN, not answered.
 
+2026-09-23_dss_smrp_awardees.html IS THE SMRP ROSTER (session 54): 20 named
+hospitals, "approximately $35 million", NO per-recipient amount. The
+2026-09-23 programme page RE-BASES the probe; the 2026-09-01 copy is kept as
+program_page_prior.
+
 MANIFEST.txt is deliberately absent from this listing: a manifest cannot
 record its own digest (session 15).
 
+3396fb267981bb88b08399b5efd758015f6afd8acc8a7fe6a16c82d0d02632d2  2026-09-23_dss_rural_health.html  (116173 bytes)  <- https://dss.mo.gov/mhd/rural-health
 87f5c206a916f127285b7879cf7c4e81f86334faf826b7df6be268b35542f019  2026-09-01_dss_rural_health.html  (116295 bytes)  <- https://dss.mo.gov/mhd/rural-health
+b9d0eb4e0ad2ce6c4661ebcc63337df2c2876d5e99b51b5b29b75caf9157bd2f  2026-09-23_dss_smrp_awardees.html  (44531 bytes)  <- https://dss.mo.gov/rhtp-strategic-minor-renovations-program
 4b632fde82490dc92175f87cd671b11430fa5b7a68100d45590e68a59e021b60  2026-07-17_rhtp_hub_anchors.pdf  (214168 bytes)  <- https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/RHTP-Hub-Anchors-07-17-2026.pdf
 667dd3ac8fcdc2ec8b4b5adf898dc09e0d2bee69d54b44c894758d99df1c2457  2026-07-17_dss_hub_anchors_release.html  (20829 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420acc4
 f44520ae0df2157a814593212b44ab66e536ec282d909fcfce1ded79bc4d4cff  2026-07-20_dss_maternal_partnership_release.html  (20441 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420f3bd

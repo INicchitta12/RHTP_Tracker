@@ -83,7 +83,18 @@ RC_ENROLMENTS <- c(
   # Session 52: New York's RCHI leads and Kansas's Emerging Technology rows
   # carry their CCN in the `ccn` column, typed against these slices.
   NY = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_NY.json",
-  KS = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_KS.json")
+  KS = "data/evidence/federal_records/2026-09-22/cms_hosp_enrollments_KS.json",
+  # Session 54: the four states extracted this session, plus NEW HAMPSHIRE,
+  # because Vermont's three Mary Hitchcock rows cite a Lebanon NH CCN.
+  VT = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_VT.json",
+  NH = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_NH.json",
+  CT = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_CT.json",
+  WV = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_WV.json",
+  MO = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_MO.json",
+  # Session 59: Tennessee's two hospital rows cite CCN 441305 (Macon, a CAH
+  # number -- on a hand-read BRIDGE) and 440059 (Cookeville, the foundation's
+  # parent).
+  TN = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_TN.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -136,7 +147,10 @@ rc_named_rows <- function(files = rc_state_files()) {
 rc_ccn_types <- function() {
   purrr::map_dfr(RC_ENROLMENTS, function(f) {
     e <- jsonlite::fromJSON(here::here(f))
-    tibble::tibble(ccn = e$CCN, provider_type = e$`PROVIDER TYPE TEXT`)
+    # CMS serves Connecticut's CCNs without their leading zero ("70003" for
+    # 070003); a CCN is six characters, so pad before matching (session 54).
+    tibble::tibble(ccn = stringr::str_pad(e$CCN, 6, pad = "0"),
+                   provider_type = e$`PROVIDER TYPE TEXT`)
   }) %>% dplyr::distinct(ccn, .keep_all = TRUE)
 }
 
@@ -208,17 +222,21 @@ rc_by_state <- function(rows = rc_rows()) {
 #' The partition is unchanged by construction; assert it.
 rc_assert <- function(rows = rc_rows()) {
   if (!all(rows$rural_class %in% RC_CLASSES)) stop("unknown rural class")
-  # SESSION 53's NAMED_HOSPITAL: 982 rows / $845,170,923.32 / 20 states --
-  # session 52's 981 / $845,025,923.32, which was session 51's 939 /
-  # $787,490,159.53 / 19 plus New York's 35 hospital-lead rows
-  # ($47,358,790.79) and Kansas's 7 Emerging Technology hospitals
-  # ($10,176,973); plus Self Regional Healthcare (Greenwood Pediatrics),
-  # $145,000, re-typed under §0.3a in session 53.
-  if (nrow(rows) != 982L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 845170923.32) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 20L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 982 rows / $845,170,923.32 ",
-         "/ 20 states; re-state the rural cut against the new partition.",
+  # SESSION 54's NAMED_HOSPITAL: 1,033 rows / $902,386,742.75 / 24 states --
+  # session 53's 982 / $845,170,923.32 / 20 plus Vermont's 27 executed
+  # hospital agreements ($22,641,819.43), Connecticut's Day Kimball and Sharon
+  # ($33,350,000), West Virginia's CAMC and Cabell Huntington Foundation
+  # ($1,224,000) and Missouri's 20 UNPRICED Strategic Minor Renovations
+  # hospitals ($0). Session 53's figure was session 52's 981 plus Self
+  # Regional Healthcare (Greenwood Pediatrics), $145,000.
+  # SESSION 59: + Tennessee's two UNPRICED hospital rows (Macon Hospital, Inc;
+  # Cookeville Regional Medical Center Foundation) -- 1,035 / $902,386,742.75
+  # / 25 states. Rows and states move; dollars do not.
+  if (nrow(rows) != 1035L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 902386742.75) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 25L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,035 rows / $902,386,742.75 ",
+         "/ 25 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

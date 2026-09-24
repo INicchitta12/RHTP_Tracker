@@ -175,7 +175,13 @@ rhtp_assert_routines_registry <- function(routines = rhtp_read_routines()) {
            routines$script[i], ", which does not exist.", call. = FALSE)
     }
     src <- paste(readLines(f, warn = FALSE), collapse = "\n")
-    if (!grepl("rhtp_probe_run\\(", src)) {
+    # A state probe routes --probe through rhtp_probe_run(). The CMS trigger
+    # list (state "CMS", session 55) is not a probe -- its --run WRITES the raw
+    # landing zone -- and logs its verdict with rhtp_probe_log() directly.
+    logs_ok <- if (routines$state[i] == "CMS") {
+      grepl("rhtp_probe_log\\(", src)
+    } else grepl("rhtp_probe_run\\(", src)
+    if (!logs_ok) {
       stop("[coverage] ", routines$script[i], " does not route --probe through ",
            "rhtp_probe_run(), so its Routine cannot leave a log line.",
            call. = FALSE)

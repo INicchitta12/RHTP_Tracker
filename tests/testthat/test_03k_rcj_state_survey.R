@@ -193,11 +193,14 @@ test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
   # claimed the state had published nothing. So when the state published,
   # nothing had to be retracted -- which is exactly what INVESTIGATED_NO_LIST
   # would have got wrong here, since South Carolina had already awarded.
-  five <- c("HI", "MA", "MN", "NJ", "TN")
-  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, five)
-  got <- survey$extraction_status[match(five, survey$state)]
+  # SESSION 59: TENNESSEE LEFT THE SAME WAY -- TDH published 53 named HART
+  # recipients on 2026-09-03 -- so four remain.
+  four <- c("HI", "MA", "MN", "NJ")
+  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, four)
+  got <- survey$extraction_status[match(four, survey$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(five, got, collapse = "; "))
+              info = paste(four, got, collapse = "; "))
+  expect_equal(survey$extraction_status[survey$state == "TN"], "EXTRACTED")
   # And South Carolina is OUT of the bucket and IN the extracted set.
   expect_false("SC" %in% SURVEY_INVESTIGATED_NO_PROBE_STATES)
   expect_true("SC" %in% SURVEY_EXTRACTED_STATES)
@@ -267,9 +270,17 @@ test_that("session 43's four working states left the queue THROUGH the work", {
 
   # And the ten that session 43 read without finding work are still QUEUED --
   # a reporting pass alone must never move a state.
-  ten <- c("MT", "CO", "WV", "ND", "UT", "VT", "VA", "WA", "AZ", "RI")
-  expect_true(all(survey$extraction_status[match(ten, survey$state)] ==
+  # Session 54 worked VT and WV out of it by EXTRACTING them -- the only
+  # route out -- so eight remain.
+  # Session 59 worked CO and ND out by PROBING them (archive, tripwires,
+  # Routine) -- INVESTIGATED_NO_LIST's own definition -- so six remain.
+  six <- c("MT", "UT", "VA", "WA", "AZ", "RI")
+  expect_true(all(survey$extraction_status[match(six, survey$state)] ==
                     "NOT_EXTRACTED"))
+  expect_true(all(survey$extraction_status[match(c("CO", "ND"), survey$state)] ==
+                    "INVESTIGATED_NO_LIST"))
+  expect_true(all(survey$extraction_status[match(c("VT", "WV", "CT"),
+                                                 survey$state)] == "EXTRACTED"))
 })
 
 
@@ -279,8 +290,12 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 47: South Carolina moves INVESTIGATED_NO_PROBE -> EXTRACTED, so
   # 26/8/6/10 becomes 27/8/5/10. Session 52: New York moves
   # INVESTIGATED_NO_LIST -> EXTRACTED (its RCHI roster), so 28/7/5/10.
-  expect_equal(unname(tab[["EXTRACTED"]]), 28L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 7L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 5L)
-  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 10L)
+  # Session 54: CT (INVESTIGATED_NO_LIST), VT and WV (QUEUED) -> EXTRACTED,
+  # so 31/6/5/8.
+  # Session 59: TN (INVESTIGATED_NO_PROBE) -> EXTRACTED; CO and ND (QUEUED)
+  # -> INVESTIGATED_NO_LIST, so 32/8/4/6.
+  expect_equal(unname(tab[["EXTRACTED"]]), 32L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 4L)
+  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 6L)
 })

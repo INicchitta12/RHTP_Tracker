@@ -559,6 +559,26 @@ NV,nv_year1_awardees.csv,49,Grover C. Dils Medical Center,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,52,Desert View Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,70,Renown Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,71,Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+MO,mo_year1_awardees.csv,3,Citizens Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260195: PART A PROVIDER - HOSPITAL",FALSE,260195,
+MO,mo_year1_awardees.csv,4,Golden Valley Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260175: PART A PROVIDER - HOSPITAL",FALSE,260175,
+MO,mo_year1_awardees.csv,5,John Fitzgibbon Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260142: PART A PROVIDER - HOSPITAL",FALSE,260142,
+MO,mo_year1_awardees.csv,6,Lake Regional Health System,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260186: PART A PROVIDER - HOSPITAL",FALSE,260186,
+MO,mo_year1_awardees.csv,7,Northeast Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260022: PART A PROVIDER - HOSPITAL",FALSE,260022,
+MO,mo_year1_awardees.csv,8,Poplar Bluff Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260119: PART A PROVIDER - HOSPITAL",FALSE,260119,
+MO,mo_year1_awardees.csv,9,Scotland County Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261310,
+MO,mo_year1_awardees.csv,10,Texas County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260024: PART A PROVIDER - HOSPITAL",FALSE,260024,
+MO,mo_year1_awardees.csv,11,Bothwell Regional Health Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260009: PART A PROVIDER - HOSPITAL",FALSE,260009,
+MO,mo_year1_awardees.csv,12,Cameron Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260057: PART A PROVIDER - HOSPITAL",FALSE,260057,
+MO,mo_year1_awardees.csv,13,Carroll County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261332: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261332,
+MO,mo_year1_awardees.csv,14,Hannibal Regional Healthcare system,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260025: PART A PROVIDER - HOSPITAL",FALSE,260025,
+MO,mo_year1_awardees.csv,15,Hermann Area District Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261314,
+MO,mo_year1_awardees.csv,16,Missouri Delta Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260113: PART A PROVIDER - HOSPITAL",FALSE,260113,
+MO,mo_year1_awardees.csv,17,Nevada Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260061: PART A PROVIDER - HOSPITAL",FALSE,260061,
+MO,mo_year1_awardees.csv,18,Phelps County Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260017: PART A PROVIDER - HOSPITAL",FALSE,260017,
+MO,mo_year1_awardees.csv,19,Ray County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261327,
+MO,mo_year1_awardees.csv,20,Saint Francis Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260183: PART A PROVIDER - HOSPITAL",FALSE,260183,
+MO,mo_year1_awardees.csv,21,Salem Memorial District Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261318: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261318,
+MO,mo_year1_awardees.csv,22,Washington County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261308: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261308,
 IA,ia_year1_awardees.csv,1,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,2,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,3,Avera Merrill Pioneer Hospital,,NOT_RECORDED,,FALSE,,
@@ -981,3 +1001,36 @@ NY,ny_year1_awardees.csv,47,St. James Hospital,1178100,FEDERAL_RECORD_CCN,"CMS e
 NY,ny_year1_awardees.csv,48,St. Mary's Healthcare,500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 330047: PART A PROVIDER - HOSPITAL",FALSE,330047,ORG_WEBSITE
 NY,ny_year1_awardees.csv,53,United Memorial Medical Center,2470000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 330073: PART A PROVIDER - HOSPITAL",FALSE,330073,ORG_WEBSITE
 NY,ny_year1_awardees.csv,56,Westfield Memorial Hospital,1250000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 330801: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,330801,ORG_WEBSITE
+VT,vt_year1_awardees.csv,5,Brattleboro Memorial Hospital,759000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470011: PART A PROVIDER - HOSPITAL",FALSE,470011,ORG_WEBSITE
+VT,vt_year1_awardees.csv,9,Rutland Regional Medical Center,644107,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470005: PART A PROVIDER - HOSPITAL",FALSE,470005,ORG_WEBSITE
+VT,vt_year1_awardees.csv,10,Rutland Regional Medical Center,2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470005: PART A PROVIDER - HOSPITAL",FALSE,470005,ORG_WEBSITE
+VT,vt_year1_awardees.csv,15,Brattleboro Memorial Hospital,603750,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470011: PART A PROVIDER - HOSPITAL",FALSE,470011,ORG_WEBSITE
+VT,vt_year1_awardees.csv,18,Central Vermont Medical Center Inc.,167034.38,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470001: PART A PROVIDER - HOSPITAL",FALSE,470001,ORG_WEBSITE
+VT,vt_year1_awardees.csv,20,Mary Hitchcock Memorial Hospital,603680.8,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 300003: PART A PROVIDER - HOSPITAL",FALSE,300003,ORG_WEBSITE
+VT,vt_year1_awardees.csv,31,Northeastern Vermont Regional Hospital Inc.,143375.56,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471303,ORG_WEBSITE
+VT,vt_year1_awardees.csv,38,UVM - Health Network,266288.34,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VT,vt_year1_awardees.csv,42,North Country Hospital & Health Center,905147.28,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471304,ORG_WEBSITE
+VT,vt_year1_awardees.csv,44,Mary Hitchcock Memorial Hospital,3933283.8,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 300003: PART A PROVIDER - HOSPITAL",FALSE,300003,ORG_WEBSITE
+VT,vt_year1_awardees.csv,46,Northeastern Vermont Regional Hospital,1278318.88,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471303,ORG_WEBSITE
+VT,vt_year1_awardees.csv,48,Brattleboro Memorial Hospital,371775,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470011: PART A PROVIDER - HOSPITAL",FALSE,470011,ORG_WEBSITE
+VT,vt_year1_awardees.csv,52,Rutland Regional Medical Center,59550,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470005: PART A PROVIDER - HOSPITAL",FALSE,470005,ORG_WEBSITE
+VT,vt_year1_awardees.csv,53,THE UNIVERSITY OF VERMONT HEALTH NETWORK INC.,2208396.48,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VT,vt_year1_awardees.csv,54,North Country Hospital and Health Center,172500,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471304,ORG_WEBSITE
+VT,vt_year1_awardees.csv,56,Grace Cottage Hospital,169528.4,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 47Z300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,47Z300,ORG_WEBSITE
+VT,vt_year1_awardees.csv,59,Rutland Regional Medical Center DBA Rutland Hospital Inc.,75204,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470005: PART A PROVIDER - HOSPITAL",FALSE,470005,ORG_WEBSITE
+VT,vt_year1_awardees.csv,60,Brattleboro Memorial Hospital,356439.05,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470011: PART A PROVIDER - HOSPITAL",FALSE,470011,ORG_WEBSITE
+VT,vt_year1_awardees.csv,61,Brattleboro Retreat,228550.93,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 474001: PART A PROVIDER - HOSPITAL",FALSE,474001,ORG_WEBSITE
+VT,vt_year1_awardees.csv,68,Northeastern Vermont Regional Hospital (NVRH),860274,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471303,ORG_WEBSITE
+VT,vt_year1_awardees.csv,69,Northwestern Medical Center,75382.5,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470024: PART A PROVIDER - HOSPITAL",FALSE,470024,ORG_WEBSITE
+VT,vt_year1_awardees.csv,81,Mary Hitchcock Memorial Hospital,4283851,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 300003: PART A PROVIDER - HOSPITAL",FALSE,300003,ORG_WEBSITE
+VT,vt_year1_awardees.csv,83,"North Country Hospital and Health Center, Inc.",440345.73,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471304,ORG_WEBSITE
+VT,vt_year1_awardees.csv,84,Northeastern Vermont Regional Hospital,525355.11,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471303,ORG_WEBSITE
+VT,vt_year1_awardees.csv,85,Northwestern Medical Center,764516.22,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470024: PART A PROVIDER - HOSPITAL",FALSE,470024,ORG_WEBSITE
+VT,vt_year1_awardees.csv,86,"Southwestern Vermont Medical Center, Inc.",535793.76,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 470012: PART A PROVIDER - HOSPITAL",FALSE,470012,ORG_WEBSITE
+VT,vt_year1_awardees.csv,99,Northeastern Vermont Regional Hospital,210371.21,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471303,ORG_WEBSITE
+CT,ct_year1_awardees.csv,1,Day Kimball Hospital,20230000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 070003: PART A PROVIDER - HOSPITAL",FALSE,070003,ORG_WEBSITE
+CT,ct_year1_awardees.csv,2,Sharon Hospital,13120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 070004: PART A PROVIDER - HOSPITAL",FALSE,070004,ORG_WEBSITE
+WV,wv_year1_awardees.csv,2,CAMC/Vandalia Health,612000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510022: PART A PROVIDER - HOSPITAL",FALSE,510022,ORG_WEBSITE
+WV,wv_year1_awardees.csv,3,Cabell Huntington Foundation,612000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510055: PART A PROVIDER - HOSPITAL",FALSE,510055,GENERAL_KNOWLEDGE
+TN,tn_year1_awardees.csv,26,Cookeville Regional Medical Center Foundation,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440059: PART A PROVIDER - HOSPITAL",FALSE,440059,GENERAL_KNOWLEDGE
+TN,tn_year1_awardees.csv,36,"Macon Hospital, Inc",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 441305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,441305,GENERAL_KNOWLEDGE

@@ -65,9 +65,15 @@ test_that("exactly the five UNCLASSIFIED rows moved, and session 49 answered the
     moved$awardee,
     c("Nuvita Health", "Empowerq Health Care", "North Florida Rural Health Corp")
   )
+  # SESSION 58 settled the same five (R/03ax --apply): Empowerq Health Care is
+  # a 501(c)(3) clinic on a hand-read bridge, so NONPROFIT_CBO, and all five
+  # are distributed_to_hospital = No.
+  # SESSION 59: Nuvita Health is OTHER, not VENDOR_OR_CONTRACTOR -- a company
+  # receiving a grant does not supply the state (owner instruction, session
+  # 49's footing).
   expect_setequal(moved$recipient_type,
-                  c("VENDOR_OR_CONTRACTOR", "PHYSICIAN_PRACTICE",
-                    "NONPROFIT_CBO"))
+                  c("OTHER", "NONPROFIT_CBO"))
+  expect_true(all(moved$distributed_to_hospital == "No"))
 })
 
 test_that("a verified row carries its basis and NOT the inferred flag", {
@@ -123,15 +129,15 @@ test_that("the eight physician practices stay PHYSICIAN_PRACTICE", {
   # NONPROFIT_CBO later would quietly undo it and would assert a form the
   # source contradicts.
   # SESSION 49 ADDED A NINTH -- Empowerq Health Care, verified a physician
-  # practice -- so the EIGHT are identified by the owner's own code rather
-  # than by a count of the column.
+  # practice -- and SESSION 58 took it back out (a 501(c)(3) clinic,
+  # NONPROFIT_CBO). The EIGHT are still identified by the owner's own code.
   practices <- records %>%
     dplyr::filter(recipient_type == "PHYSICIAN_PRACTICE",
                   recipient_type_source == "PHYSICIAN_PRACTICE")
   expect_equal(nrow(practices), 8L)
   expect_true(all(practices$distributed_to_hospital == "No"))
   expect_true(all(is.na(practices$flag_reason)))
-  expect_equal(sum(records$recipient_type == "PHYSICIAN_PRACTICE"), 9L)
+  expect_equal(sum(records$recipient_type == "PHYSICIAN_PRACTICE"), 8L)
 })
 
 test_that("no hospital total moved as a result of the reconciliation", {

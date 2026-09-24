@@ -448,9 +448,22 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # below, as sessions 50's were, so the older figures are still checked.
   # Session 53: + Self Regional Healthcare (Greenwood Pediatrics), 1 row /
   # $145,000, re-typed under §0.3a -- subtracted below with session 52's.
-  expect_equal(named$rows, 982L)
-  expect_equal(round(named$dollars, 2), 845170923.32, tolerance = 0)
-  expect_equal(named$states, 20L)
+  # Session 54: + Vermont (27 / $22,641,819.43), Connecticut (2 /
+  # $33,350,000), West Virginia (2 / $1,224,000) and Missouri's 20 unpriced
+  # SMRP hospitals ($0) -- 51 rows / $57,215,819.43 and four states,
+  # subtracted first so every older figure is still checked.
+  # Session 59: + Tennessee's 2 UNPRICED hospital rows and 1 state, $0 --
+  # subtracted first, like every session before it.
+  expect_equal(named$rows, 1035L)
+  expect_equal(round(named$dollars, 2), 902386742.75, tolerance = 0)
+  expect_equal(named$states, 25L)
+  named$rows <- named$rows - 2L
+  named$states <- named$states - 1L
+  expect_equal(named$rows, 1033L)
+  expect_equal(named$states, 24L)
+  expect_equal(round(named$dollars - 57215819.43, 2), 845170923.32, tolerance = 0)
+  named$rows <- named$rows - 51L
+  named$dollars <- named$dollars - 57215819.43
   expect_equal(named$rows - 42L - 1L, 939L)
   expect_equal(round(named$dollars - 57535763.79 - 145000, 2), 787490159.53, tolerance = 0)
   expect_equal(named$rows - 42L - 1L - 74L, 865L)
@@ -460,8 +473,10 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   expect_equal(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
   # POOL_NAMED_HOSPITALS is Nebraska alone again (session 51) -- one Tier 3
   # award -- and did NOT gain anything from session 49.
-  expect_equal(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 18156856.12)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 1L)
+  # Session 54: + Connecticut's unsplit Hartford HealthCare pair, $12,650,000,
+  # a Tier 3 executed-award figure (so the bucket still does not mix tiers).
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 30806856.12)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 2L)
   ne <- p %>% filter(bucket == "POOL_NAMED_HOSPITALS", state == "NE")
   expect_equal(ne$dollars, 18156856.12)
 })
