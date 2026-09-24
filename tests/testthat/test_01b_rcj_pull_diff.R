@@ -15,10 +15,11 @@ test_that("fifty states, and new rows reconcile to the per-state counts", {
 test_that("EXPOSED is exactly the states on no Routine", {
   r <- readr::read_csv(here::here("config", "routines.csv"), show_col_types = FALSE)
   expect_setequal(by_state$state[by_state$exposed], setdiff(by_state$state, r$state))
-  # Session 61: 27 -> 21. DE ID OH SD TX and NJ went on Routines. (The
+  # Session 61: 27 -> 21. DE ID OH SD TX and NJ went on Routines; session 64:
+  # 21 -> 20, Indiana (R/03bi, trig_01NZAAixvNoKcZMBKAiCUCYD). (The
   # NEWSROOM sweep watches 18 states' newsrooms, but it is a net, not a
   # per-state watch, so it does not take a state out of this set.)
-  expect_equal(sum(by_state$exposed), 21L)
+  expect_equal(sum(by_state$exposed), 20L)
 })
 
 test_that("an unscheduled probe is not a watch", {
