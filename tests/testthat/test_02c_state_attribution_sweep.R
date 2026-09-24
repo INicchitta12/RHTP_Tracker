@@ -42,54 +42,64 @@ test_that("a county is not a state, and the exclusion is generated not typed", {
 test_that("every flagged record has a hand-read verdict, and none is stale", {
   # sweep_build() itself refuses on either condition; this pins that it does.
   expect_true(all(!is.na(flagged$verdict)))
-  expect_setequal(flagged$record_id, SWEEP_VERDICTS$record_id)
+  hand <- flagged$record_id[flagged$verdict != "MISFILED_SAME_DOCUMENT"]
+  expect_setequal(hand, setdiff(SWEEP_VERDICTS$record_id,
+                                SWEEP_RETIRED_VERDICTS$record_id))
   expect_true(all(flagged$verdict %in% names(SWEEP_NOTES)))
+  # a retired verdict is never also live
+  expect_length(intersect(SWEEP_RETIRED_VERDICTS$record_id, flagged$record_id), 0L)
 })
 
-test_that("(a) TEN records are another state's, in FIVE states", {
-  mis <- flagged[flagged$verdict == "MISFILED", ]
-  expect_equal(nrow(mis), 10L)
+test_that("(a) 17 records are another state's, in EIGHT states (2026-09-24 pull)", {
+  mis <- flagged[flagged$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT"), ]
+  expect_equal(nrow(mis), 17L)
   expect_equal(sort(unique(mis$filed_under)), SWEEP_MISFILED_STATES)
-  # WYOMING IS THE LARGEST, AND UTAH IS ITS MIRROR
-  expect_equal(sum(mis$filed_under == "WY"), 5L)
+  # RCJ RE-FILED three of Wyoming's five Utah documents, and Utah's own
+  # allotment is no longer a Wyoming row
+  expect_equal(sum(mis$filed_under == "WY"), 2L)
   expect_true(all(mis$foreign_states_named[mis$filed_under == "WY"] == "UT"))
-  expect_equal(mis$foreign_states_named[mis$filed_under == "UT"], "OK")
-  # and the sharpest single row: UTAH'S OWN ALLOTMENT, as a WYOMING row
-  utah_award <- mis[stringr::str_detect(
-    mis$source_doc_title, "Utah RHTP Cooperative Agreement Award"), ]
-  expect_equal(nrow(utah_award), 1L)
-  expect_equal(utah_award$filed_under, "WY")
-  expect_equal(utah_award$amount_announced, 195700000)
+  expect_false("UT" %in% mis$filed_under)
+  expect_equal(nrow(mis[stringr::str_detect(
+    mis$source_doc_title, "Utah RHTP Cooperative Agreement Award"), ]), 0L)
+  # New Mexico holds six rows of ONE Oregon document
+  expect_equal(sum(mis$filed_under == "NM"), 5L)
+  expect_true(all(mis$foreign_states_named[mis$filed_under == "NM"] == "OR"))
 })
 
-test_that("(b) NOT ONE misfiled record is Tier 3", {
-  mis <- flagged[flagged$verdict == "MISFILED", ]
-  expect_equal(sum(mis$award_tier == "SUBAWARD"), 0L)
+test_that("(b) FIVE misfiled records are Tier 3, pinned by record", {
+  mis <- flagged[flagged$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT"), ]
+  expect_setequal(mis$record_id[mis$award_tier == "SUBAWARD"],
+                  SWEEP_MISFILED_TIER3)
   expect_silent(sweep_assert(flagged))
+  # three of the four Wallowa rows name NO state, so only the document list
+  # reaches them -- the counterfactual without it
+  sib <- flagged[flagged$verdict == "MISFILED_SAME_DOCUMENT", ]
+  expect_equal(nrow(sib), 3L)
+  expect_true(all(sib$award_tier == "SUBAWARD"))
+  expect_true(all(sweep_states_named(paste(sib$awardee_name_clean)) == ""))
 })
 
-test_that("the assertion fails if a misfiled record becomes Tier 3", {
+test_that("the assertion fails if the misfiled Tier 3 set moves either way", {
   faked <- flagged
-  faked$award_tier[faked$verdict == "MISFILED"][1] <- "SUBAWARD"
-  expect_error(sweep_assert(faked), "never reached the tier")
+  faked$award_tier[faked$verdict == "MISFILED" &
+                     faked$award_tier != "SUBAWARD"][1] <- "SUBAWARD"
+  expect_error(sweep_assert(faked), "misfiled Tier 3 set moved")
+  gone <- flagged[flagged$record_id != SWEEP_MISFILED_TIER3[1], ]
+  expect_error(sweep_assert(gone), "misfiled Tier 3 set moved")
 })
 
-test_that("all EIGHT Tier 3 flags are false positives, each legible", {
-  t3 <- flagged[flagged$award_tier == "SUBAWARD", ]
-  expect_equal(nrow(t3), 8L)
+test_that("seven verdicts are RETIRED by the corpus and say why", {
+  expect_equal(nrow(SWEEP_RETIRED_VERDICTS), 7L)
+  expect_equal(sum(grepl("WITHDRAWN", SWEEP_RETIRED_VERDICTS$retired_because)), 3L)
+  expect_equal(sum(grepl("UT|Utah", SWEEP_RETIRED_VERDICTS$retired_because)), 4L)
+})
+
+test_that("the other Tier 3 flags are false positives, each legible", {
+  t3 <- flagged[flagged$award_tier == "SUBAWARD" &
+                  !flagged$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT"), ]
+  expect_equal(nrow(t3), 5L)
   expect_equal(sort(unique(t3$verdict)),
-               c("COUNTY_WITHOUT_THE_WORD", "NAME_CONTAINS_A_STATE_NAME",
-                 "STREET_ADDRESS"))
-  # the one that matters most: a real ALASKA awardee whose legal name carries
-  # its parent system's state, and which IS in ak_year1_awardees.csv
-  prov <- t3[t3$verdict == "NAME_CONTAINS_A_STATE_NAME", ]
-  expect_equal(nrow(prov), 3L)
-  expect_true(all(prov$filed_under == "AK"))
-  expect_true(all(stringr::str_detect(prov$awardee_name_clean,
-                                      "Providence Health & Services")))
-  ak <- readr::read_csv(here::here("data", "reference", "ak_year1_awardees.csv"),
-                        show_col_types = FALSE, progress = FALSE)
-  expect_true(any(stringr::str_detect(ak$awardee, "Providence Health")))
+               c("COUNTY_WITHOUT_THE_WORD", "STREET_ADDRESS"))
 })
 
 test_that("the sweep is a reading prompt and never a filter", {

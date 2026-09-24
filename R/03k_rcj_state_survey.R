@@ -384,7 +384,7 @@ rhtp_survey_record_table <- function(path = SURVEY_RECORD_TABLE) {
     )
   }
 
-  records <- readRDS(full)
+  records <- rhtp_record_table_live(path = full)
 
   # WHICH PULL DOES THIS TABLE DESCRIBE? `pull_date` is the column that is
   # supposed to say, and on the currently committed table it is NA on all

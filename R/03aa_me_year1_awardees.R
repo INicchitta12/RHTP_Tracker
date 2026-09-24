@@ -1150,7 +1150,7 @@ me_assert_status_no_amount <- function(status = NULL) {
 # -- §0.1: what RCJ carries ---------------------------------------------------
 
 me_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>% dplyr::filter(state == "ME", award_tier == "SUBAWARD",
                        is.na(superseded_by))
 }

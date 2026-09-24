@@ -268,15 +268,24 @@ rhtp_write_noa_dates <- function() {
 #' markers also match a Pennsylvania RHTP award row and Alaska's Year 1
 #' announcement; source-scoped they match nothing that is RHTP.
 rhtp_provenance_sweep <- function(records = NULL) {
-  if (is.null(records)) records <- readRDS(here::here(SWEEP_RECORD_TABLE))
+  if (is.null(records)) records <- rhtp_record_table_live(path = here::here(SWEEP_RECORD_TABLE))
 
   registry  <- rhtp_read_state_program_registry()
   patterns  <- rhtp_read_patterns("non_rhtp_patterns.csv")
   noa       <- rhtp_read_noa_dates()
 
   cand <- records %>%
+    # Rows Stage 2 itself QUARANTINED on provenance are kept: Stage 2 has
+    # carried these filters since session 20, and a sweep that read only
+    # PASS/FLAGGED would exclude exactly what it exists to catch. On the
+    # 2026-09-24 re-run that is what happened -- 0 rows caught, every
+    # assertion passing (session 62). Other quarantines (junk state codes,
+    # self-declared non-RHTP) stay out, as before.
     dplyr::filter(award_tier == "SUBAWARD",
-                  qa_status %in% c("PASS", "FLAGGED")) %>%
+                  qa_status %in% c("PASS", "FLAGGED") |
+                    (qa_status == "QUARANTINED" &
+                       stringr::str_detect(dplyr::coalesce(flag_reason, ""),
+                                           "PROVENANCE_"))) %>%
     dplyr::mutate(
       provenance_text = paste(
         dplyr::coalesce(source_doc_title, ""),
@@ -284,7 +293,14 @@ rhtp_provenance_sweep <- function(records = NULL) {
         sep = " "
       )
     ) %>%
-    dplyr::left_join(noa %>% dplyr::select(state, noa_date), by = "state")
+    dplyr::left_join(noa %>% dplyr::select(state, noa_date), by = "state") %>%
+    # Stage 2 has written its own action_date / action_date_basis since the
+    # filter was wired into it (session 20), but the committed table predated
+    # that until the 2026-09-24 re-run (session 62). This sweep re-derives
+    # both from the same functions, so the table's copy is dropped rather than
+    # bound twice -- bind_cols() renamed the pair to action_date...54 and the
+    # per-state summary could no longer find the column.
+    dplyr::select(-dplyr::any_of(c("action_date", "action_date_basis")))
 
   swept <- purrr::pmap_dfr(
     list(cand$state, cand$provenance_text, cand$noa_date),

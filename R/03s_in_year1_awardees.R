@@ -1029,7 +1029,7 @@ IN_RHTP_RFPS <- c("26-87448", "26-87449", "26-87450", "26-87556", "26-87667")
 #' every run (Texas's precedent) so the day the candidate set moves, the build
 #' fails instead of the disposition quietly ceasing to cover it.
 in_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(state == IN_STATE, award_tier == "SUBAWARD",
                   qa_status != "QUARANTINED") %>%

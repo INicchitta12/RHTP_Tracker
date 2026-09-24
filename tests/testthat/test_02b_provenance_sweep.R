@@ -25,7 +25,7 @@ library(testthat)
 
 source(here::here("R", "02b_provenance_sweep.R"))
 
-sweep_records <- readRDS(here::here(SWEEP_RECORD_TABLE))
+sweep_records <- rhtp_record_table_live(path = here::here(SWEEP_RECORD_TABLE))
 swept         <- rhtp_provenance_sweep(sweep_records)
 by_state      <- rhtp_provenance_sweep_by_state(swept)
 registry      <- rhtp_read_state_program_registry()
@@ -283,17 +283,21 @@ test_that("Texas's 53 state-appropriation rows are caught, by the registry", {
   expect_equal(sum(tx$amount_announced), 21 * 250000 + 32 * 350000)
 })
 
-test_that("all 68 Texas candidates are caught or accounted for", {
+test_that("the Texas candidates: 53 caught, and the 9 Medicaid rows WITHDRAWN", {
+  # 68 candidates / 62 caught on the 2026-08-27 pull. On the 2026-09-24 pull
+  # (session 62) RCJ WITHDREW the 5 ATLIS and 4 IGT Medicaid rows the
+  # TX-ATLIS-MCO and TX-IGT registry rows existed to catch, and added 26 new
+  # candidates. The 53 Rider 88 rows are still caught; everything uncaught is
+  # dispositioned by hand in tx_rcj_candidate_disposition.csv, because this
+  # filter must not pretend to solve a §0.3 or wrong-programme problem it
+  # has no registry row for.
   tx <- swept %>% dplyr::filter(state == "TX")
-  expect_equal(nrow(tx), 68)
-  expect_equal(sum(tx$caught), 62)
-
-  # The 6 not caught are the ones session 19 dispositioned as RHTP but not a
-  # Tier 3 subaward -- budget-narrative line items and the "80 Rural Hospital
-  # Districts" class. They are a §0.3 problem, not a provenance one, and this
-  # filter must not pretend to solve them.
-  uncaught <- tx %>% dplyr::filter(!caught)
-  expect_true(all(stringr::str_detect(uncaught$source_doc_title, "RHTP|Texas RHTP")))
+  expect_equal(nrow(tx), 85)
+  expect_equal(sum(tx$caught), 53)
+  all_rt <- readRDS(here::here(SWEEP_RECORD_TABLE))
+  wd <- all_rt %>% dplyr::filter(state == "TX", award_tier == "SUBAWARD",
+                                 change_status == "WITHDRAWN")
+  expect_equal(nrow(wd), 9)
 })
 
 test_that("appropriation language is NOT an available marker, and that is measured", {
@@ -311,9 +315,13 @@ test_that("appropriation language is NOT an available marker, and that is measur
   # Texas, and why the registry exists.
   approp <- swept %>% dplyr::filter(stringr::str_detect(
     dplyr::coalesce(program_description, ""), "appropriat"))
-  expect_equal(nrow(approp), 1)
-  expect_equal(approp$state, "PA")
-  expect_false(approp$caught)
+  # One row (PA) on 2026-08-27; six on 2026-09-24 (four Alaska, one NJ, the
+  # same PA row). NONE is Texas and NONE is caught -- the measurement still
+  # says what it said: the word does not reach the state money it would need to.
+  expect_equal(nrow(approp), 6)
+  expect_true("PA" %in% approp$state)
+  expect_false(any(approp$state == "TX"))
+  expect_false(any(approp$caught))
 })
 
 test_that("the state markers are source-scoped, and the scope is doing work", {
@@ -338,8 +346,21 @@ test_that("the state markers are source-scoped, and the scope is doing work", {
   ))
 })
 
-test_that("Illinois's only candidate is caught, corroborating session 16 by machine", {
-  il <- swept %>% dplyr::filter(state == "IL")
+# SESSION 62: RCJ WITHDREW all three of these states' caught rows on the
+# 2026-09-24 pull. They are kept in the record table as WITHDRAWN (§6.3) and
+# these tests now sweep THOSE rows, re-labelled live, so the three filters are
+# still proven to catch them the day they come back -- rather than silently
+# testing an empty set.
+withdrawn_t3 <- function(st) {
+  readRDS(here::here(SWEEP_RECORD_TABLE)) %>%
+    dplyr::filter(state == st, award_tier == "SUBAWARD",
+                  change_status == "WITHDRAWN") %>%
+    dplyr::mutate(superseded_by = NA_character_, change_status = "UNCHANGED")
+}
+
+test_that("Illinois's one candidate is WITHDRAWN, and would still be caught", {
+  expect_equal(sum(swept$state == "IL"), 0)
+  il <- rhtp_provenance_sweep(withdrawn_t3("IL"))
   expect_equal(nrow(il), 1)
   expect_true(il$caught)
   expect_equal(il$registry_program, "IL-MYOWNDOCTOR-MEDICAID")
@@ -351,20 +372,19 @@ test_that("Illinois's only candidate is caught, corroborating session 16 by mach
   expect_false(any(stringr::str_detect(icahn$awardee, "MyOwnDoctor")))
 })
 
-test_that("New Hampshire's $1.9bn row is caught, and two filters agree on it", {
-  nh <- swept %>% dplyr::filter(state == "NH", caught)
-  expect_equal(nrow(nh), 3)
+test_that("New Hampshire's $1.9bn row is WITHDRAWN, and two filters still agree on it", {
+  expect_equal(sum(swept$caught[swept$state == "NH"]), 0)
+  nh <- rhtp_provenance_sweep(withdrawn_t3("NH")) %>% dplyr::filter(caught)
+  expect_gte(nrow(nh), 1)
   expect_true(all(nh$flag_state_program == "PROVENANCE_STATE_PROGRAM"))
-
-  # The §6.2 allotment ceiling flagged this row in session 5 as impossible
-  # against a $204M allotment; the provenance filter now says what it is.
   big <- nh %>% dplyr::filter(amount_announced == max(amount_announced))
   expect_equal(big$amount_announced, 1898965390)
   expect_match(big$flag_reason, "AMOUNT_EXCEEDS_STATE_ALLOTMENT")
 })
 
-test_that("Rhode Island's opioid settlement rows include a named hospital", {
-  ri <- swept %>% dplyr::filter(state == "RI", caught)
+test_that("Rhode Island's opioid settlement rows are WITHDRAWN, and still caught", {
+  expect_equal(sum(swept$caught[swept$state == "RI"]), 0)
+  ri <- rhtp_provenance_sweep(withdrawn_t3("RI")) %>% dplyr::filter(caught)
   expect_equal(nrow(ri), 3)
   expect_true(any(stringr::str_detect(ri$awardee_name_raw, "Hospital")))
 })
@@ -372,58 +392,35 @@ test_that("Rhode Island's opioid settlement rows include a named hospital", {
 
 # -- The sweep as a whole ----------------------------------------------------
 
-test_that("the sweep catches 101 rows in 9 states, and the arithmetic closes", {
-  # 73 in 6 states through session 25. NEVADA ADDED 9 IN SESSION 26: the nine
-  # GME Grant Round VIII residency awards, $15,755,068 of Nevada STATE GENERAL
-  # FUND money that RCJ files under RHTP-titled documents. They are caught by
-  # the registry entry NV-GME-ROUNDVIII, keyed on the GME release's own title.
-  #
-  # THE SWEEP CATCHES 9 OF NEVADA'S 17 SUCH ROWS AND THAT IS A MEASURED LIMIT,
-  # NOT A SHORTFALL. The other 8 are filed by RCJ under "Nevada Home Working
-  # Together RHTP 2026 Award Announcement" -- the NVHA workforce publication,
-  # which IS a genuine RHTP document and carries the CMS financial-assistance
-  # footer on every page while describing three programmes of which only one is
-  # RHTP. No source-title-keyed rule can honestly reach those 8; they are
-  # disposed of by hand in nv_rcj_candidate_disposition.csv. That gap is
-  # session 26's §6.2 lesson: the CMS footer covers the PUBLICATION, not every
-  # programme described in it.
-  #
-  # SESSION 27 ADDED MICHIGAN: 82 rows in 7 states -> 90 in 8. All eight are
-  # MDHHS's youth substance-use prevention grants, which the release's own
-  # sub-headline calls "New opioid settlement-funded grants". Unlike Nevada's,
-  # the registry reaches ALL of them -- RCJ carries the release HEADLINE as its
-  # source-document title and the first alternative matches it.
-  #
-  # SESSION 34 ADDED CALIFORNIA: 90 rows in 8 states -> 101 in 9, and it is the
-  # largest single-state catch after Texas. All ELEVEN of California's Tier 3
-  # candidates are the Small and Rural Hospital Relief Program -- a state
-  # cigarette-tax seismic-compliance programme -- and ALL ELEVEN ARE NAMED
-  # CALIFORNIA HOSPITALS carrying real amounts on real executed HCAI awards.
-  # Texas's defect with Maine's ratio.
-  #
-  # AND CALIFORNIA IS CAUGHT BY BOTH FILTERS AT ONCE, which no other state's
-  # rows are. The registry reaches all eleven on the source-document title, and
-  # the DATE test reaches all eleven too -- because the registry row supplies
-  # HCAI's own 2025-02-19 SRHRP webinar date for rows RCJ carries NO DATE FOR
-  # AT ALL. New Hampshire's pattern (two §6.2 filters, one row) at the scale of
-  # a whole state's candidate set.
-  expect_equal(sum(swept$caught), 101)
-  expect_equal(sum(by_state$caught_total > 0), 9)
-  expect_equal(sum(by_state$caught_total), 101)
+test_that("the sweep catches 66 rows in 4 states, and the arithmetic closes", {
+  # 101 rows in 9 states through session 61 (history in git: TX 62, CA 11,
+  # NV 9, MI 8, NH 3, AZ 3, RI 3, MS 1, IL 1). ON THE 2026-09-24 PULL
+  # (session 62) RCJ WITHDREW every candidate five registry rows existed to
+  # catch -- California's 11 SRHRP seismic rows, Michigan's 8 opioid-settlement
+  # rows, Texas's 9 ATLIS/IGT Medicaid rows, Illinois's MyOwnDoctor row -- and
+  # Rhode Island's 3 opioid rows and New Hampshire's 3 Medicaid rows left the
+  # candidate set too. The aggregator dropping rows this filter caught is a
+  # finding about the aggregator, and the registry keeps those entries
+  # (they match nothing today and say so) so a re-appearance is caught.
+  expect_equal(sum(swept$caught), 66)
+  expect_equal(sum(by_state$caught_total > 0), 4)
+  expect_equal(sum(by_state$caught_total), 66)
   expect_setequal(by_state$state[by_state$caught_total > 0],
-                  c("TX", "CA", "NV", "MI", "NH", "AZ", "RI", "MS", "IL"))
+                  c("TX", "NV", "AZ", "MS"))
 })
 
-test_that("California's caught rows are all eleven, and both filters reach them", {
-  ca <- swept %>% dplyr::filter(state == "CA", caught)
-  expect_equal(nrow(ca), 11)
-  expect_true(all(ca$flag_state_program == "PROVENANCE_STATE_PROGRAM"))
-  expect_true(all(ca$registry_program == "CA-SRHRP-SEISMIC"))
-  expect_true(all(ca$registry_disposition == "NOT_RHTP_STATE_PROGRAM"))
-  # Unlike Nevada's, these ARE also caught on a date: the SRHRP was soliciting
-  # in February 2025, ten months before California's Notice of Award.
-  expect_true(all(!is.na(ca$flag_predates_noa)))
-  expect_equal(sum(ca$amount_announced), 5475000)
+test_that("California's eleven SRHRP rows are WITHDRAWN, not un-caught", {
+  all_rt <- readRDS(here::here(SWEEP_RECORD_TABLE))
+  ca_wd <- all_rt %>% dplyr::filter(state == "CA", award_tier == "SUBAWARD",
+                                    change_status == "WITHDRAWN")
+  expect_equal(nrow(ca_wd), 11)
+  expect_equal(sum(ca_wd$amount_announced), 5475000)
+  # the registry entry survives and would catch them if they came back
+  expect_true("CA-SRHRP-SEISMIC" %in% registry$program_id)
+  ca_wd_swept <- rhtp_provenance_sweep(ca_wd %>% dplyr::mutate(
+    superseded_by = NA_character_, change_status = "UNCHANGED"))
+  expect_true(all(ca_wd_swept$registry_program == "CA-SRHRP-SEISMIC"))
+  expect_equal(sum(swept$caught[swept$state == "CA"]), 0)
 })
 
 test_that("Nevada's caught rows are the nine GME programmes, and no Nevada RHTP row", {

@@ -911,7 +911,7 @@ ok_assert_vocabulary <- function(recs) {
 #' the day Oklahoma's candidate set moves this fails instead of quietly ceasing
 #' to cover it (Texas's, Nebraska's and Indiana's rule).
 ok_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(.data$state == OK_STATE, .data$award_tier == "SUBAWARD",
                   is.na(.data$superseded_by) | .data$superseded_by == "")

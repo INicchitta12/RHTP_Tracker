@@ -1280,7 +1280,7 @@ rhtp_ks_rcj_gap <- function(awards = NULL) {
   rt_path <- here::here("data/interim/stage2_record_table.rds")
   if (!file.exists(rt_path)) return(NULL)
 
-  rcj <- readRDS(rt_path) %>%
+  rcj <- rhtp_record_table_live(path = rt_path) %>%
     dplyr::filter(state == "KS", award_tier == "SUBAWARD",
                   stringr::str_detect(dplyr::coalesce(source_doc_title, ""),
                                       "RPGP|CHW"))

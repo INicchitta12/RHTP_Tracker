@@ -567,7 +567,7 @@ ny_status_table <- function() {
 }
 
 ny_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   ny <- rt %>% dplyr::filter(.data$state == NY_STATE)
   n_t3 <- sum(ny$award_tier == "SUBAWARD")
   tibble::tribble(

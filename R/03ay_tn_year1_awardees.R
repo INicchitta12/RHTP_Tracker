@@ -322,7 +322,7 @@ tn_status_table <- function() {
 }
 
 tn_rcj_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   t <- rt[rt$state == TN_STATE, ]
   hart <- grepl("HART|Healthy Active", paste(t$source_doc_title,
                                              t$program_description),

@@ -424,7 +424,7 @@ test_that("the status table has NO amount column", {
 test_that("the RCJ candidate count is DERIVED, never typed", {
   skip_if_no_archive()
   n <- sc_rcj_candidate_count()
-  rec <- readRDS(here::here("data/interim/stage2_record_table.rds"))
+  rec <- rhtp_record_table_live()
   expect_equal(n, sum(rec$state == "SC" & rec$award_tier == "SUBAWARD",
                       na.rm = TRUE))
   expect_equal(n, 0L)

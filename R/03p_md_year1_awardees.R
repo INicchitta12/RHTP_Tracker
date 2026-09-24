@@ -599,7 +599,7 @@ md_assert_rcj_reconciles <- function(offers, quiet = FALSE) {
     if (!quiet) message("  (no stage2 record table on disk; RCJ check skipped)")
     return(invisible(NULL))
   }
-  rt <- readRDS(rt_path)
+  rt <- rhtp_record_table_live(path = rt_path)
   md <- rt %>% dplyr::filter(.data$state == MD_STATE,
                              .data$award_tier == "SUBAWARD")
 

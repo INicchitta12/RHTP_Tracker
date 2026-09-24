@@ -1280,7 +1280,7 @@ nv_rcj_candidates <- function() {
     stop("[NV] stage2_record_table.rds is missing; run Stage 2 first.",
          call. = FALSE)
   }
-  readRDS(path) %>%
+  rhtp_record_table_live(path = path) %>%
     dplyr::filter(.data$state == NV_STATE, .data$award_tier == "SUBAWARD",
                   is.na(.data$superseded_by))
 }

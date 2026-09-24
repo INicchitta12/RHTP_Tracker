@@ -40,9 +40,14 @@ test_that("FLAGGED Tier 3 records count as candidates -- the Alaska case", {
   # records all carry SOURCE_DOCUMENT_UNRESOLVED, which means the /awards row
   # had no sourceDocument.id -- a provenance gap, not junk. Session 12
   # extracted all 161 from the state's own workbook, so they are real.
+  #
+  # SESSION 62: on the 2026-09-24 pull RCJ re-keyed all of Alaska (159
+  # WITHDRAWN, 248 new ids) and the new rows carry a source document, so 227
+  # are PASS and only 20 FLAGGED. The rule the test protects is unchanged --
+  # FLAGGED rows still count -- and Alaska still has to rank near the top.
   ak <- survey[survey$state == "AK", ]
-  expect_equal(ak$tier3_pass, 0L)
-  expect_gt(ak$tier3_flagged, 100L)
+  expect_gt(ak$tier3_pass, 200L)
+  expect_gt(ak$tier3_flagged, 0L)
   expect_equal(ak$tier3_candidates, ak$tier3_pass + ak$tier3_flagged)
 
   # And the survey must therefore rank Alaska near the top, not at zero.
@@ -113,9 +118,13 @@ test_that("Illinois is in the survey and its candidate is noise", {
   # not RHTP -- while Illinois awarded $50,008,264 to ICAHN. Pinned because it
   # is the evidence for the claim that neither discovery layer is a census,
   # and a reader is entitled to check it.
+  #
+  # SESSION 62: RCJ WITHDREW the MyOwnDoctor row on the 2026-09-24 pull, so
+  # Illinois now holds ZERO candidates while having awarded $50,008,264 --
+  # the claim is sharper, not weaker.
   il <- survey[survey$state == "IL", ]
-  expect_equal(il$tier3_candidates, 1L)
-  expect_equal(il$rcj_amount_max, 1)
+  expect_equal(il$tier3_candidates, 0L)
+  expect_true(is.na(il$rcj_amount_max))
   expect_equal(il$in_cms_announcements, "No")
 })
 

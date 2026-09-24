@@ -1122,7 +1122,7 @@ mi_assert_form_not_stated_queued <- function(recs) {
 
 #' §0.1: RCJ's 31 candidates, re-derived from the record table every run
 mi_rcj_candidates <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(.data$state == "MI", .data$award_tier == "SUBAWARD") %>%
     dplyr::transmute(

@@ -213,6 +213,39 @@ rhtp_cms_states <- function() {
 }
 
 
+#' The LIVE record table: one row per record in the newest normalised pull
+#'
+#' `stage2_record_table.rds` is effective-dated and keeps EVERY version
+#' (§6.3): a record whose payload changed keeps its old row with
+#' `superseded_by` set, and a record RCJ dropped is kept with
+#' `change_status = "WITHDRAWN"` and `superseded_by` still NA. On a table
+#' built from ONE pull those two row kinds do not exist, so every reader that
+#' counted "all rows" and every reader that filtered on `superseded_by` gave
+#' the same answer -- which is why nothing noticed that the ~30 readers in
+#' `R/` did it three different ways (session 62).
+#'
+#' From the second pull onward they diverge: counting all rows counts a
+#' changed record twice and a withdrawn one after RCJ has dropped it. Every
+#' reader that asks "what does RCJ carry for this state TODAY?" goes through
+#' this function. WITHDRAWN rows are kept in the table and are readable with
+#' `include_withdrawn = TRUE`; they are a finding about the aggregator, not
+#' a candidate.
+rhtp_record_table_live <- function(include_withdrawn = FALSE,
+                                   path = rhtp_path("interim",
+                                                    "stage2_record_table.rds")) {
+  if (!file.exists(path)) {
+    stop("stage2_record_table.rds is missing; run R/02_normalize.R --run.",
+         call. = FALSE)
+  }
+  rt <- readRDS(path)
+  live <- is.na(rt$superseded_by) | rt$superseded_by == ""
+  if (!include_withdrawn && "change_status" %in% names(rt)) {
+    live <- live & !(rt$change_status %in% "WITHDRAWN")
+  }
+  rt[live, , drop = FALSE]
+}
+
+
 #' The controlled vocabularies (§8)
 #'
 #' `data/reference/vocabularies.csv` is the single home for every categorical

@@ -406,7 +406,7 @@ id_status_table <- function() {
 }
 
 id_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   t3 <- rt %>% dplyr::filter(.data$state == ID_STATE,
                              .data$award_tier == "SUBAWARD")
   if (nrow(t3) != 1L) {

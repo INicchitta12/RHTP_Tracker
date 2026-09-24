@@ -158,7 +158,66 @@ SWEEP_VERDICTS <- tibble::tribble(
   "08c60046-77e0-478f-b307-3fc08d8feaf2", "MISFILED",
   "58e871aa-51aa-46bf-9c8c-27269a330832", "MISFILED",
   "3e70da1b-5839-44f5-b815-bf645fe11402", "MISFILED",
-  "1d474172-7a1f-4c6c-9d49-caf6aecb96b1", "MISFILED"
+  "1d474172-7a1f-4c6c-9d49-caf6aecb96b1", "MISFILED",
+  # -- session 62, the 2026-09-24 pull. Every one opened and read. ----------
+  # Wallowa Memorial Hospital is in Wallowa County, OREGON (the description
+  # says "Eastern Oregon"). THE FIRST MISFILED TIER 3 RECORD.
+  "4e3c2e97-6e50-4994-94e9-1caf781dc997", "MISFILED",
+  "4babf0af-75fc-46dc-a44d-d8731f5520ae", "MISFILED",
+  # South Dakota's $31.5M Rural Strong round, as an AWARDEE row, inside a
+  # multi-state digest filed under Michigan. The second misfiled Tier 3 record,
+  # and a pool rather than a recipient besides.
+  "42b92bd8-03bc-459c-8e58-9a920022d44d", "MISFILED",
+  # The same digest's document row: a round-up of many states.
+  "05646180-67a2-4c3e-a3fb-23804b4ea2c0", "MULTI_STATE_DIGEST",
+  # "South Dakota NOFO ..." filed under Michigan.
+  "9b9a08dc-3ae8-4fdc-99c7-dcf1aa249d45", "MISFILED",
+  # Governor Tate Reeves's MISSISSIPPI 167-award release, filed under Arkansas.
+  "0b2d4ebd-6740-43d3-881d-870b5fa3b571", "MISFILED",
+  # CMS's GEORGIA $93.3M release, filed under Arkansas.
+  "8dfc67c9-12d7-466a-8751-8a08a2b23bf4", "MISFILED",
+  # Senator Cotton on ARKANSAS's $150M, filed under Maine.
+  "a5fd66ae-ead2-4851-ba22-86f45f695837", "MISFILED",
+  # UTAH DHHS's Rural Health Connect newsletter, filed under North Dakota.
+  "ec44a9cd-5c62-440e-a5be-55c456970599", "MISFILED",
+  # "RFP 27-87793" is an INDIANA IDOA number (IDOA's 26-/27-nnnnn series);
+  # RCJ's machine summary calls it "Florida's RFP". The record is Indiana's
+  # and correctly filed; the SUMMARY names the wrong state (§6).
+  "23c4c487-118d-4cfd-8bcd-a8ca794efacc", "SUMMARY_NAMES_WRONG_STATE"
+)
+
+# A DOCUMENT THAT IS WHOLLY ANOTHER STATE'S, read by hand. Every live record
+# filed under `state` with this `source_doc_title` is that state's, INCLUDING
+# the ones that name no state at all -- and those are exactly the ones a
+# state-name sweep cannot see. Three of Wallowa's four Tier 3 rows ("Wallowa
+# Memorial Hospital", "... - Rural Health Clinics", "... and Medical Clinics")
+# name NO state, so without this list the sweep would report one misfiled
+# Tier 3 award where there are four (session 62). Explicit rather than a rule,
+# because a MULTI_STATE_DIGEST also carries records of the state it is filed
+# under, and a rule keyed on "a MISFILED record came from this document" would
+# drag those in.
+# VERDICTS RETIRED BY THE CORPUS, not by a reader. Kept, with the reason,
+# because deleting a verdict erases the evidence it once carried. On the
+# 2026-09-24 pull RCJ RE-FILED four records it had misfiled -- three of
+# Wyoming's five Utah documents and the Oklahoma-derived Utah webinars page
+# are now filed under UTAH -- and withdrew Alaska's three Providence rows.
+# The aggregator correcting itself is a finding too: session 42's Wyoming
+# count (five) is now two.
+SWEEP_RETIRED_VERDICTS <- tibble::tribble(
+  ~record_id,                             ~verdict_was,                ~retired_because,
+  "61cff8c5-8e30-4956-8883-1ccc1f549c05", "NAME_CONTAINS_A_STATE_NAME", "WITHDRAWN on 2026-09-24",
+  "9781d248-f79e-4037-ae40-2f7370be6861", "NAME_CONTAINS_A_STATE_NAME", "WITHDRAWN on 2026-09-24",
+  "d4e5b73d-8f1d-4a1c-977c-0e5ddd63b4f4", "NAME_CONTAINS_A_STATE_NAME", "WITHDRAWN on 2026-09-24",
+  "08c60046-77e0-478f-b307-3fc08d8feaf2", "MISFILED", "RCJ re-filed WY -> UT on 2026-09-24",
+  "c98bc19b-4c9f-40b9-a0e7-dca0004dbf7e", "MISFILED", "RCJ re-filed WY -> UT on 2026-09-24",
+  "1d474172-7a1f-4c6c-9d49-caf6aecb96b1", "MISFILED", "RCJ re-filed WY -> UT on 2026-09-24",
+  "f4cf50c6-8804-4f96-8ec1-380a0883420d", "MISFILED", "RCJ re-titled it a Utah document on 2026-09-24; no longer names only another state"
+)
+
+SWEEP_MISFILED_DOCUMENTS <- tibble::tribble(
+  ~state, ~source_doc_title, ~actual_state,
+  "NM", paste("NM - 2026 - Wallowa Memorial Hospital and Medical Clinics",
+              "awarded over $5.4 million in federal RHT Funds"), "OR"
 )
 
 # The hand-read note behind the verdicts that move something.
@@ -179,11 +238,17 @@ SWEEP_NOTES <- c(
     "The generic \"<State> County\" exclusion cannot reach it, and widening the",
     "rule to bare county names would start suppressing real findings."),
   STREET_ADDRESS = "A street address -- \"905 Washington Street\".",
-  ETHNONYM = "\"Alaska Native\" in a Census tribal-consultation handbook."
+  ETHNONYM = "\"Alaska Native\" in a Census tribal-consultation handbook.",
+  SUMMARY_NAMES_WRONG_STATE = paste(
+    "The record is correctly filed; RCJ's MACHINE-GENERATED description names",
+    "another state (§6: a summary field is never evidence)."),
+  MISFILED_SAME_DOCUMENT = paste(
+    "Names no state itself; its source document is hand-read as wholly",
+    "another state's (SWEEP_MISFILED_DOCUMENTS). Invisible to the name test.")
 )
 
 sweep_records <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   rt %>%
     dplyr::filter(is.na(.data$superseded_by) | .data$superseded_by == "",
                   !is.na(.data$state), .data$state %in% rhtp_cms_states()$state)
@@ -219,6 +284,34 @@ sweep_build <- function() {
   )
   out <- out[out$misattributed, , drop = FALSE]
   out$verdict <- SWEEP_VERDICTS$verdict[match(out$record_id, SWEEP_VERDICTS$record_id)]
+
+  # Siblings of a hand-read wholly-foreign document that the name test missed.
+  doc_key <- paste(rec$state, rec$source_doc_title, sep = "\r")
+  in_doc <- doc_key %in% paste(SWEEP_MISFILED_DOCUMENTS$state,
+                               SWEEP_MISFILED_DOCUMENTS$source_doc_title,
+                               sep = "\r")
+  if (!all(paste(SWEEP_MISFILED_DOCUMENTS$state,
+                 SWEEP_MISFILED_DOCUMENTS$source_doc_title, sep = "\r") %in%
+           doc_key)) {
+    stop("[SWEEP] a SWEEP_MISFILED_DOCUMENTS entry matches no live record; ",
+         "the corpus has moved -- re-read it.", call. = FALSE)
+  }
+  sib <- in_doc & !(rec$record_id %in% out$record_id)
+  if (any(sib)) {
+    act <- SWEEP_MISFILED_DOCUMENTS$actual_state[match(
+      doc_key[sib], paste(SWEEP_MISFILED_DOCUMENTS$state,
+                          SWEEP_MISFILED_DOCUMENTS$source_doc_title, sep = "\r"))]
+    out <- dplyr::bind_rows(out, tibble::tibble(
+      filed_under = rec$state[sib],
+      foreign_states_named = act,
+      award_tier = rec$award_tier[sib],
+      amount_announced = rec$amount_announced[sib],
+      awardee_name_clean = rec$awardee_name_clean[sib],
+      source_doc_title = rec$source_doc_title[sib],
+      record_id = rec$record_id[sib],
+      misattributed = TRUE,
+      verdict = "MISFILED_SAME_DOCUMENT"))
+  }
   unread <- out$record_id[is.na(out$verdict)]
   if (length(unread)) {
     stop("[SWEEP] ", length(unread), " flagged record(s) have no hand-read ",
@@ -227,7 +320,14 @@ sweep_build <- function() {
          "than widening the exclusion list until the output is empty.",
          call. = FALSE)
   }
-  stale <- setdiff(SWEEP_VERDICTS$record_id, out$record_id)
+  back <- intersect(SWEEP_RETIRED_VERDICTS$record_id, out$record_id)
+  if (length(back)) {
+    stop("[SWEEP] retired verdict(s) are flagged again: ",
+         paste(back, collapse = ", "), ". Re-read and move them back.",
+         call. = FALSE)
+  }
+  stale <- setdiff(setdiff(SWEEP_VERDICTS$record_id,
+                           SWEEP_RETIRED_VERDICTS$record_id), out$record_id)
   if (length(stale)) {
     stop("[SWEEP] ", length(stale), " hand-read verdict(s) no longer match a ",
          "flagged record: ", paste(stale, collapse = ", "), ". The corpus has ",
@@ -276,14 +376,33 @@ sweep_write <- function() {
 #' THE FINDING: THE DEFECT IS REAL IN FIVE STATES AND HAS REACHED NO AWARD FILE
 #'
 #' Designed to fail if either half stops being true.
-SWEEP_MISFILED_STATES <- c("MO", "ND", "UT", "WA", "WY")
+SWEEP_MISFILED_STATES <- c("AR", "ME", "MI", "MO", "ND", "NM", "WA", "WY")
+
+# SESSION 62: THE WRONG-STATE DEFECT HAS REACHED TIER 3, and these are the
+# records that carry it. Sessions 42-61 asserted there were NONE; the 09-24
+# pull breaks that, which is the event that assertion existed to catch. It is
+# now PINNED BY RECORD rather than asserted empty: a sixth misfiled Tier 3
+# record fails the build, and so does one of these leaving. Four are Oregon's
+# Wallowa Memorial Hospital under NEW MEXICO; one is SOUTH DAKOTA's $31.5M
+# Rural Strong round under MICHIGAN. Neither NM (no award file; a negative)
+# nor MI (built from MDHHS's roster, not RCJ) has consumed any of them, and
+# each state's RCJ disposition now names them.
+SWEEP_MISFILED_TIER3 <- c(
+  "4e3c2e97-6e50-4994-94e9-1caf781dc997",  # NM <- OR, Wallowa County HCD
+  "2622ee3b-8cfd-43be-acfc-2d57e98b9449",  # NM <- OR, Wallowa Memorial MRI
+  "6a645ede-3fd1-456c-896a-12db2877106c",  # NM <- OR, Wallowa RHCs
+  "a4539590-daf9-4fd8-b3d0-740884605147",  # NM <- OR, Wallowa $5,464,316
+  "42b92bd8-03bc-459c-8e58-9a920022d44d"   # MI <- SD, Rural Strong $31.5M
+)
 sweep_assert <- function(flagged = sweep_build()) {
-  mis <- flagged[flagged$verdict == "MISFILED", , drop = FALSE]
-  if (any(mis$award_tier == "SUBAWARD")) {
-    stop("[SWEEP] a MISFILED record is now Tier 3. Until now the wrong-state ",
-         "defect had never reached the tier an extractor reads, and that is ",
-         "the whole finding. Read every one before touching a state file.",
-         call. = FALSE)
+  mis <- flagged[flagged$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT"), ,
+                 drop = FALSE]
+  t3 <- sort(mis$record_id[mis$award_tier == "SUBAWARD"])
+  if (!identical(t3, sort(SWEEP_MISFILED_TIER3))) {
+    stop("[SWEEP] the misfiled Tier 3 set moved: now ",
+         paste(t3, collapse = ", "), ". Tier 3 is the tier an extractor ",
+         "reads. Read every one, and check the filed state's disposition, ",
+         "before touching a state file.", call. = FALSE)
   }
   got <- sort(unique(mis$filed_under))
   if (!identical(got, SWEEP_MISFILED_STATES)) {
@@ -311,7 +430,7 @@ sweep_report <- function() {
     cat(sprintf("    %-28s %2d  (%d Tier 3)\n", v$verdict[i], v$n[i], t3))
   }
 
-  mis <- flagged[flagged$verdict == "MISFILED", ]
+  mis <- flagged[flagged$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT"), ]
   cat(sprintf("\n  %d RECORDS ARE ANOTHER STATE'S, IN %d STATES:\n", nrow(mis),
               dplyr::n_distinct(mis$filed_under)))
   for (i in seq_len(nrow(mis))) {
@@ -319,27 +438,29 @@ sweep_report <- function() {
                 mis$foreign_states_named[i], mis$award_tier[i],
                 substr(mis$source_doc_title[i], 1, 78)))
   }
-  cat("\n  WYOMING IS THE LARGEST AND UTAH IS ITS MIRROR: Wyoming's set holds\n")
-  cat("  five UTAH documents (one of them Utah's own $195.7M allotment) and\n")
-  cat("  Utah's holds an OKLAHOMA one.\n")
+  t3m <- mis[mis$award_tier == "SUBAWARD", ]
+  cat(sprintf("\n  %d OF THEM ARE TIER 3 -- THE FIRST TIME THE DEFECT HAS REACHED THE\n",
+              nrow(t3m)))
+  cat("  TIER AN EXTRACTOR READS (session 62, the 2026-09-24 pull). Four are\n")
+  cat("  Oregon's Wallowa Memorial under New Mexico, THREE OF WHICH NAME NO STATE\n")
+  cat("  AT ALL and are caught only through SWEEP_MISFILED_DOCUMENTS; one is\n")
+  cat("  South Dakota's Rural Strong round under Michigan. No award file here\n")
+  cat("  consumed any of them: New Mexico has no award file, and Michigan's is\n")
+  cat("  built from MDHHS's roster.\n")
+  cat(sprintf("\n  RCJ ALSO CORRECTED ITSELF: %d earlier verdicts were retired by the\n",
+              nrow(SWEEP_RETIRED_VERDICTS)))
+  cat("  corpus (four re-filed to Utah, three Alaska rows withdrawn).\n")
 
-  cat("\n  AND NOT ONE MISFILED RECORD IS TIER 3.\n")
-  cat("  Tier 3 is the only tier an extractor reads, so the wrong-state defect\n")
-  cat("  has NOT reached a single award file in this repository. That is a\n")
-  cat("  measurement of the corpus as pulled on 2026-08-27, and never a\n")
-  cat("  property of the aggregator (§0.1).\n")
-
-  t3 <- flagged[flagged$award_tier == "SUBAWARD", ]
-  cat(sprintf("\n  THE %d TIER 3 FLAGS ARE ALL FALSE POSITIVES, AND EACH IS LEGIBLE:\n",
+  t3 <- flagged[flagged$award_tier == "SUBAWARD" &
+                  !flagged$verdict %in% c("MISFILED", "MISFILED_SAME_DOCUMENT"), ]
+  cat(sprintf("\n  THE OTHER %d TIER 3 FLAGS ARE FALSE POSITIVES, EACH LEGIBLE:\n",
               nrow(t3)))
   for (i in seq_len(nrow(t3))) {
     cat(sprintf("    %-3s <- %-3s  %-27s %s\n", t3$filed_under[i],
                 t3$foreign_states_named[i], t3$verdict[i],
                 substr(dplyr::coalesce(t3$awardee_name_clean[i], ""), 1, 40)))
   }
-  cat("\n  Which is why this file FLAGS and a human READS. Widening the\n")
-  cat("  exclusion list until the output is empty would suppress the ten real\n")
-  cat("  ones along with the eight false (§0.4).\n")
+  cat("\n  Which is why this file FLAGS and a human READS (§0.4).\n")
   invisible(list(flagged = flagged, per_state = per))
 }
 

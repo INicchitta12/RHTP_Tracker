@@ -1850,7 +1850,7 @@ sc_rcj_candidate_count <- function() {
          "asserted rather than measured is exactly the §0.1 claim this ",
          "disposition exists to avoid.", call. = FALSE)
   }
-  rec <- readRDS(path)
+  rec <- rhtp_record_table_live(path = path)
   for (col in c("state", "award_tier")) {
     if (!col %in% names(rec)) {
       stop("[SC] the record table has no '", col, "' column, so the ",

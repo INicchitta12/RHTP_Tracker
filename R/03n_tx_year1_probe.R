@@ -688,7 +688,7 @@ tx_rcj_candidate_count <- function() {
     stop("[TX] stage2_record_table.rds is missing; run R/02_normalize.R.",
          call. = FALSE)
   }
-  rt <- readRDS(path)
+  rt <- rhtp_record_table_live(path = path)
   sum(rt$state == "TX" & rt$award_tier == "SUBAWARD", na.rm = TRUE)
 }
 

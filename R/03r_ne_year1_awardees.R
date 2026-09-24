@@ -820,7 +820,7 @@ ne_assert_rcj_disposition <- function(awards) {
     message("[NE] stage2_record_table.rds absent; RCJ reconciliation skipped.")
     return(invisible(NULL))
   }
-  rt <- readRDS(path)
+  rt <- rhtp_record_table_live(path = path)
   ne <- rt %>%
     dplyr::filter(.data$state == NE_STATE, .data$award_tier == "SUBAWARD",
                   is.na(.data$superseded_by))

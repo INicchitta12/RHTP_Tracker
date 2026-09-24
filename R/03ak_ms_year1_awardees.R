@@ -1170,7 +1170,7 @@ ms_status_table <- function() {
 }
 
 ms_disposition <- function() {
-  rt <- readRDS(here::here("data", "interim", "stage2_record_table.rds"))
+  rt <- rhtp_record_table_live()
   ms <- rt %>% dplyr::filter(.data$state == MS_STATE)
   t3 <- ms %>% dplyr::filter(.data$award_tier == "SUBAWARD")
   n_t3 <- nrow(t3)
