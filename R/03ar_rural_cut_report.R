@@ -267,10 +267,12 @@ rc_assert <- function(rows = rc_rows()) {
   # $18,870,981.65 and no state.
   # Session 71: §10.2's enrolled-hospital-operator rule adds 33 rows /
   # $63,240,239.84 and two states (WA, LA): 1,185 / $1,022,314,842.52 / 30.
-  if (nrow(rows) != 1185L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1022314842.52) > 0.005 ||
+  # Session 73: UMMS typed HOSPITAL_OR_SYSTEM on its own stated form (R/03bk),
+  # +1 row / $4,020,144, no state: 1,186 / $1,026,334,986.52 / 30.
+  if (nrow(rows) != 1186L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1026334986.52) > 0.005 ||
       dplyr::n_distinct(rows$state) != 30L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,185 rows / $1,022,314,842.52 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,186 rows / $1,026,334,986.52 ",
          "/ 30 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

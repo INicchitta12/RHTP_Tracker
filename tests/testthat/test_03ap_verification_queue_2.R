@@ -483,8 +483,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # before.
   # Session 71: + §10.2's enrolled-hospital-operator rule (R/03bj), 33 rows /
   # $63,240,239.84 and two states (WA, LA) -- subtracted first.
-  expect_equal(named$rows, 1185L)
+  # Session 73: + UMMS on its own stated form (R/03bk), 1 row / $4,020,144,
+  # no new state -- subtracted first.
+  expect_equal(named$rows, 1186L)
   expect_equal(named$states, 30L)
+  expect_equal(round(named$dollars, 2), 1026334986.52, tolerance = 0)
+  named$rows <- named$rows - 1L
+  named$dollars <- named$dollars - 4020144
+  expect_equal(named$rows, 1185L)
   expect_equal(round(named$dollars, 2), 1022314842.52, tolerance = 0)
   named$rows <- named$rows - 33L
   named$dollars <- named$dollars - 63240239.84

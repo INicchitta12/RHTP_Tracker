@@ -150,7 +150,11 @@ test_that("session 72: UMMS matches NO CMS hospital enrolment on its own legal n
   expect_true("UNIVERSITY OF MARYLAND MEDICAL CENTER, LLC" %in% md[["ORGANIZATION NAME"]])
   expect_false(any(sw$awardee == "University of Maryland Medical System"))
   mdr <- tabs[["md_year1_awardees.csv"]]
-  expect_equal(mdr$recipient_type[mdr$awardee == "University of Maryland Medical System"], "UNIVERSITY_OR_AHC")
+  # Session 73 typed it HOSPITAL_OR_SYSTEM on its OWN stated form (R/03bk),
+  # never on an enrolment: ccn stays empty and 03bj's sweep still misses it.
+  u <- mdr[mdr$awardee == "University of Maryland Medical System", ]
+  expect_equal(u$recipient_type, "HOSPITAL_OR_SYSTEM")
+  expect_true(is.na(u$ccn) || !nzchar(u$ccn))
   q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
                        col_types = readr::cols(.default = "c"), show_col_types = FALSE)
   r <- q[q$question_id == "AHC_STRING_NAMES_NO_ENROLLED_ENTITY", ]
@@ -165,11 +169,13 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,185 / $1,022,314,842.52 / 30; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,186 / $1,026,334,986.52 / 30; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
-  expect_equal(n$rows, 1185L)
-  expect_equal(round(n$dollars, 2), 1022314842.52)
+  # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
+  expect_equal(n$rows, 1186L)
+  expect_equal(round(n$dollars, 2), 1026334986.52)
+  n$dollars <- n$dollars - 4020144
   expect_equal(n$states, 30L)
   expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"], 2), 30806856.12)
   expect_equal(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)

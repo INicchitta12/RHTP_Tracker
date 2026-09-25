@@ -19,8 +19,9 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Arkansas round 2 (RISE AR / HEART), 12 rows / $18,870,981.65, none with a
   # recorded rural designation -- 1,152 / $959,074,602.68.
   # Session 71: + 33 rows / $63,240,239.84 on CMS hospital enrolments (R/03bj).
-  expect_equal(nrow(rows), 1185L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1022314842.52,
+  # Session 73: + UMMS, 1 row / $4,020,144, on its own stated form (R/03bk).
+  expect_equal(nrow(rows), 1186L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1026334986.52,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
