@@ -840,6 +840,18 @@ AR,ar_year1_awardees.csv,28,North Arkansas Regional Medical Center,3000000,NOT_R
 AR,ar_year1_awardees.csv,30,St. Bernards Development Foundation,5000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 AR,ar_year1_awardees.csv,31,St. Bernards Development Foundation,9551090,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 AR,ar_year1_awardees.csv,36,White County Medical Center,1905496,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,11,Arkansas Surgical Hospital,473000,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,12,Baptist Health,418883,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AR,ar_year1_round2_awardees.csv,14,Conway Regional Health System,761440,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,22,Jefferson Hospital Association,670000,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,23,Jefferson Hospital Association,360000,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,24,Mississippi County Hospital System,4402000,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,27,North Arkansas Regional Medical Center,1629128,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,31,St. Bernards Development Foundation,3851347,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_round2_awardees.csv,32,St. Bernards Development Foundation,947727,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_round2_awardees.csv,38,White County Medical Center,300926.15,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,39,"White River Health System, Inc.",2113815.5,NOT_RECORDED,,FALSE,,
+AR,ar_year1_round2_awardees.csv,40,"White River Health System, Inc.",2942715,NOT_RECORDED,,FALSE,,
 WY,wy_year1_awardees.csv,1,Memorial Hospital of Converse County (MHCC),3058000,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
 WY,wy_year1_awardees.csv,2,Sheridan Memorial Hospital,6662685,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,
 WY,wy_year1_awardees.csv,3,Powell Valley Health Care Inc,3128331,STATE_SOURCE_RURAL,WY: Critical Access Hospital (Initiative 1.1 table),TRUE,,

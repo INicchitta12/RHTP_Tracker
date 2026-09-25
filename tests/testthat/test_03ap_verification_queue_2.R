@@ -343,9 +343,15 @@ test_that("answering a _FLOW row did not settle its flow", {
   # flagged FLOW_UNRESOLVED_HOSPITAL_AFFILIATED, still in neither bucket, and
   # its $18,833,521 is still the open question. What DID change is that the
   # form is no longer claimed to be undetermined.
-  expect_true(all(ar$flow_type == "NON_HOSPITAL"))
+  # SESSION 69 then SETTLED that flow question on the Governor's project
+  # descriptions and ARHP's own site: option (c), IN_KIND_BENEFIT, applied
+  # AFTER this overlay by R/03ai --build. The session-49 point stands --
+  # answering the TYPE did not move the flow -- and what the rows say now is
+  # the later resolution, still `No` and still outside every bucket.
+  expect_true(all(ar$flow_type == "IN_KIND_BENEFIT"))
   expect_true(all(ar$distributed_to_hospital == "No"))
-  expect_true(all(str_detect(ar$flag_reason, "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED")))
+  expect_false(any(str_detect(ar$flag_reason, "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED")))
+  expect_true(all(str_detect(ar$determination_basis, "FLOW RESOLVED \\(session 69")))
   expect_false(any(str_detect(ar$flag_reason, "RECIPIENT_TYPE_INFERRED")))
   expect_equal(sum(as.numeric(ar$amount)), 18833521)
 })
@@ -461,6 +467,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # rows ($0) and a 27th state -- subtracted first, like every session before.
   # Session 64: + NV 15 unpriced, NE 6 / $1,825,002.28, SD 5 / $716,800 and a
   # 28th state (SD) -- subtracted first, like every session before.
+  # Session 69: + Arkansas round 2 (RISE AR / HEART), 12 rows /
+  # $18,870,981.65 and no new state -- subtracted first, like every session
+  # before.
+  expect_equal(named$rows, 1152L)
+  expect_equal(named$states, 28L)
+  expect_equal(round(named$dollars, 2), 959074602.68, tolerance = 0)
+  named$rows <- named$rows - 12L
+  named$dollars <- named$dollars - 18870981.65
   expect_equal(named$rows, 1140L)
   expect_equal(named$states, 28L)
   expect_equal(round(named$dollars, 2), 940203621.03, tolerance = 0)
@@ -519,8 +533,14 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # THE SESSION-49 CLAIM, UNCHANGED WHERE IT STILL APPLIES: Arkansas's
   # $92,405,913.96 is what the returned workbook produced and it is still ahead
   # of Georgia, which is the comparison that session made.
-  expect_equal(round(p$dollars[p$state == "AR"], 2), 92405913.96)
-  expect_gt(p$dollars[p$state == "AR"], p$dollars[p$state == "GA"])
+  # SESSION 69: the partition now unions Arkansas's round-2 file too, so the
+  # session-49 figure is checked by SUBTRACTING round 2's $18,870,981.65. (The
+  # figure is $92,405,913.87 to the cent; ".96" in earlier notes was a
+  # transcription the default tolerance let through.)
+  expect_equal(round(p$dollars[p$state == "AR"] - 18870981.65, 2), 92405913.87,
+               tolerance = 0)
+  expect_gt(p$dollars[p$state == "AR"] - 18870981.65,
+            p$dollars[p$state == "GA"])
   # And South Carolina is now ahead of both, on session 50's typing pass.
   expect_equal(p$state[[1]], "SC")
   expect_equal(round(p$dollars[[1]], 2), 115985714.95)  # + $145,000, session 53

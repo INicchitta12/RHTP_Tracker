@@ -166,6 +166,12 @@ STATE_FILES <- c(
   # for the opposite reason: those two are not awards at all, while Arkansas's
   # is the same money twice. Adding it would double the state.
   AR = "data/reference/ar_year1_awardees.csv",
+  # ARKANSAS ROUND 2 (session 69): RISE AR and HEART, DF&A's second list. A
+  # separate file because each list reconciles to its own `Total:` row and
+  # session 49's overlay is keyed on round 1's row index -- but unlike South
+  # Dakota's two files these two ARE additive: two rounds, different awards,
+  # one Year 1.
+  AR_R2 = "data/reference/ar_year1_round2_awardees.csv",
   # Wyoming is the first state file assembled from SIX recipient-level tables
   # inside ONE document, and the first whose recipient FORM is stated by the
   # publisher for some tables and not others -- 1.1's column is headed

@@ -27,3 +27,16 @@ SHA-256:
 e37e4b9a6f11c4cc61101bd2e96f32e722b98aa4111440acc8790c55fb0bca97  2026-09-24_ar_dfa_year1_rise_heart_by_county_map.pdf
 995b661729e24c54f24f12f5adb31aff4a51fa4bc0012d9c80fdc2236afae6c0  2026-09-24_governor_sanders_54_6_million_awarded.html
 c688b6a07ac3dba7fde64508b1ad0d8de22400d64de0bae26786714d240e9f04  2026-09-25_ar_rhtp_home.html
+
+ADDED SESSION 69 (the AR_ARHP_CONSORTIUM_FLOW test): Arkansas Rural Health
+Partnership's own site, fetched 2026-09-25 with the honest agent, bodies byte
+for byte, credential guard run (no hits). Neither page mentions RHTP or "Rural
+Health Transformation". The home page states ARHP's membership: "19 rural
+hospitals, 4 FQHCs, over 120 member-owned and affiliated clinics, and three
+medical schools" -- hospitals AMONG OTHERS. The initiatives page lists
+programmes ARHP RUNS for members (training, virtual staffing, coaching); no
+page says ARHP passes funds to member hospitals.
+  arhp home         https://arruralhealth.org/
+  arhp initiatives  https://arruralhealth.org/ahrp-initiatives/
+63d093c8b9c6b342e14003ff20d5712443740c5a71f613b905c5579622d29fc5  2026-09-25_arhp_home.html
+f945f7809d93ba89cdaff4e18a75007f5bb0c9f74cc82b393f40416c14ca8ea5  2026-09-25_arhp_initiatives.html

@@ -246,10 +246,12 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 61: NEW JERSEY adds 35 rows / $35,275,076 and a 26th state.
   # Session 63: INDIANA's GROW regional recipients add 44 UNPRICED rows and
   # (Indiana being new to the bucket) a 27th state. Dollars do not move.
-  if (nrow(rows) != 1140L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 940203621.03) > 0.005 ||
+  # Session 69: ARKANSAS ROUND 2 (RISE AR / HEART) adds 12 rows /
+  # $18,870,981.65 and no state.
+  if (nrow(rows) != 1152L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 959074602.68) > 0.005 ||
       dplyr::n_distinct(rows$state) != 28L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,140 rows / $940,203,621.03 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,152 rows / $959,074,602.68 ",
          "/ 28 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

@@ -104,11 +104,21 @@
 # CLI:
 #   --fetch [--force]  archive the 14 sources + SHA-256 manifest
 #   --validate         every assertion, offline
-#   --build            write the four CSVs
-#   --probe            LIVE: has RISE or HEART awarded?
+#   --build            write the six CSVs (round 1 + session 49's overlay +
+#                      the ARHP flow; round 2; the allotment remainder)
+#   --probe            LIVE: has either list changed, or a third appeared?
 #   --report           the roster, the three counts, and what is still to come
 #
-# Sessions: 40.
+# ROUND 2 (session 69). DF&A's second list, posted 2026-09-24, awards RISE AR
+# and HEART: 38 organisations, 43 award actions, $54,685,068.84, in its own
+# file, `ar_year1_round2_awardees.csv`. The Governor's release says the round
+# "completes the distribution of the $208 million awarded to Arkansas this
+# year", so the PARTIAL-YEAR language above describes round 1 as it stood and
+# is kept as that record. See the ROUND 2 section below for the parse, the
+# mis-printed "$203, 520.00", the ARHP flow resolution and the allotment
+# remainder.
+#
+# Sessions: 40, 69.
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -379,19 +389,32 @@ AR_SOURCES <- tibble::tribble(
 
 # The pages the probe re-reads live. The HOME page is the one that matters: its
 # award-list link is the only thing on this estate that distinguishes an
-# awarded initiative from an unawarded one.
-AR_WATCHED <- c("home", "resources", "rise", "heart")
+# awarded initiative from an unawarded one. SESSION 69: the home page is now
+# compared against session 68's 2026-09-25 archive ("home2"), which carries
+# BOTH award-list links; the 2026-09-03 archive ("home") is kept as round 1's
+# evidence and is what the round-1 assertions still read.
+AR_WATCHED <- c("home2", "resources", "rise", "heart")
 
 
 # -- fetch --------------------------------------------------------------------
 
 ar_source <- function(key, field) {
   row <- AR_SOURCES[AR_SOURCES$key == key, ]
+  if (nrow(row) == 0L && exists("AR_R2_SOURCES")) {
+    row <- AR_R2_SOURCES[AR_R2_SOURCES$key == key, ]
+  }
   if (nrow(row) != 1L) stop("[AR] unknown source key: ", key, call. = FALSE)
   row[[field]]
 }
 
-ar_path <- function(key) file.path(AR_EVIDENCE_DIR, ar_source(key, "file"))
+#' Round-1 sources live in data/evidence/AR/; the round-2 sources session 68
+#' archived live under data/evidence/recheck/2026-09-25/AR/ and are read there.
+ar_path <- function(key) {
+  if (key %in% AR_SOURCES$key) {
+    return(file.path(AR_EVIDENCE_DIR, ar_source(key, "file")))
+  }
+  file.path(AR_R2_DIR, ar_source(key, "file"))
+}
 
 #' Refuse to archive anything carrying a credential (§7.1, sessions 14/16/17/20)
 ar_assert_credential_free <- function(body, label) {
@@ -1526,40 +1549,52 @@ ar_project_rows <- function() {
 #' be read as one.
 ar_status_table <- function() {
   today <- Sys.Date()
+  r2 <- c("RISE AR" = AR_R2_TOTAL_RISE, HEART = AR_R2_TOTAL_HEART)
   AR_INITIATIVES %>%
+    dplyr::mutate(
+      round = dplyr::if_else(.data$awarded, 1L, 2L),
+      awarded_total = dplyr::coalesce(.data$awarded_total, unname(r2[.data$pool])),
+      announced = dplyr::if_else(.data$awarded, as.character(AR_ANNOUNCE_DATE),
+                                 as.character(AR_R2_ANNOUNCE_DATE))
+    ) %>%
     dplyr::transmute(
       state = AR_STATE,
       initiative = .data$pool,
       initiative_name = .data$round_name,
-      stage = dplyr::if_else(.data$awarded, "AWARDED_ROSTER_PUBLISHED",
-                             "CLOSED_NO_AWARD_DATE_PUBLISHED"),
+      # SESSION 69: all four have awarded. RISE AR and HEART were
+      # CLOSED_NO_AWARD_DATE_PUBLISHED until DF&A's second list (2026-09-24).
+      stage = "AWARDED_ROSTER_PUBLISHED",
+      award_round = .data$round,
+      announcement_date = .data$announced,
       nofo_open = .data$nofo_open,
       nofo_close = .data$nofo_close,
       days_since_close = as.integer(today - as.Date(.data$nofo_close)),
       award_date_published = "No",
       obligation_deadline = as.character(AR_OBLIGATION_DATE),
       publishes_roster = dplyr::if_else(
-        .data$awarded,
-        "Yes -- on the DF&A award list linked from the home page",
-        "No -- applications closed, NO award date published, nobody named"),
-      named_recipients = dplyr::if_else(.data$awarded, "see award list", "0"),
+        .data$round == 1L,
+        "Yes -- the THRIVE/PACT award list linked from the home page",
+        "Yes -- the RISE AR/HEART award list linked from the home page"),
+      named_recipients = "see award list",
       initiative_awarded_total = .data$awarded_total,
-      state_source_url = vapply(.data$nofo_key, function(k)
-        ar_source(k, "url"), character(1)),
-      source_archive_path = file.path("data/evidence/AR",
-                                      vapply(.data$nofo_key, function(k)
-                                        ar_source(k, "file"), character(1))),
+      state_source_url = dplyr::if_else(.data$round == 1L,
+                                        ar_source("roster", "url"),
+                                        ar_source("roster2", "url")),
+      source_archive_path = dplyr::if_else(
+        .data$round == 1L,
+        file.path("data/evidence/AR", ar_source("roster", "file")),
+        file.path("data/evidence/recheck/2026-09-25/AR",
+                  ar_source("roster2", "file"))),
       note = dplyr::if_else(
-        .data$awarded,
-        paste("Awarded 2026-08-27. The amounts are NOT final: DF&A signs an",
-              "official agreement with each grantee afterwards."),
-        paste("Applications have CLOSED and Arkansas has published NO award",
-              "date for this initiative -- Missouri's and North Carolina's",
-              "footing. What dates the wait is CMS's own deadline, which this",
-              "NOFO prints itself: all Year 1 funds must be obligated by",
-              "2026-10-30. The initiative PAGE cannot be used as a signal:",
-              "all four carry the same forward-looking sentence, including",
-              "the two that have awarded $149M."))
+        .data$round == 1L,
+        paste("Awarded 2026-08-27 (round 1). The amounts are NOT final: DF&A",
+              "signs an official agreement with each grantee afterwards."),
+        paste("Awarded 2026-09-24 (round 2), 62 (RISE AR) and 48 (HEART) days after applications",
+              "closed. No award date had been published beforehand. The",
+              "Governor: 'this round of funding completes the distribution of",
+              "the $208 million awarded to Arkansas this year'. Amounts are NOT",
+              "final until DF&A signs each agreement, and all Year 1 funds must",
+              "be obligated by 2026-10-30."))
     )
 }
 
@@ -1839,9 +1874,907 @@ ar_assert_nothing_promoted <- function(rows = NULL) {
 }
 
 
+# == ROUND 2: RISE AR AND HEART (session 69) ==================================
+#
+# DF&A published its second Year 1 list on 2026-09-24 ("ada_Year-1-Award-
+# totals.pdf", columns Organization | RISE AR | HEART | Totals) and the
+# Governor announced it the same day. Session 68 archived both under
+# data/evidence/recheck/2026-09-25/AR/ and read them; this section extracts
+# them into `ar_year1_round2_awardees.csv`.
+#
+# A SEPARATE FILE, NOT MORE ROWS IN `ar_year1_awardees.csv`, for two reasons.
+# (1) Each list reconciles to ITS OWN `Total:` row, and round 1's 37 rows are
+# asserted against round 1's total in a dozen places. (2) Session 49's
+# verification overlay is keyed on round 1's ROW INDEX, so appending would
+# be safe today and fragile the first time anyone re-sorts. South Dakota's
+# two-file device, except that these two files ARE additive: they are two
+# rounds of one year, two different sets of awards, and Arkansas's Year 1 is
+# their sum. `ar_year1_projects.csv` is still never added to either.
+#
+# THE $203,520 SESSION 68 COULD NOT FIND IS IN THE RELEASE, MIS-PRINTED.
+# Conway Regional Health System's GME project ends "-- $203, 520.00": a space
+# after the thousands comma. A pattern requiring digits and commas only reads
+# 23 of the 24 RISE AR figures and comes up exactly $203,520.00 short, which is
+# what session 68 reported as an unresolved gap. Read with the space, the
+# Governor's 24 RISE AR projects sum to DF&A's RISE AR column to the cent, and
+# Conway's four RISE AR projects sum to its $761,440.00 on the list. So the
+# two publishers AGREE; the release prints one figure badly. Both readings are
+# asserted, the list is the figure of record either way, and nothing is
+# corrected (§8) -- `ar_r2_assert_projects_reconcile()` pins the malformed
+# string so a re-published release fails here rather than quietly changing
+# what "reconciled" rests on.
+
+AR_R2_DIR <- here::here("data", "evidence", "recheck", "2026-09-25", "AR")
+AR_R2_CSV <- here::here("data", "reference", "ar_year1_round2_awardees.csv")
+AR_GAP_CSV <- here::here("data", "reference", "ar_year1_allotment_gap.csv")
+
+AR_R2_SOURCES <- tibble::tribble(
+  ~key, ~file, ~url,
+  "roster2", "2026-09-24_ar_dfa_year1_rise_heart_award_list.pdf",
+  "https://arkansasrhtp.com/wp-content/uploads/2026/09/ada_Year-1-Award-totals.pdf",
+  "map2", "2026-09-24_ar_dfa_year1_rise_heart_by_county_map.pdf",
+  "https://arkansasrhtp.com/wp-content/uploads/2026/09/ada_Arkansas_RISE_HEART_County_Map_Clean.pdf",
+  "governor2", "2026-09-24_governor_sanders_54_6_million_awarded.html",
+  paste0("https://governor.arkansas.gov/news_post/",
+         "sanders-announces-54-6-million-awarded-in-rural-health-",
+         "transformation-funds/"),
+  "home2", "2026-09-25_ar_rhtp_home.html", "https://arkansasrhtp.com/",
+  "arhp_home", "2026-09-25_arhp_home.html", "https://arruralhealth.org/",
+  "arhp_initiatives", "2026-09-25_arhp_initiatives.html",
+  "https://arruralhealth.org/ahrp-initiatives/"
+)
+
+AR_R2_COLUMNS <- c("Organization", "RISE AR", "HEART", "Totals")
+AR_R2_TOTAL_RISE  <- 27213468.74
+AR_R2_TOTAL_HEART <- 27471600.10
+AR_R2_TOTAL       <- 54685068.84
+AR_R2_ORG_COUNT     <- 38L
+AR_R2_ACTION_COUNT  <- 43L
+AR_R2_PROJECT_COUNT <- 54L   # the Governor's 30 HEART + 24 RISE AR
+AR_R2_ANNOUNCE_DATE <- as.Date("2026-09-24")
+
+AR_R2_GOV_QUOTES <- c(
+  "$54.6 million in awards to recipients of the second round of Rural Health Transformation Program (RHTP) grants",
+  "$27.4 million will be awarded to 30 projects through the Healthy Eating, Active Recreation & Transformation (HEART) initiative",
+  "$27.2 million for 24 projects through the Recruitment, Innovation Skills, and Education for Arkansas (RISE AR) initiative"
+)
+
+# THE COMPLETENESS STATEMENT (task 3). The Governor's own words, and the only
+# thing year1_completion_status.csv's COMPLETE may rest on (§0.4).
+AR_R2_COMPLETES_QUOTE <- paste(
+  "this round of funding completes the distribution of the $208 million",
+  "awarded to Arkansas this year")
+
+# The one mis-printed figure, and what it has to reconcile to.
+AR_R2_MALFORMED_FIGURE <- "$203, 520.00"
+AR_R2_MALFORMED_ORG    <- "Conway Regional Health System"
+AR_R2_MALFORMED_AMOUNT <- 203520.00
+
+# The release's trailing figure: "... – $1,598,008.00". Tolerant of a
+# space inside the number (Conway) and of a "$" painted in its own node
+# (round 1's Arkansas Rural Health Partnership). ANCHORED TO THE END, because
+# Conway's "Rural Practice Incentive Program" description carries a SECOND
+# dollar figure ("$15,000 incentives") that is not the award.
+AR_R2_AMOUNT_RE <- "–\\s*\\$\\s*([0-9][0-9, ]*\\.[0-9]{2})\\s*$"
+AR_R2_STRICT_RE <- "–\\s*\\$([0-9,]+\\.[0-9]{2})\\s*$"
+
+# TWELVE HAND-READ SPELLINGS, release -> award list (§2: never a fuzzy match).
+# Three are the LIST's own defects, kept as printed: "Insitute" (round 1
+# printed it the same way), "Apple Seeds, Inc," with a trailing comma, and
+# "Southeast Arkansas Delta Solutions Community Dev" truncated at the cell
+# edge. `ar_r2_assert_projects_reconcile()` requires the two documents to name
+# the same 38 organisations after this map and nothing else.
+AR_R2_RELEASE_SPELLINGS <- c(
+  "Arkansas Alliance of Boys & Girls Clubs, Inc." =
+    "Alliance of Boys & Girls Clubs, Inc.",
+  "Heartland Whole Health Institute" = "Heartland Whole Health",
+  "Arkansas Chapter, American Academy of Pediatrics Foundation" =
+    "Arkansas Chapter, American Academy of Pediatrics",
+  "Southeast Arkansas Delta Solutions Community Development Organizations (SEADS)" =
+    "Southeast Arkansas Delta Solutions Community Dev",
+  "Deckmax dba North Arkansas Rural Health Consortium" =
+    "North Arkansas Rural Health Consortium",
+  "Division of Agriculture of the University of Arkansas" =
+    "Division of Agriculture - UA",
+  "Samaritan House Community Center, dba Samaritan Community Center" =
+    "Samaritan Community Center",
+  "Arkansas Doulas, LLC." = "Arkansas Doulas, LLC",
+  "New York Institute of Technology" = "New York Insitute of Technology",
+  "OUACHITA REGIONAL COUNSELING AND MENTAL HEALTH CENTER, INC. dba Ouachita Behavioral Health and Wellness" =
+    "Ouachita Behavioral Health & Wellness",
+  "Apple Seeds, Inc." = "Apple Seeds, Inc,",
+  "Ozark Health Hub" = "Ozark Healthy Hub"
+)
+
+# THE THREE THE OWNER ASKED TO QUEUE RATHER THAN TYPE ON RECOGNITION.
+# UAMS keeps what §8's NAME rule says ("University" -> UNIVERSITY_OR_AHC, the
+# code round 1's two UAMS rows already carry, OHSU's precedent) -- that is a
+# reading of the name, not of this pipeline's knowledge -- and the question
+# whether any of an academic health centre's award reaches its hospital is
+# queued. CARTI and North Arkansas Rural Health Consortium keep §8's standing
+# fallback. North Arkansas Rural Health Consortium's ROUND 1 row carries
+# session 49's verified OTHER (general knowledge); it is deliberately NOT
+# carried forward here, so the same organisation carries two types across the
+# two files and the queue row says so.
+AR_R2_QUEUED <- c("University of Arkansas for Medical Sciences", "CARTI",
+                  "North Arkansas Rural Health Consortium")
+
+# One override of the shared classifier, and it moves $0. §8's name rule
+# reads "Pediatrics" in "Arkansas Chapter, American Academy of Pediatrics" and
+# returns PHYSICIAN_PRACTICE at MEDIUM. A state CHAPTER of a professional
+# society is not a practice, and the Governor's release spells the recipient
+# "... Pediatrics Foundation". The honest answer is that the form is not
+# stated: §8's standing fallback, with the classifier's answer kept in
+# `recipient_type_source`.
+AR_R2_FALLBACK_OVERRIDES <- c("Arkansas Chapter, American Academy of Pediatrics")
+
+ar_r2_reset_cache <- function() {
+  rm(list = intersect(c("roster2", "flat_roster2"), ls(ar_pdf_cache)),
+     envir = ar_pdf_cache)
+}
+
+#' The round-2 award list, read as RUNS
+#'
+#' THE SAME PRODUCER AS ROUND 1 AND A DIFFERENT SHAPE. Round 1 painted a name
+#' on its own line and its three amounts together on the next. Round 2 paints
+#' them any of four ways: name and three amounts on one line; name alone and
+#' three amounts on the next; name and two amounts, then the third alone;
+#' name and one amount, then two. So a row is not a LINE here. It is a name
+#' followed by exactly THREE amount cells, in painted order, wherever the
+#' line breaks fall -- and a name run arriving while a row has one or two
+#' amounts is refused, because that would be two organisations interleaved.
+ar_r2_roster <- function() {
+  r <- ar_runs("roster2")
+  r$t <- trimws(r$text)
+  is_amt <- stringr::str_detect(r$t, AR_AMOUNT_CELL_RE)
+  hdr_n <- length(AR_R2_COLUMNS)
+  hdr <- r$t[seq_len(hdr_n)]
+  if (!identical(hdr, AR_R2_COLUMNS)) {
+    stop("[AR] the round-2 award list's header is not the one this parser was ",
+         "written against.\n  expected: ", paste(AR_R2_COLUMNS, collapse = " | "),
+         "\n  found   : ", paste(hdr, collapse = " | "),
+         "\nThe column ORDER decides which figure is RISE AR and which is HEART.",
+         call. = FALSE)
+  }
+  if (!all(diff(r$x[2:hdr_n]) > 0)) {
+    stop("[AR] the round-2 header's amount columns are no longer painted left ",
+         "to right.", call. = FALSE)
+  }
+  rows <- list()
+  name <- character()
+  amts <- integer()
+  for (i in seq.int(hdr_n + 1L, nrow(r))) {
+    if (is_amt[i]) {
+      if (!length(name)) {
+        stop("[AR] a round-2 amount cell arrived with no organisation before ",
+             "it: ", r$t[i], call. = FALSE)
+      }
+      amts <- c(amts, i)
+      if (length(amts) == 3L) {
+        # Painted order within a row, across a line break: a cell painted
+        # further LEFT than the one before it has started a new line, so only
+        # the same-line pairs are compared.
+        same <- r$line[amts[-1]] == r$line[amts[-3]] &
+          r$page[amts[-1]] == r$page[amts[-3]]
+        if (any(same & diff(r$x[amts]) <= 0)) {
+          stop("[AR] a round-2 row's cells are not painted left to right: ",
+               paste(name, collapse = " "), call. = FALSE)
+        }
+        rows[[length(rows) + 1L]] <- tibble::tibble(
+          label = stringr::str_squish(paste(name, collapse = "")),
+          rise  = ar_num(r$t[amts[1]]),
+          heart = ar_num(r$t[amts[2]]),
+          total = ar_num(r$t[amts[3]])
+        )
+        name <- character()
+        amts <- integer()
+      }
+    } else {
+      if (length(amts)) {
+        stop("[AR] a name run arrived inside a round-2 row that had ",
+             length(amts), " of its 3 amounts: ", sQuote(r$text[i]), " after ",
+             sQuote(paste(name, collapse = "")), ". Two organisations would be ",
+             "interleaved; this is a document to re-read.", call. = FALSE)
+      }
+      # A name set across two lines is joined with a space; runs on one line
+      # are pasted as painted (session 32: paste first, trim after).
+      if (length(name) && (r$line[i] != r$line[i - 1L] ||
+                           r$page[i] != r$page[i - 1L])) {
+        name <- c(name, " ")
+      }
+      name <- c(name, r$text[i])
+    }
+  }
+  if (length(name) || length(amts)) {
+    stop("[AR] the round-2 award list ends mid-row.", call. = FALSE)
+  }
+  dplyr::bind_rows(rows)
+}
+
+ar_r2_roster_parts <- function() {
+  d <- ar_r2_roster()
+  is_total <- stringr::str_detect(d$label, "^Total:?$")
+  if (sum(is_total) != 1L || !is_total[nrow(d)]) {
+    stop("[AR] the round-2 list's `Total:` row is not the last row, or there ",
+         "is not exactly one (found ", sum(is_total), ").", call. = FALSE)
+  }
+  list(awards = d[!is_total, , drop = FALSE], total = d[is_total, ])
+}
+
+#' The line model welds round 2's amount columns too
+ar_r2_assert_line_model_merges <- function() {
+  L <- rhtp_pdf_lines(ar_path("roster2"))
+  if (!any(stringr::str_detect(L$text, "\\$[0-9,]+\\.[0-9]{2}\\$"))) {
+    stop("[AR] `rhtp_pdf_lines()` no longer welds the round-2 amount columns, ",
+         "so the stated reason for the run model no longer holds (§2.1).",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' 38 rows, every row's own identity, and the list's own `Total:` row
+ar_r2_assert_reconciles <- function() {
+  parts <- ar_r2_roster_parts()
+  a <- parts$awards
+  t <- parts$total
+  if (nrow(a) != AR_R2_ORG_COUNT) {
+    stop("[AR] the round-2 list reads ", nrow(a), " organisations, not ",
+         AR_R2_ORG_COUNT, ".", call. = FALSE)
+  }
+  if (anyDuplicated(a$label)) {
+    stop("[AR] the round-2 list names an organisation twice: ",
+         paste(a$label[duplicated(a$label)], collapse = "; "), call. = FALSE)
+  }
+  bad <- which(abs(a$rise + a$heart - a$total) > 0.005)
+  if (length(bad)) {
+    stop("[AR] on ", length(bad), " round-2 row(s) RISE AR + HEART does not ",
+         "equal the published total: ", paste(a$label[bad], collapse = "; "),
+         call. = FALSE)
+  }
+  for (col in c("rise", "heart", "total")) {
+    if (abs(sum(a[[col]]) - t[[col]]) > 0.005) {
+      stop("[AR] the round-2 ", toupper(col), " column sums to ",
+           ar_money(sum(a[[col]])), " against the list's own `Total:` row of ",
+           ar_money(t[[col]]), ".", call. = FALSE)
+    }
+  }
+  pins <- c(rise = AR_R2_TOTAL_RISE, heart = AR_R2_TOTAL_HEART,
+            total = AR_R2_TOTAL)
+  for (col in names(pins)) {
+    if (abs(t[[col]] - pins[[col]]) > 0.005) {
+      stop("[AR] the round-2 `Total:` row now prints ", ar_money(t[[col]]),
+           " for ", toupper(col), " where this file recorded ",
+           ar_money(pins[[col]]), ".", call. = FALSE)
+    }
+  }
+  n_actions <- sum(a$rise > 0) + sum(a$heart > 0)
+  if (n_actions != AR_R2_ACTION_COUNT) {
+    stop("[AR] the round-2 list carries ", n_actions, " non-zero cells, not ",
+         AR_R2_ACTION_COUNT, ".", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' The Governor's 54 round-2 projects, one row each
+ar_r2_projects <- function(html = NULL, pattern = AR_R2_AMOUNT_RE) {
+  nodes <- ar_html_nodes("governor2", html)
+  at <- function(pat) {
+    hit <- which(stringr::str_detect(nodes, stringr::fixed(pat)))
+    if (!length(hit)) {
+      stop("[AR] the round-2 release no longer carries ", sQuote(pat), ".",
+           call. = FALSE)
+    }
+    hit[1]
+  }
+  i_heart <- at("The HEART grant recipients are:")
+  i_rise  <- at("The RISE AR grant recipients are:")
+  i_end   <- at("Project specifics are based off")
+  if (!(i_heart < i_rise && i_rise < i_end)) {
+    stop("[AR] the round-2 release's section markers are out of order.",
+         call. = FALSE)
+  }
+  one <- function(from, to, pool) {
+    seg <- nodes[(from + 1L):(to - 1L)]
+    starts <- stringr::str_detect(seg, ":$") & !stringr::str_detect(seg, "^\\(")
+    grp <- cumsum(starts)
+    seg <- seg[grp > 0L]
+    grp <- grp[grp > 0L]
+    purrr::map_dfr(split(seg, grp), function(block) {
+      org <- stringr::str_remove(block[1], ":$")
+      blob <- stringr::str_squish(paste(block[-1], collapse = " "))
+      m <- stringr::str_match(blob, pattern)
+      tibble::tibble(
+        pool = pool,
+        awardee_as_published = org,
+        project_title = if (length(block) > 1L) block[2] else NA_character_,
+        project_description = stringr::str_squish(
+          stringr::str_remove(blob, if (is.na(m[1, 1])) "$^" else
+            stringr::fixed(m[1, 1]))),
+        amount_as_printed = if (is.na(m[1, 1])) NA_character_ else
+          stringr::str_squish(stringr::str_remove(m[1, 1], "^–\\s*")),
+        amount = if (is.na(m[1, 2])) NA_real_ else
+          as.numeric(stringr::str_remove_all(m[1, 2], "[,\\s]"))
+      )
+    })
+  }
+  dplyr::bind_rows(one(i_heart, i_rise, "HEART"),
+                   one(i_rise, i_end, "RISE AR"))
+}
+
+ar_r2_projects_joined <- function(html = NULL) {
+  p <- ar_r2_projects(html)
+  mapped <- AR_R2_RELEASE_SPELLINGS[p$awardee_as_published]
+  p$awardee <- dplyr::if_else(is.na(mapped), p$awardee_as_published,
+                              unname(mapped))
+  p
+}
+
+#' TWO PUBLISHERS AGREE, AND ONE FIGURE IS MIS-PRINTED
+#'
+#' Four checks. (1) 54 projects, 30 HEART and 24 RISE AR, the Governor's own
+#' counts. (2) Read tolerantly, each initiative and each organisation x
+#' initiative pair closes on DF&A's list to the cent. (3) Read STRICTLY, RISE
+#' AR finds 23 figures and is exactly $203,520.00 short, and the missing one is
+#' Conway Regional's, printed "$203, 520.00" -- session 68's gap, reproduced
+#' and located. (4) The spelling map is complete and every entry is used.
+ar_r2_assert_projects_reconcile <- function(html = NULL) {
+  p <- ar_r2_projects_joined(html)
+  if (nrow(p) != AR_R2_PROJECT_COUNT || any(is.na(p$amount))) {
+    stop("[AR] the round-2 release yields ", nrow(p), " projects (",
+         sum(is.na(p$amount)), " unpriced), not ", AR_R2_PROJECT_COUNT,
+         " priced.", call. = FALSE)
+  }
+  n <- table(p$pool)
+  if (n[["HEART"]] != 30L || n[["RISE AR"]] != 24L) {
+    stop("[AR] the round-2 release no longer splits 30 HEART / 24 RISE AR.",
+         call. = FALSE)
+  }
+  want <- c(HEART = AR_R2_TOTAL_HEART, "RISE AR" = AR_R2_TOTAL_RISE)
+  for (pool in names(want)) {
+    got <- sum(p$amount[p$pool == pool])
+    if (abs(got - want[[pool]]) > 0.005) {
+      stop("[AR] the round-2 release's ", pool, " projects sum to ",
+           ar_money(got), " against the list's ", ar_money(want[[pool]]), ".",
+           call. = FALSE)
+    }
+  }
+
+  # (3) the strict reading, which is what session 68 saw
+  strict <- ar_r2_projects(html, pattern = AR_R2_STRICT_RE)
+  miss <- strict[is.na(strict$amount), ]
+  short <- AR_R2_TOTAL_RISE - sum(strict$amount[strict$pool == "RISE AR"],
+                                  na.rm = TRUE)
+  if (nrow(miss) != 1L || miss$awardee_as_published != AR_R2_MALFORMED_ORG ||
+      abs(short - AR_R2_MALFORMED_AMOUNT) > 0.005) {
+    stop("[AR] the strict amount pattern no longer misses exactly one figure ",
+         "-- Conway Regional's ", sQuote(AR_R2_MALFORMED_FIGURE), " -- for a ",
+         "RISE AR shortfall of ", ar_money(AR_R2_MALFORMED_AMOUNT), ". If the ",
+         "release has been re-published, say so; do not relax this.",
+         call. = FALSE)
+  }
+  hit <- p$amount_as_printed == AR_R2_MALFORMED_FIGURE
+  if (sum(hit) != 1L || p$awardee[hit] != AR_R2_MALFORMED_ORG) {
+    stop("[AR] the release no longer prints ", sQuote(AR_R2_MALFORMED_FIGURE),
+         " against ", AR_R2_MALFORMED_ORG, ".", call. = FALSE)
+  }
+
+  # (2) per organisation x initiative, and (4) the map
+  parts <- ar_r2_roster_parts()$awards
+  extra <- setdiff(unique(p$awardee), parts$label)
+  if (length(extra)) {
+    stop("[AR] the round-2 release names organisation(s) the list does not, ",
+         "after the spelling map: ", paste(extra, collapse = "; "),
+         call. = FALSE)
+  }
+  unused <- setdiff(names(AR_R2_RELEASE_SPELLINGS), p$awardee_as_published)
+  if (length(unused)) {
+    stop("[AR] round-2 spelling map entries that match nothing: ",
+         paste(unused, collapse = "; "), call. = FALSE)
+  }
+  long <- dplyr::bind_rows(
+    tibble::tibble(awardee = parts$label, pool = "RISE AR", amount = parts$rise),
+    tibble::tibble(awardee = parts$label, pool = "HEART", amount = parts$heart)
+  ) %>% dplyr::filter(.data$amount > 0)
+  agg <- p %>% dplyr::group_by(.data$awardee, .data$pool) %>%
+    dplyr::summarise(amount = sum(.data$amount), .groups = "drop")
+  cmp <- dplyr::full_join(long, agg, by = c("awardee", "pool"),
+                          suffix = c("_list", "_release"))
+  gaps <- cmp %>% dplyr::filter(is.na(.data$amount_list) |
+                                  is.na(.data$amount_release) |
+                                  abs(.data$amount_list - .data$amount_release) > 0.005)
+  if (nrow(gaps)) {
+    stop("[AR] ", nrow(gaps), " round-2 organisation-initiative pair(s) ",
+         "disagree between the list and the release: ",
+         paste(gaps$awardee, gaps$pool, collapse = "; "), call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' The release is RHTP in its own words, postdates the NOA, and says Year 1
+#' is complete
+ar_r2_assert_provenance <- function() {
+  gov <- ar_html_text("governor2")
+  for (q in c(AR_R2_GOV_QUOTES, AR_R2_COMPLETES_QUOTE)) {
+    if (!stringr::str_detect(gov, stringr::fixed(q))) {
+      stop("[AR] the round-2 release no longer says ", sQuote(q), ".",
+           call. = FALSE)
+    }
+  }
+  # The list itself carries no provenance sentence, as round 1's did not.
+  flat <- stringr::str_squish(paste(rhtp_pdf_lines(ar_path("roster2"))$text,
+                                    collapse = " "))
+  for (m in c("Centers for Medicare", "RHTP", "Rural Health Transformation")) {
+    if (stringr::str_detect(flat, stringr::fixed(m))) {
+      stop("[AR] the round-2 list now carries ", sQuote(m), "; a provenance ",
+           "sentence on the award document is a stronger source and should ",
+           "be wired in.", call. = FALSE)
+    }
+  }
+  # RISE AR and HEART are the two initiatives the NOFOs tie to RHTP by name
+  # (ar_assert_programme_provenance() reads all four NOFO headers), and the
+  # award postdates the 2025-12-29 NOA.
+  if (AR_R2_ANNOUNCE_DATE <= AR_NOA_DATE) {
+    stop("[AR] the round-2 announcement does not postdate the NOA.",
+         call. = FALSE)
+  }
+  # The footer on the release is the ALLOTMENT again (§0.2).
+  m <- stringr::str_match(gov, "financial assistance award totaling \\$([0-9,.]+)")
+  rhtp_assert_footer_not_allotment(
+    amount = ar_num(stringr::str_remove(m[1, 2], "[.,]$")), state = AR_STATE,
+    declared_tier = "STATE_ALLOTMENT",
+    label = "the CMS footer on the round-2 release")
+  invisible(TRUE)
+}
+
+#' The home page now carries TWO award-list links, and a THIRD is new
+ar_r2_assert_award_index <- function(html = NULL) {
+  n <- stringr::str_count(ar_html_text("home2", html),
+                          stringr::fixed(AR_ROSTER_LINK_TEXT))
+  if (n != 2L) {
+    stop("[AR] the home page carries ", n, " award-list link(s) where it ",
+         "carried two (THRIVE/PACT and RISE AR/HEART). ",
+         if (n > 2L) "A THIRD list is a new document to read -- probably Year 2 or a revision." else
+           "Losing one is losing the positive control.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+
+# -- §10.2: Arkansas Rural Health Partnership (AR_ARHP_CONSORTIUM_FLOW) --------
+#
+# THE TEST IS WHAT THE SOURCE SAYS THE MONEY DOES. Three answers were open:
+# ARHP administers funds TO member hospitals (PASS_THROUGH_DESIGNATED, Yes),
+# ARHP keeps the money and delivers goods or services (IN_KIND_BENEFIT, No),
+# or the class is broader than hospitals (§0.3).
+#
+# WHAT THE SOURCES SAY, READ ACROSS BOTH ROUNDS. The Governor describes all
+# EIGHT of ARHP's projects (five round-1, three round-2) and in every one ARHP
+# is the SUBJECT of the verb and what reaches a hospital is a THING or a
+# SERVICE: it "will purchase and install emergency generators", "will deploy
+# virtual physician carts ... in participating rural hospitals", "will equip
+# rural hospitals and EMS providers", "will open a Food Pharmacy at DeWitt
+# Hospital and prepare implementation roadmaps for six additional rural
+# hospitals". Not one says funds are administered, re-granted, sub-awarded or
+# reimbursed to a hospital -- the sentence ICAHN's and OHA's positive examples
+# turn on -- and the shared classifier, given every description WITH
+# award_made = TRUE (the hostile setting), returns no pass-through for any of
+# the eight. That is session 50's grammar test (Salina Regional) and the spec's
+# GHA obstetrical-carts negative.
+#
+# AND THE CLASS IS BROADER THAN HOSPITALS. ARHP's own site, archived: "19
+# rural hospitals, 4 FQHCs, over 120 member-owned and affiliated clinics, and
+# three medical schools". Even a pass-through reading would be FHC's class, not
+# ICAHN's, and land `Unclear`.
+#
+# RESOLUTION: option (c). A row whose projects place goods or services in
+# hospitals is IN_KIND_BENEFIT with hospital_benefiting = Yes; the one row
+# whose only project names no hospital (round 2 RISE AR, the leadership
+# institute) is NON_HOSPITAL. distributed_to_hospital = No on all four. NO
+# DOLLAR MOVES: every ARHP row was already No and outside every bucket. What
+# changes is that the row now says why, and FLOW_UNRESOLVED_HOSPITAL_
+# AFFILIATED comes off. It reopens only if a source shows money passed to a
+# hospital.
+AR_ARHP_FLOW <- tibble::tribble(
+  ~round, ~pool,     ~flow_type,        ~hospital_benefiting, ~source_key,
+  ~quotes,
+  1L, "THRIVE",  "IN_KIND_BENEFIT", "Yes", "governor",
+  list(c("will equip rural hospitals and EMS providers for emergency teleconsultation and triage",
+         "will support technology-enabled chronic disease management through remote patient-monitoring devices")),
+  1L, "PACT",    "IN_KIND_BENEFIT", "Yes", "governor",
+  list(c("will purchase and install emergency generators",
+         "will deploy virtual physician carts and portable telemedicine systems in participating rural hospitals",
+         "will expand rural behavioral health crisis response")),
+  2L, "HEART",   "IN_KIND_BENEFIT", "Yes", "governor2",
+  list(c("will open a Food Pharmacy at DeWitt Hospital and prepare implementation roadmaps for six additional rural hospitals",
+         "will use Youth Mental Health First Aid to train trusted rural adults")),
+  2L, "RISE AR", "NON_HOSPITAL",    "No",  "governor2",
+  list(c("will establish the Arkansas Rural Healthcare Leadership Institute as a permanent statewide platform"))
+)
+
+AR_ARHP_CLASS_QUOTE <- paste(
+  "19 rural hospitals, 4 FQHCs, over 120 member-owned and affiliated clinics,",
+  "and three medical schools")
+
+#' Every quoted sentence is in the archive, and the classifier agrees
+ar_assert_arhp_flow_evidence <- function() {
+  for (i in seq_len(nrow(AR_ARHP_FLOW))) {
+    txt <- ar_html_text(AR_ARHP_FLOW$source_key[i])
+    for (q in unlist(AR_ARHP_FLOW$quotes[i])) {
+      if (!stringr::str_detect(txt, stringr::fixed(q))) {
+        stop("[AR] the ARHP flow resolution quotes ", sQuote(q), " and ",
+             AR_ARHP_FLOW$source_key[i], " no longer carries it.",
+             call. = FALSE)
+      }
+    }
+  }
+  # The machine, on every ARHP project description, in the hostile setting.
+  d <- c(
+    ar_projects_joined()$project_description[
+      ar_projects_joined()$awardee == AR_CONSORTIUM],
+    ar_r2_projects_joined()$project_description[
+      ar_r2_projects_joined()$awardee == AR_CONSORTIUM])
+  if (length(d) != 8L) {
+    stop("[AR] ARHP has ", length(d), " described projects across both ",
+         "releases, not 8.", call. = FALSE)
+  }
+  f <- rhtp_classify_flow(rep("NONPROFIT_CBO", length(d)), d, award_made = TRUE)
+  if (any(grepl("^PASS_THROUGH", f$flow_type))) {
+    stop("[AR] the classifier now reads a PASS-THROUGH in an ARHP project ",
+         "description. The session-69 resolution rests on there being none; ",
+         "re-read the release and reopen AR_ARHP_CONSORTIUM_FLOW.",
+         call. = FALSE)
+  }
+  site <- paste(ar_html_text("arhp_home"), ar_html_text("arhp_initiatives"))
+  if (!stringr::str_detect(site, stringr::fixed(AR_ARHP_CLASS_QUOTE))) {
+    stop("[AR] ARHP's archived site no longer states its membership class.",
+         call. = FALSE)
+  }
+  if (stringr::str_detect(site, "Rural Health Transformation|RHTP")) {
+    stop("[AR] ARHP's own site now mentions RHTP. Read it: it may say where ",
+         "the money goes, which is the sentence this resolution lacked.",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' Apply the resolution to ARHP's rows in one round's table
+ar_resolve_arhp_flow <- function(rows, round) {
+  for (i in which(AR_ARHP_FLOW$round == round)) {
+    k <- which(rows$awardee == AR_CONSORTIUM &
+                 rows$award_pool == AR_ARHP_FLOW$pool[i])
+    if (length(k) != 1L) {
+      stop("[AR] expected one ARHP ", AR_ARHP_FLOW$pool[i], " row in round ",
+           round, ", found ", length(k), ".", call. = FALSE)
+    }
+    rows$flow_type[k] <- AR_ARHP_FLOW$flow_type[i]
+    rows$distributed_to_hospital[k] <- "No"
+    rows$hospital_benefiting[k] <- AR_ARHP_FLOW$hospital_benefiting[i]
+    rows$hospital_attribution[k] <- "NOT_HOSPITAL"
+    fr <- setdiff(stringr::str_split(rows$flag_reason[k], ";")[[1]],
+                  "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED")
+    rows$flag_reason[k] <- paste(fr, collapse = ";")
+    tag <- "FLOW RESOLVED (session 69, AR_ARHP_CONSORTIUM_FLOW option (c))"
+    if (!grepl(tag, rows$determination_basis[k], fixed = TRUE)) {
+      rows$determination_basis[k] <- paste0(
+        tag, ": ", AR_ARHP_FLOW$flow_type[i], ". The Governor's description ",
+        "of this award's project(s) has ARHP as the subject that buys or ",
+        "delivers -- '", paste(unlist(AR_ARHP_FLOW$quotes[i]), collapse = "'; '"),
+        "' -- and no source says funds are administered, re-granted or ",
+        "reimbursed to a hospital (§10.2's positive test). ARHP's own site ",
+        "gives its members as '", AR_ARHP_CLASS_QUOTE, "', hospitals among ",
+        "others. distributed_to_hospital = No",
+        if (AR_ARHP_FLOW$hospital_benefiting[i] == "Yes")
+          "; hospital_benefiting = Yes, because goods or services land in hospitals."
+        else "; no hospital is named as where this project lands.",
+        " PRIOR BASIS: ", rows$determination_basis[k])
+    }
+  }
+  rows
+}
+
+
+# -- round-2 award rows --------------------------------------------------------
+
+#' Session 49's verified types for round-1 organisations, by EXACT string
+#'
+#' The source of record is the committed overlay (`verification_queue_2_
+#' changes.csv`), not a re-reading. An organisation whose award-list spelling
+#' is character-for-character the same in both rounds carries its verified
+#' type across; any other spelling does not (§2). The owner's three queued
+#' names are excluded.
+ar_r2_carried_types <- function() {
+  ch <- suppressMessages(readr::read_csv(
+    here::here("data", "reference", "verification_queue_2_changes.csv"),
+    col_types = readr::cols(.default = "c"), progress = FALSE))
+  ch %>%
+    dplyr::filter(.data$file == "ar_year1_awardees.csv",
+                  !.data$name %in% AR_R2_QUEUED) %>%
+    dplyr::distinct(.data$name, .data$new_type, .data$new_conf,
+                    .data$basis_type, .data$verified_by, .data$basis)
+}
+
+AR_R2_NOTE_TAIL <- paste(
+  "Published by DF&A in its Year 1 RISE AR / HEART award list (posted",
+  "2026-09-24), linked from arkansasrhtp.com under Arkansas's own words",
+  "\"Download the List of Organization and Award amounts\". THE AMOUNT IS NOT",
+  "FINAL AND ARKANSAS SAYS SO: \"Project specifics are based off recipient",
+  "organizations' applications and the details of each grant will not be",
+  "finalized until DFA signs an official agreement with each grantee.\" THE",
+  "LIST STATES NO ORGANISATIONAL FORM, so `recipient_type` is derived from the",
+  "recipient's own name (§8) unless the row says otherwise.")
+
+#' Every round-2 award action, one row per organisation x initiative
+ar_r2_award_rows <- function() {
+  parts <- ar_r2_roster_parts()$awards
+  long <- dplyr::bind_rows(
+    tibble::tibble(awardee = parts$label, award_pool = "RISE AR",
+                   amount = parts$rise, org_total = parts$total,
+                   org_row = seq_len(nrow(parts)), pool_ord = 1L),
+    tibble::tibble(awardee = parts$label, award_pool = "HEART",
+                   amount = parts$heart, org_total = parts$total,
+                   org_row = seq_len(nrow(parts)), pool_ord = 2L)
+  ) %>%
+    dplyr::filter(.data$amount > 0) %>%
+    dplyr::arrange(.data$org_row, .data$pool_ord)
+
+  cls <- rhtp_classify_recipient_type(long$awardee, AR_STATE)
+  type <- cls$recipient_type
+  conf <- cls$determination_confidence
+  src  <- cls$recipient_type_basis
+  basis_type <- rep(NA_character_, nrow(long))
+  verified_by <- rep(NA_character_, nrow(long))
+  verified_basis <- rep(NA_character_, nrow(long))
+  type_note <- rep("", nrow(long))
+
+  ov <- long$awardee %in% AR_R2_FALLBACK_OVERRIDES
+  type[ov] <- "NONPROFIT_CBO"; conf[ov] <- "LOW"
+  type_note[ov] <- paste(
+    " TYPE OVERRIDE (session 69): §8's name rule reads 'Pediatrics' and returns",
+    "PHYSICIAN_PRACTICE; a state CHAPTER of a professional society is not a",
+    "practice and the release spells it '... Pediatrics Foundation'. The form",
+    "is not stated, so §8's standing fallback. $0 either way.")
+
+  carried <- ar_r2_carried_types()
+  cf <- match(long$awardee, carried$name)
+  hit <- !is.na(cf)
+  type[hit] <- carried$new_type[cf[hit]]
+  conf[hit] <- carried$new_conf[cf[hit]]
+  basis_type[hit] <- carried$basis_type[cf[hit]]
+  verified_by[hit] <- carried$verified_by[cf[hit]]
+  verified_basis[hit] <- carried$basis[cf[hit]]
+  type_note[hit] <- paste0(
+    " TYPE CARRIED FROM ROUND 1 (session 69): the award list spells this ",
+    "organisation character-for-character as round 1 did, and session 49 ",
+    "verified its form there (", carried$basis_type[cf[hit]], "; ",
+    carried$verified_by[cf[hit]], ").")
+
+  q <- long$awardee %in% AR_R2_QUEUED
+  type_note[q] <- paste(
+    " QUEUED, NOT TYPED ON RECOGNITION (owner's instruction, session 69):",
+    "AR_R2_QUEUED_FORM. The type here is what §8's name rule says and nothing",
+    "more.")
+
+  flow <- rhtp_classify_flow(type, rep(NA_character_, nrow(long)))
+  fallback <- type == "NONPROFIT_CBO" & conf == "LOW" & is.na(basis_type)
+  flag <- ifelse(fallback, "AMOUNT_PRELIMINARY;RECIPIENT_TYPE_INFERRED",
+                 "AMOUNT_PRELIMINARY")
+  init <- c("RISE AR" = AR_INITIATIVES$round_name[AR_INITIATIVES$pool == "RISE AR"],
+            HEART = AR_INITIATIVES$round_name[AR_INITIATIVES$pool == "HEART"])[
+              long$award_pool]
+
+  out <- tibble::tibble(
+    state = AR_STATE,
+    row_no = seq_len(nrow(long)),
+    awardee = long$awardee,
+    amount = long$amount,
+    recipient_type = type,
+    distributed_to_hospital = flow$distributed_to_hospital,
+    note = paste0(
+      "Initiative: ", init, ". ROUND 2 of Arkansas's Year 1. Arkansas ",
+      "published ", ar_money(long$org_total), " to this organisation across ",
+      "RISE AR and HEART; this row is its ", long$award_pool, " figure alone. ",
+      AR_R2_NOTE_TAIL, type_note),
+    recipient_confirmed = "Yes",
+    amount_confirmed = "No",
+    fiscal_year = 2026L,
+    source_document_title = paste0(
+      "Arkansas DF&A, RHTP Year 1 RISE AR and HEART Awards -- List of ",
+      "Organization and Award amounts"),
+    state_source_url = ar_source("roster2", "url"),
+    validation_source_type = "NOTICE_OF_INTENT_TO_AWARD",
+    extraction_method = "PARSED_PDF_RUNS",
+    validator = "R/03ai_ar_year1_awardees.R",
+    ccn = NA_character_,
+    aha_id = NA_character_,
+    rural_designation = NA_character_,
+    reviewer = NA_character_,
+    recipient_type_source = src,
+    determination_confidence = dplyr::if_else(
+      conf == "HIGH" & flow$distributed_to_hospital == "Yes", "MEDIUM", conf),
+    flag_reason = flag,
+    award_pool = long$award_pool,
+    budget_period = AR_BUDGET_PERIOD,
+    flow_type = flow$flow_type,
+    hospital_benefiting = flow$hospital_benefiting,
+    hospital_attribution = rhtp_hospital_attribution(
+      flow$flow_type, flow$distributed_to_hospital, type),
+    intermediary_name = NA_character_,
+    determination_basis = paste(cls$recipient_type_basis, flow$flow_basis),
+    amount_basis = paste(
+      "The figure DF&A publishes for this organisation under this initiative,",
+      "read with session 32's run model (the three amount columns weld under",
+      "the line model). The 38 rows reconcile to the list's own `Total:` row",
+      "on all three columns to the cent, and the Governor's 54 priced projects",
+      "reconcile to the same figures once Conway Regional's mis-printed",
+      "'$203, 520.00' is read as $203,520.00."),
+    organisation_award_total = long$org_total,
+    round_name = init,
+    announcement_date = as.character(AR_R2_ANNOUNCE_DATE),
+    source_archive_path = file.path(
+      "data/evidence/recheck/2026-09-25/AR", ar_source("roster2", "file")),
+    basis_type = basis_type,
+    verified_by = verified_by,
+    verified_basis = verified_basis
+  )
+  out$determination_confidence[is.na(out$determination_confidence)] <- "LOW"
+  hb <- hit & out$recipient_type != cls$recipient_type
+  out$determination_basis[hit] <- paste0(
+    "RECIPIENT TYPE CARRIED FROM ROUND 1'S VERIFICATION (session 49 -> 69): ",
+    out$recipient_type[hit], ". Basis (", basis_type[hit], ", ",
+    verified_by[hit], "): ", verified_basis[hit], " ",
+    flow$flow_basis[hit])
+  out <- ar_resolve_arhp_flow(out, 2L)
+  out
+}
+
+#' The round-2 hospital figure, and the names that make it
+AR_R2_NAMED_HOSPITAL_ROWS    <- 12L
+AR_R2_NAMED_HOSPITAL_DOLLARS <- 18870981.65
+
+ar_r2_assert_hospital_rows <- function(rows = ar_r2_award_rows()) {
+  part <- rhtp_hospital_dollar_partition(rows)
+  named <- part[part$bucket == "NAMED_HOSPITAL", ]
+  if (nrow(part) != 1L || nrow(named) != 1L ||
+      named$rows != AR_R2_NAMED_HOSPITAL_ROWS ||
+      abs(named$dollars - AR_R2_NAMED_HOSPITAL_DOLLARS) > 0.005) {
+    stop("[AR] round 2's partition is not 12 NAMED_HOSPITAL rows / ",
+         ar_money(AR_R2_NAMED_HOSPITAL_DOLLARS), " and nothing else: ",
+         paste(part$bucket, part$rows, ar_money(part$dollars),
+               collapse = "; "), call. = FALSE)
+  }
+  for (nm in AR_R2_QUEUED) {
+    got <- rows[rows$awardee == nm, ]
+    if (!nrow(got) || any(got$distributed_to_hospital != "No") ||
+        !all(grepl("AR_R2_QUEUED_FORM", got$note, fixed = TRUE))) {
+      stop("[AR] ", nm, " has left the queue's posture (No, and a note naming ",
+           "AR_R2_QUEUED_FORM). The owner asked for it queued, not typed.",
+           call. = FALSE)
+    }
+  }
+  q <- readr::read_csv(
+    here::here("data", "reference", "classification_review_queue.csv"),
+    show_col_types = FALSE, progress = FALSE)
+  for (id in c("AR_R2_QUEUED_FORM", "AR_R2_RECIPIENT_FORM_NOT_STATED")) {
+    if (!id %in% q$question_id) {
+      stop("[AR] the review queue does not carry ", id, ".", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+ar_r2_assert_all <- function() {
+  ar_r2_assert_line_model_merges()
+  ar_r2_assert_reconciles()
+  ar_r2_assert_projects_reconcile()
+  ar_r2_assert_provenance()
+  ar_r2_assert_award_index()
+  ar_assert_arhp_flow_evidence()
+  rows <- ar_r2_award_rows()
+  if (nrow(rows) != AR_R2_ACTION_COUNT ||
+      abs(sum(rows$amount) - AR_R2_TOTAL) > 0.005) {
+    stop("[AR] round 2 builds ", nrow(rows), " rows / ",
+         ar_money(sum(rows$amount)), ", not ", AR_R2_ACTION_COUNT, " / ",
+         ar_money(AR_R2_TOTAL), ".", call. = FALSE)
+  }
+  ar_r2_assert_hospital_rows(rows)
+  invisible(rows)
+}
+
+
+# -- task 3: what is left of the allotment, with a source or labelled ---------
+#
+# Round 1 + round 2 = $203,862,687.29 against the $208,779,396 anchor
+# ($208,779,396.02 on every CMS footer). The Year 1 Revised Budget Narrative
+# (archived since session 40) splits the whole award into FOUR initiative
+# allocations and a planned ADMINISTRATION line, and both halves are read out
+# of the PDF here rather than typed:
+#   administration $4,680,988 = personnel $235,000 + fringe $67,400 + travel
+#   $3,000 + BDO GS contracted administration $4,375,588 ("Total $ 4,680,988
+#   2.24%"). That is SOURCED -- as a PLAN (§0.3), not a spend.
+#   initiatives $204,098,408.02 against $203,862,687.29 awarded leaves
+#   $235,720.73, net of THRIVE's $63,829.20 OVER its allocation. No source says
+#   what that remainder funds, so it is UNEXPLAINED.
+AR_BN_ALLOCATIONS <- c(HEART = 27557600.00, PACT = 93590808.02,
+                       "RISE AR" = 27300000.00, THRIVE = 55650000.00)
+AR_BN_ADMIN <- c(personnel = 235000, fringe = 67400, travel = 3000,
+                 bdo_contracted_admin = 4375588)
+AR_BN_ADMIN_TOTAL <- 4680988
+
+ar_gap_table <- function() {
+  bn <- ar_pdf_flat("budget_narrative")
+  need <- c("Contractual Total $ 208,473,996.02", "HEART $ 27,557,600.00",
+            "PACT $ 93,590,808.02", "RISE AR $ 27,300,000.00",
+            "THRIVE $ 55,650,000.00", "Contracted Administrative Costs* $ 4,375,588.00",
+            "Total $ 4,680,988 2.24%", "Totals $ 208,779,396.02")
+  for (w in need) {
+    if (!stringr::str_detect(bn, stringr::fixed(w))) {
+      stop("[AR] the budget narrative no longer reads ", sQuote(w), ".",
+           call. = FALSE)
+    }
+  }
+  if (abs(sum(AR_BN_ADMIN) - AR_BN_ADMIN_TOTAL) > 0.005 ||
+      abs(sum(AR_BN_ALLOCATIONS) + AR_BN_ADMIN_TOTAL - AR_FOOTER_AMOUNT) > 0.005) {
+    stop("[AR] the narrative's allocations and administration no longer sum ",
+         "to the award.", call. = FALSE)
+  }
+  r1 <- ar_roster_parts()$total
+  r2 <- ar_r2_roster_parts()$total
+  awarded <- c(THRIVE = r1$thrive, PACT = r1$pact, "RISE AR" = r2$rise,
+               HEART = r2$heart)
+  unexpl <- AR_BN_ALLOCATIONS[names(awarded)] - awarded
+  remainder <- AR_ALLOTMENT - sum(awarded)
+  out <- tibble::tibble(
+    state = AR_STATE,
+    component = c("allotment (§7.1 anchor)", "awarded, round 1 (THRIVE + PACT)",
+                  "awarded, round 2 (RISE AR + HEART)", "REMAINDER",
+                  "planned administration (budget narrative)",
+                  paste0("allocation less award: ", names(unexpl)),
+                  "anchor rounding (footer $208,779,396.02 vs anchor)"),
+    usd = round(c(AR_ALLOTMENT, r1$total, r2$total, remainder,
+                  AR_BN_ADMIN_TOTAL, unname(unexpl),
+                  AR_FOOTER_AMOUNT - AR_ALLOTMENT), 2),
+    # The same basis codes as fl_ga_allotment_gap_components.csv (session 57).
+    basis = c("ALLOTMENT_ANCHOR", "PUBLISHED_TOTAL", "PUBLISHED_TOTAL",
+              "ARITHMETIC", "PLAN", rep("UNEXPLAINED", 4L), "ARITHMETIC"),
+    note = c(
+      "cms_fy2026_allotments.csv; every CMS footer on the estate prints $208,779,396.02.",
+      "DF&A's THRIVE/PACT list, its own `Total:` row.",
+      "DF&A's RISE AR/HEART list, its own `Total:` row.",
+      "Allotment less both rounds. The two components below it sum to it, less the $0.02 rounding.",
+      paste("Year 1 Revised Budget Narrative, 'Total Administrative Costs': personnel $235,000,",
+            "fringe $67,400, travel $3,000, and BDO GS contracted administration $4,375,588",
+            "('BDO GS has been selected as the vendor for contractual administrative costs'):",
+            "'Total $ 4,680,988 2.24%'. A PLAN (§0.3): nothing published says it has been spent."),
+      paste0("Narrative allocation ", ar_money(AR_BN_ALLOCATIONS[names(unexpl)]),
+             " less the award ", ar_money(awarded),
+             ". A negative figure is an award ABOVE the plan. No source says ",
+             "what any remainder funds; the Governor says the round 'completes ",
+             "the distribution'."),
+      "The anchor is CMS's rounded table figure; the NOA and every footer carry $0.02 more."
+    ),
+    source = c(
+      "data/reference/cms_fy2026_allotments.csv",
+      file.path("data/evidence/AR", ar_source("roster", "file")),
+      file.path("data/evidence/recheck/2026-09-25/AR", ar_source("roster2", "file")),
+      NA_character_,
+      file.path("data/evidence/AR", ar_source("budget_narrative", "file")),
+      rep(file.path("data/evidence/AR", ar_source("budget_narrative", "file")), 4L),
+      NA_character_)
+  )
+  out <- out[, c("state", "component", "usd", "basis", "source", "note")]
+  chk <- AR_BN_ADMIN_TOTAL + sum(unexpl) - (AR_FOOTER_AMOUNT - AR_ALLOTMENT)
+  if (abs(chk - remainder) > 0.005) {
+    stop("[AR] the remainder does not decompose: ", ar_money(remainder),
+         " vs ", ar_money(chk), ".", call. = FALSE)
+  }
+  out
+}
+
+
 # -- probe --------------------------------------------------------------------
 
-#' LIVE: has RISE AR or HEART awarded?
+#' LIVE: has either Year 1 list changed, or a third appeared? (RISE AR and
+#' HEART awarded 2026-09-24; until session 69 this asked whether they had.)
 #'
 #' Compares a CONTENT digest, not a file digest, and the reason is measured
 #' rather than assumed. `arkansasrhtp.com` stamps a
@@ -1897,22 +2830,21 @@ ar_probe <- function() {
   # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
   # one of its ten award phrases matched. Subject pages only -- a control or a
   # press index moves for reasons that are not this state awarding.
-  nm_keys <- intersect(c("home", "thrive", "pact", "rise", "heart"), out$key)
+  nm_keys <- intersect(c("home2", "thrive", "pact", "rise", "heart"), out$key)
   rhtp_assert_no_new_organisations_across(
     live = stats::setNames(purrr::map(nm_keys, function(k)
       ar_html_text(k, out$html[out$key == k])), nm_keys),
     archived = stats::setNames(purrr::map(nm_keys, ar_html_text), nm_keys),
     state = "AR")
 
-  home_html <- out$html[out$key == "home"]
-  ar_assert_award_index(html = home_html)
-  ar_assert_two_initiatives_remain(html = NULL)
-  # The award-list link count, on the LIVE home page, is the signal: a second
-  # one means RISE AR or HEART has published a roster.
-  n_links <- stringr::str_count(ar_html_text("home", home_html),
+  home_html <- out$html[out$key == "home2"]
+  # SESSION 69: both rounds have published, so the home page carries TWO
+  # award-list links. A THIRD is a new document (a revision, or Year 2).
+  n_links <- stringr::str_count(ar_html_text("home2", home_html),
                                 stringr::fixed(AR_ROSTER_LINK_TEXT))
-  cat(sprintf("\n  award-list links on the LIVE home page: %d (expected 1)\n",
+  cat(sprintf("\n  award-list links on the LIVE home page: %d (expected 2)\n",
               n_links))
+  ar_r2_assert_award_index(html = home_html)
   if (any(out$content_changed)) {
     cat("\n  CONTENT CHANGED on: ",
         paste(out$key[out$content_changed], collapse = ", "),
@@ -1920,8 +2852,8 @@ ar_probe <- function() {
         "    Rscript R/03ai_ar_year1_awardees.R --fetch --force && --validate\n",
         sep = "")
   } else {
-    cat("\n  All watched pages UNCHANGED. RISE AR and HEART have still",
-        "published no roster.\n")
+    cat("\n  All watched pages UNCHANGED. Both Year 1 lists are as",
+        "archived and no third list has appeared.\n")
   }
   invisible(out %>% dplyr::select(-"html"))
 }
@@ -1957,8 +2889,27 @@ ar_assert_all <- function(strict_footer = FALSE) {
 
 ar_build <- function() {
   rows <- ar_assert_all()
+  # SESSION 49's VERIFICATION OVERLAY, RE-APPLIED FOR THIS FILE ONLY, then
+  # session 69's ARHP flow resolution ON TOP of it -- in that order, because
+  # the overlay writes each verified row's flow back and would otherwise undo
+  # the resolution. Sourced into its own environment so 03ap's CLI guard
+  # cannot fire on this script's arguments; never a bare `R/03ap --apply`.
+  vq <- new.env()
+  suppressMessages(source(here::here("R", "03ap_verification_queue_2.R"),
+                          local = vq))
+  rows <- vq$vq_overlay(rows, "ar_year1_awardees.csv")
+  rows <- ar_resolve_arhp_flow(rows, 1L)
   readr::write_csv(rows, AR_OUT_CSV, na = "")
-  message("[AR] wrote ", AR_OUT_CSV, " (", nrow(rows), " rows)")
+  message("[AR] wrote ", AR_OUT_CSV, " (", nrow(rows), " rows; session 49 ",
+          "overlay + session 69 ARHP flow)")
+
+  r2 <- ar_r2_assert_all()
+  readr::write_csv(r2, AR_R2_CSV, na = "")
+  message("[AR] wrote ", AR_R2_CSV, " (", nrow(r2), " rows)")
+
+  gap <- ar_gap_table()
+  readr::write_csv(gap, AR_GAP_CSV, na = "")
+  message("[AR] wrote ", AR_GAP_CSV, " (", nrow(gap), " rows)")
 
   proj <- ar_project_rows()
   readr::write_csv(proj, AR_PROJECTS_CSV, na = "")
@@ -2035,13 +2986,48 @@ ar_report <- function() {
     cat(sprintf("      %-46s %s\n", top$awardee[i],
                 ar_money(top$organisation_award_total[i])))
   }
-  cat("\n  ARKANSAS RURAL HEALTH PARTNERSHIP IS A SEPARATE QUESTION AGAIN\n")
-  cat(sprintf("    %s -- a hospital CONSORTIUM on this pipeline's\n",
-              ar_money(rows$organisation_award_total[
-                rows$awardee == AR_CONSORTIUM][1])))
-  cat("    knowledge and NOT on the document's. §10.2's association row turns\n")
-  cat("    on what the source says the money DOES, and the award list is\n")
-  cat("    silent. Queued as AR_ARHP_CONSORTIUM_FLOW.\n")
+  r2 <- ar_r2_award_rows()
+  p2 <- rhtp_hospital_dollar_partition(r2)
+  cat("\n", strrep("=", 78), "\n", sep = "")
+  cat("ROUND 2 -- RISE AR and HEART (DF&A list and Governor, 2026-09-24)\n")
+  cat(sprintf("    %2d organisations / %2d award actions / %2d projects (Governor)\n",
+              dplyr::n_distinct(r2$awardee), nrow(r2), AR_R2_PROJECT_COUNT))
+  cat(sprintf("    RISE AR %s   HEART %s   TOTAL %s\n",
+              ar_money(AR_R2_TOTAL_RISE), ar_money(AR_R2_TOTAL_HEART),
+              ar_money(AR_R2_TOTAL)))
+  cat("    The Governor's RISE AR figures close on the list ONLY if Conway\n")
+  cat(sprintf("    Regional's %s is read as %s; the strict reading is\n",
+              sQuote(AR_R2_MALFORMED_FIGURE), ar_money(AR_R2_MALFORMED_AMOUNT)))
+  cat("    exactly that much short. The list is the figure of record.\n")
+  for (i in seq_len(nrow(p2))) {
+    cat(sprintf("    %-24s rows = %3d   dollars = %s\n",
+                p2$bucket[i], p2$rows[i], ar_money(p2$dollars[i])))
+  }
+  cat("\n  YEAR 1, BOTH ROUNDS\n")
+  both <- dplyr::bind_rows(
+    readr::read_csv(AR_OUT_CSV, col_types = readr::cols(.default = "c"),
+                    progress = FALSE),
+    dplyr::mutate(r2, dplyr::across(dplyr::everything(), as.character)))
+  both$amount <- as.numeric(both$amount)
+  pb <- rhtp_hospital_dollar_partition(both)
+  cat(sprintf("    awarded %s = %.1f%% of the %s allotment\n",
+              ar_money(sum(both$amount)), 100 * sum(both$amount) / AR_ALLOTMENT,
+              ar_money(AR_ALLOTMENT)))
+  for (i in seq_len(nrow(pb))) {
+    cat(sprintf("    %-24s rows = %3d   dollars = %s  (%.1f%% of awarded)\n",
+                pb$bucket[i], pb$rows[i], ar_money(pb$dollars[i]),
+                100 * pb$dollars[i] / sum(both$amount)))
+  }
+  gap <- ar_gap_table()
+  cat("\n  THE REMAINDER, AND WHAT SAYS WHAT IT IS\n")
+  for (i in seq_len(nrow(gap))) {
+    cat(sprintf("    %-52s %16s  %s\n", gap$component[i], ar_money(gap$usd[i]),
+                gap$basis[i]))
+  }
+  cat("\n  ARKANSAS RURAL HEALTH PARTNERSHIP -- AR_ARHP_CONSORTIUM_FLOW RESOLVED\n")
+  cat("    option (c), session 69: in all eight described projects ARHP buys or\n")
+  cat("    delivers and no source says money reaches a hospital. IN_KIND_BENEFIT\n")
+  cat("    (3 rows) / NON_HOSPITAL (1 row), all `No`. $0 moved.\n")
   invisible(rows)
 }
 
