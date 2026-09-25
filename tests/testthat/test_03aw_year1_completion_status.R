@@ -78,3 +78,22 @@ test_that("the hospital share is reported for COMPLETE states only, as a bounded
   expect_equal(share$share_floor_pct[share$state == "GA"], 45.8)
   expect_equal(share$mixed_pools_with_unpriced_named_hospitals_usd[share$state == "GA"], 22135000)
 })
+
+test_that("COMPLETE is a statement about the ROUND; the intent status is carried per state (session 70)", {
+  # Florida and Georgia publish awards; every Arkansas row is a notice of
+  # intent pending a DF&A agreement. Derived from each row's own
+  # validation_source_type, never from the state.
+  s <- share[order(share$state), ]
+  expect_equal(s$intent_rows, c(80, 0, 0))
+  expect_equal(s$pct_priced_on_intent, c(100, 0, 0))
+  expect_match(s$award_action_stage[s$state == "AR"], "^NOTICE OF INTENT")
+  expect_match(s$award_action_stage[s$state == "FL"], "^AWARDED")
+  expect_match(s$award_action_stage[s$state == "GA"], "^AWARDED")
+  # the same numbers sit in the 31-state table, where a PARTIAL state can
+  # also be all-intent (Oregon, Alaska) -- so the field is never read off
+  # year1_status.
+  expect_equal(status$pct_priced_on_intent[status$state == "AR"], 100)
+  expect_equal(status$pct_priced_on_intent[status$state == "OR"], 100)
+  # a COMPLETE state added without a stage sentence fails the build
+  expect_true(all(share$state %in% names(Y1_AWARD_STAGE)))
+})

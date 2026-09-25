@@ -124,8 +124,18 @@ y1_file_figures <- function(st, f) {
         tibble::tibble(p = d$award_pool[k], r = pa[k]))$r)
     }
   }
+  # SESSION 70: how much of what is published is still a NOTICE OF INTENT.
+  # Read off each row's own `validation_source_type`, never a state-level
+  # assumption: Arkansas's 80 rows all say NOTICE_OF_INTENT_TO_AWARD ("the
+  # details of each grant will not be finalized until DFA signs an official
+  # agreement"), Florida's and Georgia's say none do.
+  vst <- if ("validation_source_type" %in% names(d))
+    d$validation_source_type else rep(NA_character_, nrow(d))
+  intent <- !is.na(vst) & vst == "NOTICE_OF_INTENT_TO_AWARD"
   tibble::tibble(state = st, rows = nrow(d), priced_rows = sum(!is.na(amt)),
-                 published_priced = priced, pool_level_unpriced = pool)
+                 published_priced = priced, pool_level_unpriced = pool,
+                 intent_rows = sum(intent),
+                 priced_usd_on_intent = sum(amt[intent], na.rm = TRUE))
 }
 
 y1_figures <- function() {
@@ -381,12 +391,15 @@ y1_build_status <- function() {
       published_incl_pool_level = published_priced + pool_level_unpriced,
       pct_priced = round(100 * published_priced / fy2026_allotment, 1),
       pct_incl_pool_level =
-        round(100 * published_incl_pool_level / fy2026_allotment, 1)
+        round(100 * published_incl_pool_level / fy2026_allotment, 1),
+      pct_priced_on_intent = ifelse(published_priced > 0,
+        round(100 * priced_usd_on_intent / published_priced, 1), NA_real_)
     ) %>%
     dplyr::left_join(Y1_STATUS, by = "state") %>%
     dplyr::select(state, state_name, fy2026_allotment, rows, priced_rows,
                   published_priced, pct_priced, pool_level_unpriced,
                   published_incl_pool_level, pct_incl_pool_level,
+                  intent_rows, priced_usd_on_intent, pct_priced_on_intent,
                   year1_status, source_calls_complete, remaining_unawarded,
                   evidence_date, evidence, evidence_path) %>%
     dplyr::arrange(factor(year1_status, Y1_STATUS_CODES),
@@ -407,8 +420,35 @@ y1_build_status <- function() {
 #                 floor since session 58 settled its five Unclear rows.
 # Pool buckets (POOL_NAMED / POOL_UNNAMED) are reported beside, never added.
 
+# SESSION 70. COMPLETE is a statement about the ROUND; this is a statement
+# about the AWARD ACTIONS inside it, and the three COMPLETE states differ.
+# Free text, not a §8 code (no code is invented mid-session): it says what the
+# state's own documents call the actions. The numeric twin is
+# `pct_priced_on_intent`, derived from the rows.
+Y1_AWARD_STAGE <- c(
+  FL = paste("AWARDED: AHCA 'has awarded the full scope' and 'Year 1 RHTP",
+             "Sub-awardees have been awarded'; every row amount_confirmed = Yes.",
+             "The rows rest on the Governor's release (AGENCY_PRESS_RELEASE);",
+             "no executed agreement is published, so 'awarded' is AHCA's word."),
+  GA = paste("AWARDED: DCH 'has awarded the final phase of Year 1 funding'; 21",
+             "rows rest on two SIGNED Notices of Award, the rest on DCH's award",
+             "announcements. Its 56 unpriced rows are amount_confirmed = No",
+             "because DCH publishes those figures per initiative pool, not per",
+             "recipient -- not because an award is pending."),
+  AR = paste("NOTICE OF INTENT, ALL 80 ROWS: 'the details of each grant will not",
+             "be finalized until DFA signs an official agreement with each",
+             "grantee'. No agreement is published; CMS's obligation deadline is",
+             "2026-10-30. COMPLETE here means the ROUND is fully announced, not",
+             "that any award is executed.")
+)
+
 y1_hospital_share <- function(status = y1_build_status()) {
   done <- status$state[status$year1_status == "COMPLETE"]
+  if (length(setdiff(done, names(Y1_AWARD_STAGE)))) {
+    stop("[Y1] a COMPLETE state has no award_action_stage: ",
+         paste(setdiff(done, names(Y1_AWARD_STAGE)), collapse = ", "),
+         call. = FALSE)
+  }
   purrr::map_dfr(done, function(st) {
     fs <- Y1_AWARD_FILES[names(Y1_AWARD_FILES) == st]
     d <- dplyr::bind_rows(lapply(fs, y1_read))
@@ -446,7 +486,10 @@ y1_hospital_share <- function(status = y1_build_status()) {
       share_floor_pct = round(100 * named / denom, 1),
       share_ceiling_pct = round(100 * (named + unclear_priced +
                                          unpriced_hosp_pools) / denom, 1),
-      share_of_allotment_floor_pct = round(100 * named / row$fy2026_allotment, 1)
+      share_of_allotment_floor_pct = round(100 * named / row$fy2026_allotment, 1),
+      intent_rows = row$intent_rows,
+      pct_priced_on_intent = row$pct_priced_on_intent,
+      award_action_stage = Y1_AWARD_STAGE[[st]]
     )
   })
 }
@@ -465,8 +508,8 @@ if (sys.nframe() == 0L) {
     options(width = 200)
     print(as.data.frame(status %>% dplyr::select(
       state, fy2026_allotment, published_priced, pct_priced,
-      published_incl_pool_level, pct_incl_pool_level, year1_status,
-      source_calls_complete, remaining_unawarded)))
+      published_incl_pool_level, pct_incl_pool_level, pct_priced_on_intent,
+      year1_status, source_calls_complete, remaining_unawarded)))
     print(as.data.frame(share))
   }
 }

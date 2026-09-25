@@ -352,10 +352,12 @@ test_that("the Arkansas questions are in the review queue, ARHP RESOLVED (sessio
     here::here("data", "reference", "classification_review_queue.csv"),
     show_col_types = FALSE, progress = FALSE)
   ar <- q[q$state == "AR", ]
-  expect_equal(nrow(ar), 4L)
+  expect_equal(nrow(ar), 6L)
   expect_setequal(ar$question_id,
                   c("AR_RECIPIENT_FORM_NOT_STATED", "AR_ARHP_CONSORTIUM_FLOW",
-                    "AR_R2_QUEUED_FORM", "AR_R2_RECIPIENT_FORM_NOT_STATED"))
+                    "AR_R2_QUEUED_FORM", "AR_R2_RECIPIENT_FORM_NOT_STATED",
+                    # session 70
+                    "AR_NARHC_TWO_TYPES", "AHC_ENROLLED_HOSPITAL_OPERATOR"))
   expect_true(all(ar$queue_status[startsWith(ar$question_id, "AR_R2_")] == "OPEN"))
   # SESSION 49: the FORM question is RESOLVED -- 9 rows / $70,613,226 moved
   # and Arkansas became the largest named-hospital state. The CONSORTIUM
@@ -869,10 +871,13 @@ test_that("round 2's hospital rows are 12 / $18,870,981.65, and the queued three
   for (nm in AR_R2_QUEUED) {
     expect_true(all(r$distributed_to_hospital[r$awardee == nm] == "No"), info = nm)
   }
-  # North Arkansas Rural Health Consortium is NOT carried from round 1.
+  # North Arkansas Rural Health Consortium is NOT carried from round 1, and
+  # session 70 settled BOTH rounds to the same fallback (AR_NARHC_TWO_TYPES).
   n <- r[r$awardee == "North Arkansas Rural Health Consortium", ]
   expect_equal(n$recipient_type, "NONPROFIT_CBO")
   expect_true(grepl("RECIPIENT_TYPE_INFERRED", n$flag_reason))
+  expect_false(grepl("QUEUED, NOT TYPED", n$note, fixed = TRUE))
+  expect_false("North Arkansas Rural Health Consortium" %in% AR_R2_QUEUED)
   # St. Bernards is a hospital under the foundation policy, carried exactly.
   sb <- r[r$awardee == "St. Bernards Development Foundation", ]
   expect_equal(nrow(sb), 2L)
@@ -909,13 +914,13 @@ test_that("ARHP's flow is resolved at option (c) and moves no dollar", {
   expect_false(any(grepl("^PASS_THROUGH", f$flow_type)))
 })
 
-test_that("the committed round-1 file is the builder + session 49 overlay + the ARHP flow", {
+test_that("the committed round-1 file is the builder + session 49 overlay + the ARHP flow + NARHC", {
   skip_without_r2()
   vq <- new.env()
   suppressMessages(source(here::here("R", "03ap_verification_queue_2.R"),
                           local = vq))
-  built <- ar_resolve_arhp_flow(
-    vq$vq_overlay(ar_award_rows(), "ar_year1_awardees.csv"), 1L)
+  built <- ar_resolve_narhc(ar_resolve_arhp_flow(
+    vq$vq_overlay(ar_award_rows(), "ar_year1_awardees.csv"), 1L), 1L)
   tmp <- tempfile(fileext = ".csv")
   readr::write_csv(built, tmp, na = "")
   expect_identical(unname(tools::md5sum(tmp)), unname(tools::md5sum(AR_OUT_CSV)))
@@ -930,4 +935,50 @@ test_that("the allotment remainder decomposes, and only $4.68M of it is sourced"
   expect_equal(round(sum(g$usd[g$basis == "UNEXPLAINED"]), 2), 235720.73)
   on_disk <- readr::read_csv(AR_GAP_CSV, show_col_types = FALSE, progress = FALSE)
   expect_equal(on_disk$usd, g$usd)
+})
+
+
+test_that("North Arkansas Rural Health Consortium carries ONE form in both rounds (session 70)", {
+  r1 <- readr::read_csv(AR_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  r2 <- readr::read_csv(AR_R2_CSV, show_col_types = FALSE, progress = FALSE)
+  n <- dplyr::bind_rows(r1[r1$awardee == AR_NARHC, ], r2[r2$awardee == AR_NARHC, ])
+  expect_equal(nrow(n), 2L)
+  expect_true(all(n$recipient_type == "NONPROFIT_CBO"))
+  expect_true(all(n$determination_confidence == "LOW"))
+  expect_true(all(grepl("RECIPIENT_TYPE_INFERRED", n$flag_reason)))
+  expect_true(all(n$distributed_to_hospital == "No"))
+  expect_true(all(grepl(AR_NARHC_TAG, n$determination_basis, fixed = TRUE)))
+  # session 49's OTHER is withdrawn because its basis states no form -- the
+  # audit trail of what it said is kept on the round-1 row
+  expect_equal(r1$verified_basis[r1$awardee == AR_NARHC],
+               "Deckmax (doing business as the North Arkansas Rural Health Consortium")
+  # the measured negative is archived
+  f <- here::here("data", "evidence", "federal_records", "2026-09-25")
+  expect_equal(jsonlite::fromJSON(file.path(f, "nppes_deckmax_AR.json"))$result_count, 0L)
+  h <- jsonlite::fromJSON(file.path(f, "cms_hosp_enrollments_AR.json"))
+  expect_false(any(grepl("DECKMAX|NORTH ARKANSAS RURAL", toupper(h$`ORGANIZATION NAME`))))
+  # and the resolution moves no hospital dollar: round 1 + round 2 still 30 / $111,276,895.52
+  p <- rhtp_hospital_dollar_partition(dplyr::bind_rows(r1, r2))
+  expect_equal(p$rows[p$bucket == "NAMED_HOSPITAL"], 30L)
+  expect_equal(round(p$dollars[p$bucket == "NAMED_HOSPITAL"], 2), 111276895.52)
+})
+
+test_that("UAMS is an enrolled hospital's legal name, and it is QUEUED, not re-typed (session 70)", {
+  h <- jsonlite::fromJSON(here::here("data", "evidence", "federal_records",
+                                     "2026-09-25", "cms_hosp_enrollments_AR.json"))
+  u <- h[h$`ORGANIZATION NAME` == "UNIVERSITY OF ARKANSAS FOR MEDICAL SCIENCES", ]
+  expect_equal(nrow(u), 1L)
+  expect_equal(u$`DOING BUSINESS AS NAME`, "UAMS MEDICAL CENTER")
+  expect_equal(u$CCN, "40016")
+  r1 <- readr::read_csv(AR_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  r2 <- readr::read_csv(AR_R2_CSV, show_col_types = FALSE, progress = FALSE)
+  ua <- dplyr::bind_rows(r1, r2)
+  ua <- ua[ua$awardee == "University of Arkansas for Medical Sciences", ]
+  expect_equal(nrow(ua), 4L)
+  expect_true(all(ua$recipient_type == "UNIVERSITY_OR_AHC"))
+  expect_equal(sum(ua$amount), 17060066)
+  q <- readr::read_csv(here::here("data", "reference", "classification_review_queue.csv"),
+                       show_col_types = FALSE, progress = FALSE)
+  expect_equal(q$queue_status[q$question_id == "AHC_ENROLLED_HOSPITAL_OPERATOR"], "OPEN")
+  expect_equal(q$queue_status[q$question_id == "AR_NARHC_TWO_TYPES"], "RESOLVED")
 })

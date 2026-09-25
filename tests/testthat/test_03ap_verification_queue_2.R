@@ -296,7 +296,14 @@ test_that("a re-typed row no longer claims its form is undetermined", {
     if (!"flag_reason" %in% names(d)) next
     rows <- as.integer(CHANGES$row[CHANGES$file == f &
                                      CHANGES$type_changed == "TRUE"])
-    fr <- d$flag_reason[rows]
+    # SESSION 70 WITHDREW ONE answer, visibly: North Arkansas Rural Health
+    # Consortium's OTHER rested on a basis that states no form, so its row is
+    # back on the fallback and says so in its own basis (AR_NARHC_TWO_TYPES).
+    withdrawn <- if ("determination_basis" %in% names(d))
+      str_detect(coalesce(d$determination_basis[rows], ""),
+                 fixed("RECIPIENT TYPE SETTLED ACROSS BOTH ROUNDS (session 70)"))
+    else rep(FALSE, length(rows))
+    fr <- d$flag_reason[rows][!withdrawn]
     expect_false(any(!is.na(fr) & str_detect(fr, "RECIPIENT_TYPE_INFERRED")),
                  info = f)
   }
