@@ -102,6 +102,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1185L)
+  expect_equal(nrow(committed), 1186L)   # session 73: + UMMS
   expect_equal(committed$rural_class, rows$rural_class)
 })

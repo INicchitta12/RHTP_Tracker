@@ -41,8 +41,8 @@ test_that("the row: HOSPITAL_OR_SYSTEM, DIRECT/Yes, ORG_WEBSITE at MEDIUM, NO cc
 test_that("the overlay is idempotent and moves exactly one Maryland row", {
   expect_identical(umms_overlay(md, empty = ""), md)
   orig <- readr::read_csv(
-    text = system2("git", c("show", "0412b2f:data/reference/md_year1_awardees.csv"),
-                   stdout = TRUE),
+    I(paste(system2("git", c("show", "0412b2f:data/reference/md_year1_awardees.csv"),
+                   stdout = TRUE), collapse = "\n")),
     col_types = readr::cols(.default = "c"), na = character(), trim_ws = FALSE)
   expect_equal(nrow(orig), nrow(md))
   diff_rows <- which(apply(orig != md, 1, any))
