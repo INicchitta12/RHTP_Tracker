@@ -252,3 +252,22 @@ test_that("no document cites Georgia's Dual Track as an RHTP worked example", {
   for (p in c("Rural Health Transformation", "RHTP", "Centers for Medicare"))
     expect_false(grepl(p, txt, fixed = TRUE), info = p)
 })
+
+# THE THIRD BLOCK, ADDED IN SESSION 71 ON THE SAME FOOTING: academic health
+# centres and other enrolled hospital operators (UAMS, CCN 040016). Written once
+# and pasted into all three documents, so parity is byte parity.
+AHC_HEADING <- "Academic health centers and enrolled hospital operators"
+
+test_that("all three documents carry the enrolled-hospital-operator block, byte-identical", {
+  blocks <- vapply(names(DOCS), function(k) {
+    b <- extract_block(read_doc(k), AHC_HEADING)
+    if (is.null(b)) NA_character_ else b
+  }, character(1))
+  expect_false(anyNA(blocks))
+  expect_identical(blocks[["claude"]], blocks[["spec"]])
+  expect_identical(blocks[["reviewer"]], blocks[["spec"]])
+  expect_match(blocks[["spec"]], "primary federal source", fixed = TRUE)
+  expect_match(blocks[["spec"]], "ACADEMIC_HEALTH_CENTER", fixed = TRUE)
+  expect_match(blocks[["spec"]], "never matched by machine", fixed = TRUE)
+  expect_match(blocks[["spec"]], "ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM", fixed = TRUE)
+})

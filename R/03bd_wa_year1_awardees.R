@@ -322,7 +322,12 @@ wa_validate <- function() {
             !"amount" %in% names(wa_year1_status()))
   p <- rhtp_hospital_dollar_partition(d)
   if (nrow(p) > 0 && sum(p$rows) > 0) {
-    stop("[WA] a Washington row reached a hospital bucket; none should.",
+    # The BUILDER's own name-rule typing reaches no bucket. The two University
+    # of Washington rows reach NAMED_HOSPITAL only through session 71's
+    # enrolled-hospital-operator overlay (R/03bj, CCN 500008), applied in
+    # wa_build() after this check.
+    stop("[WA] a Washington row reached a hospital bucket by the builder's own ",
+         "typing; none should (session 71's CMS overlay is applied after).",
          call. = FALSE)
   }
   message("[WA] all assertions pass.")
@@ -331,7 +336,13 @@ wa_validate <- function() {
 
 wa_build <- function() {
   wa_validate()
-  readr::write_csv(wa_year1_awardees(), here::here(WAA_AWARD_CSV), na = "")
+  # SESSION 71: §10.2's enrolled-hospital-operator overlay (University of
+  # Washington, CCN 500008), so a rebuild does not wipe it.
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  readr::write_csv(s71$s71_overlay(wa_year1_awardees(), "wa_year1_awardees.csv"),
+                   here::here(WAA_AWARD_CSV), na = "")
   readr::write_csv(wa_year1_status(), here::here(WAA_STATUS_CSV), na = "")
   message("[WA] wrote 8 award rows and ", nrow(WAA_STATUS), " status rows.")
 }

@@ -324,7 +324,12 @@ ax_ga_pools <- function() {
       non_hospital_members = paste(awardee[distributed_to_hospital != "Yes"],
                                    collapse = "; "),
       .groups = "drop")
-  stopifnot(nrow(p) == 2L, sum(p$pool_usd) == 22135000, all(p$priced_usd == 0))
+  # SESSION 71: THREE POOLS, NOT TWO. Emory University is now HOSPITAL_OR_SYSTEM
+  # (§10.2's enrolled-hospital-operator rule, CCN 110010), so Phase 4's
+  # "Strengthening the Continuum of Care" pool ($6,209,688) is a mixed pool
+  # with an unpriced named hospital too. The two older pools are unchanged.
+  stopifnot(nrow(p) == 3L, sum(p$pool_usd) == 28344688, all(p$priced_usd == 0))
+  cont <- grepl("Continuum of Care", p$initiative, fixed = TRUE)
   # The ceiling session 56 reports counts both pools WHOLE. Recomputed here
   # from the committed award file so this table and year1_complete_hospital_
   # share.csv cannot drift apart silently (a test holds them equal).
@@ -336,21 +341,26 @@ ax_ga_pools <- function() {
     ga_true_share_vs_ceiling = "STRICTLY_BELOW",
     ga_true_share_bound = sprintf(paste0(
       "Georgia's true hospital share is STRICTLY BELOW %.1f%%. That ceiling counts ",
-      "both mixed pools whole ($22,135,000), and each pool contains one known ",
+      "all three mixed pools whole ($28,344,688), and each pool contains a known ",
       "NON-hospital recipient that DCH says it funded -- DBHDD's award for a mobile ",
-      "dental clinic (Phase 2) and the assessments of all 87 hospitals (Phase 4) -- ",
+      "dental clinic (Phase 2), the assessments of all 87 hospitals (Phase 4, ",
+      "Initiative 1) and the Georgia Health Care Association's transportation award ",
+      "(Phase 4, Initiative 2, the pool session 71's Emory re-type made mixed) -- ",
       "whose amount is unpublished but positive. So the ceiling is never attained. ",
       "How far below it is NOT KNOWN and no figure is imputed (§6.2)."), ceil_pct),
     dch_words = dplyr::case_when(
+      cont ~ "'Strengthening the Continuum of Care in Rural Georgia (Initiative 2) - $6,209,688: DCH has awarded the Georgia Health Care Association for Regional Nursing Home Transportation Enhancement ... DCH finalized the award to support Building Bridges (School-Based Health Care Services Infrastructure) with Emory University. An additional award supports the Behavioral Pediatric Resource Center's ...'",
       phase == 2 ~ "'Connecting to Care ... (Initiative 3) - $6.5 million ... These awards include 17 Rural Stabilization Grant awards to rural hospitals across Georgia and a separate award to DBHDD.' ... 'The award to DBHDD will support deployment of a mobile dental clinic.'",
       phase == 4 ~ "'Transforming for a Sustainable Health System ... (Initiative 1) - $15,635,000: Awards in this initiative provide seven additional rural hospitals with pre-implementation funding ... Additionally, DCH funded personalized assessments of all 87 hospitals to evaluate readiness'"),
     non_hospital_member_named = dplyr::case_when(
+      cont ~ "Georgia Health Care Association (the long-term care association), Behavioral Pediatric Resource Center, the Georgia Department of Public Health; plus a Type 2 ambulance procurement and an actuarial-planning allotment",
       phase == 2 ~ "Georgia Department of Behavioral Health and Developmental Disabilities (DBHDD) -- a STATE AGENCY",
       phase == 4 ~ "the provider of the 87 AHEAD readiness assessments -- NOT NAMED anywhere reachable"),
     non_hospital_member_amount = "NOT PUBLISHED",
     per_hospital_split_published = "No",
     sources_searched = AX_GA_SEARCHED,
     why_no_dollar_tightening = dplyr::case_when(
+      cont ~ "DCH prices the initiative as a whole and names five members, none with an amount; Emory's share of $6,209,688 is unpublished, and dividing the pool is refused (§6.2).",
       phase == 2 ~ "DCH names the non-hospital member but not its amount, so the ceiling cannot be lowered by any published figure. The application's Rural Stabilization Grants line ($9,540,817, Budget Period 1) is a PLAN and is larger than the pool; SORH's Rural Hospital Stabilization participant list is the STATE programme (Phases 1-7) and is not this split.",
       phase == 4 ~ "Phase 3 priced its 80 AHEAD hospitals at $750,000 each; DCH never restates a per-hospital figure for Phase 4's seven, so 7 x $750,000 = $5,250,000 (and a $10,385,000 assessment remainder) is ARITHMETIC NOBODY PUBLISHED and is refused (§6.2)."))
 }

@@ -2954,11 +2954,18 @@ ar_build <- function() {
   rows <- vq$vq_overlay(rows, "ar_year1_awardees.csv")
   rows <- ar_resolve_arhp_flow(rows, 1L)
   rows <- ar_resolve_narhc(rows, 1L)
+  # SESSION 71: §10.2's enrolled-hospital-operator rule (UAMS, CCN 040016),
+  # LAST, on both rounds, so a rebuild cannot wipe it. Its own environment,
+  # for the same reason as 03ap's.
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  rows <- s71$s71_overlay(rows, "ar_year1_awardees.csv")
   readr::write_csv(rows, AR_OUT_CSV, na = "")
   message("[AR] wrote ", AR_OUT_CSV, " (", nrow(rows), " rows; session 49 ",
-          "overlay + session 69 ARHP flow + session 70 NARHC)")
+          "overlay + session 69 ARHP flow + session 70 NARHC + session 71 UAMS)")
 
-  r2 <- ar_r2_assert_all()
+  r2 <- s71$s71_overlay(ar_r2_assert_all(), "ar_year1_round2_awardees.csv")
   readr::write_csv(r2, AR_R2_CSV, na = "")
   message("[AR] wrote ", AR_R2_CSV, " (", nrow(r2), " rows)")
 

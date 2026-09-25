@@ -413,7 +413,7 @@ test_that("the committed CSV is what the parser produces", {
   # verification overlay. See vq_overlay() -- the dependency is explicit so a
   # later `--build` cannot silently wipe 305 verified rows.
   csv <- readr::read_csv(OR_CSV, show_col_types = FALSE, progress = FALSE)
-  built <- vq_overlay(or, "or_year1_awardees.csv")
+  built <- s71(vq_overlay(or, "or_year1_awardees.csv"), "or_year1_awardees.csv")
   expect_equal(nrow(csv), nrow(built))
   expect_equal(names(csv), names(built))
   expect_equal(sum(csv$amount, na.rm = TRUE), sum(built$amount, na.rm = TRUE))

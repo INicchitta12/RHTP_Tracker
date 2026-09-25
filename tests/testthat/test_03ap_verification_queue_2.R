@@ -299,10 +299,14 @@ test_that("a re-typed row no longer claims its form is undetermined", {
     # SESSION 70 WITHDREW ONE answer, visibly: North Arkansas Rural Health
     # Consortium's OTHER rested on a basis that states no form, so its row is
     # back on the fallback and says so in its own basis (AR_NARHC_TWO_TYPES).
-    withdrawn <- if ("determination_basis" %in% names(d))
-      str_detect(coalesce(d$determination_basis[rows], ""),
-                 fixed("RECIPIENT TYPE SETTLED ACROSS BOTH ROUNDS (session 70)"))
-    else rep(FALSE, length(rows))
+    # SESSION 71 WITHDREW FIVE MORE, on the same footing: each basis said the
+    # organisation could not be identified or that none was named (R/03bj,
+    # EH_OTHER_WITHDRAWN). Their basis says so, in determination_basis or, on
+    # Oklahoma's file, in note.
+    basis <- if ("determination_basis" %in% names(d)) d$determination_basis[rows]
+    else d$note[rows]
+    withdrawn <- str_detect(coalesce(basis, ""),
+                            "RECIPIENT TYPE SETTLED ACROSS BOTH ROUNDS \\(session 70\\)|OTHER WITHDRAWN \\(session 71\\)")
     fr <- d$flag_reason[rows][!withdrawn]
     expect_false(any(!is.na(fr) & str_detect(fr, "RECIPIENT_TYPE_INFERRED")),
                  info = f)
@@ -477,6 +481,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 69: + Arkansas round 2 (RISE AR / HEART), 12 rows /
   # $18,870,981.65 and no new state -- subtracted first, like every session
   # before.
+  # Session 71: + §10.2's enrolled-hospital-operator rule (R/03bj), 33 rows /
+  # $63,240,239.84 and two states (WA, LA) -- subtracted first.
+  expect_equal(named$rows, 1185L)
+  expect_equal(named$states, 30L)
+  expect_equal(round(named$dollars, 2), 1022314842.52, tolerance = 0)
+  named$rows <- named$rows - 33L
+  named$dollars <- named$dollars - 63240239.84
+  named$states <- named$states - 2L
   expect_equal(named$rows, 1152L)
   expect_equal(named$states, 28L)
   expect_equal(round(named$dollars, 2), 959074602.68, tolerance = 0)
@@ -530,7 +542,8 @@ test_that("North Carolina enters the partition for the first time", {
   nc <- p %>% filter(state == "NC")
   expect_equal(nrow(nc), 1L)
   expect_equal(nc$bucket, "NAMED_HOSPITAL")
-  expect_equal(nc$rows, 1L)
+  # Session 71: + UNC Hospitals (CCN 340061, a hand-read bridge), $0.
+  expect_equal(nc$rows, 2L)
   expect_equal(nc$dollars, 0)     # North Carolina prices nobody
 })
 
@@ -544,13 +557,17 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # session-49 figure is checked by SUBTRACTING round 2's $18,870,981.65. (The
   # figure is $92,405,913.87 to the cent; ".96" in earlier notes was a
   # transcription the default tolerance let through.)
-  expect_equal(round(p$dollars[p$state == "AR"] - 18870981.65, 2), 92405913.87,
-               tolerance = 0)
-  expect_gt(p$dollars[p$state == "AR"] - 18870981.65,
+  # SESSION 71: and UAMS's four rows, $17,060,066, re-typed on its CMS
+  # hospital enrolment -- subtracted too, so session 49's figure still checks.
+  expect_equal(round(p$dollars[p$state == "AR"] - 18870981.65 - 17060066, 2),
+               92405913.87, tolerance = 0)
+  expect_gt(p$dollars[p$state == "AR"] - 18870981.65 - 17060066,
             p$dollars[p$state == "GA"])
-  # And South Carolina is now ahead of both, on session 50's typing pass.
-  expect_equal(p$state[[1]], "SC")
-  expect_equal(round(p$dollars[[1]], 2), 115985714.95)  # + $145,000, session 53
-  expect_equal(p$state[[2]], "AR")
+  # South Carolina went ahead of both on session 50's typing pass; session 71's
+  # UAMS re-type puts Arkansas back in front ($128,336,961.52).
+  expect_equal(p$state[[1]], "AR")
+  expect_equal(round(p$dollars[[1]], 2), 128336961.52)
+  expect_equal(p$state[[2]], "SC")
+  expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53
   expect_equal(p$state[[3]], "GA")
 })

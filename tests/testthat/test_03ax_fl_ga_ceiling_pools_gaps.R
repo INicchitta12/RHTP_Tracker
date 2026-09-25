@@ -91,18 +91,24 @@ test_that("the report outputs are never the award files", {
                          c(AX_OUT_FL, AX_OUT_GA, AX_OUT_GAPS))))
 })
 
-test_that("Georgia: two pools, no split, a non-hospital member in each, and no apportioned dollar", {
+test_that("Georgia: three pools, no split, a non-hospital member in each, and no apportioned dollar", {
   ga <- ax_ga_pools()
-  expect_equal(sort(ga$pool_usd), c(6500000, 15635000))
+  # SESSION 71: Emory University became HOSPITAL_OR_SYSTEM on its CMS hospital
+  # enrolment (CCN 110010), so Phase 4 Initiative 2's $6,209,688 pool is the
+  # third mixed pool; the ceiling rises 57.0% -> 60.2% and stays STRICT (GHA).
+  expect_equal(sort(ga$pool_usd), c(6209688, 6500000, 15635000))
+  cont <- grepl("Continuum of Care", ga$initiative, fixed = TRUE)
+  expect_equal(ga$named_hospitals[cont], 1L)
+  expect_match(ga$non_hospital_member_named[cont], "Georgia Health Care Association", fixed = TRUE)
   expect_true(all(ga$per_hospital_split_published == "No"))
   expect_true(all(ga$non_hospital_member_amount == "NOT PUBLISHED"))
   expect_match(ga$non_hospital_member_named[ga$phase == 2], "DBHDD")
   expect_equal(ga$named_hospitals[ga$phase == 2], 17L)
-  expect_equal(ga$named_hospitals[ga$phase == 4], 7L)
+  expect_equal(ga$named_hospitals[ga$phase == 4 & !cont], 7L)
   # the ceiling is STRICT: each pool holds a positive, unpublished non-hospital award
   expect_true(all(ga$ga_true_share_vs_ceiling == "STRICTLY_BELOW"))
-  expect_true(all(ga$ga_share_ceiling_pct == 57.0))
-  expect_match(ga$ga_true_share_bound[1], "STRICTLY BELOW 57.0%", fixed = TRUE)
+  expect_true(all(ga$ga_share_ceiling_pct == 60.2))
+  expect_match(ga$ga_true_share_bound[1], "STRICTLY BELOW 60.2%", fixed = TRUE)
   share <- readr::read_csv(here::here("data", "reference", "year1_complete_hospital_share.csv"),
                            show_col_types = FALSE)
   expect_equal(unique(ga$ga_share_ceiling_pct), share$share_ceiling_pct[share$state == "GA"])
@@ -110,6 +116,9 @@ test_that("Georgia: two pools, no split, a non-hospital member in each, and no a
   txt <- function(p) paste(readLines(here::here(p), warn = FALSE), collapse = " ")
   expect_match(txt("data/evidence/GA/2026-07-16_great_health_phase2_awards.html"),
                "a separate award to DBHDD", fixed = TRUE)
+  expect_match(txt("data/evidence/GA/2026-08-27_great_health_phase4_awards.html"),
+               "Building Bridges (School-Based Health Care Services Infrastructure) with Emory University",
+               fixed = TRUE)
   expect_match(txt("data/evidence/GA/2026-08-27_great_health_phase4_awards.html"),
                "funded personalized assessments of all 87 hospitals", fixed = TRUE)
 })

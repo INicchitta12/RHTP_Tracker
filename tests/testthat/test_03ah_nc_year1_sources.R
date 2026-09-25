@@ -541,7 +541,7 @@ test_that("the committed CSV is what the builder produces", {
   skip_if_not(file.exists(NC_AWARDEES_CSV))
   on_disk <- readr::read_csv(NC_AWARDEES_CSV, show_col_types = FALSE,
                              progress = FALSE)
-  built <- vq_overlay(nc_award_rows(), "nc_year1_awardees.csv")
+  built <- s71(vq_overlay(nc_award_rows(), "nc_year1_awardees.csv"), "nc_year1_awardees.csv")
   expect_equal(nrow(on_disk), nrow(built))
   expect_equal(names(on_disk), names(built))
   expect_equal(on_disk$awardee, built$awardee)

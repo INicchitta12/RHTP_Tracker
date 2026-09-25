@@ -485,12 +485,19 @@ test_that("the 139 prior rows keep their indices, so session 49's overlay lands"
   csv <- readr::read_csv(here::here("data", "reference", "mi_year1_awardees.csv"),
                          col_types = readr::cols(.default = "c"))
   expect_equal(csv$awardee[as.integer(ch$row)], ch$name)
-  expect_equal(csv$recipient_type[as.integer(ch$row)], ch$new_type)
-  # the committed (overlaid) partition: 2 named-hospital rows, $259,121
+  # SESSION 71 withdrew one of them: Rudyard Area School Wellness Center's
+  # OTHER rested on a basis stating no form ("the operating organization ...
+  # was not confirmed"), so it is back on §8's fallback (R/03bj).
+  wd <- csv$awardee[as.integer(ch$row)] == "Rudyard Area School Wellness Center"
+  expect_equal(csv$recipient_type[as.integer(ch$row)][!wd], ch$new_type[!wd])
+  expect_equal(csv$recipient_type[as.integer(ch$row)][wd], "NONPROFIT_CBO")
+  # the committed (overlaid) partition: 2 named-hospital rows, $259,121 after
+  # session 49; session 71 adds the Regents of the University of Michigan's two
+  # rows (CCN 230046, +$2,000,000)
   csv$amount <- as.numeric(csv$amount)
   parts <- rhtp_hospital_dollar_partition(csv)
-  expect_equal(parts$rows[parts$bucket == "NAMED_HOSPITAL"], 2L)
-  expect_equal(parts$dollars[parts$bucket == "NAMED_HOSPITAL"], 259121)
+  expect_equal(parts$rows[parts$bucket == "NAMED_HOSPITAL"], 4L)
+  expect_equal(parts$dollars[parts$bucket == "NAMED_HOSPITAL"], 2259121)
   expect_equal(sum(csv$flag_reason %in% "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED"), 2L)
 })
 

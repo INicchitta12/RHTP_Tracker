@@ -67,16 +67,21 @@ test_that("the hospital share is reported for COMPLETE states only, as a bounded
   # priced row is Unclear, so the ceiling equals the floor; the open queue
   # rows (AR_R2_QUEUED_FORM, AR_R2_RECIPIENT_FORM_NOT_STATED) are all `No`
   # and are reported beside this, not inside it.
-  expect_equal(share$share_floor_pct[share$state == "AR"], 54.6)
-  expect_equal(share$named_hospital_rows[share$state == "AR"], 30)
-  expect_equal(round(share$named_hospital_usd[share$state == "AR"], 2), 111276895.52)
+  # SESSION 71: 54.6% -> 63.0%. UAMS's four rows (+$17,060,066) are
+  # HOSPITAL_OR_SYSTEM on its CMS hospital enrolment (CCN 040016), carrying
+  # recipient_subtype = ACADEMIC_HEALTH_CENTER so they can be subtracted.
+  expect_equal(share$share_floor_pct[share$state == "AR"], 63.0)
+  expect_equal(share$named_hospital_rows[share$state == "AR"], 34)
+  expect_equal(round(share$named_hospital_usd[share$state == "AR"], 2), 128336961.52)
   expect_true(all(share$share_floor_pct <= share$share_ceiling_pct))
   expect_equal(share$share_floor_pct[share$state == "FL"], 26.2)
   # session 58 settled Florida's five Unclear rows, so its ceiling IS its floor
   expect_equal(share$share_ceiling_pct[share$state == "FL"], 26.2)
   expect_equal(share$unclear_priced_usd[share$state == "FL"], 0)
   expect_equal(share$share_floor_pct[share$state == "GA"], 45.8)
-  expect_equal(share$mixed_pools_with_unpriced_named_hospitals_usd[share$state == "GA"], 22135000)
+  # SESSION 71: + Emory's $6,209,688 pool (Emory is an enrolled hospital).
+  expect_equal(share$mixed_pools_with_unpriced_named_hospitals_usd[share$state == "GA"], 28344688)
+  expect_equal(share$share_ceiling_pct[share$state == "GA"], 60.2)
 })
 
 test_that("COMPLETE is a statement about the ROUND; the intent status is carried per state (session 70)", {

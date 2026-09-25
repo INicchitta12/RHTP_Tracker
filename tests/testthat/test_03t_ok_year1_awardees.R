@@ -421,7 +421,9 @@ test_that("the committed CSV matches what the extractor builds", {
                OK_STATED$microgrant_total)
   # 20 -> 26 in session 49: six Oklahoma microgrant recipients whose form
   # OSDH never stated verified as hospitals, +$235,396.66.
-  expect_equal(sum(on_disk$distributed_to_hospital == "Yes"), 26L)
+  # 26 -> 27 in session 71: Choctaw Nation of Oklahoma is the enrolled legal
+  # entity of a tribal hospital (CCN 370172), +$38,600.
+  expect_equal(sum(on_disk$distributed_to_hospital == "Yes"), 27L)
   expect_true(all(on_disk$state == "OK"))
   expect_true(all(on_disk$validator == "R/03t_ok_year1_awardees.R"))
   expect_true(all(nzchar(on_disk$state_source_url)))

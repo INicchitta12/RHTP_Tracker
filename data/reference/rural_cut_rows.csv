@@ -118,6 +118,7 @@ GA,ga_great_health_awards.csv,118,Piedmont Augusta,,STATE_SOURCE_RURAL,GA roster
 GA,ga_great_health_awards.csv,119,Piedmont Cartersville Medical Center,,STATE_SOURCE_RURAL,GA roster: In 126 Rural/Partial Rural Counties,TRUE,,
 GA,ga_great_health_awards.csv,120,Piedmont Columbus Regional,,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
 GA,ga_great_health_awards.csv,121,Piedmont Macon Medical Center,,STATE_SOURCE_RURAL,GA roster: RRC,TRUE,,
+GA,ga_great_health_awards.csv,126,Emory University,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 110010: PART A PROVIDER - HOSPITAL",FALSE,110010,ORG_WEBSITE
 GA,ga_great_health_awards.csv,129,Irwin County Hospital,356465,NOT_RECORDED,,FALSE,,
 GA,ga_great_health_awards.csv,130,Clinch County Hospital Authority,1069395,NOT_RECORDED,,FALSE,,
 GA,ga_great_health_awards.csv,131,Miller County Hospital,356465,NOT_RECORDED,,FALSE,,
@@ -166,6 +167,7 @@ PA,pa_year1_awardees.csv,30,Corry Memorial Hospital dba LECOM Health Corry Memor
 PA,pa_year1_awardees.csv,43,Clarion Psychiatric Center,998287,NOT_RECORDED,,FALSE,,
 PA,pa_year1_awardees.csv,45,"St. Luke's Hospital of Bethlehem, Pennsylvania dba St. Luke's Hospital - Lehighton Campus, formerly Blue Mountain Hospital",1000000,NOT_RECORDED,,FALSE,,
 PA,pa_year1_awardees.csv,46,DLP Conemaugh Memorial Medical Center LLC dba Conemaugh Memorial Medical Center,999845,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,2,AltaPointe Health Systems Inc.,457073,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 014014: PART A PROVIDER - HOSPITAL",FALSE,014014,ORG_WEBSITE
 AL,al_year1_awardees.csv,6,The City of York Health Care Authority DBA Hill Hospital of Sumter County,344269,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,7,Clay County Healthcare Authority,814941,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,8,Gadsden Regional Medical Center LLC,1400000,NOT_RECORDED,,FALSE,,
@@ -178,6 +180,7 @@ AL,al_year1_awardees.csv,20,Sylacauga Healthcare Authority,2020000,NOT_RECORDED,
 AL,al_year1_awardees.csv,22,UAB St. Vincent’s Blount,839753,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,23,UAB St. Vincent’s Chilton LLC,839753,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,24,UAB St. Vincent’s St. Clair,839753,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,26,University of South Alabama,1510000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010087: PART A PROVIDER - HOSPITAL",FALSE,010087,ORG_WEBSITE
 AL,al_year1_awardees.csv,27,"The Washington County Health Care Authority, Inc.",27000,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,29,Wilcox Hospital Board DBA J. Paul Jones Rural Emergency Hospital,839753,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,31,Andalusia Health,625257,NOT_RECORDED,,FALSE,,
@@ -224,9 +227,15 @@ AL,al_year1_awardees.csv,100,HH Health System – Marshall LLC,935000,NOT_RECORD
 AL,al_year1_awardees.csv,101,Infirmary Health System Inc.,342147,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,105,Sylacauga Healthcare Authority,600000,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,106,Triad of Alabama DBA Flowers Hospital,727000,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,108,The University of Alabama at Birmingham,7000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
+AL,al_year1_awardees.csv,109,The University of Alabama at Birmingham,887616,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
+AL,al_year1_awardees.csv,111,The University of South Alabama,1250000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010087: PART A PROVIDER - HOSPITAL",FALSE,010087,ORG_WEBSITE
+AL,al_year1_awardees.csv,112,AltaPointe Health Systems,2210000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 014014: PART A PROVIDER - HOSPITAL",FALSE,014014,ORG_WEBSITE
 AL,al_year1_awardees.csv,117,City of Jackson Healthcare Authority DBA Jackson Medical Center,158215,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,119,East Alabama Health Care Authority,731055,NOT_RECORDED,,FALSE,,
 AL,al_year1_awardees.csv,121,City of York Health Care Authority DBA Hill Hospital of Sumter County,677120,NOT_RECORDED,,FALSE,,
+AL,al_year1_awardees.csv,124,The University of Alabama at Birmingham,974084,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
+AL,al_year1_awardees.csv,126,AltaPointe Health Systems,935895,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 014014: PART A PROVIDER - HOSPITAL",FALSE,014014,ORG_WEBSITE
 AL,al_year1_awardees.csv,131,Floyd Cherokee Medical Center LLC,31152,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,4,Cordova Community Medical Center,155000,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,12,Maniilaq Association,828892.8,NOT_RECORDED,,FALSE,,
@@ -259,6 +268,7 @@ AK,ak_year1_awardees.csv,163,PeaceHealth Ketchikan Medical Center,6518028.8,NOT_
 AK,ak_year1_awardees.csv,164,PeaceHealth Ketchikan Medical Center,200767.66,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,165,Petersburg Medical Center,446453,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,166,Petersburg Medical Center,437542,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,167,Providence Health & Services- Washington,4559450.53,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 020001: PART A PROVIDER - HOSPITAL",FALSE,020001,ORG_WEBSITE
 AK,ak_year1_awardees.csv,168,Providence Health & Services- Washington,381512.34,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,178,Southeast Alaska Regional Health Consortium,1350027,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,187,The Greater Fairbanks Community Hospital Foundation,16009453.33,NOT_RECORDED,,FALSE,,
@@ -278,6 +288,8 @@ SD,sd_rht_contracts.csv,24,COMMUNITY MEMORIAL HOSPITAL,103700,FEDERAL_RECORD_CCN
 SD,sd_rht_contracts.csv,25,BENNETT COUNTY HOSPITAL,248000,NOT_RECORDED,,FALSE,,
 MI,mi_year1_awardees.csv,14,MyMichigan Health (EMS - Chronic Disease),182197,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 MI,mi_year1_awardees.csv,44,Family Medical Center - Lenawee,76924,NOT_RECORDED,,FALSE,,
+MI,mi_year1_awardees.csv,118,Regents of the University of Michigan - Ready to Respond: Rural Nursing Home Emergency Preparedness,500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 230046: PART A PROVIDER - HOSPITAL",FALSE,230046,ORG_WEBSITE
+MI,mi_year1_awardees.csv,119,Regents of the University of Michigan - Overdose Prevention Engagement Network (OPEN),1500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 230046: PART A PROVIDER - HOSPITAL",FALSE,230046,ORG_WEBSITE
 OR,or_year1_awardees.csv,1,Adventist Columbia Gorge Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
 OR,or_year1_awardees.csv,2,Adventist Tillamook Med Ctr,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
 OR,or_year1_awardees.csv,3,Asante Ashland Comm Hosp,963000,STATE_SOURCE_RURAL,OR: OHA 'rural hospital' (Transformation Fund table),TRUE,,
@@ -319,6 +331,12 @@ OR,or_year1_awardees.csv,162,Harney County Health District (DBA Harney District 
 OR,or_year1_awardees.csv,170,Lower Umpqua Hospital District,650000,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,171,Lower Umpqua Hospital District,1200000,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,175,"Mid-Valley Healthcare, Inc. (DBA Samaritan Lebanon Community Hospital)",796298.3,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,188,"Oregon Health & Science University, Northwest Native American Center of Excellence (NNACoE)",500351.61,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
+OR,or_year1_awardees.csv,189,"Oregon Health & Science University, Oregon Health & Science University - Department of Neurology",491246.31,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
+OR,or_year1_awardees.csv,190,"Oregon Health & Science University, Oregon Health & Science University - Section of Addiction Medicine",815704.4,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
+OR,or_year1_awardees.csv,191,"Oregon Health & Science University, Oregon Perinatal Collaborative",1082492.68,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
+OR,or_year1_awardees.csv,192,"Oregon Health & Science University, University Center for Excellence on Development and Disability",209200.87,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
+OR,or_year1_awardees.csv,194,Oregon Office of Rural Health at Oregon Health & Science University,365061.44,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
 OR,or_year1_awardees.csv,201,PeaceHealth Peace Harbor Medical Center,246020.98,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,205,Providence Health & Services – Oregon (DBA Providence Hood River Memorial Hospital),2294245.23,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,208,Samaritan North Lincoln Hospital,229084.34,NOT_RECORDED,,FALSE,,
@@ -328,6 +346,7 @@ OR,or_year1_awardees.csv,214,Sky Lakes Foundation (DBA Healthy Klamath),469987.3
 OR,or_year1_awardees.csv,215,Sky Lakes Medical Center,586740,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,228,Wallowa County Health Care District (DBA Wallowa Memorial Hospital / Wallowa Memorial Medical Clinic),516852.93,NOT_RECORDED,,FALSE,,
 OR,or_year1_awardees.csv,229,Wallowa County Health Care District (DBA Wallowa Memorial Hospital / Wallowa Memorial Medical Clinic),1345688.83,NOT_RECORDED,,FALSE,,
+OR,or_year1_awardees.csv,244,Oregon Health & Science University (OHSU),398000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
 MS,ms_year1_awardees.csv,2,South Mississippi State Hospital,50000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,4,"Corinth Family Medical Center, PC",98702,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,16,Memorial Health System,650000,NOT_RECORDED,,FALSE,,
@@ -517,6 +536,7 @@ NE,ne_year1_awardees.csv,83,Dundy County Hospital,73953.48,FEDERAL_RECORD_CCN,"C
 NE,ne_year1_awardees.csv,86,The Mary Lanning Memorial Hospital Association DBA Mary Lanning Memorial Healthcare,1049999.73,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280032: PART A PROVIDER - HOSPITAL",FALSE,280032,ORG_WEBSITE
 NE,ne_year1_awardees.csv,87,Methodist Fremont Health,126285,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280077: PART A PROVIDER - HOSPITAL",FALSE,280077,ORG_WEBSITE
 NE,ne_year1_awardees.csv,89,Regional West Medical Center,93867,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280061: PART A PROVIDER - HOSPITAL",FALSE,280061,ORG_WEBSITE
+OK,ok_year1_awardees.csv,3,Choctaw Nation of Oklahoma,38600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370172: PART A PROVIDER - HOSPITAL",FALSE,370172,ORG_WEBSITE
 OK,ok_year1_awardees.csv,4,Beaver County Memorial Hospital,67298.38,NOT_RECORDED,,FALSE,,
 OK,ok_year1_awardees.csv,9,Choctaw County City of Hugo Hospital Authority,49514.09,NOT_RECORDED,,FALSE,,
 OK,ok_year1_awardees.csv,10,Cimarron Memorial Hospital and Rural Health Clinic,46060.95,NOT_RECORDED,,FALSE,,
@@ -570,6 +590,7 @@ NV,nv_year1_awardees.csv,49,Grover C. Dils Medical Center,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,52,Desert View Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,70,Renown Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,71,Carson Valley Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,76,Washoe Barton Medical Clinic,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 291306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,291306,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,80,Mt. Grant General Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,81,Incline Village Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,82,N. Nye Hospital District,,NOT_RECORDED,,FALSE,,
@@ -584,6 +605,7 @@ NV,nv_year1_awardees.csv,108,Pershing General Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,110,Desert View Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,120,Humboldt General Hospital,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,123,Desert View Hospital,,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,128,Carson Valley Health,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 291306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,291306,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,140,Pershing General Hospital,,NOT_RECORDED,,FALSE,,
 MO,mo_year1_awardees.csv,3,Citizens Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260195: PART A PROVIDER - HOSPITAL",FALSE,260195,
 MO,mo_year1_awardees.csv,4,Golden Valley Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260175: PART A PROVIDER - HOSPITAL",FALSE,260175,
@@ -697,6 +719,7 @@ IA,ia_year1_awardees.csv,103,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,105,WinnMed,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,106,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,107,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,108,University of Iowa Health Care,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160058: PART A PROVIDER - HOSPITAL",FALSE,160058,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,110,Shelby Co. DBA Myrtue Medical Center,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,111,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,112,Manning Regional Health Care Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
@@ -707,6 +730,7 @@ IA,ia_year1_awardees.csv,116,Knoxville Hospital and Clinics,,NOT_RECORDED,,FALSE
 IA,ia_year1_awardees.csv,117,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,118,Central Iowa Hospital Corporation,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,119,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,121,University of Iowa Healthcare,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160058: PART A PROVIDER - HOSPITAL",FALSE,160058,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,122,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,123,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,124,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
@@ -822,6 +846,7 @@ IA,ia_year1_awardees.csv,258,Audubon County Memorial Hospital,,NOT_RECORDED,,FAL
 IA,ia_year1_awardees.csv,261,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,262,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
 NC,nc_year1_awardees.csv,9,Cape Fear Valley Mobile Integrated Health (MIH),,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NC,nc_year1_awardees.csv,43,University of North Carolina Hospitals,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 340061: PART A PROVIDER - HOSPITAL",FALSE,340061,GENERAL_KNOWLEDGE
 AR,ar_year1_awardees.csv,4,Arkansas Children's Hospital,301400,NOT_RECORDED,,FALSE,,
 AR,ar_year1_awardees.csv,7,Baptist Health,1926432,NOT_RECORDED,,FALSE,,ORG_WEBSITE
 AR,ar_year1_awardees.csv,8,Baptist Health,15000000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
@@ -839,6 +864,8 @@ AR,ar_year1_awardees.csv,26,Mississippi County Hospital System,9602657,NOT_RECOR
 AR,ar_year1_awardees.csv,28,North Arkansas Regional Medical Center,3000000,NOT_RECORDED,,FALSE,,
 AR,ar_year1_awardees.csv,30,St. Bernards Development Foundation,5000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 AR,ar_year1_awardees.csv,31,St. Bernards Development Foundation,9551090,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_awardees.csv,34,University of Arkansas for Medical Sciences,7775646,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 040016: PART A PROVIDER - HOSPITAL",FALSE,040016,ORG_WEBSITE
+AR,ar_year1_awardees.csv,35,University of Arkansas for Medical Sciences,4215558,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 040016: PART A PROVIDER - HOSPITAL",FALSE,040016,ORG_WEBSITE
 AR,ar_year1_awardees.csv,36,White County Medical Center,1905496,NOT_RECORDED,,FALSE,,
 AR,ar_year1_round2_awardees.csv,11,Arkansas Surgical Hospital,473000,NOT_RECORDED,,FALSE,,
 AR,ar_year1_round2_awardees.csv,12,Baptist Health,418883,NOT_RECORDED,,FALSE,,ORG_WEBSITE
@@ -849,6 +876,8 @@ AR,ar_year1_round2_awardees.csv,24,Mississippi County Hospital System,4402000,NO
 AR,ar_year1_round2_awardees.csv,27,North Arkansas Regional Medical Center,1629128,NOT_RECORDED,,FALSE,,
 AR,ar_year1_round2_awardees.csv,31,St. Bernards Development Foundation,3851347,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 AR,ar_year1_round2_awardees.csv,32,St. Bernards Development Foundation,947727,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+AR,ar_year1_round2_awardees.csv,36,University of Arkansas for Medical Sciences,3175032,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 040016: PART A PROVIDER - HOSPITAL",FALSE,040016,ORG_WEBSITE
+AR,ar_year1_round2_awardees.csv,37,University of Arkansas for Medical Sciences,1893830,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 040016: PART A PROVIDER - HOSPITAL",FALSE,040016,ORG_WEBSITE
 AR,ar_year1_round2_awardees.csv,38,White County Medical Center,300926.15,NOT_RECORDED,,FALSE,,
 AR,ar_year1_round2_awardees.csv,39,"White River Health System, Inc.",2113815.5,NOT_RECORDED,,FALSE,,
 AR,ar_year1_round2_awardees.csv,40,"White River Health System, Inc.",2942715,NOT_RECORDED,,FALSE,,
@@ -876,6 +905,7 @@ WY,wy_year1_awardees.csv,23,Crook County Medical Services District,2200000,NOT_R
 WY,wy_year1_awardees.csv,24,North Lincoln County Hospital District dba Star Valley Heal,2200000,NOT_RECORDED,,FALSE,,
 WY,wy_year1_awardees.csv,25,Memorial Hospital of Converse County,2200000,NOT_RECORDED,,FALSE,,
 WY,wy_year1_awardees.csv,26,Campbell County Health (CCH) Emergency Medical Servic,1700000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+WY,wy_year1_awardees.csv,31,University of Utah,9255398,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 460009: PART A PROVIDER - HOSPITAL",FALSE,460009,ORG_WEBSITE
 WY,wy_year1_awardees.csv,32,Memorial Hospital of Laramie County dba Cheyenne Regional Medical Center,2193968.9,NOT_RECORDED,,FALSE,,
 WY,wy_year1_awardees.csv,33,Powell Valley Health Care,65000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 WY,wy_year1_awardees.csv,34,Johnson County Hospital District,4751700,NOT_RECORDED,,FALSE,,
@@ -1072,6 +1102,8 @@ WV,wv_year1_awardees.csv,2,CAMC/Vandalia Health,612000,FEDERAL_RECORD_CCN,"CMS e
 WV,wv_year1_awardees.csv,3,Cabell Huntington Foundation,612000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510055: PART A PROVIDER - HOSPITAL",FALSE,510055,GENERAL_KNOWLEDGE
 TN,tn_year1_awardees.csv,26,Cookeville Regional Medical Center Foundation,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440059: PART A PROVIDER - HOSPITAL",FALSE,440059,GENERAL_KNOWLEDGE
 TN,tn_year1_awardees.csv,36,"Macon Hospital, Inc",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 441305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,441305,GENERAL_KNOWLEDGE
+WA,wa_year1_awardees.csv,4,University of Washington (WWAMI Family Medicine Residency Network),5460000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 500008: PART A PROVIDER - HOSPITAL",FALSE,500008,ORG_WEBSITE
+WA,wa_year1_awardees.csv,6,"University of Washington (School of Medicine, Project ECHO)",4280000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 500008: PART A PROVIDER - HOSPITAL",FALSE,500008,ORG_WEBSITE
 NJ,nj_year1_awardees.csv,2,AtlantiCare Regional Medical Center,2045763,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 310064: PART A PROVIDER - HOSPITAL",FALSE,310064,ORG_WEBSITE
 NJ,nj_year1_awardees.csv,3,Cooper Health System,1373265,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 310014: PART A PROVIDER - HOSPITAL",FALSE,310014,ORG_WEBSITE
 NJ,nj_year1_awardees.csv,5,"Inspira Medical Centers, Inc.",2033362,NOT_RECORDED,,FALSE,,ORG_WEBSITE
@@ -1151,3 +1183,4 @@ IN,in_grow_regional_awardees.csv,171,Perry County Memorial Hospital,,FEDERAL_REC
 IN,in_grow_regional_awardees.csv,173,Deaconess Hospital Inc.,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150082: PART A PROVIDER - HOSPITAL",FALSE,150082,ORG_WEBSITE
 IN,in_grow_regional_awardees.csv,176,Ascension St. Vincent,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150100: PART A PROVIDER - HOSPITAL",FALSE,150100,GENERAL_KNOWLEDGE
 IN,in_grow_regional_awardees.csv,179,Good Samaritan Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150042: PART A PROVIDER - HOSPITAL",FALSE,150042,ORG_WEBSITE
+LA,la_year1_awardees.csv,1,Ochsner Clinic Foundation,1500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 190036: PART A PROVIDER - HOSPITAL",FALSE,190036,ORG_WEBSITE

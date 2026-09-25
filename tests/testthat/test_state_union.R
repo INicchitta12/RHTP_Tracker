@@ -254,7 +254,8 @@ STATE_FILES <- c(
   # SESSION 64. LOUISIANA'S RURAL CLINICIAN CREDIT BANK: 5 named awards
   # ($1,965,788) and ONE aggregate row for the 48 LDH names nowhere (amount
   # empty, $10,736,208 in round_amount). LDH's "20 hospital-setting awards"
-  # names none of the 20, so Louisiana reaches NO hospital bucket.
+  # names none of the 20, so that aggregate reaches NO hospital bucket (session
+  # 71: Ochsner Clinic Foundation, a named row, does -- see below).
   LA = "data/reference/la_year1_awardees.csv"
 )
 
@@ -445,8 +446,12 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # 12,606,593.54 -> 14,431,595.82 in session 64: six Initiative 5.3 intended
   # awardees typed on exact CMS Nebraska Hospital Enrollment records.
   expect_equal(round(named$dollars[named$state == "NE"], 2), 14431595.82)
-  # Louisiana (session 64) names no hospital and reaches no bucket.
-  expect_false("LA" %in% named$state)
+  # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
+  # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
+  # Ochsner Medical Center (CCN 190036), so ONE named row enters at
+  # $1,500,000. The "20 hospital-setting awards, $6,285,515" aggregate still
+  # names none of the 20 and still reaches no bucket (session 65's rule).
+  expect_equal(named$dollars[named$state == "LA"], 1500000)
 
   # The three buckets are disjoint by construction, so no dollar is in two of
   # them -- which is the property that lets them be reported side by side.

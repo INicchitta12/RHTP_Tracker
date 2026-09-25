@@ -29,7 +29,7 @@ test_that("every Alaska assertion passes", {
 # from a committed, SHA-256-pinned workbook, so the CSV is still fully
 # reproducible from committed inputs -- the dependency is now explicit.
 test_that("the committed CSV matches a fresh parse of the committed archive", {
-  fresh <- vq_overlay(rhtp_ak_build(), "ak_year1_awardees.csv")
+  fresh <- s71(vq_overlay(rhtp_ak_build(), "ak_year1_awardees.csv"), "ak_year1_awardees.csv")
   expect_equal(nrow(fresh), nrow(records))
   expect_equal(fresh$app_id, records$app_id)
   expect_equal(fresh$amount, records$amount)
@@ -246,9 +246,16 @@ test_that("awardees whose form varies across their own rows are flagged, not har
   # The point of the flag: those awardees still carry MORE THAN ONE
   # recipient_type in the committed data. Harmonising them silently -- in
   # either direction -- is exactly what this must not do.
+  # SESSION 71: Providence Health & Services-Washington is the one exception,
+  # and it is not a harmonisation. Alaska's per-project type still varies (the
+  # flag stays, because it describes the SOURCE); the one row where Alaska named
+  # only a service line was typed on CMS's hospital enrolment of that legal
+  # entity (CCN 020001), a federal record, not a harmonisation of the column.
+  s71_typed <- unique(records$awardee[!is.na(records$cms_enrolment_match)])
+  expect_equal(s71_typed, "Providence Health & Services- Washington")
   per_awardee <- tapply(varies$recipient_type, varies$awardee,
                         function(x) length(unique(x)))
-  expect_true(all(per_awardee > 1L))
+  expect_true(all(per_awardee[!names(per_awardee) %in% s71_typed] > 1L))
 })
 
 test_that("ANTHC is the worked case and is not resolved by the pipeline", {
@@ -304,14 +311,16 @@ test_that("only hospital recipients are coded distributed_to_hospital = Yes", {
                                             "HOSPITAL_AFFILIATED_ENTITY")))
 })
 
-test_that("43 hospital rows hold $62,396,425.47 in preliminary amounts", {
+test_that("44 hospital rows hold $66,955,876.00 in preliminary amounts", {
+  # SESSION 71: + Providence Health & Services-Washington's $4,559,450.53
+  # (CCN 020001) -- 43 rows / $62,396,425.47 before it.
   # Was 32 rows / $49,686,225.25 at the 2026-08-31 snapshot and 26 rows /
   # $43,379,541.04 at 2026-08-28. Every figure here is a PRELIMINARY amount on
   # a notice of INTENT to award, and the file is a snapshot of a weekly
   # release -- it will move again.
   yes <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(yes), 43L)
-  expect_equal(sum(yes$amount), 62396425.47, tolerance = 1e-6)
+  expect_equal(nrow(yes), 44L)
+  expect_equal(sum(yes$amount), 66955876.00, tolerance = 1e-6)
 })
 
 test_that("determination_basis is populated on every row (§7)", {
