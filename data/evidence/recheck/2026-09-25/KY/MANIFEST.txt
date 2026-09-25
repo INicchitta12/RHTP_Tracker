@@ -1,0 +1,13 @@
+Kentucky -- read after the KY Routine reported CHANGED on funding and rch
+(2026-09-24 19:35Z). Session 68. NO roster, NO award.
+funding: the change is ONE zero-width space in the heading; content identical.
+rch: FHKY now calls itself the "convening partner" (was "primary partner");
+three staff rows became "<ADD> FHKY Liaison"; a news item links the release
+below. Hub Lead Organizations are described and NOT named.
+User-agent: Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+URLs:
+  https://healthy-ky.org/s/FHKY-to-Help-Lead-New-Rural-Program.pdf
+  https://healthy-ky.org/rch
+SHA-256:
+ec16955fa386115f27409efae0ff3b46df7ebf26a87d3b9d37eb6807e74149a5  2026-09-08_fhky_convening_partner_release.pdf
+c8a38dd50bf970cf6c7798d6286f2b5b6afe7e4158f2502a5cfd909e30ac3621  2026-09-25_ky_foundation_healthy_kentucky_rch.html
