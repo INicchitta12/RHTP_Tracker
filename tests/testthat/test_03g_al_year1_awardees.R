@@ -29,7 +29,7 @@ test_that("every Alabama assertion passes", {
 # from a committed, SHA-256-pinned workbook, so the CSV is still fully
 # reproducible from committed inputs -- the dependency is now explicit.
 test_that("the committed CSV matches a fresh parse of the committed archive", {
-  fresh <- vq_overlay(rhtp_al_build(), "al_year1_awardees.csv")
+  fresh <- s71(vq_overlay(rhtp_al_build(), "al_year1_awardees.csv"), "al_year1_awardees.csv")
   expect_equal(nrow(fresh), nrow(records))
   expect_equal(fresh$awardee, records$awardee)
   expect_equal(fresh$amount, records$amount)
@@ -170,12 +170,18 @@ test_that("only hospital recipients are coded distributed_to_hospital = Yes", {
                                             "HOSPITAL_AFFILIATED_ENTITY")))
 })
 
-test_that("62 hospital award actions hold $68,323,619", {
+test_that("70 hospital award actions hold $83,548,287", {
   # 60 / $66,133,019 -> 62 / $68,323,619 in session 49: two Alabama recipients
   # whose form the governor's release never stated verified as hospitals.
+  # 62 -> 70 / $83,548,287 in session 71, on CMS hospital enrolments of the
+  # awardees' legal entities: UAB 3 / $8,861,700 (010033), University of South
+  # Alabama 2 / $2,760,000 (010087), AltaPointe Health Systems 3 / $3,602,968
+  # (014014). "University of Alabama" (Tuscaloosa) and "UAB Montgomery" are
+  # NOT matched: a prefix or an abbreviation is not a legal-name match.
   yes <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(yes), 62L)
-  expect_equal(sum(yes$amount), 68323619)
+  expect_equal(nrow(yes), 70L)
+  expect_equal(sum(yes$amount), 83548287)
+  expect_equal(sum(!is.na(yes$cms_enrolment_match)), 8L)
 })
 
 test_that("Cahaba's obstetric training row is IN_KIND_BENEFIT, not a pass-through", {
@@ -216,7 +222,10 @@ test_that("the hospital total is untouched by that move", {
   # -- the figures the block above asserts. (Those figures moved in session 49
   # for an unrelated reason, the verification of two recipients' FORM; the
   # marker fix still moves nothing.)
-  yes <- records[records$distributed_to_hospital == "Yes", ]
+  # Session 71's enrolled-operator rows are subtracted so the session-31 claim
+  # is still checked as written.
+  yes <- records[records$distributed_to_hospital == "Yes" &
+                   is.na(records$cms_enrolment_match), ]
   expect_equal(nrow(yes), 62L)
   expect_equal(sum(yes$amount), 68323619)
 })

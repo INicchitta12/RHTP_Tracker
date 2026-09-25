@@ -39,3 +39,38 @@ nppes_north_arkansas_rural_health_AR.json | d1d2693d18cee969861c1a7dc0b4023108b4
 nppes_vitality_plus_AR.json | 2c3f03c4f3c1923c4abf35bbedaea088e74769891ea2472a491d241b2443b4d6 | 5921 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=VITALITY+PLUS*&state=AR&limit=200
 nppes_uams_AR.json | e5387354b7f676fcade33c4867541a8bc2ad113633b8aeb51e5e07d6d57f66f3 | 210288 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=UNIVERSITY+OF+ARKANSAS+FOR+MEDICAL*&state=AR&limit=200
 irs_eo_bmf_AR_extract.csv | 695f1a48553502ccba15b42f4f4da225065e9c3b0fc739bf423e5a29cf5f8e1c | 261 | extract of https://www.irs.gov/pub/irs-soi/eo_ar.csv
+
+SESSION 71 ADDITIONS -- CMS Hospital Enrollments for 21 more states.
+
+WHY. Session 71 applied spec §10.2 "Academic health centers and enrolled
+hospital operators": where CMS enrols the awardee's LEGAL ENTITY as a hospital,
+the recipient is HOSPITAL_OR_SYSTEM and the CCN goes on the row. The rule can
+only be applied where the state's enrolment file is archived. The owner asked
+for AL, OR, IA, MD, WA, UT and NC; the other fourteen extracted states with no
+archived hospital file (PA AK IL NE OK NV MI ME WY DE ID OH VA LA) were fetched
+in the same pass, so R/03bj's sweep reaches every extracted state. The files
+are the same dataset and filter as the AR file above, one per state, bytes as
+served, fetched 2026-09-25 ~16:45Z.
+
+file | sha256 | bytes | rows | source
+cms_hosp_enrollments_AL.json | b7e06b91f4d365464efdae218d8e468f2d13e2041ee0ab496021ac619a47fe14 | 214948 | 180 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=AL&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_OR.json | af1c19d1d3b4b68b5585493fd982ea55853fc4c3a584484b5d9cb35876fb88e0 | 125351 | 105 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=OR&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_IA.json | 05f7dcfd0b14101c1c4f9c80b28e5ad8da852b55e2a46a71808a60a97f37d592 | 268383 | 225 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=IA&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_MD.json | 8652c97597800f1648dbc3c612960a470038a4bed468ccde993a6f33b04af534 | 68779 | 57 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MD&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_WA.json | 95d2067a782dac11f1120ed53c66b315fc64726a39d8b2d3d4f526a60f2ac76a | 185500 | 154 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=WA&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_UT.json | a087687c378f3b64746ce734a7c461622d547d485332529b925d21d327eec2fd | 95251 | 80 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=UT&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_NC.json | 08281633e705ab8543b42fb3b9f850a828919428fd63a0a4c0dadfaa9ada84b3 | 225784 | 189 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NC&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_PA.json | cf5e655d39342e39f2898f17bed66bee61648a4c3bcbe8c63c0637eee5142c23 | 386083 | 325 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=PA&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_AK.json | 0223aec7065475b8048fab3ab53ba522007a1a9179aa892cd4398be6771b5301 | 48662 | 41 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=AK&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_IL.json | c9c62db771d3a4c00a326ac6354be9ab8d520393cb746159407d6fbaa7666d92 | 380669 | 320 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=IL&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_NE.json | de25659161026b54314ca15eed1f356e6e7b817f3a4920bbac4b6db17a146fb5 | 204023 | 171 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NE&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_OK.json | 1afbc48c9859c535f8da0de9aac7d00147baa177cd499c5b6e402c8e8a8334a7 | 271560 | 226 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=OK&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_NV.json | 96e22a45c110788bdbb98484003fe001d00c5ff2fc2e462ad615663dfb8350f6 | 93513 | 78 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NV&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_MI.json | b569d82b03a0fb30e497b1e1807ffadcfdd0b21fd6b28620dd83e80370b68d2c | 314216 | 265 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MI&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_ME.json | b33dd03583e5bf5a7352267fa865a4eaaee2389e168c15357ede90f3d86b3965 | 72038 | 61 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=ME&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_WY.json | c5db1f9e53ebe4b41409b47c7b22c982b1226bc86608439b0778aabe2e35c1d3 | 66305 | 56 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=WY&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_DE.json | 871562afe72cc708d3493108f7482bd899a037a731c59c76dcaede4b4b6a9de0 | 20281 | 17 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=DE&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_ID.json | f0c46fd7baaa139704cda284ca5e5692d9ce205d0fdcd7033adf76f227bd4857 | 107170 | 90 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=ID&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_OH.json | 74daab8fc8f056d373f14085f13d19dc3a2db2a92d3429d146c021e5edc8f151 | 375965 | 316 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=OH&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_VA.json | b10710809ecb2d7c45d1399dd391ddfa05ec94fb349971da702091db8689c24e | 201593 | 169 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=VA&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_LA.json | f02596af4151921289e4df1210476285c07ec74af01c2280ad6b5358fb2a8ff3 | 372846 | 311 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=LA&size=5000 (Hospital Enrollments)

@@ -22,9 +22,18 @@ test_that("eight rows, $67,020,000 named, the Tribes' pool in round_amount only"
 })
 
 test_that("the committed file is what the builder produces", {
-  expect_equal(nrow(committed), nrow(wa))
-  expect_equal(committed$awardee, wa$awardee)
-  expect_equal(committed$flow_type, wa$flow_type)
+  # Session 71: plus §10.2's enrolled-hospital-operator overlay -- the two
+  # University of Washington rows are DIRECT on CMS's enrolment of that legal
+  # entity (CCN 500008), $9,740,000 into NAMED_HOSPITAL.
+  built <- s71(wa, "wa_year1_awardees.csv")
+  expect_equal(nrow(committed), nrow(built))
+  expect_equal(committed$awardee, built$awardee)
+  expect_equal(committed$flow_type, built$flow_type)
+  uw <- committed[grepl("^University of Washington", committed$awardee), ]
+  expect_equal(nrow(uw), 2L)
+  expect_true(all(uw$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(uw$ccn == "500008"))
+  expect_equal(sum(uw$amount), 9740000)
 })
 
 test_that("WSHA's $42M is Unclear and in NEITHER bucket", {

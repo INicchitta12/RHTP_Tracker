@@ -536,7 +536,7 @@ test_that("the award file is five named rows plus ONE unnamed aggregate", {
 })
 
 test_that("the file rebuilds from the deck exactly", {
-  built <- rhtp_la_year1_awardees(la_runs) %>%
+  built <- s71(rhtp_la_year1_awardees(la_runs), "la_year1_awardees.csv") %>%
     dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
   expect_equal(names(built), names(la_awards))
   expect_equal(built$awardee, la_awards$awardee)
@@ -570,12 +570,21 @@ test_that("OUTPATIENT Medical Center is REFUSED as a hospital, and the refusal i
   expect_equal(as.numeric(row$amount), 292500)
 })
 
-test_that("Louisiana contributes NO row and NO dollar to any hospital bucket", {
+test_that("Louisiana contributes ONE enrolled-hospital row (session 71), and its aggregate none", {
+  # Session 64: no row, no dollar. Session 71: Ochsner Clinic Foundation, a
+  # NAMED Credit Bank awardee ($1,500,000), is the legal entity CMS enrols as
+  # Ochsner Medical Center (CCN 190036), so §10.2's enrolled-hospital-operator
+  # rule makes it DIRECT. Nothing else moved; the unnamed aggregate and its
+  # "20 hospital-setting awards" still reach no bucket.
   source(here::here("R", "utils_recipient_classification.R"))
   d <- la_awards %>% dplyr::mutate(amount = as.numeric(.data$amount))
   parts <- rhtp_hospital_dollar_partition(d)
-  expect_equal(nrow(parts), 0L)
-  expect_false(any(la_awards$distributed_to_hospital == "Yes"))
+  expect_equal(nrow(parts), 1L)
+  expect_equal(parts$bucket, "NAMED_HOSPITAL")
+  expect_equal(parts$dollars, 1500000)
+  yes <- la_awards[la_awards$distributed_to_hospital == "Yes", ]
+  expect_equal(yes$awardee, "Ochsner Clinic Foundation")
+  expect_equal(yes$ccn, "190036")
   ref <- list.files(here::here("data", "reference"), pattern = "^la_")
   expect_setequal(ref, c("la_rcj_candidate_disposition.csv",
                          "la_year1_status.csv", "la_year1_awardees.csv"))
@@ -616,8 +625,11 @@ test_that("the three ways a hospital dollar could creep in are each refused", {
   # (3) any row coded Yes with no hospital named on it
   c0 <- la_awards; c0$distributed_to_hospital[6] <- "Yes"
   expect_error(la_assert_award_file(c0), "distributed_to_hospital = Yes")
-  # and a named row typed a hospital by a name rule is stopped at build
-  expect_true(all(la_awards$recipient_type != "HOSPITAL_OR_SYSTEM"))
+  # and a named row typed a hospital by a NAME RULE is stopped at build: the
+  # only HOSPITAL_OR_SYSTEM row is the one typed on a CMS enrolment (session 71)
+  h <- la_awards$recipient_type == "HOSPITAL_OR_SYSTEM"
+  expect_true(all(!is.na(la_awards$cms_enrolment_match[h])))
+  expect_equal(sum(h), 1L)
 })
 
 test_that("the hospital-setting figure is the state's words, never a summable column", {

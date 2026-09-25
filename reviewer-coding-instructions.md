@@ -184,6 +184,62 @@ its parent, and *Citizens Foundation*, which does not — and they classify
 differently, **$146,476** apart, because §2 forbids a machine resolving the
 difference. That divergence is the rule working, not a defect in it.
 
+## Academic health centers and enrolled hospital operators
+
+**Where CMS enrolls the awardee's legal entity as a hospital, the recipient is
+`recipient_type = HOSPITAL_OR_SYSTEM`, and the CCN goes on the row.** Its flow
+is §10.2's ordinary `DIRECT` row, and its dollars are `NAMED_HOSPITAL`. An
+academic health center that holds the hospital's enrolment is a hospital. The
+University of Arkansas for Medical Sciences is the worked case. CMS Hospital
+Enrollments carries ORGANIZATION NAME *"UNIVERSITY OF ARKANSAS FOR MEDICAL
+SCIENCES"*, DBA *"UAMS MEDICAL CENTER"*, CCN 040016. That is the awardee's own
+legal name, and it names one legal body that is both a university and a
+hospital operator.
+
+**The CMS enrolment is a primary federal source. The name is not a source.**
+Keeping such a recipient at `UNIVERSITY_OR_AHC` because its name reads
+"university" overrides a federal record with this pipeline's recognition of the
+name, and §0.4 forbids that. Sessions 17 and 38 did this for OHSU and UNC.
+Session 50 did the opposite for Winston County Medical Foundation, promoting it
+because CMS carries its exact string as a hospital's ORGANIZATION NAME. This
+row settles the conflict in Winston County's favour.
+
+**The activity does not decide it (§0.3a).** Telehealth networks, residency and
+nursing training, stroke education, mobile outreach and food-is-medicine are
+hospital operations when a hospital runs them. The test is the recipient's
+legal identity, not what the award buys.
+
+**The rows stay separable.** Every row this rule re-types as an academic health
+center carries `recipient_subtype = ACADEMIC_HEALTH_CENTER`, so any hospital
+figure can be reported with those rows shown separately, or subtracted, without
+re-coding anything. `cms_enrolment_match` records how the legal entity was
+matched:
+- `EXACT_LEGAL_NAME` sets `MEDIUM`.
+- A hand-read bridge sets `LOW`. `LEGAL_NAME_TRUNCATED`: *"University of North
+  Carolina Hospitals"* for *"... AT CHAPEL HILL"*. `DBA_OF_LEGAL_ENTITY`:
+  *"University of Iowa Health Care"*, the trading name of the State University
+  of Iowa's enrolled hospital.
+
+`HIGH` still requires the CCN to be confirmed through Stage 5's full match.
+
+**What it does not reach.**
+- **A different legal body with a similar name.** *"University of Alabama"*
+  (Tuscaloosa) is not the University of Alabama at Birmingham. *"University of
+  Arkansas"* is not UAMS. *"Johns Hopkins University"* is not The Johns Hopkins
+  Hospital, and *"Medical University of South Carolina"* is not the Medical
+  University Hospital Authority. A name that is only a prefix of an enrolled
+  name is never matched by machine (§2).
+- **An abbreviation or a sub-unit named without the legal entity.** Examples:
+  *"UAB Montgomery"*, *"OHSU Casey Eye Institute"*, *"University of Michigan:
+  MEDIC"*. The enrolled legal entity is the Regents of the University of
+  Michigan, and the awardee string does not name it.
+- **A row whose state source states a different form.** Examples: Alaska's own
+  Organization Type column saying *"Tribal Health Organization"*, or Oregon
+  paying a hospital-owned clinic from its Rural Health Clinic pool under the
+  type *"Rural Health Clinic"*. There two primary sources disagree, and neither
+  reading is recognition. Those rows are held and queued as
+  `ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM`, not re-coded.
+
 ## The eligible class of a pass-through, and when a hospital is required
 
 **The eligible class is what decides a pass-through, and there are now three

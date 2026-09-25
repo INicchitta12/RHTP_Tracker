@@ -914,13 +914,17 @@ test_that("ARHP's flow is resolved at option (c) and moves no dollar", {
   expect_false(any(grepl("^PASS_THROUGH", f$flow_type)))
 })
 
-test_that("the committed round-1 file is the builder + session 49 overlay + the ARHP flow + NARHC", {
+test_that("the committed round-1 file is the builder + session 49 overlay + the ARHP flow + NARHC + session 71", {
   skip_without_r2()
   vq <- new.env()
   suppressMessages(source(here::here("R", "03ap_verification_queue_2.R"),
                           local = vq))
-  built <- ar_resolve_narhc(ar_resolve_arhp_flow(
-    vq$vq_overlay(ar_award_rows(), "ar_year1_awardees.csv"), 1L), 1L)
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  built <- s71$s71_overlay(ar_resolve_narhc(ar_resolve_arhp_flow(
+    vq$vq_overlay(ar_award_rows(), "ar_year1_awardees.csv"), 1L), 1L),
+    "ar_year1_awardees.csv")
   tmp <- tempfile(fileext = ".csv")
   readr::write_csv(built, tmp, na = "")
   expect_identical(unname(tools::md5sum(tmp)), unname(tools::md5sum(AR_OUT_CSV)))
@@ -957,13 +961,17 @@ test_that("North Arkansas Rural Health Consortium carries ONE form in both round
   expect_equal(jsonlite::fromJSON(file.path(f, "nppes_deckmax_AR.json"))$result_count, 0L)
   h <- jsonlite::fromJSON(file.path(f, "cms_hosp_enrollments_AR.json"))
   expect_false(any(grepl("DECKMAX|NORTH ARKANSAS RURAL", toupper(h$`ORGANIZATION NAME`))))
-  # and the resolution moves no hospital dollar: round 1 + round 2 still 30 / $111,276,895.52
+  # and the resolution moves no hospital dollar: round 1 + round 2 were 30 /
+  # $111,276,895.52 after session 70. Session 71's UAMS re-type (+4 rows,
+  # +$17,060,066) is the only later movement; NARHC is in neither.
   p <- rhtp_hospital_dollar_partition(dplyr::bind_rows(r1, r2))
-  expect_equal(p$rows[p$bucket == "NAMED_HOSPITAL"], 30L)
-  expect_equal(round(p$dollars[p$bucket == "NAMED_HOSPITAL"], 2), 111276895.52)
+  expect_equal(p$rows[p$bucket == "NAMED_HOSPITAL"], 34L)
+  expect_equal(round(p$dollars[p$bucket == "NAMED_HOSPITAL"], 2), 128336961.52)
+  expect_false(AR_NARHC %in% dplyr::bind_rows(r1, r2)$awardee[
+    dplyr::bind_rows(r1, r2)$distributed_to_hospital == "Yes"])
 })
 
-test_that("UAMS is an enrolled hospital's legal name, and it is QUEUED, not re-typed (session 70)", {
+test_that("UAMS is an enrolled hospital's legal name, and session 71 re-typed it on that record", {
   h <- jsonlite::fromJSON(here::here("data", "evidence", "federal_records",
                                      "2026-09-25", "cms_hosp_enrollments_AR.json"))
   u <- h[h$`ORGANIZATION NAME` == "UNIVERSITY OF ARKANSAS FOR MEDICAL SCIENCES", ]
@@ -975,10 +983,21 @@ test_that("UAMS is an enrolled hospital's legal name, and it is QUEUED, not re-t
   ua <- dplyr::bind_rows(r1, r2)
   ua <- ua[ua$awardee == "University of Arkansas for Medical Sciences", ]
   expect_equal(nrow(ua), 4L)
-  expect_true(all(ua$recipient_type == "UNIVERSITY_OR_AHC"))
+  # Session 70 queued it; the owner answered option (b) and session 71 applied
+  # §10.2's enrolled-hospital-operator rule: HOSPITAL_OR_SYSTEM, CCN on the
+  # row, and the AHC subtype so the four rows can be subtracted.
+  expect_true(all(ua$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(ua$ccn == "040016"))
+  expect_true(all(ua$recipient_subtype == "ACADEMIC_HEALTH_CENTER"))
+  expect_true(all(ua$distributed_to_hospital == "Yes"))
   expect_equal(sum(ua$amount), 17060066)
+  # "University of Arkansas" (Fayetteville) is a different body and a prefix
+  # of the enrolled name; it is never matched.
+  ufa <- dplyr::bind_rows(r1, r2)
+  expect_true(all(ufa$recipient_type[ufa$awardee == "University of Arkansas"] ==
+                    "UNIVERSITY_OR_AHC"))
   q <- readr::read_csv(here::here("data", "reference", "classification_review_queue.csv"),
                        show_col_types = FALSE, progress = FALSE)
-  expect_equal(q$queue_status[q$question_id == "AHC_ENROLLED_HOSPITAL_OPERATOR"], "OPEN")
+  expect_equal(q$queue_status[q$question_id == "AHC_ENROLLED_HOSPITAL_OPERATOR"], "RESOLVED")
   expect_equal(q$queue_status[q$question_id == "AR_NARHC_TWO_TYPES"], "RESOLVED")
 })

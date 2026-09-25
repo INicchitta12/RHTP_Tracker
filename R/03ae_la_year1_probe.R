@@ -1840,7 +1840,16 @@ la_assert_award_file <- function(awards = NULL) {
     stop("[LA] named amounts plus the aggregate's round_amount no longer ",
          "equal the round's $12,701,996.", call. = FALSE)
   }
-  if (any(awards$distributed_to_hospital == "Yes")) {
+  # SESSION 71: LDH still states no recipient's FORM. A Yes is admitted ONLY on
+  # a row whose named awardee is the legal entity of a CMS-enrolled hospital,
+  # typed by §10.2's enrolled-hospital-operator rule (R/03bj) and carrying the
+  # CCN -- Ochsner Clinic Foundation, CCN 190036. Any other Yes still stops the
+  # build, and the "20 hospital-setting awards" aggregate stays out of every
+  # bucket (session 65).
+  enrolled <- if ("cms_enrolment_match" %in% names(awards))
+    !is.na(awards$cms_enrolment_match) & nzchar(awards$cms_enrolment_match)
+  else rep(FALSE, nrow(awards))
+  if (any(awards$distributed_to_hospital == "Yes" & !enrolled)) {
     stop("[LA] a Louisiana row is distributed_to_hospital = Yes. LDH names no ",
          "hospital; a Yes here would be a hospital row with no hospital ",
          "named on it.", call. = FALSE)
@@ -1909,6 +1918,12 @@ rhtp_la_build <- function() {
   message("[LA] wrote ", nrow(dispo), " disposition rows -> ", LA_DISPO_CSV)
 
   awards <- rhtp_la_year1_awardees()
+  # SESSION 71: §10.2's enrolled-hospital-operator overlay, so a rebuild does
+  # not wipe Ochsner Clinic Foundation's CMS typing (CCN 190036).
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  awards <- s71$s71_overlay(awards, "la_year1_awardees.csv")
   la_assert_award_file(awards %>% dplyr::mutate(dplyr::across(
     dplyr::everything(), as.character)))
   readr::write_csv(awards, here::here(LA_AWARDS_CSV), na = "")

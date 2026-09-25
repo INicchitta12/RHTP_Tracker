@@ -105,7 +105,24 @@ RC_ENROLMENTS <- c(
   # Rural Strong hospital rows carry CCNs typed against these slices. Each
   # extraction archived its slice beside its own evidence.
   NE = "data/evidence/NE/2026-09-24_cms_hosp_enrollments_NE.json",
-  SD = "data/evidence/SD/federal_records/2026-09-24/cms_hosp_enrollments_SD.json")
+  SD = "data/evidence/SD/federal_records/2026-09-24/cms_hosp_enrollments_SD.json",
+  # Session 71: §10.2's enrolled-hospital-operator rule wrote a CCN onto 33
+  # rows in 13 files; their states' slices (and Georgia's, and Arkansas's, and
+  # Utah's for Wyoming's University of Utah row) are what those CCNs resolve
+  # against. Fetched session 71 unless dated otherwise.
+  GA = "data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_GA.json",
+  AR = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_AR.json",
+  AL = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_AL.json",
+  AK = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_AK.json",
+  IA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_IA.json",
+  LA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_LA.json",
+  MI = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MI.json",
+  NC = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_NC.json",
+  NV = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_NV.json",
+  OK = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_OK.json",
+  OR = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_OR.json",
+  UT = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_UT.json",
+  WA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_WA.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -248,11 +265,13 @@ rc_assert <- function(rows = rc_rows()) {
   # (Indiana being new to the bucket) a 27th state. Dollars do not move.
   # Session 69: ARKANSAS ROUND 2 (RISE AR / HEART) adds 12 rows /
   # $18,870,981.65 and no state.
-  if (nrow(rows) != 1152L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 959074602.68) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 28L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,152 rows / $959,074,602.68 ",
-         "/ 28 states; re-state the rural cut against the new partition.",
+  # Session 71: §10.2's enrolled-hospital-operator rule adds 33 rows /
+  # $63,240,239.84 and two states (WA, LA): 1,185 / $1,022,314,842.52 / 30.
+  if (nrow(rows) != 1185L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1022314842.52) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 30L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,185 rows / $1,022,314,842.52 ",
+         "/ 30 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

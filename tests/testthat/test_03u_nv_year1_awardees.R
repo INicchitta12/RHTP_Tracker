@@ -654,12 +654,15 @@ test_that("the committed CSV matches what the parser produces", {
   skip_if_no_archive()
   skip_if_not(file.exists(NV_OUT_CSV), "nv_year1_awardees.csv not built yet")
   on_disk <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
-  built <- vq_overlay(nv_records(), "nv_year1_awardees.csv") %>%
-    dplyr::select(dplyr::all_of(c(NV_COLUMN_ORDER, "basis_type",
-                                  "verified_by", "verified_basis")))
+  # SESSION 71: nv_with_overlay() chains R/03bj's overlay after session 49's,
+  # which appends three columns (recipient_subtype, cms_enrolment_match,
+  # cms_enrolment_record).
+  cols <- c(NV_COLUMN_ORDER, "basis_type", "verified_by", "verified_basis",
+            "recipient_subtype", "cms_enrolment_match", "cms_enrolment_record")
+  built <- nv_with_overlay(nv_records()) %>% dplyr::select(dplyr::all_of(cols))
   expect_equal(nrow(on_disk), nrow(built))
-  expect_equal(names(on_disk), c(NV_COLUMN_ORDER, "basis_type",
-                                 "verified_by", "verified_basis"))
+  expect_equal(names(on_disk), cols)
+  expect_equal(on_disk$recipient_type, built$recipient_type)
   expect_equal(on_disk$awardee, built$awardee)
   expect_true(all(is.na(on_disk$amount)))
 })
@@ -709,9 +712,11 @@ test_that("determination_basis is present and non-empty on every Nevada row", {
   # 20 named-hospital award actions -> 27 of 73, all of them at $0, because
   # NVHA publishes no per-recipient amount at all (Nevada's rule). SESSION 64
   # added 15 more on the 2026-09-24 rows -- 42 of 156, still $0.
-  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 42L)
+  # 42 -> 44 in session 71: Carson Valley Health (row 128) and Washoe Barton
+  # Medical Clinic (row 76) on CMS's enrolment of CCN 291306, both bridges.
+  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 44L)
   expect_equal(sum(recs$distributed_to_hospital[1:72] == "Yes"), 27L)
-  expect_equal(sum(recs$hospital_attribution == "NAMED_HOSPITAL"), 42L)
+  expect_equal(sum(recs$hospital_attribution == "NAMED_HOSPITAL"), 44L)
   expect_true(all(is.na(recs$amount)))
 })
 

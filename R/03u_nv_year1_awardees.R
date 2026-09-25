@@ -1958,7 +1958,13 @@ nv_with_overlay <- function(recs = nv_records()) {
   out <- recs %>%
     dplyr::select(dplyr::all_of(NV_COLUMN_ORDER)) %>%
     dplyr::arrange(.data$row_no)
-  vq$vq_overlay(out, "nv_year1_awardees.csv")
+  out <- vq$vq_overlay(out, "nv_year1_awardees.csv")
+  # SESSION 71: §10.2's enrolled-hospital-operator rule (Carson Valley Health /
+  # Washoe Barton Medical Clinic, CCN 291306), after session 49's overlay.
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  s71$s71_overlay(out, "nv_year1_awardees.csv")
 }
 
 nv_build <- function() {
