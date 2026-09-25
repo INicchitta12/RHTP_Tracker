@@ -1,0 +1,41 @@
+FEDERAL RECORDS -- fetched 2026-09-25 by session 70
+
+WHY THESE ARE HERE. Two Arkansas questions (session 70): (1) what form does
+"Deckmax dba North Arkansas Rural Health Consortium" have, so its round-1 OTHER
+and round-2 fallback can be settled together; (2) does the University of
+Arkansas for Medical Sciences, typed UNIVERSITY_OR_AHC in both rounds, operate
+an ENROLLED hospital under that same legal name.
+
+WHAT THEY SETTLE.
+  UAMS     CMS Hospital Enrollments (AR): ORGANIZATION NAME = "UNIVERSITY OF
+           ARKANSAS FOR MEDICAL SCIENCES", DBA "UAMS MEDICAL CENTER", CCN 040016
+           (printed "40016"), NPI 1477549756, 4301 W Markham St, Little Rock,
+           ORGANIZATION OTHER TYPE TEXT "STATE AGENCY", general acute care,
+           main/primary hospital location. The awardee string is, character
+           for character, the legal name of an enrolled acute-care hospital.
+           UAMS is a state body and is (correctly) absent from the IRS EO BMF.
+           NPPES carries 126 organisation NPIs under the name, spanning a
+           General Acute Care Hospital, psychiatric units, community health
+           clinics, pharmacies, DME and dozens of professional taxonomies --
+           the one legal body is a university AND a hospital operator.
+  NARHC    NO record for "Deckmax" or "North Arkansas Rural Health" in CMS's AR
+           Hospital, FQHC or RHC enrolment files, in NPPES, or in the IRS EO BMF
+           for Arkansas (the extract below is header-only: nothing matched).
+           NPPES does carry Vitality Plus LLC (Clinic/Center, Mountain Home),
+           the site round 1's project centres on; nothing ties Deckmax to it.
+
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)". Bytes as served.
+The IRS file is an EXTRACT (header + rows matching deckmax / north arkansas
+rural / vitality plus / university of arkansas for medical sciences; none did)
+cut from https://www.irs.gov/pub/irs-soi/eo_ar.csv (sha256
+5f6a3c34b4509e431f76f32d3c457e795ddfd015492658edef9346d88f55757b).
+
+file | sha256 | bytes | source
+cms_hosp_enrollments_AR.json | c89728f97dd86c99283876f4f06ad7cf764e071a386f6d0b4c367d5a9f7e4dc4 | 209865 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=AR&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_AR.json | c5117a9abb5104277b7cfae269db8d32ae1e9f306f24babede4aa18e2864339d | 156696 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=AR&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_AR.json | 92f602e0cdd628390292a767f02c5028aada63b8d6563bb49b22bc6c41758d6b | 103227 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=AR&size=5000 (RHC Enrollments)
+nppes_deckmax_AR.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d8973ee | 31 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=DECKMAX*&limit=200
+nppes_north_arkansas_rural_health_AR.json | d1d2693d18cee969861c1a7dc0b4023108b4a7567745f4a875ed0f8b0d8973ee | 31 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=NORTH+ARKANSAS+RURAL*&limit=200
+nppes_vitality_plus_AR.json | 2c3f03c4f3c1923c4abf35bbedaea088e74769891ea2472a491d241b2443b4d6 | 5921 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=VITALITY+PLUS*&state=AR&limit=200
+nppes_uams_AR.json | e5387354b7f676fcade33c4867541a8bc2ad113633b8aeb51e5e07d6d57f66f3 | 210288 | https://npiregistry.cms.hhs.gov/api/?version=2.1&organization_name=UNIVERSITY+OF+ARKANSAS+FOR+MEDICAL*&state=AR&limit=200
+irs_eo_bmf_AR_extract.csv | 695f1a48553502ccba15b42f4f4da225065e9c3b0fc739bf423e5a29cf5f8e1c | 261 | extract of https://www.irs.gov/pub/irs-soi/eo_ar.csv

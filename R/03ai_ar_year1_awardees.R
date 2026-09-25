@@ -1996,8 +1996,9 @@ AR_R2_RELEASE_SPELLINGS <- c(
 # session 49's verified OTHER (general knowledge); it is deliberately NOT
 # carried forward here, so the same organisation carries two types across the
 # two files and the queue row says so.
-AR_R2_QUEUED <- c("University of Arkansas for Medical Sciences", "CARTI",
-                  "North Arkansas Rural Health Consortium")
+# SESSION 70 took North Arkansas Rural Health Consortium OUT of this list: its
+# two rows are settled together by ar_resolve_narhc() below.
+AR_R2_QUEUED <- c("University of Arkansas for Medical Sciences", "CARTI")
 
 # One override of the shared classifier, and it moves $0. §8's name rule
 # reads "Pediatrics" in "Arkansas Chapter, American Academy of Pediatrics" and
@@ -2473,6 +2474,58 @@ ar_resolve_arhp_flow <- function(rows, round) {
 }
 
 
+# -- North Arkansas Rural Health Consortium: both rounds settled together -----
+#
+# SESSION 70. Round 1 carried session 49's verified OTHER; round 2 carried §8's
+# standing fallback; one organisation, two types. Settled to the FALLBACK in
+# both, because session 49's OTHER rests on a basis that states NO FORM: the
+# whole of it is "Deckmax (doing business as the North Arkansas Rural Health
+# Consortium" -- a legal name and a DBA, which the Governor's own releases
+# already print. §8's note on OTHER: "a row carrying it must state the
+# determined form in determination_basis. OTHER with nothing behind it is the
+# fallback wearing a different name." And a MEASURED NEGATIVE, archived under
+# data/evidence/federal_records/2026-09-25/: no record for "Deckmax" or "North
+# Arkansas Rural Health" in CMS's Arkansas Hospital, FQHC or RHC enrolment
+# files, in NPPES, or in the IRS EO BMF for Arkansas. NPPES does carry
+# "Vitality Plus LLC" (Clinic/Center, Mountain Home -- the site round 1's
+# project centres on), but no record ties Deckmax to it, and a project's site
+# is not its recipient (§0.3a). $0 either way: both rows were and stay `No`.
+AR_NARHC <- "North Arkansas Rural Health Consortium"
+AR_NARHC_TAG <- "RECIPIENT TYPE SETTLED ACROSS BOTH ROUNDS (session 70)"
+
+ar_resolve_narhc <- function(rows, round) {
+  k <- which(rows$awardee == AR_NARHC)
+  if (length(k) != 1L) {
+    stop("[AR] expected one ", AR_NARHC, " row in round ", round, ", found ",
+         length(k), ".", call. = FALSE)
+  }
+  rows$recipient_type[k] <- "NONPROFIT_CBO"
+  rows$determination_confidence[k] <- "LOW"
+  rows$flag_reason[k] <- "AMOUNT_PRELIMINARY;RECIPIENT_TYPE_INFERRED"
+  rows$basis_type[k] <- NA_character_
+  rows$flow_type[k] <- "NON_HOSPITAL"
+  rows$distributed_to_hospital[k] <- "No"
+  rows$hospital_attribution[k] <- "NOT_HOSPITAL"
+  if (round == 2L) {
+    rows$note[k] <- stringr::str_replace(
+      rows$note[k], " ?QUEUED, NOT TYPED ON RECOGNITION.*$", "")
+  }
+  if (!grepl(AR_NARHC_TAG, rows$determination_basis[k], fixed = TRUE)) {
+    rows$determination_basis[k] <- paste0(
+      AR_NARHC_TAG, ": NONPROFIT_CBO + LOW + RECIPIENT_TYPE_INFERRED, §8's ",
+      "standing fallback, in round 1 AND round 2. Neither DF&A's lists nor the ",
+      "Governor's releases state a form ('Deckmax dba North Arkansas Rural ",
+      "Health Consortium'). Session 49's OTHER was withdrawn: its basis ",
+      "('Deckmax (doing business as the North Arkansas Rural Health ",
+      "Consortium') names the entity and states no form, and OTHER requires ",
+      "one. No record in CMS AR hospital/FQHC/RHC enrolment, NPPES or the IRS ",
+      "AR EO BMF (data/evidence/federal_records/2026-09-25/). Not a hospital ",
+      "on any reading: §10.2 NON_HOSPITAL, distributed_to_hospital = No, $0 ",
+      "moved. PRIOR BASIS: ", rows$determination_basis[k])
+  }
+  rows
+}
+
 # -- round-2 award rows --------------------------------------------------------
 
 #' Session 49's verified types for round-1 organisations, by EXACT string
@@ -2624,6 +2677,7 @@ ar_r2_award_rows <- function() {
     verified_by[hit], "): ", verified_basis[hit], " ",
     flow$flow_basis[hit])
   out <- ar_resolve_arhp_flow(out, 2L)
+  out <- ar_resolve_narhc(out, 2L)
   out
 }
 
@@ -2899,9 +2953,10 @@ ar_build <- function() {
                           local = vq))
   rows <- vq$vq_overlay(rows, "ar_year1_awardees.csv")
   rows <- ar_resolve_arhp_flow(rows, 1L)
+  rows <- ar_resolve_narhc(rows, 1L)
   readr::write_csv(rows, AR_OUT_CSV, na = "")
   message("[AR] wrote ", AR_OUT_CSV, " (", nrow(rows), " rows; session 49 ",
-          "overlay + session 69 ARHP flow)")
+          "overlay + session 69 ARHP flow + session 70 NARHC)")
 
   r2 <- ar_r2_assert_all()
   readr::write_csv(r2, AR_R2_CSV, na = "")
