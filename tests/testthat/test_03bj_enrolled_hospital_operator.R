@@ -89,8 +89,73 @@ test_that("rows whose STATE source states another form are HELD, not re-coded", 
   expect_false(any(held$recipient_type == "HOSPITAL_OR_SYSTEM"))
   q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
                        col_types = readr::cols(.default = "c"), show_col_types = FALSE)
-  expect_equal(q$queue_status[q$question_id == "ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM"], "OPEN")
+  # Session 72: resolved at option (a) -- the state's stated form stands.
+  expect_equal(q$queue_status[q$question_id == "ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM"], "RESOLVED")
+  expect_match(q$resolution[q$question_id == "ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM"],
+               "^Option \\(a\\)")
   expect_equal(q$queue_status[q$question_id == "AHC_ENROLLED_HOSPITAL_OPERATOR"], "RESOLVED")
+})
+
+test_that("session 72: each held row RECORDS its CMS enrolment and is not re-typed by it", {
+  for (i in seq_len(nrow(EH_HOLD))) {
+    d <- tabs[[EH_HOLD$file[i]]]
+    k <- which(d$awardee == EH_HOLD$awardee[i] & d$recipient_type != "HOSPITAL_OR_SYSTEM")
+    expect_gte(length(k), 1L)
+    rec <- d$cms_enrolment_record[k]
+    expect_true(all(grepl(paste0("CCN ", EH_HOLD$ccn[i]), rec, fixed = TRUE)), info = EH_HOLD$awardee[i])
+    expect_true(all(grepl("RECORDED, NOT APPLIED", rec, fixed = TRUE)), info = EH_HOLD$awardee[i])
+    expect_true(all(grepl("federal_records/", rec, fixed = TRUE)), info = EH_HOLD$awardee[i])
+    # 'match' and 'ccn' mean re-typed on the enrolment; neither is set here.
+    expect_true(all(is.na(d$cms_enrolment_match[k])), info = EH_HOLD$awardee[i])
+    expect_true(all(is.na(d$ccn[k])), info = EH_HOLD$awardee[i])
+    expect_true(all(d$distributed_to_hospital[k] == "No"), info = EH_HOLD$awardee[i])
+    expect_true(all(grepl(EH_HOLD_TAG, d$determination_basis[k], fixed = TRUE)),
+                info = EH_HOLD$awardee[i])
+  }
+  ak <- tabs[["ak_year1_awardees.csv"]]
+  expect_equal(sum(grepl(EH_HOLD_TAG, ak$determination_basis, fixed = TRUE)), 4L)
+  or <- tabs[["or_year1_awardees.csv"]]
+  expect_equal(sum(grepl(EH_HOLD_TAG, or$determination_basis, fixed = TRUE)), 6L)
+  # the state's own 'Hospital' projects for BBAHC/ANTHC are untouched
+  expect_false(any(grepl(EH_HOLD_TAG, ak$determination_basis[ak$recipient_type == "HOSPITAL_OR_SYSTEM"],
+                         fixed = TRUE)))
+})
+
+test_that("a held CCN that disagrees with the sweep fails the build", {
+  bad <- sw
+  k <- which(bad$awardee == EH_HOLD$awardee[1] & bad$file == EH_HOLD$file[1])
+  bad$ccn[k] <- "999999"
+  expect_error(eh_assert_read(bad), "EH_HOLD CCN")
+})
+
+test_that("session 72: AltaPointe is owner-accepted on its enrolment, reasoning on each row", {
+  al <- tabs[["al_year1_awardees.csv"]]
+  k <- which(al$awardee %in% c("AltaPointe Health Systems", "AltaPointe Health Systems Inc."))
+  expect_length(k, 3L)
+  expect_true(all(al$recipient_type[k] == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(al$ccn[k] == "014014"))
+  expect_equal(sum(as.numeric(al$amount[k])), 3602968)
+  expect_true(all(grepl("OWNER-ACCEPTED (session 72)", al$determination_basis[k], fixed = TRUE)))
+  q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
+                       col_types = readr::cols(.default = "c"), show_col_types = FALSE)
+  expect_equal(q$queue_status[q$question_id == "ALTAPOINTE_ENROLLED_OPERATOR"], "RESOLVED")
+})
+
+test_that("session 72: UMMS matches NO CMS hospital enrolment on its own legal name", {
+  md <- jsonlite::fromJSON(here::here("data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MD.json"))
+  expect_equal(nrow(md), 57L)
+  names_all <- toupper(c(md[["ORGANIZATION NAME"]], md[["DOING BUSINESS AS NAME"]]))
+  expect_false(any(grepl("MARYLAND MEDICAL SYSTEM", names_all, fixed = TRUE)))
+  # its hospitals enrol as separate legal bodies
+  expect_true("UNIVERSITY OF MARYLAND MEDICAL CENTER, LLC" %in% md[["ORGANIZATION NAME"]])
+  expect_false(any(sw$awardee == "University of Maryland Medical System"))
+  mdr <- tabs[["md_year1_awardees.csv"]]
+  expect_equal(mdr$recipient_type[mdr$awardee == "University of Maryland Medical System"], "UNIVERSITY_OR_AHC")
+  q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
+                       col_types = readr::cols(.default = "c"), show_col_types = FALSE)
+  r <- q[q$question_id == "AHC_STRING_NAMES_NO_ENROLLED_ENTITY", ]
+  expect_equal(r$queue_status, "OPEN")
+  expect_match(r$why_it_is_open, "UMMS CHECKED AGAINST ITS OWN LEGAL NAME", fixed = TRUE)
 })
 
 test_that("the overlay is idempotent on the committed files", {
