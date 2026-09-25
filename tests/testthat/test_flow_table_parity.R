@@ -270,4 +270,5 @@ test_that("all three documents carry the enrolled-hospital-operator block, byte-
   expect_match(blocks[["spec"]], "ACADEMIC_HEALTH_CENTER", fixed = TRUE)
   expect_match(blocks[["spec"]], "never matched by machine", fixed = TRUE)
   expect_match(blocks[["spec"]], "ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM", fixed = TRUE)
+  expect_match(blocks[["spec"]], "that form\nstands", fixed = TRUE)
 })

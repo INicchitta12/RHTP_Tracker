@@ -30,11 +30,15 @@
 #   the build refuses an unread one -- the §0.1 mode-6 sweep's design
 #   (SWEEP_VERDICTS): a sweep FLAGS and a human READS.
 #
-# WHERE A STATE SOURCE STATES A DIFFERENT FORM, THE ROW IS HELD, NOT RE-CODED.
+# WHERE THE AWARDING STATE STATES A DIFFERENT FORM, THE STATE'S FORM STANDS.
 #   Alaska's own Organization Type column ("Tribal Health Organization", "State
-#   Agency") and Oregon's Rural Health Clinic table are state primary sources.
-#   Two primary sources disagree and neither reading is recognition, so those
-#   rows are queued (ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM) for the owner.
+#   Agency") and Oregon's Rural Health Clinic table are the awarding state's own
+#   award documents. Session 71 queued the disagreement
+#   (ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM); session 72 resolved it at
+#   option (a) on the owner's instruction and patched §10.2 with the precedence
+#   rule: the state's stated form stands, and the CMS enrolment is RECORDED on
+#   the row (cms_enrolment_record) without re-typing it. cms_enrolment_match
+#   stays empty on those rows, because it means "re-typed on the enrolment".
 #
 # REBUILD ORDER. builder -> session 49's vq_overlay() -> (state's own post-steps,
 # e.g. ar_resolve_narhc) -> s71_overlay(). `--apply` patches the committed
@@ -55,6 +59,7 @@ suppressPackageStartupMessages({
 
 EH_TAG <- "RECIPIENT TYPE FROM CMS HOSPITAL ENROLMENT (session 71)"
 EH_WD_TAG <- "OTHER WITHDRAWN (session 71)"
+EH_HOLD_TAG <- "STATE-STATED FORM STANDS OVER CMS ENROLMENT (session 72)"
 EH_NEW_COLS <- c("recipient_subtype", "cms_enrolment_match",
                  "cms_enrolment_record")
 
@@ -172,10 +177,10 @@ EH_APPLY <- tibble::tribble(
   # --- enrolled hospital operators that are not academic health centres ---------
   "al_year1_awardees.csv", "AltaPointe Health Systems Inc.", 1L,
     "014014", "ALTAPOINTE HEALTH SYSTEMS INC (dba BAYPOINTE BEHAVIORAL HEALTH; also EASTPOINTE HOSPITAL, 014017)",
-    "EXACT_LEGAL_NAME", FALSE, "Session 12's curated override held this row back because 'the release does not state which entity received the grant'. CMS answers that: the entity the release names, AltaPointe Health Systems Inc, is itself the enrolled psychiatric hospital operator. ",
+    "EXACT_LEGAL_NAME", FALSE, "Session 12's curated override held this row back because 'the release does not state which entity received the grant'. CMS answers that: the entity the release names, AltaPointe Health Systems Inc, is itself the enrolled psychiatric hospital operator. OWNER-ACCEPTED (session 72): the governor's release states no form for AltaPointe, so no state source contradicts the enrolment and §10.2's precedence rule leaves CMS to decide; the grant is to the legal entity that holds the enrolment, whichever of its programmes the project funds (§0.3a). ",
   "al_year1_awardees.csv", "AltaPointe Health Systems", 2L,
     "014014", "ALTAPOINTE HEALTH SYSTEMS INC (dba BAYPOINTE BEHAVIORAL HEALTH; also EASTPOINTE HOSPITAL, 014017)",
-    "EXACT_LEGAL_NAME", FALSE, "Session 12's curated override held this row back because 'the release does not state which entity received the grant'. CMS answers that: the entity the release names, AltaPointe Health Systems Inc, is itself the enrolled psychiatric hospital operator. ",
+    "EXACT_LEGAL_NAME", FALSE, "Session 12's curated override held this row back because 'the release does not state which entity received the grant'. CMS answers that: the entity the release names, AltaPointe Health Systems Inc, is itself the enrolled psychiatric hospital operator. OWNER-ACCEPTED (session 72): the governor's release states no form for AltaPointe, so no state source contradicts the enrolment and §10.2's precedence rule leaves CMS to decide; the grant is to the legal entity that holds the enrolment, whichever of its programmes the project funds (§0.3a). ",
   "ak_year1_awardees.csv", "Providence Health & Services- Washington", 1L,
     "020001", "PROVIDENCE HEALTH & SERVICES WASHINGTON (dba PROVIDENCE ALASKA MEDICAL CENTER)",
     "EXACT_LEGAL_NAME", FALSE, "Alaska's own Organization Type on this project names only a service line ('Family medicine or primary care'), so the row sat on §8's fallback; five other rows for the same string are already HOSPITAL_OR_SYSTEM on Alaska's 'Hospital (all types)'. ",
@@ -193,30 +198,33 @@ EH_APPLY <- tibble::tribble(
     "LEGAL_NAME_TRUNCATED", FALSE, "HAND-READ BRIDGE: the enrolled legal name less 'a Nevada nonprofit corporation', which is a statement of form, not a different body; rows 23 and 24 carry the long form as HOSPITAL_OR_SYSTEM already. "
 )
 
-#' Sweep hits HELD: a state primary source states a different form, so two
-#' primary sources disagree and neither reading is recognition. Queued as
-#' ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM; NOT re-coded.
+#' Sweep hits HELD: the awarding state's own document states a different form.
+#' Session 72 (owner): the state's form stands (§10.2 precedence rule); the
+#' enrolment is recorded on the row, NOT used to re-type it. `ccn` is the
+#' enrolment the sweep found; its record is read from the archived file and
+#' written into cms_enrolment_record only (never into `ccn`, which Stage 5 will
+#' read as a hospital match).
 EH_HOLD <- tibble::tribble(
-  ~file, ~awardee, ~reason,
-  "ak_year1_awardees.csv", "Bristol Bay Area Health Corporation",
+  ~file, ~awardee, ~ccn, ~reason,
+  "ak_year1_awardees.csv", "Bristol Bay Area Health Corporation", "021309",
     "Alaska's own Organization Type on this project states 'Tribe and/or Tribal Health Organization'; two other BBAHC projects are typed HOSPITAL_OR_SYSTEM on Alaska's 'Hospital' token. Session 12 kept Alaska's per-project value and harmonised in neither direction (RECIPIENT_TYPE_VARIES_IN_SOURCE). CMS: CCN 021309, Kanakanak Hospital (CAH).",
-  "ak_year1_awardees.csv", "Alaska Native Tribal Health Consortium",
+  "ak_year1_awardees.csv", "Alaska Native Tribal Health Consortium", "020026",
     "Alaska's own Organization Type on this project states 'Tribal Health Organization'; three other ANTHC projects are HOSPITAL_OR_SYSTEM on Alaska's 'Hospital (all types)'. Session 12's per-project rule. CMS: CCN 020026, Alaska Native Medical Center.",
-  "ak_year1_awardees.csv", "Arctic Slope Native Association",
+  "ak_year1_awardees.csv", "Arctic Slope Native Association", "021312",
     "Alaska's own Organization Type states 'Tribal Health Organization'. CMS: ARCTIC SLOPE NATIVE ASSOCIATION LTD, CCN 021312, Samuel Simmonds Memorial Hospital (CAH).",
-  "ak_year1_awardees.csv", "Alaska Psychiatric Institute, Department of Family & Community Services",
+  "ak_year1_awardees.csv", "Alaska Psychiatric Institute, Department of Family & Community Services", "024002",
     "Alaska's own Organization Type states 'State Agency', and the awardee names a state department. CMS enrols API as a DBA of the STATE OF ALASKA DEPARTMENT OF ADMINISTRATION (CCN 024002), a different department: a DBA match, not the legal entity the award names.",
-  "or_year1_awardees.csv", "Lake Health District",
+  "or_year1_awardees.csv", "Lake Health District", "381309",
     "OHA pays this award from its Rural Health Clinic pool under its own Organization Type 'Rural Health Clinic' (session 17 recorded the 23 hospital-owned RHCs and did not re-code them). CMS: CCN 381309, Lake District Hospital (CAH).",
-  "or_year1_awardees.csv", "Providence Hood River Memorial Hospital",
+  "or_year1_awardees.csv", "Providence Hood River Memorial Hospital", "381318",
     "OHA's Rural Health Clinic table, Organization Type 'Rural Health Clinic'. CMS carries the string as a DBA of PROVIDENCE HEALTH & SERVICES OREGON (CCN 381318), not as a legal name.",
-  "or_year1_awardees.csv", "Providence Seaside Hospital - Providence Cannon Beach Clinic",
+  "or_year1_awardees.csv", "Providence Seaside Hospital - Providence Cannon Beach Clinic", "381303",
     "OHA's Rural Health Clinic table; the awardee is a clinic SITE of Providence Seaside Hospital (a DBA of Providence Health & Services Oregon, CCN 381303).",
-  "or_year1_awardees.csv", "Providence Seaside Hospital - Providence Seaside Clinic",
+  "or_year1_awardees.csv", "Providence Seaside Hospital - Providence Seaside Clinic", "381303",
     "OHA's Rural Health Clinic table; the awardee is a clinic SITE of Providence Seaside Hospital (a DBA of Providence Health & Services Oregon, CCN 381303).",
-  "or_year1_awardees.csv", "Providence Seaside Hospital - Providence Warrenton Clinic",
+  "or_year1_awardees.csv", "Providence Seaside Hospital - Providence Warrenton Clinic", "381303",
     "OHA's Rural Health Clinic table; the awardee is a clinic SITE of Providence Seaside Hospital (a DBA of Providence Health & Services Oregon, CCN 381303).",
-  "or_year1_awardees.csv", "Saint Alphonsus Medical Center - Baker City",
+  "or_year1_awardees.csv", "Saint Alphonsus Medical Center - Baker City", "381315",
     "OHA's Rural Health Clinic table, Organization Type 'Rural Health Clinic'. CMS enrols SAINT ALPHONSUS MEDICAL CENTER - BAKER CITY INC (CCN 381315, a CAH) -- a legal-name match, held for the same reason as Lake Health District."
 )
 
@@ -283,6 +291,15 @@ eh_assert_read <- function(sweep) {
          "verdict: ", paste0(unread$file, ": ", unread$awardee, collapse = "; "),
          ". Read each and add it to EH_APPLY or EH_HOLD.", call. = FALSE)
   }
+  # A held row records the enrolment the sweep found, so its CCN must be it.
+  held <- EH_HOLD %>% dplyr::inner_join(sweep %>% dplyr::distinct(file, awardee, sweep_ccn = ccn),
+                                        by = c("file", "awardee"))
+  if (nrow(held) != nrow(EH_HOLD) || any(held$ccn != held$sweep_ccn)) {
+    stop("[03bj] EH_HOLD CCN(s) disagree with the sweep, or a held row is no ",
+         "longer swept: ", paste(setdiff(EH_HOLD$awardee,
+                                         held$awardee[held$ccn == held$sweep_ccn]),
+                                 collapse = "; "), call. = FALSE)
+  }
   exact <- EH_APPLY %>% dplyr::filter(.data$match == "EXACT_LEGAL_NAME") %>%
     dplyr::select(file, awardee)
   stale <- exact %>% dplyr::anti_join(sweep, by = c("file", "awardee"))
@@ -315,11 +332,12 @@ eh_flags <- function(fr, add = NULL, drop = NULL, empty = NA_character_) {
 s71_overlay <- function(d, file, empty = NA_character_) {
   ap <- EH_APPLY %>% dplyr::filter(.data$file == !!file)
   wd <- EH_OTHER_WITHDRAWN %>% dplyr::filter(.data$file == !!file)
-  if (!nrow(ap) && !nrow(wd)) return(d)
+  ho <- EH_HOLD %>% dplyr::filter(.data$file == !!file)
+  if (!nrow(ap) && !nrow(wd) && !nrow(ho)) return(d)
   cf <- eh_conf_col(d)
   has <- function(x) x %in% names(d)
   for (cc in c("basis_type", EH_NEW_COLS)) {
-    if (cc %in% EH_NEW_COLS && !nrow(ap)) next
+    if (cc %in% EH_NEW_COLS && !nrow(ap) && !nrow(ho)) next
     if (!has(cc)) d[[cc]] <- if (is.na(empty)) NA_character_ else empty
   }
   if (has("ccn")) d$ccn <- as.character(d$ccn)
@@ -414,25 +432,64 @@ s71_overlay <- function(d, file, empty = NA_character_) {
       }
     }
   }
+
+  # 3. the awarding state states another form -> the state's form stands and
+  #    the enrolment is RECORDED, not applied (§10.2 precedence rule, session
+  #    72). recipient_type, flow, confidence, flags and `ccn` are untouched;
+  #    cms_enrolment_match stays empty because it means "re-typed on it".
+  for (i in seq_len(nrow(ho))) {
+    # Only the rows whose state-stated form is NOT a hospital: the same string
+    # on another project that the state itself types 'Hospital' (Alaska's
+    # per-project rule, session 12) is already HOSPITAL_OR_SYSTEM and untouched.
+    k <- which(d$awardee == ho$awardee[i] & d$recipient_type != "HOSPITAL_OR_SYSTEM")
+    if (!length(k)) stop("[03bj] ", file, ": no non-hospital '", ho$awardee[i],
+                         "' row to record the enrolment on", call. = FALSE)
+    rec <- EH_ENROL_RECORD[[ho$ccn[i]]]
+    for (r in k) {
+      d$cms_enrolment_record[r] <- paste0(
+        "CMS Hospital Enrollments: ", rec, ". RECORDED, NOT APPLIED: the awarding ",
+        "state's own award document states another form, and under §10.2's ",
+        "precedence rule that form stands (session 72).")
+      if (!grepl(EH_HOLD_TAG, d[[bcol]][r], fixed = TRUE)) {
+        prior <- d[[bcol]][r]
+        d[[bcol]][r] <- paste0(
+          if (!eh_blank(prior)) paste0(prior, " ") else "",
+          EH_HOLD_TAG, ": ", d$recipient_type[r], " stands on the state's own ",
+          "document. ", ho$reason[i], " §10.2 'Academic health centers and ",
+          "enrolled hospital operators': where the awarding state's award document ",
+          "states the recipient's form, that form stands and the CMS enrolment is ",
+          "recorded in cms_enrolment_record without re-typing the row. ",
+          "Owner decision, ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM option (a).")
+      }
+    }
+  }
   d
 }
 
-#' Where each CCN's record is archived (filled at source time from the files)
+#' Where each CCN's record is archived (filled at source time from the files).
+#' Held CCNs also carry the enrolled name, read from the file, because their
+#' rows record the enrolment without a hand-typed cms_org.
 EH_ENROL_RECORD <- local({
   e <- tryCatch(eh_enrolments(), error = function(err) NULL)
   if (is.null(e)) list() else {
-    ccns <- unique(EH_APPLY$ccn)
-    stats::setNames(lapply(ccns, function(cc) {
+    rec <- function(cc, named) {
       r <- e[e$ccn == cc, ][1, ]
-      if (!nrow(r) || is.na(r$org)) "record not found in the archived extracts"
-      else paste0(r$enrol_file, " (", r$ptype, ")")
-    }), ccns)
+      if (!nrow(r) || is.na(r$org)) return("record not found in the archived extracts")
+      where <- paste0(r$enrol_file, " (", r$ptype, ")")
+      if (!named) return(where)
+      paste0(r$org, if (!is.na(r$dba) && nzchar(r$dba)) paste0(" (dba ", r$dba, ")") else "",
+             ", CCN ", cc, "; ", where)
+    }
+    a <- unique(EH_APPLY$ccn)
+    h <- setdiff(unique(EH_HOLD$ccn), a)
+    c(stats::setNames(lapply(a, rec, named = FALSE), a),
+      stats::setNames(lapply(h, rec, named = TRUE), h))
   }
 })
 
 # -- committed files ---------------------------------------------------------------
 
-EH_FILES <- function() unique(c(EH_APPLY$file, EH_OTHER_WITHDRAWN$file))
+EH_FILES <- function() unique(c(EH_APPLY$file, EH_OTHER_WITHDRAWN$file, EH_HOLD$file))
 
 eh_read_raw <- function(f) {
   readr::read_csv(here::here("data/reference", f),

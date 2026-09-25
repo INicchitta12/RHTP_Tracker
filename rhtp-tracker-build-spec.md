@@ -1094,12 +1094,25 @@ matched:
   *"UAB Montgomery"*, *"OHSU Casey Eye Institute"*, *"University of Michigan:
   MEDIC"*. The enrolled legal entity is the Regents of the University of
   Michigan, and the awardee string does not name it.
-- **A row whose state source states a different form.** Examples: Alaska's own
-  Organization Type column saying *"Tribal Health Organization"*, or Oregon
+- **A row whose awarding state states a different form.** Examples: Alaska's
+  own Organization Type column saying *"Tribal Health Organization"*, or Oregon
   paying a hospital-owned clinic from its Rural Health Clinic pool under the
-  type *"Rural Health Clinic"*. There two primary sources disagree, and neither
-  reading is recognition. Those rows are held and queued as
-  `ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM`, not re-coded.
+  type *"Rural Health Clinic"*. There two primary sources disagree, and the
+  precedence rule below decides it.
+
+**Precedence when the state and CMS disagree (session 72).** Where the
+awarding state's own award document states the recipient's form, **that form
+stands**. The CMS enrolment is recorded on the row, in `cms_enrolment_record`
+(legal name, DBA, CCN, archived file), and does not re-type it.
+`cms_enrolment_match` and `ccn` stay empty, because both mean the row was
+re-typed on the enrolment. The CMS enrolment decides only where the state
+states no form, as for AltaPointe Health Systems (CCN 014014), whose
+governor's release names the entity and says nothing of its form. The reason
+is that the award document is the source of record for what the state awarded
+and to whom (§0.1). Its statement of the form is part of the award; an
+enrolment says what else the legal entity operates. This settled
+`ENROLLED_HOSPITAL_STATE_STATED_OTHER_FORM` at option (a): ten Alaska and
+Oregon rows keep their state-stated coding, and $0 moved.
 
 #### The eligible class of a pass-through, and when a hospital is required
 
