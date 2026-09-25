@@ -1,0 +1,29 @@
+Arkansas -- the SECOND Year 1 round: RISE AR and HEART. Archived by session 68
+after the AR Routine's 2026-09-24 20:22Z TRIPWIRE (home page names "RISE AR and
+HEART Project Impact"). READ, NOT EXTRACTED: the owner asked for a report first.
+User-agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+Throttle: 10s (the host's own Crawl-delay). Bodies byte for byte as served.
+Credential guard (AR_CREDENTIAL_SHAPES) run on every file: no hits.
+
+URLs:
+  award list  https://arkansasrhtp.com/wp-content/uploads/2026/09/ada_Year-1-Award-totals.pdf (Last-Modified 2026-09-24 17:58:23 GMT)
+  county map  https://arkansasrhtp.com/wp-content/uploads/2026/09/ada_Arkansas_RISE_HEART_County_Map_Clean.pdf
+  home        https://arkansasrhtp.com/
+  governor    https://governor.arkansas.gov/news_post/sanders-announces-54-6-million-awarded-in-rural-health-transformation-funds/
+
+WHAT IT SAYS. DF&A's list, columns Organization | RISE AR | HEART | Totals:
+38 organisations, 43 organisation x initiative actions, RISE AR $27,213,468.74,
+HEART $27,471,600.10, Total $54,685,068.84 -- every row and both columns close
+to the list's own Total: row to the cent. Same producer shape as round 1: the
+three amount columns weld under rhtp_pdf_lines(), so the RUN model is needed.
+Governor 2026-09-24: "$54.6 million", HEART 30 projects $27.4M (30 priced, sum
+$27,471,600.10 = the list), RISE AR 24 projects $27.2M -- but only 23 priced
+amounts in the prose, summing $27,009,948.74, $203,520.00 SHORT of the list's
+RISE column. UNRESOLVED. "this round of funding completes the distribution of
+the $208 million awarded to Arkansas this year."
+
+SHA-256:
+9e325ae6b40f85b78f81fbcec7bba5cde1cce5f5627e5fd071c2d38e97871f9d  2026-09-24_ar_dfa_year1_rise_heart_award_list.pdf
+e37e4b9a6f11c4cc61101bd2e96f32e722b98aa4111440acc8790c55fb0bca97  2026-09-24_ar_dfa_year1_rise_heart_by_county_map.pdf
+995b661729e24c54f24f12f5adb31aff4a51fa4bc0012d9c80fdc2236afae6c0  2026-09-24_governor_sanders_54_6_million_awarded.html
+c688b6a07ac3dba7fde64508b1ad0d8de22400d64de0bae26786714d240e9f04  2026-09-25_ar_rhtp_home.html
