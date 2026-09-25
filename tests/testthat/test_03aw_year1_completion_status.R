@@ -15,7 +15,10 @@ test_that("every EXTRACTED state has exactly one status row, and no other state 
 })
 
 test_that("COMPLETE rests on a statement AND no recorded remainder -- never on a percentage", {
-  expect_setequal(status$state[status$year1_status == "COMPLETE"], c("FL", "GA"))
+  # Session 69: Arkansas is the third, on the Governor's "completes the
+  # distribution of the $208 million" and four initiatives all awarded.
+  expect_setequal(status$state[status$year1_status == "COMPLETE"],
+                  c("AR", "FL", "GA"))
   bad <- Y1_STATUS
   bad$year1_status[bad$state == "AK"] <- "COMPLETE"   # 87.9% of allotment, rolling
   expect_error(y1_assert_status(bad), "COMPLETE without")
@@ -35,6 +38,16 @@ test_that("the completeness sentences are in the archived sources", {
                "awarded the full scope of Florida", fixed = TRUE)
   expect_match(txt("data/evidence/GA/2026-08-27_great_health_phase4_awards.html"),
                "complete the initial Year 1 award cycle", fixed = TRUE)
+  expect_match(txt("data/evidence/recheck/2026-09-25/AR/2026-09-24_governor_sanders_54_6_million_awarded.html"),
+               "completes the distribution of the $208 million", fixed = TRUE)
+})
+
+test_that("Arkansas's two rounds are both counted, and the remainder is not an initiative", {
+  ar <- status[status$state == "AR", ]
+  expect_equal(ar$published_priced, 203862687.29)
+  expect_equal(ar$pct_priced, 97.6)
+  expect_equal(ar$rows, 80)
+  expect_match(ar$evidence, "ar_year1_allotment_gap.csv", fixed = TRUE)
 })
 
 test_that("figures are recomputed from the award files, and Georgia is summed per pool", {
@@ -49,7 +62,14 @@ test_that("figures are recomputed from the award files, and Georgia is summed pe
 })
 
 test_that("the hospital share is reported for COMPLETE states only, as a bounded range", {
-  expect_setequal(share$state, c("FL", "GA"))
+  expect_setequal(share$state, c("AR", "FL", "GA"))
+  # Arkansas: both rounds' NAMED_HOSPITAL rows over both rounds' awards. No
+  # priced row is Unclear, so the ceiling equals the floor; the open queue
+  # rows (AR_R2_QUEUED_FORM, AR_R2_RECIPIENT_FORM_NOT_STATED) are all `No`
+  # and are reported beside this, not inside it.
+  expect_equal(share$share_floor_pct[share$state == "AR"], 54.6)
+  expect_equal(share$named_hospital_rows[share$state == "AR"], 30)
+  expect_equal(round(share$named_hospital_usd[share$state == "AR"], 2), 111276895.52)
   expect_true(all(share$share_floor_pct <= share$share_ceiling_pct))
   expect_equal(share$share_floor_pct[share$state == "FL"], 26.2)
   # session 58 settled Florida's five Unclear rows, so its ceiling IS its floor

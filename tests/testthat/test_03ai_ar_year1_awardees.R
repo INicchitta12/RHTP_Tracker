@@ -347,20 +347,28 @@ test_that("the unstated-form question is 16 organisations / $100,723,693.49, one
   expect_true(ar_assert_form_not_stated_queued(rows))
 })
 
-test_that("both Arkansas questions are in the review queue and OPEN", {
+test_that("the Arkansas questions are in the review queue, ARHP RESOLVED (session 69)", {
   q <- readr::read_csv(
     here::here("data", "reference", "classification_review_queue.csv"),
     show_col_types = FALSE, progress = FALSE)
   ar <- q[q$state == "AR", ]
-  expect_equal(nrow(ar), 2L)
+  expect_equal(nrow(ar), 4L)
   expect_setequal(ar$question_id,
-                  c("AR_RECIPIENT_FORM_NOT_STATED", "AR_ARHP_CONSORTIUM_FLOW"))
+                  c("AR_RECIPIENT_FORM_NOT_STATED", "AR_ARHP_CONSORTIUM_FLOW",
+                    "AR_R2_QUEUED_FORM", "AR_R2_RECIPIENT_FORM_NOT_STATED"))
+  expect_true(all(ar$queue_status[startsWith(ar$question_id, "AR_R2_")] == "OPEN"))
   # SESSION 49: the FORM question is RESOLVED -- 9 rows / $70,613,226 moved
   # and Arkansas became the largest named-hospital state. The CONSORTIUM
   # question is a FLOW question and is untouched by a typing answer.
   expect_equal(ar$queue_status[ar$question_id == "AR_RECIPIENT_FORM_NOT_STATED"],
                "RESOLVED")
-  expect_equal(ar$queue_status[ar$question_id == "AR_ARHP_CONSORTIUM_FLOW"], "OPEN")
+  # SESSION 69: the consortium FLOW question is RESOLVED at option (c), on the
+  # Governor's eight project descriptions and ARHP's own membership class.
+  expect_equal(ar$queue_status[ar$question_id == "AR_ARHP_CONSORTIUM_FLOW"],
+               "RESOLVED")
+  expect_true(grepl("OPTION (c)", ar$resolution[ar$question_id ==
+                                                  "AR_ARHP_CONSORTIUM_FLOW"],
+                    fixed = TRUE))
   expect_true(all(nzchar(ar$dollar_effect)))
   expect_true(all(nzchar(ar$why_it_is_open)))
   # The consortium question is a FLOW question, not §8 typing, and its row
@@ -370,7 +378,7 @@ test_that("both Arkansas questions are in the review queue and OPEN", {
   expect_true(grepl("18,833,521", arhp$dollar_effect, fixed = TRUE))
 })
 
-test_that("the consortium row is flagged and in NEITHER bucket", {
+test_that("the consortium row, as BUILT before session 69's flow resolution, is flagged and in NEITHER bucket", {
   skip_without_archive()
   rows <- ar_award_rows()
   got <- rows[rows$awardee == AR_CONSORTIUM, ]
@@ -623,9 +631,14 @@ test_that("the status table has FOUR initiatives and NO `amount` column", {
   expect_equal(nrow(st), 4L)
   expect_false("amount" %in% names(st))
   expect_true("initiative_awarded_total" %in% names(st))
-  expect_equal(sum(st$stage == "AWARDED_ROSTER_PUBLISHED"), 2L)
-  expect_equal(sum(st$stage == "CLOSED_NO_AWARD_DATE_PUBLISHED"), 2L)
+  # SESSION 69: RISE AR and HEART awarded on 2026-09-24, so all four read
+  # AWARDED, in two rounds. Neither round had a published award date.
+  expect_equal(sum(st$stage == "AWARDED_ROSTER_PUBLISHED"), 4L)
+  expect_equal(sum(st$stage == "CLOSED_NO_AWARD_DATE_PUBLISHED"), 0L)
+  expect_equal(sort(st$award_round), c(1L, 1L, 2L, 2L))
   expect_true(all(st$award_date_published == "No"))
+  expect_equal(round(sum(st$initiative_awarded_total), 2),
+               round(AR_TOTAL_YR1 + AR_R2_TOTAL, 2))
 })
 
 test_that("the disposition covers every live candidate, re-derived", {
@@ -774,4 +787,147 @@ test_that("every categorical value is inside §8", {
     expect_true(fr %in% vocab$allowed_value[vocab$column_name == "flag_reason"],
                 info = fr)
   }
+})
+
+
+# == ROUND 2: RISE AR and HEART (session 69) ================================
+
+skip_without_r2 <- function() {
+  if (!file.exists(ar_path("roster2")) || !file.exists(ar_path("governor2"))) {
+    skip("the AR round-2 archive is not on disk")
+  }
+}
+
+test_that("round 2 is 38 organisations, 43 actions, and closes on its own Total row", {
+  skip_without_r2()
+  parts <- ar_r2_roster_parts()
+  expect_equal(nrow(parts$awards), AR_R2_ORG_COUNT)
+  expect_equal(round(parts$total$total, 2), AR_R2_TOTAL)
+  expect_equal(round(sum(parts$awards$rise), 2), AR_R2_TOTAL_RISE)
+  expect_equal(round(sum(parts$awards$heart), 2), AR_R2_TOTAL_HEART)
+  expect_true(ar_r2_assert_reconciles())
+  expect_true(ar_r2_assert_line_model_merges())
+})
+
+test_that("the round-2 row model spans line breaks, and refuses interleaving", {
+  skip_without_r2()
+  # Rows are painted four different ways; e.g. Arkansas Doulas's third
+  # amount sits on the next line, and Ozark Healthy Hub's amounts split 1 + 2.
+  L <- rhtp_pdf_lines(ar_path("roster2"))
+  expect_true(any(L$text == "$850,000.00"))
+  d <- ar_r2_roster_parts()$awards
+  expect_equal(d$total[d$label == "Arkansas Doulas, LLC"], 850000)
+  expect_equal(d$total[d$label == "Ozark Healthy Hub"], 237000)
+  # Interleaving is refused: splice a name run between two amount cells.
+  r <- ar_runs("roster2")
+  i <- which(trimws(r$text) == "$450,657.00")[1]
+  bad <- rbind(r[seq_len(i - 1L), ], r[i, ], r[i, ], r[seq.int(i, nrow(r)), ])
+  bad$text[i] <- "An Interloper"
+  assign("roster2", bad, envir = ar_pdf_cache)
+  on.exit(ar_r2_reset_cache(), add = TRUE)
+  expect_error(ar_r2_roster(), "interleaved|re-read|ends mid-row|3 amounts")
+})
+
+test_that("the Governor's 54 projects close ONLY when Conway's '$203, 520.00' is read", {
+  skip_without_r2()
+  expect_true(ar_r2_assert_projects_reconcile())
+  strict <- ar_r2_projects(pattern = AR_R2_STRICT_RE)
+  expect_equal(sum(is.na(strict$amount)), 1L)
+  expect_equal(strict$awardee_as_published[is.na(strict$amount)],
+               AR_R2_MALFORMED_ORG)
+  # Session 68's gap, reproduced to the cent.
+  expect_equal(round(AR_R2_TOTAL_RISE -
+                       sum(strict$amount[strict$pool == "RISE AR"], na.rm = TRUE), 2),
+               AR_R2_MALFORMED_AMOUNT)
+  p <- ar_r2_projects_joined()
+  conway <- p[p$awardee == AR_R2_MALFORMED_ORG & p$pool == "RISE AR", ]
+  expect_equal(nrow(conway), 4L)
+  expect_equal(sum(conway$amount), 761440)
+  # And the $15,000 inside a description is NOT read as the award.
+  expect_false(any(p$amount == 15000))
+})
+
+test_that("round 2 is RHTP in its own words and says Year 1 is complete", {
+  skip_without_r2()
+  expect_true(ar_r2_assert_provenance())
+  expect_true(grepl(AR_R2_COMPLETES_QUOTE, ar_html_text("governor2"),
+                    fixed = TRUE))
+  expect_true(ar_r2_assert_award_index())
+  three <- sub("</body>", paste0("<p>", AR_ROSTER_LINK_TEXT, "</p></body>"),
+               ar_read_text("home2"), fixed = TRUE)
+  expect_error(ar_r2_assert_award_index(html = three), "THIRD")
+})
+
+test_that("round 2's hospital rows are 12 / $18,870,981.65, and the queued three are No", {
+  skip_without_r2()
+  r <- ar_r2_award_rows()
+  expect_equal(nrow(r), AR_R2_ACTION_COUNT)
+  expect_equal(round(sum(r$amount), 2), AR_R2_TOTAL)
+  p <- rhtp_hospital_dollar_partition(r)
+  expect_equal(p$rows[p$bucket == "NAMED_HOSPITAL"], 12L)
+  expect_equal(round(p$dollars[p$bucket == "NAMED_HOSPITAL"], 2), 18870981.65)
+  for (nm in AR_R2_QUEUED) {
+    expect_true(all(r$distributed_to_hospital[r$awardee == nm] == "No"), info = nm)
+  }
+  # North Arkansas Rural Health Consortium is NOT carried from round 1.
+  n <- r[r$awardee == "North Arkansas Rural Health Consortium", ]
+  expect_equal(n$recipient_type, "NONPROFIT_CBO")
+  expect_true(grepl("RECIPIENT_TYPE_INFERRED", n$flag_reason))
+  # St. Bernards is a hospital under the foundation policy, carried exactly.
+  sb <- r[r$awardee == "St. Bernards Development Foundation", ]
+  expect_equal(nrow(sb), 2L)
+  expect_true(all(sb$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(sb$distributed_to_hospital == "Yes"))
+  expect_true(all(sb$basis_type == "GENERAL_KNOWLEDGE"))
+  expect_true(all(sb$determination_confidence == "LOW"))
+  # The pediatrics chapter is overridden to the fallback, not a practice.
+  aap <- r[r$awardee == "Arkansas Chapter, American Academy of Pediatrics", ]
+  expect_equal(aap$recipient_type, "NONPROFIT_CBO")
+  expect_true(ar_r2_assert_hospital_rows(r))
+})
+
+test_that("ARHP's flow is resolved at option (c) and moves no dollar", {
+  skip_without_r2()
+  expect_true(ar_assert_arhp_flow_evidence())
+  r1 <- readr::read_csv(AR_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  r2 <- readr::read_csv(AR_R2_CSV, show_col_types = FALSE, progress = FALSE)
+  a <- dplyr::bind_rows(
+    r1[r1$awardee == AR_CONSORTIUM, c("award_pool", "amount", "flow_type",
+                                       "distributed_to_hospital", "flag_reason")],
+    r2[r2$awardee == AR_CONSORTIUM, c("award_pool", "amount", "flow_type",
+                                       "distributed_to_hospital", "flag_reason")])
+  expect_equal(nrow(a), 4L)
+  expect_equal(round(sum(a$amount), 2), 20882186)
+  expect_true(all(a$distributed_to_hospital == "No"))
+  expect_setequal(a$flow_type, c("IN_KIND_BENEFIT", "NON_HOSPITAL"))
+  expect_false(any(grepl("FLOW_UNRESOLVED", a$flag_reason)))
+  # The counterfactual: no ARHP project reads as a pass-through even in the
+  # hostile setting.
+  d <- ar_r2_projects_joined()
+  d <- d$project_description[d$awardee == AR_CONSORTIUM]
+  f <- rhtp_classify_flow(rep("NONPROFIT_CBO", length(d)), d, award_made = TRUE)
+  expect_false(any(grepl("^PASS_THROUGH", f$flow_type)))
+})
+
+test_that("the committed round-1 file is the builder + session 49 overlay + the ARHP flow", {
+  skip_without_r2()
+  vq <- new.env()
+  suppressMessages(source(here::here("R", "03ap_verification_queue_2.R"),
+                          local = vq))
+  built <- ar_resolve_arhp_flow(
+    vq$vq_overlay(ar_award_rows(), "ar_year1_awardees.csv"), 1L)
+  tmp <- tempfile(fileext = ".csv")
+  readr::write_csv(built, tmp, na = "")
+  expect_identical(unname(tools::md5sum(tmp)), unname(tools::md5sum(AR_OUT_CSV)))
+})
+
+test_that("the allotment remainder decomposes, and only $4.68M of it is sourced", {
+  skip_without_r2()
+  g <- ar_gap_table()
+  rem <- g$usd[g$component == "REMAINDER"]
+  expect_equal(rem, 4916708.71)
+  expect_equal(g$usd[g$basis == "PLAN"], 4680988)
+  expect_equal(round(sum(g$usd[g$basis == "UNEXPLAINED"]), 2), 235720.73)
+  on_disk <- readr::read_csv(AR_GAP_CSV, show_col_types = FALSE, progress = FALSE)
+  expect_equal(on_disk$usd, g$usd)
 })

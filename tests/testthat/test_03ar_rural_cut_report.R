@@ -15,9 +15,11 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # $35,275,076 (none rural: no NJ awardee is a CAH or REH). Session 63: +
   # Indiana's 44 UNPRICED GROW hospital rows ($0). Session 64: + NV 15
   # unpriced, NE 6 / $1,825,002.28 (Initiative 5.3), SD 5 / $716,800 (Rural
-  # Strong) -- 1,140 rows / $940,203,621.03 / 28 states.
-  expect_equal(nrow(rows), 1140L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 940203621.03,
+  # Strong) -- 1,140 rows / $940,203,621.03 / 28 states. Session 69: +
+  # Arkansas round 2 (RISE AR / HEART), 12 rows / $18,870,981.65, none with a
+  # recorded rural designation -- 1,152 / $959,074,602.68.
+  expect_equal(nrow(rows), 1152L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 959074602.68,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -92,6 +94,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1140L)
+  expect_equal(nrow(committed), 1152L)
   expect_equal(committed$rural_class, rows$rural_class)
 })
