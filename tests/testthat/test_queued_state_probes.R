@@ -178,3 +178,26 @@ test_that("all five new states are registered with a probe that logs", {
   r <- readr::read_csv(here::here("config", "routines.csv"), show_col_types = FALSE)
   expect_true(all(c("CO", "ND", "VA", "WA", "TN") %in% r$state))
 })
+
+test_that("session 74: VA's ways-to-apply table is diffed on its PARTNER column, not its flattened text", {
+  suppressMessages(source(here::here("R", "03bb_va_year1_probe.R")))
+  f <- here::here(VA_PAGES$file[VA_PAGES$key == "ways_to_apply"])
+  arch <- paste(readLines(f, warn = FALSE), collapse = "\n")
+  p <- va_wta_partners(arch)
+  expect_length(p, 10L)
+  vaf <- readr::read_csv(here::here("data/reference/va_year1_awardees.csv"),
+                         show_col_types = FALSE)
+  # Every partner but the Commonwealth itself is a first-tier partner already
+  # in the file; 'Virginia Hospital and Healthcare Foundation' is the file's
+  # 'Virginia Hospital Research and Education Foundation (d/b/a VHHA
+  # Foundation)', matched by hand (§2).
+  expect_setequal(setdiff(p, vaf$awardee),
+                  c("Commonwealth of VA", "Virginia Hospital and Healthcare Foundation"))
+  expect_true(any(grepl("VHHA Foundation", vaf$awardee, fixed = TRUE)))
+  # A status change is silent ...
+  st <- sub("Closed (August 31st 2026)", "Closed", arch, fixed = TRUE)
+  expect_silent(va_assert_wta_partners(st, arch))
+  # ... a new partner is not.
+  np <- sub("Virginia Works", "Ballad Health", arch, fixed = TRUE)
+  expect_error(va_assert_wta_partners(np, arch), "NEW IMPLEMENTATION PARTNER")
+})

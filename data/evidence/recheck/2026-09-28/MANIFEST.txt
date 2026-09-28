@@ -1,0 +1,2 @@
+cc66969de4acb11d2c9eff8e15b98b5de7e7632b4073042580e7b40777bc8858  ./VT/vt_year1_awards.html
+263cdbc2ab0ae9084e2444b268d8b6eb1a86848854d5b0640b645fec4557dc41  ./MD/md_governor_rhtp_first_round_2026-08-10.html

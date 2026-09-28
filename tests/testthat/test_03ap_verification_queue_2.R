@@ -485,9 +485,13 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # $63,240,239.84 and two states (WA, LA) -- subtracted first.
   # Session 73: + UMMS on its own stated form (R/03bk), 1 row / $4,020,144,
   # no new state -- subtracted first.
-  expect_equal(named$rows, 1186L)
+  # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75, no
+  # new state -- subtracted first.
+  expect_equal(named$rows, 1201L)
   expect_equal(named$states, 30L)
-  expect_equal(round(named$dollars, 2), 1026334986.52, tolerance = 0)
+  expect_equal(round(named$dollars, 2), 1038978583.27, tolerance = 0)
+  named$rows <- named$rows - 15L
+  named$dollars <- named$dollars - 12643596.75
   named$rows <- named$rows - 1L
   named$dollars <- named$dollars - 4020144
   expect_equal(named$rows, 1185L)

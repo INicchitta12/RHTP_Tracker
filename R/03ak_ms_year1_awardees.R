@@ -435,18 +435,39 @@ ms_assert_remaining_tranches <- function(bodies = NULL) {
 #' The positive control, inverted. It no longer proves the Governor's newsroom
 #' CAN carry an award announcement; it proves it DOES carry this one, and it
 #' fails if the release leaves the channel this file cites.
-ms_assert_announcement_on_channel <- function(body = NULL) {
-  txt <- stringr::str_replace_all(ms_html_text("gov_newsroom", body),
-                                  "\\s+", " ")
+#'
+#' SESSION 74: A NEWS INDEX IS A ROLLING WINDOW, SO "ON THE INDEX" DECAYS BY
+#' CONSTRUCTION. The 2026-09-25 Routine firing tripped here, and the reading
+#' of 2026-09-28 is that nothing changed at the state: governorreeves.ms.gov's
+#' first page now runs 2026-09-17 .. 2026-09-24 (six newer items), the release
+#' is dated 2026-09-14, and the release's own URL on the Governor's host still
+#' serves the same headline, the same $104,115,146 and the same 97 / 43 / 27.
+#' So the channel test is now: the headline is on the index, OR the release
+#' itself is still served by the Governor's host and still says what this file
+#' parsed. Losing BOTH still fails -- that is a withdrawn release.
+ms_assert_announcement_on_channel <- function(body = NULL,
+                                              release_body = NULL) {
   want <- paste("Governor Reeves Announces 167 Rural Health Transformation",
                 "Program Awards Totaling More Than $104 Million")
-  if (!stringr::str_detect(txt, stringr::fixed(want))) {
-    stop("[MS] the Governor's newsroom no longer carries the 167-award ",
-         "announcement. That headline is what puts the roster this file ",
-         "parses on the state channel Mississippi itself named -- without ",
-         "it the extraction rests on a single deep link.", call. = FALSE)
+  txt <- stringr::str_replace_all(ms_html_text("gov_newsroom", body),
+                                  "\\s+", " ")
+  if (stringr::str_detect(txt, stringr::fixed(want))) return(invisible(TRUE))
+  if (!is.null(release_body)) {
+    rel <- stringr::str_replace_all(ms_html_text("release", release_body),
+                                    "\\s+", " ")
+    if (stringr::str_detect(rel, stringr::fixed(want)) &&
+        stringr::str_detect(rel, stringr::fixed("104,115,146"))) {
+      message("[MS] the 167-award headline has rolled off the newsroom ",
+              "index's first page; the release itself is still served by the ",
+              "Governor's host with the same headline and total.")
+      return(invisible(TRUE))
+    }
   }
-  invisible(TRUE)
+  stop("[MS] the Governor's newsroom no longer carries the 167-award ",
+       "announcement", if (!is.null(release_body)) ", AND the release URL no longer serves it" else "",
+       ". That headline is what puts the roster this file ",
+       "parses on the state channel Mississippi itself named -- without ",
+       "it the extraction rests on a single deep link.", call. = FALSE)
 }
 
 #' Selection is complete, the announcement is promised, and NOBODY is named
@@ -1351,7 +1372,7 @@ ms_disposition <- function(cands = ms_rcj_candidates(), d = ms_parse_release()) 
 # -- the live probe ----------------------------------------------------------
 
 ms_probe <- function() {
-  keys <- c("funding", "home", "gov_newsroom", "dom_completed")
+  keys <- c("funding", "home", "gov_newsroom", "dom_completed", "release")
   live <- purrr::map(keys, function(k) {
     r <- ms_get(ms_source(k, "url"), k); Sys.sleep(2); r
   })
@@ -1373,7 +1394,8 @@ ms_probe <- function() {
   ms_assert_remaining_tranches(bodies = live)
   ms_assert_selection_complete_unnamed(body = live$funding)
   ms_assert_footer_is_not_fully_federal(body = live$funding)
-  ms_assert_announcement_on_channel(body = live$gov_newsroom)
+  ms_assert_announcement_on_channel(body = live$gov_newsroom,
+                                    release_body = live$release)
   ms_assert_dom_consultant_predates_noa(body = live$dom_completed)
 
   # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW

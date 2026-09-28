@@ -107,10 +107,54 @@ va_validate <- function() {
   invisible(TRUE)
 }
 
+# THE WAYS-TO-APPLY TABLE IS READ AS A TABLE (session 74). Its rows are
+# Initiative | Sub-Initiative | Key Implementation Partner | RFA Status, and the
+# reduction flattens them into one run of capitalised words, so every change of
+# a STATUS cell ('Closed (August 31st 2026)' -> 'Closed', 'TBD' -> 'Open')
+# re-welds the run and reads as new organisations -- the 2026-09-25 halts. Read
+# on 2026-09-28, the partner column names the same ten bodies as the
+# 2026-09-23 archive: nine of va_year1_awardees.csv's eleven first-tier partners
+# plus 'Commonwealth of VA' (the state itself, on Mobile & Hybrid Care). So the
+# table's partner column is diffed as a set: a partner absent from the archived table
+# fails, whatever its status says. The prose above the table names only two
+# organisations, below the name tripwire's baseline floor (§2.3), so the
+# partner set IS this page's name diff.
+
+va_wta_partners <- function(raw) {
+  h <- xml2::read_html(raw)
+  tb <- rvest::html_table(rvest::html_elements(h, "table"))
+  tb <- Filter(function(t) any(grepl("Implementation Partner", names(t))), tb)
+  if (length(tb) != 1L) {
+    stop("[VA] ways_to_apply: expected ONE partner table; found ", length(tb),
+         ". The page's shape changed -- read it.", call. = FALSE)
+  }
+  col <- grep("Implementation Partner", names(tb[[1]]), value = TRUE)
+  sort(unique(stringr::str_squish(tb[[1]][[col]])))
+}
+
+va_assert_wta_partners <- function(live_raw, arch_raw) {
+  new <- setdiff(va_wta_partners(live_raw), va_wta_partners(arch_raw))
+  if (length(new)) {
+    stop("[VA] 'ways_to_apply' NAMES A NEW IMPLEMENTATION PARTNER: ",
+         paste(sQuote(new), collapse = ", "), ". THAT IS THE SIGNAL, NOT A ",
+         "DEFECT. Check it against va_year1_awardees.csv's first-tier ",
+         "partners and read the RFA it administers.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 va_probe <- function() {
   w <- rhtp_watch_pages(VA_PAGES, VA_AGENT, cainfo = va_cainfo())
   va_assert_watch(w$live_all, w$arch_all)
-  rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+  arch_raw <- paste(readLines(here::here(VA_PAGES$file[VA_PAGES$key == "ways_to_apply"]),
+                              warn = FALSE), collapse = "\n")
+  va_assert_wta_partners(w$raw$ways_to_apply, arch_raw)
+  # The prose above the table names only two organisations -- below the
+  # name tripwire's baseline floor -- so the page's name diff IS the partner
+  # set above; the other two pages keep the ordinary name tripwire.
+  keep <- setdiff(names(w$live), "ways_to_apply")
+  rhtp_assert_no_new_organisations_across(live = w$live[keep],
+                                          archived = w$arch[keep],
                                           state = VA_STATE)
   message("[VA] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
