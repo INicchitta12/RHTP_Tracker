@@ -210,11 +210,17 @@ test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
   # recipients on 2026-09-03 -- so four remain.
   # SESSION 61: NEW JERSEY LEFT THE SAME WAY -- its 2026-07-31 allocations
   # PDF -- so three remain.
-  three <- c("HI", "MA", "MN")
-  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, three)
-  got <- survey$extraction_status[match(three, survey$state)]
+  # SESSION 76: MINNESOTA LEFT BY THE PROBE BEING WRITTEN (R/03bn) and
+  # scheduled -- the route this code's note names -- so it reads
+  # INVESTIGATED_NO_LIST, and two remain.
+  two <- c("HI", "MA")
+  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, two)
+  got <- survey$extraction_status[match(two, survey$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(three, got, collapse = "; "))
+              info = paste(two, got, collapse = "; "))
+  expect_equal(survey$extraction_status[survey$state == "MN"],
+               "INVESTIGATED_NO_LIST")
+  expect_true(file.exists(here::here("R/03bn_mn_year1_probe.R")))
   expect_equal(survey$extraction_status[survey$state == "TN"], "EXTRACTED")
   expect_equal(survey$extraction_status[survey$state == "NJ"], "EXTRACTED")
   # And South Carolina is OUT of the bucket and IN the extracted set.
@@ -317,8 +323,9 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 60: VA and WA (QUEUED) -> EXTRACTED, so 34/8/4/4.
   # Session 61: NJ (INVESTIGATED_NO_PROBE) -> EXTRACTED, so 35/8/3/4.
   # Session 64: LA (INVESTIGATED_NO_LIST) -> EXTRACTED, so 36/7/3/4.
+  # Session 76: MN (INVESTIGATED_NO_PROBE) -> INVESTIGATED_NO_LIST, so 36/8/2/4.
   expect_equal(unname(tab[["EXTRACTED"]]), 36L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 7L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 3L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 2L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 4L)
 })

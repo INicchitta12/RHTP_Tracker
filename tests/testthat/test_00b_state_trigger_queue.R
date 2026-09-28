@@ -204,10 +204,13 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
   # recipients on 2026-09-03.
   # SESSION 61: three. New Jersey left the same way -- its 2026-07-31
   # allocations PDF, found in session 60 and extracted in session 61.
-  three <- c("HI", "MA", "MN")
-  got <- queue$queue_status[match(three, queue$state)]
+  # SESSION 76: two. Minnesota left for INVESTIGATED_NO_LIST because its
+  # probe was written (R/03bn) and scheduled.
+  two <- c("HI", "MA")
+  got <- queue$queue_status[match(two, queue$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(three, got, collapse = "; "))
+              info = paste(two, got, collapse = "; "))
+  expect_equal(queue$queue_status[queue$state == "MN"], "INVESTIGATED_NO_LIST")
   expect_equal(queue$queue_status[queue$state == "SC"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "TN"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "NJ"], "EXTRACTED")
