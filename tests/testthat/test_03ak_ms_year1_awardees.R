@@ -58,6 +58,15 @@ test_that("the announcement is on the channel Mississippi itself named", {
     ms_assert_announcement_on_channel(
       body = as_raw_html("<html><body>nothing here</body></html>")),
     "no longer carries the 167-award announcement")
+  # Session 74: a rolling index drops the headline; the release still served
+  # by the Governor's host keeps the channel. Losing both still fails.
+  rel <- readBin(ms_path("release"), "raw", file.size(ms_path("release")))
+  empty <- as_raw_html("<html><body>nothing here</body></html>")
+  expect_true(suppressMessages(
+    ms_assert_announcement_on_channel(body = empty, release_body = rel)))
+  expect_error(
+    ms_assert_announcement_on_channel(body = empty, release_body = empty),
+    "release URL no longer serves it")
 })
 
 
@@ -324,6 +333,15 @@ test_that("the retired control now delegates to the one that names a headline", 
     suppressWarnings(ms_assert_governor_channel_control(
       as_raw_html("<html><body>nothing</body></html>"))),
     "no longer carries the 167-award announcement")
+  # Session 74: a rolling index drops the headline; the release still served
+  # by the Governor's host keeps the channel. Losing both still fails.
+  rel <- readBin(ms_path("release"), "raw", file.size(ms_path("release")))
+  empty <- as_raw_html("<html><body>nothing here</body></html>")
+  expect_true(suppressMessages(
+    ms_assert_announcement_on_channel(body = empty, release_body = rel)))
+  expect_error(
+    ms_assert_announcement_on_channel(body = empty, release_body = empty),
+    "release URL no longer serves it")
 })
 
 test_that("DOM's one RHTP award predates the NOA, and DOM publishes awards", {

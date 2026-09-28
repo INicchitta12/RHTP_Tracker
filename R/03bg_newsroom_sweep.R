@@ -28,12 +28,13 @@
 # instead, which is the property that makes a phrase list tolerable: only
 # headlines absent from the baseline are read at all.
 #
-# FOUR STATES ARE UNREADABLE AND ARE RECORDED, NOT SKIPPED (§0.4). MA
-# (www.mass.gov 403), MD (governor.maryland.gov and health.maryland.gov both
-# 403 on 2026-09-24), NH (every nh.gov host 403) and IL (gov-pressreleases.
+# THREE STATES ARE UNREADABLE AND ARE RECORDED, NOT SKIPPED (§0.4). MA
+# (www.mass.gov 403), NH (every nh.gov host 403) and IL (gov-pressreleases.
 # illinois.gov refused at CONNECT by this environment's proxy; hfs 404). Each
 # run re-tests them and FAILS if one becomes readable, because an unwatched
-# readable newsroom is exactly the gap this file exists to close. Their silence
+# readable newsroom is exactly the gap this file exists to close -- which is
+# how MARYLAND (403 on 2026-09-24) came off this list: the 2026-09-25 run
+# found it answering 200, and session 74 read it and added it. Their silence
 # is a statement about our access, never about the state.
 #
 # Usage:
@@ -80,16 +81,32 @@ NW_PAGES <- tibble::tribble(
   "TX", "governor", "https://gov.texas.gov/news",
   "TX", "hhsc",     "https://www.hhs.texas.gov/news",
   "UT", "governor", "https://governor.utah.gov/news/",
-  "UT", "dhhs",     "https://dhhs.utah.gov/news/"
+  "UT", "dhhs",     "https://dhhs.utah.gov/news/",
+  # SESSION 74: MARYLAND OPENED. The 2026-09-25 sweep logged MD:unreadable
+  # answering 200. governor.maryland.gov/news/press/ now 301s to
+  # /news/press-releases, which serves 77 links on its first page (2026-09-17
+  # .. 2026-09-25) and pages back through ?page=N. The baseline is the page as
+  # read on 2026-09-28 AFTER reading pages 0-4 (2026-08-04 .. 2026-09-25) for
+  # what was published while it was blocked: ONE RHTP item, "Maryland
+  # Department of Health Announces $80 Million in First Round of Rural Health
+  # Transformation Program Awards" (2026-08-10), "$80 million in grant funding
+  # across 41 grantees" -- the 41 Budget Period 1 award offers already in
+  # md_year1_awardees.csv ($78,625,071; session 21). Nothing new, so this page
+  # is watched from here. MDH's own newsroom (health.maryland.gov/newsroom/)
+  # answers 200 too but renders its list in script: the reader finds 8 links,
+  # none a headline, so it is NOT watched -- the Governor's index carries
+  # MDH's releases (the 08-10 one is MDH's own announcement).
+  "MD", "governor", "https://governor.maryland.gov/news/press-releases"
 ) %>%
-  dplyr::mutate(file = file.path(NW_DIR, paste0("2026-09-24_", tolower(state),
+  dplyr::mutate(date = ifelse(.data$state == "MD", "2026-09-28", "2026-09-24"),
+                file = file.path(NW_DIR, paste0(date, "_", tolower(state),
                                                 "_", key, ".html")),
-                name_diff = FALSE)
+                name_diff = FALSE) %>%
+  dplyr::select(-"date")
 
 NW_UNREADABLE <- tibble::tribble(
   ~state, ~url, ~observed,
   "MA", "https://www.mass.gov/news", "HTTP 403 (Akamai), every mass.gov path, four agents (sessions 41, 60, 61)",
-  "MD", "https://governor.maryland.gov/news/press/", "HTTP 403 on 2026-09-24; health.maryland.gov/newsroom/ 403 too",
   "NH", "https://www.governor.nh.gov/news-and-media", "HTTP 403 (Akamai), every nh.gov host (sessions 29, 61)",
   "IL", "https://gov-pressreleases.illinois.gov/", "refused at CONNECT by this environment's proxy on 2026-09-24"
 )

@@ -13,7 +13,19 @@ test_that("the sweep covers exactly the eighteen no-release states", {
   expect_silent(nw_assert_coverage())
   expect_setequal(union(NW_PAGES$state, NW_UNREADABLE$state), NW_STATES)
   expect_equal(length(NW_STATES), 18L)
-  expect_setequal(NW_UNREADABLE$state, c("MA", "MD", "NH", "IL"))
+  # Session 74: MARYLAND opened (200 on 2026-09-25) and is watched now.
+  expect_setequal(NW_UNREADABLE$state, c("MA", "NH", "IL"))
+  expect_true("MD" %in% NW_PAGES$state)
+})
+
+test_that("session 74: Maryland's baseline carries no RHTP headline, and its one RHTP release would fire", {
+  arch <- read_arch("MD", "governor")
+  expect_length(nw_new_hot(arch, arch, "MD", "governor"), 0L)
+  hl <- paste("Maryland Department of Health Announces $80 Million in First",
+              "Round of Rural Health Transformation Program Awards")
+  expect_false(hl %in% nw_headlines(arch))   # 2026-08-10: pages back, not page 0
+  live <- sub("</body>", paste0("<a href='/x'>", hl, "</a></body>"), arch, fixed = TRUE)
+  expect_equal(nw_new_hot(live, arch, "MD", "governor"), hl)
 })
 
 test_that("every baseline exists and yields enough headlines to have been read", {

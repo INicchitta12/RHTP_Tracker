@@ -111,7 +111,7 @@ DISPO_FILE_EVIDENCE <- c(
   OR = "data/evidence/OR/ (2026-05-07 Transformation bulletin, 2026-07-07 release, Catalyst xlsx, awards page)",
   KS = "data/evidence/KS/ (REH CAP + RPGP winners, CHW+AFIM descriptions, Emerging Technology winners)",
   MD = "data/evidence/MD/ (the two Pillar 2 award-offer PDFs)",
-  VT = "data/evidence/recheck/2026-09-23/VT/vt_year1_awards.html",
+  VT = "data/evidence/recheck/2026-09-28/VT/vt_year1_awards.html",
   WA = "data/evidence/recheck/2026-09-23/WA/hca_rhtp_webinar_2026-09-16.pdf",
   WV = "data/evidence/recheck/2026-09-23/WV/ (five Governor's releases)",
   NC = "data/evidence/NC/ (MIH and ROOTS releases)",
@@ -239,9 +239,9 @@ DISPO_HAND_READ <- tibble::tribble(
   "AHS grant-management system procurement", "RHTP_ADMINISTRATIVE_CONTRACT_NOT_IN_FILE",
   "{rows} row(s), {amount}. An RHTP administrative procurement (Agate Software, the AHS RHT grants-management system, awarded by sealed bid) -- a vendor contract, not a subaward to a provider. It is not on the healthcarereform.vermont.gov executed-agreements roster archived at data/evidence/recheck/2026-09-23/VT/vt_year1_awards.html, and no state copy of the bid award page is archived here. {new} first seen after 08-27.",
 
-  "VT", "first batch of \\$195 million", "Springfield Center|St\\. Johnsbury Center|Brattleboro Development|Vermont Student Assistance", "",
+  "VT", "first batch of \\$195 million", "Springfield Center|St\\. Johnsbury Center|Brattleboro Development|Vermont Student Assistance|^Northeastern Vermont Regional Hospital$", "",
   "Real awards the roster names by legal name or prices exactly", "RHTP_SUBAWARD_IN_FILE_UNDER_ANOTHER_NAME",
-  "{rows} row(s), {amount}. Real awards that ARE in vt_year1_awardees.csv: Springfield and St. Johnsbury Centers for Living and Rehabilitation are the DBAs of '105 Chester Road Opco LLC' ($286,600) and '1248 Hospital Drive Opco LLC' ($531,750); 'Brattleboro Development Credit Corporation' is the roster's '... Corp' ($150,389.70); VSAC's '$9 million' is the release's rounding of the roster's $9,059,785. Matched by hand (§2). Evidence: data/evidence/recheck/2026-09-23/VT/vt_year1_awards.html, vt_vdh_release.html. {new} first seen after 08-27.",
+  "{rows} row(s), {amount}. Real awards that ARE in vt_year1_awardees.csv: Springfield and St. Johnsbury Centers for Living and Rehabilitation are the DBAs of '105 Chester Road Opco LLC' ($286,600) and '1248 Hospital Drive Opco LLC' ($531,750); 'Brattleboro Development Credit Corporation' is the roster's '... Corp' ($150,389.70); VSAC's '$9 million' is the release's rounding of the roster's $9,059,785.; and 'Northeastern Vermont Regional Hospital' at $210,371.21 is the roster's LNA-training agreement, which AHS re-printed as '... Hospital Inc' on 2026-09-25 at the same amount (session 74). Matched by hand (§2). Evidence: data/evidence/recheck/2026-09-23/VT/vt_year1_awards.html, vt_vdh_release.html. {new} first seen after 08-27.",
 
   "VT", "first batch of \\$195 million", "Community Colleges of Vermont|The Pines at Rutland", "",
   "Announced awards the executed-agreements roster does not carry, at $1", "RHTP_SUBAWARD_NOT_IN_FILE_AT_A_PLACEHOLDER",

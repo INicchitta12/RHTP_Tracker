@@ -269,10 +269,14 @@ rc_assert <- function(rows = rc_rows()) {
   # $63,240,239.84 and two states (WA, LA): 1,185 / $1,022,314,842.52 / 30.
   # Session 73: UMMS typed HOSPITAL_OR_SYSTEM on its own stated form (R/03bk),
   # +1 row / $4,020,144, no state: 1,186 / $1,026,334,986.52 / 30.
-  if (nrow(rows) != 1186L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1026334986.52) > 0.005 ||
+  # Session 74: VERMONT's 2026-09-25 update adds 15 hospital rows /
+  # $12,643,596.75 (11 on CMS enrolment records, Gifford Medical and
+  # Southwestern Vermont Health at LOW) and no state: 1,201 /
+  # $1,038,978,583.27 / 30.
+  if (nrow(rows) != 1201L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1038978583.27) > 0.005 ||
       dplyr::n_distinct(rows$state) != 30L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,186 rows / $1,026,334,986.52 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,201 rows / $1,038,978,583.27 ",
          "/ 30 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

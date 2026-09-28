@@ -1004,7 +1004,16 @@ wi_probe_kind <- function(key) {
 # CDC's National Diabetes Prevention Program, the second says "Opioid
 # Settlement Funds" in its own title, the third is a behavioral-health
 # workforce stipend. Added after the 2026-09-22 halt, read by hand.
+# SESSION 74, after the 2026-09-25 halts (Routine and interactive): the fourth
+# is the Wisconsin Site Evaluation Program's Tribal environmental-health
+# mini-grant -- "mini-grants of up to $30,000 each to help Tribal health
+# departments and Tribal organizations ... increase tenant and homeowner
+# environmental health literacy", posted 2026-09-23, 2-3 awards, and its
+# detail page mentions "Rural Health Transformation", "RHTP" and "Centers for
+# Medicare" ZERO times. An opportunity on the unawarded index, not a roster,
+# and not RHTP.
 WI_NAME_FURNITURE <- list(dhs_solicit = c(
+  "Increasing Tenant and Homeowner Environmental Health Literacy Mini–Grant Request for Application",
   "Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application",
   "Room and Board Residential Substance Use Disorder Opioid Settlement Funds Request for Application",
   "Qualified Treatment Trainee Expanding Agency Awards Request for Application"))

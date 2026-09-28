@@ -660,10 +660,28 @@ nj_assert_watch <- function(raw_news, raw_rhtp) {
   invisible(new)
 }
 
+# The name tripwire reads the programme page's CONTENT, not the NJ.gov
+# statewide footer (session 74, rhtp_name_scope(), §2.3). The 2026-09-25 and
+# 09-26 halts ('... Caldwell NJ.gov Services Agencies FAQs ...', then '...
+# Governor Mikie Sherrill NJ.gov Services Agencies FAQs ...') were both that
+# footer: the archive of 2026-09-24 reads 'Governor Mikie Sherrill Lt.
+# Governor Dr. Dale G. Caldwell NJ Home Services A to Z Departments/Agencies',
+# and NJ.gov re-templated it twice in two days -- new link labels first, then
+# the Lieutenant Governor's line dropped. 'Caldwell' is Lt. Governor Dale
+# Caldwell, not a recipient, and it did not reproduce because the line is
+# gone. The content ends at the CMS disclaimer, which both copies carry.
+NJ_NAME_SCOPE_END <- "The contents are those of the author"
+
 nj_probe <- function() {
   w <- rhtp_watch_pages(NJ_PROBE_PAGES, NJ_USER_AGENT)
   nj_assert_watch(w$raw$doh_news, w$raw$rhtp)
-  rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+  scope <- function(x, k) rhtp_name_scope(x, from = "^", to = NJ_NAME_SCOPE_END,
+                                          state = NJ_STATE, page = k)
+  live <- w$live; arch <- w$arch
+  for (k in intersect(names(live), "rhtp")) {
+    live[[k]] <- scope(live[[k]], k); arch[[k]] <- scope(arch[[k]], k)
+  }
+  rhtp_assert_no_new_organisations_across(live = live, archived = arch,
                                           state = NJ_STATE)
   message("[NJ] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),

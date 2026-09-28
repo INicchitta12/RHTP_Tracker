@@ -303,9 +303,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/NY/2026-09-22_ny_governor_rchi_awards_release.html",
 
   "VT", "PARTIAL", "No", "Yes",
-  "2026-09-18",
+  "2026-09-25",
   "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.'",
-  "data/evidence/recheck/2026-09-23/VT/vt_year1_awards.html",
+  "data/evidence/recheck/2026-09-28/VT/vt_year1_awards.html",
 
   "CT", "PARTIAL", "No", "Yes",
   "2026-09-16",
