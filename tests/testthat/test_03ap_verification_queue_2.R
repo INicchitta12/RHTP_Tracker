@@ -487,8 +487,16 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # no new state -- subtracted first.
   # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75, no
   # new state -- subtracted first.
-  expect_equal(named$rows, 1201L)
+  # Session 75: + Alaska's 2026-09-28 snapshot, net +1 row / +$2,414,763
+  # (Mat-Su +$5.0M and Ketchikan +$350,000 in; ANTHC BP1-IA-034 WITHDRAWN
+  # -$1,603,406; BP1-IA-038 revised -$1,674,392; Alaska's own 033/035 type
+  # swap +$342,561), no new state -- subtracted first.
+  expect_equal(named$rows, 1202L)
   expect_equal(named$states, 30L)
+  expect_equal(round(named$dollars, 2), 1041393346.27, tolerance = 0)
+  named$rows <- named$rows - 1L
+  named$dollars <- named$dollars - 2414763
+  expect_equal(named$rows, 1201L)
   expect_equal(round(named$dollars, 2), 1038978583.27, tolerance = 0)
   named$rows <- named$rows - 15L
   named$dollars <- named$dollars - 12643596.75

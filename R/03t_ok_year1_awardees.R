@@ -130,6 +130,7 @@ suppressPackageStartupMessages({
 })
 
 source(here::here("R", "utils_config.R"))
+source(here::here("R", "utils_page_watch.R"))
 source(here::here("R", "utils_recipient_classification.R"))
 source(here::here("R", "utils_pdf_text.R"))
 
@@ -358,7 +359,18 @@ ok_cached <- function(key, fn) {
   get(key, envir = .ok_cache)
 }
 
+# SESSION 75: THE PROBE'S LIVE BYTES. `ok_probe()` fetches the watched pages
+# into THIS environment (memory only) so the SAME assertions that `--validate`
+# runs on the archive run on what the server serves now -- session 25's
+# Indiana lesson as code: an assertion on the archive can only say what was
+# true on the day the archive was taken. Empty except inside ok_probe(), which
+# clears it on exit. Nothing here is ever written to data/evidence/ (§2.2).
+.ok_live <- new.env(parent = emptyenv())
+
 ok_raw <- function(key) {
+  if (exists(key, envir = .ok_live, inherits = FALSE)) {
+    return(get(key, envir = .ok_live))
+  }
   p <- ok_path(key)
   if (!file.exists(p)) {
     stop("[OK] ", basename(p), " is not archived. Run --fetch first.",
@@ -1494,6 +1506,77 @@ ok_report <- function() {
 }
 
 
+# -- the probe (session 75) ------------------------------------------------------
+#
+# WEEKLY. Oklahoma publishes no award date for any of its five closed
+# opportunities, so this is North Carolina's and New Mexico's footing.
+#
+# What it watches, READ-ONLY (§2.2):
+#   * recipients -- name-diffed (§2.3). ok_assert_award_index() refuses a THIRD
+#     awardee anchor; ok_assert_pending_not_awarded() refuses any of the five
+#     pending opportunities appearing on it; the lung-screening check refuses
+#     "Lung Cancer Screening" appearing on it (11 selected hospitals, UNNAMED).
+#   * funding -- name-diffed. ok_assert_pending_not_awarded() also requires all
+#     five pending opportunities to still be listed there: one disappearing is
+#     a page to re-read, never a pass.
+#   * program -- digest only.
+# Every assertion reads the LIVE bytes through `.ok_live`; the archive is the
+# baseline for the digest and the name diff, and only --fetch --force moves it.
+OK_PROBE_KEYS <- c(recipients = TRUE, funding = TRUE, program = FALSE)
+
+# THE PROBE HAS ITS OWN BASELINE, AND IT IS NOT THE EXTRACTION ARCHIVE. The
+# 2026-08-31 files are what ok_year1_awardees.csv was built from; re-fetching
+# them over the same names would re-date nothing and silently change the
+# bytes an extraction cites (§2.2). So the watch diffs against a separate,
+# dated snapshot that `--probe-baseline` writes after a human has READ what
+# changed. First taken 2026-09-28, after reading the funding page's diff: OSDE's
+# PRIMS Project 695 moved from Active to Closed (deadline 2026-09-11), OSDH
+# re-worded "health care" to "healthcare", and no award or recipient appeared.
+OK_PROBE_BASELINE_DIR <- file.path("data", "evidence", "OK", "probe_baseline")
+OK_PROBE_BASELINE_DATE <- "2026-09-28"
+ok_probe_baseline_file <- function(key) {
+  file.path(OK_PROBE_BASELINE_DIR,
+            paste0(OK_PROBE_BASELINE_DATE, "_", ok_source(key, "file") %>%
+                     stringr::str_remove("^\\d{4}-\\d{2}-\\d{2}_")))
+}
+ok_probe_agent <- function() {
+  paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)")
+}
+
+#' Write the probe baseline -- the deliberate act, never called by the probe
+ok_probe_baseline <- function() {
+  for (k in names(OK_PROBE_KEYS)) {
+    rhtp_watch_archive(ok_source(k, "url"), ok_probe_baseline_file(k),
+                       ok_probe_agent())
+    Sys.sleep(OK_HOST_THROTTLE_S)
+  }
+  message("[OK] probe baseline written to ", OK_PROBE_BASELINE_DIR, ".")
+}
+
+ok_probe <- function() {
+  on.exit({ rm(list = ls(.ok_live), envir = .ok_live); ok_cache_clear() },
+          add = TRUE)
+  pages <- tibble::tibble(
+    key = names(OK_PROBE_KEYS),
+    url = vapply(names(OK_PROBE_KEYS), ok_source, character(1), field = "url"),
+    file = vapply(names(OK_PROBE_KEYS), ok_probe_baseline_file, character(1)),
+    name_diff = unname(OK_PROBE_KEYS))
+  w <- rhtp_watch_pages(pages, ok_probe_agent())
+  for (k in names(w$raw)) assign(k, w$raw[[k]], envir = .ok_live)
+  ok_cache_clear()
+  ok_assert_award_index()
+  ok_assert_pending_not_awarded()
+  ok_assert_lung_screening_unnamed()
+  rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+                                          state = OK_STATE)
+  message("[OK] ", paste0(w$changed$key, ": ",
+                          ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
+                          collapse = "; "),
+          " -- still two rosters; the five pending opportunities name nobody.")
+  invisible(w$changed)
+}
+
+
 # `sys.nframe() == 0L` is the repo's CLI guard: it is FALSE when the file is
 # sourced by a test or another stage, so nothing here runs then.
 if (sys.nframe() == 0L) {
@@ -1502,8 +1585,10 @@ if (sys.nframe() == 0L) {
   if ("--validate" %in% args) ok_validate()
   if ("--build" %in% args) ok_build()
   if ("--report" %in% args) ok_report()
-  if (!any(c("--fetch", "--validate", "--build", "--report") %in% args)) {
+  if ("--probe-baseline" %in% args) ok_probe_baseline()
+  if ("--probe" %in% args) rhtp_probe_run("OK", ok_probe())
+  if (!any(c("--fetch", "--validate", "--build", "--report", "--probe", "--probe-baseline") %in% args)) {
     cat("Usage: Rscript R/03t_ok_year1_awardees.R",
-        "[--fetch [--force]] [--validate] [--build] [--report]\n")
+        "[--fetch [--force]] [--validate] [--build] [--report] [--probe]\n")
   }
 }

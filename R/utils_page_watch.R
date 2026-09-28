@@ -90,7 +90,16 @@ rhtp_watch_pages <- function(pages, agent, cainfo = NULL) {
     out$raw[[k]] <- raw
     out$live_all[[k]] <- lt
     out$arch_all[[k]] <- at
-    changed[k] <- !identical(digest::digest(lt), digest::digest(at))
+    # WHITESPACE-BLIND (session 75). rhtp_watch_archive() re-serialises the
+    # baseline through xml2, which puts a space between adjacent inline elements
+    # ("Add to Calendar Get Directions") where the
+    # live bytes have none ("Add to CalendarGet Directions") -- Oklahoma's home
+    # page read CHANGED seconds after its baseline was taken. No award, name or
+    # date can differ by whitespace alone, and the name and phrase tripwires
+    # still read the spaced text; only this digest ignores it.
+    squash <- function(x) gsub("\\s+", "", x)
+    changed[k] <- !identical(digest::digest(squash(lt)),
+                             digest::digest(squash(at)))
     if (isTRUE(pages$name_diff[i])) {
       out$live[[k]] <- lt
       out$arch[[k]] <- at

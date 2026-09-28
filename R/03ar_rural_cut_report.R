@@ -273,10 +273,13 @@ rc_assert <- function(rows = rc_rows()) {
   # $12,643,596.75 (11 on CMS enrolment records, Gifford Medical and
   # Southwestern Vermont Health at LOW) and no state: 1,201 /
   # $1,038,978,583.27 / 30.
-  if (nrow(rows) != 1201L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1038978583.27) > 0.005 ||
+  # Session 75: ALASKA's 2026-09-28 snapshot, net +1 row / +$2,414,763 (two
+  # awards withdrawn, two added, one revised, one type swap) and no state:
+  # 1,202 / $1,041,393,346.27 / 30.
+  if (nrow(rows) != 1202L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1041393346.27) > 0.005 ||
       dplyr::n_distinct(rows$state) != 30L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,201 rows / $1,038,978,583.27 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,202 rows / $1,041,393,346.27 ",
          "/ 30 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

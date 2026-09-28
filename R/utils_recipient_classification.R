@@ -385,6 +385,13 @@ RHTP_ORG_TYPE_TO_RECIPIENT_TYPE <- tibble::tribble(
   "Tribe and/or Tribal Health Organization",                     "TRIBAL_ORG",                  "HIGH",
   "Tribal Health Organization",                                  "TRIBAL_ORG",                  "HIGH",
   "Tribe",                                                       "TRIBAL_ORG",                  "HIGH",
+  # Session 75: Alaska added this token in its 2026-09-28 snapshot. An ANCSA
+  # regional corporation is a Native-owned for-profit corporation, not a tribal
+  # government; TRIBAL_ORG is the nearest §8 form (ISDEAA's definition of
+  # "Indian tribe", 25 U.S.C. 5304(e), includes Alaska Native regional
+  # corporations) and it is never a hospital type, so it can only keep dollars
+  # OUT of the hospital total. MEDIUM, because §8 has no exact code for it.
+  "Alaska Native Regional Corporation",                          "TRIBAL_ORG",                  "MEDIUM",
   "Emergency Medical Services",                                  "EMS_OR_PSAP",                 "HIGH",
   "University",                                                  "UNIVERSITY_OR_AHC",           "HIGH",
   "Education organization (Not public university in Alaska)",    "SCHOOL_OR_DISTRICT",          "HIGH",

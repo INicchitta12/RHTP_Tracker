@@ -169,14 +169,16 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,201 / $1,038,978,583.27 / 30; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,202 / $1,041,393,346.27 / 30; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
   # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75, no
   # new state -- subtracted first.
-  expect_equal(n$rows, 1201L)
-  expect_equal(round(n$dollars, 2), 1038978583.27)
+  # Session 75: + Alaska's 2026-09-28 snapshot, net +1 row / +$2,414,763.
+  expect_equal(n$rows, 1202L)
+  expect_equal(round(n$dollars, 2), 1041393346.27)
+  n$dollars <- n$dollars - 2414763
   n$dollars <- n$dollars - 12643596.75
   n$dollars <- n$dollars - 4020144
   expect_equal(n$states, 30L)

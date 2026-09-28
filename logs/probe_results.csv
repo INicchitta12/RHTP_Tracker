@@ -449,3 +449,24 @@ NEWSROOM,2026-09-28T14:04:37Z,CHANGED,UT:governor,,interactive
 NEWSROOM,2026-09-28T14:04:37Z,CHANGED,UT:dhhs,,interactive
 NEWSROOM,2026-09-28T14:04:38Z,UNCHANGED,MD:governor,,interactive
 AK,2026-09-28T14:10:55Z,CHANGED,(all),,trig_015xk6QMPZNSY7GhC6muGdpN
+MT,2026-09-28T14:52:32Z,UNCHANGED,grants,,interactive
+MT,2026-09-28T14:52:32Z,UNCHANGED,rfps,,interactive
+MT,2026-09-28T14:52:32Z,UNCHANGED,home,,interactive
+MT,2026-09-28T14:52:32Z,UNCHANGED,communications,,interactive
+NH,2026-09-28T14:53:34Z,UNCHANGED,fhc,,interactive
+NH,2026-09-28T14:53:34Z,UNCHANGED,cdfa,,interactive
+OK,2026-09-28T14:54:23Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [OK] 'funding' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Closed Funding Opportunities OSDE's PRIMS Project | Competitive Grant OSDE's Project | Emergency Medical Service. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+OK,2026-09-28T14:57:46Z,UNCHANGED,recipients,,interactive
+OK,2026-09-28T14:57:46Z,UNCHANGED,funding,,interactive
+OK,2026-09-28T14:57:46Z,CHANGED,program,,interactive
+OK,2026-09-28T14:58:20Z,UNCHANGED,recipients,,interactive
+OK,2026-09-28T14:58:20Z,UNCHANGED,funding,,interactive
+OK,2026-09-28T14:58:20Z,UNCHANGED,program,,interactive
+MN,2026-09-28T14:59:34Z,UNCHANGED,grants,,interactive
+MN,2026-09-28T14:59:34Z,UNCHANGED,programme,,interactive
+MT,2026-09-28T14:59:37Z,UNCHANGED,grants,,interactive
+MT,2026-09-28T14:59:37Z,UNCHANGED,rfps,,interactive
+MT,2026-09-28T14:59:37Z,UNCHANGED,home,,interactive
+MT,2026-09-28T14:59:37Z,UNCHANGED,communications,,interactive
+NH,2026-09-28T14:59:40Z,UNCHANGED,fhc,,interactive
+NH,2026-09-28T14:59:40Z,UNCHANGED,cdfa,,interactive

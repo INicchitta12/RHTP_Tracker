@@ -120,8 +120,8 @@ AK_PROGRAM_URL <- paste0(
 # stood on the date in its name. Both are kept: the prior one is what makes the
 # growth a diff of two archived documents rather than a claim, and it is the
 # snapshot against which CMS's "142 projects" reconciles exactly (see below).
-AK_AWARDS_FILE   <- "2026-09-21_ak_rhtp_awardsnotice_2026.xlsx"
-AK_PRIOR_FILE    <- "2026-08-31_ak_rhtp_awardsnotice_2026.xlsx"
+AK_AWARDS_FILE   <- "2026-09-28_ak_rhtp_awardsnotice_2026.xlsx"
+AK_PRIOR_FILE    <- "2026-09-21_ak_rhtp_awardsnotice_2026.xlsx"
 
 # THE CMS ANCHOR SNAPSHOT, AND IT DOES NOT ROLL. Session 46 split this out of
 # AK_PRIOR_FILE, which had been doing two jobs that only looked like one while
@@ -144,6 +144,19 @@ AK_CMS_ANCHOR_FILE <- "2026-08-28_ak_rhtp_awardsnotice_2026.xlsx"
 # = 161, which is what closed session 11's 161-vs-142 question: CMS counts
 # Implementation and Alaska's file counts both. A fact about an archived file.
 AK_ANCHOR_PLANNING <- 19L
+
+# WITHDRAWN AWARDS, HAND-READ (session 75). Alaska's 2026-09-28 notice drops
+# two App IDs that every earlier snapshot carried, and nothing in the notice
+# says why. The current file mirrors the current notice, so both rows leave the
+# award file; they are listed here, by App ID and last published figure, so the
+# withdrawal is a recorded finding rather than a silent shrink. The assertion
+# below refuses any disappearance NOT on this list, and refuses a listed id
+# that reappears -- either means the list is stale and must be re-read.
+AK_WITHDRAWN <- tibble::tribble(
+  ~app_id,      ~awardee,                                 ~last_amount, ~last_seen,   ~first_absent, ~coded_before,
+  "BP1-IA-034", "Alaska Native Tribal Health Consortium", 1603406,      "2026-09-21", "2026-09-28",  "HOSPITAL_OR_SYSTEM / NAMED_HOSPITAL",
+  "BP1-IA-057", "Arete Family Care",                      62625,        "2026-09-21", "2026-09-28",  "PHYSICIAN_PRACTICE / No"
+)
 AK_MANIFEST_FILE <- "ak_rhtp_year1_awards.manifest.txt"
 
 # THE POSITIVE CONTROL. Alaska publishes its own weekly cumulative counts in a
@@ -154,7 +167,7 @@ AK_CYCLE_UPDATE_URL <- paste0(
   "https://health.alaska.gov/media/lyrcb3pc/",
   "alaska-rhtp-year-1-funding-cycle-update.pdf"
 )
-AK_CYCLE_UPDATE_FILE <- "2026-09-21_alaska_rhtp_year1_funding_cycle_update.pdf"
+AK_CYCLE_UPDATE_FILE <- "2026-09-28_alaska_rhtp_year1_funding_cycle_update.pdf"
 
 AK_EVIDENCE_DIR <- "data/evidence/AK"
 AK_CSV  <- "data/reference/ak_year1_awardees.csv"
@@ -407,6 +420,22 @@ rhtp_ak_growth <- function(current = NULL, prior = NULL) {
   )
 }
 
+#' Each App ID's figure in the EARLIEST committed snapshot carrying it
+#'
+#' Every archived award notice except the current one, oldest first. The
+#' baseline for "has Alaska revised this figure since it first published it?"
+rhtp_ak_first_published <- function() {
+  files <- sort(list.files(here::here(AK_EVIDENCE_DIR),
+                           pattern = "^\\d{4}-\\d{2}-\\d{2}_ak_rhtp_awardsnotice_2026\\.xlsx$"))
+  files <- setdiff(files, AK_AWARDS_FILE)
+  purrr::map_dfr(files, function(f) {
+    rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, f)) %>%
+      dplyr::transmute(.data$app_id, first_amount = .data$amount,
+                       first_date = stringr::str_extract(f, "^\\d{4}-\\d{2}-\\d{2}"))
+  }) %>%
+    dplyr::distinct(.data$app_id, .keep_all = TRUE)
+}
+
 #' Alaska's Year 1 Funding Cycle Update, as text.
 rhtp_ak_cycle_update_text <- function(
     path = file.path(AK_EVIDENCE_DIR, AK_CYCLE_UPDATE_FILE)) {
@@ -450,9 +479,17 @@ rhtp_ak_assert_cycle_control <- function(growth = rhtp_ak_growth(),
          "count of the same awards; re-read both before publishing either.",
          call. = FALSE)
   }
-  if (abs(cum_m - growth$total / 1e6) > 0.5) {
+  # Alaska prints the cumulative in whole millions and has used BOTH display
+  # conventions: $181.87M printed "$182M" (rounded, 2026-08-31) and $242.62M
+  # printed "$242M" (truncated, 2026-09-28; the same PDF's six initiative
+  # figures sum to $242.6M, so the parse is not in doubt). Accepting either
+  # form is matching the publisher's display, not widening a tolerance: the
+  # stated figure must still equal one of the two exactly.
+  parsed_m <- growth$total / 1e6
+  if (!cum_m %in% c(round(parsed_m), floor(parsed_m))) {
     stop("[AK] Alaska states $", cum_m, "M cumulative against a parsed $",
-         round(growth$total / 1e6, 1), "M.", call. = FALSE)
+         round(parsed_m, 1), "M, which neither rounds nor truncates to it.",
+         call. = FALSE)
   }
 
   # 2. ALASKA'S OWN WEEKS MUST SUM TO ITS OWN CUMULATIVE.
@@ -644,19 +681,24 @@ rhtp_ak_build <- function() {
     # what the 2026-09-21 refresh does. A reader asking "has this figure
     # moved since Alaska first published it?" wants the whole history, so the
     # baseline is the anchor and the dates are derived.
-    dplyr::left_join(
-      rhtp_ak_growth(prior = rhtp_ak_parse_awards(
-        here::here(AK_EVIDENCE_DIR, AK_CMS_ANCHOR_FILE)))$revised %>%
-        dplyr::select("app_id", "prior_amount"),
-      by = "app_id") %>%
+    #
+    # SESSION 75: THE BASELINE IS PER ROW -- the earliest committed snapshot
+    # that CARRIES that row. Keyed on the anchor alone, a project first
+    # published after 2026-08-28 could never show a revision: ANTHC's
+    # BP1-IA-038 (first seen 2026-09-21 at $4,808,670, $3,134,278 on
+    # 2026-09-28) would have gone silent on its own row.
+    dplyr::left_join(rhtp_ak_first_published(), by = "app_id") %>%
     dplyr::mutate(
+      prior_amount = dplyr::if_else(
+        !is.na(.data$first_amount) &
+          abs(.data$amount - .data$first_amount) > 0.005,
+        .data$first_amount, NA_real_),
       determination_basis = dplyr::if_else(
         is.na(.data$prior_amount),
         .data$determination_basis,
         paste0(.data$determination_basis,
                " NOTE: Alaska REVISED this preliminary figure between the ",
-               stringr::str_extract(AK_CMS_ANCHOR_FILE,
-                                    "^\\d{4}-\\d{2}-\\d{2}"),
+               .data$first_date,
                " and ",
                stringr::str_extract(AK_AWARDS_FILE, "^\\d{4}-\\d{2}-\\d{2}"),
                " snapshots, from ",
@@ -666,6 +708,7 @@ rhtp_ak_build <- function() {
                "budget finalization is still in progress'.")
       )
     ) %>%
+    dplyr::select(-"first_amount", -"first_date") %>%
     dplyr::select(-"prior_amount") %>%
     dplyr::select(
       # -- the FL_year1_awardees schema, in FL's order --------------------
@@ -764,6 +807,11 @@ rhtp_ak_growth_lines <- function(growth = rhtp_ak_growth()) {
     "dollars from revision, not from new awards",
                                               format(growth$revised_delta, big.mark = ","),
     "award actions withdrawn",                as.character(length(growth$vanished)),
+    "withdrawn (hand-read, AK_WITHDRAWN)",    paste0(AK_WITHDRAWN$app_id, " ",
+                                                     AK_WITHDRAWN$awardee, " $",
+                                                     format(AK_WITHDRAWN$last_amount,
+                                                            big.mark = ","),
+                                                     collapse = "; "),
     "corroborated by Alaska's own weekly counts",
       "yes -- Year 1 Funding Cycle Update states the cumulative and week-4 figures",
     "this file is a SNAPSHOT of a weekly release",
@@ -805,12 +853,21 @@ rhtp_ak_assert <- function(records = rhtp_ak_build()) {
          " CMS described. A rolling notice grows; it does not shrink.",
          call. = FALSE)
   }
-  vanished <- setdiff(anchor$app_id, records$app_id)
-  if (length(vanished)) {
-    stop("[AK] ", length(vanished), " award(s) present on 2026-08-28 are gone ",
-         "from the current notice: ", paste(vanished, collapse = ", "),
+  vanished <- setdiff(union(anchor$app_id, prior$app_id), records$app_id)
+  unread <- setdiff(vanished, AK_WITHDRAWN$app_id)
+  if (length(unread)) {
+    stop("[AK] ", length(unread), " award(s) published in an earlier snapshot ",
+         "are gone from the current notice and are not in AK_WITHDRAWN: ",
+         paste(unread, collapse = ", "),
          ". Alaska has withdrawn an award this repository published; that is a ",
-         "finding, not a parse to wave through.", call. = FALSE)
+         "finding, not a parse to wave through. Read it, then list it.",
+         call. = FALSE)
+  }
+  back <- intersect(AK_WITHDRAWN$app_id, records$app_id)
+  if (length(back)) {
+    stop("[AK] ", paste(back, collapse = ", "), " is listed in AK_WITHDRAWN ",
+         "and is back on the current notice. Re-read it and remove the entry.",
+         call. = FALSE)
   }
 
   # ALASKA HAS RESUMED PLANNING AWARDS, AND THIS ASSERTION IS RE-BASED RATHER

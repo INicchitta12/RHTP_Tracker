@@ -21,8 +21,9 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Session 71: + 33 rows / $63,240,239.84 on CMS hospital enrolments (R/03bj).
   # Session 73: + UMMS, 1 row / $4,020,144, on its own stated form (R/03bk).
   # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75.
-  expect_equal(nrow(rows), 1201L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1038978583.27,
+  # Session 75: + Alaska's 2026-09-28 snapshot, net +1 row / +$2,414,763.
+  expect_equal(nrow(rows), 1202L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1041393346.27,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -106,6 +107,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1201L)   # session 74: + VT 2026-09-25
+  expect_equal(nrow(committed), 1202L)   # session 75: + AK 2026-09-28
   expect_equal(committed$rural_class, rows$rural_class)
 })
