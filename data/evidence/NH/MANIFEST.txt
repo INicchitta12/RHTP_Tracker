@@ -28,3 +28,5 @@ file                                            bytes  sha256
 Source URLs
   2026-09-01_fhc_go_north_rhtp.html          https://healthynh.org/initiatives/rural-health-transformation-program
   2026-09-01_cdfa_rchip_statement.html       https://nhcdfa.org/cdfa-statement-about-the-rural-community-health-infrastructure-programs/
+0bf79cb93f7513f4ab521f6cc2c8f9170e5ac2bf08acbf309ca1ac5b91cfe136  2026-09-28_fhc_go_north_rhtp.html  https://healthynh.org/initiatives/rural-health-transformation-program/  full_page_sha256=eb49b7b22f3cc76de478385d24931163eb50eb9da9f898e864a3cc0fd46fc929  2026-09-28T14:53:25Z
+0ae78558ef093de366bea35fd37259e9b409416fbc098fa3feb4393f85e77596  2026-09-28_cdfa_rchip_statement.html  https://nhcdfa.org/cdfa-statement-about-the-rural-community-health-infrastructure-programs/  full_page_sha256=5f3907349f35cd8855242f4b63d3676be411c779c5fe908d32d279a12a76a20a  2026-09-28T14:53:29Z

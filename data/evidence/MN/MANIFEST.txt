@@ -1,0 +1,2 @@
+a4cb1df9bd800167faa59c8333e8ac180f648864e35cac262e1f91bf301a5633  2026-09-28_mdh_rhtp_grants.html  https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/grants.html  full_page_sha256=08048308de2d8b9b7f934d2c29b6ffdd0410d2bbbe5f2fd3a2fb847360089756  2026-09-28T14:59:26Z
+ce6a5bae37cbb5b9b6f9f1e51e83b6748696691579527c6410da05deaf436924  2026-09-28_mdh_rhtp_programme.html  https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/index.html  full_page_sha256=665c43b0807147b03b92a76e9cf9fbb7af798aad11c3cc6952fcd2dc71248b72  2026-09-28T14:59:29Z

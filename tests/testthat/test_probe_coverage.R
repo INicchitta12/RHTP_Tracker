@@ -155,3 +155,34 @@ test_that("an explained gap is a committed diagnosis, never a blanket pass (sess
     trigger_id = "trig_01XkZWESmQbqfq58cKuQ84i9", cause = "503", evidence = ""), tf)
   expect_error(rhtp_read_probe_gaps(tf), "cause AND evidence")
 })
+
+
+test_that("a Routine recreated TWICE attributes each firing to the id that owned it", {
+  # Session 75: CMS went 0174 -> 011p -> 01Hn. With only one predecessor
+  # column the 0174 miss had no registered owner and its explained row would
+  # have been refused.
+  p <- withr::local_tempfile(fileext = ".csv")
+  readr::write_csv(tibble::tibble(
+    state = "CMS", trigger_id = "trig_C", cron_utc = "0 13 * * 1,4",
+    script = "R/00_cms_press_monitor.R", cadence = "x",
+    logging_since = "2026-09-28T14:39:38Z",
+    old_trigger_id = "trig_A;trig_B",
+    old_logging_since = "2026-09-23T15:10:00Z;2026-09-24T19:09:38Z"), p)
+  r <- rhtp_read_routines(p)
+  cov <- rhtp_probe_coverage(as.POSIXct("2026-10-02 00:00", tz = "UTC"), r,
+                             lg("CMS", character(0), character(0)))
+  expect_equal(cov$trigger_id, c("trig_A", "trig_B", "trig_C"))
+  expect_equal(format(cov$scheduled, "%m-%d"), c("09-24", "09-28", "10-01"))
+
+  bad <- function(ids, since) {
+    readr::write_csv(tibble::tibble(
+      state = "CMS", trigger_id = "trig_C", cron_utc = "0 13 * * 1,4",
+      script = "x", cadence = "x", logging_since = "2026-09-28T14:39:38Z",
+      old_trigger_id = ids, old_logging_since = since), p)
+    rhtp_read_routines(p)
+  }
+  expect_error(bad("trig_A;trig_B", "2026-09-23T15:10:00Z"), "equal length")
+  expect_error(bad("trig_A;trig_B", "2026-09-24T19:09:38Z;2026-09-23T15:10:00Z"),
+               "must increase")
+  expect_error(bad("trig_A", "2026-09-29T00:00:00Z"), "must increase")
+})

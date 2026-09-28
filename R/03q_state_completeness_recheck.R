@@ -79,6 +79,16 @@ RECHECK_AK_EXTRACT_SOURCE <- stringr::str_extract(
   paste(readLines(here::here("R", "03h_ak_year1_awardees.R"), warn = FALSE),
         collapse = "\n"),
   "(?<=AK_AWARDS_FILE   <- \")[^\"]+")
+# Session 75: the App IDs R/03h has HAND-READ as withdrawn by Alaska, read the
+# same way. They are on this file's older download and absent from the
+# extraction because Alaska withdrew them, so they are not "new" awards the
+# extraction lacks, and counting them as such would mark Alaska ROSTER_HAS_GROWN.
+RECHECK_AK_WITHDRAWN <- local({
+  src <- paste(readLines(here::here("R", "03h_ak_year1_awardees.R"), warn = FALSE),
+               collapse = "\n")
+  blk <- stringr::str_extract(src, "(?s)AK_WITHDRAWN <- tibble::tribble\\(.*?\\n\\)")
+  stringr::str_extract_all(blk, "BP1-[A-Z]+-[0-9]+")[[1]]
+})
 RECHECK_DIR      <- here::here("data", "evidence", "recheck", RECHECK_DATE)
 RECHECK_CSV      <- "data/reference/state_completeness_recheck.csv"
 RECHECK_THROTTLE <- 3
@@ -464,7 +474,7 @@ recheck_ak <- function() {
   committed <- readr::read_csv(here::here(RECHECK_COMMITTED[["AK"]]),
                                show_col_types = FALSE, progress = FALSE)
 
-  new_ids <- setdiff(live$App.ID, committed$app_id)
+  new_ids <- setdiff(setdiff(live$App.ID, committed$app_id), RECHECK_AK_WITHDRAWN)
   gone    <- setdiff(committed$app_id, live$App.ID)
 
   # THIS RE-CHECK'S SNAPSHOT CAN BE OLDER THAN THE EXTRACTION IT IS CHECKING,

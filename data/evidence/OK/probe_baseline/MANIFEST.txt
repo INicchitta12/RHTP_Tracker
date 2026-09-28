@@ -1,0 +1,3 @@
+f4f59d5a0f57d01ca226c746d6bbbaac7533a2718fc899b86ce9f7f4ea8bfd1b  2026-09-28_ok_rhtp_funding_recipients.html  https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html  full_page_sha256=abf2235524113d2ab4cd58126bd088ae064974fc9695a549e16df77c9f5ff96b  2026-09-28T14:57:39Z
+64752147de6d106d50f5c3e07f25519083b184afe87fda76698f722a90233b5c  2026-09-28_ok_rhtp_funding.html  https://oklahoma.gov/health/rhtp/rhtp-funding.html  full_page_sha256=570e776f5bede308560b6e1ab26bb5512d2d879560634ea41bdf3a7f56497984  2026-09-28T14:57:41Z
+275da4c94b70d5ba2545139bc4baccaf399acf4c6d6906c09f2a972b26e77c20  2026-09-28_ok_rhtp_home.html  https://oklahoma.gov/health/rhtp.html  full_page_sha256=792d763d190d540d2e72a30f18dcea14aaaea68aa55c04619602c4fc1b26e1e9  2026-09-28T14:57:43Z

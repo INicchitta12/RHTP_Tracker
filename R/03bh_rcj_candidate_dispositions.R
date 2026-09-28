@@ -178,6 +178,20 @@ DISPO_HAND_READ <- tibble::tribble(
   "A week's count carried as an awardee", "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
   "{rows} row(s), {amount}. '32 projects (community organizations selected via RHTP)' is Alaska's Week 5 line from its Year 1 funding-cycle update -- a count of award actions, each already a named row in ak_year1_awardees.csv. Evidence: data/evidence/AK/2026-09-21_alaska_rhtp_year1_funding_cycle_update.pdf. {new} first seen after 08-27.",
 
+  # Session 75: Alaska's 2026-09-28 refresh. RCJ's 09-24 pull read the
+  # 2026-09-21 notice; three things have since happened to rows it carries.
+  "AK", "", "(, Department of Health|Department of Education & Early Development)$", "",
+  "Alaska re-spelled its own state-agency awardees", "RHTP_SUBAWARD_IN_FILE_UNDER_ANOTHER_NAME",
+  "{rows} row(s), {amount}. Same App IDs (BP1-INT-01, -02, -03, -04, -17, -25), same amounts: Alaska's 2026-09-28 notice prints '..., Department of Health' as '... (DOH)' and '&' as 'and'. ak_year1_awardees.csv keeps the current spelling (§8). Evidence: data/evidence/AK/2026-09-28_ak_rhtp_awardsnotice_2026.xlsx. {new} first seen after 08-27.",
+  "AK", "", "^(Alaska Maritime Physicians|Eastern Aleutian Tribes|Southcentral Foundation)$", "",
+  "Preliminary figures Alaska has since revised", "RHTP_SUBAWARD_IN_FILE_AMOUNT_REVISED_BY_STATE",
+  "{rows} row(s), {amount}. Rows RCJ carries at the 2026-09-21 figure that Alaska's own preliminary amount has since moved: BP1-IA-029 $1,244,200 -> $1,195,000, BP1-IA-125 $116,621.6 -> $116,261.6, BP1-IA-308 $5,855,095 -> $5,781,079. The file carries the current figure, with a revision note wherever it differs from the first published one. Evidence: data/evidence/AK/2026-09-28_ak_rhtp_awardsnotice_2026.xlsx. {new} first seen after 08-27.",
+  "AK", "", "^Alaska Native Tribal Health Consortium$", "",
+  "ANTHC: two figures revised and one award withdrawn", "RHTP_SUBAWARD_REVISED_OR_WITHDRAWN_BY_STATE",
+  "{rows} row(s), {amount}. Three ANTHC rows at their 2026-09-21 figures, which RCJ files under one name and a name rule cannot separate: BP1-IA-038 $4,808,670 -> $3,134,278 and BP1-IA-035 $638,858 -> $638,555 (both in the file at the current figure), and BP1-IA-034 $1,603,406 ('Capacity and Bed Management'), WITHDRAWN -- absent from the 2026-09-28 notice with no statement why, hand-read into AK_WITHDRAWN in R/03h and not in the file. Evidence: data/evidence/AK/2026-09-28_ak_rhtp_awardsnotice_2026.xlsx. {new} first seen after 08-27.",
+  "AK", "", "^Arete Family Care$", "",
+  "Awards Alaska has withdrawn", "RHTP_SUBAWARD_WITHDRAWN_BY_STATE",
+  "{rows} row(s), {amount}. BP1-IA-057, present in every snapshot through 2026-09-21 and absent from 2026-09-28 with no statement why; hand-read into AK_WITHDRAWN in R/03h and not in the file. Evidence: data/evidence/AK/2026-09-21_ak_rhtp_awardsnotice_2026.xlsx against 2026-09-28. {new} first seen after 08-27.",
   # ---- Alabama --------------------------------------------------------------
   "AL", "", "^St\\. Clair Community Health Clinic", "",
   "St. Clair Community Health Clinic, whose 'St.' the source dropped", "RHTP_SUBAWARD_IN_FILE_UNDER_THE_SOURCE_SPELLING",
