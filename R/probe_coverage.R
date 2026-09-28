@@ -94,19 +94,38 @@ rhtp_read_routines <- function(path = RHTP_ROUTINES_CSV) {
   # old_trigger_id / old_logging_since. Firings in [old_logging_since,
   # logging_since) belong to the OLD id, firings from logging_since on to the
   # new one, so a past miss stays attributed to the Routine that missed it.
+  #
+  # Session 75: a Routine can be recreated more than once (CMS: 0174 -> 011p
+  # -> the session-75 id), so both columns take a ';'-separated CHAIN, oldest
+  # first, one logging_since per id. Each old id owns [its own start, the next
+  # id's start). Keeping only the latest predecessor would orphan every
+  # explained miss of the one before it, and the gap file would then refuse
+  # its own rows as naming no registered Routine.
   for (col in c("old_trigger_id", "old_logging_since")) {
     if (!col %in% names(r)) r[[col]] <- NA_character_
+    r[[col]][!is.na(r[[col]]) & !nzchar(stringr::str_squish(r[[col]]))] <- NA
   }
-  r$old_trigger_id[!is.na(r$old_trigger_id) & !nzchar(r$old_trigger_id)] <- NA
-  r$old_logging_since <- as.POSIXct(r$old_logging_since,
-                                    format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
-  if (any(!is.na(r$old_trigger_id) & is.na(r$old_logging_since))) {
-    stop("[coverage] a row with old_trigger_id has no parseable ",
-         "old_logging_since.", call. = FALSE)
+  split_chain <- function(x) {
+    if (is.na(x)) character(0) else stringr::str_squish(strsplit(x, ";")[[1]])
   }
-  if (any(!is.na(r$old_logging_since) & r$old_logging_since > r$logging_since)) {
-    stop("[coverage] old_logging_since is after logging_since.", call. = FALSE)
-  }
+  r$old_chain <- purrr::map(seq_len(nrow(r)), function(i) {
+    ids <- split_chain(r$old_trigger_id[i])
+    since <- as.POSIXct(split_chain(r$old_logging_since[i]),
+                        format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+    if (length(ids) != length(since) || anyNA(since) ||
+        any(!grepl("^trig_", ids))) {
+      stop("[coverage] ", r$state[i], ": old_trigger_id and ",
+           "old_logging_since must be ';'-separated lists of equal length, ",
+           "each id a trig_ and each time parseable.", call. = FALSE)
+    }
+    if (length(since) &&
+        (is.unsorted(since, strictly = TRUE) ||
+         max(since) > r$logging_since[i])) {
+      stop("[coverage] ", r$state[i], ": old_logging_since must increase ",
+           "and stay at or before logging_since.", call. = FALSE)
+    }
+    tibble::tibble(id = ids, from = since)
+  })
   if (anyDuplicated(r$state)) {
     stop("[coverage] a state appears twice in config/routines.csv.",
          call. = FALSE)
@@ -173,10 +192,14 @@ rhtp_probe_coverage <- function(as_of = Sys.time(),
     r <- routines[i, ]
     segs <- list(list(id = r$trigger_id, from = r$logging_since,
                       to = as_of - grace))
-    old_id <- if ("old_trigger_id" %in% names(r)) r$old_trigger_id else NA
-    if (!is.na(old_id)) {
-      segs <- c(list(list(id = old_id, from = r$old_logging_since,
-                          to = min(r$logging_since, as_of - grace))), segs)
+    # A hand-built registry (the tests) may carry no chain at all.
+    ch <- if ("old_chain" %in% names(r)) r$old_chain[[1]] else NULL
+    if (!is.null(ch) && nrow(ch)) {
+      ends <- c(ch$from[-1], r$logging_since)
+      segs <- c(purrr::map(seq_len(nrow(ch)), function(k) {
+        list(id = ch$id[k], from = ch$from[k],
+             to = min(ends[k], as_of - grace))
+      }), segs)
     }
     # A line counts for a firing only if THAT Routine wrote it. A line with no
     # origin at all predates session 52's column and is accepted as legacy;
