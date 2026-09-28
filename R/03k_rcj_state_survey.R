@@ -284,8 +284,15 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
 # "worked" where it means "watched" (session 43's reasoning for the fourteen).
 # Session 64: LOUISIANA LEFT -- the Rural Clinician Credit Bank awarded 53
 # (5 named) per LDH's 2026-09-03 webinar deck; la_year1_awardees.csv exists.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "ND", "NM", "TX",
-                                        "WI")
+# Session 76: MINNESOTA JOINS FROM INVESTIGATED_NO_PROBE, by the route that
+# code's own note names: the probe was written. Session 75 archived MDH's
+# grants and programme pages (data/evidence/MN/) and wrote R/03bn, whose
+# tripwires fire on an award roster and whose section-0.3 guard requires the
+# 94-hospital / 70% formula table to keep reading as ELIGIBILITY. Session 76
+# put it on a weekly Routine. It is a pure pre-award negative, and this is
+# never a claim that Minnesota has allocated nothing.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "MN", "ND", "NM",
+                                        "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them
@@ -358,7 +365,11 @@ SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "ND", "NM", "TX",
 # stale by construction" -- paid in full. R/03ay_tn_year1_awardees.R.
 # NEW JERSEY LEFT IN SESSION 61, THE THIRD: its 2026-07-31 roster was found in
 # session 60, 55 days after publication. R/03bf_nj_year1_awardees.R.
-SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA", "MN")
+# MINNESOTA LEFT IN SESSION 76, AND IT IS THE FIRST TO LEAVE THE WAY THE NOTE
+# ASKED: somebody wrote the probe (R/03bn, session 75) and scheduled it. It
+# moved to INVESTIGATED_NO_LIST, not EXTRACTED, because MDH has still named
+# no recipient. HI and MA remain, and neither is an ordinary negative.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA")
 
 
 # -- Inputs ------------------------------------------------------------------
