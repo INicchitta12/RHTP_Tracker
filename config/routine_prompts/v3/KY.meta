@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01YDoRNWzHxHCYzu4JNbndBF", "name": "KY RHTP v3: Kentucky probe (Mon/Thu) -> main", "runner": "session_01UupwyaxGfXHSohdaVUWz9Z", "cron": "30 19 * * 1,4"}

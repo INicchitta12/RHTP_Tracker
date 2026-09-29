@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01HnkrFiSq439YVXPUW8d4a7", "name": "RHTP v3: CMS state-announcement trigger list (Mon/Thu) -> main", "runner": "session_01VcVUvS86exr36LWfje45ak", "cron": "0 13 * * 1,4"}
