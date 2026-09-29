@@ -77,6 +77,52 @@ published, it deletes the 33 originals. Those are the last element of each non-C
 - The CMS runner runs the full suite at **Thu 10-01 13:00Z**. If the branch is still
   unmerged then, that run declines. It now restores cleanly, but the firing is lost.
 
+**Originals deleted 2026-09-29 ~11:25Z (the scheduled check-in).** Two new ids had
+published to `main` by then: MS `trig_01PqAXjy7Qzn6RvDs1BcRQmh` (`eba2def`,
+09:42Z) and VA `trig_01FDjCh4V5P1M8LFDXJQByoF` (`9f0bbb0`, 10:22Z). This branch had
+reached `main` in PR #79 (`f9347ee`) first.
+- All 33 were confirmed `enabled: false` in a `list_triggers(enabled=false)` read,
+  then deleted. Each delete echoed `enabled: false`.
+- The CMS chain and every enabled trigger were left alone.
+- The ids stay in `config/routines.csv`'s chains. `probe_coverage.R` needs them to
+  cover firings before the cut-over, so the rows are history, not live triggers.
+
+| State | Deleted original | Live replacement |
+|---|---|---|
+| AK | `trig_015xk6QMPZNSY7GhC6muGdpN` | `trig_01PQEPAQpU3oSTEKHJPnLZXU` |
+| MO | `trig_01QvXR8kAx4FRY9bNnWKMb6w` | `trig_018NyhrQ6HzsiggtoU32yJFm` |
+| WI | `trig_01WLEDpkd4wKJpXL6azg74j9` | `trig_01MRogMki6iXgggGqz1dPEqs` |
+| ME | `trig_01Ao3gxS4mCtir8TT6qdg5gb` | `trig_017q25g4K3M46M7P2LUwga7j` |
+| CA | `trig_01MtUic5Z5qWj1JwNtRunGmx` | `trig_01X8JShUQ6MBmHaRux3FKUrC` |
+| CT | `trig_0171T7tTFEKZw3fLGMHSfv4E` | `trig_01FYbLAnFEXUKYPERQ5NqEhy` |
+| NM | `trig_01Awj1kUB48bgv2JUojjfR5i` | `trig_01S7926YNffi3h6MMbRaVv5s` |
+| LA | `trig_01ESvi8uWwisEUnQsbVEPmFL` | `trig_01XN2PYmcGf7naq3yBZPZmUf` |
+| KY | `trig_015jnDJLCsWAX2CCCamBb1tu` | `trig_01YDoRNWzHxHCYzu4JNbndBF` |
+| NY | `trig_017TPNwpHAr9reTXfrjkYQ1n` | `trig_013JEYxw1aScGLtMM5U4jQGw` |
+| NC | `trig_01GdKxaJQETeLNHaEcfVMTZr` | `trig_01LTqpYYhTxDkGGT2Wh9HfiB` |
+| AR | `trig_01UjocQhFRgFwNZioQ6JHyvj` | `trig_019oYYGcFgyhdjAK31gpgLHz` |
+| WY | `trig_014PPiuttxWPAHprrKZNnqCw` | `trig_01TLrCKYYEtbJDFpTVP5wqgR` |
+| MS | `trig_01G2dEsXvNssYCVgPYmqVmHz` | `trig_01PqAXjy7Qzn6RvDs1BcRQmh` |
+| SC | `trig_01HU6a2YD8baUL3Pq5zSuDHh` | `trig_012GA6iXGN7w73vBDzBi5ZNF` |
+| KS | `trig_01MbeqBABRpzxgnqvYXmvLth` | `trig_017s7QYQVFLWt1izwANpnwVP` |
+| WV | `trig_01T4vyNa2KZbrXVm7GmKKy3Q` | `trig_011Mxg1TLki6YtL6fPxPV7EW` |
+| VT | `trig_01DhV9i7bCBrDtAxc2HGzjMi` | `trig_01VyUei9ch5p8Sk4jfsoytyf` |
+| CO | `trig_01SfTU9d4p6UqmNbXsTsajWJ` | `trig_01A89toGBkACsjzT3UWiXHEw` |
+| VA | `trig_01Jq8aqg9JLC3X5PHpc64NZe` | `trig_01FDjCh4V5P1M8LFDXJQByoF` |
+| ND | `trig_016hPY12ZCPgNcbuX1ewcq4J` | `trig_01J7goj6JA2gJjNL6ymtSnAX` |
+| WA | `trig_012bmEryAscHMsDuUWtyKzKg` | `trig_01MKPSWduxnZxzMTWMyJyUP9` |
+| TN | `trig_01SqVaGyZ2hGG5eHYQ6h7hHm` | `trig_01NFSkGzjLiGXe1LZYVzK2ba` |
+| DE | `trig_01H8kstgWFC659Rek73D9b1h` | `trig_01Mv9EYfjVcswCuZLN2Pv86A` |
+| ID | `trig_01XRFZJAXnrtsreEJoRBpMEe` | `trig_01XSJj5cZuHWTUJhtSKkmQqq` |
+| OH | `trig_01NtLzcugxkWTyuWHnjN1FVD` | `trig_01Q6q6ks4Fsr9LHyFteWuUyB` |
+| SD | `trig_01HW44U3EtTGp4w6G6CRhpoA` | `trig_01A72yaSscmEqqToW4WpHziJ` |
+| TX | `trig_01XwAApPe2yefaVzjo44ihdL` | `trig_01GSsa3J1ibGjhCa7kgqwvYw` |
+| NJ | `trig_01CoEij1G5qLGcb2wkLw3tzo` | `trig_01FepX1zDnUcEh3NZbHwbV9J` |
+| NEWSROOM | `trig_014MUUH2tbNbHAaKrXFMG6FT` | `trig_01EKi4iGVgrgLfqk4cLNgLW1` |
+| IN | `trig_01ARYZjcdJN2zm2fEP3ccDvq` | `trig_01FsVCDzD7N8pSMs6dzTnzSQ` |
+| NE | `trig_019qmwzbTMo9k83etPqjJV7z` | `trig_01WL3yTThf5vXHqP8vkCfdNF` |
+| NV | `trig_012WYj2vrKgD7oxuURp3ygCb` | `trig_01UHYF2PAcBJCBpJFtdocviC` |
+
 ## 3. Runner context: what the numbers show, and what they do not
 
 Measured with `get_session` on all 34 existing runners on 2026-09-28 ~20:10Z.
