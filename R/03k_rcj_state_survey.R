@@ -291,8 +291,16 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
 # 94-hospital / 70% formula table to keep reading as ELIGIBILITY. Session 76
 # put it on a weekly Routine. It is a pure pre-award negative, and this is
 # never a claim that Minnesota has allocated nothing.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "MN", "ND", "NM",
-                                        "TX", "WI")
+# Session 77: MONTANA JOINS FROM THE QUEUED FOUR, on the same test as
+# Minnesota: an archive (data/evidence/MT/, session 75), a probe (R/03bl,
+# whose tripwires fire on an award sentence or on DPHHS losing its "funding
+# decisions will be shared in September" line) and a Routine
+# (trig_019e4wVjfnazAh7AvYcr1yUN, Tue/Fri 17:40Z, session 76). Session 76
+# left it queued only because its prompt named Minnesota alone. The probe ran
+# live 2026-09-29 and reported UNCHANGED on all four pages: a pre-award
+# negative, never a claim that Montana has awarded nothing.
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "MN", "MT", "ND",
+                                        "NM", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them
