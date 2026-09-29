@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01X8JShUQ6MBmHaRux3FKUrC", "name": "CA RHTP v3: California probe (Wed/Sat) -> main", "runner": "session_01W2kJHuBuNkmMo2nfjBHZAR", "cron": "0 17 * * 3,6"}

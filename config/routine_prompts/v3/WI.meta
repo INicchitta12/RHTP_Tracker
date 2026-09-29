@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01MRogMki6iXgggGqz1dPEqs", "name": "RHTP v3: Wisconsin probe (Tue/Fri) -> main", "runner": "session_01MautT3SfaKPnu7JJz2BCpK", "cron": "0 14 * * 2,5"}

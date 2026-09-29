@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01A89toGBkACsjzT3UWiXHEw", "name": "RHTP v3: Colorado probe (Mon/Thu) -> main", "runner": "session_01KbB6uHdvUYpSK7CJLWXagJ", "cron": "10 9 * * 1,4"}

@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01FYbLAnFEXUKYPERQ5NqEhy", "name": "CT RHTP v3: Connecticut probe (Mon/Thu) -> main", "runner": "session_01LSL8XWjJ7q7jR6PTinx61Y", "cron": "40 15 * * 1,4"}

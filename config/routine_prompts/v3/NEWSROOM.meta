@@ -1,0 +1,1 @@
+{"trigger_id": "trig_01EKi4iGVgrgLfqk4cLNgLW1", "name": "RHTP v3: Newsroom sweep, 18 no-release states (Mon/Thu) -> main", "runner": "session_01ERt22Gum5dQhrBUnG2aFRj", "cron": "50 16 * * 1,4"}
