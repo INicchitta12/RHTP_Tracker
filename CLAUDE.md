@@ -854,6 +854,7 @@ docs/
   claude_md_history_sessions_01_76.md # CLAUDE.md §10 as of session 76, VERBATIM (session 77)
   rerun_commands.md            # every CLI entry point (moved from §10, session 77)
   session77_claude_md_trim_checkin_montana.md # the trim, the 09-29 check-in, MT
+  session78_status_table_assertion_runner_context.md # Deliverable 1 asserted; why runners double
   stage0_preflight_findings.md # Stage 0 API reconnaissance (authoritative)
   stage3_allotments_and_registry.md  # §7.1 anchor, §6.4 mining, §7.2 worksheet
   stage2.5_budget_narratives.md      # §7A parser, the §7A.4 gate, gaps left open
@@ -1578,11 +1579,11 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-09-29 (Session 77). Session 77 made four changes. It moved sessions 1–76's history out of this
-section into `docs/claude_md_history_sessions_01_76.md`, verbatim. It moved Montana out of the queue to
-`INVESTIGATED_NO_LIST` (survey **36/9/2/3**). It confirmed the 33 original Routines are deleted. It scheduled
-a Thursday context check on the seven heaviest runners. Detail:
-`docs/session77_claude_md_trim_checkin_montana.md`.
+**Last updated:** 2026-09-29 (Session 78). Session 78 deleted `trig_011p…` and added
+`tests/testthat/test_claude_md_status_table.R`, which fails when Deliverable 1 or the partition block drifts
+from the committed files. It also found why runners double at resume (see Runner context). Detail:
+`docs/session78_status_table_assertion_runner_context.md`. Session 77 moved sessions 1–76's history to
+`docs/claude_md_history_sessions_01_76.md` and Montana to `INVESTIGATED_NO_LIST` (survey **36/9/2/3**).
 
 **This section is kept short on purpose.** Every Routine runner loads this file on each cold resume. Keep the
 session narrative in `docs/session<NN>_*.md`, and add a line here only when it changes a rule, a figure or an
@@ -1728,6 +1729,8 @@ rows (`basis_type`, LOW) can be subtracted. Rural cut: `R/03ar`. Complete states
 
 `sum(amount)` is shown and is **not** always the state's published total. GA and OR hold pools in
 `round_amount`. Hospital is `NAMED_HOSPITAL` rows/dollars unless a pool bucket is named.
+**`test_claude_md_status_table.R` asserts every cell, and the partition block above, against the files.**
+Change a state file and you must update this table in the same commit. Never loosen the test.
 
 | File | Rows | Priced | sum(amount) | Hospital |
 |---|---:|---:|---:|---|
@@ -1782,12 +1785,22 @@ Every Routine is in `config/routines.csv`. There are 38, each on its own persist
 template: `config/routine_prompt_template.md`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
 `config/probe_gaps_explained.csv`.
 
-**Session 77 check-in:** the 33 session-76 originals are deleted. The only non-registered Routine left is
-`trig_011pUVRNkSnjCNvZfQ89kPbM` (CMS, session 66's id, disabled since session 75).
+**Session 78:** `trig_011pUVRNkSnjCNvZfQ89kPbM` is deleted. It stays in CMS's `old_trigger_id` chain,
+which `R/probe_coverage.R` reads from the log, not the platform. Every listed Routine is now registered,
+apart from the one-shot check-in.
 
-**Runner context.** A runner at epoch 3 holds ~680k–713k of 1M. Seven runners are there: CMS AR KY NEWSROOM CT
-CO CA, and MS joined on 09-29 at 701,874. Each cold resume adds the start-up load, which was ~355k with the
-754 KB `CLAUDE.md`. See `docs/session76_*` and `docs/session77_*`.
+**Runner context (session 78).**
+- **What causes the growth.** A cold resume re-adds ~330k only when `CLAUDE.md` in the runner's own tree
+  differs from the copy its conversation holds. The runner's own step-1 `git checkout` is what changes it.
+- **NY and SC stayed near 384k** because their first turn came 27 minutes after creation, before any
+  `CLAUDE.md` commit reached `main`.
+- **The split is exact.** Ten of ten runners whose first checkout changed the file doubled; two of two that
+  did not change it stayed flat.
+- **A runner reads its tree, not `main`.** WI and NV fired after the trim merged and still doubled.
+- **Eleven runners are at ~700k:** CMS AR KY NEWSROOM CT CO CA MS VA WI NV. The first nine hold a pre-trim
+  file and would pass 1M at their next resume.
+- **The fix, proposed and not done:** each firing works in a separate clone, so the primary checkout never
+  changes. Recycle the eleven in the same pass. See `docs/session78_*` §3.
 
 ### Open blockers
 
@@ -1810,14 +1823,16 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-**Before Thu 2026-10-01:** merge this branch to `main`. Runners load `CLAUDE.md` at cold resume, so the trim
-cuts cost only once a runner's tree carries it. The CMS suite runs at 13:00Z that day.
+**Before Thu 2026-10-01:** merge this branch to `main`. The new test runs in the CMS runner's suite at
+13:00Z that day.
 
-- **Thu 10-01 after 20:30Z:** read `get_session` for the seven heavy runners (CMS AR KY NEWSROOM CT CO CA) and
-  MS. Record `used_tokens` and whether each firing logged a line (`R/probe_coverage.R --check`).
-- **Decide whether to recycle the epoch-3 runners.** The recipe is in `docs/session76_*` §3. A third ~200–355k
-  load onto ~700k may compact or fail.
-- **Session 76's check-in is DONE:** the originals are deleted (session 77).
+- **Owner decision, ideally before CA fires Wed 09-30 17:00Z:** recreate all 38 Routines so each firing works
+  in a separate clone, and move the eleven ~700k runners to new sessions (`docs/session78_*` §3). This needs
+  the owner's approval.
+- **Test the finding on Wed 09-30.** NY after 11:10Z should reach ~715k and MO after 15:00Z ~700k. **If NY
+  stays near 385k, the finding is wrong.**
+- **Thu 10-01 after 20:30Z:** read `get_session` for the eleven heavy runners, then SC after 08:30Z. Record
+  `used_tokens` and whether each firing logged a line (`R/probe_coverage.R --check`).
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)
