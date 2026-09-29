@@ -236,16 +236,19 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
   # candidates, $1,522,256,789 - $200,105,604 - $198,936,970 = $1,123,214,215.
   # Session 60: VA and WA left by EXTRACTION -- 14 - 1 - 2 = 11 candidates,
   # $1,123,214,215 - $189,544,888 - $181,257,515 = $752,411,812.
-  four <- c("MT", "UT", "AZ", "RI")
-  expect_setequal(queue$state[queue$queue_status == "QUEUED"], four)
+  # Session 77: MT left for INVESTIGATED_NO_LIST THROUGH THE WORK (archive,
+  # R/03bl, Routine), Minnesota's route -- 6 - 2 = 4 candidates,
+  # $752,411,812 - $233,509,359 = $518,902,453.
+  three <- c("UT", "AZ", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], three)
   # Session 62 (2026-09-24 pull): 11 -> 6 candidates -- AZ's three webinar
   # rows are now QUARANTINED by Stage 2 on PROVENANCE_PREDATES_NOA and RCJ
-  # withdrew RI's three opioid rows (one new RI row). The four states and
-  # their allotments are unchanged.
+  # withdrew RI's three opioid rows (one new RI row).
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               6L)
+               4L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
-               752411812)
+               518902453)
+  expect_equal(queue$queue_status[queue$state == "MT"], "INVESTIGATED_NO_LIST")
   expect_equal(queue$queue_status[match(c("CO", "ND"), queue$state)],
                c("INVESTIGATED_NO_LIST", "INVESTIGATED_NO_LIST"))
   expect_setequal(queue$state[queue$queue_status == "EXTRACTED" &
