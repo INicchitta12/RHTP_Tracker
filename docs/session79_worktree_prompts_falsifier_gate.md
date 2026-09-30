@@ -134,3 +134,20 @@ The re-load happens at resume, before any prompt runs.
 | NH | `trig_01D5rZ2KjtjmyXcRuVjNxQr4` | `trig_013kuBUJ39zAwF7SM7RYfwvk` | `10 18 * * 3` | `session_019SBzVqWVoWMmfsGEj57hwo` |
 | OK | `trig_0195epZAcyF5L1WbYJYMQ5Za` | `trig_01MT1CVgVd1LZQbMpRoRMRGD` | `10 18 * * 4` | `session_01KCqoLtaJ3X9yGJG3XSvT2e` |
 | MN | `trig_018tLxX82fNyKgxw5JkRw5PV` | `trig_01TkZG5yB5a1LnuBMv67tPEj` | `10 18 * * 5` | `session_01YMHRbw9ToET8yfpwSqg5bu` |
+
+## 6. Two v4 Routines published (check-in 3, 2026-09-30 18:35Z)
+
+| Runner | v4 trigger | Line on `main` | Commit | `used_tokens` after | Note |
+|---|---|---|---|---:|---|
+| CA (NEW) | `trig_01JEYQK9ZNMVpe27H19DFjzX` | 17:04:18Z, 3 pages CHANGED | `3d3e7da` | 127,507 | first turn on a runner created from the trimmed `CLAUDE.md` |
+| NH (in place) | `trig_01D5rZ2KjtjmyXcRuVjNxQr4` | 18:12:46Z, **TRIPWIRE** | `5928118` | 397,535 | first turn at all; its tree was cloned 09-28, before the trim |
+
+**Both publish through the worktree**, so the proof condition is met and the 38 disabled v3 originals were
+deleted (see below). CA's 127,507 is the floor for a v4 runner holding the trimmed file, down from ~355–385k
+for the v3 runners.
+
+**NH's TRIPWIRE is a finding about New Hampshire, not about the Routine.** FHC's page now says *"FHC is
+launching the Transformation Technical Assistance Center (T-TAC) - a core support resource available to all
+FHC subrecipients."* It is a technical-assistance service and names no GO-NORTH subrecipient. FHC stays
+`PASS_THROUGH_UNRESOLVED` / `Unclear` (§0.3). The page still needs a human read before any `--fetch --force`
+re-bases the archive (§2.2).
