@@ -85,7 +85,9 @@ The re-load happens at resume, before any prompt runs.
   - each v4 prompt matches exactly one stored prompt **byte for byte**;
   - that trigger has the manifest cron and runner and is enabled;
   - its runner has no other new trigger, so the retries made no duplicates.
-- **The 37 v3 originals: disabling in progress** (confirmation by re-listing recorded below when done).
+- **The 37 v3 originals were disabled.** A fresh `list_triggers` at ~15:40Z shows 38 of 38 v4 ids enabled, no v3
+  id enabled, 38 enabled recurring Routines, and at most one per runner. All 38 stored prompts are still
+  byte-identical to the v4 files.
 - **`config/routines.csv`:** each v3 id is appended to its `old_trigger_id` chain, with the trigger's
   creation time as its `old_logging_since`. `logging_since` is each v4 trigger's `created_at`. After
   merging `origin/main`, `R/probe_coverage.R --check` passed: 45 due firings, all logged except 3 explained.
