@@ -151,3 +151,9 @@ launching the Transformation Technical Assistance Center (T-TAC) - a core suppor
 FHC subrecipients."* It is a technical-assistance service and names no GO-NORTH subrecipient. FHC stays
 `PASS_THROUGH_UNRESOLVED` / `Unclear` (§0.3). The page still needs a human read before any `--fetch --force`
 re-bases the archive (§2.2).
+
+**The 38 v3 originals were deleted at ~18:45Z.** The agent read each id with `get_trigger`, confirmed
+`enabled: false` and only then deleted it: 38 of 38 deleted, none skipped. A fresh `list_triggers` returns 39
+Routines: the 38 v4 ids, all enabled, one per runner, plus session 77's one-shot Thursday check-in
+(`trig_01HfFcNkhtmWSJ7CkHJEU7Ye`). No v3 id remains. The deleted ids stay in the `old_trigger_id` chains, which
+`R/probe_coverage.R` reads from the log, not the platform.

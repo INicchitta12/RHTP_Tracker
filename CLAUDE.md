@@ -1834,8 +1834,8 @@ Network is Full; the old allowlist blockers are superseded.
 **Before Thu 2026-10-01 13:00Z:** merge session 79's branch to `main`. Until `config/routines.csv` on `main`
 carries the v4 ids, every v4 line reads as a missed firing and the CMS runner's suite declines.
 
-- **Delete the 38 disabled v3 originals** only after two v4 ids have published (check-in 09-30 18:35Z: CA
-  17:00Z on its new runner, NH 18:10Z in place; fallback SC and CO Thursday).
+- **The 38 v3 originals are deleted** (09-30, after CA and NH published under v4 ids). NH's 09-30 TRIPWIRE
+  (FHC's T-TAC sentence, no subrecipient named) still needs a human read.
 - **Read runner context after the v4 firings:** a new runner should sit near its first-turn floor and stay
   there; an in-place runner may re-load once more, then stop. WI and NV fire Fri 10-02.
 - **Open review-queue decisions** (`classification_review_queue.csv`):
