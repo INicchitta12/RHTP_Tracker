@@ -16,8 +16,10 @@ fall before CA's 17:00Z firing.
 
 | Runner | Session | Baseline 09-29 | Epoch | Firing | Predicted | Observed |
 |---|---|---:|---:|---|---:|---:|
-| NY | `session_01NfXAHPAh7kopwE41JsxHco` | 384,866 | 3 | Wed 11:10Z | ~715k | _pending_ |
+| NY | `session_01NfXAHPAh7kopwE41JsxHco` | 384,866 | 3 | Wed 11:10Z | ~715k | **723,788** (epoch 4, +338,922) |
 | MO | `session_01J5YCDdt9saEJVxmsATnLLD` | 368,982 | 2 | Wed 15:00Z | ~700k | _pending_ |
+
+**NY, read 2026-09-30 11:36Z: CONSISTENT.** `used_tokens` 723,788 at `worker_epoch` 4 (`updated_at` 11:13:01Z), up 338,922 from yesterday's 384,866, against a ~715k prediction. The firing published: `fa03ce5` carries four NY lines from `trig_013JEYxw1aScGLtMM5U4jQGw` at 11:12:27Z (programme and roster UNCHANGED, press_index and scr CHANGED). No Routine was created or deleted. MO decides the gate.
 
 Check-ins (this session, `send_later`): `trig_013WrHD3nHpXv2FFvFabApvC` at 11:35Z (NY) and
 `trig_01AxS6G8pDFwMyjSTff44cTz` at 15:25Z (MO, then CA if the mechanism holds).
