@@ -413,7 +413,11 @@ test_that("each retuned probe is silent on today's archive AND still fires on a 
               function() ME_NAME_FURNITURE),
     KY = list("R/03af_ky_year1_probe.R", function() list(rch = ky_html_text("rch")),
               function() KY_NAME_FURNITURE),
-    NC = list("R/03ah_nc_year1_sources.R", function() list(trillium = nc_html_text("trillium")),
+    # Session 82: roots_page and opportunities gained furniture too.
+    NC = list("R/03ah_nc_year1_sources.R",
+              function() list(trillium = nc_html_text("trillium"),
+                              roots_page = nc_html_text("roots_page"),
+                              opportunities = nc_html_text("opportunities")),
               function() NC_NAME_FURNITURE),
     ID = list("R/03am_id_year1_awardees.R",
               function() list(funding = id_html_text("funding"), about = id_html_text("about")),

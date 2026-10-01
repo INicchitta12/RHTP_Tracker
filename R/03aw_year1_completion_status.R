@@ -73,7 +73,8 @@ Y1_AWARD_FILES <- c(
   TN = "tn_year1_awardees.csv",
   VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv",
   NJ = "nj_year1_awardees.csv",
-  LA = "la_year1_awardees.csv"
+  LA = "la_year1_awardees.csv",
+  CO = "co_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -332,7 +333,11 @@ Y1_STATUS <- tibble::tribble(
   "NJ", "PARTIAL", "No", "Yes",
   "2026-07-31",
   "The Governor: 'the first round of grant awards ... investing $83 million', against 'the Department of Health administering approximately $95 million in competitive grant funding' (session 61).",
-  "data/evidence/recheck/2026-09-24/NJ/governor_release_2026-07-31_first_round_awards.html"
+  "data/evidence/recheck/2026-09-24/NJ/governor_release_2026-07-31_first_round_awards.html",
+  "CO", "PARTIAL", "No", "Yes",
+  "2026-09-28",
+  "CMS: 'Today's announcement is one part of the larger overall funding amount awarded to Colorado for fiscal year 2026.' The round is $169.6M of a $200,105,604 allotment, and HCPF's own total ($169,587,181) does not reconcile to its roster ($170,210,575.26) (session 82).",
+  "data/evidence/CO/2026-10-01_cms_release_co_2026-09-28.html; data/evidence/CO/2026-10-01_hcpf_release_2026-09-28.html"
 )
 
 

@@ -99,6 +99,7 @@ suppressPackageStartupMessages({
 })
 
 source(here::here("R", "utils_config.R"))
+source(here::here("R", "03bp_tx_bp1_floor.R"))
 
 TX_STATE         <- "TX"
 TX_FISCAL_YEAR   <- "FY2026 (Year 1)"
@@ -1119,6 +1120,15 @@ tx_probe <- function(keys = TX_PROBE_KEYS) {
                            subjects),
     archived = stats::setNames(purrr::map(subjects, tx_read_archive), subjects),
     state = "TX")
+
+  # SESSION 82: THE BP1 ANNUAL REPORT. Its First-Tier Entities tab names 33 of
+  # the 68 hospital districts HHSC announced on 2026-09-28; this trips the day
+  # it names a different number (R/03bp_tx_bp1_floor.R). Read into a temp
+  # file, never data/evidence/ (§2.2).
+  bp1 <- tx_bp1_live_finding()
+  if (!is.null(bp1$finding)) findings <- c(findings, bp1$finding)
+  message("[TX] BP1 report: ", bp1$n_districts, " hospital districts named",
+          if (isTRUE(bp1$changed)) " (CONTENT CHANGED -- read it)" else "", ".")
 
   moved <- vapply(live, function(x) x$changed, logical(1))
 

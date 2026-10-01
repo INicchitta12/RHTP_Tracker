@@ -256,7 +256,14 @@ STATE_FILES <- c(
   # empty, $10,736,208 in round_amount). LDH's "20 hospital-setting awards"
   # names none of the 20, so that aggregate reaches NO hospital bucket (session
   # 71: Ochsner Clinic Foundation, a named row, does -- see below).
-  LA = "data/reference/la_year1_awardees.csv"
+  LA = "data/reference/la_year1_awardees.csv",
+
+  # SESSION 82. COLORADO: 92 priced lines on HCPF's awardee page,
+  # $170,210,575.26, against HCPF's own release total of $169,587,181 -- NOT
+  # reconciled, and no line dropped. 36 named-hospital lines typed on CMS's CO
+  # enrolment files; three districts whose names say "Hospital" or "Health
+  # Services" (Walsh, West Custer, Lake Fork) are NOT hospitals on the record.
+  CO = "data/reference/co_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -298,7 +305,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
+               c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
                  "KS", "LA", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))

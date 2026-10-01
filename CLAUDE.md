@@ -662,6 +662,8 @@ R/
   03bl_mt_year1_probe.R        # Montana — a WATCH; EMS decisions "in September" (BUILT)
   03bm_nh_year1_probe.R        # New Hampshire — a WATCH on FHC; CAH RFA "Coming Soon" (BUILT)
   03bn_mn_year1_probe.R        # Minnesota — a WATCH; 94 eligible hospitals are NOT awards (BUILT)
+  03bo_co_year1_awardees.R     # Colorado — 92 lines, $170.2M vs HCPF's $169.6M, typed on CMS enrolment (BUILT)
+  03bp_tx_bp1_floor.R          # Texas — 33 of 68 districts in the BP1 report; a FLOOR, codes nothing (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1617,7 +1619,10 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-01 (Session 80). Session 80 moved WI and NV to new runners, which session 79 had left
+**Last updated:** 2026-10-01 (Session 82). Session 82 extracted Colorado (92 lines, $170,210,575.26, roster and
+HCPF's $169,587,181 NOT reconciled), recorded Texas's BP1 report as a 33-of-68 floor (`R/03bp`, coded nothing),
+read AL's and NC's new releases, and moved NY LA WY ME MO SC to new runners. Detail:
+`docs/session82_colorado_texas_floor_al_nc_six_runners.md`. Session 80 moved WI and NV to new runners, which session 79 had left
 in place, and recorded the reload mechanism in §2.2a. Detail: `docs/session80_wi_nv_moved_mechanism_recorded.md`.
 Session 79 confirmed session 78's runner-growth mechanism (NY 723,788,
 MO 687,835, both as predicted) and recreated all 38 Routines on the v4 worktree prompt, nine on new runners.
@@ -1735,7 +1740,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 3 allotments + registry worksheet | `R/03_state_registry.R` | Built; §7.3 registry NOT compiled (blocker 1) |
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
-| State extractors | `R/03d`–`R/03bi` | 36 states EXTRACTED; see Deliverable 1 |
+| State extractors | `R/03d`–`R/03bo` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
 | State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
@@ -1751,14 +1756,14 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 
 ### Survey disposition (rebuilt from `R/03k`'s constants; never hand-edited)
 
-`EXTRACTED` 36 · `INVESTIGATED_NO_LIST` 9 (CA CO KY MN MT ND NM TX WI) · `INVESTIGATED_NO_PROBE` 2 (HI MA) ·
+`EXTRACTED` 37 · `INVESTIGATED_NO_LIST` 8 (CA KY MN MT ND NM TX WI) · `INVESTIGATED_NO_PROBE` 2 (HI MA) ·
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
 ### Hospital partition (re-derived 2026-09-29 from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,202 rows   $1,041,393,346.27   30 states
+NAMED_HOSPITAL          1,238 rows   $1,128,086,505.27   31 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 ```
@@ -1779,6 +1784,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | AK | 249 | 249 | $242,620,741 | 45 / $69,370,639 (intents; rolling; 2 withdrawn) |
 | FL | 81 | 81 | $188,201,256 | 15 / $49,345,213 (Year 1 COMPLETE) |
 | WY | 77 | 75 | $173,859,752 | 35 / $84,369,024 (committee approvals) |
+| CO | 92 | 92 | $170,210,575 (release says $169,587,181) | 36 / $86,693,159 (typed on CMS enrolment) |
 | SC | 228 | 228 | $167,299,901 | 114 / $115,985,715 (partial year) |
 | AR r1 | 37 | 37 | $149,177,618 | 20 / $104,397,118 (intents) |
 | AL | 138 | 138 | $143,745,821 | 70 / $83,548,287 |
@@ -1847,6 +1853,9 @@ apart from the one-shot check-in.
   touches `/home/user/RHTP_Tracker`, so the runner's `CLAUDE.md` is frozen. **Never write a Routine prompt
   that checks out, pulls or edits in the primary checkout.** CA CMS AR KY NEWSROOM CT CO MS VA moved to new
   runners. WI and NV followed in session 80 (`trig_01BDpi…`, `trig_013u9w…`), so all eleven are on new runners.
+- **Session 82 moved the six in-place runners near 700k** (NY 723,788, SC 713,680, LA 709,869, WY 708,216,
+  ME 703,973, MO 687,835) to new sessions, same names and crons; `runner_moves.csv` and `routines.csv` chain
+  the old ids, which are disabled, not deleted.
 - **A prompt change is a recreate** (`update_trigger` refuses a prompt from outside the runner): edit the
   generator, `--write`, create, byte-compare with `list_triggers`, disable the old id, chain it here.
 
@@ -1871,9 +1880,23 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-**Merge to `main` now.** This branch carries sessions 79 and 80. Until `config/routines.csv` on `main` carries
-the v4 ids, every v4 line reads as a missed firing and every runner's suite fails. CMS already declined at
-10-01 13:00Z for that reason. WI's new Routine fires Fri 10-02 14:00Z.
+**Merge session 82's branch to `main` before Fri 10-02 16:20Z** (ME's first firing on its new runner). Until
+`routines.csv` on `main` carries the six new ids, their lines read as unregistered. Sessions 79 and 80 are on
+`main` (PRs #83, #84).
+
+- **Delete the six session-82 old ids once each new Routine has put a line on `main`:** NY
+  `trig_014kvDg8x3JDqdWySvHxrREU`, LA `trig_016GDtAW1DvWCexnRSm4LxK8`, WY `trig_01F98Jr5do6PXbUzNLBGjzGE`,
+  ME `trig_01RyrB4uNLd6rdjaD8d9tWBk`, MO `trig_0183VrPsZUMmc3dMneainqXm`, SC `trig_01R1pZjkPkQZWD3vctiAJQ44`.
+- **Alabama round 2 is a named, priced roster, unextracted:** 34 grants, "nearly $55 million", in the
+  Governor's 2026-10-01 release (`data/evidence/recheck/2026-10-01/AL/`). It "round[s] out year one", so AL
+  is a COMPLETE candidate once extracted. About ten recipients read as hospitals by name (Flowers, East Alabama,
+  Russell, Infirmary, Huntsville, Greene County, Andalusia, Coosa Valley, Shoals, St. Vincent's Chilton): a NAME
+  SCREEN, to be typed on CMS AL enrolment at extraction, as Colorado was.
+- **North Carolina:** the 2026-09-14 SBHC release names FIVE organisations for $1.25M with no split (FirstHealth
+  of the Carolinas among them): a third roster, unextracted. The 09-30 "$20M" is the Rural Health Innovation
+  Fund's LAUNCH (Tier 2, applications to 11-16, awards "January 2027"), not awards.
+- **Texas floor:** `tx_bp1_first_tier_floor.csv` is not an award file. R/03n's probe trips when the BP1 report
+  names other than 33 districts. Enrolment screen: 28 exact, 4 near (hand bridge), Hardeman none.
 
 - **The 38 v3 originals are deleted** (09-30, after CA and NH published under v4 ids). NH's 09-30 TRIPWIRE
   (FHC's T-TAC sentence, no subrecipient named) still needs a human read.
@@ -1893,10 +1916,13 @@ the v4 ids, every v4 line reads as a missed firing and every runner's suite fail
   - `NJ_RECIPIENT_FORM_NOT_STATED`
   - `WA_WSHA_FLOW`
   - `MI_MHA_FLOW`
+  - `CO_ROSTER_VS_RELEASE_TOTAL`, `CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT`, `CO_RECIPIENT_FORM_NOT_STATED`
+  - `TX_BP1_DISTRICT_ENROLMENT`
   - The NE, NV and LA form rows from session 64
 - **Dated watches:**
+  - Colorado: AWARDED 09-28, extracted session 82; R/03az's Routine now runs R/03bo's roster watch.
   - Wisconsin: "Award announcements: September"; nothing posted as of 09-28.
-  - Montana: EMS decisions "in September".
+  - Montana: awarded 09-29 ($8.7M); DPHHS names 4 ambulance recipients, 75 equipment awards unnamed (session 81).
   - Mississippi: second tranche, 2026-10-14 .. 10-29.
   - Louisiana: windows "End of September".
   - New Hampshire: CAH RFA "Coming Soon".

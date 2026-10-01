@@ -1328,9 +1328,27 @@ nc_status_table <- function() {
 # second-tier RFAs "Closed - Under Review" with notification due September /
 # September-October 2026 -- those RFA titles were already in the archive, and
 # the day an AWARDEE appears under them it is a new name and fires.
-NC_NAME_FURNITURE <- list(trillium = c(
-  "About the Advisory Board The NC ROOTS Region",
-  "Advisory Board Members"))
+#
+# Session 82: roots_page fired on "Rural Health Workforce Transformation". It
+# is a SIDE-NAV entry NCDHHS added for a new programme page of that title
+# (read 2026-10-01): a page about workforce funding flowing through the six
+# ROOTS Hubs ("Each of the ROOTS Hubs has $5.79 million for workforce
+# initiatives in the first year" -- a Tier 2 pool per Hub) that names no
+# awardee. A page title, not a recipient.
+NC_NAME_FURNITURE <- list(
+  trillium = c(
+    "About the Advisory Board The NC ROOTS Region",
+    "Advisory Board Members"),
+  roots_page = c("Rural Health Workforce Transformation"),
+  # Session 82: the opportunities page gained the Rural Health Innovation Fund
+  # (launched 2026-09-30) as an OPEN opportunity -- "NCDHHS and NCDIT announced
+  # the launch of Rural Health Innovation Fund ... will distribute approximately
+  # $20 million per year". The fund's name, its two administering agencies and
+  # the same side-nav entry; Tier 2, no awardee (applications close
+  # 2026-11-16, awards "anticipated ... January 2027").
+  opportunities = c("Rural Health Innovation Fund NCDHHS and NCDIT",
+                    "Rural Health Innovation Fund",
+                    "Rural Health Workforce Transformation"))
 
 nc_probe <- function() {
   keys <- c("pr_mih", "pr_roots", "roots_page", "opportunities", "trillium")

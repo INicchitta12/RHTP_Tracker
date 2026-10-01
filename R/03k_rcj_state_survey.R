@@ -130,7 +130,11 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # INVESTIGATED_NO_PROBE -- the THIRD state to leave that bucket by the state
 # publishing, and the one that sat longest unseen (55 days). See
 # R/03bf_nj_year1_awardees.R.
-SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
+# Session 82: CO (92 priced lines, $170,210,575.26, HCPF 2026-09-28) joins from
+# INVESTIGATED_NO_LIST by EXTRACTION -- the dated anchor R/03az watched was
+# "by the end of September 2026", and HCPF published on the 28th. See
+# R/03bo_co_year1_awardees.R.
+SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA",
                              "ID", "IL", "IN", "KS", "LA", "MD", "ME", "MI", "MO",
                              "MS", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
@@ -299,7 +303,7 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CT", "DE", "FL", "GA", "IA",
 # left it queued only because its prompt named Minnesota alone. The probe ran
 # live 2026-09-29 and reported UNCHANGED on all four pages: a pre-award
 # negative, never a claim that Montana has awarded nothing.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "CO", "KY", "MN", "MT", "ND",
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "MN", "MT", "ND",
                                         "NM", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not

@@ -591,3 +591,21 @@ TX,2026-10-01T17:19:33Z,UNCHANGED,rts_init4r2,,interactive
 TX,2026-10-01T17:19:33Z,UNCHANGED,rts_init6p1,,interactive
 TX,2026-10-01T17:19:33Z,UNCHANGED,state_debt_rfa,,interactive
 TX,2026-10-01T17:19:33Z,UNCHANGED,state_impr_rfa,,interactive
+TX,2026-10-01T17:46:23Z,UNCHANGED,rts_init1p2,,interactive
+TX,2026-10-01T17:46:23Z,UNCHANGED,rts_init4r1,,interactive
+TX,2026-10-01T17:46:23Z,UNCHANGED,rts_init4r2,,interactive
+TX,2026-10-01T17:46:23Z,UNCHANGED,rts_init6p1,,interactive
+TX,2026-10-01T17:46:23Z,UNCHANGED,state_debt_rfa,,interactive
+TX,2026-10-01T17:46:23Z,UNCHANGED,state_impr_rfa,,interactive
+CO,2026-10-01T17:46:43Z,UNCHANGED,awardees,,interactive
+CO,2026-10-01T17:46:43Z,UNCHANGED,programme,,interactive
+NC,2026-10-01T17:48:35Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [NC] 'roots_page' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Workforce Transformation. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NC,2026-10-01T17:49:20Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [NC] 'opportunities' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Innovation Fund NCDHHS and NCDIT | Rural Health Innovation Fund | Rural Health Workforce Transformation. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NC,2026-10-01T17:49:49Z,CHANGED,pr_mih,,interactive
+NC,2026-10-01T17:49:49Z,CHANGED,pr_roots,,interactive
+NC,2026-10-01T17:49:49Z,CHANGED,roots_page,,interactive
+NC,2026-10-01T17:49:49Z,CHANGED,opportunities,,interactive
+NC,2026-10-01T17:49:49Z,CHANGED,trillium,,interactive
+CMS,2026-10-01T17:50:45Z,CHANGED,newsroom+medicaid,new states: CO MT TX; changed rows: 0,interactive
+NEWSROOM,2026-10-01T17:51:10Z,UNCHANGED,TX:governor,,interactive
+NEWSROOM,2026-10-01T17:51:10Z,UNCHANGED,TX:hhsc,,interactive

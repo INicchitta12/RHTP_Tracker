@@ -25,6 +25,7 @@
 # is what TN/WV/VT already send (session 43: identifying honestly is the fix).
 #
 # Usage: Rscript R/03az_co_year1_probe.R --validate | --probe
+# (--probe delegates to R/03bo since session 82; see co_probe().)
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
 source(here::here("R", "utils_config.R"))
@@ -65,7 +66,18 @@ co_validate <- function() {
   invisible(TRUE)
 }
 
+# SESSION 82: COLORADO AWARDED. HCPF published its roster on 2026-09-28 and the
+# dated anchor above is gone, so this watch has served its purpose. The CO
+# Routine still calls this file's --probe; it now runs the award extractor's
+# watch (R/03bo_co_year1_awardees.R): the roster's count and total, and a name
+# diff on the awardee and programme pages. co_watch_probe() is the old watch,
+# kept so its tests still drive it against the committed 09-23 archive.
 co_probe <- function() {
+  source(here::here("R", "03bo_co_year1_awardees.R"), local = TRUE)
+  co_awardee_probe()
+}
+
+co_watch_probe <- function() {
   w <- rhtp_watch_pages(CO_PAGES, CO_AGENT)
   co_assert_watch(w$live_all, w$arch_all)
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,

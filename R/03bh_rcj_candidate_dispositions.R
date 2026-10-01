@@ -97,6 +97,7 @@ DISPO_AWARD_FILES <- list(
   WV = "wv_year1_awardees.csv",
   NC = "nc_year1_awardees.csv",
   VA = "va_year1_awardees.csv",
+  CO = "co_year1_awardees.csv",
   SD = c("sd_rht_contracts.csv", "sd_year1_awardees.csv")
 )
 
@@ -116,6 +117,7 @@ DISPO_FILE_EVIDENCE <- c(
   WV = "data/evidence/recheck/2026-09-23/WV/ (five Governor's releases)",
   NC = "data/evidence/NC/ (MIH and ROOTS releases)",
   VA = "data/evidence/recheck/2026-09-23/VA/gov_release_2026-08-28_122M.pdf",
+  CO = "data/evidence/CO/2026-10-01_hcpf_rhtp_awardees.html",
   SD = "data/evidence/SD/2026-08-28_open_sd_contract_search_RHT.html"
 )
 
