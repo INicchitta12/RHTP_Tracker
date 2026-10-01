@@ -664,6 +664,8 @@ R/
   03bn_mn_year1_probe.R        # Minnesota — a WATCH; 94 eligible hospitals are NOT awards (BUILT)
   03bo_co_year1_awardees.R     # Colorado — 92 lines, $170.2M vs HCPF's $169.6M, typed on CMS enrolment (BUILT)
   03bp_tx_bp1_floor.R          # Texas — 33 of 68 districts in the BP1 report; a FLOOR, codes nothing (BUILT)
+  03bq_al_round2_awardees.R    # Alabama round 2 — 34 grants, $54.8M, typed on CMS AL enrolment (BUILT)
+  03br_nc_sbhc_awardees.R      # North Carolina SBHC — 5 named, $1.25M pool, NO split (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1619,7 +1621,11 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-01 (Session 82). Session 82 extracted Colorado (92 lines, $170,210,575.26, roster and
+**Last updated:** 2026-10-01 (Session 83). Session 83 re-typed National Jewish Health (MI, $435,000) on its CMS
+enrolment, extracted Alabama round 2 (`R/03bq`, 34 grants, $54,793,527, 21 hospital rows / $20,886,572) and NC's
+SBHC roster (`R/03br`, 5 rows, $0, FirstHealth), and kept AL PARTIAL: the release says it rounds out Year 1, but
+Community Medicine, the 11th initiative, has $7.3M of Year 1 plan and no award. Detail:
+`docs/session83_mi_njh_al_round2_nc_sbhc_completion.md`. Session 82 extracted Colorado (92 lines, $170,210,575.26, roster and
 HCPF's $169,587,181 NOT reconciled), recorded Texas's BP1 report as a 33-of-68 floor (`R/03bp`, coded nothing),
 read AL's and NC's new releases, and moved NY LA WY ME MO SC to new runners. Detail:
 `docs/session82_colorado_texas_floor_al_nc_six_runners.md`. Session 80 moved WI and NV to new runners, which session 79 had left
@@ -1740,7 +1746,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 3 allotments + registry worksheet | `R/03_state_registry.R` | Built; §7.3 registry NOT compiled (blocker 1) |
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
-| State extractors | `R/03d`–`R/03bo` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
+| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
 | State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
@@ -1760,10 +1766,10 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-09-29 from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-01 from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,238 rows   $1,128,086,505.27   31 states
+NAMED_HOSPITAL          1,261 rows   $1,149,408,077.27   31 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 ```
@@ -1787,11 +1793,11 @@ Change a state file and you must update this table in the same commit. Never loo
 | CO | 92 | 92 | $170,210,575 (release says $169,587,181) | 36 / $86,693,159 (typed on CMS enrolment) |
 | SC | 228 | 228 | $167,299,901 | 114 / $115,985,715 (partial year) |
 | AR r1 | 37 | 37 | $149,177,618 | 20 / $104,397,118 (intents) |
-| AL | 138 | 138 | $143,745,821 | 70 / $83,548,287 |
+| AL r1 | 138 | 138 | $143,745,821 | 70 / $83,548,287 |
 | OR | 278 | 272 | $140,994,009 (published $175.3M) | 57 / $54,520,575 (intents) |
 | VT | 145 | 145 | $106,660,194 | 42 / $35,285,416 (executed; partial) |
 | MS | 167 | 167 | $104,115,147 | 84 / $68,898,205 (partial year) |
-| MI | 145 | 145 | $101,318,437 | 4 / $2,259,121 (a TOTAL; MHA $8.625M in no bucket) |
+| MI | 145 | 145 | $101,318,437 | 5 / $2,694,121 (a TOTAL; MHA $8.625M in no bucket) |
 | KS | 60 | 60 | $96,027,147 | 37 / $62,416,473 |
 | GA | 158 | 102 | $90,765,080 (published $197,148,327) | 126 / $90,277,580 (Year 1 COMPLETE) |
 | NJ | 103 | 103 | $83,060,837 | 35 / $35,275,076 |
@@ -1799,6 +1805,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | NY | 56 | 56 | $76,190,022 | 35 / $47,358,791 |
 | WA | 8 | 7 | $67,020,000 | 2 / $9,740,000 (WSHA $42M Unclear) |
 | NH | 2 | 1 | $66,547,394 | 0 (FHC Unclear) |
+| AL r2 | 34 | 34 | $54,793,527 | 21 / $20,886,572 (AHC $6.69M; Greene $3.91M LOW) |
 | AR r2 | 43 | 43 | $54,685,069 | 14 / $23,939,844 (AR Year 1 COMPLETE) |
 | IL | 1 | 1 | $50,008,264 | POOL_UNNAMED 1 / $50,008,264 |
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
@@ -1816,6 +1823,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | IA | 264 | 0 | — | 218 / $0 |
 | NV | 156 | 0 | — (pools $87.4M) | 44 / $0 |
 | NC | 44 | 0 | — | 2 / $0 |
+| NC SBHC | 5 | 0 | — (pool $1.25M) | 1 / $0 (FirstHealth) |
 | TN | 53 | 0 | — | 2 / $0 |
 | DE | 4 | 0 | — | 4 / $0 |
 | VA | 11 | 0 | — | 0 |
@@ -1887,14 +1895,11 @@ Network is Full; the old allowlist blockers are superseded.
 - **Delete the six session-82 old ids once each new Routine has put a line on `main`:** NY
   `trig_014kvDg8x3JDqdWySvHxrREU`, LA `trig_016GDtAW1DvWCexnRSm4LxK8`, WY `trig_01F98Jr5do6PXbUzNLBGjzGE`,
   ME `trig_01RyrB4uNLd6rdjaD8d9tWBk`, MO `trig_0183VrPsZUMmc3dMneainqXm`, SC `trig_01R1pZjkPkQZWD3vctiAJQ44`.
-- **Alabama round 2 is a named, priced roster, unextracted:** 34 grants, "nearly $55 million", in the
-  Governor's 2026-10-01 release (`data/evidence/recheck/2026-10-01/AL/`). It "round[s] out year one", so AL
-  is a COMPLETE candidate once extracted. About ten recipients read as hospitals by name (Flowers, East Alabama,
-  Russell, Infirmary, Huntsville, Greene County, Andalusia, Coosa Valley, Shoals, St. Vincent's Chilton): a NAME
-  SCREEN, to be typed on CMS AL enrolment at extraction, as Colorado was.
-- **North Carolina:** the 2026-09-14 SBHC release names FIVE organisations for $1.25M with no split (FirstHealth
-  of the Carolinas among them): a third roster, unextracted. The 09-30 "$20M" is the Rural Health Innovation
-  Fund's LAUNCH (Tier 2, applications to 11-16, awards "January 2027"), not awards.
+- **Alabama is PARTIAL with `source_calls_complete = Yes`.** It leaves PARTIAL only when a source accounts for
+  Community Medicine (ADECA Project Narrative Table XIV-J1, "$7.3M for year 1"; Stage 1 is "Procure mobile wellness
+  units", so it may be a state procurement). Ask ADECA or watch its procurement channel; never close it on arithmetic.
+- **North Carolina:** the Rural Health Innovation Fund (launched 09-30, Tier 2, applications due 11-16, awards
+  "January 2027") is the next NC roster.
 - **Texas floor:** `tx_bp1_first_tier_floor.csv` is not an award file. R/03n's probe trips when the BP1 report
   names other than 33 districts. Enrolment screen: 28 exact, 4 near (hand bridge), Hardeman none.
 
@@ -1918,8 +1923,7 @@ Network is Full; the old allowlist blockers are superseded.
   - `MI_MHA_FLOW`
   - `CO_ROSTER_VS_RELEASE_TOTAL`, `CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT`, `CO_RECIPIENT_FORM_NOT_STATED`
   - `TX_BP1_DISTRICT_ENROLMENT`
-  - `MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL` ($435,000): CO's enrolment file exposed it; the §10.2 rule reads APPLY,
-    deferred (R/03bj `EH_READ_NOT_APPLIED`)
+  - `AL_R2_GREENE_COUNTY_HEALTH_SYSTEM_BRIDGE` ($3,913,694, LOW), `AL_R2_RECIPIENT_FORM_NOT_STATED`
   - The NE, NV and LA form rows from session 64
 - **Dated watches:**
   - Colorado: AWARDED 09-28, extracted session 82; R/03az's Routine now runs R/03bo's roster watch.

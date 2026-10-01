@@ -1,0 +1,18 @@
+RHTP tracker archive (spec 0.4 / 0.5): Alabama ARHTP Project Narrative, "Revised - 4.10.2026".
+
+fetched_utc     : 2026-10-01T19:15:23Z
+url             : https://adeca.alabama.gov/wp-content/uploads/ARHTP-Project-Narrative-Final.pdf
+linked from     : https://adeca.alabama.gov/alruralhealth/ (ADECA's ARHTP programme page)
+file            : 2026-10-01_adeca_arhtp_project_narrative_revised_2026-04-10.pdf
+bytes           : 707058
+sha256          : e7cda736b87f06e644f7e678e04c51024cf730164eedf9e3f54ce6f1ae2c5733
+source_doc_type : OTHER (state plan; NOT an award document)
+
+WHY IT IS ARCHIVED (session 83): it is the document that decides Alabama's year1_status.
+The Governor's 2026-10-01 release says the round-2 grants "round out year one of funding",
+and the 2026-08-24 release says ARHTP "includes 11 initiatives". Round 1 funded five and
+round 2 funded five more; the ELEVENTH is the Community Medicine Initiative (mobile
+wellness and mobile grocery units), whose Table XIV-J1 reads "Estimated required funding:
+$5M for 3 years; $7.3M for year 1". Neither release names a Community Medicine award.
+The figure is a PLAN line (§0.3) and is never an award; it is cited only as the record
+of an initiative with Year 1 money and no published award.

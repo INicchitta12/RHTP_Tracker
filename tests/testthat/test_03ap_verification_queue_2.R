@@ -493,8 +493,17 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # swap +$342,561), no new state -- subtracted first.
   # Session 82: + Colorado (R/03bo), 36 rows / $86,693,159 and a 31st state --
   # subtracted first, like every session before.
-  expect_equal(named$rows, 1238L)
+  # Session 83: + National Jewish Health (MI, 1 row / $435,000, R/03bj on
+  # CCN 060107), Alabama round 2 (R/03bq, 21 rows / $20,886,572) and NC's
+  # SBHC roster (R/03br, FirstHealth 1 row / $0), no new state:
+  # 1,261 / $1,149,408,077.27 / 31.
+  # Subtracted first.
+  expect_equal(named$rows, 1261L)
   expect_equal(named$states, 31L)
+  expect_equal(round(named$dollars, 2), 1149408077.27, tolerance = 0)
+  named$rows <- named$rows - 23L
+  named$dollars <- named$dollars - 435000 - 20886572
+  expect_equal(named$rows, 1238L)
   expect_equal(round(named$dollars, 2), 1128086505.27, tolerance = 0)
   named$rows <- named$rows - 36L
   named$dollars <- named$dollars - 86693159
@@ -569,7 +578,8 @@ test_that("North Carolina enters the partition for the first time", {
   expect_equal(nrow(nc), 1L)
   expect_equal(nc$bucket, "NAMED_HOSPITAL")
   # Session 71: + UNC Hospitals (CCN 340061, a hand-read bridge), $0.
-  expect_equal(nc$rows, 2L)
+  # Session 83: + FirstHealth of the Carolinas (SBHC roster, R/03br), $0.
+  expect_equal(nc$rows, 3L)
   expect_equal(nc$dollars, 0)     # North Carolina prices nobody
 })
 
@@ -595,5 +605,9 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   expect_equal(round(p$dollars[[1]], 2), 128336961.52)
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53
-  expect_equal(p$state[[3]], "GA")
+  # SESSION 83: Alabama's two rounds ($83,548,287 + $20,886,572) go ahead of
+  # Georgia; the session-49 comparison above (AR over GA) is unaffected.
+  expect_equal(p$state[[3]], "AL")
+  expect_equal(p$dollars[[3]], 104434859)
+  expect_equal(p$state[[4]], "GA")
 })

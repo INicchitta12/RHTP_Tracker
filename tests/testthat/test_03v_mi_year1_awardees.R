@@ -399,8 +399,9 @@ test_that("the Michigan review-queue questions are open and state their effect",
   expect_setequal(mi$question_id,
                   c("MI_RECIPIENT_FORM_NOT_STATED", "MI_MHA_FLOW",
                     "MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL"))
+  # Session 83: RESOLVED at option (a) on the owner's instruction.
   expect_equal(mi$queue_status[mi$question_id == "MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL"],
-               "OPEN")
+               "RESOLVED")
   # The MHA question moves $8,625,000 and is NOT the open GHA_RECIPIENT_TYPE
   # question, which is about §8 typing and is worth $0 either way.
   mha <- mi[mi$question_id == "MI_MHA_FLOW", ]
@@ -494,15 +495,23 @@ test_that("the 139 prior rows keep their indices, so session 49's overlay lands"
   # OTHER rested on a basis stating no form ("the operating organization ...
   # was not confirmed"), so it is back on §8's fallback (R/03bj).
   wd <- csv$awardee[as.integer(ch$row)] == "Rudyard Area School Wellness Center"
-  expect_equal(csv$recipient_type[as.integer(ch$row)][!wd], ch$new_type[!wd])
+  # SESSION 83 re-typed another: National Jewish Health (Quitlink), which
+  # session 49 typed VENDOR_OR_CONTRACTOR on what the award funds (§0.3a), is
+  # HOSPITAL_OR_SYSTEM on its CMS enrolment, CCN 060107 (R/03bj EH_APPLY).
+  nj <- csv$awardee[as.integer(ch$row)] == "National Jewish Health (Quitlink)"
+  expect_equal(sum(nj), 1L)
+  expect_equal(ch$new_type[nj], "VENDOR_OR_CONTRACTOR")
+  expect_equal(csv$recipient_type[as.integer(ch$row)][!wd & !nj], ch$new_type[!wd & !nj])
   expect_equal(csv$recipient_type[as.integer(ch$row)][wd], "NONPROFIT_CBO")
+  expect_equal(csv$recipient_type[as.integer(ch$row)][nj], "HOSPITAL_OR_SYSTEM")
   # the committed (overlaid) partition: 2 named-hospital rows, $259,121 after
   # session 49; session 71 adds the Regents of the University of Michigan's two
-  # rows (CCN 230046, +$2,000,000)
+  # rows (CCN 230046, +$2,000,000); session 83 adds National Jewish Health
+  # (CCN 060107, +$435,000)
   csv$amount <- as.numeric(csv$amount)
   parts <- rhtp_hospital_dollar_partition(csv)
-  expect_equal(parts$rows[parts$bucket == "NAMED_HOSPITAL"], 4L)
-  expect_equal(parts$dollars[parts$bucket == "NAMED_HOSPITAL"], 2259121)
+  expect_equal(parts$rows[parts$bucket == "NAMED_HOSPITAL"], 5L)
+  expect_equal(parts$dollars[parts$bucket == "NAMED_HOSPITAL"], 2694121)
   expect_equal(sum(csv$flag_reason %in% "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED"), 2L)
 })
 

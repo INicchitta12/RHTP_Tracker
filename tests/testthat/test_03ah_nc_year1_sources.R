@@ -144,12 +144,15 @@ test_that("per-hub amounts appearing turns this into an extraction", {
 
 # -- the controls ------------------------------------------------------------
 
-test_that("two opportunities are closed with no roster, both dates passed", {
+test_that("one opportunity is closed with no roster; School Health Centers AWARDED", {
   skip_without_archive()
   expect_true(nc_assert_positive_control())
   st <- nc_status_table()
   closed <- st[st$stage == "CLOSED_UNAWARDED", ]
-  expect_equal(nrow(closed), 2L)
+  # Session 83: Expanding School Health Centers to Rural Areas awarded on
+  # 2026-09-14 (R/03br); Minority Diabetes Prevention is the one left.
+  expect_equal(nrow(closed), 1L)
+  expect_equal(closed$channel, "NC Minority Diabetes Prevention Program")
   expect_true(all(closed$publishes_roster == "No"))
 })
 
@@ -176,9 +179,10 @@ test_that("the status table records the rosters WITHOUT an amount column", {
   expect_false("amount" %in% names(st))
   expect_equal(nrow(st), 6L)
   awarded <- st[st$stage == "AWARDED_ROSTER_PUBLISHED", ]
-  expect_equal(nrow(awarded), 2L)
-  expect_equal(sum(awarded$named_recipients), 44L)
-  expect_setequal(awarded$named_recipients, c(39L, 5L))
+  # Session 83: + the School Health Centers roster (5, R/03br's own file).
+  expect_equal(nrow(awarded), 3L)
+  expect_equal(sum(awarded$named_recipients), 49L)
+  expect_equal(sort(awarded$named_recipients), c(5L, 5L, 39L))
 })
 
 test_that("North Carolina reads EXTRACTED, never INVESTIGATED_NO_LIST", {
