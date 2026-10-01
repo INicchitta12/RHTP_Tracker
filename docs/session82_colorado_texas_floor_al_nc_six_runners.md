@@ -176,4 +176,4 @@ footer. Archived with HCPF's 2026-09-28 release, the programme page and CMS's re
   - the TX manifest location, and the MI queue count.
 - **Final full run:** 2 failures, both in `test_03v`'s Michigan queue count, which expected 2 MI questions and
   now finds 3. With that fixed, `test_03v` passes alone (215/215). The run before it had cleared every other
-  file. 1 skip on a full checkout.
+  file. 2 skips: the standing CMS first-run skip and the NM archive-history skip.
