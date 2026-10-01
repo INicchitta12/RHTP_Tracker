@@ -1201,3 +1201,39 @@ IN,in_grow_regional_awardees.csv,173,Deaconess Hospital Inc.,,FEDERAL_RECORD_CCN
 IN,in_grow_regional_awardees.csv,176,Ascension St. Vincent,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150100: PART A PROVIDER - HOSPITAL",FALSE,150100,GENERAL_KNOWLEDGE
 IN,in_grow_regional_awardees.csv,179,Good Samaritan Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 150042: PART A PROVIDER - HOSPITAL",FALSE,150042,ORG_WEBSITE
 LA,la_year1_awardees.csv,1,Ochsner Clinic Foundation,1500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 190036: PART A PROVIDER - HOSPITAL",FALSE,190036,ORG_WEBSITE
+CO,co_year1_awardees.csv,2,Arkansas Valley Regional Medical Center,3564484,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061336,ORG_WEBSITE
+CO,co_year1_awardees.csv,3,Banner Health Foundation,385871,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060126: PART A PROVIDER - HOSPITAL",FALSE,060126,GENERAL_KNOWLEDGE
+CO,co_year1_awardees.csv,4,Banner Health Foundation,243271,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060126: PART A PROVIDER - HOSPITAL",FALSE,060126,GENERAL_KNOWLEDGE
+CO,co_year1_awardees.csv,6,Board of Trustees of Lincoln Community Hospital d/b/a Lincoln Health,3375541,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061306,ORG_WEBSITE
+CO,co_year1_awardees.csv,8,Catholic Health Initiatives Colorado,3117288,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+CO,co_year1_awardees.csv,11,Children's Hospital Colorado,1897643,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+CO,co_year1_awardees.csv,23,Delta County Memorial Hospital District,781428,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060071: PART A PROVIDER - HOSPITAL",FALSE,060071,ORG_WEBSITE
+CO,co_year1_awardees.csv,24,Denver Health and Hospital Authority,936186,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060011: PART A PROVIDER - HOSPITAL",FALSE,060011,ORG_WEBSITE
+CO,co_year1_awardees.csv,26,East Phillips County Hospital,5858333,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061305,ORG_WEBSITE
+CO,co_year1_awardees.csv,28,Eastern Rio Blanco County Health Service District,1204379,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061325,ORG_WEBSITE
+CO,co_year1_awardees.csv,37,Gunnison Valley Hospital,4527669,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061320: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061320,ORG_WEBSITE
+CO,co_year1_awardees.csv,38,Haxtun Hospital District,2972520,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061304,ORG_WEBSITE
+CO,co_year1_awardees.csv,41,Huerfano County Hospital District,706605,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061316,ORG_WEBSITE
+CO,co_year1_awardees.csv,43,Keefe Memorial Health Service District dba Keefe Memorial Hospital,4087098,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061343: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061343,ORG_WEBSITE
+CO,co_year1_awardees.csv,44,Kiowa County Hospital District dba Weisbrod Health,1470288,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061300,ORG_WEBSITE
+CO,co_year1_awardees.csv,45,Kit Carson County Health Service District,2733655,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061313,ORG_WEBSITE
+CO,co_year1_awardees.csv,46,"Kremmling Memorial Hospital District, dba Middle Park Health",7747490,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061318: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061318,ORG_WEBSITE
+CO,co_year1_awardees.csv,49,Lutheran Hospital Association of the San Luis Valley dba San Luis Valley Health (Regional Medical Center),7889561,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060008: PART A PROVIDER - HOSPITAL",FALSE,060008,ORG_WEBSITE
+CO,co_year1_awardees.csv,50,"Lutheran Hospital Association of the San Luis Valley, DBA San Luis Valley Health (Conejos County Hospital)",1280385,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061308: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061308,ORG_WEBSITE
+CO,co_year1_awardees.csv,53,"Montrose Memorial Hospital, Inc. dba Montrose Regional Health",3820154,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060006: PART A PROVIDER - HOSPITAL",FALSE,060006,ORG_WEBSITE
+CO,co_year1_awardees.csv,61,Prowers County Hospital District d/b/a Prowers Medical Center,776458,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061323,ORG_WEBSITE
+CO,co_year1_awardees.csv,62,Rangely Hospital District,700000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061307,ORG_WEBSITE
+CO,co_year1_awardees.csv,66,Salida Hospital District,619275,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061322: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061322,ORG_WEBSITE
+CO,co_year1_awardees.csv,67,Salida Hospital District DBA Heart of the Rockies Regional Medical Center (HRRMC),402375,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061322: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061322,ORG_WEBSITE
+CO,co_year1_awardees.csv,69,Sedgwick County Memorial Hospital (DBA Sedgwick County Health Center),3065779,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061310,ORG_WEBSITE
+CO,co_year1_awardees.csv,70,Southeast Colorado Hospital District,237015,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061311: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061311,ORG_WEBSITE
+CO,co_year1_awardees.csv,71,"Southwest Health System, Inc.",1150707,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061327,ORG_WEBSITE
+CO,co_year1_awardees.csv,72,St. Vincent General Hospital District,2094405,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061319: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061319,ORG_WEBSITE
+CO,co_year1_awardees.csv,76,The Memorial Hospital (dba Memorial Regional Health),2180298,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061314,ORG_WEBSITE
+CO,co_year1_awardees.csv,77,Trinidad Area Health Association dba Mt. San Rafael Hospital,1315001,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061321: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061321,ORG_WEBSITE
+CO,co_year1_awardees.csv,79,Upper San Juan Health Service District d/b/a Pagosa Springs Medical Center (PSMC),4201527,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061328,ORG_WEBSITE
+CO,co_year1_awardees.csv,81,"Vail Clinic, Inc. d/b/a Vail Health Hospital",658490,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060096: PART A PROVIDER - HOSPITAL",FALSE,060096,ORG_WEBSITE
+CO,co_year1_awardees.csv,82,Valley Citizens' Foundation for Health Care Inc.,1683611,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061301,ORG_WEBSITE
+CO,co_year1_awardees.csv,83,Valley View Hospital Association,2893793,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060075: PART A PROVIDER - HOSPITAL",FALSE,060075,ORG_WEBSITE
+CO,co_year1_awardees.csv,91,Wray Community District Hospital,4812762,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061309,ORG_WEBSITE
+CO,co_year1_awardees.csv,92,Yuma Hospital District dba Yuma District Hospital and Clinics,1301814,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061315: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061315,ORG_WEBSITE

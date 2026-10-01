@@ -22,14 +22,15 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Session 73: + UMMS, 1 row / $4,020,144, on its own stated form (R/03bk).
   # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75.
   # Session 75: + Alaska's 2026-09-28 snapshot, net +1 row / +$2,414,763.
-  expect_equal(nrow(rows), 1202L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1041393346.27,
+  # Session 82: + Colorado, 36 rows / $86,693,159.
+  expect_equal(nrow(rows), 1238L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1128086505.27,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
 
-test_that("the rural figure is 214 rows / $181,492,481.03, from three classes of source only", {
+test_that("the rural figure is 240 rows / $245,561,955.03, from three classes of source only", {
   # 207 -> 209 in session 71 at the SAME dollars: Nevada's Carson Valley Health
   # and Washoe Barton Medical Clinic rows (unpriced) now carry CCN 291306,
   # which CMS enrols as a CRITICAL ACCESS HOSPITAL, read off the provider-type
@@ -47,10 +48,13 @@ test_that("the rural figure is 214 rows / $181,492,481.03, from three classes of
   # Session 74: + 5 Vermont rows CMS enrols as a CAH (North Country,
   # Springfield, Copley, Porter, and Gifford Medical on a hand-read BRIDGE to
   # CCN 471301), $4,036,124.92.
-  expect_equal(nrow(r), 214L)
+  # Session 82: + 26 Colorado lines CMS enrols as a CAH by the line's own
+  # CCN, $64,069,474.
+  expect_equal(nrow(r), 240L)
+  expect_equal(sum(r$state == "CO"), 26L)
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 181492481.03, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 245561955.03, tolerance = 0)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 14L)
   expect_equal(sum(r$state == "MO"), 6L)
@@ -102,11 +106,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 214L)
+  expect_equal(sum(by$rural_rows), 240L)   # session 82: + 26 CO
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1202L)   # session 75: + AK 2026-09-28
+  expect_equal(nrow(committed), 1238L)   # session 82: + 36 CO
   expect_equal(committed$rural_class, rows$rural_class)
 })

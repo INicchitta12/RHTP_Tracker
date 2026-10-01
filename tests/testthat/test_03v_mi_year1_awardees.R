@@ -383,19 +383,24 @@ test_that("the unstated-form question is queued, and is ONE-DIRECTIONAL", {
   }
 })
 
-test_that("both Michigan review-queue questions are open and state their effect", {
+test_that("the Michigan review-queue questions are open and state their effect", {
   queue <- readr::read_csv(
     here::here("data", "reference", "classification_review_queue.csv"),
     show_col_types = FALSE)
   mi <- queue[queue$state == "MI", ]
-  expect_equal(nrow(mi), 2L)
+  # Session 82: + MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL, opened when CO's
+  # enrolment file put National Jewish Health in R/03bj's sweep.
+  expect_equal(nrow(mi), 3L)
   # SESSION 49: the FORM question is RESOLVED (one row moved, $182,197);
   # MI_MHA_FLOW is a FLOW question and answering the type did not settle it.
   expect_equal(mi$queue_status[mi$question_id == "MI_RECIPIENT_FORM_NOT_STATED"],
                "RESOLVED")
   expect_equal(mi$queue_status[mi$question_id == "MI_MHA_FLOW"], "OPEN")
   expect_setequal(mi$question_id,
-                  c("MI_RECIPIENT_FORM_NOT_STATED", "MI_MHA_FLOW"))
+                  c("MI_RECIPIENT_FORM_NOT_STATED", "MI_MHA_FLOW",
+                    "MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL"))
+  expect_equal(mi$queue_status[mi$question_id == "MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL"],
+               "OPEN")
   # The MHA question moves $8,625,000 and is NOT the open GHA_RECIPIENT_TYPE
   # question, which is about §8 typing and is worth $0 either way.
   mha <- mi[mi$question_id == "MI_MHA_FLOW", ]

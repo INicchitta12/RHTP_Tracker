@@ -122,7 +122,9 @@ RC_ENROLMENTS <- c(
   OK = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_OK.json",
   OR = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_OR.json",
   UT = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_UT.json",
-  WA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_WA.json")
+  WA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_WA.json",
+  # Session 82: Colorado's 36 hospital lines, typed on CMS's CO files.
+  CO = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_CO.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -276,11 +278,15 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 75: ALASKA's 2026-09-28 snapshot, net +1 row / +$2,414,763 (two
   # awards withdrawn, two added, one revised, one type swap) and no state:
   # 1,202 / $1,041,393,346.27 / 30.
-  if (nrow(rows) != 1202L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1041393346.27) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 30L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,202 rows / $1,041,393,346.27 ",
-         "/ 30 states; re-state the rural cut against the new partition.",
+  # Session 82: COLORADO (R/03bo), 36 lines / $86,693,159 typed on CMS CO
+  # enrolment, and a 31st state: 1,238 / $1,128,086,505.27 / 31. 26 of the 36
+  # are CAHs by their own CCN ($64,069,474); Banner Health Foundation's two
+  # lines carry no CCN and are NOT_RECORDED.
+  if (nrow(rows) != 1238L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1128086505.27) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 31L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,238 rows / $1,128,086,505.27 ",
+         "/ 31 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

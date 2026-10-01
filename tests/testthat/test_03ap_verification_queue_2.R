@@ -491,6 +491,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # (Mat-Su +$5.0M and Ketchikan +$350,000 in; ANTHC BP1-IA-034 WITHDRAWN
   # -$1,603,406; BP1-IA-038 revised -$1,674,392; Alaska's own 033/035 type
   # swap +$342,561), no new state -- subtracted first.
+  # Session 82: + Colorado (R/03bo), 36 rows / $86,693,159 and a 31st state --
+  # subtracted first, like every session before.
+  expect_equal(named$rows, 1238L)
+  expect_equal(named$states, 31L)
+  expect_equal(round(named$dollars, 2), 1128086505.27, tolerance = 0)
+  named$rows <- named$rows - 36L
+  named$dollars <- named$dollars - 86693159
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1202L)
   expect_equal(named$states, 30L)
   expect_equal(round(named$dollars, 2), 1041393346.27, tolerance = 0)

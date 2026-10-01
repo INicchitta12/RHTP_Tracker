@@ -1,0 +1,13 @@
+FEDERAL RECORDS -- fetched 2026-10-01 by session 82
+
+WHY: Colorado's 92 award lines (R/03bo) are typed on CMS's CO Hospital, FQHC and RHC
+Enrollment files, and Texas's 33 BP1 hospital districts (R/03bp) are screened against
+the TX Hospital Enrollment file. Committed as served (§0.5); the readers use THESE, never the live API.
+
+file | sha256 | bytes | source
+cms_fqhc_enrollments_CO.json | 813d661a74c3e59ac71f75209e9f8b666e43d6da221e7ea9c7ad0f4f2b3a2416 | 113506 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=CO&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_TX.json | 4a6121f210249dde0ecc485399320acee41f9e609b9cd27b3306d154d1c08433 | 401330 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=TX&size=5000 (FQHC Enrollments)
+cms_hosp_enrollments_CO.json | 12a127e73d2e38bbaf8451f09619105196c02fe5f82459541ba74df3959313ac | 193149 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=CO&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_TX.json | 629110efc16b44a50b3a2d8ae0e248e6e612a3b577fd8867eb2cfad08101420e | 958171 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=TX&size=5000 (Hospital Enrollments)
+cms_rhc_enrollments_CO.json | 545a477ecad0c4e89d91d2489bd57428ccc090d257ec62a59f1b0e99b267572c | 38671 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=CO&size=5000 (RHC Enrollments)
+cms_rhc_enrollments_TX.json | 13198c8e457f73d4eebf191caebba02490604e22f62c12e38c01de638a097083 | 237167 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=TX&size=5000 (RHC Enrollments)
