@@ -145,3 +145,49 @@ The new prompt clears it at step 1.
 **Thursday's results are not in this document.** A self check-in is scheduled
 for Thu 2026-10-01 after 20:30Z to read all eight and
 `R/probe_coverage.R --check`.
+
+### Thursday result, read 2026-10-01 ~20:50Z
+
+**The eight runners in the table above no longer host these Routines.** In
+session 79 all eight moved to new runner sessions on the v4 worktree prompt.
+The old sessions have had no turn since this baseline; every `updated_at` is
+unchanged. Their numbers are therefore not a measure of the trim. The
+replacements were read instead:
+
+| Routine | New runner | Firing | Line on `main` (own id) | used_tokens | Epoch |
+|---|---|---|---|---:|---:|
+| CA | session_01NGLsj2qtvSvBFse6LoZUTV | Wed 09-30 17:04Z | `3d3e7da`, trig_01JEYQK9… | 127,507 | 2 |
+| CO | session_011k27mZ4P3Bj7xWsDsGUhrn | Thu 09:12Z | `646a377`, trig_012SyFT6… (TRIPWIRE) | 128,792 | 2 |
+| CMS | session_01V643Un4ty7ybFRiJrtHUTN | Thu 13:00Z | **none: declined** | 142,499 | 2 |
+| CT | session_0113Gzz6mRbmHG65ChNCenSc | Thu 15:41Z | `1a70ac5`, trig_01MkoE5F… (TRIPWIRE, opm) | 130,647 | 2 |
+| NEWSROOM | session_013BNYQ8xrdYo5a2GdgXt1Nw | Thu 16:52Z | `bb5771a`, trig_016FmK98… (TRIPWIRE, DE + TX) | 131,194 | 2 |
+| KY | session_01XNp8CUjdh5nRaCYtk4LwgH | Thu 19:39Z | `a9678a7`, trig_01Jk2igf… | 130,284 | 2 |
+| AR | session_01BM7Ytfp28iUZPtU7qt7fNg | Thu 20:22Z | `cf2a1c7`, trig_01DLRYTS… | 129,511 | 2 |
+| MS | session_01U8L2MMXiXMRPWcEKS7iApG | none yet (Fri 10-02 09:40Z) | — | 0 | 1 |
+
+**Did any firing degrade?** No firing failed, compacted or ran out of context.
+- **CMS declined to publish.** Its suite ran against `dda96da`, before PRs
+  #83/#84 merged. Session 82 explained this in
+  `config/probe_gaps_explained.csv`; the session 82 doc has the detail.
+- **`R/probe_coverage.R --check` on `cf2a1c7`:** 57 due firings, all logged
+  except 4 explained misses.
+- **Three firings were TRIPWIREs** (CO, CT, NEWSROOM). Those are findings about
+  the states, not runner failures. They are read in sessions 81 and 82.
+
+**Was the trimmed CLAUDE.md loaded?** Yes, on every new runner.
+- **Did it reach main first?** Yes. The trim reached `main` at `533a00f`,
+  2026-09-29 13:36Z, before every firing above.
+- **What the readings show.** A first v4 turn carries the whole start-up load
+  plus one probe, and it sits at **127k–142k**.
+- **Against the old runners.** The old runners' first turns sat at ~354k–389k.
+- **What that means.**
+  - The start-up load is about **225k–250k lower** than with the 755 KB file.
+  - That is more than this doc's ~159k estimate. The trimmed file is 122 KB
+    (~31k tokens), so the rest of the old load was not all `CLAUDE.md`.
+  - Session 78 explained it: the old runners re-loaded `CLAUDE.md` when their
+    own checkout changed it.
+  - v4's worktree prompt removes that re-load (§2.2a).
+
+**Not yet measured:** whether a v4 runner stays flat on its second firing.
+The first points are CA on Sat 10-03 and CO, CMS, CT and NEWSROOM on Mon
+10-05, per the session 81 doc.
