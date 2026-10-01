@@ -1579,7 +1579,9 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-09-29 (Session 78). Session 78 deleted `trig_011p…` and added
+**Last updated:** 2026-09-30 (Session 79). Session 79 confirmed session 78's runner-growth mechanism (NY 723,788,
+MO 687,835, both as predicted) and recreated all 38 Routines on the v4 worktree prompt, nine on new runners.
+Detail: `docs/session79_worktree_prompts_falsifier_gate.md`. Session 78 deleted `trig_011p…` and added
 `tests/testthat/test_claude_md_status_table.R`, which fails when Deliverable 1 or the partition block drifts
 from the committed files. It also found why runners double at resume (see Runner context). Detail:
 `docs/session78_status_table_assertion_runner_context.md`. Session 77 moved sessions 1–76's history to
@@ -1781,8 +1783,9 @@ Stage 4's `data/interim/review_queue.rds`, which does not exist yet.
 
 ### Routines
 
-Every Routine is in `config/routines.csv`. There are 38, each on its own persistent runner session. Prompt
-template: `config/routine_prompt_template.md`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
+Every Routine is in `config/routines.csv`. There are 38, each on its own persistent runner session. Prompts:
+`config/routine_prompts/v4/<ST>.txt`, derived from the stored v3 prompts by `R/routine_prompts_worktree.R`
+(`--write`, `--check`); runner moves in `config/routine_prompts/runner_moves.csv`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
 `config/probe_gaps_explained.csv`.
 
 **Session 78:** `trig_011pUVRNkSnjCNvZfQ89kPbM` is deleted. It stays in CMS's `old_trigger_id` chain,
@@ -1799,8 +1802,13 @@ apart from the one-shot check-in.
 - **A runner reads its tree, not `main`.** WI and NV fired after the trim merged and still doubled.
 - **Eleven runners are at ~700k:** CMS AR KY NEWSROOM CT CO CA MS VA WI NV. The first nine hold a pre-trim
   file and would pass 1M at their next resume.
-- **The fix, proposed and not done:** each firing works in a separate clone, so the primary checkout never
-  changes. Recycle the eleven in the same pass. See `docs/session78_*` §3.
+- **Confirmed session 79:** NY rose 384,866 → 723,788 and MO 368,982 → 687,835 at their 09-30 firings.
+- **The fix, done session 79 (v4):** every firing works in a detached worktree at `/root/rhtp_work` and never
+  touches `/home/user/RHTP_Tracker`, so the runner's `CLAUDE.md` is frozen. **Never write a Routine prompt
+  that checks out, pulls or edits in the primary checkout.** CA CMS AR KY NEWSROOM CT CO MS VA moved to new
+  runners; WI and NV were not moved and should reach ~870–900k once, then stop.
+- **A prompt change is a recreate** (`update_trigger` refuses a prompt from outside the runner): edit the
+  generator, `--write`, create, byte-compare with `list_triggers`, disable the old id, chain it here.
 
 ### Open blockers
 
@@ -1823,16 +1831,13 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-**Before Thu 2026-10-01:** merge this branch to `main`. The new test runs in the CMS runner's suite at
-13:00Z that day.
+**Before Thu 2026-10-01 13:00Z:** merge session 79's branch to `main`. Until `config/routines.csv` on `main`
+carries the v4 ids, every v4 line reads as a missed firing and the CMS runner's suite declines.
 
-- **Owner decision, ideally before CA fires Wed 09-30 17:00Z:** recreate all 38 Routines so each firing works
-  in a separate clone, and move the eleven ~700k runners to new sessions (`docs/session78_*` §3). This needs
-  the owner's approval.
-- **Test the finding on Wed 09-30.** NY after 11:10Z should reach ~715k and MO after 15:00Z ~700k. **If NY
-  stays near 385k, the finding is wrong.**
-- **Thu 10-01 after 20:30Z:** read `get_session` for the eleven heavy runners, then SC after 08:30Z. Record
-  `used_tokens` and whether each firing logged a line (`R/probe_coverage.R --check`).
+- **The 38 v3 originals are deleted** (09-30, after CA and NH published under v4 ids). NH's 09-30 TRIPWIRE
+  (FHC's T-TAC sentence, no subrecipient named) still needs a human read.
+- **Read runner context after the v4 firings:** a new runner should sit near its first-turn floor and stay
+  there; an in-place runner may re-load once more, then stop. WI and NV fire Fri 10-02.
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)
