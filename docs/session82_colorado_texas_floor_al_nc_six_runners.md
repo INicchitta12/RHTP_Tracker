@@ -168,5 +168,12 @@ footer. Archived with HCPF's 2026-09-28 release, the programme page and CMS's re
 
 ## 7. Suites
 
-- `origin/main` (`56497cf`), clean worktree: recorded in the commit that closes this session.
-- This branch, final tree: recorded in the same commit.
+- **`origin/main` (`56497cf`), clean worktree: exit 0.** The skips are the standing CMS first-run skip and one
+  NM archive-history skip specific to the worktree. Task 1's fix was already on `main`.
+- **This branch.** The full runs found three groups of consequences, each fixed:
+  - partition ledgers in `test_03ap`, `test_03bj` and `test_03ar`, each gaining a Colorado layer;
+  - the 03bj sweep verdicts;
+  - the TX manifest location, and the MI queue count.
+- **Final full run:** 2 failures, both in `test_03v`'s Michigan queue count, which expected 2 MI questions and
+  now finds 3. With that fixed, `test_03v` passes alone (215/215). The run before it had cleared every other
+  file. 1 skip on a full checkout.
