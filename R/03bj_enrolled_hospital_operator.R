@@ -228,6 +228,20 @@ EH_HOLD <- tibble::tribble(
     "OHA's Rural Health Clinic table, Organization Type 'Rural Health Clinic'. CMS enrols SAINT ALPHONSUS MEDICAL CENTER - BAKER CITY INC (CCN 381315, a CAH) -- a legal-name match, held for the same reason as Lake Health District."
 )
 
+#' Sweep hits READ and NOT applied (session 82), for the two reasons neither
+#' EH_APPLY nor EH_HOLD describes. DIFFERENT_LEGAL_BODY: the sweep is
+#' cross-state by design (Vermont's NH-enrolled Mary Hitchcock rows), so a
+#' county or common name can hit another state's hospital. DEFERRED_TO_OWNER:
+#' the rule reads as APPLY, but applying it re-codes a state no task asked
+#' about; the question is queued instead. Nothing here writes to any row.
+EH_READ_NOT_APPLIED <- tibble::tribble(
+  ~file, ~awardee, ~ccn, ~verdict, ~reason,
+  "co_year1_awardees.csv", "County of Logan", "171326", "DIFFERENT_LEGAL_BODY",
+    "The hit is COUNTY OF LOGAN dba LOGAN COUNTY HOSPITAL, Oakley, KANSAS (CCN 171326). HCPF's recipient is Logan County, COLORADO, a county government: a different legal body with the same name.",
+  "mi_year1_awardees.csv", "National Jewish Health (Quitlink)", "060107", "DEFERRED_TO_OWNER",
+    "EXACT_LEGAL_NAME: CMS CO Hospital Enrollment carries NATIONAL JEWISH HEALTH, Denver (CCN 060107), archived session 82. Session 49 typed the row VENDOR_OR_CONTRACTOR 'by function' (it runs Michigan's quitline), which §0.3a forbids; MDHHS states no form, so §10.2's enrolled-hospital rule reads as HOSPITAL_OR_SYSTEM / DIRECT ($435,000 into MI's NAMED_HOSPITAL). Queued as MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL, not applied."
+)
+
 #' Session 49 OTHER rows whose basis states no organisational form. Back to §8's
 #' standing fallback: NONPROFIT_CBO + LOW + RECIPIENT_TYPE_INFERRED.
 EH_OTHER_WITHDRAWN <- tibble::tribble(
@@ -284,7 +298,16 @@ eh_sweep <- function(tables, enrol = eh_enrolments()) {
 #' Every sweep hit must be hand-read, and every EXACT verdict must still hit
 eh_assert_read <- function(sweep) {
   read <- dplyr::bind_rows(EH_APPLY %>% dplyr::select(file, awardee),
-                           EH_HOLD %>% dplyr::select(file, awardee))
+                           EH_HOLD %>% dplyr::select(file, awardee),
+                           EH_READ_NOT_APPLIED %>% dplyr::select(file, awardee))
+  nap <- EH_READ_NOT_APPLIED %>%
+    dplyr::left_join(sweep %>% dplyr::distinct(file, awardee, sweep_ccn = ccn),
+                     by = c("file", "awardee"))
+  if (any(is.na(nap$sweep_ccn) | nap$ccn != nap$sweep_ccn)) {
+    stop("[03bj] EH_READ_NOT_APPLIED row(s) no longer swept at their CCN: ",
+         paste(nap$awardee[is.na(nap$sweep_ccn) | nap$ccn != nap$sweep_ccn],
+               collapse = "; "), call. = FALSE)
+  }
   unread <- sweep %>% dplyr::anti_join(read, by = c("file", "awardee"))
   if (nrow(unread)) {
     stop("[03bj] ", nrow(unread), " enrolment match(es) carry no hand-read ",

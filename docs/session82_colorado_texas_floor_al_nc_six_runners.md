@@ -74,7 +74,7 @@ footer. Archived with HCPF's 2026-09-28 release, the programme page and CMS's re
 
 ## 3. Task 3 — Texas as a known floor (`R/03bp_tx_bp1_floor.R`)
 
-- **The source.** `bdgt-prd-1-ann-rpt.xlsx` is archived as `data/evidence/TX/2026-10-01_hhsc_bdgt_prd_1_ann_rpt.xlsx`
+- **The source.** `bdgt-prd-1-ann-rpt.xlsx` is archived as `data/evidence/recheck/2026-10-01/TX/2026-10-01_hhsc_bdgt_prd_1_ann_rpt.xlsx`
   (sha256 `28f49776…`, Last-Modified 2026-09-28T15:33:17Z). Its First-Tier Entities tab lists:
   - HHSC, $6,149,649.67 obligated;
   - DSHS, $22,389,223 obligated;
@@ -148,7 +148,25 @@ footer. Archived with HCPF's 2026-09-28 release, the programme page and CMS's re
   - `R/probe_coverage.R --check` passes: 55 due firings, 3 explained.
 - **Must merge before ME's Fri 10-02 16:20Z firing**, or the new ids read as unregistered on `main`.
 
-## 6. Suites
+## 6. What CO's enrolment file touched elsewhere
+
+- **R/03bj's cross-state sweep found two new hits**, both now in `EH_READ_NOT_APPLIED` and neither applied:
+  - **County of Logan (CO) vs COUNTY OF LOGAN, Oakley KS (171326).** A different legal body with the same name.
+  - **National Jewish Health (Quitlink), Michigan, $435,000.** CO Hospital Enrollment carries NATIONAL JEWISH
+    HEALTH (060107) at its exact legal name.
+    - Session 49 typed the row VENDOR_OR_CONTRACTOR "by function", which is §0.3a's error.
+    - MDHHS states no form, so §10.2's enrolled-hospital rule reads as APPLY.
+    - It is deferred to the owner (`MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL`). No task this session covered Michigan.
+- **Rural cut (R/03ar), restated:**
+
+  | | Lines | Dollars |
+  |---|---:|---:|
+  | Colorado lines CMS enrols as CAHs (by their own CCN) | 26 | $64,069,474 |
+  | Total rural cut | 240 | $245,561,955.03 |
+
+  Banner Health Foundation's two lines carry no CCN.
+
+## 7. Suites
 
 - `origin/main` (`56497cf`), clean worktree: recorded in the commit that closes this session.
 - This branch, final tree: recorded in the same commit.

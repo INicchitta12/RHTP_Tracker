@@ -18,7 +18,11 @@ sw   <- eh_sweep(tabs)
 
 test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is stale", {
   expect_silent(eh_assert_read(sw))
-  expect_equal(nrow(sw), 39L)
+  # Session 82: + 2, both in EH_READ_NOT_APPLIED -- Colorado's County of Logan
+  # (Kansas's Logan County Hospital, a different body) and Michigan's National
+  # Jewish Health (exposed by the CO enrolment file; deferred to the owner).
+  expect_equal(nrow(sw), 41L)
+  expect_setequal(EH_READ_NOT_APPLIED$verdict, c("DIFFERENT_LEGAL_BODY", "DEFERRED_TO_OWNER"))
 })
 
 test_that("an unread sweep hit fails the build", {
@@ -169,13 +173,21 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,202 / $1,041,393,346.27 / 30; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,238 / $1,128,086,505.27 / 31; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
   # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75, no
   # new state -- subtracted first.
   # Session 75: + Alaska's 2026-09-28 snapshot, net +1 row / +$2,414,763.
+  # Session 82: + Colorado (R/03bo), 36 rows / $86,693,159, a 31st state --
+  # subtracted first.
+  expect_equal(n$rows, 1238L)
+  expect_equal(round(n$dollars, 2), 1128086505.27)
+  expect_equal(n$states, 31L)
+  n$rows <- n$rows - 36L
+  n$dollars <- n$dollars - 86693159
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1202L)
   expect_equal(round(n$dollars, 2), 1041393346.27)
   n$dollars <- n$dollars - 2414763

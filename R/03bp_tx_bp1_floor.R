@@ -49,7 +49,9 @@ source(here::here("R", "utils_config.R"))
 
 TX_BP1_URL  <- paste0("https://pfd.hhs.texas.gov/sites/default/files/documents/",
                       "rural-hlth-prgm/bdgt-prd-1-ann-rpt.xlsx")
-TX_BP1_FILE <- file.path("data", "evidence", "TX",
+# Under recheck/, not data/evidence/TX/: R/03n's manifest owns that directory
+# and refuses a file it does not list.
+TX_BP1_FILE <- file.path("data", "evidence", "recheck", "2026-10-01", "TX",
                          "2026-10-01_hhsc_bdgt_prd_1_ann_rpt.xlsx")
 TX_BP1_CSV  <- here::here("data", "reference", "tx_bp1_first_tier_floor.csv")
 TX_BP1_FEDERAL <- file.path("data", "evidence", "federal_records", "2026-10-01",
@@ -176,7 +178,7 @@ tx_bp1_fetch <- function() {
   line <- paste(digest::digest(file = dest, algo = "sha256"), basename(dest),
                 TX_BP1_URL, paste0("last_modified=", httr::headers(r)[["last-modified"]]),
                 format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"), sep = "  ")
-  cat(line, "\n", file = here::here(dirname(TX_BP1_FILE), "MANIFEST_bp1.txt"),
+  cat(line, "\n", file = here::here(dirname(TX_BP1_FILE), "MANIFEST.txt"),
       append = TRUE, sep = "")
   message("[TX] archived ", TX_BP1_FILE)
 }

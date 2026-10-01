@@ -1918,6 +1918,8 @@ Network is Full; the old allowlist blockers are superseded.
   - `MI_MHA_FLOW`
   - `CO_ROSTER_VS_RELEASE_TOTAL`, `CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT`, `CO_RECIPIENT_FORM_NOT_STATED`
   - `TX_BP1_DISTRICT_ENROLMENT`
+  - `MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL` ($435,000): CO's enrolment file exposed it; the §10.2 rule reads APPLY,
+    deferred (R/03bj `EH_READ_NOT_APPLIED`)
   - The NE, NV and LA form rows from session 64
 - **Dated watches:**
   - Colorado: AWARDED 09-28, extracted session 82; R/03az's Routine now runs R/03bo's roster watch.
