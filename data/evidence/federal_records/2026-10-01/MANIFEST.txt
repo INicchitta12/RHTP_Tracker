@@ -11,3 +11,13 @@ cms_hosp_enrollments_CO.json | 12a127e73d2e38bbaf8451f09619105196c02fe5f82459541
 cms_hosp_enrollments_TX.json | 629110efc16b44a50b3a2d8ae0e248e6e612a3b577fd8867eb2cfad08101420e | 958171 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=TX&size=5000 (Hospital Enrollments)
 cms_rhc_enrollments_CO.json | 545a477ecad0c4e89d91d2489bd57428ccc090d257ec62a59f1b0e99b267572c | 38671 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=CO&size=5000 (RHC Enrollments)
 cms_rhc_enrollments_TX.json | 13198c8e457f73d4eebf191caebba02490604e22f62c12e38c01de638a097083 | 237167 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=TX&size=5000 (RHC Enrollments)
+
+ADDED session 83 -- Alabama's round-2 roster (R/03bq) is typed on CMS's AL Hospital (2026-09-25),
+FQHC and RHC Enrollment files.
+cms_fqhc_enrollments_AL.json | 54f3528be45382b696e6518f7688675ebb993f8e06c0617ac6fb615594108078 | 118338 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=AL&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_AL.json | eb601d9c05d51b7e6a85c343d6330ecd5aba455b6c56b709d2c19d853e313463 | 109342 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=AL&size=5000 (RHC Enrollments)
+
+ADDED session 83 -- North Carolina's School-Based Health Center roster (R/03br) is typed on CMS's NC
+Hospital (2026-09-25), FQHC and RHC Enrollment files.
+cms_fqhc_enrollments_NC.json | f4a6cf4565976e6bc3148b807d32a0f40f78de0b0ea117815c2dfe72e52847fe | 281353 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=NC&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_NC.json | 6c96470bb81cc35cb72a08223db825e02d215407ed8b31c54d3d802b8fbe5ec4 | 68929 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=NC&size=5000 (RHC Enrollments)

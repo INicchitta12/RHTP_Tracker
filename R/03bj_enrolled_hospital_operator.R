@@ -126,6 +126,14 @@ EH_APPLY <- tibble::tribble(
   "al_year1_awardees.csv", "The University of South Alabama", 1L,
     "010087", "UNIVERSITY OF SOUTH ALABAMA (main hospital location, Mobile; also CCN 013301)",
     "EXACT_LEGAL_NAME", TRUE, "",
+  # Alabama round 2 (session 83, R/03bq): the same two legal entities, typed
+  # the same way as round 1's rows.
+  "al_year1_round2_awardees.csv", "The University of Alabama at Birmingham", 3L,
+    "010033", "UNIVERSITY OF ALABAMA AT BIRMINGHAM (dba UNIVERSITY OF ALABAMA HOSPITAL)",
+    "EXACT_LEGAL_NAME", TRUE, "",
+  "al_year1_round2_awardees.csv", "University of South Alabama", 2L,
+    "010087", "UNIVERSITY OF SOUTH ALABAMA (main hospital location, Mobile; also CCN 013301)",
+    "EXACT_LEGAL_NAME", TRUE, "",
   "or_year1_awardees.csv", "Oregon Health & Science University, Northwest Native American Center of Excellence (NNACoE)", 1L,
     "380009", "OREGON HEALTH & SCIENCE UNIVERSITY (dba OHSU HOSPITALS AND CLINICS)",
     "EXACT_LEGAL_NAME", TRUE, "",
@@ -190,6 +198,9 @@ EH_APPLY <- tibble::tribble(
   "ok_year1_awardees.csv", "Choctaw Nation of Oklahoma", 1L,
     "370172", "CHOCTAW NATION OF OKLAHOMA (tribal hospital enrolment, Stigler)",
     "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; TRIBAL_ORG was a curated override on the name (session 25), which is recognition and does not outrank the enrolment. ",
+  "mi_year1_awardees.csv", "National Jewish Health (Quitlink)", 1L,
+    "060107", "NATIONAL JEWISH HEALTH, Denver, Colorado",
+    "EXACT_LEGAL_NAME", FALSE, "OWNER-APPLIED (session 83, MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL): session 49 typed this row VENDOR_OR_CONTRACTOR 'by function' because it runs Michigan's tobacco quitline -- coding the activity, which §0.3a forbids -- and its own basis says 'by legal form it would be HOSPITAL_OR_SYSTEM'. MDHHS states no form, so §10.2's precedence rule leaves the enrolment to decide. An OUT-OF-STATE hospital operator funded by Michigan (the University of Utah / Mary Hitchcock precedent): the row stays in Michigan's file and partition. ",
   "nv_year1_awardees.csv", "Carson Valley Health", 1L,
     "291306", "WASHOE BARTON MEDICAL CLINIC A NEVADA NONPROFIT CORPORATION (dba CARSON VALLEY HEALTH)",
     "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: the awardee is the enrolled hospital's exact DBA, and rows 41 and 71 of this file carry the identical string as HOSPITAL_OR_SYSTEM already (session 49). ",
@@ -237,9 +248,10 @@ EH_HOLD <- tibble::tribble(
 EH_READ_NOT_APPLIED <- tibble::tribble(
   ~file, ~awardee, ~ccn, ~verdict, ~reason,
   "co_year1_awardees.csv", "County of Logan", "171326", "DIFFERENT_LEGAL_BODY",
-    "The hit is COUNTY OF LOGAN dba LOGAN COUNTY HOSPITAL, Oakley, KANSAS (CCN 171326). HCPF's recipient is Logan County, COLORADO, a county government: a different legal body with the same name.",
-  "mi_year1_awardees.csv", "National Jewish Health (Quitlink)", "060107", "DEFERRED_TO_OWNER",
-    "EXACT_LEGAL_NAME: CMS CO Hospital Enrollment carries NATIONAL JEWISH HEALTH, Denver (CCN 060107), archived session 82. Session 49 typed the row VENDOR_OR_CONTRACTOR 'by function' (it runs Michigan's quitline), which §0.3a forbids; MDHHS states no form, so §10.2's enrolled-hospital rule reads as HOSPITAL_OR_SYSTEM / DIRECT ($435,000 into MI's NAMED_HOSPITAL). Queued as MI_NATIONAL_JEWISH_ENROLLED_HOSPITAL, not applied."
+    "The hit is COUNTY OF LOGAN dba LOGAN COUNTY HOSPITAL, Oakley, KANSAS (CCN 171326). HCPF's recipient is Logan County, COLORADO, a county government: a different legal body with the same name."
+  # National Jewish Health (Quitlink), MI, CCN 060107, sat here as
+  # DEFERRED_TO_OWNER in session 82; the owner applied it in session 83 and it
+  # is now in EH_APPLY.
 )
 
 #' Session 49 OTHER rows whose basis states no organisational form. Back to §8's
@@ -549,7 +561,9 @@ eh_apply <- function() {
   sw <- sw %>% dplyr::left_join(
     dplyr::bind_rows(
       EH_APPLY %>% dplyr::transmute(file, awardee, verdict = paste0("APPLIED: ", match)),
-      EH_HOLD %>% dplyr::transmute(file, awardee, verdict = paste0("HELD: ", reason))),
+      EH_HOLD %>% dplyr::transmute(file, awardee, verdict = paste0("HELD: ", reason)),
+      EH_READ_NOT_APPLIED %>% dplyr::transmute(file, awardee,
+                                               verdict = paste0("READ, NOT APPLIED (", verdict, "): ", reason))),
     by = c("file", "awardee"))
   readr::write_csv(sw, here::here("data/reference/enrolled_hospital_operator_sweep.csv"),
                    na = "")

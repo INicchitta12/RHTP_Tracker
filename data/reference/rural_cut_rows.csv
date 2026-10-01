@@ -288,6 +288,7 @@ SD,sd_rht_contracts.csv,23,PHILIP HEALTH SERVICES INC,181600,FEDERAL_RECORD_CCN,
 SD,sd_rht_contracts.csv,24,COMMUNITY MEMORIAL HOSPITAL,103700,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431316,
 SD,sd_rht_contracts.csv,25,BENNETT COUNTY HOSPITAL,248000,NOT_RECORDED,,FALSE,,
 MI,mi_year1_awardees.csv,14,MyMichigan Health (EMS - Chronic Disease),182197,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+MI,mi_year1_awardees.csv,15,National Jewish Health (Quitlink),435000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060107: PART A PROVIDER - HOSPITAL",FALSE,060107,ORG_WEBSITE
 MI,mi_year1_awardees.csv,44,Family Medical Center - Lenawee,76924,NOT_RECORDED,,FALSE,,
 MI,mi_year1_awardees.csv,118,Regents of the University of Michigan - Ready to Respond: Rural Nursing Home Emergency Preparedness,500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 230046: PART A PROVIDER - HOSPITAL",FALSE,230046,ORG_WEBSITE
 MI,mi_year1_awardees.csv,119,Regents of the University of Michigan - Overdose Prevention Engagement Network (OPEN),1500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 230046: PART A PROVIDER - HOSPITAL",FALSE,230046,ORG_WEBSITE
@@ -1237,3 +1238,25 @@ CO,co_year1_awardees.csv,82,Valley Citizens' Foundation for Health Care Inc.,168
 CO,co_year1_awardees.csv,83,Valley View Hospital Association,2893793,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060075: PART A PROVIDER - HOSPITAL",FALSE,060075,ORG_WEBSITE
 CO,co_year1_awardees.csv,91,Wray Community District Hospital,4812762,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061309,ORG_WEBSITE
 CO,co_year1_awardees.csv,92,Yuma Hospital District dba Yuma District Hospital and Clinics,1301814,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 061315: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,061315,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,1,The University of Alabama at Birmingham,1000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,2,Triad of Alabama LLC DBA Flowers Hospital,1450000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010055: PART A PROVIDER - HOSPITAL",FALSE,010055,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,3,The East Alabama Health Care Authority,1230000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,4,The Russell Hospital Corp.,140242,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010065: PART A PROVIDER - HOSPITAL",FALSE,010065,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,5,University of South Alabama,1630000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010087: PART A PROVIDER - HOSPITAL",FALSE,010087,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,6,Infirmary Health System Inc.,1790000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010113: PART A PROVIDER - HOSPITAL",FALSE,010113,STATE_SOURCE
+AL,al_year1_round2_awardees.csv,7,The University of Alabama at Birmingham,3440000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,8,Greene County Health System,308694,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010051: PART A PROVIDER - HOSPITAL",FALSE,010051,GENERAL_KNOWLEDGE
+AL,al_year1_round2_awardees.csv,9,The University of Alabama at Birmingham,452716,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,11,The Health Care Authority of the City of Huntsville,450000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010039: PART A PROVIDER - HOSPITAL",FALSE,010039,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,12,Greene County Health System,750000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010051: PART A PROVIDER - HOSPITAL",FALSE,010051,GENERAL_KNOWLEDGE
+AL,al_year1_round2_awardees.csv,19,QHG of Enterprise Inc.,70000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010049: PART A PROVIDER - HOSPITAL",FALSE,010049,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,20,Greene County Health System,575000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010051: PART A PROVIDER - HOSPITAL",FALSE,010051,GENERAL_KNOWLEDGE
+AL,al_year1_round2_awardees.csv,21,The Children’s Hospital of Alabama,288542,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 013300: PART A PROVIDER - HOSPITAL",FALSE,013300,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,22,St. Vincent’s Chilton LLC DBA UAB St. Vincent’s Chilton,618000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010173: PART A PROVIDER - HOSPITAL",FALSE,010173,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,24,Greene County Health System,2280000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010051: PART A PROVIDER - HOSPITAL",FALSE,010051,GENERAL_KNOWLEDGE
+AL,al_year1_round2_awardees.csv,26,RCHP-Florence LLC DBA North Alabama Shoals Hospital,683500,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,27,Infirmary Health System Inc.,1370000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010113: PART A PROVIDER - HOSPITAL",FALSE,010113,STATE_SOURCE
+AL,al_year1_round2_awardees.csv,28,Sylacauga Healthcare Authority DBA Coosa Valley Medical Center,1890000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010164: PART A PROVIDER - HOSPITAL",FALSE,010164,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,29,University of South Alabama,164450,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010087: PART A PROVIDER - HOSPITAL",FALSE,010087,ORG_WEBSITE
+AL,al_year1_round2_awardees.csv,31,Andalusia Health,305428,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010036: PART A PROVIDER - HOSPITAL",FALSE,010036,ORG_WEBSITE
+NC,nc_year1_sbhc_awardees.csv,3,First Health of the Carolinas,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 340115: PART A PROVIDER - HOSPITAL",FALSE,340115,ORG_WEBSITE

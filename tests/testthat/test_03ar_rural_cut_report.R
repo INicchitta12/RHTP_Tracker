@@ -23,8 +23,12 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Session 74: + Vermont's 2026-09-25 update, 15 rows / $12,643,596.75.
   # Session 75: + Alaska's 2026-09-28 snapshot, net +1 row / +$2,414,763.
   # Session 82: + Colorado, 36 rows / $86,693,159.
-  expect_equal(nrow(rows), 1238L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1128086505.27,
+  # Session 83: + National Jewish Health (MI, 1 row / $435,000, R/03bj on
+  # CCN 060107), Alabama round 2 (R/03bq, 21 rows / $20,886,572) and NC's
+  # SBHC roster (R/03br, FirstHealth 1 row / $0), no new state:
+  # 1,261 / $1,149,408,077.27 / 31.
+  expect_equal(nrow(rows), 1261L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1149408077.27,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -111,6 +115,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1238L)   # session 82: + 36 CO
+  expect_equal(nrow(committed), 1261L)   # session 82: + 36 CO; session 83: + 23
   expect_equal(committed$rural_class, rows$rural_class)
 })

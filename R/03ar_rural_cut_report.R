@@ -282,10 +282,14 @@ rc_assert <- function(rows = rc_rows()) {
   # enrolment, and a 31st state: 1,238 / $1,128,086,505.27 / 31. 26 of the 36
   # are CAHs by their own CCN ($64,069,474); Banner Health Foundation's two
   # lines carry no CCN and are NOT_RECORDED.
-  if (nrow(rows) != 1238L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1128086505.27) > 0.005 ||
+  # Session 83: + National Jewish Health (MI, 1 row / $435,000, R/03bj on
+  # CCN 060107), Alabama round 2 (R/03bq, 21 rows / $20,886,572) and NC's
+  # SBHC roster (R/03br, FirstHealth 1 row / $0), no new state:
+  # 1,261 / $1,149,408,077.27 / 31.
+  if (nrow(rows) != 1261L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1149408077.27) > 0.005 ||
       dplyr::n_distinct(rows$state) != 31L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,238 rows / $1,128,086,505.27 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,261 rows / $1,149,408,077.27 ",
          "/ 31 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

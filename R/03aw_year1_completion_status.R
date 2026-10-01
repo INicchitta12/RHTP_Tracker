@@ -55,6 +55,7 @@ Y1_STATUS_CODES <- c("COMPLETE", "PARTIAL", "UNKNOWN")
 Y1_AWARD_FILES <- c(
   FL = "fl_year1_awardees.csv",  GA = "ga_great_health_awards.csv",
   PA = "pa_year1_awardees.csv",  AL = "al_year1_awardees.csv",
+  AL = "al_year1_round2_awardees.csv",
   AK = "ak_year1_awardees.csv",  SD = "sd_rht_contracts.csv",
   SD = "sd_year1_awardees.csv",  IL = "il_year1_awardees.csv",
   MI = "mi_year1_awardees.csv",  OR = "or_year1_awardees.csv",
@@ -64,6 +65,7 @@ Y1_AWARD_FILES <- c(
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
+  NC = "nc_year1_sbhc_awardees.csv",
   AR = "ar_year1_awardees.csv",  AR = "ar_year1_round2_awardees.csv",
   WY = "wy_year1_awardees.csv",
   DE = "de_year1_awardees.csv",  ID = "id_year1_awardees.csv",
@@ -173,10 +175,10 @@ Y1_STATUS <- tibble::tribble(
   "DHS's RHTP funding-opportunities page lists 'Upcoming Opportunities' -- four further payment programmes (Rapid Response Stabilization Rounds 1 and 2, an FQHC EHR/HIO programme and one more), about $86.8M, naming nobody (session 21). The 66 selected projects are one tranche.",
   "data/evidence/recheck/2026-08-29/PA/PA_dhs_rhtp_funding_opportunities.html",
 
-  "AL", "PARTIAL", "No", "Yes",
-  "2026-08-24",
-  "Governor Ivey's release: 'During this initial round of grant funding, five of those initiatives are being funded ... Grant awards for additional initiatives are in process and will be announced at a later date.'",
-  "data/evidence/AL/2026-08-24_governor_ivey_first_arhtp_grants.html",
+  "AL", "PARTIAL", "Yes", "Yes",
+  "2026-10-01",
+  "THE SOURCE CALLS IT COMPLETE AND THE STATE'S OWN PLAN SAYS OTHERWISE (session 83). Governor Ivey, 2026-10-01: 'The grants announced today round out year one of funding for the program' -- 34 round-2 grants in five initiatives plus more Rural Health and Rural Workforce projects (al_year1_round2_awardees.csv). But the 2026-08-24 release says ARHTP 'includes 11 initiatives', the two rounds fund TEN, and the ELEVENTH -- Community Medicine (mobile wellness and grocery units) -- carries 'Estimated required funding ... $7.3M for year 1' in ADECA's revised Project Narrative (Table XIV-J1, 'Revised - 4.10.2026') and has no award in either release. The narrative's Stage 1 is 'Procure mobile wellness units', so it may be a state procurement rather than a grant; nothing published says so. COMPLETE needs no recorded remainder, so PARTIAL until a source accounts for Community Medicine. Published: $198,539,348 of $203,404,327 (97.6%).",
+  "data/evidence/recheck/2026-10-01/AL/al_governor_2026-10-01_round2_34_grants.html; data/evidence/AL/2026-08-24_governor_ivey_first_arhtp_grants.html; data/evidence/AL/2026-10-01_adeca_arhtp_project_narrative_revised_2026-04-10.pdf",
 
   "AK", "PARTIAL", "No", "Yes",
   "2026-09-21",
@@ -264,9 +266,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/ME/2026-09-02_me_dhhs_rhtp_programme.html; data/evidence/ME/2026-08-05_me_rhtp_advisory_updates.pdf",
 
   "NC", "PARTIAL", "No", "Yes",
-  "2026-09-02",
-  "Two opportunities closed unawarded (Minority Diabetes Prevention, School Health Centers); the Rural Health Innovation Fund 'will launch this fall'; the ROOTS second tier names nobody (session 38).",
-  "data/evidence/NC/2026-09-02_nc_ncrhtp_grant_opportunities.html",
+  "2026-09-30",
+  "School Health Centers AWARDED 2026-09-14 (five named, $1.25M, no split; nc_year1_sbhc_awardees.csv, session 83), but Minority Diabetes Prevention closed with no roster, the ROOTS second tier names nobody (session 38), and the Rural Health Innovation Fund LAUNCHED 2026-09-30 ('$20 million per year for up to five years', applications due 2026-11-16, awards 'January 2027') -- a Tier 2 pool not yet awarded.",
+  "data/evidence/NC/2026-09-02_nc_ncrhtp_grant_opportunities.html; data/evidence/recheck/2026-10-01/NC/nc_ncdhhs_2026-09-14_sbhc_five_organisations.html; data/evidence/recheck/2026-10-01/NC/nc_ncdhhs_2026-09-30_rural_health_innovation_fund.html",
 
   "AR", "COMPLETE", "Yes", "No",
   "2026-09-24",

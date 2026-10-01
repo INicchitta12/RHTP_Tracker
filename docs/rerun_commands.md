@@ -200,6 +200,9 @@ Rscript R/03aq_unstated_form_typing.R --apply     # changes CSV + the two files
 Rscript R/03aq_unstated_form_typing.R --benchmark # SC against the agency figure
 Rscript R/03ar_rural_cut_report.R --build        # the rural cut, from committed files only
 Rscript R/03ar_rural_cut_report.R --report       # 151 rows / $158.0M rural; 692 rows the gap
+Rscript R/03bq_al_round2_awardees.R --build     # AL round 2 + R/03bj's UAB/USA overlay
+Rscript R/03bq_al_round2_awardees.R --report    # 34 grants, 21 hospital rows, $20,886,572
+Rscript R/03br_nc_sbhc_awardees.R --build       # NC SBHC: 5 rows, amount EMPTY, $1.25M pool
 Rscript R/02c_state_attribution_sweep.R --build  # §0.1 mode 6 — the wrong-state sweep
 Rscript R/02c_state_attribution_sweep.R --report # 10 misfiled in 5 states, NONE Tier 3
 ```

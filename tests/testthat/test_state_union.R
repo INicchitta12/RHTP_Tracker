@@ -263,7 +263,20 @@ STATE_FILES <- c(
   # reconciled, and no line dropped. 36 named-hospital lines typed on CMS's CO
   # enrolment files; three districts whose names say "Hospital" or "Health
   # Services" (Walsh, West Custer, Lake Fork) are NOT hospitals on the record.
-  CO = "data/reference/co_year1_awardees.csv"
+  CO = "data/reference/co_year1_awardees.csv",
+
+  # SESSION 83. ALABAMA ROUND 2: the Governor's 2026-10-01 release, 34 grants,
+  # $54,793,527 against "nearly $55 million" (13 amounts rounded in source).
+  # A separate file on Arkansas's precedent -- round 1 carries session 49's
+  # overlay keyed on ROW INDEX -- and ADDITIVE with it: two rounds, one Year 1.
+  # 21 named-hospital rows typed on CMS's AL enrolment files; UAB and USA via
+  # R/03bj (ACADEMIC_HEALTH_CENTER); Greene County Health System a LOW bridge.
+  AL_R2 = "data/reference/al_year1_round2_awardees.csv",
+  # SESSION 83. NORTH CAROLINA'S THIRD ROSTER: five School-Based Health Center
+  # awardees for "$1.25 million", NO per-recipient split (amount empty, the
+  # pool in round_amount). FirstHealth of the Carolinas is one named-hospital
+  # row at $0 -- §0.3a: a hospital system receiving school-health money.
+  NC_SBHC = "data/reference/nc_year1_sbhc_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
