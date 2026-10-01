@@ -562,3 +562,24 @@ SD,2026-10-01T12:23:19Z,CHANGED,RHT number series (all agencies),,trig_01PozmJvh
 SD,2026-10-01T12:23:19Z,CHANGED,'Rural Strong' in the description,,trig_01PozmJvhJnKHVQf7GBHkbvY
 SD,2026-10-01T12:23:19Z,CHANGED,'Rural Health Transformation' in the description,,trig_01PozmJvhJnKHVQf7GBHkbvY
 CT,2026-10-01T15:41:43Z,ERROR,(probe),"ℹ In index: 3. Caused by error: ! [CT] 'opm' NAMES 5 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Department of Emergency Services and Public Protection | Department of Correction The State of Connecticut | Division of State Police | Department of Correction | Andre Simons Secretary II Office of Policy and Management Criminal Justice Policy and Planning Division. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-10-01T16:51:47Z,CHANGED,AZ:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:51:47Z,CHANGED,AZ:ahcccs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:51:55Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Governor Meyer Awards Nearly $23 Million to FQHCs Through Rural Health Transformation Program'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:51:57Z,CHANGED,FL:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:51:58Z,CHANGED,IA:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:51:58Z,UNCHANGED,ID:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:51:58Z,UNCHANGED,ID:dhw,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:00Z,UNCHANGED,MN:mdh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:01Z,UNCHANGED,MT:news,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:01Z,CHANGED,MT:dphhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:03Z,CHANGED,NE:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:03Z,UNCHANGED,NE:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:04Z,CHANGED,NJ:doh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:05Z,CHANGED,NV:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:05Z,UNCHANGED,NV:nvha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:06Z,UNCHANGED,OK:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:06Z,UNCHANGED,OR:oha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:07Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: hhsc: 'Gov. Abbott, HHSC Announce $51 Million in First Round of Rural Texas Strong Awards'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:13Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:13Z,UNCHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-01T16:52:14Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
