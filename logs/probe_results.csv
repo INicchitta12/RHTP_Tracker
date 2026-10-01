@@ -554,3 +554,7 @@ SC,2026-10-01T08:32:33Z,UNCHANGED,rmua_control,,trig_01R1pZjkPkQZWD3vctiAJQ44
 SC,2026-10-01T08:32:33Z,UNCHANGED,bhcs_control,,trig_01R1pZjkPkQZWD3vctiAJQ44
 SC,2026-10-01T08:32:33Z,UNCHANGED,award_list,,trig_01R1pZjkPkQZWD3vctiAJQ44
 CO,2026-10-01T09:12:00Z,TRIPWIRE,(probe),"[CO] 'rhtp' NO LONGER SAYS: ""The RHTP team anticipates making our award announcements by the end of September 2026."". The dated anchor this watch rests on has moved. Read the page: it may have awarded, re-dated, or re-worded (§2.2).",trig_012SyFT6QNtKsZK6veV5KznF
+WA,2026-10-01T10:12:58Z,UNCHANGED,programme,,trig_01Ya2pEVp2p89TYntNPhjpX1
+WA,2026-10-01T10:12:58Z,UNCHANGED,working_on,,trig_01Ya2pEVp2p89TYntNPhjpX1
+WA,2026-10-01T10:12:58Z,UNCHANGED,participate,,trig_01Ya2pEVp2p89TYntNPhjpX1
+WA,2026-10-01T10:12:58Z,CHANGED,bids,,trig_01Ya2pEVp2p89TYntNPhjpX1
