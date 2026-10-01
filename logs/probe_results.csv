@@ -583,3 +583,11 @@ NEWSROOM,2026-10-01T16:52:07Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON 
 NEWSROOM,2026-10-01T16:52:13Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-01T16:52:13Z,UNCHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-01T16:52:14Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+CO,2026-10-01T17:19:25Z,TRIPWIRE,(probe),"[CO] 'rhtp' NO LONGER SAYS: ""The RHTP team anticipates making our award announcements by the end of September 2026."". The dated anchor this watch rests on has moved. Read the page: it may have awarded, re-dated, or re-worded (§2.2).",interactive
+MT,2026-10-01T17:19:29Z,TRIPWIRE,(probe),"[MT] 'grants' NO LONGER SAYS: ""Grant applications are now being reviewed, and funding decisions will be shared in September."". The dated anchor this watch rests on has moved. Read the page: it may have awarded, re-dated, or re-worded (§2.2).",interactive
+TX,2026-10-01T17:19:33Z,UNCHANGED,rts_init1p2,,interactive
+TX,2026-10-01T17:19:33Z,UNCHANGED,rts_init4r1,,interactive
+TX,2026-10-01T17:19:33Z,UNCHANGED,rts_init4r2,,interactive
+TX,2026-10-01T17:19:33Z,UNCHANGED,rts_init6p1,,interactive
+TX,2026-10-01T17:19:33Z,UNCHANGED,state_debt_rfa,,interactive
+TX,2026-10-01T17:19:33Z,UNCHANGED,state_impr_rfa,,interactive
