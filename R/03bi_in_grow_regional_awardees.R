@@ -304,7 +304,12 @@ ig_assert_releases <- function(rel = ig_parse_releases(), d = ig_parse_page()) {
   noa <- readr::read_csv(here::here("data", "reference", "cms_state_noa_dates.csv"),
                          show_col_types = FALSE, progress = FALSE)
   noa <- as.Date(noa$noa_date[noa$state == IG_STATE])
-  dates <- as.Date(rel$date_as_published, format = "Sept. %d, %Y")
+  # The month is mapped from the text. A format with no month field
+  # ("Sept. %d, %Y") makes as.Date() supply the CURRENT month, which read
+  # 2026-09-03 all September and 2026-10-03 from 10-01 (session 80).
+  dates <- as.Date(stringr::str_replace(rel$date_as_published,
+                                        "^Sept\\. (\\d{1,2}), (\\d{4})$",
+                                        "\\2-09-\\1"))
   if (anyNA(dates) || !all(dates == IG_ANNOUNCED) || !all(dates > noa)) {
     stop("[IN-GROW] date test: releases dated ",
          paste(rel$date_as_published, collapse = ", "), " against NOA ", noa, ".",

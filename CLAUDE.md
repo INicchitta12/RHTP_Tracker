@@ -377,6 +377,44 @@ can change a prompt).
 > **Then explain the miss in `config/probe_gaps_explained.csv`. Never
 > back-fill a line.**
 
+> **A PERSISTENT RUNNER RELOADS `CLAUDE.md` ONLY WHEN ITS OWN CHECKOUT HAS
+> CHANGED THE FILE (sessions 78–80).** At a cold resume Claude Code reads
+> `CLAUDE.md` from the runner's primary working tree. If that copy differs
+> from the one the conversation already holds, it is loaded again on top,
+> adding ~330k tokens. The runner reads its tree, not `main`, and before v4
+> the only thing that changed its tree was the prompt's own step-1
+> `git checkout -B main origin/main`.
+> - **Why the trim did not help on the next firing.** WI and NV fired at
+>   15:02Z and 15:13Z on 09-29, after the trim merged at 14:12Z, and still
+>   doubled (to 698,839 and 708,018). Their resume reloaded the pre-trim
+>   file that their previous firing's checkout had left in the tree. A
+>   `CLAUDE.md` change on `main` reaches a runner one firing late, and costs
+>   it a reload when it does.
+> - **Why NY and SC stayed flat.** They were test-fired 27 minutes after
+>   creation, before any `CLAUDE.md` commit reached `main`. Their first
+>   checkout therefore left the file byte-identical (blob `e5a95cd`) to
+>   the copy they loaded at creation, and their second resume added
+>   nothing: 384,866 and 383,422.
+> - **The evidence.** Across 12 two-turn runners the split was exact: 10
+>   of 10 whose first checkout changed `CLAUDE.md` doubled, and 2 of 2
+>   whose checkout did not stayed flat. Nothing else separated them:
+>   origin, parent, CLI version, model and gap between turns were all
+>   checked (`docs/session78_*` §3).
+> - **The prediction test, set before the readings and passed.** NY's
+>   09-27 checkout and MO's only turn had both moved the file, so each was
+>   predicted to double at its 09-30 firing, with "stays near 385k" as the
+>   falsifier. **NY: 384,866 → 723,788 (+338,922). MO: 368,982 → 687,835
+>   (+318,853).** Both were read from `get_session` (`used_tokens`).
+> - **The rule that follows.** A Routine prompt never checks out, pulls or
+>   edits in the runner's primary checkout. Every firing works in a
+>   detached worktree at `/root/rhtp_work` (v4, `R/routine_prompts_worktree.R`).
+>   That freezes the runner's `CLAUDE.md` at the copy its first turn
+>   loaded. A runner already holding a stale tree reloads once more at its
+>   next resume, because the reload happens before any prompt runs. A
+>   runner near 700k is therefore moved to a new session, never left for
+>   that one firing. CA's new runner sat at 127,507 after its first v4
+>   firing.
+
 > **SESSION 66 RECREATED THE 32 RUNNER ROUTINES WITHOUT THE RETRY** (the
 > "33" above double-counted Washington), in one batch, on their SAME runner
 > sessions, with the same cron and prompt. Three things changed in each
@@ -1579,7 +1617,11 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-09-29 (Session 78). Session 78 deleted `trig_011p…` and added
+**Last updated:** 2026-10-01 (Session 80). Session 80 moved WI and NV to new runners, which session 79 had left
+in place, and recorded the reload mechanism in §2.2a. Detail: `docs/session80_wi_nv_moved_mechanism_recorded.md`.
+Session 79 confirmed session 78's runner-growth mechanism (NY 723,788,
+MO 687,835, both as predicted) and recreated all 38 Routines on the v4 worktree prompt, nine on new runners.
+Detail: `docs/session79_worktree_prompts_falsifier_gate.md`. Session 78 deleted `trig_011p…` and added
 `tests/testthat/test_claude_md_status_table.R`, which fails when Deliverable 1 or the partition block drifts
 from the committed files. It also found why runners double at resume (see Runner context). Detail:
 `docs/session78_status_table_assertion_runner_context.md`. Session 77 moved sessions 1–76's history to
@@ -1781,8 +1823,9 @@ Stage 4's `data/interim/review_queue.rds`, which does not exist yet.
 
 ### Routines
 
-Every Routine is in `config/routines.csv`. There are 38, each on its own persistent runner session. Prompt
-template: `config/routine_prompt_template.md`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
+Every Routine is in `config/routines.csv`. There are 38, each on its own persistent runner session. Prompts:
+`config/routine_prompts/v4/<ST>.txt`, derived from the stored v3 prompts by `R/routine_prompts_worktree.R`
+(`--write`, `--check`); runner moves in `config/routine_prompts/runner_moves.csv`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
 `config/probe_gaps_explained.csv`.
 
 **Session 78:** `trig_011pUVRNkSnjCNvZfQ89kPbM` is deleted. It stays in CMS's `old_trigger_id` chain,
@@ -1799,8 +1842,13 @@ apart from the one-shot check-in.
 - **A runner reads its tree, not `main`.** WI and NV fired after the trim merged and still doubled.
 - **Eleven runners are at ~700k:** CMS AR KY NEWSROOM CT CO CA MS VA WI NV. The first nine hold a pre-trim
   file and would pass 1M at their next resume.
-- **The fix, proposed and not done:** each firing works in a separate clone, so the primary checkout never
-  changes. Recycle the eleven in the same pass. See `docs/session78_*` §3.
+- **Confirmed session 79:** NY rose 384,866 → 723,788 and MO 368,982 → 687,835 at their 09-30 firings.
+- **The fix, done session 79 (v4):** every firing works in a detached worktree at `/root/rhtp_work` and never
+  touches `/home/user/RHTP_Tracker`, so the runner's `CLAUDE.md` is frozen. **Never write a Routine prompt
+  that checks out, pulls or edits in the primary checkout.** CA CMS AR KY NEWSROOM CT CO MS VA moved to new
+  runners. WI and NV followed in session 80 (`trig_01BDpi…`, `trig_013u9w…`), so all eleven are on new runners.
+- **A prompt change is a recreate** (`update_trigger` refuses a prompt from outside the runner): edit the
+  generator, `--write`, create, byte-compare with `list_triggers`, disable the old id, chain it here.
 
 ### Open blockers
 
@@ -1823,16 +1871,16 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-**Before Thu 2026-10-01:** merge this branch to `main`. The new test runs in the CMS runner's suite at
-13:00Z that day.
+**Merge to `main` now.** This branch carries sessions 79 and 80. Until `config/routines.csv` on `main` carries
+the v4 ids, every v4 line reads as a missed firing and every runner's suite fails. CMS already declined at
+10-01 13:00Z for that reason. WI's new Routine fires Fri 10-02 14:00Z.
 
-- **Owner decision, ideally before CA fires Wed 09-30 17:00Z:** recreate all 38 Routines so each firing works
-  in a separate clone, and move the eleven ~700k runners to new sessions (`docs/session78_*` §3). This needs
-  the owner's approval.
-- **Test the finding on Wed 09-30.** NY after 11:10Z should reach ~715k and MO after 15:00Z ~700k. **If NY
-  stays near 385k, the finding is wrong.**
-- **Thu 10-01 after 20:30Z:** read `get_session` for the eleven heavy runners, then SC after 08:30Z. Record
-  `used_tokens` and whether each firing logged a line (`R/probe_coverage.R --check`).
+- **The 38 v3 originals are deleted** (09-30, after CA and NH published under v4 ids). NH's 09-30 TRIPWIRE
+  (FHC's T-TAC sentence, no subrecipient named) still needs a human read.
+- **Read runner context after the v4 firings:** a new runner should sit near its first-turn floor and stay
+  there; an in-place runner may re-load once more, then stop.
+- **Delete `trig_013N9mnDM86QEpQgzKwGFtp4` (WI) and `trig_014c3kseN8WpCL5cMVcdaaYi` (NV)**, both disabled, once
+  the new WI and NV Routines have each put a line on `main` (Fri 10-02 14:00Z and 15:10Z).
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)
