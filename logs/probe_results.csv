@@ -609,3 +609,4 @@ NC,2026-10-01T17:49:49Z,CHANGED,trillium,,interactive
 CMS,2026-10-01T17:50:45Z,CHANGED,newsroom+medicaid,new states: CO MT TX; changed rows: 0,interactive
 NEWSROOM,2026-10-01T17:51:10Z,UNCHANGED,TX:governor,,interactive
 NEWSROOM,2026-10-01T17:51:10Z,UNCHANGED,TX:hhsc,,interactive
+OK,2026-10-01T18:12:08Z,TRIPWIRE,(probe),[OK] 'Expanding Care: Doulas Program' now appears on the Funding Recipients page. Oklahoma has awarded an opportunity this file does not carry -- extract it. THIS ASSERTION IS SUPPOSED TO FAIL EVENTUALLY.,trig_0195epZAcyF5L1WbYJYMQ5Za
