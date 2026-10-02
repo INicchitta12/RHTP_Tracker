@@ -1,0 +1,16 @@
+OKLAHOMA -- the Funding Recipients page as served 2026-10-02 (session 85)
+
+Read after the OK Routine's 2026-10-01 18:12Z TRIPWIRE ("Expanding Care:
+Doulas Program now appears on the Funding Recipients page"). The page now
+carries FIVE rosters, three of them new since the 2026-08-31 extraction
+archive: Rural Regional Reorientation (20), Expanding Care: Doulas (4) and
+Chronic Disease Management (15). Source for R/03bt_ok_new_rosters.R.
+
+Kept in its own folder and manifest because R/03t's --fetch rewrites MANIFEST.txt
+from its own source table and would drop this entry. Fetched with curl -L
+(the URL 301s to https://oklahoma.gov/rhtp/rhtp-funding-recipients.html),
+agent "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)";
+passed ok_assert_credential_free(). Bytes as served.
+
+2026-10-02_ok_rhtp_funding_recipients.html  219722  7aa998ab5f362d880dd73181c643ab4080fe122079b951d9283b131e44e8e056
+  https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html
