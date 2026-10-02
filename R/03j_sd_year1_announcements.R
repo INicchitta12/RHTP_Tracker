@@ -649,6 +649,13 @@ rhtp_sd_year1_reconcile <- function(records = rhtp_sd_year1_build()) {
   } else {
     rep(FALSE, NROW(contracts))
   }
+  unplaced <- if (!is.null(contracts) && "round_id" %in% names(contracts)) {
+    contracts$round_id %in% "UNPLACED"
+  } else {
+    rep(FALSE, NROW(contracts))
+  }
+  unplaced_n <- sum(unplaced)
+  unplaced_amt <- if (is.null(contracts)) 0 else sum(contracts$amount[unplaced], na.rm = TRUE)
   admin_n <- if (is.null(contracts)) NA_integer_ else sum(!in_round)
   admin   <- if (is.null(contracts)) NA_real_ else sum(contracts$amount[!in_round], na.rm = TRUE)
   rs <- records[records$round_id == "RS", ]
@@ -659,6 +666,7 @@ rhtp_sd_year1_reconcile <- function(records = rhtp_sd_year1_build()) {
     "  of which named on open.sd.gov (INSIDE the line above, never added)", rs$named_elsewhere_grants, rs$named_elsewhere_amount,
     "  of which named nowhere (amount stated by no source; not computed)",  28L - rs$named_elsewhere_grants, NA_real_,
     "Technology and data grants (2026-08-19)",         82L,                   90000000,
+    "  named awards on open.sd.gov whose round the register does NOT state (R/03i UNPLACED; MAY be inside the line above, never added)", unplaced_n, unplaced_amt,
     "Announced rounds, total",                         SD_Y1_TOTAL_GRANTS,    SD_Y1_TOTAL_ANNOUNCED,
     "Named recipients captured from these releases",   0L,                    0,
     "Administrative contracts on open.sd.gov (R/03i, NOT in either round)", admin_n, admin,
@@ -699,13 +707,15 @@ SD_Y1_README <- tibble::tribble(
          "contracts later named on OpenSD include hospital rows, and those ",
          "dollars are counted in sd_rht_contracts.csv ONLY -- never here."),
   "Where the names would be",
-  paste0("open.sd.gov, as contracts are finalised: 8 of the 28 Rural Strong ",
-         "grants are there as of 2026-09-24 (R/03i); none of the 82 ",
-         "Technology and data grants."),
+  paste0("open.sd.gov, as contracts are finalised (R/03i). As of 2026-10-02: ",
+         "14 of the 28 Rural Strong grants, and 8 named awards whose round the ",
+         "register does not state (R/03i's UNPLACED pool) -- none of them is ",
+         "labelled a Technology and data grant."),
   "Do not add this to",
   paste0("data/reference/sd_rht_contracts.csv. Its ADMINISTRATIVE pool is in ",
          "neither round; its RURAL STRONG pool (round_id RS) is INSIDE the ",
-         "$31.5M round here -- the same money named at a finer grain. Read ",
+         "$31.5M round here -- the same money named at a finer grain; its ",
+         "UNPLACED pool may be inside the $90M round and is never added to it. Read ",
          "named_elsewhere_grants / named_elsewhere_amount, and both headers, ",
          "before combining anything."),
   "Rebuild",

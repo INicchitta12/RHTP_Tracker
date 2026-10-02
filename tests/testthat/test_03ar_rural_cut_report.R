@@ -27,14 +27,16 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # CCN 060107), Alabama round 2 (R/03bq, 21 rows / $20,886,572) and NC's
   # SBHC roster (R/03br, FirstHealth 1 row / $0), no new state:
   # 1,261 / $1,149,408,077.27 / 31.
-  expect_equal(nrow(rows), 1261L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1149408077.27,
+  # Sessions 85-86: + WV Minnie Hamilton, OK Doulas, RRR and CDM, and SD's
+  # 2026-10-02 register: 1,288 / $1,190,363,515.42 / 31.
+  expect_equal(nrow(rows), 1288L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1190363515.42,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
 
-test_that("the rural figure is 240 rows / $245,561,955.03, from three classes of source only", {
+test_that("the rural figure is 256 rows / $263,299,771.23, from three classes of source only", {
   # 207 -> 209 in session 71 at the SAME dollars: Nevada's Carson Valley Health
   # and Washoe Barton Medical Clinic rows (unpriced) now carry CCN 291306,
   # which CMS enrols as a CRITICAL ACCESS HOSPITAL, read off the provider-type
@@ -54,11 +56,18 @@ test_that("the rural figure is 240 rows / $245,561,955.03, from three classes of
   # CCN 471301), $4,036,124.92.
   # Session 82: + 26 Colorado lines CMS enrols as a CAH by the line's own
   # CCN, $64,069,474.
-  expect_equal(nrow(r), 240L)
+  # Sessions 85-86: + 16 rows CMS enrols as a CAH by the row's own CCN -- WV
+  # Minnie Hamilton x3 ($1,700,000), OK x7 ($8,376,713: Newman x2, Fairview x2,
+  # McCurtain, Texas County, Cimarron) and SD x6 ($7,661,103). Huron Regional
+  # carries no CCN and does not count.
+  expect_equal(nrow(r), 256L)
+  expect_equal(sum(r$state == "OK"), 7L)
+  expect_equal(sum(r$state == "WV"), 3L)
+  expect_equal(sum(r$state == "SD"), 9L)
   expect_equal(sum(r$state == "CO"), 26L)
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 245561955.03, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 263299771.23, tolerance = 0)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 14L)
   expect_equal(sum(r$state == "MO"), 6L)
@@ -110,11 +119,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 240L)   # session 82: + 26 CO
+  expect_equal(sum(by$rural_rows), 256L)   # session 82: + 26 CO
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1261L)   # session 82: + 36 CO; session 83: + 23
+  expect_equal(nrow(committed), 1288L)   # session 82: + 36 CO; session 83: + 23
   expect_equal(committed$rural_class, rows$rural_class)
 })

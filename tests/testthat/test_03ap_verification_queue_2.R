@@ -500,9 +500,17 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 85: + West Virginia's Minnie Hamilton (3 rows / $1,700,000, CAH on
   # its CMS enrolment) and Oklahoma's Doulas roster (Newman Memorial, 1 row /
   # $38,525, R/03bt), no new state: 1,265 / $1,151,146,602.27 / 31.
+  # Session 86: + Oklahoma RRR (10 rows / $21,099,804) and CDM (6 rows /
+  # $9,197,657.15), R/03bt, and South Dakota's 2026-10-02 register (7 rows /
+  # $8,919,452: 4 Rural Strong, 3 unplaced), no new state; Delaware's FQHC
+  # file adds no hospital row: 1,288 / $1,190,363,515.42 / 31.
   # Subtracted first.
-  expect_equal(named$rows, 1265L)
+  expect_equal(named$rows, 1288L)
   expect_equal(named$states, 31L)
+  expect_equal(round(named$dollars, 2), 1190363515.42, tolerance = 0)
+  named$rows <- named$rows - 23L
+  named$dollars <- named$dollars - 21099804 - 9197657.15 - 8919452
+  expect_equal(named$rows, 1265L)
   expect_equal(round(named$dollars, 2), 1151146602.27, tolerance = 0)
   named$rows <- named$rows - 4L
   named$dollars <- named$dollars - 1700000 - 38525

@@ -463,7 +463,17 @@ wv_validate <- function() {
 
 wv_build <- function() {
   wv_validate()
-  readr::write_csv(wv_year1_awardees(), WV_CSV, na = "")
+  # Session 86: R/03bj's enrolled-hospital overlay (Minnie Hamilton, EH_APPLY).
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  # Numbers in full: as.character(500000) is "5e+05".
+  num <- function(x) ifelse(is.na(x), NA_character_,
+                            vapply(x, function(v) format(v, scientific = FALSE, digits = 15),
+                                   character(1)))
+  d <- dplyr::mutate(wv_year1_awardees(), dplyr::across(dplyr::where(is.numeric), num),
+                     dplyr::across(dplyr::everything(), as.character))
+  readr::write_csv(s71$s71_overlay(d, basename(WV_CSV)), WV_CSV, na = "")
   readr::write_csv(wv_status_table(), WV_STATUS_CSV, na = "")
   message("[WV] wrote 14 award rows.")
 }

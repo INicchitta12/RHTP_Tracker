@@ -662,6 +662,10 @@ ND,2026-10-02T15:44:54Z,UNCHANGED,programme,,interactive
 ND,2026-10-02T15:44:54Z,CHANGED,funding,,interactive
 NV,2026-10-02T15:12:50Z,UNCHANGED,roster,,trig_013u9wiLjrzkXJJ6PCax6LVm
 NV,2026-10-02T15:12:50Z,UNCHANGED,nofos,,trig_013u9wiLjrzkXJJ6PCax6LVm
+OK,2026-10-02T16:26:43Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [OK] 'recipients' NAMES 75 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Program Expanding Care | Doulas Program Chronic Disease Management Program OSDE's ROOTS Competitive Grant Community-Led Wellness Hubs | Program RRR | RRR Program | List of Funding Recipients Ascension St. John Jane Phillips Medical Center | Cancer Centers of Southwest Oklahoma LLC | CREOKS Mental Health Services | Inc. DBA CREOKS Health Services | Rural Integrated Access and Stabilization Network | Healthy Oklahoma DBA Oklahoma Perinatal Quality Improvement Collaborative | Grand Lake Mental Health Center | Green Country Behavioral Health Services (and 63 more). THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+OK,2026-10-02T16:27:52Z,UNCHANGED,recipients,,interactive
+OK,2026-10-02T16:27:52Z,UNCHANGED,funding,,interactive
+OK,2026-10-02T16:27:52Z,UNCHANGED,program,,interactive
 ME,2026-10-02T16:21:51Z,CHANGED,doe,,trig_01D21P4pNZXJv9vN7Uv6jmdn
 ME,2026-10-02T16:21:51Z,CHANGED,programme,,trig_01D21P4pNZXJv9vN7Uv6jmdn
 ME,2026-10-02T16:21:51Z,CHANGED,mcd,,trig_01D21P4pNZXJv9vN7Uv6jmdn

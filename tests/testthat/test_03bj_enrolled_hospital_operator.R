@@ -24,7 +24,10 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # Session 83: National Jewish Health APPLIED on the owner's instruction
   # (EH_APPLY; it was already one of the 41), and Alabama round 2's five UAB
   # / USA rows swept and applied: 41 -> 46.
-  expect_equal(nrow(sw), 46L)
+  # Session 86: + 15 rows typed on their enrolment by their own extractors --
+  # session 85's WV Minnie Hamilton x3 and OK Doulas Newman, and OK RRR (7)
+  # and CDM (4) -- each now carrying a verdict in EH_APPLY: 46 -> 61.
+  expect_equal(nrow(sw), 61L)
   expect_setequal(EH_READ_NOT_APPLIED$verdict, "DIFFERENT_LEGAL_BODY")
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
@@ -41,12 +44,20 @@ test_that("an unread sweep hit fails the build", {
   expect_error(eh_assert_read(fake), "no hand-read")
 })
 
-test_that("39 rows / $70,362,405.84 moved, 30 / $60,226,387.31 of them AHCs", {
+test_that("57 rows / $95,844,424.78 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
   # Session 71: 33 rows / $63,240,239.84, 25 / $53,539,221.31 AHCs. Session
   # 83: + National Jewish Health (MI, $435,000, not an AHC) and Alabama round
-  # 2's UAB x3 and USA x2 ($6,687,166, all AHCs).
-  expect_equal(nrow(eff), 39L)
-  expect_equal(round(sum(eff$amount, na.rm = TRUE), 2), 70362405.84)
+  # 2's UAB x3 and USA x2 ($6,687,166, all AHCs): 39 / $70,362,405.84.
+  # Session 86: + WV Minnie Hamilton (3 / $1,700,000) and OK Doulas Newman
+  # (1 / $38,525) from session 85, OK RRR (9 / $17,161,366) and OK CDM
+  # (5 / $6,582,127.94); none is an AHC. Mercy has no enrolment and no match.
+  expect_equal(nrow(eff), 57L)
+  expect_equal(round(sum(eff$amount, na.rm = TRUE), 2), 95844424.78)
+  s86 <- eff[eff$file %in% c("wv_year1_awardees.csv", "ok_year1_doulas_awardees.csv",
+                             "ok_year1_rrr_awardees.csv", "ok_year1_cdm_awardees.csv"), ]
+  expect_equal(nrow(s86), 18L)
+  expect_equal(sum(s86$match != "EXACT_LEGAL_NAME"), 5L)
+  expect_true(all(is.na(s86$subtype)))
   ahc <- eff[!is.na(eff$subtype) & eff$subtype == "ACADEMIC_HEALTH_CENTER", ]
   expect_equal(nrow(ahc), 30L)
   expect_equal(round(sum(ahc$amount, na.rm = TRUE), 2), 60226387.31)
@@ -190,7 +201,7 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,261 / $1,149,408,077.27 / 31; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,288 / $1,190,363,515.42 / 31; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
@@ -202,9 +213,19 @@ test_that("the partition: NAMED_HOSPITAL 1,261 / $1,149,408,077.27 / 31; pools u
   # Session 83: + National Jewish Health (1 / $435,000), Alabama round 2
   # (21 / $20,886,572), NC SBHC's FirstHealth (1 / $0); no new state --
   # subtracted first.
+  # Session 85: + WV Minnie Hamilton (3 / $1,700,000) and OK Doulas Newman
+  # (1 / $38,525) -- this pin was left at 1,261 then and is caught up here.
+  # Session 86: + OK RRR (10 / $21,099,804), OK CDM (6 / $9,197,657.15) and
+  # SD's 2026-10-02 register (7 / $8,919,452); no new state. Subtracted first.
+  expect_equal(n$rows, 1288L)
+  expect_equal(round(n$dollars, 2), 1190363515.42)
+  expect_equal(n$states, 31L)
+  n$rows <- n$rows - 23L
+  n$dollars <- n$dollars - 21099804 - 9197657.15 - 8919452
+  n$rows <- n$rows - 4L
+  n$dollars <- n$dollars - 1700000 - 38525
   expect_equal(n$rows, 1261L)
   expect_equal(round(n$dollars, 2), 1149408077.27)
-  expect_equal(n$states, 31L)
   n$rows <- n$rows - 23L
   n$dollars <- n$dollars - 435000 - 20886572
   # The session-83 AHC rows (AL r2 UAB/USA, $6,687,166) come off with them.

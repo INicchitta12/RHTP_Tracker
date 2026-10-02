@@ -1,0 +1,12 @@
+FEDERAL RECORDS -- fetched 2026-10-02 by session 86
+
+WHY: Oklahoma's RRR and CDM rosters (R/03bt) are typed on CMS's OK Hospital (2026-09-25) and FQHC
+Enrollment files -- Central Oklahoma Family Medical Center and South Central Medical and Resource
+Center are FQHCs on the FQHC file. The OK RHC file is archived beside it (Cimarron Memorial's RHC).
+Delaware's three FQHC awards (R/03bu) are checked against the DE FQHC file.
+Committed as served (§0.5); the readers use THESE, never the live API.
+
+file | sha256 | bytes | source
+cms_fqhc_enrollments_OK.json | 01c7059b0ff3e0058f7cb935378f45967298a790c96308287f9ad79e4879940e | 121173 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=OK&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_OK.json | 5958426948d4c94172e9968aa8b70cf7b04df8e657d22d1f3b834f6307e884f9 | 97772 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=OK&size=5000 (RHC Enrollments)
+cms_fqhc_enrollments_DE.json | c97b9e251c589c2c2813771da27ba10df8982c3cfe25d5a048e7ab25e31c8b4b | 7200 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=DE&size=5000 (FQHC Enrollments)

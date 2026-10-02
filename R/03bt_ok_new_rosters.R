@@ -12,7 +12,23 @@
 #   Expanding Care: Doulas                4 recipients      $647,967.83
 #   Chronic Disease Management (CDM)     15 recipients   $15,608,845.22
 #
-# ONLY DOULAS IS WRITTEN. The owner's standing instruction is to report before
+# SESSION 86: RRR AND CDM ARE NOW WRITTEN, on the owner's instruction, each to
+# its own file (ok_year1_rrr_awardees.csv, ok_year1_cdm_awardees.csv). Every
+# row is HAND-TYPED in OKN_RRR_CDM_TYPING against the archived CMS OK Hospital
+# (federal_records/2026-09-25) and FQHC (federal_records/2026-10-02) Enrollment
+# files; nothing is left to the name rule, which calls Central Oklahoma Family
+# Medical Center a hospital (it is an FQHC on CMS's file) and misses Mercy,
+# McCurtain and Ascension Jane Phillips. The owner's instructions, applied:
+#   * Mercy, Fairview, Lindsay and Ascension Jane Phillips are LOW: none is an
+#     exact legal-name match (DBA, reversed truncation, trading name, or no
+#     enrolment at all).
+#   * Choctaw Nation follows §10.2's precedence rule: OSDH's entry states no
+#     form, so the CMS enrolment decides -- CHOCTAW NATION OF OKLAHOMA is the
+#     ORGANIZATION NAME on hospital CCN 370172, exact, MEDIUM.
+#   * Central Oklahoma Family Medical Center is checked against the FQHC file:
+#     exact legal name, sixteen FQHC sites, no hospital enrolment.
+#
+# (Session 85's text follows.) ONLY DOULAS WAS WRITTEN. The owner's standing instruction is to report before
 # extracting anything over $10M, and RRR and CDM are both over it. They are
 # PARSED and ASSERTED here (count and total), so the day they are approved
 # the work is a typing pass and a --build, not a re-read -- but no file
@@ -73,9 +89,9 @@ OKN_FOOTER   <- "as part of a financial assistance award totaling $223,476,948.6
 # count and total READ on 2026-10-02 (asserted, never assumed).
 OKN_ROSTERS <- tibble::tribble(
   ~key,      ~round_name,                       ~start,                                                   ~end,                                  ~n,  ~total,       ~written,
-  "rrr",     "Rural Regional Reorientation (RRR) Program", "RRR Program: List of Funding Recipients",     "Expanding Care: Doulas Program",      20L, 39578523.00, FALSE,
+  "rrr",     "Rural Regional Reorientation (RRR) Program", "RRR Program: List of Funding Recipients",     "Expanding Care: Doulas Program",      20L, 39578523.00, TRUE,
   "doulas",  "Expanding Care: Doulas Program",  "Expanding Care: Doulas Program: List of Funding Recipients", "Chronic Disease Management Program", 4L,  647967.83,   TRUE,
-  "cdm",     "Chronic Disease Management Program", "Chronic Disease Management Program: List of Funding Recipients", "OSDE's ROOTS Competitive Grant", 15L, 15608845.22, FALSE)
+  "cdm",     "Chronic Disease Management Program", "Chronic Disease Management Program: List of Funding Recipients", "OSDE's ROOTS Competitive Grant", 15L, 15608845.22, TRUE)
 
 okn_lines <- function() {
   raw <- readr::read_file_raw(here::here(OKN_ARCHIVE))
@@ -91,7 +107,7 @@ okn_lines <- function() {
 }
 
 #' One roster's recipient lines: "Name, $amount" or "Name $amountCounties ..."
-okn_parse <- function(key, x = okn_lines()) {
+okn_parse <- function(key, x = okn_lines(), n_detail = 2L) {
   r <- OKN_ROSTERS[OKN_ROSTERS$key == key, ]
   i <- which(x == r$start)
   if (length(i) != 1L) stop("[OK new rosters] '", r$start, "' heading not found once.",
@@ -103,7 +119,7 @@ okn_parse <- function(key, x = okn_lines()) {
   k <- which(!is.na(m[, 1]))
   tibble::tibble(round = key, line = y[k], awardee = stringr::str_trim(m[k, 2]),
                  amount = as.numeric(gsub(",", "", m[k, 3])),
-                 detail = vapply(k, function(z) paste(y[seq(z + 1, min(z + 2, length(y)))],
+                 detail = vapply(k, function(z) paste(y[seq(z + 1, min(z + n_detail, length(y)))],
                                                       collapse = " "), character(1)))
 }
 
@@ -239,20 +255,278 @@ okn_assert_rows <- function(a) {
   invisible(TRUE)
 }
 
+OKN_FQHC_FED <- file.path("data", "evidence", "federal_records", "2026-10-02",
+                          "cms_fqhc_enrollments_OK.json")
+OKN_RRR_CSV  <- here::here("data", "reference", "ok_year1_rrr_awardees.csv")
+OKN_CDM_CSV  <- here::here("data", "reference", "ok_year1_cdm_awardees.csv")
+
+# THE RRR AND CDM TYPING (session 86). One row per (roster, awardee as OSDH
+# prints it). `flow` NA = derived from the type (DIRECT for a hospital,
+# NON_HOSPITAL otherwise); set only where the award text decides it.
+# `enrol` is the CMS record the row rests on: "H:<ORG NAME>|<CCN>" (Hospital
+# Enrollments, 2026-09-25) or "F:<ORG NAME>|<CCN>" (FQHC Enrollments,
+# 2026-10-02). A type of NONPROFIT_CBO with confidence LOW is §8's standing
+# fallback: no form stated and no CMS hospital or FQHC record under the name.
+OKN_FB <- "No form stated by OSDH and no CMS OK hospital or FQHC enrolment under this name: §8's standing fallback, NOT promoted (§0.4)."
+OKN_RRR_CDM_TYPING <- tibble::tribble(
+  ~key, ~awardee, ~recipient_type, ~basis_type, ~confidence, ~ccn, ~enrol_match, ~flow, ~enrol, ~why,
+  # ---- RRR ----------------------------------------------------------------
+  "rrr", "Ascension St. John Jane Phillips Medical Center", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "370018", "DBA_OF_LEGAL_ENTITY", NA,
+  "H:JANE PHILLIPS MEMORIAL MEDICAL CENTER INC|370018",
+  "§10.2 DIRECT on a HAND-READ BRIDGE: CMS OK Hospital Enrollments carry JANE PHILLIPS MEMORIAL MEDICAL CENTER INC, PART A PROVIDER - HOSPITAL, CCN 370018, Bartlesville, with no DBA on the record; 'Ascension St. John Jane Phillips Medical Center' is that hospital's trading name under Ascension St. John (general knowledge, not on the record). Not an exact legal-name match, so LOW (owner's instruction, session 86).",
+  "rrr", "Brighter Heights Oklahoma", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "rrr", "Cancer Centers of Southwest Oklahoma LLC", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA,
+  "An LLC oncology provider with no CMS OK hospital enrolment under this name. §8's standing fallback, NOT promoted (§0.4).",
+  "rrr", "CREOKS Mental Health Services, Inc. DBA CREOKS Health Services, Inc.", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "rrr", "Fairview Regional Medical Center", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "371329", "DBA_OF_LEGAL_ENTITY", NA,
+  "H:FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY|371329",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY dba FAIRVIEW REGIONAL MEDICAL CENTER, CRITICAL ACCESS HOSPITAL, CCN 371329, Fairview. The awardee string is the DBA, not the legal name, so LOW (owner's instruction, session 86).",
+  "rrr", "Foundation for a Healthy Oklahoma DBA Oklahoma Perinatal Quality Improvement Collaborative (OPQIC)", "NONPROFIT_CBO", NA, "LOW", NA, NA, "IN_KIND_BENEFIT", NA,
+  "A foundation with no hospital parent (§10.2: the test is the PARENT). The award 'Provide[s] 24 rural birthing hospitals with obstetric emergency training ... Funding will support training from certified instructors and supplies': training reaches hospitals, dollars do not -- the Georgia Hospital Association carts shape. IN_KIND_BENEFIT, hospital_benefiting = Yes, never in a hospital total.",
+  "rrr", "Grand Lake Mental Health Center, Inc.", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "rrr", "Green Country Behavioral Health Services, Inc.", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "rrr", "Jackson County Memorial Hospital Authority", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370022", "EXACT_LEGAL_NAME", NA,
+  "H:JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY|370022",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY dba JACKSON COUNTY MEMORIAL HOSPITAL, PART A PROVIDER - HOSPITAL, CCN 370022, Altus -- the awardee's exact legal name.",
+  "rrr", "Keetoowah Economic Development Authority", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "rrr", "Lighthouse Behavioral Wellness Centers, Inc.", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "rrr", "Lindsay Municipal Hospital Authority", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "370214", "LEGAL_NAME_TRUNCATED", NA,
+  "H:LINDSAY MUNICIPAL HOSPITAL|370214",
+  "§10.2 DIRECT on a HAND-READ BRIDGE: CMS OK Hospital Enrollments carry LINDSAY MUNICIPAL HOSPITAL, PART A PROVIDER - HOSPITAL, CCN 370214, Lindsay. The awardee string adds 'Authority' (an Oklahoma public-trust hospital authority) to the enrolled name, naming no different body. Recorded under LEGAL_NAME_TRUNCATED, the nearest bridge code, whose example runs the other way (the awardee shorter than the record); LOW (owner's instruction, session 86).",
+  "rrr", "McCurtain Memorial Medical Management, Inc.", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "371342", "EXACT_LEGAL_NAME", NA,
+  "H:MCCURTAIN MEMORIAL MEDICAL MANAGEMENT, INC.|371342",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry MCCURTAIN MEMORIAL MEDICAL MANAGEMENT, INC. dba MCCURTAIN MEMORIAL HOSPITAL, CRITICAL ACCESS HOSPITAL, CCN 371342, Idabel -- the awardee's exact legal name. The name rule misses it ('Medical Management').",
+  "rrr", "Memorial Hospital of Texas County Authority", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "371340", "EXACT_LEGAL_NAME", NA,
+  "H:MEMORIAL HOSPITAL OF TEXAS COUNTY AUTHORITY|371340",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry MEMORIAL HOSPITAL OF TEXAS COUNTY AUTHORITY, CRITICAL ACCESS HOSPITAL, CCN 371340, Guymon -- the awardee's exact legal name.",
+  "rrr", "Mercy Health Oklahoma Communities, Inc.", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, NA, NA, NA,
+  "§10.2 DIRECT, typed a HEALTH SYSTEM on general knowledge: no CMS OK hospital enrolment carries this string -- Mercy's Oklahoma hospitals enrol under their own legal entities (MERCY HOSPITAL WATONGA INC, KINGFISHER, LOGAN COUNTY, HEALDTON, TISHOMINGO, ADA, ARDMORE). OSDH's own award text has the money modernise rooms 'across seven rural hospitals', which is what the award BUYS, not the recipient's form (§0.3a). No CCN, LOW (owner's instruction, session 86).",
+  "rrr", "Newman Memorial Hospital, Inc.", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "371336", "EXACT_LEGAL_NAME", NA,
+  "H:NEWMAN MEMORIAL HOSPITAL, INC|371336",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry NEWMAN MEMORIAL HOSPITAL, INC, CRITICAL ACCESS HOSPITAL, CCN 371336, Shattuck -- the awardee's exact legal name. The same hospital holds a Doulas award (ok_year1_doulas_awardees.csv).",
+  "rrr", "South Central Medical and Resource Center, Inc.", "FQHC_OR_RHC", "ORG_WEBSITE", "MEDIUM", NA, NA, NA,
+  "F:SOUTH CENTRAL MEDICAL AND RESOURCE CENTER INC|371850",
+  "CMS OK FQHC Enrollments (federal_records/2026-10-02) carry SOUTH CENTRAL MEDICAL AND RESOURCE CENTER INC, the awardee's exact legal name, at eight FQHC sites (Lindsay, Maysville, Chickasha, Washington, Pauls Valley, Blanchard); no CMS OK hospital enrolment. Not a hospital.",
+  "rrr", "Southwestern Oklahoma State University", "UNIVERSITY_OR_AHC", "STATE_SOURCE", "MEDIUM", NA, NA, NA, NA,
+  "A state university; no CMS OK hospital enrolment under its name. The award will 'Add robotic-assisted surgery at a local hospital and equip a clinic' -- the hospital is UNNAMED and the source does not say the money reaches it, so §10.2 NON_HOSPITAL on the recipient, hospital_benefiting = Unclear. Queued: OK_RRR_SWOSU_LOCAL_HOSPITAL.",
+  "rrr", "SSM Health Care of Oklahoma", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370037", "EXACT_LEGAL_NAME", NA,
+  "H:SSM HEALTH CARE OF OKLAHOMA, INC.|370037",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry SSM HEALTH CARE OF OKLAHOMA, INC. dba SSM HEALTH ST ANTHONY HOSPITAL - OKLAHOMA CITY, PART A PROVIDER - HOSPITAL, CCN 370037 (and 370094, Midwest City) -- the awardee's legal name less its corporate suffix. The enrolled hospitals are URBAN; the award is for 'pulmonary rehabilitation access at a local hospital ... across seven rural hospitals'. The rural cut is R/03ar's, never a re-coding.",
+  "rrr", "Stillwater Medical Center Authority", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370049", "EXACT_LEGAL_NAME", NA,
+  "H:STILLWATER MEDICAL CENTER AUTHORITY|370049",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry STILLWATER MEDICAL CENTER AUTHORITY dba STILLWATER MEDICAL CENTER, PART A PROVIDER - HOSPITAL, CCN 370049 -- the awardee's exact legal name.",
+  # ---- CDM ----------------------------------------------------------------
+  "cdm", "Central Oklahoma Family Medical Center, Inc.", "FQHC_OR_RHC", "ORG_WEBSITE", "MEDIUM", NA, NA, NA,
+  "F:CENTRAL OKLAHOMA FAMILY MEDICAL CENTER INC|371804",
+  "CMS OK FQHC Enrollments (federal_records/2026-10-02) carry CENTRAL OKLAHOMA FAMILY MEDICAL CENTER INC, the awardee's exact legal name, at sixteen FQHC sites (Konawa, Ada, Seminole, Stratford); no CMS OK hospital enrolment. The NAME RULE calls it a hospital on 'Medical Center' -- the false positive session 85 flagged, overridden here on the federal record.",
+  "cdm", "Cherokee County Health Services Council", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "cdm", "Choctaw Nation of Oklahoma", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370172", "EXACT_LEGAL_NAME", NA,
+  "H:CHOCTAW NATION OF OKLAHOMA|370172",
+  "§10.2 enrolled-operator row and its session-72 PRECEDENCE RULE. OSDH's entry states NO form for this recipient (its text is the project description only), so the CMS enrolment decides: CMS OK Hospital Enrollments carry CHOCTAW NATION OF OKLAHOMA as the ORGANIZATION NAME of PART A PROVIDER - HOSPITAL CCN 370172 -- the awardee's exact legal name. The legal entity is a sovereign tribal government that also enrols a hospital; that is the AltaPointe shape (state silent, enrolment decides), not Alaska's (state states 'Tribal Health Organization'). Queued: OK_CDM_CHOCTAW_TRIBAL_HOSPITAL_ENROLMENT.",
+  "cdm", "Cimarron Memorial Hospital and Rural Health Clinic", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "371307", "DBA_OF_LEGAL_ENTITY", NA,
+  "H:CIMARRON MEMORIAL HOSPITAL AND NURSING HOME|371307",
+  "§10.2 DIRECT on a HAND-READ BRIDGE: CMS OK Hospital Enrollments carry CIMARRON MEMORIAL HOSPITAL AND NURSING HOME dba CIMARRON MEMORIAL HOSPITAL, CRITICAL ACCESS HOSPITAL, CCN 371307, Boise City; the same legal entity enrols CIMARRON MEMORIAL RURAL HEALTH CLINIC (RHC, CCN 373459). The awardee string is the DBA plus its RHC, not the legal name, so LOW.",
+  "cdm", "Comanche Nation", "TRIBAL_ORG", "STATE_SOURCE", "MEDIUM", NA, NA, NA, NA,
+  "OSDH's text: 'The Comanche Nation will expand its long-standing, community-based chronic disease management services for rural tribal members'. A federally recognised tribe; no CMS OK hospital enrolment under its name (COMANCHE COUNTY HOSPITAL AUTHORITY is a different body).",
+  "cdm", "Fairview Regional Medical Center", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "371329", "DBA_OF_LEGAL_ENTITY", NA,
+  "H:FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY|371329",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY dba FAIRVIEW REGIONAL MEDICAL CENTER, CRITICAL ACCESS HOSPITAL, CCN 371329. The awardee string is the DBA, so LOW (owner's instruction, session 86). The same hospital holds an RRR award.",
+  "cdm", "Genesis Medical PLLC, dba Southern Oklahoma Pain Management", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "cdm", "Jackson County Memorial Hospital Authority", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370022", "EXACT_LEGAL_NAME", NA,
+  "H:JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY|370022",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY, CCN 370022, Altus -- the awardee's exact legal name. The same hospital holds an RRR award.",
+  "cdm", "Lighthouse Behavioral Wellness Centers, Inc.", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "cdm", "Long Term Care Specialists", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "cdm", "Mercy Health Oklahoma Communities, Inc.", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, NA, NA, NA,
+  "§10.2 DIRECT, typed a HEALTH SYSTEM on general knowledge: no CMS OK hospital enrolment carries this string (Mercy's Oklahoma hospitals enrol under their own legal entities). OSDH's text: 'MHOC will expand its virtual capabilities in rural primary care clinics' -- what the award buys, not the recipient's form (§0.3a). No CCN, LOW (owner's instruction, session 86).",
+  "cdm", "Midwest Wellness and Wound Care, LLC", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "cdm", "Urology Center of Southern Oklahoma", "NONPROFIT_CBO", NA, "LOW", NA, NA, NA, NA, OKN_FB,
+  "cdm", "Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370166", "EXACT_LEGAL_NAME", NA,
+  "H:WAGONER HOSPITAL AUTHORITY|370166",
+  "§10.2 DIRECT: CMS OK Hospital Enrollments carry WAGONER HOSPITAL AUTHORITY dba WAGONER COMMUNITY HOSPITAL, PART A PROVIDER - HOSPITAL, CCN 370166 -- the awardee's entity half (before the comma) is the exact legal name, and its DBA is the record's DBA.",
+  "cdm", "Wyandotte Nation", "TRIBAL_ORG", "GENERAL_KNOWLEDGE", "LOW", NA, NA, NA, NA,
+  "A federally recognised tribe (general knowledge; OSDH's entry does not state the form). No CMS OK hospital enrolment; the 'CHC/OK WYANDOTTE CLINIC' FQHC site belongs to COMMUNITY HEALTH CENTER OF SOUTHEAST KANSAS INC, a different body."
+)
+
+okn_fed <- function(path) {
+  e <- jsonlite::fromJSON(here::here(path))
+  tibble::tibble(org = e[["ORGANIZATION NAME"]], ccn = as.character(e$CCN))
+}
+
+#' Every enrolment a typing row cites is on the archived federal file, and no
+#' fallback or non-hospital row's exact name is on the hospital file.
+okn_assert_rrr_cdm_federal <- function() {
+  h <- okn_fed(OKN_HOSP_FED); f <- okn_fed(OKN_FQHC_FED)
+  t <- OKN_RRR_CDM_TYPING[!is.na(OKN_RRR_CDM_TYPING$enrol), ]
+  for (i in seq_len(nrow(t))) {
+    kind <- substr(t$enrol[i], 1, 1)
+    parts <- strsplit(substring(t$enrol[i], 3), "|", fixed = TRUE)[[1]]
+    src <- if (kind == "H") h else f
+    if (!any(src$org == parts[1] & src$ccn == parts[2])) {
+      stop("[OK RRR/CDM] the archived ", if (kind == "H") "hospital" else "FQHC",
+           " file no longer carries ", parts[1], " (", parts[2], ").", call. = FALSE)
+    }
+  }
+  hosp_types <- OKN_RRR_CDM_TYPING$recipient_type == "HOSPITAL_OR_SYSTEM"
+  if (any(hosp_types & is.na(OKN_RRR_CDM_TYPING$ccn) &
+          OKN_RRR_CDM_TYPING$confidence != "LOW")) {
+    stop("[OK RRR/CDM] a hospital row with no CCN must be LOW.", call. = FALSE)
+  }
+  nonh <- toupper(gsub("[.,]", "", OKN_RRR_CDM_TYPING$awardee[!hosp_types]))
+  orgs <- toupper(gsub("[.,]", "", h$org))
+  if (any(nonh %in% orgs)) {
+    stop("[OK RRR/CDM] a non-hospital row's exact name is on the CMS OK hospital ",
+         "file: ", paste(nonh[nonh %in% orgs], collapse = "; "), call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+okn_roster_rows <- function(key, p = okn_parse(key, n_detail = 1L)) {
+  r <- OKN_ROSTERS[OKN_ROSTERS$key == key, ]
+  ty <- OKN_RRR_CDM_TYPING[OKN_RRR_CDM_TYPING$key == key, ]
+  ty <- ty[match(p$awardee, ty$awardee), ]
+  if (any(is.na(ty$awardee))) {
+    stop("[OK ", key, "] no hand-read typing for: ",
+         paste(p$awardee[is.na(ty$awardee)], collapse = "; "), call. = FALSE)
+  }
+  cls <- rhtp_classify_recipient_type(p$awardee, OKN_STATE)
+  hosp <- ty$recipient_type == "HOSPITAL_OR_SYSTEM"
+  flow <- dplyr::coalesce(ty$flow, ifelse(hosp, "DIRECT", "NON_HOSPITAL"))
+  fallback <- ty$recipient_type == "NONPROFIT_CBO" & ty$confidence == "LOW" & is.na(ty$basis_type)
+  enrol_record <- ifelse(
+    is.na(ty$enrol), NA_character_,
+    paste0(ifelse(substr(ty$enrol, 1, 1) == "H", "CMS Hospital Enrollments: ",
+                  "CMS FQHC Enrollments: "),
+           sub("\\|", ", CCN ", substring(ty$enrol, 3)), " (",
+           ifelse(substr(ty$enrol, 1, 1) == "H", OKN_HOSP_FED, OKN_FQHC_FED), ")"))
+  tibble::tibble(
+    state = OKN_STATE,
+    row_no = seq_len(nrow(p)),
+    awardee = p$awardee,
+    amount = p$amount,
+    recipient_type = ty$recipient_type,
+    distributed_to_hospital = ifelse(hosp, "Yes", "No"),
+    note = paste0(r$round_name, ", List of Funding Recipients (OSDH, read ", OKN_READ,
+                  "). ", p$detail),
+    recipient_confirmed = "Yes",
+    amount_confirmed = "Yes",
+    fiscal_year = "FY2026 (Year 1)",
+    source_document_title = paste0("Oklahoma RHTP Funding Recipients -- ", r$round_name,
+                                   ", List of Funding Recipients"),
+    state_source_url = OKN_URL,
+    validation_source_type = "NOTICE_OF_AWARD",
+    extraction_method = "DIRECT_TEXT",
+    validator = "R/03bt_ok_new_rosters.R",
+    ccn = ifelse(hosp, ty$ccn, NA_character_),
+    aha_id = NA_character_,
+    rural_designation = NA_character_,
+    reviewer = NA_character_,
+    recipient_type_source = paste0(
+      ifelse(fallback, "FALLBACK (session 86): ", "TYPED (session 86, HAND-READ): "),
+      ty$why, " Classifier said ", cls$recipient_type, "/",
+      cls$determination_confidence, "."),
+    determination_confidence = ty$confidence,
+    flag_reason = ifelse(fallback, "RECIPIENT_TYPE_INFERRED", NA_character_),
+    award_pool = r$round_name,
+    budget_period = "Budget Period 1",
+    flow_type = flow,
+    hospital_benefiting = dplyr::case_when(hosp ~ "Yes",
+                                           flow == "IN_KIND_BENEFIT" ~ "Yes",
+                                           TRUE ~ "Unclear"),
+    hospital_attribution = ifelse(hosp, "NAMED_HOSPITAL", "NOT_HOSPITAL"),
+    intermediary_name = NA_character_,
+    determination_basis = paste0("§10.2 ", flow, ": ", ty$why),
+    amount_basis = "EXACT, as published per recipient by OSDH.",
+    round_name = r$round_name,
+    round_awards = nrow(p),
+    round_amount = NA_real_,
+    announcement_date = OKN_READ,
+    source_archive_path = OKN_ARCHIVE,
+    basis_type = ty$basis_type,
+    recipient_subtype = NA_character_,
+    cms_enrolment_match = ifelse(hosp, ty$enrol_match, NA_character_),
+    cms_enrolment_record = enrol_record)
+}
+
+# The hospital figures each roster is pinned to (session 86).
+OKN_HOSP_PIN <- tibble::tribble(
+  ~key,  ~rows, ~usd,        ~low_rows, ~low_usd,
+  "rrr", 10L,   21099804,    4L,        8272013,
+  "cdm", 6L,    9197657.15,  3L,        5108475.41)
+
+okn_assert_roster_rows <- function(key, a) {
+  r <- OKN_ROSTERS[OKN_ROSTERS$key == key, ]
+  if (nrow(a) != r$n || abs(sum(a$amount) - r$total) > 0.005) {
+    stop("[OK ", key, "] ", r$n, " rows / $", r$total, " expected.", call. = FALSE)
+  }
+  h <- a[a$distributed_to_hospital == "Yes", ]
+  pin <- OKN_HOSP_PIN[OKN_HOSP_PIN$key == key, ]
+  lo <- h$determination_confidence == "LOW"
+  if (nrow(h) != pin$rows || abs(sum(h$amount) - pin$usd) > 0.005 ||
+      sum(lo) != pin$low_rows || abs(sum(h$amount[lo]) - pin$low_usd) > 0.005) {
+    stop("[OK ", key, "] hospital rows moved: ", nrow(h), " / $", sum(h$amount),
+         " (LOW ", sum(lo), " / $", sum(h$amount[lo]), ").", call. = FALSE)
+  }
+  if (any(h$recipient_type != "HOSPITAL_OR_SYSTEM")) {
+    stop("[OK ", key, "] a hospital row is not HOSPITAL_OR_SYSTEM.", call. = FALSE)
+  }
+  # §7: HIGH needs a Stage 5 CCN match; nothing here reaches it.
+  if (any(a$determination_confidence == "HIGH")) {
+    stop("[OK ", key, "] HIGH is reserved for Stage 5.", call. = FALSE)
+  }
+  for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
+                "determination_confidence", "hospital_attribution", "basis_type",
+                "flag_reason", "cms_enrolment_match", "hospital_benefiting")) {
+    bad <- setdiff(stats::na.omit(unique(a[[col]])), rhtp_vocabulary(col))
+    if (length(bad)) stop("[OK ", key, "] ", col, " outside §8: ",
+                          paste(bad, collapse = ", "), call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 okn_validate <- function() {
   x <- okn_lines()
   okn_assert_source(x)
   okn_assert_federal()
   a <- okn_doulas(okn_parse("doulas", x))
   okn_assert_rows(a)
-  message("[OK new rosters] all assertions pass. RRR and CDM are parsed and ",
-          "NOT written (over the $10M report-first line).")
+  okn_assert_rrr_cdm_federal()
+  for (k in c("rrr", "cdm")) okn_assert_roster_rows(k, okn_roster_rows(k, okn_parse(k, x, 1L)))
+  message("[OK new rosters] all assertions pass (Doulas, RRR, CDM).")
   invisible(a)
+}
+
+#' R/03bj's enrolled-hospital overlay (session 86): every row typed on its CMS
+#' enrolment carries a verdict in EH_APPLY and the session-71 tag on its basis.
+okn_s71 <- function(a, file) {
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  s71$s71_overlay(okn_chr(a), file)
+}
+
+#' Every column as character, numbers written in full: as.character(500000)
+#' is "5e+05", the round-trip defect CLAUDE.md warns of.
+okn_chr <- function(a) {
+  num <- function(x) ifelse(is.na(x), NA_character_,
+                            vapply(x, function(v) format(v, scientific = FALSE, digits = 15),
+                                   character(1)))
+  dplyr::mutate(a, dplyr::across(dplyr::where(is.numeric), num),
+                dplyr::across(dplyr::everything(), as.character))
 }
 
 okn_build <- function() {
   a <- okn_validate()
-  readr::write_csv(a, OKN_CSV, na = "")
+  readr::write_csv(okn_s71(a, basename(OKN_CSV)), OKN_CSV, na = "")
+  for (k in c("rrr", "cdm")) {
+    f <- if (k == "rrr") OKN_RRR_CSV else OKN_CDM_CSV
+    b <- okn_roster_rows(k)
+    readr::write_csv(okn_s71(b, basename(f)), f, na = "")
+    message("[OK ", toupper(k), "] wrote ", nrow(b), " rows, $",
+            format(sum(b$amount), big.mark = ",", nsmall = 2), "; ",
+            sum(b$distributed_to_hospital == "Yes"), " named-hospital rows, $",
+            format(sum(b$amount[b$distributed_to_hospital == "Yes"]), big.mark = ",", nsmall = 2), ".")
+  }
   message("[OK Doulas] wrote ", nrow(a), " rows, $",
           format(sum(a$amount), big.mark = ",", nsmall = 2), "; 1 named-hospital row, $",
           format(sum(a$amount[a$distributed_to_hospital == "Yes"]), big.mark = ","), ".")

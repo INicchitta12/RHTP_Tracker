@@ -203,6 +203,12 @@ Rscript R/03ar_rural_cut_report.R --report       # 151 rows / $158.0M rural; 692
 Rscript R/03bq_al_round2_awardees.R --build     # AL round 2 + R/03bj's UAB/USA overlay
 Rscript R/03bq_al_round2_awardees.R --report    # 34 grants, 21 hospital rows, $20,886,572
 Rscript R/03br_nc_sbhc_awardees.R --build       # NC SBHC: 5 rows, amount EMPTY, $1.25M pool
+Rscript R/03bt_ok_new_rosters.R --build         # OK Doulas + RRR + CDM (+ R/03bj overlay), session 86
+Rscript R/03bu_de_fqhc_awardees.R --build       # DE: 3 FQHCs, $22.69M ROUNDED, no hospital
+Rscript R/03i_sd_rht_contracts.R --fetch --force # SD register re-read: a NEW dated archive; then
+                                                 # hand-place any new non-Rural-Strong contract in
+                                                 # SD_PLACEMENT, add the archive to SD_SEARCH_ARCHIVES,
+                                                 # --build, then R/03j --build
 Rscript R/02c_state_attribution_sweep.R --build  # §0.1 mode 6 — the wrong-state sweep
 Rscript R/02c_state_attribution_sweep.R --report # 10 misfiled in 5 states, NONE Tier 3
 ```

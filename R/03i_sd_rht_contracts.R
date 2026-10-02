@@ -111,21 +111,24 @@ SD_XLSX <- "SD_rht_contracts.xlsx"
 # reader already has keep their position and new contracts are appended.
 SD_SEARCH_ARCHIVES <- c(
   "2026-08-28_open_sd_contract_search_RHT.html",
-  "2026-09-24_open_sd_contract_search_RHT.html"
+  "2026-09-24_open_sd_contract_search_RHT.html",
+  "2026-10-02_open_sd_contract_search_RHT.html"
 )
 SD_SEARCH_FILE <- SD_SEARCH_ARCHIVES[1]                          # the first read
 SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
 
 # The two DESCRIPTION searches, archived from 2026-09-24 so --probe has a
-# committed baseline for each rather than a number typed into a comment.
+# committed baseline for each rather than a number typed into a comment. The
+# LATEST read is the baseline (re-based 2026-10-02, session 86; the 09-24
+# copies stay archived and in the manifest).
 #   * "Rural Strong" is the name of the $31.5M round (2026-07-23). It returned
 #     ZERO rows on 2026-08-28 and 8 on 2026-09-24.
 #   * "Rural Health Transformation" catches RHTP contracts OUTSIDE the RHT
 #     number series -- two of them on 2026-09-24 (see SD_OUTSIDE_SERIES).
 SD_DESC_SEARCHES <- tibble::tribble(
   ~probe_key,     ~description_contains,          ~file,
-  "rural_strong", "Rural Strong",                 "2026-09-24_open_sd_contract_search_desc_rural_strong.html",
-  "rht_desc",     "Rural Health Transformation",  "2026-09-24_open_sd_contract_search_desc_rural_health_transformation.html"
+  "rural_strong", "Rural Strong",                 "2026-10-02_open_sd_contract_search_desc_rural_strong.html",
+  "rht_desc",     "Rural Health Transformation",  "2026-10-02_open_sd_contract_search_desc_rural_health_transformation.html"
 )
 
 # A Rural Strong GRANT is identified by the register's own full description on
@@ -142,6 +145,45 @@ SD_RS_ROUND_AMOUNT <- 31500000
 # Pool labels. Two different kinds of award action share one number series.
 SD_POOL_ADMIN <- "RHT series - programme administration, consulting, evaluation and workforce contracts"
 SD_POOL_RS    <- "RHT series - Rural Strong grants (subset of the 28-grant, $31.5M round of 2026-07-23)"
+SD_POOL_UNPLACED <- "RHT series - named RHTP awards whose round the register does not state (may sit INSIDE the $90M Technology and data round; NEVER added to it)"
+
+# SESSION 86: THE 2026-10-02 RE-READ. The series went from 26 contracts /
+# $9,223,177 to 41 / $26,836,144 -- 15 new, +$17,612,967 (session 85 read 13
+# / +$16,593,725 on 10-02 morning; two more, DSU and the State Veterans Home,
+# posted the same day). SIX are Rural Strong grants by the register's own
+# description and join the RS pool. The other NINE carry no round label at all,
+# and each is PLACED BY HAND here, after reading its detail page:
+#
+#   * CHAS's statewide training platform is the same kind of award as USD's
+#     and SDSU's platforms, which session 64 read as ADMINISTRATIVE.
+#   * the other EIGHT are awards to named providers or a state university
+#     whose descriptions name no round. Several READ like the $90M Technology
+#     and data round (KB0047023 names "Regional Innovation Centers", EHR
+#     modernisation, digital equipment); a theme is not a statement of the
+#     round (§0.3/§0.4), so they are UNPLACED: maybe inside the $90M round,
+#     maybe outside both, and in neither case added to any round total.
+#
+# A non-Rural-Strong contract first seen in the 10-02 archive or later that is
+# NOT in this table fails the build: a new contract is placed by a human.
+SD_PLACEMENT <- tibble::tribble(
+  ~contract_number, ~pool,      ~why,
+  "27RHT00029",     "ADMIN",    "Community Healthcare Assoc: 'Design, implement, host, and maintain a statewide education and training platform' -- the same kind of award as USD's and SDSU's training platforms, read as administrative in session 64.",
+  "27RHT00035",     "UNPLACED", "Faulkton Area Medical Center: 'implement chronic disease management activities'. No round named.",
+  "27RHT00036",     "UNPLACED", "Mobridge Regional Hospital: 'implement chronic disease management activities'. No round named; Mobridge's Rural Strong grant is a SEPARATE contract (27RHT00032).",
+  "27RHT00037",     "UNPLACED", "Huron Clinic Foundation: 'fund equipment for clinical operations'. Reads like the $90M round's 'digital equipment upgrades'; the register does not say so.",
+  "27RHT00038",     "UNPLACED", "Avera McKennan (Milbank): 'implement the Avera Maternal Health Hub & eOB Network'. No round named.",
+  "27RHT00039",     "UNPLACED", "Dakota State University: 'Rural Healthcare Cybersecurity & Digital Regional Innovation Center'. KB0047023 names Regional Innovation Centers; the register, a contract with a state agency begun 2026-02-20, does not name the round.",
+  "27RHT00040",     "UNPLACED", "Avera at Home: 'implement chronic disease management activities'. No round named.",
+  "27RHT00041",     "UNPLACED", "Black Hills Works: 'fund network infrastructure upgrades', begun 2026-02-01. No round named.",
+  "27RHT00047",     "UNPLACED", "State Veterans Home: 'Technical Assistance and Support to assist with their EHR planning'. No round named."
+)
+SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
+
+# The Technology and data round, the only announced round an UNPLACED row could
+# sit inside. Its bounds cap the UNPLACED pool so it can never be read as money
+# on top of the $121.5M announced.
+SD_TD_ROUND_GRANTS <- 82L
+SD_TD_ROUND_AMOUNT <- 90000000
 
 # RHTP contracts on the register OUTSIDE the RHT number series, seen by the
 # 'Rural Health Transformation' description search on 2026-09-24. NOT
@@ -661,12 +703,34 @@ rhtp_sd_build <- function() {
     )
   }
 
+  # Hand placement of the non-Rural-Strong contracts first seen 10-02 or later.
+  late <- match(classified$first_seen_archive, SD_SEARCH_ARCHIVES) >=
+    match(SD_PLACEMENT_FROM, SD_SEARCH_ARCHIVES)
+  unplaced_new <- late & !classified$is_rural_strong &
+    !classified$contract_number %in% SD_PLACEMENT$contract_number
+  if (any(unplaced_new)) {
+    stop("[SD] new non-Rural-Strong contract(s) with no hand placement: ",
+         paste(classified$contract_number[unplaced_new], collapse = ", "),
+         ". Read each detail page and add it to SD_PLACEMENT.", call. = FALSE)
+  }
+  placed <- SD_PLACEMENT$pool[match(classified$contract_number,
+                                    SD_PLACEMENT$contract_number)]
+  is_unplaced <- !classified$is_rural_strong & placed %in% "UNPLACED"
+  placement_why <- SD_PLACEMENT$why[match(classified$contract_number,
+                                          SD_PLACEMENT$contract_number)]
+
   classified %>%
     dplyr::mutate(
+      is_unplaced = is_unplaced,
+      placement_why = placement_why,
       state = SD_STATE,
       row_no = dplyr::row_number(),
-      award_pool = dplyr::if_else(.data$is_rural_strong, SD_POOL_RS, SD_POOL_ADMIN),
-      round_id = dplyr::if_else(.data$is_rural_strong, "RS", NA_character_),
+      award_pool = dplyr::case_when(.data$is_rural_strong ~ SD_POOL_RS,
+                                    .data$is_unplaced ~ SD_POOL_UNPLACED,
+                                    TRUE ~ SD_POOL_ADMIN),
+      round_id = dplyr::case_when(.data$is_rural_strong ~ "RS",
+                                  .data$is_unplaced ~ "UNPLACED",
+                                  TRUE ~ NA_character_),
       note = paste0(.data$agency, " | ", .data$solicitation_type,
                     " | ", .data$vendor_city, ", ", .data$vendor_state),
       recipient_confirmed = "Yes",
@@ -696,9 +760,16 @@ rhtp_sd_build <- function() {
         " Source: South Dakota's Grants and Contracts register (SDCL 1-56-10 /",
         " 1-27-46), contract ", .data$contract_number, ", begun ",
         .data$begin_date, ".",
-        dplyr::if_else(
-          .data$is_rural_strong,
-          paste0(
+        dplyr::case_when(
+          .data$is_unplaced ~ paste0(
+            " This is a NAMED RHTP AWARD WHOSE ROUND THE REGISTER DOES NOT",
+            " STATE (placed by hand, session 86: ", .data$placement_why, ").",
+            " It MAY sit inside the $90M Technology and data round of",
+            " 2026-08-19 (KB0047023) or outside both announced rounds; in",
+            " neither case is it ever added to a round total. Tier 3, named",
+            " recipient, primary source."
+          ),
+          .data$is_rural_strong ~ paste0(
             " This is a RURAL STRONG GRANT -- the register's own description is '",
             SD_RURAL_STRONG_PATTERN, " as a part of the federal Rural Health",
             " Transformation Program' -- one of the 28 grants ($31.5M) South",
@@ -708,7 +779,7 @@ rhtp_sd_build <- function() {
             " ($31,500,000) already includes this contract. Tier 3, named",
             " recipient, primary source."
           ),
-          paste0(
+          TRUE ~ paste0(
             " This is ADMINISTRATIVE RHTP spend and is NOT part of South",
             " Dakota's announced $31.5M (28 projects) or $90M (82 organisations)",
             " rounds."
@@ -757,14 +828,15 @@ rhtp_sd_records <- function(path = SD_CSV) {
 rhtp_sd_reconcile <- function(records = rhtp_sd_build()) {
   hosp <- records$distributed_to_hospital == "Yes"
   rs <- records$round_id %in% "RS"
-  admin <- !rs
+  unplaced <- records$round_id %in% "UNPLACED"
+  admin <- !rs & !unplaced
   money <- function(x) format(x, big.mark = ",", nsmall = 2, scientific = FALSE)
 
   tibble::tribble(
     ~measure,                                        ~value,
     "contracts extracted from the RHT series",       as.character(nrow(records)),
     "distinct vendor strings",                       as.character(dplyr::n_distinct(records$awardee)),
-    "total extracted (BOTH pools; never add to sd_year1_awardees.csv round totals)", money(sum(records$amount)),
+    "total extracted (ALL THREE pools; never add to sd_year1_awardees.csv round totals)", money(sum(records$amount)),
     "-- POOL 1: ADMINISTRATIVE --",                  "",
     "administrative / programme contracts",          as.character(sum(admin)),
     "administrative total",                          money(sum(records$amount[admin])),
@@ -775,8 +847,13 @@ rhtp_sd_reconcile <- function(records = rhtp_sd_build()) {
     "Rural Strong round total (KB0046839)",          money(SD_RS_ROUND_AMOUNT),
     "relationship",                                  "the register's contracts are INSIDE the round total; the round total already includes them",
     "Rural Strong grants not yet on the register",   paste0(SD_RS_ROUND_GRANTS - sum(rs), " -- NAMED NOWHERE; their amount is stated by no source and is NOT computed here (§6.2)"),
-    "-- NOT ON THE REGISTER --",                     "",
-    "Technology/data round announced 2026-08-19",    "$90,000,000 to 82 rural healthcare organizations -- no contract on open.sd.gov",
+    "-- POOL 3: NAMED AWARDS, ROUND NOT STATED (Tier 3) --", "",
+    "unplaced award contracts on the register",      as.character(sum(unplaced)),
+    "unplaced total",                                money(sum(records$amount[unplaced])),
+    "relationship to the rounds",                    "the register names no round; they MAY sit inside the $90M Technology and data round and are NEVER added to it; capped at its 82 grants / $90M",
+    "-- ANNOUNCED ROUNDS --",                        "",
+    "Technology/data round announced 2026-08-19",    paste0("$90,000,000 to 82 rural healthcare organizations -- NO contract on open.sd.gov names this round; ", sum(unplaced), " unplaced contracts ($", money(sum(records$amount[unplaced])), ") may be among them"),
+    "Rural Strong + unplaced, against the $121,500,000 announced", paste0(money(sum(records$amount[rs | unplaced])), " -- inside, never on top"),
     "RHTP contracts OUTSIDE the RHT series (not extracted)", paste0(nrow(SD_OUTSIDE_SERIES), " -- ", paste0(SD_OUTSIDE_SERIES$contract_number, " ", SD_OUTSIDE_SERIES$awardee, " $", format(SD_OUTSIDE_SERIES$amount, big.mark = ","), collapse = "; ")),
     "CMS Year 1 award for South Dakota",             money(SD_CMS_YEAR1_AWARD),
     "-- CODING --",                                  "",
@@ -819,7 +896,8 @@ rhtp_sd_assert <- function(records = rhtp_sd_build()) {
   }
 
   rs <- records$round_id %in% "RS"
-  admin <- !rs
+  unplaced <- records$round_id %in% "UNPLACED"
+  admin <- !rs & !unplaced
 
   # A RURAL STRONG ROW IS DEFINED BY THE REGISTER'S OWN WORDS, AND TWO
   # INDEPENDENT READS OF THE REGISTER MUST AGREE ON WHICH ROWS THOSE ARE: the
@@ -843,6 +921,7 @@ rhtp_sd_assert <- function(records = rhtp_sd_build()) {
          call. = FALSE)
   }
   if (any(records$award_pool[rs] != SD_POOL_RS) ||
+      any(records$award_pool[unplaced] != SD_POOL_UNPLACED) ||
       any(records$award_pool[admin] != SD_POOL_ADMIN)) {
     stop("[SD] award_pool does not match round_id.", call. = FALSE)
   }
@@ -855,6 +934,25 @@ rhtp_sd_assert <- function(records = rhtp_sd_build()) {
          format(sum(records$amount[rs]), big.mark = ","),
          " exceed the round South Dakota announced (", SD_RS_ROUND_GRANTS,
          " grants, $31.5M). Re-read the register and the release.", call. = FALSE)
+  }
+
+  # THE UNPLACED POOL IS NEVER MONEY ON TOP OF THE $121.5M (session 86). Its
+  # rows could only sit inside the $90M Technology and data round, so they
+  # cannot exceed that round's count or total, and together with the Rural
+  # Strong rows they cannot exceed the $121.5M South Dakota announced. If they
+  # do, something other than the two rounds has posted into the series, and
+  # the file is re-read rather than allowed to imply money beyond the rounds.
+  if (sum(unplaced) > SD_TD_ROUND_GRANTS ||
+      sum(records$amount[unplaced]) > SD_TD_ROUND_AMOUNT ||
+      sum(records$amount[rs | unplaced]) > SD_RS_ROUND_AMOUNT + SD_TD_ROUND_AMOUNT) {
+    stop("[SD] the UNPLACED pool (", sum(unplaced), " contracts, $",
+         format(sum(records$amount[unplaced]), big.mark = ","), ") exceeds what ",
+         "the $90M Technology and data round could hold, or with Rural Strong ",
+         "exceeds the $121.5M announced. Re-read the register.", call. = FALSE)
+  }
+  if (!all(records$contract_number[unplaced] %in%
+           SD_PLACEMENT$contract_number[SD_PLACEMENT$pool == "UNPLACED"])) {
+    stop("[SD] an UNPLACED row is not in the hand placement table.", call. = FALSE)
   }
 
   # THE ASSERTION THAT KEEPS THE CLAIM HONEST, re-based in session 64 rather
@@ -910,6 +1008,11 @@ rhtp_sd_assert <- function(records = rhtp_sd_build()) {
   if (!all(stringr::str_detect(records$determination_basis[admin], "NOT part of"))) {
     stop("[SD] every administrative row's determination_basis must state that ",
          "it is not part of the announced rounds.", call. = FALSE)
+  }
+  if (!all(stringr::str_detect(records$determination_basis[unplaced],
+                               "in\\s+neither case is it ever added to a round total"))) {
+    stop("[SD] every UNPLACED row's determination_basis must state that it is ",
+         "never added to a round total.", call. = FALSE)
   }
   if (!all(stringr::str_detect(records$determination_basis[rs],
                                "INSIDE that round total and NEVER in addition"))) {

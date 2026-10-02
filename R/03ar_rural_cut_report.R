@@ -286,10 +286,14 @@ rc_assert <- function(rows = rc_rows()) {
   # CCN 060107), Alabama round 2 (R/03bq, 21 rows / $20,886,572) and NC's
   # SBHC roster (R/03br, FirstHealth 1 row / $0), no new state:
   # 1,261 / $1,149,408,077.27 / 31.
-  if (nrow(rows) != 1261L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1149408077.27) > 0.005 ||
+  # Session 85 (caught up in session 86): + WV Minnie Hamilton (3 / $1,700,000)
+  # and OK Doulas Newman (1 / $38,525). Session 86: + OK RRR (10 /
+  # $21,099,804), OK CDM (6 / $9,197,657.15) and SD's 2026-10-02 register
+  # (7 / $8,919,452): 1,288 / $1,190,363,515.42 / 31.
+  if (nrow(rows) != 1288L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1190363515.42) > 0.005 ||
       dplyr::n_distinct(rows$state) != 31L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,261 rows / $1,149,408,077.27 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,288 rows / $1,190,363,515.42 ",
          "/ 31 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
