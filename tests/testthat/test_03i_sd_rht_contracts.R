@@ -31,16 +31,62 @@ test_that("the committed CSV matches a fresh parse of the committed archives", {
 
 # -- What was extracted ------------------------------------------------------
 
-test_that("26 contracts in the RHT series, $9,223,177, in two pools", {
-  expect_equal(nrow(records), 26L)
-  expect_equal(sum(records$amount), 9223177)
+test_that("41 contracts in the RHT series, $26,836,144, in three pools", {
+  # Session 86: the 2026-10-02 re-read added 15 contracts, +$17,612,967.
+  expect_equal(nrow(records), 41L)
+  expect_equal(sum(records$amount), 26836144)
   expect_true(all(grepl("RHT", records$contract_number)))
   rs <- records$round_id %in% "RS"
-  expect_equal(sum(rs), 8L)
-  expect_equal(sum(records$amount[rs]), 1879152)
-  expect_equal(sum(!rs), 18L)
-  expect_equal(sum(records$amount[!rs]), 7344025)
-  expect_setequal(unique(records$award_pool), c(SD_POOL_ADMIN, SD_POOL_RS))
+  un <- records$round_id %in% "UNPLACED"
+  expect_equal(sum(rs), 14L)
+  expect_equal(sum(records$amount[rs]), 15967960)
+  expect_equal(sum(un), 8L)
+  expect_equal(sum(records$amount[un]), 3175112)
+  expect_equal(sum(!rs & !un), 19L)
+  expect_equal(sum(records$amount[!rs & !un]), 7693072)
+  expect_setequal(unique(records$award_pool),
+                  c(SD_POOL_ADMIN, SD_POOL_RS, SD_POOL_UNPLACED))
+})
+
+test_that("the 15 contracts of 2026-10-02: 6 Rural Strong, 8 unplaced, 1 admin", {
+  late <- records[records$first_seen_archive == SD_SEARCH_ARCHIVES[3], ]
+  expect_equal(nrow(late), 15L)
+  expect_equal(sum(late$amount), 17612967)
+  expect_equal(sum(late$round_id %in% "RS"), 6L)
+  expect_equal(sum(late$amount[late$round_id %in% "RS"]), 14088808)
+  expect_equal(sort(late$contract_number[late$round_id %in% "UNPLACED"]),
+               sort(SD_PLACEMENT$contract_number[SD_PLACEMENT$pool == "UNPLACED"]))
+  expect_equal(late$contract_number[is.na(late$round_id)], "27RHT00029")
+})
+
+test_that("none of the 15 is added on top of the $121.5M announced", {
+  rs <- records$round_id %in% "RS"
+  un <- records$round_id %in% "UNPLACED"
+  # Rural Strong inside its round; unplaced capped at the $90M round; the two
+  # together inside the $121.5M.
+  expect_lte(sum(records$amount[rs]), SD_RS_ROUND_AMOUNT)
+  expect_lte(sum(rs), SD_RS_ROUND_GRANTS)
+  expect_lte(sum(records$amount[un]), SD_TD_ROUND_AMOUNT)
+  expect_lte(sum(un), SD_TD_ROUND_GRANTS)
+  expect_lte(sum(records$amount[rs | un]), SD_RS_ROUND_AMOUNT + SD_TD_ROUND_AMOUNT)
+  expect_true(all(grepl("in\\s+neither case is it ever added to a round total",
+                        records$determination_basis[un])))
+  # and the round file carries NO amount, so the union counts each dollar once
+  rounds <- readr::read_csv(here::here("data", "reference", "sd_year1_awardees.csv"),
+                            show_col_types = FALSE)
+  expect_true(all(is.na(rounds$amount)))
+  expect_true(all(rounds$distributed_to_hospital != "Yes"))
+  # an inflated unplaced pool is refused
+  bad <- records
+  bad$amount[which(un)[1]] <- 95000000
+  expect_error(rhtp_sd_assert(bad), "UNPLACED pool")
+})
+
+test_that("a new non-Rural-Strong contract with no hand placement fails the build", {
+  saved <- SD_PLACEMENT
+  on.exit(SD_PLACEMENT <<- saved)
+  SD_PLACEMENT <<- SD_PLACEMENT[SD_PLACEMENT$contract_number != "27RHT00039", ]
+  expect_error(rhtp_sd_build(), "no hand placement")
 })
 
 test_that("the 13 contracts of 2026-08-28 keep rows 1-13 and their amounts", {
@@ -53,32 +99,42 @@ test_that("the 13 contracts of 2026-08-28 keep rows 1-13 and their amounts", {
   expect_equal(sum(records$amount[1:13]), 5618367)
   expect_true(all(records$first_seen_archive[1:13] == SD_SEARCH_ARCHIVES[1]))
   expect_true(all(records$first_seen_archive[14:26] == SD_SEARCH_ARCHIVES[2]))
+  expect_true(all(records$first_seen_archive[27:41] == SD_SEARCH_ARCHIVES[3]))
 })
 
-test_that("the eight Rural Strong grants are exactly the register's own read", {
+test_that("the fourteen Rural Strong grants are exactly the register's own read", {
   rs <- records[records$round_id %in% "RS", ]
   expect_setequal(rs$contract_number,
                   c("27RHT00015", "27RHT00016", "27RHT00017", "27RHT00018",
-                    "27RHT00022", "27RHT00023", "27RHT00024", "27RHT00025"))
+                    "27RHT00022", "27RHT00023", "27RHT00024", "27RHT00025",
+                    "27RHT00028", "27RHT00030", "27RHT00031", "27RHT00032",
+                    "27RHT00033", "27RHT00034"))
   expect_true(all(grepl(SD_RURAL_STRONG_PATTERN, rs$description, fixed = TRUE)))
   # Seven are posted as GRANTS carrying CFDA 93.798; the University of South
   # Dakota's is posted as a "Contract with State or Local Government Agency"
   # and carries no CFDA block. Its own description still says Rural Strong
   # Grant, which is what the pool keys on.
   grants <- rs[!is.na(rs$cfda_number), ]
-  expect_equal(nrow(grants), 7L)
+  expect_equal(nrow(grants), 13L)
   expect_true(all(as.character(grants$cfda_number) == "93.798"))
   expect_equal(rs$awardee[is.na(rs$cfda_number)], "UNIVERSITY OF SOUTH DAKOTA")
 })
 
-test_that("no ADMINISTRATIVE dollar reaches a hospital; five Rural Strong rows do", {
-  admin <- records[!records$round_id %in% "RS", ]
+test_that("no ADMINISTRATIVE dollar reaches a hospital; 9 RS and 3 unplaced rows do", {
+  admin <- records[is.na(records$round_id), ]
   expect_true(all(admin$distributed_to_hospital == "No"))
   hosp <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(hosp), 5L)
-  expect_equal(sum(hosp$amount), 716800)
-  expect_true(all(hosp$round_id == "RS"))
+  expect_equal(nrow(hosp), 12L)
+  expect_equal(sum(hosp$amount), 9636252)
+  expect_equal(sum(hosp$round_id == "RS"), 9L)
+  expect_equal(sum(hosp$amount[hosp$round_id == "UNPLACED"]), 1837644)
   expect_true(all(hosp$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  # Sanford Health and Avera Health are system parents with no SD hospital
+  # enrolment under those strings: §8's fallback, held in the review queue
+  # (SD_SYSTEM_PARENTS_FORM_NOT_STATED), never promoted here.
+  par <- records[records$awardee %in% c("SANFORD HEALTH", "AVERA HEALTH"), ]
+  expect_equal(nrow(par), 2L)
+  expect_true(all(par$distributed_to_hospital == "No"))
 })
 
 test_that("the two Community Memorial Hospitals are two hospitals, not one", {
@@ -117,18 +173,19 @@ test_that("the CMS match is exact and city-keyed, never a stem", {
 test_that("the reconciliation names the partial round and the absent round", {
   recon <- rhtp_sd_reconcile(records)
   v <- function(m) recon$value[recon$measure == m]
-  expect_match(v("Rural Strong grant contracts on the register"), "^8 of the 28")
+  expect_match(v("Rural Strong grant contracts on the register"), "^14 of the 28")
   expect_match(v("relationship"), "INSIDE the round total")
   expect_match(v("Rural Strong grants not yet on the register"), "NOT computed")
   expect_match(v("Technology/data round announced 2026-08-19"),
-               "no contract on open.sd.gov")
+               "NO contract on open.sd.gov names this round")
   expect_match(v("RHTP contracts OUTSIDE the RHT series (not extracted)"),
                "27SC091800")
 })
 
 test_that("every row says in its own basis how it relates to the rounds", {
   rs <- records$round_id %in% "RS"
-  expect_true(all(grepl("NOT part of", records$determination_basis[!rs])))
+  admin <- is.na(records$round_id)
+  expect_true(all(grepl("NOT part of", records$determination_basis[admin])))
   expect_true(all(grepl("INSIDE that round total and NEVER in addition",
                         records$determination_basis[rs])))
 })
@@ -223,6 +280,7 @@ test_that("the manifest keeps the 2026-08-28 negative AND records the refresh", 
                     collapse = " ")
   expect_true(grepl("NOT SOUTH DAKOTA'S SUBAWARD LIST", manifest))
   expect_true(grepl("REFRESH 2026-09-24", manifest))
+  expect_true(grepl("REFRESH 2026-10-02", manifest))
   expect_true(grepl("never to be added", manifest))
 })
 

@@ -667,7 +667,8 @@ R/
   03bq_al_round2_awardees.R    # Alabama round 2 — 34 grants, $54.8M, typed on CMS AL enrolment (BUILT)
   03br_nc_sbhc_awardees.R      # North Carolina SBHC — 5 named, $1.25M pool, NO split (BUILT)
   03bs_al_year2_probe.R        # Alabama — a WATCH on Community Medicine, a YEAR 2 subaward round (BUILT)
-  03bt_ok_new_rosters.R        # Oklahoma — Doulas WRITTEN; RRR + CDM parsed, HELD over $10M (BUILT)
+  03bt_ok_new_rosters.R        # Oklahoma — Doulas, RRR and CDM, each its own file; typed on CMS enrolment (BUILT)
+  03bu_de_fqhc_awardees.R      # Delaware — 3 FQHCs, $22.69M ROUNDED, no hospital (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1623,7 +1624,19 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-02 (Session 85). Session 85 read the six unread trips:
+**Last updated:** 2026-10-02 (Session 86). Session 86 extracted session 85's four held rosters on the owner's approval:
+- **OK RRR + CDM** (`R/03bt`, own files): +16 hospital rows / +$30,297,461.15. 7 rows / $13,380,488.41 are LOW
+  (Mercy, Fairview, Lindsay, Ascension Jane Phillips, Cimarron). Choctaw Nation is on its CMS hospital enrolment.
+  Central Oklahoma Family Medical Center is an FQHC on CMS's file.
+- **DE FQHCs** (`R/03bu`): 3 rows, $22,690,000 rounded, no hospital.
+- **SD:** the register now holds 41 / $26,836,144, so 15 contracts are new (not 13). 6 Rural Strong grants sit inside
+  the $31.5M. 8 have no stated round, are capped at the $90M round and are never added (`SD_PLACEMENT`). SD is
+  +7 hospital rows / +$8,919,452. Sanford and Avera system parents ($7,007,000) are queued.
+- **Stale figures fixed:** `R/03aw` no longer adds SD's in-round contracts on top of the round totals. The 03bj
+  verdicts, 03bj partition pin and 03bh WV disposition that session 85 left stale are caught up.
+- **NAMED_HOSPITAL** is now 1,288 / $1,190,363,515.42 / 31 states.
+
+Detail: `docs/session86_held_rosters_ok_de_sd.md`. Session 85 read the six unread trips:
 - **WV:** +7 rows. Minnie Hamilton is typed a CAH on its CMS enrolment.
 - **OK:** the Doulas roster is extracted (`R/03bt`). RRR ($39.6M) and CDM ($15.6M) are held over the $10M line.
 - **DE:** the $22.69M to three FQHCs is held. It has no hospital row.
@@ -1781,10 +1794,10 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-02 from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-02, session 86, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,265 rows   $1,151,146,602.27   31 states
+NAMED_HOSPITAL          1,288 rows   $1,190,363,515.42   31 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 ```
@@ -1826,15 +1839,18 @@ Change a state file and you must update this table in the same commit. Never loo
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
 | PA | 66 | 66 | $42,198,310 | 27 / $24,149,111 (authorized, undisbursed) |
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
+| OK RRR | 20 | 20 | $39,578,523 | 10 / $21,099,804 (4 LOW bridges $8,272,013 incl. Mercy, no CCN) |
+| SD contracts | 41 | 41 | $26,836,144 | 12 / $9,636,252 (14 Rural Strong inside $31.5M; 8 unplaced, never on top of $90M) |
+| DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
+| OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 1 | 1 | $10,000,000 | 0 (a university; partial year) |
 | WV | 14 | 12 | $9,248,417 | 5 / $2,924,000 (Minnie Hamilton CAH on CMS enrolment; 2 rows unpriced) |
-| SD contracts | 26 | 26 | $9,223,177 | 5 / $716,800 |
 | MO | 22 | 2 | $7,232,660 | 20 / $0 (27 hub anchors are NOT awards) |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
 | IN | 7 | 1 | $860,088 | 0 (vendors) |
-| OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 (RRR $39.6M and CDM $15.6M published, not extracted) |
+| OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 0 | — | 218 / $0 |
 | NV | 156 | 0 | — (pools $87.4M) | 44 / $0 |
@@ -1908,14 +1924,11 @@ Network is Full; the old allowlist blockers are superseded.
 `routines.csv` on `main` carries the six new ids, their lines read as unregistered. Sessions 79 and 80 are on
 `main` (PRs #83, #84).
 
-- **Held for the owner (over $10M, session 85).** All three are read, archived and parsed; none is written.
-  - **OK RRR** (20 rows, $39,578,523) and **OK CDM** (15 rows, $15,608,845.22): `R/03bt` parses and asserts both.
-    Writing them is a typing pass on CMS OK enrolment. Choctaw Nation is a tribal hospital enrolment and needs the
-    precedence rule. The OK probe trips on both until they are written.
-  - **DE FQHCs** ($22.69M, three rows, no hospital): archived. The NEWSROOM DE trip keeps firing until the rows are
-    written.
-  - **SD:** 13 new RHT contracts, +$16,593,725, including Sanford $5.44M and Mobridge, Fall River, Huron and Bowdle
-    hospitals. Run `R/03i --fetch --force`, then `--build`.
+- **Session 86 wrote all four held rosters** (OK RRR, OK CDM, DE FQHCs, SD). The OK probe and NEWSROOM DE are
+  re-based and quiet. Three owner questions are new in the review queue: `SD_SYSTEM_PARENTS_FORM_NOT_STATED`
+  ($7,007,000), `OK_RRR_SWOSU_LOCAL_HOSPITAL` ($3,999,285) and `OK_CDM_CHOCTAW_TRIBAL_HOSPITAL_ENROLMENT` ($360,552).
+- **The OK and WV builders now chain R/03bj's overlay** (`R/03bt --build`, `R/03av --build`). Any extractor that
+  sets `cms_enrolment_match` needs an EH_APPLY verdict, or `test_03bj` fails.
 - **ME's and CT's fixes are on this branch only.** Until it merges, a Routine running from `main` will still log
   ME `doe` and CT `programme`/`opm` trips. Those trips are read; see `docs/session85_*`.
 - Session-84 check-ins (`trig_01PGFH…` 10-02 21:45Z, `trig_01MWZ2…` 10-04 11:45Z, `trig_01DpSc…` 10-08 15:15Z)

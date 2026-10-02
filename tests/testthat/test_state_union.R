@@ -281,7 +281,15 @@ STATE_FILES <- c(
   # priced awards, $647,967.83; Newman Memorial Hospital (CAH, CCN 371336) is
   # the one named-hospital row, $38,525. RRR and CDM are on the same page and
   # deliberately NOT written (over the $10M report-first line; R/03bt).
-  OK_DOULAS = "data/reference/ok_year1_doulas_awardees.csv"
+  OK_DOULAS = "data/reference/ok_year1_doulas_awardees.csv",
+  # SESSION 86, ON THE OWNER'S APPROVAL. Oklahoma's RRR (20 rows,
+  # $39,578,523; 10 named-hospital rows, $21,099,804) and Chronic Disease
+  # Management (15 rows, $15,608,845.22; 6 hospital rows, $9,197,657.15),
+  # hand-typed on CMS OK Hospital and FQHC enrolment (R/03bt). Delaware's
+  # three FQHC awards (~$22.69M, ROUNDED in the source, NO hospital; R/03bu).
+  OK_RRR = "data/reference/ok_year1_rrr_awardees.csv",
+  OK_CDM = "data/reference/ok_year1_cdm_awardees.csv",
+  DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not

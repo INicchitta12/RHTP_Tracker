@@ -38,6 +38,7 @@ STATE_FILES <- eval(sf_expr[[1]][[3]], envir = baseenv())
 TABLE_LABEL_TO_KEY <- c(
   "AR r1" = "AR", "AR r2" = "AR_R2",
   "AL r1" = "AL", "AL r2" = "AL_R2", "NC SBHC" = "NC_SBHC", "OK Doulas" = "OK_DOULAS",
+  "OK RRR" = "OK_RRR", "OK CDM" = "OK_CDM", "DE FQHC" = "DE_FQHC",
   "SD contracts" = "SD_CONTRACTS", "SD rounds" = "SD_ANNOUNCEMENTS",
   "IN GROW" = "IN_GROW"
 )

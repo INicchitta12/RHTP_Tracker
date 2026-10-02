@@ -206,10 +206,12 @@ OK_NO_AWARDEE_COUNTIES <- c("Beckham", "Canadian", "Cherokee", "Love",
 # $15.6M) and STAY here deliberately: they are over the owner's $10M
 # report-first line and no file carries them, so the probe must keep tripping
 # on them until one does. R/03bt parses and asserts both.
+#
+# SESSION 86: RRR and Chronic Disease Management left this list. The owner
+# approved them; R/03bt writes ok_year1_rrr_awardees.csv (20, $39,578,523) and
+# ok_year1_cdm_awardees.csv (15, $15,608,845.22). Two opportunities remain.
 OK_PENDING_OPPORTUNITIES <- c(
   "Emergency Medical Service & Community Paramedicine Vehicles",
-  "Rural Regional Reorientation (RRR) Program",
-  "Chronic Disease Management Program",
   "Behavioral Health Integration - Medications for Opioid and Alcohol Use Disorder"
 )
 
@@ -1539,7 +1541,11 @@ OK_PROBE_KEYS <- c(recipients = TRUE, funding = TRUE, program = FALSE)
 # PRIMS Project 695 moved from Active to Closed (deadline 2026-09-11), OSDH
 # re-worded "health care" to "healthcare", and no award or recipient appeared.
 OK_PROBE_BASELINE_DIR <- file.path("data", "evidence", "OK", "probe_baseline")
-OK_PROBE_BASELINE_DATE <- "2026-09-28"
+# RE-BASED 2026-10-02 (session 86), after the 10-01 trip was READ (session 85)
+# and all three new rosters were written by R/03bt: the live recipients page's
+# reduced text was identical to data/evidence/OK/new_rosters/2026-10-02_*, and
+# named nobody that copy does not. The 09-28 baseline files are kept.
+OK_PROBE_BASELINE_DATE <- "2026-10-02"
 ok_probe_baseline_file <- function(key) {
   file.path(OK_PROBE_BASELINE_DIR,
             paste0(OK_PROBE_BASELINE_DATE, "_", ok_source(key, "file") %>%
@@ -1578,7 +1584,7 @@ ok_probe <- function() {
   message("[OK] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
                           collapse = "; "),
-          " -- still two rosters; the five pending opportunities name nobody.")
+          " -- five rosters, all extracted; the two pending opportunities name nobody.")
   invisible(w$changed)
 }
 

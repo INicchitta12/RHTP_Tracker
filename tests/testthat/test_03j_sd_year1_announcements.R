@@ -237,9 +237,9 @@ test_that("the Rural Strong contracts named on OpenSD are INSIDE the round, neve
   in_rs <- contracts[contracts$round_id %in% "RS", ]
   expect_equal(rs$named_elsewhere_grants, nrow(in_rs))
   expect_equal(rs$named_elsewhere_amount, sum(in_rs$amount))
-  expect_equal(rs$named_elsewhere_grants, 8L)
-  expect_equal(rs$named_elsewhere_amount, 1879152)
-  expect_equal(rs$round_amount, 31500000)          # NOT 31,500,000 - 1,879,152
+  expect_equal(rs$named_elsewhere_grants, 14L)    # session 86 (2026-10-02)
+  expect_equal(rs$named_elsewhere_amount, 15967960)
+  expect_equal(rs$round_amount, 31500000)          # NOT 31,500,000 - 15,967,960
   expect_equal(rs$recipient_confirmed, "No")       # the release still names nobody
   expect_equal(rs$disbursement_status, "CONTRACTS_PARTLY_POSTED")
   td <- records[records$round_id == "TD", ]
@@ -260,7 +260,7 @@ test_that("the reconciliation does not subtract the Rural Strong contracts twice
   contracts <- readr::read_csv(here::here(SD_Y1_CONTRACTS_CSV),
                                show_col_types = FALSE, progress = FALSE)
   admin <- sum(contracts$amount[is.na(contracts$round_id)])
-  expect_equal(admin, 7344025)
+  expect_equal(admin, 7693072)                     # session 86: + CHAS $349,047
   unacc <- recon$amount[startsWith(recon$measure, "Unaccounted")]
   expect_equal(unacc, SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED - admin)
   # the wrong answer -- every contract subtracted on top of the rounds

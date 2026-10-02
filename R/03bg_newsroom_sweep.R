@@ -98,7 +98,12 @@ NW_PAGES <- tibble::tribble(
   # MDH's releases (the 08-10 one is MDH's own announcement).
   "MD", "governor", "https://governor.maryland.gov/news/press-releases"
 ) %>%
-  dplyr::mutate(date = ifelse(.data$state == "MD", "2026-09-28", "2026-09-24"),
+  # DE re-based 2026-10-02 (session 86): its one hot headline, the 2026-09-24
+  # FQHC release, was READ (session 85) and extracted (R/03bu); the live index
+  # carried no other hot headline. The 2026-09-24 DE baseline is kept.
+  dplyr::mutate(date = dplyr::case_when(.data$state == "MD" ~ "2026-09-28",
+                                        .data$state == "DE" ~ "2026-10-02",
+                                        TRUE ~ "2026-09-24"),
                 file = file.path(NW_DIR, paste0(date, "_", tolower(state),
                                                 "_", key, ".html")),
                 name_diff = FALSE) %>%

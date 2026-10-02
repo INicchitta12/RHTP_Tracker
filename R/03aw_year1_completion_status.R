@@ -63,13 +63,15 @@ Y1_AWARD_FILES <- c(
   MD = "md_year1_awardees.csv",  NE = "ne_year1_awardees.csv",
   IN = "in_year1_awardees.csv",  OK = "ok_year1_awardees.csv",
   OK = "ok_year1_doulas_awardees.csv",
+  OK = "ok_year1_rrr_awardees.csv",  OK = "ok_year1_cdm_awardees.csv",
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
   NC = "nc_year1_sbhc_awardees.csv",
   AR = "ar_year1_awardees.csv",  AR = "ar_year1_round2_awardees.csv",
   WY = "wy_year1_awardees.csv",
-  DE = "de_year1_awardees.csv",  ID = "id_year1_awardees.csv",
+  DE = "de_year1_awardees.csv",  DE = "de_year1_fqhc_awardees.csv",
+  ID = "id_year1_awardees.csv",
   OH = "oh_year1_awardees.csv",  SC = "sc_year1_awardees.csv",
   NY = "ny_year1_awardees.csv",  VT = "vt_year1_awardees.csv",
   CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv",
@@ -133,11 +135,22 @@ y1_file_figures <- function(st, f) {
   # assumption: Arkansas's 80 rows all say NOTICE_OF_INTENT_TO_AWARD ("the
   # details of each grant will not be finalized until DFA signs an official
   # agreement"), Florida's and Georgia's say none do.
+  # SESSION 86: PRICED ROWS THAT SIT INSIDE A POOL COUNTED ELSEWHERE. South
+  # Dakota's open.sd.gov contracts carry round_id RS (inside the $31.5M Rural
+  # Strong round) or UNPLACED (round not stated; may be inside the $90M round).
+  # sd_year1_awardees.csv carries both rounds WHOLE in round_amount, so adding
+  # those contracts on top would count the same money twice. They are netted
+  # out of the pool-inclusive figure, never out of published_priced.
+  inside <- 0
+  if (st == "SD" && "round_id" %in% names(d)) {
+    inside <- sum(amt[d$round_id %in% c("RS", "UNPLACED")], na.rm = TRUE)
+  }
   vst <- if ("validation_source_type" %in% names(d))
     d$validation_source_type else rep(NA_character_, nrow(d))
   intent <- !is.na(vst) & vst == "NOTICE_OF_INTENT_TO_AWARD"
   tibble::tibble(state = st, rows = nrow(d), priced_rows = sum(!is.na(amt)),
                  published_priced = priced, pool_level_unpriced = pool,
+                 priced_inside_pool = inside,
                  intent_rows = sum(intent),
                  priced_usd_on_intent = sum(amt[intent], na.rm = TRUE))
 }
@@ -187,8 +200,8 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/AK/2026-09-21_alaska_rhtp_year1_funding_cycle_update.pdf; data/raw/cms/2026-08-28/state_press_releases/AK_cms_press_release_main.html",
 
   "SD", "UNKNOWN", "No", "Unknown",
-  "2026-08-19",
-  "Two announced rounds ($31.5M, $90M; 110 grants) name NO recipient, and 13 administrative contracts are on OpenSD. Neither release says Year 1 is complete or names a remaining Year 1 initiative; both speak only of 'future funding cycles'. The Rural Strong contracts promised to OpenSD 'once finalized' have not posted (session 13). No evidence either way.",
+  "2026-10-02",
+  "Two announced rounds ($31.5M, $90M; 110 grants) name NO recipient. OpenSD's RHT series holds 41 contracts / $26,836,144 as of 2026-10-02 (session 86): 14 of the 28 Rural Strong grants ($15,967,960, INSIDE the $31.5M), 8 named awards whose round the register does not state ($3,175,112, capped at and never added to the $90M round), and 19 administrative contracts ($7,693,072). published_incl_pool_level is therefore administrative + the two rounds, never the contracts on top. Neither release says Year 1 is complete; both speak only of 'future funding cycles'. No evidence either way.",
   "data/evidence/SD/announcements/KB0046839.html; data/evidence/SD/announcements/KB0047023.html",
 
   "IL", "PARTIAL", "No", "Yes",
@@ -238,7 +251,7 @@ Y1_STATUS <- tibble::tribble(
 
   "OK", "PARTIAL", "No", "Yes",
   "2026-10-02",
-  "OSDH's Funding Recipients page now carries FIVE rosters (session 85): Doulas is extracted (ok_year1_doulas_awardees.csv, 4 rows, $647,967.83); Rural Regional Reorientation (20, $39,578,523) and Chronic Disease Management (15, $15,608,845.22) are PUBLISHED but NOT YET EXTRACTED (over the owner's $10M report-first line), so this percentage UNDERSTATES what Oklahoma has published. EMS & Community Paramedicine Vehicles and Behavioral Health Integration still have no roster, and the Lung Cancer Screening Program's 11 selected hospitals are unnamed (session 25).",
+  "OSDH's Funding Recipients page now carries FIVE rosters: Doulas (ok_year1_doulas_awardees.csv, 4 rows, $647,967.83, session 85), Rural Regional Reorientation (ok_year1_rrr_awardees.csv, 20, $39,578,523) and Chronic Disease Management (ok_year1_cdm_awardees.csv, 15, $15,608,845.22), the last two extracted in session 86 on the owner's approval. EMS & Community Paramedicine Vehicles and Behavioral Health Integration still have no roster, and the Lung Cancer Screening Program's 11 selected hospitals are unnamed (session 25).",
   "data/evidence/OK/new_rosters/2026-10-02_ok_rhtp_funding_recipients.html; data/evidence/OK/2026-08-31_ok_rhtp_funding.html",
 
   "NV", "PARTIAL", "No", "Yes",
@@ -282,9 +295,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/WY/2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf",
 
   "DE", "PARTIAL", "No", "Yes",
-  "2026-09-03",
-  "One of fifteen Year 1 initiatives (School-Based Health Centers) has published an award; fourteen have no roster (session 44).",
-  "data/evidence/DE/2026-09-03_de_dhss_rhtp_programme.html",
+  "2026-10-02",
+  "Two of fifteen Year 1 initiatives have published awards: School-Based Health Centers (four named, unpriced, session 44) and Value-based care transformation (three FQHCs, ~$22.69M rounded, 2026-09-24, de_year1_fqhc_awardees.csv, session 86; the DHSS line is $24,322,042.48). Thirteen have no roster.",
+  "data/evidence/DE/2026-09-03_de_dhss_rhtp_programme.html; data/evidence/DE/2026-10-02_de_fqhc_award_release.html",
 
   "ID", "PARTIAL", "No", "Yes",
   "2026-09-03",
@@ -396,7 +409,8 @@ y1_build_status <- function() {
   y1_figures() %>%
     dplyr::left_join(allot, by = "state") %>%
     dplyr::mutate(
-      published_incl_pool_level = published_priced + pool_level_unpriced,
+      published_incl_pool_level = published_priced + pool_level_unpriced -
+        priced_inside_pool,
       pct_priced = round(100 * published_priced / fy2026_allotment, 1),
       pct_incl_pool_level =
         round(100 * published_incl_pool_level / fy2026_allotment, 1),
