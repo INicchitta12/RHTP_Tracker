@@ -40,6 +40,15 @@
 #     funding" (the 2026-03-16 administrators); the phrase check is a DIFF.
 #   * cdfa -- name-diffed; trips on a new award sentence.
 #
+# RE-BASED 2026-10-02 (session 85), after READING the Routine's 09-30 trip on
+# "FHC is launching the Transformation Technical Assistance Center (T-TAC) - a
+# core support resource available to all FHC subrecipients". That sentence was
+# already in the 09-28 baseline; FHC moved the T-TAC block to the TOP of
+# "Current Funding Opportunities", the sentence boundary shifted, and the
+# sentence diff read it as new. T-TAC is a Request for Qualifications for TA
+# consultants -- "The T-TAC is not a grant program or funding track" -- and
+# names nobody. Both anchors still held. The 09-28 files stay in the archive.
+#
 # Usage: Rscript R/03bm_nh_year1_probe.R --fetch | --validate | --probe
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
@@ -53,10 +62,10 @@ NH_DIR <- file.path("data", "evidence", "NH")
 NH_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "fhc", "https://healthynh.org/initiatives/rural-health-transformation-program/",
-  file.path(NH_DIR, "2026-09-28_fhc_go_north_rhtp.html"), TRUE,
+  file.path(NH_DIR, "2026-10-02_fhc_go_north_rhtp.html"), TRUE,
   "cdfa", paste0("https://nhcdfa.org/cdfa-statement-about-the-rural-",
                  "community-health-infrastructure-programs/"),
-  file.path(NH_DIR, "2026-09-28_cdfa_rchip_statement.html"), TRUE)
+  file.path(NH_DIR, "2026-10-02_cdfa_rchip_statement.html"), TRUE)
 
 NH_ANCHORS <- c(
   "Critical Access Hospital (CAH) and Acute Care Hospital Coming Soon",

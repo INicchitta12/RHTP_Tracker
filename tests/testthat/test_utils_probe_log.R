@@ -174,6 +174,33 @@ test_that("a refused host logs ERROR, not TRIPWIRE", {
 })
 
 
+test_that("session 85: a name trip quoting 'Connecticut' logs TRIPWIRE, not ERROR", {
+  # CT's 09-28 and 10-01 trips were logged ERROR because "Connecticut" contains
+  # "connect". This is the message, verbatim from logs/probe_results.csv.
+  ct <- paste0("! [CT] 'opm' NAMES 5 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: ",
+               "Department of Emergency Services and Public Protection | Department ",
+               "of Correction The State of Connecticut | Division of State Police. ",
+               "THAT IS THE SIGNAL, NOT A DEFECT.")
+  expect_equal(rhtp_probe_verdict(ct), "TRIPWIRE")
+  sb <- probe_sandbox()
+  expect_error(rhtp_probe_run("CT", stop(ct), path = sb$log, evidence_root = sb$root))
+  got <- readr::read_csv(sb$log, show_col_types = FALSE, progress = FALSE)
+  expect_equal(got$verdict, "TRIPWIRE")
+  # The same defect for "HTTP": a tripwire quoting a URL is still a tripwire.
+  expect_equal(rhtp_probe_verdict(
+    "[WV] NEW AWARD RELEASE: see https://health.wv.gov/article/x"), "TRIPWIRE")
+  expect_equal(rhtp_probe_verdict("pool with unresolved subrecipients"), "TRIPWIRE")
+  # And real access failures still read as ERROR.
+  for (m in c("HTTP 403 from https://portal.ct.gov/opm", "[NH] HTTP 403 for dhhs.nh.gov",
+              "Timeout was reached: [x] Operation timed out after 90000 ms",
+              "Could not resolve host: oklahoma.gov",
+              "Failed to connect to portal.ct.gov port 443",
+              "Recv failure: Connection reset by peer")) {
+    expect_equal(rhtp_probe_verdict(m), "ERROR", info = m)
+  }
+})
+
+
 test_that("the log appends rather than rewriting, and keeps its header once", {
   sb <- probe_sandbox()
   rhtp_probe_run("WI", list(changed = FALSE), path = sb$log,

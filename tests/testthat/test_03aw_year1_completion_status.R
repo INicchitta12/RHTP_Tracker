@@ -120,3 +120,21 @@ test_that("COMPLETE is a statement about the ROUND; the intent status is carried
   # a COMPLETE state added without a stage sentence fails the build
   expect_true(all(share$state %in% names(Y1_AWARD_STAGE)))
 })
+
+test_that("session 85: AL's AHC and GENERAL_KNOWLEDGE slices are carried and subtractable", {
+  al <- share[share$state == "AL", ]
+  expect_equal(al$named_hospital_rows, 91L)
+  expect_equal(al$named_hospital_usd, 104434859)
+  expect_equal(al$ahc_subtype_usd, 18308866)          # UAB and USA, R/03bj
+  expect_equal(al$general_knowledge_usd, 3913694)     # Greene County bridge, LOW
+  expect_equal(al$named_hospital_usd_excl_ahc_and_gk, 104434859 - 18308866 - 3913694)
+  expect_equal(al$share_floor_excl_ahc_and_gk_pct, 41.4)
+  # Every COMPLETE state carries the columns, and removing a slice never
+  # raises a share.
+  expect_true(all(share$share_floor_excl_ahc_and_gk_pct <= share$share_floor_pct))
+  expect_true(all(share$named_hospital_usd_excl_ahc_and_gk <= share$named_hospital_usd))
+  # Alabama is AWARDED on the Governor's word and is NOT a notice of intent:
+  # no AL row is NOTICE_OF_INTENT_TO_AWARD, and the stage text says so.
+  expect_equal(al$intent_rows, 0)
+  expect_match(al$award_action_stage, "NOT A NOTICE OF INTENT", fixed = TRUE)
+})

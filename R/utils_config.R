@@ -1228,6 +1228,35 @@ rhtp_probe_log <- function(state, rows, at = Sys.time(),
 }
 
 
+#' Classify a probe's failure message: TRIPWIRE (about the state) or ERROR
+#' (about our access)
+#'
+#' SESSION 85: THE OLD TEST READ A TRIPWIRE'S OWN WORDS AS AN ACCESS FAILURE.
+#' It was `grepl("HTTP|refused|timed out|timeout|resolve|connect", msg,
+#' ignore.case = TRUE)`, unanchored. Connecticut's name tripwire quoted the
+#' organisation "Department of Correction The State of Connecticut" -- and
+#' "Connecticut" contains "connect" -- so CT's 09-28 and 10-01 trips were
+#' logged ERROR, the one verdict a human is told to read as "our access, not
+#' the state" (§2.2). "HTTP" had the same latent defect: any tripwire quoting
+#' an https:// URL would have been an ERROR.
+#'
+#' Two rules now, in order:
+#'   1. A message that carries a tripwire's own signature is a TRIPWIRE,
+#'      whatever else it quotes. Every name tripwire says "THAT IS THE SIGNAL";
+#'      so do most phrase tripwires.
+#'   2. Otherwise ERROR only on access-failure WORDS, bounded: "HTTP 403",
+#'      "refused", "timed out", "timeout", "could not resolve", "connection",
+#'      "failed to connect". "Connecticut", "https://" and "unresolved" no
+#'      longer match.
+rhtp_probe_verdict <- function(msg) {
+  if (grepl("THAT IS THE SIGNAL", msg, fixed = TRUE)) return("TRIPWIRE")
+  access <- paste0("\\bHTTP\\s+[0-9]{3}\\b|\\brefused\\b|\\btimed out\\b|",
+                   "\\btimeout\\b|\\bcould not resolve\\b|\\bresolve host\\b|",
+                   "\\bconnection\\b|\\b(failed|unable) to connect\\b|",
+                   "\\bcouldn't connect\\b|\\bSSL\\b")
+  if (grepl(access, msg, ignore.case = TRUE, perl = TRUE)) "ERROR" else "TRIPWIRE"
+}
+
 #' Run a probe: guard the evidence archive, log the verdict, re-raise
 #'
 #' The single entry point every `--probe` CLI branch goes through.
@@ -1251,8 +1280,7 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
     msg <- conditionMessage(res)
     # A tripwire and a refused host are different claims and the log keeps them
     # apart: one is a statement about the state, the other about our access.
-    verdict <- if (grepl("HTTP|refused|timed out|timeout|resolve|connect",
-                         msg, ignore.case = TRUE)) "ERROR" else "TRIPWIRE"
+    verdict <- rhtp_probe_verdict(msg)
     rhtp_probe_log(state,
                    tibble::tibble(verdict = verdict, page = "(probe)",
                                   note = gsub("[\r\n]+", " ", msg)),

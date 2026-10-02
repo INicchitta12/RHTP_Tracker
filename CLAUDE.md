@@ -667,6 +667,7 @@ R/
   03bq_al_round2_awardees.R    # Alabama round 2 — 34 grants, $54.8M, typed on CMS AL enrolment (BUILT)
   03br_nc_sbhc_awardees.R      # North Carolina SBHC — 5 named, $1.25M pool, NO split (BUILT)
   03bs_al_year2_probe.R        # Alabama — a WATCH on Community Medicine, a YEAR 2 subaward round (BUILT)
+  03bt_ok_new_rosters.R        # Oklahoma — Doulas WRITTEN; RRR + CDM parsed, HELD over $10M (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1622,7 +1623,17 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-02 (Session 84). Session 84 moved Alabama to Year 1 COMPLETE: ADECA's Program Manual
+**Last updated:** 2026-10-02 (Session 85). Session 85 read the six unread trips:
+- **WV:** +7 rows. Minnie Hamilton is typed a CAH on its CMS enrolment.
+- **OK:** the Doulas roster is extracted (`R/03bt`). RRR ($39.6M) and CDM ($15.6M) are held over the $10M line.
+- **DE:** the $22.69M to three FQHCs is held. It has no hospital row.
+- **SD:** 13 new contracts (+$16.6M) are held.
+- **Probe verdicts:** `rhtp_probe_run()` no longer reads "Connecticut" or "https" as access errors.
+- **ME:** the probe now compares a content digest.
+- **COMPLETE-state share table:** now carries the AHC and GENERAL_KNOWLEDGE slices. Alabama is AWARDED and is not
+  a notice of intent.
+
+Detail: `docs/session85_six_trips_wv_ok_doulas_al_complete_share.md`. Session 84 moved Alabama to Year 1 COMPLETE: ADECA's Program Manual
 (09-08) gives Community Medicine "no Year 1 funding" (begins Year 2 / 2027), and its June deck says "not budgeted in
 Year 1". It is a SUBAWARD round (metrics reported "from subawardees"), now watched by `R/03bs` on a weekly Routine.
 Detail: `docs/session84_al_complete_probe_log_review_ms_window.md`. Session 83 re-typed National Jewish Health (MI, $435,000) on its CMS
@@ -1750,7 +1761,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 3 allotments + registry worksheet | `R/03_state_registry.R` | Built; §7.3 registry NOT compiled (blocker 1) |
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
-| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
+| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
 | State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn`, `03bs` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
@@ -1770,10 +1781,10 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-01 from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-02 from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,261 rows   $1,149,408,077.27   31 states
+NAMED_HOSPITAL          1,265 rows   $1,151,146,602.27   31 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 ```
@@ -1817,12 +1828,13 @@ Change a state file and you must update this table in the same commit. Never loo
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 1 | 1 | $10,000,000 | 0 (a university; partial year) |
+| WV | 14 | 12 | $9,248,417 | 5 / $2,924,000 (Minnie Hamilton CAH on CMS enrolment; 2 rows unpriced) |
 | SD contracts | 26 | 26 | $9,223,177 | 5 / $716,800 |
 | MO | 22 | 2 | $7,232,660 | 20 / $0 (27 hub anchors are NOT awards) |
-| WV | 7 | 7 | $6,444,803 | 2 / $1,224,000 |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
 | IN | 7 | 1 | $860,088 | 0 (vendors) |
+| OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 (RRR $39.6M and CDM $15.6M published, not extracted) |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 0 | — | 218 / $0 |
 | NV | 156 | 0 | — (pools $87.4M) | 44 / $0 |
@@ -1896,11 +1908,17 @@ Network is Full; the old allowlist blockers are superseded.
 `routines.csv` on `main` carries the six new ids, their lines read as unregistered. Sessions 79 and 80 are on
 `main` (PRs #83, #84).
 
-- **Unread trips (session 84's log review, `docs/session84_*` §2):** DE NEWSROOM "Nearly $23 Million to FQHCs"
-  (fires every sweep until read and re-based); ND four opportunities headed "Awarded" incl. Rural FQHCs and Critical
-  Access Hospitals; OK "Expanding Care: Doulas" on Funding Recipients; WV two new releases (Community Care of WV
-  $1.1M, Minnie Hamilton $4M+) for `WV_AWARDS`; CT `opm` name trip logged as ERROR twice; NH T-TAC.
-  Session-84 check-ins (`trig_01PGFH…` 10-02 21:45Z, `trig_01MWZ2…` 10-04 11:45Z, `trig_01DpSc…` 10-08 15:15Z)
+- **Held for the owner (over $10M, session 85).** All three are read, archived and parsed; none is written.
+  - **OK RRR** (20 rows, $39,578,523) and **OK CDM** (15 rows, $15,608,845.22): `R/03bt` parses and asserts both.
+    Writing them is a typing pass on CMS OK enrolment. Choctaw Nation is a tribal hospital enrolment and needs the
+    precedence rule. The OK probe trips on both until they are written.
+  - **DE FQHCs** ($22.69M, three rows, no hospital): archived. The NEWSROOM DE trip keeps firing until the rows are
+    written.
+  - **SD:** 13 new RHT contracts, +$16,593,725, including Sanford $5.44M and Mobridge, Fall River, Huron and Bowdle
+    hospitals. Run `R/03i --fetch --force`, then `--build`.
+- **ME's and CT's fixes are on this branch only.** Until it merges, a Routine running from `main` will still log
+  ME `doe` and CT `programme`/`opm` trips. Those trips are read; see `docs/session85_*`.
+- Session-84 check-ins (`trig_01PGFH…` 10-02 21:45Z, `trig_01MWZ2…` 10-04 11:45Z, `trig_01DpSc…` 10-08 15:15Z)
   delete each old id below once its successor has logged.
 - **Delete the six session-82 old ids once each new Routine has put a line on `main`:** NY
   `trig_014kvDg8x3JDqdWySvHxrREU`, LA `trig_016GDtAW1DvWCexnRSm4LxK8`, WY `trig_01F98Jr5do6PXbUzNLBGjzGE`,
@@ -1919,9 +1937,9 @@ Network is Full; the old allowlist blockers are superseded.
   (FHC's T-TAC sentence, no subrecipient named) still needs a human read.
 - **Read runner context after the v4 firings:** a new runner should sit near its first-turn floor and stay
   there; an in-place runner may re-load once more, then stop.
-- **WI's 10-02 TRIPWIRE needs a human read.** `dhs_solicit` gained "Intoxicated Driver Program Supplemental
-  Funding Request for Application". That is a solicitation title on the DHS index, not an awardee. Read it
-  before adding it to `furniture`.
+- **WI's 10-02 TRIPWIRE was read in session 85.** `dhs_solicit` gained "Intoxicated Driver Program
+  Supplemental Funding Request for Application". It is a state OWI appropriation (Wis. Stat. § 20.435(5)(hy))
+  with no RHTP mention, and is now in `WI_NAME_FURNITURE`.
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)

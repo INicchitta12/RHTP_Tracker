@@ -276,7 +276,12 @@ STATE_FILES <- c(
   # awardees for "$1.25 million", NO per-recipient split (amount empty, the
   # pool in round_amount). FirstHealth of the Carolinas is one named-hospital
   # row at $0 -- §0.3a: a hospital system receiving school-health money.
-  NC_SBHC = "data/reference/nc_year1_sbhc_awardees.csv"
+  NC_SBHC = "data/reference/nc_year1_sbhc_awardees.csv",
+  # SESSION 85. OKLAHOMA'S THIRD ROSTER WRITTEN: Expanding Care: Doulas, four
+  # priced awards, $647,967.83; Newman Memorial Hospital (CAH, CCN 371336) is
+  # the one named-hospital row, $38,525. RRR and CDM are on the same page and
+  # deliberately NOT written (over the $10M report-first line; R/03bt).
+  OK_DOULAS = "data/reference/ok_year1_doulas_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not

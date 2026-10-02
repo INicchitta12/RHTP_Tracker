@@ -1446,15 +1446,26 @@ rhtp_me_write_xlsx <- function(awards, cohort, status, dispo) {
 #'
 #' Session 25's Indiana lesson as code: `--validate` reads the committed archive
 #' and can only answer "had Maine awarded on the day the archive was taken?".
-#' Maine's page digests are STABLE -- two fetches three seconds apart return the
-#' same SHA-256 -- so unlike Nevada, Missouri and Wisconsin a file digest is a
-#' usable change test here, and it is used directly.
+#' Session 34 found Maine's file digests STABLE across two fetches three seconds
+#' apart and used them directly. Two fetches seconds apart is not a stability
+#' test (CLAUDE.md, standing rules): every page read CHANGED on every firing
+#' from 2026-09-22, and session 85 moved the probe to a content digest.
 # Read and judged NOT a recipient (session 52); matched EXACTLY (§2.3). Two
 # adjacent DOCUMENT LINKS on the programme page -- "Maine RHTP Project
 # Narrative" and "Maine RHTP Y1 Budget" -- which the reduction runs together.
 # They are Maine's own application documents, not a roster.
-ME_NAME_FURNITURE <- list(programme = c(
-  "Maine RHTP Project Narrative Maine RHTP Y1 Budget"))
+#
+# SESSION 85: `doe` fired on 10-02. Maine DOE dropped "Educational Disruption"
+# from the page's SIDE NAV, so the nav run "Aspirations Program ... Maine
+# Career Pathways Healthcare Careers Exploration Contact Us" re-welded into a
+# new string ending in the page's own title and "The Maine Department of
+# Education". Read: the RFA body under it is unchanged and names no awardee.
+ME_NAME_FURNITURE <- list(
+  programme = c("Maine RHTP Project Narrative Maine RHTP Y1 Budget"),
+  doe = c(paste("Early College Home Aspirations Program Maine Career Pathways",
+                "Healthcare Careers Exploration Contact Us Maine Healthcare",
+                "Careers Exploration Program Maine Healthcare Careers Exploration",
+                "Program The Maine Department of Education")))
 
 me_probe <- function() {
   watched <- c("rhef", "doe", "programme", "mcd")
@@ -1465,8 +1476,13 @@ me_probe <- function() {
     url <- me_source(k, "url")
     served <- me_get(url, k)
     bodies[[k]] <- served
-    live <- digest::digest(served, algo = "sha256", serialize = FALSE)
-    have <- digest::digest(file = me_path(k), algo = "sha256")
+    # A CONTENT digest over the reduced text, never a file digest (session 85).
+    # The file digest read all four pages CHANGED on every firing from 09-22 to
+    # 10-02; on 10-02 `rhef`'s reduced text was byte-identical to the archive,
+    # so every one of its CHANGED lines was transport noise.
+    live <- digest::digest(me_html_text(NULL, body = served), algo = "sha256",
+                           serialize = FALSE)
+    have <- digest::digest(me_html_text(k), algo = "sha256", serialize = FALSE)
     same <- identical(live, have)
     message(sprintf("  %-10s %s  %s", k, if (same) "UNCHANGED" else "CHANGED  ",
                     substr(live, 1, 16)))

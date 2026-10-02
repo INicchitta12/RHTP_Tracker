@@ -13,3 +13,14 @@ data/evidence/recheck/2026-09-23/WV/wv_grants.html (session 54).
 298641a9578a4779166918828b3f17b86289a62741398ef1a202ce5e8947a982  29893  2026-09-23_wv_grant_opportunities.html
 392fb2ea0905b7cfa351159b8d6dd31b61430045baf2c04c3c9ac4f3c892225d  50124  2026-09-23_wv_news_index.html
 47ae017d37a69d88c9b36970cda66a5b21a5ad6b69b91775a6f5a02a1ea8dd7c  33154  2026-09-23_wv_rhtp_programme.html
+
+-- session 85: two award releases (2026-09-30), fetched 2026-10-02 --------
+
+Read after the WV Routine's 2026-10-02 11:41Z TRIPWIRE. Same agent, bytes as
+served; checked credential-free (no API key, map token or CSRF value).
+These are award SOURCES for R/03av, not probe baselines.
+
+8ee9d37f68af0787e7f0cb6c3fc44ae504a554bc80898489087cf1bcb7ddf8c5  35576  2026-10-02_wv_art_ccwv_rhtp_awards.html
+  https://health.wv.gov/article/governor-morrisey-announces-more-11-million-rural-health-transformation-awards-community
+7df431a036b5a0fb217ee99e3fc6e1f24544813719cde29ea9aa667fae04414f  36275  2026-10-02_wv_art_minnie_hamilton_rhtp_awards.html
+  https://health.wv.gov/article/governor-morrisey-announces-more-4-million-rural-health-transformation-awards-minnie

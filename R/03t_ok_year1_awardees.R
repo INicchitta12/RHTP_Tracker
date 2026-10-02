@@ -199,9 +199,15 @@ OK_NO_AWARDEE_COUNTIES <- c("Beckham", "Canadian", "Cherokee", "Love",
 
 # The closed opportunities OSDH has NOT published a roster for. Each is a
 # tripwire: the day one names a recipient, this file is materially incomplete.
+#
+# SESSION 85: Doulas left this list. Its roster (4 recipients, $647,967.83) is
+# extracted by R/03bt into ok_year1_doulas_awardees.csv. RRR and Chronic
+# Disease Management ALSO published rosters on the 10-02 page ($39.6M and
+# $15.6M) and STAY here deliberately: they are over the owner's $10M
+# report-first line and no file carries them, so the probe must keep tripping
+# on them until one does. R/03bt parses and asserts both.
 OK_PENDING_OPPORTUNITIES <- c(
   "Emergency Medical Service & Community Paramedicine Vehicles",
-  "Expanding Care: Doulas Program",
   "Rural Regional Reorientation (RRR) Program",
   "Chronic Disease Management Program",
   "Behavioral Health Integration - Medications for Opioid and Alcohol Use Disorder"

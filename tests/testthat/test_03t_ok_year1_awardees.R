@@ -44,7 +44,9 @@ test_that("every archived source verifies against the manifest", {
   expect_false(any(grepl("^MANIFEST.txt ", man)))
   # Session 75: probe_baseline/ is the probe's own dated snapshot with its own
   # manifest, deliberately NOT the extraction archive this manifest covers.
-  on_disk <- setdiff(list.files(OK_EVIDENCE_DIR), c("MANIFEST.txt", "probe_baseline"))
+  # Session 85: new_rosters/ is R/03bt's 10-02 snapshot, likewise with its own.
+  on_disk <- setdiff(list.files(OK_EVIDENCE_DIR),
+                     c("MANIFEST.txt", "probe_baseline", "new_rosters"))
   expect_equal(sort(on_disk), sort(listed))
 })
 

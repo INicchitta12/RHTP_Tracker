@@ -14,3 +14,11 @@ file  bytes  sha256
 2026-09-03_de_sbhc_award_release.html  126616  0e6107956fdaae3ad0790d1d8405b5750e02a9afe1033a790625c3e8facc58e9
 2026-09-03_de_dhss_rhtp_programme.html  299145  d95e319f1de931b9f163b40a9329d5d9d75e13ecb66b0afb3addb86fd7b4f511
 2026-09-03_de_initial_rfps_release.html  133236  c4c05ee2e4bd8921d4a79301a34ea2147925f9bc4dbb5bad7125eece6d84c777
+
+-- session 85: fetched 2026-10-02 with curl and the project's honest agent --
+Read after the NEWSROOM sweep's DE trip (09-28, 10-01). ARCHIVED, NOT YET
+EXTRACTED: $22.69M across three FQHCs is over the owner's $10M report-first
+line. Checked credential-free. Release URL:
+https://news.delaware.gov/2026/09/24/governor-meyer-awards-nearly-23-million-to-fqhcs-through-rural-health-transformation-program/
+
+2026-10-02_de_fqhc_award_release.html  126441  a0d111e463ad71300d23ab83b870569866ddc17b22c285feae9feef9672b220d

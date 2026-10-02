@@ -45,7 +45,20 @@ ND_PAGES <- tibble::tribble(
   "funding", "https://www.hhs.nd.gov/rural-health-transformation/funding",
   file.path(ND_DIR, "hhs_rhtp_funding.html"), TRUE)
 
-ND_KNOWN_AWARDED <- "Expand Rural Health Care Rotations"
+# SESSION 85: five more headings read "Awarded" on 2026-10-02 (four tripped the
+# Routine on 09-30; Behavioral Health Promotion followed). READ: none of the
+# funding page, the programme page or the HHS newsroom names an awardee for
+# any of them. Rightsizing (FQHCs and CAHs) is a $40,000 technical-assistance
+# award delivered through ND HHS's preferred vendor, Eide Bailly. Recorded so
+# the heading tripwire is quiet; the name diff on both pages is what catches
+# the roster when North Dakota publishes one.
+ND_KNOWN_AWARDED <- c(
+  "Expand Rural Health Care Rotations",
+  "Zero-Hour Physical Education (PE) Initiative",
+  "Community Gardens Project",
+  "Behavioral Health Promotion Community Grants",
+  "Rightsizing Health Care Delivery Systems for the Future: Rural Federally Qualified Health Centers and Critical Access Hospitals",
+  "Mobile Mammography Unit Acquisition Funding Opportunity")
 
 #' Every opportunity heading on the funding page, split into name and status
 nd_headings <- function(raw) {
@@ -78,7 +91,7 @@ nd_validate <- function() {
   hd <- nd_assert_headings(here::here(ND_PAGES$file[ND_PAGES$key == "funding"]))
   stopifnot(nrow(hd) == 25L, sum(hd$status == "Awarded") == 1L)
   message("[ND] the archive carries 25 opportunities, one Awarded (",
-          ND_KNOWN_AWARDED, "), nobody named.")
+          ND_KNOWN_AWARDED[1], "), nobody named.")
   invisible(TRUE)
 }
 
@@ -89,7 +102,8 @@ nd_probe <- function() {
                                           state = ND_STATE)
   message("[ND] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
-                          collapse = "; "), " -- still one Awarded heading.")
+                          collapse = "; "), " -- no Awarded heading beyond the ",
+          length(ND_KNOWN_AWARDED), " already read; nobody named.")
   invisible(w$changed)
 }
 

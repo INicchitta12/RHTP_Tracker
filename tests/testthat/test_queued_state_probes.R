@@ -89,7 +89,10 @@ nd_html <- paste(readLines(nd_file, warn = FALSE), collapse = "\n")
 test_that("ND: 25 headings, one Awarded, and the archive passes", {
   hd <- nd_headings(nd_file)
   expect_equal(nrow(hd), 25L)
-  expect_equal(hd$name[hd$status == "Awarded"], ND_KNOWN_AWARDED)
+  # The 09-23 archive has one Awarded heading; session 85 recorded five more,
+  # read on the live page, so the archive's one is the first of the six.
+  expect_equal(hd$name[hd$status == "Awarded"], ND_KNOWN_AWARDED[1])
+  expect_true(all(hd$name[hd$status == "Awarded"] %in% ND_KNOWN_AWARDED))
   expect_silent(nd_assert_headings(nd_file))
 })
 
