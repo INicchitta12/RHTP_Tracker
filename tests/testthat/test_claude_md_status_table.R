@@ -37,7 +37,7 @@ STATE_FILES <- eval(sf_expr[[1]][[3]], envir = baseenv())
 # The table labels a few files in prose; everything else is its STATE_FILES key.
 TABLE_LABEL_TO_KEY <- c(
   "AR r1" = "AR", "AR r2" = "AR_R2",
-  "AL r1" = "AL", "AL r2" = "AL_R2", "NC SBHC" = "NC_SBHC",
+  "AL r1" = "AL", "AL r2" = "AL_R2", "NC SBHC" = "NC_SBHC", "OK Doulas" = "OK_DOULAS",
   "SD contracts" = "SD_CONTRACTS", "SD rounds" = "SD_ANNOUNCEMENTS",
   "IN GROW" = "IN_GROW"
 )

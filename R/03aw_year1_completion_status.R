@@ -62,6 +62,7 @@ Y1_AWARD_FILES <- c(
   MS = "ms_year1_awardees.csv",  KS = "ks_year1_awardees.csv",
   MD = "md_year1_awardees.csv",  NE = "ne_year1_awardees.csv",
   IN = "in_year1_awardees.csv",  OK = "ok_year1_awardees.csv",
+  OK = "ok_year1_doulas_awardees.csv",
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
@@ -236,9 +237,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/IN/2026-08-31_grow_regional_grants.html",
 
   "OK", "PARTIAL", "No", "Yes",
-  "2026-08-31",
-  "OSDH runs ten Budget Period 1 opportunities with rosters for two; five closed opportunities have none, and the Lung Cancer Screening Program's 11 selected hospitals are unnamed (session 25).",
-  "data/evidence/OK/2026-08-31_ok_rhtp_funding.html",
+  "2026-10-02",
+  "OSDH's Funding Recipients page now carries FIVE rosters (session 85): Doulas is extracted (ok_year1_doulas_awardees.csv, 4 rows, $647,967.83); Rural Regional Reorientation (20, $39,578,523) and Chronic Disease Management (15, $15,608,845.22) are PUBLISHED but NOT YET EXTRACTED (over the owner's $10M report-first line), so this percentage UNDERSTATES what Oklahoma has published. EMS & Community Paramedicine Vehicles and Behavioral Health Integration still have no roster, and the Lung Cancer Screening Program's 11 selected hospitals are unnamed (session 25).",
+  "data/evidence/OK/new_rosters/2026-10-02_ok_rhtp_funding_recipients.html; data/evidence/OK/2026-08-31_ok_rhtp_funding.html",
 
   "NV", "PARTIAL", "No", "Yes",
   "2026-09-24",
@@ -316,9 +317,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/recheck/2026-09-23/CT/ct_governor_rhtp_50m_release.html",
 
   "WV", "PARTIAL", "No", "Yes",
-  "2026-09-22",
-  "The Governor calls them 'the first implementation awards'; CMS's WV release: 'Additional funding opportunities will also expand access...' (sessions 54-55).",
-  "data/evidence/recheck/2026-09-23/WV/wv_art_first-rural-health-transformation-progra.html; data/raw/cms/2026-09-21/newsroom/releases/trump-administration-announces-4-8-million-strengthen-west-virginias-rural-healthcare-workforce.html",
+  "2026-09-30",
+  "The Governor calls them 'the first implementation awards'; CMS's WV release: 'Additional funding opportunities will also expand access...' (sessions 54-55). The 2026-09-30 CCWV release repeats it: 'Additional awards will be announced' (session 85).",
+  "data/evidence/recheck/2026-09-23/WV/wv_art_first-rural-health-transformation-progra.html; data/evidence/WV/2026-10-02_wv_art_ccwv_rhtp_awards.html; data/raw/cms/2026-09-21/newsroom/releases/trump-administration-announces-4-8-million-strengthen-west-virginias-rural-healthcare-workforce.html",
 
   "TN", "PARTIAL", "No", "Yes",
   "2026-09-03",
@@ -447,11 +448,17 @@ Y1_AWARD_STAGE <- c(
              "grantee'. No agreement is published; CMS's obligation deadline is",
              "2026-10-30. COMPLETE here means the ROUND is fully announced, not",
              "that any award is executed."),
-  AL = paste("AWARDED (GOVERNOR'S WORD), ALL 172 ROWS: 'were awarded more than",
-             "$144 million through 138 grants' and 'The second round of grant",
-             "funding was awarded'. Both rest on the Governor's releases",
-             "(GOVERNOR_PRESS_RELEASE); no executed agreement is published.",
-             "55 amounts are rounded in the source (AMOUNT_ROUNDED_IN_SOURCE).")
+  AL = paste("AWARDED (GOVERNOR'S WORD), ALL 172 ROWS -- NOT A NOTICE OF INTENT:",
+             "'were awarded more than $144 million through 138 grants' and 'The",
+             "second round of grant funding was awarded'. Both rest on the",
+             "Governor's releases (GOVERNOR_PRESS_RELEASE). No notice of intent,",
+             "award letter or executed agreement is published; ADECA's Program",
+             "Manual refers only to 'the applicable subaward agreement' (session",
+             "85 searched both releases, the manual, the narrative and the three",
+             "ADECA/ARHTP pages for intent language and found none). Arkansas is",
+             "the COMPLETE state whose rows are intents; Alabama's are not, and",
+             "neither has an executed agreement on the record. 55 amounts are",
+             "rounded in the source (AMOUNT_ROUNDED_IN_SOURCE).")
 )
 
 y1_hospital_share <- function(status = y1_build_status()) {
@@ -484,6 +491,27 @@ y1_hospital_share <- function(status = y1_build_status()) {
     row <- status[status$state == st, ]
     named <- sum(p$dollars[p$bucket == "NAMED_HOSPITAL"])
     denom <- row$published_incl_pool_level
+    # SESSION 85: THE TWO SUBTRACTABLE SLICES OF NAMED_HOSPITAL, per row and
+    # by the partition's own bucket rule. CLAUDE.md's partition block says
+    # both can be subtracted; this is where a COMPLETE state's reader does it.
+    #   * ACADEMIC_HEALTH_CENTER subtype -- re-typed a hospital on its CMS
+    #     enrolment (§10.2's enrolled-operator row, session 71).
+    #   * basis_type = GENERAL_KNOWLEDGE -- the FORM rests on a verifier's own
+    #     knowledge (§0.4, session 49), always LOW.
+    # A row in both is counted ONCE in the combined figure.
+    col <- function(x) if (x %in% names(d)) d[[x]] else rep(NA_character_, nrow(d))
+    bucket <- rhtp_hospital_attribution(col("flow_type"), d$distributed_to_hospital,
+                                        col("recipient_type"), col("hospital_attribution"))
+    in_named <- bucket == "NAMED_HOSPITAL"
+    is_ahc <- in_named & col("recipient_subtype") %in% "ACADEMIC_HEALTH_CENTER"
+    is_gk  <- in_named & col("basis_type") %in% "GENERAL_KNOWLEDGE"
+    ahc_usd <- sum(amt[is_ahc], na.rm = TRUE)
+    gk_usd  <- sum(amt[is_gk], na.rm = TRUE)
+    either_usd <- sum(amt[is_ahc | is_gk], na.rm = TRUE)
+    if (abs(sum(amt[in_named], na.rm = TRUE) - named) > 0.005) {
+      stop("[Y1] ", st, ": the per-row NAMED_HOSPITAL sum does not reproduce the ",
+           "partition's.", call. = FALSE)
+    }
     tibble::tibble(
       state = st,
       published_incl_pool_level = denom,
@@ -499,6 +527,12 @@ y1_hospital_share <- function(status = y1_build_status()) {
       share_ceiling_pct = round(100 * (named + unclear_priced +
                                          unpriced_hosp_pools) / denom, 1),
       share_of_allotment_floor_pct = round(100 * named / row$fy2026_allotment, 1),
+      ahc_subtype_rows = sum(is_ahc),
+      ahc_subtype_usd = ahc_usd,
+      general_knowledge_rows = sum(is_gk),
+      general_knowledge_usd = gk_usd,
+      named_hospital_usd_excl_ahc_and_gk = named - either_usd,
+      share_floor_excl_ahc_and_gk_pct = round(100 * (named - either_usd) / denom, 1),
       intent_rows = row$intent_rows,
       pct_priced_on_intent = row$pct_priced_on_intent,
       award_action_stage = Y1_AWARD_STAGE[[st]]
