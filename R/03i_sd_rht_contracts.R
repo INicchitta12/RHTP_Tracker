@@ -179,6 +179,22 @@ SD_PLACEMENT <- tibble::tribble(
 )
 SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
 
+# Health-system PARENTS, typed by hand on the owner's resolution of
+# SD_SYSTEM_PARENTS_FORM_NOT_STATED (session 87). Neither string is on CMS's SD
+# Hospital Enrollments -- their hospitals enrol under their own legal entities
+# (SANFORD MEDICAL CENTER, AVERA MCKENNAN, ...) -- and the register states no
+# form, so the federal-record rule above cannot reach them. They are typed
+# HOSPITAL_OR_SYSTEM on GENERAL KNOWLEDGE, LOW, with no CCN: the UVM Health
+# Network / Southwestern Vermont Health (VT) and Virtua (NJ) precedent.
+# basis_type = GENERAL_KNOWLEDGE keeps them subtractable from any figure.
+# Keyed on contract number AND the register's exact string; a row that is no
+# longer on §8's fallback, or a string that moves, fails the build.
+SD_SYSTEM_PARENTS <- tibble::tribble(
+  ~contract_number, ~awardee,         ~why,
+  "27RHT00031",     "SANFORD HEALTH", "Sanford Health (Sioux Falls), the parent system of Sanford's South Dakota hospitals, which enrol with CMS under their own legal entities (e.g. SANFORD MEDICAL CENTER, SANFORD HEALTH NETWORK); 'SANFORD HEALTH' is not itself on CMS's SD Hospital Enrollments.",
+  "27RHT00034",     "AVERA HEALTH",   "Avera Health (Sioux Falls), the parent system of Avera's South Dakota hospitals, which enrol with CMS under their own legal entities (e.g. AVERA MCKENNAN, AVERA ST LUKES); 'AVERA HEALTH' is not itself on CMS's SD Hospital Enrollments."
+)
+
 # The Technology and data round, the only announced round an UNPLACED row could
 # sit inside. Its bounds cap the UNPLACED pool so it can never be read as money
 # on top of the $121.5M announced.
@@ -703,6 +719,39 @@ rhtp_sd_build <- function() {
     )
   }
 
+  # Health-system parents, on the owner's resolution (session 87).
+  classified$basis_type <- NA_character_
+  sp <- match(SD_SYSTEM_PARENTS$contract_number, classified$contract_number)
+  if (anyNA(sp) ||
+      !identical(classified$awardee[sp], SD_SYSTEM_PARENTS$awardee) ||
+      !all(classified$classification_rule[sp] == "FALLBACK")) {
+    stop("[SD] SD_SYSTEM_PARENTS no longer matches the register: each contract ",
+         "must be present, carry its exact string, and sit on §8's fallback. ",
+         "Re-read the detail pages before re-typing anything.", call. = FALSE)
+  }
+  flow <- rhtp_classify_flow(rep("HOSPITAL_OR_SYSTEM", length(sp)),
+                             classified$description[sp])
+  classified$recipient_type[sp] <- "HOSPITAL_OR_SYSTEM"
+  classified$determination_confidence[sp] <- "LOW"
+  classified$flow_type[sp] <- flow$flow_type
+  classified$distributed_to_hospital[sp] <- flow$distributed_to_hospital
+  classified$hospital_benefiting[sp] <- flow$hospital_benefiting
+  classified$flag_reason[sp] <- NA_character_
+  classified$classification_rule[sp] <- "SYSTEM_PARENT_GENERAL_KNOWLEDGE"
+  classified$basis_type[sp] <- "GENERAL_KNOWLEDGE"
+  classified$recipient_type_source[sp] <- paste0(
+    "GENERAL KNOWLEDGE, LOW (owner's resolution of ",
+    "SD_SYSTEM_PARENTS_FORM_NOT_STATED, session 87): ", SD_SYSTEM_PARENTS$why
+  )
+  classified$determination_basis[sp] <- paste(
+    "§10.2 DIRECT: the recipient is a HEALTH-SYSTEM PARENT, typed",
+    "HOSPITAL_OR_SYSTEM on general knowledge, not on the register (which",
+    "states no form) and not on a CMS enrolment (none carries this string).",
+    "No CCN; LOW, basis_type GENERAL_KNOWLEDGE, so the row is subtractable.",
+    "Precedent: UVM Health Network and Southwestern Vermont Health (VT),",
+    "Virtua (NJ).", flow$flow_basis
+  )
+
   # Hand placement of the non-Rural-Strong contracts first seen 10-02 or later.
   late <- match(classified$first_seen_archive, SD_SEARCH_ARCHIVES) >=
     match(SD_PLACEMENT_FROM, SD_SEARCH_ARCHIVES)
@@ -804,7 +853,9 @@ rhtp_sd_build <- function() {
       "contract_number", "agency", "begin_date", "vendor_city", "vendor_state",
       "solicitation_type", "cfda_number", "description",
       # -- appended session 64 -------------------------------------------
-      "award_pool", "round_id", "first_seen_archive"
+      "award_pool", "round_id", "first_seen_archive",
+      # -- appended session 87 -------------------------------------------
+      "basis_type"
     )
 }
 

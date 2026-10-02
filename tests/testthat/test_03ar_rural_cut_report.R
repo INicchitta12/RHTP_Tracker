@@ -29,8 +29,11 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 1,261 / $1,149,408,077.27 / 31.
   # Sessions 85-86: + WV Minnie Hamilton, OK Doulas, RRR and CDM, and SD's
   # 2026-10-02 register: 1,288 / $1,190,363,515.42 / 31.
-  expect_equal(nrow(rows), 1288L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1190363515.42,
+  # Session 87: + SD's Sanford Health and Avera Health, typed system parents
+  # on the owner's resolution (2 / $7,007,000, LOW, no CCN); no new state:
+  # 1,290 / $1,197,370,515.42 / 31.
+  expect_equal(nrow(rows), 1290L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1197370515.42,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -124,6 +127,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1288L)   # session 82: + 36 CO; session 83: + 23
+  expect_equal(nrow(committed), 1290L)   # session 82: + 36 CO; session 83: + 23; session 87: + 2 SD
   expect_equal(committed$rural_class, rows$rural_class)
 })

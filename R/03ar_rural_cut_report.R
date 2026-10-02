@@ -290,10 +290,13 @@ rc_assert <- function(rows = rc_rows()) {
   # and OK Doulas Newman (1 / $38,525). Session 86: + OK RRR (10 /
   # $21,099,804), OK CDM (6 / $9,197,657.15) and SD's 2026-10-02 register
   # (7 / $8,919,452): 1,288 / $1,190,363,515.42 / 31.
-  if (nrow(rows) != 1288L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1190363515.42) > 0.005 ||
+  # Session 87: + SD's Sanford Health and Avera Health, typed system parents
+  # on the owner's resolution (2 / $7,007,000, LOW, no CCN); no new state:
+  # 1,290 / $1,197,370,515.42 / 31.
+  if (nrow(rows) != 1290L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1197370515.42) > 0.005 ||
       dplyr::n_distinct(rows$state) != 31L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,288 rows / $1,190,363,515.42 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,290 rows / $1,197,370,515.42 ",
          "/ 31 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

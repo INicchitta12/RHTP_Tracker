@@ -247,7 +247,7 @@ EH_APPLY <- tibble::tribble(
     "EXACT_LEGAL_NAME", FALSE, "OSDH states no form (session 86). ",
   "ok_year1_cdm_awardees.csv", "Choctaw Nation of Oklahoma", 1L,
     "370172", "CHOCTAW NATION OF OKLAHOMA (tribal hospital enrolment, Stigler)",
-    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form, as for the same nation's microgrant row in ok_year1_awardees.csv; the session-72 precedence rule leaves the enrolment to decide. Queued for the owner: OK_CDM_CHOCTAW_TRIBAL_HOSPITAL_ENROLMENT (session 86). ",
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form, as for the same nation's microgrant row in ok_year1_awardees.csv; the session-72 precedence rule leaves the enrolment to decide. Owner resolved OK_CDM_CHOCTAW_TRIBAL_HOSPITAL_ENROLMENT (session 87): the enrolment stands. ",
   "ok_year1_cdm_awardees.csv", "Cimarron Memorial Hospital and Rural Health Clinic", 1L,
     "371307", "CIMARRON MEMORIAL HOSPITAL AND NURSING HOME (dba CIMARRON MEMORIAL HOSPITAL; CAH)",
     "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: the awardee is the enrolled hospital's DBA plus its own RHC (CCN 373459, same legal entity), LOW (session 86). ",
