@@ -37,3 +37,4 @@ MT,trig_01YJFwwSQ1pEQEScfUfGzgSD,"40 17 * * 2,5",R/03bl_mt_year1_probe.R,twice-w
 NH,trig_01D5rZ2KjtjmyXcRuVjNxQr4,10 18 * * 3,R/03bm_nh_year1_probe.R,weekly,2026-09-30T15:33:30Z,trig_013kuBUJ39zAwF7SM7RYfwvk,2026-09-28T20:19:26Z
 OK,trig_0195epZAcyF5L1WbYJYMQ5Za,10 18 * * 4,R/03t_ok_year1_awardees.R,weekly,2026-09-30T15:34:33Z,trig_01MT1CVgVd1LZQbMpRoRMRGD,2026-09-28T20:19:10Z
 MN,trig_018tLxX82fNyKgxw5JkRw5PV,10 18 * * 5,R/03bn_mn_year1_probe.R,weekly,2026-09-30T15:35:36Z,trig_01TkZG5yB5a1LnuBMv67tPEj,2026-09-28T20:19:26Z
+AL,trig_01NtbC312pu2u8d7uePQXEty,40 14 * * 4,R/03bs_al_year2_probe.R,weekly,2026-10-02T13:57:49Z,,

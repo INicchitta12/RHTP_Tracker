@@ -1,0 +1,4 @@
+1e3bf0cc4715c39c5b087869ff74004a7baeb02804a960be48100e2a8577a14b  2026-10-02_al_rhtp_resources.html  https://alabamarhtp.com/resources/  full_page_sha256=e5a5657950db7e729ecf501b9d00798fc6f7b4fe45f183536944b8fb7cfecb8b  2026-10-02T13:55:53Z
+246910ade49b3365970a85fa167392d0b479942fdac8be54c8b17ba6e9d13666  2026-10-02_al_rhtp_home.html  https://alabamarhtp.com/  full_page_sha256=7323e2404a1b34b8451dd7198114ec3690a6c9a994917f9d0f1fb70f370683fe  2026-10-02T13:55:57Z
+127f7d700b399c5b98f1e8afb0c3d0b0d62e147279a3626a49793367c0fc36ed  2026-10-02_adeca_alruralhealth.html  https://adeca.alabama.gov/alruralhealth/  full_page_sha256=9636d4f7a2564736f1c9dd8192df38b869d6e5a10749f52e55e4343ac921cce4  2026-10-02T13:56:00Z
+cf5271c5d79d31d6ae4aef465cbe24fdcb4195241daebb3403c27bb538b753d3  2026-10-02_governor_newsroom_index.html  https://governor.alabama.gov/newsroom/  full_page_sha256=2c8a9512a190297af37772905f8f8bb149b2a08fab385a128c0eda85adcae984  2026-10-02T13:56:03Z

@@ -175,10 +175,10 @@ Y1_STATUS <- tibble::tribble(
   "DHS's RHTP funding-opportunities page lists 'Upcoming Opportunities' -- four further payment programmes (Rapid Response Stabilization Rounds 1 and 2, an FQHC EHR/HIO programme and one more), about $86.8M, naming nobody (session 21). The 66 selected projects are one tranche.",
   "data/evidence/recheck/2026-08-29/PA/PA_dhs_rhtp_funding_opportunities.html",
 
-  "AL", "PARTIAL", "Yes", "Yes",
+  "AL", "COMPLETE", "Yes", "No",
   "2026-10-01",
-  "THE SOURCE CALLS IT COMPLETE AND THE STATE'S OWN PLAN SAYS OTHERWISE (session 83). Governor Ivey, 2026-10-01: 'The grants announced today round out year one of funding for the program' -- 34 round-2 grants in five initiatives plus more Rural Health and Rural Workforce projects (al_year1_round2_awardees.csv). But the 2026-08-24 release says ARHTP 'includes 11 initiatives', the two rounds fund TEN, and the ELEVENTH -- Community Medicine (mobile wellness and grocery units) -- carries 'Estimated required funding ... $7.3M for year 1' in ADECA's revised Project Narrative (Table XIV-J1, 'Revised - 4.10.2026') and has no award in either release. The narrative's Stage 1 is 'Procure mobile wellness units', so it may be a state procurement rather than a grant; nothing published says so. COMPLETE needs no recorded remainder, so PARTIAL until a source accounts for Community Medicine. Published: $198,539,348 of $203,404,327 (97.6%).",
-  "data/evidence/recheck/2026-10-01/AL/al_governor_2026-10-01_round2_34_grants.html; data/evidence/AL/2026-08-24_governor_ivey_first_arhtp_grants.html; data/evidence/AL/2026-10-01_adeca_arhtp_project_narrative_revised_2026-04-10.pdf",
+  "Governor Ivey, 2026-10-01: 'The grants announced today round out year one of funding for the program'; CMS's release adds that it 'completes Alabama's initial Year 1 award cycle'. Rounds 1 and 2 fund TEN of ARHTP's eleven initiatives. Session 83 held the ELEVENTH, Community Medicine, as a remainder on the revised Project Narrative's 'Estimated required funding $5M for 3 years; $7.3M for year 1' (Table XIV-J1, Revised 4.10.2026). Session 84 SETTLED IT FROM TWO LATER ADECA DOCUMENTS: the Program Manual (proposed final, 2026-09-08), section 10.10, 'Estimated funding $5M over 4 years (begins program Year 2 / 2027; no Year 1 funding)', and the June 2026 roadshow deck, 'The Community Medicine Initiative is not budgeted in Year 1 of Program'. alabamarhtp.com lists ten closed Year 1 NOFOs and none for Community Medicine. It is not a Year 1 remainder, and for Year 2 it is a SUBAWARD round, not a state procurement: Table XIX-10 reports 'Number of mobile wellness units procured' as 'Quarterly reporting from subawardees', so the units are bought by awardees, and the narrative gives 'Priority consideration ... to applicants'. Published: $198,539,348 of $203,404,327 (97.6%); the $4,864,979 residual is not attributed to any initiative by any source read.",
+  "data/evidence/recheck/2026-10-01/AL/al_governor_2026-10-01_round2_34_grants.html; data/evidence/AL/2026-10-02_adeca_arhtp_program_manual_proposed_final_2026-09-08.pdf; data/evidence/AL/2026-10-02_adeca_arhtp_intro_presentation_2026-06.pdf; data/evidence/AL/2026-10-01_adeca_arhtp_project_narrative_revised_2026-04-10.pdf",
 
   "AK", "PARTIAL", "No", "Yes",
   "2026-09-21",
@@ -446,7 +446,12 @@ Y1_AWARD_STAGE <- c(
              "be finalized until DFA signs an official agreement with each",
              "grantee'. No agreement is published; CMS's obligation deadline is",
              "2026-10-30. COMPLETE here means the ROUND is fully announced, not",
-             "that any award is executed.")
+             "that any award is executed."),
+  AL = paste("AWARDED (GOVERNOR'S WORD), ALL 172 ROWS: 'were awarded more than",
+             "$144 million through 138 grants' and 'The second round of grant",
+             "funding was awarded'. Both rest on the Governor's releases",
+             "(GOVERNOR_PRESS_RELEASE); no executed agreement is published.",
+             "55 amounts are rounded in the source (AMOUNT_ROUNDED_IN_SOURCE).")
 )
 
 y1_hospital_share <- function(status = y1_build_status()) {

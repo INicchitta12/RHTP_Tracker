@@ -666,6 +666,7 @@ R/
   03bp_tx_bp1_floor.R          # Texas — 33 of 68 districts in the BP1 report; a FLOOR, codes nothing (BUILT)
   03bq_al_round2_awardees.R    # Alabama round 2 — 34 grants, $54.8M, typed on CMS AL enrolment (BUILT)
   03br_nc_sbhc_awardees.R      # North Carolina SBHC — 5 named, $1.25M pool, NO split (BUILT)
+  03bs_al_year2_probe.R        # Alabama — a WATCH on Community Medicine, a YEAR 2 subaward round (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1621,7 +1622,10 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-01 (Session 83). Session 83 re-typed National Jewish Health (MI, $435,000) on its CMS
+**Last updated:** 2026-10-02 (Session 84). Session 84 moved Alabama to Year 1 COMPLETE: ADECA's Program Manual
+(09-08) gives Community Medicine "no Year 1 funding" (begins Year 2 / 2027), and its June deck says "not budgeted in
+Year 1". It is a SUBAWARD round (metrics reported "from subawardees"), now watched by `R/03bs` on a weekly Routine.
+Detail: `docs/session84_al_complete_probe_log_review_ms_window.md`. Session 83 re-typed National Jewish Health (MI, $435,000) on its CMS
 enrolment, extracted Alabama round 2 (`R/03bq`, 34 grants, $54,793,527, 21 hospital rows / $20,886,572) and NC's
 SBHC roster (`R/03br`, 5 rows, $0, FirstHealth), and kept AL PARTIAL: the release says it rounds out Year 1, but
 Community Medicine, the 11th initiative, has $7.3M of Year 1 plan and no award. Detail:
@@ -1747,7 +1751,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
 | State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
-| State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn` | Built; each on a Routine (`config/routines.csv`) |
+| State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn`, `03bs` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
 | §8/§10.2 classifier | `R/utils_recipient_classification.R` | Built |
@@ -1776,7 +1780,7 @@ POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 
 Never add these. `ACADEMIC_HEALTH_CENTER` subtype rows (session 71) can be subtracted. `GENERAL_KNOWLEDGE`
 rows (`basis_type`, LOW) can be subtracted. Rural cut: `R/03ar`. Complete states and their hospital shares:
-`year1_completion_status.csv` (FL, GA, AR).
+`year1_completion_status.csv` (FL, GA, AR, AL).
 
 ### Deliverable 1: state award files
 
@@ -1837,7 +1841,7 @@ Stage 4's `data/interim/review_queue.rds`, which does not exist yet.
 
 ### Routines
 
-Every Routine is in `config/routines.csv`. There are 38, each on its own persistent runner session. Prompts:
+Every Routine is in `config/routines.csv`. There are 39 (AL added session 84), each on its own persistent runner session. Prompts:
 `config/routine_prompts/v4/<ST>.txt`, derived from the stored v3 prompts by `R/routine_prompts_worktree.R`
 (`--write`, `--check`); runner moves in `config/routine_prompts/runner_moves.csv`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
 `config/probe_gaps_explained.csv`.
@@ -1892,12 +1896,20 @@ Network is Full; the old allowlist blockers are superseded.
 `routines.csv` on `main` carries the six new ids, their lines read as unregistered. Sessions 79 and 80 are on
 `main` (PRs #83, #84).
 
+- **Unread trips (session 84's log review, `docs/session84_*` §2):** DE NEWSROOM "Nearly $23 Million to FQHCs"
+  (fires every sweep until read and re-based); ND four opportunities headed "Awarded" incl. Rural FQHCs and Critical
+  Access Hospitals; OK "Expanding Care: Doulas" on Funding Recipients; WV two new releases (Community Care of WV
+  $1.1M, Minnie Hamilton $4M+) for `WV_AWARDS`; CT `opm` name trip logged as ERROR twice; NH T-TAC.
+  Session-84 check-ins (`trig_01PGFH…` 10-02 21:45Z, `trig_01MWZ2…` 10-04 11:45Z, `trig_01DpSc…` 10-08 15:15Z)
+  delete each old id below once its successor has logged.
 - **Delete the six session-82 old ids once each new Routine has put a line on `main`:** NY
   `trig_014kvDg8x3JDqdWySvHxrREU`, LA `trig_016GDtAW1DvWCexnRSm4LxK8`, WY `trig_01F98Jr5do6PXbUzNLBGjzGE`,
   ME `trig_01RyrB4uNLd6rdjaD8d9tWBk`, MO `trig_0183VrPsZUMmc3dMneainqXm`, SC `trig_01R1pZjkPkQZWD3vctiAJQ44`.
-- **Alabama is PARTIAL with `source_calls_complete = Yes`.** It leaves PARTIAL only when a source accounts for
-  Community Medicine (ADECA Project Narrative Table XIV-J1, "$7.3M for year 1"; Stage 1 is "Procure mobile wellness
-  units", so it may be a state procurement). Ask ADECA or watch its procurement channel; never close it on arithmetic.
+- **Alabama is Year 1 COMPLETE (session 84).** Community Medicine has no Year 1 money (ADECA Program Manual
+  10.10; June deck). Its Year 2 round is watched by `R/03bs` (`trig_01NtbC312pu2u8d7uePQXEty`, Thu 14:40Z, runner
+  `session_01C6egjruxEZH2yc6kbffHaf`). **Merge this branch before Thu 10-08 14:40Z** or AL's line reads unregistered.
+  AL hospital share (rounds 1+2): 91 rows / $104,434,859 = 52.6% of published; AHC rows $18,308,866 and the LOW
+  Greene County bridge $3,913,694 are subtractable.
 - **North Carolina:** the Rural Health Innovation Fund (launched 09-30, Tier 2, applications due 11-16, awards
   "January 2027") is the next NC roster.
 - **Texas floor:** `tx_bp1_first_tier_floor.csv` is not an award file. R/03n's probe trips when the BP1 report

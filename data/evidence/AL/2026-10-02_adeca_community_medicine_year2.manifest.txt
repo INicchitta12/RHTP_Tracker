@@ -1,0 +1,29 @@
+RHTP tracker archive (spec 0.4 / 0.5): two ADECA documents that settle Community Medicine.
+
+fetched_utc : 2026-10-02T14:10Z (session 84)
+user-agent  : Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+
+aa39344cfda96371870176d27145ce46653d16c7c9e1e3293ac1b738c0efeac8  2026-10-02_adeca_arhtp_program_manual_proposed_final_2026-09-08.pdf
+  url         : https://alabamarhtp.com/wp-content/uploads/2026/09/ada_ARHTP-Program-Manual-Proposed-Final_09082026_3-BDO-9.10.pdf
+  linked from : https://alabamarhtp.com/resources/ ("Alabama RHTP Program Manual", under Grantee Resources)
+  pdf dates   : created/modified 2026-09-14; 28 pages
+  sentence    : section 10.10 Community Medicine Initiative, Estimated funding:
+                "$5M over 4 years (begins program Year 2 / 2027; no Year 1 funding)"
+  also        : 10.10 "Participating entities may include community organizations, healthcare
+                providers, and local leaders"; 8.3 "ARHTP funds may be distributed through
+                subrecipient awards, direct awards, interagency agreements, procurements, contracts"
+
+e7b513f020dad34b6e3b84567186adf50817df84d21bc3a4d8f22f3e0835613c  2026-10-02_adeca_arhtp_intro_presentation_2026-06.pdf
+  url         : https://alabamarhtp.com/wp-content/uploads/2026/06/AL-RHTP-Intro-Presentation.pdf
+  linked from : https://alabamarhtp.com/resources/ (ROADSHOW, "Download Presentation Slides Here")
+  pdf dates   : created 2026-06-02; 30 pages
+  sentence    : footnote 3 to the eleven-initiative list, and again on the initiative's own slide:
+                "The Community Medicine Initiative is not budgeted in Year 1 of Program"
+
+WHY ARCHIVED: session 83 kept Alabama PARTIAL because the revised Project Narrative
+(Revised 4.10.2026, Table XIV-J1) carries "$5M for 3 years; $7.3M for year 1" for
+Community Medicine and neither award release names a Community Medicine award. Both
+later ADECA documents say the initiative has no Year 1 funding and begins in Year 2
+(2027). The narrative line is also internally inconsistent: its Year 1 figure exceeds
+its own 3-year total. The resources page lists ten closed Year 1 NOFOs and none for
+Community Medicine.
