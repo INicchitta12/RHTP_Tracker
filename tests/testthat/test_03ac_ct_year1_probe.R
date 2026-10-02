@@ -439,3 +439,38 @@ test_that("the CT disposition covers the live candidates and its prose agrees", 
   expect_equal(committed$rows, d$rows)
   expect_equal(committed[[ncol(committed)]], d[[ncol(d)]])
 })
+
+
+# -- session 85: furniture on opm and programme -----------------------------
+
+test_that("the OPM staffing-study RFP and the HALF footer are quiet, a real recipient is not", {
+  opm  <- ct_html_text("opm")
+  prog <- ct_html_text("programme")
+  # The 10-02 live shapes, reproduced on the archive: an unrelated OPM RFP
+  # above the RHTP NOFO, and the footer mast on the other node.
+  rfp <- paste("Request for Proposals (RFP) #26OPM0202AA Staffing Study of State",
+               "Police within the Department of Emergency Services and Public",
+               "Protection & Custody and Counseling Staffing within the Department",
+               "of Correction The State of Connecticut, Office of Policy and",
+               "Management, is seeking proposals. OFFICIAL STATE CONTACT: Andre",
+               "Simons Secretary II Office of Policy and Management Criminal Justice",
+               "Policy and Planning Division 450 Capitol Avenue.",
+               "Division of State Police. Department of Correction.")
+  live_opm  <- paste(rfp, opm)
+  live_prog <- gsub("FULL", "HALF", prog, fixed = TRUE)
+  expect_silent(rhtp_assert_no_new_organisations_across(
+    live = list(opm = live_opm, programme = live_prog),
+    archived = list(opm = opm, programme = prog),
+    state = "CT", furniture = CT_NAME_FURNITURE))
+  # Exact match, so a real awardee on either page still fires.
+  expect_error(rhtp_assert_no_new_organisations_across(
+    live = list(opm = paste(live_opm, "Awarded to Sharon Hospital Inc."),
+                programme = live_prog),
+    archived = list(opm = opm, programme = prog),
+    state = "CT", furniture = CT_NAME_FURNITURE), "Sharon Hospital")
+  expect_error(rhtp_assert_no_new_organisations_across(
+    live = list(opm = live_opm,
+                programme = paste(live_prog, "Recipient: Day Kimball Healthcare.")),
+    archived = list(opm = opm, programme = prog),
+    state = "CT", furniture = CT_NAME_FURNITURE), "Day Kimball")
+})

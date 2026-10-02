@@ -1012,7 +1012,14 @@ wi_probe_kind <- function(key) {
 # detail page mentions "Rural Health Transformation", "RHTP" and "Centers for
 # Medicare" ZERO times. An opportunity on the unawarded index, not a roster,
 # and not RHTP.
+# SESSION 85, after the Routine's 2026-10-02 14:10Z halt: the fifth is "2026
+# Intoxicated Driver Program Supplemental Funding", due 2026-12-14. Its detail
+# page cites "1999 Wis. Act 9 and Wis. Stat. § 20.435(5)(hy)" -- a STATE
+# appropriation for OWI-ordered treatment -- and mentions "Rural Health
+# Transformation", "RHTP" and "Centers for Medicare" ZERO times. An opportunity
+# on the unawarded index, not a roster, and not RHTP.
 WI_NAME_FURNITURE <- list(dhs_solicit = c(
+  "Intoxicated Driver Program Supplemental Funding Request for Application",
   "Increasing Tenant and Homeowner Environmental Health Literacy Mini–Grant Request for Application",
   "Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application",
   "Room and Board Residential Substance Use Disorder Opioid Settlement Funds Request for Application",

@@ -1135,6 +1135,35 @@ rhtp_ct_report <- function() {
 #   dss_press   DSS's, where a state-level announcement would land
 CT_PROBE_KEYS <- c("opm", "programme", "documents", "ohs_press", "dss_press")
 
+# Strings a human READ on a subject page and judged NOT a recipient (§2.3,
+# exact match). Session 85: the CT Routine's 09-28 and 10-01 firings tripped
+# on five names on `opm` -- and logged ERROR, not TRIPWIRE, because
+# rhtp_probe_run() read the "connect" in "Connecticut" as an access failure
+# (fixed in rhtp_probe_verdict()). Read 2026-10-02: all five come from OPM's
+# RFP #26OPM0202AA, "Staffing Study of State Police within the Department of
+# Emergency Services and Public Protection & Custody and Counseling Staffing
+# within the Department of Correction" (released 9/28/26, proposals due
+# 10/27/26), posted ABOVE the RHTP NOFO #26OHS001 on OPM's shared RFP index.
+# A criminal-justice procurement and its contact officer: not RHTP, not an
+# award, nobody's recipient. The RHTP NOFO block below it is unchanged.
+CT_NAME_FURNITURE <- list(opm = c(
+  "Department of Emergency Services and Public Protection",
+  "Department of Correction The State of Connecticut",
+  "Division of State Police",
+  "Department of Correction",
+  "Andre Simons Secretary II Office of Policy and Management Criminal Justice Policy and Planning Division"),
+  # Session 85, the same interactive run: `programme` then fired on the page
+  # FOOTER. portal.ct.gov prints "United States Mast: (Full) Connecticut Mast:
+  # (Full)" or "(Half)" depending on the serving node -- the same per-node
+  # variation as the ?v= asset stamp above -- and the reader welds the last
+  # body link ("CT Office of Rural Health") onto that footer run. The archive
+  # holds the FULL variant; the HALF one is the same chrome. Both are listed
+  # so neither node trips; a real organisation in that run would change the
+  # string and still fire.
+  programme = c(
+    "CT Office of Rural Health Policies Accessibility About CT Directories Social Media For State Employees United States FULL Connecticut FULL",
+    "CT Office of Rural Health Policies Accessibility About CT Directories Social Media For State Employees United States HALF Connecticut HALF"))
+
 #' The change test: a digest of the REDUCED text, not of the file
 #'
 #' See `ct_probe()`. It reduces with `ct_reduce_html()` -- the same function
@@ -1209,7 +1238,8 @@ ct_probe <- function(keys = CT_PROBE_KEYS) {
       programme = ct_html_text("programme"),
       documents = ct_html_text("documents"),
       opm = ct_html_text("opm")),
-    state = "CT")
+    state = "CT",
+    furniture = CT_NAME_FURNITURE)
 
   message("[CT] the award tripwires pass against the LIVE bytes: Connecticut ",
           "has not published a recipient-level RHTP award roster.")
