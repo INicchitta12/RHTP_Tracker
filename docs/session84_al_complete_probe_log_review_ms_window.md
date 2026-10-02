@@ -108,8 +108,8 @@ session). **Nothing was deleted.**
 
 | State | New id | First firing | Old id (disabled) |
 |---|---|---|---|
-| ME | `trig_01D21P4pNZXJv9vN7Uv6jmdn` | Fri 10-02 16:20Z | `trig_01RyrB4uNLd6rdjaD8d9tWBk` |
-| WY | `trig_01CLqQDvGoWCDoSMtS29FJbQ` | Fri 10-02 21:10Z | `trig_01F98Jr5do6PXbUzNLBGjzGE` |
+| ME | `trig_01D21P4pNZXJv9vN7Uv6jmdn` | Fri 10-02 16:20Z — **logged 16:21:51Z** | `trig_01RyrB4uNLd6rdjaD8d9tWBk` — **DELETED 10-02 21:46Z** |
+| WY | `trig_01CLqQDvGoWCDoSMtS29FJbQ` | Fri 10-02 21:10Z — **logged 21:12:12Z** | `trig_01F98Jr5do6PXbUzNLBGjzGE` — **DELETED 10-02 21:46Z** |
 | LA | `trig_01NRTUU1Vg3DoQPL1uK2gKBt` | Sat 10-03 12:50Z | `trig_016GDtAW1DvWCexnRSm4LxK8` |
 | NY | `trig_012g3adVBX9KEgDt9XiVi2tU` | Sun 10-04 11:10Z | `trig_014kvDg8x3JDqdWySvHxrREU` |
 | MO | `trig_01EB2Xxyn1bSy3LcGBEcuZra` | Wed 10-07 15:00Z | `trig_0183VrPsZUMmc3dMneainqXm` |
@@ -130,3 +130,7 @@ pair is already covered by session 80's one-shot at 15:45Z today.
   - `ms_assert_announcement_on_channel` covers the Governor's newsroom.
   - The name tripwire runs on `funding` and `home`.
 - No change was needed.
+
+**Check-in 10-02 21:45Z.** ME and WY each logged on `main` under the new id. Both old ids were read with
+`get_trigger` first: each was `enabled:false` and bound to the OLD runner (`session_01CdiK…`, `session_018FWp…`),
+not the new one. Both were then deleted. The new NV id also logged (15:12:50Z).
