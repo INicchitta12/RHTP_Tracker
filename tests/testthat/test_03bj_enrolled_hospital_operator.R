@@ -201,7 +201,7 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,288 / $1,190,363,515.42 / 31; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,290 / $1,197,370,515.42 / 31; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
@@ -217,9 +217,14 @@ test_that("the partition: NAMED_HOSPITAL 1,288 / $1,190,363,515.42 / 31; pools u
   # (1 / $38,525) -- this pin was left at 1,261 then and is caught up here.
   # Session 86: + OK RRR (10 / $21,099,804), OK CDM (6 / $9,197,657.15) and
   # SD's 2026-10-02 register (7 / $8,919,452); no new state. Subtracted first.
-  expect_equal(n$rows, 1288L)
-  expect_equal(round(n$dollars, 2), 1190363515.42)
+  # Session 87: + SD's Sanford Health and Avera Health, typed system parents
+  # on the owner's resolution (2 / $7,007,000, LOW, no CCN); no new state:
+  # 1,290 / $1,197,370,515.42 / 31.
+  expect_equal(n$rows, 1290L)
+  expect_equal(round(n$dollars, 2), 1197370515.42)
   expect_equal(n$states, 31L)
+  n$rows <- n$rows - 2L
+  n$dollars <- n$dollars - 7007000
   n$rows <- n$rows - 23L
   n$dollars <- n$dollars - 21099804 - 9197657.15 - 8919452
   n$rows <- n$rows - 4L

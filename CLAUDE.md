@@ -1624,14 +1624,19 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-02 (Session 86). Session 86 extracted session 85's four held rosters on the owner's approval:
+**Last updated:** 2026-10-02 (Session 87). Session 87 applied the owner's answers to session 86's three queue questions:
+Sanford Health and Avera Health (SD) are `HOSPITAL_OR_SYSTEM`, LOW, `GENERAL_KNOWLEDGE`, no CCN, as system parents
+(`R/03i` `SD_SYSTEM_PARENTS`; +2 rows / +$7,007,000, inside the $31.5M round). SWOSU stays `UNIVERSITY_OR_AHC`
+($0). Choctaw Nation stays `HOSPITAL_OR_SYSTEM` on CCN 370172 ($0). `sd_rht_contracts.csv` gained `basis_type`.
+NAMED_HOSPITAL is now 1,290 / $1,197,370,515.42 / 31 states. Detail: `docs/session87_owner_queue_resolutions_sd_ok.md`.
+Session 86 extracted session 85's four held rosters on the owner's approval:
 - **OK RRR + CDM** (`R/03bt`, own files): +16 hospital rows / +$30,297,461.15. 7 rows / $13,380,488.41 are LOW
   (Mercy, Fairview, Lindsay, Ascension Jane Phillips, Cimarron). Choctaw Nation is on its CMS hospital enrolment.
   Central Oklahoma Family Medical Center is an FQHC on CMS's file.
 - **DE FQHCs** (`R/03bu`): 3 rows, $22,690,000 rounded, no hospital.
 - **SD:** the register now holds 41 / $26,836,144, so 15 contracts are new (not 13). 6 Rural Strong grants sit inside
   the $31.5M. 8 have no stated round, are capped at the $90M round and are never added (`SD_PLACEMENT`). SD is
-  +7 hospital rows / +$8,919,452. Sanford and Avera system parents ($7,007,000) are queued.
+  +7 hospital rows / +$8,919,452. Sanford and Avera system parents ($7,007,000) were queued (typed session 87).
 - **Stale figures fixed:** `R/03aw` no longer adds SD's in-round contracts on top of the round totals. The 03bj
   verdicts, the 03bj and rural-cut partition pins and the 03bh WV disposition that session 85 left stale are caught
   up. Rural cut: 256 rows / $263,299,771.23 (+16 CAH rows by CCN).
@@ -1795,10 +1800,10 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-02, session 86, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-02, session 87, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,288 rows   $1,190,363,515.42   31 states
+NAMED_HOSPITAL          1,290 rows   $1,197,370,515.42   31 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 ```
@@ -1841,7 +1846,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | PA | 66 | 66 | $42,198,310 | 27 / $24,149,111 (authorized, undisbursed) |
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
 | OK RRR | 20 | 20 | $39,578,523 | 10 / $21,099,804 (4 LOW bridges $8,272,013 incl. Mercy, no CCN) |
-| SD contracts | 41 | 41 | $26,836,144 | 12 / $9,636,252 (14 Rural Strong inside $31.5M; 8 unplaced, never on top of $90M) |
+| SD contracts | 41 | 41 | $26,836,144 | 14 / $16,643,252 (Sanford + Avera parents $7,007,000 LOW, GENERAL_KNOWLEDGE; 14 Rural Strong inside $31.5M; 8 unplaced, never on top of $90M) |
 | DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
@@ -1926,8 +1931,7 @@ Network is Full; the old allowlist blockers are superseded.
 `main` (PRs #83, #84).
 
 - **Session 86 wrote all four held rosters** (OK RRR, OK CDM, DE FQHCs, SD). The OK probe and NEWSROOM DE are
-  re-based and quiet. Three owner questions are new in the review queue: `SD_SYSTEM_PARENTS_FORM_NOT_STATED`
-  ($7,007,000), `OK_RRR_SWOSU_LOCAL_HOSPITAL` ($3,999,285) and `OK_CDM_CHOCTAW_TRIBAL_HOSPITAL_ENROLMENT` ($360,552).
+  re-based and quiet. Its three owner questions were resolved in session 87 (see Last updated).
 - **The OK and WV builders now chain R/03bj's overlay** (`R/03bt --build`, `R/03av --build`). Any extractor that
   sets `cms_enrolment_match` needs an EH_APPLY verdict, or `test_03bj` fails.
 - **ME's and CT's fixes are on this branch only.** Until it merges, a Routine running from `main` will still log

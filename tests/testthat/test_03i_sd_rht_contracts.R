@@ -120,21 +120,34 @@ test_that("the fourteen Rural Strong grants are exactly the register's own read"
   expect_equal(rs$awardee[is.na(rs$cfda_number)], "UNIVERSITY OF SOUTH DAKOTA")
 })
 
-test_that("no ADMINISTRATIVE dollar reaches a hospital; 9 RS and 3 unplaced rows do", {
+test_that("no ADMINISTRATIVE dollar reaches a hospital; 11 RS and 3 unplaced rows do", {
   admin <- records[is.na(records$round_id), ]
   expect_true(all(admin$distributed_to_hospital == "No"))
   hosp <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(hosp), 12L)
-  expect_equal(sum(hosp$amount), 9636252)
-  expect_equal(sum(hosp$round_id == "RS"), 9L)
+  expect_equal(nrow(hosp), 14L)
+  expect_equal(sum(hosp$amount), 16643252)
+  expect_equal(sum(hosp$round_id == "RS"), 11L)
   expect_equal(sum(hosp$amount[hosp$round_id == "UNPLACED"]), 1837644)
   expect_true(all(hosp$recipient_type == "HOSPITAL_OR_SYSTEM"))
-  # Sanford Health and Avera Health are system parents with no SD hospital
-  # enrolment under those strings: §8's fallback, held in the review queue
-  # (SD_SYSTEM_PARENTS_FORM_NOT_STATED), never promoted here.
+})
+
+test_that("Sanford Health and Avera Health are system parents, typed LOW on general knowledge", {
+  # Owner's resolution of SD_SYSTEM_PARENTS_FORM_NOT_STATED (session 87): no SD
+  # hospital enrolment carries either string, so no CCN; HOSPITAL_OR_SYSTEM at
+  # LOW with basis_type GENERAL_KNOWLEDGE, subtractable from any figure.
   par <- records[records$awardee %in% c("SANFORD HEALTH", "AVERA HEALTH"), ]
   expect_equal(nrow(par), 2L)
-  expect_true(all(par$distributed_to_hospital == "No"))
+  expect_setequal(par$contract_number, c("27RHT00031", "27RHT00034"))
+  expect_equal(sum(par$amount), 7007000)
+  expect_true(all(par$recipient_type == "HOSPITAL_OR_SYSTEM"))
+  expect_true(all(par$distributed_to_hospital == "Yes"))
+  expect_true(all(par$flow_type == "DIRECT"))
+  expect_true(all(par$determination_confidence == "LOW"))
+  expect_true(all(par$basis_type == "GENERAL_KNOWLEDGE"))
+  expect_true(all(is.na(par$ccn)))
+  expect_true(all(par$round_id == "RS"))
+  # Nothing else in the file is general knowledge.
+  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 2L)
 })
 
 test_that("the two Community Memorial Hospitals are two hospitals, not one", {
