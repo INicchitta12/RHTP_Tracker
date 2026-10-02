@@ -98,3 +98,27 @@ all logged except 3 explained.
 
 **This is green on this branch only.** `main` still fails, on the coverage gaps and the Indiana date test,
 until this branch is merged. The next CMS firing that runs the suite is Mon 10-05 13:00Z.
+
+## 6. Check-in, 2026-10-02 15:45Z: the old WI and NV ids deleted
+
+- **Both new Routines published to `main`.**
+  - WI, `trig_01BDpiJbCKRQWwZcLh1x8PsS`: logged at 14:10:52Z, commit `8481d1e`.
+  - NV, `trig_013u9wiLjrzkXJJ6PCax6LVm`: logged at 15:12:50Z, commit `594c990`. `roster` and `nofos` were
+    both UNCHANGED.
+- **This branch reached `main`** before either firing. Commit `bbe35ee` is an ancestor of `origin/main`.
+- **The old ids were deleted.** `get_trigger` first confirmed `enabled: false` on both
+  `trig_013N9mnDM86QEpQgzKwGFtp4` (WI) and `trig_014c3kseN8WpCL5cMVcdaaYi` (NV), and `delete_trigger` then
+  succeeded on each. Both stay in their rows' `old_trigger_id` chains in `config/routines.csv`.
+- **Context on the new runners** after their first v4 firing:
+
+  | Runner | `used_tokens` | Old runner's reading |
+  |---|---:|---:|
+  | WI | 130,012 | 698,839 |
+  | NV | 132,140 | 708,018 |
+
+  This matches CA's new runner, at 127,507. All eleven heavy runners are now on new sessions.
+- **WI's firing was a TRIPWIRE.**
+  - `dhs_solicit` names one string the archive does not: *"Intoxicated Driver Program Supplemental Funding
+    Request for Application"*.
+  - On its face this is a DHS solicitation title, not an RHTP recipient.
+  - Nothing was added to `known` or `furniture`. Under §2.3, a human reads the page first.

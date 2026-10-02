@@ -1937,8 +1937,9 @@ Network is Full; the old allowlist blockers are superseded.
   (FHC's T-TAC sentence, no subrecipient named) still needs a human read.
 - **Read runner context after the v4 firings:** a new runner should sit near its first-turn floor and stay
   there; an in-place runner may re-load once more, then stop.
-- **Delete `trig_013N9mnDM86QEpQgzKwGFtp4` (WI) and `trig_014c3kseN8WpCL5cMVcdaaYi` (NV)**, both disabled, once
-  the new WI and NV Routines have each put a line on `main` (Fri 10-02 14:00Z and 15:10Z).
+- **WI's 10-02 TRIPWIRE was read in session 85.** `dhs_solicit` gained "Intoxicated Driver Program
+  Supplemental Funding Request for Application". It is a state OWI appropriation (Wis. Stat. § 20.435(5)(hy))
+  with no RHTP mention, and is now in `WI_NAME_FURNITURE`.
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)
