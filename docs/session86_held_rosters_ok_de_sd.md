@@ -148,3 +148,7 @@ Running the affected tests showed three failures already on `main` before any se
   - OK probe baseline 2026-10-02.
   - NEWSROOM `2026-10-02_de_news.html`.
 - Review queue: three questions appended, CRLF, with only additions in the diff.
+- **`test_03ar` (rural cut).** This was also still pinned at session 83's 1,261. It is re-stated at 1,288. Rural
+  rows rise 240 → 256 / $263,299,771.23, all 16 critical access hospitals by their own CCN: WV Minnie Hamilton ×3,
+  OK ×7 (Newman ×2, Fairview ×2, McCurtain, Texas County, Cimarron) and SD ×6. Huron Regional has no CCN and does
+  not count.

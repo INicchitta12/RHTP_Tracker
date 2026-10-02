@@ -1633,7 +1633,8 @@ retrieval code.
   the $31.5M. 8 have no stated round, are capped at the $90M round and are never added (`SD_PLACEMENT`). SD is
   +7 hospital rows / +$8,919,452. Sanford and Avera system parents ($7,007,000) are queued.
 - **Stale figures fixed:** `R/03aw` no longer adds SD's in-round contracts on top of the round totals. The 03bj
-  verdicts, 03bj partition pin and 03bh WV disposition that session 85 left stale are caught up.
+  verdicts, the 03bj and rural-cut partition pins and the 03bh WV disposition that session 85 left stale are caught
+  up. Rural cut: 256 rows / $263,299,771.23 (+16 CAH rows by CCN).
 - **NAMED_HOSPITAL** is now 1,288 / $1,190,363,515.42 / 31 states.
 
 Detail: `docs/session86_held_rosters_ok_de_sd.md`. Session 85 read the six unread trips:
