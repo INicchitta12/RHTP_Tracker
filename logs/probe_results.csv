@@ -654,3 +654,7 @@ WI,2026-10-02T15:27:15Z,UNCHANGED,dhs_deck_0723,,interactive
 WI,2026-10-02T15:27:30Z,CHANGED,dhs_rhtp,,interactive
 WI,2026-10-02T15:27:30Z,CHANGED,dhs_solicit,,interactive
 WI,2026-10-02T15:27:30Z,UNCHANGED,dhs_deck_0723,,interactive
+ME,2026-10-02T15:29:00Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [ME] 'doe' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Early College Home Aspirations Program Maine Career Pathways Healthcare Careers Exploration Contact Us Maine Healthcare Careers Exploration Program Maine Healthcare Careers Exploration Program The Maine Department of Education. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ME,2026-10-02T15:29:36Z,CHANGED,doe,,interactive
+ME,2026-10-02T15:29:36Z,CHANGED,programme,,interactive
+ME,2026-10-02T15:29:36Z,CHANGED,mcd,,interactive
