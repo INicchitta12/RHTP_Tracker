@@ -497,10 +497,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # CCN 060107), Alabama round 2 (R/03bq, 21 rows / $20,886,572) and NC's
   # SBHC roster (R/03br, FirstHealth 1 row / $0), no new state:
   # 1,261 / $1,149,408,077.27 / 31.
+  # Session 85: + West Virginia's Minnie Hamilton (3 rows / $1,700,000, CAH on
+  # its CMS enrolment) and Oklahoma's Doulas roster (Newman Memorial, 1 row /
+  # $38,525, R/03bt), no new state: 1,265 / $1,151,146,602.27 / 31.
   # Subtracted first.
-  expect_equal(named$rows, 1261L)
+  expect_equal(named$rows, 1265L)
   expect_equal(named$states, 31L)
-  expect_equal(round(named$dollars, 2), 1149408077.27, tolerance = 0)
+  expect_equal(round(named$dollars, 2), 1151146602.27, tolerance = 0)
+  named$rows <- named$rows - 4L
+  named$dollars <- named$dollars - 1700000 - 38525
   named$rows <- named$rows - 23L
   named$dollars <- named$dollars - 435000 - 20886572
   expect_equal(named$rows, 1238L)
