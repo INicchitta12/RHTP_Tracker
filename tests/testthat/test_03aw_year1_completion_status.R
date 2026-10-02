@@ -18,13 +18,25 @@ test_that("COMPLETE rests on a statement AND no recorded remainder -- never on a
   # Session 69: Arkansas is the third, on the Governor's "completes the
   # distribution of the $208 million" and four initiatives all awarded.
   expect_setequal(status$state[status$year1_status == "COMPLETE"],
-                  c("AR", "FL", "GA"))
+                  c("AL", "AR", "FL", "GA"))
   bad <- Y1_STATUS
   bad$year1_status[bad$state == "AK"] <- "COMPLETE"   # 87.9% of allotment, rolling
   expect_error(y1_assert_status(bad), "COMPLETE without")
   bad <- Y1_STATUS
   bad$remaining_unawarded[bad$state == "SD"] <- "Yes"
   expect_error(y1_assert_status(bad), "UNKNOWN where")
+})
+
+test_that("Alabama's eleventh initiative has no Year 1 money, in ADECA's own words (session 84)", {
+  # R/utils_pdf_text.R does not decode the manual's fonts; poppler does.
+  skip_if(!nzchar(Sys.which("pdftotext")), "pdftotext not installed")
+  pdf <- function(f) paste(system2("pdftotext", c(shQuote(here::here("data/evidence/AL", f)), "-"),
+                                   stdout = TRUE), collapse = " ")
+  expect_match(gsub("\\s+", " ", pdf("2026-10-02_adeca_arhtp_program_manual_proposed_final_2026-09-08.pdf")),
+               "begins program Year 2 / 2027; no Year 1 funding", fixed = TRUE)
+  expect_match(gsub("\\s+", " ", pdf("2026-10-02_adeca_arhtp_intro_presentation_2026-06.pdf")),
+               "not budgeted in Year 1 of Program", fixed = TRUE)
+  expect_equal(status$remaining_unawarded[status$state == "AL"], "No")
 })
 
 test_that("Michigan's 'all RHTP Subrecipients' is a roster claim, not a completed round", {
@@ -62,7 +74,12 @@ test_that("figures are recomputed from the award files, and Georgia is summed pe
 })
 
 test_that("the hospital share is reported for COMPLETE states only, as a bounded range", {
-  expect_setequal(share$state, c("AR", "FL", "GA"))
+  expect_setequal(share$state, c("AL", "AR", "FL", "GA"))
+  # SESSION 84: Alabama. Community Medicine has no Year 1 money (ADECA
+  # Program Manual 10.10), so the Governor's "round out year one" stands.
+  expect_equal(share$share_floor_pct[share$state == "AL"], 52.6)
+  expect_equal(share$named_hospital_rows[share$state == "AL"], 91)
+  expect_equal(share$named_hospital_usd[share$state == "AL"], 104434859)
   # Arkansas: both rounds' NAMED_HOSPITAL rows over both rounds' awards. No
   # priced row is Unclear, so the ceiling equals the floor; the open queue
   # rows (AR_R2_QUEUED_FORM, AR_R2_RECIPIENT_FORM_NOT_STATED) are all `No`
@@ -89,8 +106,9 @@ test_that("COMPLETE is a statement about the ROUND; the intent status is carried
   # intent pending a DF&A agreement. Derived from each row's own
   # validation_source_type, never from the state.
   s <- share[order(share$state), ]
-  expect_equal(s$intent_rows, c(80, 0, 0))
-  expect_equal(s$pct_priced_on_intent, c(100, 0, 0))
+  expect_equal(s$intent_rows, c(0, 80, 0, 0))
+  expect_equal(s$pct_priced_on_intent, c(0, 100, 0, 0))
+  expect_match(s$award_action_stage[s$state == "AL"], "^AWARDED")
   expect_match(s$award_action_stage[s$state == "AR"], "^NOTICE OF INTENT")
   expect_match(s$award_action_stage[s$state == "FL"], "^AWARDED")
   expect_match(s$award_action_stage[s$state == "GA"], "^AWARDED")
