@@ -112,7 +112,8 @@ test_that("OK: the probe baseline is separate from the extraction archive", {
   e <- new.env()
   sys.source(here::here("R", "03t_ok_year1_awardees.R"), envir = e)
   f <- e$ok_probe_baseline_file("funding")
-  expect_match(f, "probe_baseline/2026-09-28_ok_rhtp_funding.html$")
+  # Re-based 2026-10-02 (session 86) after RRR and CDM were written.
+  expect_match(f, "probe_baseline/2026-10-02_ok_rhtp_funding.html$")
   expect_true(file.exists(here::here(f)))
   expect_false(identical(f, e$ok_path("funding")))
   # The live-bytes override is empty outside a probe, so --validate still
@@ -125,7 +126,9 @@ test_that("OK: the pending-opportunity check fires on live bytes carrying an awa
   sys.source(here::here("R", "03t_ok_year1_awardees.R"), envir = e)
   raw <- readBin(here::here(e$ok_path("recipients")), "raw",
                  file.info(here::here(e$ok_path("recipients")))$size)
-  txt <- sub("</main>", "<p>Chronic Disease Management Program awardees</p></main>",
+  # Session 86: CDM is written and no longer pending; Behavioral Health
+  # Integration still is.
+  txt <- sub("</main>", "<p>Behavioral Health Integration awardees</p></main>",
              rawToChar(raw), fixed = TRUE)
   assign("recipients", charToRaw(txt), envir = e$.ok_live)
   e$ok_cache_clear()
