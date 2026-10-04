@@ -673,3 +673,17 @@ MT,2026-10-02T17:43:26Z,TRIPWIRE,(probe),"[MT] 'grants' NO LONGER SAYS: ""Grant 
 MN,2026-10-02T18:12:30Z,UNCHANGED,grants,,trig_018tLxX82fNyKgxw5JkRw5PV
 MN,2026-10-02T18:12:30Z,UNCHANGED,programme,,trig_018tLxX82fNyKgxw5JkRw5PV
 WY,2026-10-02T21:12:12Z,UNCHANGED,(all),,trig_01CLqQDvGoWCDoSMtS29FJbQ
+TN,2026-10-03T09:33:36Z,CHANGED,rhtp,,trig_01Bky7YZTFgaT2dZddvfNL4g
+TN,2026-10-03T09:33:36Z,CHANGED,news,,trig_01Bky7YZTFgaT2dZddvfNL4g
+TN,2026-10-03T09:33:36Z,CHANGED,ramp,,trig_01Bky7YZTFgaT2dZddvfNL4g
+NC,2026-10-03T10:52:41Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [NC] 'opportunities' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: The North Carolina School Health Centers. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_018AHiDwHQLWm9DHxr96c9qB
+NJ,2026-10-03T12:13:15Z,CHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
+NJ,2026-10-03T12:13:15Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
+LA,2026-10-03T12:52:17Z,ERROR,(probe),[LA] 7 announcement windows are published and only 0 could be parsed. An unparsed window is REFUSED rather than dropped (§0.4): dropping it would shrink the seven silently. Re-read the block -- LDH has used a date form this file has not seen.,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+CA,2026-10-03T17:06:46Z,CHANGED,funding,,trig_01JEYQK9ZNMVpe27H19DFjzX
+CA,2026-10-03T17:06:46Z,CHANGED,calrht,,trig_01JEYQK9ZNMVpe27H19DFjzX
+CA,2026-10-03T17:06:46Z,CHANGED,newsroom,,trig_01JEYQK9ZNMVpe27H19DFjzX
+NY,2026-10-04T11:12:39Z,UNCHANGED,programme,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-04T11:12:39Z,UNCHANGED,roster,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-04T11:12:39Z,CHANGED,press_index,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-04T11:12:39Z,CHANGED,scr,,trig_012g3adVBX9KEgDt9XiVi2tU
