@@ -1939,7 +1939,7 @@ Network is Full; the old allowlist blockers are superseded.
 - Session-84 check-ins (`trig_01PGFH…` 10-02 21:45Z, `trig_01MWZ2…` 10-04 11:45Z, `trig_01DpSc…` 10-08 15:15Z)
   delete each old id below once its successor has logged.
 - **Delete the six session-82 old ids once each new Routine has put a line on `main`:** NY
-  `trig_014kvDg8x3JDqdWySvHxrREU`, LA `trig_016GDtAW1DvWCexnRSm4LxK8`, ~~WY `trig_01F98Jr5do6PXbUzNLBGjzGE`~~ (deleted 10-02),
+  ~~`trig_014kvDg8x3JDqdWySvHxrREU`~~ (deleted 10-04), ~~LA `trig_016GDtAW1DvWCexnRSm4LxK8`~~ (deleted 10-04), ~~WY `trig_01F98Jr5do6PXbUzNLBGjzGE`~~ (deleted 10-02),
   ~~ME `trig_01RyrB4uNLd6rdjaD8d9tWBk`~~ (deleted 10-02), MO `trig_0183VrPsZUMmc3dMneainqXm`, SC `trig_01R1pZjkPkQZWD3vctiAJQ44`.
 - **Alabama is Year 1 COMPLETE (session 84).** Community Medicine has no Year 1 money (ADECA Program Manual
   10.10; June deck). Its Year 2 round is watched by `R/03bs` (`trig_01NtbC312pu2u8d7uePQXEty`, Thu 14:40Z, runner
