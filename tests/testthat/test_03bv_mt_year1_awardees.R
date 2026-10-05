@@ -34,13 +34,16 @@ test_that("the footer is the allotment and the round is never an award", {
   expect_true(all(mt_d$round_amount == MT_ROUND))
 })
 
-test_that("no row is HIGH (§7) and Prairie County is queued, not re-typed", {
+test_that("no row is HIGH (§7) and Prairie County is resolved NON_HOSPITAL, not re-typed", {
   expect_false(any(mt_d$determination_confidence == "HIGH"))
   pc <- mt_d[mt_d$awardee == "Prairie County Ambulance Service", ]
   expect_equal(pc$recipient_type, "EMS_OR_PSAP")
   q <- readr::read_csv(here::here("data", "reference", "classification_review_queue.csv"),
                        show_col_types = FALSE)
-  expect_true("MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR" %in% q$question_id)
+  expect_equal(q$queue_status[q$question_id == "MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR"],
+               "RESOLVED")
+  expect_equal(pc$flow_type, "NON_HOSPITAL")
+  expect_equal(pc$distributed_to_hospital, "No")
   expect_true(mt_assert_federal())
 })
 
