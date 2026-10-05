@@ -22,9 +22,13 @@ test_that("COMPLETE rests on a statement AND no recorded remainder -- never on a
   bad <- Y1_STATUS
   bad$year1_status[bad$state == "AK"] <- "COMPLETE"   # 87.9% of allotment, rolling
   expect_error(y1_assert_status(bad), "COMPLETE without")
+  # Session 90: SD, the last UNKNOWN state, moved to PARTIAL on its CCBHC
+  # release ("The next round of funding is anticipated later this fall"). The
+  # counterfactual is now an UNKNOWN carrying a recorded remainder.
   bad <- Y1_STATUS
-  bad$remaining_unawarded[bad$state == "SD"] <- "Yes"
+  bad$year1_status[bad$state == "SD"] <- "UNKNOWN"
   expect_error(y1_assert_status(bad), "UNKNOWN where")
+  expect_equal(status$year1_status[status$state == "SD"], "PARTIAL")
 })
 
 test_that("Alabama's eleventh initiative has no Year 1 money, in ADECA's own words (session 84)", {
