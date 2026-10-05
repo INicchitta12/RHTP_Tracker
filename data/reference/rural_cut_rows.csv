@@ -1289,3 +1289,12 @@ OK,ok_year1_cdm_awardees.csv,6,Fairview Regional Medical Center,1827444.2,FEDERA
 OK,ok_year1_cdm_awardees.csv,8,Jackson County Memorial Hospital Authority,1316304.74,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370022: PART A PROVIDER - HOSPITAL",FALSE,370022,ORG_WEBSITE
 OK,ok_year1_cdm_awardees.csv,11,"Mercy Health Oklahoma Communities, Inc.",2615529.21,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 OK,ok_year1_cdm_awardees.csv,14,"Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital",2412325,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370166: PART A PROVIDER - HOSPITAL",FALSE,370166,ORG_WEBSITE
+VA,va_year1_vhcf_awardees.csv,1,Buchanan General Hospital,382000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
+VA,va_year1_vhcf_awardees.csv,7,Buchanan General Hospital,33000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
+VA,va_year1_vhcf_awardees.csv,10,Valley Health System,1165000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_awardees.csv,12,Community Memorial Hospital–VCU Health,56000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490098: PART A PROVIDER - HOSPITAL",FALSE,490098,ORG_WEBSITE
+VA,va_year1_vhcf_awardees.csv,15,Valley Health System,835000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_awardees.csv,18,Ballad Health,2000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_awardees.csv,19,Carilion Medical Center,69000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490024: PART A PROVIDER - HOSPITAL",FALSE,490024,ORG_WEBSITE
+VA,va_year1_vhcf_awardees.csv,20,Danville Regional Medical Center,150000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490075: PART A PROVIDER - HOSPITAL",FALSE,490075,ORG_WEBSITE
+VA,va_year1_vhcf_awardees.csv,22,Sentara Health,1700000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE

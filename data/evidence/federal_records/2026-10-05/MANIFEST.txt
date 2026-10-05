@@ -7,3 +7,12 @@ Committed as served (§0.5); the readers use THESE, never the live API.
 
 file | sha256 | bytes | source
 cms_hosp_enrollments_MT.json | 7c7baf3e9a44b2d5a2a5560a35304c523ab6458a9e40b72e1e19d6300eedffd7 | 134571 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MT&size=5000 (Hospital Enrollments)
+
+ADDED 2026-10-05 by session 92 (R/03bx_va_vhcf_awardees.R): Virginia FQHC and RHC
+Enrollments, to type VHCF's 25 Provider Interoperability awardees on CMS records.
+The VA Hospital Enrollments file (169 records, 18 CRITICAL ACCESS HOSPITAL) is the
+2026-09-25 archive and was not re-fetched. Highland Medical Center is on the FQHC
+file (491858, 491903, Monterey) and on neither the Hospital nor the CAH records.
+
+cms_fqhc_enrollments_VA.json | 68b446d689bf27fc921146e8a6d64e1c47236adc0a111185b84e1e3225a25f17 | 114552 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=VA&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_VA.json | 2a459b5d73fd834bd6ebf6e8bdf7023b7742830eae6e909c9d62638ef3bd140f | 52550 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=VA&size=5000 (RHC Enrollments)

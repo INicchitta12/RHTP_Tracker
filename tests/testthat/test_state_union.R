@@ -297,7 +297,13 @@ STATE_FILES <- c(
   # members for "12 ... grants totaling more than $13 million": amount EMPTY,
   # the pool in round_amount, recipient_confirmed Unclear on every row. No
   # hospital row (Avera Behavioral Health has no exact CMS enrolment).
-  SD_CCBHC = "data/reference/sd_year1_ccbhc_awardees.csv"
+  SD_CCBHC = "data/reference/sd_year1_ccbhc_awardees.csv",
+  # Session 92: VHCF's Provider Interoperability round (R/03bx). 25 priced
+  # lines, $14,390,000, typed on CMS VA enrolment files. Highland Medical
+  # Center is an FQHC on its enrolment; Valley Health, Ballad and Sentara are
+  # system parents (GENERAL_KNOWLEDGE, LOW, subtractable); the two UVA Health
+  # strings are queued under AHC_STRING_NAMES_NO_ENROLLED_ENTITY.
+  VA_VHCF = "data/reference/va_year1_vhcf_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not

@@ -30,8 +30,40 @@ test_that("the status table has no amount column, and cannot acquire one", {
   # column, so no sum over this table can produce a Connecticut hospital dollar.
   expect_true("stated_pool" %in% names(status))
   expect_type(status$stated_pool, "character")
-  expect_equal(nrow(status), 6L)
+  expect_equal(nrow(status), 8L)
   expect_true(all(status$state == "CT"))
+})
+
+test_that("SESSION 92: DEEP's $7,165,955 is a state-agency allocation, never a subaward", {
+  expect_silent(ct_assert_deep_is_agency_allocation())
+  status <- rhtp_ct_year1_status()
+  row <- status[grepl("Air Line State Park Trail", status$channel), ]
+  expect_equal(nrow(row), 1L)
+  expect_equal(row$stage, "STATE_AGENCY_ALLOCATION_NOT_SUBAWARD")
+  expect_match(row$evidence, "$86,667 + $75,565", fixed = TRUE)
+  a <- readr::read_csv(here::here(CT_AWARDS_CSV), show_col_types = FALSE)
+  expect_false(any(grepl("DEEP|Energy and Environmental|Air Line", a$awardee)))
+  expect_false(any(a$amount %in% 7165955))
+})
+
+test_that("SESSION 92: the REST Center RFP is Tier 2 and its index row is watched", {
+  expect_silent(ct_assert_rest_rfp())
+  links <- ct_assert_rest_unawarded()
+  expect_true(all(grepl("^Rapid Evaluation|^Addendum [0-9]+$", links)))
+  expect_true("dmhas_rfps" %in% CT_PROBE_KEYS)
+  raw <- rawToChar(readBin(ct_path("dmhas_rfps"), "raw", file.size(ct_path("dmhas_rfps"))))
+  # An Outcome link in the REST row fires, whatever DMHAS calls it.
+  hit <- sub("(?s)(dmhas-ebp-rest-2026\\.pdf[^>]*>.*?Addendum 1</span></a></p>)",
+             "\\1<p><a href=\"x.pdf\">Outcome</a></p>", raw, perl = TRUE)
+  expect_false(identical(hit, raw))
+  expect_error(ct_assert_rest_unawarded(charToRaw(hit)), "NOW LINKS")
+  # A row that vanishes is a re-read, not a pass.
+  gone <- gsub("dmhas-ebp-rest-2026", "dmhas-ebp-rest-2099", raw, fixed = TRUE)
+  expect_error(ct_assert_rest_unawarded(charToRaw(gone)), "expected ONE REST-2026 row")
+  st <- rhtp_ct_year1_status()
+  r <- st[grepl("REST", st$channel), ]
+  expect_equal(r$stage, "CLOSED_SELECTION_TBD_CONTRACT_START_PASSED")
+  expect_match(r$evidence, "NOT A YEAR 1", fixed = TRUE)
 })
 
 

@@ -507,7 +507,17 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 87: + SD's Sanford Health and Avera Health, typed system parents
   # on the owner's resolution (2 / $7,007,000, LOW, no CCN); no new state:
   # 1,290 / $1,197,370,515.42 / 31.
+  # Session 92: + Virginia's VHCF Provider Interoperability round (R/03bx),
+  # 9 rows / $6,390,000 (4 lines / $690,000 on exact CMS VA records; Valley
+  # Health, Ballad and Sentara, 4 system-parent lines / $5,700,000 LOW), a 32nd state (VA had
+  # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
   # Subtracted first.
+  expect_equal(named$rows, 1299L)
+  expect_equal(named$states, 32L)
+  expect_equal(round(named$dollars, 2), 1203760515.42, tolerance = 0)
+  named$rows <- named$rows - 9L
+  named$dollars <- named$dollars - 6390000
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1290L)
   expect_equal(named$states, 31L)
   expect_equal(round(named$dollars, 2), 1197370515.42, tolerance = 0)

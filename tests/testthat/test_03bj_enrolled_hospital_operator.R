@@ -201,7 +201,7 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,290 / $1,197,370,515.42 / 31; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,299 / $1,203,760,515.42 / 32; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
@@ -220,6 +220,16 @@ test_that("the partition: NAMED_HOSPITAL 1,290 / $1,197,370,515.42 / 31; pools u
   # Session 87: + SD's Sanford Health and Avera Health, typed system parents
   # on the owner's resolution (2 / $7,007,000, LOW, no CCN); no new state:
   # 1,290 / $1,197,370,515.42 / 31.
+  # Session 92: + Virginia's VHCF Provider Interoperability round (R/03bx),
+  # 9 rows / $6,390,000 (4 lines / $690,000 on exact CMS VA records; Valley
+  # Health, Ballad and Sentara, 4 system-parent lines / $5,700,000 LOW), a 32nd state (VA had
+  # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
+  expect_equal(n$rows, 1299L)
+  expect_equal(round(n$dollars, 2), 1203760515.42)
+  expect_equal(n$states, 32L)
+  n$rows <- n$rows - 9L
+  n$dollars <- n$dollars - 6390000
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1290L)
   expect_equal(round(n$dollars, 2), 1197370515.42)
   expect_equal(n$states, 31L)

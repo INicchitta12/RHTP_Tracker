@@ -196,8 +196,14 @@ VAA_STATUS <- tibble::tribble(
   "Navigator: 'Total year 1 funding available $14.3M. 2-3 awards estimated.' Target: health systems. TIER 2.",
   "Attract and Retain Physicians (VHHA Foundation)", NA_real_, "RFA_CLOSED_NO_AWARDS",
   "Navigator: 'Target Audience: Health systems', '47 awardees for residency slots'. HOSPITALS ONLY, nobody named.",
-  "Provider Interoperability (VHCF)", NA_real_, "RFA_CLOSED_AWARD_DATE_PUBLISHED",
-  "Closed 2026-08-31; R/03bb watches VHCF's Notice of Awards date (by 2026-09-30).",
+  "Provider Interoperability (VHCF)", 14390000, "AWARDED_ROSTER_PUBLISHED",
+  paste("Session 92: VHCF's 2026-10-02 release names and prices 25 awards totaling",
+        "$14,390,000 ('25 awards totaling $14.39 million'), extracted by R/03bx to",
+        "va_year1_vhcf_awardees.csv. Its CMS footer ($189,544,888.14) is the",
+        "allotment, not this total. Round 2 RFA 'in March 2027'."),
+  "Provider Productivity (VHCF)", NA_real_, "AWARD_DATE_PUBLISHED",
+  paste("VHCF: 'the first round of Provider Productivity awards in October 2026'.",
+        "R/03bb watches VHCF's news index for the post."),
   "Tech Innovation Fund (VIPC)", NA_real_, "NOT_YET_OPEN",
   "Navigator: 'Award range: $250,000-$999,999', '15-20 subrecipients'. TIER 2."
 )

@@ -151,6 +151,25 @@ KY_SOURCES <- tibble::tribble(
   "2026-09-02_ky_cms_notice_of_award_attachment_b.pdf",
   paste("CMS's OWN Notice of Award, attached to EVERY RFA. §6.2 in its",
         "strongest form AND the §0.2 trap nine times over."),
+  "rfa_cp",
+  paste0("https://www.chfs.ky.gov/agencies/os/oas/Documents/",
+         "RHT%20Community%20Paramedicine%20-%20RFA.pdf"),
+  "2026-10-05_ky_rfa_community_paramedicine.pdf",
+  paste("Session 92. Carries 'July 1, 2026 Notification of Award to Grantees'",
+        "and a $20,000,000 Year 1 pool 'across all awardees'."),
+  "rfa_et",
+  paste0("https://www.chfs.ky.gov/agencies/os/oas/Documents/",
+         "RHT%20E%26T%20Modernization%20-%20RFA.pdf"),
+  "2026-10-05_ky_rfa_ems_training_equipment.pdf",
+  paste("Session 92. The EMS Training Equipment / Mobile Training Units RFA.",
+        "Carries 'July 1, 2026 Notification of Award to Grantees'."),
+  "rfa_rda",
+  paste0("https://www.chfs.ky.gov/agencies/os/oas/Documents/",
+         "RHT%20Rural%20Dental%20Access%20-%20RFA.pdf"),
+  "2026-10-05_ky_rfa_rural_dental_access_phdh_teams.pdf",
+  paste("Session 92. Public Health Dental Hygiene Teams in Local Health",
+        "Departments. Carries 'May 25, 2026 Notification of Award to Grantees'",
+        "and 'The estimated award amount is $470,000'."),
   "rch",
   "https://healthy-ky.org/rch",
   "2026-09-02_ky_foundation_healthy_kentucky_rch.html",
@@ -225,7 +244,8 @@ ky_write_manifest <- function(entries) {
   writeLines(c(
     "KENTUCKY -- RHTP evidence archive",
     "",
-    "Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch.",
+    paste("Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch; the three",
+          "2026-10-05_* RFAs were added by session 92."),
     "Bodies are written with writeBin(), so re-hashing a file on disk",
     "reproduces its digest below.",
     "",
@@ -251,6 +271,7 @@ ky_write_manifest <- function(entries) {
 ky_reduce_html <- function(raw) {
   txt <- rawToChar(raw[raw != as.raw(0)])
   Encoding(txt) <- "UTF-8"
+  txt <- ky_strip_hidden_zone(txt)
   txt <- stringr::str_remove_all(
     txt, stringr::regex("<(script|style|noscript)[^>]*>.*?</\\1>",
                         dotall = TRUE, ignore_case = TRUE))
@@ -259,9 +280,42 @@ ky_reduce_html <- function(raw) {
   txt <- stringr::str_replace_all(txt, "&amp;", "&")
   txt <- stringr::str_replace_all(txt, "&#39;|&rsquo;|&#8217;", "'")
   txt <- stringr::str_replace_all(txt, "&quot;|&ldquo;|&rdquo;", "\"")
+  # Zero-width characters are editor residue, not content (§2.3, session 34's
+  # HCAI heading). Session 92 measured the funding page's whole 2026-10-01
+  # CHANGED on one: the 'Funding Opportunities' heading went from 79 to 80
+  # U+200B with not one visible character moved.
+  txt <- stringr::str_remove_all(txt, "[\u200b\u200c\u200d\u2060\ufeff]")
   txt <- stringr::str_replace_all(txt, "[ \t\u00a0]+", " ")
   txt <- stringr::str_replace_all(txt, "\\s*\n\\s*", "\n")
   stringr::str_trim(txt)
+}
+
+#' Drop SharePoint's hidden web-part zone before reducing (session 92)
+#'
+#' Every ruralhealthplan.ky.gov page ships <div style='display:none'
+#' id='hidZone'> carrying the "Content and Structure Reports" list web part --
+#' a site-administration panel ("Use the reports list to customize the queries
+#' that appear in the Content and Structure Tool views"), not page content and
+#' never shown to a reader. Its title, item count and list-view text leak into
+#' the reduced text and move for reasons that are not Kentucky awarding. The
+#' zone is cut by DIV DEPTH, not by a pattern, so nothing after it is lost; a
+#' page without the zone passes through unchanged.
+ky_strip_hidden_zone <- function(txt) {
+  start <- regexpr("<div[^>]*id=['\"]hidZone['\"][^>]*>", txt, perl = TRUE)
+  if (start < 0) return(txt)
+  tags <- gregexpr("<div\\b|</div\\s*>", txt, perl = TRUE)[[1]]
+  len <- attr(tags, "match.length")
+  depth <- 0L
+  for (k in which(tags >= start)) {
+    open <- substr(txt, tags[k], tags[k] + 1L) != "</"
+    depth <- depth + if (open) 1L else -1L
+    if (depth == 0L) {
+      return(paste0(substr(txt, 1L, start - 1L),
+                    substr(txt, tags[k] + len[k], nchar(txt))))
+    }
+  }
+  stop("[KY] the hidden SharePoint zone never closes; the page's shape ",
+       "changed -- read it.", call. = FALSE)
 }
 
 ky_html_text <- function(key, body = NULL) {
@@ -390,7 +444,16 @@ KY_AWARD_DATES <- tibble::tribble(
   "rfa_cmhc", "Rapid Response to Recovery: CMHC Support",
   "2026-07-10", "July 10, 2026: Notification of Award to Grantees",
   "rfa_chw",  "Community Health Worker Specialized Certificate",
-  "2026-08-26", "August 26, 2026 Anticipated Notification of Award to Recipients"
+  "2026-08-26", "August 26, 2026 Anticipated Notification of Award to Recipients",
+  # Session 92: three more RFAs that name the step and the day. CP and E&T
+  # are the two rounds recipients have self-announced (leads only, never a
+  # state source); RDA is the Public Health Dental Hygiene Teams round.
+  "rfa_cp",   "Crisis to Care: Community Paramedicine",
+  "2026-07-01", "July 1, 2026 Notification of Award to Grantees",
+  "rfa_et",   "Crisis to Care: EMS Training Equipment / Mobile Training Units",
+  "2026-07-01", "July 1, 2026 Notification of Award to Grantees",
+  "rfa_rda",  "Rooted in Health: Rural Dental Access Program (PHDH teams)",
+  "2026-05-25", "May 25, 2026 Notification of Award to Grantees"
 )
 
 #' Every published award-notification date has passed, and no roster followed
@@ -632,11 +695,21 @@ ky_status_table <- function() {
     "CLOSED_UNAWARDED", "No", NA_character_,
     "Applications closed 2026-07-06. No roster, no published award date.",
     KY_STATE, "Crisis to Care: Community Paramedicine",
-    "CLOSED_UNAWARDED", "No", NA_character_,
-    "'Applications currently closed'. No roster.",
+    "AWARDED_PRIVATELY_NO_PUBLIC_ROSTER", "No", "2026-07-01",
+    paste("Session 92: AWARDED, NOT CLOSED_UNAWARDED. The RFA's own timeline",
+          "gives 'July 1, 2026 Notification of Award to Grantees'; Year 1 pool",
+          "$20,000,000 'across all awardees'. Kentucky has notified awardees",
+          "and published NO roster. LEADS ONLY, never a state source (§7):",
+          "Scott County Fiscal Court (07-27) announces Georgetown-Scott County",
+          "EMS, $289,275; Med Center Health (07-30) announces Medical Center",
+          "EMS, $310,070. Nothing is extracted from them."),
     KY_STATE, "Crisis to Care: EMS Training Equipment / Mobile Training Units",
-    "CLOSED_UNAWARDED", "No", NA_character_,
-    "'Applications currently closed'. No roster.",
+    "AWARDED_PRIVATELY_NO_PUBLIC_ROSTER", "No", "2026-07-01",
+    paste("Session 92: AWARDED, NOT CLOSED_UNAWARDED. The RFA (CHFS 'E&T",
+          "Modernization') gives 'July 1, 2026 Notification of Award to",
+          "Grantees'. Kentucky has published NO roster. LEAD ONLY, never a",
+          "state source (§7): myq104 radio (07-15) reports Adair County",
+          "Ambulance, $438,418. Nothing is extracted from it."),
     KY_STATE, "Crisis to Care: EMS Transformation",
     "CLOSED_UNAWARDED", "No", NA_character_,
     "'Applications currently closed'. No roster.",
@@ -645,9 +718,11 @@ ky_status_table <- function() {
     paste("Closed 2026-06-12 but 'remains open to applications during this",
           "budget period until funds are exhausted'. No roster."),
     KY_STATE, "Rooted in Health: Rural Dental Access Program",
-    "CLOSED_UNAWARDED", "No", NA_character_,
-    paste("Closed 2026-04-12; 'Applications will be considered on a rolling",
-          "basis, but Year 1 funding is not guaranteed.' No roster."),
+    "CLOSED_AWARD_DATE_PASSED", "No", "2026-05-25",
+    paste("Public Health Dental Hygiene Teams in Local Health Departments.",
+          "Closed 2026-04-12 (rolling). Session 92: the RFA's own timeline",
+          "gives 'May 25, 2026 Notification of Award to Grantees'; 'The",
+          "estimated award amount is $470,000' per LHD team. No roster."),
     KY_STATE, "Rooted in Health: Accredited Dental Hygiene Programs",
     "CLOSED_UNAWARDED", "No", NA_character_,
     "Closed 2026-08-01 per the CHFS channel. No roster.",
@@ -724,7 +799,9 @@ KY_NAME_FURNITURE <- list(rch = c(
   "The Rural Health Transformation"))
 
 ky_probe <- function() {
-  keys <- c("funding", "programme", "rch", "chfs_grants")
+  # The four RFAs carrying a published award date are read LIVE too (session
+  # 92): a re-issued RFA that moves its date is a change to this finding.
+  keys <- c("funding", "programme", "rch", "chfs_grants", KY_AWARD_DATES$key)
   live <- purrr::map(keys, function(k) ky_get(ky_source(k, "url"), k))
   names(live) <- keys
   Sys.sleep(1)
@@ -774,7 +851,7 @@ ky_probe <- function() {
   } else {
     message("[KY] UNCHANGED. Kentucky has still named no recipient.")
   }
-  passed <- ky_assert_award_dates_passed()
+  passed <- ky_assert_award_dates_passed(bodies = live)
   message("[KY] published award-notification dates passed: ", sum(passed),
           " of ", length(passed), " (", paste(KY_AWARD_DATES$date[passed],
                                               collapse = ", "), ")")

@@ -78,21 +78,28 @@ test_that("all nine RFAs are still on the page, matched on letters only", {
 
 # -- the dates ---------------------------------------------------------------
 
-test_that("both published award-notification dates have passed", {
+test_that("all five published award-notification dates have passed", {
   skip_without_archive()
   passed <- ky_assert_award_dates_passed()
-  expect_length(passed, 2L)
+  expect_length(passed, 5L)
   expect_true(all(passed))
-  expect_setequal(KY_AWARD_DATES$date, c("2026-07-10", "2026-08-26"))
+  # Session 92 added Community Paramedicine and EMS Training Equipment (July 1)
+  # and the Rural Dental Access PHDH teams (May 25), each read from its RFA.
+  expect_setequal(KY_AWARD_DATES$date,
+                  c("2026-07-10", "2026-08-26", "2026-07-01", "2026-05-25"))
+  expect_setequal(KY_AWARD_DATES$key,
+                  c("rfa_cmhc", "rfa_chw", "rfa_cp", "rfa_et", "rfa_rda"))
 })
 
 test_that("the dates are re-derived, not typed -- a past `today` flips them", {
   skip_without_archive()
-  expect_false(any(ky_assert_award_dates_passed(today = as.Date("2026-06-01"))))
-  expect_message(ky_assert_award_dates_passed(today = as.Date("2026-06-01")),
+  expect_false(any(ky_assert_award_dates_passed(today = as.Date("2026-05-01"))))
+  expect_message(ky_assert_award_dates_passed(today = as.Date("2026-05-01")),
                  "not yet overdue")
   expect_equal(sum(ky_assert_award_dates_passed(
-    today = as.Date("2026-08-01"))), 1L)
+    today = as.Date("2026-06-01"))), 1L)
+  expect_equal(sum(ky_assert_award_dates_passed(
+    today = as.Date("2026-08-01"))), 4L)
 })
 
 test_that("losing the RFA's own award sentence stops the build", {
@@ -176,7 +183,40 @@ test_that("the status table has NO amount column and covers every channel", {
   expect_false("amount" %in% names(st))
   expect_equal(nrow(st), 11L)
   expect_true(all(st$publishes_roster == "No"))
-  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 2L)
+  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 3L)
+  # Session 92: two rounds have AWARDED, privately; the self-announced
+  # recipients are leads in the note and never rows.
+  pv <- st[st$stage == "AWARDED_PRIVATELY_NO_PUBLIC_ROSTER", ]
+  expect_equal(nrow(pv), 2L)
+  expect_true(all(pv$award_date_published == "2026-07-01"))
+  expect_true(all(grepl("LEADS? ONLY", pv$note)))
+  expect_false(any(st$stage[grepl("Paramedicine|Training Equipment", st$channel)] ==
+                     "CLOSED_UNAWARDED"))
+  rda <- st[grepl("Rural Dental Access", st$channel), ]
+  expect_equal(rda$award_date_published, "2026-05-25")
+})
+
+test_that("SESSION 92: SharePoint's hidden admin zone and zero-width residue are not content", {
+  skip_without_archive()
+  raw <- readBin(ky_path("funding"), "raw", file.size(ky_path("funding")))
+  txt <- rawToChar(raw)
+  expect_true(grepl("id='hidZone'", txt, fixed = TRUE))
+  expect_false(grepl("Content and Structure Reports", ky_html_text("funding"), fixed = TRUE))
+  # A change inside the hidden zone does not move the digest...
+  moved <- sub("Content and Structure Reports</span>",
+               "Content and Structure Reports (7 items)</span>", txt, fixed = TRUE)
+  expect_false(identical(moved, txt))
+  expect_identical(ky_content_digest("funding", charToRaw(moved)),
+                   ky_content_digest("funding"))
+  # ...nor does an extra zero-width space in a heading (the 2026-10-01 CHANGED)...
+  zw <- sub("Funding Opportunities", "\u200bFunding Opportunities", txt, fixed = TRUE)
+  expect_identical(ky_content_digest("funding", charToRaw(enc2utf8(zw))),
+                   ky_content_digest("funding"))
+  # ...while visible text after the zone still does.
+  vis <- sub("Disclaimer", "Disclaimer NEW AWARD ROSTER", txt, fixed = TRUE)
+  expect_false(identical(ky_content_digest("funding", charToRaw(vis)),
+                         ky_content_digest("funding")))
+  expect_identical(ky_strip_hidden_zone("<p>no zone</p>"), "<p>no zone</p>")
 })
 
 test_that("no Kentucky award file exists", {
