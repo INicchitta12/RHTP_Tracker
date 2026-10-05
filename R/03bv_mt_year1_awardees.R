@@ -46,9 +46,11 @@
 # (federal_records/2026-10-05) carry PRAIRIE COUNTY HOSPITAL DISTRICT (Terry,
 # CAH, CCN 271309). "Prairie County Ambulance Service" does not name that legal
 # entity, and a name that merely shares a county is never matched by machine
-# (§10.2, "a different legal body with a similar name"). It stays EMS_OR_PSAP
-# and MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR is queued for a human ($340,000,
-# rounded). None of the other three appears on the enrolment file.
+# (§10.2, "a different legal body with a similar name"). It stays EMS_OR_PSAP.
+# MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR was RESOLVED by the owner in session 89:
+# a shared county does not establish that the hospital district operates the
+# ambulance service, so the row is NON_HOSPITAL ($340,000 rounded, $0 moved).
+# None of the other three appears on the enrolment file.
 #
 # RHTP: the release carries the CMS footer, whose figure $233,509,358.76 is
 # Montana's ALLOTMENT (Tier 1, §0.2) -- asserted, never placed in `amount`.
@@ -172,10 +174,12 @@ mt_rows <- function() {
                       "(§10.2 precedence). TRIBAL_ORG would equally be non-hospital."),
                 why)
   why <- ifelse(a$awardee == "Prairie County Ambulance Service",
-                paste(why, "QUEUED (MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR): CMS",
-                      "enrols PRAIRIE COUNTY HOSPITAL DISTRICT (Terry, CAH, CCN",
-                      "271309); the awardee string does not name that legal",
-                      "entity and is not matched by machine (§10.2)."),
+                paste(why, "RESOLVED (MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR, owner,",
+                      "session 89): CMS enrols PRAIRIE COUNTY HOSPITAL DISTRICT",
+                      "(Terry, CAH, CCN 271309), but a shared county does not",
+                      "establish that the hospital district operates the",
+                      "ambulance service; no source names it as the awardee's",
+                      "legal entity (§10.2). NON_HOSPITAL."),
                 why)
   named <- tibble::tibble(
     state = MT_STATE,

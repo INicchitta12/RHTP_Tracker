@@ -1625,7 +1625,10 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-05 (Session 88). Session 88 did five owner tasks:
+**Last updated:** 2026-10-05 (Session 89). Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
+NON_HOSPITAL (owner: a shared county does not show the hospital district operates the ambulance service; $0
+moved), read SD's $7.2M EMS round (no roster), and merged the session-84 check-in branch. Detail:
+`docs/session89_sd_ems_round_mt_prairie_checkin.md`. Session 88 did five owner tasks:
 - **Confidence (§7).** 1,113 rows carried `determination_confidence = HIGH` with no CCN (495 NAMED_HOSPITAL /
   $385,879,914; 618 others). All are MEDIUM now; no typing changed. The shared classifier caps every name and
   type-field rule at MEDIUM (`rhtp_confidence_ceiling()`), GA's and MI's hand-coded HIGHs are lowered at output,
@@ -1947,10 +1950,14 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 88 (read first).** CMS released SD $7.2M (ambulance telemedicine, 10-02); the 10-05 run wrote it
-  and logged UNCHANGED, which the verdict fix now prevents. That release is UNREAD. The unmerged
-  `claude/compassionate-heisenberg-6609c9` branch (session 84 check-in, CLAUDE.md + doc) is not on `main`.
-  A rebuild of any state whose notes quote "Classifier said X/HIGH" will now say "/MEDIUM": text only.
+- **Session 89 (read first).** SD's $7.2M EMS round (CMS 10-02; Governor 10-03, "Enhancing Sustainable
+  Emergency Medical Services", RFP 26-09RHT-023) is READ and NAMES NOBODY: no roster on DOH, and the open.sd.gov
+  RHT series is unchanged at 41 / $26,836,144. Do not extract. **Trap:** DOH's "Regional Services Designation
+  Grant Fund Distribution" page is a named, priced EMS roster ($1,668,809.91 + $5,839,975.00) that is STATE
+  money (EMS Interim Committee; page dated 2025-08-04, before the NOA; no RHT mention). SD's $13M CCBHC round
+  (09-24) names a 13-member cohort, 12 grants, no amounts: unread for extraction. The session-84 check-in
+  branch is merged into this branch. A rebuild of any state whose notes quote "Classifier said X/HIGH" will
+  now say "/MEDIUM": text only. Detail: `docs/session89_sd_ems_round_mt_prairie_checkin.md`.
 
 **Merge session 82's branch to `main` before Fri 10-02 16:20Z** (ME's first firing on its new runner). Until
 `routines.csv` on `main` carries the six new ids, their lines read as unregistered. Sessions 79 and 80 are on
@@ -2000,7 +2007,6 @@ Network is Full; the old allowlist blockers are superseded.
   - `CO_ROSTER_VS_RELEASE_TOTAL`, `CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT`, `CO_RECIPIENT_FORM_NOT_STATED`
   - `TX_BP1_DISTRICT_ENROLMENT`
   - `AL_R2_GREENE_COUNTY_HEALTH_SYSTEM_BRIDGE` ($3,913,694, LOW), `AL_R2_RECIPIENT_FORM_NOT_STATED`
-  - `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` ($340,000, rounded; CMS enrols Prairie County Hospital District)
   - The NE, NV and LA form rows from session 64
 - **Dated watches:**
   - Colorado: AWARDED 09-28, extracted session 82; R/03az's Routine now runs R/03bo's roster watch.
