@@ -5,8 +5,18 @@
 ## 1. Suite on `main` after `claude/bold-lamport-qzu37s`
 
 The branch is on `main` (PR #93, merge `6f103b0`). The full suite was run on `origin/main` at `6f103b0` in a
-detached worktree, so this session's uncommitted edits could not leak into it. Result: see the session
-report. (A first run in the primary checkout was stopped and discarded, because this session's edits were
+detached worktree, so this session's uncommitted edits could not leak into it.
+
+**Result: green, once the clone has full history.** The first run failed in exactly one file,
+`test_03bk_umms_system_form.R` (1 failure, 1 error). It also skipped the New Mexico name-tripwire test. Both
+have the same cause, and it is the environment, not the code. The session's clone was SHALLOW (115 commits).
+03bk reads its baseline with `git show 0412b2f:...`, which exited 128, and the NM test reads a session-35
+archive commit. After `git fetch --unshallow`, both files pass on `main` (`6f103b0`), and the NM test runs
+rather than skipping. The same two files failed and skipped identically on this branch, then passed after the
+unshallow. Every other file passed on both runs.
+
+**Recorded for the next session:** a cloud session's clone is shallow, so run `git fetch --unshallow origin`
+before the full suite, or 03bk fails for reasons that have nothing to do with the change under test. (A first run in the primary checkout was stopped and discarded, because this session's edits were
 being written to the same tree while it ran.)
 
 ## 2. South Dakota's CCBHC round — EXTRACTED (`R/03bw`, `sd_year1_ccbhc_awardees.csv`)
