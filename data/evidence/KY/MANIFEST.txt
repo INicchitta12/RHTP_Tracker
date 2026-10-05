@@ -1,6 +1,6 @@
 KENTUCKY -- RHTP evidence archive
 
-Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch.
+Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch; the three 2026-10-05_* RFAs were added by session 92.
 Bodies are written with writeBin(), so re-hashing a file on disk
 reproduces its digest below.
 
@@ -17,4 +17,7 @@ file  bytes  sha256
 2026-09-02_ky_rfa_community_health_worker.pdf  246241  a2d845ffafc7cefbdf18265156feb1de4c8a5fdbd3f9cf4beb5a743e7c37e75b
 2026-09-02_ky_rfa_cmhc_support.pdf  384680  10df121f9c1e3f40c00030de4298e966741f1c6694f57de52e7874024f8ab41e
 2026-09-02_ky_cms_notice_of_award_attachment_b.pdf  2880479  e6a899a5d498ab8f10f08ffeb3156ee0b90cd7faf09df7e69748c5e3dec0f778
+2026-10-05_ky_rfa_community_paramedicine.pdf  283740  fded2188b8f343433483d02a6d1471357600d33faeb96679bfa8dcdacee20ef3
+2026-10-05_ky_rfa_ems_training_equipment.pdf  309037  05b0e677af2aa4c0a6202d8982899d6709586e6afa1f017438df64aafbb4bd34
+2026-10-05_ky_rfa_rural_dental_access_phdh_teams.pdf  319788  2f3e023daa03a536749947c30e0d1299c4894a248a1d128c08e07e464b9dd1ce
 2026-09-02_ky_foundation_healthy_kentucky_rch.html  313540  39aaf09e4beaa52afa9a48c7aad3c97df0e88ae2c9ea7ea18f41b4cd8128f22d

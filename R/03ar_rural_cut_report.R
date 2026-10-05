@@ -124,7 +124,9 @@ RC_ENROLMENTS <- c(
   UT = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_UT.json",
   WA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_WA.json",
   # Session 82: Colorado's 36 hospital lines, typed on CMS's CO files.
-  CO = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_CO.json")
+  CO = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_CO.json",
+  # Session 92: Virginia's VHCF round, four exact-record hospital lines.
+  VA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_VA.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -293,11 +295,14 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 87: + SD's Sanford Health and Avera Health, typed system parents
   # on the owner's resolution (2 / $7,007,000, LOW, no CCN); no new state:
   # 1,290 / $1,197,370,515.42 / 31.
-  if (nrow(rows) != 1290L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1197370515.42) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 31L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,290 rows / $1,197,370,515.42 ",
-         "/ 31 states; re-state the rural cut against the new partition.",
+  # Session 92: + Virginia's VHCF round (R/03bx), 9 rows / $6,390,000, a 32nd
+  # state; none is a CAH, so the rural figure does not move:
+  # 1,299 / $1,203,760,515.42 / 32.
+  if (nrow(rows) != 1299L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1203760515.42) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 32L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,299 rows / $1,203,760,515.42 ",
+         "/ 32 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

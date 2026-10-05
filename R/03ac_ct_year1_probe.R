@@ -222,7 +222,26 @@ CT_SOURCES <- tibble::tribble(
 
   "ctsource",
   "2026-09-02_ct_das_ctsource_bidboard_UNREADABLE.html",
-  "https://portal.ct.gov/das/ctsource/bidboard"
+  "https://portal.ct.gov/das/ctsource/bidboard",
+
+  # Session 92. DEEP's Air Line State Park Trail release: an allocation to a
+  # STATE AGENCY, recorded in the status table and never in an award file.
+  "deep_trail",
+  "2026-10-05_ct_deep_air_line_trail_release_2026-07-08_STATE_AGENCY.html",
+  paste0("https://portal.ct.gov/deep/news-releases/news-releases---2026/",
+         "governor-lamont-announces-$40-million-in-federal-health-",
+         "investments-to-improve-outdoor-recreation-at"),
+
+  # Session 92. DMHAS's RFP index (WATCHED) and the REST Center RFP it links.
+  "dmhas_rfps",
+  "2026-10-05_ct_dmhas_rfp_index.html",
+  "https://portal.ct.gov/dmhas/rfps/index/rfps-and-rfqs",
+
+  "dmhas_rest_rfp",
+  "2026-10-05_ct_dmhas_rfp_ebp_rest_2026.pdf",
+  paste0("https://portal.ct.gov/-/media/dmhas/rfp/dmhas-ebp-rest-2026.pdf",
+         "?rev=59c0fb47713846df8f4404ab7c2eb95f",
+         "&hash=836D5BA808759C55682FD7776C4E24D1")
 )
 
 # Every figure Connecticut states, in its own words, read rather than typed
@@ -815,6 +834,102 @@ ct_assert_no_award_file <- function() {
   invisible(TRUE)
 }
 
+# -- session 92: DEEP's agency allocation and DMHAS's REST Center RFP ---------
+
+#' DEEP's $7,165,955 is an allocation to a STATE AGENCY, not a subaward
+#'
+#' The release's headline says "$7.1 Million Awarded in Year One", and the
+#' recipient is DEEP itself: "Connecticut has secured $7,165,955 in first-year
+#' funding" for the Air Line State Park Trail, one of "30 projects across 10
+#' Connecticut state agencies". It is the same money as DEEP's line in the
+#' archived budget narrative -- $86,667 personnel + $75,565 fringe + $1,680
+#' travel + $2,043 supplies + $7,000,000 contracts = $7,165,955 exactly -- so
+#' it is the plan's agency line announced, not an award to a named
+#' subrecipient. Its CMS footer is the BP1 allotment ($154,249,105.53, Tier 1).
+#' The Tier 3 money is downstream: "DEEP is preparing procurement scopes,
+#' contractor selections", and the $7,000,000 contracts line names a "Trail
+#' Contractor" the state has not chosen.
+ct_assert_deep_is_agency_allocation <- function(deep = NULL, budget = NULL) {
+  deep <- deep %||% ct_html_text("deep_trail")
+  deep <- gsub("[\u2018\u2019]", "'", deep)
+  for (p in c("Connecticut has secured $7,165,955 in first-year funding",
+              "30 projects across 10 Connecticut state agencies",
+              "DEEP is preparing procurement scopes, contractor selections",
+              "financial assistance award totaling $154,249,105.53 in Budget Period 1")) {
+    if (!grepl(p, deep, fixed = TRUE)) {
+      stop("[CT] DEEP's 2026-07-08 release no longer carries: ", p, call. = FALSE)
+    }
+  }
+  b <- gsub("\\s+", " ", budget %||% ct_pdf_text("budget"))
+  parts <- c("DEEP Fringe Benefits: $75,565", "DEEP Contracts: $7,000,000.00",
+             "Durational Project Manager TBH $130,000 100% 8 $86,667",
+             "Total: $1,680", "Total: $2,043")
+  miss <- parts[!vapply(parts, function(x) grepl(x, b, fixed = TRUE), TRUE)]
+  if (length(miss)) {
+    stop("[CT] the budget narrative's DEEP line moved: ", paste(miss, collapse = "; "),
+         call. = FALSE)
+  }
+  if (86667 + 75565 + 1680 + 2043 + 7000000 != 7165955) stop("[CT] arithmetic.", call. = FALSE)
+  if (file.exists(here::here(CT_AWARDS_CSV))) {
+    a <- readr::read_csv(here::here(CT_AWARDS_CSV), show_col_types = FALSE, progress = FALSE)
+    if (any(grepl("Energy and Environmental|DEEP|Air Line", a$awardee))) {
+      stop("[CT] DEEP's agency allocation is in the award file; it is not a subaward.",
+           call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+#' The REST Center RFP: $50M anticipated, up to 4 awards, selection TBD
+ct_assert_rest_rfp <- function(rfp = NULL) {
+  t <- gsub("\\s+", " ", rfp %||% ct_pdf_text("dmhas_rest_rfp"))
+  for (p in c("Rural Health Transformation Federal Grant Program",
+              "Anticipated Total Funding Available: $50,000,000",
+              "Number of Awards: Up to 4",
+              "Up to $3,000,000 per year per award",
+              "(*) Proposer Selection TBD",
+              "(*) Start of Contract 9/1/2026",
+              "If the applicant agency is not a hospital, one letter of support should be provided by an area hospital")) {
+    if (!grepl(p, t, fixed = TRUE)) {
+      stop("[CT] the REST Center RFP no longer carries: ", p, call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+#' The REST row on DMHAS's RFP index links nothing but the RFP and addenda
+#'
+#' DMHAS posts the result of a procurement as an extra link in that RFP's own
+#' row -- "Outcome" on Evidence Based Practices, Substance Use Employment
+#' (2025) -- so a REST link that is not the RFP or an "Addendum N" is the
+#' signal, whatever DMHAS calls it.
+ct_rest_row_links <- function(body) {
+  h <- xml2::read_html(body)
+  rows <- xml2::xml_find_all(h, "//tr[.//a[contains(@href, 'dmhas-ebp-rest-2026')]]")
+  if (length(rows) != 1L) {
+    stop("[CT] dmhas_rfps: expected ONE REST-2026 row, found ", length(rows),
+         ". The index changed shape, or the RFP was withdrawn -- read it.", call. = FALSE)
+  }
+  stringr::str_squish(xml2::xml_text(xml2::xml_find_all(rows[[1]], ".//a")))
+}
+
+ct_assert_rest_unawarded <- function(body = NULL) {
+  if (is.null(body)) body <- readBin(ct_path("dmhas_rfps"), "raw", file.size(ct_path("dmhas_rfps")))
+  links <- ct_rest_row_links(body)
+  if (!any(grepl("^Rapid Evaluation, Stabilization and Treatment \\(REST\\) Center", links))) {
+    stop("[CT] dmhas_rfps: the REST row no longer links the RFP by title.", call. = FALSE)
+  }
+  other <- links[!grepl("^Rapid Evaluation|^Addendum [0-9]+$", links)]
+  if (length(other)) {
+    stop("[CT] dmhas_rfps: THE REST CENTER ROW NOW LINKS ", paste(sQuote(other), collapse = ", "),
+         ". DMHAS posts procurement OUTCOMES in the RFP's own row: read it. Up to four ",
+         "REST Centers ($50M anticipated) may have been selected; a hospital or a ",
+         "hospital-partnered applicant is coded off the AWARD (§10.2, New York's class).",
+         call. = FALSE)
+  }
+  invisible(links)
+}
+
 rhtp_ct_assert <- function(strict_footer = FALSE) {
   ct_assert_noa_is_cms_award()
   ct_assert_programme_provenance()
@@ -828,6 +943,9 @@ rhtp_ct_assert <- function(strict_footer = FALSE) {
   ct_assert_channel_control()
   ct_assert_ctsource_unreadable()
   ct_assert_no_award_file()
+  ct_assert_deep_is_agency_allocation()
+  ct_assert_rest_rfp()
+  ct_assert_rest_unawarded()
   invisible(TRUE)
 }
 
@@ -924,7 +1042,40 @@ rhtp_ct_year1_status <- function() {
           "application this environment cannot search, and biznet.ct.gov",
           "answers 403 to the project's agent. Whether an RHTP contract has",
           "been executed inside CTsource is a statement about OUR ACCESS,",
-          "never about Connecticut.")
+          "never about Connecticut."),
+
+    "DEEP release, 2026-07-08 -- Air Line State Park Trail (RHTP population health)",
+    "Department of Energy and Environmental Protection (DEEP)",
+    "'$7,165,955 in first-year funding'; 'a five-year, $40 million federally funded project' anticipated",
+    "STATE_AGENCY_ALLOCATION_NOT_SUBAWARD",
+    "n/a -- the recipient is a STATE AGENCY (one of '30 projects across 10 Connecticut state agencies')",
+    "No",
+    paste("Session 92. A STATE-AGENCY ALLOCATION, NOT A SUBAWARD, despite the",
+          "headline '$7.1 Million Awarded in Year One'. The figure is DEEP's line",
+          "in the archived budget narrative to the dollar ($86,667 + $75,565 +",
+          "$1,680 + $2,043 + $7,000,000 = $7,165,955), so it is the plan's agency",
+          "line announced. The footer is the BP1 allotment ($154,249,105.53, Tier",
+          "1). Tier 3 is downstream: 'DEEP is preparing procurement scopes,",
+          "contractor selections'; a named Trail Contractor would be a subaward.",
+          "Never in ct_year1_awardees.csv, and no hospital is involved."),
+
+    "DMHAS RFP DMHAS-EBP-REST-2026 -- REST Centers (RHTP 23-Hour Crisis Stabilization Center Project)",
+    "Department of Mental Health and Addiction Services (DMHAS)",
+    "'Anticipated Total Funding Available: $50,000,000'; 'Number of Awards: Up to 4'; 'Up to $3,000,000 per year per award'",
+    "CLOSED_SELECTION_TBD_CONTRACT_START_PASSED",
+    paste("HOSPITALS AMONG OTHERS, WITH A HOSPITAL PARTNER REQUIRED OF A",
+          "NON-HOSPITAL: 'Private provider organizations ..., CT State agencies,",
+          "and municipalities are eligible'; 'If the applicant agency is not a",
+          "hospital, one letter of support should be provided by an area",
+          "hospital indicating that there will be a partnership'. §10.2's New",
+          "York class: code off the AWARD, never off this rule."),
+    "No",
+    paste("Session 92. Proposals were due 2026-06-05; the RFP's timeline says",
+          "'Proposer Selection TBD' and 'Start of Contract 9/1/2026', which has",
+          "passed with no outcome posted. TIER 2, and $50M IS NOT A YEAR 1",
+          "FIGURE: four awards at 'Up to $3,000,000 per year' is $12M a year at",
+          "most. Footer: the BP1 allotment (Tier 1). DMHAS posts outcomes as a",
+          "link in the RFP's own row on its index, which R/03ac's probe watches.")
   ) %>%
     dplyr::mutate(state = "CT", .before = 1)
 }
@@ -1133,7 +1284,10 @@ rhtp_ct_report <- function() {
 #   documents   DSS's own index of every RHTP document it publishes
 #   ohs_press   OHS's announcement channel -- where an award release would land
 #   dss_press   DSS's, where a state-level announcement would land
-CT_PROBE_KEYS <- c("opm", "programme", "documents", "ohs_press", "dss_press")
+#   dmhas_rfps  DMHAS's RFP index, where the REST Center outcome would be
+#               linked (session 92)
+CT_PROBE_KEYS <- c("opm", "programme", "documents", "ohs_press", "dss_press",
+                   "dmhas_rfps")
 
 # Strings a human READ on a subject page and judged NOT a recipient (§2.3,
 # exact match). Session 85: the CT Routine's 09-28 and 10-01 firings tripped
@@ -1225,6 +1379,7 @@ ct_probe <- function(keys = CT_PROBE_KEYS) {
                                               nofo = ct_html_text("nofo"))
   ct_assert_leadership_is_not_award(leadership = ct_html_text("leadership"))
   ct_assert_channel_control(ohs_press = txt$ohs_press)
+  ct_assert_rest_unawarded(body = bodies$dmhas_rfps)
 
   # THE NAME TRIPWIRE (§2.3, session 48). The phrase lists above ask HOW a page
   # is worded; this asks WHOM it names, against the committed archive. New

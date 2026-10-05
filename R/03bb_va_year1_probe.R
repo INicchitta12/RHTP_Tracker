@@ -24,6 +24,7 @@
 #     administrator and status)
 #   * the RHT site's News & Updates -- too thin to name-diff (two names), so a
 #     NEW sentence speaking of awards trips instead.
+#   * VHCF's news index (session 92) -- a NEW POST URL trips; see below.
 #
 # THE RHT SITE SERVES AN INCOMPLETE CERTIFICATE CHAIN. ruralhealthtransformation-
 # va.virginia.gov sends its leaf without the DigiCert intermediate. The fix is
@@ -58,7 +59,9 @@ VA_PAGES <- tibble::tribble(
   "ways_to_apply", paste0(VA_RHT, "/ways-to-apply/"),
   file.path(VA_RECHECK, "rhtva_ways_to_apply.html"), TRUE,
   "news", paste0(VA_RHT, "/news--updates/"),
-  file.path(VA_RECHECK, "rhtva_news_updates.html"), FALSE)
+  file.path(VA_RECHECK, "rhtva_news_updates.html"), FALSE,
+  "vhcf_news", "https://www.vhcf.org/news/",
+  file.path("data", "evidence", "VA", "vhcf", "2026-10-05_vhcf_news_index.html"), FALSE)
 
 VA_ANCHORS <- list(
   vhcf = paste("VHCF anticipates sharing a Notice of Awards by September 30,",
@@ -107,6 +110,42 @@ va_validate <- function() {
   invisible(TRUE)
 }
 
+# VHCF'S NEWS INDEX IS WATCHED BY POST, NOT BY PHRASE (session 92). VHCF's
+# first RHTP roster (25 awards, $14,390,000, 2026-10-02; R/03bx) arrived as a
+# post on vhcf.org/news/ while /rural-health/ above did not change, so this
+# probe read the wrong page on the day that mattered. A post URL VHCF publishes
+# that the committed index does not carry TRIPS: read it, extract it if it is
+# an RHTP award (Provider Productivity is due in October 2026), and re-base
+# with R/03bx --fetch. VHCF also posts non-RHTP news -- its 2026-07-10 "$2.7
+# million to 19 organizations" is its regular grant programme, registered as
+# VA-VHCF-REGULAR-GRANTS -- so a trip is a post to READ, never a roster to
+# assume. The index is not name-diffed: its excerpts rotate as posts age off,
+# and the post set is the stronger, name-independent signal.
+
+va_vhcf_posts <- function(raw) {
+  h <- xml2::read_html(raw)
+  u <- xml2::xml_attr(xml2::xml_find_all(h, "//a[@href]"), "href")
+  sort(unique(u[grepl("^https://www\\.vhcf\\.org/20[0-9]{2}/[0-9]{2}/[0-9]{2}/[^/]+/?$", u)]))
+}
+
+va_assert_no_new_vhcf_post <- function(live_raw, arch_raw) {
+  arch <- va_vhcf_posts(arch_raw)
+  if (length(arch) < 5L) {
+    stop("[VA] vhcf_news: the archived index yields ", length(arch), " post URLs; ",
+         "the reader has failed, and a diff against nothing passes forever (§2.3).",
+         call. = FALSE)
+  }
+  new <- setdiff(va_vhcf_posts(live_raw), arch)
+  if (length(new)) {
+    stop("[VA] vhcf_news: VHCF PUBLISHED A POST THE ARCHIVE DOES NOT CARRY: ",
+         paste(new, collapse = " ; "), ". THAT IS THE SIGNAL. Read it: an RHTP ",
+         "award roster (Provider Productivity, Provider Interoperability round 2) ",
+         "is extracted beside R/03bx; anything else is recorded. Then re-base ",
+         "with Rscript R/03bx_va_vhcf_awardees.R --fetch (§2.2).", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 # THE WAYS-TO-APPLY TABLE IS READ AS A TABLE (session 74). Its rows are
 # Initiative | Sub-Initiative | Key Implementation Partner | RFA Status, and the
 # reduction flattens them into one run of capitalised words, so every change of
@@ -149,6 +188,9 @@ va_probe <- function() {
   arch_raw <- paste(readLines(here::here(VA_PAGES$file[VA_PAGES$key == "ways_to_apply"]),
                               warn = FALSE), collapse = "\n")
   va_assert_wta_partners(w$raw$ways_to_apply, arch_raw)
+  vhcf_arch <- paste(readLines(here::here(VA_PAGES$file[VA_PAGES$key == "vhcf_news"]),
+                               warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  va_assert_no_new_vhcf_post(w$raw$vhcf_news, vhcf_arch)
   # The prose above the table names only two organisations -- below the
   # name tripwire's baseline floor -- so the page's name diff IS the partner
   # set above; the other two pages keep the ordinary name tripwire.
