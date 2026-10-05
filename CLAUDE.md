@@ -1952,7 +1952,8 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 90 (read first).** Two SD owner questions are open: `SD_CCBHC_COHORT_13_VS_12_GRANTS` and `SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE` ($0 either way). The CCBHC release says "The next round of funding is anticipated later this fall"; when it names grantees, rewrite `R/03bw`, don't patch it. The 10-08 check-in report (`trig_011DDK…`, 15:50Z) fires into session 89's session, not session 90's.
+- **Session 91 (read first).** `SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE` closed at (a), no bridge ($0). Re-checks found, UNEXTRACTED pending owner: VHCF's 10-02 roster (25 awards, $14,390,000, 9 hospital-shaped rows / $6.64M; no probe watches VHCF news); KY recipients self-announcing Community Paramedicine / EMS Training awards that `ky_year1_status.csv` calls CLOSED_UNAWARDED; CT's DEEP $7.17M agency line and the unawarded DMHAS REST RFP. TX BP1 unchanged (33). Detail: `docs/session91_sd_avera_close_va_ky_ct_tx_rechecks.md`.
+- **Session 90.** One SD owner question is open: `SD_CCBHC_COHORT_13_VS_12_GRANTS` ($0). The CCBHC release says "The next round of funding is anticipated later this fall"; when it names grantees, rewrite `R/03bw`, don't patch it. The 10-08 check-in report (`trig_011DDK…`, 15:50Z) fires into session 89's session, not session 90's.
 - **Session 89.** SD's $7.2M EMS round (CMS 10-02; Governor 10-03, "Enhancing Sustainable
   Emergency Medical Services", RFP 26-09RHT-023) is READ and NAMES NOBODY: no roster on DOH, and the open.sd.gov
   RHT series is unchanged at 41 / $26,836,144. Do not extract. **Trap:** DOH's "Regional Services Designation

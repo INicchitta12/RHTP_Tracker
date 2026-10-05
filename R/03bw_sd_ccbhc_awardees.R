@@ -42,9 +42,16 @@
 #     (psychiatric distinct-part unit) CCN of Avera McKennan's hospital.
 # The cohort string is neither name, so §2 forbids a machine bridge and §7's
 # enrolled-operator row does not reach it. The row keeps §8's standing
-# fallback (NONPROFIT_CBO, LOW, RECIPIENT_TYPE_INFERRED), and the owner question
-# SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE asks whether to bridge it by hand. $0 moves
-# either way: no amount is published, and receipt itself is Unclear.
+# fallback (NONPROFIT_CBO, LOW, RECIPIENT_TYPE_INFERRED).
+#
+# NO HAND BRIDGE EITHER: SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE CLOSED (owner,
+# session 91, option (a)). The round funds Certified Community Behavioral Health
+# Clinics, a CLINIC model, and 43S016 is a psychiatric distinct-part unit inside
+# Avera McKennan's hospital: a hospital unit's enrolment is not the named cohort
+# member, and §7's enrolled-operator row needs the awardee's own legal entity.
+# $0 moved: no amount is published, and receipt itself is Unclear. It reopens
+# only if a state or CMS source names the cohort member's legal entity as an
+# enrolled hospital (the exact-name stop below fires on the enrolment half).
 #
 # The other twelve are community mental health centres and a Volunteers of
 # America affiliate. None appears on any SD enrolment file (asserted below);
@@ -187,7 +194,7 @@ sdc_avera_enrolment_check <- function(f = sdc_federal()) {
   if (nrow(exact)) {
     stop("[SD CCBHC] CMS SD enrolment NOW carries 'AVERA BEHAVIORAL HEALTH' exactly (CCN ",
          paste(exact$ccn, collapse = "/"), "). Re-type the row under §7's enrolled-operator ",
-         "rule and close SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE.", call. = FALSE)
+         "rule and reopen SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE (closed session 91 on no exact name).", call. = FALSE)
   }
   if (!identical(psych$ccn, "434003") || psych$org != "STATE OF SOUTH DAKOTA") {
     stop("[SD CCBHC] SD's psychiatric-hospital enrolment set moved: ",
@@ -214,8 +221,10 @@ SDC_AVERA_FINDING <- paste0(
   "Services Center). The nearest Avera string is CCN 43S016, ORGANIZATION NAME AVERA ",
   "MCKENNAN, DBA 'AVERA MCKENNAN BEHAVIORAL HEALTH SERVICES' -- a psychiatric distinct-part ",
   "unit CCN of Avera McKennan's hospital. Neither name is the cohort string, so no machine ",
-  "bridge is made (§2) and §7's enrolled-operator row does not reach it. Owner question ",
-  "SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE.")
+  "bridge is made (§2) and §7's enrolled-operator row does not reach it. No hand bridge ",
+  "either: SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE closed at option (a) (owner, session 91) -- ",
+  "the round funds CCBHCs, a clinic model, and 43S016 is a psychiatric unit of Avera ",
+  "McKennan's hospital, not the named cohort member.")
 
 sdc_awardees <- function(nm = sdc_parse()) {
   cl <- rhtp_classify_recipient_type(nm, SDC_STATE)
