@@ -79,7 +79,7 @@ Y1_AWARD_FILES <- c(
   VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv",
   NJ = "nj_year1_awardees.csv",
   LA = "la_year1_awardees.csv",
-  CO = "co_year1_awardees.csv"
+  CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -226,8 +226,8 @@ Y1_STATUS <- tibble::tribble(
 
   "LA", "PARTIAL", "No", "Yes",
   "2026-09-21",
-  "One of seven Budget Year 1 solicitations has awarded (the Rural Clinician Credit Bank, 53 awards as of 8/28, session 64); LDH's programme page still dates the other six announcement windows to the end of September 2026.",
-  "data/evidence/LA/2026-09-21_la_ldh_rhtp_programme_SEVEN_WINDOWS_RE_DATED.html",
+  "One of seven Budget Year 1 solicitations has a published award (the Rural Clinician Credit Bank, 53 awards as of 8/28, session 64). The other six had Notices of Intent to Contract dated 2026-10-02, sent to applicants privately, with denials 'by October 16, 2026'; nothing names a selectee (session 88).",
+  "data/evidence/LA/2026-10-05_la_ldh_rhtp_programme_NOTICES_DATED_OCT_2.html",
 
   "KS", "PARTIAL", "No", "Yes",
   "2026-09-22",
@@ -353,7 +353,12 @@ Y1_STATUS <- tibble::tribble(
   "CO", "PARTIAL", "No", "Yes",
   "2026-09-28",
   "CMS: 'Today's announcement is one part of the larger overall funding amount awarded to Colorado for fiscal year 2026.' The round is $169.6M of a $200,105,604 allotment, and HCPF's own total ($169,587,181) does not reconcile to its roster ($170,210,575.26) (session 82).",
-  "data/evidence/CO/2026-10-01_cms_release_co_2026-09-28.html; data/evidence/CO/2026-10-01_hcpf_release_2026-09-28.html"
+  "data/evidence/CO/2026-10-01_cms_release_co_2026-09-28.html; data/evidence/CO/2026-10-01_hcpf_release_2026-09-28.html",
+
+  "MT", "PARTIAL", "No", "Yes",
+  "2026-09-29",
+  "DPHHS: 'This is the first round of funding for EMS modernization through Montana's RHTP.' The $8.7M EMS Equipment Grant is one channel of a $233,509,359 allotment; the CIH pilot grant and five RFPs on DPHHS's pages name no award (session 88).",
+  "data/evidence/MT/2026-10-05_mt_dphhs_rural_ems_award_release.html; data/evidence/MT/2026-10-05_mt_rhtp_grants.html"
 )
 
 

@@ -35,6 +35,9 @@ library(testthat)
 source(here::here("R", "03ae_la_year1_probe.R"))
 
 la_prog  <- la_html_text("programme")
+# SESSION 88: the 09-21 page is now the prior; the window-shape tests below
+# that were written against it read it by name.
+la_prog_0921 <- la_html_text("programme_prior")
 la_fund  <- la_html_text("funding")
 la_news  <- la_html_text("news")
 la_cat   <- la_html_text("catalyst")
@@ -103,64 +106,75 @@ test_that("LDH publishes an announcement window for each of seven opportunities"
   expect_equal(
     stringr::str_count(la_fund, stringr::fixed("Strategic Funding Opportunity Title")),
     LA_STATED$opportunities)
-  expect_true(all(grepl("^Closed$", w$application, ignore.case = TRUE)))
+  # The 10-05 page no longer prints the deadline clause; the 09-21 one did.
+  expect_true(all(is.na(w$application)))
+  expect_true(all(grepl("^Closed$", la_parse_windows(la_prog_0921)$application)))
   expect_true(is.data.frame(la_assert_windows_published(la_prog, la_fund)))
 })
 
-test_that("THE WINDOWS AS PUBLISHED TODAY: 6 x End of September, 1 x Mid-September", {
-  # Session 36 pinned two literal phrases and their counts. LDH re-dated the
-  # block, so the assertion found 0 and 0 and HALTED the Routine -- correctly,
-  # and on a constant that was not wrong when it was written. What the page
-  # says now is read here instead of asserted from memory.
+test_that("THE WINDOWS AS PUBLISHED 2026-10-05: 6 x October 2, 2026 and 1 x Completed", {
+  # SESSION 88. LDH replaced the relative windows with a DAY and a word. The
+  # 10-03 Routine could parse 0 of 7; both forms are now recognised, and
+  # the names are anchored on the notice label because the deadline label
+  # is gone.
   w <- la_parse_windows(la_prog)
-  expect_equal(sum(w$window == "End of September"), 6L)
-  expect_equal(sum(w$window == "Mid-September"), 1L)
-  expect_equal(sum(w$window_ends == as.Date("2026-09-30")), 6L)
-  expect_equal(sum(w$window_ends == as.Date("2026-09-15")), 1L)
+  expect_equal(sum(w$window == "October 2, 2026"), 6L)
+  expect_equal(sum(w$window_ends == as.Date("2026-10-02"), na.rm = TRUE), 6L)
+  expect_equal(sum(w$completed), 1L)
+  expect_equal(w$programme[w$completed],
+               "Rural Health Transformation Program (RHTP) Rural Clinician Credit Bank Program")
+  expect_true(is.na(w$window_ends[w$completed]))
+  # And the 09-21 page still reads as it did.
+  w0 <- la_parse_windows(la_prog_0921)
+  expect_equal(sum(w0$window == "End of September"), 6L)
+  expect_equal(sum(w0$window == "Mid-September"), 1L)
+  # Same seven names, in the same order, across the re-layout.
+  expect_equal(w$programme, w0$programme)
 })
 
 test_that("which windows have PASSED is derived, never asserted", {
-  # The previous version asserted that ALL SEVEN had passed. That was true
-  # when written and is now false: on 2026-09-21 exactly one has. A claim
-  # about a state read off a constant rather than off the state's page (§0.4).
-  w <- la_assert_windows_published(la_prog, la_fund,
+  w <- la_assert_windows_published(la_prog_0921, la_fund,
                                    asof = as.Date("2026-09-21"))
   expect_equal(sum(w$passed), 1L)
   expect_equal(w$programme[w$passed],
                "Rural Health Transformation Program (RHTP) Rural Clinician Credit Bank Program")
-  # And it moves with the date rather than with an edit.
-  expect_equal(sum(la_assert_windows_published(la_prog, la_fund,
+  expect_equal(sum(la_assert_windows_published(la_prog_0921, la_fund,
                                                asof = as.Date("2026-10-01"))$passed),
                7L)
+  # On the 10-05 page "Completed" has passed on any date; the six dated
+  # notices pass the day after October 2.
   expect_equal(sum(la_assert_windows_published(la_prog, la_fund,
-                                               asof = as.Date("2026-09-01"))$passed),
-               0L)
+                                               asof = as.Date("2026-10-02"))$passed), 1L)
+  expect_equal(sum(la_assert_windows_published(la_prog, la_fund,
+                                               asof = as.Date("2026-10-03"))$passed), 7L)
 })
 
 test_that("every window form LDH has used dates correctly", {
-  # The four forms across both snapshots. Take the LAST qualifier and the LAST
-  # month: "Late July to mid August" ends mid-AUGUST, not late July.
   expect_equal(la_window_deadline("Late July to mid August"), as.Date("2026-08-15"))
   expect_equal(la_window_deadline("Mid to late August"),      as.Date("2026-08-31"))
   expect_equal(la_window_deadline("End of September"),        as.Date("2026-09-30"))
   expect_equal(la_window_deadline("Mid-September"),           as.Date("2026-09-15"))
+  expect_equal(la_window_deadline("October 2, 2026"),         as.Date("2026-10-02"))
+  expect_true(is.na(la_window_deadline("Completed")))
 })
 
 test_that("a window this file cannot date is REFUSED, not guessed at", {
-  # §0.4: an unparsed date silently treated as absent is how a slipped
-  # deadline reads as an award.
   expect_error(la_window_deadline("soon"), "cannot date the announcement window")
 })
 
-test_that("THE SLIP IS MEASURED FROM TWO COMMITTED ARCHIVES", {
-  # Not a session note: the 2026-09-02 snapshot carries the July/August
-  # windows and the 2026-09-21 one carries the September windows, and both are
-  # in data/evidence/LA/. That is why the superseded file is kept.
+test_that("THE SLIP IS MEASURED FROM COMMITTED ARCHIVES", {
+  # 09-02 -> 09-21: every window slipped 30-46 days.
+  sl0 <- la_assert_windows_slipped(programme = la_prog_0921,
+                                   prior = la_html_text("programme_prior_0902"))
+  expect_equal(nrow(sl0), 7L)
+  expect_equal(range(sl0$slipped_days), c(30L, 46L))
+  expect_true(all(sl0$was %in% c("Late July to mid August", "Mid to late August")))
+  # 09-21 -> 10-05: six slipped two days to a dated notice; the RCCB reads
+  # Completed, which has no date and is never "earlier".
   sl <- la_assert_windows_slipped()
   expect_equal(nrow(sl), 7L)
-  expect_true(all(sl$slipped_days > 0L))
-  expect_equal(range(sl$slipped_days), c(30L, 46L))
-  expect_true(all(sl$was %in% c("Late July to mid August", "Mid to late August")))
+  expect_equal(sum(sl$slipped_days == 2L, na.rm = TRUE), 6L)
+  expect_equal(sl$now[is.na(sl$slipped_days)], "Completed")
 })
 
 test_that("a window moving EARLIER, or not at all, fails rather than passing", {
@@ -170,7 +184,7 @@ test_that("a window moving EARLIER, or not at all, fails rather than passing", {
 
 test_that("a solicitation re-opening is a different finding and fails", {
   reopened <- stringr::str_replace(
-    la_prog, "Application Submission Deadline for Year 1 Funds: Closed",
+    la_prog_0921, "Application Submission Deadline for Year 1 Funds: Closed",
     "Application Submission Deadline for Year 1 Funds: Open")
   expect_error(la_assert_windows_published(reopened, la_fund),
                "no longer read 'Closed'")
@@ -183,7 +197,7 @@ test_that("a window LDH cannot be dated from is REFUSED, not dropped", {
   # and therefore better -- the row never reaches a table.
   dropped <- stringr::str_replace(
     la_prog,
-    stringr::fixed("Notice of Intent to Contract Announcements: Mid-September"),
+    stringr::fixed("Notice of Intent to Contract Announcements: Completed"),
     "Notice of Intent to Contract Announcements: TBD")
   expect_error(la_assert_windows_published(dropped, la_fund),
                "could be parsed")
@@ -425,10 +439,14 @@ test_that("the status table names nine channels; only the RCCB publishes a (part
   # The Atlas is UNKNOWN, never "No": that is a statement about our access.
   expect_equal(st$publishes_roster[stringr::str_detect(st$channel, "Atlas")],
                "UNKNOWN")
-  # THE OTHER SIX ARE STILL UNAWARDED, and whether each window has passed is
+  # THE OTHER SIX: SESSION 88. Their notices are dated October 2, 2026 and
+  # went to applicants privately; no roster is published. The stage is
   # derived from the page on every build (session 46), never typed.
-  six <- st[stringr::str_detect(st$stage, "^CLOSED_AWARD_DATE_"), ]
+  six <- st[st$stage == "SELECTIONS_NOTIFIED_PRIVATELY_NO_PUBLIC_ROSTER", ]
   expect_equal(nrow(six), 6L)
+  expect_true(all(six$publishes_roster == "No"))
+  expect_true(all(six$announcement_window == "October 2, 2026"))
+  expect_true(all(grepl("notices went to applicants privately", six$evidence)))
 })
 
 test_that("the status table's RCCB stage is read off the deck, not the window", {

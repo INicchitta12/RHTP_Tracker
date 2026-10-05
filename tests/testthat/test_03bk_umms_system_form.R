@@ -45,6 +45,14 @@ test_that("the overlay is idempotent and moves exactly one Maryland row", {
                    stdout = TRUE), collapse = "\n")),
     col_types = readr::cols(.default = "c"), na = character(), trim_ws = FALSE)
   expect_equal(nrow(orig), nrow(md))
+  # Session 88 lowered every HIGH-without-CCN to MEDIUM (§7) across all state
+  # files, Maryland's 12 included. Apply the same ceiling to the historical
+  # copy so this still isolates the UMMS overlay.
+  if (!exists("rhtp_confidence_ceiling")) {
+    source(here::here("R", "utils_recipient_classification.R"))
+  }
+  orig$determination_confidence <- rhtp_confidence_ceiling(
+    orig$determination_confidence, orig$ccn)
   diff_rows <- which(apply(orig != md, 1, any))
   expect_equal(md$awardee[diff_rows], UMMS_AWARDEE)
 })

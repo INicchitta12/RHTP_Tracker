@@ -1,0 +1,9 @@
+FEDERAL RECORDS -- fetched 2026-10-05 by session 88
+
+WHY: Montana's EMS Equipment Grant ambulance awardees (R/03bv) are checked against CMS's MT
+Hospital Enrollments. None of the four is on it; PRAIRIE COUNTY HOSPITAL DISTRICT (Terry, CAH,
+CCN 271309) is, which is why MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR is queued.
+Committed as served (§0.5); the readers use THESE, never the live API.
+
+file | sha256 | bytes | source
+cms_hosp_enrollments_MT.json | 7c7baf3e9a44b2d5a2a5560a35304c523ab6458a9e40b72e1e19d6300eedffd7 | 134571 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MT&size=5000 (Hospital Enrollments)

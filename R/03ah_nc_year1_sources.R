@@ -1349,9 +1349,18 @@ NC_NAME_FURNITURE <- list(
   # $20 million per year". The fund's name, its two administering agencies and
   # the same side-nav entry; Tier 2, no awardee (applications close
   # 2026-11-16, awards "anticipated ... January 2027").
+  #
+  # Session 88: the 2026-10-03 Routine tripped on "The North Carolina School
+  # Health Centers". Read 2026-10-05: it is the opening of the SBHC
+  # opportunity's own description -- "The North Carolina School Health
+  # Centers (SHC) Program is administered through the School, Adolescent and
+  # Child Health Unit ... NCDHHS Division of Child and Family Well-Being" --
+  # a STATE PROGRAMME's name, not a recipient. The five SBHC awardees are
+  # already extracted (R/03br); a sixth would arrive as a different string.
   opportunities = c("Rural Health Innovation Fund NCDHHS and NCDIT",
                     "Rural Health Innovation Fund",
-                    "Rural Health Workforce Transformation"))
+                    "Rural Health Workforce Transformation",
+                    "The North Carolina School Health Centers"))
 
 nc_probe <- function() {
   keys <- c("pr_mih", "pr_roots", "roots_page", "opportunities", "trillium")

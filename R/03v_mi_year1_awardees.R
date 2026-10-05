@@ -728,7 +728,9 @@ mi_recipient_type <- function(awardee, award_fund) {
   # 1. The state's own Tribal Government section.
   tribal <- award_fund == "Tribal Government"
   out$recipient_type[tribal] <- "TRIBAL_ORG"
-  out$determination_confidence[tribal] <- "HIGH"
+  # SESSION 88: MEDIUM, not HIGH. The state's own column settles the FORM; §7
+  # reserves HIGH for a CCN match, which no row here has.
+  out$determination_confidence[tribal] <- "MEDIUM"
   out$recipient_type_basis[tribal] <- paste(
     "MDHHS's own 'Tribal Government' section and Fund column state the",
     "recipient's form; the state classifies its own awardee (§8).")
@@ -742,7 +744,7 @@ mi_recipient_type <- function(awardee, award_fund) {
            call. = FALSE)
     }
     out$recipient_type[hit] <- o$recipient_type
-    out$determination_confidence[hit] <- o$confidence
+    out$determination_confidence[hit] <- rhtp_confidence_ceiling(o$confidence)
     out$recipient_type_basis[hit] <- o$why
   }
   out

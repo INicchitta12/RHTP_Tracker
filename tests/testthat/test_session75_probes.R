@@ -40,25 +40,37 @@ test_that("the watch digest ignores whitespace and nothing else", {
 source(here::here("R", "03bl_mt_year1_probe.R"))
 mt <- read_arch(MT_PAGES)
 
-test_that("MT: the baseline carries the September anchor and passes", {
+test_that("MT: the 2026-10-05 baseline carries the award block and passes", {
+  # Session 88: Montana awarded (R/03bv); this is now a ROSTER watch.
   expect_true(mt_assert_watch(mt, mt))
-  expect_true(grepl("A total of $4 million", mt$grants, fixed = TRUE))
+  expect_true(grepl("Date Awarded: Sept. 29, 2026", mt$grants, fixed = TRUE))
 })
 
-test_that("MT: the September sentence going trips", {
-  l <- mt; l$grants <- sub(MT_ANCHOR, "Grant decisions have been made.",
+test_that("MT: the sentences R/03bv's rows rest on going trips", {
+  l <- mt; l$release <- sub("Four agencies were awarded ambulances",
+                            "Agencies received ambulances", l$release, fixed = TRUE)
+  expect_error(mt_assert_watch(l, mt), "NO LONGER SAYS")
+  l <- mt; l$grants <- sub("Date Awarded: Sept. 29, 2026", "Date Awarded: TBD",
                            l$grants, fixed = TRUE)
   expect_error(mt_assert_watch(l, mt), "NO LONGER SAYS")
 })
 
-test_that("MT: a new award sentence trips; the Tier 1 'was awarded' in the baseline does not", {
-  expect_true(grepl("was awarded a historic $233 million", mt$home, fixed = TRUE))
+test_that("MT: a named equipment roster or a new round trips", {
+  l <- mt; l$release <- paste(l$release,
+    "Equipment awards were made to Glacier County EMS and Big Sandy Ambulance.")
+  expect_error(mt_assert_watch(l, mt), "release")
   l <- mt; l$grants <- paste(l$grants,
-    "EMS Equipment Grants were awarded to Glacier County EMS and Big Sandy Ambulance.")
+    "Community Integrated Health Pilot Site Grants were awarded to three agencies.")
   expect_error(mt_assert_watch(l, mt), "grants")
   l <- mt; l$communications <- paste(l$communications,
-    "DPHHS Announces Rural EMS Grant Recipients.")
+    "DPHHS Announces Rural EMS Equipment Grant Recipients.")
   expect_error(mt_assert_watch(l, mt), "communications")
+  # And the NAME tripwire fires on a roster added in words no phrase list has.
+  l <- mt$release
+  live <- paste(l, "Glacier County Emergency Medical Services Inc. Big Sandy Volunteer Ambulance Association.")
+  expect_error(rhtp_assert_no_new_organisations_across(
+    live = list(release = live), archived = list(release = mt$release),
+    state = "MT"), "THAT IS THE SIGNAL")
 })
 
 # -- New Hampshire -------------------------------------------------------------

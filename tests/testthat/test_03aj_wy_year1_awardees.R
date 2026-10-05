@@ -251,10 +251,11 @@ test_that("4.1's class is stated by WDH's own disqualification", {
 test_that("the two rows that name nobody carry no amount, and the classifier would err", {
   expect_silent(wy_assert_unnamed_rows_have_no_amount(wy_rows))
   # DRIVE IT: handed the sentence, the shared classifier returns a determined
-  # TRIBAL_ORG at HIGH confidence -- §6.1's programme-name-as-awardee hazard.
+  # TRIBAL_ORG at MEDIUM (session 88: HIGH needs a CCN, §7) -- §6.1's
+  # programme-name-as-awardee hazard.
   naive <- rhtp_classify_recipient_type(WY_NO_BIDDERS, WY_STATE)
   expect_equal(naive$recipient_type, "TRIBAL_ORG")
-  expect_equal(naive$determination_confidence, "HIGH")
+  expect_equal(naive$determination_confidence, "MEDIUM")
   un <- wy_rows[wy_rows$awardee == WY_NO_BIDDERS, ]
   expect_true(all(is.na(un$amount)))
   expect_equal(sum(un$round_amount), 267000)

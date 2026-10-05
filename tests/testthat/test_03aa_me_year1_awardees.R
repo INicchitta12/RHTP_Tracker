@@ -280,7 +280,8 @@ test_that("Maine DOE's award announcement date has PASSED and is asserted", {
 test_that("MCD is the SECOND publisher of the EMR channel's pre-award state", {
   mcd <- me_html_text("mcd")
   expect_true(grepl("APPLICATIONS CLOSED", mcd, fixed = TRUE))
-  expect_true(grepl("COMING SOON", mcd, fixed = TRUE))
+  # Session 88 re-base: MCD now prints "Coming Soon" in title case.
+  expect_true(grepl("coming soon", mcd, ignore.case = TRUE))
 })
 
 test_that("the status table has NO amount column and refuses one", {

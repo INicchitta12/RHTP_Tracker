@@ -193,7 +193,16 @@ CA_SOURCES <- tibble::tribble(
 
   "newsroom",
   "2026-09-02_ca_hcai_newsroom_CONTROL.html",
-  "https://hcai.ca.gov/media-center/"
+  "https://hcai.ca.gov/media-center/",
+
+  # SESSION 88. Linked from the CalRHT page as "CalRHT Frequently Asked
+  # Questions Grant Notifications (September 30, 2026)"; the PDF itself is
+  # dated September 29, 2026. It is what says California's notices have gone
+  # to APPLICANTS -- conditional selections, Notices of Intent to Award and
+  # non-selections, through Submittable -- while nothing public names anybody.
+  "faq_notifications",
+  "2026-10-05_ca_hcai_calrht_faq_grant_notifications_PRIVATE_NOTICES.pdf",
+  "https://hcai.ca.gov/wp-content/uploads/2026/09/CalRHT-FAQs-Grant-Notifications.pdf"
 )
 
 CA_STATED <- list(
@@ -928,6 +937,43 @@ ca_assert_no_award_file <- function() {
   invisible(TRUE)
 }
 
+#' SESSION 88: HCAI'S NOTICES HAVE GONE TO APPLICANTS, NOT TO A PAGE
+#'
+#' The FAQ is the state's own statement that selections were communicated
+#' privately: applicants "will receive information about their own
+#' application through the grants management system (Submittable)", the
+#' public announcement "does not confirm the outcome of an individual
+#' application", and the notices are conditional selections, Notices of
+#' Intent to Award and non-selections. Some applications "remain under
+#' consideration", to be notified "by late October 2026". So the four pools
+#' are no longer "not yet awarded" -- they are selected, privately notified
+#' and unpublished -- and still name nobody, so nothing is extracted (§0.4).
+CA_PRIVATE_NOTICE_SENTENCES <- c(
+  "Frequently Asked Questions: Grant Notifications September 29, 2026",
+  "does not confirm the outcome of an individual application",
+  "through the grants management system (Submittable)",
+  "conditionally selected for CalRHT funding",
+  "HCAI may withdraw the Notice of Intent to Award",
+  "You will be notified regarding the status of your application by late October 2026",
+  "Your award is not final until a subrecipient agreement is signed and executed")
+
+ca_assert_private_notices <- function(faq = NULL) {
+  t <- if (is.null(faq)) ca_pdf_text("faq_notifications") else faq
+  miss <- CA_PRIVATE_NOTICE_SENTENCES[!vapply(
+    CA_PRIVATE_NOTICE_SENTENCES, function(x) grepl(x, t, fixed = TRUE), logical(1))]
+  if (length(miss)) {
+    stop("[CA] the grant-notifications FAQ no longer says: ",
+         paste(sQuote(miss), collapse = "; "), ". The status table's ",
+         "NOTICES_SENT_PRIVATELY stage rests on it -- re-read it.", call. = FALSE)
+  }
+  # §0.2: its footer is the ALLOTMENT, never a pool.
+  if (!grepl(CA_STATED$footer_amount, t, fixed = TRUE)) {
+    stop("[CA] the FAQ's CMS footer is not ", CA_STATED$footer_amount, ".",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 rhtp_ca_assert <- function(strict_footer = FALSE) {
   ca_assert_noa_is_cms_award()
   ca_assert_programme_provenance()
@@ -941,6 +987,7 @@ rhtp_ca_assert <- function(strict_footer = FALSE) {
   ca_assert_srhrp_eligibility_not_receipt()
   ca_assert_newsroom_control()
   ca_assert_no_award_file()
+  ca_assert_private_notices()
   invisible(TRUE)
 }
 
@@ -1038,7 +1085,31 @@ rhtp_ca_year1_status <- function() {
           "2026-08-27 PULL CAME FROM HERE; RCJ WITHDREW THEM ON THE",
           "2026-09-24 PULL.")
   ) %>%
-    dplyr::mutate(state = "CA", .before = 1)
+    dplyr::mutate(state = "CA", .before = 1) %>%
+    ca_status_private_notices()
+}
+
+#' SESSION 88: the four CalRHT pools have notified applicants privately
+#'
+#' Applied only while ca_assert_private_notices() holds, so the stage cannot
+#' outlive the document that supports it.
+ca_status_private_notices <- function(st) {
+  ca_assert_private_notices()
+  pools <- st$stage == "CLOSED_UNAWARDED"
+  st$stage[pools] <- "NOTICES_SENT_PRIVATELY_NO_PUBLIC_ROSTER"
+  st$evidence[pools] <- paste(
+    st$evidence[pools],
+    "SESSION 88: HCAI's 'Frequently Asked Questions: Grant Notifications'",
+    "(2026-09-29, linked from the CalRHT page 'September 30, 2026'; archived",
+    "2026-10-05) says applicants have received conditional selections,",
+    "Notices of Intent to Award and non-selection notices through Submittable,",
+    "that the public announcement 'does not confirm the outcome of an",
+    "individual application', and that applications still under",
+    "consideration will be notified 'by late October 2026'. 'Not yet awarded'",
+    "is out of date: selections are made and sent privately; no recipient is",
+    "published, so nothing is extracted and publishes_roster stays No. The FAQ",
+    "does not say which of the four pools each notice belongs to.")
+  st
 }
 
 

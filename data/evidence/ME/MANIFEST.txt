@@ -17,17 +17,17 @@ each write). The page digests are stable: two fetches of the programme
 page three seconds apart returned the SAME SHA-256, so unlike Nevada,
 Missouri and Wisconsin a file digest is a usable change test here.
 
-2026-09-02 00:19:57 UTC
+2026-10-05 15:14:45 UTC
 
 KEY            FILE                                                            BYTES  SHA-256
-programme      2026-09-02_me_dhhs_rhtp_programme.html                          46806  61f915ef19d4c7e2e8832b035fed343559899650308308c565aaf12320a0f52c
+programme      2026-09-02_me_dhhs_rhtp_programme.html                          47538  021dff612a06c2f92d20038b9426e57aced12a5f420e8402b52743cd30f36973
 rhef           2026-07-31_me_dhhs_rural_hospital_resiliency.html               29876  bfe6471ee8ceb17a096384b763f011e97c5210884c14f1ecbb4145472def1cc4
 une            2026-07-31_me_dhhs_une_12m_partnership.html                     30904  6c698cfb1b83602bafbabe6f9222161ca2d3803c369336e6fbffb5ac05a1a9f6
 emr            2026-07-10_me_dhhs_emr_modernization.html                       29114  3cbf96973aec402f32c7a97c3cd4efebfe2708bdc7eb9682bd7b5f22b9a74e8c
 advisory_aug   2026-08-05_me_rhtp_advisory_updates.pdf                        753872  c7bfb91fb429d71f0cdd4fb91b94fdd4bdfecf25f54524d98b7bfc1c32c764aa
 advisory_jul   2026-07-01_me_rhtp_advisory_committee.pdf                      751564  b29f6ed537be10bb5ce3bd1818e7b37ddc0f2ae02b83eb6a737ec3261360ea06
-doe            2026-09-02_me_doe_healthcare_careers_exploration.html           50953  ec77203c43c4591f28e2d2ac0bce94cbca39b1906d78b10f9fc3977296a6e348
-mcd            2026-09-02_mcd_global_health_maine_rhtp.html                    26508  10ab02665c2e209fbf15b10abaaf7a1fa1eb34c0138cbb247b17bdf78a4d167c
+doe            2026-09-02_me_doe_healthcare_careers_exploration.html           49006  45bde1d05ef859099828759bf7289354f785605024b03aa0623695292ea15eb2
+mcd            2026-09-02_mcd_global_health_maine_rhtp.html                    26757  f24066f6fa505200587566a877eae8507ea4619effe3d322b4a588ef0007b97b
 governor       2025-12-29_governor_mills_rhtp_award.html                       26714  29891d66cfa412e779f0d0ff184a532f63e68170bc52b2d2bd38de600ae9ee70
 news_index     2026-09-02_me_dhhs_news_index.html                              35501  c4924e7f9a65429fc918db45b00c92721cc397e61a05b6fee2de18080c184022
 blog_index     2026-09-02_me_dhhs_blog_index.html                              25810  b59264ac8ab2ae589ded622f3ba0fbf2d81f1575b385b6c43f2fa4eb95658b04

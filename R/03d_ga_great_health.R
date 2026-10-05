@@ -294,7 +294,8 @@ rhtp_ga_ahead_roster <- function(path = GA_AHEAD_ROSTER_ARCHIVE) {
 # "County" to the next hospital.  Banding on the anchor's y is what survives
 # that.
 #
-# WHY determination_confidence IS MEDIUM HERE AND HIGH ON THE 87 AHEAD ROWS.
+# WHY determination_confidence IS MEDIUM HERE (AND, SINCE SESSION 88, ON THE 87
+# AHEAD ROWS TOO: the HIGH they were hand-coded with is lowered at output).
 # §7 reserves HIGH for a named hospital recipient WITH A CCN MATCH, and this
 # repository has no CCN source yet (open blocker 5).  These twenty-one are
 # "primary source, hospital identity inferred from name without CCN match",
@@ -1200,6 +1201,12 @@ rhtp_ga_records <- function() {
         .data$extraction_method_override, "MODEL_ASSISTED"),
       validator = dplyr::coalesce(.data$validator_override, "AI-assisted - CONFIRM"),
       ccn = NA_real_, aha_id = NA_real_, reviewer = NA_character_,
+      # SESSION 88: §7's ceiling. No Georgia row has a CCN, so no Georgia row
+      # is HIGH; the hand-coded HIGHs above (the 87 AHEAD rows and the named
+      # initiative rows) are MEDIUM in the file. Typing is untouched.
+      determination_confidence = dplyr::if_else(
+        .data$determination_confidence == "HIGH", "MEDIUM",
+        .data$determination_confidence),
       determination_basis = paste0(
         "DCH ", .data$phase_date, " announcement, GREAT Health Phase ", .data$phase,
         dplyr::if_else(is.na(.data$initiative_number), "",

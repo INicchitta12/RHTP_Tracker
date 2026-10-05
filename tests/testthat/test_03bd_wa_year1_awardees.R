@@ -49,8 +49,10 @@ test_that("WSHA's $42M is Unclear and in NEITHER bucket", {
 test_that("the counterfactual: the classifier alone would call WSHA a hospital", {
   cls <- rhtp_classify_recipient_type("Washington State Hospital Association", "WA")
   expect_equal(cls$recipient_type, "HOSPITAL_OR_SYSTEM")
-  expect_equal(cls$determination_confidence, "HIGH")
-  expect_true(grepl("Classifier said HOSPITAL_OR_SYSTEM/HIGH",
+  # Session 88: the classifier is capped at MEDIUM (§7 reserves HIGH for a
+  # CCN). The committed note records what it said when WA was built.
+  expect_equal(cls$determination_confidence, "MEDIUM")
+  expect_true(grepl("Classifier said HOSPITAL_OR_SYSTEM/",
                     wa$recipient_type_source[1], fixed = TRUE))
 })
 
