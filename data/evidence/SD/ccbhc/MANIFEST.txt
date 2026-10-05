@@ -1,0 +1,40 @@
+RHTP tracker archive (spec 0.4 / 0.5): South Dakota's CCBHC round -- the
+Governor's 2026-09-24 release naming the 13-member CCBHC Cohort. Session 90,
+read by R/03bw_sd_ccbhc_awardees.R.
+
+fetched_utc     : 2026-10-05T16:51:00Z
+state           : SD
+host            : news.sd.gov (ServiceNow knowledge base)
+source_doc_type : GOVERNOR_PRESS_RELEASE
+user_agent      : the project's own (config.yml api$user_agent)
+
+  file            : KB0047183.html
+  kb_number       : KB0047183
+  title           : Gov. Rhoden Awards Behavioral Health Grants through RHT
+  announced       : 2026-09-24
+  states          : 12 CCBHC grants, "totaling more than $13 million"; a
+                    13-agency cohort, "selected in April"
+  named           : 13 cohort members; NO grant recipient named, NO amount
+  fetched from    : https://news.sd.gov/kb_view.do?sysparm_article=KB0047183
+  http_status     : 200
+  article bytes   : 8318
+  article sha256  : 1d6b5ef82437ae427e1dcb1c4542c1a2581e3d3c9c41bb8b6761371a32ac4628
+  full-page bytes : 54562
+  full-page sha256: a659f2c2eeb0abcfec19326103a1132d3949928f5386fa7c65aeefd8201937ae
+
+ONLY THE <article id="article"> ELEMENT IS ARCHIVED, on R/03j's precedent:
+the ServiceNow chrome carries a per-session CSRF token (g_ck). The article
+element was checked free of it before writing. The full-page digest is the
+response as served and is NOT reproducible (the token rotates); the article
+digest is the one that verifies.
+
+HOW IT WAS FOUND. news.sd.gov publishes no index this environment can read
+without JavaScript and its table API is 401. KB numbers were walked from
+KB0047023 (2026-08-19) forward; KB0047183 is the 09-24 release. The
+War College repost's "original" link (sys_kb_id 46173fa8...) resolves to
+KB0045838, the 2026-01-29 HB 1044 signing release, not this one.
+
+CMS's release of the same day is already archived by the CMS Routine:
+data/raw/cms/2026-09-24/newsroom/releases/trump-administration-announces-13-million-investment-expand-behavioral-healthcare-create-24-7-mobile.html
+("$13 million"; "12 modernization and infrastructure grants to providers
+participating in South Dakota's ... CCBHC initiative"; names nobody).

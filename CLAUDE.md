@@ -670,6 +670,7 @@ R/
   03bt_ok_new_rosters.R        # Oklahoma — Doulas, RRR and CDM, each its own file; typed on CMS enrolment (BUILT)
   03bu_de_fqhc_awardees.R      # Delaware — 3 FQHCs, $22.69M ROUNDED, no hospital (BUILT)
   03bv_mt_year1_awardees.R     # Montana — 4 ambulance grants ~$340k ROUNDED + 1 unnamed pool of 75 (BUILT)
+  03bw_sd_ccbhc_awardees.R     # South Dakota CCBHC — 13 named cohort, 12 grants, >$13M, NO amounts (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1625,7 +1626,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-05 (Session 89). Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
+**Last updated:** 2026-10-05 (Session 90). Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
 NON_HOSPITAL (owner: a shared county does not show the hospital district operates the ambulance service; $0
 moved), read SD's $7.2M EMS round (no roster), and merged the session-84 check-in branch. Detail:
 `docs/session89_sd_ems_round_mt_prairie_checkin.md`. Session 88 did five owner tasks:
@@ -1803,7 +1804,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 3 allotments + registry worksheet | `R/03_state_registry.R` | Built; §7.3 registry NOT compiled (blocker 1) |
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
-| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt`–`R/03bv` | 38 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
+| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt`–`R/03bw` | 38 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
 | State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn`, `03bs` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
@@ -1891,6 +1892,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | VA | 11 | 0 | — | 0 |
 | ID | 1 | 0 | — | 0 |
 | SD rounds | 2 | 0 | — ($121.5M, names nobody) | 0 |
+| SD CCBHC | 13 | 0 | — (pool "more than $13 million") | 0 (13-member cohort, 12 grants; every row Unclear) |
 
 Each file's caveats are in its own `R/` header and in the history file. Reference tables: `data/reference/`.
 Every `<st>_year1_*.csv` has a matching `<st>_rcj_candidate_disposition.csv`, rebuilt by its own script and
@@ -1950,7 +1952,8 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 89 (read first).** SD's $7.2M EMS round (CMS 10-02; Governor 10-03, "Enhancing Sustainable
+- **Session 90 (read first).** Two SD owner questions are open: `SD_CCBHC_COHORT_13_VS_12_GRANTS` and `SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE` ($0 either way). The CCBHC release says "The next round of funding is anticipated later this fall"; when it names grantees, rewrite `R/03bw`, don't patch it. The 10-08 check-in report (`trig_011DDK…`, 15:50Z) fires into session 89's session, not session 90's.
+- **Session 89.** SD's $7.2M EMS round (CMS 10-02; Governor 10-03, "Enhancing Sustainable
   Emergency Medical Services", RFP 26-09RHT-023) is READ and NAMES NOBODY: no roster on DOH, and the open.sd.gov
   RHT series is unchanged at 41 / $26,836,144. Do not extract. **Trap:** DOH's "Regional Services Designation
   Grant Fund Distribution" page is a named, priced EMS roster ($1,668,809.91 + $5,839,975.00) that is STATE

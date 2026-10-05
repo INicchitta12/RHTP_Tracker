@@ -1,0 +1,31 @@
+South Dakota -- a STATE-money EMS roster registered in
+data/reference/non_rhtp_state_programs.csv (SD-DOH-RSD-GRANT-FUND), session 90.
+Archived read-only, one fetch, 2026-10-05 16:50Z, HTTP 200, the project's own
+user agent.
+
+2025-08-04_sd_doh_regional_services_designation_grant_fund_STATE.html
+  <- https://doh.sd.gov/healthcare-professionals/ems-trauma/ems-sustainability-assessment/regional-services-designation-grant-fund-distribution/
+  SCRIPT- AND NOSCRIPT-STRIPPED before writing: the page's inline script
+  carries an Azure Application Insights connection string
+  (InstrumentationKey=...), which is a key and is not committed.
+  served   : 148883 bytes, sha256 ba2be18da03dffb7ccbc3e73cb26d554af0658f852760b4db3bc92f6fec9eeec
+  archived : 134301 bytes, sha256 012b4c8df4e9bde3e88ee28d0b8342f6e1895c5a13b6568d14d1d562f674f261
+
+  WHAT IT IS. "The South Dakota Department of Health's Regional Services
+  Designation Grant program has successfully funded EMS improvements",
+  headed "Emergency Medical Services Interim Committee". Round 1: 39
+  services/organisations, total $1,668,809.91. Round 2: 64, total
+  $5,839,975.00. $7,508,784.91 in all, named and priced.
+  "Content last updated: August 4, 2025."
+
+  WHY IT IS NOT RHTP. Dated 2025-08-04, before South Dakota's 2025-12-29 CMS
+  Notice of Award, so it fails the §6.2 date test; an EMS Interim Committee
+  programme; "Rural Health Transformation" occurs ONLY in the site's
+  navigation menu (twice), never in the <main> content; "RHT", "CMS" and
+  "federal" occur zero times.
+
+  WHY IT IS A TRAP. South Dakota's RHTP EMS round (CMS 2026-10-02, Governor
+  2026-10-03: ~$7.2M, 25 projects, "Enhancing Sustainable Emergency Medical
+  Services", RFP 26-09RHT-023) names nobody. This page is an EMS roster of
+  nearly the same size, on the same DOH EMS section, naming Avera Health,
+  Sanford Health and several hospitals. It is not that round.

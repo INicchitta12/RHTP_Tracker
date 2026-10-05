@@ -292,7 +292,12 @@ STATE_FILES <- c(
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
-  MT = "data/reference/mt_year1_awardees.csv"
+  MT = "data/reference/mt_year1_awardees.csv",
+  # Session 90: South Dakota's CCBHC round (R/03bw). Thirteen named cohort
+  # members for "12 ... grants totaling more than $13 million": amount EMPTY,
+  # the pool in round_amount, recipient_confirmed Unclear on every row. No
+  # hospital row (Avera Behavioral Health has no exact CMS enrolment).
+  SD_CCBHC = "data/reference/sd_year1_ccbhc_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
