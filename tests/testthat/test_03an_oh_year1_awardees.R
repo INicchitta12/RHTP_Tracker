@@ -83,7 +83,7 @@ test_that("the classifier agrees WITHOUT an override", {
   # The contrast with Delaware, stated as a test rather than as a comment.
   cls <- rhtp_classify_recipient_type("Ohio University", "OH")
   expect_equal(cls$recipient_type, "UNIVERSITY_OR_AHC")
-  expect_equal(cls$determination_confidence, "HIGH")
+  expect_equal(cls$determination_confidence, "MEDIUM")  # §7 ceiling, session 88
   expect_equal(oh_year1_awardees()$recipient_type, cls$recipient_type)
 })
 

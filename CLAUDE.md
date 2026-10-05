@@ -659,7 +659,7 @@ R/
   03bh_rcj_candidate_dispositions.R # RCJ dispositions for the 23 states that had none (BUILT)
   03bj_enrolled_hospital_operator.R # §10.2 enrolled-hospital operators (AHCs) + OTHER-form check (BUILT)
   03bi_in_grow_regional_awardees.R  # Indiana GROW regions — 186 recipients, NO amounts; --probe (BUILT)
-  03bl_mt_year1_probe.R        # Montana — a WATCH; EMS decisions "in September" (BUILT)
+  03bl_mt_year1_probe.R        # Montana — a ROSTER WATCH since session 88 (names for the 75; a new round) (BUILT)
   03bm_nh_year1_probe.R        # New Hampshire — a WATCH on FHC; CAH RFA "Coming Soon" (BUILT)
   03bn_mn_year1_probe.R        # Minnesota — a WATCH; 94 eligible hospitals are NOT awards (BUILT)
   03bo_co_year1_awardees.R     # Colorado — 92 lines, $170.2M vs HCPF's $169.6M, typed on CMS enrolment (BUILT)
@@ -669,6 +669,7 @@ R/
   03bs_al_year2_probe.R        # Alabama — a WATCH on Community Medicine, a YEAR 2 subaward round (BUILT)
   03bt_ok_new_rosters.R        # Oklahoma — Doulas, RRR and CDM, each its own file; typed on CMS enrolment (BUILT)
   03bu_de_fqhc_awardees.R      # Delaware — 3 FQHCs, $22.69M ROUNDED, no hospital (BUILT)
+  03bv_mt_year1_awardees.R     # Montana — 4 ambulance grants ~$340k ROUNDED + 1 unnamed pool of 75 (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1624,7 +1625,22 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-02 (Session 87). Session 87 applied the owner's answers to session 86's three queue questions:
+**Last updated:** 2026-10-05 (Session 88). Session 88 did five owner tasks:
+- **Confidence (§7).** 1,113 rows carried `determination_confidence = HIGH` with no CCN (495 NAMED_HOSPITAL /
+  $385,879,914; 618 others). All are MEDIUM now; no typing changed. The shared classifier caps every name and
+  type-field rule at MEDIUM (`rhtp_confidence_ceiling()`), GA's and MI's hand-coded HIGHs are lowered at output,
+  and `test_state_union.R` fails any state file with a HIGH and no CCN. SD's 6 HIGH rows carry a CCN and stay.
+- **CMS verdict.** `rhtp_cms_press_verdict()` now reports CHANGED for a new release in a state already listed
+  (the 10-05 run logged UNCHANGED while writing SD's $7.2M release) and uses `rhtp_probe_verdict()`.
+- **Montana EXTRACTED** (`R/03bv`): 4 ambulance grants at "approximately $340,000 each" (rounded) and one
+  NOT_YET_NAMED pool of 75 equipment awards, no amount. No hospital. `R/03bl` is now its roster watch.
+- **Probes.** LA's parser reads exact dates, "Completed" and the re-anchored labels (10-05 snapshot archived);
+  NC gains one furniture entry; AK compares the award table, not the xlsx bytes; TN NJ NY CA ME re-based
+  (probe pages only; award sources restored).
+- **Private notifications.** CA's four CalRHT pools (HCAI FAQ, 09-29) and LA's six programmes (Notices dated
+  2026-10-02) have notified applicants privately and publish no roster. Status tables now say so.
+
+Detail: `docs/session88_confidence_cms_verdict_montana_probes_private_notices.md`. Session 87 applied the owner's answers to session 86's three queue questions:
 Sanford Health and Avera Health (SD) are `HOSPITAL_OR_SYSTEM`, LOW, `GENERAL_KNOWLEDGE`, no CCN, as system parents
 (`R/03i` `SD_SYSTEM_PARENTS`; +2 rows / +$7,007,000, inside the $31.5M round). SWOSU stays `UNIVERSITY_OR_AHC`
 ($0). Choctaw Nation stays `HOSPITAL_OR_SYSTEM` on CCN 370172 ($0). `sd_rht_contracts.csv` gained `basis_type`.
@@ -1697,6 +1713,10 @@ determinations are OVERLAYS on top of that rebuild and must be re-applied:
 
 **Alaska is rolling.** Roll `AK_PRIOR_FILE` on every refresh. **Leave `AK_CMS_ANCHOR_FILE` alone**: it is the
 2026-08-28 file CMS described as 142 projects. A withdrawn award leaves the file; list it in `AK_WITHDRAWN`.
+
+**Confidence (session 88).** `determination_confidence = HIGH` needs a CCN on the row (§7). No name rule,
+state type field or hand coding may emit it; pass any value through `rhtp_confidence_ceiling()`.
+`test_state_union.R` fails a file that breaks this.
 
 **Figures are never combined without their meaning.**
 - The three hospital buckets are never added. `rhtp_hospital_total()` refuses to add them.
@@ -1780,7 +1800,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 3 allotments + registry worksheet | `R/03_state_registry.R` | Built; §7.3 registry NOT compiled (blocker 1) |
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
-| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt` | 37 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
+| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt`–`R/03bv` | 38 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
 | State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn`, `03bs` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
@@ -1796,7 +1816,7 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 
 ### Survey disposition (rebuilt from `R/03k`'s constants; never hand-edited)
 
-`EXTRACTED` 37 · `INVESTIGATED_NO_LIST` 8 (CA KY MN MT ND NM TX WI) · `INVESTIGATED_NO_PROBE` 2 (HI MA) ·
+`EXTRACTED` 38 · `INVESTIGATED_NO_LIST` 7 (CA KY MN ND NM TX WI) · `INVESTIGATED_NO_PROBE` 2 (HI MA) ·
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
@@ -1839,13 +1859,13 @@ Change a state file and you must update this table in the same commit. Never loo
 | NY | 56 | 56 | $76,190,022 | 35 / $47,358,791 |
 | WA | 8 | 7 | $67,020,000 | 2 / $9,740,000 (WSHA $42M Unclear) |
 | NH | 2 | 1 | $66,547,394 | 0 (FHC Unclear) |
-| AL r2 | 34 | 34 | $54,793,527 | 21 / $20,886,572 (AHC $6.69M; Greene $3.91M LOW) |
+| AL r2 | 34 | 34 | $54,793,527 | 21 / $20,886,572 (AHC $6.69M; Greene $3.91M LOW, general knowledge, no CCN) |
 | AR r2 | 43 | 43 | $54,685,069 | 14 / $23,939,844 (AR Year 1 COMPLETE) |
 | IL | 1 | 1 | $50,008,264 | POOL_UNNAMED 1 / $50,008,264 |
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
 | PA | 66 | 66 | $42,198,310 | 27 / $24,149,111 (authorized, undisbursed) |
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
-| OK RRR | 20 | 20 | $39,578,523 | 10 / $21,099,804 (4 LOW bridges $8,272,013 incl. Mercy, no CCN) |
+| OK RRR | 20 | 20 | $39,578,523 | 10 / $21,099,804 (LOW $8,272,013: 3 enrolment bridges $4,333,575; Mercy $3,938,438 general knowledge, no CCN) |
 | SD contracts | 41 | 41 | $26,836,144 | 14 / $16,643,252 (Sanford + Avera parents $7,007,000 LOW, GENERAL_KNOWLEDGE; 14 Rural Strong inside $31.5M; 8 unplaced, never on top of $90M) |
 | DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
@@ -1855,6 +1875,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | MO | 22 | 2 | $7,232,660 | 20 / $0 (27 hub anchors are NOT awards) |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
+| MT | 5 | 4 | $1,360,000 | 0 (4 ambulance grants, rounded; 75 equipment awards unnamed, one pool row) |
 | IN | 7 | 1 | $860,088 | 0 (vendors) |
 | OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 |
 | IN GROW | 186 | 0 | — | 44 / $0 |
@@ -1926,6 +1947,11 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
+- **Session 88 (read first).** CMS released SD $7.2M (ambulance telemedicine, 10-02); the 10-05 run wrote it
+  and logged UNCHANGED, which the verdict fix now prevents. That release is UNREAD. The unmerged
+  `claude/compassionate-heisenberg-6609c9` branch (session 84 check-in, CLAUDE.md + doc) is not on `main`.
+  A rebuild of any state whose notes quote "Classifier said X/HIGH" will now say "/MEDIUM": text only.
+
 **Merge session 82's branch to `main` before Fri 10-02 16:20Z** (ME's first firing on its new runner). Until
 `routines.csv` on `main` carries the six new ids, their lines read as unregistered. Sessions 79 and 80 are on
 `main` (PRs #83, #84).
@@ -1945,7 +1971,8 @@ Network is Full; the old allowlist blockers are superseded.
   10.10; June deck). Its Year 2 round is watched by `R/03bs` (`trig_01NtbC312pu2u8d7uePQXEty`, Thu 14:40Z, runner
   `session_01C6egjruxEZH2yc6kbffHaf`). **Merge this branch before Thu 10-08 14:40Z** or AL's line reads unregistered.
   AL hospital share (rounds 1+2): 91 rows / $104,434,859 = 52.6% of published; AHC rows $18,308,866 and the LOW
-  Greene County bridge $3,913,694 are subtractable.
+  Greene County typing $3,913,694 are subtractable. Greene County is typed on GENERAL KNOWLEDGE, not on an
+  enrolment bridge: no CMS file carries its name, and it has no CCN (session 88 wording fix).
 - **North Carolina:** the Rural Health Innovation Fund (launched 09-30, Tier 2, applications due 11-16, awards
   "January 2027") is the next NC roster.
 - **Texas floor:** `tx_bp1_first_tier_floor.csv` is not an award file. R/03n's probe trips when the BP1 report
@@ -1973,13 +2000,17 @@ Network is Full; the old allowlist blockers are superseded.
   - `CO_ROSTER_VS_RELEASE_TOTAL`, `CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT`, `CO_RECIPIENT_FORM_NOT_STATED`
   - `TX_BP1_DISTRICT_ENROLMENT`
   - `AL_R2_GREENE_COUNTY_HEALTH_SYSTEM_BRIDGE` ($3,913,694, LOW), `AL_R2_RECIPIENT_FORM_NOT_STATED`
+  - `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` ($340,000, rounded; CMS enrols Prairie County Hospital District)
   - The NE, NV and LA form rows from session 64
 - **Dated watches:**
   - Colorado: AWARDED 09-28, extracted session 82; R/03az's Routine now runs R/03bo's roster watch.
   - Wisconsin: "Award announcements: September"; nothing posted as of 09-28.
-  - Montana: awarded 09-29 ($8.7M); DPHHS names 4 ambulance recipients, 75 equipment awards unnamed (session 81).
+  - Montana: EXTRACTED session 88 (`R/03bv`). `R/03bl` watches for names for the 75 equipment awards and a new
+    round. The state's 78 agencies against CMS's 79 (4 + 75) is unresolved.
   - Mississippi: second tranche, 2026-10-14 .. 10-29.
-  - Louisiana: windows "End of September".
+  - Louisiana: six Notices of Intent to Contract dated 2026-10-02, sent to applicants privately; denials "by
+    October 16, 2026". Nothing published (session 88).
+  - California: notices sent privately via Submittable (HCAI FAQ 09-29); the rest "by late October 2026".
   - New Hampshire: CAH RFA "Coming Soon".
   - Wyoming: obligation end of October; committee meets 11-04/05.
   - All states: CMS obligation deadline 2026-10-30.

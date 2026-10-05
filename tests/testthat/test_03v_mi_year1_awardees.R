@@ -281,7 +281,8 @@ test_that("the tribal section is typed from the state's own column, not from nam
   trib <- mi_recs[mi_recs$award_pool == "Tribal Government", ]
   expect_equal(nrow(trib), 13L)
   expect_true(all(trib$recipient_type == "TRIBAL_ORG"))
-  expect_true(all(trib$determination_confidence == "HIGH"))
+  # MEDIUM since session 88: the state's column settles the FORM; HIGH needs a CCN.
+  expect_true(all(trib$determination_confidence == "MEDIUM"))
   # AND THIS IS WHY IT IS READ: the §8 NAME rule reaches only nine of the
   # thirteen. Bay Mills, Hannahville, Keweenaw Bay and Little Traverse Bay
   # would otherwise take §8's fallback while the state has plainly said what

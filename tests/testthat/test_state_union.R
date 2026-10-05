@@ -289,7 +289,10 @@ STATE_FILES <- c(
   # three FQHC awards (~$22.69M, ROUNDED in the source, NO hospital; R/03bu).
   OK_RRR = "data/reference/ok_year1_rrr_awardees.csv",
   OK_CDM = "data/reference/ok_year1_cdm_awardees.csv",
-  DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv"
+  DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
+  # Montana (session 88): four named ambulance grants, ROUNDED, and one
+  # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
+  MT = "data/reference/mt_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -332,7 +335,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
-                 "KS", "LA", "MD", "ME", "MI", "MO", "MS", "NC", "NE", "NH", "NJ", "NV",
+                 "KS", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))
 })
@@ -563,3 +566,18 @@ test_that("no PASS_THROUGH row anywhere carries an empty or contradictory basis"
   expect_equal(problems, character(0))
 })
 
+
+
+test_that("SESSION 88: no row in any state file is HIGH without a CCN (§7)", {
+  # §7 reserves determination_confidence = HIGH for a CCN match. 1,113 rows
+  # carried HIGH with no CCN until session 88 (495 NAMED_HOSPITAL, $385.9M),
+  # because the shared classifier copied a name rule's type strength into the
+  # determination. A rebuild that reintroduces one fails here, by file.
+  source(here::here("R", "utils_recipient_classification.R"))
+  for (st in names(state_tables)) {
+    d <- state_tables[[st]]
+    if (!"determination_confidence" %in% names(d)) next
+    d$ccn <- as.character(d$ccn)
+    expect_silent(rhtp_assert_high_has_ccn(d, label = st))
+  }
+})

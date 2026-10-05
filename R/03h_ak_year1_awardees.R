@@ -1020,8 +1020,25 @@ rhtp_ak_write <- function() {
 #' unchanging url, so the committed file is stale by design and the only
 #' question worth asking on a schedule is how stale.
 #'
-#' Exits 0 and prints UNCHANGED when the digest matches, so a scheduled run that
-#' finds nothing is cheap and silent.
+#' Exits 0 and prints UNCHANGED when the CONTENT matches, so a scheduled run
+#' that finds nothing is cheap and silent.
+#'
+#' SESSION 88: A CONTENT COMPARISON, NEVER A FILE DIGEST (§10's probe rule).
+#' The notice is an .xlsx -- a zip whose member timestamps and docProps move
+#' every time Alaska re-saves the workbook, with or without a new row -- so
+#' until session 88 this probe compared FILE digests and logged CHANGED on
+#' re-saves. It now parses both workbooks with the extractor's own reader and
+#' compares the award table itself: rows added, amounts revised, rows
+#' withdrawn. Identical bytes still short-circuit, which costs nothing.
+rhtp_ak_content_digest <- function(path) {
+  d <- rhtp_ak_parse_awards(path)
+  d <- as.data.frame(d)
+  d[] <- lapply(d, function(x) ifelse(is.na(x), "", as.character(x)))
+  d <- d[do.call(order, unname(d)), , drop = FALSE]
+  digest::digest(paste(utils::capture.output(utils::write.csv(d, row.names = FALSE)),
+                       collapse = "\n"), algo = "sha256", serialize = FALSE)
+}
+
 rhtp_ak_probe <- function() {
   cfg <- rhtp_config()
   committed <- here::here(AK_EVIDENCE_DIR, AK_AWARDS_FILE)
@@ -1046,9 +1063,14 @@ rhtp_ak_probe <- function() {
 
   tmp <- tempfile(fileext = ".xlsx")
   writeBin(body, tmp)
+  on.exit(unlink(tmp), add = TRUE)
+  if (identical(rhtp_ak_content_digest(tmp), rhtp_ak_content_digest(committed))) {
+    message("[AK] UNCHANGED -- the live workbook's bytes differ from ",
+            AK_AWARDS_FILE, " but its award table is identical (a re-save).")
+    return(invisible(list(changed = FALSE)))
+  }
   growth <- rhtp_ak_growth(current = rhtp_ak_parse_awards(tmp),
                            prior = rhtp_ak_parse_awards(committed))
-  unlink(tmp)
 
   message("[AK] CHANGED -- Alaska has published since ", AK_AWARDS_FILE, ".")
   message("[AK]   rows    ", growth$prior_rows, " -> ", growth$rows)

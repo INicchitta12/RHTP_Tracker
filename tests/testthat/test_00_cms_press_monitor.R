@@ -866,13 +866,36 @@ test_that("the CMS run's verdict is UNCHANGED, CHANGED, TRIPWIRE or ERROR", {
                              changed_rows = tibble::tibble(x = 1)))
   v <- rhtp_cms_press_verdict(newst)
   expect_equal(v$verdict, "CHANGED")
-  expect_match(v$note, "new states: MO CT; changed rows: 1")
+  expect_match(v$note, "new states: MO CT; new releases in listed states: 0; changed rows: 1",
+               fixed = TRUE)
+
+  # SESSION 88: a second release for a state ALREADY on the list is CHANGED.
+  # It used to log UNCHANGED, because only new_states and changed_rows counted.
+  again <- list(delta = list(new_states = character(0),
+                             new_rows = tibble::tibble(state = "DE", title = "x"),
+                             changed_rows = tibble::tibble()))
+  v <- rhtp_cms_press_verdict(again)
+  expect_equal(v$verdict, "CHANGED")
+  expect_match(v$note, "new releases in listed states: 1 (DE)", fixed = TRUE)
+  # A new state's own rows are not double-counted as a listed-state release.
+  first <- list(delta = list(new_states = "UT",
+                             new_rows = tibble::tibble(state = "UT", title = "y"),
+                             changed_rows = tibble::tibble()))
+  expect_match(rhtp_cms_press_verdict(first)$note,
+               "new states: UT; new releases in listed states: 0;", fixed = TRUE)
 
   # A refused host is a fact about our access; a parser refusal is a finding.
   expect_equal(rhtp_cms_press_verdict(simpleError("HTTP 403 from cms.gov"))$verdict,
                "ERROR")
   expect_equal(rhtp_cms_press_verdict(simpleError(
     "two candidate tables score equally"))$verdict, "TRIPWIRE")
+  # SESSION 88: the anchored test. "Connecticut" and a quoted https:// URL are
+  # not access failures; a timeout still is.
+  expect_equal(rhtp_cms_press_verdict(simpleError(
+    "no table matched the Connecticut row at https://www.cms.gov/newsroom"))$verdict,
+    "TRIPWIRE")
+  expect_equal(rhtp_cms_press_verdict(simpleError(
+    "Timeout was reached: Connection timed out after 30000 ms"))$verdict, "ERROR")
   expect_true(all(c(rhtp_cms_press_verdict(quiet)$verdict,
                     rhtp_cms_press_verdict(newst)$verdict) %in% RHTP_PROBE_VERDICTS))
 })

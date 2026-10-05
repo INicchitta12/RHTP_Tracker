@@ -542,3 +542,30 @@ test_that("the partition REFUSES a priced Tier 2 pool row: a bucket must not mix
   pool$amount <- NA_character_
   expect_silent(rhtp_hospital_dollar_partition(dplyr::bind_rows(base, pool)))
 })
+
+
+test_that("SESSION 88: no name or type-field rule can emit HIGH (§7 needs a CCN)", {
+  names <- c("Memorial Hospital", "Valley Medical Center", "Ohio University",
+             "Blackfeet Tribal Emergency Medical Services", "Smith Family Dental, P.C.")
+  cls <- rhtp_classify_recipient_type(names, "MT")
+  expect_false(any(cls$determination_confidence == "HIGH"))
+  expect_true(all(cls$determination_confidence[cls$rule == "PATTERN"] == "MEDIUM"))
+  # The typing is untouched: the hospital rule still types a hospital.
+  expect_equal(cls$recipient_type[1], "HOSPITAL_OR_SYSTEM")
+  org <- rhtp_recipient_type_from_org_type(c("Hospital (all types)", "University"))
+  expect_false(any(org$determination_confidence == "HIGH"))
+  expect_equal(org$recipient_type, c("HOSPITAL_OR_SYSTEM", "UNIVERSITY_OR_AHC"))
+  # And an override written HIGH is lowered too.
+  expect_false(any(RHTP_RECIPIENT_TYPE_OVERRIDES$confidence == "HIGH" &
+                     rhtp_confidence_ceiling(RHTP_RECIPIENT_TYPE_OVERRIDES$confidence) == "HIGH"))
+})
+
+test_that("SESSION 88: the ceiling lowers only HIGH-without-CCN and never raises", {
+  expect_equal(rhtp_confidence_ceiling(c("HIGH", "HIGH", "MEDIUM", "LOW", NA),
+                                       c(NA, "190036", NA, "", NA)),
+               c("MEDIUM", "HIGH", "MEDIUM", "LOW", NA))
+  expect_error(rhtp_assert_high_has_ccn(tibble::tibble(
+    determination_confidence = "HIGH", ccn = NA_character_)), "HIGH with no CCN")
+  expect_silent(rhtp_assert_high_has_ccn(tibble::tibble(
+    determination_confidence = "HIGH", ccn = "190036")))
+})

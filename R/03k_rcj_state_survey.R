@@ -134,9 +134,13 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # INVESTIGATED_NO_LIST by EXTRACTION -- the dated anchor R/03az watched was
 # "by the end of September 2026", and HCPF published on the 28th. See
 # R/03bo_co_year1_awardees.R.
+# Session 88: MT (4 named ambulance grants at ~$340,000 and one unnamed pool of
+# 75 equipment awards, DPHHS 2026-09-29) joins from INVESTIGATED_NO_LIST by
+# EXTRACTION -- R/03bl's dated anchor was "funding decisions will be shared in
+# September". See R/03bv_mt_year1_awardees.R; R/03bl is now its roster watch.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA",
                              "ID", "IL", "IN", "KS", "LA", "MD", "ME", "MI", "MO",
-                             "MS", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
+                             "MS", "MT", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                              "WV", "WY")
 
@@ -303,7 +307,8 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
 # left it queued only because its prompt named Minnesota alone. The probe ran
 # live 2026-09-29 and reported UNCHANGED on all four pages: a pre-award
 # negative, never a claim that Montana has awarded nothing.
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "MN", "MT", "ND",
+# Session 88: Montana leaves for SURVEY_EXTRACTED_STATES (R/03bv).
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "MN", "ND",
                                         "NM", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not

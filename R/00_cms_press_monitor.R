@@ -1462,26 +1462,48 @@ rhtp_cms_press_run <- function(fetch_date = Sys.Date(), force = FALSE,
 
 #' The run's verdict, in the shape `rhtp_probe_log()` takes
 #'
-#' A new state or a changed amount/date is CHANGED -- the cue to collect that
-#' state's primary sources. A refusal from either parser (a page redesign) is
-#' a TRIPWIRE; a refused host is an ERROR, which is a statement about our
-#' access and never about CMS (§0.4). The same split `rhtp_probe_run()` makes.
+#' A new state, a NEW RELEASE in a state already on the list, or a changed
+#' amount/date is CHANGED -- the cue to collect that state's primary sources.
+#' A refusal from either parser (a page redesign) is a TRIPWIRE; a refused host
+#' is an ERROR, which is a statement about our access and never about CMS
+#' (§0.4).
+#'
+#' SESSION 88, two defects fixed. (1) The verdict counted only `new_states`
+#' and `changed_rows`, so a second release for a state already in the CSV --
+#' `delta$new_rows`, keyed on state + title -- logged UNCHANGED while the run
+#' itself wrote the row. Every state CMS announces after its first release
+#' (DE's $23M, AR, SD on 2026-09-24) is that shape. (2) The error test was the
+#' unanchored `HTTP|refused|timed out|timeout|resolve|connect` that session 85
+#' replaced in `rhtp_probe_run()`: "Connecticut" or any quoted https:// URL
+#' read as an access failure. It now goes through `rhtp_probe_verdict()`, the
+#' same bounded test every state probe uses.
 rhtp_cms_press_verdict <- function(res) {
   if (inherits(res, "error")) {
     msg <- conditionMessage(res)
-    v <- if (grepl("HTTP|refused|timed out|timeout|resolve|connect", msg,
-                   ignore.case = TRUE)) "ERROR" else "TRIPWIRE"
-    return(tibble::tibble(verdict = v, page = "newsroom+medicaid",
+    return(tibble::tibble(verdict = rhtp_probe_verdict(msg),
+                          page = "newsroom+medicaid",
                           note = stringr::str_trunc(stringr::str_squish(msg), 400)))
   }
   d <- res$delta
   n_new <- length(d$new_states)
+  new_rows <- d$new_rows
+  if (is.null(new_rows)) new_rows <- tibble::tibble()
+  # A new state's rows are already named under "new states"; count only the
+  # releases in states that were on the list before this run.
+  old_state_rows <- if (nrow(new_rows) && "state" %in% names(new_rows)) {
+    new_rows[!new_rows$state %in% d$new_states, , drop = FALSE]
+  } else new_rows[0, , drop = FALSE]
+  n_rel <- nrow(old_state_rows)
   n_chg <- nrow(d$changed_rows)
+  hit <- n_new || n_rel || n_chg
   tibble::tibble(
-    verdict = if (n_new || n_chg) "CHANGED" else "UNCHANGED",
+    verdict = if (hit) "CHANGED" else "UNCHANGED",
     page = "newsroom+medicaid",
-    note = if (n_new || n_chg) {
+    note = if (hit) {
       paste0("new states: ", if (n_new) paste(d$new_states, collapse = " ") else "none",
+             "; new releases in listed states: ", n_rel,
+             if (n_rel) paste0(" (", paste(sort(unique(old_state_rows$state)),
+                                           collapse = " "), ")") else "",
              "; changed rows: ", n_chg)
     } else NA_character_)
 }

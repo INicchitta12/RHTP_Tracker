@@ -52,6 +52,16 @@ suppressPackageStartupMessages({
 # inferential read of the name (§7: MEDIUM is "hospital identity inferred from
 # name without CCN match", which is exactly this until the AHA/POS extracts land
 # and Stage 5 can match a CCN).
+#
+# SESSION 88: `confidence` IN THESE TABLES IS THE STRENGTH OF THE TYPE READING,
+# NOT A DETERMINATION CONFIDENCE. §7 reserves `determination_confidence = HIGH`
+# for a primary source + named hospital + CCN MATCH, and no rule in this file
+# ever has a CCN. Until session 88 the classifier copied a HIGH here straight
+# into `determination_confidence`, and 1,113 committed rows carried HIGH with
+# no CCN -- 495 of them NAMED_HOSPITAL rows worth $385,879,914. Every emitter
+# below now passes its value through rhtp_confidence_ceiling(), so the most a
+# name or an organisation-type field can produce is MEDIUM. Stage 5's CCN
+# match is the only thing that raises a row to HIGH.
 RHTP_RECIPIENT_TYPE_PATTERNS <- tibble::tribble(
   ~pattern,                                                                   ~recipient_type,               ~confidence, ~why,
 
@@ -316,6 +326,44 @@ RHTP_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
 )
 
 
+#' The §7 ceiling on `determination_confidence`: no CCN, no HIGH
+#'
+#' §7: HIGH is "primary source, named hospital recipient, CCN matched". A HIGH
+#' on a row with no CCN is lowered to MEDIUM; every other value passes through.
+#' Nothing here ever RAISES a value, and the typing is never touched.
+#'
+#' @param confidence Character vector of §8 `determination_confidence` values.
+#' @param ccn Character vector (or NA) of the rows' CCNs, recycled.
+#' @return `confidence` with HIGH lowered to MEDIUM wherever `ccn` is empty.
+rhtp_confidence_ceiling <- function(confidence, ccn = NA_character_) {
+  confidence <- as.character(confidence)
+  ccn <- rep_len(as.character(ccn), length(confidence))
+  no_ccn <- is.na(ccn) | !nzchar(trimws(ccn))
+  dplyr::if_else(!is.na(confidence) & confidence == "HIGH" & no_ccn,
+                 "MEDIUM", confidence)
+}
+
+
+#' Refuse a HIGH determination with no CCN (§7)
+#'
+#' The check rhtp_confidence_ceiling() exists to satisfy, run on any table that
+#' carries `determination_confidence`. A table without a `ccn` column is
+#' treated as having no CCN on any row.
+rhtp_assert_high_has_ccn <- function(records, label = "records") {
+  if (!"determination_confidence" %in% names(records)) return(invisible(TRUE))
+  ccn <- if ("ccn" %in% names(records)) records$ccn else NA_character_
+  bad <- which(rhtp_confidence_ceiling(records$determination_confidence, ccn) !=
+                 records$determination_confidence)
+  if (length(bad)) {
+    stop("[", label, "] ", length(bad), " row(s) carry determination_confidence ",
+         "= HIGH with no CCN (first: row ", bad[1], "). §7 reserves HIGH for a ",
+         "CCN match; a name or a state's type field supports MEDIUM at most. ",
+         "Pass the value through rhtp_confidence_ceiling().", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+
 #' Classify a recipient name into a §8 `recipient_type`
 #'
 #' Overrides first, then the ordered pattern table, then the settled fallback.
@@ -342,7 +390,7 @@ rhtp_classify_recipient_type <- function(awardee, state_code) {
     if (nrow(hit) == 1L) {
       return(tibble::tibble(
         recipient_type = hit$recipient_type,
-        determination_confidence = hit$confidence,
+        determination_confidence = rhtp_confidence_ceiling(hit$confidence),
         recipient_type_basis = paste0("Curated override: ", hit$why, "."),
         rule = "OVERRIDE"
       ))
@@ -353,7 +401,7 @@ rhtp_classify_recipient_type <- function(awardee, state_code) {
       if (stringr::str_detect(name, p$pattern)) {
         return(tibble::tibble(
           recipient_type = p$recipient_type,
-          determination_confidence = p$confidence,
+          determination_confidence = rhtp_confidence_ceiling(p$confidence),
           recipient_type_basis = paste0("Recipient name rule: ", p$why, "."),
           rule = "PATTERN"
         ))
@@ -532,7 +580,7 @@ rhtp_recipient_type_from_org_type <- function(org_type, delimiter = ";") {
       if (row$token %in% tokens) {
         return(tibble::tibble(
           recipient_type = row$recipient_type,
-          determination_confidence = row$confidence,
+          determination_confidence = rhtp_confidence_ceiling(row$confidence),
           recipient_type_basis = paste0(
             "The state's own Organization Type field states '", row$token, "'."
           ),

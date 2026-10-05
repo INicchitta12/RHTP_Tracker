@@ -339,3 +339,15 @@ test_that("45 hospital rows hold $69,370,639.00 in preliminary amounts", {
 test_that("determination_basis is populated on every row (§7)", {
   expect_true(all(nzchar(records$determination_basis)))
 })
+
+
+test_that("SESSION 88: the probe compares the award TABLE, not the workbook bytes", {
+  f <- here::here(AK_EVIDENCE_DIR, AK_AWARDS_FILE)
+  # A re-save changes the bytes and not the table.
+  d1 <- rhtp_ak_content_digest(f)
+  expect_identical(d1, rhtp_ak_content_digest(f))
+  prior <- here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE)
+  if (file.exists(prior)) expect_false(identical(d1, rhtp_ak_content_digest(prior)))
+  src <- paste(deparse(rhtp_ak_probe), collapse = "\n")
+  expect_true(grepl("rhtp_ak_content_digest", src, fixed = TRUE))
+})

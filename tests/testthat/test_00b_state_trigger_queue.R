@@ -248,7 +248,8 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
                4L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
                518902453)
-  expect_equal(queue$queue_status[queue$state == "MT"], "INVESTIGATED_NO_LIST")
+  # Session 88: MT EXTRACTED (R/03bv), so it leaves the watched negatives.
+  expect_equal(queue$queue_status[queue$state == "MT"], "EXTRACTED")
   # Session 82: CO left INVESTIGATED_NO_LIST by EXTRACTION (HCPF's
   # 2026-09-28 roster, R/03bo); ND is still watched.
   expect_equal(queue$queue_status[match(c("CO", "ND"), queue$state)],

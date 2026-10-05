@@ -303,9 +303,10 @@ test_that("session 43's four working states left the queue THROUGH the work", {
   three <- c("UT", "AZ", "RI")
   expect_true(all(survey$extraction_status[match(three, survey$state)] ==
                     "NOT_EXTRACTED"))
-  expect_equal(survey$extraction_status[survey$state == "MT"],
-               "INVESTIGATED_NO_LIST")
+  # Session 88: MT EXTRACTED (R/03bv); R/03bl is now its roster watch.
+  expect_equal(survey$extraction_status[survey$state == "MT"], "EXTRACTED")
   expect_true(file.exists(here::here("R/03bl_mt_year1_probe.R")))
+  expect_true(file.exists(here::here("R/03bv_mt_year1_awardees.R")))
   expect_true(all(survey$extraction_status[match(c("VA", "WA"), survey$state)] ==
                     "EXTRACTED"))
   # Session 82: CO extracted (R/03bo); ND still a watched negative.
@@ -332,8 +333,9 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 76: MN (INVESTIGATED_NO_PROBE) -> INVESTIGATED_NO_LIST, so 36/8/2/4.
   # Session 77: MT (QUEUED) -> INVESTIGATED_NO_LIST, so 36/9/2/3.
   # Session 82: CO (INVESTIGATED_NO_LIST) -> EXTRACTED, so 37/8/2/3.
-  expect_equal(unname(tab[["EXTRACTED"]]), 37L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 8L)
+  # Session 88: MT (INVESTIGATED_NO_LIST) -> EXTRACTED, so 38/7/2/3.
+  expect_equal(unname(tab[["EXTRACTED"]]), 38L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 7L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 2L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 3L)
 })

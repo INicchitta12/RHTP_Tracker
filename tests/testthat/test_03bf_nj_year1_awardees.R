@@ -156,12 +156,17 @@ test_that("session 74: the programme-page name diff is scoped past the NJ.gov fo
   a <- rhtp_watch_reduce(here::here(NJ_PROBE_PAGES$file[NJ_PROBE_PAGES$key == "rhtp"]))
   sc <- function(x) rhtp_name_scope(x, from = "^", to = NJ_NAME_SCOPE_END,
                                     state = "NJ", page = "rhtp")
-  # The archived footer names the Lt. Governor; the scope excludes it.
-  expect_match(a, "Dale G. Caldwell", fixed = TRUE)
-  expect_false(grepl("Caldwell", sc(a), fixed = TRUE))
+  # The archived footer names an official; the scope excludes it. Session 88
+  # re-based the page: the footer that named Lt. Governor Dale G. Caldwell
+  # now names "Governor Mikie Sherrill" -- the re-templating this test
+  # exists for, and it arrived for real.
+  expect_match(a, "Governor Mikie Sherrill", fixed = TRUE)
+  expect_false(grepl("Sherrill", sc(a), fixed = TRUE))
   # A re-templated footer is silent ...
-  foot <- sub("Lt. Governor Dr. Dale G. Caldwell NJ Home Services A to Z Departments/Agencies",
-              "NJ.gov Services Agencies", a, fixed = TRUE)
+  foot <- sub("Governor Mikie Sherrill NJ.gov Services Agencies",
+              "Lt. Governor Dr. Dale G. Caldwell NJ Home Services A to Z Departments/Agencies",
+              a, fixed = TRUE)
+  expect_false(identical(foot, a))
   expect_silent(rhtp_assert_no_new_organisations_across(
     list(rhtp = sc(foot)), list(rhtp = sc(a)), state = "NJ"))
   # ... and a recipient named in the content still fires.

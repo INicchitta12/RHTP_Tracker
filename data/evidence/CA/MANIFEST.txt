@@ -38,22 +38,28 @@ ONE FILE IS BOTH CONTROLS AT ONCE, AND IT IS NAMED SO.
     Transformation' ZERO times and 'federal' ZERO times. ALL ELEVEN of
     RCJ's California Tier 3 candidates come from this programme.
   AND §0.3 ON THE SAME PAGE: it also carries 'SRHRP Eligible Hospitals',
-    a table of 104 NAMED California hospitals. That is an ELIGIBILITY
+    a table of 102 NAMED California hospitals. That is an ELIGIBILITY
     list sitting directly beneath real awards.
 
   *_CONTROL.html is HCAI's newsroom, which carries award announcements
   in a recognisable form and NOT ONE mention of CalRHT or RHTP -- so the
   absence of an award announcement is HCAI's, not our channel's.
 
-THE HOST IS ORDINARY AND ITS DIGESTS ARE STABLE. Two fetches of each
-probed page three seconds apart returned the SAME SHA-256 (measured
-2026-09-02), so a FILE digest is the change test here -- unlike Nevada,
-Missouri and Wisconsin. robots.txt is 404, so no crawler policy is on
-offer and none is being declined.
+THESE FILE DIGESTS ARE NOT A CHANGE TEST, AND THE REASON IS TWOFOLD.
+hcai.ca.gov carries no per-request nonce -- two fetches seconds apart are
+byte-identical -- but two fetches HALF AN HOUR apart need not be:
+  * the CalRHT page is served with or WITHOUT a ~15 KB ElasticPress
+    autosuggest asset block (142,605 or 157,732 bytes), a CACHE VARIANT;
+  * the newsroom re-rolls WordPress antispambot() email entities on every
+    render -- same length, different bytes, identical rendered text.
+The reduced text is IDENTICAL across both variants of both pages (11,162
+characters), so --probe compares a CONTENT digest via ca_reduce_html(),
+the same reduction the assertions read. robots.txt is 404, so no crawler
+policy is on offer and none is being declined.
 
 file  bytes  sha256
-2026-09-02_ca_hcai_calrht_programme.html  142605  765cc2383c154a9616ae963ce6647011f3fdf8c844f740813f15aa6f0b5b5b49
-2026-09-02_ca_hcai_calrht_funding_opportunities.html  167530  87dd9f58ddc55db9b80753c722d57615fb2ca957db8f3e50c68869e46a7d84f3
+2026-09-02_ca_hcai_calrht_programme.html  156878  d11ff681550a0256a4c96bc4388d63c65cf829c16a8f378e4ba55e3f550cd3f4
+2026-09-02_ca_hcai_calrht_funding_opportunities.html  166361  29b1b3dc40545490a956b2ba54aa3c69d95d5ff8071703e86f5895b590843c69
 2026-03-31_ca_cms_notice_of_award_revised.pdf  3474145  827bfe756ba8e077dd144e21897c0c1398ab2fd01f90614c686a48e46ec24f15
 2026-03-27_ca_calrht_budget_narrative.pdf  930118  0871944d3bc9c096707f0631ae0e8bd8e6cf58b2df6986afc5f7c74c3f2a1168
 2026-06-30_ca_calrht_accelerator_partners_grant_guide.pdf  389401  0db27d8ae07b3ea4252bb7a85f8532cd0b1fa751eb82c1da9971bbf507cc3cef
@@ -61,4 +67,5 @@ file  bytes  sha256
 2026-09-02_ca_calrht_ehr_modernization_grant_guide.pdf  368343  09071722b8b96fe9db88215642de9e7dd1c3443a557caef85cf609af43cb04ee
 2026-09-02_ca_calrht_expand_support_workforce_grant_guide.pdf  351784  72bc79483a35ec879ea9aa6b9d863f4b0fb760fa2edc0e67189eb0bfecfca046
 2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html  182650  0b8864c37a1e49acdab8d801d66a0b2c7744b80f6898d79196c69d673c4f1a0f
-2026-09-02_ca_hcai_newsroom_CONTROL.html  150605  2271314782eed4690a64430afe9ddd23548205d6d7a5b5f110e7bfabe6668bc1
+2026-09-02_ca_hcai_newsroom_CONTROL.html  149373  4f0cf3b5ac328ae9e174408bc88ba05cbca3d39f6d8d7bf0f65c04f294af6eb4
+2026-10-05_ca_hcai_calrht_faq_grant_notifications_PRIVATE_NOTICES.pdf  214676  e30851768681b0e1adaa1d430b49057164c89c0c8495bbda9215e5c187d7bcfd

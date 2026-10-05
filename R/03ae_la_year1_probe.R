@@ -158,8 +158,14 @@ LA_USER_AGENT <- paste(
 LA_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
+  # SESSION 88: the 2026-10-05 page. LDH replaced the relative windows with
+  # an exact date -- "Notice of Intent to Contract Announcements: October 2,
+  # 2026" on six programmes and "Completed" on the Clinician Credit Bank --
+  # dropped the application-deadline clause, and added "Notification of
+  # denial for all remaining strategies by October 16, 2026". It names NOBODY:
+  # the October 2 notices went to applicants, not to a page.
   "programme",
-  "2026-09-21_la_ldh_rhtp_programme_SEVEN_WINDOWS_RE_DATED.html",
+  "2026-10-05_la_ldh_rhtp_programme_NOTICES_DATED_OCT_2.html",
   "https://ldh.la.gov/page/rural-health-transformation-program",
 
   "funding",
@@ -190,7 +196,14 @@ LA_SOURCES <- tibble::tribble(
   # only evidence that it SLIPPED them. Alaska's device (session 22): a rolling
   # page's movement is measurable only against the snapshot it moved from.
   # Nothing parses it except la_assert_windows_slipped().
+  # Since session 88 the prior is the 2026-09-21 page (six x "End of
+  # September", one x "Mid-September"); the 2026-09-02 page (July/August) is
+  # kept as the prior's own prior, so the whole slip stays measurable.
   "programme_prior",
+  "2026-09-21_la_ldh_rhtp_programme_SEVEN_WINDOWS_RE_DATED.html",
+  "https://ldh.la.gov/page/rural-health-transformation-program",
+
+  "programme_prior_0902",
   "2026-09-02_la_ldh_rhtp_programme_SEVEN_WINDOWS_PASSED_SUPERSEDED.html",
   "https://ldh.la.gov/page/rural-health-transformation-program",
 
@@ -263,18 +276,25 @@ LA_WINDOW_MONTHS <- c("January", "February", "March", "April", "May", "June",
                       "December")
 
 # Every form LDH has actually used, and no more: "Late July to mid August",
-# "Mid to late August", "End of September", "Mid-September". A window that does
-# not match is REFUSED rather than guessed at (§0.4) -- an unparsed date
-# silently treated as absent is how a slipped deadline reads as an award.
-LA_WINDOW_RX <- paste0(
+# "Mid to late August", "End of September", "Mid-September" -- and, from the
+# page LDH served by 2026-10-03 (SESSION 88), an EXACT date ("October 2,
+# 2026") and the word "Completed". A window that matches none of these is
+# REFUSED rather than guessed at (§0.4) -- an unparsed date silently treated
+# as absent is how a slipped deadline reads as an award.
+LA_WINDOW_MONTH_RX <- paste0("(?:", paste(LA_WINDOW_MONTHS, collapse = "|"), ")")
+LA_WINDOW_RELATIVE_RX <- paste0(
   "(?:Early|Mid|Late|End|Beginning)",
   "(?:[ -]to[ -](?:early|mid|late|end))?",
   "(?:[ -]of)?[ -]",
-  "(?:", paste(LA_WINDOW_MONTHS, collapse = "|"), ")",
+  LA_WINDOW_MONTH_RX,
   "(?:[ -]to[ -](?:early|mid|late|end)[ -]",
-  "(?:", paste(LA_WINDOW_MONTHS, collapse = "|"), "))?")
+  LA_WINDOW_MONTH_RX, ")?")
+LA_WINDOW_EXACT_RX <- paste0(LA_WINDOW_MONTH_RX, " [0-9]{1,2}, 20[0-9]{2}")
+LA_WINDOW_RX <- paste0("(?:", LA_WINDOW_EXACT_RX, "|Completed|",
+                       LA_WINDOW_RELATIVE_RX, ")")
 
 LA_NOIC_LABEL <- "Notice of Intent to Contract Announcements:"
+LA_DEADLINE_LABEL <- "Application Submission Deadline for Year 1 Funds:"
 
 #' The last date a stated window can mean
 #'
@@ -285,6 +305,13 @@ LA_NOIC_LABEL <- "Notice of Intent to Contract Announcements:"
 #' claiming that a day early would be this file asserting Louisiana is overdue
 #' when it is not.
 la_window_deadline <- function(window, year = 2026L) {
+  # SESSION 88: an exact date is its own deadline; "Completed" has NONE --
+  # LDH says the notices went out and does not say when, so the deadline is
+  # NA and `la_window_completed()` carries the fact instead of a made-up date.
+  if (identical(window, "Completed")) return(as.Date(NA))
+  if (grepl(paste0("^", LA_WINDOW_EXACT_RX, "$"), window, perl = TRUE)) {
+    return(as.Date(window, format = "%B %d, %Y"))
+  }
   quals  <- stringr::str_extract_all(window,
                                      "(?i)\\b(early|mid|late|end|beginning)\\b")[[1]]
   months <- stringr::str_extract_all(
@@ -324,44 +351,56 @@ la_parse_windows <- function(programme = NULL) {
   }
   body <- block[1, 2]
 
-  # Each entry is "<programme> Application Submission Deadline for Year 1
-  # Funds: <deadline> Notice of Intent to Contract Announcements: <window>",
-  # run together with the next entry's programme name. Splitting on the
-  # deadline label gives one chunk per entry, and the window is then anchored
-  # at the head of the chunk's tail.
+  # RE-ANCHORED ON THE NOTICE LABEL (session 88). Until 2026-09-21 each entry
+  # was "<programme> Application Submission Deadline for Year 1 Funds:
+  # <Closed> Notice of Intent to Contract Announcements: <window>" and the
+  # programme name was cut off the DEADLINE label. LDH's 2026-10 page drops
+  # that label entirely ("<programme> Notice of Intent to Contract
+  # Announcements: October 2, 2026"), so every entry is now read as "the text
+  # since the previous window, then the notice label, then a window". The
+  # deadline clause is parsed out of the name where it is still printed (the
+  # committed 09-02 and 09-21 snapshots) and is NA where it is not.
   hits <- stringr::str_match_all(
-    body, paste0(LA_NOIC_LABEL, "\\s*(", LA_WINDOW_RX, ")"))[[1]]
+    body, paste0("\\s*(.*?)\\s*", LA_NOIC_LABEL, "\\s*(", LA_WINDOW_RX, ")"))[[1]]
   n_labels <- stringr::str_count(body, stringr::fixed(LA_NOIC_LABEL))
 
   if (nrow(hits) != n_labels) {
+    # Worded so rhtp_probe_verdict() files it as a TRIPWIRE: the 2026-10-03
+    # Routine logged this as an ERROR because its old text said "REFUSED".
     stop("[LA] ", n_labels, " announcement windows are published and only ",
-         nrow(hits), " could be parsed. An unparsed window is REFUSED rather ",
-         "than dropped (§0.4): dropping it would shrink the seven silently. ",
-         "Re-read the block -- LDH has used a date form this file has not ",
-         "seen.", call. = FALSE)
+         nrow(hits), " could be parsed. THAT IS THE SIGNAL, NOT A DEFECT: an ",
+         "unparsed window is never dropped (§0.4), because dropping it would ",
+         "shrink the seven silently. Re-read the block -- LDH has used a date ",
+         "form this file has not seen.", call. = FALSE)
   }
 
-  names <- stringr::str_match_all(
-    body,
-    "([A-Z][^:]*?)\\s*Application Submission Deadline for Year 1 Funds:\\s*(\\w+)")[[1]]
-  if (nrow(names) != nrow(hits)) {
-    stop("[LA] the block names ", nrow(names), " solicitations against ",
-         nrow(hits), " announcement windows. Every opportunity carrying a ",
-         "published date is the finding; a mismatch means the block's shape ",
-         "has changed -- re-read it.", call. = FALSE)
+  chunk <- stringr::str_squish(hits[, 2])
+  has_deadline <- stringr::str_detect(chunk, stringr::fixed(LA_DEADLINE_LABEL))
+  if (any(has_deadline) && !all(has_deadline)) {
+    stop("[LA] the block prints the application-deadline label on some ",
+         "entries and not others. Its shape has changed -- re-read it.",
+         call. = FALSE)
+  }
+  programme <- stringr::str_squish(stringr::str_remove(
+    chunk, paste0("\\s*", LA_DEADLINE_LABEL, ".*$")))
+  application <- ifelse(
+    has_deadline,
+    stringr::str_match(chunk, paste0(LA_DEADLINE_LABEL, "\\s*(\\w+)"))[, 2],
+    NA_character_)
+  if (any(!nzchar(programme))) {
+    stop("[LA] a notice label in the block carries no programme name -- ",
+         "re-read it.", call. = FALSE)
   }
 
-  tibble::tibble(
-    # The chunk before each deadline label carries the PREVIOUS entry's window
-    # run together with this entry's name, so strip a leading window.
-    programme = stringr::str_squish(stringr::str_remove(
-      names[, 2], paste0("^\\s*", LA_WINDOW_RX, "\\s*"))),
-    application = stringr::str_squish(names[, 3]),
-    window = stringr::str_squish(hits[, 2])) %>%
+  window <- stringr::str_squish(hits[, 3])
+  tibble::tibble(programme = programme, application = application,
+                 window = window) %>%
     dplyr::mutate(
       window_ends = purrr::map_vec(.data$window, la_window_deadline),
+      completed = .data$window == "Completed",
       .after = "window")
 }
+
 
 
 # -- fetch --------------------------------------------------------------------
@@ -787,14 +826,18 @@ la_assert_windows_published <- function(programme = NULL, funding = NULL,
   # Every application still closed. If one re-opens, the negative changes shape
   # -- an unawarded solicitation taking applications again is not the same
   # finding as one whose window has merely slipped.
-  reopened <- w$programme[!grepl("^Closed$", w$application, ignore.case = TRUE)]
+  # Read only where LDH still prints the deadline clause (session 88: its
+  # 2026-10 page no longer does, which is a re-wording, not a re-opening).
+  reopened <- w$programme[!is.na(w$application) &
+                            !grepl("^Closed$", w$application, ignore.case = TRUE)]
   if (length(reopened)) {
     stop("[LA] these solicitations no longer read 'Closed': ",
          paste(reopened, collapse = "; "),
          ". Re-read the funding page.", call. = FALSE)
   }
 
-  invisible(w %>% dplyr::mutate(passed = .data$window_ends < asof))
+  invisible(w %>% dplyr::mutate(
+    passed = .data$completed | (!is.na(.data$window_ends) & .data$window_ends < asof)))
 }
 
 #' LDH SLIPPED EVERY WINDOW, AND THE SUPERSEDED SNAPSHOT IS WHAT PROVES IT
@@ -817,12 +860,19 @@ la_assert_windows_slipped <- function(programme = NULL, prior = NULL) {
          ". The slip is only measurable while both name the same seven.",
          call. = FALSE)
   }
-  if (!all(now_w$window_ends >= prior_w$window_ends)) {
+  # A "Completed" window (session 88) has no date; it can only follow a
+  # dated one, so it is never "earlier". Dated pairs are compared as before.
+  dated <- !is.na(now_w$window_ends) & !is.na(prior_w$window_ends)
+  if (any(prior_w$completed & !now_w$completed)) {
+    stop("[LA] a window that read 'Completed' is dated again. That is not a ",
+         "slip -- re-read both snapshots.", call. = FALSE)
+  }
+  if (!all(now_w$window_ends[dated] >= prior_w$window_ends[dated])) {
     stop("[LA] a window has moved EARLIER between the two snapshots. That is ",
          "not a slip and this file does not describe it -- re-read both.",
          call. = FALSE)
   }
-  if (all(now_w$window_ends == prior_w$window_ends)) {
+  if (identical(now_w$window, prior_w$window)) {
     stop("[LA] the two snapshots carry identical windows, so the superseded ",
          "copy is no longer evidence of anything and this assertion is ",
          "claiming a slip that did not happen.", call. = FALSE)
@@ -1072,11 +1122,25 @@ rhtp_la_year1_status <- function() {
   # table asserting a state had passed its own deadline when six of seven had
   # not. Reading both columns off the block makes the table move when the page
   # does.
+  #
+  # SESSION 88: AN EXACT NOTICE DATE THAT HAS PASSED IS A PRIVATE
+  # NOTIFICATION, NOT "NOT YET AWARDED". LDH's 2026-10-05 page dates six
+  # programmes' Notices of Intent to Contract "October 2, 2026" -- a day, not
+  # a window -- and adds that denials for the remaining strategies follow "by
+  # October 16, 2026". The notices went to applicants; no LDH surface names a
+  # selected applicant or a figure. So the stage says selections were
+  # communicated privately and nothing is published: still no roster, still
+  # $0 in any file, and no longer a state that has merely missed its date.
   w <- la_parse_windows() %>%
     dplyr::mutate(
       announcement_window = .data$window,
-      stage = ifelse(.data$window_ends < Sys.Date(),
-                     "CLOSED_AWARD_DATE_PASSED", "CLOSED_AWARD_DATE_PENDING"))
+      exact = grepl(paste0("^", LA_WINDOW_EXACT_RX, "$"), .data$window, perl = TRUE),
+      stage = dplyr::case_when(
+        .data$completed ~ "NOTICES_COMPLETED",
+        .data$exact & .data$window_ends < Sys.Date() ~
+          "SELECTIONS_NOTIFIED_PRIVATELY_NO_PUBLIC_ROSTER",
+        .data$window_ends < Sys.Date() ~ "CLOSED_AWARD_DATE_PASSED",
+        TRUE ~ "CLOSED_AWARD_DATE_PENDING"))
 
   missing <- setdiff(stats::na.omit(out$window_key), w$programme)
   if (length(missing)) {
@@ -1091,6 +1155,16 @@ rhtp_la_year1_status <- function() {
       w %>% dplyr::select(window_key = "programme", "stage",
                           "announcement_window"),
       by = "window_key", unmatched = "ignore")
+  private <- out$stage %in% "SELECTIONS_NOTIFIED_PRIVATELY_NO_PUBLIC_ROSTER"
+  out$evidence[private] <- paste(
+    out$evidence[private],
+    "SESSION 88: LDH's programme page (archived 2026-10-05) dates this",
+    "programme's Notice of Intent to Contract 'October 2, 2026' and says",
+    "denials for the remaining strategies follow 'by October 16, 2026'. The",
+    "notices went to applicants privately: no LDH page names a selected",
+    "applicant or an amount, so nothing is extracted and publishes_roster",
+    "stays No. 'Not yet awarded' is out of date; 'awarded, unpublished' is",
+    "the finding.")
 
   # SESSION 64: THE RCCB HAS AWARDED, AND ITS STAGE IS READ OFF THE DECK, NOT
   # OFF THE WINDOW. The programme page still prints its "Mid-September"

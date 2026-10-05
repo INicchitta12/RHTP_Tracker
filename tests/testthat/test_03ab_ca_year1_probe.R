@@ -450,3 +450,17 @@ test_that("the probe and the assertions read the SAME reduction", {
 test_that("--validate passes end to end, offline", {
   expect_silent(rhtp_ca_assert())
 })
+
+
+test_that("SESSION 88: the four CalRHT pools read NOTICES_SENT_PRIVATELY, off HCAI's FAQ", {
+  expect_true(ca_assert_private_notices())
+  st <- rhtp_ca_year1_status()
+  pools <- st[st$stage == "NOTICES_SENT_PRIVATELY_NO_PUBLIC_ROSTER", ]
+  expect_equal(nrow(pools), 4L)
+  expect_false(any(st$stage == "CLOSED_UNAWARDED"))
+  expect_true(all(pools$publishes_roster == "No"))
+  expect_true(all(grepl("Submittable", pools$evidence, fixed = TRUE)))
+  # The FAQ going away takes the stage with it.
+  expect_error(ca_assert_private_notices("an unrelated document"),
+               "no longer says")
+})
