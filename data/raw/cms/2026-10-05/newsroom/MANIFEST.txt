@@ -1,0 +1,70 @@
+RHTP tracker archive: the CMS newsroom, filtered to the 'Rural health' topic.
+
+listing_url  : https://www.cms.gov/newsroom/articles
+fetched_utc  : 2026-10-05T13:28:13Z
+listing_pages: 19
+floor_date   : 2025-09-01
+items_seen   : 170
+topics_learnt: 3
+rural_archived (this run): 1
+
+WHAT IS COMMITTED, AND WHAT IS NOT. Each file under releases/ is the
+<main> element plus the schema.org JSON-LD, NOT the page as served.
+CMS's page chrome carries a third-party Mapbox API token in its Drupal
+settings JSON, which is CMS's to publish and not ours to redistribute;
+this is the posture §7.1 took for the allotment table and Session 11
+took for the six state press releases. The JSON-LD is kept because it
+is where CMS publishes the topic -- archiving <main> alone would throw
+away the field the filter reads and leave the archive unre-parseable
+offline. Every file was asserted free of that token shape before it was
+written, and the full page's digest is recorded per release in
+data/reference/cms_newsroom_topic_index.csv (full_page_sha256), so
+provenance still closes against what cms.gov served.
+
+The listing pages under listing/ carry no such token and ARE archived
+byte for byte as served.
+
+Digests are written with writeBin, not writeLines: writeLines appends a
+trailing newline, so the file on disk would be one byte longer than the
+body that was hashed and a reader verifying it would get a mismatch.
+
+THE TOPIC FILTER is CMS's own, read from each release's schema.org
+NewsArticle JSON-LD `about`. CMS's facet URL for the same taxonomy,
+/newsroom/search?about[]=<id>, is refused by Akamai for any
+non-browser client (403 on the bare path, with no query string), so
+the topic is read from the document instead of from a query.
+
+A DISCOVERY source (§0.1). No figure here may enter an AHA-published
+number, and `amount` is never summed (§0.2): CMS mixes the Tier 1
+state allotment and the Tier 3 announcement in the same release --
+Virginia's names $122M in its headline and $189M in a quoted
+statement, and those are two different tiers of the same programme.
+
+sha256 per file. MANIFEST.txt IS NOT LISTED IN ITSELF -- a manifest
+cannot record its own digest, because the value would be stale the
+instant the file is written. It listed itself until a second --run on
+one archive date exposed it: the first run wrote the manifest AFTER
+taking the listing, so the file did not exist to be listed and the
+verification test passed on absence rather than on correctness.
+
+  bac5c273b4f58f0660b3a81d915a696f9bc09e17a118b7645a905deb6f2ef114  listing/articles_page_00.html
+  e39d69c6bcc9bcdca484ae973d03e607bfe3eb831489327b1851808c11735d4a  listing/articles_page_01.html
+  1dc0e1761387f4aaf31777eba44ae07268031bb23f6109ca6d60db1fba68c9f9  listing/articles_page_02.html
+  7a6e4d28f03241cf630d5e2cd328741533a2d7e8c3d60ab7ed691d8b790d0b0a  listing/articles_page_03.html
+  725033e98a6fd0c70f9c00eb92b0799de8bbbee6436651f5623825d4b4e6299f  listing/articles_page_04.html
+  f6a336a991a3c6419e403a2f021e30e56ba81b4a5e90d1b55f79de505142b1a7  listing/articles_page_05.html
+  beed597dfd8721437cb598b383e2d91280f2622291bdfdb5c5bd53aa456b83ae  listing/articles_page_06.html
+  754f460a0d1ee02981318b8d6ed6d599b0b3c072efa8af88c1067f7eb54abe93  listing/articles_page_07.html
+  5042759be207dbbfb2b3380accb48dc150120d0540c16f566419aa8d345e7ff2  listing/articles_page_08.html
+  9abe8a578cf5ab1f5bf62d146a34658739f98444769dfe9055a712e570c893b4  listing/articles_page_09.html
+  a3b84c0b0f64ca365466bbb5a160c0abc5a77477cee46e5420ee972a3b71d32b  listing/articles_page_10.html
+  74202e796184063b225cc0cffa9469dd0ff8abd835efa8fd93d1d7a37005c1d3  listing/articles_page_11.html
+  8729038963c136b3078b04632d1b452c5eb8af370e0b443db977dd70255635e1  listing/articles_page_12.html
+  be70a1c335f54e1e43e56685dc3c4064e0dbfb7e29091a1e52b7ddb01474457d  listing/articles_page_13.html
+  3ac0fd8fd5971e5d3295c8e20442c5b7a9bf604411edf661b31abacb10db3f1f  listing/articles_page_14.html
+  8c026d3d6eede5dac776594e87fa867d8238b47349a7b5021340f019222b828d  listing/articles_page_15.html
+  ee3dfabfa9ee5835dcf02dcad359db15c605a70a1f533cc40220417299cbd659  listing/articles_page_16.html
+  5c3258ef4c7c36f398f5b33561a6c1997990f8ce9f14e6972fbe9f3251382bdb  listing/articles_page_17.html
+  26ed053773cf3bca294e8e1e823d85a7b024fcdd3b56c08933b1e99126967242  listing/articles_page_18.html
+  a1685e72f6219f94200a77c0993370b30f7f9c08575dc248535c07a5361cd18a  releases/trump-administration-announces-7-2-million-expand-ambulance-based-telemedicine-upgrade-emergency.html
+
