@@ -62,7 +62,9 @@
 # typed on SD_SYSTEM_PARENTS_FORM_NOT_STATED's settled footing (owner, session
 # 87: Sanford Health and Avera Health): HOSPITAL_OR_SYSTEM, LOW, basis_type
 # GENERAL_KNOWLEDGE, NO CCN. They are SUBTRACTABLE, and hva_report() prints the
-# hospital figure with and without them.
+# hospital figure with and without them. ACCEPTED by the owner in session 93
+# (VA_VHCF_SYSTEM_PARENTS, resolved): consistent with Sanford, Avera (SD), UVM
+# Health Network (VT) and Virtua (NJ). $0 moved; VA VHCF stays 9 / $6,390,000.
 #
 # THE TWO UVA HEALTH SUB-UNIT STRINGS. "UVA Health Comprehensive Epilepsy
 # Program" ($84,000) and "UVA Health–Fortify Children's Health" ($800,000)
@@ -267,7 +269,8 @@ hva_assert_highland <- function(f = hva_federal()) {
 HVA_PARENT_NOTE <- paste0(
   " SYSTEM PARENT, typed on SD_SYSTEM_PARENTS_FORM_NOT_STATED's settled footing ",
   "(owner, session 87): HOSPITAL_OR_SYSTEM, LOW, GENERAL_KNOWLEDGE, no CCN, ",
-  "subtractable. The string is no ORGANIZATION NAME or DBA on any CMS VA ",
+  "subtractable; accepted by the owner for this row in session 93 ",
+  "(VA_VHCF_SYSTEM_PARENTS). The string is no ORGANIZATION NAME or DBA on any CMS VA ",
   "enrolment file; its hospitals enrol under other legal bodies: ")
 
 # Hand-read decisions. Everything else is an exact federal record, or §8's fallback.
