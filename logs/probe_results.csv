@@ -752,3 +752,4 @@ VA,2026-10-06T10:21:44Z,UNCHANGED,vhha_foundation,,trig_017UtAGMofDhy3h8kpVmmiEx
 VA,2026-10-06T10:21:44Z,CHANGED,ways_to_apply,,trig_017UtAGMofDhy3h8kpVmmiEx
 VA,2026-10-06T10:21:44Z,UNCHANGED,news,,trig_017UtAGMofDhy3h8kpVmmiEx
 VA,2026-10-06T10:21:44Z,UNCHANGED,vhcf_news,,trig_017UtAGMofDhy3h8kpVmmiEx
+VT,2026-10-06T11:38:07Z,TRIPWIRE,(probe),"[VT] the page no longer says: ‘Updated as of September 25, 2026’. 'executed' is why these are NOTICE_OF_AWARD rows and 'partial' is why the figure is a floor -- re-read before rebuilding.",trig_01G7gMgmaRvkzdWq49YjZQdq
