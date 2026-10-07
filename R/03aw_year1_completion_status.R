@@ -232,7 +232,7 @@ Y1_STATUS <- tibble::tribble(
 
   "KS", "PARTIAL", "No", "Yes",
   "2026-09-22",
-  "KDHE's programme page: 'Open RHTP Funding Opportunities -- More funding opportunities coming soon.' Interfacility Transport (RFA webinar 2026-07-08), Evidence-Based Practice and KHA Healthworks have published no award.",
+  "KDHE's programme page: 'Open RHTP Funding Opportunities -- More funding opportunities coming soon.' Interfacility Transport (RFA webinar 2026-07-08), Evidence-Based Practice and KHA Healthworks have published no award. EBP: 94 hospitals ENROLLED on the Care Collaborative's 09-18 list, payments conditional and unlisted (R/03bz, session 95).",
   "data/evidence/KS/2026-09-22_kdhe_rhtp_program_page.html",
 
   "MD", "PARTIAL", "No", "Yes",
