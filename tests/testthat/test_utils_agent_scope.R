@@ -1,88 +1,29 @@
 # test_utils_agent_scope.R ---------------------------------------------------
-# The second host-scoped user-agent exception (session 95): news.delaware.gov.
+# news.delaware.gov takes the project's honest agent (session 96).
 #
-# CLAUDE.md §3 is "identify honestly to every state host". michigan.gov's bare
-# agent was the one recorded exception (tested in test_03v). The owner took a
-# second in session 95, for news.delaware.gov's F5 firewall, and these tests
-# hold it to the same shape: ONE host, exact hostname, refused in both
-# directions, and the browser string written in one place only.
+# Session 95 gave news.delaware.gov a browser agent (owner decision). The same
+# day's measurement showed the F5 block intermittent for BOTH agents (project
+# 7/8 served, Chrome 5/8), so the firewall is not keyed to the agent and the
+# retry is what cures it. Session 96 removed the exception on the owner's
+# instruction. CLAUDE.md §3 is "identify honestly to every state host", and
+# michigan.gov's bare agent (tested in test_03v) is again the ONLY exception.
+#
+# These tests hold that: no browser agent anywhere in R/, the Delaware
+# fetchers send the honest agent, and the firewall retry is still wired.
 
 library(testthat)
 
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_page_watch.R"))
 
-HONEST <- "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)"
+r_src <- function(f) {
+  paste(readLines(here::here("R", f), warn = FALSE), collapse = "\n")
+}
 
-test_that("news.delaware.gov alone gets the browser agent", {
-  expect_identical(
-    rhtp_agent_for_url("https://news.delaware.gov/", HONEST),
-    RHTP_DE_NEWS_USER_AGENT)
-  expect_identical(
-    rhtp_agent_for_url(paste0("https://news.delaware.gov/2026/07/29/governor-",
-                              "meyer-announces-funding/"), HONEST),
-    RHTP_DE_NEWS_USER_AGENT)
-  # Case in the hostname does not matter; the host does.
-  expect_identical(rhtp_agent_for_url("https://NEWS.Delaware.gov/", HONEST),
-                   RHTP_DE_NEWS_USER_AGENT)
-  # Every other host keeps the honest agent -- other Delaware hosts included,
-  # and a lookalike that merely contains the hostname.
-  for (u in c("https://dhss.delaware.gov/dph/rural-health-transformation-program/",
-              "https://delaware.gov/", "https://www.delaware.gov/",
-              "https://news.delaware.gov.example.com/",
-              "https://example.com/news.delaware.gov/",
-              "https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program",
-              "https://www.michigan.gov/mdhhs")) {
-    a <- rhtp_agent_for_url(u, HONEST)
-    expect_identical(a, HONEST, info = u)
-    expect_true(grepl("aha.org", a, fixed = TRUE), info = u)
-  }
-})
-
-test_that("the browser agent is refused off its host, and the honest agent on it", {
-  expect_error(
-    rhtp_assert_agent_scope("https://dhss.delaware.gov/", RHTP_DE_NEWS_USER_AGENT),
-    "scoped to news.delaware.gov")
-  expect_error(
-    rhtp_agent_for_url("https://example.gov/", RHTP_DE_NEWS_USER_AGENT),
-    "scoped to news.delaware.gov")
-  expect_error(
-    rhtp_assert_agent_scope("https://news.delaware.gov/", HONEST),
-    "firewall rejects")
-  expect_true(rhtp_assert_agent_scope("https://news.delaware.gov/",
-                                      RHTP_DE_NEWS_USER_AGENT))
-  expect_true(rhtp_assert_agent_scope("https://dhss.delaware.gov/", HONEST))
-})
-
-test_that("every Delaware source and newsroom page resolves to the right agent", {
-  suppressMessages(source(here::here("R", "03al_de_year1_awardees.R")))
-  for (i in seq_len(nrow(DE_SOURCES))) {
-    u <- DE_SOURCES$url[i]
-    a <- rhtp_agent_for_url(u, DE_USER_AGENT)
-    if (rhtp_url_host(u) == "news.delaware.gov") {
-      expect_identical(a, RHTP_DE_NEWS_USER_AGENT, info = u)
-    } else {
-      expect_identical(a, DE_USER_AGENT, info = u)
-    }
-  }
-  expect_true(any(vapply(DE_SOURCES$url, rhtp_url_host, "") == "dhss.delaware.gov"))
-
-  suppressMessages(source(here::here("R", "03bg_newsroom_sweep.R")))
-  for (i in seq_len(nrow(NW_PAGES))) {
-    u <- NW_PAGES$url[i]
-    a <- rhtp_agent_for_url(u, NW_USER_AGENT)
-    if (NW_PAGES$state[i] == "DE") {
-      expect_identical(a, RHTP_DE_NEWS_USER_AGENT, info = u)
-    } else {
-      expect_identical(a, NW_USER_AGENT, info = u)
-    }
-  }
-})
-
-test_that("the browser string is written in utils_config.R and nowhere else in R/", {
-  # Any other file carrying a Chrome/Safari browser agent is the exception
-  # spreading. michigan.gov's bare 'Mozilla/5.0' is not a browser string and is
-  # tested in test_03v.
+test_that("no file in R/ carries a browser user-agent string", {
+  # michigan.gov's bare 'Mozilla/5.0' is not a browser string and is tested in
+  # test_03v. A Chrome/Safari/Gecko agent anywhere in R/ is the session-95
+  # exception coming back.
   hits <- character(0)
   for (f in list.files(here::here("R"), pattern = "\\.R$", full.names = TRUE)) {
     src <- paste(readLines(f, warn = FALSE), collapse = "\n")
@@ -90,14 +31,42 @@ test_that("the browser string is written in utils_config.R and nowhere else in R
       hits <- c(hits, basename(f))
     }
   }
-  expect_identical(hits, "utils_config.R")
+  expect_identical(hits, character(0))
 })
 
-test_that("the shared fetchers route their agent through rhtp_agent_for_url()", {
+test_that("the session-95 agent helpers are gone", {
+  expect_false(exists("RHTP_DE_NEWS_USER_AGENT"))
+  expect_false(exists("rhtp_agent_for_url"))
+  expect_false(exists("rhtp_assert_agent_scope"))
+  for (f in list.files(here::here("R"), pattern = "\\.R$")) {
+    expect_false(grepl("rhtp_agent_for_url|RHTP_DE_NEWS_USER_AGENT", r_src(f)),
+                 info = f)
+  }
+})
+
+test_that("the Delaware fetchers send the project's honest agent", {
+  suppressMessages(source(here::here("R", "03al_de_year1_awardees.R")))
+  expect_true(grepl("aha.org", DE_USER_AGENT, fixed = TRUE))
+  expect_true(any(vapply(DE_SOURCES$url, function(u) {
+    identical(tolower(httr::parse_url(u)$hostname), "news.delaware.gov")
+  }, logical(1))))
+  de <- r_src("03al_de_year1_awardees.R")
+  expect_true(grepl("httr::user_agent(DE_USER_AGENT)", de, fixed = TRUE))
+
+  suppressMessages(source(here::here("R", "03bg_newsroom_sweep.R")))
+  expect_true(grepl("aha.org", NW_USER_AGENT, fixed = TRUE))
+  expect_true("DE" %in% NW_PAGES$state)
+  nw <- r_src("03bg_newsroom_sweep.R")
+  expect_true(grepl("httr::user_agent(NW_USER_AGENT)", nw, fixed = TRUE))
+
   watch <- paste(deparse(rhtp_watch_fetch), collapse = "\n")
-  expect_true(grepl("rhtp_agent_for_url(url, agent)", watch, fixed = TRUE))
-  de <- paste(readLines(here::here("R", "03al_de_year1_awardees.R"),
-                        warn = FALSE), collapse = "\n")
-  expect_true(grepl("rhtp_agent_for_url(url, DE_USER_AGENT)", de, fixed = TRUE))
-  expect_false(grepl("httr::user_agent(DE_USER_AGENT)", de, fixed = TRUE))
+  expect_true(grepl("httr::user_agent(agent)", watch, fixed = TRUE))
+})
+
+test_that("the firewall retry stays wired into the Delaware fetch paths", {
+  # The retry, not the agent, is what cures news.delaware.gov's block.
+  watch <- paste(deparse(rhtp_watch_fetch), collapse = "\n")
+  expect_true(grepl("rhtp_fetch_past_firewall", watch, fixed = TRUE))
+  expect_true(grepl("rhtp_fetch_past_firewall(function()",
+                    r_src("03al_de_year1_awardees.R"), fixed = TRUE))
 })

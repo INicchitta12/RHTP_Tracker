@@ -1,0 +1,26 @@
+PROVENANCE -- data/evidence/recheck/2026-10-07/KS/ (recorded session 96, 2026-10-07)
+
+THIS DIRECTORY HOLDS A THIRD-PARTY RENDERING, NOT A PRIMARY CAPTURE.
+
+2dc19651dd54c110081f9016f4b708e203c6dcf0863e42de89576429dd4557e0  2026-10-07_kdhe_rhtp_program_page_browser_render.md
+
+- What it is: the markdown that r.jina.ai (a third-party remote rendering
+  service, Jina AI's Reader) returned for
+  https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program on
+  2026-10-07. Jina fetched and rendered the page in its own headless browser
+  and converted it to markdown. KDHE's bytes never reached this repository.
+- Why: KDHE's Cloudflare (CivicPlus) front answered 403 to this container on
+  every agent, including a local headless Chromium (session 95).
+- What it is NOT:
+  * not a KDHE-served document, and not byte-comparable to anything KDHE serves;
+  * not a probe baseline (R/03o's program_page baseline is still the archived
+    09-22 KDHE capture under data/evidence/KS/);
+  * not admissible as the validation source for any published figure (§0.4).
+    It supported one finding only: the 10-05 name trip was KDHE's new site
+    menu, which decided how R/03o's tripwire is scoped, not any award coding.
+- The file name says "browser_render". Read that as "rendered by a third party's
+  browser", not as a capture taken by this project. The name is kept so the
+  session-95 references stay valid.
+- To replace it: re-base program_page with `Rscript R/03o_ks_year1_awardees.R
+  --fetch --force` from an environment KDHE serves, and record that capture as
+  the primary.

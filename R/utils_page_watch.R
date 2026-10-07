@@ -49,9 +49,6 @@ rhtp_watch_reduce <- function(raw, scope = NULL) {
 #'   RHT site, which serves its leaf certificate without the intermediate);
 #'   verification is never switched off.
 rhtp_watch_fetch <- function(url, agent, cainfo = NULL) {
-  # Session 95: news.delaware.gov alone takes the browser agent (owner
-  # decision); every other host keeps the caller's honest agent.
-  agent <- rhtp_agent_for_url(url, agent)
   cfg <- list(httr::user_agent(agent), httr::timeout(90))
   if (!is.null(cainfo)) cfg <- c(cfg, list(httr::config(cainfo = cainfo)))
   # Session 94: a 200 can be a firewall's block page (Delaware); retried,
