@@ -1251,67 +1251,6 @@ rhtp_is_firewall_rejection <- function(raw) {
         useBytes = TRUE, perl = TRUE)
 }
 
-#' THE SECOND HOST-SCOPED USER-AGENT EXCEPTION: news.delaware.gov (session 95)
-#'
-#' CLAUDE.md §3's rule is to identify honestly to every state host, and
-#' michigan.gov was the one recorded exception (a bare agent, R/03v). This is
-#' the second, taken by the OWNER in session 95 after session 94 measured
-#' news.delaware.gov's F5 firewall rejecting the project's agent and bare
-#' `Mozilla/5.0` while serving a full Chrome agent. It is scoped to that ONE
-#' host, by exact hostname: dhss.delaware.gov, de.gov and every other host
-#' keep the project's honest agent, and a lookalike such as
-#' news.delaware.gov.example.com is not the host.
-#'
-#' MEASURED IN SESSION 95, AND RECORDED BECAUSE IT WEAKENS THE CASE: on
-#' 2026-10-07 the block was intermittent for BOTH agents (8 alternating fetches
-#' of the 07-29 release: project agent 7/8 served, Chrome 5/8). The firewall
-#' retry in rhtp_fetch_past_firewall() stays in force for this host; the agent
-#' does not replace it.
-#'
-#' Enforced in both directions, the way mi_agent_for() is: the browser agent is
-#' refused on any other host, and an honest agent is never sent to
-#' news.delaware.gov. Every shared fetcher (rhtp_watch_fetch, R/03al's de_get)
-#' goes through rhtp_agent_for_url(), and a test reads every file in R/ to
-#' require that the browser string appears nowhere but here.
-RHTP_DE_NEWS_HOST <- "news.delaware.gov"
-RHTP_DE_NEWS_USER_AGENT <- paste0(
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ",
-  "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
-
-rhtp_url_host <- function(url) {
-  h <- httr::parse_url(url)$hostname
-  if (is.null(h) || is.na(h)) "" else tolower(h)
-}
-
-#' The agent a URL is fetched with: the browser agent for news.delaware.gov
-#' only, the caller's honest agent everywhere else.
-rhtp_agent_for_url <- function(url, honest_agent) {
-  if (identical(rhtp_url_host(url), RHTP_DE_NEWS_HOST)) {
-    return(RHTP_DE_NEWS_USER_AGENT)
-  }
-  rhtp_assert_agent_scope(url, honest_agent)
-  honest_agent
-}
-
-#' Refuse a mis-scoped agent, in either direction.
-rhtp_assert_agent_scope <- function(url, agent) {
-  on_host <- identical(rhtp_url_host(url), RHTP_DE_NEWS_HOST)
-  is_browser <- identical(agent, RHTP_DE_NEWS_USER_AGENT)
-  if (is_browser && !on_host) {
-    stop("[agent] refusing the browser user-agent for ", url, ": it is ",
-         "scoped to ", RHTP_DE_NEWS_HOST, " only (owner decision, session 95). ",
-         "Every other host is fetched with the project's honest agent (§3).",
-         call. = FALSE)
-  }
-  if (on_host && !is_browser) {
-    stop("[agent] ", url, " is on ", RHTP_DE_NEWS_HOST, " and would be ",
-         "fetched with an agent its firewall rejects; use ",
-         "rhtp_agent_for_url() (session 95).", call. = FALSE)
-  }
-  invisible(TRUE)
-}
-
-
 #' Fetch, and RETRY a firewall rejection before believing it
 #'
 #' `fetch` is a zero-argument function returning raw bytes. A rejection is

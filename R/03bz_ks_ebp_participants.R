@@ -57,6 +57,10 @@
 # as an award file, one row per paid hospital, §10.2 PASS_THROUGH_DESIGNATED
 # with intermediary_name = the Care Collaborative.
 #
+# OWNER DECISION (session 96): KS_EBP_ENROLMENT_NOT_AWARD RESOLVED at option
+# (a). The 94 stay enrolment at $0; they become award rows only when the
+# paid list appears.
+#
 # CLI:
 #   Rscript R/03bz_ks_ebp_participants.R --fetch [--force]
 #   Rscript R/03bz_ks_ebp_participants.R --validate

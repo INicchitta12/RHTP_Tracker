@@ -1485,13 +1485,15 @@ ks_page_lines <- function(raw) {
 
 # SESSION 95: THE 10-05 TRIP WAS KDHE'S NEW SITE MENU. The 2026-10-05 08:13Z
 # Routine firing logged "'program_page' NAMES 176 ORGANISATION(S)". The page
-# was read in a browser on 2026-10-07 (headless Chromium via r.jina.ai; KDHE's
-# Cloudflare front refuses this container's address on every agent, including
-# a local headless Chromium): KDHE redesigned its navigation, and the page now
-# carries the department's whole mega-menu -- "Office of the Secretary",
-# "Division of Environment", "Kansas Clean Diesel Program", 170-odd more --
-# after the RHTP content. None of it is a recipient. The award-index control
-# and the provenance sentences both passed on the rendered page.
+# was read on 2026-10-07 through a THIRD-PARTY rendering (r.jina.ai's headless
+# browser; KDHE's Cloudflare front refuses this container's address on every
+# agent, including a local headless Chromium). That markdown is NOT a primary
+# capture (recheck/2026-10-07/KS/PROVENANCE.txt, session 96). It showed that
+# KDHE redesigned its navigation, and the page now carries the department's
+# whole mega-menu -- "Office of the Secretary", "Division of Environment",
+# "Kansas Clean Diesel Program", 170-odd more -- after the RHTP content. None
+# of it is a recipient. The award-index control and the provenance sentences
+# both passed on the rendered page.
 #
 # So the tripwire now reads the RHTP content region only, between two anchors
 # present in both copies: "Open RHTP Funding Opportunities" and "Quick Links".

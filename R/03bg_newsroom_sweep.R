@@ -175,8 +175,7 @@ nw_retest_unreadable <- function(u = NW_UNREADABLE) {
   now <- character(0)
   for (i in seq_len(nrow(u))) {
     code <- tryCatch(httr::status_code(httr::GET(
-      u$url[i], httr::user_agent(rhtp_agent_for_url(u$url[i], NW_USER_AGENT)),
-      httr::timeout(60))),
+      u$url[i], httr::user_agent(NW_USER_AGENT), httr::timeout(60))),
       error = function(e) NA_integer_)
     if (isTRUE(code == 200L)) now <- c(now, u$state[i])
   }
