@@ -58,7 +58,23 @@ ND_KNOWN_AWARDED <- c(
   "Community Gardens Project",
   "Behavioral Health Promotion Community Grants",
   "Rightsizing Health Care Delivery Systems for the Future: Rural Federally Qualified Health Centers and Critical Access Hospitals",
-  "Mobile Mammography Unit Acquisition Funding Opportunity")
+  "Mobile Mammography Unit Acquisition Funding Opportunity",
+  # SESSION 94, READ 2026-10-07: the 10-07 09:22Z Routine TRIPWIRE. The
+  # heading reads "... – Awarded | 36 Applicants"; the section names NO
+  # awardee and prints no amount. Recorded here so the heading tripwire is
+  # quiet; the name diff on both pages still catches the roster.
+  "Workforce Retention Funding for Critical Access Hospitals and Their Owned and Operated Clinics")
+
+# THE ROUNDS WHOSE ELIGIBLE CLASS IS HOSPITALS ONLY (session 94, owner). When
+# North Dakota names recipients for these, EVERY recipient is a critical
+# access hospital or a clinic it owns and operates, so the round is hospital
+# money in full -- ICAHN's hospitals-only class (§7), except that here each
+# hospital is the DIRECT recipient. The extractor written then still types
+# each named row on its CMS enrolment (an owned clinic is the hospital's own
+# legal entity only where the enrolment says so); this records the class so
+# nobody re-derives it from the heading.
+ND_HOSPITAL_ONLY_ROUNDS <- c(
+  "Workforce Retention Funding for Critical Access Hospitals and Their Owned and Operated Clinics")
 
 #' Every opportunity heading on the funding page, split into name and status
 nd_headings <- function(raw) {

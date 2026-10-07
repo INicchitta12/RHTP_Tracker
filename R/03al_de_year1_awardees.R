@@ -179,13 +179,18 @@ de_path <- function(key) file.path(DE_EVIDENCE_DIR, de_source(key, "file"))
 # -- retrieval ---------------------------------------------------------------
 
 de_get <- function(url, label) {
-  resp <- httr::GET(url, httr::user_agent(DE_USER_AGENT),
-                    httr::config(followlocation = TRUE), httr::timeout(120))
-  if (httr::status_code(resp) != 200L) {
-    stop("[DE] ", label, ": HTTP ", httr::status_code(resp), " from ", url,
-         call. = FALSE)
-  }
-  httr::content(resp, as = "raw")
+  # Session 94: delaware.gov hosts can answer 200 with a 246-byte F5 "Request
+  # Rejected" page. Retried, then refused as FIREWALL REJECTION (an ERROR in
+  # the probe log), never parsed as Delaware's content.
+  rhtp_fetch_past_firewall(function() {
+    resp <- httr::GET(url, httr::user_agent(DE_USER_AGENT),
+                      httr::config(followlocation = TRUE), httr::timeout(120))
+    if (httr::status_code(resp) != 200L) {
+      stop("[DE] ", label, ": HTTP ", httr::status_code(resp), " from ", url,
+           call. = FALSE)
+    }
+    httr::content(resp, as = "raw")
+  }, url)
 }
 
 de_assert_no_credentials <- function(raw, label) {

@@ -479,3 +479,29 @@ test_that("the committed CSVs match what the builders produce", {
                                  show_col_types = FALSE, progress = FALSE)
   expect_false(any(grepl("amount", names(status_disk), ignore.case = TRUE)))
 })
+
+test_that("session 94: the name tripwire reads each page's CONTENT, and still fires there", {
+  for (k in c("rhef", "doe", "programme")) {
+    full <- me_html_text(k)
+    sc <- me_name_scope(full, k)
+    expect_lt(nchar(sc), nchar(full))
+    # The menu is outside the scope ...
+    expect_false(grepl("Skip to main content", sc, fixed = TRUE), info = k)
+  }
+  # ... a DOE mega-menu edit (the 2026-10-06 halt) moves nothing in scope ...
+  doe <- me_html_text("doe")
+  menu_edit <- sub("Climate EducationCommunity Schools",
+                   "Climate EducationCommunity SchoolsDirigo Schools of DistinctionGreen Schools Program",
+                   doe, fixed = TRUE)
+  expect_identical(me_name_scope(menu_edit, "doe"), me_name_scope(doe, "doe"))
+  # ... and a recipient named in the content still fires.
+  named <- sub("The Maine Department of Education, in conjunction",
+               "Penobscot Valley Hospital was awarded. The Maine Department of Education, in conjunction",
+               doe, fixed = TRUE)
+  expect_error(rhtp_assert_no_new_organisations(me_name_scope(named, "doe"),
+                                                me_name_scope(doe, "doe"),
+                                                state = "ME", page = "doe"),
+               "THAT IS THE SIGNAL")
+  # A missing anchor refuses rather than reading the whole page.
+  expect_error(me_name_scope("no anchors here", "doe"), "SCOPE anchor")
+})

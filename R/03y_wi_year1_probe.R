@@ -1018,7 +1018,17 @@ wi_probe_kind <- function(key) {
 # appropriation for OWI-ordered treatment -- and mentions "Rural Health
 # Transformation", "RHTP" and "Centers for Medicare" ZERO times. An opportunity
 # on the unawarded index, not a roster, and not RHTP.
+# SESSION 94, after the Routine's 2026-10-06 14:03Z halt: the sixth is the
+# "2026-2027 Overdose Prevention Supplies Program". Its detail page
+# (/contracts/2026-2027-overdose-prevention-supplies-program.htm, read
+# 2026-10-07) says DCTS "is allocating funding from SAMHSA's State Opioid
+# Response Grant and state government's share of opioid settlement funds" --
+# naloxone and drug-checking supplies distributed at no cost to eligible
+# agencies -- and mentions "Rural Health Transformation", "RHTP" and "Centers
+# for Medicare" ZERO times. An opportunity on the unawarded index, federal
+# SAMHSA and state settlement money, not a roster, and not RHTP.
 WI_NAME_FURNITURE <- list(dhs_solicit = c(
+  "Overdose Prevention Supplies Program Request for Application",
   "Intoxicated Driver Program Supplemental Funding Request for Application",
   "Increasing Tenant and Homeowner Environmental Health Literacy Mini–Grant Request for Application",
   "Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application",

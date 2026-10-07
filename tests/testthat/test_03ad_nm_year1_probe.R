@@ -503,3 +503,23 @@ test_that("every probe key is a real source key", {
 test_that("rhtp_nm_assert() passes end to end, offline", {
   expect_silent(rhtp_nm_assert())
 })
+
+test_that("session 94: the name tripwire reads past HCA's menus on both pages", {
+  for (k in c("programme", "news")) {
+    full <- nm_html_text(k)
+    sc <- nm_name_scope(full, k)
+    expect_false(grepl("APPLY FOR BENEFITS", sc, fixed = TRUE), info = k)
+    expect_false(grepl("Cookie Consent", sc, fixed = TRUE), info = k)
+  }
+  news <- nm_html_text("news")
+  # The 2026-10-06 halt: the site menu re-welded. Outside the scope.
+  menu_edit <- sub("Mergers &#038; Acquisitions 2025 Data Book",
+                   "Mergers &#038; Acquisitions HCA Data Book", news, fixed = TRUE)
+  expect_identical(nm_name_scope(menu_edit, "news"), nm_name_scope(news, "news"))
+  # A new headline naming a recipient fires.
+  sc <- nm_name_scope(news, "news")
+  expect_error(rhtp_assert_no_new_organisations(
+    paste("Lovelace Health System awarded RHT grant 10/07/2026", sc), sc,
+    state = "NM", page = "news", known = NM_KNOWN_ORGANISATIONS),
+    "THAT IS THE SIGNAL")
+})

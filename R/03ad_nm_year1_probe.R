@@ -592,6 +592,31 @@ NM_KNOWN_ORGANISATIONS <- c(
   "Regional Hub Organizations", "Regional Hubs", "Healthy Horizons",
   "Project ECHO", "Rural Health Data Hub Administrator")
 
+# SESSION 94: THE NAME TRIPWIRE READS EACH PAGE'S CONTENT REGION. On
+# 2026-10-06 `news` halted on two "organisations" that were HCA's site menu --
+# "Acquisitions HCA Data Book Looking for Assistance Looking for Information
+# News Providers SUN Bucks Home About Us Turquoise Care ..." and the Public
+# Information sidebar ("Centennial Care Centennial Care Overview Approvals
+# CareLink NM ...") -- re-welded after HCA edited them. The programme page's
+# content starts at its own heading and the newsroom's after the sidebar's last
+# link; both end at the site footer ("Looking for Assistance Looking for
+# Information Providers Overview"). rhtp_name_scope() refuses if an anchor
+# moves, which is the signal to re-anchor, never to read the menu again.
+NM_NAME_SCOPE <- list(
+  programme = c(from = "Improving Lives Throughout New Mexico",
+                to = "Looking for Assistance Looking for Information Providers Overview"),
+  # The region starts AFTER the sidebar's last link (a lookbehind), because a
+  # scope that kept the link text welded it onto the newest headline and read
+  # the pair as a new organisation.
+  news      = c(from = "(?<=Behavioral Health Assessment and Feasibility Study Newsroom )\\S",
+                to = "Looking for Assistance Looking for Information Providers Overview"))
+
+nm_name_scope <- function(text, key) {
+  a <- NM_NAME_SCOPE[[key]]
+  rhtp_name_scope(text, from = a[["from"]], to = a[["to"]],
+                  state = "NM", page = key)
+}
+
 NM_PENDING_MARKERS <- c(
   "Currently under evaluation",
   "Administrative Services Organization (ASO) RFP",
@@ -1372,9 +1397,10 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
   # catch New Mexico announcing awards while naming nobody, which no name diff
   # can see.
   rhtp_assert_no_new_organisations_across(
-    live = txt[c("programme", "news")],
-    archived = list(programme = nm_html_text("programme"),
-                    news = nm_html_text("news")),
+    live = list(programme = nm_name_scope(txt$programme, "programme"),
+                news = nm_name_scope(txt$news, "news")),
+    archived = list(programme = nm_name_scope(nm_html_text("programme"), "programme"),
+                    news = nm_name_scope(nm_html_text("news"), "news")),
     state = "NM", known = NM_KNOWN_ORGANISATIONS)
 
   message("[NM] the award tripwires pass against the LIVE bytes. READ THIS ",

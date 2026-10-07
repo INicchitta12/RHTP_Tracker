@@ -512,6 +512,16 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Health, Ballad and Sentara, 4 system-parent lines / $5,700,000 LOW), a 32nd state (VA had
   # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
   # Subtracted first.
+  # Session 94: + Vermont's 2026-10-02 update, 9 rows / $9,581,283.08 (7 on
+  # exact CMS VT records at MEDIUM; UVM - Health Network $1,972,160 and the
+  # Grace Cottage Family Health bridge $347,098.80 at LOW), no new state;
+  # Kentucky's LCDHD row is a local health department and adds no hospital
+  # row: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
+  expect_equal(named$rows, 1308L)
+  expect_equal(named$states, 32L)
+  expect_equal(round(named$dollars, 2), 1213341798.50, tolerance = 0)
+  named$rows <- named$rows - 9L
+  named$dollars <- named$dollars - 9581283.08
   expect_equal(named$rows, 1299L)
   expect_equal(named$states, 32L)
   expect_equal(round(named$dollars, 2), 1203760515.42, tolerance = 0)

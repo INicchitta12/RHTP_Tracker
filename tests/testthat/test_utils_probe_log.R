@@ -344,3 +344,34 @@ test_that("no probe still returns a bare logical", {
   }
   expect_equal(offenders, character(0))
 })
+
+test_that("session 94: a 246-byte 'Request Rejected' page is retried, then logged ERROR", {
+  # news.delaware.gov's F5 block page, as served 2026-10-07 (support ID elided).
+  page <- charToRaw(paste0(
+    "<html><head><title>Request Rejected</title></head><body>The requested URL ",
+    "was rejected. Please consult with your administrator.<br><br>Your support ",
+    "ID is: 0<br><br><a href='javascript:history.back();'>[Go Back]</a></body></html>"))
+  expect_true(rhtp_is_firewall_rejection(page))
+  # A real page that merely uses the word is not one.
+  big <- charToRaw(paste(c("<html><body>", rep("Applications were rejected. ", 400),
+                           "</body></html>"), collapse = ""))
+  expect_false(rhtp_is_firewall_rejection(big))
+  expect_false(rhtp_is_firewall_rejection(charToRaw("<html><body>ok</body></html>")))
+
+  # Rejected once, then served: the retry returns the real page.
+  calls <- 0L
+  real <- charToRaw("<html><body>Delaware news</body></html>")
+  f <- function() { calls <<- calls + 1L; if (calls == 1L) page else real }
+  expect_identical(suppressMessages(rhtp_fetch_past_firewall(f, "u", waits = 0)), real)
+  expect_equal(calls, 2L)
+
+  # Rejected every time: it stops, never returns the block page, and the log
+  # files it as ERROR -- our access, not the state.
+  calls <- 0L
+  g <- function() { calls <<- calls + 1L; page }
+  err <- tryCatch(suppressMessages(rhtp_fetch_past_firewall(g, "u", waits = c(0, 0))),
+                  error = conditionMessage)
+  expect_equal(calls, 3L)
+  expect_match(err, "FIREWALL REJECTION", fixed = TRUE)
+  expect_equal(rhtp_probe_verdict(err), "ERROR")
+})

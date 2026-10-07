@@ -334,8 +334,9 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 77: MT (QUEUED) -> INVESTIGATED_NO_LIST, so 36/9/2/3.
   # Session 82: CO (INVESTIGATED_NO_LIST) -> EXTRACTED, so 37/8/2/3.
   # Session 88: MT (INVESTIGATED_NO_LIST) -> EXTRACTED, so 38/7/2/3.
-  expect_equal(unname(tab[["EXTRACTED"]]), 38L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 7L)
+  # Session 94: KY (INVESTIGATED_NO_LIST) -> EXTRACTED, so 39/6/2/3.
+  expect_equal(unname(tab[["EXTRACTED"]]), 39L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 6L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 2L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 3L)
 })

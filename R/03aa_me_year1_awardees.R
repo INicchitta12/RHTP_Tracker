@@ -1460,12 +1460,41 @@ rhtp_me_write_xlsx <- function(awards, cohort, status, dispo) {
 # Career Pathways Healthcare Careers Exploration Contact Us" re-welded into a
 # new string ending in the page's own title and "The Maine Department of
 # Education". Read: the RFA body under it is unchanged and names no awardee.
+#
+# SESSION 94: `doe` fired again on 10-06, this time on the DOE MEGA-MENU
+# ("Climate EducationCommunity SchoolsDirigo Schools of DistinctionGreen
+# Schools ProgramMaine Engagement" -- DOE added two Initiatives links). A
+# furniture list cannot keep up with a menu edited on its own schedule, so the
+# name tripwire now reads each page's CONTENT REGION only (ME_NAME_SCOPE,
+# rhtp_name_scope(), §2.3), live and archived alike. The 10-02 `doe` furniture
+# entry was the side nav, which is outside the scope, and is dropped.
+#
+# SESSION 94, READ: the live programme page re-labels its document links and
+# adds Maine's YEAR 2 application narrative -- "Maine RHTP Y2 Project Narrative
+# Maine RHTP Y1 Project Narrative Maine RHTP Y1 Budget (Amended)". The same
+# class as the 2026-09-02 entry: the state's own application documents, run
+# together by the reduction, not a roster.
 ME_NAME_FURNITURE <- list(
-  programme = c("Maine RHTP Project Narrative Maine RHTP Y1 Budget"),
-  doe = c(paste("Early College Home Aspirations Program Maine Career Pathways",
-                "Healthcare Careers Exploration Contact Us Maine Healthcare",
-                "Careers Exploration Program Maine Healthcare Careers Exploration",
-                "Program The Maine Department of Education")))
+  programme = c("Maine RHTP Project Narrative Maine RHTP Y1 Budget",
+                "Maine RHTP Y2 Project Narrative Maine RHTP Y1 Project Narrative Maine RHTP Y1 Budget"))
+
+# Each region starts after the page chrome and ends before the footer. The two
+# DHHS pages open their content at the breadcrumb ("DHHS → News → ..." /
+# "DHHS → Rural Health Transformation Program"), which is the first arrow on
+# the page; both end at the footer's "Credit Copyright ©". Maine DOE's page
+# opens its content at its own heading plus office line and ends at "Back to
+# top Site Information".
+ME_NAME_SCOPE <- list(
+  rhef      = c(from = "DHHS \u2192", to = "Credit Copyright \u00a9"),
+  programme = c(from = "DHHS \u2192", to = "Credit Copyright \u00a9"),
+  doe       = c(from = "Maine Healthcare Careers Exploration Program Office of Workforce Development",
+                to = "Back to top Site Information"))
+
+me_name_scope <- function(text, key) {
+  a <- ME_NAME_SCOPE[[key]]
+  rhtp_name_scope(text, from = a[["from"]], to = a[["to"]],
+                  state = "ME", page = key)
+}
 
 me_probe <- function() {
   watched <- c("rhef", "doe", "programme", "mcd")
@@ -1504,8 +1533,10 @@ me_probe <- function() {
   # press index moves for reasons that are not this state awarding.
   nm_keys <- intersect(c("rhef", "doe", "programme"), names(txt))
   rhtp_assert_no_new_organisations_across(
-    live = txt[nm_keys],
-    archived = stats::setNames(purrr::map(nm_keys, me_html_text), nm_keys),
+    live = stats::setNames(purrr::map(nm_keys, function(k) me_name_scope(txt[[k]], k)),
+                           nm_keys),
+    archived = stats::setNames(purrr::map(nm_keys, function(k)
+      me_name_scope(me_html_text(k), k)), nm_keys),
     furniture = ME_NAME_FURNITURE,
     state = "ME")
 

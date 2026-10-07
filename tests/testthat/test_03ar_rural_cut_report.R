@@ -36,8 +36,10 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 9 rows / $6,390,000 (4 lines / $690,000 on exact CMS VA records; Valley
   # Health, Ballad and Sentara, 4 system-parent lines / $5,700,000 LOW), a 32nd state (VA had
   # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
-  expect_equal(nrow(rows), 1299L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1203760515.42,
+  # Session 94: + Vermont's 2026-10-02 update (R/03at), 9 rows / $9,581,283.08,
+  # no new state: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
+  expect_equal(nrow(rows), 1308L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1213341798.50,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -67,16 +69,19 @@ test_that("the rural figure is 256 rows / $263,299,771.23, from three classes of
   # Minnie Hamilton x3 ($1,700,000), OK x7 ($8,376,713: Newman x2, Fairview x2,
   # McCurtain, Texas County, Cimarron) and SD x6 ($7,661,103). Huron Regional
   # carries no CCN and does not count.
-  expect_equal(nrow(r), 256L)
+  # Session 94: + 4 Vermont CAH rows by cited CCN (NVRH 471303, Grace Cottage
+  # 471300 twice incl. the LOW Family Health bridge, Gifford Medical Center
+  # 471301), +$4,074,310.60.
+  expect_equal(nrow(r), 260L)
   expect_equal(sum(r$state == "OK"), 7L)
   expect_equal(sum(r$state == "WV"), 3L)
   expect_equal(sum(r$state == "SD"), 9L)
   expect_equal(sum(r$state == "CO"), 26L)
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 263299771.23, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 267374081.84, tolerance = 0)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
-  expect_equal(sum(r$state == "VT"), 14L)
+  expect_equal(sum(r$state == "VT"), 18L)
   expect_equal(sum(r$state == "MO"), 6L)
   expect_setequal(unique(r$rural_class), c("STATE_SOURCE_RURAL", "FEDERAL_RECORD_CCN"))
   # NOTHING the verifiers knew from general knowledge counts.
@@ -126,11 +131,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 256L)   # session 82: + 26 CO
+  expect_equal(sum(by$rural_rows), 260L)   # session 82: + 26 CO; session 94: + 4 VT
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1299L)   # session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA
+  expect_equal(nrow(committed), 1308L)   # session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
   expect_equal(committed$rural_class, rows$rural_class)
 })

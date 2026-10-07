@@ -46,6 +46,6 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 45,TN,Tennessee,1,0,1,0,1,1,1,1,No,,,,206888882,EXTRACTED,RCJ_ONLY,No
 46,CA,California,0,0,0,4,0,0,,5,No,,,,233639308,INVESTIGATED_NO_LIST,NEITHER,No
 47,IL,Illinois,0,0,0,0,0,0,,0,No,,,,193418216,EXTRACTED,NEITHER,No
-48,KY,Kentucky,0,0,0,0,0,0,,0,No,,,,212905591,INVESTIGATED_NO_LIST,NEITHER,No
+48,KY,Kentucky,0,0,0,0,0,0,,0,No,,,,212905591,EXTRACTED,NEITHER,No
 49,NY,New York,0,0,0,0,0,0,,0,Yes,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-76-million-strengthen-regional-coordination-modernize-healthcare,212058208,EXTRACTED,CMS_ONLY,No
 50,WY,Wyoming,0,0,0,0,0,0,,0,No,,,,205004743,EXTRACTED,NEITHER,No

@@ -182,7 +182,14 @@ test_that("the status table has NO amount column and covers every channel", {
   st <- ky_status_table()
   expect_false("amount" %in% names(st))
   expect_equal(nrow(st), 11L)
-  expect_true(all(st$publishes_roster == "No"))
+  # Session 94: the two RCH rows name ONE Hub Lead (LCDHD); every other
+  # channel still publishes no roster.
+  rch <- grepl("Rural Community Hubs|Foundation for a Healthy Kentucky", st$channel)
+  expect_equal(sum(rch), 2L)
+  expect_true(all(st$publishes_roster[rch] == "Yes"))
+  expect_true(all(st$publishes_roster[!rch] == "No"))
+  expect_equal(st$stage[grepl("^Rural Community Hubs", st$channel)],
+               "HUB_LEAD_NAMED_ONE_OF_THREE")
   expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PASSED"), 3L)
   # Session 92: two rounds have AWARDED, privately; the self-announced
   # recipients are leads in the note and never rows.
@@ -219,19 +226,26 @@ test_that("SESSION 92: SharePoint's hidden admin zone and zero-width residue are
   expect_identical(ky_strip_hidden_zone("<p>no zone</p>"), "<p>no zone</p>")
 })
 
-test_that("no Kentucky award file exists", {
-  expect_false(file.exists(here::here("data", "reference",
-                                      "ky_year1_awardees.csv")))
+test_that("session 94: Kentucky's award file is R/03by's, one named row at no amount", {
+  # This test asserted NO award file until LCDHD was named RCH Hub Lead. The
+  # file is written by R/03by, never by this probe, which still watches the
+  # other two Hubs and the RFAs.
+  p <- here::here("data", "reference", "ky_year1_awardees.csv")
+  expect_true(file.exists(p))
+  d <- readr::read_csv(p, show_col_types = FALSE, progress = FALSE)
+  expect_equal(nrow(d), 1L)
+  expect_true(all(is.na(d$amount)))
+  expect_equal(d$validator, "R/03by_ky_rch_awardees.R")
 })
 
-test_that("Kentucky reads INVESTIGATED_NO_LIST in both rebuilt tables", {
+test_that("Kentucky reads EXTRACTED in both rebuilt tables (session 94)", {
   for (f in c("rcj_state_survey.csv", "state_trigger_queue.csv")) {
     path <- here::here("data", "reference", f)
     skip_if_not(file.exists(path), paste(f, "is not on disk"))
     d <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
     col <- if ("extraction_status" %in% names(d)) "extraction_status" else
       "queue_status"
-    expect_equal(d[[col]][d$state == "KY"], "INVESTIGATED_NO_LIST")
+    expect_equal(d[[col]][d$state == "KY"], "EXTRACTED")
   }
 })
 

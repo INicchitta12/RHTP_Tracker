@@ -351,3 +351,18 @@ test_that("the WI disposition covers the live candidates and its prose agrees", 
   expect_equal(committed$rows, d$rows)
   expect_equal(committed[[ncol(committed)]], d[[ncol(d)]])
 })
+
+test_that("session 94: the Overdose Prevention Supplies RFA is furniture, matched exactly", {
+  f <- WI_NAME_FURNITURE$dhs_solicit
+  expect_true("Overdose Prevention Supplies Program Request for Application" %in% f)
+  arch <- wi_html_text("dhs_solicit")
+  # The title alone, added to the archived index, is quiet ...
+  expect_length(rhtp_assert_no_new_organisations(
+    paste(arch, "2026-2027 Overdose Prevention Supplies Program Request for Application"),
+    arch, furniture = f, state = "WI", page = "dhs_solicit"), 0L)
+  # ... and exact match only: a longer string containing it still fires.
+  expect_error(rhtp_assert_no_new_organisations(
+    paste(arch, "Overdose Prevention Supplies Program Request for Application Aspirus Wausau Hospital"),
+    arch, furniture = f, state = "WI", page = "dhs_solicit"),
+    "THAT IS THE SIGNAL")
+})

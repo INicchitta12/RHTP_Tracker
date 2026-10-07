@@ -298,10 +298,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 92: + Virginia's VHCF round (R/03bx), 9 rows / $6,390,000, a 32nd
   # state; none is a CAH, so the rural figure does not move:
   # 1,299 / $1,203,760,515.42 / 32.
-  if (nrow(rows) != 1299L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1203760515.42) > 0.005 ||
+  # Session 94: + Vermont's 2026-10-02 update (R/03at), 9 rows / $9,581,283.08,
+  # no new state; NVRH, Grace Cottage and Gifford Medical Center cite their CAH
+  # CCNs: 1,308 / $1,213,341,798.50 / 32.
+  if (nrow(rows) != 1308L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1213341798.50) > 0.005 ||
       dplyr::n_distinct(rows$state) != 32L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,299 rows / $1,203,760,515.42 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,308 rows / $1,213,341,798.50 ",
          "/ 32 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

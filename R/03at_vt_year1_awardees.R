@@ -72,8 +72,16 @@
 # spellings, Northeastern Vermont Regional Hospital under three, Northern
 # Counties Health Care under four. One row per EXECUTED AGREEMENT.
 #
+# SESSION 94 -- THE 2026-10-02 UPDATE: 166 ROWS, $127,419,853.91. Twenty new
+# agreements ($18,124,660.41), every 2026-09-25 agreement still printed and
+# none re-priced, eleven re-spelled again, and ONE re-filed under a different
+# initiative (Northern Counties Health Care, $226,194.70; VT_NCHC_MOVE). A key
+# on (initiative, activity, amount) alone mis-pairs the four $2,000,000
+# facility-upgrade rows; the diff is keyed on the name first.
+#
 # Usage:
-#   Rscript R/03at_vt_year1_awardees.R --validate | --build | --probe | --report
+#   Rscript R/03at_vt_year1_awardees.R --fetch [--force] | --validate | --build
+#                                      | --probe | --report
 
 suppressPackageStartupMessages({
   library(dplyr); library(stringr); library(tibble); library(readr)
@@ -86,17 +94,36 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 VT_STATE        <- "VT"
 VT_ALLOTMENT    <- 195053740      # cms_fy2026_allotments.csv (§7.1)
-VT_PAGE_TOTAL   <- 109295193.50   # the table's own total row (2026-09-25 update)
-VT_PAGE_ROWS    <- 146L           # 112 on 2026-09-18; +34 on 2026-09-25
+VT_PAGE_TOTAL   <- 127419853.91   # the table's own total row (2026-10-02 update)
+VT_PAGE_ROWS    <- 166L           # 112 on 09-18; 146 on 09-25; 166 on 10-02
 VT_MOU_AMOUNT   <- 2635000
-VT_UPDATED      <- as.Date("2026-09-25")
+VT_UPDATED      <- as.Date("2026-10-02")
+VT_UPDATED_TXT  <- "Updated as of October 2, 2026"
 VT_NOA_DATE     <- as.Date("2025-12-29")
 
-VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-09-28", "VT")
-# The 2026-09-18 list (112 rows, $87,175,011.33) stays archived as the prior
-# snapshot; it is what makes the +34 a diff of two documents (session 74).
-VT_PRIOR_FILE   <- file.path("data", "evidence", "recheck", "2026-09-23", "VT",
+VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-10-07", "VT")
+# Each superseded list stays archived; the diffs are of two documents.
+# 2026-09-25 (146 rows, $109,295,193.50) is the immediate prior (session 94);
+# 2026-09-18 (112 rows, $87,175,011.33) made session 74's +34.
+VT_PRIOR_FILE   <- file.path("data", "evidence", "recheck", "2026-09-28", "VT",
                              "vt_year1_awards.html")
+VT_PRIOR_FILE_0918 <- file.path("data", "evidence", "recheck", "2026-09-23", "VT",
+                                "vt_year1_awards.html")
+
+# SESSION 94: ONE AGREEMENT CHANGED INITIATIVE, AND NOTHING ELSE ABOUT IT DID.
+# Northern Counties Health Care's $226,194.70 agreement was printed on
+# 2026-09-25 under Regionalization / "Transformation, innovation, and
+# regionalization support grants"; on 2026-10-02 the same recipient and the
+# same amount are printed under Primary Care / "Expanding access to Federally
+# Qualified Health Center (FQHC) primary care services". Same legal name, same
+# cents, no other NCHC row moved and no other row carries that amount -- so it
+# is read as ONE agreement re-filed, not one ended and one begun. A key on
+# (initiative, activity, amount) reports it as one removed and one added,
+# which is why the 2026-10-02 diff reads "21 added" when 20 are new.
+VT_NCHC_MOVE <- list(
+  legal = "Northern Counties Health Care", amount = 226194.70,
+  from = c("Regionalization", "Transformation, innovation, and regionalization support grants"),
+  to   = c("Primary Care", "Expanding access to Federally Qualified Health Center (FQHC) primary care services"))
 VT_FED_DIR      <- file.path("data", "evidence", "federal_records", "2026-09-23")
 VT_AWARDS_FILE  <- file.path(VT_ARCHIVE_DIR, "vt_year1_awards.html")
 VT_AWARDS_URL   <- paste0("https://healthcarereform.vermont.gov/",
@@ -108,7 +135,7 @@ VT_STATUS_CSV <- here::here("data", "reference", "vt_year1_status.csv")
 VT_USER_AGENT <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                         "+https://www.aha.org)")
 
-VT_DOC_TITLE <- "RHT Year 1 Awards and Contracts -- Updated as of September 25, 2026"
+VT_DOC_TITLE <- paste("RHT Year 1 Awards and Contracts --", VT_UPDATED_TXT)
 
 
 # -- the form of each recipient ----------------------------------------------
@@ -158,10 +185,10 @@ VT_TYPES <- tibble::tribble(
   "CMS Hospital Enrollment: UNIVERSITY OF VERMONT MEDICAL CENTER INC, CCN 470003, Burlington. The enrolled hospital, not the university -- the name is the hospital's own legal name less 'Inc'.",
   "Springfield Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: SPRINGFIELD HOSPITAL INC., CCN 471306 (CAH).",
-  "Copley Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
-  "CMS Hospital Enrollment: COPLEY HOSPITAL INC, CCN 471305 (CAH), Morrisville.",
-  "Porter Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
-  "CMS Hospital Enrollment: PORTER HOSPITAL INC, CCN 471307 (CAH), Middlebury.",
+  "Copley Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: COPLEY HOSPITAL INC, CCN 471305 (CAH), Morrisville. (Printed 'Copley Hospital' on 2026-09-25.)",
+  "Porter Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: PORTER HOSPITAL INC, CCN 471307 (CAH), Middlebury. (Printed 'Porter Hospital' on 2026-09-25.)",
   "Gifford Medical", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
   "HAND-READ BRIDGE, LOW (session 74; LEGAL_NAME_TRUNCATED's shape): the only Vermont enrolment whose legal name begins 'GIFFORD MEDICAL' is GIFFORD MEDICAL CENTER INC, CCN 471301 (CAH), Randolph -- the hospital. The FQHC is a different legal body, GIFFORD HEALTH CARE INC, and is printed under that name elsewhere on the same page. A prefix is never matched by machine (§2); this is a reading, priced at LOW so a reader can subtract it, and queued.",
   "Southwestern Vermont Health", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
@@ -192,8 +219,58 @@ VT_TYPES <- tibble::tribble(
   "A UNIVERSITY research centre, by general knowledge; no CMS enrolment carries this string. §10.2's AHC row does not reach a sub-unit named without its legal entity (the 'OHSU Casey Eye Institute' shape), so it is not a hospital row. Queued with the other name-only AHC strings.",
   "Richmond Family Medicine", "PHYSICIAN_PRACTICE", VT_GK, "VT",
   "Independent family-medicine practice (Richmond), by general knowledge.",
-  "Drs Peter and Lisa Hogenkamp, PC", "PHYSICIAN_PRACTICE", VT_GK, "VT",
-  "A PROFESSIONAL CORPORATION of two named doctors -- a practice, by its own name. Specialty not established here; the form is.",
+  "Drs Hogenkamp", "PHYSICIAN_PRACTICE", VT_GK, "VT",
+  "Printed 'Drs Peter and Lisa Hogenkamp, PC' until 2026-09-25: A PROFESSIONAL CORPORATION of two named doctors -- a practice, by its own name. Specialty not established here; the form is.",
+  # ---- session 94: the 2026-10-02 update ----------------------------------
+  # Re-spellings first (same initiative, activity and amount as a 2026-09-25
+  # agreement, a different legal-name string), each carrying its prior typing.
+  "Brattleboro Memorial Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: BRATTLEBORO MEMORIAL HOSPITAL, CCN 470011 (re-spelled with ', Inc.' on 2026-10-02).",
+  "Central Vermont Medical Center, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: CENTRAL VERMONT MEDICAL CENTER INC, CCN 470001.",
+  "North Country Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: NORTH COUNTRY HOSPITAL & HEALTH CENTER INC, CCN 471304 (CAH); printed 'North Country Hospital & Health Center' until 2026-09-25, same agreement.",
+  "Rutland Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: RUTLAND HOSPITAL, INC. dba RUTLAND REGIONAL MEDICAL CENTER, CCN 470005 -- the enrolment's legal name exactly, and the page prints the enrolment's DBA beside it.",
+  "Springfield Center for Living and Rehabilitation", "OTHER", VT_FED, "VT",
+  "NURSING FACILITY. CMS SNF Enrollment: 105 CHESTER ROAD OPCO LLC dba SPRINGFIELD CENTER FOR LIVING AND REHABILITATION, CCN 475025B. The page now prints the DBA in the legal-name column (was '105 Chester Road Opco LLC').",
+  "Gifford Health Care, Inc.", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: GIFFORD HEALTH CARE INC, CCN 471852. NOT the hospital (GIFFORD MEDICAL CENTER INC, CCN 471301).",
+  "Little Rivers Health Care", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: LITTLE RIVERS HEALTH CARE, INC. (printed with 'Inc.' until 2026-09-25).",
+  "The Richford Health Center Inc", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: THE RICHFORD HEALTH CENTER, INC. (dba Northern Tier Center for Health).",
+  "Community Health Centers of the Rutland Regional", "FQHC_OR_RHC", VT_GK, "VT",
+  "The page's MISSPELLING of COMMUNITY HEALTH CENTERS OF THE RUTLAND REGION INC (CMS FQHC). The same agreement was printed with the correct name on 2026-09-25; a misspelling is not an exact match, so it is LOW. It is not a hospital either way.",
+  "Richmond Family Med", "PHYSICIAN_PRACTICE", VT_GK, "VT",
+  "Printed 'Richmond Family Medicine' until 2026-09-25: independent family-medicine practice (Richmond), by general knowledge.",
+  # New recipients and new agreements.
+  "Northeastern Vermont Regional Hospital (NVRH)", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: NORTHEASTERN VERMONT REGIONAL HOSPITAL INC dba NVRH, CCN 471303 (CAH). The string is the enrolment's legal name less 'Inc' with the enrolment's own DBA in parentheses -- both halves on one record.",
+  "Grace Cottage", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: CARLOS G OTIS HEALTH CARE CENTER INC dba GRACE COTTAGE INC, CCN 471300 (CAH) -- the enrolment's DBA less 'Inc'.",
+  "Grace Cottage Family Health and Hospital", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
+  "HAND-READ BRIDGE, LOW (session 94): no CMS enrolment carries this string. The enrolled body is CARLOS G OTIS HEALTH CARE CENTER INC (CCN 471300, DBAs 'GRACE COTTAGE INC' and 'GRACE COTTAGE HOSPITAL'); 'Grace Cottage Family Health & Hospital' is its public trade name by general knowledge. Priced at LOW so a reader can subtract it, and queued.",
+  "Gifford Medical Center", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: GIFFORD MEDICAL CENTER INC, CCN 471301 (CAH), Randolph -- the enrolment's legal name less 'Inc'. The hospital, not GIFFORD HEALTH CARE INC (the FQHC).",
+  "Gifford Health Care", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: GIFFORD HEALTH CARE INC, CCN 471852 -- the legal name less 'Inc'. THE FQHC, NOT THE HOSPITAL (GIFFORD MEDICAL CENTER INC, CCN 471301): its new $633,201.40 facility-upgrade agreement stays out of the hospital total on a federal record.",
+  "UVM - Health Network", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
+  "GENERAL KNOWLEDGE, LOW (session 94; the system-parent rule this file applies to 'THE UNIVERSITY OF VERMONT HEALTH NETWORK INC.'): the parent health system of UVM Medical Center (470003), Central Vermont Medical Center (470001) and others; not itself an enrolled provider, so no CCN. Priced at LOW so a reader can subtract it.",
+  "Kinney Drugs", "OTHER", VT_GK, "VT",
+  "RETAIL PHARMACY CHAIN, by general knowledge -- the trade name of KPH Healthcare Services Inc., typed OTHER elsewhere in this file. Not merged with that row (§2).",
+  "Bennington Rescue Squad", "EMS_OR_PSAP", VT_GK, "VT",
+  "Volunteer ambulance service (Bennington), by general knowledge and by its own name.",
+  "Bristol Rescue Squad, Inc.", "EMS_OR_PSAP", VT_GK, "VT",
+  "Ambulance service (Bristol), by general knowledge and by its own name.",
+  "Bi-State Primary Care", "NONPROFIT_CBO", VT_GK, "VT",
+  "Bi-State Primary Care Association, the nonprofit primary care association for Vermont and New Hampshire FQHCs, by general knowledge -- a determined form, not §8's fallback.",
+  "Vermont Program for Quality in Health Care (VPQHC)", "NONPROFIT_CBO", VT_GK, "VT",
+  "Nonprofit health-care quality-improvement organisation (VPQHC), by general knowledge; this agreement funds e-Consult / VTCPAP capacity.",
+  "Behavioral Health Network of Vermont", "NONPROFIT_CBO", VT_GK, "VT",
+  "Nonprofit network of Vermont's designated mental-health agencies (dba Vermont Care Network, as printed), by general knowledge. A network of agencies, not a provider.",
+  "Real Time Medical Systems", "OTHER", VT_GK, NA,
+  "PRIVATE HEALTH-INFORMATION-TECHNOLOGY COMPANY (post-acute care analytics), by general knowledge. Not VENDOR_OR_CONTRACTOR: the row is a support grant, not a supply contract to the State.",
   # ---- the two traps -------------------------------------------------------
   "1248 Hospital Drive Opco LLC", "OTHER", VT_FED, "VT",
   "NURSING FACILITY. CMS SNF Enrollment: 1248 HOSPITAL DRIVE OPCO LLC dba ST JOHNSBURY CENTER FOR LIVING AND REHABILITATION, CCN 475019B. 'Hospital' is the STREET in the LLC's name; §8's name rule returns HOSPITAL_OR_SYSTEM at HIGH and is wrong.",
@@ -343,7 +420,7 @@ vt_assert_partial_and_executed <- function(body = NULL) {
   txt <- stringr::str_squish(rvest::html_text2(vt_read_page(body)))
   want <- c("executed agreements for Vermont",
             "partial and ongoing list",
-            "Updated as of September 25, 2026")
+            VT_UPDATED_TXT)
   miss <- want[!vapply(want, function(w) grepl(w, txt, fixed = TRUE), TRUE)]
   if (length(miss)) {
     stop("[VT] the page no longer says: ", paste(sQuote(miss), collapse = "; "),
@@ -434,7 +511,7 @@ vt_year1_awardees <- function(tb = vt_parse_table()) {
     facility_state = ifelse(typed, ty$facility_state, NA_character_),
     recipient_type_source = ifelse(
       typed,
-      paste0("TYPED (session 54/74): ", ty$why, " Classifier said ",
+      paste0("TYPED (session 54/74/94): ", ty$why, " Classifier said ",
              cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
              cls$recipient_type, "/", cls$determination_confidence, ".")),
@@ -472,7 +549,16 @@ vt_status_table <- function(tb = vt_parse_table()) {
     paste(VT_PAGE_ROWS - 1L, "executed agreements to named recipients in the award file.",
           "The page calls itself 'a partial and ongoing list and does not",
           "represent the full Year 1 awards or funding decisions', so this is",
-          "a FLOOR. Updated as of 2026-09-25 (was 111 award rows on 2026-09-18)."),
+          "a FLOOR. Updated as of 2026-10-02 (145 award rows on 2026-09-25,",
+          "111 on 2026-09-18)."),
+    VT_STATE, "Northern Counties Health Care -- initiative re-filed (2026-10-02)",
+    "AGREEMENT_REFILED_SAME_AMOUNT", "Yes", VT_NCHC_MOVE$amount,
+    paste0("One executed agreement, $226,194.70, printed under '",
+           VT_NCHC_MOVE$from[1], " / ", VT_NCHC_MOVE$from[2], "' on 2026-09-25 and under '",
+           VT_NCHC_MOVE$to[1], " / ", VT_NCHC_MOVE$to[2], "' on 2026-10-02. Same recipient, ",
+           "same amount, no other row carries it: read as one agreement re-filed ",
+           "(session 94), not one ended and one begun. NCHC is an FQHC, so no ",
+           "hospital figure moves. The award file carries the 2026-10-02 filing."),
     VT_STATE, "GMCB inter-agency MOU (NOT A SUBAWARD)",
     "INTER_AGENCY_NOT_SUBAWARD", "No", mou$amount,
     paste0("'", mou$legal, "' -- ", mou$activity, ". One state agency (AHS) ",
@@ -527,6 +613,36 @@ vt_probe <- function() {
   invisible(tibble::tibble(key = "awards", changed = changed))
 }
 
+#' Archive the live list VERBATIM into VT_ARCHIVE_DIR (session 94). Writes
+#' data/evidence/ -- a deliberate act after READING what changed (§2.2), never
+#' called by --probe. Refuses a credential-shaped string.
+vt_fetch <- function(force = FALSE) {
+  dest <- here::here(VT_AWARDS_FILE)
+  if (file.exists(dest) && !force) {
+    message("[VT] ", VT_AWARDS_FILE, " exists; --force to re-fetch.")
+    return(invisible(dest))
+  }
+  resp <- httr::GET(VT_AWARDS_URL, httr::user_agent(VT_USER_AGENT),
+                    httr::timeout(120))
+  if (httr::status_code(resp) != 200L) {
+    stop("[VT] HTTP ", httr::status_code(resp), " from the awards page.",
+         call. = FALSE)
+  }
+  raw <- httr::content(resp, as = "raw")
+  if (grepl("AIza[0-9A-Za-z_-]{20,}|pk\\.ey[0-9A-Za-z_-]{20,}|accessToken",
+            rawToChar(raw))) {
+    stop("[VT] the page carries a credential-shaped string; not archived.",
+         call. = FALSE)
+  }
+  dir.create(dirname(dest), recursive = TRUE, showWarnings = FALSE)
+  writeBin(raw, dest)
+  man <- here::here(dirname(VT_ARCHIVE_DIR), "MANIFEST.txt")
+  cat(paste0(digest::digest(raw, algo = "sha256", serialize = FALSE), "  ./VT/",
+             basename(dest), "\n"), file = man, append = TRUE)
+  message("[VT] archived ", length(raw), " bytes to ", VT_AWARDS_FILE)
+  invisible(dest)
+}
+
 vt_validate <- function() {
   tb <- vt_parse_table()
   vt_assert_reconciles(tb)
@@ -570,9 +686,10 @@ vt_report <- function() {
 
 if (!interactive()) {
   args <- commandArgs(trailingOnly = TRUE)
+  if ("--fetch" %in% args) vt_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) vt_validate()
   if ("--build" %in% args) vt_build()
   if ("--probe" %in% args) rhtp_probe_run("VT", vt_probe())
   if ("--report" %in% args) vt_report()
-  if (!length(args)) message("Usage: --validate | --build | --probe | --report")
+  if (!length(args)) message("Usage: --fetch [--force] | --validate | --build | --probe | --report")
 }

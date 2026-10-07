@@ -182,9 +182,12 @@ KY_SOURCES <- tibble::tribble(
         "the status row, NOT in KY_AWARD_DATES, and the stage is unchanged."),
   "rch",
   "https://healthy-ky.org/rch",
-  "2026-09-02_ky_foundation_healthy_kentucky_rch.html",
+  "2026-10-07_ky_foundation_healthy_kentucky_rch.html",
   paste("The designated pass-through's own page (§7, Illinois/ICAHN's",
-        "route). Describes the Hub Lead ROLE and names NO Hub Lead.")
+        "route). RE-BASED session 94: its 'Program News' now names ONE Hub",
+        "Lead (Lake Cumberland District Health Department, 2026-10-05;",
+        "extracted by R/03by). The 2026-09-02 copy, which named none, stays",
+        "archived. Big Sandy's or Purchase's Hub Lead is a new string and fires.")
 )
 
 ky_source <- function(key, field) {
@@ -256,7 +259,9 @@ ky_write_manifest <- function(entries) {
     "",
     paste("Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch; three",
           "2026-10-05_* RFAs were added by session 92 and the Accredited",
-          "Dental Hygiene Programs RFA by session 93."),
+          "Dental Hygiene Programs RFA by session 93. Session 94 re-based the",
+          "FHKY RCH page (2026-10-07_*); the 2026-09-02 copy stays on disk.",
+          "rch/ holds R/03by's LCDHD release under its own manifest."),
     "Bodies are written with writeBin(), so re-hashing a file on disk",
     "reproduces its digest below.",
     "",
@@ -749,15 +754,25 @@ ky_status_table <- function() {
           "2026-08-01 (Tier 2). Archived:",
           "2026-10-05_ky_rfa_accredited_dental_hygiene_programs.pdf."),
     KY_STATE, "Rural Community Hubs for Chronic Care Innovation",
-    "CLOSED_UNAWARDED", "No", NA_character_,
+    "HUB_LEAD_NAMED_ONE_OF_THREE", "Yes", "2026-10-05",
     paste("Hub Lead RFA closed 2026-06-01 for the Big Sandy, Lake Cumberland",
-          "and Purchase ADDs. THE POOL TO WATCH -- see the report."),
+          "and Purchase ADDs. SESSION 94: LAKE CUMBERLAND DISTRICT HEALTH",
+          "DEPARTMENT named Hub Lead for the Lake Cumberland region on",
+          "2026-10-05 ('selected ... through a competitive application",
+          "process'), a local health department, NOT a hospital. One named",
+          "row at NO AMOUNT in ky_year1_awardees.csv (R/03by). 'Up to $10",
+          "million' over the five-year grant period is a CEILING on the",
+          "REGION, held as text, never an award figure. Big Sandy and Purchase",
+          "Hub Leads not yet named -- still the pool to watch."),
     KY_STATE, "Foundation for a Healthy Kentucky (designated pass-through)",
-    "NO_ROSTER", "No", NA_character_,
-    paste("FHKY is 'a primary partner' for the Rural Community Hubs",
-          "initiative and publishes its own RHTP page (§7's route). It",
-          "describes the Hub Lead ROLE and names NO Hub Lead: 'awarded',",
-          "'awardee', 'selected' and 'recipient' are ZERO on it.")
+    "NAMES_ONE_HUB_LEAD", "Yes", "2026-10-05",
+    paste("FHKY is 'a primary partner' (the RCH 'convening partner') and",
+          "publishes its own RHTP page (§7's route). Until 2026-10-05 it",
+          "described the Hub Lead ROLE and named nobody. Its 'Program News'",
+          "now links LCDHD's release, 'Lake Cumberland District Health",
+          "Department Selected to Lead Local Efforts for New Program",
+          "Supporting Healthier Rural Communities'. No amount on the page.",
+          "Re-based 2026-10-07 so the next Hub Lead fires the name tripwire.")
   )
 }
 
@@ -784,9 +799,11 @@ ky_disposition <- function() {
            "2026-08-27 pull). It holds ", nrow(ky), " RCJ records in total -- ",
            paste0(tiers$n, " ", tiers$award_tier, collapse = ", "),
            " -- rows for its own RFAs and its CMS award, and NOT ONE is a ",
-           "subaward. The aggregator is right about Kentucky, which is the ",
-           "unusual case: the state had awarded nobody publicly at its last ",
-           "probe, so there is nothing for it to get wrong. A zero here is a ",
+           "subaward. The aggregator was right about Kentucky at that pull, ",
+           "which is the unusual case: the state had named nobody publicly ",
+           "then. Its first public naming -- Lake Cumberland District Health ",
+           "Department as RCH Hub Lead, 2026-10-05 (R/03by) -- POST-DATES the ",
+           "pull, so the next pull is what tests RCJ on it. A zero here is a ",
            "fact about the DISCOVERY LAYER and never about the state (§0.1) -- ",
            "Florida carried no candidate on the 2026-08-27 pull while its 81 ",
            "awards were already published and extracted here, and RCJ has ",
