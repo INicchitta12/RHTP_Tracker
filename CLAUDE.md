@@ -564,8 +564,8 @@ phrase list.
 - No `arrow`/parquet — interim layer is `saveRDS()` / `readRDS()` (§3.4).
 - No `pagedown` / `chromote` — evidence capture happens outside the cloud
   session (§9.0).
-- **Identify honestly to every state host — with one recorded exception, and it
-  is recorded rather than generalised.** Session 10 settled this for
+- **Identify honestly to every state host — with two recorded exceptions, each
+  recorded rather than generalised.** Session 10 settled this for
   `medicaid.gov`: Akamai refuses a user agent carrying no contact URL, the
   `+url` form is the well-behaved-crawler convention, and *identifying honestly
   is the fix, not a workaround*. **`www.michigan.gov` inverts it** (session 27).
@@ -578,6 +578,17 @@ phrase list.
   refuses that agent on any other host *and* refuses the honest agent on
   michigan.gov, and a test drives both refusals — which is what stops a
   one-host exception becoming a default.
+- **`news.delaware.gov` is the second exception (owner decision, session 95).**
+  Its F5 firewall served the project's agent and bare `Mozilla/5.0` a 246-byte
+  "Request Rejected" page (session 94). `RHTP_DE_NEWS_USER_AGENT`, a full Chrome
+  UA, is used for that exact hostname only, via `rhtp_agent_for_url()`
+  (`R/utils_config.R`), which `rhtp_watch_fetch()`, `R/03al`'s `de_get()` and the
+  newsroom sweep all call. `rhtp_assert_agent_scope()` refuses the browser agent
+  on any other host (dhss.delaware.gov included) and the honest agent on that
+  one; `test_utils_agent_scope.R` drives both refusals and fails if a browser
+  string appears in any other file in `R/`. **Measured the day it was taken, the
+  block was intermittent for both agents** (project 7/8, Chrome 5/8), so the
+  firewall retry stays in force.
 - Read the API key with `Sys.getenv("RCJ_API_KEY")` only. Never write it to a
   file, never commit it, never echo it. The same call works unchanged against a
   local `.Renviron`, so no code changes are needed to move between cloud and
@@ -673,6 +684,7 @@ R/
   03bw_sd_ccbhc_awardees.R     # South Dakota CCBHC — 13 named cohort, 12 grants, >$13M, NO amounts (BUILT)
   03bx_va_vhcf_awardees.R      # Virginia VHCF Interoperability — 25 awards, $14.39M, typed on CMS VA enrolment (BUILT)
   03by_ky_rch_awardees.R       # Kentucky RCH — 1 Hub Lead (LCDHD), NO amount; "up to $10M" a regional ceiling (BUILT)
+  03bz_ks_ebp_participants.R   # Kansas EBP — 94 ENROLLED hospitals, NOT awards; payment list watched by R/03o (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1628,7 +1640,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-07 (Session 94). Session 94 re-extracted Vermont's 10-02 roster (166 rows, $127,419,853.91: 20 new agreements, $18,124,660.41, plus NCHC's $226,194.70 re-filed from Regionalization to Primary Care; VT hospital 42 / $35,285,416.18 → 51 / $44,866,699.26), extracted KY's first named recipient (`R/03by`: Lake Cumberland District Health Department, RCH Hub Lead, local health department, $0; "up to $10 million" over five years is a regional ceiling, text only; KY now EXTRACTED), recorded ND's CAH Workforce Retention round as awarded with nobody named (`ND_HOSPITAL_ONLY_ROUNDS`), retried and logged firewall "Request Rejected" pages as ERROR, scoped ME/NE/NM name tripwires past their menus, added WI's Overdose Prevention Supplies RFA to furniture, re-based CT `opm`/`documents`, and split MS's October opportunity (Innovative Pilot: applications open 10-14, awardees "January 2027"). NAMED_HOSPITAL is 1,308 / $1,213,341,798.50 / 32 states. Detail: `docs/session94_vt_ky_nd_probe_fixes_ms.md`. Session 93 (2026-10-05) closed two session-92 items on the owner's instruction: Valley Health, Ballad and Sentara accepted as system parents (`VA_VHCF_SYSTEM_PARENTS` RESOLVED; $0 moved, VA VHCF stays 9 / $6,390,000), and KY's Accredited Dental Hygiene conflict recorded on its status row with the RFA archived (stage unchanged). Detail: `docs/session93_va_parents_ky_dental_hygiene.md`. Session 92: Session 92 extracted VHCF's Provider Interoperability round (`R/03bx`, 25 awards, $14,390,000, typed on CMS VA enrolment: 9 hospital lines / $6,390,000, of which $5,700,000 is three system parents at LOW; Highland Medical Center is an FQHC; the two UVA Health strings, $884,000, joined `AHC_STRING_NAMES_NO_ENROLLED_ENTITY`), put VHCF's news index on `R/03bb`'s probe, registered VHCF's 07-10 grants as `VA-VHCF-REGULAR-GRANTS`, re-staged KY Community Paramedicine and EMS Training Equipment to `AWARDED_PRIVATELY_NO_PUBLIC_ROSTER` (three more RFA award dates watched; SharePoint's hidden admin zone and zero-width residue dropped from KY's digest), and recorded CT DEEP's $7,165,955 as a state-agency allocation and DMHAS's REST RFP on `R/03ac`'s probe. NAMED_HOSPITAL is 1,299 / $1,203,760,515.42 / 32 states. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`. Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
+**Last updated:** 2026-10-07 (Session 95). Session 95 did three owner tasks: `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` RESOLVED (accepted, LOW, hand bridge to CCN 471300 recorded in the basis; $0 moved); a browser agent for news.delaware.gov ONLY (§3, second exception); and Kansas's Evidence-Based Practice Program, which is in no award file: the Care Collaborative's 09-18 list names 94 participating hospitals, but payments are conditional and the administrator will post a separate paid list, so §10.2's "award has been made" fails and the 94 are an ENROLMENT file (`R/03bz`, `ks_ebp_participants.csv`, never in STATE_FILES; owner question `KS_EBP_ENROLMENT_NOT_AWARD`). The KS 10-05 name trip was KDHE's new site menu (browser read); R/03o's tripwire now reads the content region only. No partition figure moved. Detail: `docs/session95_vt_grace_cottage_de_agent_ks_ebp.md`. Session 94 re-extracted Vermont's 10-02 roster (166 rows, $127,419,853.91: 20 new agreements, $18,124,660.41, plus NCHC's $226,194.70 re-filed from Regionalization to Primary Care; VT hospital 42 / $35,285,416.18 → 51 / $44,866,699.26), extracted KY's first named recipient (`R/03by`: Lake Cumberland District Health Department, RCH Hub Lead, local health department, $0; "up to $10 million" over five years is a regional ceiling, text only; KY now EXTRACTED), recorded ND's CAH Workforce Retention round as awarded with nobody named (`ND_HOSPITAL_ONLY_ROUNDS`), retried and logged firewall "Request Rejected" pages as ERROR, scoped ME/NE/NM name tripwires past their menus, added WI's Overdose Prevention Supplies RFA to furniture, re-based CT `opm`/`documents`, and split MS's October opportunity (Innovative Pilot: applications open 10-14, awardees "January 2027"). NAMED_HOSPITAL is 1,308 / $1,213,341,798.50 / 32 states. Detail: `docs/session94_vt_ky_nd_probe_fixes_ms.md`. Session 93 (2026-10-05) closed two session-92 items on the owner's instruction: Valley Health, Ballad and Sentara accepted as system parents (`VA_VHCF_SYSTEM_PARENTS` RESOLVED; $0 moved, VA VHCF stays 9 / $6,390,000), and KY's Accredited Dental Hygiene conflict recorded on its status row with the RFA archived (stage unchanged). Detail: `docs/session93_va_parents_ky_dental_hygiene.md`. Session 92: Session 92 extracted VHCF's Provider Interoperability round (`R/03bx`, 25 awards, $14,390,000, typed on CMS VA enrolment: 9 hospital lines / $6,390,000, of which $5,700,000 is three system parents at LOW; Highland Medical Center is an FQHC; the two UVA Health strings, $884,000, joined `AHC_STRING_NAMES_NO_ENROLLED_ENTITY`), put VHCF's news index on `R/03bb`'s probe, registered VHCF's 07-10 grants as `VA-VHCF-REGULAR-GRANTS`, re-staged KY Community Paramedicine and EMS Training Equipment to `AWARDED_PRIVATELY_NO_PUBLIC_ROSTER` (three more RFA award dates watched; SharePoint's hidden admin zone and zero-width residue dropped from KY's digest), and recorded CT DEEP's $7,165,955 as a state-agency allocation and DMHAS's REST RFP on `R/03ac`'s probe. NAMED_HOSPITAL is 1,299 / $1,203,760,515.42 / 32 states. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`. Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
 NON_HOSPITAL (owner: a shared county does not show the hospital district operates the ambulance service; $0
 moved), read SD's $7.2M EMS round (no roster), and merged the session-84 check-in branch. Detail:
 `docs/session89_sd_ems_round_mt_prairie_checkin.md`. Session 88 did five owner tasks:
@@ -1956,11 +1968,25 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 94 (read first).** news.delaware.gov's F5 firewall rejects the project's own agent AND bare
+- **Session 95 (read first).**
+  - **KDHE is unreadable from this environment.** Cloudflare (CivicPlus) answers 403 on every agent and to a
+    local headless Chromium, so `R/03o --probe` logs ERROR from here. The KS Routine fetched it on 10-05. The
+    menu-noise read used a remote renderer (r.jina.ai, archived as markdown under `recheck/2026-10-07/KS/`), and
+    after a few calls that was blocked too. **Re-base `program_page` with `R/03o --fetch --force` from a
+    session KDHE serves**, then drop the three `KS_NAME_FURNITURE` entries.
+  - **The KDHE page now lists Year 2 RPGP ($44M) and CAP ($11M) solicitations** (open until 11-13; Tier 2).
+  - **KS EBP:** when the Care Collaborative posts its list of providers that "have received" payments, R/03o
+    trips. Extract that list as an award file, one row per paid hospital, `PASS_THROUGH_DESIGNATED`, with
+    intermediary = the Care Collaborative, and type each row on CMS KS enrolment. The Year 1 incentive is one
+    $50,000 payment for Q3 2026 (due 11-30). It is not paid "per quarter". ruralhealthkansas.com also runs an
+    "Anchor Hospital Advancement Program", which is unread.
+  - **Delaware:** the browser agent is in place; still read the firewall ERRORs. On 10-07 the agent did not cure
+    the block, and the retry did.
+- **Session 94.** news.delaware.gov's F5 firewall rejects the project's own agent AND bare
   `Mozilla/5.0` (246-byte "Request Rejected", HTTP 200) but serves curl and a full Chrome UA. The retry only
   cures intermittent blocks; a persistent one now logs ERROR "FIREWALL REJECTION". An agent exception for
-  that host is an OWNER decision (§3, michigan.gov precedent) and was not taken. ME's programme page now lists
-  a "Y2 Project Narrative" (furniture). Open queue: `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` ($347,098.80).
+  that host is an OWNER decision (§3, michigan.gov precedent); session 95 took it. ME's programme page now lists
+  a "Y2 Project Narrative" (furniture). `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` resolved in session 95.
 - **Session 93.** KY Accredited Dental Hygiene: the conflict is RECORDED, not resolved. The RFA (archived) gives deadline 05-29 and award 06-26; the CHFS channel's "August 1, 2026" deadline is the RFA's funding-period start. The row stays CLOSED_UNAWARDED until a human decides which source governs. Valley Health / Ballad / Sentara are settled.
 - **Session 92.** Settled in session 93: VA system parents, and the KY Dental Hygiene record (see above). VHCF Provider Productivity is due "October 2026": R/03bb trips on the post. CT REST: contract start 9/1/2026 passed, no outcome. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`.
 - **Session 91.** `SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE` closed at (a), no bridge ($0). Re-checks found, UNEXTRACTED pending owner: VHCF's 10-02 roster (25 awards, $14,390,000, 9 hospital-shaped rows / $6.64M; no probe watches VHCF news); KY recipients self-announcing Community Paramedicine / EMS Training awards that `ky_year1_status.csv` calls CLOSED_UNAWARDED; CT's DEEP $7.17M agency line and the unawarded DMHAS REST RFP. TX BP1 unchanged (33). Detail: `docs/session91_sd_avera_close_va_ky_ct_tx_rechecks.md`.
@@ -2009,7 +2035,7 @@ Network is Full; the old allowlist blockers are superseded.
   with no RHTP mention, and is now in `WI_NAME_FURNITURE`.
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
-  - `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` ($347,098.80)
+  - `KS_EBP_ENROLMENT_NOT_AWARD` (94 enrolled hospitals; $0 as coded, up to $9.4M at the formula)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)
   - `AK_KETCHIKAN_ALL_TYPES_TICKED`
   - `AR_R2_QUEUED_FORM` (CARTI, NARHC)

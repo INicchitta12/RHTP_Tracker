@@ -183,7 +183,9 @@ de_get <- function(url, label) {
   # Rejected" page. Retried, then refused as FIREWALL REJECTION (an ERROR in
   # the probe log), never parsed as Delaware's content.
   rhtp_fetch_past_firewall(function() {
-    resp <- httr::GET(url, httr::user_agent(DE_USER_AGENT),
+    # Session 95: the browser agent on news.delaware.gov only (owner
+    # decision); dhss.delaware.gov keeps the project's honest agent.
+    resp <- httr::GET(url, httr::user_agent(rhtp_agent_for_url(url, DE_USER_AGENT)),
                       httr::config(followlocation = TRUE), httr::timeout(120))
     if (httr::status_code(resp) != 200L) {
       stop("[DE] ", label, ": HTTP ", httr::status_code(resp), " from ", url,

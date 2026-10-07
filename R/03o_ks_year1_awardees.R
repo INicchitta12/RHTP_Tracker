@@ -1483,10 +1483,76 @@ ks_page_lines <- function(raw) {
   paste(unique(txt[nzchar(txt)]), collapse = "\n")
 }
 
+# SESSION 95: THE 10-05 TRIP WAS KDHE'S NEW SITE MENU. The 2026-10-05 08:13Z
+# Routine firing logged "'program_page' NAMES 176 ORGANISATION(S)". The page
+# was read in a browser on 2026-10-07 (headless Chromium via r.jina.ai; KDHE's
+# Cloudflare front refuses this container's address on every agent, including
+# a local headless Chromium): KDHE redesigned its navigation, and the page now
+# carries the department's whole mega-menu -- "Office of the Secretary",
+# "Division of Environment", "Kansas Clean Diesel Program", 170-odd more --
+# after the RHTP content. None of it is a recipient. The award-index control
+# and the provenance sentences both passed on the rendered page.
+#
+# So the tripwire now reads the RHTP content region only, between two anchors
+# present in both copies: "Open RHTP Funding Opportunities" and "Quick Links".
+# rhtp_name_scope() refuses if either moves.
+KS_NAME_SCOPE <- list(
+  program_page = c(from = "^Open RHTP Funding Opportunities$",
+                   to = "^Quick Links$"))
+
+# Three names inside the content region were new as well, and were READ, not
+# silenced (§2.3). None is a recipient:
+#   "Regional Partnership Grant Program", "Transformative Capital Investment
+#   Grant Program" -- the YEAR 2 RPGP ($44M) and CAP ($11M) solicitations,
+#   "Open until Nov. 13, 2026. Funding amount is pending CMS approval of the
+#   Year 2 Budget." Tier 2; they name nobody.
+#   "The Kansas Health Institute" -- "provide free technical assistance to
+#   organizations applying for or managing Kansas ... RHTP funding". A TA
+#   provider named in a help box, not an award on this page.
+# The archive cannot be re-based from here (403), so these are furniture,
+# exact-match, until a --fetch --force from a host KDHE serves.
+KS_NAME_FURNITURE <- list(
+  program_page = c("Regional Partnership Grant Program",
+                   "Transformative Capital Investment Grant Program",
+                   "The Kansas Health Institute"))
+
+ks_name_scope <- function(text, key) {
+  a <- KS_NAME_SCOPE[[key]]
+  rhtp_name_scope(text, from = a[["from"]], to = a[["to"]],
+                  state = "KS", page = key)
+}
+
 ks_pdf_digest_raw <- function(raw) {
   tmp <- tempfile(fileext = ".pdf"); on.exit(unlink(tmp))
   writeBin(raw, tmp)
   digest::digest(rhtp_pdf_lines(tmp)$text, algo = "sha256")
+}
+
+ks_probe_ebp <- function() {
+  if (!exists("kse_assert_no_payment_list", mode = "function")) {
+    source(here::here("R", "03bz_ks_ebp_participants.R"))
+  }
+  Sys.sleep(KS_HOST_THROTTLE_S)
+  page <- rhtp_watch_fetch(KSE_PAGE_URL, KSE_USER_AGENT)
+  live_text <- rhtp_watch_reduce(page)
+  kse_assert_no_payment_list(kse_page_links(page), live_text, "live")
+  # The list the LIVE page links, so a re-dated upload is read, not a 404.
+  links <- kse_page_links(page)
+  h_url <- links[grepl("Participating-Hospitals", links, ignore.case = TRUE)]
+  if (length(h_url) != 1L) {
+    stop("[KS] the EBP page links ", length(h_url), " participating-hospital ",
+         "lists, not one. Re-read the page (R/03bz). THAT IS THE SIGNAL, NOT ",
+         "A DEFECT.", call. = FALSE)
+  }
+  Sys.sleep(KS_HOST_THROTTLE_S)
+  xl <- rhtp_watch_fetch(h_url, KSE_USER_AGENT)
+  tmp <- tempfile(fileext = ".xlsx"); on.exit(unlink(tmp)); writeBin(xl, tmp)
+  live_h <- tryCatch(kse_hospitals(tmp), error = function(e) "UNREADABLE")
+  tibble::tibble(
+    key = c("ebp_page", "ebp_hospitals"),
+    content_changed = c(
+      digest::digest(live_text) != digest::digest(rhtp_watch_reduce(kse_path("page"))),
+      !setequal(live_h, kse_hospitals())))
 }
 
 ks_probe <- function() {
@@ -1516,9 +1582,18 @@ ks_probe <- function() {
   # THE NAME TRIPWIRE (§2.3). A fifth pool linked in words none of the
   # phrases above anticipate still adds names to this page.
   rhtp_assert_no_new_organisations_across(
-    live = list(program_page = ks_page_lines(live$program_page)),
-    archived = list(program_page = ks_page_lines(arch("program_page"))),
-    state = "KS")
+    live = list(program_page = ks_name_scope(ks_page_lines(live$program_page),
+                                             "program_page")),
+    archived = list(program_page = ks_name_scope(
+      ks_page_lines(arch("program_page")), "program_page")),
+    state = "KS", furniture = KS_NAME_FURNITURE)
+
+  # THE EBP WATCH (session 95, R/03bz). The Care Collaborative's page, live:
+  # a new linked document that is not a participant list, FAQ or agreement,
+  # or a sentence saying providers "have received" payments, is the payment
+  # list -- the EBP award source. The participant list changing is CHANGED,
+  # never a tripwire: enrolment is not receipt.
+  cmp <- dplyr::bind_rows(cmp, ks_probe_ebp())
 
   message("[KS] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {

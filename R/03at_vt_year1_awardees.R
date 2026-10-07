@@ -250,7 +250,7 @@ VT_TYPES <- tibble::tribble(
   "Grace Cottage", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: CARLOS G OTIS HEALTH CARE CENTER INC dba GRACE COTTAGE INC, CCN 471300 (CAH) -- the enrolment's DBA less 'Inc'.",
   "Grace Cottage Family Health and Hospital", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
-  "HAND-READ BRIDGE, LOW (session 94): no CMS enrolment carries this string. The enrolled body is CARLOS G OTIS HEALTH CARE CENTER INC (CCN 471300, DBAs 'GRACE COTTAGE INC' and 'GRACE COTTAGE HOSPITAL'); 'Grace Cottage Family Health & Hospital' is its public trade name by general knowledge. Priced at LOW so a reader can subtract it, and queued.",
+  "HAND-READ BRIDGE, LOW, ACCEPTED BY THE OWNER (session 95, VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE): bridged to Grace Cottage's enrolled critical access hospital, CCN 471300 (CMS Hospital Enrollment: CARLOS G OTIS HEALTH CARE CENTER INC, DBAs 'GRACE COTTAGE INC' and 'GRACE COTTAGE HOSPITAL'). No CMS enrolment carries the printed string; 'Grace Cottage Family Health & Hospital' is the organisation's public trade name by general knowledge, so the bridge is a reading, not a federal match (§2). The CCN is recorded here and NOT in the ccn column, which would mean a confirmed match (§7). Priced at LOW so a reader can subtract it.",
   "Gifford Medical Center", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: GIFFORD MEDICAL CENTER INC, CCN 471301 (CAH), Randolph -- the enrolment's legal name less 'Inc'. The hospital, not GIFFORD HEALTH CARE INC (the FQHC).",
   "Gifford Health Care", "FQHC_OR_RHC", VT_FED, "VT",
