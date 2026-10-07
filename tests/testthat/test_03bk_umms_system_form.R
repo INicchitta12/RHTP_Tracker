@@ -38,23 +38,43 @@ test_that("the row: HOSPITAL_OR_SYSTEM, DIRECT/Yes, ORG_WEBSITE at MEDIUM, NO cc
   expect_match(u$determination_basis, "PRIOR BASIS: Recipient name rule", fixed = TRUE)
 })
 
-test_that("the overlay is idempotent and moves exactly one Maryland row", {
+test_that("the overlay is idempotent and the committed file carries it on one row only", {
+  # Pinned against the committed md_year1_awardees.csv, not a historical
+  # commit: a shallow clone (every cloud session) has no 0412b2f to read.
   expect_identical(umms_overlay(md, empty = ""), md)
-  orig <- readr::read_csv(
-    I(paste(system2("git", c("show", "0412b2f:data/reference/md_year1_awardees.csv"),
-                   stdout = TRUE), collapse = "\n")),
-    col_types = readr::cols(.default = "c"), na = character(), trim_ws = FALSE)
-  expect_equal(nrow(orig), nrow(md))
-  # Session 88 lowered every HIGH-without-CCN to MEDIUM (§7) across all state
-  # files, Maryland's 12 included. Apply the same ceiling to the historical
-  # copy so this still isolates the UMMS overlay.
-  if (!exists("rhtp_confidence_ceiling")) {
-    source(here::here("R", "utils_recipient_classification.R"))
-  }
-  orig$determination_confidence <- rhtp_confidence_ceiling(
-    orig$determination_confidence, orig$ccn)
-  diff_rows <- which(apply(orig != md, 1, any))
-  expect_equal(md$awardee[diff_rows], UMMS_AWARDEE)
+  expect_equal(nrow(md), 41L)
+  pinned <- c(
+    state                    = "MD",
+    row_no                   = "33",
+    amount                   = "4020144",
+    recipient_type           = "HOSPITAL_OR_SYSTEM",
+    distributed_to_hospital  = "Yes",
+    recipient_confirmed      = "Yes",
+    amount_confirmed         = "No",
+    fiscal_year              = "FY2026",
+    validation_source_type   = "NOTICE_OF_INTENT_TO_AWARD",
+    recipient_type_source    = "DERIVED_FROM_NAME",
+    determination_confidence = "MEDIUM",
+    flag_reason              = "",
+    award_pool               = "PILLAR2_TRANSFORMATION_FUND",
+    budget_period            = "BP1",
+    flow_type                = "DIRECT",
+    hospital_benefiting      = "Yes",
+    hospital_attribution     = "NAMED_HOSPITAL",
+    ccn                      = "",
+    basis_type               = "ORG_WEBSITE",
+    verified_by              = "owner instruction, session 73",
+    source_archive_path      =
+      "data/evidence/MD/2026-08-29_mdh_pillar2_transformation_fund_bp1_award_offers.pdf"
+  )
+  for (f in names(pinned)) expect_identical(u[[f]], pinned[[f]], label = f)
+  # the overlay's tag is on the UMMS row and on no other Maryland row
+  tagged <- md$awardee[grepl(UMMS_TAG, md$determination_basis, fixed = TRUE)]
+  expect_identical(tagged, UMMS_AWARDEE)
+  # the other 40 rows: the pre-session-73 hospital figure, unchanged
+  others <- md[md$awardee != UMMS_AWARDEE & md$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(others), 8L)
+  expect_equal(sum(as.numeric(others$amount)), 23661116)
 })
 
 test_that("Maryland's hospital figure: 8 / $23,661,116 -> 9 / $27,681,260", {
