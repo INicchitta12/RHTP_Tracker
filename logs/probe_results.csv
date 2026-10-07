@@ -768,3 +768,7 @@ NM,2026-10-06T18:42:55Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [N
 WY,2026-10-06T21:12:54Z,UNCHANGED,(all),,trig_01CLqQDvGoWCDoSMtS29FJbQ
 ND,2026-10-07T09:22:40Z,TRIPWIRE,(probe),[ND] NEW OPPORTUNITY HEADED 'AWARDED': 'Workforce Retention Funding for Critical Access Hospitals and Their Owned and Operated Clinics'. THAT IS THE SIGNAL. North Dakota marks an award in the heading; read the section for an awardee list and extract it.,trig_016DwLq1AKfmgKrFZtwPuPuK
 NE,2026-10-07T10:34:52Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [NE] 'program_page' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: RAI Assessment Information Special Health Care Needs State Unit on Aging Olmstead Plan Beatrice State Developmental Center Contact Us Reports. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01WDA8s6uzUSaCDF7DapUzX1
+NY,2026-10-07T11:22:49Z,UNCHANGED,programme,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-07T11:22:49Z,UNCHANGED,roster,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-07T11:22:49Z,CHANGED,press_index,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-07T11:22:49Z,CHANGED,scr,,trig_012g3adVBX9KEgDt9XiVi2tU
