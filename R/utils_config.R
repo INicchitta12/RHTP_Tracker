@@ -1228,6 +1228,57 @@ rhtp_probe_log <- function(state, rows, at = Sys.time(),
 }
 
 
+#' A web-application firewall's "Request Rejected" page, served as HTTP 200
+#'
+#' SESSION 94: DELAWARE. news.delaware.gov answers this project's agent with
+#' HTTP 200 and a 246-byte body -- "<html><head><title>Request
+#' Rejected</title></head><body>The requested URL was rejected. Please consult
+#' with your administrator.<br><br>Your support ID is: ...". It is an F5
+#' application-firewall block page. Because the status is 200 nothing upstream
+#' refused it, so the 2026-10-05 newsroom sweep handed it to the headline reader
+#' and logged "the reader found only 0 headlines" -- true, but it named the
+#' wrong cause. Detected on SIZE and WORDING together (a real page that merely
+#' says "rejected" is never this small).
+RHTP_FIREWALL_REJECTION_PATTERN <- paste0(
+  "<title>\\s*Request Rejected\\s*</title>|",
+  "The requested URL was rejected")
+
+rhtp_is_firewall_rejection <- function(raw) {
+  if (!is.raw(raw) || length(raw) > 4096L) return(FALSE)
+  txt <- rawToChar(raw[raw != as.raw(0)])
+  Encoding(txt) <- "bytes"
+  grepl(RHTP_FIREWALL_REJECTION_PATTERN, txt, ignore.case = TRUE,
+        useBytes = TRUE, perl = TRUE)
+}
+
+#' Fetch, and RETRY a firewall rejection before believing it
+#'
+#' `fetch` is a zero-argument function returning raw bytes. A rejection is
+#' retried after each wait in `waits` (seconds; option `rhtp.firewall_waits`).
+#' Still rejected after the last, it STOPS with "FIREWALL REJECTION", which
+#' rhtp_probe_verdict() files as ERROR -- a statement about our access, never
+#' about the state (§0.4). It never returns the block page to a reader.
+rhtp_fetch_past_firewall <- function(fetch, url,
+                                     waits = getOption("rhtp.firewall_waits",
+                                                       c(15, 45))) {
+  raw <- fetch()
+  for (w in waits) {
+    if (!rhtp_is_firewall_rejection(raw)) return(raw)
+    message("[watch] firewall 'Request Rejected' page from ", url,
+            "; retrying in ", w, "s.")
+    Sys.sleep(w)
+    raw <- fetch()
+  }
+  if (rhtp_is_firewall_rejection(raw)) {
+    stop("[watch] FIREWALL REJECTION: HTTP 200 served a ", length(raw),
+         "-byte 'Request Rejected' page from ", url, " on ", length(waits) + 1L,
+         " attempts. A web-application firewall is refusing this client; ",
+         "that is our access, not the state (§0.4).", call. = FALSE)
+  }
+  raw
+}
+
+
 #' Classify a probe's failure message: TRIPWIRE (about the state) or ERROR
 #' (about our access)
 #'
@@ -1249,6 +1300,8 @@ rhtp_probe_log <- function(state, rows, at = Sys.time(),
 #'      "failed to connect". "Connecticut", "https://" and "unresolved" no
 #'      longer match.
 rhtp_probe_verdict <- function(msg) {
+  # Session 94: a firewall's refusal page is ACCESS, whatever it quotes.
+  if (grepl("FIREWALL REJECTION", msg, fixed = TRUE)) return("ERROR")
   if (grepl("THAT IS THE SIGNAL", msg, fixed = TRUE)) return("TRIPWIRE")
   access <- paste0("\\bHTTP\\s+[0-9]{3}\\b|\\brefused\\b|\\btimed out\\b|",
                    "\\btimeout\\b|\\bcould not resolve\\b|\\bresolve host\\b|",

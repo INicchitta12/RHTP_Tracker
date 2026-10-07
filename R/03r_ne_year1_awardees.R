@@ -1409,6 +1409,25 @@ ne_live_get <- function(url) {
 #' is exactly what this should notice). The live page goes to a tempfile only
 #' because ne_assert_award_index() reads a path; nothing touches
 #' data/evidence/, and rhtp_probe_run() proves it.
+# SESSION 94: the name tripwire reads the programme page's CONTENT region.
+# Every dhhs.nebraska.gov page opens with a ~6,000-character SharePoint
+# mega-menu (Divisions & Offices, Licensing, ...) and closes with the Medicaid
+# side navigation; DHHS edits both on its own schedule. On 2026-10-07 the
+# probe halted on "RAI Assessment Information Special Health Care Needs State
+# Unit on Aging Olmstead Plan Beatrice State Developmental Center Contact Us
+# Reports" -- the Division of Disability and Aging menu, re-welded. The page's
+# own content starts at "What you need to know Page Content" and ends where the
+# side navigation's "More Navigation List Name" begins (after the CMS footer,
+# which stays in scope).
+NE_NAME_SCOPE <- c(from = "What you need to know Page Content",
+                   to = "More Navigation List Name")
+
+ne_name_scope <- function(text) {
+  rhtp_name_scope(text, from = NE_NAME_SCOPE[["from"]],
+                  to = NE_NAME_SCOPE[["to"]], state = NE_STATE,
+                  page = "program_page")
+}
+
 ne_probe <- function() {
   page_raw <- ne_live_get(ne_source("program_page", "url"))
   live_txt <- ne_html_text(body = page_raw)
@@ -1427,8 +1446,8 @@ ne_probe <- function() {
   # THE NAME TRIPWIRE (§2.3). A subject page only; the baseline is the
   # 2026-09-24 archive (session 64), which already carries the fourth link.
   rhtp_assert_no_new_organisations_across(
-    live = list(program_page = live_txt),
-    archived = list(program_page = arch_txt),
+    live = list(program_page = ne_name_scope(live_txt)),
+    archived = list(program_page = ne_name_scope(arch_txt)),
     state = NE_STATE)
 
   cmp <- tibble::tibble(

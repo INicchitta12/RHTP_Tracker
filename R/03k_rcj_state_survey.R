@@ -138,8 +138,11 @@ SURVEY_CMS_LIST     <- "data/reference/cms_state_announcements.csv"
 # 75 equipment awards, DPHHS 2026-09-29) joins from INVESTIGATED_NO_LIST by
 # EXTRACTION -- R/03bl's dated anchor was "funding decisions will be shared in
 # September". See R/03bv_mt_year1_awardees.R; R/03bl is now its roster watch.
+# Session 94: KY joins from INVESTIGATED_NO_LIST by EXTRACTION -- Lake
+# Cumberland District Health Department named RCH Hub Lead on 2026-10-05, one
+# named row at no amount (R/03by_ky_rch_awardees.R). R/03af still watches.
 SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA",
-                             "ID", "IL", "IN", "KS", "LA", "MD", "ME", "MI", "MO",
+                             "ID", "IL", "IN", "KS", "KY", "LA", "MD", "ME", "MI", "MO",
                              "MS", "MT", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                              "WV", "WY")
@@ -308,7 +311,8 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
 # live 2026-09-29 and reported UNCHANGED on all four pages: a pre-award
 # negative, never a claim that Montana has awarded nothing.
 # Session 88: Montana leaves for SURVEY_EXTRACTED_STATES (R/03bv).
-SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "KY", "MN", "ND",
+# Session 94: Kentucky leaves for SURVEY_EXTRACTED_STATES (R/03by).
+SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "MN", "ND",
                                         "NM", "TX", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not

@@ -622,3 +622,18 @@ test_that("every row points at an archived source that exists", {
     unique(ne_recs$validation_source_type),
     c("NOTICE_OF_AWARD", "NOTICE_OF_INTENT_TO_AWARD"))
 })
+
+test_that("session 94: the programme-page name tripwire reads past DHHS's mega-menu", {
+  a <- ne_html_text("program_page")
+  sc <- ne_name_scope(a)
+  expect_false(grepl("Beatrice State Developmental Center", sc, fixed = TRUE))
+  expect_true(grepl("financial assistance award totaling", sc, fixed = TRUE))
+  menu_edit <- sub("Olmstead Plan Beatrice State Developmental Center",
+                   "Olmstead Plan Beatrice State Developmental Center RAI Assessment Information",
+                   a, fixed = TRUE)
+  expect_identical(ne_name_scope(menu_edit), sc)
+  named <- sub("Page Content", "Page Content Columbus Community Hospital awarded.", a, fixed = TRUE)
+  expect_error(rhtp_assert_no_new_organisations(ne_name_scope(named), sc,
+                                                state = "NE", page = "program_page"),
+               "THAT IS THE SIGNAL")
+})

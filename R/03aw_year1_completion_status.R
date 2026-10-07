@@ -72,7 +72,7 @@ Y1_AWARD_FILES <- c(
   AR = "ar_year1_awardees.csv",  AR = "ar_year1_round2_awardees.csv",
   WY = "wy_year1_awardees.csv",
   DE = "de_year1_awardees.csv",  DE = "de_year1_fqhc_awardees.csv",
-  ID = "id_year1_awardees.csv",
+  ID = "id_year1_awardees.csv",  KY = "ky_year1_awardees.csv",
   OH = "oh_year1_awardees.csv",  SC = "sc_year1_awardees.csv",
   NY = "ny_year1_awardees.csv",  VT = "vt_year1_awardees.csv",
   CT = "ct_year1_awardees.csv",  WV = "wv_year1_awardees.csv",
@@ -321,9 +321,14 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/NY/2026-09-22_ny_governor_rchi_awards_release.html",
 
   "VT", "PARTIAL", "No", "Yes",
-  "2026-09-25",
-  "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.'",
-  "data/evidence/recheck/2026-09-28/VT/vt_year1_awards.html",
+  "2026-10-02",
+  "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.' (still printed on the 2026-10-02 update, session 94)",
+  "data/evidence/recheck/2026-10-07/VT/vt_year1_awards.html",
+
+  "KY", "PARTIAL", "No", "Yes",
+  "2026-10-05",
+  "One named recipient: Lake Cumberland District Health Department, RCH Hub Lead for one of three phase-1 regions; Big Sandy and Purchase are not yet named, and nine RFAs publish no roster (ky_year1_status.csv). Two rounds awarded privately (session 92). Session 94.",
+  "data/evidence/KY/rch/2026-10-07_lcdhd_hub_lead_selected.html; data/evidence/KY/2026-10-07_ky_foundation_healthy_kentucky_rch.html",
 
   "CT", "PARTIAL", "No", "Yes",
   "2026-09-16",

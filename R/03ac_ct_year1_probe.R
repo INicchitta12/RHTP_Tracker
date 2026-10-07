@@ -180,8 +180,11 @@ CT_SOURCES <- tibble::tribble(
   "2026-09-02_ct_dss_rhtp_programme.html",
   "https://portal.ct.gov/dss/rural-health-transformation-program",
 
+  # Session 94: RE-BASED after reading the change -- one new document link,
+  # "Connecticut PACE Frequently Asked Questions (FAQ) - 8/2026". The
+  # 2026-09-02 copy stays on disk.
   "documents",
-  "2026-09-02_ct_dss_rhtp_documents.html",
+  "2026-10-07_ct_dss_rhtp_documents.html",
   "https://portal.ct.gov/dss/rural-health-transformation-program/documents",
 
   "noa",
@@ -202,8 +205,12 @@ CT_SOURCES <- tibble::tribble(
          "2025-press-releases/",
          "notice-of-funding-opportunity-rural-health-transformation-program"),
 
+  # Session 94: RE-BASED after reading the change -- OPM's State Police /
+  # Correction staffing RFP #26OPM0202AA (read session 85, CT_NAME_FURNITURE)
+  # posted above the RHTP NOFO, whose block is byte-identical in the reduced
+  # text. The 2026-09-02 copy stays on disk.
   "opm",
-  "2026-09-02_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
+  "2026-10-07_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
   "https://portal.ct.gov/opm/root/rfp/request-for-proposals",
 
   "leadership",

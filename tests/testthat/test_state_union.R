@@ -303,7 +303,12 @@ STATE_FILES <- c(
   # Center is an FQHC on its enrolment; Valley Health, Ballad and Sentara are
   # system parents (GENERAL_KNOWLEDGE, LOW, subtractable); the two UVA Health
   # strings are queued under AHC_STRING_NAMES_NO_ENROLLED_ENTITY.
-  VA_VHCF = "data/reference/va_year1_vhcf_awardees.csv"
+  VA_VHCF = "data/reference/va_year1_vhcf_awardees.csv",
+  # Session 94: Kentucky's first named recipient (R/03by). Lake Cumberland
+  # District Health Department, RCH Hub Lead, a local health department, NO
+  # amount; "up to $10 million" over five years is a regional CEILING held as
+  # text only, in no numeric column.
+  KY = "data/reference/ky_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -346,7 +351,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
-                 "KS", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
+                 "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))
 })

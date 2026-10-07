@@ -51,12 +51,16 @@ rhtp_watch_reduce <- function(raw, scope = NULL) {
 rhtp_watch_fetch <- function(url, agent, cainfo = NULL) {
   cfg <- list(httr::user_agent(agent), httr::timeout(90))
   if (!is.null(cainfo)) cfg <- c(cfg, list(httr::config(cainfo = cainfo)))
-  resp <- do.call(httr::GET, c(list(url), cfg))
-  code <- httr::status_code(resp)
-  if (code != 200L) {
-    stop("HTTP ", code, " from ", url, call. = FALSE)
-  }
-  httr::content(resp, as = "raw")
+  # Session 94: a 200 can be a firewall's block page (Delaware); retried,
+  # then refused as FIREWALL REJECTION rather than handed to a reader.
+  rhtp_fetch_past_firewall(function() {
+    resp <- do.call(httr::GET, c(list(url), cfg))
+    code <- httr::status_code(resp)
+    if (code != 200L) {
+      stop("HTTP ", code, " from ", url, call. = FALSE)
+    }
+    httr::content(resp, as = "raw")
+  }, url)
 }
 
 #' Fetch every watched page and compare it with its committed archive

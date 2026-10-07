@@ -192,8 +192,9 @@ nw_sweep <- function(states = unique(NW_PAGES$state)) {
       rhtp_probe_run(NW_LOG_STATE, nw_probe_state(st)); "ok"
     }, error = function(e) {
       m <- conditionMessage(e)
-      if (grepl("HTTP|refused|timed out|timeout|resolve|connect", m,
-                ignore.case = TRUE)) "error" else "tripwire"
+      # Session 94: the shared classifier, so a FIREWALL REJECTION (Delaware)
+      # is counted where the log files it.
+      if (rhtp_probe_verdict(m) == "ERROR") "error" else "tripwire"
     })
     if (r == "tripwire") fired <- c(fired, st)
     if (r == "error") errored <- c(errored, st)

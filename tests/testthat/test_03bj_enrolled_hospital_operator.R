@@ -201,7 +201,7 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,299 / $1,203,760,515.42 / 32; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,308 / $1,213,341,798.50 / 32; pools unmoved", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
@@ -224,9 +224,15 @@ test_that("the partition: NAMED_HOSPITAL 1,299 / $1,203,760,515.42 / 32; pools u
   # 9 rows / $6,390,000 (4 lines / $690,000 on exact CMS VA records; Valley
   # Health, Ballad and Sentara, 4 system-parent lines / $5,700,000 LOW), a 32nd state (VA had
   # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
+  # Session 94: + Vermont's 2026-10-02 update (R/03at), 9 rows / $9,581,283.08,
+  # no new state: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
+  expect_equal(n$rows, 1308L)
+  expect_equal(round(n$dollars, 2), 1213341798.50)
+  expect_equal(n$states, 32L)
+  n$rows <- n$rows - 9L
+  n$dollars <- n$dollars - 9581283.08
   expect_equal(n$rows, 1299L)
   expect_equal(round(n$dollars, 2), 1203760515.42)
-  expect_equal(n$states, 32L)
   n$rows <- n$rows - 9L
   n$dollars <- n$dollars - 6390000
   n$states <- n$states - 1L
@@ -278,7 +284,9 @@ test_that("the five session-49 OTHER rows with no stated form are back on §8's 
 test_that("every OTHER row in the repository states a determined form", {
   rev <- other_form_review(tabs)
   # Session 74: + 7 Vermont OTHER rows from the 2026-09-25 update.
-  expect_equal(nrow(rev), 120L)
+  # Session 94: + 2 Vermont OTHER rows from the 2026-10-02 update (Kinney
+  # Drugs, a pharmacy; Real Time Medical Systems, a health-IT company).
+  expect_equal(nrow(rev), 122L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

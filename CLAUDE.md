@@ -672,6 +672,7 @@ R/
   03bv_mt_year1_awardees.R     # Montana — 4 ambulance grants ~$340k ROUNDED + 1 unnamed pool of 75 (BUILT)
   03bw_sd_ccbhc_awardees.R     # South Dakota CCBHC — 13 named cohort, 12 grants, >$13M, NO amounts (BUILT)
   03bx_va_vhcf_awardees.R      # Virginia VHCF Interoperability — 25 awards, $14.39M, typed on CMS VA enrolment (BUILT)
+  03by_ky_rch_awardees.R       # Kentucky RCH — 1 Hub Lead (LCDHD), NO amount; "up to $10M" a regional ceiling (BUILT)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1627,7 +1628,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-05 (Session 93). Session 93 closed two session-92 items on the owner's instruction: Valley Health, Ballad and Sentara accepted as system parents (`VA_VHCF_SYSTEM_PARENTS` RESOLVED; $0 moved, VA VHCF stays 9 / $6,390,000), and KY's Accredited Dental Hygiene conflict recorded on its status row with the RFA archived (stage unchanged). Detail: `docs/session93_va_parents_ky_dental_hygiene.md`. Session 92: Session 92 extracted VHCF's Provider Interoperability round (`R/03bx`, 25 awards, $14,390,000, typed on CMS VA enrolment: 9 hospital lines / $6,390,000, of which $5,700,000 is three system parents at LOW; Highland Medical Center is an FQHC; the two UVA Health strings, $884,000, joined `AHC_STRING_NAMES_NO_ENROLLED_ENTITY`), put VHCF's news index on `R/03bb`'s probe, registered VHCF's 07-10 grants as `VA-VHCF-REGULAR-GRANTS`, re-staged KY Community Paramedicine and EMS Training Equipment to `AWARDED_PRIVATELY_NO_PUBLIC_ROSTER` (three more RFA award dates watched; SharePoint's hidden admin zone and zero-width residue dropped from KY's digest), and recorded CT DEEP's $7,165,955 as a state-agency allocation and DMHAS's REST RFP on `R/03ac`'s probe. NAMED_HOSPITAL is 1,299 / $1,203,760,515.42 / 32 states. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`. Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
+**Last updated:** 2026-10-07 (Session 94). Session 94 re-extracted Vermont's 10-02 roster (166 rows, $127,419,853.91: 20 new agreements, $18,124,660.41, plus NCHC's $226,194.70 re-filed from Regionalization to Primary Care; VT hospital 42 / $35,285,416.18 → 51 / $44,866,699.26), extracted KY's first named recipient (`R/03by`: Lake Cumberland District Health Department, RCH Hub Lead, local health department, $0; "up to $10 million" over five years is a regional ceiling, text only; KY now EXTRACTED), recorded ND's CAH Workforce Retention round as awarded with nobody named (`ND_HOSPITAL_ONLY_ROUNDS`), retried and logged firewall "Request Rejected" pages as ERROR, scoped ME/NE/NM name tripwires past their menus, added WI's Overdose Prevention Supplies RFA to furniture, re-based CT `opm`/`documents`, and split MS's October opportunity (Innovative Pilot: applications open 10-14, awardees "January 2027"). NAMED_HOSPITAL is 1,308 / $1,213,341,798.50 / 32 states. Detail: `docs/session94_vt_ky_nd_probe_fixes_ms.md`. Session 93 (2026-10-05) closed two session-92 items on the owner's instruction: Valley Health, Ballad and Sentara accepted as system parents (`VA_VHCF_SYSTEM_PARENTS` RESOLVED; $0 moved, VA VHCF stays 9 / $6,390,000), and KY's Accredited Dental Hygiene conflict recorded on its status row with the RFA archived (stage unchanged). Detail: `docs/session93_va_parents_ky_dental_hygiene.md`. Session 92: Session 92 extracted VHCF's Provider Interoperability round (`R/03bx`, 25 awards, $14,390,000, typed on CMS VA enrolment: 9 hospital lines / $6,390,000, of which $5,700,000 is three system parents at LOW; Highland Medical Center is an FQHC; the two UVA Health strings, $884,000, joined `AHC_STRING_NAMES_NO_ENROLLED_ENTITY`), put VHCF's news index on `R/03bb`'s probe, registered VHCF's 07-10 grants as `VA-VHCF-REGULAR-GRANTS`, re-staged KY Community Paramedicine and EMS Training Equipment to `AWARDED_PRIVATELY_NO_PUBLIC_ROSTER` (three more RFA award dates watched; SharePoint's hidden admin zone and zero-width residue dropped from KY's digest), and recorded CT DEEP's $7,165,955 as a state-agency allocation and DMHAS's REST RFP on `R/03ac`'s probe. NAMED_HOSPITAL is 1,299 / $1,203,760,515.42 / 32 states. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`. Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
 NON_HOSPITAL (owner: a shared county does not show the hospital district operates the ambulance service; $0
 moved), read SD's $7.2M EMS round (no roster), and merged the session-84 check-in branch. Detail:
 `docs/session89_sd_ems_round_mt_prairie_checkin.md`. Session 88 did five owner tasks:
@@ -1805,7 +1806,7 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 | 3 allotments + registry worksheet | `R/03_state_registry.R` | Built; §7.3 registry NOT compiled (blocker 1) |
 | 2.5 budget narratives | `R/03b_budget_narratives.R` | Built; OK, DE only |
 | CMS abstracts | `R/03c_cms_abstracts.R` | Built, 50 states |
-| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt`–`R/03bx` | 38 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
+| State extractors | `R/03d`–`R/03bo`, `R/03bq`, `R/03br`, `R/03bt`–`R/03by` | 39 states EXTRACTED; see Deliverable 1. `R/03bp` is TX's floor, not an extractor |
 | State watches (probes) | `R/03y`, `03ab`–`03ag`, `03az`–`03bc`, `03bg`, `03bl`–`03bn`, `03bs` | Built; each on a Routine (`config/routines.csv`) |
 | Overlays / reports | `R/03ap`, `03aq`, `03ar`, `03as`, `03aw`, `03ax`, `03bh`, `03bj` | Built; see overlay rules above |
 | PDF reader | `R/utils_pdf_text.R` | Built; runs model (`rhtp_pdf_runs()`) and line model |
@@ -1821,14 +1822,14 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 
 ### Survey disposition (rebuilt from `R/03k`'s constants; never hand-edited)
 
-`EXTRACTED` 38 · `INVESTIGATED_NO_LIST` 7 (CA KY MN ND NM TX WI) · `INVESTIGATED_NO_PROBE` 2 (HI MA) ·
+`EXTRACTED` 39 · `INVESTIGATED_NO_LIST` 6 (CA MN ND NM TX WI) · `INVESTIGATED_NO_PROBE` 2 (HI MA) ·
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-05, session 92, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-07, session 94, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,299 rows   $1,203,760,515.42   32 states
+NAMED_HOSPITAL          1,308 rows   $1,213,341,798.50   32 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      1 row       $50,008,264.00   IL (ICAHN)
 ```
@@ -1854,7 +1855,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | AR r1 | 37 | 37 | $149,177,618 | 20 / $104,397,118 (intents) |
 | AL r1 | 138 | 138 | $143,745,821 | 70 / $83,548,287 |
 | OR | 278 | 272 | $140,994,009 (published $175.3M) | 57 / $54,520,575 (intents) |
-| VT | 145 | 145 | $106,660,194 | 42 / $35,285,416 (executed; partial) |
+| VT | 165 | 165 | $124,784,854 | 51 / $44,866,699 (executed; partial; 10-02 list; LOW $8,319,753 subtractable) |
 | MS | 167 | 167 | $104,115,147 | 84 / $68,898,205 (partial year) |
 | MI | 145 | 145 | $101,318,437 | 5 / $2,694,121 (a TOTAL; MHA $8.625M in no bucket) |
 | KS | 60 | 60 | $96,027,147 | 37 / $62,416,473 |
@@ -1893,6 +1894,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | VA | 11 | 0 | — | 0 |
 | VA VHCF | 25 | 25 | $14,390,000 | 9 / $6,390,000 (system parents $5,700,000 LOW, GENERAL_KNOWLEDGE; UVA strings $884k queued; Highland is an FQHC) |
 | ID | 1 | 0 | — | 0 |
+| KY | 1 | 0 | — | 0 (LCDHD, a local health department; "up to $10 million" over five years is a REGIONAL ceiling, text only) |
 | SD rounds | 2 | 0 | — ($121.5M, names nobody) | 0 |
 | SD CCBHC | 13 | 0 | — (pool "more than $13 million") | 0 (13-member cohort, 12 grants; every row Unclear) |
 
@@ -1954,7 +1956,12 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 93 (read first).** KY Accredited Dental Hygiene: the conflict is RECORDED, not resolved. The RFA (archived) gives deadline 05-29 and award 06-26; the CHFS channel's "August 1, 2026" deadline is the RFA's funding-period start. The row stays CLOSED_UNAWARDED until a human decides which source governs. Valley Health / Ballad / Sentara are settled.
+- **Session 94 (read first).** news.delaware.gov's F5 firewall rejects the project's own agent AND bare
+  `Mozilla/5.0` (246-byte "Request Rejected", HTTP 200) but serves curl and a full Chrome UA. The retry only
+  cures intermittent blocks; a persistent one now logs ERROR "FIREWALL REJECTION". An agent exception for
+  that host is an OWNER decision (§3, michigan.gov precedent) and was not taken. ME's programme page now lists
+  a "Y2 Project Narrative" (furniture). Open queue: `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` ($347,098.80).
+- **Session 93.** KY Accredited Dental Hygiene: the conflict is RECORDED, not resolved. The RFA (archived) gives deadline 05-29 and award 06-26; the CHFS channel's "August 1, 2026" deadline is the RFA's funding-period start. The row stays CLOSED_UNAWARDED until a human decides which source governs. Valley Health / Ballad / Sentara are settled.
 - **Session 92.** Settled in session 93: VA system parents, and the KY Dental Hygiene record (see above). VHCF Provider Productivity is due "October 2026": R/03bb trips on the post. CT REST: contract start 9/1/2026 passed, no outcome. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`.
 - **Session 91.** `SD_CCBHC_AVERA_BH_ENROLMENT_BRIDGE` closed at (a), no bridge ($0). Re-checks found, UNEXTRACTED pending owner: VHCF's 10-02 roster (25 awards, $14,390,000, 9 hospital-shaped rows / $6.64M; no probe watches VHCF news); KY recipients self-announcing Community Paramedicine / EMS Training awards that `ky_year1_status.csv` calls CLOSED_UNAWARDED; CT's DEEP $7.17M agency line and the unawarded DMHAS REST RFP. TX BP1 unchanged (33). Detail: `docs/session91_sd_avera_close_va_ky_ct_tx_rechecks.md`.
 - **Session 90.** One SD owner question is open: `SD_CCBHC_COHORT_13_VS_12_GRANTS` ($0). The CCBHC release says "The next round of funding is anticipated later this fall"; when it names grantees, rewrite `R/03bw`, don't patch it. The 10-08 check-in report (`trig_011DDK…`, 15:50Z) fires into session 89's session, not session 90's.
@@ -2002,6 +2009,7 @@ Network is Full; the old allowlist blockers are superseded.
   with no RHTP mention, and is now in `WI_NAME_FURNITURE`.
 - **Open review-queue decisions** (`classification_review_queue.csv`):
   - `VT_S74_LOW_HOSPITAL_TYPINGS` ($3,525,809.47)
+  - `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` ($347,098.80)
   - `AHC_STRING_NAMES_NO_ENROLLED_ENTITY` (UAB Montgomery, OHSU Casey Eye, MEDIC, ORPRN strings, UMMS)
   - `AK_KETCHIKAN_ALL_TYPES_TICKED`
   - `AR_R2_QUEUED_FORM` (CARTI, NARHC)
@@ -2021,7 +2029,12 @@ Network is Full; the old allowlist blockers are superseded.
   - Wisconsin: "Award announcements: September"; nothing posted as of 09-28.
   - Montana: EXTRACTED session 88 (`R/03bv`). `R/03bl` watches for names for the 75 equipment awards and a new
     round. The state's 78 agencies against CMS's 79 (4 + 75) is unresolved.
-  - Mississippi: second tranche, 2026-10-14 .. 10-29.
+  - Mississippi: WEI and EmPATH, "next 30 to 45 days" from the 09-14 release = 2026-10-14 .. 10-29 (unchanged).
+    The Innovative Pilot Program is separate: applications OPEN 10-14, close 11-16, awardees "January 2027"
+    (NOFO archived `recheck/2026-10-07/MS/`). 10-14 is not a Pilot announcement date (session 94).
+  - North Dakota: CAH Workforce Retention "Awarded | 36 Applicants" (read 10-07), nobody named. When names
+    appear the round is hospital money in full (`ND_HOSPITAL_ONLY_ROUNDS`); type each row on CMS enrolment.
+  - Kentucky RCH: Big Sandy and Purchase Hub Leads not yet named; `R/03af`'s re-based FHKY page fires on them.
   - Louisiana: six Notices of Intent to Contract dated 2026-10-02, sent to applicants privately; denials "by
     October 16, 2026". Nothing published (session 88).
   - California: notices sent privately via Submittable (HCAI FAQ 09-29); the rest "by late October 2026".
