@@ -788,3 +788,4 @@ SC,2026-10-08T08:35:35Z,UNCHANGED,bhcs_control,,trig_01221XxhsPrg8ojwngYSAAFv
 SC,2026-10-08T08:35:35Z,UNCHANGED,award_list,,trig_01221XxhsPrg8ojwngYSAAFv
 CO,2026-10-08T09:12:16Z,UNCHANGED,awardees,,trig_012SyFT6QNtKsZK6veV5KznF
 CO,2026-10-08T09:12:16Z,UNCHANGED,programme,,trig_012SyFT6QNtKsZK6veV5KznF
+WA,2026-10-08T10:13:30Z,TRIPWIRE,(probe),[WA] the programme page's SUBAWARD footer no longer parses. Either HCA re-worded it or removed the RNEP item -- read the page (§0.2).,trig_01Ya2pEVp2p89TYntNPhjpX1
