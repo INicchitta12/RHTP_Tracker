@@ -794,3 +794,7 @@ SD,2026-10-08T12:23:23Z,CHANGED,'Rural Strong' in the description,,trig_01PozmJv
 SD,2026-10-08T12:23:23Z,CHANGED,'Rural Health Transformation' in the description,,trig_01PozmJvhJnKHVQf7GBHkbvY
 CMS,2026-10-08T13:25:27Z,CHANGED,newsroom+medicaid,new states: none; new releases in listed states: 1 (NC); changed rows: 0,trig_01LUqkDnDGErLj9N8SJUDb1C
 AL,2026-10-08T14:42:06Z,TRIPWIRE,(probe),"[AL] 'governor' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""Menu Office of the Governor of Alabama The Office of Alabama Governor Kay Ivey Public Records Citizens Alerts Newsletter Flag Status:Full Staff Governor About First Dog of Alabama Mansion Administration Cabinet Staff Appointments Internship Program Public Records Priorities Logo Legislation Legislat"". A NEW ARHTP headline on the Governor's newsroom, Alabama's award channel. Open it and extract any named roster.",trig_01NtbC312pu2u8d7uePQXEty
+AL,2026-10-08T15:17:36Z,UNCHANGED,resources,,interactive
+AL,2026-10-08T15:17:36Z,UNCHANGED,home,,interactive
+AL,2026-10-08T15:17:36Z,UNCHANGED,adeca,,interactive
+AL,2026-10-08T15:17:36Z,CHANGED,governor,,interactive
