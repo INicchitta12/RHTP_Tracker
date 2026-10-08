@@ -782,3 +782,7 @@ MO,2026-10-07T15:03:10Z,UNCHANGED,hub_roster,,trig_01EB2Xxyn1bSy3LcGBEcuZra
 MO,2026-10-07T15:03:10Z,UNCHANGED,smrp_awardees,,trig_01EB2Xxyn1bSy3LcGBEcuZra
 CA,2026-10-07T17:07:07Z,UNCHANGED,(all),,trig_01JEYQK9ZNMVpe27H19DFjzX
 NH,2026-10-07T18:12:56Z,TRIPWIRE,(probe),"[NH] 'fhc' NO LONGER SAYS: ""Critical Access Hospital (CAH) and Acute Care Hospital Coming Soon"". The dated anchor this watch rests on has moved. Read the page: it may have awarded, re-dated, or re-worded (§2.2).",trig_01D5rZ2KjtjmyXcRuVjNxQr4
+SC,2026-10-08T08:35:35Z,CHANGED,programme,,trig_01221XxhsPrg8ojwngYSAAFv
+SC,2026-10-08T08:35:35Z,UNCHANGED,rmua_control,,trig_01221XxhsPrg8ojwngYSAAFv
+SC,2026-10-08T08:35:35Z,UNCHANGED,bhcs_control,,trig_01221XxhsPrg8ojwngYSAAFv
+SC,2026-10-08T08:35:35Z,UNCHANGED,award_list,,trig_01221XxhsPrg8ojwngYSAAFv
