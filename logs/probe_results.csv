@@ -857,3 +857,4 @@ NJ,2026-10-10T12:16:01Z,UNCHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
 NJ,2026-10-10T12:16:01Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
 LA,2026-10-10T12:51:32Z,CHANGED,programme,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
 LA,2026-10-10T12:51:32Z,CHANGED,funding,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+CA,2026-10-10T17:08:00Z,TRIPWIRE,(probe),[CA] the name-tripwire SCOPE anchor for 'funding' was not found: ‘Rural Health California Rural Health Transformation \(CalRHT\)’. The page's layout has moved; re-read it and re-anchor the scope rather than reading the whole page's furniture (§2.3).,trig_01JEYQK9ZNMVpe27H19DFjzX
