@@ -305,6 +305,20 @@ Every organisation was screened against CMS RI Hospital and FQHC Enrollments
 | OTHER (RI League of Cities and Towns: an association of municipal governments) | 1 | $50,461.65 |
 | HARI (POOL_UNNAMED) | 2 | $15,839,907.67 |
 
+**Knock-on effects in other layers.**
+- **R/03bj.** CHI Health St Marys carries a verdict in `EH_APPLY`
+  (`DBA_OF_LEGAL_ENTITY`, LOW). `R/03cb --build` chains 03bj's overlay, as
+  `R/03bt` does, so the row carries the session-71 tag. With it, the
+  enrolment-typed set is 59 rows / $95,885,249.27 and the sweep has 63 hits.
+- **Narragansett.** The FQHC enrolment types the Narragansett rows but sits
+  only in `cms_enrolment_record`. `ccn` and `cms_enrolment_match` mean
+  "re-typed as a hospital".
+- **Rural cut (`R/03ar`, re-stated).** It now covers 1,313 rows. Counted as
+  rural: **262 rows / $267,414,906.33**, up from 260 / $267,374,081.84. The
+  change is the two CHI Health St Marys rows, a CAH by cited CCN 281342.
+- **OTHER rows.** The Rhode Island League of Cities and Towns is the 123rd
+  OTHER row, and its basis states its determined form.
+
 **Wiring.** The three files are in `STATE_FILES` (`NE_CMS`, `PA_CMS`, `RI`) and in
 Deliverable 1. The union test now pins:
 - POOL_UNNAMED states as IL, NE and RI, at $69,323,109.17

@@ -38,8 +38,10 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
   # Session 94: + Vermont's 2026-10-02 update (R/03at), 9 rows / $9,581,283.08,
   # no new state: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
-  expect_equal(nrow(rows), 1308L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1213341798.50,
+  # Session 98: + CMS obligation-report rows (R/03cb), 5 / $3,124,401.49:
+  # 1,313 / $1,216,466,199.99 / 32.
+  expect_equal(nrow(rows), 1313L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1216466199.99,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -72,14 +74,16 @@ test_that("the rural figure is 256 rows / $263,299,771.23, from three classes of
   # Session 94: + 4 Vermont CAH rows by cited CCN (NVRH 471303, Grace Cottage
   # 471300 twice incl. the LOW Family Health bridge, Gifford Medical Center
   # 471301), +$4,074,310.60.
-  expect_equal(nrow(r), 260L)
+  # Session 98: + CHI Health St Marys x2 (NE, CMS obligation lines), CAH by
+  # its cited CCN 281342, +$40,824.49.
+  expect_equal(nrow(r), 262L)
   expect_equal(sum(r$state == "OK"), 7L)
   expect_equal(sum(r$state == "WV"), 3L)
   expect_equal(sum(r$state == "SD"), 9L)
   expect_equal(sum(r$state == "CO"), 26L)
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 267374081.84, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 267414906.33, tolerance = 0)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 18L)
   expect_equal(sum(r$state == "MO"), 6L)
@@ -131,11 +135,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 260L)   # session 82: + 26 CO; session 94: + 4 VT
+  expect_equal(sum(by$rural_rows), 262L)   # session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1308L)   # session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
+  expect_equal(nrow(committed), 1313L)   # session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
   expect_equal(committed$rural_class, rows$rural_class)
 })

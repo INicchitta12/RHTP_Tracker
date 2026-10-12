@@ -259,7 +259,11 @@ EH_APPLY <- tibble::tribble(
     "EXACT_LEGAL_NAME", FALSE, "OSDH states no form (session 86). ",
   "ok_year1_cdm_awardees.csv", "Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital", 1L,
     "370166", "WAGONER HOSPITAL AUTHORITY (dba WAGONER COMMUNITY HOSPITAL)",
-    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; the awardee's entity half is the enrolled legal name (session 86). "
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; the awardee's entity half is the enrolled legal name (session 86). ",
+  # --- CMS obligation-report rows (session 98, R/03cb) -------------------------
+  "ne_cms_obligation_awardees.csv", "CHI Health St Marys", 2L,
+    "281342", "ST MARYS COMMUNITY HOSPITAL (dba CHI HEALTH ST MARYS; CAH, Nebraska City)",
+    "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: CMS's obligation report prints the enrolled hospital's exact DBA; the report states no form, and the owner ruled it typed on its enrolment (2026-10-12), LOW (session 98). "
 )
 
 #' Sweep hits HELD: the awarding state's own document states a different form.

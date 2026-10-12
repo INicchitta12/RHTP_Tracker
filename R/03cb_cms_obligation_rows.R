@@ -241,6 +241,7 @@ ob_row <- function(line, row_no, org, recipient_type, flow_type, dist,
     tier = "SUBAWARD",
     as_of = OB_AS_OF,
     cms_line_id = line$line_id,
+    recipient_subtype = NA_character_,
     cms_enrolment_match = cms_enrolment_match,
     cms_enrolment_record = cms_enrolment_record,
     facility_state = facility_state,
@@ -313,7 +314,7 @@ ob_ne_pa_rows <- function(l = ob_lines()) {
               "Sanford/Avera treatment, R/03i): The Guthrie Clinic (Sayre, PA)",
               "is the parent system of Robert Packer Hospital and Guthrie's",
               "other hospitals, which enrol with CMS under their own legal",
-              "entities (ROBERT PACKER HOSPITAL, CCN 390079); 'The Guthrie",
+              "entities (e.g. ROBERT PACKER HOSPITAL, Sayre); 'The Guthrie",
               "Clinic' is not on CMS's PA Hospital Enrollments, so no CCN;",
               "LOW. §10.2 DIRECT. Not the same award as pa_year1_awardees.csv's",
               "Robert Packer row: this is the Pulse Center Pilot (virtual",
@@ -338,8 +339,11 @@ ob_ri_rows <- function(l = ob_lines()) {
   s <- s %>% dplyr::left_join(OB_RI_ORGS, by = c("named_orgs" = "printed"))
   purrr::map_dfr(seq_len(nrow(s)), function(i) {
     o <- s[i, ]
+    # The FQHC enrolment TYPES the row but goes in cms_enrolment_record only:
+    # `ccn` and cms_enrolment_match mean "re-typed as a HOSPITAL on its
+    # enrolment" (§10.2, R/03bj), which an FQHC never is.
     enrol <- if (o$org %in% names(OB_RI_FQHC)) {
-      list(ccn = OB_RI_FQHC[[o$org]], match = "EXACT_LEGAL_NAME",
+      list(ccn = NA_character_, match = NA_character_,
            rec = paste("CMS FQHC Enrollments: NARRAGANSETT INDIAN TRIBE dba",
                        "NARRAGANSETT INDIAN HEALTH CENTR, CCN 411809;",
                        OB_ENROL_FILES[["RI_FQHC"]]))
@@ -360,8 +364,8 @@ ob_ri_rows <- function(l = ob_lines()) {
              "NOT_HOSPITAL", NA_character_, o$confidence, o$flag_reason,
              o$basis_type,
              paste0("Typed on CMS enrolment first (", OB_RULING, "): ",
-                    if (is.na(enrol$ccn)) "no RI Hospital or FQHC enrolment matches, so the form is " else "enrolment matches; form ",
-                    o$form, " (", o$basis_type, "). §10.2 NON_HOSPITAL: the ",
+                    if (o$org %in% names(OB_RI_FQHC)) "the RI FQHC enrolment matches. " else "no RI Hospital or FQHC enrolment matches. ",
+                    "Determined form: ", o$form, " (", o$basis_type, "). §10.2 NON_HOSPITAL: the ",
                     "recipient is not a hospital (§0.3a, recipient not ",
                     "activity)."),
              ccn = enrol$ccn, cms_enrolment_match = enrol$match,
@@ -403,6 +407,21 @@ ob_assert <- function(d, label) {
   invisible(TRUE)
 }
 
+#' R/03bj's enrolled-hospital overlay, chained as R/03bt chains it: a row
+#' typed on its CMS hospital enrolment carries a verdict in EH_APPLY and the
+#' session-71 tag on its basis (CHI Health St Marys). A no-op on PA and RI.
+ob_s71 <- function(d, file) {
+  s71 <- new.env()
+  suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R"),
+                          local = s71))
+  num <- function(x) ifelse(is.na(x), NA_character_,
+                            vapply(x, function(v) format(v, scientific = FALSE, digits = 15),
+                                   character(1)))
+  d <- dplyr::mutate(d, dplyr::across(dplyr::where(is.numeric), num),
+                     dplyr::across(dplyr::everything(), as.character))
+  s71$s71_overlay(d, file)
+}
+
 ob_build <- function() {
   l <- ob_lines()
   np <- ob_ne_pa_rows(l)
@@ -410,6 +429,7 @@ ob_build <- function() {
   out <- list(NE = np[np$state == "NE", ], PA = np[np$state == "PA", ], RI = ri)
   for (k in names(out)) {
     d <- out[[k]] %>% dplyr::mutate(row_no = as.character(dplyr::row_number()))
+    d <- ob_s71(d, basename(OB_OUT[[k]]))
     ob_assert(d, k)
     readr::write_csv(d, OB_OUT[[k]], na = "")
     message("[CMS obl] wrote ", basename(OB_OUT[[k]]), ": ", nrow(d), " rows, $",
