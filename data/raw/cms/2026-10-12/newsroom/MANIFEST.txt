@@ -1,0 +1,72 @@
+RHTP tracker archive: the CMS newsroom, filtered to the 'Rural health' topic.
+
+listing_url  : https://www.cms.gov/newsroom/articles
+fetched_utc  : 2026-10-12T13:44:34Z
+listing_pages: 20
+floor_date   : 2025-09-01
+items_seen   : 184
+topics_learnt: 3
+rural_archived (this run): 2
+
+WHAT IS COMMITTED, AND WHAT IS NOT. Each file under releases/ is the
+<main> element plus the schema.org JSON-LD, NOT the page as served.
+CMS's page chrome carries a third-party Mapbox API token in its Drupal
+settings JSON, which is CMS's to publish and not ours to redistribute;
+this is the posture §7.1 took for the allotment table and Session 11
+took for the six state press releases. The JSON-LD is kept because it
+is where CMS publishes the topic -- archiving <main> alone would throw
+away the field the filter reads and leave the archive unre-parseable
+offline. Every file was asserted free of that token shape before it was
+written, and the full page's digest is recorded per release in
+data/reference/cms_newsroom_topic_index.csv (full_page_sha256), so
+provenance still closes against what cms.gov served.
+
+The listing pages under listing/ carry no such token and ARE archived
+byte for byte as served.
+
+Digests are written with writeBin, not writeLines: writeLines appends a
+trailing newline, so the file on disk would be one byte longer than the
+body that was hashed and a reader verifying it would get a mismatch.
+
+THE TOPIC FILTER is CMS's own, read from each release's schema.org
+NewsArticle JSON-LD `about`. CMS's facet URL for the same taxonomy,
+/newsroom/search?about[]=<id>, is refused by Akamai for any
+non-browser client (403 on the bare path, with no query string), so
+the topic is read from the document instead of from a query.
+
+A DISCOVERY source (§0.1). No figure here may enter an AHA-published
+number, and `amount` is never summed (§0.2): CMS mixes the Tier 1
+state allotment and the Tier 3 announcement in the same release --
+Virginia's names $122M in its headline and $189M in a quoted
+statement, and those are two different tiers of the same programme.
+
+sha256 per file. MANIFEST.txt IS NOT LISTED IN ITSELF -- a manifest
+cannot record its own digest, because the value would be stale the
+instant the file is written. It listed itself until a second --run on
+one archive date exposed it: the first run wrote the manifest AFTER
+taking the listing, so the file did not exist to be listed and the
+verification test passed on absence rather than on correctness.
+
+  02b136065b09f639ad656bcde5ca25f041f1e8ce2d6f4fb1eba6c07642b229e8  listing/articles_page_00.html
+  a84c2b5f52133701ac80db9dc55bb3f737d391e1cbdb1fe14d8603a68bbce3b1  listing/articles_page_01.html
+  2bfefde14a4b327db252a34cb9a3d331bfbd1fccf603bcb1814a3fea21d639cc  listing/articles_page_02.html
+  d28e1358f66e815845a290673f25c0849eb2d756dcfaca8a4e5725d665512e7f  listing/articles_page_03.html
+  0aa4a2764002d9f5ef30d6a1783c873d97d282008fecb3b6df0a52385b633360  listing/articles_page_04.html
+  9c23cc97bbd5eae5546112285f411e59a4a8bf377c1ba2d28999aed38b00801c  listing/articles_page_05.html
+  b63059e8cab0cbf821c74dee604a5bb81ea0e215f7316b5fc773943202b1d7ef  listing/articles_page_06.html
+  64b601386b297b17080ecc9c27f2f58810873b3f0a24b2d1e0bc03ee59e589de  listing/articles_page_07.html
+  acfdb7ce0c2376fc0895cbd92601a965c5e07dbe5b84bb269bd0a69d2845ba7f  listing/articles_page_08.html
+  ede12f7b1725907b3bb9b8d608a26ae8a0cc0c17e1729ec407110643d71fcc08  listing/articles_page_09.html
+  46a7e72b23fc3daf3a00c0b1373985337d162e0af16a2ed66bc02538d674201d  listing/articles_page_10.html
+  51a40db174ac2540e55449341e9feb90d806292b640961b98862c485f8ca5323  listing/articles_page_11.html
+  1905916279324c24692354ee57aa6ebb089013447978e5c7aec37c5cfcffbd94  listing/articles_page_12.html
+  321842c141c0354c36f6a2707df51255b8cc530e8635884a894bf13af2bd752f  listing/articles_page_13.html
+  798dbb124beb6fec0a90fab0a07f781188eeb49346ccd2c0cf015d470b2e721d  listing/articles_page_14.html
+  a367fa99f49d33edadcf9eff92dc552175cbf70af7fa8416068883bfaccd5ca2  listing/articles_page_15.html
+  44b217b1997aa479923bc225ed78e2af050f2fcc2366689430f3812c1ddccadd  listing/articles_page_16.html
+  49921eef5f4cd5974114e95df434d604d71fc64d4ceb4c3404bcbaa595ced6da  listing/articles_page_17.html
+  3ad74bd1811e2a7febe796234a7c6a8db1b35196374b8740bc3f93b68349dd45  listing/articles_page_18.html
+  15f3c36a4ce281eead4a68003e069b6affd0208918054041b992118169511c47  listing/articles_page_19.html
+  8e61e1a29a616e56a5841c6d650e3480aa9372e7e35f798d0a59d4c11304e5bd  releases/trump-administration-announces-209-million-expand-advanced-medical-care-maternal-telehealth-cancer.html
+  ffa9c0b7d86d4b9c3d14d289b1777b37c1a24d5fb0a6cfe483c18b7209682cb7  releases/trump-administration-announces-37-7-million-train-recruit-more-rural-healthcare-workers-across.html
+
