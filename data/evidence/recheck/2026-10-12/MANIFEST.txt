@@ -1,0 +1,10 @@
+RECHECK 2026-10-12 (session 97): budget documents read to test whether CMS's ~100% 'funds put to work'
+is a full Year 1 budget committed to intermediaries (docs/session97_cms_obligation_report.md, Task 3).
+Fetched 2026-10-12 with the project agent. Read-only evidence; no figure here enters an award file.
+
+file | sha256 | bytes | url | last_modified
+MD/md_rhtp_update_webinar_2026-04-17.pdf | 18b201958be18374f505c5b82ec39fa81389c3bd07d54799f9f0009839f96653 | 948008 | https://health.maryland.gov/pophealth/Documents/Rural%20Health/RHTP/MD%20RHTP%20%20Update%20Webinar%20-%204-17-2026%20Website.pdf | Fri, 17 Apr 2026 18:51:44 GMT
+HI/hi_compiled_rht_application_redacted.pdf | c906bad59fd89d7da6578a9383d5a33de9e700cf8d98bcd7ef8ca59f2df6add4 | 11264368 | https://engage.hawaii.gov/wp-content/uploads/2026/01/Compiled-RHT-Application_Redacted29.pdf | Tue, 06 Jan 2026 21:55:16 GMT
+
+HI: the Nov 2025 APPLICATION (SF-424A, initiative leads), not the revised BP1 budget, which was not found.
+NH: no narrative reachable; gonorth.nh.gov, governor.nh.gov, dhhs.nh.gov and www.nh.gov all 403 on the project agent.

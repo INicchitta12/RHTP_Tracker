@@ -1,0 +1,32 @@
+RHTP tracker archive: CMS "RHTP Obligated Funds Report" (session 97).
+
+file            : RHTP-Obligated-Funds-10082026.pdf
+sha256          : abee94e70a09eb2c6b1e9298c3123ab158b5ac8db0c39112479abb3532f15cbe
+bytes           : 1065285
+pages           : 105
+pdf_created     : 2026-10-08T20:16:19Z (macOS Quartz PDFContext)
+data_as_of      : 2026-07-31 (reporting period 2025-12-29 to 2026-07-31; Year 1 RHTP Annual Report)
+report_date     : 2026-10-08
+
+PROVENANCE
+  1. Supplied by the owner: committed to the repository root in 6294b62 ("Add
+     files via upload") and moved here by session 97 with `git mv`.
+  2. Public copy found and compared, 2026-10-12T13:49:37Z:
+       url           : https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-10082026.pdf
+       http_status   : 200
+       content_type  : application/pdf
+       last_modified : Thu, 08 Oct 2026 20:19:39 GMT
+       bytes         : 1065285
+       sha256        : abee94e70a09eb2c6b1e9298c3123ab158b5ac8db0c39112479abb3532f15cbe
+     IDENTICAL to the owner's copy, byte for byte. Only one copy is kept.
+     The public copy is linked from the medicaid.gov RHTP resources page
+     (https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources)
+     as "RHTP Obligated Funds Report" (link checked 2026-10-12). The 2026-10-08
+     archive of that page (data/raw/cms/2026-10-08/, fetched 13:25Z) predates the
+     posting and does not carry the link.
+  3. NOT on www.cms.gov: https://www.cms.gov/files/document/rhtp-obligated-funds-10082026.pdf
+     returned 404 on 2026-10-12. The RHTP pages on cms.gov were not seen to link it.
+
+WHAT IT IS (§0.1, §0.2). CMS's summary of state self-reported obligations by
+activity. "Funds put to work" is NOT an award total. Parsed by
+R/00c_cms_obligation_report.R; never transcribed.

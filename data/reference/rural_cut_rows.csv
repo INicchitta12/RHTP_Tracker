@@ -1307,3 +1307,8 @@ VA,va_year1_vhcf_awardees.csv,18,Ballad Health,2000000,NOT_RECORDED,,FALSE,,GENE
 VA,va_year1_vhcf_awardees.csv,19,Carilion Medical Center,69000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490024: PART A PROVIDER - HOSPITAL",FALSE,490024,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,20,Danville Regional Medical Center,150000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490075: PART A PROVIDER - HOSPITAL",FALSE,490075,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,22,Sentara Health,1700000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_cms_obligation_awardees.csv,2,Mayo Clinic,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NE,ne_cms_obligation_awardees.csv,3,CHI Health St Marys,38239.96,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE
+NE,ne_cms_obligation_awardees.csv,4,CHI Health St Marys,2584.53,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE
+PA,pa_cms_obligation_awardees.csv,1,The Guthrie Clinic,386553.62,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+PA,pa_cms_obligation_awardees.csv,2,The Guthrie Clinic,2577023.38,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE

@@ -46,11 +46,23 @@ test_that("AL: a Community Medicine NOFO trips the resources page", {
 test_that("AL: a new ARHTP headline trips the Governor's newsroom; other news does not", {
   l <- al
   l$governor <- paste(l$governor,
-    "Governor Ivey Announces Rural Health Transformation Program Community Medicine Grants.")
+    "10.9.2026 Governor Ivey Announces Rural Health Transformation Program Community Medicine Grants Read Full Text")
   expect_error(al_assert_watch(l, al), "governor")
   l <- al
   l$governor <- paste(l$governor,
-    "Governor Ivey Awards Grant to Geneva for Wastewater Repairs.")
+    "10.9.2026 Governor Ivey Awards Grant to Geneva for Wastewater Repairs Read Full Text")
+  expect_true(al_assert_watch(l, al))
+})
+
+test_that("AL: new non-ARHTP headlines above the old ARHTP one do not trip (the 10-08 false positive)", {
+  # The first Routine firing tripped because the index has no full stops:
+  # new headlines made the whole page one new "sentence" that still held the
+  # 10-01 ARHTP headline. Diffed by dated headline, it is quiet.
+  expect_length(al_governor_headlines(al$governor), 1L)
+  l <- al
+  l$governor <- sub("10.1.2026", paste("10.7.2026 State of Emergency: Tropical",
+    "Storm Isaias Download Read Full Text 10.6.2026 Flags Lowered Download",
+    "Read Full Text 10.1.2026"), l$governor, fixed = TRUE)
   expect_true(al_assert_watch(l, al))
 })
 

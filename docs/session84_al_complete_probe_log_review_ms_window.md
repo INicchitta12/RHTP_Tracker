@@ -112,8 +112,8 @@ session). **Nothing was deleted.**
 | WY | `trig_01CLqQDvGoWCDoSMtS29FJbQ` | Fri 10-02 21:10Z — **logged 21:12:12Z** | `trig_01F98Jr5do6PXbUzNLBGjzGE` — **DELETED 10-02 21:46Z** |
 | LA | `trig_01NRTUU1Vg3DoQPL1uK2gKBt` | Sat 10-03 12:50Z — **logged 12:52:17Z (ERROR, see below)** | `trig_016GDtAW1DvWCexnRSm4LxK8` — **DELETED 10-04 11:47Z** |
 | NY | `trig_012g3adVBX9KEgDt9XiVi2tU` | Sun 10-04 11:10Z — **logged 11:12:39Z** | `trig_014kvDg8x3JDqdWySvHxrREU` — **DELETED 10-04 11:47Z** |
-| MO | `trig_01EB2Xxyn1bSy3LcGBEcuZra` | Wed 10-07 15:00Z | `trig_0183VrPsZUMmc3dMneainqXm` |
-| SC | `trig_01221XxhsPrg8ojwngYSAAFv` | Thu 10-08 08:30Z | `trig_01R1pZjkPkQZWD3vctiAJQ44` |
+| MO | `trig_01EB2Xxyn1bSy3LcGBEcuZra` | Wed 10-07 15:00Z — **logged 15:03:10Z** | `trig_0183VrPsZUMmc3dMneainqXm` — **DELETED 10-08 15:20Z** |
+| SC | `trig_01221XxhsPrg8ojwngYSAAFv` | Thu 10-08 08:30Z — **logged 08:35:35Z** | `trig_01R1pZjkPkQZWD3vctiAJQ44` — **DELETED 10-08 15:20Z** |
 
 SC's old id fired on 10-01 08:31Z, before the cut-over, and logged, so the chain has no gap. This
 session scheduled check-ins to delete each old id once its successor's line is on `main`. The WI and NV
@@ -141,3 +141,21 @@ is healthy, but **LA's line is an ERROR from the probe itself**: "7 announcement
 only 0 could be parsed ... LDH has used a date form this file has not seen." LDH has re-dated or re-worded
 all seven windows (they read "End of September" before). That is a page to read, and `R/03ae`'s window
 parser needs the new form. It is not a runner fault.
+
+**Check-in 10-08 15:15Z.** MO and SC each logged on `main` under the new id. Both old ids were `enabled:false`
+and bound to the OLD runner (`session_01J5YC…`, `session_016YHp…`), and both were deleted. **All six session-82
+old ids are now gone.** `R/probe_coverage.R --check` on `main`: 108 due firings, all logged except 4 explained.
+
+**Alabama's first firing (10-08 14:42Z) was a FALSE TRIPWIRE, and the defect was this session's.** `config/routines.csv`
+on `main` registers AL, so the line was covered. It read: "'governor' HAS 1 NEW SENTENCE(S) ..." with a
+quoted "sentence" that was the Governor's whole page chrome. The newsroom index has no full stops between
+items, so the reduced page is one long sentence. New non-ARHTP items (a 10-07 tropical-storm emergency, a 10-06
+flag notice, 10-05 and 10-02 proclamations) made that sentence new, and it still contained the 10-01 "$55 Million"
+ARHTP headline. Read live: exactly one ARHTP headline is on the index, the same one as the baseline. **No new
+Alabama award.**
+- **Fix:** `al_governor_headlines()` splits the index at each item's date (`M.D.YYYY `), and the check now fires only
+  on a dated ARHTP headline absent from the archive.
+- **Tests:** a new test replays the 10-08 shape and must stay quiet; the existing trip test now uses a dated
+  headline (14 expectations).
+- **Live interactive re-probe:** governor CHANGED, no trip.
+- The baseline was not re-based, so the Routine compares against the 10-02 archive, as it should.

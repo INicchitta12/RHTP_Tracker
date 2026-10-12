@@ -27,7 +27,9 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # Session 86: + 15 rows typed on their enrolment by their own extractors --
   # session 85's WV Minnie Hamilton x3 and OK Doulas Newman, and OK RRR (7)
   # and CDM (4) -- each now carrying a verdict in EH_APPLY: 46 -> 61.
-  expect_equal(nrow(sw), 61L)
+  # Session 98: + CHI Health St Marys x2 (R/03cb, CMS obligation lines),
+  # applied as DBA_OF_LEGAL_ENTITY: 61 -> 63.
+  expect_equal(nrow(sw), 63L)
   expect_setequal(EH_READ_NOT_APPLIED$verdict, "DIFFERENT_LEGAL_BODY")
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
@@ -44,15 +46,21 @@ test_that("an unread sweep hit fails the build", {
   expect_error(eh_assert_read(fake), "no hand-read")
 })
 
-test_that("57 rows / $95,844,424.78 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
+test_that("59 rows / $95,885,249.27 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
   # Session 71: 33 rows / $63,240,239.84, 25 / $53,539,221.31 AHCs. Session
   # 83: + National Jewish Health (MI, $435,000, not an AHC) and Alabama round
   # 2's UAB x3 and USA x2 ($6,687,166, all AHCs): 39 / $70,362,405.84.
   # Session 86: + WV Minnie Hamilton (3 / $1,700,000) and OK Doulas Newman
   # (1 / $38,525) from session 85, OK RRR (9 / $17,161,366) and OK CDM
   # (5 / $6,582,127.94); none is an AHC. Mercy has no enrolment and no match.
-  expect_equal(nrow(eff), 57L)
-  expect_equal(round(sum(eff$amount, na.rm = TRUE), 2), 95844424.78)
+  # Session 98: + CHI Health St Marys x2 on CMS obligation lines (R/03cb),
+  # DBA_OF_LEGAL_ENTITY, $40,824.49, not an AHC: 59 / $95,885,249.27.
+  expect_equal(nrow(eff), 59L)
+  expect_equal(round(sum(eff$amount, na.rm = TRUE), 2), 95885249.27)
+  s98 <- eff[eff$file == "ne_cms_obligation_awardees.csv", ]
+  expect_equal(nrow(s98), 2L)
+  expect_equal(round(sum(s98$amount), 2), 40824.49)
+  expect_true(all(s98$match == "DBA_OF_LEGAL_ENTITY" & is.na(s98$subtype)))
   s86 <- eff[eff$file %in% c("wv_year1_awardees.csv", "ok_year1_doulas_awardees.csv",
                              "ok_year1_rrr_awardees.csv", "ok_year1_cdm_awardees.csv"), ]
   expect_equal(nrow(s86), 18L)
@@ -201,7 +209,7 @@ test_that("the overlay is idempotent on the committed files", {
   }
 })
 
-test_that("the partition: NAMED_HOSPITAL 1,308 / $1,213,341,798.50 / 32; pools unmoved", {
+test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools unmoved but for session 98", {
   tot <- vq_bucket_totals(vq_partition())
   n <- tot[tot$bucket == "NAMED_HOSPITAL", ]
   # Session 73: + UMMS (R/03bk), 1 row / $4,020,144, on its own stated form.
@@ -226,9 +234,15 @@ test_that("the partition: NAMED_HOSPITAL 1,308 / $1,213,341,798.50 / 32; pools u
   # no NAMED_HOSPITAL row before): 1,299 / $1,203,760,515.42 / 32.
   # Session 94: + Vermont's 2026-10-02 update (R/03at), 9 rows / $9,581,283.08,
   # no new state: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
+  # Session 98: + CMS obligation-report rows (R/03cb, owner rulings 10-12):
+  # 5 rows / $3,124,401.49, no new state: 1,313 / $1,216,466,199.99 / 32.
+  expect_equal(n$rows, 1313L)
+  expect_equal(round(n$dollars, 2), 1216466199.99)
+  expect_equal(n$states, 32L)
+  n$rows <- n$rows - 5L
+  n$dollars <- n$dollars - 3124401.49
   expect_equal(n$rows, 1308L)
   expect_equal(round(n$dollars, 2), 1213341798.50)
-  expect_equal(n$states, 32L)
   n$rows <- n$rows - 9L
   n$dollars <- n$dollars - 9581283.08
   expect_equal(n$rows, 1299L)
@@ -260,7 +274,9 @@ test_that("the partition: NAMED_HOSPITAL 1,308 / $1,213,341,798.50 / 32; pools u
   n$dollars <- n$dollars - 4020144
   expect_equal(n$states, 30L)
   expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"], 2), 30806856.12)
-  expect_equal(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
+  # Session 98: + HARI and NHA (CMS_OBLIGATION_ASSOCIATION), $19,314,845.17.
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"] - 19314845.17, 2),
+               50008264)
   # A reader can subtract the AHC rows without re-coding anything.
   expect_equal(round(n$dollars - 53539221.31, 2), 968775621.21)
 })
@@ -286,7 +302,9 @@ test_that("every OTHER row in the repository states a determined form", {
   # Session 74: + 7 Vermont OTHER rows from the 2026-09-25 update.
   # Session 94: + 2 Vermont OTHER rows from the 2026-10-02 update (Kinney
   # Drugs, a pharmacy; Real Time Medical Systems, a health-IT company).
-  expect_equal(nrow(rev), 122L)
+  # Session 98: + the Rhode Island League of Cities and Towns (R/03cb), an
+  # association of municipal governments.
+  expect_equal(nrow(rev), 123L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

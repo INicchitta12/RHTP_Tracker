@@ -1,0 +1,15 @@
+FEDERAL RECORDS -- fetched 2026-10-12 by session 97
+
+WHY: R/00d screens every organisation named in CMS's RHTP Obligated Funds Report
+(data/raw/cms/obligations/2026-07-31/) against CMS Hospital and FQHC Enrollment files. These fill
+the states whose files were not yet archived. Committed as served (§0.5); the reader uses THESE.
+
+file | sha256 | bytes | source
+cms_fqhc_enrollments_ME.json | 69f400fb47104fc999faca77f92ecb1e516e27fab78d7d030723fa9d5f0760ec | 70448 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=ME&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_NE.json | b8720f3998f0f0d809781831f2147531ebb7f99d0da3a8bfffc21618025353c0 | 43697 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=NE&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_OH.json | acd02a9e8eed8e629f6a657ef18e0a5aa2b8cd562c810b7ab6e4e22364ee595f | 306212 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=OH&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_PA.json | 89e5d98dc8b23f70b4ab319294e77b45103ec1249c16b248f00a789f4664c80e | 251863 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=PA&size=5000 (FQHC Enrollments)
+cms_fqhc_enrollments_RI.json | 24ef289f263291feb2e5d767627b552522ee3451c5d1035565f4397d8a2f21fa | 24578 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=RI&size=5000 (FQHC Enrollments)
+cms_hosp_enrollments_ND.json | d46c9d604bbefc6b264c8df894721b34a478079502669ff0090002a7e9d171fb | 104716 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=ND&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_RI.json | d8e1fa1e691a4ea2237bf4a99a6380731ebe2e33483656fcaf9e9eb96f33225a | 28289 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=RI&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_WI.json | acd6ad58120f4cdbce5b46ca70377c3a71182d5e3b33dff9775a5cdbea100c65 | 279698 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=WI&size=5000 (Hospital Enrollments)

@@ -308,7 +308,18 @@ STATE_FILES <- c(
   # District Health Department, RCH Hub Lead, a local health department, NO
   # amount; "up to $10 million" over five years is a regional CEILING held as
   # text only, in no numeric column.
-  KY = "data/reference/ky_year1_awardees.csv"
+  KY = "data/reference/ky_year1_awardees.csv",
+  # SESSION 98: THE FIRST ROWS WHOSE SOURCE IS NOT A STATE DOCUMENT. CMS's
+  # Obligated Funds Report (as of 2026-07-31) is a federal compilation of each
+  # state's self-reported obligations. The owner ruled on six NE/PA lines and
+  # on Rhode Island's single-recipient lines (R/03cb). Every row carries
+  # validation_source_type = CMS_OBLIGATION_REPORT so the set subtracts in one
+  # step; HARI and NHA carry CMS_OBLIGATION_ASSOCIATION as well. NE and PA are
+  # separate files so a rebuild of either state's own award file can never
+  # wipe them, and never mixes a notice of award with an obligation line.
+  NE_CMS = "data/reference/ne_cms_obligation_awardees.csv",
+  PA_CMS = "data/reference/pa_cms_obligation_awardees.csv",
+  RI = "data/reference/ri_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -352,7 +363,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
+                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))
 })
 
@@ -468,8 +479,11 @@ test_that("named-hospital dollars and pooled dollars never merge", {
 
   # Illinois is the whole of the UNNAMED pooled bucket.
   pooled <- parts[parts$bucket == "POOL_UNNAMED_HOSPITALS", ]
-  expect_equal(sort(unique(pooled$state)), "IL")
-  expect_equal(sum(pooled$dollars), 50008264)
+  # Session 98: HARI (RI) and the Nebraska Hospital Association joined ICAHN,
+  # by owner ruling, on CMS obligation lines (CMS_OBLIGATION_ASSOCIATION).
+  expect_equal(sort(unique(pooled$state)), c("IL", "NE", "RI"))
+  expect_equal(round(sum(pooled$dollars), 2), 69323109.17)
+  expect_equal(pooled$dollars[pooled$state == "IL"], 50008264)
 
   # And Illinois contributes NOTHING to the named-hospital figure.
   expect_false("IL" %in% named$state)
@@ -497,7 +511,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # beside it did NOT move, which is the property this test is really about.
   # 12,606,593.54 -> 14,431,595.82 in session 64: six Initiative 5.3 intended
   # awardees typed on exact CMS Nebraska Hospital Enrollment records.
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 14431595.82)
+  # 14,431,595.82 on DHHS's notices + 160,824.49 on CMS obligation lines
+  # (Mayo Clinic, CHI Health St Marys x2; session 98, R/03cb).
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 14592420.31)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at

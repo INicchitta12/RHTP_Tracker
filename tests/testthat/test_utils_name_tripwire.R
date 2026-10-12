@@ -248,27 +248,67 @@ test_that("NEW MEXICO: the six hubs fire against the archive that predates them"
   # THE COUNTERFACTUAL, ON REAL COMMITTED BYTES. Session 35 archived HCA's
   # page; session 46 fetched it again and the hubs were on it. This is what
   # the name tripwire would have said on the day the phrase list said nothing.
+  #
+  # PINNED, NOT READ FROM HISTORY (session 98). Until session 98 this read the
+  # session-35 archive with `git show 967ee21:...`, which exits 128 in a
+  # shallow clone (every cloud session), so the test SKIPPED there. The
+  # archive's whole contribution to the comparison is its set of NORMALISED
+  # organisation names, because rhtp_new_organisation_names() compares on
+  # exactly that and nothing else. That set is pinned below, as session 98
+  # extracted it from 967ee21:data/evidence/NM/2026-09-02_nm_hca_rht_programme.html
+  # (SHA-256 35e07a95...4abaf4cdcd) with nm_reduce_html() and
+  # rhtp_organisation_names(): 25 names. It is passed as `furniture`, which is
+  # matched EXACTLY on the normalised form -- the same test `archived` applies
+  # -- and session 98 checked the two calls return identical vectors.
+  # Same pattern as test_03bk_umms_system_form.R (session 94).
   cur <- rhtp_path("evidence", "NM",
                    "2026-09-21_nm_hca_rht_programme_SIX_HUBS_SELECTED.html")
-  skip_if_not(file.exists(cur))
+  expect_true(file.exists(cur))
   suppressMessages(source(here::here("R", "03ad_nm_year1_probe.R")))
 
-  tmp <- tempfile(fileext = ".html")
-  on.exit(unlink(tmp), add = TRUE)
-  ok <- tryCatch(
-    system2("git",
-            c("show",
-              "967ee21:data/evidence/NM/2026-09-02_nm_hca_rht_programme.html"),
-            stdout = tmp, stderr = FALSE) == 0L,
-    error = function(e) FALSE)
-  skip_if(!isTRUE(ok) || !file.exists(tmp) || file.size(tmp) < 1000,
-          "the session-35 NM archive is not reachable from git here")
+  prior_names <- c(
+    "administrative services organization",
+    "amendment rural health data hub provides",
+    "apply today program overview authorized",
+    "center for rural health sustainability",
+    "centers for medicare",
+    "cms rural health transformation",
+    "internet service provider",
+    "looking for assistance looking for information providers overview public information contact us",
+    "medicaid services",
+    "new mexico health care authority apply for benefits kevin s",
+    "new mexico rht program application",
+    "new mexico's rural health transformation program",
+    "program new mexico's rural health transformation",
+    "rht program",
+    "rht program new mexico region map federal guidance",
+    "rht program signup additional information",
+    "rural health data hub",
+    "rural health innovation fund provides",
+    "rural health transformation program",
+    "rural health transformation program stakeholder advisory committee",
+    "settlement keep your benefits nm follow follow follow home about contact us home about us turquoise care communications and public information contact us bewell scorecard",
+    "sign up for updates stakeholder advisory committee applications now open the new mexico health care authority",
+    "the rural health transformation",
+    "u.s. department of health and human services",
+    "wire-employees only primary care council rural health care delivery fund rural health transformation program fraud prevention mergers"
+  )
+  expect_length(prior_names, 25L)
+  # The pinned baseline is not an empty one (§2.3) and names none of the six.
+  expect_false(any(grepl("cibola|gallup|regents|eastern plains|gila|nor-lea",
+                         prior_names)))
 
-  # nm_reduce_html() takes RAW -- it strips NUL bytes before decoding.
-  prior <- nm_reduce_html(readBin(tmp, "raw", file.size(tmp)))
-  live  <- nm_html_text("programme")
-
-  new_names <- rhtp_new_organisation_names(live, prior)
+  live <- nm_html_text("programme")
+  new_names <- rhtp_new_organisation_names(live, "", furniture = prior_names)
+  expect_identical(new_names, c(
+    "Cibola General Hospital",
+    "Gallup Community Health Region",
+    "The Regents of the University of New Mexico Region",
+    "Eastern Plains Council of Governments Region",
+    "Gila Regional Medical Center Region",
+    "Nor-Lea Hospital District The Regional Hubs",
+    "Project ECHO",
+    "Rural Health Data Hub Administrator"))
   hit <- function(x) any(grepl(x, new_names, fixed = TRUE))
   expect_true(hit("Cibola General Hospital"))
   expect_true(hit("Gallup Community Health"))
@@ -279,7 +319,8 @@ test_that("NEW MEXICO: the six hubs fire against the archive that predates them"
 
   # And with the six recorded as this file records them, it goes quiet again.
   expect_identical(
-    rhtp_new_organisation_names(live, prior, known = NM_KNOWN_ORGANISATIONS),
+    rhtp_new_organisation_names(live, "", known = NM_KNOWN_ORGANISATIONS,
+                                furniture = prior_names),
     character(0))
 })
 

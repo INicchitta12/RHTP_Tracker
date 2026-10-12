@@ -301,10 +301,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 94: + Vermont's 2026-10-02 update (R/03at), 9 rows / $9,581,283.08,
   # no new state; NVRH, Grace Cottage and Gifford Medical Center cite their CAH
   # CCNs: 1,308 / $1,213,341,798.50 / 32.
-  if (nrow(rows) != 1308L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1213341798.50) > 0.005 ||
+  # Session 98: + CMS obligation-report rows on the owner's 10-12 rulings
+  # (R/03cb), 5 rows / $3,124,401.49, no new state; CHI Health St Marys x2
+  # cites its CAH CCN 281342: 1,313 / $1,216,466,199.99 / 32.
+  if (nrow(rows) != 1313L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1216466199.99) > 0.005 ||
       dplyr::n_distinct(rows$state) != 32L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,308 rows / $1,213,341,798.50 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,313 rows / $1,216,466,199.99 ",
          "/ 32 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

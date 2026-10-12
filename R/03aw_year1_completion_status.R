@@ -217,7 +217,7 @@ Y1_STATUS <- tibble::tribble(
 
   "OR", "PARTIAL", "No", "Yes",
   "2026-07-07",
-  "OHA: 'Oregon has SO FAR awarded about $175.3 million'. Immediate Impact Wave 2 names 21 of its stated 33 projects, and the Tribal ($21.7M) and LPHA ($5M) pools name nobody (session 17).",
+  "OHA: 'Oregon has SO FAR awarded about $175.3 million'. Immediate Impact Wave 2 names 21 of its stated 33 projects, and the Tribal ($21.7M) and LPHA ($5M) pools name nobody (session 17). DENOMINATOR FOOTNOTE (session 98, owner ruling 2026-10-12): the share is on the FY2026 allotment, $197,271,578. CMS's Obligated Funds Report gives Oregon a Budget Period 1 award of $192,271,577.67, $5,000,000.33 less and the only state that differs beyond rounding (cms_obligations_bp1_allotment_reconciliation.csv). Every Oregon source read states $197,271,577.67 (OHA's CMS footer, 2026-04-10 to 2026-08-28; 'Oregon is receiving a total of $197.3 million in 2026'; OHA's June 2026 legislative deck, 'unrestricted all funds on March 19, 2026'), and none explains a $5M difference. On the BP1 figure each Oregon percentage here would be about 2.6% higher.",
   "data/evidence/OR/2026-07-07_oha_news_release.html; data/evidence/OR/2026-08-28_oha_rhtp_awards_page.html",
 
   "MS", "PARTIAL", "No", "Yes",

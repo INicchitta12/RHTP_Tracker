@@ -517,6 +517,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Grace Cottage Family Health bridge $347,098.80 at LOW), no new state;
   # Kentucky's LCDHD row is a local health department and adds no hospital
   # row: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
+  # Session 98: + CMS obligation-report rows on the owner's 10-12 rulings
+  # (R/03cb): Mayo Clinic $120,000, CHI Health St Marys x2 $40,824.49 and The
+  # Guthrie Clinic x2 $2,963,577 -- 5 rows / $3,124,401.49, no new state:
+  # 1,313 / $1,216,466,199.99 / 32. Subtracted first.
+  expect_equal(named$rows, 1313L)
+  expect_equal(named$states, 32L)
+  expect_equal(round(named$dollars, 2), 1216466199.99, tolerance = 0)
+  named$rows <- named$rows - 5L
+  named$dollars <- named$dollars - 3124401.49
   expect_equal(named$rows, 1308L)
   expect_equal(named$states, 32L)
   expect_equal(round(named$dollars, 2), 1213341798.50, tolerance = 0)
@@ -599,7 +608,12 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   expect_equal(round(named$dollars - 57535763.79 - 145000 - 80696969.67, 2),
                706793189.86, tolerance = 0)
 
-  expect_equal(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 50008264)
+  # Session 98: + HARI ($15,839,907.67, 2 rows) and the Nebraska Hospital
+  # Association ($3,474,937.50) on CMS obligation lines, owner-ruled, tagged
+  # CMS_OBLIGATION_ASSOCIATION. Subtracted, ICAHN's figure is what remains.
+  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 2), 69323109.17)
+  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"] - 15839907.67 -
+                       3474937.50, 2), 50008264)
   # POOL_NAMED_HOSPITALS is Nebraska alone again (session 51) -- one Tier 3
   # award -- and did NOT gain anything from session 49.
   # Session 54: + Connecticut's unsplit Hartford HealthCare pair, $12,650,000,

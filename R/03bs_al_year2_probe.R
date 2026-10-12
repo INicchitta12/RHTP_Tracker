@@ -41,9 +41,10 @@
 #     Medicine, mobile wellness/grocery units, or awards.
 #   * home, adeca -- name-diffed; TRIP on the same new-sentence pattern.
 #   * governor -- the Governor's newsroom index, the AWARD channel. NOT
-#     name-diffed (an index moves weekly, §2.3); TRIPS on any NEW headline
-#     about the Rural Health Transformation Program. Both existing ARHTP
-#     headlines are in the baseline, so only a third can fire.
+#     name-diffed (an index moves weekly, §2.3); TRIPS on any NEW dated
+#     headline about the Rural Health Transformation Program (diffed by
+#     headline, not sentence: see al_governor_headlines()). The 10-01 ARHTP
+#     headline is in the baseline, so only a new one can fire.
 #
 # §0.1 CONTROL, RECORDED SO IT IS NOT MISREAD: ADECA's own newsroom is a
 # stream of named, priced Governor's grants (CDBG, ARC, Coverdell) that are
@@ -77,6 +78,25 @@ AL_WATCH_WORDS <- paste0("\\bcommunity medicine\\b|\\bmobile (wellness|grocery|"
 AL_GOVERNOR_WORDS <- paste0("\\brural health transformation\\b|\\barhtp\\b|",
                             "\\bcommunity medicine\\b")
 
+# THE GOVERNOR'S INDEX IS DIFFED BY HEADLINE, NOT BY SENTENCE (10-08). The
+# index has no full stops between items, so the reduced page is one long
+# "sentence": any new headline at all made the whole page a new sentence, and
+# it still carried the 10-01 ARHTP headline, so the first Routine firing
+# (2026-10-08 14:42Z) tripped on a storm declaration and a flag notice. Each
+# item opens with its date ("10.1.2026 Governor Ivey Announces ..."), so the
+# page is split there and only an ARHTP item absent from the archive fires.
+al_governor_headlines <- function(text) {
+  items <- stringr::str_split(text, "(?=\\b\\d{1,2}\\.\\d{1,2}\\.20\\d{2} )")[[1]]
+  items <- stringr::str_squish(substr(items, 1, 160))
+  items[stringr::str_detect(items, stringr::regex("^\\d{1,2}\\.\\d{1,2}\\.20\\d{2} ")) &
+          stringr::str_detect(items, stringr::regex(AL_GOVERNOR_WORDS,
+                                                    ignore_case = TRUE))]
+}
+
+al_new_governor_headlines <- function(live, arch) {
+  setdiff(al_governor_headlines(live), al_governor_headlines(arch))
+}
+
 al_assert_watch <- function(live, arch) {
   rhtp_watch_require(live$resources, AL_ANCHOR, AL_STATE, "resources")
   why <- paste("Community Medicine, ARHTP's eleventh initiative, begins in",
@@ -87,11 +107,14 @@ al_assert_watch <- function(live, arch) {
     rhtp_watch_forbid_new(live[[k]], arch[[k]], AL_WATCH_WORDS, AL_STATE, k,
                           why)
   }
-  rhtp_watch_forbid_new(live$governor, arch$governor, AL_GOVERNOR_WORDS,
-                        AL_STATE, "governor",
-                        paste("A NEW ARHTP headline on the Governor's",
-                              "newsroom, Alabama's award channel. Open it and",
-                              "extract any named roster."))
+  new_heads <- al_new_governor_headlines(live$governor, arch$governor)
+  if (length(new_heads)) {
+    stop("[", AL_STATE, "] 'governor' HAS ", length(new_heads), " NEW ARHTP ",
+         "HEADLINE(S): ", paste0("\"", rhtp_watch_quote(new_heads), "\"",
+                                 collapse = " | "),
+         ". A NEW ARHTP headline on the Governor's newsroom, Alabama's award ",
+         "channel. Open it and extract any named roster.", call. = FALSE)
+  }
   invisible(TRUE)
 }
 
