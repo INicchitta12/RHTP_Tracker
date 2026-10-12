@@ -226,16 +226,17 @@ test_that("SESSION 92: SharePoint's hidden admin zone and zero-width residue are
   expect_identical(ky_strip_hidden_zone("<p>no zone</p>"), "<p>no zone</p>")
 })
 
-test_that("session 94: Kentucky's award file is R/03by's, one named row at no amount", {
+test_that("session 94: Kentucky's award file is R/03by's, named rows at no amount", {
   # This test asserted NO award file until LCDHD was named RCH Hub Lead. The
   # file is written by R/03by, never by this probe, which still watches the
   # other two Hubs and the RFAs.
   p <- here::here("data", "reference", "ky_year1_awardees.csv")
   expect_true(file.exists(p))
   d <- readr::read_csv(p, show_col_types = FALSE, progress = FALSE)
-  expect_equal(nrow(d), 1L)
+  # Session 99: Purchase District Health Department is row 2.
+  expect_equal(nrow(d), 2L)
   expect_true(all(is.na(d$amount)))
-  expect_equal(d$validator, "R/03by_ky_rch_awardees.R")
+  expect_true(all(d$validator == "R/03by_ky_rch_awardees.R"))
 })
 
 test_that("Kentucky reads EXTRACTED in both rebuilt tables (session 94)", {

@@ -237,9 +237,9 @@ test_that("the Rural Strong contracts named on OpenSD are INSIDE the round, neve
   in_rs <- contracts[contracts$round_id %in% "RS", ]
   expect_equal(rs$named_elsewhere_grants, nrow(in_rs))
   expect_equal(rs$named_elsewhere_amount, sum(in_rs$amount))
-  expect_equal(rs$named_elsewhere_grants, 14L)    # session 86 (2026-10-02)
-  expect_equal(rs$named_elsewhere_amount, 15967960)
-  expect_equal(rs$round_amount, 31500000)          # NOT 31,500,000 - 15,967,960
+  expect_equal(rs$named_elsewhere_grants, 18L)    # session 99 (2026-10-12)
+  expect_equal(rs$named_elsewhere_amount, 25012010)
+  expect_equal(rs$round_amount, 31500000)          # NOT 31,500,000 - 25,012,010
   expect_equal(rs$recipient_confirmed, "No")       # the release still names nobody
   expect_equal(rs$disbursement_status, "CONTRACTS_PARTLY_POSTED")
   td <- records[records$round_id == "TD", ]

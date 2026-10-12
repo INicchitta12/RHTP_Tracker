@@ -520,7 +520,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # awardees typed on exact CMS Nebraska Hospital Enrollment records.
   # 14,431,595.82 on DHHS's notices + 160,824.49 on CMS obligation lines
   # (Mayo Clinic, CHI Health St Marys x2; session 98, R/03cb).
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 14592420.31)
+  # + 342,079.10 in session 99: Regional West and Chase County infection-
+  # prevention CMS obligation lines (owner-approved, R/03cb).
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 14934499.41)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at

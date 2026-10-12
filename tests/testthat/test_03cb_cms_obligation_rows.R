@@ -27,13 +27,16 @@ test_that("a rebuild from the committed parse reproduces the committed files", {
 
 test_that("the ruled figures, pinned", {
   ne <- rd("NE"); pa <- rd("PA"); ri <- rd("RI")
-  expect_equal(nrow(ne), 4L); expect_equal(nrow(pa), 2L); expect_equal(nrow(ri), 104L)
+  # Session 99: + Regional West and Chase County infection-prevention lines.
+  expect_equal(nrow(ne), 6L); expect_equal(nrow(pa), 2L); expect_equal(nrow(ri), 104L)
   amt <- function(d, who) round(sum(as.numeric(d$amount[d$awardee == who])), 2)
   expect_equal(amt(ri, "Hospital Association of Rhode Island"), 15839907.67)
   expect_equal(amt(ne, "Nebraska Hospital Association"), 3474937.50)
   expect_equal(amt(pa, "The Guthrie Clinic"), 2963577.00)
   expect_equal(amt(ne, "Mayo Clinic"), 120000)
   expect_equal(amt(ne, "CHI Health St Marys"), 40824.49)
+  expect_equal(amt(ne, "Regional West Medical Center"), 254347)
+  expect_equal(amt(ne, "Chase County Community Hospital"), 87732.10)
   expect_equal(round(sum(as.numeric(ri$amount)), 2), 78727110.44)
 
   assoc <- dplyr::bind_rows(ne, ri) %>%

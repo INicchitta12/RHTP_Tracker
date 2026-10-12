@@ -29,7 +29,11 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # and CDM (4) -- each now carrying a verdict in EH_APPLY: 46 -> 61.
   # Session 98: + CHI Health St Marys x2 (R/03cb, CMS obligation lines),
   # applied as DBA_OF_LEGAL_ENTITY: 61 -> 63.
-  expect_equal(nrow(sw), 63L)
+  # Session 99: + OK EMS/CP's five exact-name hospital rows (Choctaw Nation,
+  # Newman, Northeastern, Purcell x2; INTEGRIS Miami is a DBA bridge the
+  # legal-name sweep does not reach) and NE's Regional West and Chase County
+  # CMS lines: 63 -> 70.
+  expect_equal(nrow(sw), 70L)
   expect_setequal(EH_READ_NOT_APPLIED$verdict, "DIFFERENT_LEGAL_BODY")
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
@@ -46,7 +50,7 @@ test_that("an unread sweep hit fails the build", {
   expect_error(eh_assert_read(fake), "no hand-read")
 })
 
-test_that("59 rows / $95,885,249.27 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
+test_that("67 rows / $96,227,328.37 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
   # Session 71: 33 rows / $63,240,239.84, 25 / $53,539,221.31 AHCs. Session
   # 83: + National Jewish Health (MI, $435,000, not an AHC) and Alabama round
   # 2's UAB x3 and USA x2 ($6,687,166, all AHCs): 39 / $70,362,405.84.
@@ -55,9 +59,19 @@ test_that("59 rows / $95,885,249.27 typed on enrolment, 30 / $60,226,387.31 of t
   # (5 / $6,582,127.94); none is an AHC. Mercy has no enrolment and no match.
   # Session 98: + CHI Health St Marys x2 on CMS obligation lines (R/03cb),
   # DBA_OF_LEGAL_ENTITY, $40,824.49, not an AHC: 59 / $95,885,249.27.
-  expect_equal(nrow(eff), 59L)
-  expect_equal(round(sum(eff$amount, na.rm = TRUE), 2), 95885249.27)
-  s98 <- eff[eff$file == "ne_cms_obligation_awardees.csv", ]
+  # Session 99: + OK EMS/CP (6 rows, $0: five EXACT_LEGAL_NAME, INTEGRIS Miami
+  # DBA_OF_LEGAL_ENTITY) and NE's Regional West and Chase County CMS lines
+  # (2 / $342,079.10, EXACT_LEGAL_NAME): 67 / $96,227,328.37.
+  expect_equal(nrow(eff), 67L)
+  expect_equal(round(sum(eff$amount, na.rm = TRUE), 2), 96227328.37)
+  s99 <- eff[eff$file == "ok_year1_ems_cp_awardees.csv" |
+               eff$awardee %in% c("Regional West Medical Center",
+                                  "Chase County Community Hospital"), ]
+  expect_equal(nrow(s99), 8L)
+  expect_equal(round(sum(s99$amount, na.rm = TRUE), 2), 342079.10)
+  expect_equal(sum(s99$match != "EXACT_LEGAL_NAME"), 1L)
+  s98 <- eff[eff$file == "ne_cms_obligation_awardees.csv" &
+               eff$awardee == "CHI Health St Marys", ]
   expect_equal(nrow(s98), 2L)
   expect_equal(round(sum(s98$amount), 2), 40824.49)
   expect_true(all(s98$match == "DBA_OF_LEGAL_ENTITY" & is.na(s98$subtype)))
@@ -236,6 +250,13 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # no new state: 1,308 / $1,213,341,798.50 / 32. Subtracted first.
   # Session 98: + CMS obligation-report rows (R/03cb, owner rulings 10-12):
   # 5 rows / $3,124,401.49, no new state: 1,313 / $1,216,466,199.99 / 32.
+  # Session 99: + 12 rows / $8,668,315.59 (SD bridges, AK revisions, OK BHI
+  # and EMS/CP, NE CMS lines), no new state: 1,325 / $1,225,134,515.58 / 32.
+  expect_equal(n$rows, 1325L)
+  expect_equal(round(n$dollars, 2), 1225134515.58)
+  expect_equal(n$states, 32L)
+  n$rows <- n$rows - 12L
+  n$dollars <- n$dollars - 8668315.59
   expect_equal(n$rows, 1313L)
   expect_equal(round(n$dollars, 2), 1216466199.99)
   expect_equal(n$states, 32L)

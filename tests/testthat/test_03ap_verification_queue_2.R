@@ -521,6 +521,17 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # (R/03cb): Mayo Clinic $120,000, CHI Health St Marys x2 $40,824.49 and The
   # Guthrie Clinic x2 $2,963,577 -- 5 rows / $3,124,401.49, no new state:
   # 1,313 / $1,216,466,199.99 / 32. Subtracted first.
+  # Session 99: + the owner-approved rosters and lines -- SD's 10-12 register
+  # (3 rows / $7,789,960, hand-read CMS bridges, LOW), AK's 10-12 notice (0
+  # rows / +$446,104.96 of revisions), OK Behavioral Health (Mercy, 1 /
+  # $90,171.53) and EMS/CP (6 rows / $0), NE's Regional West and Chase County
+  # CMS lines (2 / $342,079.10) -- 12 rows / $8,668,315.59, no new state:
+  # 1,325 / $1,225,134,515.58 / 32. Subtracted first.
+  expect_equal(named$rows, 1325L)
+  expect_equal(named$states, 32L)
+  expect_equal(round(named$dollars, 2), 1225134515.58, tolerance = 0)
+  named$rows <- named$rows - 12L
+  named$dollars <- named$dollars - 8668315.59
   expect_equal(named$rows, 1313L)
   expect_equal(named$states, 32L)
   expect_equal(round(named$dollars, 2), 1216466199.99, tolerance = 0)

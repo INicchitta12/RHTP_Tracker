@@ -122,12 +122,13 @@ test_that("Alaska's growth is folded in, and the check compares to the CSV", {
   # Session 75: the committed file is the 2026-09-28 snapshot, 249 rows, and
   # the two awards Alaska WITHDREW are on this file's 08-29 download but are
   # hand-read in R/03h's AK_WITHDRAWN, so they are not counted as new.
+  # Session 99: the committed file is the 2026-10-12 snapshot, 254 rows.
   ak <- suppressMessages(recheck_ak())
-  expect_equal(ak$committed_rows, 249L)
+  expect_equal(ak$committed_rows, 254L)
   expect_equal(ak$live_rows, 185L)
   expect_length(ak$new_ids, 0L)
   expect_setequal(RECHECK_AK_WITHDRAWN, c("BP1-IA-034", "BP1-IA-057"))
-  expect_equal(ak$committed_total, 242620741.15, tolerance = 1e-9)
+  expect_equal(ak$committed_total, 248976547.51, tolerance = 1e-9)
   expect_equal(ak$live_total, 181871366, tolerance = 1e-6)
 })
 
@@ -150,12 +151,15 @@ test_that("the growth session 21 found is recorded where it happened", {
   # pinned here is the current transition; session 21's is pinned against the
   # anchor in test_03h_ak_year1_awardees.R, where both documents are.
   # Session 75: 2026-09-21 -> 2026-09-28, 7 added, 5 revised, 2 withdrawn.
+  # Session 99: 2026-09-28 -> 2026-10-12, 5 added ($4,843,430.79), 19
+  # revised (net +$1,512,375.57), none withdrawn.
   growth <- rhtp_ak_growth()
-  expect_equal(growth$prior_rows, 244L)
-  expect_equal(growth$rows, 249L)
-  expect_equal(nrow(growth$added), 7L)
-  expect_equal(growth$added_total, 6898848.42, tolerance = 1e-9)
-  expect_equal(growth$revised_delta, -1798271, tolerance = 1e-9)
+  expect_equal(growth$prior_rows, 249L)
+  expect_equal(growth$rows, 254L)
+  expect_equal(nrow(growth$added), 5L)
+  expect_equal(growth$added_total, 4843430.79, tolerance = 1e-9)
+  expect_equal(growth$revised_delta, 1512375.57, tolerance = 1e-9)
+  expect_length(growth$vanished, 0L)
 })
 
 test_that("Alaska's own document corroborates the growth", {
@@ -173,7 +177,10 @@ test_that("the growth was not fully explained by the new awards", {
   growth <- rhtp_ak_growth()
   prior <- rhtp_ak_parse_awards(here::here(AK_EVIDENCE_DIR, AK_PRIOR_FILE))
   withdrawn <- sum(prior$amount[prior$app_id %in% growth$vanished])
-  expect_lt(growth$total - growth$prior_total, growth$added_total)
+  # Session 99: the change exceeds the new awards ($6,355,806.36 against
+  # $4,843,430.79) because 19 existing awards were revised upward on net. Either
+  # way it is NOT the new awards alone, which is the finding this test guards.
+  expect_gt(abs((growth$total - growth$prior_total) - growth$added_total), 1)
   expect_equal(growth$total - growth$prior_total,
                growth$added_total - withdrawn + growth$revised_delta,
                tolerance = 1e-6)
@@ -247,7 +254,7 @@ test_that("the re-check writes only its own summary", {
   ak <- readr::read_csv(here::here("data/reference/ak_year1_awardees.csv"),
                         show_col_types = FALSE, progress = FALSE)
   expect_equal(nrow(ga), 158L)
-  expect_equal(nrow(ak), 249L)
+  expect_equal(nrow(ak), 254L)
 })
 
 test_that("the committed summary CSV matches what the checks produce today", {

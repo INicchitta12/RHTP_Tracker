@@ -304,10 +304,14 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 98: + CMS obligation-report rows on the owner's 10-12 rulings
   # (R/03cb), 5 rows / $3,124,401.49, no new state; CHI Health St Marys x2
   # cites its CAH CCN 281342: 1,313 / $1,216,466,199.99 / 32.
-  if (nrow(rows) != 1313L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1216466199.99) > 0.005 ||
+  # Session 99: + 12 rows / $8,668,315.59 (SD's 10-12 register bridges, AK
+  # revisions, OK BHI and EMS/CP, NE Regional West and Chase County CMS
+  # lines), no new state; Chase County (CCN 281351) and OK EMS/CP's Newman
+  # (CCN 371336) cite CAH CCNs: 1,325 / $1,225,134,515.58 / 32.
+  if (nrow(rows) != 1325L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1225134515.58) > 0.005 ||
       dplyr::n_distinct(rows$state) != 32L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,313 rows / $1,216,466,199.99 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,325 rows / $1,225,134,515.58 ",
          "/ 32 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

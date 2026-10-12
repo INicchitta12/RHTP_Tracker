@@ -82,10 +82,13 @@ test_that("NH: both anchors are in the baseline and it passes", {
   expect_true(nh_assert_watch(nh, nh))
 })
 
-test_that("NH: the hospital RFA leaving 'Coming Soon' trips", {
-  l <- nh; l$fhc <- sub("Acute Care Hospital Coming Soon",
-                        "Acute Care Hospital Open", l$fhc, fixed = TRUE)
-  expect_error(nh_assert_watch(l, nh), "Coming Soon")
+test_that("NH: the hospital RFA's Mid-December award date moving trips", {
+  # Session 99: the RFA is Open; the anchor is now its award date.
+  l <- nh; l$fhc <- sub("Notification of Award (Initial Cohort) Mid December 2026",
+                        "Notification of Award (Initial Cohort) January 2027",
+                        l$fhc, fixed = TRUE)
+  expect_false(identical(l$fhc, nh$fhc))
+  expect_error(nh_assert_watch(l, nh), "Mid December")
 })
 
 test_that("NH: naming subrecipients trips; FHC's baseline award language does not", {
