@@ -1459,6 +1459,45 @@ rhtp_cms_press_run <- function(fetch_date = Sys.Date(), force = FALSE,
                  only_newsroom = only_newsroom, only_medicaid = only_medicaid))
 }
 
+# -- The obligation-report watch (session 97) ---------------------------------
+#
+# CMS posted its "RHTP Obligated Funds Report" (data as of 2026-07-31) on the
+# medicaid.gov resources page on 2026-10-08, and says it "will update this
+# information following the submission of the November 30, 2026 Quarterly
+# Report and will refresh the data quarterly thereafter". The resources page
+# is the page this monitor already archives, so the watch reads the link list
+# of that archive: a report file name not in the known set is CHANGED, and
+# from OBLIGATION_REFRESH_DUE onward the absence of one is said in the note.
+# A new report is archived by hand under data/raw/cms/obligations/<as-of>/
+# and parsed by R/00c, never by this monitor.
+CMS_OBLIGATION_REPORTS_KNOWN <- c("RHTP-Obligated-Funds-10082026.pdf")
+CMS_OBLIGATION_REFRESH_DUE   <- as.Date("2026-12-07")
+
+#' Obligation-report file names linked from an archived resources page
+rhtp_cms_obligation_links <- function(path = rhtp_cms_press_newest_archive()) {
+  if (is.null(path) || !file.exists(path)) return(character(0))
+  html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  hrefs <- stringr::str_match_all(html, "href=\"([^\"]+)\"")[[1]][, 2]
+  hits <- hrefs[stringr::str_detect(hrefs, stringr::regex("oblig", ignore_case = TRUE))]
+  unique(basename(sub("[?#].*$", "", hits)))
+}
+
+#' The obligation-report verdict row, in `rhtp_probe_log()`'s shape
+rhtp_cms_obligation_verdict <- function(links = rhtp_cms_obligation_links(),
+                                        today = Sys.Date()) {
+  new <- setdiff(links, CMS_OBLIGATION_REPORTS_KNOWN)
+  if (length(new)) {
+    return(tibble::tibble(verdict = "CHANGED", page = "obligation_report",
+                          note = paste0("NEW CMS obligation report linked: ", paste(new, collapse = " "),
+                                        ". Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.")))
+  }
+  tibble::tibble(verdict = "UNCHANGED", page = "obligation_report",
+                 note = if (today >= CMS_OBLIGATION_REFRESH_DUE) {
+                   paste0("No refreshed obligation report yet (due after the 2026-11-30 quarterly report; check from ",
+                          CMS_OBLIGATION_REFRESH_DUE, "). Linked: ", paste(links, collapse = " "))
+                 } else NA_character_)
+}
+
 
 #' The run's verdict, in the shape `rhtp_probe_log()` takes
 #'
@@ -1550,7 +1589,11 @@ if (sys.nframe() == 0L) {
                          sources = sources),
       error = function(e) e)
     if (run_type == "PRODUCTION" && sources == "both") {
-      rhtp_probe_log("CMS", rhtp_cms_press_verdict(res))
+      # Session 97: a second row watches the obligation report's link.
+      obl <- tryCatch(rhtp_cms_obligation_verdict(), error = function(e)
+        tibble::tibble(verdict = "ERROR", page = "obligation_report",
+                       note = stringr::str_trunc(conditionMessage(e), 300)))
+      rhtp_probe_log("CMS", dplyr::bind_rows(rhtp_cms_press_verdict(res), obl))
     }
     if (inherits(res, "error")) stop(res)
   } else if ("--parse" %in% args) {
