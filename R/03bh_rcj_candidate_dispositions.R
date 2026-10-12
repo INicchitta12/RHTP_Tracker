@@ -194,6 +194,13 @@ DISPO_HAND_READ <- tibble::tribble(
   "AK", "", "^Arete Family Care$", "",
   "Awards Alaska has withdrawn", "RHTP_SUBAWARD_WITHDRAWN_BY_STATE",
   "{rows} row(s), {amount}. BP1-IA-057, present in every snapshot through 2026-09-21 and absent from 2026-09-28 with no statement why; hand-read into AK_WITHDRAWN in R/03h and not in the file. Evidence: data/evidence/AK/2026-09-21_ak_rhtp_awardsnotice_2026.xlsx against 2026-09-28. {new} first seen after 08-27.",
+  # Session 99: Alaska's 2026-10-12 refresh revised 19 preliminary figures;
+  # sixteen of them are rows RCJ's 09-24 pull carries at the old figure (the
+  # other three -- Eastern Aleutian Tribes, ANTHC BP1-IA-033 and True North's
+  # $0.33 -- are covered above or within tolerance).
+  "AK", "", "^(Central Area Rural Transit System, Inc\\. \\(CARTS\\)|Department of Corrections|Department of Education and Early Development|Fairbanks Integrated Community Services, INC|Galena City School District|Knik Tribal Council|My House|Ophthalmic Associates|PeaceHealth Ketchikan Medical Center|Prince of Wales Health Network|Providence Health & Services- Washington|Tanana Chiefs Conference|Tangirnaq Native Village|Upstream Family Medicine Inc|Yukon-Kuskokwim Health Corporation)$", "",
+  "Preliminary figures Alaska revised in its 2026-10-12 notice", "RHTP_SUBAWARD_IN_FILE_AMOUNT_REVISED_BY_STATE",
+  "{rows} row(s), {amount}. Rows RCJ carries at a pre-2026-10-12 figure that Alaska's own preliminary amount has since moved (same App IDs): BP1-PL-010 CARTS $246,050 -> $250,000; BP1-INT-11 Corrections $3,882,015.88 -> $3,882,215.82; BP1-INT-22 Education and Early Development $1,150,000 -> $2,900,000; BP1-IA-138 FICS $1,318,960 -> $1,313,360; BP1-IA-145 Galena $90,665 -> $89,118; BP1-IA-181 Knik $881,588 -> $901,589.45; BP1-IA-219 My House $965,974.17 -> $965,836; BP1-IA-244 Ophthalmic Associates $3,700,000 -> $3,606,476; BP1-IA-254 PeaceHealth Ketchikan $6,518,028.80 -> $6,967,728.14; BP1-IA-262 Prince of Wales $276,815 -> $274,477; BP1-IA-266 Providence $871,718.47 -> $853,955.58; BP1-IA-330 TCC $2,364,259 -> $2,361,188; BP1-IA-333 Tangirnaq $190,954 -> $178,766.50; BP1-IA-349 Upstream $250,000 -> $249,828.66; BP1-IA-359 YKHC $998,680 -> $414,400; BP1-IA-362 YKHC $2,712,511.49 -> $2,726,680. The file carries the current figure. Evidence: data/evidence/AK/2026-10-12_ak_rhtp_awardsnotice_2026.xlsx. {new} first seen after 08-27.",
   # ---- Alabama --------------------------------------------------------------
   "AL", "", "^St\\. Clair Community Health Clinic", "",
   "St. Clair Community Health Clinic, whose 'St.' the source dropped", "RHTP_SUBAWARD_IN_FILE_UNDER_THE_SOURCE_SPELLING",
