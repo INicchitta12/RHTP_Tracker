@@ -280,7 +280,13 @@ EH_APPLY <- tibble::tribble(
   # --- CMS obligation-report rows (session 98, R/03cb) -------------------------
   "ne_cms_obligation_awardees.csv", "CHI Health St Marys", 2L,
     "281342", "ST MARYS COMMUNITY HOSPITAL (dba CHI HEALTH ST MARYS; CAH, Nebraska City)",
-    "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: CMS's obligation report prints the enrolled hospital's exact DBA; the report states no form, and the owner ruled it typed on its enrolment (2026-10-12), LOW (session 98). "
+    "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: CMS's obligation report prints the enrolled hospital's exact DBA; the report states no form, and the owner ruled it typed on its enrolment (2026-10-12), LOW (session 98). ",
+  "ne_cms_obligation_awardees.csv", "Regional West Medical Center", 1L,
+    "280061", "REGIONAL WEST MEDICAL CENTER (Scottsbluff)",
+    "EXACT_LEGAL_NAME", FALSE, "CMS's obligation report prints the enrolled hospital's exact legal name; owner-approved infection-prevention line (session 99). ",
+  "ne_cms_obligation_awardees.csv", "Chase County Community Hospital", 1L,
+    "281351", "CHASE COUNTY COMMUNITY HOSPITAL (CAH, Imperial)",
+    "EXACT_LEGAL_NAME", FALSE, "CMS's obligation report prints the enrolled hospital's exact legal name; owner-approved infection-prevention line (session 99). "
 )
 
 #' Sweep hits HELD: the awarding state's own document states a different form.
