@@ -417,4 +417,19 @@ Nothing was coded. If Delaware publishes the Initiative 9 contract, it is a univ
 
 ## Suite
 
-`Rscript tests/run_tests.R` on this branch, after every change above. Result: see the final section appended at the end of the run.
+`Rscript tests/run_tests.R` on this branch, after every change above.
+
+**Final run (commit `e26ed23`): 10,091 passed, 0 failed, 1 skipped.** The skip is the CMS first-run branch, `test_00_cms_press_monitor.R:188`, as expected.
+
+**Run 1: about 60 failures, all expected consequences of the session's data changes.**
+- **Pins on pre-session figures.** The AK transition, the SD and NE CMS counts, the KY row count, and the NAMED_HOSPITAL partition layers in `03ap`, `03bj` and `03ar`.
+- **Three probe tests written against the anchors this session changed:** NH "Coming Soon", ND's one Awarded heading, and WA's live SUBAWARD footer.
+
+**How each was handled.** Each partition test gained a session-99 layer, +12 rows / +$8,668,315.59, that subtracts back to session 98's figures, as session 98 did. The probe tests now test the new anchors with the same strictness. No existing pin was loosened.
+
+**The rural cut was re-stated.** It is now **264 rows / $267,502,638.43**, up from 262 / $267,414,906.33. The additions are Chase County (CAH, CCN 281351, $87,732.10) and OK EMS/CP's Newman Memorial (CAH, $0).
+
+**Run 2: one error, in `03bh`.**
+- **The error.** Sixteen Alaska RCJ candidates were still at their pre-10-12 amounts.
+- **The fix.** A hand-read disposition group lists each App ID's old and new figure (session 75's pattern), and the AK and SD disposition CSVs were rebuilt.
+- **Another rebuild artefact.** The `BP1-IA-038` revision note in `ak_year1_awardees.csv` now reads "between the 2026-09-21 and 2026-10-12 snapshots". R/03h dates the note's second bound by the current snapshot, so the bound is wider than the 09-28 the revision actually landed in.
