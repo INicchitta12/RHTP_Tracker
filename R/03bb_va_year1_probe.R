@@ -53,7 +53,7 @@ VA_INTERMEDIATE <- here::here("config", "certs",
 VA_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "vhcf", "https://www.vhcf.org/rural-health/",
-  file.path(VA_DIR, "2026-09-23_vhcf_rural_health.html"), TRUE,
+  file.path(VA_DIR, "2026-10-12_vhcf_rural_health.html"), TRUE,
   "vhha_foundation", "https://vhhafoundation.org/virginia-rural-health-transformation/",
   file.path(VA_RECHECK, "vhha_foundation_rht.html"), TRUE,
   "ways_to_apply", paste0(VA_RHT, "/ways-to-apply/"),
@@ -64,8 +64,12 @@ VA_PAGES <- tibble::tribble(
   file.path("data", "evidence", "VA", "vhcf", "2026-10-05_vhcf_news_index.html"), FALSE)
 
 VA_ANCHORS <- list(
+  # Session 99: VHCF re-dated Provider Productivity by ONE DAY, October 14 ->
+  # October 15, 2026 (the VA Routine's 10-09 10:21Z TRIPWIRE, read 2026-10-12;
+  # the VHCF news index was unchanged, so nothing has been announced). The
+  # baseline is re-based to 2026-10-12; the 09-23 copy stays archived.
   vhcf = paste("VHCF anticipates sharing a Notice of Awards by September 30,",
-               "2026, for Provider Interoperability and October 14, 2026, for",
+               "2026, for Provider Interoperability and October 15, 2026, for",
                "Provider Productivity."),
   vhha_foundation = "Awards announced by October 30, 2026")
 VA_AWARD_WORDS <- "\\baward(s|ed|ee|ees)?\\b|\\brecipients?\\b|\\bselected\\b|\\bgrantees?\\b"

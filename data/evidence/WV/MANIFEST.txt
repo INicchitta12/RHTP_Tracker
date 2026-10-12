@@ -24,3 +24,15 @@ These are award SOURCES for R/03av, not probe baselines.
   https://health.wv.gov/article/governor-morrisey-announces-more-11-million-rural-health-transformation-awards-community
 7df431a036b5a0fb217ee99e3fc6e1f24544813719cde29ea9aa667fae04414f  36275  2026-10-02_wv_art_minnie_hamilton_rhtp_awards.html
   https://health.wv.gov/article/governor-morrisey-announces-more-4-million-rural-health-transformation-awards-minnie
+
+Session 99 (2026-10-12), same agent, bytes as served, checked credential-free.
+2026-10-12_wv_news_index.html is the NEW news-index PROBE BASELINE (the 09-23
+copy stays; tests read it). 2026-10-12_wv_art_32m_rhtp_investments_UNEXTRACTED.html
+is the 2026-09-30 AWARD release the old tripwire missed ("Investments" in its
+headline): seven named recipients, no per-recipient amount; held for the owner
+(WV_READ_UNEXTRACTED in R/03av).
+
+0b4d2c671c880e11d464695749e3dde92e4f513f0f776d7b64ff9dba53c2fa79  50074  2026-10-12_wv_news_index.html
+  https://health.wv.gov/news
+a0889a8e1fabf97fc0aca7e6965bb479edd9f82dd7bda39182bd335151784026  36082  2026-10-12_wv_art_32m_rhtp_investments_UNEXTRACTED.html
+  https://health.wv.gov/article/governor-morrisey-announces-more-32-million-rural-health-transformation-investments

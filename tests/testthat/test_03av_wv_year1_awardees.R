@@ -112,3 +112,23 @@ test_that("both name-diffed pages have a real baseline and are silent on themsel
     expect_silent(rhtp_assert_no_new_organisations(t, t, "WV", k))
   }
 })
+
+
+# -- session 99: the release the old tripwire missed --------------------------
+
+test_that("an RHTP headline trips whatever its verb; the read releases are listed", {
+  arch <- here::here(WV_PROBE_DIR, "2026-10-12_wv_news_index.html")
+  a <- wv_news_articles(arch)
+  inv <- WV_READ_UNEXTRACTED$slug
+  expect_true(inv %in% a$slug)
+  # It says "Investments", not "Award" -- the old test could not see it.
+  expect_false(grepl("award", paste(a$headline[a$slug == inv], inv), ignore.case = TRUE))
+  expect_silent(wv_assert_no_new_award_release(arch))
+  # Without its read-and-held entry, the widened test trips on it.
+  held <- WV_READ_UNEXTRACTED
+  WV_READ_UNEXTRACTED <<- WV_READ_UNEXTRACTED[0, ]
+  on.exit(WV_READ_UNEXTRACTED <<- held)
+  expect_error(wv_assert_no_new_award_release(arch), "NEW AWARD RELEASE")
+  # The USDA WIC grant is excluded with its sentence, never silently.
+  expect_true(all(nzchar(WV_NOT_RHTP$why)))
+})

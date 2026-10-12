@@ -1,1 +1,2 @@
 f06d0badced07d3cad73aa8671f2ca6dc905b281c9956ddbd338de7b3e7022cf  2026-09-23_vhcf_rural_health.html  https://www.vhcf.org/rural-health/  full_page_sha256=effc9e192208c4a47bf999504a6b3c3062ccd9a06daebd65cfa9144f5adfc604  2026-09-23T19:39:12Z
+6e4cb75c6c0a2653b7464d1aec24a4949b50426d69d1e8e2e6a92c8ec2dd83a6  2026-10-12_vhcf_rural_health.html  https://www.vhcf.org/rural-health/  full_page_sha256=7fb782414c61a533cf6bcaeadfb60dd63b5c2731bfbc5371bc9d93abb7f590de  2026-10-12T19:04:07Z
