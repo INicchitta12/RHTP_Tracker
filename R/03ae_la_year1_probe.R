@@ -213,7 +213,22 @@ LA_SOURCES <- tibble::tribble(
 
   "facilities",
   "2026-09-02_la_rhtla_api_facilities_ELIGIBILITY_CONTROL.json",
-  "https://rhtla.net/api/facilities"
+  "https://rhtla.net/api/facilities",
+
+  # SESSION 99: WHERE SR 198's REPORT WILL APPEAR, IF ANYWHERE PUBLIC. Senate
+  # Resolution 198 (2026 RS, Mizell; archived under LA/sr198/) asks LDH for a
+  # report "No later than October 15, 2026" on "proposed program expenditures
+  # for federal Fiscal Year 2026-2027" that "shall include identification of
+  # recipients of funding and the amount of funding allocated". The resolution
+  # names no posting location; R.S. 24:772 routes it by e-mail to the Poynter
+  # Library. LDH's own list of reports to the legislature -- newest first, each
+  # named by its requesting instrument ("HCR 2, 2025 Regular Session") -- is
+  # the one public page a probe can watch. On 2026-10-12 it names SR 198,
+  # "Rural Health Transformation" and "RHTP" ZERO times (newest entry: the
+  # LaCHIP Annual Report, 2026-08-26).
+  "leg_reports",
+  "2026-10-12_la_ldh_legislative_reports_index.html",
+  "https://ldh.la.gov/resources/category/legislative-governmental-relations"
 )
 
 # Every figure Louisiana states, in its own words.
@@ -1089,6 +1104,50 @@ rhtp_la_year1_status <- function() {
           "health care providers and community-based organizations'."),
     "No",
     "37 applications. Application deadline 2026-08-14.",
+
+    # SESSION 99: CMS's 2026-10-09 Louisiana release ("$37.7 Million to Train
+    # and Recruit More Rural Healthcare Workers") and LDH's 2026-10-08 release
+    # (archived LA/sr198/) price two workforce lines that are NOT in LDH's
+    # seven-programme block. Neither names an institution or a campus.
+    NA_character_,
+    "Rural HERO (Rural Healthcare Employment Reinvestment Opportunity)", "LDH, through Louisiana's four public postsecondary systems",
+    "'up to $20 million' (a CEILING; CMS: 'up to $20 million to connect Louisiana's public universities and community and technical colleges with rural healthcare providers')",
+    "ANNOUNCED_NO_RECIPIENT_NAMED", "programmes 'begin in October 2026 and continue through September 30, 2029'",
+    paste("Campus-level programmes 'through Louisiana's four public postsecondary",
+          "systems: the LSU System, Southern University System, University of",
+          "Louisiana System, and Louisiana Community and Technical College",
+          "System'; 'Each participating campus will partner with at least one",
+          "rural health care provider'. Universities and colleges, never a",
+          "hospital type; a partner provider is not a recipient (§7)."),
+    "No",
+    paste("LDH 2026-10-08 ('Louisiana invests $37.7 million to strengthen rural",
+          "health care workforce') and CMS 2026-10-09. No campus, college or",
+          "provider is named. Session 99."),
+
+    NA_character_,
+    "Grow Your Own (healthcare career pathways)", "LDH, administered through the Louisiana Community and Technical College System",
+    "'up to $5 million' across 39 campuses",
+    "ANNOUNCED_NO_RECIPIENT_NAMED", "not stated",
+    paste("High-school and incumbent-worker healthcare career pathways 'across",
+          "39 campuses' of LCTCS. A college system, never a hospital type."),
+    "No",
+    paste("LDH 2026-10-08 and CMS 2026-10-09; no campus named. Session 99."),
+
+    NA_character_,
+    "Senate Resolution 198 report to the Senate", "LDH",
+    "not applicable (a report; FY2026-27 PROPOSED expenditures)",
+    "REPORT_DUE_NOT_YET_POSTED", "due 'No later than October 15, 2026'",
+    paste("A report 'that provides the proposed program expenditures for",
+          "federal Fiscal Year 2026-2027' and 'shall include identification of",
+          "recipients of funding and the amount of funding allocated' -- a",
+          "Year 2 PLAN, so any recipient it lists is a lead, not a Year 1 award",
+          "(§0.2/§0.3)."),
+    "UNKNOWN",
+    paste("SR 198 (2026 RS, Mizell), adopted 2026-06-01, 36-0; archived",
+          "LA/sr198/. It names no posting location (R.S. 24:772 routes reports",
+          "by e-mail to the Poynter Library). Watched on LDH's",
+          "legislative-reports list (R/03ae leg_reports; one-time check",
+          "2026-10-16). Session 99."),
 
     NA_character_,
     "Rural Tech Catalyst Fund", "LED / Louisiana Innovation (LA.IO)",
@@ -2069,7 +2128,30 @@ rhtp_la_report <- function() {
 #' every time. Constant-length like California's antispambot() re-roll, so a
 #' byte-count check passes it; attribute-borne like Connecticut's `?v=` stamp,
 #' so the tag-stripping reduction absorbs it for free.
-LA_PROBE_KEYS <- c("programme", "funding", "council")
+LA_PROBE_KEYS <- c("programme", "funding", "council", "leg_reports")
+
+# THE SR 198 TRIPWIRE (session 99). Any mention on LDH's legislative-reports
+# list of the resolution or the programme that the ARCHIVED list does not
+# carry. The report is due 2026-10-15; it is a Year 2 PLAN (proposed FY2026-27
+# expenditures), so what it lists is "funding allocated", never a Year 1
+# award, and it is read under §0.2/§0.3 before anything is extracted.
+LA_SR198_RX <- paste0("(?i)\\b(SR|S\\.R\\.|Senate Resolution)\\s*(No\\.?\\s*)?198\\b|",
+                      "Rural Health Transformation|\\bRHTP\\b")
+
+la_assert_no_sr198_report <- function(live_text, archived_text) {
+  hit <- function(t) unique(regmatches(t, gregexpr(LA_SR198_RX, t, perl = TRUE))[[1]])
+  new <- setdiff(hit(live_text), hit(archived_text))
+  if (length(new)) {
+    stop("[LA] leg_reports: LDH'S LEGISLATIVE-REPORTS LIST NOW MENTIONS ",
+         paste(sQuote(new), collapse = ", "), ". THAT IS THE SIGNAL -- SR 198's ",
+         "report (due 2026-10-15) may be posted. Archive it under LA/sr198/ and ",
+         "READ it: it is a Year 2 PLAN ('proposed program expenditures for ",
+         "federal Fiscal Year 2026-2027'), so its recipients and 'funding ",
+         "allocated' are Tier 1/2 until an award document says otherwise.",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
 
 la_content_digest <- function(body, key) {
   if (key == "council") {
@@ -2130,6 +2212,12 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
     if (!exists("rhtp_pdf_text")) source(here::here("R", "utils_pdf_text.R"))
     stringr::str_squish(paste(rhtp_pdf_text(tmp), collapse = " "))
   } else NULL
+
+  if ("leg_reports" %in% keys) {
+    la_assert_no_sr198_report(la_reduce_html(live$leg_reports),
+                              la_reduce_html(readBin(la_path("leg_reports"), "raw",
+                                                     file.size(la_path("leg_reports")))))
+  }
 
   la_assert_no_award_roster(programme = prog, funding = fund, council = deck)
   la_assert_windows_published(programme = prog, funding = fund)
