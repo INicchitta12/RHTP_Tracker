@@ -42,9 +42,16 @@
 # be partners, and partnership is not receipt (§7's New York rule), so
 # `hospital_benefiting` is Unclear and moves no figure.
 #
-# BIG SANDY AND PURCHASE ARE NOT YET NAMED. R/03af's RCH page is re-based on
-# the 2026-10-07 copy (which carries this headline), so the next Hub Lead is a
-# new organisation string and fires its name tripwire.
+# SESSION 99: PURCHASE IS NAMED; BIG SANDY IS NOT. R/03af's name tripwire
+# fired on FHKY's RCH page during session 99's re-base read: a second "Program
+# News" headline, "Purchase District Health Department Selected to Lead Local
+# Efforts for New Program Supporting Healthier Rural Communities", linking
+# PDHD's own release (PDF, dated October 7th, 2026, archived under KY/rch/).
+# The same shape as LCDHD exactly: a district health department, selected
+# "through a competitive application process", NO amount, and "up to $10
+# million" over the grant period for the Purchase REGION -- a ceiling, text
+# only. Row 2. R/03af's RCH page is re-based on the 2026-10-12 copy (both
+# headlines), so Big Sandy's Hub Lead is the next new string and fires.
 #
 # Usage:
 #   Rscript R/03by_ky_rch_awardees.R --fetch [--force] | --validate | --build | --report
@@ -58,6 +65,7 @@ suppressPackageStartupMessages({
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
 source(here::here("R", "utils_page_watch.R"))
+source(here::here("R", "utils_pdf_text.R"))
 
 KYR_STATE       <- "KY"
 KYR_DIR         <- file.path("data", "evidence", "KY", "rch")
@@ -67,7 +75,24 @@ KYR_FHKY_URL    <- "https://healthy-ky.org/rch"
 # R/03af's re-based copy of FHKY's RCH page (session 94), which carries the
 # "Program News" headline naming LCDHD.
 KYR_FHKY_FILE   <- file.path("data", "evidence", "KY",
-                             "2026-10-07_ky_foundation_healthy_kentucky_rch.html")
+                             "2026-10-12_ky_foundation_healthy_kentucky_rch.html")
+KYR_PDHD_URL    <- paste0("https://purchasehealth.org/wp-content/uploads/2026/10/",
+                          "Purchase-District-Health-Department-Selected-to-Lead-",
+                          "Local-Efforts-for-New-Program-Supporting-Healthier-",
+                          "Rural-Communities.pdf")
+KYR_PDHD        <- file.path(KYR_DIR, "2026-10-12_pdhd_hub_lead_selected.pdf")
+KYR_PDHD_ANNOUNCED <- as.Date("2026-10-07")
+KYR_PDHD_SELECTED <- paste(
+  "Purchase District Health Department (PDHD) has been selected to lead the",
+  "Rural Community Hub for the Purchase region as part of the Rural Community",
+  "Hubs for Chronic Care Innovation Program.")
+KYR_PDHD_CEILING <- paste(
+  "Throughout the grant period, the Purchase region will be eligible to",
+  "receive up to $10 million in federal funding for the Rural Community Hubs",
+  "program to support community health initiatives and Hub operations.")
+KYR_PDHD_HEADLINE <- paste(
+  "Purchase District Health Department Selected to Lead Local Efforts for New",
+  "Program Supporting Healthier Rural Communities")
 KYR_ANNOUNCED   <- as.Date("2026-10-05")
 KYR_NOA_DATE    <- as.Date("2025-12-29")
 KYR_CSV         <- here::here("data", "reference", "ky_year1_awardees.csv")
@@ -119,8 +144,24 @@ kyr_assert_sources <- function() {
     }
   }
   fh <- kyr_text(KYR_FHKY_FILE)
-  if (!grepl(KYR_FHKY_HEADLINE, fh, fixed = TRUE)) {
-    stop("[KY RCH] FHKY's RCH page does not carry the LCDHD headline.",
+  if (!grepl(KYR_FHKY_HEADLINE, fh, fixed = TRUE) ||
+      !grepl(KYR_PDHD_HEADLINE, fh, fixed = TRUE)) {
+    stop("[KY RCH] FHKY's RCH page does not carry both Hub Lead headlines.",
+         call. = FALSE)
+  }
+  # Purchase (session 99): PDHD's release is a PDF, read through the repo's
+  # own PDF reader.
+  pd <- stringr::str_squish(paste(rhtp_pdf_text(here::here(KYR_PDHD)), collapse = " "))
+  # The reader sets the superscript apart: "October 7 th , 2026".
+  for (s in c(KYR_PDHD_SELECTED, KYR_PDHD_CEILING, "October 7 th , 2026",
+              "competitive application process")) {
+    if (!grepl(s, pd, fixed = TRUE)) {
+      stop("[KY RCH] PDHD's release no longer says: '", s, "'.", call. = FALSE)
+    }
+  }
+  pm <- unique(stringr::str_extract_all(pd, "\\$[0-9][0-9,.]*( (million|billion))?")[[1]])
+  if (!setequal(pm, c("$10 million", "$6.1 billion", "$212.9 million"))) {
+    stop("[KY RCH] PDHD's currency figures changed: ", paste(pm, collapse = "; "),
          call. = FALSE)
   }
   # Three currency figures, and only one is about RCH money: "$10 million" is
@@ -141,6 +182,49 @@ kyr_assert_sources <- function() {
 # -- the award file ----------------------------------------------------------
 
 kyr_awardees <- function() {
+  dplyr::bind_rows(kyr_lcdhd(), kyr_pdhd()) %>%
+    dplyr::mutate(row_no = dplyr::row_number())
+}
+
+#' Purchase District Health Department (session 99): LCDHD's row, re-read for
+#' PDHD's own release.
+kyr_pdhd <- function() {
+  kyr_lcdhd() %>%
+    dplyr::mutate(
+      awardee = "Purchase District Health Department",
+      note = paste(
+        "Rural Community Hubs for Chronic Care Innovation: Hub Lead Organization",
+        "for the Purchase region (Ballard, Calloway, Carlisle, Fulton, Graves,",
+        "Hickman, Marshall, McCracken), selected 'through a competitive",
+        "application process' and announced 2026-10-07 (PDHD's release names",
+        "Calloway, Graves and Marshall County Health Departments as partners).",
+        "NO AMOUNT PUBLISHED; 'up to $10 million' over the grant period is a",
+        "CEILING ON THE REGION. Big Sandy's Hub Lead not yet named."),
+      source_document_title = KYR_PDHD_HEADLINE,
+      recipient_type_source = paste0(
+        "TYPED (session 99): a Kentucky district health department -- its own ",
+        "name and its own release (ORG_WEBSITE). Classifier said ",
+        rhtp_classify_recipient_type(awardee, KYR_STATE)$recipient_type, "/",
+        rhtp_confidence_ceiling(rhtp_classify_recipient_type(awardee, KYR_STATE)$determination_confidence), "."),
+      determination_basis = paste0(
+        "§10.2 NON_HOSPITAL on the RECIPIENT (§0.3a): a local health department, ",
+        "not a hospital; partners are not recipients (§7, New York's rule), so ",
+        "hospital_benefiting is Unclear and moves no figure. RECIPIENT NAMED by ",
+        "FHKY's RCH page (headline '", KYR_PDHD_HEADLINE, "') and by PDHD's own ",
+        "release: '", KYR_PDHD_SELECTED, "' Neither is a state agency, hence ",
+        "validation_source_type = OTHER. Found by R/03af's name tripwire, ",
+        "session 99."),
+      amount_basis = paste0(
+        "NOT PUBLISHED. Neither source prints an award amount. The release's ",
+        "only programme figure is a CEILING: '", KYR_PDHD_CEILING, "' It is a ",
+        "maximum, attaches to the REGION, and spans the five-year grant period, ",
+        "so it is held as text only."),
+      amount_ceiling_text = "up to $10 million over the five-year grant period, Purchase region; a ceiling, not an award",
+      announcement_date = KYR_PDHD_ANNOUNCED,
+      source_archive_path = paste(KYR_PDHD, KYR_FHKY_FILE, sep = "; "))
+}
+
+kyr_lcdhd <- function() {
   awardee <- "Lake Cumberland District Health Department"
   rtype <- "LOCAL_GOVT_OR_PUBLIC_HEALTH"
   cls <- rhtp_classify_recipient_type(awardee, KYR_STATE)
@@ -160,7 +244,7 @@ kyr_awardees <- function() {
       "competitive application process' and announced 2026-10-05. NO AMOUNT",
       "PUBLISHED; 'up to $10 million' over the five-year grant period is a",
       "CEILING ON THE REGION, not this award (see amount_ceiling_text). Big",
-      "Sandy and Purchase Hub Leads not yet named."),
+      "Sandy's Hub Lead not yet named; Purchase's is row 2 (session 99)."),
     recipient_confirmed = "Yes",
     amount_confirmed = "No",
     fiscal_year = "FY2026 (Year 1)",
@@ -207,6 +291,8 @@ kyr_awardees <- function() {
     announcement_date = KYR_ANNOUNCED,
     source_archive_path = paste(KYR_RELEASE, KYR_FHKY_FILE, sep = "; "))
 }
+# NOTE (session 99): LCDHD's row now cites the 2026-10-12 FHKY copy, which
+# carries its headline as the 10-07 copy did; the 10-07 copy stays archived.
 
 
 # -- validate / build / report -----------------------------------------------
@@ -214,9 +300,9 @@ kyr_awardees <- function() {
 kyr_validate <- function() {
   kyr_assert_sources()
   d <- kyr_awardees()
-  stopifnot(nrow(d) == 1L, all(is.na(d$amount)),
-            d$recipient_type %in% rhtp_vocabulary("recipient_type"),
-            d$distributed_to_hospital == "No")
+  stopifnot(nrow(d) == 2L, all(is.na(d$amount)),
+            all(d$recipient_type %in% rhtp_vocabulary("recipient_type")),
+            all(d$distributed_to_hospital == "No"))
   message("[KY RCH] all assertions pass.")
   invisible(TRUE)
 }
@@ -225,16 +311,16 @@ kyr_build <- function() {
   kyr_validate()
   d <- kyr_awardees()
   readr::write_csv(d, KYR_CSV, na = "")
-  message("[KY RCH] wrote ", nrow(d), " row to ", KYR_CSV)
+  message("[KY RCH] wrote ", nrow(d), " rows to ", KYR_CSV)
   invisible(d)
 }
 
 kyr_report <- function() {
   d <- kyr_awardees()
   cat("\nKENTUCKY -- Rural Community Hubs, Hub Leads named\n")
-  cat(sprintf("  %s  amount: none published  %s / %s\n", d$awardee,
-              d$recipient_type, d$distributed_to_hospital))
-  cat("  Ceiling (text only):", d$amount_ceiling_text, "\n")
+  cat(sprintf("  %s  amount: none published  %s / %s\n  Ceiling (text only): %s\n",
+              d$awardee, d$recipient_type, d$distributed_to_hospital,
+              d$amount_ceiling_text), sep = "")
   invisible(d)
 }
 

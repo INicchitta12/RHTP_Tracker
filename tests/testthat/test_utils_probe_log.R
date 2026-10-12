@@ -195,7 +195,12 @@ test_that("session 85: a name trip quoting 'Connecticut' logs TRIPWIRE, not ERRO
               "Timeout was reached: [x] Operation timed out after 90000 ms",
               "Could not resolve host: oklahoma.gov",
               "Failed to connect to portal.ct.gov port 443",
-              "Recv failure: Connection reset by peer")) {
+              "Recv failure: Connection reset by peer",
+              # Session 99: Mississippi's 2026-10-09 line, verbatim, which the
+              # classifier logged TRIPWIRE.
+              paste0("\u2139 In index: 4. Caused by error in `curl::curl_fetch_memory()`: ",
+                     "! Server returned nothing (no headers, no data) [medicaid.ms.gov]: ",
+                     "Empty reply from server"))) {
     expect_equal(rhtp_probe_verdict(m), "ERROR", info = m)
   }
 })

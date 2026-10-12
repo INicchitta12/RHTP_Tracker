@@ -49,6 +49,23 @@
 # consultants -- "The T-TAC is not a grant program or funding track" -- and
 # names nobody. Both anchors still held. The 09-28 files stay in the archive.
 #
+# SESSION 99: THE HOSPITAL RFA IS OPEN -- A WATCH DATE, MID-DECEMBER 2026.
+# The 10-07 Routine tripped on the CAH/Acute Care block no longer reading
+# "Coming Soon". Read 2026-10-12: it reads "Open", with "Application Portal
+# Opens Late October 2026 / Initial Application Deadline (Priority Cohort)
+# November 12, 2026, 5:00 PM ET / Notification of Award (Initial Cohort) Mid
+# December 2026". The RFA itself (2026-OCT-1-FHC-CAH-FINAL.pdf, archived under
+# NH/rfa/ with its 10-06 appendices) says "FHC anticipates awarding
+# approximately $17.5 million through this RFA" -- a Tier 2 pool, never a
+# hospital figure. Its lead-applicant class is CAHs, rural licensed hospitals,
+# non-rural hospitals with a rural-directed project, AND "Organizations
+# partnering with an eligible applicant to transform the delivery of hospital
+# care in rural New Hampshire" -- so it is NOT hospitals-only: each award is
+# coded off the award (§10.2, the New York RCHI table), never off the RFA.
+# The "Coming Soon" anchor is replaced by the Mid-December sentence; a new
+# "Home Health and Community Care RFA" is "Coming Soon" (not a hospital RFA).
+# Baselines re-based to 2026-10-12; the 10-02 files stay archived.
+#
 # Usage: Rscript R/03bm_nh_year1_probe.R --fetch | --validate | --probe
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
@@ -62,13 +79,13 @@ NH_DIR <- file.path("data", "evidence", "NH")
 NH_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "fhc", "https://healthynh.org/initiatives/rural-health-transformation-program/",
-  file.path(NH_DIR, "2026-10-02_fhc_go_north_rhtp.html"), TRUE,
+  file.path(NH_DIR, "2026-10-12_fhc_go_north_rhtp.html"), TRUE,
   "cdfa", paste0("https://nhcdfa.org/cdfa-statement-about-the-rural-",
                  "community-health-infrastructure-programs/"),
-  file.path(NH_DIR, "2026-10-02_cdfa_rchip_statement.html"), TRUE)
+  file.path(NH_DIR, "2026-10-12_cdfa_rchip_statement.html"), TRUE)
 
 NH_ANCHORS <- c(
-  "Critical Access Hospital (CAH) and Acute Care Hospital Coming Soon",
+  "Notification of Award (Initial Cohort) Mid December 2026",
   "Notification of Award (initial cohort): Late October")
 NH_AWARD_WORDS <- paste0("\\baward(s|ed|ee|ees)?\\b|\\b(sub)?recipients?\\b|",
                          "\\bselected\\b|\\bgrantees?\\b")
@@ -95,11 +112,12 @@ nh_validate <- function() {
   arch <- lapply(stats::setNames(NH_PAGES$file, NH_PAGES$key),
                  function(f) rhtp_watch_reduce(here::here(f)))
   nh_assert_watch(arch, arch)
-  stopifnot(grepl("FHC is no longer moving forward with this RFA", arch$fhc,
-                  fixed = TRUE),
-            grepl("RFA Expected Published late August", arch$fhc, fixed = TRUE))
+  stopifnot(grepl("Critical Access Hospital (CAH) and Acute Care Hospital Open",
+                  arch$fhc, fixed = TRUE),
+            grepl("Initial Application Deadline (Priority Cohort) November 12, 2026",
+                  arch$fhc, fixed = TRUE))
   message("[NH] the archive carries both anchors and no subrecipient; the ",
-          "CAH/Acute Care RFA is still 'Coming Soon'.")
+          "CAH/Acute Care RFA is OPEN, awards 'Mid December 2026'.")
   invisible(TRUE)
 }
 

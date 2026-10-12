@@ -1297,8 +1297,9 @@ rhtp_fetch_past_firewall <- function(fetch, url,
 #'      so do most phrase tripwires.
 #'   2. Otherwise ERROR only on access-failure WORDS, bounded: "HTTP 403",
 #'      "refused", "timed out", "timeout", "could not resolve", "connection",
-#'      "failed to connect". "Connecticut", "https://" and "unresolved" no
-#'      longer match.
+#'      "failed to connect", and (session 99) curl's "Empty reply from
+#'      server" / "Server returned nothing". "Connecticut", "https://" and
+#'      "unresolved" no longer match.
 rhtp_probe_verdict <- function(msg) {
   # Session 94: a firewall's refusal page is ACCESS, whatever it quotes.
   if (grepl("FIREWALL REJECTION", msg, fixed = TRUE)) return("ERROR")
@@ -1306,7 +1307,12 @@ rhtp_probe_verdict <- function(msg) {
   access <- paste0("\\bHTTP\\s+[0-9]{3}\\b|\\brefused\\b|\\btimed out\\b|",
                    "\\btimeout\\b|\\bcould not resolve\\b|\\bresolve host\\b|",
                    "\\bconnection\\b|\\b(failed|unable) to connect\\b|",
-                   "\\bcouldn't connect\\b|\\bSSL\\b")
+                   "\\bcouldn't connect\\b|\\bSSL\\b|",
+                   # Session 99: curl error 52, medicaid.ms.gov 2026-10-09 --
+                   # "Server returned nothing (no headers, no data) ...: Empty
+                   # reply from server" was logged TRIPWIRE. A host that
+                   # answers nothing says nothing about the state (§0.4).
+                   "\\bempty reply\\b|\\breturned nothing\\b")
   if (grepl(access, msg, ignore.case = TRUE, perl = TRUE)) "ERROR" else "TRIPWIRE"
 }
 

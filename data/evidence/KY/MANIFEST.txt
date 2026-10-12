@@ -1,6 +1,6 @@
 KENTUCKY -- RHTP evidence archive
 
-Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch; three 2026-10-05_* RFAs were added by session 92 and the Accredited Dental Hygiene Programs RFA by session 93. Session 94 re-based the FHKY RCH page (2026-10-07_*); the 2026-09-02 copy stays on disk. rch/ holds R/03by's LCDHD release under its own manifest.
+Fetched 2026-09-02 by R/03af_ky_year1_probe.R --fetch; three 2026-10-05_* RFAs were added by session 92 and the Accredited Dental Hygiene Programs RFA by session 93. Session 94 re-based the FHKY RCH page (2026-10-07_*); the 2026-09-02 copy stays on disk. Session 99 re-based the programme home (2026-10-12_*) the same way. rch/ holds R/03by's LCDHD release under its own manifest.
 Bodies are written with writeBin(), so re-hashing a file on disk
 reproduces its digest below.
 
@@ -11,7 +11,7 @@ SHA-256s. Both are attribute-borne, so ky_reduce_html() absorbs them and
 --probe compares a CONTENT digest. Re-verify with ky_content_digest().
 
 file  bytes  sha256
-2026-09-02_ky_ruralhealthplan_home.html  61219  303491f12c733ad88fcba3eaccff80b72678eddcd6b023edb1a118186658cafb
+2026-10-12_ky_ruralhealthplan_home.html  61587  d4a66b356d9873624910025c71bf04ab338ac2047db58dbdd490b211686359b6
 2026-09-02_ky_ruralhealthplan_funding_opportunities.html  84004  95f8485b8d1a5f892f42bccfefd9b66df26a63ae4529ab8f4a0e5311f3bbdf0c
 2026-09-02_ky_chfs_grant_opportunities.html  97837  35fd0a60dbbcb6e0eaa2377728c553e40bbff5989102998888c6f3e04e1b2d9f
 2026-09-02_ky_rfa_community_health_worker.pdf  246241  a2d845ffafc7cefbdf18265156feb1de4c8a5fdbd3f9cf4beb5a743e7c37e75b
