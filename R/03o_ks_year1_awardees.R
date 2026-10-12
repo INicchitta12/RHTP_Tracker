@@ -1557,7 +1557,26 @@ ks_probe_ebp <- function() {
       !setequal(live_h, kse_hospitals())))
 }
 
+# THE AHAP WATCH (session 98, R/03ca). The Care Collaborative's Anchor
+# Hospital Advancement Program page, live against its archive: a list of the
+# ten anchor hospitals, a residency contract naming anchor hospitals, a new
+# name other than the two RPM pilot sites, or a moved Media Fact Deck link.
+ks_probe_ahap <- function() {
+  if (!exists("ksa_probe", mode = "function")) {
+    source(here::here("R", "03ca_ks_ahap_watch.R"))
+  }
+  Sys.sleep(KS_HOST_THROTTLE_S)
+  ksa_probe()
+}
+
 ks_probe <- function() {
+  # The Care Collaborative's two pages run FIRST (session 98). KDHE's host
+  # answers this container and, on 2026-10-12, the Routine's with Cloudflare
+  # 403s; run last, a KDHE refusal would stop the probe before the AHAP and
+  # EBP tripwires were ever asked. Their trips still raise; a later KDHE
+  # refusal is still logged ERROR, as a fact about our access (§0.4).
+  cc <- dplyr::bind_rows(ks_probe_ebp(), ks_probe_ahap())
+
   live <- purrr::map(KS_PROBE_KEYS, function(k) {
     Sys.sleep(KS_HOST_THROTTLE_S); ks_get_live(k)
   })
@@ -1595,7 +1614,8 @@ ks_probe <- function() {
   # or a sentence saying providers "have received" payments, is the payment
   # list -- the EBP award source. The participant list changing is CHANGED,
   # never a tripwire: enrolment is not receipt.
-  cmp <- dplyr::bind_rows(cmp, ks_probe_ebp())
+  # Both Care Collaborative watches ran first (above); their rows join here.
+  cmp <- dplyr::bind_rows(cmp, cc)
 
   message("[KS] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
