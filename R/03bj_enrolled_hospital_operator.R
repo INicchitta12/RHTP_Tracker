@@ -260,6 +260,23 @@ EH_APPLY <- tibble::tribble(
   "ok_year1_cdm_awardees.csv", "Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital", 1L,
     "370166", "WAGONER HOSPITAL AUTHORITY (dba WAGONER COMMUNITY HOSPITAL)",
     "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; the awardee's entity half is the enrolled legal name (session 86). ",
+  # --- session 99: Oklahoma EMS / community paramedicine (R/03cc), hand-read ---
+  # Unpriced by the source: these rows add ROWS and $0.
+  "ok_year1_ems_cp_awardees.csv", "The Choctaw Nation of Oklahoma", 1L,
+    "370172", "CHOCTAW NATION OF OKLAHOMA (tribal hospital enrolment, Stigler)",
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; the owner's session-87 resolution for the same nation's CDM row applies (session 99). ",
+  "ok_year1_ems_cp_awardees.csv", "Baptist Healthcare of Oklahoma, LLC d/b/a INTEGRIS Miami Hospital", 1L,
+    "370004", "INTEGRIS MIAMI HOSPITAL (dba INTEGRIS MIAMI HOSPITAL, Miami)",
+    "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: OSDH's d/b/a is the enrolled name and its legal entity is not, LOW (session 99). ",
+  "ok_year1_ems_cp_awardees.csv", "Newman Memorial Hospital, Inc.", 1L,
+    "371336", "NEWMAN MEMORIAL HOSPITAL, INC (CAH, Shattuck)",
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form (session 99). ",
+  "ok_year1_ems_cp_awardees.csv", "Northeastern Health System", 1L,
+    "370089", "NORTHEASTERN HEALTH SYSTEM (dba TAHLEQUAH CITY HOSPITAL)",
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form (session 99). ",
+  "ok_year1_ems_cp_awardees.csv", "Purcell Municipal Hospital", 2L,
+    "370158", "PURCELL MUNICIPAL HOSPITAL (Purcell)",
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; in both the ambulance and the vehicle list (session 99). ",
   # --- CMS obligation-report rows (session 98, R/03cb) -------------------------
   "ne_cms_obligation_awardees.csv", "CHI Health St Marys", 2L,
     "281342", "ST MARYS COMMUNITY HOSPITAL (dba CHI HEALTH ST MARYS; CAH, Nebraska City)",

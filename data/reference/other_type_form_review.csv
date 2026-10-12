@@ -4,10 +4,10 @@ fl_year1_awardees.csv,18,FL,Nuvita Health,769736,a private health-technology com
 fl_year1_awardees.csv,33,FL,Nuvita Health,1267676.66,a private health-technology company RECEIVING A GRANT,the row's own determined-form clause,FALSE
 al_year1_awardees.csv,35,AL,TTC LLC DBA BHG Cullman Treatment Center,339580,for-profit opioid treatment programme,"session 49 verified basis, form read session 71",FALSE
 al_year1_awardees.csv,79,AL,Touchstone Residential Services DBA Touchstone Transport,1120000,non-emergency medical transportation provider,"session 49 verified basis, form read session 71",FALSE
-ak_year1_awardees.csv,144,AK,Whale Tail Pharmacy,341274,retail pharmacy (Alaska's own type: Pharmacy),"session 49 verified basis, form read session 71",FALSE
-ak_year1_awardees.csv,238,AK,Optical Aleutians,64787.11,optical / eye-care provider,"session 49 verified basis, form read session 71",FALSE
-ak_year1_awardees.csv,239,AK,Compass Therapy,60047,private therapy clinic,"session 49 verified basis, form read session 71",FALSE
-ak_year1_awardees.csv,247,AK,White's Incorporated,18980,pharmacy business (Alaska's own type: Pharmacy),"session 49 verified basis, form read session 71",FALSE
+ak_year1_awardees.csv,77,AK,Compass Therapy,60047,private therapy clinic,"session 49 verified basis, form read session 71",FALSE
+ak_year1_awardees.csv,172,AK,Optical Aleutians,64787.11,optical / eye-care provider,"session 49 verified basis, form read session 71",FALSE
+ak_year1_awardees.csv,218,AK,Whale Tail Pharmacy,341274,retail pharmacy (Alaska's own type: Pharmacy),"session 49 verified basis, form read session 71",FALSE
+ak_year1_awardees.csv,219,AK,White's Incorporated,18980,pharmacy business (Alaska's own type: Pharmacy),"session 49 verified basis, form read session 71",FALSE
 mi_year1_awardees.csv,116,MI,Program of All-Inclusive Care for the Elderly (PACE) Central Michigan,500000,PACE organisation,"session 49 verified basis, form read session 71",FALSE
 mi_year1_awardees.csv,117,MI,Program of All-Inclusive Care for the Elderly (PACE) Northeast Michigan,500000,PACE organisation,"session 49 verified basis, form read session 71",FALSE
 or_year1_awardees.csv,193,OR,Oregon Northwest Workforce Investment Board (DBA Northwest Oregon Works),222308.14,regional workforce investment board,"session 49 verified basis, form read session 71",FALSE
@@ -81,41 +81,44 @@ sc_year1_awardees.csv,162,SC,"Iva Drug Store, Inc.",350000,retail pharmacy,unsta
 sc_year1_awardees.csv,167,SC,Hospice & Palliative Care of Piedmont,380476,hospice,unstated_form_typing_decisions.csv (session 50),FALSE
 sc_year1_awardees.csv,181,SC,"Bishopville Dental, LLC",640296.78,dental practice,unstated_form_typing_decisions.csv (session 50),FALSE
 sc_year1_awardees.csv,215,SC,Ridgeland Comprehensive Treatment Center,37500,opioid treatment programme (outpatient),unstated_form_typing_decisions.csv (session 50),FALSE
-vt_year1_awardees.csv,3,VT,105 Chester Road Opco LLC DBA Springfield Center for Living and Rehabilitation,425000,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,4,VT,105 Chester Road Opco LLC DBA Springfield Center for Living and Rehabilitation,1280000,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,3,VT,Springfield Center for Living and Rehabilitation,425000,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,4,VT,Springfield Center for Living and Rehabilitation,1280000,NURSING FACILITY,the row's own determined-form clause,FALSE
 vt_year1_awardees.csv,5,VT,1248 Hospital Drive Opco LLC DBA St. Johnsbury Center for Living and Rehabilitation,1486000,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,8,VT,Clara Martin Center,252442.25,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Orange County), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,9,VT,CLR Opco DBA The Center for Living and Rehabilitation,1341000,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,22,VT,Rutland Center for Living and Rehabilitation,1299000,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,27,VT,BAART St Albans,242598.01,"OPIOID TREATMENT PROGRAM (a BAART Programs clinic, BayMark Health Services), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,28,VT,BAART St Johnsbury,242598.01,"OPIOID TREATMENT PROGRAM (a BAART Programs clinic, BayMark Health Services), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,41,VT,"Howard Center, Inc.",136759.82,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Chittenden County), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,47,VT,105 Chester Road Opco LLC DBA Springfield Center for Living and Rehabilitation,286600,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,48,VT,1248 Hospital Drive Opco LLC DBA St. Johnsbury Center for Living and Rehabilitation,531750,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,49,VT,"Rutland Crossings, LLC.",464325.97,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,50,VT,"Health Care and Rehabilitation Services of Southeastern Vermont, Inc.",3216288.17,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (HCRS, southeastern Vermont), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,51,VT,Rutland Mental Health Services,821223.7,COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Rutland County,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,52,VT,Washington County Mental Health,22500.73,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Washington County), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,58,VT,Central Vermont Home Health & Hospice,215953.68,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,59,VT,CLR Opco,56300,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,61,VT,"Dartmouth Health Home Care, Inc.",179160.08,"HOME HEALTH AGENCY, by general knowledge (Dartmouth Health's home-care arm, New Hampshire-based",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,65,VT,Rutland Center for Living and Rehabilitation,56300,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,67,VT,"VNA & Hospice of the Southwest Region, Inc.",431120.88,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,68,VT,105 Chester Road Opco LLC DBA Springfield Center for Living and Rehabilitation,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,69,VT,1248 Hospital Drive Opco LLC DBA St. Johnsbury Center for Living and Rehabilitation,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,70,VT,46 NICHOLS STREET OPCO LLC DBA Rutland Center for Living and Rehabilitation,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,72,VT,CLR Opco,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,82,VT,Lamoille Home Health & Hospice,136760.19,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,85,VT,Central Vermont Home Health & Hospice,264315.2,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,86,VT,Clara Martin Center,263387.76,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Orange County), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,89,VT,"Counseling Service of Addison County, Inc.",104655.75,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Addison County), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,94,VT,Howard Center,139289.44,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Chittenden County), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,105,VT,The Manor,90650.55,NURSING FACILITY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,136,VT,KPH Healthcare Services Inc. DBA Kinney Drugs,8649920,"RETAIL PHARMACY CHAIN (dba Kinney Drugs), by general knowledge",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,138,VT,Vermont Student Assistance Corporation,9059785,"STATE STUDENT-AID CORPORATION (a public nonprofit created by statute), administering conditional financial assistance to health-care students",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,139,VT,Lamoille Home Health & Hospice,372430.42,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,141,VT,Central Vermont Home Health & Hospice,366841.44,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,142,VT,"Dartmouth Health Home Care, Inc.",1101645,"HOME HEALTH AGENCY, by general knowledge (Dartmouth Health's home-care arm, New Hampshire-based",the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,143,VT,University of Vermont Health - Home Health & Hospice,645824.3,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
-vt_year1_awardees.csv,144,VT,"VNA & Hospice of the Southwest Region, Inc.",1478711.17,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,9,VT,Clara Martin Center,252442.25,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Orange County), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,10,VT,CLR Opco DBA The Center for Living and Rehbailitation,1341000,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,16,VT,Kinney Drugs,1586475,"RETAIL PHARMACY CHAIN, by general knowledge -- the trade name of KPH Healthcare Services Inc",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,28,VT,Rutland Center for Living and Rehabilitation,1299000,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,34,VT,BAART St Albans,242598.01,"OPIOID TREATMENT PROGRAM (a BAART Programs clinic, BayMark Health Services), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,35,VT,BAART St Johnsbury,242598.01,"OPIOID TREATMENT PROGRAM (a BAART Programs clinic, BayMark Health Services), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,46,VT,Real Time Medical Systems,498758,"PRIVATE HEALTH-INFORMATION-TECHNOLOGY COMPANY (post-acute care analytics), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,55,VT,"Howard Center, Inc.",136759.82,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Chittenden County), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,61,VT,105 Chester Road Opco LLC DBA Springfield Center for Living and Rehabilitation,286600,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,62,VT,1248 Hospital Drive Opco LLC DBA St. Johnsbury Center for Living and Rehabilitation,531750,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,63,VT,"Rutland Crossings, LLC.",464325.97,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,65,VT,"Health Care and Rehabilitation Services of Southeastern Vermont, Inc.",3216288.17,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (HCRS, southeastern Vermont), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,66,VT,Rutland Mental Health Services,821223.7,COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Rutland County,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,67,VT,Washington County Mental Health,22500.73,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Washington County), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,69,VT,Central Vermont Home Health & Hospice,215953.68,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,70,VT,CLR Opco,56300,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,72,VT,"Dartmouth Health Home Care, Inc.",179160.08,"HOME HEALTH AGENCY, by general knowledge (Dartmouth Health's home-care arm, New Hampshire-based",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,76,VT,Rutland Center for Living and Rehabilitation,56300,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,78,VT,"VNA & Hospice of the Southwest Region, Inc.",431120.88,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,79,VT,105 Chester Road Opco LLC DBA Springfield Center for Living and Rehabilitation,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,80,VT,1248 Hospital Drive Opco LLC DBA St. Johnsbury Center for Living and Rehabilitation,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,81,VT,46 NICHOLS STREET OPCO LLC DBA Rutland Center for Living and Rehabilitation,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,83,VT,CLR Opco,63760,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,93,VT,Lamoille Home Health & Hospice,136760.19,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,96,VT,Central Vermont Home Health & Hospice,264315.2,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,97,VT,Clara Martin Center,263387.76,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Orange County), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,100,VT,"Counseling Service of Addison County, Inc.",104655.75,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Addison County), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,105,VT,Howard Center,139289.44,"COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Chittenden County), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,117,VT,The Manor,90650.55,NURSING FACILITY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,154,VT,KPH Healthcare Services Inc. DBA Kinney Drugs,8649920,"RETAIL PHARMACY CHAIN (dba Kinney Drugs), by general knowledge",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,156,VT,Vermont Student Assistance Corporation,9059785,"STATE STUDENT-AID CORPORATION (a public nonprofit created by statute), administering conditional financial assistance to health-care students",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,157,VT,Lamoille Home Health & Hospice,372430.42,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,159,VT,Central Vermont Home Health & Hospice,366841.44,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,160,VT,"Dartmouth Health Home Care, Inc.",1101645,"HOME HEALTH AGENCY, by general knowledge (Dartmouth Health's home-care arm, New Hampshire-based",the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,163,VT,University of Vermont Health - Home Health & Hospice,645824.3,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
+vt_year1_awardees.csv,164,VT,"VNA & Hospice of the Southwest Region, Inc.",1478711.17,HOME HEALTH AGENCY,the row's own determined-form clause,FALSE
 wv_year1_awardees.csv,5,WV,West Virginia Health Information Network (WVHIN),855400,the state's health information exchange -- 'WVHIN serves as the state's Health Information Exchange',the row's own determined-form clause,FALSE
+ri_year1_awardees.csv,1,RI,Rhode Island League of Cities and Towns,50461.65,"an association of the state's municipal governments, not itself a government (GENERAL_KNOWLEDGE)",the row's own determined-form clause,FALSE

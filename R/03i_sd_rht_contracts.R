@@ -112,23 +112,24 @@ SD_XLSX <- "SD_rht_contracts.xlsx"
 SD_SEARCH_ARCHIVES <- c(
   "2026-08-28_open_sd_contract_search_RHT.html",
   "2026-09-24_open_sd_contract_search_RHT.html",
-  "2026-10-02_open_sd_contract_search_RHT.html"
+  "2026-10-02_open_sd_contract_search_RHT.html",
+  "2026-10-12_open_sd_contract_search_RHT.html"
 )
 SD_SEARCH_FILE <- SD_SEARCH_ARCHIVES[1]                          # the first read
 SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
 
 # The two DESCRIPTION searches, archived from 2026-09-24 so --probe has a
 # committed baseline for each rather than a number typed into a comment. The
-# LATEST read is the baseline (re-based 2026-10-02, session 86; the 09-24
-# copies stay archived and in the manifest).
+# LATEST read is the baseline (re-based 2026-10-02, session 86, and 2026-10-12,
+# session 99; the earlier copies stay archived and in the manifest).
 #   * "Rural Strong" is the name of the $31.5M round (2026-07-23). It returned
 #     ZERO rows on 2026-08-28 and 8 on 2026-09-24.
 #   * "Rural Health Transformation" catches RHTP contracts OUTSIDE the RHT
 #     number series -- two of them on 2026-09-24 (see SD_OUTSIDE_SERIES).
 SD_DESC_SEARCHES <- tibble::tribble(
   ~probe_key,     ~description_contains,          ~file,
-  "rural_strong", "Rural Strong",                 "2026-10-02_open_sd_contract_search_desc_rural_strong.html",
-  "rht_desc",     "Rural Health Transformation",  "2026-10-02_open_sd_contract_search_desc_rural_health_transformation.html"
+  "rural_strong", "Rural Strong",                 "2026-10-12_open_sd_contract_search_desc_rural_strong.html",
+  "rht_desc",     "Rural Health Transformation",  "2026-10-12_open_sd_contract_search_desc_rural_health_transformation.html"
 )
 
 # A Rural Strong GRANT is identified by the register's own full description on
@@ -175,7 +176,41 @@ SD_PLACEMENT <- tibble::tribble(
   "27RHT00039",     "UNPLACED", "Dakota State University: 'Rural Healthcare Cybersecurity & Digital Regional Innovation Center'. KB0047023 names Regional Innovation Centers; the register, a contract with a state agency begun 2026-02-20, does not name the round.",
   "27RHT00040",     "UNPLACED", "Avera at Home: 'implement chronic disease management activities'. No round named.",
   "27RHT00041",     "UNPLACED", "Black Hills Works: 'fund network infrastructure upgrades', begun 2026-02-01. No round named.",
-  "27RHT00047",     "UNPLACED", "State Veterans Home: 'Technical Assistance and Support to assist with their EHR planning'. No round named."
+  "27RHT00047",     "UNPLACED", "State Veterans Home: 'Technical Assistance and Support to assist with their EHR planning'. No round named.",
+  # SESSION 99: THE 2026-10-12 RE-READ. 41 -> 53 contracts, +$10,203,655, none
+  # removed and no amount moved. FOUR are Rural Strong grants by the register's
+  # own description (27RHT00027, 00048, 00049, 00051). The other EIGHT name no
+  # round and are placed here after reading each detail page. Two carry a
+  # CFDA number the register mistypes (00027 '73.798', 00052 '97.798'); the
+  # description, not the CFDA field, is what places a row.
+  "27RHT00042",     "UNPLACED", "Urology Specialists: 'fund EHR enhancements, SD HIE connection, clinical technology, and training'. Reads like the $90M round's EHR modernisation; the register does not name the round.",
+  "27RHT00043",     "UNPLACED", "Prairie Lakes Health Care System: 'implement chronic disease management activities' -- the wording of Faulkton's, Mobridge's and Avera at Home's unplaced contracts. No round named.",
+  "27RHT00044",     "UNPLACED", "Lakeside Pain Center: 'fund EHR enhancements and cyber security infrastructure'. No round named.",
+  "27RHT00046",     "UNPLACED", "Three Rivers Mental Health: 'fund the EHR replacement'. No round named.",
+  "27RHT00050",     "UNPLACED", "Northern Hills Training Center: 'purchase equipment'. No round named.",
+  "27RHT00052",     "UNPLACED", "SD Urban Indian Health: 'implement chronic disease management activities'. No round named; its 2026-09 contract 27RHT00015 is a separate award.",
+  "27RHT00053",     "UNPLACED", "Highland Hills LLC: 'fund a western South Dakota Regional Innovation Center'. KB0047023 names Regional Innovation Centers (DSU's 27RHT00039 is the same shape); the register does not name the round.",
+  "27RHT00054",     "UNPLACED", "Center for Family Medicine: 'purchase equipment and train employees on technology'. No round named."
+)
+
+# HAND-READ CMS ENROLMENT BRIDGES (session 99). The register TRUNCATES vendor
+# names at 30 characters ("MONUMENT HEALTH RAPID CITY HOS"), so the exact,
+# city-keyed match above cannot reach three of the 2026-10-12 contracts whose
+# legal entity IS on CMS's SD Hospital Enrollments. Each bridge was read by a
+# human against the archived enrolment record; the CCN and provider type are
+# READ FROM THAT FILE AT BUILD TIME, never typed here, and a bridge whose
+# record is not exactly one row fails the build. A hand-read bridge is LOW
+# (§10.2, cms_enrolment_match), never MEDIUM.
+#   * Avera Heart is LOW on the owner's instruction (session 99): the register
+#     string is the DBA abbreviated plus the legal entity's 'LLC'.
+#   * Prairie Lakes' CCN is published by CMS as '430005A' -- not six digits,
+#     so the exact matcher's swing-bed filter drops it. It is recorded AS CMS
+#     PUBLISHES IT, and Stage 5's CCN match must resolve it.
+SD_ENROLMENT_BRIDGES <- tibble::tribble(
+  ~contract_number, ~awardee,                         ~cms_org,                                  ~cms_city,     ~bridge,
+  "27RHT00048",     "MONUMENT HEALTH RAPID CITY HOS", "MONUMENT HEALTH RAPID CITY HOSPITAL INC", "RAPID CITY",  "LEGAL_NAME_TRUNCATED",
+  "27RHT00051",     "AVERA HEART HOSPITAL OF SD LLC", "HEART HOSPITAL OF SOUTH DAKOTA LLC",      "SIOUX FALLS", "DBA_OF_LEGAL_ENTITY",
+  "27RHT00043",     "PRAIRIE LAKES HEALTH CARE SYST", "PRAIRIE LAKES HEALTH CARE SYSTEM INC",    "WATERTOWN",   "LEGAL_NAME_TRUNCATED"
 )
 SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
 
@@ -695,6 +730,22 @@ rhtp_sd_build <- function() {
     classified$determination_confidence[hits$i], "."
   )
 
+  # A row the NAME rule typed a hospital at HIGH, which the shared classifier
+  # now caps at MEDIUM for want of a CCN (session 88), regains HIGH here when
+  # the exact, city-keyed federal match supplies that CCN -- the state session
+  # 88 recorded ("SD's 6 HIGH rows carry a CCN and stay") and that a rebuild
+  # would otherwise silently undo (session 99). Only a pattern whose own
+  # confidence is HIGH qualifies; rhtp_confidence_ceiling() still governs.
+  pat_high <- RHTP_RECIPIENT_TYPE_PATTERNS %>%
+    dplyr::filter(.data$recipient_type == "HOSPITAL_OR_SYSTEM",
+                  .data$confidence == "HIGH")
+  name_high <- hits$i[classified$classification_rule[hits$i] == "PATTERN" &
+    classified$recipient_type[hits$i] == "HOSPITAL_OR_SYSTEM" &
+    vapply(classified$awardee[hits$i], function(a)
+      any(stringr::str_detect(a, pat_high$pattern)), logical(1))]
+  classified$determination_confidence[name_high] <- rhtp_confidence_ceiling(
+    "HIGH", classified$ccn[name_high])
+
   # Promote ONLY a fallback row that the federal record carries by its exact
   # string. A row the name rule already typed a hospital keeps its type and
   # gains the CCN; nothing is ever demoted here.
@@ -751,6 +802,61 @@ rhtp_sd_build <- function() {
     "Precedent: UVM Health Network and Southwestern Vermont Health (VT),",
     "Virtua (NJ).", flow$flow_basis
   )
+
+  # Hand-read CMS enrolment bridges (session 99). The record is read from the
+  # archived enrolment file at build time; exactly one row must answer.
+  raw <- jsonlite::fromJSON(readr::read_file(
+    here::here(SD_FEDERAL_DIR, SD_FEDERAL_HOSP_FILE)))
+  br <- match(SD_ENROLMENT_BRIDGES$contract_number, classified$contract_number)
+  if (anyNA(br) || !identical(classified$awardee[br], SD_ENROLMENT_BRIDGES$awardee)) {
+    stop("[SD] SD_ENROLMENT_BRIDGES no longer matches the register: each ",
+         "contract must be present with its exact string.", call. = FALSE)
+  }
+  for (k in seq_along(br)) {
+    rec <- which(stringr::str_squish(toupper(raw[["ORGANIZATION NAME"]])) ==
+                   SD_ENROLMENT_BRIDGES$cms_org[k] &
+                 stringr::str_squish(toupper(raw[["CITY"]])) ==
+                   SD_ENROLMENT_BRIDGES$cms_city[k] &
+                 !grepl("^43[A-Z]", raw[["CCN"]]))
+    if (length(rec) != 1) {
+      stop("[SD] bridge for ", SD_ENROLMENT_BRIDGES$contract_number[k], " finds ",
+           length(rec), " enrolment record(s); exactly one is required.",
+           call. = FALSE)
+    }
+    i <- br[k]
+    flow <- rhtp_classify_flow("HOSPITAL_OR_SYSTEM", classified$description[i])
+    rec_txt <- paste0(
+      "CMS Hospital Enrollments (archived ", SD_FEDERAL_DIR, "/",
+      SD_FEDERAL_HOSP_FILE, "): ", raw[["ORGANIZATION NAME"]][rec],
+      if (nzchar(raw[["DOING BUSINESS AS NAME"]][rec]))
+        paste0(" (dba ", raw[["DOING BUSINESS AS NAME"]][rec], ")") else "",
+      ", ", raw[["CITY"]][rec], ", CCN ", raw[["CCN"]][rec], ", ",
+      raw[["PROVIDER TYPE TEXT"]][rec]
+    )
+    classified$ccn[i] <- raw[["CCN"]][rec]
+    classified$recipient_type_source[i] <- paste0(
+      rec_txt, ". HAND-READ BRIDGE (", SD_ENROLMENT_BRIDGES$bridge[k],
+      ", session 99): the register truncates vendor names at 30 characters and ",
+      "prints '", classified$awardee[i], "'. Machine answer on the name: ",
+      classified$recipient_type[i], "/", classified$determination_confidence[i], "."
+    )
+    classified$recipient_type[i] <- "HOSPITAL_OR_SYSTEM"
+    classified$determination_confidence[i] <- "LOW"
+    classified$flow_type[i] <- flow$flow_type
+    classified$distributed_to_hospital[i] <- flow$distributed_to_hospital
+    classified$hospital_benefiting[i] <- flow$hospital_benefiting
+    classified$flag_reason[i] <- NA_character_
+    classified$classification_rule[i] <- "CMS_ENROLMENT_BRIDGE"
+    classified$basis_type[i] <- "GENERAL_KNOWLEDGE"
+    classified$determination_basis[i] <- paste0(
+      "§10.2 DIRECT on a HAND-READ CMS ENROLMENT BRIDGE (",
+      SD_ENROLMENT_BRIDGES$bridge[k], "): ", rec_txt, ". The register states ",
+      "no form and its string is not the enrolled name exactly, so the bridge ",
+      "is a human judgement and the row is LOW (the OK RRR precedent, session ",
+      "86; basis_type GENERAL_KNOWLEDGE keeps it subtractable). HIGH waits on ",
+      "Stage 5's CCN match. ", flow$flow_basis
+    )
+  }
 
   # Hand placement of the non-Rural-Strong contracts first seen 10-02 or later.
   late <- match(classified$first_seen_archive, SD_SEARCH_ARCHIVES) >=

@@ -330,3 +330,101 @@ DETAIL PAGES (newly archived)
   url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00041
   bytes   : 17394
   sha256  : ed4e8c54f13b54216dd0c075ca8ee223f8e22bcc755ab879674831baf5aeed77
+
+
+==========================================================================
+REFRESH 2026-10-12 (fetched_utc 2026-10-12T18:38:26Z)
+==========================================================================
+
+THE BLOCK ABOVE IS A TRUE STATEMENT ABOUT 2026-08-28 AND IS LEFT AS
+WRITTEN. As of this refresh the RHT series holds 53 contracts totalling $37,039,799,
+and 18 of them ($25,012,010) are described 'Implementation of a Rural Strong Grant as
+a part of the federal Rural Health Transformation Program' -- SOME of the
+28 Rural Strong grants ($31.5M) announced 2026-07-23. Those are Tier 3
+grants to named recipients, INSIDE the $31.5M round and never to be added
+on top of it. The Technology and data round ($90M, 82 grants) is still
+not on this register. Earlier archives were NOT re-fetched; detail pages
+below are only those that had no archived copy.
+
+SEARCH ARCHIVES
+
+  file    : 2026-10-12_open_sd_contract_search_RHT.html
+  query   : contract/grant number contains 'RHT', all agencies, all types
+  method  : POST https://open.sd.gov/contracts.aspx (ASP.NET WebForms)
+  bytes   : 62689
+  sha256  : 80d16251d707c5465366b5c065a165b500f292de72e81d0de1c71e3c4e2b3527
+  rows    : 53
+
+  file    : 2026-10-12_open_sd_contract_search_desc_rural_strong.html
+  query   : description contains 'Rural Strong', all agencies, all types
+  bytes   : 37506
+  sha256  : a8e19531c7328d63c28cf99d372ec2b00daa9bf33397d87d9a8f881ef3bbdb85
+  rows    : 18
+
+  file    : 2026-10-12_open_sd_contract_search_desc_rural_health_transformation.html
+  query   : description contains 'Rural Health Transformation', all agencies, all types
+  bytes   : 42618
+  sha256  : 0a24854f9259cced950b4b12847b170e43469d4eddd0b6be5ea500d807f449b0
+  rows    : 25
+
+DETAIL PAGES (newly archived)
+
+  file    : contract_details/27RHT00051.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00051
+  bytes   : 17500
+  sha256  : b6c7580f6465534a90d48443c8f177c5cd775c22f955ff59a1da0b4b999aa120
+
+  file    : contract_details/27RHT00027.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00027
+  bytes   : 17494
+  sha256  : fd310d64b8b1e95fcfdeaddf01a342e70bdc93914ebc062299f250cdfa6fa02b
+
+  file    : contract_details/27RHT00048.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00048
+  bytes   : 17500
+  sha256  : e4fc59e1be067f578ce6322014d0d4d890ffabe6d989e25feccab3c549225c29
+
+  file    : contract_details/27RHT00049.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00049
+  bytes   : 17494
+  sha256  : 58f623a920f8b036192fbcd980b38154c861578794d2be07cabe5b65251d6a1f
+
+  file    : contract_details/27RHT00043.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00043
+  bytes   : 17458
+  sha256  : 72887e9e9c3a2400be968af827ed23ff53d613744db194753f96e824b5fcf3d5
+
+  file    : contract_details/27RHT00052.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00052
+  bytes   : 17458
+  sha256  : 0f5ba00d56a9bfdde83252790831672178e3b3aee220a10e9a29f20ca3f6a08e
+
+  file    : contract_details/27RHT00054.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00054
+  bytes   : 17429
+  sha256  : 9606cef0f5fb08fc8c20440d57edf494abddb7c1d527502435314724e80b5b4f
+
+  file    : contract_details/27RHT00053.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00053
+  bytes   : 17767
+  sha256  : 76bf52b0dc52fd70b9b2274f907957eee34cb1b09f6159b06c227d8821dc6abe
+
+  file    : contract_details/27RHT00044.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00044
+  bytes   : 17437
+  sha256  : 6f268561c5cf834a3c73695cc0b61b0cbe0d4e437ae0e51b55363447a2a276c6
+
+  file    : contract_details/27RHT00050.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00050
+  bytes   : 17340
+  sha256  : 0e8622d0770bdcce6e64dbd7ab8902c147bfa9abc4a84c0ecb6dd12a2ab81d76
+
+  file    : contract_details/27RHT00046.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00046
+  bytes   : 17361
+  sha256  : 290fb231c0e1a3e4008dffd6eb1ead02feb88c540b871c4946dfe264ba2e6f79
+
+  file    : contract_details/27RHT00042.html
+  url     : https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00042
+  bytes   : 17485
+  sha256  : 00c5e6ceeb25a88035ae0c151fcdc691ba395d3d5352441257becbe8ed671c99

@@ -120,8 +120,8 @@ AK_PROGRAM_URL <- paste0(
 # stood on the date in its name. Both are kept: the prior one is what makes the
 # growth a diff of two archived documents rather than a claim, and it is the
 # snapshot against which CMS's "142 projects" reconciles exactly (see below).
-AK_AWARDS_FILE   <- "2026-09-28_ak_rhtp_awardsnotice_2026.xlsx"
-AK_PRIOR_FILE    <- "2026-09-21_ak_rhtp_awardsnotice_2026.xlsx"
+AK_AWARDS_FILE   <- "2026-10-12_ak_rhtp_awardsnotice_2026.xlsx"
+AK_PRIOR_FILE    <- "2026-09-28_ak_rhtp_awardsnotice_2026.xlsx"
 
 # THE CMS ANCHOR SNAPSHOT, AND IT DOES NOT ROLL. Session 46 split this out of
 # AK_PRIOR_FILE, which had been doing two jobs that only looked like one while
@@ -167,7 +167,7 @@ AK_CYCLE_UPDATE_URL <- paste0(
   "https://health.alaska.gov/media/lyrcb3pc/",
   "alaska-rhtp-year-1-funding-cycle-update.pdf"
 )
-AK_CYCLE_UPDATE_FILE <- "2026-09-28_alaska_rhtp_year1_funding_cycle_update.pdf"
+AK_CYCLE_UPDATE_FILE <- "2026-10-12_alaska_rhtp_year1_funding_cycle_update.pdf"
 
 AK_EVIDENCE_DIR <- "data/evidence/AK"
 AK_CSV  <- "data/reference/ak_year1_awardees.csv"
@@ -555,7 +555,11 @@ rhtp_ak_assert_cycle_control <- function(growth = rhtp_ak_growth(),
           " award actions added since the prior snapshot.")
 
   # And the control has to be about a ROLLING file, or it is the wrong control.
-  if (!grepl("rolling weekly basis", text, fixed = TRUE)) {
+  # Session 99: the 2026-10-12 update dropped "on a rolling weekly basis" and
+  # now says "We anticipate more award announcements in the coming weeks" --
+  # the same publication model in other words. Either sentence passes.
+  if (!grepl("rolling weekly basis", text, fixed = TRUE) &&
+      !grepl("more award announcements in the coming weeks", text, fixed = TRUE)) {
     stop("[AK] the funding cycle update no longer says awards are announced ",
          "'on a rolling weekly basis'. Alaska's publication model is what ",
          "makes this file a snapshot; re-read it.", call. = FALSE)
@@ -569,9 +573,29 @@ rhtp_ak_assert_cycle_control <- function(growth = rhtp_ak_growth(),
 #' independent, state-published measure this file's growth diff is checked
 #' against.
 rhtp_ak_cycle_weeks <- function(text = rhtp_ak_cycle_update_text()) {
-  m <- stringr::str_match_all(
-    text, paste0("Week (\\d+) \\| ([A-Za-z]+ \\d+)\\s*\\$([0-9.]+)M",
-                 "\\s*Project Awards\\s*(\\d+)\\s*Projects"))[[1]]
+  # SESSION 99: the 2026-10-12 update set the table in columns, so the reader
+  # returns "Project\nAwards" on two lines, and the LAST week's label comes
+  # out AFTER its figures ("$4.8M Project Awards 5 Projects Week 8 | Oct 9").
+  # The label-first form is read first; a trailing-label block is read only
+  # from text the first pass did not consume, so no week's figures can be
+  # paired with the NEXT week's label.
+  label_first <- paste0("Week (\\d+) \\| ([A-Za-z]+ \\d+)\\s*\\$([0-9.]+)M",
+                        "\\s*Project\\s+Awards\\s*(\\d+)\\s*Projects")
+  m <- stringr::str_match_all(text, label_first)[[1]]
+  loc <- stringr::str_locate_all(text, label_first)[[1]]
+  rest <- text
+  for (k in rev(seq_len(nrow(loc)))) {
+    stringr::str_sub(rest, loc[k, 1], loc[k, 2]) <-
+      strrep(" ", loc[k, 2] - loc[k, 1] + 1)
+  }
+  trailing <- stringr::str_match_all(rest, paste0(
+    "\\$([0-9.]+)M\\s*Project\\s+Awards\\s*(\\d+)\\s*Projects\\s*",
+    "Week (\\d+) \\| ([A-Za-z]+ \\d+)"))[[1]]
+  if (nrow(trailing)) {
+    m <- rbind(m, cbind(trailing[, 1], trailing[, 4], trailing[, 5],
+                        trailing[, 2], trailing[, 3]))
+    m <- m[order(as.integer(m[, 2])), , drop = FALSE]
+  }
   if (!nrow(m)) {
     stop("[AK] the funding cycle update carries no weekly award rows. That ",
          "table is the state-published control on this file's growth.",

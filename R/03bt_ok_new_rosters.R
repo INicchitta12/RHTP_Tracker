@@ -83,6 +83,21 @@ OKN_NOA_DATE <- as.Date("2025-12-29")
 OKN_CSV      <- here::here("data", "reference", "ok_year1_doulas_awardees.csv")
 OKN_HOSP_FED <- file.path("data", "evidence", "federal_records", "2026-09-25",
                           "cms_hosp_enrollments_OK.json")
+# SESSION 99: THE 2026-10-12 RE-READ (owner-approved). RRR is built from this
+# archive; Doulas and CDM are unchanged between the two copies and stay on the
+# 10-02 archive, so their rows do not move. Keetoowah Economic Development
+# Authority ($1,123,500, not a hospital) is gone from RRR and is recorded in
+# OKN_RRR_WITHDRAWN rather than shrinking the file silently (Alaska's rule).
+# The page's two NEW rosters are R/03cc_ok_bhi_ems_rosters.R's.
+OKN_ARCHIVE_1012 <- file.path("data", "evidence", "OK", "new_rosters",
+                              "2026-10-12_ok_rhtp_funding_recipients.html")
+OKN_SHA256_1012  <- "e000ef82c8fb8d3ee2f6c8dae955d524bab40cb0e6f075c0627deaf601725606"
+OKN_READ_1012    <- as.Date("2026-10-12")
+OKN_RRR_NOW      <- list(n = 19L, total = 38455023.00)
+OKN_RRR_WITHDRAWN <- tibble::tribble(
+  ~awardee,                                   ~last_amount, ~last_seen,   ~first_absent, ~coded_before,
+  "Keetoowah Economic Development Authority", 1123500,      "2026-10-02", "2026-10-12",  "NONPROFIT_CBO / No (§8 fallback)"
+)
 OKN_FOOTER   <- "as part of a financial assistance award totaling $223,476,948.62 with 100 percent funded by CMS/HHS"
 
 # Each roster: the heading it sits under, the heading that ends it, and the
@@ -93,9 +108,9 @@ OKN_ROSTERS <- tibble::tribble(
   "doulas",  "Expanding Care: Doulas Program",  "Expanding Care: Doulas Program: List of Funding Recipients", "Chronic Disease Management Program", 4L,  647967.83,   TRUE,
   "cdm",     "Chronic Disease Management Program", "Chronic Disease Management Program: List of Funding Recipients", "OSDE's ROOTS Competitive Grant", 15L, 15608845.22, TRUE)
 
-okn_lines <- function() {
-  raw <- readr::read_file_raw(here::here(OKN_ARCHIVE))
-  if (digest::digest(raw, algo = "sha256", serialize = FALSE) != OKN_SHA256) {
+okn_lines <- function(archive = OKN_ARCHIVE, sha = OKN_SHA256) {
+  raw <- readr::read_file_raw(here::here(archive))
+  if (digest::digest(raw, algo = "sha256", serialize = FALSE) != sha) {
     stop("[OK new rosters] the archive's SHA-256 does not match its manifest.",
          call. = FALSE)
   }
@@ -381,8 +396,30 @@ okn_assert_rrr_cdm_federal <- function() {
   invisible(TRUE)
 }
 
-okn_roster_rows <- function(key, p = okn_parse(key, n_detail = 1L)) {
+#' RRR as of 10-12: the 10-02 roster less OKN_RRR_WITHDRAWN, and nothing else.
+okn_rrr_now <- function(n_detail = 1L) {
+  was <- okn_parse("rrr", okn_lines(), n_detail)
+  now <- okn_parse("rrr", okn_lines(OKN_ARCHIVE_1012, OKN_SHA256_1012), n_detail)
+  gone <- setdiff(was$awardee, now$awardee)
+  if (!setequal(gone, OKN_RRR_WITHDRAWN$awardee) ||
+      length(setdiff(now$awardee, was$awardee)) ||
+      !identical(paste(was$awardee, was$amount)[!was$awardee %in% gone],
+                 paste(now$awardee, now$amount))) {
+    stop("[OK RRR] the 10-12 roster is not the 10-02 roster less OKN_RRR_WITHDRAWN; ",
+         "re-read both archives.", call. = FALSE)
+  }
+  w <- match(OKN_RRR_WITHDRAWN$awardee, was$awardee)
+  if (any(abs(was$amount[w] - OKN_RRR_WITHDRAWN$last_amount) > 0.005)) {
+    stop("[OK RRR] OKN_RRR_WITHDRAWN's last amount does not match 10-02.", call. = FALSE)
+  }
+  now
+}
+
+okn_roster_rows <- function(key, p = if (key == "rrr") okn_rrr_now() else
+                              okn_parse(key, n_detail = 1L)) {
   r <- OKN_ROSTERS[OKN_ROSTERS$key == key, ]
+  read_date <- if (key == "rrr") OKN_READ_1012 else OKN_READ
+  archive <- if (key == "rrr") OKN_ARCHIVE_1012 else OKN_ARCHIVE
   ty <- OKN_RRR_CDM_TYPING[OKN_RRR_CDM_TYPING$key == key, ]
   ty <- ty[match(p$awardee, ty$awardee), ]
   if (any(is.na(ty$awardee))) {
@@ -406,7 +443,7 @@ okn_roster_rows <- function(key, p = okn_parse(key, n_detail = 1L)) {
     amount = p$amount,
     recipient_type = ty$recipient_type,
     distributed_to_hospital = ifelse(hosp, "Yes", "No"),
-    note = paste0(r$round_name, ", List of Funding Recipients (OSDH, read ", OKN_READ,
+    note = paste0(r$round_name, ", List of Funding Recipients (OSDH, read ", read_date,
                   "). ", p$detail),
     recipient_confirmed = "Yes",
     amount_confirmed = "Yes",
@@ -441,7 +478,7 @@ okn_roster_rows <- function(key, p = okn_parse(key, n_detail = 1L)) {
     round_awards = nrow(p),
     round_amount = NA_real_,
     announcement_date = OKN_READ,
-    source_archive_path = OKN_ARCHIVE,
+    source_archive_path = archive,
     basis_type = ty$basis_type,
     recipient_subtype = NA_character_,
     cms_enrolment_match = ifelse(hosp, ty$enrol_match, NA_character_),
@@ -456,6 +493,7 @@ OKN_HOSP_PIN <- tibble::tribble(
 
 okn_assert_roster_rows <- function(key, a) {
   r <- OKN_ROSTERS[OKN_ROSTERS$key == key, ]
+  if (key == "rrr") { r$n <- OKN_RRR_NOW$n; r$total <- OKN_RRR_NOW$total }
   if (nrow(a) != r$n || abs(sum(a$amount) - r$total) > 0.005) {
     stop("[OK ", key, "] ", r$n, " rows / $", r$total, " expected.", call. = FALSE)
   }
@@ -491,7 +529,17 @@ okn_validate <- function() {
   a <- okn_doulas(okn_parse("doulas", x))
   okn_assert_rows(a)
   okn_assert_rrr_cdm_federal()
-  for (k in c("rrr", "cdm")) okn_assert_roster_rows(k, okn_roster_rows(k, okn_parse(k, x, 1L)))
+  okn_assert_roster_rows("rrr", okn_roster_rows("rrr"))
+  okn_assert_roster_rows("cdm", okn_roster_rows("cdm", okn_parse("cdm", x, 1L)))
+  # Doulas and CDM are unchanged in the 10-12 copy, which is why they stay on
+  # the 10-02 archive (session 99).
+  x2 <- okn_lines(OKN_ARCHIVE_1012, OKN_SHA256_1012)
+  for (k in c("doulas", "cdm")) {
+    a1 <- okn_parse(k, x); a2 <- okn_parse(k, x2)
+    if (!identical(paste(a1$awardee, a1$amount), paste(a2$awardee, a2$amount))) {
+      stop("[OK ", k, "] the 10-12 copy differs from 10-02; re-read it.", call. = FALSE)
+    }
+  }
   message("[OK new rosters] all assertions pass (Doulas, RRR, CDM).")
   invisible(a)
 }

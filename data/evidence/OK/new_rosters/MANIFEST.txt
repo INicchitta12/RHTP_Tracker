@@ -14,3 +14,19 @@ passed ok_assert_credential_free(). Bytes as served.
 
 2026-10-02_ok_rhtp_funding_recipients.html  219722  7aa998ab5f362d880dd73181c643ab4080fe122079b951d9283b131e44e8e056
   https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html
+
+OKLAHOMA -- the Funding Recipients page as served 2026-10-12 (session 99)
+
+Read on the owner's approval of session 98's proposal. The URL now 301s to
+https://oklahoma.gov/rhtp/rhtp-funding-recipients.html ("Last Modified on
+Oct 12, 2026"). Against 2026-10-02: TWO NEW ROSTERS -- Behavioral Health
+Integration (3 priced, $1,228,012.70) and Expanding Care: Community
+Paramedicine (38 ambulance-funding lines + 13 vehicle lines, NO amounts) --
+and Keetoowah Economic Development Authority ($1,123,500) GONE from RRR
+(20 -> 19, $38,455,023.00). Doulas and CDM are unchanged. Source for
+R/03bt (RRR) and R/03cc_ok_bhi_ems_rosters.R. Fetched with curl -L, agent
+"AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy;
+R httr2)"; passed ok_assert_credential_free(). Bytes as served.
+
+2026-10-12_ok_rhtp_funding_recipients.html  256550  e000ef82c8fb8d3ee2f6c8dae955d524bab40cb0e6f075c0627deaf601725606
+  https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html

@@ -289,6 +289,13 @@ STATE_FILES <- c(
   # three FQHC awards (~$22.69M, ROUNDED in the source, NO hospital; R/03bu).
   OK_RRR = "data/reference/ok_year1_rrr_awardees.csv",
   OK_CDM = "data/reference/ok_year1_cdm_awardees.csv",
+  # SESSION 99, ON THE OWNER'S APPROVAL (R/03cc). Oklahoma's Behavioral
+  # Health Integration roster (3 priced, $1,228,012.70; Mercy Health Oklahoma
+  # Communities the one hospital row, $90,171.53, LOW) and its EMS / Community
+  # Paramedicine lists (38 ambulance + 13 vehicle lines, NO AMOUNTS: six
+  # hospital rows at $0, Nevada's shape -- read the row count).
+  OK_BHI = "data/reference/ok_year1_bhi_awardees.csv",
+  OK_EMS_CP = "data/reference/ok_year1_ems_cp_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
