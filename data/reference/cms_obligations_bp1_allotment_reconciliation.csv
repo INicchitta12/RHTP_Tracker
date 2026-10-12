@@ -1,0 +1,51 @@
+state,state_name,fy2026_allotment,bp1_award,diff_bp1_minus_fy2026,rounds_to_fy2026,note
+OR,Oregon,197271578,192271577.67,-5000000.33,FALSE,BP1 award differs from the published FY2026 allotment beyond rounding
+FL,Florida,209938195,209938194.5,-0.5,TRUE,BP1 award rounds to the published FY2026 allotment
+CA,California,233639308,233639308.47,0.47,TRUE,BP1 award rounds to the published FY2026 allotment
+CT,Connecticut,154249106,154249105.53,-0.47,TRUE,BP1 award rounds to the published FY2026 allotment
+NC,North Carolina,213008356,213008356.47,0.47,TRUE,BP1 award rounds to the published FY2026 allotment
+AL,Alabama,203404327,203404326.54,-0.46,TRUE,BP1 award rounds to the published FY2026 allotment
+ND,North Dakota,198936970,198936969.55,-0.45,TRUE,BP1 award rounds to the published FY2026 allotment
+KY,Kentucky,212905591,212905590.56,-0.44,TRUE,BP1 award rounds to the published FY2026 allotment
+VT,Vermont,195053740,195053740.44,0.44,TRUE,BP1 award rounds to the published FY2026 allotment
+LA,Louisiana,208374448,208374447.57,-0.43,TRUE,BP1 award rounds to the published FY2026 allotment
+NV,Nevada,179931608,179931608.42,0.42,TRUE,BP1 award rounds to the published FY2026 allotment
+MD,Maryland,168180838,168180837.61,-0.39,TRUE,BP1 award rounds to the published FY2026 allotment
+OK,Oklahoma,223476949,223476948.62,-0.38,TRUE,BP1 award rounds to the published FY2026 allotment
+GA,Georgia,218862170,218862169.63,-0.37,TRUE,BP1 award rounds to the published FY2026 allotment
+MO,Missouri,216276818,216276817.66,-0.34,TRUE,BP1 award rounds to the published FY2026 allotment
+TX,Texas,281319361,281319360.67,-0.33,TRUE,BP1 award rounds to the published FY2026 allotment
+SC,South Carolina,200030252,200030252.32,0.32,TRUE,BP1 award rounds to the published FY2026 allotment
+IA,Iowa,209040064,209040063.71,-0.29,TRUE,BP1 award rounds to the published FY2026 allotment
+UT,Utah,195743566,195743566.29,0.29,TRUE,BP1 award rounds to the published FY2026 allotment
+AK,Alaska,272174856,272174855.72,-0.28,TRUE,BP1 award rounds to the published FY2026 allotment
+WV,West Virginia,199476099,199476098.72,-0.28,TRUE,BP1 award rounds to the published FY2026 allotment
+SD,South Dakota,189477607,189477607.26,0.26,TRUE,BP1 award rounds to the published FY2026 allotment
+HI,Hawaii,188892440,188892439.75,-0.25,TRUE,BP1 award rounds to the published FY2026 allotment
+MT,Montana,233509359,233509358.76,-0.24,TRUE,BP1 award rounds to the published FY2026 allotment
+IL,Illinois,193418216,193418216.21,0.21,TRUE,BP1 award rounds to the published FY2026 allotment
+WI,Wisconsin,203670005,203670005.21,0.21,TRUE,BP1 award rounds to the published FY2026 allotment
+IN,Indiana,206927897,206927896.8,-0.2,TRUE,BP1 award rounds to the published FY2026 allotment
+NH,New Hampshire,204016550,204016550.2,0.2,TRUE,BP1 award rounds to the published FY2026 allotment
+NY,New York,212058208,212058207.8,-0.2,TRUE,BP1 award rounds to the published FY2026 allotment
+ID,Idaho,185974368,185974367.81,-0.19,TRUE,BP1 award rounds to the published FY2026 allotment
+RI,Rhode Island,156169931,156169931.19,0.19,TRUE,BP1 award rounds to the published FY2026 allotment
+KS,Kansas,221898008,221898007.82,-0.18,TRUE,BP1 award rounds to the published FY2026 allotment
+CO,Colorado,200105604,200105604.17,0.17,TRUE,BP1 award rounds to the published FY2026 allotment
+MS,Mississippi,205907220,205907220.16,0.16,TRUE,BP1 award rounds to the published FY2026 allotment
+NJ,New Jersey,147250806,147250805.85,-0.15,TRUE,BP1 award rounds to the published FY2026 allotment
+DE,Delaware,157394964,157394963.86,-0.14,TRUE,BP1 award rounds to the published FY2026 allotment
+MN,Minnesota,193090618,193090618.14,0.14,TRUE,BP1 award rounds to the published FY2026 allotment
+VA,Virginia,189544888,189544888.14,0.14,TRUE,BP1 award rounds to the published FY2026 allotment
+MA,Massachusetts,162005238,162005238.13,0.13,TRUE,BP1 award rounds to the published FY2026 allotment
+NM,New Mexico,211484741,211484740.89,-0.11,TRUE,BP1 award rounds to the published FY2026 allotment
+TN,Tennessee,206888882,206888882.11,0.11,TRUE,BP1 award rounds to the published FY2026 allotment
+ME,Maine,190008051,190008051.09,0.09,TRUE,BP1 award rounds to the published FY2026 allotment
+AZ,Arizona,166988956,166988955.92,-0.08,TRUE,BP1 award rounds to the published FY2026 allotment
+WA,Washington,181257515,181257515.06,0.06,TRUE,BP1 award rounds to the published FY2026 allotment
+WY,Wyoming,205004743,205004742.95,-0.05,TRUE,BP1 award rounds to the published FY2026 allotment
+AR,Arkansas,208779396,208779396.02,0.02,TRUE,BP1 award rounds to the published FY2026 allotment
+MI,Michigan,173128201,173128201.02,0.02,TRUE,BP1 award rounds to the published FY2026 allotment
+OH,Ohio,202030262,202030262.02,0.02,TRUE,BP1 award rounds to the published FY2026 allotment
+PA,Pennsylvania,193294054,193294053.98,-0.02,TRUE,BP1 award rounds to the published FY2026 allotment
+NE,Nebraska,218529075,218529075.01,0.01,TRUE,BP1 award rounds to the published FY2026 allotment
