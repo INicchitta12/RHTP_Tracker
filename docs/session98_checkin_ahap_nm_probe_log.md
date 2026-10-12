@@ -384,4 +384,16 @@ Deliverable 1. The union test now pins:
 ## 6. Suite
 
 `Rscript tests/run_tests.R` on the unshallowed clone, end to end, after every change above.
-Result: see §6a, appended after the run.
+**Final run (commit `4b8c115`): 9,966 passed, 0 failed, 0 errors, 1 skipped** (the CMS first-run
+branch, `test_00_cms_press_monitor.R:188`, as expected). The NM six-hubs test ran and passed; it no
+longer skips. 33 minutes.
+
+Two earlier full runs on this branch failed, and the failures are recorded here:
+- **Run 1: 58 failures.** Session 98's new rows moved figures pinned in `test_03ap`, `test_03bj` and
+  `test_03ar`, and in session 97's "no obligation table in STATE_FILES" (`test_00c`). Two rule
+  failures came with them: CHI Health St Marys had no `EH_APPLY` verdict, and Narragansett's FQHC
+  enrolment sat in `cms_enrolment_match`.
+- **The fixes.** All of it was fixed by adding a session-98 layer that subtracts back to the session-94
+  figures. No existing pin was loosened.
+- **Run 2: 1 failure.** `test_utils_probe_log` flagged `rhtp_watch_fetch(` inside `ksa_probe()`. It was
+  fixed by moving the read into `ksa_live_raw()`.
