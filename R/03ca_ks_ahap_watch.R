@@ -146,9 +146,12 @@ ksa_check <- function(live_raw, arch_raw = ksa_archived_raw()) {
                  content_changed = digest::digest(live) != digest::digest(arch))
 }
 
+#' The live page's bytes, in memory only (rhtp_watch_fetch never touches disk).
+ksa_live_raw <- function() rhtp_watch_fetch(KSA_URL, KSA_USER_AGENT)
+
 #' The probe half, called from R/03o's ks_probe(). Reads; never writes.
 ksa_probe <- function() {
-  ksa_check(rhtp_watch_fetch(KSA_URL, KSA_USER_AGENT))
+  ksa_check(ksa_live_raw())
 }
 
 #' Re-base: the deliberate act (§2.2). Writes a dated archive; a human then
