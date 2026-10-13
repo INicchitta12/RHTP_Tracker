@@ -32,3 +32,14 @@ Source URLs
 0ae78558ef093de366bea35fd37259e9b409416fbc098fa3feb4393f85e77596  2026-09-28_cdfa_rchip_statement.html  https://nhcdfa.org/cdfa-statement-about-the-rural-community-health-infrastructure-programs/  full_page_sha256=5f3907349f35cd8855242f4b63d3676be411c779c5fe908d32d279a12a76a20a  2026-09-28T14:53:29Z
 792275014cfad9cf98d9281931cab9a65006719169ef7f96b26a775df378c96a  2026-10-02_fhc_go_north_rhtp.html  https://healthynh.org/initiatives/rural-health-transformation-program/  full_page_sha256=fac0af5e2928c625b83597b871e3bdc7e08c31f2e1b165803bbfd04957144b42  2026-10-02T15:26:29Z
 8c653af3688de03be3d8198a4b0d0a5bd936c2c16fa2b7f8b7685e6f308ae3b3  2026-10-02_cdfa_rchip_statement.html  https://nhcdfa.org/cdfa-statement-about-the-rural-community-health-infrastructure-programs/  full_page_sha256=5b2d1425f17ae6893d2913d01bb35ca90f8592a3e1a946b9962a690f751452f3  2026-10-02T15:26:33Z
+781b7f8e23b1e115866cb2044a05fb16cd428d29872f60fccecc0fd130e581b3  2026-10-12_fhc_go_north_rhtp.html  https://healthynh.org/initiatives/rural-health-transformation-program/  full_page_sha256=89509b292eabfc2b0229d20653d92dd0f30d17e2d0572ecf5aaa0a380b11a374  2026-10-12T18:54:49Z
+5533cbebc7c0e1d3417796442eb3f1badde682ebcb46a84ce3f7c2c1f099dfc9  2026-10-12_cdfa_rchip_statement.html  https://nhcdfa.org/cdfa-statement-about-the-rural-community-health-infrastructure-programs/  full_page_sha256=b3abb368cae31766c59e888296eeff9a41d810201e13ab74d359ca2df2207f6b  2026-10-12T18:54:53Z
+
+rfa/ -- session 99, FHC's Critical Access Hospital (CAH) & Acute Care Hospital RFA
+(linked "Download RFA" / "Appendices" from the FHC page; fetched 2026-10-12 with
+the NH_AGENT, curl -L, bytes as served). "FHC anticipates awarding approximately
+$17.5 million through this RFA" (Tier 2 pool); "Notification of Award (Initial
+Cohort) Mid December 2026". Eligible lead applicants include partner
+organisations, so the class is NOT hospitals-only (§10.2, code off the award).
+474bed1e8e23ad441fdb220739c5c55e69da4c8e40f1d05fa1edd4c4b5628642  rfa/2026-10-12_fhc_cah_acute_care_hospital_rfa_2026-10-01.pdf  https://healthynh.org/wp-content/uploads/2026/10/2026-OCT-1-FHC-CAH-FINAL.pdf  772145 bytes
+cd19a9f767c3ca480412f8c9460a0004d9f2302578589c15fb8f7b0e274c3026  rfa/2026-10-12_fhc_hospital_rfa_appendices_2026-10-06.pdf  https://healthynh.org/wp-content/uploads/2026/10/Hospital-RFA-Appendices-20261006.pdf  320628 bytes

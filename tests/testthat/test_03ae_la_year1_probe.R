@@ -430,7 +430,7 @@ test_that("the status table has no amount column (the money is in the award file
 
 test_that("the status table names nine channels; only the RCCB publishes a (partial) roster", {
   st <- readr::read_csv(here::here(LA_STATUS_CSV), show_col_types = FALSE)
-  expect_equal(nrow(st), 9L)
+  expect_equal(nrow(st), 12L)  # session 99: + Rural HERO, Grow Your Own, SR 198 report
   rccb <- st[st$channel == "Rural Clinician Credit Bank", ]
   expect_equal(rccb$stage, "AWARDED_5_OF_53_NAMED")
   expect_equal(rccb$publishes_roster, "Partial -- 5 of 53 awardees named")
@@ -729,4 +729,33 @@ test_that("the full assertion set runs clean on the committed archive", {
   expect_true(la_assert_capital_row_dropped())
   expect_true(la_assert_rccb_rows_are_ldh_awards())
   expect_true(la_assert_award_file())
+})
+
+
+# -- session 99: SR 198's report and where it will be watched ------------------
+
+test_that("SR 198 is archived and says what the status row rests on", {
+  pdf <- here::here("data", "evidence", "LA", "sr198", "2026-10-12_la_sr198_2026rs_enrolled.pdf")
+  expect_true(file.exists(pdf))
+  if (!exists("rhtp_pdf_text")) source(here::here("R", "utils_pdf_text.R"))
+  t <- stringr::str_squish(paste(rhtp_pdf_text(pdf), collapse = " "))
+  expect_match(t, "SENATE RESOLUTION NO. 198", fixed = TRUE)
+  expect_match(t, "No later than October 15, 2026, a report that provides the proposed program expenditures for federal Fiscal Year 2026-2027", fixed = TRUE)
+  expect_match(t, "identification of recipients of funding and the amount of funding allocated", fixed = TRUE)
+})
+
+test_that("the legislative-reports list is watched, and an SR 198 mention trips", {
+  expect_true("leg_reports" %in% LA_PROBE_KEYS)
+  a <- la_reduce_html(readBin(la_path("leg_reports"), "raw",
+                              file.size(la_path("leg_reports"))))
+  # The baseline mentions none of the three -- otherwise the diff is blind.
+  expect_length(regmatches(a, gregexpr(LA_SR198_RX, a, perl = TRUE))[[1]], 0L)
+  expect_silent(la_assert_no_sr198_report(a, a))
+  for (m in c("SR 198 of the 2026 Regular Session", "Senate Resolution No. 198",
+              "Rural Health Transformation Program Report", "RHTP Report")) {
+    expect_error(la_assert_no_sr198_report(paste(a, m), a), "SR 198", info = m)
+  }
+  st <- rhtp_la_year1_status()
+  expect_equal(st$stage[st$channel == "Senate Resolution 198 report to the Senate"],
+               "REPORT_DUE_NOT_YET_POSTED")
 })

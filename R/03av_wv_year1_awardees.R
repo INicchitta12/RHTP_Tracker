@@ -126,6 +126,37 @@ WV_SLUG <- c(
   ccwv = "governor-morrisey-announces-more-11-million-rural-health-transformation-awards-community",
   mh   = "governor-morrisey-announces-more-4-million-rural-health-transformation-awards-minnie")
 
+# AWARD RELEASES READ AND JUDGED NOT RHTP (session 99). Each slug is excluded
+# from the tripwire with the sentence that justifies it; a release is never
+# listed here to make a trip quiet without being read (§2.3's furniture rule).
+WV_NOT_RHTP <- tibble::tribble(
+  ~slug, ~why,
+  "west-virginia-awarded-195825-federal-grant-upgrade-wic-clinics-needle-free-screening",
+  paste("Read 2026-10-12 (session 99; tripped the 10-09 Routine): 'a new",
+        "$195,825 federal infrastructure grant from the USDA Food and Nutrition",
+        "Service' for Masimo Pronto devices in WIC clinics, received by DH's own",
+        "Office of Nutrition Services. RHTP and CMS appear only in the site",
+        "navigation. §0.1 mode 1, wrong programme."))
+
+# AWARD RELEASES READ AND NOT YET EXTRACTED (session 99) -- OWNER DECISION.
+# Found while reading the news-index diff for the re-base: the 2026-09-30
+# release "Governor Morrisey Announces More Than $3.2 Million in Rural Health
+# Transformation Investments" IS AN AWARD RELEASE ("Today's awards ...", "The
+# awards were made through the SmartCare Catalyst Provider Productivity Support
+# Fund and Mountain State Care Force initiatives") naming SEVEN recipients --
+# Stonewall Jackson Memorial Hospital, Mon Health Marion Neighborhood
+# Hospital, Preston Memorial Hospital, Plateau Medical Center, Webster Memorial
+# Hospital, Broaddus Hospital and Vandalia Health ("an additional award") --
+# with NO per-recipient amount ("more than $3.2 million" in all). The old
+# tripwire missed it because WV's own convention broke: its headline says
+# "Investments", not "Award". Extracting it adds hospital ROWS at $0; held for
+# the owner, so it is listed here (the tripwire stays quiet on it) and in
+# CLAUDE.md's next steps. Archived under data/evidence/WV/.
+WV_READ_UNEXTRACTED <- tibble::tribble(
+  ~slug, ~why,
+  "governor-morrisey-announces-more-32-million-rural-health-transformation-investments",
+  "2026-09-30 award release, 7 named recipients, no per-recipient amount; read session 99, extraction held for the owner.")
+
 # Where each release is archived. The session-85 pair sits under
 # data/evidence/WV/ with its fetch date, not under the 09-23 recheck folder.
 WV_PATHS <- c(
@@ -144,7 +175,7 @@ WV_MH_ENROLMENT <- paste0(
 WV_PROBE_DIR <- file.path("data", "evidence", "WV")
 WV_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
-  "news", "https://health.wv.gov/news", "2026-09-23_wv_news_index.html", FALSE,
+  "news", "https://health.wv.gov/news", "2026-10-12_wv_news_index.html", FALSE,
   "rhtp", "https://health.wv.gov/rhtp", "2026-09-23_wv_rhtp_programme.html", TRUE,
   "grants", "https://health.wv.gov/grant-opportunities",
   "2026-09-23_wv_grant_opportunities.html", TRUE)
@@ -366,6 +397,12 @@ wv_year1_awardees <- function() {
 #' The reduced text of a page: <main> if it has one, script and style dropped
 wv_page_text <- function(raw) {
   h <- xml2::read_html(raw)
+  # Session 99: these pages have no <main>, so the whole document is read, and
+  # its inline scripts carry a TBMegaMenu element UUID that ROTATES on every
+  # render (fe42c847-... on 09-23, 2724ec90-... on 10-12) -- the rhtp and
+  # grants pages logged CHANGED on nothing else. Scripts are not text a reader
+  # sees; dropping them from BOTH copies is the reduction, not a re-base.
+  xml2::xml_remove(xml2::xml_find_all(h, "//script|//style|//noscript"))
   m <- rvest::html_element(h, "main")
   stringr::str_squish(rvest::html_text2(if (inherits(m, "xml_missing")) h else m))
 }
@@ -401,8 +438,13 @@ wv_assert_no_new_award_release <- function(raw) {
     stop("[WV] a recorded award release has left the news index's first page ",
          "while the page is short -- re-read it.", call. = FALSE)
   }
-  new <- arts[grepl("award", paste(arts$headline, arts$slug), ignore.case = TRUE) &
-                !arts$slug %in% known, , drop = FALSE]
+  # Session 99: an RHTP headline trips too, whatever its verb -- the 09-30
+  # "$3.2 Million ... Investments" release awarded seven named recipients and
+  # said "Award" nowhere in its headline or slug.
+  new <- arts[grepl("award|rural health transformation|\\brhtp\\b",
+                    paste(arts$headline, arts$slug), ignore.case = TRUE) &
+                !arts$slug %in% known & !arts$slug %in% WV_NOT_RHTP$slug &
+                !arts$slug %in% WV_READ_UNEXTRACTED$slug, , drop = FALSE]
   if (nrow(new)) {
     stop("[WV] NEW AWARD RELEASE(S) ON THE DoH NEWS INDEX: ",
          paste0("'", new$headline, "' (/article/", new$slug, ")", collapse = "; "),

@@ -1,0 +1,24 @@
+LOUISIANA -- SENATE RESOLUTION 198 (2026 RS) AND ITS 2026-10-15 REPORT (session 99)
+
+SR 198 by Sen. Mizell, adopted 2026-06-01 (36-0), 'urge[s] and request[s]' LDH to
+submit to the SENATE '(1) No later than October 15, 2026, a report that provides the
+proposed program expenditures for federal Fiscal Year 2026-2027' and '(2) No later than
+November 1, 2027' actual FY2026-27 and proposed FY2027-28 expenditures, each to
+'include identification of recipients of funding and the amount of funding allocated'.
+It names no committee and NO POSTING LOCATION. R.S. 24:772(A)(1) has the agency
+e-mail the report to the David R. Poynter Legislative Research Library, which lists
+it to members -- distribution, not publication. LDH lists its legislative reports,
+newest first and named by their requesting instrument, on its 'Legislative &
+Governmental Relations' resources category: R/03ae's 'leg_reports' probe key.
+
+Fetched 2026-10-12 (legis.la.gov with the project agent; ldh.la.gov with R/03ae's
+LA_USER_AGENT); bytes as served; no credential strings.
+
+sha256  bytes  file  url
+33c47367247fd361cce24359b051160bb67e5929fa9d28d69e014e8bb5253cbf  36283  2026-10-12_la_sr198_2026rs_enrolled.pdf  https://www.legis.la.gov/Legis/ViewDocument.aspx?d=1479736
+3ab01cb0b2bd1a67de640b4997ebe1600d62f5ccb0e0537c5da1e3da3079e6b0  28148  2026-10-12_la_sr198_2026rs_resume_digest.pdf  https://www.legis.la.gov/Legis/ViewDocument.aspx?d=1482790
+14ba7df0543a4b8bee235b0b98eb05086a522890afeb7fb019f9084b3bddb20a  29549  2026-10-12_la_sr198_2026rs_vote_36_0.pdf  https://www.legis.la.gov/Legis/ViewDocument.aspx?d=1479687
+e76d34e03a35d1610d990a3ee017e7edcf7203e1bca8602c0bd39193c6726ead  46955  2026-10-12_la_sr198_2026rs_bill_page.html  https://www.legis.la.gov/legis/BillInfo.aspx?i=252210
+8b3098cd684471e295a76a21c7fb95f7c3f3ea26bb5f2c300d81cf37ae96c331  27825  2026-10-12_la_rs_24_772_reports_to_legislature.html  https://legis.la.gov/Legis/Law.aspx?d=84222
+1d6d84d1572fc3f411404446c03978b168d327a182ce394460baef47f224a9a8  168755  2026-10-12_la_ldh_news_2026-10-08_rhtp_y1_workforce_37_7m.html  https://ldh.la.gov/news/RHTP-Y1funding
+8ec7f4d8af9821df0f2c424fa88a179071a1d0e061ce94934b24e206b0a45184  1331306  2026-10-12_la_ldh_orhts_monthly_webinar_2026-10-01.pdf  https://ldh.la.gov/assets/docs/Secretary/RHTP/ORHTS-Monthly-Webinar_October-2026.pdf

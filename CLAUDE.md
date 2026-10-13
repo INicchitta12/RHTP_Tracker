@@ -1642,7 +1642,7 @@ retrieval code.
 
 ## 10. Current state
 
-**Last updated:** 2026-10-12 (Session 98). Session 98 applied the owner's 10-12 rulings on CMS's obligation report (`R/03cb`): NE CMS obl (NHA $3,474,937.50 as an association, POOL_UNNAMED; Mayo Clinic $120,000, out of state, and CHI Health St Marys $40,824.49 on CCN 281342, NAMED), PA CMS obl (The Guthrie Clinic $2,963,577, system parent, LOW) and a new RI file (104 single-recipient lines, $78,727,110.44, HARI $15,839,907.67 POOL_UNNAMED; no RI enrolled hospital is named). New codes: `source_doc_type = CMS_OBLIGATION_REPORT`, `flag_reason = CMS_OBLIGATION_ASSOCIATION`. NAMED_HOSPITAL 1,308 → 1,313 / $1,216,466,199.99; POOL_UNNAMED 1 → 4 / $69,323,109.17 (IL NE RI); rural cut 262 / $267,414,906.33 (St Marys is a CAH). It also added the KS AHAP watch (`R/03ca`, run by R/03o's probe), pinned the NM six-hubs test (no git history needed), footnoted Oregon's share denominator, and read every probe line since 10-07. Detail: `docs/session98_checkin_ahap_nm_probe_log.md`. Session 97 (2026-10-12). Session 97 parsed CMS's RHTP Obligated Funds Report (as of 2026-07-31, posted on medicaid.gov 2026-10-08, byte-identical to the owner's upload): `R/00c` (50 states, 1,403 bullets, every reconciliation logged in `cms_obligations_bp1_checks.csv`, Hawaii's bullets unusable) and `R/00d` (name matches, hospital-purpose leads, gap ranking). BP1 awards sum to $9,995,000,000.00; only Oregon differs from the FY2026 table beyond rounding (−$5,000,000.33, unexplained). No figure moved and no award row was added; the owner decides lists (a) $28.2M and (b) $58.1M in `cms_obligation_hospital_decision_lists.csv`. The CMS monitor now watches for the refreshed report. Detail: `docs/session97_cms_obligation_report.md`. Session 96 (2026-10-07). Session 96 did four owner tasks, and no figure moved. `KS_EBP_ENROLMENT_NOT_AWARD` is RESOLVED at (a): the 94 are enrolment at $0 until the Care Collaborative posts its paid list. The news.delaware.gov browser agent is WITHDRAWN (§3): the block is not keyed to the agent, and the retry stays. The Care Collaborative's Anchor Hospital Advancement Program is read: it is RHTP-funded as Tier 2 plan lines through KDHE → CCA → AHAP, LLC, a joint venture of urban health systems; it names 2 of its 10 anchor hospitals, only as RPM pilot sites; it pays no hospital on any document (services, i.e. `IN_KIND_BENEFIT`); nothing was extracted. `recheck/2026-10-07/KS/` is recorded as a THIRD-PARTY rendering (r.jina.ai) in its `PROVENANCE.txt`. Detail: `docs/session96_ks_ebp_resolved_de_agent_withdrawn_ahap.md`. Session 95 did three owner tasks: `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` RESOLVED (accepted, LOW, hand bridge to CCN 471300 recorded in the basis; $0 moved); a browser agent for news.delaware.gov ONLY (withdrawn in session 96); and Kansas's Evidence-Based Practice Program, which is in no award file: the Care Collaborative's 09-18 list names 94 participating hospitals, but payments are conditional and the administrator will post a separate paid list, so §10.2's "award has been made" fails and the 94 are an ENROLMENT file (`R/03bz`, `ks_ebp_participants.csv`, never in STATE_FILES; owner question `KS_EBP_ENROLMENT_NOT_AWARD`). The KS 10-05 name trip was KDHE's new site menu (read in a third-party r.jina.ai render, not a primary capture); R/03o's tripwire now reads the content region only. No partition figure moved. Detail: `docs/session95_vt_grace_cottage_de_agent_ks_ebp.md`. Session 94 re-extracted Vermont's 10-02 roster (166 rows, $127,419,853.91: 20 new agreements, $18,124,660.41, plus NCHC's $226,194.70 re-filed from Regionalization to Primary Care; VT hospital 42 / $35,285,416.18 → 51 / $44,866,699.26), extracted KY's first named recipient (`R/03by`: Lake Cumberland District Health Department, RCH Hub Lead, local health department, $0; "up to $10 million" over five years is a regional ceiling, text only; KY now EXTRACTED), recorded ND's CAH Workforce Retention round as awarded with nobody named (`ND_HOSPITAL_ONLY_ROUNDS`), retried and logged firewall "Request Rejected" pages as ERROR, scoped ME/NE/NM name tripwires past their menus, added WI's Overdose Prevention Supplies RFA to furniture, re-based CT `opm`/`documents`, and split MS's October opportunity (Innovative Pilot: applications open 10-14, awardees "January 2027"). NAMED_HOSPITAL is 1,308 / $1,213,341,798.50 / 32 states. Detail: `docs/session94_vt_ky_nd_probe_fixes_ms.md`. Session 93 (2026-10-05) closed two session-92 items on the owner's instruction: Valley Health, Ballad and Sentara accepted as system parents (`VA_VHCF_SYSTEM_PARENTS` RESOLVED; $0 moved, VA VHCF stays 9 / $6,390,000), and KY's Accredited Dental Hygiene conflict recorded on its status row with the RFA archived (stage unchanged). Detail: `docs/session93_va_parents_ky_dental_hygiene.md`. Session 92: Session 92 extracted VHCF's Provider Interoperability round (`R/03bx`, 25 awards, $14,390,000, typed on CMS VA enrolment: 9 hospital lines / $6,390,000, of which $5,700,000 is three system parents at LOW; Highland Medical Center is an FQHC; the two UVA Health strings, $884,000, joined `AHC_STRING_NAMES_NO_ENROLLED_ENTITY`), put VHCF's news index on `R/03bb`'s probe, registered VHCF's 07-10 grants as `VA-VHCF-REGULAR-GRANTS`, re-staged KY Community Paramedicine and EMS Training Equipment to `AWARDED_PRIVATELY_NO_PUBLIC_ROSTER` (three more RFA award dates watched; SharePoint's hidden admin zone and zero-width residue dropped from KY's digest), and recorded CT DEEP's $7,165,955 as a state-agency allocation and DMHAS's REST RFP on `R/03ac`'s probe. NAMED_HOSPITAL is 1,299 / $1,203,760,515.42 / 32 states. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`. Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
+**Last updated:** 2026-10-12 (Session 99). Session 99 extracted the owner-approved rosters: SD's 10-12 register (53 / $37,039,799; +3 hospital rows / +$7,789,960 on hand-read CMS enrolment bridges, LOW), AK's 10-12 notice (254; hospital +$446,104.96; session 49 overlay re-keyed by App ID), OK Behavioral Health (`R/03cc`, 3 / $1,228,012.70; Mercy +$90,171.53) and EMS/CP (51 lines, no amounts, 6 hospital rows at $0), Keetoowah withdrawn from OK RRR, and NE's Regional West and Chase County infection-prevention CMS lines (+$342,079.10). NAMED_HOSPITAL 1,313 → 1,325 / $1,225,134,515.58. It also archived Louisiana SR 198 and put LDH's legislative-reports list on R/03ae's probe (one-time check 2026-10-16), extracted KY's Purchase Hub Lead (found by the name tripwire), fixed six probes (ND KY WA WV VA NH) and the empty-reply verdict, and moved five runners. Detail: `docs/session99_la_extractions_probe_fixes_runners.md`. Session 98 (2026-10-12). Session 98 applied the owner's 10-12 rulings on CMS's obligation report (`R/03cb`): NE CMS obl (NHA $3,474,937.50 as an association, POOL_UNNAMED; Mayo Clinic $120,000, out of state, and CHI Health St Marys $40,824.49 on CCN 281342, NAMED), PA CMS obl (The Guthrie Clinic $2,963,577, system parent, LOW) and a new RI file (104 single-recipient lines, $78,727,110.44, HARI $15,839,907.67 POOL_UNNAMED; no RI enrolled hospital is named). New codes: `source_doc_type = CMS_OBLIGATION_REPORT`, `flag_reason = CMS_OBLIGATION_ASSOCIATION`. NAMED_HOSPITAL 1,308 → 1,313 / $1,216,466,199.99; POOL_UNNAMED 1 → 4 / $69,323,109.17 (IL NE RI); rural cut 262 / $267,414,906.33 (St Marys is a CAH). It also added the KS AHAP watch (`R/03ca`, run by R/03o's probe), pinned the NM six-hubs test (no git history needed), footnoted Oregon's share denominator, and read every probe line since 10-07. Detail: `docs/session98_checkin_ahap_nm_probe_log.md`. Session 97 (2026-10-12). Session 97 parsed CMS's RHTP Obligated Funds Report (as of 2026-07-31, posted on medicaid.gov 2026-10-08, byte-identical to the owner's upload): `R/00c` (50 states, 1,403 bullets, every reconciliation logged in `cms_obligations_bp1_checks.csv`, Hawaii's bullets unusable) and `R/00d` (name matches, hospital-purpose leads, gap ranking). BP1 awards sum to $9,995,000,000.00; only Oregon differs from the FY2026 table beyond rounding (−$5,000,000.33, unexplained). No figure moved and no award row was added; the owner decides lists (a) $28.2M and (b) $58.1M in `cms_obligation_hospital_decision_lists.csv`. The CMS monitor now watches for the refreshed report. Detail: `docs/session97_cms_obligation_report.md`. Session 96 (2026-10-07). Session 96 did four owner tasks, and no figure moved. `KS_EBP_ENROLMENT_NOT_AWARD` is RESOLVED at (a): the 94 are enrolment at $0 until the Care Collaborative posts its paid list. The news.delaware.gov browser agent is WITHDRAWN (§3): the block is not keyed to the agent, and the retry stays. The Care Collaborative's Anchor Hospital Advancement Program is read: it is RHTP-funded as Tier 2 plan lines through KDHE → CCA → AHAP, LLC, a joint venture of urban health systems; it names 2 of its 10 anchor hospitals, only as RPM pilot sites; it pays no hospital on any document (services, i.e. `IN_KIND_BENEFIT`); nothing was extracted. `recheck/2026-10-07/KS/` is recorded as a THIRD-PARTY rendering (r.jina.ai) in its `PROVENANCE.txt`. Detail: `docs/session96_ks_ebp_resolved_de_agent_withdrawn_ahap.md`. Session 95 did three owner tasks: `VT_S94_GRACE_COTTAGE_FAMILY_HEALTH_BRIDGE` RESOLVED (accepted, LOW, hand bridge to CCN 471300 recorded in the basis; $0 moved); a browser agent for news.delaware.gov ONLY (withdrawn in session 96); and Kansas's Evidence-Based Practice Program, which is in no award file: the Care Collaborative's 09-18 list names 94 participating hospitals, but payments are conditional and the administrator will post a separate paid list, so §10.2's "award has been made" fails and the 94 are an ENROLMENT file (`R/03bz`, `ks_ebp_participants.csv`, never in STATE_FILES; owner question `KS_EBP_ENROLMENT_NOT_AWARD`). The KS 10-05 name trip was KDHE's new site menu (read in a third-party r.jina.ai render, not a primary capture); R/03o's tripwire now reads the content region only. No partition figure moved. Detail: `docs/session95_vt_grace_cottage_de_agent_ks_ebp.md`. Session 94 re-extracted Vermont's 10-02 roster (166 rows, $127,419,853.91: 20 new agreements, $18,124,660.41, plus NCHC's $226,194.70 re-filed from Regionalization to Primary Care; VT hospital 42 / $35,285,416.18 → 51 / $44,866,699.26), extracted KY's first named recipient (`R/03by`: Lake Cumberland District Health Department, RCH Hub Lead, local health department, $0; "up to $10 million" over five years is a regional ceiling, text only; KY now EXTRACTED), recorded ND's CAH Workforce Retention round as awarded with nobody named (`ND_HOSPITAL_ONLY_ROUNDS`), retried and logged firewall "Request Rejected" pages as ERROR, scoped ME/NE/NM name tripwires past their menus, added WI's Overdose Prevention Supplies RFA to furniture, re-based CT `opm`/`documents`, and split MS's October opportunity (Innovative Pilot: applications open 10-14, awardees "January 2027"). NAMED_HOSPITAL is 1,308 / $1,213,341,798.50 / 32 states. Detail: `docs/session94_vt_ky_nd_probe_fixes_ms.md`. Session 93 (2026-10-05) closed two session-92 items on the owner's instruction: Valley Health, Ballad and Sentara accepted as system parents (`VA_VHCF_SYSTEM_PARENTS` RESOLVED; $0 moved, VA VHCF stays 9 / $6,390,000), and KY's Accredited Dental Hygiene conflict recorded on its status row with the RFA archived (stage unchanged). Detail: `docs/session93_va_parents_ky_dental_hygiene.md`. Session 92: Session 92 extracted VHCF's Provider Interoperability round (`R/03bx`, 25 awards, $14,390,000, typed on CMS VA enrolment: 9 hospital lines / $6,390,000, of which $5,700,000 is three system parents at LOW; Highland Medical Center is an FQHC; the two UVA Health strings, $884,000, joined `AHC_STRING_NAMES_NO_ENROLLED_ENTITY`), put VHCF's news index on `R/03bb`'s probe, registered VHCF's 07-10 grants as `VA-VHCF-REGULAR-GRANTS`, re-staged KY Community Paramedicine and EMS Training Equipment to `AWARDED_PRIVATELY_NO_PUBLIC_ROSTER` (three more RFA award dates watched; SharePoint's hidden admin zone and zero-width residue dropped from KY's digest), and recorded CT DEEP's $7,165,955 as a state-agency allocation and DMHAS's REST RFP on `R/03ac`'s probe. NAMED_HOSPITAL is 1,299 / $1,203,760,515.42 / 32 states. Detail: `docs/session92_va_vhcf_ky_private_awards_ct_deep_rest.md`. Session 90 extracted SD's CCBHC round (`R/03bw`, 13 named cohort members for 12 grants, "more than $13 million", no amounts, every row `recipient_confirmed = Unclear`; Avera Behavioral Health has no exact CMS SD enrolment, so it is not a hospital row), registered DOH's Regional Services Designation Grant Fund as state money (`SD-DOH-RSD-GRANT-FUND`), and moved SD to Year 1 PARTIAL. Detail: `docs/session90_sd_ccbhc_rsd_registry_main_suite.md`. Session 89: Session 89 closed `MT_PRAIRIE_COUNTY_AMBULANCE_OPERATOR` as
 NON_HOSPITAL (owner: a shared county does not show the hospital district operates the ambulance service; $0
 moved), read SD's $7.2M EMS round (no roster), and merged the session-84 check-in branch. Detail:
 `docs/session89_sd_ems_round_mt_prairie_checkin.md`. Session 88 did five owner tasks:
@@ -1806,6 +1806,18 @@ and had 264 awards; FL, NC, AR and WY had zero candidates and published rosters.
 14. Does the footer's grammatical subject cover the PROGRAMME or only the publication (Nevada)?
 15. Does the award document carry the provenance, or only the solicitation (Indiana)?
 
+**The Year 1 deadlines (session 99, verified against the committed NOAs).**
+- **2026-10-30 is the end of Budget Period 1** on every CMS Notice of Award read (KY, GA original; CA, CT, NV,
+  WY, VA face pages: "Budget Period ... End Date 10/30/2026"). The NOA carries no sentence requiring a state to
+  obligate to subrecipients by then. "Must be obligated by October 30, 2026" is the STATES' reading (AR NOFOs
+  "per CMS rules", IL, AL, ID, UT, AK, CA, NY, WY), so cite it as the state's, and RI's own deck says 10/1/26.
+- **2027-09-30 is the BP1 spending deadline by derivation**, not a printed NOA date: Program Terms §15 treat as
+  unexpended funds a recipient "does not spend by the end of the subsequent fiscal year with respect to each
+  budget period start date" (BP1 starts 12/29/2025, FY2026, so FY2027 ends 9/30/2027), and the consequence is
+  REDISTRIBUTION, not lapse. CT's budget narrative, IL, TN, MO, ND, KY, LA and SR 198 print the date.
+- A state's figure "obligated" by 10-30 is not an award, and an unspent dollar on 9/30/2027 is redistributed,
+  not returned (the return date is 2032-10-01).
+
 **CMS's obligation report is not an award source (session 97).**
 - "Funds put to work" is OBLIGATION BY ACTIVITY, self-reported by the state as of the report's date. A bullet
   is Tier 2. A bullet naming a recipient is Tier 3, and it is an obligation to a first-tier entity, not a
@@ -1858,16 +1870,16 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-12, session 98, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-12, session 99, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,313 rows   $1,216,466,199.99   32 states
+NAMED_HOSPITAL          1,325 rows   $1,225,134,515.58   32 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      4 rows      $69,323,109.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50)
 ```
 
 Never add these. Rows with `validation_source_type = CMS_OBLIGATION_REPORT` can be subtracted (session 98:
-named 5 / $3,124,401.49; unnamed-pool 3 / $19,314,845.17, all `CMS_OBLIGATION_ASSOCIATION`). `ACADEMIC_HEALTH_CENTER` subtype rows (session 71) can be subtracted. `GENERAL_KNOWLEDGE`
+named 7 / $3,466,480.59 after session 99's two NE lines; unnamed-pool 3 / $19,314,845.17, all `CMS_OBLIGATION_ASSOCIATION`). `ACADEMIC_HEALTH_CENTER` subtype rows (session 71) can be subtracted. `GENERAL_KNOWLEDGE`
 rows (`basis_type`, LOW) can be subtracted. Rural cut: `R/03ar`. Complete states and their hospital shares:
 `year1_completion_status.csv` (FL, GA, AR, AL).
 
@@ -1880,7 +1892,7 @@ Change a state file and you must update this table in the same commit. Never loo
 
 | File | Rows | Priced | sum(amount) | Hospital |
 |---|---:|---:|---:|---|
-| AK | 249 | 249 | $242,620,741 | 45 / $69,370,639 (intents; rolling; 2 withdrawn) |
+| AK | 254 | 254 | $248,976,548 | 45 / $69,816,744 (intents; rolling, 10-12 notice; 2 withdrawn) |
 | FL | 81 | 81 | $188,201,256 | 15 / $49,345,213 (Year 1 COMPLETE) |
 | WY | 77 | 75 | $173,859,752 | 35 / $84,369,024 (committee approvals) |
 | CO | 92 | 92 | $170,210,575 (release says $169,587,181) | 36 / $86,693,159 (typed on CMS enrolment) |
@@ -1904,8 +1916,8 @@ Change a state file and you must update this table in the same commit. Never loo
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
 | PA | 66 | 66 | $42,198,310 | 27 / $24,149,111 (authorized, undisbursed) |
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
-| OK RRR | 20 | 20 | $39,578,523 | 10 / $21,099,804 (LOW $8,272,013: 3 enrolment bridges $4,333,575; Mercy $3,938,438 general knowledge, no CCN) |
-| SD contracts | 41 | 41 | $26,836,144 | 14 / $16,643,252 (Sanford + Avera parents $7,007,000 LOW, GENERAL_KNOWLEDGE; 14 Rural Strong inside $31.5M; 8 unplaced, never on top of $90M) |
+| OK RRR | 19 | 19 | $38,455,023 | 10 / $21,099,804 (Keetoowah $1,123,500 withdrawn 10-12; LOW $8,272,013: 3 enrolment bridges $4,333,575; Mercy $3,938,438 general knowledge, no CCN) |
+| SD contracts | 53 | 53 | $37,039,799 | 17 / $24,433,212 (10-12 register; Sanford + Avera parents $7,007,000 and 3 hand-read enrolment bridges $7,789,960 LOW; 18 Rural Strong inside $31.5M; 16 unplaced, never on top of $90M) |
 | DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
@@ -1917,6 +1929,8 @@ Change a state file and you must update this table in the same commit. Never loo
 | MT | 5 | 4 | $1,360,000 | 0 (4 ambulance grants, rounded; 75 equipment awards unnamed, one pool row) |
 | IN | 7 | 1 | $860,088 | 0 (vendors) |
 | OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 |
+| OK BHI | 3 | 3 | $1,228,013 | 1 / $90,172 (Mercy, system parent, LOW, general knowledge, no CCN) |
+| OK EMS/CP | 51 | 0 | — | 6 / $0 (38 ambulance + 13 vehicle lines, no amounts; INTEGRIS Miami bridge LOW) |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 0 | — | 218 / $0 |
 | NV | 156 | 0 | — (pools $87.4M) | 44 / $0 |
@@ -1927,8 +1941,8 @@ Change a state file and you must update this table in the same commit. Never loo
 | VA | 11 | 0 | — | 0 |
 | VA VHCF | 25 | 25 | $14,390,000 | 9 / $6,390,000 (system parents $5,700,000 LOW, GENERAL_KNOWLEDGE; UVA strings $884k queued; Highland is an FQHC) |
 | ID | 1 | 0 | — | 0 |
-| KY | 1 | 0 | — | 0 (LCDHD, a local health department; "up to $10 million" over five years is a REGIONAL ceiling, text only) |
-| NE CMS obl | 4 | 4 | $3,635,762 | 3 / $160,824 + POOL_UNNAMED 1 / $3,474,938 (CMS obligation lines, as of 7/31; Mayo $120,000 out of state, LOW; NHA tagged CMS_OBLIGATION_ASSOCIATION) |
+| KY | 2 | 0 | — | 0 (LCDHD and Purchase DHD, local health departments; "up to $10 million" per region over five years is a ceiling, text only) |
+| NE CMS obl | 6 | 6 | $3,977,841 | 5 / $502,904 + POOL_UNNAMED 1 / $3,474,938 (CMS obligation lines, as of 7/31; Mayo $120,000 out of state, LOW; Regional West + Chase County infection prevention $342,079 added session 99; NHA tagged CMS_OBLIGATION_ASSOCIATION) |
 | PA CMS obl | 2 | 2 | $2,963,577 | 2 / $2,963,577 (The Guthrie Clinic, system parent, LOW, GENERAL_KNOWLEDGE, no CCN) |
 | RI | 104 | 104 | $78,727,110 | POOL_UNNAMED 2 / $15,839,908 (CMS obligation lines only; HARI tagged CMS_OBLIGATION_ASSOCIATION; no enrolled RI hospital named) |
 | SD rounds | 2 | 0 | — ($121.5M, names nobody) | 0 |
@@ -1968,6 +1982,8 @@ apart from the one-shot check-in.
 - **Session 82 moved the six in-place runners near 700k** (NY 723,788, SC 713,680, LA 709,869, WY 708,216,
   ME 703,973, MO 687,835) to new sessions, same names and crons; `runner_moves.csv` and `routines.csv` chain
   the old ids, which are disabled, not deleted.
+- **Session 99 moved IN GROW, TX, WV, ID and VT** (754,497 / 736,160 / 731,490 / 730,247 / 720,258) to new
+  sessions, same names and crons; old ids disabled and chained in `routines.csv` / `runner_moves.csv`.
 - **A prompt change is a recreate** (`update_trigger` refuses a prompt from outside the runner): edit the
   generator, `--write`, create, byte-compare with `list_triggers`, disable the old id, chain it here.
 
@@ -1992,16 +2008,24 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 98 (read first).** Detail and every proposal: `docs/session98_checkin_ahap_nm_probe_log.md`.
-  - **Three unextracted rosters move hospital dollars** (owner decision): SD's register is 53 / $37,039,799 (12
-    new; +3 hospital rows / ~$7.79M), AK's rolling file +5 actions and 19 revisions (+$446,105 hospital), OK's
-    Behavioral Health Integration ($1,228,012.70) and EMS/CP rosters (+1 / $90,171.53 and ~6 unpriced hospital
-    rows); Keetoowah ($1,123,500) has left OK RRR. OK's page now redirects to `oklahoma.gov/rhtp/...`.
-  - **Next firings that will trip unless fixed:** ND "Train In Place" (add to `ND_KNOWN_AWARDED`), KY menu,
-    WA footer (assert on the archive; never overwrite `recheck/2026-09-23/WA/`), WV USDA WIC slug, VA vhcf
-    re-dated to Oct 15 (the VA runner is blocked on it), MO IFB DSS26015-02 gone from the bid table (10-14).
-  - **MS 10-09 "TRIPWIRE" was an empty reply**: teach `rhtp_probe_verdict()` "Empty reply" as access.
-  - **Runners above 700k:** IN GROW 754,497, TX 736,160, WV 731,490, ID 730,247, VT 720,258. Not moved.
+- **Session 99 (read first).** Detail: `docs/session99_la_extractions_probe_fixes_runners.md`.
+  - **Merge this branch to `main` before Tue 10-13 11:30Z** (VT's first firing on its new runner; ID 12:40Z;
+    IN, WV, TX Fri 10-16). Until `routines.csv` on `main` carries the five new ids, their lines read as
+    unregistered. The old ids (`trig_01UZ5Q…`, `trig_017U35…`, `trig_01SfWj…`, `trig_01Hkxv…`, `trig_01G7gM…`)
+    are DISABLED, not deleted: delete each once its successor has logged on `main`. The VA runner's 10-09 date
+    trip is fixed on this branch (anchor "October 15, 2026"), so its next firing passes once merged.
+  - **WV owner decision:** the 2026-09-30 "$3.2 Million ... Investments" release is an AWARD release (7 named:
+    Stonewall Jackson, Mon Health Marion, Preston Memorial, Plateau, Webster Memorial, Broaddus, Vandalia; no
+    per-recipient amount). Held in `WV_READ_UNEXTRACTED`; extracting adds hospital rows at $0.
+  - **MO:** IFB DSS26015-02 (Horizon 2 Smart Growth, ~$40M over two years, $12M Year 1 plan, max $5M per award)
+    left the DSS bid table between 10-07 and 10-12; no award, cancellation or amendment is published anywhere
+    read. NOT re-based (owner asked for a report first). The 10-14 MO firing will trip on it: read that trip as
+    "closed, outcome unknown", and rewrite the procurement check as an award watch.
+  - **Still open from session 98:** NC $4M CCBHC (3 unnamed LME/MCOs), LA status rows done, WY/NC/WI/ME/TN/NJ
+    and NEWSROOM re-bases, AZ AHCCCS headline gap (owner), KS KDHE 403.
+- **Session 98.** Detail and every proposal: `docs/session98_checkin_ahap_nm_probe_log.md`.
+  - **Done in session 99:** the SD, AK and OK rosters; the ND, KY, WA, WV and VA probe fixes; the empty-reply
+    verdict; the five runners above 700k moved. MO DSS26015-02 is reported, not re-based.
   - **CMS obligation rows (`R/03cb`) are subtractable** by `validation_source_type`; HARI + NHA ($19.3M) by
     `CMS_OBLIGATION_ASSOCIATION`. NE's infection-prevention lines (Regional West $254,347, Chase County
     $87,732.10) are a pool our NE file lacks: a lead, not ruled on. RI stays `QUEUED` in the survey: its file
@@ -2116,7 +2140,15 @@ Network is Full; the old allowlist blockers are superseded.
   - California: notices sent privately via Submittable (HCAI FAQ 09-29); the rest "by late October 2026".
   - New Hampshire: CAH RFA "Coming Soon".
   - Wyoming: obligation end of October; committee meets 11-04/05.
-  - All states: CMS obligation deadline 2026-10-30.
+  - All states: end of Budget Period 1, 2026-10-30 (the states' obligation deadline; see standing rules).
+    On or after 10-30, re-check the session 97 roster-hunting list in rank order (`cms_obligation_gap_by_state.csv`
+    `hunt_rank` 1-13: CA IN IA HI NC NH IL RI VA CT MO KY MD) for rosters posted at the deadline.
+  - New Hampshire: FHC's CAH & Acute Care Hospital RFA (~$17.5M, Tier 2) opens late October, priority deadline
+    11-12, "Notification of Award (Initial Cohort) Mid December 2026". Not hospitals-only (partner organisations
+    may lead): code each award off the award. Watched by `R/03bm`.
+  - Louisiana: SR 198's report to the Senate was due 2026-10-15 (a Year 2 PLAN; one-time check 10-16 14:07Z,
+    `trig_01FsAscqmwDLG7w4UNEWLmdL`). RCCB CEAs: LDH's 10-01 deck gives "CEA / contract completion Current –
+    October 30th"; no source confirms the RCCB agreements executed.
 - **Vermont's list is partial and grows weekly.** When it moves, key the diff on initiative + activity + amount,
   not the name.
 - **Unextracted rows:**

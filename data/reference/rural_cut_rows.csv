@@ -237,51 +237,51 @@ AL,al_year1_awardees.csv,121,City of York Health Care Authority DBA Hill Hospita
 AL,al_year1_awardees.csv,124,The University of Alabama at Birmingham,974084,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
 AL,al_year1_awardees.csv,126,AltaPointe Health Systems,935895,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 014014: PART A PROVIDER - HOSPITAL",FALSE,014014,ORG_WEBSITE
 AL,al_year1_awardees.csv,131,Floyd Cherokee Medical Center LLC,31152,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,1,The Greater Fairbanks Community Hospital Foundation,16009453.33,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,2,PeaceHealth Ketchikan Medical Center,6518028.8,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,5,Mat-Su Regional Medical Center,5000000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,7,Norton Sound Health Corporation,4978914,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,9,Providence Health & Services- Washington,4559450.53,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 020001: PART A PROVIDER - HOSPITAL",FALSE,020001,ORG_WEBSITE
-AK,ak_year1_awardees.csv,19,Alaska Native Tribal Health Consortium,3134278,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,22,Yukon-Kuskokwim Health Corporation,2712511.49,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,24,Yukon-Kuskokwim Health Corporation,2636272.39,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,33,Arctic Slope Native Association,2000000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,34,Arctic Slope Native Association,2000000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,36,Central Peninsula General Hospital,1950030,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,51,Southeast Alaska Regional Health Consortium,1350027,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,53,Cordova Community Medical Center,1291355,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,58,Maniilaq Association,1172759.64,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,59,Maniilaq Association,1151900,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,62,Providence Health & Services- Washington,1086793.17,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,63,Providence Health & Services- Washington,1080000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,72,South Peninsula Hospital,958193,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,77,Providence Health & Services- Washington,871718.47,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,80,Maniilaq Association,828892.8,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,83,Providence Health & Services- Washington,772500,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,89,Norton Sound Health Corporation,650748.21,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,92,Alaska Native Tribal Health Consortium,638555,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,111,Arctic Slope Native Association,500000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,118,Petersburg Medical Center,446453,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,120,Petersburg Medical Center,437542,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,123,Maniilaq Association,430000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,130,Norton Sound Health Corporation,398666.23,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,134,Providence Health & Services- Washington,381512.34,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,137,Norton Sound Health Corporation,364764.4,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,140,City of Ketchikan,350000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,143,Bartlett Regional Hospital,341943,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,154,Norton Sound Health Corporation,292006,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,160,Norton Sound Health Corporation,259551,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,164,Mat-Su Regional Medical Center,250000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,187,Bartlett Regional Hospital,231669,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,195,South Peninsula Hospital,220481,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,196,Norton Sound Health Corporation,219980,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,198,Maniilaq Association,218964,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,203,PeaceHealth Ketchikan Medical Center,200767.66,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,212,Petersburg Medical Center,159947,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,213,Cordova Community Medical Center,155000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,233,Bristol Bay Area Health Corporation,75000,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,236,Norton Sound Health Corporation,70021.25,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,248,Bristol Bay Area Health Corporation,13990.29,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,7,City of Ketchikan,350000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,8,Mat-Su Regional Medical Center,5000000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,16,Cordova Community Medical Center,155000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,24,Maniilaq Association,828892.8,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,26,Norton Sound Health Corporation,70021.25,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,37,Yukon-Kuskokwim Health Corporation,2636272.39,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,39,Yukon-Kuskokwim Health Corporation,2726680,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,42,Alaska Native Tribal Health Consortium,3134278,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,44,Bartlett Regional Hospital,231669,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,45,Bristol Bay Area Health Corporation,75000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,46,Bristol Bay Area Health Corporation,13990.29,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,66,Norton Sound Health Corporation,219980,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,69,South Peninsula Hospital,958193,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,76,Central Peninsula General Hospital,1950030,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,83,Mat-Su Regional Medical Center,250000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,87,Norton Sound Health Corporation,650748.21,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,90,Providence Health & Services- Washington,772500,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,91,Providence Health & Services- Washington,1080000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,124,Alaska Native Tribal Health Consortium,638555,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,129,Arctic Slope Native Association,2000000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,130,Arctic Slope Native Association,2000000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,131,Arctic Slope Native Association,500000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,132,Bartlett Regional Hospital,341943,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,140,Cordova Community Medical Center,1291355,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,158,Maniilaq Association,1172759.64,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,159,Maniilaq Association,218964,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,169,Norton Sound Health Corporation,398666.23,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,170,Norton Sound Health Corporation,259551,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,174,PeaceHealth Ketchikan Medical Center,200767.66,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,175,PeaceHealth Ketchikan Medical Center,6967728.14,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,176,Petersburg Medical Center,437542,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,177,Petersburg Medical Center,446453,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,178,Providence Health & Services- Washington,4559450.53,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 020001: PART A PROVIDER - HOSPITAL",FALSE,020001,ORG_WEBSITE
+AK,ak_year1_awardees.csv,179,Providence Health & Services- Washington,381512.34,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,188,Southeast Alaska Regional Health Consortium,1350027,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,197,The Greater Fairbanks Community Hospital Foundation,16009453.33,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,206,Maniilaq Association,430000,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,207,Maniilaq Association,1151900,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,209,Norton Sound Health Corporation,4978914,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,210,Norton Sound Health Corporation,364764.4,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,211,Providence Health & Services- Washington,1086793.17,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,212,Providence Health & Services- Washington,853955.58,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,214,South Peninsula Hospital,220481,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,233,Petersburg Medical Center,159947,NOT_RECORDED,,FALSE,,
+AK,ak_year1_awardees.csv,247,Norton Sound Health Corporation,292006,NOT_RECORDED,,FALSE,,
 SD,sd_rht_contracts.csv,18,COMMUNITY MEMORIAL HOSPITAL,145500,NOT_RECORDED,,FALSE,,
 SD,sd_rht_contracts.csv,22,FAULKTON AREA MEDICAL CENTER,38000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431301,
 SD,sd_rht_contracts.csv,23,PHILIP HEALTH SERVICES INC,181600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431319: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431319,
@@ -296,6 +296,9 @@ SD,sd_rht_contracts.csv,33,AVERA HEALTH,1565000,NOT_RECORDED,,FALSE,,GENERAL_KNO
 SD,sd_rht_contracts.csv,34,FAULKTON AREA MEDICAL CENTER,77432,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431301,
 SD,sd_rht_contracts.csv,35,MOBRIDGE REGIONAL HOSPITAL,175000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431325,
 SD,sd_rht_contracts.csv,37,AVERA MCKENNAN,1585212,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 431326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,431326,
+SD,sd_rht_contracts.csv,44,PRAIRIE LAKES HEALTH CARE SYST,131460,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 430005A: PART A PROVIDER - HOSPITAL",FALSE,430005A,GENERAL_KNOWLEDGE
+SD,sd_rht_contracts.csv,47,MONUMENT HEALTH RAPID CITY HOS,6361000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 430077: PART A PROVIDER - HOSPITAL",FALSE,430077,GENERAL_KNOWLEDGE
+SD,sd_rht_contracts.csv,50,AVERA HEART HOSPITAL OF SD LLC,1297500,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 430095: PART A PROVIDER - HOSPITAL",FALSE,430095,GENERAL_KNOWLEDGE
 MI,mi_year1_awardees.csv,14,MyMichigan Health (EMS - Chronic Disease),182197,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 MI,mi_year1_awardees.csv,15,National Jewish Health (Quitlink),435000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 060107: PART A PROVIDER - HOSPITAL",FALSE,060107,ORG_WEBSITE
 MI,mi_year1_awardees.csv,44,Family Medical Center - Lenawee,76924,NOT_RECORDED,,FALSE,,
@@ -1285,19 +1288,26 @@ OK,ok_year1_doulas_awardees.csv,2,Newman Memorial Hospital,38525,FEDERAL_RECORD_
 OK,ok_year1_rrr_awardees.csv,1,Ascension St. John Jane Phillips Medical Center,2880139,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370018: PART A PROVIDER - HOSPITAL",FALSE,370018,GENERAL_KNOWLEDGE
 OK,ok_year1_rrr_awardees.csv,5,Fairview Regional Medical Center,754650,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371329: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371329,GENERAL_KNOWLEDGE
 OK,ok_year1_rrr_awardees.csv,9,Jackson County Memorial Hospital Authority,3938586,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370022: PART A PROVIDER - HOSPITAL",FALSE,370022,ORG_WEBSITE
-OK,ok_year1_rrr_awardees.csv,12,Lindsay Municipal Hospital Authority,698786,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370214: PART A PROVIDER - HOSPITAL",FALSE,370214,GENERAL_KNOWLEDGE
-OK,ok_year1_rrr_awardees.csv,13,"McCurtain Memorial Medical Management, Inc.",2385000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371342,ORG_WEBSITE
-OK,ok_year1_rrr_awardees.csv,14,Memorial Hospital of Texas County Authority,1365805,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371340: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371340,ORG_WEBSITE
-OK,ok_year1_rrr_awardees.csv,15,"Mercy Health Oklahoma Communities, Inc.",3938438,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-OK,ok_year1_rrr_awardees.csv,16,"Newman Memorial Hospital, Inc.",1339787,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371336,ORG_WEBSITE
-OK,ok_year1_rrr_awardees.csv,19,SSM Health Care of Oklahoma,3672447,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370037: PART A PROVIDER - HOSPITAL",FALSE,370037,ORG_WEBSITE
-OK,ok_year1_rrr_awardees.csv,20,Stillwater Medical Center Authority,126166,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370049: PART A PROVIDER - HOSPITAL",FALSE,370049,ORG_WEBSITE
+OK,ok_year1_rrr_awardees.csv,11,Lindsay Municipal Hospital Authority,698786,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370214: PART A PROVIDER - HOSPITAL",FALSE,370214,GENERAL_KNOWLEDGE
+OK,ok_year1_rrr_awardees.csv,12,"McCurtain Memorial Medical Management, Inc.",2385000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371342,ORG_WEBSITE
+OK,ok_year1_rrr_awardees.csv,13,Memorial Hospital of Texas County Authority,1365805,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371340: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371340,ORG_WEBSITE
+OK,ok_year1_rrr_awardees.csv,14,"Mercy Health Oklahoma Communities, Inc.",3938438,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OK,ok_year1_rrr_awardees.csv,15,"Newman Memorial Hospital, Inc.",1339787,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371336,ORG_WEBSITE
+OK,ok_year1_rrr_awardees.csv,18,SSM Health Care of Oklahoma,3672447,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370037: PART A PROVIDER - HOSPITAL",FALSE,370037,ORG_WEBSITE
+OK,ok_year1_rrr_awardees.csv,19,Stillwater Medical Center Authority,126166,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370049: PART A PROVIDER - HOSPITAL",FALSE,370049,ORG_WEBSITE
 OK,ok_year1_cdm_awardees.csv,3,Choctaw Nation of Oklahoma,360552,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370172: PART A PROVIDER - HOSPITAL",FALSE,370172,ORG_WEBSITE
 OK,ok_year1_cdm_awardees.csv,4,Cimarron Memorial Hospital and Rural Health Clinic,665502,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371307,GENERAL_KNOWLEDGE
 OK,ok_year1_cdm_awardees.csv,6,Fairview Regional Medical Center,1827444.2,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371329: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371329,GENERAL_KNOWLEDGE
 OK,ok_year1_cdm_awardees.csv,8,Jackson County Memorial Hospital Authority,1316304.74,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370022: PART A PROVIDER - HOSPITAL",FALSE,370022,ORG_WEBSITE
 OK,ok_year1_cdm_awardees.csv,11,"Mercy Health Oklahoma Communities, Inc.",2615529.21,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 OK,ok_year1_cdm_awardees.csv,14,"Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital",2412325,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370166: PART A PROVIDER - HOSPITAL",FALSE,370166,ORG_WEBSITE
+OK,ok_year1_bhi_awardees.csv,2,Mercy Health Oklahoma Communities,90171.53,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+OK,ok_year1_ems_cp_awardees.csv,8,The Choctaw Nation of Oklahoma,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370172: PART A PROVIDER - HOSPITAL",FALSE,370172,ORG_WEBSITE
+OK,ok_year1_ems_cp_awardees.csv,27,"Baptist Healthcare of Oklahoma, LLC d/b/a INTEGRIS Miami Hospital",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370004: PART A PROVIDER - HOSPITAL",FALSE,370004,GENERAL_KNOWLEDGE
+OK,ok_year1_ems_cp_awardees.csv,29,"Newman Memorial Hospital, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371336,ORG_WEBSITE
+OK,ok_year1_ems_cp_awardees.csv,30,Northeastern Health System,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370089: PART A PROVIDER - HOSPITAL",FALSE,370089,ORG_WEBSITE
+OK,ok_year1_ems_cp_awardees.csv,35,Purcell Municipal Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370158: PART A PROVIDER - HOSPITAL",FALSE,370158,ORG_WEBSITE
+OK,ok_year1_ems_cp_awardees.csv,40,Purcell Municipal Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370158: PART A PROVIDER - HOSPITAL",FALSE,370158,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,1,Buchanan General Hospital,382000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,7,Buchanan General Hospital,33000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,10,Valley Health System,1165000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
@@ -1310,5 +1320,7 @@ VA,va_year1_vhcf_awardees.csv,22,Sentara Health,1700000,NOT_RECORDED,,FALSE,,GEN
 NE,ne_cms_obligation_awardees.csv,2,Mayo Clinic,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,3,CHI Health St Marys,38239.96,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,4,CHI Health St Marys,2584.53,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE
+NE,ne_cms_obligation_awardees.csv,5,Regional West Medical Center,254347,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280061: PART A PROVIDER - HOSPITAL",FALSE,280061,ORG_WEBSITE
+NE,ne_cms_obligation_awardees.csv,6,Chase County Community Hospital,87732.1,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281351: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281351,ORG_WEBSITE
 PA,pa_cms_obligation_awardees.csv,1,The Guthrie Clinic,386553.62,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 PA,pa_cms_obligation_awardees.csv,2,The Guthrie Clinic,2577023.38,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE

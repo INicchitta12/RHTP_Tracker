@@ -28,7 +28,7 @@
 # Both pages are name-diffed (§2.3): an awardee named in a FAQ answer or in a
 # new "Awardees" paragraph fires even if the heading does not move.
 #
-# Usage: Rscript R/03ba_nd_year1_probe.R --validate | --probe
+# Usage: Rscript R/03ba_nd_year1_probe.R --fetch | --validate | --probe
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
 source(here::here("R", "utils_config.R"))
@@ -38,12 +38,19 @@ ND_STATE <- "ND"
 ND_AGENT <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                    "+https://www.aha.org)")
 ND_DIR <- file.path("data", "evidence", "recheck", "2026-09-23", "ND")
+# SESSION 99: the FUNDING page is re-based to a NEW dated file, after reading
+# the diff against the 09-23 archive: seven headings flipped "Closed (N
+# Applicants)" -> "Awarded | N Applicants" (Zero-Hour PE, Community Gardens,
+# BH Promotion, Train In Place, Workforce Retention, Rightsizing, Mobile
+# Mammography) and nothing else moved; no section names an awardee. The 09-23
+# copy is NOT overwritten: R/03bh's Rightsizing disposition cites it.
+ND_BASE_DIR <- file.path("data", "evidence", "ND", "probe_baseline")
 ND_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "programme", "https://www.hhs.nd.gov/rural-health-transformation",
   file.path(ND_DIR, "hhs_rhtp_programme.html"), TRUE,
   "funding", "https://www.hhs.nd.gov/rural-health-transformation/funding",
-  file.path(ND_DIR, "hhs_rhtp_funding.html"), TRUE)
+  file.path(ND_BASE_DIR, "2026-10-12_hhs_rhtp_funding.html"), TRUE)
 
 # SESSION 85: five more headings read "Awarded" on 2026-10-02 (four tripped the
 # Routine on 09-30; Behavioral Health Promotion followed). READ: none of the
@@ -63,7 +70,12 @@ ND_KNOWN_AWARDED <- c(
   # heading reads "... – Awarded | 36 Applicants"; the section names NO
   # awardee and prints no amount. Recorded here so the heading tripwire is
   # quiet; the name diff on both pages still catches the roster.
-  "Workforce Retention Funding for Critical Access Hospitals and Their Owned and Operated Clinics")
+  "Workforce Retention Funding for Critical Access Hospitals and Their Owned and Operated Clinics",
+  # SESSION 99, read 2026-10-12: heading "Train In Place – Awarded | 45
+  # Applicants"; the section names no awardee and prints no amount (RFP and
+  # FAQ text only). Its eligible class is health-care employers and education
+  # institutions, NOT hospitals only, so it is not in ND_HOSPITAL_ONLY_ROUNDS.
+  "Train In Place")
 
 # THE ROUNDS WHOSE ELIGIBLE CLASS IS HOSPITALS ONLY (session 94, owner). When
 # North Dakota names recipients for these, EVERY recipient is a critical
@@ -105,9 +117,10 @@ nd_assert_headings <- function(raw) {
 
 nd_validate <- function() {
   hd <- nd_assert_headings(here::here(ND_PAGES$file[ND_PAGES$key == "funding"]))
-  stopifnot(nrow(hd) == 25L, sum(hd$status == "Awarded") == 1L)
-  message("[ND] the archive carries 25 opportunities, one Awarded (",
-          ND_KNOWN_AWARDED[1], "), nobody named.")
+  stopifnot(nrow(hd) == 25L, sum(hd$status == "Awarded") == 8L,
+            all(hd$name[hd$status == "Awarded"] %in% ND_KNOWN_AWARDED))
+  message("[ND] the archive carries 25 opportunities, eight Awarded (all in ",
+          "ND_KNOWN_AWARDED), nobody named.")
   invisible(TRUE)
 }
 
@@ -125,6 +138,12 @@ nd_probe <- function() {
 
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
+  if ("--fetch" %in% args) {
+    f <- ND_PAGES$file[ND_PAGES$key == "funding"]
+    if (file.exists(here::here(f))) stop("[ND] ", f, " exists; a re-base is a NEW dated file.", call. = FALSE)
+    dir.create(here::here(ND_BASE_DIR), recursive = TRUE, showWarnings = FALSE)
+    rhtp_watch_archive(ND_PAGES$url[ND_PAGES$key == "funding"], f, ND_AGENT)
+  }
   if ("--validate" %in% args) nd_validate()
   if ("--probe" %in% args) rhtp_probe_run("ND", nd_probe())
   if (!length(args)) message("Usage: --validate | --probe")

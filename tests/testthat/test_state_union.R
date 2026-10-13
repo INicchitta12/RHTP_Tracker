@@ -289,6 +289,13 @@ STATE_FILES <- c(
   # three FQHC awards (~$22.69M, ROUNDED in the source, NO hospital; R/03bu).
   OK_RRR = "data/reference/ok_year1_rrr_awardees.csv",
   OK_CDM = "data/reference/ok_year1_cdm_awardees.csv",
+  # SESSION 99, ON THE OWNER'S APPROVAL (R/03cc). Oklahoma's Behavioral
+  # Health Integration roster (3 priced, $1,228,012.70; Mercy Health Oklahoma
+  # Communities the one hospital row, $90,171.53, LOW) and its EMS / Community
+  # Paramedicine lists (38 ambulance + 13 vehicle lines, NO AMOUNTS: six
+  # hospital rows at $0, Nevada's shape -- read the row count).
+  OK_BHI = "data/reference/ok_year1_bhi_awardees.csv",
+  OK_EMS_CP = "data/reference/ok_year1_ems_cp_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
@@ -513,7 +520,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # awardees typed on exact CMS Nebraska Hospital Enrollment records.
   # 14,431,595.82 on DHHS's notices + 160,824.49 on CMS obligation lines
   # (Mayo Clinic, CHI Health St Marys x2; session 98, R/03cb).
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 14592420.31)
+  # + 342,079.10 in session 99: Regional West and Chase County infection-
+  # prevention CMS obligation lines (owner-approved, R/03cb).
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 14934499.41)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at

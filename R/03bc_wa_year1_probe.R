@@ -38,7 +38,26 @@
 # allotment -- so a page edit that breaks the parse is a tripwire, not a
 # silence.
 #
-# Usage: Rscript R/03bc_wa_year1_probe.R --validate | --probe
+# SESSION 99: THE FOOTER CHECK READS THE ARCHIVE; THE LIVE PAGE IS RE-BASED.
+# The 10-08 Routine tripped "SUBAWARD footer no longer parses": HCA rotated the
+# EXPIRED RNEP item (application cycle "September 10 through October 2") off
+# the programme page, and the SUBAWARD footer went with it. Requiring that
+# footer on the LIVE page would fail every firing from now on, so:
+#   * wa_assert_footers() runs on WA_FOOTER_ARCHIVE -- the 09-23 recheck copy
+#     R/03bd's closure assertion also reads, which is NEVER overwritten -- and
+#     still requires both footers to parse and tier-check there;
+#   * on the LIVE page, every footer that IS present must tier-check (a new
+#     SUBAWARD footer is read, not ignored), and at least one must be present.
+# The programme and What We're Working On baselines moved to NEW dated files
+# (data/evidence/WA/probe_baseline/2026-10-12_*) after reading both diffs:
+# programme -- the RNEP and ICF items expired, a "New webpages for the
+# Department of Health's RHT Program work" item was added; working_on -- four
+# sub-awardee CLASS labels added ("Community hubs", "Grow-your-own training
+# programs", "Rural workforce incentive programs", "Mobile crisis supports")
+# and "Some sub-awardees have webpages detailing their work". No recipient is
+# named on either.
+#
+# Usage: Rscript R/03bc_wa_year1_probe.R --fetch | --validate | --probe
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
 source(here::here("R", "utils_config.R"))
@@ -50,11 +69,13 @@ WA_AGENT <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
 WA_DIR <- file.path("data", "evidence", "recheck", "2026-09-23", "WA")
 WA_BASE <- paste0("https://www.hca.wa.gov/about-hca/programs-and-initiatives/",
                   "rural-health-transformation-program")
+WA_BASE_DIR <- file.path("data", "evidence", "WA", "probe_baseline")
+WA_FOOTER_ARCHIVE <- file.path(WA_DIR, "hca_rhtp_programme.html")
 WA_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
-  "programme", WA_BASE, file.path(WA_DIR, "hca_rhtp_programme.html"), TRUE,
+  "programme", WA_BASE, file.path(WA_BASE_DIR, "2026-10-12_hca_rhtp_programme.html"), TRUE,
   "working_on", paste0(WA_BASE, "/what-we-re-working"),
-  file.path(WA_DIR, "hca_rhtp_what_were_working_on.html"), TRUE,
+  file.path(WA_BASE_DIR, "2026-10-12_hca_rhtp_what_were_working_on.html"), TRUE,
   "participate", paste0(WA_BASE, "/how-participate"),
   file.path(WA_DIR, "hca_rhtp_how_to_participate.html"), TRUE,
   "bids", "https://www.hca.wa.gov/about-hca/bids-and-contracts",
@@ -80,8 +101,24 @@ wa_assert_footers <- function(programme_text) {
   invisible(f)
 }
 
+#' Every footer the LIVE programme page carries must tier-check; one must exist.
+wa_assert_live_footers <- function(programme_text) {
+  f <- rhtp_footer_parse(programme_text)
+  if (!nrow(f)) {
+    stop("[WA] the live programme page carries no CMS footer at all -- read ",
+         "the page (§0.2).", call. = FALSE)
+  }
+  for (i in seq_len(nrow(f))) {
+    rhtp_assert_footer_text_tier(programme_text, WA_STATE, "STATE_ALLOTMENT",
+                                 label = paste("WA live programme footer", i),
+                                 which = i)
+  }
+  invisible(f)
+}
+
 wa_assert_watch <- function(live, arch) {
-  wa_assert_footers(live$programme)
+  wa_assert_footers(rhtp_watch_reduce(here::here(WA_FOOTER_ARCHIVE)))
+  wa_assert_live_footers(live$programme)
   rhtp_watch_forbid_new(live$bids, arch$bids, WA_BIDS_WORDS, WA_STATE, "bids",
     paste("HCA's procurement index now mentions rural health / RHT or an",
           "apparent successful bidder. The $10.71M rural-hospital bid is",
@@ -115,6 +152,14 @@ wa_probe <- function() {
 
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
+  if ("--fetch" %in% args) {
+    dir.create(here::here(WA_BASE_DIR), recursive = TRUE, showWarnings = FALSE)
+    for (k in c("programme", "working_on")) {
+      f <- WA_PAGES$file[WA_PAGES$key == k]
+      if (file.exists(here::here(f))) stop("[WA] ", f, " exists; a re-base is a NEW dated file.", call. = FALSE)
+      rhtp_watch_archive(WA_PAGES$url[WA_PAGES$key == k], f, WA_AGENT)
+    }
+  }
   if ("--validate" %in% args) wa_validate()
   if ("--probe" %in% args) rhtp_probe_run("WA", wa_probe())
   if (!length(args)) message("Usage: --validate | --probe")

@@ -1,7 +1,7 @@
 RHTP tracker archive (spec 0.4 / 0.5): Alaska RHTP Year 1 notices of intent
 to award.
 
-fetched_utc     : 2026-09-28T14:40:57Z
+fetched_utc     : 2026-10-12T18:45:02Z
 state           : AK
 host            : health.alaska.gov
 http_status     : 200
@@ -12,30 +12,30 @@ cms_year1_award : ~$160,000,000 (CMS 2026-08-25 release)
 
 FILE
 
-  file    : 2026-09-28_ak_rhtp_awardsnotice_2026.xlsx
+  file    : 2026-10-12_ak_rhtp_awardsnotice_2026.xlsx
   title   : Alaska RHTP Awards Notice 2026
   url     : https://health.alaska.gov/media/tcvker5a/ak_rhtp_awardsnotice_2026.xlsx
   program : https://health.alaska.gov/en/education/rural-health-transformation-program/
-  bytes   : 92528
-  sha256  : 85b4bf309f77d9459f72610c71fe9c24b548958fe18c11b056e60fb8be996ff9
-  rows    : 249
+  bytes   : 93287
+  sha256  : 33c542172c0319bd7086618b7b60c91b76f645841c9534fccae834229421581a
+  rows    : 254
 
   by Project Type:
-    Implementation  223
+    Implementation  228
     Planning  26
 
-  notification dates present: 2026-08-07, 2026-08-14, 2026-08-21, 2026-08-28, 2026-09-04, 2026-09-18, 2026-09-25
+  notification dates present: 2026-08-07, 2026-08-14, 2026-08-21, 2026-08-28, 2026-09-04, 2026-09-18, 2026-09-25, 2026-10-09
 
-  file    : 2026-09-28_alaska_rhtp_year1_funding_cycle_update.pdf
+  file    : 2026-10-12_alaska_rhtp_year1_funding_cycle_update.pdf
   title   : Alaska RHTP Year 1 Funding Cycle Update
   url     : https://health.alaska.gov/media/lyrcb3pc/alaska-rhtp-year-1-funding-cycle-update.pdf
-  bytes   : 86272
-  sha256  : 970617e5b95ea91748089f40f5c3e96d24b4439a2bf223fa4378cf4c9160c15e
+  bytes   : 87183
+  sha256  : 20684e5f248ac58a2f5b21e3dd4e1c85c973e99c5fda8ec6de913fbdc36a6a8c
   role    : POSITIVE CONTROL. Alaska's own weekly cumulative counts, which
             are what make the growth of the notice a STATE-PUBLISHED fact
             rather than this pipeline's diff of two downloads.
 
-  file    : 2026-09-21_ak_rhtp_awardsnotice_2026.xlsx
+  file    : 2026-09-28_ak_rhtp_awardsnotice_2026.xlsx
   role    : the PRIOR SNAPSHOT, kept rather than replaced. It is what the
             growth is measured against, and it is the snapshot where CMS's
             stated 142 projects reconciles to Alaska's own Implementation

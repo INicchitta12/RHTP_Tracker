@@ -76,6 +76,10 @@ OB_NE_PA <- tribble(
   "NE-004-26-116", "NE",   "Mayo Clinic",                   120000.00,
   "NE-004-16-59",  "NE",   "CHI Health St Marys",           38239.96,
   "NE-004-18-70",  "NE",   "CHI Health St Marys",           2584.53,
+  # Session 99, owner-approved: the two other single-recipient infection-
+  # prevention lines session 98 left as a lead.
+  "NE-004-18-66",  "NE",   "Regional West Medical Center",    254347.00,
+  "NE-004-19-76",  "NE",   "Chase County Community Hospital", 87732.10,
   "PA-005-20-59",  "PA",   "The Guthrie Clinic",            386553.62,
   "PA-005-21-60",  "PA",   "The Guthrie Clinic",            2577023.38)
 
@@ -92,7 +96,20 @@ OB_NAME_OVERLAPS <- tribble(
         "prevention pool is in ne_year1_awardees.csv at all. Not a duplicate."),
   "NE-004-18-70", "data/reference/ne_year1_awardees.csv", "40",
   paste("As NE-004-16-59: the same hospital as row 40, an infection-prevention",
-        "line of $2,584.53 against row 40's RPM award. Not a duplicate."))
+        "line of $2,584.53 against row 40's RPM award. Not a duplicate."),
+  # Session 99: read before writing, on the owner's approval.
+  "NE-004-18-66", "data/reference/ne_year1_awardees.csv", "55;89",
+  paste("Existing rows 55 and 89 are Regional West Medical Center (CCN 280061)",
+        "on DIFFERENT awards: Initiative 4.4b Remote Patient Monitoring,",
+        "$736,148.14, and Initiative 5.3 Modification of Existing Clinical",
+        "Facilities for Mental Health Crisis, $93,867. This CMS line is",
+        "healthcare-associated INFECTION PREVENTION, $254,347.00; no",
+        "infection-prevention pool is in ne_year1_awardees.csv. Not a duplicate."),
+  "NE-004-19-76", "data/reference/ne_year1_awardees.csv", "41",
+  paste("Existing row 41 is Chase County Community Hospital (CCN 281351) on a",
+        "DIFFERENT award: Initiative 4.4b Remote Patient Monitoring,",
+        "$195,523.20. This CMS line is infection prevention, $87,732.10. Not a",
+        "duplicate."))
 
 # --- the Rhode Island recipients -----------------------------------------------
 # Every distinct string the report prints on a single-recipient RI line, mapped
@@ -267,7 +284,7 @@ ob_ne_pa_rows <- function(l = ob_lines()) {
   if (nrow(chk) != nrow(OB_NE_PA) ||
       !all(chk$named_orgs == chk$org) ||
       !all(abs(as.numeric(chk$amount.x) - chk$amount.y) < 0.005)) {
-    stop("[CMS obl] the six ruled NE/PA lines no longer match the parse ",
+    stop("[CMS obl] the ruled NE/PA lines no longer match the parse ",
          "(id, string or amount). Re-read R/00c's output.", call. = FALSE)
   }
   rows <- purrr::map_dfr(seq_len(nrow(OB_NE_PA)), function(i) {
@@ -307,6 +324,30 @@ ob_ne_pa_rows <- function(l = ob_lines()) {
           "HEALTH ST MARYS, NEBRASKA CITY, NE, CCN 281342 (PART A PROVIDER -",
           "CRITICAL ACCESS HOSPITAL);", OB_ENROL_FILES[["NE_HOSP"]]),
         facility_state = "NE", hospital_benefiting = "Yes"),
+      "Regional West Medical Center" = ,
+      "Chase County Community Hospital" = {
+        enr <- c("Regional West Medical Center" =
+                   "REGIONAL WEST MEDICAL CENTER, SCOTTSBLUFF, NE, CCN 280061 (PART A PROVIDER - HOSPITAL)",
+                 "Chase County Community Hospital" =
+                   "CHASE COUNTY COMMUNITY HOSPITAL, IMPERIAL, NE, CCN 281351 (PART A PROVIDER - CRITICAL ACCESS HOSPITAL)")
+        ccn <- c("Regional West Medical Center" = "280061",
+                 "Chase County Community Hospital" = "281351")
+        ob_row(
+          line, i, org, "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes", "NAMED_HOSPITAL",
+          NA_character_, "MEDIUM", NA_character_, "ORG_WEBSITE",
+          paste0("RECIPIENT TYPE FROM CMS HOSPITAL ENROLMENT (owner approval,",
+                 " session 99): '", org, "' is the exact ORGANIZATION NAME of ",
+                 enr[[org]], ". EXACT_LEGAL_NAME, MEDIUM. §10.2 DIRECT.",
+                 " Session 98 left this single-recipient infection-prevention",
+                 " line as a lead; deduped against ne_year1_awardees.csv by",
+                 " name AND amount (OB_NAME_OVERLAPS): the same hospital on a",
+                 " different award, kept. The multi-recipient infection-",
+                 "prevention lines that also name it stay undivided (§6.2)."),
+          ccn = ccn[[org]], cms_enrolment_match = "EXACT_LEGAL_NAME",
+          cms_enrolment_record = paste0("CMS Hospital Enrollments: ", enr[[org]],
+                                        "; ", OB_ENROL_FILES[["NE_HOSP"]]),
+          facility_state = "NE", hospital_benefiting = "Yes")
+      },
       "The Guthrie Clinic" = ob_row(
         line, i, org, "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes", "NAMED_HOSPITAL",
         NA_character_, "LOW", NA_character_, "GENERAL_KNOWLEDGE",

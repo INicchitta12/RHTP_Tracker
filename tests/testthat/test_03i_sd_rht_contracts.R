@@ -31,17 +31,18 @@ test_that("the committed CSV matches a fresh parse of the committed archives", {
 
 # -- What was extracted ------------------------------------------------------
 
-test_that("41 contracts in the RHT series, $26,836,144, in three pools", {
+test_that("53 contracts in the RHT series, $37,039,799, in three pools", {
   # Session 86: the 2026-10-02 re-read added 15 contracts, +$17,612,967.
-  expect_equal(nrow(records), 41L)
-  expect_equal(sum(records$amount), 26836144)
+  # Session 99: the 2026-10-12 re-read added 12 more, +$10,203,655.
+  expect_equal(nrow(records), 53L)
+  expect_equal(sum(records$amount), 37039799)
   expect_true(all(grepl("RHT", records$contract_number)))
   rs <- records$round_id %in% "RS"
   un <- records$round_id %in% "UNPLACED"
-  expect_equal(sum(rs), 14L)
-  expect_equal(sum(records$amount[rs]), 15967960)
-  expect_equal(sum(un), 8L)
-  expect_equal(sum(records$amount[un]), 3175112)
+  expect_equal(sum(rs), 18L)
+  expect_equal(sum(records$amount[rs]), 25012010)
+  expect_equal(sum(un), 16L)
+  expect_equal(sum(records$amount[un]), 4334717)
   expect_equal(sum(!rs & !un), 19L)
   expect_equal(sum(records$amount[!rs & !un]), 7693072)
   expect_setequal(unique(records$award_pool),
@@ -55,7 +56,8 @@ test_that("the 15 contracts of 2026-10-02: 6 Rural Strong, 8 unplaced, 1 admin",
   expect_equal(sum(late$round_id %in% "RS"), 6L)
   expect_equal(sum(late$amount[late$round_id %in% "RS"]), 14088808)
   expect_equal(sort(late$contract_number[late$round_id %in% "UNPLACED"]),
-               sort(SD_PLACEMENT$contract_number[SD_PLACEMENT$pool == "UNPLACED"]))
+               sort(c("27RHT00035", "27RHT00036", "27RHT00037", "27RHT00038",
+                      "27RHT00039", "27RHT00040", "27RHT00041", "27RHT00047")))
   expect_equal(late$contract_number[is.na(late$round_id)], "27RHT00029")
 })
 
@@ -102,32 +104,59 @@ test_that("the 13 contracts of 2026-08-28 keep rows 1-13 and their amounts", {
   expect_true(all(records$first_seen_archive[27:41] == SD_SEARCH_ARCHIVES[3]))
 })
 
-test_that("the fourteen Rural Strong grants are exactly the register's own read", {
+test_that("the 12 contracts of 2026-10-12: 4 Rural Strong, 8 unplaced, 3 bridged hospitals", {
+  late <- records[records$first_seen_archive == SD_SEARCH_ARCHIVES[4], ]
+  expect_equal(nrow(late), 12L)
+  expect_equal(sum(late$amount), 10203655)
+  expect_setequal(late$contract_number[late$round_id %in% "RS"],
+                  c("27RHT00027", "27RHT00048", "27RHT00049", "27RHT00051"))
+  expect_equal(sum(late$amount[late$round_id %in% "RS"]), 9044050)
+  expect_equal(sum(late$round_id %in% "UNPLACED"), 8L)
+  expect_false(any(is.na(late$round_id)))
+  # The three hand-read CMS bridges: LOW, CCN read from the archived file.
+  br <- late[late$classification_rule %in% "CMS_ENROLMENT_BRIDGE", ]
+  expect_setequal(br$contract_number, SD_ENROLMENT_BRIDGES$contract_number)
+  expect_equal(setNames(as.character(br$ccn), br$contract_number)[
+    c("27RHT00048", "27RHT00051", "27RHT00043")],
+    c("27RHT00048" = "430077", "27RHT00051" = "430095", "27RHT00043" = "430005A"))
+  expect_true(all(br$determination_confidence == "LOW"))
+  expect_true(all(br$distributed_to_hospital == "Yes"))
+  expect_equal(sum(br$amount), 7789960)
+  # Nothing else first seen 10-12 is a hospital row.
+  expect_true(all(late$distributed_to_hospital[!late$contract_number %in%
+                    br$contract_number] == "No"))
+})
+
+test_that("the eighteen Rural Strong grants are exactly the register's own read", {
   rs <- records[records$round_id %in% "RS", ]
   expect_setequal(rs$contract_number,
                   c("27RHT00015", "27RHT00016", "27RHT00017", "27RHT00018",
                     "27RHT00022", "27RHT00023", "27RHT00024", "27RHT00025",
                     "27RHT00028", "27RHT00030", "27RHT00031", "27RHT00032",
-                    "27RHT00033", "27RHT00034"))
+                    "27RHT00033", "27RHT00034",
+                    "27RHT00027", "27RHT00048", "27RHT00049", "27RHT00051"))
   expect_true(all(grepl(SD_RURAL_STRONG_PATTERN, rs$description, fixed = TRUE)))
   # Seven are posted as GRANTS carrying CFDA 93.798; the University of South
   # Dakota's is posted as a "Contract with State or Local Government Agency"
   # and carries no CFDA block. Its own description still says Rural Strong
-  # Grant, which is what the pool keys on.
+  # Grant, which is what the pool keys on. Session 99: the register prints
+  # 27RHT00027's CFDA as '73.798', a mistyping of 93.798; the description, not
+  # the CFDA field, places the row.
   grants <- rs[!is.na(rs$cfda_number), ]
-  expect_equal(nrow(grants), 13L)
-  expect_true(all(as.character(grants$cfda_number) == "93.798"))
+  expect_equal(nrow(grants), 17L)
+  expect_equal(grants$contract_number[as.character(grants$cfda_number) != "93.798"],
+               "27RHT00027")
   expect_equal(rs$awardee[is.na(rs$cfda_number)], "UNIVERSITY OF SOUTH DAKOTA")
 })
 
-test_that("no ADMINISTRATIVE dollar reaches a hospital; 11 RS and 3 unplaced rows do", {
+test_that("no ADMINISTRATIVE dollar reaches a hospital; 13 RS and 4 unplaced rows do", {
   admin <- records[is.na(records$round_id), ]
   expect_true(all(admin$distributed_to_hospital == "No"))
   hosp <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(hosp), 14L)
-  expect_equal(sum(hosp$amount), 16643252)
-  expect_equal(sum(hosp$round_id == "RS"), 11L)
-  expect_equal(sum(hosp$amount[hosp$round_id == "UNPLACED"]), 1837644)
+  expect_equal(nrow(hosp), 17L)
+  expect_equal(sum(hosp$amount), 24433212)
+  expect_equal(sum(hosp$round_id == "RS"), 13L)
+  expect_equal(sum(hosp$amount[hosp$round_id == "UNPLACED"]), 1969104)
   expect_true(all(hosp$recipient_type == "HOSPITAL_OR_SYSTEM"))
 })
 
@@ -146,8 +175,9 @@ test_that("Sanford Health and Avera Health are system parents, typed LOW on gene
   expect_true(all(par$basis_type == "GENERAL_KNOWLEDGE"))
   expect_true(all(is.na(par$ccn)))
   expect_true(all(par$round_id == "RS"))
-  # Nothing else in the file is general knowledge.
-  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 2L)
+  # Nothing else in the file is general knowledge except the three hand-read
+  # CMS enrolment bridges of session 99 (subtractable on the same column).
+  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 5L)
 })
 
 test_that("the two Community Memorial Hospitals are two hospitals, not one", {
@@ -186,7 +216,7 @@ test_that("the CMS match is exact and city-keyed, never a stem", {
 test_that("the reconciliation names the partial round and the absent round", {
   recon <- rhtp_sd_reconcile(records)
   v <- function(m) recon$value[recon$measure == m]
-  expect_match(v("Rural Strong grant contracts on the register"), "^14 of the 28")
+  expect_match(v("Rural Strong grant contracts on the register"), "^18 of the 28")
   expect_match(v("relationship"), "INSIDE the round total")
   expect_match(v("Rural Strong grants not yet on the register"), "NOT computed")
   expect_match(v("Technology/data round announced 2026-08-19"),
@@ -246,9 +276,15 @@ test_that("the two detail-page shapes both parse, and the glossary never bleeds 
 test_that("the grant pages carry CFDA 93.798, which is RHTP itself", {
   # Independent corroboration that these rows are Rural Health Transformation
   # and not some other DOH programme that happens to share a number series.
-  cfda <- stats::na.omit(records$cfda_number)
+  # Session 99: two 2026-10-12 grant pages print a MISTYPED CFDA ('73.798' on
+  # 27RHT00027, '97.798' on 27RHT00052). Both carry DOH's RHTP descriptions;
+  # they are pinned by contract so a third stray number still fails.
+  has <- !is.na(records$cfda_number)
+  cfda <- setNames(as.character(records$cfda_number[has]), records$contract_number[has])
   expect_gt(length(cfda), 0L)
-  expect_true(all(cfda == "93.798"))
+  odd <- cfda[cfda != "93.798"]
+  expect_equal(odd[order(names(odd))],
+               c("27RHT00027" = "73.798", "27RHT00052" = "97.798"))
 })
 
 test_that("descriptions are the full text, not the search table's truncation", {
