@@ -1,0 +1,54 @@
+RECHECK 2026-10-14 (session 100): hunting-list sweep ahead of the 2026-10-30 end of Budget Period 1.
+Read-only evidence; no figure here enters an award file.
+
+file | sha256 | bytes | url | last_modified
+HI/hi_shpda_rhtp_programme_three_notices_of_award.html | 6c3381990e8cf8c253aa40ff8a99cf258538ba796270c8f1f741079a3c796ad1 | 51692 | https://health.hawaii.gov/shpda/rural-health-transformation-program/ | Wed, 14 Oct 2026 18:29:12 GMT (server header at fetch; not a publication date)
+NC/nc_ncdhhs_2026-10-07_behavioral_health_17m_ccbhc_three_lme_mcos.html | 286efd3b468944d43a350835643bb0fe5091c688846e07032da886ad63d28ec7 | 68748 | https://www.ncdhhs.gov/news/press-releases/2026/10/07/governor-stein-ncdhhs-announce-more-17-million-investment-mental-health-services-through-north | Wed, 14 Oct 2026 17:57:50 GMT (server header at fetch; release dated Oct 7, 2026)
+
+HI/NC (session 100 hunting-list sweep): both files are SCRIPT-STRIPPED (all <script> elements and nonce / data-dtconfig attributes removed;
+the 10-01 NC recheck convention) and asserted free of Mapbox/Google keys, CSRF/nonce and form tokens. Full-page sha256 as served:
+HI shpda 77badb60d26d95a561ca4e66e594538a457d200fec1cc8d9329ee1690cb36976 (WordPress nonce in a script); NC 10-07 release
+d8288fed1a0f3eeaa59d694e14d43604f8114d2ee0dd4d583c6eee497383dbc7 (Dynatrace rpid). Fetched 2026-10-14 with the project agent.
+HI: SHPDA now names THREE RVBI Notices of Award (8/28 HPCA; 9/3 Healthcare Association of Hawaii; 9/11 Physicians of Southwest
+Washington, LLC), no amounts; HANDS still 403. NC: CCBHC $4M "has awarded" to three LME/MCOs, UNNAMED. Nothing extracted.
+
+NV (session 100, parent session; read from the 10-13 NV roster TRIPWIRE, not a hunting-list state). PDF as served, credential-free (no key/token strings).
+NV/nv_nvha_rhtp_subrecipient_report_bp1.pdf | 34c74ae656de8f2de21208532d2c0d20603d95deae29b150950b793fc2de7b1c | 596086 | https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-funded-projects---bp1/rhtp-subrecipient-report-for-bp1_ms.pdf | Tue, 13 Oct 2026 00:23:27 GMT
+
+CA/IA/IN (session 100 hunting-list sweep, ranks 1-3). Fetched 2026-10-14 ~18:25-18:40Z with the project agent
+(AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)). PDFs and zips are BYTE FOR BYTE as served
+and carry no key/token strings. HCAI (CA) and in.gov (IN) HTML is as served: no Mapbox/Google/AWS key, CSRF, nonce or form token
+found (in_grow_initiative_5/6 carry the public newsletter view link 'vawpToken=...', which in.gov prints on every GROW page; not
+a credential). Iowa HTML is SCRIPT-STRIPPED (all <script> elements and nonce attributes removed: Drupal CSP nonces rotate per
+request); full-page sha256 as served: notice-intent-award dc21294750dfc4bee881419644c7189e21fc96a7423fea7f652d5f6e2faf682e,
+funding-opportunities 5d0be5ff1e1fbd746951280aea626b31265dd2c7ab5d5e7c8f8aa46a32037f05, 10-09 release
+fc68c4e1d65b68367597e77415d5dc5b94120d3765ccfd2b0cf8ec747e6c4576. The IN October newsletter has its 13 click-tracking tokens
+(click.subscription.in.gov ?qs=) replaced by REDACTED_CLICK_TRACKING_TOKEN; as served f2447839a770f09e9f0e59e2364a569d1bd5a0ecfcf05b3d762b28af9580ec63.
+Nothing extracted. CA: no roster anywhere read (the 10-14 CA name trip is HCAI's new link to CMS's obligation report, byte-identical
+to data/raw/cms/obligations/2026-07-31/). IA: the 09-25 Rural Residency NOIA names 2 hospitals, no amounts, PROVENANCE UNESTABLISHED
+(not under the Healthy Hometowns heading; no CMS footer; RFP is image-only); the 08-27 HHS Council deck names more CoE (15) and Cancer
+Hub (8 hubs + spokes) organisations than the NOIAs in ia_year1_awardees.csv, and HIE vendor Converge Health LLC. The Power BI dashboard
+the 10-09 release cites (app.powerbigov.us, embedded on the programme page since at least 09-01) is UNREADABLE: its query API answers
+403 to the project agent -- UNKNOWN, not NO. IN: IDOA posted Award Recommendation LETTERS pricing the six vendors our IN file holds
+unpriced (multi-year contract maxima, not Year 1 awards); the October newsletter says Meds-to-Beds '20 hospitals awarded funding for
+Budget Period One', UNNAMED.
+CA/ca_hcai_calrht_programme_obligated_funds_link_2026-10-14.html | 7f39875d4baac0998bb325e314507182d621133920287920bda16e00c7335502 | 157235 | https://hcai.ca.gov/rural-health/calrht/ | none sent (Date: Wed, 14 Oct 2026 18:26:07 GMT)
+IA/ia_hhs_notice_of_intent_to_award_index.html | cbb623225e9155c0474d0e28101db5496d3b5b32f3f05ad3e7ea3bc0bde460c3 | 99118 | https://hhs.iowa.gov/about/funding-opportunities/notice-intent-award | none recorded (fetched 2026-10-14)
+IA/ia_hhs_funding_opportunities_index.html | b2163641c39c4568bf066192847e5f5da34e11524a9250acf2670c1909b0b641 | 158531 | https://hhs.iowa.gov/about/funding-opportunities | none recorded (fetched 2026-10-14)
+IA/ia_hhs_2026-10-09_release_fully_obligated_209m_dashboard.html | 1108dbb7336de88bebce1d8c9d89273d97feb9672c7131d7dff1a755ac422e42 | 367940 | https://hhs.iowa.gov/news-release/2026-10-09/iowa-leads-nation-early-rural-health-transformation-progress-obligating-20904006371-first-year-award | Wed, 14 Oct 2026 18:24:46 GMT (server header at fetch; release dated Oct 9, 2026)
+IA/ia_noia_phthorc27001_rural_residency_2026-09-25.pdf | 1e092fe6ea7d52bd39a9d75974aad88b698e385ceb83a9862ca62a276d5005da | 184152 | https://hhs.iowa.gov/media/19515/download?inline | Fri, 25 Sep 2026 18:55:47 GMT
+IA/ia_rfp_phthorc27001_rural_residency_program_IMAGE_ONLY.pdf | 399d196f5ed4ca99b6119ffd880ce3883dd1995418706d817be846087a64acde | 8599185 | https://hhs.iowa.gov/media/19083/download?inline | Fri, 24 Jul 2026 17:00:04 GMT
+IA/ia_phthocc27705_colorectal_rfp_rescission_2026-09-25.pdf | e12809f9de99db46fca9b7ec4858b42fe636cf6d22fe7cf53f116e981e216ed8 | 98173 | https://hhs.iowa.gov/media/19495/download?inline | Thu, 24 Sep 2026 14:48:38 GMT
+IA/ia_hhs_council_2026-08-27_healthy_hometowns_deck_v1.pdf | 8bb90510366208d2c7484b8c87287a7ba55ac6425f98a3352474d4293564ab79 | 4709435 | https://hhs.iowa.gov/media/19280/download?inline | Wed, 26 Aug 2026 14:46:47 GMT (a near-identical _0 copy is media/19276, 24 Aug; not archived)
+IN/RFP_26-87448_RHTP_MOCC_award_recommendation_letter_20260928.zip | 64fbd04a76608ab1fb1530ea99047b1c584d5ba3051ef7c4a459aecf1aa70c88 | 475378 | https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87448%20RHTP%20MOCC_20260928.zip | Fri, 25 Sep 2026 14:49:08 GMT
+IN/RFP_26-87450_RHTP_Program_Evaluator_award_recommendation_letter_20261009.zip | 13446d07822dbe773c5ae86033c3367573189eabbdd9916323593a8550e8e51f | 335096 | https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87450%20Rural%20Health%20Transformation%20Program%20-%20Program%20Evaluator_20261009.zip | Fri, 09 Oct 2026 13:38:50 GMT
+IN/RFP_26-87556_Preceptor_Registry_award_recommendation_letter_20260917.zip | e6ef027ec29b0bc508d1e928ab7e08204a2787f7c6d07778d888228be384971e | 418400 | https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87556%20Preceptor%20Registry_20260917.zip | Thu, 17 Sep 2026 11:12:31 GMT
+IN/RFP_26-87667_ACO_Feasibility_Study_award_recommendation_letter_20260930.zip | df7c9834662d22f6a08cf46dd7310c2fec6c2c72708f8de90cc46d9b10e10dd5 | 467884 | https://www.in.gov/idoa/proc/recommendations/files/RFP%2026-87667%20ACO%20Feasibility%20Study_20260930.zip | Wed, 30 Sep 2026 10:35:26 GMT
+IN/in_idoa_award_recommendations_index.html | a9ecd4c2c76b274108fed0c8b7d3bb88e6686db56175e53900be54cf31ff56f4 | 178927 | https://www.in.gov/idoa/procurement/award-recommendations/ | none sent (Date: Wed, 14 Oct 2026 18:32:30 GMT)
+IN/in_grow_initiative_5_ckm_sites_soon.html | 6c6967474edfd403c7ab19eb11d38652cda81e331d534ca08676b56495b831f9 | 29846 | https://www.in.gov/grow-rural-health/initiatives/initiative-5 | none recorded (fetched 2026-10-14)
+IN/in_grow_initiative_6_meds_to_beds.html | 0fee9b5cc1e667bfc93a1ad5fc5c63fe1948b856de3973cc16b3b74dbf8b1c3e | 28618 | https://www.in.gov/grow-rural-health/initiatives/initiative-6 | none recorded (fetched 2026-10-14)
+IN/in_rhtp_october_2026_newsletter_20_hospitals_meds_to_beds.html | cae600f0af0dd0fd64992cf88a053258c8f260a2f6982dc4002b2f098b083de7 | 35573 | https://view.subscription.in.gov/?vawpToken=RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028 (linked from https://www.in.gov/grow-rural-health/) | none recorded (fetched 2026-10-14; October 2026 issue)
+
+MO and KY (session 100, parent session; read from the 10-14 MO and KY trips, not hunting-list states). Bytes as served, credential-free. Not probe baselines; nothing extracted.
+MO/mo_dss_smrp_awardees_priced_2026-10-14.html | 808bf7aea9642c913875053a34c77622ca86f17eedf1074ae120e707b44831a0 | 45557 | https://dss.mo.gov/rhtp-strategic-minor-renovations-program | Tue, 13 Oct 2026 20:26:07 GMT
+KY/ky_fhky_rch_hub_lead_rfa_round2_2026-10-13.pdf | 9909b9d58eea40f939dd5ce71f6410dbdfdef21004e7f692dae6f446d0db911a | 598859 | https://healthy-ky.org/s/RCH-Hub-Lead-RFA-R2-FINAL.pdf | not served

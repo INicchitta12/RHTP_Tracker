@@ -939,3 +939,37 @@ MO,2026-10-14T15:12:03Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [M
 CA,2026-10-14T17:07:38Z,TRIPWIRE,(probe),"ℹ In index: 2. Caused by error: ! [CA] 'calrht' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: CMS RHT Program Obligated Funds. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01JEYQK9ZNMVpe27H19DFjzX
 NH,2026-10-14T18:12:54Z,UNCHANGED,fhc,,trig_01D5rZ2KjtjmyXcRuVjNxQr4
 NH,2026-10-14T18:12:54Z,UNCHANGED,cdfa,,trig_01D5rZ2KjtjmyXcRuVjNxQr4
+NEWSROOM,2026-10-14T18:28:50Z,CHANGED,AZ:governor,,interactive
+NEWSROOM,2026-10-14T18:28:50Z,CHANGED,AZ:ahcccs,,interactive
+NEWSROOM,2026-10-14T18:28:58Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Delaware Announces Rural Health Transformation Funding to Strengthen Physician Workforce'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",interactive
+NEWSROOM,2026-10-14T18:29:00Z,CHANGED,FL:governor,,interactive
+NEWSROOM,2026-10-14T18:29:01Z,CHANGED,IA:governor,,interactive
+NEWSROOM,2026-10-14T18:29:02Z,CHANGED,ID:governor,,interactive
+NEWSROOM,2026-10-14T18:29:02Z,CHANGED,ID:dhw,,interactive
+NEWSROOM,2026-10-14T18:29:04Z,UNCHANGED,MN:mdh,,interactive
+NEWSROOM,2026-10-14T18:29:07Z,CHANGED,NE:governor,,interactive
+NEWSROOM,2026-10-14T18:29:07Z,UNCHANGED,NE:dhhs,,interactive
+NEWSROOM,2026-10-14T18:29:08Z,CHANGED,NJ:doh,,interactive
+NEWSROOM,2026-10-14T18:29:09Z,CHANGED,NV:governor,,interactive
+NEWSROOM,2026-10-14T18:29:09Z,UNCHANGED,NV:nvha,,interactive
+NEWSROOM,2026-10-14T18:29:11Z,UNCHANGED,OK:governor,,interactive
+NEWSROOM,2026-10-14T18:29:11Z,UNCHANGED,OR:oha,,interactive
+NEWSROOM,2026-10-14T18:29:12Z,CHANGED,TX:governor,,interactive
+NEWSROOM,2026-10-14T18:29:12Z,CHANGED,TX:hhsc,,interactive
+NEWSROOM,2026-10-14T18:29:16Z,CHANGED,UT:governor,,interactive
+NEWSROOM,2026-10-14T18:29:16Z,CHANGED,UT:dhhs,,interactive
+NEWSROOM,2026-10-14T18:29:17Z,CHANGED,MD:governor,,interactive
+NEWSROOM,2026-10-14T18:29:26Z,UNCHANGED,MT:news,,interactive
+NEWSROOM,2026-10-14T18:29:26Z,CHANGED,MT:dphhs,,interactive
+MO,2026-10-14T18:30:57Z,TRIPWIRE,(probe),"ℹ In index: 1. Caused by error: ! [MO] 'program_page' NAMES 18 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Expand Childcare Support for Rural Health WorkersDSS | Children’s Trust Fund | Child Care Works | While Child Care Works | President Trump's Rural Health Transformation Program | Childcare Support for Rural Health Workers Press Release.Missouri Announces Certified Nurse Midwife Training Partnership | Strengthen Rural Maternal Care WorkforceThe Missouri Department of Health and Senior Services | University of Missouri’s Sinclair School of Nursing | DHSS and the University of Missouri | Sinclair School of Nursing | Accreditation Commission for Midwifery Education | Sinclair School of Nursing.The (and 6 more). THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+LA,2026-10-14T18:32:00Z,CHANGED,programme,,interactive
+LA,2026-10-14T18:32:00Z,CHANGED,funding,,interactive
+LA,2026-10-14T18:32:00Z,CHANGED,leg_reports,,interactive
+MS,2026-10-14T18:32:26Z,ERROR,(probe),"ℹ In index: 4. Caused by error in `curl::curl_fetch_memory()`: ! Server returned nothing (no headers, no data) [medicaid.ms.gov]: Empty reply from server",interactive
+AK,2026-10-14T18:32:47Z,UNCHANGED,(all),,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,vhcf,,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,vhha_foundation,,interactive
+VA,2026-10-14T18:33:52Z,CHANGED,ways_to_apply,,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,news,,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,vhcf_news,,interactive
+KY,2026-10-14T18:34:30Z,TRIPWIRE,(probe),"ℹ In index: 3. Caused by error: ! [KY] 'rch' NAMES 8 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Community | The Rural Community Hub Lead Organizations | Rural Health Transformation Hub Leadership Opportunity for Rural Community Hubs for Chronic Care Innovation You | Local Health Departments | Healthcare Organizations | Community-Based Organizations | Schools and Educational Institutions | Senior Centers. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive

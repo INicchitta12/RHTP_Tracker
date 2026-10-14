@@ -308,10 +308,15 @@ rc_assert <- function(rows = rc_rows()) {
   # revisions, OK BHI and EMS/CP, NE Regional West and Chase County CMS
   # lines), no new state; Chase County (CCN 281351) and OK EMS/CP's Newman
   # (CCN 371336) cite CAH CCNs: 1,325 / $1,225,134,515.58 / 32.
-  if (nrow(rows) != 1325L ||
+  # Session 100: + WV's 2026-09-30 "Investments" release (R/03av), six
+  # hospitals at $0, no new state; Preston (511312), Plateau (511317) and
+  # Broaddus (511300) are CAHs on their enrolment's provider type. Webster
+  # (511301) enrols as PART A PROVIDER - HOSPITAL, so it does not count:
+  # 1,331 / $1,225,134,515.58 / 32.
+  if (nrow(rows) != 1331L ||
       abs(sum(rows$amount, na.rm = TRUE) - 1225134515.58) > 0.005 ||
       dplyr::n_distinct(rows$state) != 32L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,325 rows / $1,225,134,515.58 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,331 rows / $1,225,134,515.58 ",
          "/ 32 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

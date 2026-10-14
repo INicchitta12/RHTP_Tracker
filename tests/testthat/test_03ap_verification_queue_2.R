@@ -527,6 +527,12 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # $90,171.53) and EMS/CP (6 rows / $0), NE's Regional West and Chase County
   # CMS lines (2 / $342,079.10) -- 12 rows / $8,668,315.59, no new state:
   # 1,325 / $1,225,134,515.58 / 32. Subtracted first.
+  # Session 100: + WV's 2026-09-30 "Investments" release (R/03av), six
+  # hospitals typed on CMS WV enrolment at $0, no new state:
+  # 1,331 / $1,225,134,515.58 / 32. Subtracted first.
+  expect_equal(named$rows, 1331L)
+  expect_equal(round(named$dollars, 2), 1225134515.58, tolerance = 0)
+  named$rows <- named$rows - 6L
   expect_equal(named$rows, 1325L)
   expect_equal(named$states, 32L)
   expect_equal(round(named$dollars, 2), 1225134515.58, tolerance = 0)
