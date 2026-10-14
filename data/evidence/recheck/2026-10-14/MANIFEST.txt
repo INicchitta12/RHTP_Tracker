@@ -48,3 +48,7 @@ IN/in_idoa_award_recommendations_index.html | a9ecd4c2c76b274108fed0c8b7d3bb88e6
 IN/in_grow_initiative_5_ckm_sites_soon.html | 6c6967474edfd403c7ab19eb11d38652cda81e331d534ca08676b56495b831f9 | 29846 | https://www.in.gov/grow-rural-health/initiatives/initiative-5 | none recorded (fetched 2026-10-14)
 IN/in_grow_initiative_6_meds_to_beds.html | 0fee9b5cc1e667bfc93a1ad5fc5c63fe1948b856de3973cc16b3b74dbf8b1c3e | 28618 | https://www.in.gov/grow-rural-health/initiatives/initiative-6 | none recorded (fetched 2026-10-14)
 IN/in_rhtp_october_2026_newsletter_20_hospitals_meds_to_beds.html | cae600f0af0dd0fd64992cf88a053258c8f260a2f6982dc4002b2f098b083de7 | 35573 | https://view.subscription.in.gov/?vawpToken=RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028 (linked from https://www.in.gov/grow-rural-health/) | none recorded (fetched 2026-10-14; October 2026 issue)
+
+MO and KY (session 100, parent session; read from the 10-14 MO and KY trips, not hunting-list states). Bytes as served, credential-free. Not probe baselines; nothing extracted.
+MO/mo_dss_smrp_awardees_priced_2026-10-14.html | 808bf7aea9642c913875053a34c77622ca86f17eedf1074ae120e707b44831a0 | 45557 | https://dss.mo.gov/rhtp-strategic-minor-renovations-program | Tue, 13 Oct 2026 20:26:07 GMT
+KY/ky_fhky_rch_hub_lead_rfa_round2_2026-10-13.pdf | 9909b9d58eea40f939dd5ce71f6410dbdfdef21004e7f692dae6f446d0db911a | 598859 | https://healthy-ky.org/s/RCH-Hub-Lead-RFA-R2-FINAL.pdf | not served
