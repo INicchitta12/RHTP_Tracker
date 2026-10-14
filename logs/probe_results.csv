@@ -967,3 +967,8 @@ LA,2026-10-14T18:32:00Z,CHANGED,funding,,interactive
 LA,2026-10-14T18:32:00Z,CHANGED,leg_reports,,interactive
 MS,2026-10-14T18:32:26Z,ERROR,(probe),"ℹ In index: 4. Caused by error in `curl::curl_fetch_memory()`: ! Server returned nothing (no headers, no data) [medicaid.ms.gov]: Empty reply from server",interactive
 AK,2026-10-14T18:32:47Z,UNCHANGED,(all),,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,vhcf,,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,vhha_foundation,,interactive
+VA,2026-10-14T18:33:52Z,CHANGED,ways_to_apply,,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,news,,interactive
+VA,2026-10-14T18:33:52Z,UNCHANGED,vhcf_news,,interactive

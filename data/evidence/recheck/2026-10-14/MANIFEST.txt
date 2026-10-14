@@ -11,3 +11,6 @@ HI shpda 77badb60d26d95a561ca4e66e594538a457d200fec1cc8d9329ee1690cb36976 (WordP
 d8288fed1a0f3eeaa59d694e14d43604f8114d2ee0dd4d583c6eee497383dbc7 (Dynatrace rpid). Fetched 2026-10-14 with the project agent.
 HI: SHPDA now names THREE RVBI Notices of Award (8/28 HPCA; 9/3 Healthcare Association of Hawaii; 9/11 Physicians of Southwest
 Washington, LLC), no amounts; HANDS still 403. NC: CCBHC $4M "has awarded" to three LME/MCOs, UNNAMED. Nothing extracted.
+
+NV (session 100, parent session; read from the 10-13 NV roster TRIPWIRE, not a hunting-list state). PDF as served, credential-free (no key/token strings).
+NV/nv_nvha_rhtp_subrecipient_report_bp1.pdf | 34c74ae656de8f2de21208532d2c0d20603d95deae29b150950b793fc2de7b1c | 596086 | https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-funded-projects---bp1/rhtp-subrecipient-report-for-bp1_ms.pdf | Tue, 13 Oct 2026 00:23:27 GMT
