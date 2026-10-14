@@ -232,4 +232,4 @@ The three buckets are never added together. The rural cut is 267 rows / $267,502
 
 ## Suite
 
-See the commit that closes this session for the result.
+Full suite (`Rscript tests/run_tests.R`, 2026-10-14 after the last code change): 0 failed, 1 expected skip (the CMS first-run branch). The first full run found 10 stale pins in `test_03ap_verification_queue_2.R` (the six WV rows); fixed in the commit that adds the session-100 layer.
