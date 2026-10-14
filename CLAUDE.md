@@ -1870,10 +1870,10 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-12, session 99, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-14, session 100, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,325 rows   $1,225,134,515.58   32 states
+NAMED_HOSPITAL          1,331 rows   $1,225,134,515.58   32 states
 POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
 POOL_UNNAMED_HOSPITALS      4 rows      $69,323,109.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50)
 ```
@@ -1922,7 +1922,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 1 | 1 | $10,000,000 | 0 (a university; partial year) |
-| WV | 14 | 12 | $9,248,417 | 5 / $2,924,000 (Minnie Hamilton CAH on CMS enrolment; 2 rows unpriced) |
+| WV | 21 | 12 | $9,248,417 | 11 / $2,924,000 (Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health Unclear, queued) |
 | MO | 22 | 2 | $7,232,660 | 20 / $0 (27 hub anchors are NOT awards) |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |

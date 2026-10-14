@@ -36,3 +36,10 @@ headline): seven named recipients, no per-recipient amount; held for the owner
   https://health.wv.gov/news
 a0889a8e1fabf97fc0aca7e6965bb479edd9f82dd7bda39182bd335151784026  36082  2026-10-12_wv_art_32m_rhtp_investments_UNEXTRACTED.html
   https://health.wv.gov/article/governor-morrisey-announces-more-32-million-rural-health-transformation-investments
+
+Session 100 (2026-10-14): the 2026-09-30 "$3.2 Million ... Investments" release
+is EXTRACTED on the owner's approval (R/03av key `inv`, seven rows, no amounts).
+The file was RENAMED, bytes unchanged, from
+2026-10-12_wv_art_32m_rhtp_investments_UNEXTRACTED.html to
+2026-10-12_wv_art_32m_rhtp_investments.html (same SHA-256 as above). Re-read live
+2026-10-14 with the same agent: the reduced text is identical to the archive.

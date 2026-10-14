@@ -4,18 +4,19 @@
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
 wv <- wv_year1_awardees()
 
-test_that("fourteen rows, twelve priced, $9,248,417, each quoted verbatim from its release", {
-  expect_equal(nrow(wv), 14L)
+test_that("twenty-one rows, twelve priced, $9,248,417, each quoted verbatim from its release", {
+  expect_equal(nrow(wv), 21L)
   expect_equal(sum(!is.na(wv$amount)), 12L)
   expect_equal(sum(wv$amount, na.rm = TRUE), 9248417)
   expect_silent(wv_assert_sources())
 })
 
-test_that("CAMC/Vandalia, Cabell Huntington Foundation and Minnie Hamilton are the hospital rows", {
+test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton and the six 09-30 hospitals are the hospital rows", {
   h <- wv[wv$distributed_to_hospital == "Yes", ]
   expect_setequal(unique(h$awardee), c("CAMC/Vandalia Health", "Cabell Huntington Foundation",
-                                       "Minnie Hamilton Health Care Center"))
-  expect_equal(nrow(h), 5L)
+                                       "Minnie Hamilton Health Care Center",
+                                       WV_INV_ENROL$awardee))
+  expect_equal(nrow(h), 11L)
   expect_equal(sum(h$amount, na.rm = TRUE), 2924000)
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # The foundation rests on §10.2's named-parent row, a reading -> LOW.
@@ -115,20 +116,51 @@ test_that("both name-diffed pages have a real baseline and are silent on themsel
 
 
 # -- session 99: the release the old tripwire missed --------------------------
+# -- session 100: and extracted ------------------------------------------------
 
-test_that("an RHTP headline trips whatever its verb; the read releases are listed", {
+test_that("an RHTP headline trips whatever its verb; the 09-30 release is now KNOWN", {
   arch <- here::here(WV_PROBE_DIR, "2026-10-12_wv_news_index.html")
   a <- wv_news_articles(arch)
-  inv <- WV_READ_UNEXTRACTED$slug
+  inv <- WV_SLUG[["inv"]]
   expect_true(inv %in% a$slug)
   # It says "Investments", not "Award" -- the old test could not see it.
   expect_false(grepl("award", paste(a$headline[a$slug == inv], inv), ignore.case = TRUE))
   expect_silent(wv_assert_no_new_award_release(arch))
-  # Without its read-and-held entry, the widened test trips on it.
-  held <- WV_READ_UNEXTRACTED
-  WV_READ_UNEXTRACTED <<- WV_READ_UNEXTRACTED[0, ]
-  on.exit(WV_READ_UNEXTRACTED <<- held)
+  # Nothing is held unextracted any more.
+  expect_equal(nrow(WV_READ_UNEXTRACTED), 0L)
+  # Without its WV_SLUG entry, the widened test trips on it.
+  held <- WV_SLUG
+  WV_SLUG <<- WV_SLUG[names(WV_SLUG) != "inv"]
+  on.exit(WV_SLUG <<- held)
   expect_error(wv_assert_no_new_award_release(arch), "NEW AWARD RELEASE")
   # The USDA WIC grant is excluded with its sentence, never silently.
   expect_true(all(nzchar(WV_NOT_RHTP$why)))
+})
+
+test_that("session 100: seven 09-30 rows, none priced, six hospitals typed on CMS WV enrolment", {
+  r <- wv[wv$state_source_url == paste0(WV_URL, WV_SLUG[["inv"]]), ]
+  expect_equal(nrow(r), 7L)
+  expect_true(all(is.na(r$amount)))
+  expect_true(all(grepl("AMOUNT_MISSING", r$flag_reason)))
+  e <- jsonlite::fromJSON(here::here(WV_INV_ENROL_FILE))
+  for (i in seq_len(nrow(WV_INV_ENROL))) {
+    x <- WV_INV_ENROL[i, ]
+    row <- r[r$awardee == x$awardee, ]
+    expect_equal(nrow(row), 1L)
+    expect_equal(row$ccn, x$ccn)
+    expect_equal(row$cms_enrolment_match, x$match)
+    expect_equal(row$determination_confidence,
+                 if (x$match == "EXACT_LEGAL_NAME") "MEDIUM" else "LOW")
+    # The CCN is in the archived enrolment file, typed a hospital or CAH.
+    k <- e[["CCN"]] == x$ccn
+    expect_equal(sum(k), 1L)
+    expect_match(e[["PROVIDER TYPE TEXT"]][k], "HOSPITAL")
+    expect_true(startsWith(x$cms_org, e[["ORGANIZATION NAME"]][k]))
+  }
+  # Vandalia Health: a system parent, no enrolment under that name -- Unclear.
+  v <- r[r$awardee == "Vandalia Health", ]
+  expect_equal(v$distributed_to_hospital, "Unclear")
+  expect_equal(v$recipient_type, "NONPROFIT_CBO")
+  expect_equal(v$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_false(any(e[["ORGANIZATION NAME"]] == "VANDALIA HEALTH"))
 })
