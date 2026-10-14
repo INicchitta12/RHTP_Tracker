@@ -1,0 +1,13 @@
+RECHECK 2026-10-14 (session 100): hunting-list sweep ahead of the 2026-10-30 end of Budget Period 1.
+Read-only evidence; no figure here enters an award file.
+
+file | sha256 | bytes | url | last_modified
+HI/hi_shpda_rhtp_programme_three_notices_of_award.html | 6c3381990e8cf8c253aa40ff8a99cf258538ba796270c8f1f741079a3c796ad1 | 51692 | https://health.hawaii.gov/shpda/rural-health-transformation-program/ | Wed, 14 Oct 2026 18:29:12 GMT (server header at fetch; not a publication date)
+NC/nc_ncdhhs_2026-10-07_behavioral_health_17m_ccbhc_three_lme_mcos.html | 286efd3b468944d43a350835643bb0fe5091c688846e07032da886ad63d28ec7 | 68748 | https://www.ncdhhs.gov/news/press-releases/2026/10/07/governor-stein-ncdhhs-announce-more-17-million-investment-mental-health-services-through-north | Wed, 14 Oct 2026 17:57:50 GMT (server header at fetch; release dated Oct 7, 2026)
+
+HI/NC (session 100 hunting-list sweep): both files are SCRIPT-STRIPPED (all <script> elements and nonce / data-dtconfig attributes removed;
+the 10-01 NC recheck convention) and asserted free of Mapbox/Google keys, CSRF/nonce and form tokens. Full-page sha256 as served:
+HI shpda 77badb60d26d95a561ca4e66e594538a457d200fec1cc8d9329ee1690cb36976 (WordPress nonce in a script); NC 10-07 release
+d8288fed1a0f3eeaa59d694e14d43604f8114d2ee0dd4d583c6eee497383dbc7 (Dynatrace rpid). Fetched 2026-10-14 with the project agent.
+HI: SHPDA now names THREE RVBI Notices of Award (8/28 HPCA; 9/3 Healthcare Association of Hawaii; 9/11 Physicians of Southwest
+Washington, LLC), no amounts; HANDS still 403. NC: CCBHC $4M "has awarded" to three LME/MCOs, UNNAMED. Nothing extracted.
