@@ -72,6 +72,15 @@
 # spellings, Northeastern Vermont Regional Hospital under three, Northern
 # Counties Health Care under four. One row per EXECUTED AGREEMENT.
 #
+# SESSION 101 -- THE 2026-10-08 UPDATE: 175 ROWS, $131,057,627.27. Nine new
+# agreements ($3,637,773.36), every 2026-10-02 agreement still printed and
+# none re-priced or re-filed. Two are BRATTLEBORO RETREAT ($525,000 facility
+# upgrades, $188,992 transformation), a psychiatric hospital on its CMS
+# enrolment (VT_TYPES), so the hospital figure moves +2 rows / +$713,992.
+# The other seven are four primary-care data grants (two practices, two
+# FQHCs), NOTCH (an FQHC), Northeast Kingdom Human Services and S&A
+# Healthcare PLC dba New England Wellness Group (both on §8's fallback).
+#
 # SESSION 94 -- THE 2026-10-02 UPDATE: 166 ROWS, $127,419,853.91. Twenty new
 # agreements ($18,124,660.41), every 2026-09-25 agreement still printed and
 # none re-priced, eleven re-spelled again, and ONE re-filed under a different
@@ -94,14 +103,18 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 VT_STATE        <- "VT"
 VT_ALLOTMENT    <- 195053740      # cms_fy2026_allotments.csv (§7.1)
-VT_PAGE_TOTAL   <- 127419853.91   # the table's own total row (2026-10-02 update)
-VT_PAGE_ROWS    <- 166L           # 112 on 09-18; 146 on 09-25; 166 on 10-02
+VT_PAGE_TOTAL   <- 131057627.27   # the table's own total row (2026-10-08 update)
+VT_PAGE_ROWS    <- 175L           # 112 on 09-18; 146 on 09-25; 166 on 10-02; 175 on 10-08
 VT_MOU_AMOUNT   <- 2635000
-VT_UPDATED      <- as.Date("2026-10-02")
-VT_UPDATED_TXT  <- "Updated as of October 2, 2026"
+VT_UPDATED      <- as.Date("2026-10-08")
+VT_UPDATED_TXT  <- "Updated as of October 8, 2026"
 VT_NOA_DATE     <- as.Date("2025-12-29")
 
-VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-10-07", "VT")
+VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-10-15", "VT")
+# SESSION 101: the 2026-10-02 list (166 rows, $127,419,853.91), which session
+# 94 extracted, is the immediate prior of the 2026-10-08 update.
+VT_PRIOR_FILE_1002 <- file.path("data", "evidence", "recheck", "2026-10-07", "VT",
+                                "vt_year1_awards.html")
 # Each superseded list stays archived; the diffs are of two documents.
 # 2026-09-25 (146 rows, $109,295,193.50) is the immediate prior (session 94);
 # 2026-09-18 (112 rows, $87,175,011.33) made session 74's +34.
@@ -219,6 +232,9 @@ VT_TYPES <- tibble::tribble(
   "A UNIVERSITY research centre, by general knowledge; no CMS enrolment carries this string. §10.2's AHC row does not reach a sub-unit named without its legal entity (the 'OHSU Casey Eye Institute' shape), so it is not a hospital row. Queued with the other name-only AHC strings.",
   "Richmond Family Medicine", "PHYSICIAN_PRACTICE", VT_GK, "VT",
   "Independent family-medicine practice (Richmond), by general knowledge.",
+  # Session 101: a professional LLC (PLC) of paediatricians, by its own name.
+  "Pediatric Medicine, PLC", "PHYSICIAN_PRACTICE", VT_GK, "VT",
+  "A PROFESSIONAL LIMITED COMPANY ('PLC') practising paediatrics, by its own name and general knowledge -- a practice, not a hospital (session 101, 2026-10-08 update).",
   "Drs Hogenkamp", "PHYSICIAN_PRACTICE", VT_GK, "VT",
   "Printed 'Drs Peter and Lisa Hogenkamp, PC' until 2026-09-25: A PROFESSIONAL CORPORATION of two named doctors -- a practice, by its own name. Specialty not established here; the form is.",
   # ---- session 94: the 2026-10-02 update ----------------------------------
@@ -277,6 +293,9 @@ VT_TYPES <- tibble::tribble(
   # ---- FQHCs ---------------------------------------------------------------
   "Community Health Centers of the Rutland Region", "FQHC_OR_RHC", VT_FED, "VT",
   "CMS FQHC Enrollment: COMMUNITY HEALTH CENTERS OF THE RUTLAND REGION INC.",
+  # Session 101 (2026-10-08 update): the same FQHC printed with ", Inc.".
+  "Community Health Centers of the Rutland Region, Inc.", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: COMMUNITY HEALTH CENTERS OF THE RUTLAND REGION INC. (re-spelled with ', Inc.' on 2026-10-08).",
   "Community Health Centers of Burlington, Inc.", "FQHC_OR_RHC", VT_FED, "VT",
   "CMS FQHC Enrollment: COMMUNITY HEALTH CENTERS OF BURLINGTON INC, CCN 471800.",
   "Northern Counties Health Care", "FQHC_OR_RHC", VT_FED, "VT",
@@ -549,8 +568,8 @@ vt_status_table <- function(tb = vt_parse_table()) {
     paste(VT_PAGE_ROWS - 1L, "executed agreements to named recipients in the award file.",
           "The page calls itself 'a partial and ongoing list and does not",
           "represent the full Year 1 awards or funding decisions', so this is",
-          "a FLOOR. Updated as of 2026-10-02 (145 award rows on 2026-09-25,",
-          "111 on 2026-09-18)."),
+          "a FLOOR. Updated as of 2026-10-08 (165 award rows on 2026-10-02,",
+          "145 on 2026-09-25, 111 on 2026-09-18)."),
     VT_STATE, "Northern Counties Health Care -- initiative re-filed (2026-10-02)",
     "AGREEMENT_REFILED_SAME_AMOUNT", "Yes", VT_NCHC_MOVE$amount,
     paste0("One executed agreement, $226,194.70, printed under '",

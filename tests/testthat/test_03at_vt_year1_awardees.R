@@ -9,26 +9,26 @@ suppressWarnings(suppressMessages(source(here::here("R", "03at_vt_year1_awardees
 tb <- vt_parse_table()
 vt <- vt_year1_awardees(tb)
 
-test_that("166 agreements reconcile to the page's own total, to the cent", {
-  expect_equal(nrow(tb), 166L)
-  expect_equal(round(sum(tb$amount), 2), 127419853.91)
-  expect_equal(attr(tb, "printed_total"), 127419853.91)
+test_that("175 agreements reconcile to the page's own total, to the cent", {
+  expect_equal(nrow(tb), 175L)
+  expect_equal(round(sum(tb$amount), 2), 131057627.27)
+  expect_equal(attr(tb, "printed_total"), 131057627.27)
   expect_silent(vt_assert_reconciles(tb))
 })
 
 test_that("the GMCB inter-agency MOU is OUT of the award file and puts the total back", {
-  expect_equal(nrow(vt), 165L)
+  expect_equal(nrow(vt), 174L)
   expect_false(any(grepl("Memorandum of Understanding", vt$awardee)))
-  expect_equal(round(sum(vt$amount) + VT_MOU_AMOUNT, 2), 127419853.91)
+  expect_equal(round(sum(vt$amount) + VT_MOU_AMOUNT, 2), 131057627.27)
   st <- vt_status_table(tb)
   expect_false("amount" %in% names(st))
   expect_true(any(st$stage == "INTER_AGENCY_NOT_SUBAWARD"))
 })
 
-test_that("51 named-hospital rows, $44,866,699.26 -- and Mary Hitchcock is NH", {
+test_that("53 named-hospital rows, $45,580,691.26 -- and Mary Hitchcock is NH", {
   h <- vt[vt$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 51L)
-  expect_equal(round(sum(h$amount), 2), 44866699.26)
+  expect_equal(nrow(h), 53L)
+  expect_equal(round(sum(h$amount), 2), 45580691.26)
   mh <- h[grepl("^Mary Hitchcock", h$awardee), ]
   expect_equal(nrow(mh), 3L)
   expect_true(all(mh$facility_state == "NH"))
@@ -108,9 +108,30 @@ test_that("session 74: the +34 is a diff of two archived lists, and re-spellings
   expect_true(all(u$distributed_to_hospital == "No"))
 })
 
+test_that("session 101: the 2026-10-08 update adds 9 agreements and moves nothing", {
+  p02 <- vt_parse_table(readBin(here::here(VT_PRIOR_FILE_1002), "raw",
+                                file.size(here::here(VT_PRIOR_FILE_1002))))
+  expect_equal(nrow(p02), 166L)
+  expect_equal(attr(p02, "printed_total"), 127419853.91)
+  ka <- function(t) paste(t$initiative, t$activity, sprintf("%.2f", t$amount))
+  expect_true(all(ka(p02) %in% ka(tb)))            # none removed or re-priced
+  new <- tb[!(ka(tb) %in% ka(p02)), ]
+  expect_equal(nrow(new), 9L)
+  expect_equal(round(sum(new$amount), 2), 3637773.36)
+  br <- vt[vt$awardee == "Brattleboro Retreat" & vt$amount %in% c(525000, 188992), ]
+  expect_equal(nrow(br), 2L)
+  expect_true(all(br$recipient_type == "HOSPITAL_OR_SYSTEM" &
+                    br$distributed_to_hospital == "Yes"))
+  ho <- jsonlite::fromJSON(here::here(VT_FED_DIR, "cms_hosp_enrollments_VT.json"))
+  expect_true(any(grepl("BRATTLEBORO RETREAT", ho$`ORGANIZATION NAME`)))
+})
+
 test_that("session 94: 20 new agreements, and ONE re-filed under a new initiative", {
   p25 <- vt_parse_table(readBin(here::here(VT_PRIOR_FILE), "raw",
                                 file.size(here::here(VT_PRIOR_FILE))))
+  # Session 101: session 94's diff is now pinned on the archived 10-02 list.
+  tb <- vt_parse_table(readBin(here::here(VT_PRIOR_FILE_1002), "raw",
+                               file.size(here::here(VT_PRIOR_FILE_1002))))
   expect_equal(nrow(p25), 146L)
   expect_equal(attr(p25, "printed_total"), 109295193.50)
   expect_equal(nrow(tb) - nrow(p25), 20L)
