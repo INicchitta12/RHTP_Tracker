@@ -345,7 +345,7 @@ DISPO_HAND_READ <- tibble::tribble(
   # ---- Hawaii ---------------------------------------------------------------
   "HI", "\\$58M in federal investment", "", "",
   "JABSOM's lead-agency allocation", "RHTP_ALLOCATION_TO_AN_ADMINISTERING_UNIT",
-  "{rows} row(s), {amount}. The Governor: '$45 million for the University of Hawaii John A. Burns School of Medicine to administer workforce development programs through ... HOME RUN' -- an allocation to a state university unit that will re-grant (Virginia's first-tier shape), not a provider subaward; a university, so never a hospital dollar. Hawaii has no award file. Evidence: data/evidence/HI/2026-09-03_hi_governor_release_58m_2026-09-01.html. {new} first seen after 08-27.",
+  "{rows} row(s), {amount}. The Governor: '$45 million for the University of Hawaii John A. Burns School of Medicine to administer workforce development programs through ... HOME RUN' -- an allocation to a state university unit that will re-grant (Virginia's first-tier shape), not a provider subaward; a university, so never a hospital dollar. Hawaii's award file (R/03cd, session 101) carries SHPDA's three RVBI Notices of Award and not this allocation. Evidence: data/evidence/HI/2026-09-03_hi_governor_release_58m_2026-09-01.html. {new} first seen after 08-27.",
 
   "HI", "Federally Qualified Health Center", "", "",
   "HPCA's FQHC award, priced only by RCJ", "RHTP_SUBAWARD_AMOUNT_UNVERIFIED",
