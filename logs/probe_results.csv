@@ -1080,3 +1080,12 @@ NEWSROOM,2026-10-15T16:53:39Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-15T16:53:39Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-15T16:53:40Z,TRIPWIRE,(probe),"[MD] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: governor: 'Governor Moore and Maryland Department of Labor Announce $16.4 Million in Rural Health Transformation Program Workforce Awards'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
 OK,2026-10-15T18:13:23Z,TRIPWIRE,(probe),[OK] 'Behavioral Health Integration' now appears on the Funding Recipients page. Oklahoma has awarded an opportunity this file does not carry -- extract it. THIS ASSERTION IS SUPPOSED TO FAIL EVENTUALLY.,trig_0195epZAcyF5L1WbYJYMQ5Za
+KY,2026-10-15T19:44:13Z,UNCHANGED,funding,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,programme,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,rch,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,chfs_grants,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,rfa_cmhc,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,rfa_chw,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,rfa_cp,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,rfa_et,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-15T19:44:13Z,UNCHANGED,rfa_rda,,trig_01Jk2igfuAsju6aaCnT3bP28
