@@ -722,9 +722,104 @@ ig_assert_queued <- function(a = ig_year1_awardees()) {
 
 # -- the watch ---------------------------------------------------------------
 
+# SESSION 101: FOUR MORE PAGES. Indiana's hospital money that this file does
+# not carry surfaces in two places no probe read until now:
+#   idoa_recs   IDOA's Award Recommendations register, where the RHTP vendor
+#               letters are posted (MOCC, Program Evaluator, Preceptor
+#               Registry, ACO Feasibility, read in session 100). A NEW RHTP
+#               letter is the signal. Press-index-like (456 rows, every agency),
+#               so no name tripwire: an RHTP link diff instead.
+#   grow_home   the GROW Rural Health home page, the NEWSLETTER SOURCE: it links
+#               the current issue. A new issue link is the signal.
+#   newsletter  the October 2026 issue: "Initiative 6: Meds-to-Beds ... 20
+#               hospitals awarded funding for Budget Period One", NONE NAMED.
+#   init6       the Meds-to-Beds initiative page.
+# THE TRIP IS ANY NAMED MEDS-TO-BEDS HOSPITAL (owner, session 101): on the
+# newsletter, the home page and the initiative page, a hospital-shaped name the
+# archive lacks, in the same sentence or item as Meds-to-Beds, fires; so does
+# the name tripwire on the three subject pages.
+IG_PROBE_DIR <- file.path("data", "evidence", "IN", "probe")
 IG_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
-  "grow_regional", IG_PAGE_URL, IG_PAGE, TRUE)
+  "grow_regional", IG_PAGE_URL, IG_PAGE, TRUE,
+  "idoa_recs", "https://www.in.gov/idoa/procurement/award-recommendations/",
+  file.path(IG_PROBE_DIR, "2026-10-15_in_idoa_award_recommendations.html"), FALSE,
+  "grow_home", "https://www.in.gov/grow-rural-health/",
+  file.path(IG_PROBE_DIR, "2026-10-15_in_grow_rural_health_home.html"), TRUE,
+  "newsletter", "https://view.subscription.in.gov/?vawpToken=RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028",
+  file.path(IG_PROBE_DIR, "2026-10-15_in_rhtp_october_2026_newsletter.html"), TRUE,
+  "init6", "https://www.in.gov/grow-rural-health/initiatives/initiative-6",
+  file.path(IG_PROBE_DIR, "2026-10-15_in_grow_initiative_6_meds_to_beds.html"), TRUE)
+IG_MTB <- "(?i)meds[- ]to[- ]beds|post-discharge medications|initiative 6"
+IG_HOSPITAL_NAME <- paste0(
+  "\\b(?:[A-Z][A-Za-z.&'-]+\\s+){0,5}(?:Hospital|Health|Medical Center|",
+  "Health Center|Healthcare|Health System|Regional Medical Center)\\b")
+
+#' Archive the session-101 probe baselines -- the deliberate act (§2.2).
+#'
+#' BYTE FOR BYTE when the page is credential-free (all four were, 2026-10-15):
+#' rhtp_watch_archive() re-serialises the HTML, which re-spaces adjacent table
+#' cells and leaves hrefs percent-encoded where a live parse decodes them, so
+#' a name or link diff against it fires on transport alone (measured on the
+#' first run). A page carrying a credential shape falls back to the reducing
+#' archiver.
+ig_probe_fetch <- function(force = FALSE) {
+  man <- here::here(IG_PROBE_DIR, "MANIFEST.txt")
+  for (i in which(IG_PROBE_PAGES$key != "grow_regional")) {
+    f <- IG_PROBE_PAGES$file[i]
+    if (file.exists(here::here(f)) && !force) next
+    raw <- rhtp_watch_fetch(IG_PROBE_PAGES$url[i], IG_USER_AGENT)
+    if (grepl("AIza[0-9A-Za-z_-]{20,}|pk\\.ey[0-9A-Za-z_-]{20,}|accessToken|AKIA[0-9A-Z]{12}",
+              rawToChar(raw[raw != as.raw(0)]))) {
+      rhtp_watch_archive(IG_PROBE_PAGES$url[i], f, IG_USER_AGENT, manifest = man)
+    } else {
+      dir.create(dirname(here::here(f)), recursive = TRUE, showWarnings = FALSE)
+      writeBin(raw, here::here(f))
+      cat(paste(digest::digest(raw, algo = "sha256", serialize = FALSE),
+                basename(f), IG_PROBE_PAGES$url[i], "AS SERVED (credential-free)",
+                format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"), sep = "  "),
+          "\n", file = man, append = TRUE, sep = "")
+    }
+    message("[IN] archived ", f)
+    Sys.sleep(2)
+  }
+  invisible(TRUE)
+}
+
+#' IDOA register: the RHTP letter files linked (decoded path, one per letter)
+ig_idoa_rhtp_links <- function(raw) {
+  h <- xml2::read_html(raw)
+  a <- rvest::html_elements(h, "a")
+  hr <- vapply(rvest::html_attr(a, "href"), function(x)
+    if (is.na(x)) NA_character_ else utils::URLdecode(x), character(1))
+  tx <- stringr::str_squish(rvest::html_text2(a))
+  keep <- !is.na(hr) & grepl("/recommendations/files/", hr) &
+    grepl("RHTP|Rural Health Transformation|GROW Rural", paste(tx, hr),
+          ignore.case = TRUE)
+  unique(unname(hr[keep]))
+}
+
+#' The newsletter issue(s) the GROW home page links
+ig_newsletter_links <- function(raw) {
+  h <- xml2::read_html(raw)
+  a <- rvest::html_elements(h, "a")
+  hr <- rvest::html_attr(a, "href")
+  unique(hr[!is.na(hr) & grepl("view\\.subscription\\.in\\.gov", hr)])
+}
+
+#' Hospital-shaped names in the Meds-to-Beds parts of a page the archive lacks
+ig_mtb_named_hospitals <- function(live_text, arch_text) {
+  items <- function(t) {
+    x <- unlist(strsplit(t, "(?<=[.!?])\\s+| - |\\s{2,}|Initiative [0-9]+", perl = TRUE))
+    stringr::str_squish(x[nzchar(x)])
+  }
+  l <- items(live_text)
+  near <- l[grepl(IG_MTB, l, perl = TRUE) |
+              c(FALSE, grepl(IG_MTB, utils::head(l, -1), perl = TRUE))]
+  live_names <- unique(unlist(stringr::str_extract_all(near, IG_HOSPITAL_NAME)))
+  arch_names <- unique(unlist(stringr::str_extract_all(arch_text, IG_HOSPITAL_NAME)))
+  setdiff(live_names, arch_names)
+}
 
 #' THE TRIPWIRES, against the LIVE bytes. (1) A figure inside a recipient table,
 #' or a recipient table that moved -- either means `ig_year1_awardees()` must
@@ -758,20 +853,60 @@ ig_assert_watch <- function(raw_live, arch_text = ig_page_text(),
 
 ig_probe <- function() {
   w <- rhtp_watch_pages(IG_PROBE_PAGES, IG_USER_AGENT)
-  ig_assert_watch(w$raw$grow_regional, w$arch_all$grow_regional,
-                  w$live_all$grow_regional)
+  findings <- character(0)
+  ask <- function(label, expr) {
+    res <- tryCatch({ expr; NULL }, error = function(e) conditionMessage(e))
+    if (!is.null(res)) findings <<- c(findings, paste0(label, ": ", res))
+  }
+  ask("GROW REGIONAL", ig_assert_watch(w$raw$grow_regional,
+                                       w$arch_all$grow_regional,
+                                       w$live_all$grow_regional))
+  arch_file <- function(k) here::here(IG_PROBE_PAGES$file[IG_PROBE_PAGES$key == k])
+  # Session 101: a new RHTP award recommendation letter at IDOA.
+  new_letters <- setdiff(ig_idoa_rhtp_links(w$raw$idoa_recs),
+                         ig_idoa_rhtp_links(arch_file("idoa_recs")))
+  if (length(new_letters)) {
+    findings <- c(findings, paste0(
+      "IDOA: NEW RHTP award recommendation(s): ",
+      paste(rhtp_watch_quote(new_letters), collapse = " || "),
+      ". Read the letter: vendor, amount, and whether it names a hospital."))
+  }
+  # Session 101: a new newsletter issue on the GROW home page.
+  new_issue <- setdiff(ig_newsletter_links(w$raw$grow_home),
+                       ig_newsletter_links(arch_file("grow_home")))
+  if (length(new_issue)) {
+    findings <- c(findings, paste0(
+      "GROW HOME: a NEW newsletter issue is linked: ",
+      paste(new_issue, collapse = " | "), ". Read it for named Meds-to-Beds ",
+      "hospitals (October: '20 hospitals awarded funding', none named)."))
+  }
+  # Session 101: THE TRIP -- any named Meds-to-Beds hospital.
+  for (k in c("newsletter", "grow_home", "init6")) {
+    nm <- ig_mtb_named_hospitals(w$live_all[[k]], w$arch_all[[k]])
+    if (length(nm)) {
+      findings <- c(findings, paste0(
+        toupper(k), ": A MEDS-TO-BEDS HOSPITAL IS NAMED: ",
+        paste(nm, collapse = " | "), ". Indiana said '20 hospitals awarded ",
+        "funding for Budget Period One' and named none; extract the roster."))
+    }
+  }
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
                                           state = IG_STATE)
   message("[IN-GROW] ", paste0(w$changed$key, ": ",
                                ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
                                collapse = "; "), " -- no per-organisation amount.")
-  invisible(w$changed)
+  for (f in findings) message("[IN-GROW]   ", f)
+  invisible(list(changed = w$changed$changed, findings = findings,
+                 sources = stats::setNames(
+                   lapply(w$changed$changed, function(x) list(changed = x)),
+                   w$changed$key)))
 }
 
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--validate" %in% args) ig_validate()
   if ("--build" %in% args) ig_build()
+  if ("--fetch-probe" %in% args) ig_probe_fetch(force = "--force" %in% args)
   if ("--probe" %in% args) rhtp_probe_run("IN", ig_probe())
   if ("--report" %in% args) ig_report()
   if (!length(args)) message("Usage: --validate | --build | --probe | --report")

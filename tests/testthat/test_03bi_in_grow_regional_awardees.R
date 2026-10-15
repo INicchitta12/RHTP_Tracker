@@ -192,3 +192,43 @@ test_that("the name tripwire has a real baseline and fires on a new organisation
   expect_error(rhtp_assert_no_new_organisations(live, arch, "IN", "grow_regional"),
                "NAMES")
 })
+
+
+# -- session 101: IDOA letters, the newsletter, and the Meds-to-Beds trip -----
+
+test_that("the session-101 baselines exist and the checks are silent on them", {
+  for (f in IG_PROBE_PAGES$file) expect_true(file.exists(here::here(f)), info = f)
+  f <- function(k) here::here(IG_PROBE_PAGES$file[IG_PROBE_PAGES$key == k])
+  expect_gte(length(ig_idoa_rhtp_links(f("idoa_recs"))), 6L)
+  expect_true(any(grepl("26-87448 RHTP MOCC", ig_idoa_rhtp_links(f("idoa_recs")))))
+  expect_length(ig_newsletter_links(f("grow_home")), 1L)
+  for (k in c("newsletter", "grow_home", "init6")) {
+    t <- rhtp_watch_reduce(f(k))
+    expect_length(ig_mtb_named_hospitals(t, t), 0L)
+  }
+  # The October issue says 20 hospitals were awarded and names none.
+  nl <- rhtp_watch_reduce(f("newsletter"))
+  expect_true(grepl("20 hospitals awarded funding for Budget Period One", nl, fixed = TRUE))
+})
+
+test_that("THE COUNTERFACTUALS: a named Meds-to-Beds hospital, a new letter, a new issue", {
+  f <- function(k) here::here(IG_PROBE_PAGES$file[IG_PROBE_PAGES$key == k])
+  nl <- rhtp_watch_reduce(f("newsletter"))
+  live <- sub("20 hospitals awarded funding for Budget Period One",
+              "20 hospitals awarded funding for Budget Period One, including Decatur County Memorial Hospital and Putnam County Hospital",
+              nl, fixed = TRUE)
+  expect_setequal(ig_mtb_named_hospitals(live, nl),
+                  c("Decatur County Memorial Hospital", "Putnam County Hospital"))
+  # A hospital named OUTSIDE the Meds-to-Beds item does not fire this check
+  # (the name tripwire still sees it).
+  expect_length(ig_mtb_named_hospitals(paste(nl, "Initiative 9: Growing Paraprofessional Workforce at Columbus Regional Hospital."), nl), 0L)
+  idoa <- paste(readLines(f("idoa_recs"), warn = FALSE), collapse = "\n")
+  idoa2 <- sub("</main>", "<a href='/idoa/proc/recommendations/files/RFP 26-99999 RHTP Meds to Beds_20261101.zip'>RFP 26-99999 RHTP Meds to Beds</a></main>",
+               idoa, fixed = TRUE)
+  expect_equal(setdiff(ig_idoa_rhtp_links(idoa2), ig_idoa_rhtp_links(f("idoa_recs"))),
+               "/idoa/proc/recommendations/files/RFP 26-99999 RHTP Meds to Beds_20261101.zip")
+  home <- paste(readLines(f("grow_home"), warn = FALSE), collapse = "\n")
+  home2 <- gsub("RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028", "NOVEMBERISSUE.140000", home, fixed = TRUE)
+  expect_equal(setdiff(ig_newsletter_links(home2), ig_newsletter_links(f("grow_home"))),
+               "https://view.subscription.in.gov/?vawpToken=NOVEMBERISSUE.140000")
+})

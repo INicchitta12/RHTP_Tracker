@@ -1015,3 +1015,16 @@ IA,2026-10-15T14:58:45Z,UNCHANGED,council,,interactive
 IA,2026-10-15T14:58:45Z,UNCHANGED,council_0827,,interactive
 IA,2026-10-15T14:58:45Z,UNCHANGED,hhs_news,,interactive
 IA,2026-10-15T14:58:45Z,UNCHANGED,gov_news,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,grow_regional,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,idoa_recs,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,grow_home,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,newsletter,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,init6,,interactive
+IN,2026-10-15T15:01:42Z,TRIPWIRE,(finding),"IDOA: NEW RHTP award recommendation(s): 10/09/2026 | /idoa/proc/recommendations/files/RFP 26-87450 Rural Health Transformation Program - Program Evaluator_20261009.zip || RFP 26-87450 Rural Health Transformation Program - Program Evaluator | /idoa/proc/recommendations/files/RFP 26-87450 Rural Health Transformation Program - Program Evaluator_20261009.zip || 09/28/2026 | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260928.zip || RFP 26-87448 RHTP MOCC | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260928.zip || 08/21/2026 | /idoa/proc/recommendations/files/RFP 26-87449 RHTP Teleconsult and Telehealth Landscape Assessment_20260821.zip || RFP 26-87449 RHTP Teleconsult and Telehealth Landscape Assessment | /idoa/proc/recommendations/files/RFP 26-87449 RHTP Teleconsult and Telehealth Landscape Assessment_20260821.zip || 07/28/2026 | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260728.zip || RFP 26-87448 RHTP MOCC | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260728.zip || 06/26/2026 | /idoa/proc/recommendations/files/RFP 26-87450 RHTP Program Evaluator_20260626.zip || RFP 26-87450 RHTP Program Evaluator | /idoa/proc/recommendations/files/RFP 26-87450 RHTP Program Evaluator_20260626.zip || 06/03/2026 | /idoa/proc/recommendations/files/RFP 26-87449 RHTP07 Teleconsult and Telehealth Landscape Assessment_20260603.zip || RFP 26-87449 RHTP07 Teleconsult and Telehealth Landscape Assessment | /idoa/proc/recommendations/files/RFP 26-87449 RHTP07 Teleconsult and Telehealth Landscape Assessment_20260603.zip. Read the letter: vendor, amount, and whether it names a hospital.",interactive
+IN,2026-10-15T15:01:42Z,TRIPWIRE,(finding),INIT6: A MEDS-TO-BEDS HOSPITAL IS NAMED: Completed Activities NameDescriptionStatusRural Hospital. Indiana said '20 hospitals awarded funding for Budget Period One' and named none; extract the roster.,interactive
+IN,2026-10-15T15:01:42Z,TRIPWIRE,init6,"[IN] 'init6' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Ongoing Completed Activities NameDescriptionStatusRural Hospital SurveyREDCapClosed. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,grow_regional,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,idoa_recs,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,grow_home,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,newsletter,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,init6,,interactive
