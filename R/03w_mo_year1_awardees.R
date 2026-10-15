@@ -126,11 +126,23 @@ MO_SOURCES <- tibble::tribble(
   # the Strategic Minor Renovations Program awardees, which this file now
   # extracts. The 2026-09-01 copy stays as `program_page_prior` -- it is the
   # only evidence of what the page said before Missouri awarded.
-  "program_page", "2026-09-23_dss_rural_health.html",
+  # RE-BASED AGAIN IN SESSION 101 (§2.2), after READING the 10-14 trip: the
+  # new names were Kids Win Missouri ($1.46M, Child Care Works) and the
+  # University of Missouri Sinclair School of Nursing CNM contract, both from
+  # 10-13 DSS releases and neither a hospital. The 09-23 copy stays as
+  # `program_page_s54`.
+  "program_page", "2026-10-15_dss_rural_health.html",
+  MO_PROGRAM_PAGE,
+  "program_page_s54", "2026-09-23_dss_rural_health.html",
   MO_PROGRAM_PAGE,
   "program_page_prior", "2026-09-01_dss_rural_health.html",
   MO_PROGRAM_PAGE,
-  "smrp_awardees", "2026-09-23_dss_smrp_awardees.html",
+  # SESSION 101: the SMRP page now PRICES the twenty ("A full list of
+  # awardees and allocation is below", an "Awarded Amount" column). The
+  # 09-23 unpriced copy stays as `smrp_awardees_unpriced`.
+  "smrp_awardees", "2026-10-15_dss_smrp_awardees_priced.html",
+  "https://dss.mo.gov/rhtp-strategic-minor-renovations-program",
+  "smrp_awardees_unpriced", "2026-09-23_dss_smrp_awardees.html",
   "https://dss.mo.gov/rhtp-strategic-minor-renovations-program",
   "hub_roster",   "2026-07-17_rhtp_hub_anchors.pdf",
   "https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/RHTP-Hub-Anchors-07-17-2026.pdf",
@@ -142,7 +154,12 @@ MO_SOURCES <- tibble::tribble(
   "https://content.govdelivery.com/accounts/MODSS/bulletins/421d56d",
   "torch_faq",    "2026-07-02_torch_care_faqs.pdf",
   "https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/20260702_ToRCH%20Care%20FAQs.pdf",
-  "bids",         "2026-09-01_dss_bid_proposals.html",
+  # SESSION 101: IFB DSS26015-02 has LEFT the bid table (gone between 10-07
+  # and 10-12) with no award, cancellation or amendment published anywhere
+  # read. The 09-01 copy, which carries it, stays as `bids_prior`.
+  "bids",         "2026-10-15_dss_bid_proposals.html",
+  "https://dss.mo.gov/bids/",
+  "bids_prior",   "2026-09-01_dss_bid_proposals.html",
   "https://dss.mo.gov/bids/",
   "ctf",          "2026-09-01_ctf_funding_opportunities.html",
   "https://ctf4kids.org/ctf-funding-opportunities/"
@@ -167,10 +184,13 @@ MO_STATED <- list(
   mda_amount        = 732660.43,
   memsa_amount      = 6500000,
   # SESSION 54: 2 priced partnerships + 20 UNPRICED Strategic Minor
-  # Renovations Program hospital awards. The priced total does not move.
+  # Renovations Program hospital awards. SESSION 101: the twenty are PRICED
+  # on DSS's page; their "Awarded Amount" column sums to $34,646,479.34
+  # (the page prints no total; the sum is computed and asserted).
   awards_n          = 22L,
-  awards_total      = 7232660.43,
+  awards_total      = 41879139.77,
   smrp_n            = 20L,
+  smrp_total        = 34646479.34,
   # DSS's own footer figure, and CMS's table. They agree once rounded.
   cms_award_stated  = 216276817.66,
   cms_allotment     = 216276818,
@@ -219,6 +239,18 @@ MO_NOT_AN_AWARD <- c(
 # text runs the date cell straight into the event cell with no separator.
 MO_PROCUREMENT_PENDING <- "Aug\\s*-\\s*Sept 2026\\s*Announce select procurement awardees"
 MO_OPEN_SOLICITATION   <- "IFB # DSS26015-02"
+# SESSION 101: CLOSED, OUTCOME UNKNOWN. The IFB (ToRCH Care Smart Growth and
+# Service Line Modifications, Horizon-2; ~$40M over two years, $12M Year 1
+# plan, awards up to $5M, "Funding is open to hospitals") was on the bid
+# table on 09-01 and 10-07 and is absent from 10-12 on. No award,
+# cancellation or amendment is published on the bid table, DSS /press, the
+# RHTP page, the fund-distribution page or a DSS site search (session 100).
+# MissouriBUYS is a JavaScript application and was not read: UNKNOWN, not NO
+# (§0.4). The watch below therefore fires on the IFB REAPPEARING, on any
+# award wording on the bid table, and on the programme page naming DSS26015
+# beside award wording.
+MO_DSS26015_STATUS <- "CLOSED_OUTCOME_UNKNOWN"
+MO_DSS26015_TOKEN  <- "DSS26015"
 # HOW AN AWARD WOULD READ WHEN IT LANDS. Every alternative below was tested
 # against the live bid page this session and is ABSENT; the bare token
 # `\baward(s|ed)?\b` is NOT in this set because it IS present today, in the
@@ -365,8 +397,8 @@ mo_write_manifest <- function(entries) {
     "figure of any kind. DSS's own FAQ (20260702_ToRCH Care FAQs.pdf, Q36)",
     "says 'Hub Anchors will not act as the fiscal agent', and the 2026-07-17",
     "release says participation is 'subject to execution of a Hub Anchor",
-    "Participation Agreement'. Fourteen of the 27 are hospitals or health",
-    "systems by name, and RCJ files all 27 as Tier 3 awards at $1 each. Reading this",
+    "Participation Agreement'. Seventeen of the 27 are hospitals or health",
+    "systems, and RCJ files all 27 as Tier 3 awards at $1 each. Reading this",
     "file as an award list is the §0.3 failure at the scale of a state.",
     "",
     "2026-09-01_dss_bid_proposals.html IS THE PROCUREMENT-CHANNEL CONTROL.",
@@ -384,6 +416,20 @@ mo_write_manifest <- function(entries) {
     "https://memsa.org/rht-funding/ answers HTTP 202 with an sgcaptcha",
     "redirect to every client tried, so whether MEMSA has named its EMS",
     "sub-awardees is UNKNOWN, not answered.",
+    "",
+    "2026-09-23_dss_smrp_awardees.html IS THE SMRP ROSTER (session 54): 20 named",
+    "hospitals, \"approximately $35 million\", NO per-recipient amount. The",
+    "2026-09-23 programme page RE-BASES the probe; the 2026-09-01 copy is kept as",
+    "program_page_prior.",
+    "",
+    "SESSION 101 (2026-10-15). 2026-10-15_dss_smrp_awardees_priced.html is the",
+    "SAME page PRICED: 'A full list of awardees and allocation is below' over a",
+    "'RHTP | Awarded Amount' table; the 20 amounts sum to $34,646,479.34 (no",
+    "total printed). 2026-10-15_dss_rural_health.html re-bases the programme page",
+    "(the 10-14 name trip: Kids Win Missouri and the MU Sinclair School of",
+    "Nursing CNM contract, both non-hospital, NOT extracted). 2026-10-15",
+    "_dss_bid_proposals.html no longer lists IFB DSS26015-02: CLOSED, OUTCOME",
+    "UNKNOWN. The 09-01 bid table that lists it is kept as bids_prior.",
     "",
     "MANIFEST.txt is deliberately absent from this listing: a manifest cannot",
     "record its own digest (session 15).",
@@ -568,9 +614,25 @@ mo_assert_roster_index <- function(links = NULL) {
 
 #' Indiana's sixth question, answered by Missouri itself: the channel is
 #' PROCUREMENT, and it has published no awards through it yet
+#'
+#' SESSION 101: REWRITTEN AS AN AWARD WATCH. IFB DSS26015-02 left the bid
+#' table between 10-07 and 10-12 with no outcome published, so its PRESENCE
+#' can no longer be asserted; its status is recorded as
+#' `MO_DSS26015_STATUS` ("closed, outcome unknown"). What fires now:
+#'   * the IFB reappearing on the bid table (a re-issue or an award posting);
+#'   * award wording on the bid table (`MO_AWARD_POSTED`, unchanged);
+#'   * the programme page putting DSS26015 beside award wording;
+#'   * the archived prior table no longer carrying it (the record of where
+#'     it was).
 mo_assert_procurement_pending <- function(page = NULL, bids = NULL) {
   if (is.null(page)) page <- mo_html_text("program_page")
   if (is.null(bids)) bids <- mo_html_text("bids")
+  prior <- mo_html_text("bids_prior")
+  if (!stringr::str_detect(prior, stringr::fixed(MO_OPEN_SOLICITATION))) {
+    stop("[MO] the archived 09-01 bid table no longer carries IFB ",
+         "DSS26015-02; the record of where the ToRCH Care IFB was is gone.",
+         call. = FALSE)
+  }
   if (!stringr::str_detect(page, MO_PROCUREMENT_PENDING)) {
     stop("[MO] DSS's RHTP timeline no longer says procurement awardees are ",
          "still to be announced. THIS IS THE ONE DESIGNED TO FAIL: Missouri's ",
@@ -578,10 +640,20 @@ mo_assert_procurement_pending <- function(page = NULL, bids = NULL) {
          "will surface as procurement awards. Re-read dss.mo.gov/bids.",
          call. = FALSE)
   }
-  if (!stringr::str_detect(bids, stringr::fixed(MO_OPEN_SOLICITATION))) {
-    stop("[MO] the DSS bid table no longer carries IFB DSS26015-02, the live ",
-         "ToRCH Care solicitation that makes the absence of awards a finding.",
+  if (stringr::str_detect(bids, stringr::fixed(MO_DSS26015_TOKEN))) {
+    stop("[MO] DSS26015 IS BACK ON THE DSS BID TABLE. Recorded since session ",
+         "101 as '", MO_DSS26015_STATUS, "' (gone 10-12, no outcome ",
+         "published). READ IT: a re-issue, an award posting or an amendment. ",
+         "If awarded (ToRCH Care Smart Growth, ~$40M, up to $5M per award, ",
+         "'Funding is open to hospitals') these are hospital-facing dollars.",
          call. = FALSE)
+  }
+  near <- stringr::str_extract_all(
+    page, paste0(".{0,300}", MO_DSS26015_TOKEN, ".{0,300}"))[[1]]
+  if (any(stringr::str_detect(near, MO_AWARD_POSTED))) {
+    stop("[MO] THE PROGRAMME PAGE PUTS DSS26015 BESIDE AWARD WORDING: ",
+         paste(near[stringr::str_detect(near, MO_AWARD_POSTED)],
+               collapse = " | "), call. = FALSE)
   }
   if (stringr::str_detect(bids, MO_AWARD_POSTED)) {
     stop("[MO] THE DSS BID PAGE NOW POSTS AN AWARD. If it is DSS26015 (ToRCH ",
@@ -611,6 +683,17 @@ mo_assert_ctf_unnamed <- function() {
 
 # -- the Strategic Minor Renovations Program (session 54) ---------------------
 #
+# SESSION 101: THE TWENTY ARE NOW PRICED. DSS's page (served 2026-10-15,
+# Last-Modified 2026-10-13) reads "A full list of awardees and allocation is
+# below" over a two-column table headed "RHTP | Awarded Amount", and still
+# says "has awarded approximately $35 million". These are AWARDED amounts,
+# not maximums or requests: the page's verb is "has awarded" and the column is
+# "Awarded Amount". The column sums to $34,646,479.34; the page prints no
+# total, so the sum is computed and asserted (`MO_STATED$smrp_total`).
+# Salem's $1,700,599.50 agrees with the congressman's "$1.7M" quoted on CMS's
+# page, which was never used and is not used now. The session-54 text below
+# is kept as the record of the unpriced stage.
+#
 # MISSOURI HAS AWARDED HOSPITALS, AND NAMES TWENTY OF THEM WITH NO AMOUNTS.
 # DSS's page (Last-Modified 2026-09-22): "has awarded approximately $35
 # million in Strategic Minor Renovations Program funding under Missouri's
@@ -633,41 +716,67 @@ mo_assert_ctf_unnamed <- function() {
 # hospitals". The CCN is cited in each row's basis, not written to `ccn`,
 # which Stage 5 owns.
 MO_SMRP_AWARDEES <- tibble::tribble(
-  ~awardee, ~cms,
-  "Citizens Memorial Hospital", "CITIZENS MEMORIAL HOSPITAL DISTRICT, Bolivar, CCN 260195",
-  "Golden Valley Memorial Hospital", "GOLDEN VALLEY MEMORIAL HOSPITAL DISTRICT, Clinton, CCN 260175",
-  "John Fitzgibbon Memorial Hospital", "JOHN FITZGIBBON MEMORIAL HOSPITAL INC, Marshall, CCN 260142",
-  "Lake Regional Health System", "LAKE REGIONAL HEALTH SYSTEM, Osage Beach, CCN 260186",
-  "Northeast Regional Medical Center", "KIRKSVILLE MISSOURI HOSPITAL COMPANY LLC dba NORTHEAST REGIONAL MEDICAL CENTER, Kirksville, CCN 260022",
-  "Poplar Bluff Regional Medical Center", "POPLAR BLUFF REGIONAL MEDICAL CENTER LLC, Poplar Bluff, CCN 260119",
-  "Scotland County Hospital", "SCOTLAND COUNTY MEMORIAL HOSPITAL dba SCOTLAND COUNTY HOSPITAL, Memphis, CCN 261310",
-  "Texas County Memorial Hospital", "TEXAS COUNTY MEMORIAL HOSPITAL, Houston, CCN 260024",
-  "Bothwell Regional Health Center", "BOTHWELL REGIONAL HEALTH CENTER, Sedalia, CCN 260009",
-  "Cameron Regional Medical Center", "CAMERON REGIONAL MEDICAL CENTER INC, Cameron, CCN 260057",
-  "Carroll County Memorial Hospital", "CARROLL COUNTY MEMORIAL HOSPITAL, Carrollton, CCN 261332",
-  "Hannibal Regional Healthcare system", "HANNIBAL REGIONAL HEALTHCARE SYSTEM INC dba HANNIBAL REGIONAL HOSPITAL, Hannibal, CCN 260025",
-  "Hermann Area District Hospital", "HERMANN AREA HOSPITAL DISTRICT dba HERMANN AREA DISTRICT HOSPITAL, Hermann, CCN 261314",
-  "Missouri Delta Medical Center", "MISSOURI DELTA MEDICAL CENTER, Sikeston, CCN 260113",
-  "Nevada Regional Medical Center", "NEVADA CITY HOSPITAL dba NEVADA REGIONAL MEDICAL CENTER, Nevada, CCN 260061",
-  "Phelps County Regional Medical Center", "PHELPS COUNTY REGIONAL MEDICAL CENTER dba PHELPS HEALTH, Rolla, CCN 260017",
-  "Ray County Memorial Hospital", "RAY COUNTY MEMORIAL HOSPITAL, Richmond, CCN 261327",
-  "Saint Francis Medical Center", "SAINT FRANCIS MEDICAL CENTER, Cape Girardeau, CCN 260183 (NOT Mercy St Francis Hospital, Mountain View -- a different body; the string matches Cape Girardeau exactly)",
-  "Salem Memorial District Hospital", "SALEM MEMORIAL HOSPITAL, Salem, CCN 261318 (CMS enrols it as 'SALEM MEMORIAL HOSPITAL'; the page's 'District' is its public form)",
-  "Washington County Memorial Hospital", "WASHINGTON COUNTY MEMORIAL HOSPITAL, Potosi, CCN 261308"
+  ~awardee, ~amount, ~cms,
+  "Citizens Memorial Hospital", 2500000.00, "CITIZENS MEMORIAL HOSPITAL DISTRICT, Bolivar, CCN 260195",
+  "Golden Valley Memorial Hospital", 1272647.00, "GOLDEN VALLEY MEMORIAL HOSPITAL DISTRICT, Clinton, CCN 260175",
+  "John Fitzgibbon Memorial Hospital", 2450000.00, "JOHN FITZGIBBON MEMORIAL HOSPITAL INC, Marshall, CCN 260142",
+  "Lake Regional Health System", 2482429.00, "LAKE REGIONAL HEALTH SYSTEM, Osage Beach, CCN 260186",
+  "Northeast Regional Medical Center", 216376.59, "KIRKSVILLE MISSOURI HOSPITAL COMPANY LLC dba NORTHEAST REGIONAL MEDICAL CENTER, Kirksville, CCN 260022",
+  "Poplar Bluff Regional Medical Center", 742416.92, "POPLAR BLUFF REGIONAL MEDICAL CENTER LLC, Poplar Bluff, CCN 260119",
+  "Scotland County Hospital", 2233540.12, "SCOTLAND COUNTY MEMORIAL HOSPITAL dba SCOTLAND COUNTY HOSPITAL, Memphis, CCN 261310",
+  "Texas County Memorial Hospital", 568898.74, "TEXAS COUNTY MEMORIAL HOSPITAL, Houston, CCN 260024",
+  "Bothwell Regional Health Center", 2409200.00, "BOTHWELL REGIONAL HEALTH CENTER, Sedalia, CCN 260009",
+  "Cameron Regional Medical Center", 574200.00, "CAMERON REGIONAL MEDICAL CENTER INC, Cameron, CCN 260057",
+  "Carroll County Memorial Hospital", 2175000.00, "CARROLL COUNTY MEMORIAL HOSPITAL, Carrollton, CCN 261332",
+  "Hannibal Regional Healthcare system", 439650.76, "HANNIBAL REGIONAL HEALTHCARE SYSTEM INC dba HANNIBAL REGIONAL HOSPITAL, Hannibal, CCN 260025",
+  "Hermann Area District Hospital", 1894539.00, "HERMANN AREA HOSPITAL DISTRICT dba HERMANN AREA DISTRICT HOSPITAL, Hermann, CCN 261314",
+  "Missouri Delta Medical Center", 2380000.00, "MISSOURI DELTA MEDICAL CENTER, Sikeston, CCN 260113",
+  "Nevada Regional Medical Center", 2431684.00, "NEVADA CITY HOSPITAL dba NEVADA REGIONAL MEDICAL CENTER, Nevada, CCN 260061",
+  "Phelps County Regional Medical Center", 1529100.00, "PHELPS COUNTY REGIONAL MEDICAL CENTER dba PHELPS HEALTH, Rolla, CCN 260017",
+  "Ray County Memorial Hospital", 1808703.71, "RAY COUNTY MEMORIAL HOSPITAL, Richmond, CCN 261327",
+  "Saint Francis Medical Center", 2500000.00, "SAINT FRANCIS MEDICAL CENTER, Cape Girardeau, CCN 260183 (NOT Mercy St Francis Hospital, Mountain View -- a different body; the string matches Cape Girardeau exactly)",
+  "Salem Memorial District Hospital", 1700599.50, "SALEM MEMORIAL HOSPITAL, Salem, CCN 261318 (CMS enrols it as 'SALEM MEMORIAL HOSPITAL'; the page's 'District' is its public form)",
+  "Washington County Memorial Hospital", 2337494.00, "WASHINGTON COUNTY MEMORIAL HOSPITAL, Potosi, CCN 261308"
 )
 MO_SMRP_URL <- "https://dss.mo.gov/rhtp-strategic-minor-renovations-program"
 
-#' The roster as printed: 20 names under "A full list of awardees is below"
+#' The roster as printed: 20 rows under "A full list of awardees and
+#' allocation is below", one table, columns "RHTP" and "Awarded Amount"
+#'
+#' Session 101. Read from the MARKUP, not mo_html_text(): the reduction welds
+#' adjacent cells ("Citizens Memorial Hospital$2,500,000.00Golden Valley...").
+#' Returns a tibble of `awardee` and `amount`.
 mo_parse_smrp <- function(body = NULL) {
-  # Read from the MARKUP, not mo_html_text(): the reduction welds adjacent
-  # <li> cells ("Citizens Memorial HospitalGolden Valley..."), so the list is
-  # taken as the <ul> immediately after "A full list of awardees is below".
   h <- if (is.null(body)) xml2::read_html(mo_path("smrp_awardees")) else
     xml2::read_html(body)
-  ul <- xml2::xml_find_all(
-    h, "//p[contains(., 'A full list of awardees is below')]/following-sibling::ul[1]/li")
-  if (!length(ul)) stop("[MO] the SMRP page's roster block moved.", call. = FALSE)
-  stringr::str_squish(gsub("\u00a0", " ", xml2::xml_text(ul)))
+  tabs <- xml2::xml_find_all(h, "//table")
+  if (length(tabs) != 1L) {
+    stop("[MO] the SMRP page carries ", length(tabs), " tables; the priced ",
+         "roster was ONE (session 101).", call. = FALSE)
+  }
+  cells <- function(xp) stringr::str_squish(gsub("\u00a0", " ",
+    xml2::xml_text(xml2::xml_find_all(tabs[[1]], xp))))
+  head <- cells("(.//tr)[1]/*")
+  if (!identical(head, c("RHTP", "Awarded Amount"))) {
+    stop("[MO] the SMRP table's header is no longer 'RHTP | Awarded Amount': ",
+         paste(head, collapse = " | "), ". Read what the column now IS ",
+         "(an award, a maximum, a request) before any figure is used.",
+         call. = FALSE)
+  }
+  rows <- xml2::xml_find_all(tabs[[1]], "(.//tr)[position() > 1]")
+  out <- purrr::map_dfr(rows, function(r) {
+    td <- stringr::str_squish(gsub("\u00a0", " ",
+                                   xml2::xml_text(xml2::xml_find_all(r, "./td"))))
+    if (length(td) != 2L) stop("[MO] an SMRP row has ", length(td), " cells.",
+                               call. = FALSE)
+    if (!grepl("^\\$[0-9]{1,3}(,[0-9]{3})*\\.[0-9]{2}$", td[2])) {
+      stop("[MO] an SMRP amount is not a dollars-and-cents figure: ", td[2],
+           call. = FALSE)
+    }
+    tibble::tibble(awardee = td[1],
+                   amount = as.numeric(gsub("[$,]", "", td[2])))
+  })
+  out
 }
 
 mo_assert_smrp <- function(txt = NULL, body = NULL) {
@@ -675,25 +784,38 @@ mo_assert_smrp <- function(txt = NULL, body = NULL) {
   flat <- stringr::str_squish(txt)
   want <- c("has awarded approximately $35 million in Strategic Minor Renovations Program funding under Missouri",
             "Missouri is awarding grants to 20 projects",
-            "A full list of awardees is below")
+            "A full list of awardees and allocation is below",
+            "Awarded Amount")
   miss <- want[!vapply(want, function(w) grepl(w, flat, fixed = TRUE), TRUE)]
   if (length(miss)) {
     stop("[MO] the SMRP page no longer says: ", paste(sQuote(miss), collapse = "; "),
          call. = FALSE)
   }
   got <- mo_parse_smrp(body)
-  if (!identical(got, MO_SMRP_AWARDEES$awardee)) {
-    stop("[MO] the SMRP roster changed: ", paste(setdiff(got, MO_SMRP_AWARDEES$awardee),
-                                                 collapse = "; "), call. = FALSE)
+  if (!identical(got$awardee, MO_SMRP_AWARDEES$awardee)) {
+    stop("[MO] the SMRP roster changed: ",
+         paste(union(setdiff(got$awardee, MO_SMRP_AWARDEES$awardee),
+                     setdiff(MO_SMRP_AWARDEES$awardee, got$awardee)),
+               collapse = "; "), call. = FALSE)
   }
-  # THE ROW COUNT IS THE FINDING ONLY WHILE NOBODY IS PRICED. The one currency
-  # figure on the page is the programme's approximate total.
+  # SESSION 101: every amount is asserted against the page, row by row, and
+  # the column against the computed total.
+  moved <- got$awardee[abs(got$amount - MO_SMRP_AWARDEES$amount) >= 0.005]
+  if (length(moved)) {
+    stop("[MO] SMRP amounts changed for: ", paste(moved, collapse = "; "),
+         ". REWRITE the rows from the page; do not patch.", call. = FALSE)
+  }
+  if (abs(sum(got$amount) - MO_STATED$smrp_total) >= 0.005) {
+    stop("[MO] the SMRP column sums to ", format(sum(got$amount), nsmall = 2),
+         ", not ", MO_STATED$smrp_total, ".", call. = FALSE)
+  }
+  # The only currency outside the table is the programme's approximate total.
   money <- stringr::str_extract_all(flat, "\\$[0-9][0-9,.]*( million)?")[[1]]
+  money <- money[!money %in% sprintf("$%s", formatC(got$amount, format = "f",
+                                                     digits = 2, big.mark = ","))]
   if (!identical(money, "$35 million")) {
-    stop("[MO] the SMRP page now carries currency beyond '$35 million': ",
-         paste(money, collapse = ", "), ". A per-hospital amount may have been ",
-         "published -- the twenty rows must be REWRITTEN, not patched.",
-         call. = FALSE)
+    stop("[MO] the SMRP page carries currency outside its table beyond ",
+         "'$35 million': ", paste(money, collapse = ", "), call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -704,16 +826,16 @@ mo_smrp_rows <- function() {
   tibble::tibble(
     state = "MO",
     awardee = a$awardee,
-    amount = NA_real_,
+    amount = a$amount,
     recipient_type = "HOSPITAL_OR_SYSTEM",
     distributed_to_hospital = "Yes",
-    note = paste("RHTP Strategic Minor Renovations Program award (DSS, page",
-                 "Last-Modified 2026-09-22): minor facility improvements,",
-                 "equipment upgrades and infrastructure at a rural hospital.",
-                 "One of 20 awards making up 'approximately $35 million';",
-                 "DSS publishes NO per-recipient amount."),
+    note = paste("RHTP Strategic Minor Renovations Program award (DSS; named",
+                 "2026-09-22, priced on the page by 2026-10-13): minor",
+                 "facility improvements, equipment upgrades and",
+                 "infrastructure at a rural hospital. One of 20 awards making",
+                 "up 'approximately $35 million' ($34,646,479.34 summed)."),
     recipient_confirmed = "Yes",
-    amount_confirmed = "No",
+    amount_confirmed = "Yes",
     fiscal_year = "FY2026",
     source_document_title = "RHTP Strategic Minor Renovations Program",
     state_source_url = MO_SMRP_URL,
@@ -738,12 +860,14 @@ mo_smrp_rows <- function() {
       "'helps rural hospitals'. Form: CMS Hospital Enrollment, ", a$cms, ". ",
       "Classifier said ", cls$recipient_type, "/", cls$determination_confidence, "."),
     classification_rule = "FEDERAL_RECORD_CMS_HOSPITAL_ENROLLMENT",
-    flag_reason = "AMOUNT_MISSING",
+    flag_reason = NA_character_,
     amount_basis = paste(
-      "NOT PUBLISHED. DSS gives only the programme total, 'approximately $35",
-      "million' for 20 projects; $1.75M each is nobody's figure (§6.2). A",
-      "congressman's $1.7M for Salem Memorial, quoted on CMS's page, is NOT a",
-      "state figure and is not used."),
+      "DSS's own 'Awarded Amount' column on the SMRP page ('A full list of",
+      "awardees and allocation is below'), as served 2026-10-15",
+      "(Last-Modified 2026-10-13). Awarded, not a maximum or a request. The",
+      "20 rows sum to $34,646,479.34 against the page's 'approximately $35",
+      "million'; the page prints no total. Session 54's $0 rows were",
+      "REWRITTEN from the page, not patched (session 101)."),
     source_archive_path = file.path("data/evidence/MO",
                                     MO_SOURCES$file[MO_SOURCES$key == "smrp_awardees"]))
 }
@@ -912,8 +1036,9 @@ mo_probe <- function(keys = MO_PROBE_KEYS) {
 
     message("[MO] UNCHANGED -- all ", length(live), " probed sources are ",
             "content-identical to the committed archive, ",
-            MO_OPEN_SOLICITATION, " is still open with no awardee named, and ",
-            "the Hub Anchor roster still carries no dollar figure.")
+            MO_OPEN_SOLICITATION, " is still off the bid table (",
+            MO_DSS26015_STATUS, ") with no award posted, the SMRP prices are ",
+            "unchanged, and the Hub Anchor roster still carries no dollar figure.")
     for (key in names(live)) {
       message("[MO]   ", format(key, width = 13), " content-sha ",
               substr(live[[key]]$sha, 1, 12))
@@ -1229,10 +1354,11 @@ rhtp_mo_rcj_disposition <- function(cands = NULL) {
     sum(is_smrp),
     "NOT_IN_THE_AGGREGATOR_AT_ALL",
     paste0("DSS names ", MO_STATED$smrp_n, " rural hospitals as SMRP awardees ",
-           "('approximately $35 million', no per-recipient amount), which is ",
+           "('approximately $35 million'), which is ",
            "CMS's own '20 rural hospital projects' (its 2026-09-22 release); they are ",
-           "in this file as ", MO_STATED$smrp_n, " NAMED_HOSPITAL rows at $0 ",
-           "(session 54). RCJ carries none of them as a Tier 3 candidate on ",
+           "in this file as ", MO_STATED$smrp_n, " NAMED_HOSPITAL rows (session 54), ",
+           "priced from DSS's 'Awarded Amount' column at $",
+           fmt(MO_STATED$smrp_total), " (session 101). RCJ carries none of them as a Tier 3 candidate on ",
            "the 2026-09-24 pull, matched exactly on DSS's spelling. ",
            sum(MO_SMRP_AWARDEES$awardee %in% anchors$organization), " of the ",
            MO_STATED$smrp_n, " SMRP hospitals are also Hub Anchors under the ",
@@ -1306,16 +1432,18 @@ rhtp_mo_assert <- function(awards = NULL, anchors = NULL) {
   stopifnot(all(anchors$award_made == "No"))
   stopifnot(all(anchors$agreement_executed == "No"))
 
-  # 6. MISSOURI'S NAMED-HOSPITAL DOLLARS ARE $0, AND SO IS EVERY OTHER BUCKET.
+  # 6. MISSOURI'S NAMED-HOSPITAL DOLLARS ARE THE SMRP COLUMN (session 101),
+  #    AND EVERY OTHER BUCKET IS $0.
   #    Both awards are pass-throughs whose subrecipient class is not hospitals.
   #    SESSION 54: the twenty SMRP hospitals are NAMED_HOSPITAL rows at $0 --
-  #    Nevada's and Iowa's shape. The dollar figure is still $0; the row count
-  #    is now 20, and that is the finding.
+  #    Nevada's and Iowa's shape. SESSION 101: DSS has priced them, and the
+  #    hospital figure is the SMRP column, $34,646,479.34, to the cent.
   mo_assert_smrp()
   part <- rhtp_hospital_dollar_partition(awards)
   stopifnot(identical(part$bucket, "NAMED_HOSPITAL"),
-            part$rows == MO_STATED$smrp_n, part$dollars == 0)
-  stopifnot(all(is.na(awards$amount[awards$award_pool == "STRATEGIC_MINOR_RENOVATIONS"])))
+            part$rows == MO_STATED$smrp_n,
+            abs(part$dollars - MO_STATED$smrp_total) < 0.005)
+  stopifnot(!anyNA(awards$amount[awards$award_pool == "STRATEGIC_MINOR_RENOVATIONS"]))
 
   # 7. THE ROSTER'S HOSPITALS ARE COUNTED, SO THE $0 CANNOT BE READ AS
   #    "NO HOSPITALS". Nevada's lesson: the row count is the load-bearing
@@ -1383,14 +1511,15 @@ rhtp_mo_build <- function() {
       "spec 8's standing fallback. NONE of them is an award (spec 0.3),",
       "and that sheet deliberately has no amount column.",
       "",
-      "Missouri's award actions are the TWO on sheet 'Awards': the Missouri Doula Association",
-      "($732,660.43, exact) and the Missouri EMS Association (around $6.5M, running through 2027-07-31).",
-      "Both are pass-through administrators; neither reaches a hospital. MISSOURI'S NAMED-HOSPITAL",
-      "DOLLARS ARE $0, and that is a statement about what DSS has published, not about Missouri.",
+      "Missouri's award actions are the 22 on sheet 'Awards': the Missouri Doula Association",
+      "($732,660.43, exact), the Missouri EMS Association (around $6.5M, running through 2027-07-31),",
+      "both pass-through administrators that do not reach a hospital, and the TWENTY Strategic Minor",
+      "Renovations Program hospital awards, priced by DSS on its own page at $34,646,479.34 in total",
+      "(session 101). MISSOURI'S NAMED-HOSPITAL DOLLARS ARE $34,646,479.34.",
       "",
-      "The hospital money is coming through PROCUREMENT: the ToRCH Care Smart Growth IFB anticipates",
-      "nearly $40M with individual awards up to $5M, open to hospitals, and DSS's own timeline says",
-      "'Aug - Sept 2026 Announce select procurement awardees'. None had been announced when this was built.")
+      "The ToRCH Care Smart Growth IFB (DSS26015-02; nearly $40M, awards up to $5M, open to hospitals)",
+      "left the DSS bid table between 2026-10-07 and 10-12 with no award, cancellation or amendment",
+      "published: CLOSED, OUTCOME UNKNOWN.")
   ), colNames = FALSE)
   openxlsx::addWorksheet(wb, "Awards")
   openxlsx::writeData(wb, "Awards", awards)
@@ -1437,10 +1566,10 @@ rhtp_mo_report <- function() {
   message("Named-hospital dollars:")
   print(rhtp_hospital_dollar_partition(awards))
   message("")
-  message("Still to come, and where the hospital money is:")
-  message("  ToRCH Care Smart Growth IFB DSS26015 -- nearly $40M anticipated,")
-  message("  awards up to $5M, open to hospitals. DSS's timeline: 'Aug - Sept")
-  message("  2026 Announce select procurement awardees'. Not yet announced.")
+  message("Procurement:")
+  message("  ToRCH Care Smart Growth IFB DSS26015-02 -- nearly $40M anticipated,")
+  message("  awards up to $5M, open to hospitals. Gone from the bid table")
+  message("  10-07..10-12 with no outcome published: ", MO_DSS26015_STATUS, ".")
   invisible(rec)
 }
 

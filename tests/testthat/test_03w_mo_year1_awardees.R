@@ -158,9 +158,9 @@ test_that("the open questions are in the review queue", {
 
 # -- the two real awards -----------------------------------------------------
 
-test_that("Missouri has awarded two priced partnerships, $7,232,660.43, and 20 unpriced hospitals", {
+test_that("Missouri has awarded two priced partnerships and 20 hospitals, $41,879,139.77 (session 101)", {
   expect_equal(nrow(mo_awards), 22L)
-  expect_equal(round(sum(mo_awards$amount, na.rm = TRUE), 2), 7232660.43)
+  expect_equal(round(sum(mo_awards$amount, na.rm = TRUE), 2), 41879139.77)
   expect_equal(
     mo_awards$amount[mo_awards$awardee == "Missouri Doula Association"],
     732660.43)
@@ -188,32 +188,52 @@ test_that("neither partnership reaches a hospital, and $0 is a published fact", 
 
 # -- session 54: the Strategic Minor Renovations Program -----------------------
 
-test_that("the twenty SMRP hospitals are NAMED_HOSPITAL rows at $0 -- READ THE ROW COUNT", {
+test_that("session 101: the twenty SMRP hospitals are PRICED from DSS's own column", {
   smrp <- mo_awards[mo_awards$award_pool == "STRATEGIC_MINOR_RENOVATIONS", ]
   expect_equal(nrow(smrp), 20L)
-  expect_identical(smrp$awardee, mo_parse_smrp())
-  expect_true(all(is.na(smrp$amount)))
+  page <- mo_parse_smrp()
+  expect_identical(smrp$awardee, page$awardee)
+  expect_equal(smrp$amount, page$amount)
+  expect_equal(round(sum(smrp$amount), 2), 34646479.34)
+  expect_true(all(smrp$amount_confirmed == "Yes"))
+  expect_true(all(is.na(smrp$flag_reason)))
   expect_true(all(smrp$recipient_type == "HOSPITAL_OR_SYSTEM"))
   expect_true(all(smrp$flow_type == "DIRECT"))
   part <- rhtp_hospital_dollar_partition(mo_awards)
   expect_equal(part$bucket, "NAMED_HOSPITAL")
   expect_equal(part$rows, 20L)
-  expect_equal(part$dollars, 0)
+  expect_equal(round(part$dollars, 2), 34646479.34)
 })
 
-test_that("the congressman's $1.7M for Salem Memorial is NOT used, and $35M is never divided", {
+test_that("the column is AWARDED amounts, stated so on the page, and $35M is never divided", {
+  txt <- stringr::str_squish(mo_html_text("smrp_awardees"))
+  expect_true(grepl("has awarded approximately $35 million", txt, fixed = TRUE))
+  expect_true(grepl("A full list of awardees and allocation is below", txt,
+                    fixed = TRUE))
+  expect_true(grepl("Awarded Amount", txt, fixed = TRUE))
   smrp <- mo_awards[mo_awards$award_pool == "STRATEGIC_MINOR_RENOVATIONS", ]
-  expect_false(any(grepl("1,?700,?000|1\\.75", smrp$amount, perl = TRUE)))
-  expect_true(all(grepl("NOT a\\s+state figure", smrp$amount_basis)))
+  # Salem's state figure agrees with, and was never taken from, the
+  # congressman's $1.7M on CMS's page; nobody's figure is $1.75M.
+  expect_equal(smrp$amount[smrp$awardee == "Salem Memorial District Hospital"],
+               1700599.50)
+  expect_false(any(abs(smrp$amount - 1750000) < 0.01))
+  expect_true(all(grepl("Awarded Amount", smrp$amount_basis, fixed = TRUE)))
   expect_false("round_amount" %in% names(mo_awards))
+  # The unpriced 09-23 copy stays as the record of the session-54 stage.
+  expect_true(file.exists(mo_path("smrp_awardees_unpriced")))
 })
 
-test_that("the SMRP tripwire fires if DSS prices a hospital or changes the roster", {
+test_that("the SMRP tripwire fires if DSS re-prices a hospital or changes the roster", {
   txt <- mo_html_text("smrp_awardees")
   expect_silent(mo_assert_smrp(txt))
-  priced <- sub("Citizens Memorial Hospital", "Citizens Memorial Hospital $1,750,000", txt,
-                fixed = TRUE)
-  expect_error(mo_assert_smrp(priced), "REWRITTEN")
+  body <- rawToChar(readBin(mo_path("smrp_awardees"), "raw",
+                            file.size(mo_path("smrp_awardees"))))
+  repriced <- sub("$2,500,000.00", "$2,600,000.00", body, fixed = TRUE)
+  expect_error(mo_assert_smrp(txt, body = repriced), "amounts changed")
+  relabelled <- sub("Awarded Amount", "Maximum Award", body, fixed = TRUE)
+  expect_error(mo_assert_smrp(txt, body = relabelled), "Awarded Amount")
+  extra <- paste(txt, "an additional $1,750,000")
+  expect_error(mo_assert_smrp(extra), "outside its table")
   expect_error(mo_assert_smrp(sub("grants to 20 projects", "grants to 21 projects",
                                   txt, fixed = TRUE)), "no longer says")
 })
@@ -252,8 +272,11 @@ test_that("Missouri's award channel is PROCUREMENT and it has awarded nobody", {
   expect_true(grepl("Announce select procurement awardees", page, fixed = TRUE))
   expect_true(grepl("Launch select procurements across pillars", page,
                     fixed = TRUE))
+  # Session 101: DSS26015-02 is OFF the current table and ON the prior one.
   bids <- mo_html_text("bids")
-  expect_true(grepl("IFB # DSS26015-02", bids, fixed = TRUE))
+  expect_false(grepl("DSS26015", bids, fixed = TRUE))
+  expect_true(grepl("IFB # DSS26015-02", mo_html_text("bids_prior"), fixed = TRUE))
+  expect_identical(MO_DSS26015_STATUS, "CLOSED_OUTCOME_UNKNOWN")
   expect_true(mo_assert_procurement_pending())
 })
 
@@ -453,13 +476,17 @@ test_that("the probe's tripwires fire when the solicitation or timeline moves", 
   page <- mo_html_text("program_page")
   bids <- mo_html_text("bids")
 
-  # DSS26015-02 leaving the bid table is what makes the absence of an award a
-  # finding rather than an absence of evidence.
+  # Session 101: DSS26015-02 left the table (closed, outcome unknown), so the
+  # watch now fires on it COMING BACK -- a re-issue or an award posting.
   expect_error(
     mo_assert_procurement_pending(
-      page = page,
-      bids = gsub("DSS26015-02", "DSS29999-99", bids, fixed = TRUE)),
-    "no longer carries IFB DSS26015-02")
+      page = page, bids = paste(bids, "IFB # DSS26015-02 ToRCH Care Smart Growth")),
+    "BACK ON THE DSS BID TABLE")
+  expect_error(
+    mo_assert_procurement_pending(
+      page = paste(page, "IFB #DSS26015 contract awarded to Acme Health LLC"),
+      bids = bids),
+    "BESIDE AWARD WORDING")
 
   # The timeline losing its pending-procurement line is the state saying the
   # announcement has happened.
