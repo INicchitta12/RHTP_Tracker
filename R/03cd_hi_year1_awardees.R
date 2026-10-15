@@ -19,7 +19,7 @@
 # System" (HANDS), where the amounts are, and HANDS answers 403 to this
 # environment: the amounts are UNKNOWN, not zero (§0.4). The $25 million is
 # the RVBI initiative's Tier 2 line, never divided (§6.2). RCJ prices HPCA at
-# $17,000,000 and that figure is unverified (hi_rcj_candidate_disposition.csv).
+# $17,000,000 and that figure is unverified (see Hawaii's RCJ disposition, built by R/03bh).
 #
 # THE CODINGS (owner instruction, session 101):
 #   * Healthcare Association of Hawaii -- the state hospital association.

@@ -738,7 +738,9 @@ ig_assert_queued <- function(a = ig_year1_awardees()) {
 # newsletter, the home page and the initiative page, a hospital-shaped name the
 # archive lacks, in the same sentence or item as Meds-to-Beds, fires; so does
 # the name tripwire on the three subject pages.
-IG_PROBE_DIR <- file.path("data", "evidence", "IN", "probe")
+# Under recheck/, not data/evidence/IN/: R/03s's manifest lists every entry of
+# that directory, and these are probe baselines, not R/03s's sources.
+IG_PROBE_DIR <- file.path("data", "evidence", "recheck", "2026-10-15", "IN")
 IG_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "grow_regional", IG_PAGE_URL, IG_PAGE, TRUE,

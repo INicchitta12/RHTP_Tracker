@@ -193,7 +193,7 @@ How the deck presents them:
 
 ## Task 6: Indiana coverage
 
-R/03bi's probe now reads five pages. Baselines are archived byte for byte (all were credential-free) under `data/evidence/IN/probe/`, via `--fetch-probe`.
+R/03bi's probe now reads five pages. Baselines are archived byte for byte (all were credential-free) under `data/evidence/recheck/2026-10-15/IN/`, via `--fetch-probe`.
 
 | Page | Fires on |
 |---|---|
