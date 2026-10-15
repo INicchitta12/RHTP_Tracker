@@ -996,3 +996,22 @@ NV,2026-10-15T14:47:02Z,UNCHANGED,roster,,interactive
 NV,2026-10-15T14:47:02Z,UNCHANGED,nofos,,interactive
 NV,2026-10-15T14:47:02Z,UNCHANGED,bp1_report,,interactive
 VT,2026-10-15T14:49:02Z,UNCHANGED,awards,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,programme,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,noia_index,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,council,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,council_0827,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,hhs_news,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,gov_news,,interactive
+IA,2026-10-15T14:57:05Z,TRIPWIRE,noia_index,"[IA] the name tripwire has NO BASELINE on 'noia_index': the archived copy yields 2 organisation-shaped name(s), below the 3 this check needs to prove it is reading anything at all. That is a fact about OUR READING and never about the state (§0.4). Re-check the archive and the reduction before trusting any verdict from this page -- a diff against an empty baseline reports UNCHANGED forever.",interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,programme,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,noia_index,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,council,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,council_0827,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,hhs_news,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,gov_news,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,programme,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,noia_index,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,council,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,council_0827,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,hhs_news,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,gov_news,,interactive

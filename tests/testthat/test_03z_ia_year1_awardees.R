@@ -356,3 +356,64 @@ test_that("the IA disposition covers the live candidates and its prose agrees", 
   expect_equal(committed$rcj_rows, d$rcj_rows)
   expect_equal(committed[[ncol(committed)]], d[[ncol(d)]])
 })
+
+
+# -- session 101: the watch ----------------------------------------------------
+
+test_that("the Iowa probe's baselines exist and its checks pass on them", {
+  for (f in IA_PROBE_PAGES$file) expect_true(file.exists(here::here(f)), info = f)
+  prog <- paste(readLines(here::here(IA_PROBE_PAGES$file[1]), warn = FALSE),
+                collapse = "\n")
+  expect_true(ia_assert_award_index(html = prog))
+  expect_true(all(IA_AWARDEE_MEDIA_IDS %in% ia_media_ids(prog)))
+  meet <- ia_council_meetings(here::here(
+    IA_PROBE_PAGES$file[IA_PROBE_PAGES$key == "council"]))
+  expect_true("HHS Council Meeting and Budget Public Hearing - August 27, 2026" %in% meet)
+  expect_equal(IA_YEAR2_AWARD_WINDOW, as.Date(c("2026-10-15", "2026-11-20")))
+})
+
+test_that("THE COUNTERFACTUALS: each Iowa check fires on the change it watches", {
+  prog <- paste(readLines(here::here(IA_PROBE_PAGES$file[1]), warn = FALSE),
+                collapse = "\n")
+  # A notice dropped from the awardee index.
+  expect_error(ia_assert_award_index(html = gsub("/media/18884/download",
+                                                 "/media/99999/x", prog,
+                                                 fixed = TRUE)), "18884")
+  # A new NOIA line on the index.
+  arch <- rhtp_watch_reduce(here::here(
+    IA_PROBE_PAGES$file[IA_PROBE_PAGES$key == "noia_index"]))
+  expect_error(rhtp_watch_forbid_new(
+    paste(arch, "Notice of Intent to Award RFP PHTHORC27009 Cardiovascular Hub posted 10-20-2026."),
+    arch, "(?i)notice of intent to award", "IA", "noia_index", "x"),
+    "NEW SENTENCE")
+  # A new RHTP headline in a newsroom; an unrelated one costs nothing; the
+  # existing 10-09 RHTP headline is in the baseline and costs nothing either.
+  for (k in c("hhs_news", "gov_news")) {
+    f <- here::here(IA_PROBE_PAGES$file[IA_PROBE_PAGES$key == k])
+    html <- paste(readLines(f, warn = FALSE), collapse = "\n")
+    expect_gt(length(ia_news_headlines(f)), 5L)
+    expect_length(ia_new_rhtp_headlines(html, f), 0L)
+    add <- function(t) sub("</main>", paste0(
+      "<a href='/news-release/2026-10-30/x'>", t, "</a></main>"), html, fixed = TRUE)
+    expect_equal(ia_new_rhtp_headlines(add("Iowa HHS announces Healthy Hometowns Year 2 awardees"), f),
+                 "Iowa HHS announces Healthy Hometowns Year 2 awardees")
+    expect_length(ia_new_rhtp_headlines(add("Iowa HHS announces flu clinic hours"), f), 0L)
+  }
+})
+
+test_that("Iowa's Rural Residency NOIA is NOT Healthy Hometowns money on its face", {
+  noia <- "data/evidence/recheck/2026-10-14/IA/ia_noia_phthorc27001_rural_residency_2026-09-25.pdf"
+  skip_if_not(file.exists(here::here(noia)))
+  t <- paste(rhtp_pdf_text(here::here(noia)), collapse = " ")
+  expect_true(grepl("PHTHORC27001", t, fixed = TRUE))
+  expect_true(grepl("Mary Greeley Medical Center", t, fixed = TRUE))
+  # No CMS footer and no RHTP wording, unlike every Healthy Hometowns notice.
+  expect_false(grepl("Centers for Medicare", t, fixed = TRUE))
+  expect_false(grepl("Rural Health Transformation", t, fixed = TRUE))
+  # HHS files the RFP under "Other Opportunities", not under Healthy Hometowns.
+  idx <- stringr::str_squish(rvest::html_text2(xml2::read_html(here::here(
+    "data/evidence/recheck/2026-10-14/IA/ia_hhs_funding_opportunities_index.html"))))
+  other <- regexpr("Other Opportunities RFP # PHTHORC27001", idx, fixed = TRUE)
+  hh <- regexpr("Healthy Hometowns Funding Opportunities RFP", idx, fixed = TRUE)
+  expect_true(other > 0 && hh > other)
+})
