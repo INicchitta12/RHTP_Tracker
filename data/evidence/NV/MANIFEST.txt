@@ -62,12 +62,14 @@ DOCUMENT CARRIES THE CMS FINANCIAL-ASSISTANCE FOOTER ON EVERY PAGE while
 two of the three programmes it describes are state-funded, which is why
 the footer alone is not a provenance test.
 
-Manifest written: 2026-09-24. Each file's fetch date is the date in its name; nothing was re-fetched to write this.
+Manifest written: 2026-10-15. Each file's fetch date is the date in its name; nothing was re-fetched to write this.
 
 file                                                                bytes  sha256
 ------------------------------------------------------------------------------------------------------------------------------------------
 2026-09-24_nv_rht_funded_projects_bp1.html                         505894  72ace8b7a70592acefbf37955c398cbbe187613afcfe979d0d75ca49861fed96
 2026-08-31_nv_rht_funded_projects_bp1.html                         401124  7d6116b0052f1b91f26204f97da750aa090610237477494c14f68c39ef8d5b45
+2026-10-15_nv_rht_funded_projects_bp1.html                         507629  84bb85d29391700cf309767a953363def321cf15735fa1c5d93d0dbfbf0fab0d
+2026-10-13_nv_rhtp_subrecipient_report_bp1.pdf                     596086  34c74ae656de8f2de21208532d2c0d20603d95deae29b150950b793fc2de7b1c
 2026-08-31_nv_rht_nofos.html                                        61765  97d5ed6179aab2136060a6648b66fb23ccb2dbb9685c6a49a54b9fb0f3b9729f
 2026-08-31_nv_rhtp_about.html                                       48806  de248fd16e73e369569cf95f01cc6494bf470246241b4f805ac107f65a656670
 2026-08-31_nv_rht_steering_committee.html                           50661  d01099375091eaa390c85363f36fdb61b9c441a509e438da9811a8b8a9a71175
@@ -83,6 +85,8 @@ file                                                                bytes  sha25
 Source URLs
   roster         https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
   roster_prior   https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
+  roster_bp1link https://www.nvha.nv.gov/RHTP/rht-funded-projects---bp1/
+  bp1_report     https://www.nvha.nv.gov/siteassets/content/community/rhtp/rht-funded-projects---bp1/rhtp-subrecipient-report-for-bp1_ms.pdf
   nofos          https://www.nvha.nv.gov/RHTP/rht-nofos/
   about          https://www.nvha.nv.gov/RHTP/rhtp-about
   rhtsc          https://www.nvha.nv.gov/RHTP/rhtsc

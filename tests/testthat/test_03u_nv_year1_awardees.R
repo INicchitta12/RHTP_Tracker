@@ -657,14 +657,18 @@ test_that("the committed CSV matches what the parser produces", {
   # SESSION 71: nv_with_overlay() chains R/03bj's overlay after session 49's,
   # which appends three columns (recipient_subtype, cms_enrolment_match,
   # cms_enrolment_record).
+  # SESSION 101: nv_apply_bp1() then prices the file from NVHA's BP1 report
+  # and appends its eleven new lines (three more columns).
   cols <- c(NV_COLUMN_ORDER, "basis_type", "verified_by", "verified_basis",
-            "recipient_subtype", "cms_enrolment_match", "cms_enrolment_record")
-  built <- nv_with_overlay(nv_records()) %>% dplyr::select(dplyr::all_of(cols))
+            "recipient_subtype", "cms_enrolment_match", "cms_enrolment_record",
+            "bp1_line_id", "bp1_applicant", "bp1_funding_requested")
+  built <- nv_apply_bp1(nv_with_overlay(nv_records())) %>%
+    dplyr::select(dplyr::all_of(cols))
   expect_equal(nrow(on_disk), nrow(built))
   expect_equal(names(on_disk), cols)
   expect_equal(on_disk$recipient_type, built$recipient_type)
   expect_equal(on_disk$awardee, built$awardee)
-  expect_true(all(is.na(on_disk$amount)))
+  expect_equal(on_disk$amount, built$amount)
 })
 
 test_that("validate passes end to end", {
@@ -685,7 +689,7 @@ test_that("determination_basis is present and non-empty on every Nevada row", {
   # whole purpose failing on exactly the rows a reviewer comes back to.
   recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
   expect_true("determination_basis" %in% names(recs))
-  expect_equal(nrow(recs), 156L)
+  expect_equal(nrow(recs), 167L)   # session 101: 156 page rows + 11 BP1 lines
   expect_false(any(is.na(recs$determination_basis) |
                      trimws(recs$determination_basis) == ""))
 
@@ -714,20 +718,79 @@ test_that("determination_basis is present and non-empty on every Nevada row", {
   # added 15 more on the 2026-09-24 rows -- 42 of 156, still $0.
   # 42 -> 44 in session 71: Carson Valley Health (row 128) and Washoe Barton
   # Medical Clinic (row 76) on CMS's enrolment of CCN 291306, both bridges.
-  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 44L)
-  expect_equal(sum(recs$distributed_to_hospital[1:72] == "Yes"), 27L)
-  expect_equal(sum(recs$hospital_attribution == "NAMED_HOSPITAL"), 44L)
-  expect_true(all(is.na(recs$amount)))
+  # SESSION 101: + Banner Churchill (RHIT, row 104, on CCN 291313, owner-
+  # approved bridge) and Mt. Grant's new FLEX line (row 158) -> 46 named;
+  # + NRHPF rows 26 and 45 on the owner's ruling -> 48 Yes in all.
+  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 48L)
+  expect_equal(sum(recs$distributed_to_hospital[1:72] == "Yes"), 29L)
+  expect_equal(sum(recs$hospital_attribution == "NAMED_HOSPITAL"), 46L)
+  expect_equal(sum(recs$hospital_attribution == "POOL_NAMED_HOSPITALS"), 2L)
+})
+
+
+# -- session 101: the BP1 Subrecipient Report ----------------------------------
+
+test_that("the BP1 table reconciles to every section's own TOTALS row, to the cent", {
+  skip_if_no_archive()
+  expect_true(nv_assert_bp1())
+  t <- nv_bp1_table()
+  expect_equal(sum(!t$is_total), 157L)
+  expect_equal(round(sum(t$bp1_amount_awarded[!t$is_total]), 2), 175245033.86)
+  # Every line is in the file once (row 45 shares NRHPF's line with row 26).
+  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  expect_setequal(stats::na.omit(unique(recs$bp1_line_id)),
+                  t$bp1_line_id[!t$is_total])
+  expect_equal(round(sum(recs$amount, na.rm = TRUE), 2), 175245033.86)
+  expect_equal(sum(!is.na(recs$amount)), 157L)
+})
+
+test_that("every priced row is PROVISIONAL_SOURCE, and amount_confirmed stays No", {
+  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  priced <- recs[!is.na(recs$amount), ]
+  expect_true(all(grepl("PROVISIONAL_SOURCE", priced$flag_reason, fixed = TRUE)))
+  expect_true(all(recs$amount_confirmed == "No"))
+  expect_false(any(grepl("AMOUNT_MISSING", priced$flag_reason, fixed = TRUE)))
+})
+
+test_that("the two source defects are carried AS PUBLISHED and flagged SOURCE_SUSPECT", {
+  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  s <- recs[grepl("SOURCE_SUSPECT", recs$flag_reason), ]
+  expect_setequal(s$bp1_line_id, c("FLEX-28", "FLEX-36"))
+  expect_equal(s$amount[s$bp1_line_id == "FLEX-36"], 2458060)
+  expect_equal(s$bp1_funding_requested[s$bp1_line_id == "FLEX-36"], 245800)
+  expect_equal(s$bp1_funding_requested[s$bp1_line_id == "FLEX-28"], 103725086)
+  p <- nv_bp1_partition(recs)
+  named <- function(x) x[x$bucket == "NAMED_HOSPITAL", ]
+  expect_equal(named(p$with)$rows, 46L)
+  expect_equal(round(named(p$with)$dollars, 2), 49169395.71)
+  expect_equal(named(p$without)$rows, 44L)
+  expect_equal(round(named(p$without)$dollars, 2), 45713974.71)
+})
+
+test_that("NRHPF is POOL_NAMED_HOSPITALS on the owner's ruling, and the 14 are named", {
+  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  n <- recs[recs$row_no %in% c(26, 45), ]
+  expect_true(all(n$flow_type == "PASS_THROUGH_DESIGNATED"))
+  expect_true(all(n$hospital_attribution == "POOL_NAMED_HOSPITALS"))
+  expect_true(all(n$determination_confidence == "LOW"))
+  expect_equal(sum(n$amount, na.rm = TRUE), 20278054.31)
+  expect_equal(sum(!is.na(n$amount)), 1L)    # priced once, on row 26
+  expect_length(NV_NRHPF_HOSPITALS, 14L)
+  flat <- nv_pdf_flat(NV_BP1_KEY)
+  for (h in NV_NRHPF_HOSPITALS) expect_true(grepl(h, flat, fixed = TRUE), info = h)
+  expect_true(grepl("NRHP will organize the RHT recruitment, retention and training projects of all 14 rural hospitals",
+                    flat, fixed = TRUE))
 })
 
 
 
 # -- the probe (session 64) -------------------------------------------------
 
-test_that("the probe's baseline is the 2026-09-24 archive, and it is silent on it", {
+test_that("the probe's baseline is the 2026-10-15 archive, and it is silent on it", {
   skip_if_no_archive()
+  # Session 101 re-based the roster page to the copy that links the BP1 report.
   expect_equal(NV_PROBE_PAGES$file[NV_PROBE_PAGES$key == "roster"],
-               file.path("data/evidence/NV", nv_source("roster", "file")))
+               file.path("data/evidence/NV", nv_source("roster_bp1link", "file")))
   arch <- lapply(stats::setNames(NV_PROBE_PAGES$file, NV_PROBE_PAGES$key),
                  function(f) rhtp_watch_reduce(here::here(f)))
   expect_silent(rhtp_assert_no_new_organisations_across(arch, arch, state = "NV"))
