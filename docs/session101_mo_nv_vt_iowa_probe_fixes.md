@@ -237,4 +237,4 @@ Live KY and CA probes are UNCHANGED.
 
 ## Suite
 
-See the session's final run, recorded in CLAUDE.md "Current state".
+Full suite (`Rscript tests/run_tests.R`, 2026-10-15, after the last code change): **0 failed, 1 expected skip** (the CMS first-run branch). The first full run found three failures, all fixed: HI was missing from `R/03aw`'s Year 1 status table; IN's probe baselines sat inside `data/evidence/IN/`, whose manifest test lists every entry (moved to `recheck/2026-10-15/IN/`); and R/03cd's comment named a disposition file, which the prose-rule test reads as a writer.
