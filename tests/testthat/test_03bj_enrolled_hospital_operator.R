@@ -53,7 +53,7 @@ test_that("an unread sweep hit fails the build", {
   expect_error(eh_assert_read(fake), "no hand-read")
 })
 
-test_that("73 rows / $96,227,328.37 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
+test_that("74 rows / $99,235,607.60 typed on enrolment, 30 / $60,226,387.31 of them AHCs", {
   # Session 71: 33 rows / $63,240,239.84, 25 / $53,539,221.31 AHCs. Session
   # 83: + National Jewish Health (MI, $435,000, not an AHC) and Alabama round
   # 2's UAB x3 and USA x2 ($6,687,166, all AHCs): 39 / $70,362,405.84.
@@ -67,7 +67,17 @@ test_that("73 rows / $96,227,328.37 typed on enrolment, 30 / $60,226,387.31 of t
   # (2 / $342,079.10, EXACT_LEGAL_NAME): 67 / $96,227,328.37.
   # Session 100: + WV's six 09-30 hospitals at $0 (three EXACT_LEGAL_NAME,
   # three LEGAL_NAME_TRUNCATED): 73 / $96,227,328.37.
-  expect_equal(nrow(eff), 73L)
+  # Session 101: + NV's RHIT "Banner Churchill" (CCN 291313, owner-approved
+  # LEGAL_NAME_TRUNCATED bridge, $145,428.23), and NVHA's BP1 report prices
+  # the two NV CCN 291306 rows already here (Washoe Barton $2,458,060.00,
+  # SOURCE_SUSPECT; Carson Valley Health $404,791.00): 74 / $99,235,607.60.
+  expect_equal(nrow(eff), 74L)
+  s101 <- eff[eff$file == "nv_year1_awardees.csv", ]
+  expect_equal(nrow(s101), 3L)
+  expect_equal(round(sum(s101$amount, na.rm = TRUE), 2), 3008279.23)
+  expect_equal(round(sum(eff$amount, na.rm = TRUE) - 3008279.23, 2), 96227328.37)
+  eff <- eff[eff$file != "nv_year1_awardees.csv" | eff$awardee != "Banner Churchill", ]
+  eff$amount[eff$file == "nv_year1_awardees.csv"] <- NA
   s100 <- eff[eff$file == "wv_year1_awardees.csv" &
                 eff$awardee %in% c("Stonewall Jackson Memorial Hospital",
                                    "Mon Health Marion Neighborhood Hospital",
@@ -268,6 +278,12 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # and EMS/CP, NE CMS lines), no new state: 1,325 / $1,225,134,515.58 / 32.
   # Session 100: + WV's 2026-09-30 "Investments" release (R/03av), six
   # hospitals at $0, no new state: 1,331 / $1,225,134,515.58 / 32.
+  # Session 101: MO SMRP, NV BP1, VT 10-08, WV Vandalia -- 5 rows /
+  # $84,529,867.05: 1,336 / $1,309,664,382.63 / 32. Subtracted first.
+  expect_equal(n$rows, 1336L)
+  expect_equal(round(n$dollars, 2), 1309664382.63)
+  n$rows <- n$rows - 5L
+  n$dollars <- n$dollars - 84529867.05
   expect_equal(n$rows, 1331L)
   expect_equal(round(n$dollars, 2), 1225134515.58)
   n$rows <- n$rows - 6L
@@ -313,7 +329,9 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   n$dollars <- n$dollars - 12643596.75
   n$dollars <- n$dollars - 4020144
   expect_equal(n$states, 30L)
-  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"], 2), 30806856.12)
+  # Session 101: + NRHPF's R+R subaward (NV, owner ruling), $20,278,054.31.
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 20278054.31, 2),
+               30806856.12)
   # Session 98: + HARI and NHA (CMS_OBLIGATION_ASSOCIATION), $19,314,845.17.
   expect_equal(round(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"] - 19314845.17, 2),
                50008264)
@@ -344,7 +362,9 @@ test_that("every OTHER row in the repository states a determined form", {
   # Drugs, a pharmacy; Real Time Medical Systems, a health-IT company).
   # Session 98: + the Rhode Island League of Cities and Towns (R/03cb), an
   # association of municipal governments.
-  expect_equal(nrow(rev), 123L)
+  # Session 101: + Physicians of Southwest Washington, LLC (HI, R/03cd), a
+  # physician-led IPA / MSO.
+  expect_equal(nrow(rev), 124L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

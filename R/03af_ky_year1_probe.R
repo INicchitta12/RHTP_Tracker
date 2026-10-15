@@ -130,9 +130,11 @@ KY_SOURCES <- tibble::tribble(
         "new organisation. The 2026-09-02 copy stays on disk."),
   "funding",
   "https://ruralhealthplan.ky.gov/Pages/Request_For_Applications.aspx",
-  "2026-09-02_ky_ruralhealthplan_funding_opportunities.html",
+  "2026-10-15_ky_ruralhealthplan_funding_opportunities.html",
   paste("NINE RFAs, NOT ONE naming a recipient. The page this whole finding",
-        "rests on."),
+        "rests on. RE-BASED session 101 after reading the diff: the top menu",
+        "gained 'Reports and Documents' and nothing else moved (KY's own",
+        "reduction, sentence by sentence). The 2026-09-02 copy stays on disk."),
   "chfs_grants",
   "https://www.chfs.ky.gov/agencies/os/oas/Pages/grants.aspx",
   "2026-09-02_ky_chfs_grant_opportunities.html",
@@ -188,12 +190,18 @@ KY_SOURCES <- tibble::tribble(
         "the status row, NOT in KY_AWARD_DATES, and the stage is unchanged."),
   "rch",
   "https://healthy-ky.org/rch",
-  "2026-10-12_ky_foundation_healthy_kentucky_rch.html",
+  "2026-10-15_ky_foundation_healthy_kentucky_rch.html",
   paste("The designated pass-through's own page (§7, Illinois/ICAHN's",
         "route). RE-BASED session 94: its 'Program News' now names ONE Hub",
         "Lead (Lake Cumberland District Health Department, 2026-10-05;",
         "extracted by R/03by). The 2026-09-02 copy, which named none, stays",
-        "archived. Big Sandy's or Purchase's Hub Lead is a new string and fires.")
+        "archived. Big Sandy's or Purchase's Hub Lead is a new string and fires.",
+        "RE-BASED AGAIN session 101 after reading the diff: FHKY posted its",
+        "Hub Lead RFA round 2 (10-13) for the remaining twelve ADDs -- eligible",
+        "CLASSES ('Local Health Departments ... Healthcare Organizations ...",
+        "Senior Centers'), a portal 'in mid-November', deadline 2026-12-18,",
+        "anticipated award notification 2027-01-29. Tier 2; nobody named. The",
+        "2026-10-12 copy stays: R/03by reads its two Hub Lead headlines.")
 )
 
 ky_source <- function(key, field) {

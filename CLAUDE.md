@@ -1870,12 +1870,12 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-14, session 100, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-15, session 101, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 ```
-NAMED_HOSPITAL          1,331 rows   $1,225,134,515.58   32 states
-POOL_NAMED_HOSPITALS        2 rows      $30,806,856.12   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000)
-POOL_UNNAMED_HOSPITALS      4 rows      $69,323,109.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50)
+NAMED_HOSPITAL          1,336 rows   $1,309,664,382.63   32 states
+POOL_NAMED_HOSPITALS        4 rows      $51,084,910.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHPF $20,278,054.31, 2 rows)
+POOL_UNNAMED_HOSPITALS      5 rows      $69,323,109.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + HI (HAH, $0)
 ```
 
 Never add these. Rows with `validation_source_type = CMS_OBLIGATION_REPORT` can be subtracted (session 98:
@@ -1894,13 +1894,14 @@ Change a state file and you must update this table in the same commit. Never loo
 |---|---:|---:|---:|---|
 | AK | 254 | 254 | $248,976,548 | 45 / $69,816,744 (intents; rolling, 10-12 notice; 2 withdrawn) |
 | FL | 81 | 81 | $188,201,256 | 15 / $49,345,213 (Year 1 COMPLETE) |
+| NV | 167 | 157 | $175,245,034 (BP1 report, PROVISIONAL) | 46 / $49,169,396 + POOL_NAMED 2 / $20,278,054 (NRHPF, owner ruling; without the 2 SOURCE_SUSPECT rows: 44 / $45,713,975) |
 | WY | 77 | 75 | $173,859,752 | 35 / $84,369,024 (committee approvals) |
 | CO | 92 | 92 | $170,210,575 (release says $169,587,181) | 36 / $86,693,159 (typed on CMS enrolment) |
 | SC | 228 | 228 | $167,299,901 | 114 / $115,985,715 (partial year) |
 | AR r1 | 37 | 37 | $149,177,618 | 20 / $104,397,118 (intents) |
 | AL r1 | 138 | 138 | $143,745,821 | 70 / $83,548,287 |
 | OR | 278 | 272 | $140,994,009 (published $175.3M) | 57 / $54,520,575 (intents) |
-| VT | 165 | 165 | $124,784,854 | 51 / $44,866,699 (executed; partial; 10-02 list; LOW $8,319,753 subtractable) |
+| VT | 174 | 174 | $128,422,627 | 53 / $45,580,691 (executed; partial; 10-08 list; LOW $8,319,753 subtractable) |
 | MS | 167 | 167 | $104,115,147 | 84 / $68,898,205 (partial year) |
 | MI | 145 | 145 | $101,318,437 | 5 / $2,694,121 (a TOTAL; MHA $8.625M in no bucket) |
 | KS | 60 | 60 | $96,027,147 | 37 / $62,416,473 |
@@ -1915,6 +1916,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | IL | 1 | 1 | $50,008,264 | POOL_UNNAMED 1 / $50,008,264 |
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
 | PA | 66 | 66 | $42,198,310 | 27 / $24,149,111 (authorized, undisbursed) |
+| MO | 22 | 22 | $41,879,140 | 20 / $34,646,479 (SMRP priced by DSS 10-13; 27 hub anchors are NOT awards) |
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
 | OK RRR | 19 | 19 | $38,455,023 | 10 / $21,099,804 (Keetoowah $1,123,500 withdrawn 10-12; LOW $8,272,013: 3 enrolment bridges $4,333,575; Mercy $3,938,438 general knowledge, no CCN) |
 | SD contracts | 53 | 53 | $37,039,799 | 17 / $24,433,212 (10-12 register; Sanford + Avera parents $7,007,000 and 3 hand-read enrolment bridges $7,789,960 LOW; 18 Rural Strong inside $31.5M; 16 unplaced, never on top of $90M) |
@@ -1922,8 +1924,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 1 | 1 | $10,000,000 | 0 (a university; partial year) |
-| WV | 21 | 12 | $9,248,417 | 11 / $2,924,000 (Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health Unclear, queued) |
-| MO | 22 | 2 | $7,232,660 | 20 / $0 (27 hub anchors are NOT awards) |
+| WV | 21 | 12 | $9,248,417 | 12 / $2,924,000 (Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health system parent $0, LOW, owner ruling) |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
 | MT | 5 | 4 | $1,360,000 | 0 (4 ambulance grants, rounded; 75 equipment awards unnamed, one pool row) |
@@ -1933,7 +1934,6 @@ Change a state file and you must update this table in the same commit. Never loo
 | OK EMS/CP | 51 | 0 | — | 6 / $0 (38 ambulance + 13 vehicle lines, no amounts; INTEGRIS Miami bridge LOW) |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 0 | — | 218 / $0 |
-| NV | 156 | 0 | — (pools $87.4M) | 44 / $0 |
 | NC | 44 | 0 | — | 2 / $0 |
 | NC SBHC | 5 | 0 | — (pool $1.25M) | 1 / $0 (FirstHealth) |
 | TN | 53 | 0 | — | 2 / $0 |
@@ -1941,6 +1941,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | VA | 11 | 0 | — | 0 |
 | VA VHCF | 25 | 25 | $14,390,000 | 9 / $6,390,000 (system parents $5,700,000 LOW, GENERAL_KNOWLEDGE; UVA strings $884k queued; Highland is an FQHC) |
 | ID | 1 | 0 | — | 0 |
+| HI | 3 | 0 | — (amounts in HANDS, 403) | POOL_UNNAMED 1 / $0 (Healthcare Association of Hawaii, association rule; PSW and HPCA not hospitals) |
 | KY | 2 | 0 | — | 0 (LCDHD and Purchase DHD, local health departments; "up to $10 million" per region over five years is a ceiling, text only) |
 | NE CMS obl | 6 | 6 | $3,977,841 | 5 / $502,904 + POOL_UNNAMED 1 / $3,474,938 (CMS obligation lines, as of 7/31; Mayo $120,000 out of state, LOW; Regional West + Chase County infection prevention $342,079 added session 99; NHA tagged CMS_OBLIGATION_ASSOCIATION) |
 | PA CMS obl | 2 | 2 | $2,963,577 | 2 / $2,963,577 (The Guthrie Clinic, system parent, LOW, GENERAL_KNOWLEDGE, no CCN) |

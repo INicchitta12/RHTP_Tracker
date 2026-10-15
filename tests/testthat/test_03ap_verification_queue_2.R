@@ -161,7 +161,16 @@ test_that("THE COUNTERFACTUAL: the rule does not reach an ASSOCIATION's foundati
   # 2 through session 63; session 64's RHIT section adds a third, typed the same way.
   expect_equal(nrow(nrhp), 3L)
   expect_true(all(nrhp$recipient_type != "HOSPITAL_OR_SYSTEM"))
-  expect_true(all(nrhp$flow_type == "IN_KIND_BENEFIT"))
+  # SESSION 101 MOVED THE R+R PAIR, AND NOT BY THE FOUNDATION ROW: it is the
+  # OWNER'S ruling under the ICAHN / hospital-association rows, on NVHA's BP1
+  # report naming all fourteen hospitals (POOL_NAMED_HOSPITALS, LOW). The
+  # hospital-foundation row still does not reach it -- the type is unchanged
+  # -- and the RHIT row, which the ruling did not cover, stays IN_KIND.
+  rr <- nrhp$award_pool == "WRRAP_RECRUITMENT_RETENTION"
+  expect_equal(sum(rr), 2L)
+  expect_true(all(nrhp$flow_type[rr] == "PASS_THROUGH_DESIGNATED"))
+  expect_true(all(nrhp$hospital_attribution[rr] == "POOL_NAMED_HOSPITALS"))
+  expect_true(all(nrhp$flow_type[!rr] == "IN_KIND_BENEFIT"))
 })
 
 test_that("THE SECOND COUNTERFACTUAL: a foundation whose parent is not a hospital", {
@@ -530,7 +539,18 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 100: + WV's 2026-09-30 "Investments" release (R/03av), six
   # hospitals typed on CMS WV enrolment at $0, no new state:
   # 1,331 / $1,225,134,515.58 / 32. Subtracted first.
+  # Session 101: + MO SMRP prices ($34,646,479.34 on 20 existing rows), NV's
+  # BP1 report ($49,169,395.71 on 46 rows, 2 of them new: Banner Churchill
+  # RHIT on CCN 291313 and Mt. Grant FLEX-25), VT's 10-08 update (Brattleboro
+  # Retreat, 2 / $713,992) and WV's Vandalia Health (1 / $0, owner ruling):
+  # 5 rows / $84,529,867.05, no new state: 1,336 / $1,309,664,382.63 / 32.
+  # Subtracted first.
+  expect_equal(named$rows, 1336L)
+  expect_equal(round(named$dollars, 2), 1309664382.63, tolerance = 0)
+  named$rows <- named$rows - 5L
+  named$dollars <- named$dollars - 84529867.05
   expect_equal(named$rows, 1331L)
+  expect_equal(named$states, 32L)
   expect_equal(round(named$dollars, 2), 1225134515.58, tolerance = 0)
   named$rows <- named$rows - 6L
   expect_equal(named$rows, 1325L)
@@ -635,8 +655,13 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # award -- and did NOT gain anything from session 49.
   # Session 54: + Connecticut's unsplit Hartford HealthCare pair, $12,650,000,
   # a Tier 3 executed-award figure (so the bucket still does not mix tiers).
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 30806856.12)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 2L)
+  # Session 101: + Nevada Rural Hospital Partners Foundation's R+R subaward,
+  # $20,278,054.31 on two page rows, on the owner's ruling (Tier 3, BP1
+  # report). Subtracted, the session-54 figure is what remains.
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 51084910.43)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 4L)
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 20278054.31, 2),
+               30806856.12)
   ne <- p %>% filter(bucket == "POOL_NAMED_HOSPITALS", state == "NE")
   expect_equal(ne$dollars, 18156856.12)
 })

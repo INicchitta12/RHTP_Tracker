@@ -1028,3 +1028,25 @@ IN,2026-10-15T15:02:38Z,UNCHANGED,idoa_recs,,interactive
 IN,2026-10-15T15:02:38Z,UNCHANGED,grow_home,,interactive
 IN,2026-10-15T15:02:38Z,UNCHANGED,newsletter,,interactive
 IN,2026-10-15T15:02:38Z,UNCHANGED,init6,,interactive
+KY,2026-10-15T15:03:29Z,CHANGED,funding,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,programme,,interactive
+KY,2026-10-15T15:03:29Z,CHANGED,rch,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_rda,,interactive
+KY,2026-10-15T15:03:29Z,TRIPWIRE,rch,"[KY] 'rch' NAMES 8 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Community | The Rural Community Hub Lead Organizations | Rural Health Transformation Hub Leadership Opportunity for Rural Community Hubs for Chronic Care Innovation You | Local Health Departments | Healthcare Organizations | Community-Based Organizations | Schools and Educational Institutions | Senior Centers. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CA,2026-10-15T15:04:02Z,CHANGED,calrht,,interactive
+CA,2026-10-15T15:04:02Z,TRIPWIRE,calrht,"[CA] 'calrht' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: CMS RHT Program Obligated Funds. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,funding,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,programme,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rch,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_rda,,interactive
+CA,2026-10-15T15:07:12Z,UNCHANGED,(all),,interactive
