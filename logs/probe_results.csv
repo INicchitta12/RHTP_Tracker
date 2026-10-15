@@ -995,3 +995,25 @@ AL,2026-10-15T14:42:39Z,CHANGED,governor,,trig_01NtbC312pu2u8d7uePQXEty
 IA,2026-10-15T15:24:02Z,ERROR,(probe),"[IA] R/03z_ia_year1_awardees.R has no --probe branch (only --fetch, --validate, --build and --report); running --probe printed the usage message and exited 0, with no fetch, no comparison and no write to this log. This Routine was created 2026-10-15T14:59:40Z, after CLAUDE.md's own session-100 note that Iowa is unwatched ('no probe, no Routine') -- the probe code was never added for Iowa. No determination was made about the state's page; this is a statement about our tooling, not about Iowa (section 2.2). A human needs to write an ia_probe() wired through rhtp_probe_run() before this Routine can run; this session is barred from editing code.",trig_01ECTghY5iHNh5RvWGLMfqBY
 CT,2026-10-15T15:42:03Z,CHANGED,opm,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-10-15T15:42:03Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-10-15T16:53:14Z,CHANGED,AZ:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:14Z,CHANGED,AZ:ahcccs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:21Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Delaware Announces Rural Health Transformation Funding to Strengthen Physician Workforce'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:23Z,CHANGED,FL:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:24Z,CHANGED,IA:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:25Z,CHANGED,ID:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:25Z,CHANGED,ID:dhw,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:27Z,UNCHANGED,MN:mdh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:28Z,UNCHANGED,MT:news,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:28Z,CHANGED,MT:dphhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:30Z,CHANGED,NE:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:30Z,UNCHANGED,NE:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:31Z,CHANGED,NJ:doh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:32Z,CHANGED,NV:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:32Z,UNCHANGED,NV:nvha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:33Z,UNCHANGED,OK:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:34Z,UNCHANGED,OR:oha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:34Z,CHANGED,TX:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:34Z,CHANGED,TX:hhsc,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:39Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:39Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-15T16:53:40Z,TRIPWIRE,(probe),"[MD] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: governor: 'Governor Moore and Maryland Department of Labor Announce $16.4 Million in Rural Health Transformation Program Workforce Awards'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
