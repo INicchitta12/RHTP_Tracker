@@ -1383,7 +1383,8 @@ ms_disposition <- function(cands = ms_rcj_candidates(), d = ms_parse_release()) 
 ms_probe <- function() {
   keys <- c("funding", "home", "gov_newsroom", "dom_completed", "release")
   live <- purrr::map(keys, function(k) {
-    r <- ms_get(ms_source(k, "url"), k); Sys.sleep(2); r
+    r <- rhtp_probe_get(k, function() ms_get(ms_source(k, "url"), k),
+                          ms_path(k)); Sys.sleep(2); r
   })
   names(live) <- keys
 

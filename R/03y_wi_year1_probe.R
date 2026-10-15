@@ -1042,7 +1042,8 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
     src <- WI_SOURCES[WI_SOURCES$key == key, ]
     if (nrow(src) != 1L) stop("[WI] unknown probe key: ", key, call. = FALSE)
     if (i > 1L) Sys.sleep(WI_HOST_THROTTLE_S)
-    body <- wi_get(src$url, paste0("probe:", src$file))
+    body <- rhtp_probe_get(key, function()
+      wi_get(src$url, paste0("probe:", src$file)), wi_path(key))
     kind <- wi_probe_kind(key)
     cur  <- wi_content_digest(body, kind)
     held <- wi_content_digest(readBin(wi_path(key), "raw",

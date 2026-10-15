@@ -459,7 +459,8 @@ ID_NAME_FURNITURE <- list(
 id_probe <- function() {
   keys <- c("funding", "about")
   live <- purrr::map(keys, function(k) {
-    r <- id_get(id_source(k, "url"), k); Sys.sleep(2); r
+    r <- rhtp_probe_get(k, function() id_get(id_source(k, "url"), k),
+                          id_path(k)); Sys.sleep(2); r
   })
   names(live) <- keys
   cmp <- purrr::map_dfr(keys, function(k) {

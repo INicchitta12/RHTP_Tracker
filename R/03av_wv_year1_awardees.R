@@ -589,11 +589,15 @@ wv_probe <- function() {
   live <- list(); arch <- list(); changed <- logical(0)
   for (i in seq_len(nrow(WV_PROBE_PAGES))) {
     p <- WV_PROBE_PAGES[i, ]
-    resp <- httr::GET(p$url, httr::user_agent(WV_USER_AGENT), httr::timeout(60))
-    if (httr::status_code(resp) != 200L) {
-      stop("[WV] HTTP ", httr::status_code(resp), " from ", p$url, call. = FALSE)
-    }
-    raw <- httr::content(resp, as = "raw")
+    raw <- rhtp_probe_get(p$key, function() {
+      resp <- httr::GET(p$url, httr::user_agent(WV_USER_AGENT),
+                        httr::timeout(60))
+      if (httr::status_code(resp) != 200L) {
+        stop("[WV] HTTP ", httr::status_code(resp), " from ", p$url,
+             call. = FALSE)
+      }
+      httr::content(resp, as = "raw")
+    }, here::here(WV_PROBE_DIR, p$file))
     lt <- wv_page_text(raw)
     at <- wv_page_text(here::here(WV_PROBE_DIR, p$file))
     changed[p$key] <- !identical(digest::digest(lt), digest::digest(at))

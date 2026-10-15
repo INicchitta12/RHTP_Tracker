@@ -844,7 +844,8 @@ mo_probe <- function(keys = MO_PROBE_KEYS) {
     src <- MO_SOURCES[MO_SOURCES$key == key, ]
     if (nrow(src) != 1L) stop("[MO] unknown probe key: ", key, call. = FALSE)
     if (i > 1L) Sys.sleep(MO_HOST_THROTTLE_S)
-    body <- mo_get(src$url, paste0("probe:", src$file))
+    body <- rhtp_probe_get(key, function()
+      mo_get(src$url, paste0("probe:", src$file)), mo_path(key))
     kind <- mo_probe_kind(key)
     cur  <- mo_content_digest(body, kind)
     held <- mo_content_digest(readBin(mo_path(key), "raw",

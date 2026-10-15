@@ -1070,7 +1070,8 @@ tx_probe <- function(keys = TX_PROBE_KEYS) {
     src <- TX_SOURCES[TX_SOURCES$key == key, ]
     if (nrow(src) != 1L) stop("[TX] unknown probe key: ", key, call. = FALSE)
     if (i > 1L) Sys.sleep(TX_HOST_THROTTLE_S)
-    body <- tx_get(src$url, src$file)
+    body <- rhtp_probe_get(key, function() tx_get(src$url, src$file),
+                             file.path(TX_EVIDENCE_DIR, src$file))
     cur  <- tx_content_text(key, body)
     held <- tx_content_text(key)
     live[[key]] <- list(

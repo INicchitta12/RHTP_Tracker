@@ -1420,7 +1420,8 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   for (i in seq_along(keys)) {
     key <- keys[[i]]
     if (i > 1L) Sys.sleep(CA_HOST_THROTTLE_S)
-    served <- ca_get(ca_source(key, "url"), paste0("probe:", key))
+    served <- rhtp_probe_get(key, function()
+      ca_get(ca_source(key, "url"), paste0("probe:", key)), ca_path(key))
     bodies[[key]] <- served
     live <- ca_content_digest(served)
     have <- ca_content_digest(readBin(ca_path(key), "raw",

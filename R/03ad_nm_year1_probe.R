@@ -1367,7 +1367,8 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
   for (i in seq_along(keys)) {
     key <- keys[[i]]
     if (i > 1L) Sys.sleep(NM_HOST_THROTTLE_S)
-    served <- nm_get(nm_source(key, "url"), paste0("probe:", key))
+    served <- rhtp_probe_get(key, function()
+      nm_get(nm_source(key, "url"), paste0("probe:", key)), nm_path(key))
     bodies[[key]] <- served
     live <- nm_content_digest(served)
     have <- nm_content_digest(readBin(nm_path(key), "raw",

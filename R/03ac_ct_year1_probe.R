@@ -1366,7 +1366,8 @@ ct_probe <- function(keys = CT_PROBE_KEYS) {
   for (i in seq_along(keys)) {
     key <- keys[[i]]
     if (i > 1L) Sys.sleep(CT_HOST_THROTTLE_S)
-    served <- ct_get(ct_source(key, "url"), paste0("probe:", key))
+    served <- rhtp_probe_get(key, function()
+      ct_get(ct_source(key, "url"), paste0("probe:", key)), ct_path(key))
     bodies[[key]] <- served
     live <- ct_content_digest(served)
     have <- ct_content_digest(readBin(ct_path(key), "raw",

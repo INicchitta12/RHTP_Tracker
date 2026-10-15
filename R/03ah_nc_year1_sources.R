@@ -1365,7 +1365,8 @@ NC_NAME_FURNITURE <- list(
 nc_probe <- function() {
   keys <- c("pr_mih", "pr_roots", "roots_page", "opportunities", "trillium")
   live <- purrr::map(keys, function(k) {
-    b <- nc_get(nc_source(k, "url"), k)
+    b <- rhtp_probe_get(k, function() nc_get(nc_source(k, "url"), k),
+                          nc_path(k))
     Sys.sleep(2)
     b
   })

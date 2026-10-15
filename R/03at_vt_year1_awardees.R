@@ -581,13 +581,15 @@ vt_status_table <- function(tb = vt_parse_table()) {
 # -- probe / validate / build / report ---------------------------------------
 
 vt_probe <- function() {
-  resp <- httr::GET(VT_AWARDS_URL, httr::user_agent(VT_USER_AGENT),
-                    httr::timeout(120))
-  if (httr::status_code(resp) != 200L) {
-    stop("[VT] HTTP ", httr::status_code(resp), " from the awards page.",
-         call. = FALSE)
-  }
-  live <- httr::content(resp, as = "raw")
+  live <- rhtp_probe_get("awards", function() {
+    resp <- httr::GET(VT_AWARDS_URL, httr::user_agent(VT_USER_AGENT),
+                      httr::timeout(120))
+    if (httr::status_code(resp) != 200L) {
+      stop("[VT] HTTP ", httr::status_code(resp), " from the awards page.",
+           call. = FALSE)
+    }
+    httr::content(resp, as = "raw")
+  }, here::here(VT_AWARDS_FILE))
   txt_of <- function(h) {
     main <- rvest::html_element(h, "main")
     stringr::str_squish(rvest::html_text2(if (inherits(main, "xml_missing")) h else main))

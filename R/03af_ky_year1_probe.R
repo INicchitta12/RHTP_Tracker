@@ -848,7 +848,8 @@ ky_probe <- function() {
   # The four RFAs carrying a published award date are read LIVE too (session
   # 92): a re-issued RFA that moves its date is a change to this finding.
   keys <- c("funding", "programme", "rch", "chfs_grants", KY_AWARD_DATES$key)
-  live <- purrr::map(keys, function(k) ky_get(ky_source(k, "url"), k))
+  live <- purrr::map(keys, function(k) rhtp_probe_get(
+    k, function() ky_get(ky_source(k, "url"), k), ky_path(k)))
   names(live) <- keys
   Sys.sleep(1)
 

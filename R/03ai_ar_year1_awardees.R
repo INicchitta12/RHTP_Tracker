@@ -2854,7 +2854,8 @@ ar_probe <- function() {
   out <- purrr::map_dfr(seq_along(AR_WATCHED), function(i) {
     key <- AR_WATCHED[i]
     if (i > 1L) Sys.sleep(AR_HOST_THROTTLE_S)
-    served <- ar_get(ar_source(key, "url"), paste0("live:", key))
+    served <- rhtp_probe_get(key, function()
+      ar_get(ar_source(key, "url"), paste0("live:", key)), ar_path(key))
     txt <- rawToChar(served[served != as.raw(0)])
     Encoding(txt) <- "UTF-8"
     live_content <- ar_content_digest(key, txt)

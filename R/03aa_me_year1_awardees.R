@@ -1503,7 +1503,7 @@ me_probe <- function() {
   bodies <- list()
   for (k in watched) {
     url <- me_source(k, "url")
-    served <- me_get(url, k)
+    served <- rhtp_probe_get(k, function() me_get(url, k), me_path(k))
     bodies[[k]] <- served
     # A CONTENT digest over the reduced text, never a file digest (session 85).
     # The file digest read all four pages CHANGED on every firing from 09-22 to
