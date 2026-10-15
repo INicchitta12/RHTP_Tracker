@@ -38,16 +38,28 @@ hospitals, "approximately $35 million", NO per-recipient amount. The
 2026-09-23 programme page RE-BASES the probe; the 2026-09-01 copy is kept as
 program_page_prior.
 
+SESSION 101 (2026-10-15). 2026-10-15_dss_smrp_awardees_priced.html is the
+SAME page PRICED: 'A full list of awardees and allocation is below' over a
+'RHTP | Awarded Amount' table; the 20 amounts sum to $34,646,479.34 (no
+total printed). 2026-10-15_dss_rural_health.html re-bases the programme page
+(the 10-14 name trip: Kids Win Missouri and the MU Sinclair School of
+Nursing CNM contract, both non-hospital, NOT extracted). 2026-10-15
+_dss_bid_proposals.html no longer lists IFB DSS26015-02: CLOSED, OUTCOME
+UNKNOWN. The 09-01 bid table that lists it is kept as bids_prior.
+
 MANIFEST.txt is deliberately absent from this listing: a manifest cannot
 record its own digest (session 15).
 
+24f02e7570feb7e77b55c90245a1d2a1268550d9ce9919b2a2b4b883e5238ca6  2026-10-15_dss_rural_health.html  (122137 bytes)  <- https://dss.mo.gov/mhd/rural-health
 3396fb267981bb88b08399b5efd758015f6afd8acc8a7fe6a16c82d0d02632d2  2026-09-23_dss_rural_health.html  (116173 bytes)  <- https://dss.mo.gov/mhd/rural-health
 87f5c206a916f127285b7879cf7c4e81f86334faf826b7df6be268b35542f019  2026-09-01_dss_rural_health.html  (116295 bytes)  <- https://dss.mo.gov/mhd/rural-health
+10d2e066fd4e36fcdee67718ffe27f837a823d13d27af29c1faabd9775d9fc3c  2026-10-15_dss_smrp_awardees_priced.html  (45562 bytes)  <- https://dss.mo.gov/rhtp-strategic-minor-renovations-program
 b9d0eb4e0ad2ce6c4661ebcc63337df2c2876d5e99b51b5b29b75caf9157bd2f  2026-09-23_dss_smrp_awardees.html  (44531 bytes)  <- https://dss.mo.gov/rhtp-strategic-minor-renovations-program
 4b632fde82490dc92175f87cd671b11430fa5b7a68100d45590e68a59e021b60  2026-07-17_rhtp_hub_anchors.pdf  (214168 bytes)  <- https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/RHTP-Hub-Anchors-07-17-2026.pdf
 667dd3ac8fcdc2ec8b4b5adf898dc09e0d2bee69d54b44c894758d99df1c2457  2026-07-17_dss_hub_anchors_release.html  (20829 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420acc4
 f44520ae0df2157a814593212b44ab66e536ec282d909fcfce1ded79bc4d4cff  2026-07-20_dss_maternal_partnership_release.html  (20441 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420f3bd
 28eada15b5241af0f387093a76a678364b22e88ef57ceb972b6a3fe9dcf9040e  2026-07-24_dss_mih_cp_release.html  (22769 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/421d56d
 4740f3c69d938ced3e22f64c5d7f928df5a8227ed53d7f11d35f9bb1753c7856  2026-07-02_torch_care_faqs.pdf  (762655 bytes)  <- https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/20260702_ToRCH%20Care%20FAQs.pdf
+b73fd890e7d9c99c4acb1b91e0cf7a86b5f9428cbf3df7aaa078956638945140  2026-10-15_dss_bid_proposals.html  (47149 bytes)  <- https://dss.mo.gov/bids/
 ee2fd8a0d6cacaf4cbf47629c5a6da01becc6e49eb712621f3511bbe81515d40  2026-09-01_dss_bid_proposals.html  (47651 bytes)  <- https://dss.mo.gov/bids/
 dbc2b160211ba8ed8ed4106c8651a5d9f852a1c516c7875e7f0cbbbd24fb9c59  2026-09-01_ctf_funding_opportunities.html  (80514 bytes)  <- https://ctf4kids.org/ctf-funding-opportunities/

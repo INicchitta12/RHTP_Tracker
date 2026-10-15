@@ -849,7 +849,8 @@ de_name_scope <- function(text, page) {
 de_probe <- function() {
   keys <- c("release", "programme")
   live <- purrr::map(keys, function(k) {
-    r <- de_get(de_source(k, "url"), k); Sys.sleep(2); r
+    r <- rhtp_probe_get(k, function() de_get(de_source(k, "url"), k),
+                          de_path(k)); Sys.sleep(2); r
   })
   names(live) <- keys
 

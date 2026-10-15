@@ -489,7 +489,8 @@ oh_disposition <- function() {
 oh_probe <- function() {
   keys <- c("release", "odh")
   live <- purrr::map(keys, function(k) {
-    r <- oh_get(oh_source(k, "url"), k); Sys.sleep(2); r
+    r <- rhtp_probe_get(k, function() oh_get(oh_source(k, "url"), k),
+                          oh_path(k)); Sys.sleep(2); r
   })
   names(live) <- keys
   cmp <- purrr::map_dfr(keys, function(k) {

@@ -81,7 +81,8 @@ Y1_AWARD_FILES <- c(
   VA = "va_year1_awardees.csv",  WA = "wa_year1_awardees.csv",
   NJ = "nj_year1_awardees.csv",
   LA = "la_year1_awardees.csv",
-  CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv"
+  CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv",
+  HI = "hi_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -322,9 +323,14 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/NY/2026-09-22_ny_governor_rchi_awards_release.html",
 
   "VT", "PARTIAL", "No", "Yes",
-  "2026-10-02",
-  "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.' (still printed on the 2026-10-02 update, session 94)",
-  "data/evidence/recheck/2026-10-07/VT/vt_year1_awards.html",
+  "2026-10-08",
+  "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.' (still printed on the 2026-10-08 update, session 101)",
+  "data/evidence/recheck/2026-10-15/VT/vt_year1_awards.html",
+
+  "HI", "PARTIAL", "No", "Yes",
+  "2026-10-14",
+  "Three RVBI Notices of Award (HPCA 8/28, Healthcare Association of Hawaii 9/3, Physicians of Southwest Washington 9/11) under a '$25 million' RVBI line; amounts only in HANDS (403). RHIN ($45M) and the other initiatives name no recipient (session 101).",
+  "data/evidence/recheck/2026-10-14/HI/hi_shpda_rhtp_programme_three_notices_of_award.html",
 
   "KY", "PARTIAL", "No", "Yes",
   "2026-10-05",

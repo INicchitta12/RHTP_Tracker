@@ -326,7 +326,12 @@ STATE_FILES <- c(
   # wipe them, and never mixes a notice of award with an obligation line.
   NE_CMS = "data/reference/ne_cms_obligation_awardees.csv",
   PA_CMS = "data/reference/pa_cms_obligation_awardees.csv",
-  RI = "data/reference/ri_year1_awardees.csv"
+  RI = "data/reference/ri_year1_awardees.csv",
+  # HAWAII (session 101): three RVBI Notices of Award named on SHPDA's page,
+  # NO amounts (they are in HANDS, 403 here). The Healthcare Association of
+  # Hawaii is POOL_UNNAMED_HOSPITALS at $0 on the owner's instruction: a
+  # hospital bucket row with no dollar figure, which must union cleanly.
+  HI = "data/reference/hi_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -368,7 +373,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN",
+               c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "VA", "VT", "WA",
                  "WV", "WY"))
@@ -488,7 +493,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   pooled <- parts[parts$bucket == "POOL_UNNAMED_HOSPITALS", ]
   # Session 98: HARI (RI) and the Nebraska Hospital Association joined ICAHN,
   # by owner ruling, on CMS obligation lines (CMS_OBLIGATION_ASSOCIATION).
-  expect_equal(sort(unique(pooled$state)), c("IL", "NE", "RI"))
+  # Session 101: + Hawaii's Healthcare Association of Hawaii, a row at $0
+  # (its amount is in HANDS, 403), on the owner's instruction.
+  expect_equal(sort(unique(pooled$state)), c("HI", "IL", "NE", "RI"))
   expect_equal(round(sum(pooled$dollars), 2), 69323109.17)
   expect_equal(pooled$dollars[pooled$state == "IL"], 50008264)
 
@@ -504,7 +511,12 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # HealthCare's Windham + Charlotte Hungerford pair is ONE executed award
   # figure ($12,650,000, Tier 3, rounded in source) for two NAMED hospitals
   # with no per-hospital split -- the condition this code was added for.
-  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE"))
+  # SESSION 101: NEVADA JOINS, ON THE OWNER'S RULING. NRHPF's R+R subaward
+  # ($20,278,054.31, NVHA's BP1 report, PROVISIONAL) names all fourteen rural
+  # hospitals and publishes no split -- Tier 3, the same condition.
+  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV"))
+  expect_equal(round(pooled_named$dollars[pooled_named$state == "NV"], 2),
+               20278054.31)
   expect_equal(round(pooled_named$dollars[pooled_named$state == "NE"], 2),
                18156856.12)
   expect_equal(pooled_named$dollars[pooled_named$state == "CT"], 12650000)

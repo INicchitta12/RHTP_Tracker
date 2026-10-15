@@ -213,8 +213,11 @@ test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
   # SESSION 76: MINNESOTA LEFT BY THE PROBE BEING WRITTEN (R/03bn) and
   # scheduled -- the route this code's note names -- so it reads
   # INVESTIGATED_NO_LIST, and two remain.
-  two <- c("HI", "MA")
+  # SESSION 101: HAWAII LEFT BY EXTRACTION (R/03cd, three RVBI Notices of
+  # Award on SHPDA's page), so one remains.
+  two <- c("MA")
   expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, two)
+  expect_equal(survey$extraction_status[survey$state == "HI"], "EXTRACTED")
   got <- survey$extraction_status[match(two, survey$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
               info = paste(two, got, collapse = "; "))
@@ -335,8 +338,9 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 82: CO (INVESTIGATED_NO_LIST) -> EXTRACTED, so 37/8/2/3.
   # Session 88: MT (INVESTIGATED_NO_LIST) -> EXTRACTED, so 38/7/2/3.
   # Session 94: KY (INVESTIGATED_NO_LIST) -> EXTRACTED, so 39/6/2/3.
-  expect_equal(unname(tab[["EXTRACTED"]]), 39L)
+  # Session 101: HI (INVESTIGATED_NO_PROBE) -> EXTRACTED, so 40/6/1/3.
+  expect_equal(unname(tab[["EXTRACTED"]]), 40L)
   expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 6L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 2L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 1L)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 3L)
 })

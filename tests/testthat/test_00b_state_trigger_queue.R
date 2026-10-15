@@ -206,7 +206,9 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
   # allocations PDF, found in session 60 and extracted in session 61.
   # SESSION 76: two. Minnesota left for INVESTIGATED_NO_LIST because its
   # probe was written (R/03bn) and scheduled.
-  two <- c("HI", "MA")
+  # SESSION 101: one. Hawaii left by extraction (R/03cd).
+  two <- c("MA")
+  expect_equal(queue$queue_status[queue$state == "HI"], "EXTRACTED")
   got <- queue$queue_status[match(two, queue$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
               info = paste(two, got, collapse = "; "))

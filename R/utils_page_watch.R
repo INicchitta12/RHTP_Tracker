@@ -88,7 +88,10 @@ rhtp_watch_pages <- function(pages, agent, cainfo = NULL) {
            ". A watched page with no baseline is not watched (§0.4).",
            call. = FALSE)
     }
-    raw <- rhtp_watch_fetch(pages$url[i], agent, cainfo = cainfo)
+    # Session 101: inside a probe run, a page that cannot be fetched is logged
+    # ERROR and read from its archive, so the other pages are still read.
+    raw <- rhtp_probe_get(k, function() rhtp_watch_fetch(pages$url[i], agent,
+                                                           cainfo = cainfo), f)
     lt <- rhtp_watch_reduce(raw, scope_of(i))
     at <- rhtp_watch_reduce(f, scope_of(i))
     out$raw[[k]] <- raw

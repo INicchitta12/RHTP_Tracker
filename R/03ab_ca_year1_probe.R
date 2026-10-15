@@ -148,8 +148,12 @@ CA_USER_AGENT <- paste(
 CA_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
+  # RE-BASED session 101 after reading the diff: the documents list gained
+  # one link, "CMS RHT Program Obligated Funds (October 8, 2026)" -- CMS's
+  # obligation report, byte-identical to data/raw/cms/obligations/2026-07-31/
+  # and parsed by R/00c. Nothing else moved. The 2026-09-02 copy stays on disk.
   "calrht",
-  "2026-09-02_ca_hcai_calrht_programme.html",
+  "2026-10-15_ca_hcai_calrht_programme.html",
   "https://hcai.ca.gov/rural-health/calrht/",
 
   "funding",
@@ -1420,7 +1424,8 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   for (i in seq_along(keys)) {
     key <- keys[[i]]
     if (i > 1L) Sys.sleep(CA_HOST_THROTTLE_S)
-    served <- ca_get(ca_source(key, "url"), paste0("probe:", key))
+    served <- rhtp_probe_get(key, function()
+      ca_get(ca_source(key, "url"), paste0("probe:", key)), ca_path(key))
     bodies[[key]] <- served
     live <- ca_content_digest(served)
     have <- ca_content_digest(readBin(ca_path(key), "raw",

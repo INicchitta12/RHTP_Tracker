@@ -1429,7 +1429,8 @@ ne_name_scope <- function(text) {
 }
 
 ne_probe <- function() {
-  page_raw <- ne_live_get(ne_source("program_page", "url"))
+  page_raw <- rhtp_probe_get("program_page", function()
+    ne_live_get(ne_source("program_page", "url")), ne_path("program_page"))
   live_txt <- ne_html_text(body = page_raw)
   arch_txt <- ne_html_text("program_page")
   tmp <- tempfile(fileext = ".html")
@@ -1456,7 +1457,8 @@ ne_probe <- function() {
       digest::digest(arch_txt, algo = "sha256"))
   for (k in c(NE_NOA_KEYS, NE_INTENT_KEYS)) {
     Sys.sleep(NE_HOST_THROTTLE_S)
-    live <- ne_live_get(ne_source(k, "url"))
+    live <- rhtp_probe_get(k, function() ne_live_get(ne_source(k, "url")),
+                             ne_path(k))
     cmp <- dplyr::bind_rows(cmp, tibble::tibble(
       key = k,
       changed = digest::digest(live, algo = "sha256", serialize = FALSE) !=

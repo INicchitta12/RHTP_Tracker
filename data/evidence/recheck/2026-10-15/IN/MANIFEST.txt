@@ -1,0 +1,4 @@
+a9ecd4c2c76b274108fed0c8b7d3bb88e6686db56175e53900be54cf31ff56f4  2026-10-15_in_idoa_award_recommendations.html  https://www.in.gov/idoa/procurement/award-recommendations/  AS SERVED (credential-free)  2026-10-15T15:02:28Z
+34cc30f11def37b85e7cf21c9d04fd7a4bee40c3c336c55a3111f33f1d9409e5  2026-10-15_in_grow_rural_health_home.html  https://www.in.gov/grow-rural-health/  AS SERVED (credential-free)  2026-10-15T15:02:31Z
+b87be67dcd6d1aa267f41ed0c4833346589ccc0680b9ce5e99dec299d884464d  2026-10-15_in_rhtp_october_2026_newsletter.html  https://view.subscription.in.gov/?vawpToken=RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028  AS SERVED (credential-free)  2026-10-15T15:02:33Z
+0fee9b5cc1e667bfc93a1ad5fc5c63fe1948b856de3973cc16b3b74dbf8b1c3e  2026-10-15_in_grow_initiative_6_meds_to_beds.html  https://www.in.gov/grow-rural-health/initiatives/initiative-6  AS SERVED (credential-free)  2026-10-15T15:02:35Z

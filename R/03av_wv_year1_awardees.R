@@ -108,6 +108,10 @@
 #     hand-read LEGAL_NAME_TRUNCATED bridges (LOW): each is the one enrolled
 #     hospital of that name in West Virginia, and the release calls all six
 #     hospitals. Each is also in R/03bj's EH_APPLY.
+#   * SESSION 101: OWNER RULING. Vandalia Health is typed HOSPITAL_OR_SYSTEM
+#     as a system parent (LOW, GENERAL_KNOWLEDGE, no CCN), a NAMED_HOSPITAL
+#     row at $0; WV_VANDALIA_SYSTEM_PARENT resolved at (b). Session 100's
+#     reading, kept as the record:
 #   * Vandalia Health is a SYSTEM PARENT with no enrolment under that legal
 #     name (its hospitals enrol as "VANDALIA HEALTH <hospital>" DBAs, which a
 #     prefix may not match, §2). It stays on §8's standing fallback, and its
@@ -118,7 +122,8 @@
 #     it is queued as WV_VANDALIA_SYSTEM_PARENT, not applied. $0 either way.
 #
 # TWENTY-ONE ROWS, TWELVE PRICED, $9,248,417 (unchanged). Hospital: 11 rows /
-# $2,924,000 (six of them at $0).
+# $2,924,000 (six of them at $0); 12 rows / $2,924,000 from session 101
+# (Vandalia Health, owner ruling, $0).
 #
 # Usage:
 #   Rscript R/03av_wv_year1_awardees.R --validate | --build | --probe | --report
@@ -366,16 +371,17 @@ WV_AWARDS_S100 <- dplyr::bind_rows(
     key = "inv", date = "2026-09-30", initiative = WV_INV_INITIATIVE,
     awardee = "Vandalia Health", amount = NA_real_,
     quote = "Vandalia Health received an additional award to help rural hospitals and clinics fill critical staffing shortages",
-    recipient_type = NA_character_, basis_type = NA_character_,
-    flow_type = "PASS_THROUGH_UNRESOLVED", dist = "Unclear",
+    recipient_type = "HOSPITAL_OR_SYSTEM", basis_type = "GENERAL_KNOWLEDGE",
+    flow_type = "DIRECT", dist = "Yes",
     why = paste0(
-      "A SYSTEM PARENT with no CMS enrolment under this legal name: its hospitals ",
-      "enrol as 'VANDALIA HEALTH <hospital>' DBAs (CAMC, Davis, Webster, Broaddus), ",
-      "and a prefix is never a match (§2). The release states no form, so §8's ",
-      "standing fallback; the system-parent precedent is an owner ruling each time ",
-      "and is queued (WV_VANDALIA_SYSTEM_PARENT). Flow: the award helps 'rural ",
-      "hospitals and clinics' fill staffing, hospitals AMONG OTHERS (§0.3), and ",
-      "the release names no placement site: PASS_THROUGH_UNRESOLVED, Unclear."),
+      "OWNER RULING (session 101, WV_VANDALIA_SYSTEM_PARENT resolved at (b)): ",
+      "a SYSTEM PARENT, typed HOSPITAL_OR_SYSTEM on the system-parent rulings ",
+      "(Sanford/Avera, Valley Health/Ballad/Sentara, Guthrie, Mercy) -- LOW, ",
+      "GENERAL_KNOWLEDGE, no CCN, $0. No CMS enrolment carries this legal name: ",
+      "its hospitals enrol as 'VANDALIA HEALTH <hospital>' DBAs (CAMC, Davis, ",
+      "Webster, Broaddus), and a prefix is never matched by machine (§2). The ",
+      "award helps 'rural hospitals and clinics' fill staffing; PRIOR CODING ",
+      "(session 100): §8's fallback, PASS_THROUGH_UNRESOLVED, Unclear."),
     rounded = FALSE))
 WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S100)
 
@@ -589,11 +595,15 @@ wv_probe <- function() {
   live <- list(); arch <- list(); changed <- logical(0)
   for (i in seq_len(nrow(WV_PROBE_PAGES))) {
     p <- WV_PROBE_PAGES[i, ]
-    resp <- httr::GET(p$url, httr::user_agent(WV_USER_AGENT), httr::timeout(60))
-    if (httr::status_code(resp) != 200L) {
-      stop("[WV] HTTP ", httr::status_code(resp), " from ", p$url, call. = FALSE)
-    }
-    raw <- httr::content(resp, as = "raw")
+    raw <- rhtp_probe_get(p$key, function() {
+      resp <- httr::GET(p$url, httr::user_agent(WV_USER_AGENT),
+                        httr::timeout(60))
+      if (httr::status_code(resp) != 200L) {
+        stop("[WV] HTTP ", httr::status_code(resp), " from ", p$url,
+             call. = FALSE)
+      }
+      httr::content(resp, as = "raw")
+    }, here::here(WV_PROBE_DIR, p$file))
     lt <- wv_page_text(raw)
     at <- wv_page_text(here::here(WV_PROBE_DIR, p$file))
     changed[p$key] <- !identical(digest::digest(lt), digest::digest(at))
@@ -617,7 +627,7 @@ wv_status_table <- function() {
     "Twenty-one award rows in eight releases (2026-09-04..30), twelve priced, $9,248,417. Minnie Hamilton's 'More Than $4 Million' prices one of three projects; the 09-30 'Investments' release prices none of its seven. Each release says more awards will follow, so this is a PARTIAL year. Watched by `--probe` (session 55).",
     WV_STATE, "2026-09-30 'More Than $3.2 Million in Rural Health Transformation Investments' release",
     "AWARDED_NAMED_NOT_PRICED", "Yes",
-    "Seven named recipients, no per-recipient amount ('more than $3.2 million' in all, never divided, §6.2). Six hospitals typed on CMS WV enrolment (rows at $0); Vandalia Health, a system parent, Unclear and queued (WV_VANDALIA_SYSTEM_PARENT). Extracted session 100 on the owner's approval; the headline says 'Investments', which the pre-session-99 tripwire missed.",
+    "Seven named recipients, no per-recipient amount ('more than $3.2 million' in all, never divided, §6.2). Six hospitals typed on CMS WV enrolment (rows at $0); Vandalia Health, a system parent, typed HOSPITAL_OR_SYSTEM at $0, LOW, on the owner's ruling (session 101; WV_VANDALIA_SYSTEM_PARENT resolved). Extracted session 100 on the owner's approval; the headline says 'Investments', which the pre-session-99 tripwire missed.",
     WV_STATE, "2026-08-14 '$4.2 million investment' release",
     "SOLICITATION_TIER_2", "No",
     "Two funding OPPORTUNITIES (Tier 2), not awards. Kept out of the award file (§0.2).",
@@ -630,7 +640,7 @@ wv_validate <- function() {
   wv_assert_sources()
   d <- wv_year1_awardees()
   stopifnot(nrow(d) == 21L, sum(!is.na(d$amount)) == 12L,
-            sum(d$distributed_to_hospital == "Yes") == 11L,
+            sum(d$distributed_to_hospital == "Yes") == 12L,   # session 101: + Vandalia Health ($0)
             sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 2924000)
   message("[WV] all assertions pass.")
   invisible(TRUE)

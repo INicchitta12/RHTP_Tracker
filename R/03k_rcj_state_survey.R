@@ -145,7 +145,9 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
                              "ID", "IL", "IN", "KS", "KY", "LA", "MD", "ME", "MI", "MO",
                              "MS", "MT", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
-                             "WV", "WY")
+                             "WV", "WY", "HI")
+# Session 101: HI joins from INVESTIGATED_NO_PROBE by EXTRACTION -- SHPDA's
+# page names three RVBI Notices of Award, no amounts (R/03cd_hi_year1_awardees.R).
 
 # The states that HAVE been worked and publish no recipient-level list.
 #
@@ -390,7 +392,9 @@ SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "MN", "ND",
 # ASKED: somebody wrote the probe (R/03bn, session 75) and scheduled it. It
 # moved to INVESTIGATED_NO_LIST, not EXTRACTED, because MDH has still named
 # no recipient. HI and MA remain, and neither is an ordinary negative.
-SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("HI", "MA")
+# SESSION 101: HAWAII LEFT BY EXTRACTION (R/03cd), straight from this code to
+# EXTRACTED, as the note above allows. It still has no probe or Routine.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("MA")
 
 
 # -- Inputs ------------------------------------------------------------------

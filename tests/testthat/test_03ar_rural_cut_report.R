@@ -42,14 +42,16 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 1,313 / $1,216,466,199.99 / 32.
   # Session 99: + 12 rows / $8,668,315.59: 1,325 / $1,225,134,515.58 / 32.
   # Session 100: + WV's six 09-30 hospitals at $0: 1,331 / same / 32.
-  expect_equal(nrow(rows), 1331L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1225134515.58,
+  # Session 101: MO SMRP priced, NV BP1 priced (+2 rows), VT 10-08 (+2 rows),
+  # WV Vandalia (+1 row, $0): 1,336 / $1,309,664,382.63 / 32.
+  expect_equal(nrow(rows), 1336L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1309664382.63,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
 
-test_that("the rural figure is 267 rows / $267,502,638.43, from three classes of source only", {
+test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of source only", {
   # 207 -> 209 in session 71 at the SAME dollars: Nevada's Carson Valley Health
   # and Washoe Barton Medical Clinic rows (unpriced) now carry CCN 291306,
   # which CMS enrols as a CRITICAL ACCESS HOSPITAL, read off the provider-type
@@ -85,14 +87,20 @@ test_that("the rural figure is 267 rows / $267,502,638.43, from three classes of
   # Session 100: + 3 WV CAHs at $0 by their enrolment's provider type
   # (Preston 511312, Plateau 511317, Broaddus 511300). Webster 511301 enrols
   # as PART A PROVIDER - HOSPITAL and does not count.
-  expect_equal(nrow(r), 267L)
+  # Session 101: + NV's Banner Churchill RHIT row (CCN 291313, a CAH, owner-
+  # approved bridge, $145,428.23); MO's six CAH rows now carry their SMRP
+  # prices ($12,149,876.33) and NV's two CCN 291306 rows their BP1 figures
+  # (Washoe Barton $2,458,060.00 -- SOURCE_SUSPECT -- and Carson Valley
+  # $404,791.00): 268 / $282,660,793.99.
+  expect_equal(nrow(r), 268L)
   expect_equal(sum(r$state == "OK"), 8L)
   expect_equal(sum(r$state == "WV"), 6L)
   expect_equal(sum(r$state == "SD"), 9L)
   expect_equal(sum(r$state == "CO"), 26L)
-  expect_equal(sum(r$state == "NV"), 2L)
+  expect_equal(sum(r$state == "NV"), 3L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 267502638.43, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 282660793.99, tolerance = 0)
+  expect_equal(round(sum(r$amount[r$state == "MO"], na.rm = TRUE), 2), 12149876.33)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 18L)
   expect_equal(sum(r$state == "MO"), 6L)
@@ -144,11 +152,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 267L)   # session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
+  expect_equal(sum(by$rural_rows), 268L)   # session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1331L)   # session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
+  expect_equal(nrow(committed), 1336L)   # session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
   expect_equal(committed$rural_class, rows$rural_class)
 })

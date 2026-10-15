@@ -69,6 +69,7 @@ suppressPackageStartupMessages({
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_pdf_text.R"))
 source(here::here("R", "utils_recipient_classification.R"))
+source(here::here("R", "utils_page_watch.R"))
 
 
 # -- constants ----------------------------------------------------------------
@@ -756,8 +757,9 @@ ia_assert_footers_not_summable <- function() {
 #' publishes rosters in a recognisable form -- one Notice of Intent to Award
 #' link per awarded RFP under one heading. A TWELFTH is a new roster to read,
 #' and it fails the build rather than being quietly ignored.
-ia_assert_award_index <- function() {
-  html <- ia_read_text("programme")
+ia_assert_award_index <- function(html = NULL) {
+  # Session 101: the probe hands in the LIVE page; --validate reads the archive.
+  if (is.null(html)) html <- ia_read_text("programme")
   if (!stringr::str_detect(html, stringr::fixed(IA_AWARDEE_SECTION))) {
     stop("[IA] the programme page no longer carries its \"", IA_AWARDEE_SECTION,
          "\" section -- the awardee index is the positive control and without ",
@@ -1312,6 +1314,171 @@ ia_report <- function() {
 }
 
 
+# -- the watch (session 101) ---------------------------------------------------
+#
+# IOWA HAD NO PROBE AND NO ROUTINE until session 101, which is how a Council
+# deck naming about nine more award hospitals (2026-08-27) and a Rural
+# Residency NOIA (2026-09-25) sat unread until session 100 happened to look.
+# READ-ONLY (§2.2): through rhtp_probe_run() and the shared page watch.
+#
+#   programme     the Healthy Hometowns page and its "Where to Find Funding
+#                 Awardees" index: the ELEVEN notices must still be linked
+#                 (ia_assert_award_index), and a NEW media link on the page is
+#                 a new document to read (a twelfth notice, a re-posted one).
+#   noia_index    HHS's Notice of Intent to Award index, where the Rural
+#                 Residency NOIA (PHTHORC27001) is posted: a new NOIA line is
+#                 the signal. NOIAs stay up ten business days, so this page
+#                 is the only place some of Iowa's awards ever appear. NO NAME
+#                 TRIPWIRE: the index names nobody (the names are inside the
+#                 PDFs) and its archive yields 2 organisation-shaped names,
+#                 below the baseline guard -- measured on the first run.
+#   council       the Council on Health and Human Services page: a NEW meeting
+#                 means a new deck, and the 2026-08-27 deck is where nine
+#                 hospitals were first named.
+#   council_0827  that meeting's own page: its deck links (media 19280 and the
+#                 _0 copy 19276) changing means the deck was re-posted.
+#   hhs_news      HHS's newsroom index, and
+#   gov_news      the Governor's: a NEW headline naming Rural Health
+#                 Transformation or Healthy Hometowns. Press indexes, so no
+#                 name tripwire (§2.3); a dated headline diff instead.
+#
+# THE YEAR 2 WINDOW IS A WATCH DATE ONLY. The 2026-08-27 deck: "Award
+# Announcement for most procurements listed above between October 15 -
+# November 20, 2026", pending CMS approval of the Year 2 budget (~$144.7M
+# across five programmes). No Year 2 work is done here; a Year 2 award
+# surfacing in one of these pages trips the probe like anything else.
+IA_YEAR2_AWARD_WINDOW <- as.Date(c("2026-10-15", "2026-11-20"))
+IA_PROBE_DIR <- file.path("data", "evidence", "IA", "probe")
+IA_PROBE_PAGES <- tibble::tribble(
+  ~key,           ~url,                                                                                          ~file,                                                   ~name_diff,
+  "programme",    "https://hhs.iowa.gov/initiatives/healthy-hometowns-iowas-rural-health-transformation-plan",    "2026-10-15_ia_healthy_hometowns_programme.html",        TRUE,
+  "noia_index",   "https://hhs.iowa.gov/about/funding-opportunities/notice-intent-award",                         "2026-10-15_ia_hhs_noia_index.html",                     FALSE,
+  "council",      "https://hhs.iowa.gov/about/advisory-groups/council-health-and-human-services",                 "2026-10-15_ia_hhs_council_page.html",                   TRUE,
+  "council_0827", "https://hhs.iowa.gov/events/hhs-council-meeting-and-budget-public-hearing-august-27-2026",     "2026-10-15_ia_hhs_council_2026-08-27_meeting.html",     TRUE,
+  "hhs_news",     "https://hhs.iowa.gov/about/newsroom",                                                          "2026-10-15_ia_hhs_newsroom.html",                       FALSE,
+  "gov_news",     "https://governor.iowa.gov/newsroom",                                                           "2026-10-15_ia_governor_newsroom.html",                  FALSE
+) %>% dplyr::mutate(file = file.path(IA_PROBE_DIR, .data$file))
+IA_RHTP_HEADLINE <- "(?i)rural health transformation|healthy hometowns|\\bRHTP?\\b"
+
+#' Archive the probe baselines -- the deliberate act (§2.2), never the probe.
+ia_probe_fetch <- function(force = FALSE) {
+  for (i in seq_len(nrow(IA_PROBE_PAGES))) {
+    f <- IA_PROBE_PAGES$file[i]
+    if (file.exists(here::here(f)) && !force) next
+    if (i > 1L) Sys.sleep(IA_HOST_THROTTLE_S)
+    rhtp_watch_archive(IA_PROBE_PAGES$url[i], f, IA_USER_AGENT)
+    message("[IA] archived ", f)
+  }
+  invisible(IA_PROBE_PAGES$file)
+}
+
+#' Every hhs.iowa.gov media id a page links
+ia_media_ids <- function(html) {
+  unique(stringr::str_match_all(html, "/media/([0-9]+)/download")[[1]][, 2])
+}
+
+#' The headlines a newsroom index links, one per release
+#'
+#' A HEADLINE DIFF, NOT A SENTENCE DIFF (Alabama, session 84): a press index
+#' has no full stops, so the whole page reads as a few "sentences" and any new
+#' item changes the one that already holds an old RHTP headline.
+ia_news_headlines <- function(raw) {
+  h <- xml2::read_html(raw)
+  a <- rvest::html_elements(h, "a[href*='/news-release/'], a[href*='/press-release/']")
+  hl <- stringr::str_squish(rvest::html_text2(a))
+  unique(hl[nzchar(hl) & !grepl("^(Read more|More)$", hl, ignore.case = TRUE)])
+}
+
+#' NEW headlines about RHTP / Healthy Hometowns, live against the archive
+ia_new_rhtp_headlines <- function(live_raw, arch_raw) {
+  new <- setdiff(ia_news_headlines(live_raw), ia_news_headlines(arch_raw))
+  new[grepl(IA_RHTP_HEADLINE, new, perl = TRUE)]
+}
+
+#' Every /events/ link on the Council page: one per meeting
+ia_council_meetings <- function(raw) {
+  h <- xml2::read_html(raw)
+  a <- rvest::html_elements(h, "main a[href*='/events/']")
+  unique(stringr::str_squish(rvest::html_text2(a)))
+}
+
+ia_probe <- function() {
+  w <- rhtp_watch_pages(IA_PROBE_PAGES, IA_USER_AGENT)
+  arch_raw <- function(k) {
+    f <- here::here(IA_PROBE_PAGES$file[IA_PROBE_PAGES$key == k])
+    paste(readLines(f, warn = FALSE), collapse = "\n")
+  }
+  live_raw <- function(k) rawToChar(w$raw[[k]][w$raw[[k]] != as.raw(0)])
+  findings <- character(0)
+  ask <- function(label, expr) {
+    res <- tryCatch({ expr; NULL }, error = function(e) conditionMessage(e))
+    if (!is.null(res)) findings <<- c(findings, paste0(label, ": ", res))
+  }
+
+  # 1. The award index: the eleven notices still linked, and nothing new.
+  ask("AWARD INDEX", ia_assert_award_index(html = live_raw("programme")))
+  new_media <- setdiff(ia_media_ids(live_raw("programme")),
+                       ia_media_ids(arch_raw("programme")))
+  if (length(new_media)) {
+    findings <- c(findings, paste0(
+      "AWARD INDEX: the programme page links NEW document(s) (media ",
+      paste(new_media, collapse = ", "), "). READ THEM: a twelfth notice, a ",
+      "re-posted roster, or a Year 2 award (window ",
+      paste(format(IA_YEAR2_AWARD_WINDOW), collapse = " to "), ")."))
+  }
+  # 2. The NOIA index: a NEW notice line.
+  ask("NOIA INDEX", rhtp_watch_forbid_new(
+    w$live_all$noia_index, w$arch_all$noia_index,
+    "(?i)notice of intent to award|intent to award", "IA", "noia_index",
+    paste("Iowa posts a NOIA for ten business days only. Archive it under",
+          "data/evidence/IA/ now, then read whom it names and whether it is",
+          "Healthy Hometowns money (PHTHORC27001 was NOT: no CMS footer, filed",
+          "under Other Opportunities).")))
+  # 3. The Council: a new meeting, or the 08-27 deck re-posted.
+  new_meet <- setdiff(ia_council_meetings(w$raw$council),
+                      ia_council_meetings(here::here(
+                        IA_PROBE_PAGES$file[IA_PROBE_PAGES$key == "council"])))
+  if (length(new_meet)) {
+    findings <- c(findings, paste0(
+      "COUNCIL: a new meeting is listed: ", paste(new_meet, collapse = " | "),
+      ". Read its deck for named Healthy Hometowns recipients (the 2026-08-27 ",
+      "deck named nine hospitals no notice does)."))
+  }
+  m27 <- ia_media_ids(live_raw("council_0827"))
+  if (!setequal(m27, ia_media_ids(arch_raw("council_0827")))) {
+    findings <- c(findings, paste0(
+      "COUNCIL 08-27: the meeting page's documents changed (media now ",
+      paste(m27, collapse = ", "), "). The deck may have been re-posted."))
+  }
+  # 4. The newsrooms: a NEW headline about RHTP / Healthy Hometowns.
+  for (k in c("hhs_news", "gov_news")) {
+    nh <- ia_new_rhtp_headlines(w$raw[[k]], here::here(
+      IA_PROBE_PAGES$file[IA_PROBE_PAGES$key == k]))
+    if (length(nh)) {
+      findings <- c(findings, paste0(
+        toupper(k), ": NEW RHTP headline(s): ",
+        paste0("\"", rhtp_watch_quote(nh), "\"", collapse = " | "),
+        ". Read the release: Iowa announces Healthy Hometowns awards in both ",
+        "newsrooms."))
+    }
+  }
+  # 5. THE NAME TRIPWIRE (§2.3), on the subject pages only.
+  rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+                                          state = IA_STATE)
+
+  message("[IA] ", paste0(w$changed$key, ": ",
+                          ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
+                          collapse = "; "))
+  if (length(findings)) {
+    for (f in findings) message("[IA]   ", f)
+  }
+  invisible(list(changed = w$changed$changed, findings = findings,
+                 sources = stats::setNames(
+                   lapply(w$changed$changed, function(x) list(changed = x)),
+                   w$changed$key)))
+}
+
+
 # -- CLI ----------------------------------------------------------------------
 
 if (!interactive() && sys.nframe() == 0L) {
@@ -1325,8 +1492,12 @@ if (!interactive() && sys.nframe() == 0L) {
     ia_build()
   } else if ("--report" %in% args) {
     ia_report()
+  } else if ("--fetch-probe" %in% args) {
+    ia_probe_fetch(force = "--force" %in% args)
+  } else if ("--probe" %in% args) {
+    rhtp_probe_run("IA", ia_probe())
   } else {
     cat("usage: Rscript R/03z_ia_year1_awardees.R",
-        "[--fetch [--force] | --validate | --build | --report]\n")
+        "[--fetch [--force] | --validate | --build | --report | --fetch-probe [--force] | --probe]\n")
   }
 }

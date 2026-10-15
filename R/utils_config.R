@@ -1071,7 +1071,8 @@ rhtp_assert_evidence_untouched <- function(before, after, state = "??") {
            paste(basename(utils::head(paths, 6L)), collapse = ", "),
            if (length(paths) > 6L) ", ..." else "")
   }
-  stop("[", state, "] THE PROBE WROTE TO data/evidence/, AND A PROBE READS ",
+  stop("[", state, "] EVIDENCE GUARD REFUSAL: THE PROBE WROTE TO ",
+       "data/evidence/, AND A PROBE READS ",
        "RATHER THAN WRITES.\n",
        paste(c(say("added", added), say("removed", removed),
                say("rewritten", moved)), collapse = "\n"), "\n",
@@ -1303,6 +1304,10 @@ rhtp_fetch_past_firewall <- function(fetch, url,
 rhtp_probe_verdict <- function(msg) {
   # Session 94: a firewall's refusal page is ACCESS, whatever it quotes.
   if (grepl("FIREWALL REJECTION", msg, fixed = TRUE)) return("ERROR")
+  # Session 101: the evidence guard's refusal is about OUR PROCESS (a probe or
+  # a concurrent reader wrote to the archive), never about the state. The
+  # 2026-10-14 newsroom sweep counted MT's refusal as a TRIPWIRE.
+  if (grepl("EVIDENCE GUARD REFUSAL", msg, fixed = TRUE)) return("ERROR")
   if (grepl("THAT IS THE SIGNAL", msg, fixed = TRUE)) return("TRIPWIRE")
   access <- paste0("\\bHTTP\\s+[0-9]{3}\\b|\\brefused\\b|\\btimed out\\b|",
                    "\\btimeout\\b|\\bcould not resolve\\b|\\bresolve host\\b|",
@@ -1316,6 +1321,85 @@ rhtp_probe_verdict <- function(msg) {
   if (grepl(access, msg, ignore.case = TRUE, perl = TRUE)) "ERROR" else "TRIPWIRE"
 }
 
+# -- the probe context (session 101) -----------------------------------------
+#
+# THREE DEFECTS, ONE CAUSE: A PROBE'S FIRST FAILURE WAS ITS LAST WORD.
+#   (a) MO, 2026-10-14: the name tripwire threw before `mo_assert_smrp()` ran,
+#       so $34,646,479.34 of newly priced hospital awards surfaced only
+#       because a human read the page.
+#   (b) MS, 2026-10-13: one host's empty reply stopped the whole probe before
+#       any mississippirhtp.com page was read.
+#   (c) MT, 2026-10-14: the evidence guard refused, threw before anything was
+#       logged, and the newsroom sweep counted the refusal as a TRIPWIRE.
+# While rhtp_probe_run() is evaluating a probe, this context collects name
+# trips (rhtp_assert_no_new_organisations() records instead of throwing) and
+# per-page fetch failures (rhtp_probe_get() records and hands the reader the
+# ARCHIVED bytes, so every other check still runs). rhtp_probe_run() logs all
+# of it and throws ONCE, at the end. Outside a probe run nothing changes:
+# both functions throw exactly as before.
+if (!exists(".rhtp_probe_ctx", inherits = FALSE)) {
+  .rhtp_probe_ctx <- new.env(parent = emptyenv())
+}
+
+rhtp_probe_ctx_active <- function() isTRUE(.rhtp_probe_ctx$active)
+
+rhtp_probe_ctx_empty <- function() {
+  list(active = TRUE,
+       name_trips  = tibble::tibble(page = character(0), msg = character(0)),
+       page_errors = tibble::tibble(page = character(0), msg = character(0)))
+}
+
+#' Enter a probe context; returns the previous one, for rhtp_probe_ctx_pop()
+rhtp_probe_ctx_push <- function() {
+  prev <- as.list(.rhtp_probe_ctx)
+  fresh <- rhtp_probe_ctx_empty()
+  for (nm in names(fresh)) assign(nm, fresh[[nm]], envir = .rhtp_probe_ctx)
+  prev
+}
+
+rhtp_probe_ctx_pop <- function(prev) {
+  rm(list = ls(.rhtp_probe_ctx, all.names = TRUE), envir = .rhtp_probe_ctx)
+  for (nm in names(prev)) assign(nm, prev[[nm]], envir = .rhtp_probe_ctx)
+  invisible(TRUE)
+}
+
+rhtp_probe_note <- function(slot, page, msg) {
+  cur <- .rhtp_probe_ctx[[slot]]
+  assign(slot, dplyr::bind_rows(cur, tibble::tibble(
+    page = as.character(page), msg = gsub("[\r\n]+", " ", msg))),
+    envir = .rhtp_probe_ctx)
+  invisible(TRUE)
+}
+
+#' Fetch one probed page; on an ACCESS failure, record ERROR and read the
+#' archive instead (session 101, defect b)
+#'
+#' Inside rhtp_probe_run(), a fetch that fails for a reason
+#' rhtp_probe_verdict() calls ERROR (HTTP 4xx/5xx, empty reply, timeout,
+#' firewall) is recorded against `page` and the ARCHIVED bytes are returned,
+#' so the page compares content-identical and every phrase and name check on
+#' it passes against the copy already validated. The log then carries ERROR
+#' for that page -- never UNCHANGED, which would be a claim about the state
+#' made from a fact about our access (§0.4). Any other failure, and any
+#' failure outside a probe run (`--fetch`), throws as before.
+#'
+#' @param page The page key the probe's own result uses for this page.
+#' @param fetch Zero-argument function returning the live raw bytes.
+#' @param archived Path to the archived copy, or a zero-argument function
+#'   returning its bytes in the form `fetch` would have returned them.
+rhtp_probe_get <- function(page, fetch, archived) {
+  tryCatch(fetch(), error = function(e) {
+    msg <- conditionMessage(e)
+    if (!rhtp_probe_ctx_active() || rhtp_probe_verdict(msg) != "ERROR") stop(e)
+    rhtp_probe_note("page_errors", page, msg)
+    message("[probe] '", page, "' could not be fetched (", msg, "); logged ",
+            "ERROR for that page and read its ARCHIVED copy so the other ",
+            "checks still run.")
+    if (is.function(archived)) archived() else
+      readBin(archived, "raw", file.size(archived))
+  })
+}
+
 #' Run a probe: guard the evidence archive, log the verdict, re-raise
 #'
 #' The single entry point every `--probe` CLI branch goes through.
@@ -1326,33 +1410,99 @@ rhtp_probe_verdict <- function(msg) {
 #' and a tripwire is caught, logged and re-raised rather than silently
 #' swallowed -- the Routine must still fail loudly, because a fired tripwire is
 #' the signal this whole apparatus exists to deliver.
+#'
+#' SESSION 101: everything the probe found is logged before anything throws.
+#'   * name trips: one TRIPWIRE row per page that named somebody new;
+#'   * a returned `findings` vector (MO, WI): one TRIPWIRE row each;
+#'   * a page whose fetch failed: ERROR on that page's row;
+#'   * an evidence-guard refusal: an ERROR row, page "(evidence guard)".
+#' Then ONE error is raised carrying every message, if anything fired.
 rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
                            evidence_root = rhtp_path("evidence")) {
   started <- Sys.time()
   before  <- rhtp_evidence_snapshot(evidence_root)
 
+  prev <- rhtp_probe_ctx_push()
+  on.exit(rhtp_probe_ctx_pop(prev), add = TRUE)
   res <- tryCatch(force(expr), error = function(e) e)
+  name_trips  <- .rhtp_probe_ctx$name_trips
+  page_errors <- .rhtp_probe_ctx$page_errors
 
   after <- rhtp_evidence_snapshot(evidence_root)
+  guard <- tryCatch({
+    rhtp_assert_evidence_untouched(before, after, state = state); NULL
+  }, error = function(e) e)
 
-  if (inherits(res, "error")) {
+  one_row <- function(verdict, page, note) {
+    tibble::tibble(verdict = verdict, page = page,
+                   note = gsub("[\r\n]+", " ", note))
+  }
+  failed <- inherits(res, "error")
+  rows <- if (failed) {
     msg <- conditionMessage(res)
-    # A tripwire and a refused host are different claims and the log keeps them
-    # apart: one is a statement about the state, the other about our access.
-    verdict <- rhtp_probe_verdict(msg)
-    rhtp_probe_log(state,
-                   tibble::tibble(verdict = verdict, page = "(probe)",
-                                  note = gsub("[\r\n]+", " ", msg)),
-                   at = started, path = path)
-    # The evidence guard still runs, and it outranks the tripwire: a probe that
-    # both fired and wrote has two problems, and the write is the one that
-    # corrupts the archive for every future run.
-    rhtp_assert_evidence_untouched(before, after, state = state)
-    stop(res)
+    # A tripwire and a refused host are different claims and the log keeps
+    # them apart: one is a statement about the state, the other our access.
+    one_row(rhtp_probe_verdict(msg), "(probe)", msg)
+  } else if (!is.null(guard)) {
+    # The probe's per-page verdicts were taken against an archive that moved
+    # under it; they are not logged as findings about the state.
+    one_row(character(0), character(0), character(0))
+  } else {
+    r <- rhtp_probe_rows(res)
+    if (!"note" %in% names(r)) r$note <- NA_character_
+    r
   }
 
-  rhtp_assert_evidence_untouched(before, after, state = state)
-  rhtp_probe_log(state, rhtp_probe_rows(res), at = started, path = path)
+  # (b) a page that could not be fetched is ERROR, whatever its digest said.
+  if (nrow(page_errors)) {
+    for (i in seq_len(nrow(page_errors))) {
+      hit <- rows$page == page_errors$page[i]
+      if (any(hit)) {
+        rows$verdict[hit] <- "ERROR"
+        rows$note[hit] <- page_errors$msg[i]
+      } else {
+        rows <- dplyr::bind_rows(rows, one_row("ERROR", page_errors$page[i],
+                                               page_errors$msg[i]))
+      }
+    }
+  }
+
+  # A returned findings vector is a fired tripwire, not a CHANGED page.
+  findings <- if (!failed && is.list(res) && "findings" %in% names(res) &&
+                  is.character(res[["findings"]])) res[["findings"]] else
+                    character(0)
+  if (length(findings)) {
+    rows <- dplyr::bind_rows(rows, one_row("TRIPWIRE", "(finding)", findings))
+  }
+  # (a) the name trips, collected rather than thrown.
+  if (nrow(name_trips)) {
+    rows <- dplyr::bind_rows(rows, one_row(
+      vapply(name_trips$msg, rhtp_probe_verdict, character(1)),
+      name_trips$page, name_trips$msg))
+  }
+  # (c) the guard's refusal is logged, as ERROR, before it is raised.
+  if (!is.null(guard)) {
+    rows <- dplyr::bind_rows(rows, one_row("ERROR", "(evidence guard)",
+                                           conditionMessage(guard)))
+  }
+
+  rhtp_probe_log(state, rows, at = started, path = path)
+
+  # The evidence guard outranks everything: a probe that both fired and wrote
+  # has two problems, and the write corrupts the archive for every future run.
+  if (!is.null(guard)) stop(guard)
+
+  msgs <- c(if (failed) conditionMessage(res), findings, name_trips$msg)
+  if (length(msgs) == 1L && failed) stop(res)
+  if (length(msgs)) {
+    for (m in msgs) message("[", state, "] FIRED: ", m)
+    stop(paste(msgs, collapse = "\n---\n"), call. = FALSE)
+  }
+  if (nrow(page_errors)) {
+    message("[", state, "] ", nrow(page_errors), " page(s) logged ERROR: ",
+            paste(page_errors$page, collapse = ", "),
+            ". Every other page was read live.")
+  }
   invisible(res)
 }
 
@@ -1675,23 +1825,32 @@ rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
                                              known = character(0),
                                              furniture = character(0),
                                              min_baseline = 3L) {
+  # Session 101: inside rhtp_probe_run() a fired name tripwire is RECORDED,
+  # and the probe goes on to run every other check before anything throws.
+  fire <- function(msg) {
+    if (rhtp_probe_ctx_active()) {
+      rhtp_probe_note("name_trips", page, msg)
+      message(msg)
+      return(invisible(NULL))
+    }
+    stop(msg, call. = FALSE)
+  }
   base <- rhtp_organisation_names(archived)
   if (length(base) < min_baseline) {
-    stop("[", state, "] the name tripwire has NO BASELINE on '", page,
+    return(fire(paste0("[", state, "] the name tripwire has NO BASELINE on '", page,
          "': the archived copy yields ", length(base), " organisation-shaped ",
          "name(s), below the ", min_baseline, " this check needs to prove it ",
          "is reading anything at all. That is a fact about OUR READING and ",
          "never about the state (§0.4). Re-check the archive and the ",
          "reduction before trusting any verdict from this page -- a diff ",
-         "against an empty baseline reports UNCHANGED forever.",
-         call. = FALSE)
+         "against an empty baseline reports UNCHANGED forever.")))
   }
 
   new_names <- rhtp_new_organisation_names(live, archived, known = known,
                                            furniture = furniture)
   if (!length(new_names)) return(invisible(character(0)))
 
-  stop("[", state, "] '", page, "' NAMES ", length(new_names),
+  fire(paste0("[", state, "] '", page, "' NAMES ", length(new_names),
        " ORGANISATION(S) THE ARCHIVED COPY DOES NOT: ",
        paste(utils::head(new_names, 12L), collapse = " | "),
        if (length(new_names) > 12L)
@@ -1702,7 +1861,8 @@ rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
        "Hubs went through. Re-fetch, READ what changed, and then either ",
        "extract it or add the names to this page's `known` list with the ",
        "sentence that justifies them. Do NOT widen the suffix list to make ",
-       "this quiet.", call. = FALSE)
+       "this quiet."))
+  invisible(new_names)
 }
 
 #' The same check across several watched pages at once

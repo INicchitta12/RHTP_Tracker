@@ -2191,7 +2191,8 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
   live <- list()
   changed <- character(0)
   for (key in keys) {
-    body <- la_get(la_source(key, "url"), key)
+    body <- rhtp_probe_get(key, function() la_get(la_source(key, "url"), key),
+                             la_path(key))
     p    <- la_path(key)
     was  <- if (file.exists(p)) {
       la_content_digest(readBin(p, "raw", file.size(p)), key)

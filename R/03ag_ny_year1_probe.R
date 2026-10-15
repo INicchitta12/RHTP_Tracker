@@ -625,7 +625,8 @@ ny_disposition <- function() {
 
 ny_probe <- function() {
   keys <- c("programme", "roster", "press_index", "scr")
-  live <- purrr::map(keys, function(k) ny_get(ny_source(k, "url"), k))
+  live <- purrr::map(keys, function(k) rhtp_probe_get(
+    k, function() ny_get(ny_source(k, "url"), k), ny_path(k)))
   names(live) <- keys
   Sys.sleep(1)
 

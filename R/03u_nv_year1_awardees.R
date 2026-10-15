@@ -387,6 +387,15 @@ NV_SOURCES <- tibble::tribble(
   # listed "93 X 95 NV". FROZEN: `--fetch --force` never overwrites it.
   "roster_prior", "2026-08-31_nv_rht_funded_projects_bp1.html",
   paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
+  # SESSION 101: the same page as served 2026-10-15, now linking the BP1
+  # Subrecipient Report and otherwise content-identical. The probe's
+  # baseline; extraction still reads the 2026-09-24 copy (the tables match).
+  "roster_bp1link", "2026-10-15_nv_rht_funded_projects_bp1.html",
+  paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
+  # SESSION 101: NVHA's "RHTP Subrecipient Report for BP1", priced, PROVISIONAL.
+  "bp1_report", "2026-10-13_nv_rhtp_subrecipient_report_bp1.pdf",
+  paste0(NV_BASE, "/siteassets/content/community/rhtp/rht-funded-projects---bp1/",
+         "rhtp-subrecipient-report-for-bp1_ms.pdf"),
   # The positive control: ten funding opportunities, rosters for three.
   "nofos", "2026-08-31_nv_rht_nofos.html",
   paste0(NV_BASE, "/RHTP/rht-nofos/"),
@@ -1970,6 +1979,8 @@ nv_with_overlay <- function(recs = nv_records()) {
 nv_build <- function() {
   recs <- nv_validate()
   out <- nv_with_overlay(recs)
+  # SESSION 101: the BP1 report prices the file and adds eleven lines.
+  out <- nv_apply_bp1(out)
   readr::write_csv(out, NV_OUT_CSV, na = "")
   message("[NV] wrote ", NV_OUT_CSV, " (", nrow(out), " rows)")
 
@@ -2212,6 +2223,716 @@ nv_report <- function() {
 }
 
 
+# -- the BP1 Subrecipient Report (session 101) ----------------------------------
+#
+# NEVADA HAS PRICED ITS ROSTER. NVHA's "RHTP Subrecipient Report for BP1"
+# (24 pp., PDF created 2026-10-12, Last-Modified 2026-10-13, linked from the
+# Funded Projects page as "Subrecipient Report for BP1") gives every
+# subrecipient a "Funding Requested" and a "BP1 Amount Awarded" figure, in TEN
+# sections that each end in a printed TOTALS row. It is PROVISIONAL, in NVHA's
+# own words: "Note: The following list of subaward amounts may not be final as
+# project budgets continue to be refined for CMS approval at the time of this
+# writing (early October 2026)." Every priced row carries PROVISIONAL_SOURCE.
+#
+# HOW IT IS READ. The report is one Word table per section with wrapped cells.
+# This project's own run reader gives the right x for the FIRST run of a line
+# and not for the runs after it on this producer (Adobe PDF Library 26), so
+# the columns cannot be told apart from it. The table was therefore parsed ONCE
+# from poppler's `pdftotext -bbox` word boxes (`nv_bp1_parse_bbox()`, CLI
+# `--parse-bp1`) into `nv_bp1_subrecipient_report.csv`, which is COMMITTED.
+# Every cell is assigned to its row by a contiguous partition that keeps each
+# cell centred on its own dollar line (Word centres them). The parse checks
+# itself: every one of the ten sections' line items sums to that section's
+# printed TOTALS row, in both columns, to the cent. `nv_assert_bp1()` then
+# re-checks the committed CSV against the PDF with THIS project's reader, so
+# nothing downstream (no test, no Routine) needs poppler.
+#
+# TWO SOURCE DEFECTS ARE CARRIED AS PUBLISHED AND FLAGGED SOURCE_SUSPECT.
+# Nothing is corrected (owner, session 101):
+#   FLEX  Washoe Barton Medical Clinic, NEMT van: requested $245,800.00,
+#         awarded $2,458,060.00 -- ten times the request, the shape of a
+#         shifted decimal. NVHA's own FLEX TOTALS row ($58,231,228.10)
+#         INCLUDES the $2,458,060.00, so the total carries it too.
+#   FLEX  Northeastern Nevada Regional Hospital: requested $103,725,086.00,
+#         awarded $997,361.00. The request is larger than the whole FLEX
+#         pool ($35.9M published); NVHA's requested TOTALS row includes it.
+NV_BP1_KEY <- "bp1_report"
+NV_BP1_CSV <- here::here("data", "reference", "nv_bp1_subrecipient_report.csv")
+NV_BP1_SHA256 <- "34c74ae656de8f2de21208532d2c0d20603d95deae29b150950b793fc2de7b1c"
+NV_BP1_PROVISIONAL <- paste(
+  "Note: The following list of subaward amounts may not be final as project",
+  "budgets continue to be refined for CMS approval at the time of this",
+  "writing (early October 2026).")
+NV_BP1_SECTIONS <- tibble::tribble(
+  ~bp1_section,  ~award_pool,                       ~heading,                                                  ~tot_requested,  ~tot_awarded, ~lines,
+  "RHOAP",       "RHOAP",                           "Rural Health Outcome Accelerator Program (RHOAP)",        25316892.89,  25140201.68, 37L,
+  "FLEX",        "FLEX_FUND",                       "Nevada Rural Health System Flex Fund (FLEX)",             162240429.06, 58231228.10, 40L,
+  "WRRAP_RR",    "WRRAP_RECRUITMENT_RETENTION",     "WRRAP: Provider Recruitment and Retention (R+R)",         25371642.89,  37332720.00, 20L,
+  "WRRAP_AT",    "WRRAP_APPRENTICESHIP_TRAINING",   "WRRAP: Provider Apprenticeship and Training Program (A+T)", 14429707.29, 13567720.49, 20L,
+  "WRRAP_RWP",   "WRRAP_RURAL_MEDICAL_RESIDENCY",   "WRRAP: Rural Workforce Projects (RWP)",                   4840570.00,   4657320.16,  4L,
+  "RHIT",        "RHIT",                            "Rural Health Innovation and Technology (RHIT)",           24511364.00,  24594701.62, 26L,
+  "TRIBAL",      "TRIBAL",                          "Rural Tribal Health Transformation",                      11853377.00,  8095961.77,  6L,
+  "VETERANS",    "VETERANS",                        "Rural Veterans Health Transformation",                    2382927.00,   1271512.04,  1L,
+  "CORRECTIONS", "CORRECTIONS",                     "Rural Corrections Health Transformation",                 976255.00,    976255.00,   1L,
+  "PFT",         "PRESIDENTIAL_FITNESS_TEST",       "Presidential Fitness Test Implementation",                1364228.00,   1377413.00,  2L
+)
+NV_BP1_TOTAL_AWARDED <- 175245033.86
+NV_BP1_LINES <- 157L
+# The two defects, by line id. The partition is reported with and without them.
+NV_BP1_SOURCE_SUSPECT <- tibble::tribble(
+  ~bp1_line_id, ~why,
+  "FLEX-28", paste("SOURCE_SUSPECT: requested $103,725,086.00 against $997,361.00",
+                   "awarded; the request exceeds the whole FLEX pool ($35.9M",
+                   "published). Carried as published; nothing corrected."),
+  "FLEX-36", paste("SOURCE_SUSPECT: requested $245,800.00, awarded $2,458,060.00,",
+                   "ten times the request (a shifted decimal is the likely",
+                   "shape). NVHA's FLEX TOTALS row includes the $2,458,060.00.",
+                   "Carried as published; nothing corrected.")
+)
+
+#' Parse the report from poppler word boxes. ONE-TIME; writes NV_BP1_CSV.
+#'
+#' Needs `pdftotext` (poppler) on the PATH and refuses without it. Nothing
+#' else in this file calls it: the committed CSV is the extraction source.
+nv_bp1_parse_bbox <- function(pdf = nv_path(NV_BP1_KEY), write = TRUE) {
+  if (!nzchar(Sys.which("pdftotext"))) {
+    stop("[NV] --parse-bp1 needs poppler's pdftotext; the committed ",
+         "nv_bp1_subrecipient_report.csv is the extraction source otherwise.",
+         call. = FALSE)
+  }
+  html <- tempfile(fileext = ".html")
+  on.exit(unlink(html), add = TRUE)
+  rc <- system2("pdftotext", c("-bbox", shQuote(pdf), shQuote(html)))
+  if (!identical(as.integer(rc), 0L)) stop("[NV] pdftotext failed.", call. = FALSE)
+  doc <- xml2::read_html(html)
+  words <- purrr::imap_dfr(xml2::xml_find_all(doc, "//page"), function(p, i) {
+    w <- xml2::xml_find_all(p, ".//word")
+    tibble::tibble(page = i,
+                   x0 = as.numeric(xml2::xml_attr(w, "xmin")),
+                   y0 = as.numeric(xml2::xml_attr(w, "ymin")),
+                   x1 = as.numeric(xml2::xml_attr(w, "xmax")),
+                   y1 = as.numeric(xml2::xml_attr(w, "ymax")),
+                   text = xml2::xml_text(w))
+  }) %>%
+    dplyr::mutate(yc = (.data$y0 + .data$y1) / 2) %>%
+    dplyr::filter(.data$y0 < 740)            # the letterhead footer
+  money <- "^\\$[0-9]{1,3}(,[0-9]{3})*\\.[0-9]{2}$"
+
+  # Lines of one column inside one table region.
+  col_lines <- function(w) {
+    if (!nrow(w)) return(tibble::tibble(y0 = numeric(0), y1 = numeric(0),
+                                        yc = numeric(0), text = character(0)))
+    w %>% dplyr::arrange(.data$yc) %>%
+      dplyr::mutate(lg = cumsum(c(1, diff(.data$yc) > 2))) %>%
+      dplyr::group_by(.data$lg) %>%
+      dplyr::summarise(y0 = min(.data$y0), y1 = max(.data$y1),
+                       yc = mean(.data$yc),
+                       text = paste(.data$text[order(.data$x0)], collapse = " "),
+                       .groups = "drop") %>%
+      dplyr::arrange(.data$yc)
+  }
+  # CONTIGUOUS PARTITION of a column's lines into one group per anchor,
+  # minimising each group's squared distance from its anchor (cells are
+  # vertically centred). `allow_empty` lets a column skip a row.
+  partition <- function(lines, ay, allow_empty = FALSE) {
+    n <- nrow(lines); m <- length(ay)
+    if (!n) return(rep(NA_character_, m))
+    if (!allow_empty && n < m) stop("[NV] fewer cell lines than rows.", call. = FALSE)
+    ctr <- function(k, l) (min(lines$y0[k:l]) + max(lines$y1[k:l])) / 2
+    INF <- 1e18
+    D <- matrix(INF, n + 1, m + 1); B <- matrix(NA_integer_, n + 1, m + 1)
+    D[1, 1] <- 0
+    for (j in seq_len(m)) for (l in 0:n) {
+      if (allow_empty && D[l + 1, j] < D[l + 1, j + 1]) {
+        D[l + 1, j + 1] <- D[l + 1, j]; B[l + 1, j + 1] <- l + 1L
+      }
+      if (l >= 1) for (k in 1:l) {
+        v <- D[k, j] + (ctr(k, l) - ay[j])^2
+        if (v < D[l + 1, j + 1]) { D[l + 1, j + 1] <- v; B[l + 1, j + 1] <- k }
+      }
+    }
+    out <- rep(NA_character_, m); l <- n
+    for (j in m:1) {
+      k <- B[l + 1, j + 1]
+      if (k <= l) out[j] <- paste(lines$text[k:l], collapse = " ")
+      l <- k - 1L
+    }
+    if (l != 0L) stop("[NV] the partition left lines unassigned.", call. = FALSE)
+    out
+  }
+
+  out <- list(); sec_i <- 1L; in_table <- FALSE
+  for (pg in sort(unique(words$page))) {
+    w <- words[words$page == pg, ]
+    hdr <- w[w$text %in% c("Request", "Requested"), ]
+    tot <- w[w$text == "TOTALS", ]
+    d <- w[stringr::str_detect(w$text, money), ] %>% dplyr::arrange(.data$yc)
+    if (!nrow(d)) next
+    d$grp <- cumsum(c(1, diff(d$yc) > 2))
+    multi <- as.integer(names(which(table(d$grp) >= 2)))
+    if (!length(multi)) next
+    anchors <- d[d$grp %in% multi, ] %>% dplyr::group_by(.data$grp) %>%
+      dplyr::summarise(yc = mean(.data$yc), req_x = min(.data$x0),
+                       awd_x1 = max(.data$x1),
+                       req = .data$text[order(.data$x0)][1],
+                       awd = .data$text[order(.data$x0)][2], .groups = "drop")
+    events <- dplyr::bind_rows(
+      tibble::tibble(y = hdr$y0, kind = rep("H", nrow(hdr))),
+      tibble::tibble(y = tot$yc, kind = rep("T", nrow(tot)))) %>%
+      dplyr::arrange(.data$y)
+    regions <- list(); start <- if (in_table) 0 else NA_real_
+    for (k in seq_len(nrow(events))) {
+      if (events$kind[k] == "H") {
+        # The header is three lines; its last ends ~14pt below "Request(ed)".
+        start <- max(if (is.na(start)) -Inf else start, events$y[k] + 14)
+        in_table <- TRUE
+      } else {
+        regions[[length(regions) + 1L]] <- list(top = start,
+                                                bot = events$y[k] + 3,
+                                                closed = TRUE)
+        start <- NA_real_; in_table <- FALSE
+      }
+    }
+    if (in_table && !is.na(start)) {
+      regions[[length(regions) + 1L]] <- list(top = start, bot = 740,
+                                              closed = FALSE)
+    }
+    for (rg in regions) {
+      a <- anchors[anchors$yc >= rg$top - 3 & anchors$yc <= rg$bot, ]
+      if (!nrow(a)) next
+      a$is_total <- rg$closed & abs(a$yc - (rg$bot - 3)) < 1
+      reqx <- min(a$req_x)
+      # THE APPLICANT COLUMN ONLY. Service area and project description are
+      # not parsed: Word centres each header over its column, so a header's x
+      # is not the column's edge, and a wrong cut would commit wrong text.
+      inreg <- w[w$yc >= rg$top - 2 & w$yc <= rg$bot + 0.5 &
+                   w$text != "TOTALS" & w$x1 < reqx - 2, ]
+      ia <- which(!a$is_total)
+      a$applicant <- NA_character_
+      a$applicant[ia] <- partition(col_lines(inreg), a$yc[ia])
+      a$page <- pg
+      a$bp1_section <- NV_BP1_SECTIONS$bp1_section[sec_i]
+      out[[length(out) + 1L]] <- a
+      if (rg$closed) sec_i <- sec_i + 1L
+    }
+  }
+  num <- function(x) as.numeric(gsub("[$,]", "", x))
+  res <- dplyr::bind_rows(out) %>%
+    dplyr::transmute(
+      bp1_section = .data$bp1_section, page = .data$page,
+      applicant = dplyr::if_else(.data$is_total, "TOTALS", .data$applicant),
+      funding_requested = num(.data$req), bp1_amount_awarded = num(.data$awd),
+      is_total = .data$is_total) %>%
+    dplyr::group_by(.data$bp1_section) %>%
+    dplyr::mutate(bp1_line_id = dplyr::if_else(
+      .data$is_total, paste0(.data$bp1_section, "-TOTALS"),
+      sprintf("%s-%02d", .data$bp1_section, cumsum(!.data$is_total)))) %>%
+    dplyr::ungroup() %>%
+    dplyr::relocate("bp1_line_id")
+  nv_assert_bp1_table(res)
+  if (write) {
+    readr::write_csv(res, NV_BP1_CSV, na = "")
+    message("[NV] wrote ", NV_BP1_CSV, " (", sum(!res$is_total), " lines + ",
+            sum(res$is_total), " TOTALS rows)")
+  }
+  invisible(res)
+}
+
+#' The committed report table.
+nv_bp1_table <- function() {
+  readr::read_csv(NV_BP1_CSV, show_col_types = FALSE, progress = FALSE,
+                  col_types = readr::cols(.default = "c")) %>%
+    dplyr::mutate(page = as.integer(.data$page),
+                  funding_requested = as.numeric(.data$funding_requested),
+                  bp1_amount_awarded = as.numeric(.data$bp1_amount_awarded),
+                  is_total = as.logical(.data$is_total))
+}
+
+#' The table's own arithmetic: each section's lines against its TOTALS row,
+#' and both against the figures recorded in NV_BP1_SECTIONS.
+nv_assert_bp1_table <- function(t = nv_bp1_table()) {
+  for (i in seq_len(nrow(NV_BP1_SECTIONS))) {
+    s <- NV_BP1_SECTIONS[i, ]
+    x <- t[t$bp1_section == s$bp1_section, ]
+    lines <- x[!x$is_total, ]; tot <- x[x$is_total, ]
+    if (nrow(tot) != 1L || nrow(lines) != s$lines) {
+      stop("[NV] BP1 section ", s$bp1_section, ": ", nrow(lines), " lines and ",
+           nrow(tot), " TOTALS rows, not ", s$lines, " and 1.", call. = FALSE)
+    }
+    for (col in c("funding_requested", "bp1_amount_awarded")) {
+      want <- if (col == "funding_requested") s$tot_requested else s$tot_awarded
+      if (abs(sum(lines[[col]]) - tot[[col]]) >= 0.005 ||
+          abs(tot[[col]] - want) >= 0.005) {
+        stop("[NV] BP1 section ", s$bp1_section, " ", col, ": lines sum to ",
+             format(sum(lines[[col]]), nsmall = 2), ", TOTALS prints ",
+             format(tot[[col]], nsmall = 2), ", recorded ", want, ".",
+             call. = FALSE)
+      }
+    }
+    if (anyNA(lines$applicant) || any(!nzchar(lines$applicant))) {
+      stop("[NV] BP1 section ", s$bp1_section, " has a line with no applicant.",
+           call. = FALSE)
+    }
+  }
+  if (sum(!t$is_total) != NV_BP1_LINES ||
+      abs(sum(t$bp1_amount_awarded[!t$is_total]) - NV_BP1_TOTAL_AWARDED) >= 0.005) {
+    stop("[NV] the BP1 report is no longer ", NV_BP1_LINES, " lines / $",
+         format(NV_BP1_TOTAL_AWARDED, big.mark = ",", nsmall = 2), ".",
+         call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+#' The committed CSV against the ARCHIVED PDF, with this project's own reader.
+nv_assert_bp1 <- function(t = nv_bp1_table()) {
+  pdf <- nv_path(NV_BP1_KEY)
+  if (!identical(digest::digest(file = pdf, algo = "sha256"), NV_BP1_SHA256)) {
+    stop("[NV] the archived BP1 report is not the 2026-10-13 file (sha256 ",
+         substr(NV_BP1_SHA256, 1, 12), ").", call. = FALSE)
+  }
+  nv_assert_bp1_table(t)
+  flat <- nv_pdf_flat(NV_BP1_KEY)
+  if (!grepl(NV_BP1_PROVISIONAL, flat, fixed = TRUE)) {
+    stop("[NV] the BP1 report no longer carries NVHA's 'may not be final' ",
+         "note; PROVISIONAL_SOURCE would be unsupported.", call. = FALSE)
+  }
+  fmt <- function(x) paste0("$", formatC(x, format = "f", digits = 2,
+                                         big.mark = ","))
+  figs <- unique(c(fmt(t$funding_requested), fmt(t$bp1_amount_awarded)))
+  miss <- figs[!vapply(figs, grepl, logical(1), x = flat, fixed = TRUE)]
+  if (length(miss)) {
+    stop("[NV] figures in nv_bp1_subrecipient_report.csv that the PDF does ",
+         "not print: ", paste(miss, collapse = ", "), call. = FALSE)
+  }
+  # Every applicant's words, in order, are in the PDF's text.
+  for (a in unique(t$applicant[!t$is_total])) {
+    toks <- strsplit(a, "\\s+")[[1]]
+    if (!all(vapply(toks, grepl, logical(1), x = flat, fixed = TRUE))) {
+      stop("[NV] BP1 applicant not found in the PDF text: ", a, call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+
+# THE CROSSWALK, BP1 line -> award-file row, READ BY HAND (session 101).
+#
+# The report and the Funded Projects page are two grains of one award set:
+# 157 report lines against 156 page rows. 146 lines are one page row each;
+# duplicate names (Nevada Health Centers x5, Great Basin College x5, UNR x6,
+# Mt. Grant x3, ...) were paired on the report's own project text, never on
+# order. ONE report line covers TWO page rows: WRRAP_RR-15, Nevada Rural
+# Hospital Partners Foundation, is the single subaward behind page rows 26 and
+# 45 (both its R+R projects); the amount sits on row 26 and row 45 says so.
+# Eleven lines have no page row (NV_BP1_NEW). Nine page rows have no line --
+# Tonopah Dental Center's two (21, 33), "93 X 95 NV" (48, already withdrawn),
+# and SIX R+R HOSPITAL rows (28, 30, 36, 41, 47, 49) whose hospitals all sit
+# in NRHPF's own line. Each entry carries the award file's awardee string, so
+# a row-order shift fails here rather than pricing the wrong recipient.
+NV_BP1_CROSSWALK <- tibble::tribble(
+  ~bp1_line_id, ~row_no, ~nv_awardee,
+  "RHOAP-01", 116L, "Aspire Behavioral Health",
+  "RHOAP-02", 126L, "Big Brothers Big Sisters of Northern NV",
+  "RHOAP-03", 128L, "Carson Valley Health",
+  "RHOAP-04", 148L, "Cartwheel Health Services",
+  "RHOAP-05", 119L, "Central Nevada Health District",
+  "RHOAP-06", 124L, "Comagine Health",
+  "RHOAP-07", 123L, "Desert View Hospital",
+  "RHOAP-08", 150L, "Division of Child and Family services",
+  "RHOAP-09", 141L, "DPBH, Chronic Disease Prevention and Health Promotion",
+  "RHOAP-10", 138L, "Falllon Paiute-Shoshone Tribe",
+  "RHOAP-12", 127L, "Healthy Communities Coalition of Lyon and Storey County",
+  "RHOAP-13", 130L, "High Sierra Area Health Education Center",
+  "RHOAP-14", 118L, "Humboldt County School District",
+  "RHOAP-15", 120L, "Humboldt General Hospital",
+  "RHOAP-16", 142L, "Neighbor Network of Northern NV",
+  "RHOAP-17", 145L, "Nevada Primary Care Association",
+  "RHOAP-18", 143L, "Nevada Rural Hospital Partners",
+  "RHOAP-19", 122L, "Northern Nevada Public Health",
+  "RHOAP-20", 139L, "NSHE UNLV School of Dental Medicine",
+  "RHOAP-21", 121L, "NSHE UNR School of Medicine Office of Statewide Initiatives",
+  "RHOAP-22", 115L, "NSHE UNR State Lab",
+  "RHOAP-23", 137L, "NSHE, UNLV Department of Gynecologic Surgery and Obstetrics",
+  "RHOAP-24", 131L, "NSHE, UNLV School of Nursing",
+  "RHOAP-25", 135L, "NSHE, UNLV School of Nursing",
+  "RHOAP-26", 132L, "NSHE, UNR Center for Excellence in Disabilities",
+  "RHOAP-27", 129L, "NSHE, UNR Extension Office",
+  "RHOAP-28", 133L, "NSHE, UNR Extension Office",
+  "RHOAP-29", 134L, "NSHE, UNR Extension Office",
+  "RHOAP-30", 136L, "NSHE, UNR Reno Extension Tribal Program",
+  "RHOAP-31", 125L, "NSHE, UNR Sanford Center for Aging",
+  "RHOAP-32", 146L, "Pacific Behavioral Health",
+  "RHOAP-33", 140L, "Pershing General Hospital",
+  "RHOAP-34", 147L, "The Family Support Center",
+  "RHOAP-35", 117L, "The Life is Worth it Organization",
+  "RHOAP-36", 144L, "Vitality Unlimited",
+  "RHOAP-37", 149L, "Washoe Tribe of Nevada & CA",
+  "FLEX-01", 1L, "Banner Churchill Community Hospital",
+  "FLEX-02", 2L, "Boulder City Hospital",
+  "FLEX-03", 3L, "Carlin Volunteer Fire Dept.",
+  "FLEX-04", 4L, "City of Ely Fire Department",
+  "FLEX-05", 5L, "City of West Wendover",
+  "FLEX-06", 6L, "Convergence Health",
+  "FLEX-07", 7L, "DVH Hospital Alliance LLN dba Desert View Hospital",
+  "FLEX-08", 75L, "East Fork Fire Protection District",
+  "FLEX-09", 73L, "Ely Shoshone Tribe",
+  "FLEX-10", 74L, "Ely Shoshone Tribe",
+  "FLEX-11", 78L, "Esmeralda County Board of Commissioners",
+  "FLEX-12", 8L, "Esmeralda County Clinics",
+  "FLEX-13", 9L, "Fallon Paiute-Shoshone Tribe",
+  "FLEX-14", 83L, "Great Basin College",
+  "FLEX-15", 10L, "Healthy Communities Coalition of Lyon and Storey Counties",
+  "FLEX-16", 11L, "Hope Christian Health Center",
+  "FLEX-17", 12L, "Humboldt General Hospital",
+  "FLEX-18", 81L, "Incline Village Hospital",
+  "FLEX-19", 85L, "Lander County EMS",
+  "FLEX-20", 13L, "Lincoln County Hospital District dba Grover C. Dils Medical Center",
+  "FLEX-21", 77L, "Lyon County",
+  "FLEX-22", 14L, "Mesa View Regional Hospital",
+  "FLEX-23", 79L, "Mineral County",
+  "FLEX-24", 15L, "Mt. Grant General Hospital",
+  "FLEX-26", 80L, "Mt. Grant General Hospital",
+  "FLEX-27", 82L, "N. Nye Hospital District",
+  "FLEX-28", 16L, "Northern Nevada Regional Hospital",
+  "FLEX-29", 17L, "Northern Nye County Hospital District Clinic",
+  "FLEX-30", 86L, "Nevada Medicaid",
+  "FLEX-31", 18L, "Pershing General Hospital",
+  "FLEX-32", 84L, "Safe Harbor",
+  "FLEX-33", 19L, "Silver Springs Stagecoach Hospital District",
+  "FLEX-34", 20L, "South Lyon Co Hospital District",
+  "FLEX-35", 22L, "Vitality Unlimited",
+  "FLEX-36", 76L, "Washoe Barton Medical Clinic",
+  "FLEX-37", 23L, "Washoe Barton Medical Clinic DBA Carson Valley Health",
+  "FLEX-38", 24L, "Washoe Barton Medical Clinic DBA Carson Valley Health",
+  "FLEX-40", 25L, "William Bee Ririe Hospital and Clinics",
+  "WRRAP_RR-01", 39L, "Banner Churchill Community Hospital",
+  "WRRAP_RR-02", 42L, "Beatty Health and Welfare",
+  "WRRAP_RR-03", 50L, "University of Nevada, Reno",
+  "WRRAP_RR-04", 51L, "University of Nevada, Reno",
+  "WRRAP_RR-05", 37L, "Convergence Health",
+  "WRRAP_RR-07", 52L, "Desert View Hospital",
+  "WRRAP_RR-08", 27L, "Ely Shoshone Tribe – Newe Medical Clinic",
+  "WRRAP_RR-09", 34L, "Fallon Paiute-Shoshone Tribe",
+  "WRRAP_RR-10", 29L, "Humboldt General Hospital",
+  "WRRAP_RR-11", 31L, "Intermountain Health",
+  "WRRAP_RR-12", 46L, "Lander County EMS",
+  "WRRAP_RR-13", 38L, "Nevada Health Centers",
+  "WRRAP_RR-14", 32L, "Nevada Primary Care Association",
+  "WRRAP_RR-15", 26L, "Nevada Rural Hospital Partners Foundation",
+  "WRRAP_RR-17", 43L, "Touro University Nevada",
+  "WRRAP_RR-18", 44L, "Truckee Meadows Community College",
+  "WRRAP_RR-19", 35L, "Vitality Unlimited",
+  "WRRAP_RR-20", 40L, "Washoe Tribe of Nevada & California",
+  "WRRAP_AT-01", 58L, "University of Nevada, Las Vegas",
+  "WRRAP_AT-02", 59L, "University of Nevada, Reno – Orvis School of Nursing",
+  "WRRAP_AT-03", 53L, "Great Basin College",
+  "WRRAP_AT-04", 54L, "Great Basin College",
+  "WRRAP_AT-05", 55L, "Great Basin College",
+  "WRRAP_AT-06", 56L, "Great Basin College",
+  "WRRAP_AT-07", 57L, "Great Basin College",
+  "WRRAP_AT-08", 63L, "Nevada AHEC",
+  "WRRAP_AT-09", 64L, "University of Nevada, Reno School of Public Health",
+  "WRRAP_AT-10", 60L, "University of Nevada, Reno – Sanford Center for Aging",
+  "WRRAP_AT-11", 61L, "University of Nevada, Reno School of Medicine",
+  "WRRAP_AT-12", 62L, "University of Nevada, Reno School of Medicine",
+  "WRRAP_AT-13", 65L, "University of Nevada, Reno",
+  "WRRAP_AT-14", 66L, "Douglas County Community Health",
+  "WRRAP_AT-15", 67L, "East Fork Fire Protection District",
+  "WRRAP_AT-16", 68L, "NAMI Western Nevada",
+  "WRRAP_AT-17", 69L, "Nevada Department of Education",
+  "WRRAP_AT-18", 70L, "Renown Health",
+  "WRRAP_AT-19", 71L, "Carson Valley Health",
+  "WRRAP_AT-20", 72L, "Western Nevada College",
+  "WRRAP_RWP-01", 87L, "Board of Regents, NSHE, obo University of Nevada, Reno",
+  "WRRAP_RWP-02", 88L, "Board of Regents, NSHE, obo University of Nevada, Reno Office of Rural Health",
+  "WRRAP_RWP-03", 90L, "University of Nevada, Reno School of Medicine",
+  "WRRAP_RWP-04", 89L, "Board of Regents, NSHE, obo University of Nevada, Reno Orvis School of Nursing",
+  "RHIT-01", 104L, "Banner Churchill",
+  "RHIT-02", 111L, "Center for Behavioral Health",
+  "RHIT-03", 113L, "Clear Sighted Mental Health",
+  "RHIT-05", 110L, "Desert View Hospital",
+  "RHIT-06", 97L, "Fallon Paiute Shoshone Tribe",
+  "RHIT-07", 93L, "Humboldt General Hospital",
+  "RHIT-08", 105L, "Intermountain Health",
+  "RHIT-09", 107L, "Grover c. Dils Medical Center",
+  "RHIT-11", 103L, "Mesa View Hospital",
+  "RHIT-12", 92L, "Mt. Grant General Hospital",
+  "RHIT-13", 114L, "Nevada Department of Corrections",
+  "RHIT-14", 96L, "Nevada Health Centers",
+  "RHIT-15", 98L, "Nevada Health Centers",
+  "RHIT-16", 99L, "Nevada Health Centers",
+  "RHIT-17", 100L, "Nevada Health Centers",
+  "RHIT-18", 101L, "Nevada Health Centers",
+  "RHIT-19", 109L, "Nevada Rural Hospital Partners Foundation",
+  "RHIT-20", 94L, "Northeastern Nevada Regional Hospital",
+  "RHIT-21", 108L, "Pershing General Hospital",
+  "RHIT-22", 112L, "Renown Health Foundation",
+  "RHIT-23", 102L, "South Lyon Medical Center",
+  "RHIT-24", 106L, "Vitality Unlimited",
+  "RHIT-25", 95L, "Washoe Tribal Health Center",
+  "RHIT-26", 91L, "William Bee Ririe Hospital",
+  "TRIBAL-01", 156L, "Duck Valley Shoshone-Paiute Tribes",
+  "TRIBAL-02", 153L, "Fallon Paiute-Shoshone Tribe",
+  "TRIBAL-03", 154L, "Las Vegas Paiute Tribe",
+  "TRIBAL-04", 152L, "Pyramid Lake Paiute Tribe",
+  "TRIBAL-05", 151L, "Walker River Paiute Tribal Health Clinic",
+  "TRIBAL-06", 155L, "Washoe Tribe of Nevada and California",
+  "WRRAP_RR-15", 45L, "Nevada Rural Hospital Partners Foundation"
+)
+
+# Lines with no page row. `type_from_row` copies an existing row's typing for
+# the same organisation (its form is already determined, or already on §8's
+# fallback with a queued question); NA classifies the name afresh.
+NV_BP1_NEW <- tibble::tribble(
+  ~bp1_line_id,     ~type_from_row,
+  "RHOAP-11",       127L,   # Healthy/"Health" Communities Coalition: RISHN
+  "FLEX-25",        15L,    # Mt. Grant General Hospital: Transportation
+  "FLEX-39",        NA,     # West Wendover Ambulance: Defibrillators
+  "WRRAP_RR-06",    37L,    # Convergence Health: new primary care practice
+  "WRRAP_RR-16",    86L,    # NV Medicaid: children's behavioral health
+  "RHIT-04",        150L,   # Division of Child and Family Services
+  "RHIT-10",        86L,    # Medicaid
+  "VETERANS-01",    NA,     # Nevada Department of Veterans Services
+  "CORRECTIONS-01", 114L,   # Nevada Department of Corrections
+  "PFT-01",         NA,     # State Public Charter School Authority
+  "PFT-02",         69L     # Nevada Department of Education
+)
+
+# OWNER RULING (session 101): NRHPF's $20,278,054.31 R+R subaward. The flow
+# follows the ICAHN and hospital-association rulings (§10.2), POOL_NAMED
+# because the report's service-area cell NAMES ALL FOURTEEN: "All Rural
+# Hospitals: Banner Churchill Community Hospital, Battle Mountain General
+# Hospital, Boulder City Hospital, Carson Valley Health, Desert View Hospital,
+# Grover C. Dils Medical Center, Humboldt General Hospital, Incline Village
+# Community Hospital, Mesa View Regional Hospital, Mount Grant General
+# Hospital, Northeastern Nevada Regional Hospital, Pershing General Hospital,
+# South Lyon Medical Center, William Bee Ririe Hospital". The class is
+# hospitals only. THE VERB IS THE VULNERABILITY: "NRHP will organize the RHT
+# recruitment, retention and training projects of all 14 rural hospitals" --
+# "organize" does not say the money is paid to them, which is why this was
+# IN_KIND_BENEFIT until the ruling, and why the row is LOW.
+NV_NRHPF_ROWS <- c(26L, 45L)
+NV_NRHPF_LINE <- "WRRAP_RR-15"
+NV_NRHPF_HOSPITALS <- c(
+  "Banner Churchill Community Hospital", "Battle Mountain General Hospital",
+  "Boulder City Hospital", "Carson Valley Health", "Desert View Hospital",
+  "Grover C. Dils Medical Center", "Humboldt General Hospital",
+  "Incline Village Community Hospital", "Mesa View Regional Hospital",
+  "Mount Grant General Hospital", "Northeastern Nevada Regional Hospital",
+  "Pershing General Hospital", "South Lyon Medical Center",
+  "William Bee Ririe Hospital")
+
+nv_bp1_flags <- function(f, add = character(0), drop = character(0)) {
+  vapply(f, function(x) {
+    v <- if (is.na(x) || !nzchar(x)) character(0) else strsplit(x, ";")[[1]]
+    v <- unique(c(setdiff(v, drop), add))
+    if (length(v)) paste(v, collapse = ";") else NA_character_
+  }, character(1), USE.NAMES = FALSE)
+}
+
+#' Price the award file from the BP1 report, and add its eleven new lines.
+#'
+#' Runs AFTER session 49's and session 71's overlays (they are keyed on the
+#' page rows 1..156, which this neither reorders nor removes). New rows are
+#' appended from 157.
+nv_apply_bp1 <- function(out) {
+  t <- nv_bp1_table()
+  nv_assert_bp1(t)
+  lines <- t[!t$is_total, ]
+  xw <- NV_BP1_CROSSWALK
+  # Every line is placed exactly once (row 45 aside), every row once.
+  placed <- c(unique(xw$bp1_line_id), NV_BP1_NEW$bp1_line_id)
+  if (anyDuplicated(placed) || !setequal(placed, lines$bp1_line_id)) {
+    stop("[NV] the BP1 crosswalk does not place every report line exactly ",
+         "once.", call. = FALSE)
+  }
+  if (anyDuplicated(xw$row_no)) stop("[NV] a page row is crosswalked twice.",
+                                     call. = FALSE)
+  got <- out$awardee[match(xw$row_no, out$row_no)]
+  if (!identical(got, xw$nv_awardee)) {
+    bad <- which(got != xw$nv_awardee | is.na(got))
+    stop("[NV] the BP1 crosswalk names row(s) ",
+         paste0(xw$row_no[bad], " = '", xw$nv_awardee[bad], "'", collapse = "; "),
+         " and the file now carries something else there.", call. = FALSE)
+  }
+  out$bp1_line_id <- NA_character_
+  out$bp1_applicant <- NA_character_
+  out$bp1_funding_requested <- NA_real_
+  url <- nv_source(NV_BP1_KEY, "url")
+  arch <- file.path("data/evidence/NV", nv_source(NV_BP1_KEY, "file"))
+
+  for (i in seq_len(nrow(xw))) {
+    r <- which(out$row_no == xw$row_no[i])
+    l <- lines[lines$bp1_line_id == xw$bp1_line_id[i], ]
+    carries <- !(xw$bp1_line_id[i] == NV_NRHPF_LINE && xw$row_no[i] != 26L)
+    out$bp1_line_id[r] <- l$bp1_line_id
+    out$bp1_applicant[r] <- l$applicant
+    out$bp1_funding_requested[r] <- l$funding_requested
+    if (carries) {
+      out$amount[r] <- l$bp1_amount_awarded
+      suspect <- l$bp1_line_id %in% NV_BP1_SOURCE_SUSPECT$bp1_line_id
+      out$flag_reason[r] <- nv_bp1_flags(
+        out$flag_reason[r], drop = "AMOUNT_MISSING",
+        add = c("PROVISIONAL_SOURCE", if (suspect) "SOURCE_SUSPECT"))
+      out$amount_basis[r] <- paste0(
+        "NVHA's RHTP Subrecipient Report for BP1 (2026-10-13), line ",
+        l$bp1_line_id, " ('", l$applicant, "'): BP1 Amount Awarded $",
+        formatC(l$bp1_amount_awarded, format = "f", digits = 2, big.mark = ","),
+        " (Funding Requested $",
+        formatC(l$funding_requested, format = "f", digits = 2, big.mark = ","),
+        "). PROVISIONAL in NVHA's words: 'may not be final as project budgets ",
+        "continue to be refined for CMS approval'. ",
+        if (suspect) paste0(NV_BP1_SOURCE_SUSPECT$why[NV_BP1_SOURCE_SUSPECT$bp1_line_id ==
+                                                      l$bp1_line_id], " ") else "",
+        "Archived: ", arch, ".")
+    } else {
+      out$amount_basis[r] <- paste0(
+        "NVHA's BP1 report carries ONE line for this subaward (", l$bp1_line_id,
+        ", $", formatC(l$bp1_amount_awarded, format = "f", digits = 2,
+                       big.mark = ","), "); the Funded Projects page lists it ",
+        "as two projects, and the amount is on row 26. Not repeated here.")
+    }
+    out$amount_confirmed[r] <- "No"
+  }
+
+  # Page rows the report gives no line of their own.
+  none <- setdiff(out$row_no, xw$row_no)
+  for (r in which(out$row_no %in% none)) {
+    out$amount_basis[r] <- paste0(
+      out$amount_basis[r], ". NO LINE IN NVHA's BP1 SUBRECIPIENT REPORT ",
+      "(2026-10-13): the report prices 157 lines and none is this project.",
+      if (out$award_pool[r] == "WRRAP_RECRUITMENT_RETENTION" &&
+          out$hospital_attribution[r] == "NAMED_HOSPITAL")
+        paste0(" This hospital is one of the fourteen named in Nevada Rural ",
+               "Hospital Partners Foundation's R+R line (", NV_NRHPF_LINE,
+               "), which 'will organize the RHT recruitment, retention and ",
+               "training projects of all 14 rural hospitals'; its share of ",
+               "that line is not published and is not imputed (§6.2).") else "")
+  }
+
+  # The owner's NRHPF ruling.
+  for (r in which(out$row_no %in% NV_NRHPF_ROWS)) {
+    out$flow_type[r] <- "PASS_THROUGH_DESIGNATED"
+    out$distributed_to_hospital[r] <- "Yes"
+    out$hospital_benefiting[r] <- "Yes"
+    out$hospital_attribution[r] <- "POOL_NAMED_HOSPITALS"
+    out$intermediary_name[r] <- "Nevada Rural Hospital Partners Foundation, Inc."
+    out$determination_confidence[r] <- "LOW"
+    out$flag_reason[r] <- nv_bp1_flags(out$flag_reason[r],
+      drop = c("FLOW_UNRESOLVED_HOSPITAL_AFFILIATED", "AMOUNT_MISSING"))
+    out$determination_basis[r] <- paste0(
+      "OWNER RULING (session 101), per the ICAHN and hospital-association ",
+      "rulings (§10.2): PASS_THROUGH_DESIGNATED, Yes, POOL_NAMED_HOSPITALS. ",
+      "NVHA's BP1 report line ", NV_NRHPF_LINE, " ($20,278,054.31 awarded ",
+      "against $2,263,499.00 requested) names its service area as 'All Rural ",
+      "Hospitals' and lists all fourteen: ",
+      paste(NV_NRHPF_HOSPITALS, collapse = ", "),
+      ". The eligible class is hospitals only. LOW because the report's verb ",
+      "is 'organize' ('NRHP will organize the RHT recruitment, retention and ",
+      "training projects of all 14 rural hospitals'), which does not by ",
+      "itself show money paid to the hospitals; no per-hospital split is ",
+      "published and none is imputed (§6.2). PRIOR CODING: IN_KIND_BENEFIT. ",
+      "PRIOR BASIS: ", out$determination_basis[r])
+  }
+
+  # The eleven lines with no page row.
+  first <- max(out$row_no) + 1L
+  new <- purrr::map_dfr(seq_len(nrow(NV_BP1_NEW)), function(i) {
+    l <- lines[lines$bp1_line_id == NV_BP1_NEW$bp1_line_id[i], ]
+    sec <- NV_BP1_SECTIONS[NV_BP1_SECTIONS$bp1_section == l$bp1_section, ]
+    src <- NV_BP1_NEW$type_from_row[i]
+    row <- out[0, ]
+    row[1, ] <- NA
+    if (!is.na(src)) {
+      tpl <- out[out$row_no == src, ]
+      for (cc in c("recipient_type", "distributed_to_hospital",
+                   "determination_confidence", "recipient_type_source",
+                   "flow_type", "hospital_benefiting", "hospital_attribution",
+                   "intermediary_name", "determination_basis", "basis_type",
+                   "verified_by", "verified_basis", "recipient_subtype",
+                   "cms_enrolment_match", "cms_enrolment_record", "ccn",
+                   "flag_reason")) {
+        if (cc %in% names(out)) row[[cc]] <- tpl[[cc]]
+      }
+      row$determination_basis <- paste0(
+        "Typed as row ", src, " (", tpl$awardee, "), the same organisation's ",
+        "page row (session 101). ", tpl$determination_basis)
+    } else {
+      ct <- nv_classify_recipient(l$applicant)
+      fl <- rhtp_classify_flow(ct$recipient_type, "")
+      row$recipient_type <- ct$recipient_type
+      row$determination_confidence <- ct$determination_confidence
+      row$recipient_type_source <- ct$recipient_type_basis
+      row$flow_type <- fl$flow_type
+      row$distributed_to_hospital <- fl$distributed_to_hospital
+      row$hospital_benefiting <- fl$hospital_benefiting
+      row$hospital_attribution <- if (identical(fl$distributed_to_hospital, "Yes"))
+        "NAMED_HOSPITAL" else "NOT_HOSPITAL"
+      row$determination_basis <- paste(ct$recipient_type_basis, fl$flow_basis)
+      row$flag_reason <- if (identical(ct$rule, "FALLBACK"))
+        "RECIPIENT_TYPE_INFERRED" else NA_character_
+    }
+    row$determination_confidence <- rhtp_confidence_ceiling(
+      row$determination_confidence, row$ccn)
+    suspect <- l$bp1_line_id %in% NV_BP1_SOURCE_SUSPECT$bp1_line_id
+    # The WRRAP pool-conflict flag belongs to the two WRRAP pools only, so a
+    # template row's copy of it does not travel to another pool's line.
+    wrrap <- sec$award_pool %in% c("WRRAP_RECRUITMENT_RETENTION",
+                                   "WRRAP_APPRENTICESHIP_TRAINING")
+    row$flag_reason <- nv_bp1_flags(row$flag_reason,
+      drop = c("AMOUNT_MISSING",
+               if (!wrrap) "POOL_AMOUNT_CONFLICTS_ACROSS_SOURCES"),
+      add = c("PROVISIONAL_SOURCE", if (suspect) "SOURCE_SUSPECT"))
+    row$state <- NV_STATE
+    row$row_no <- first + i - 1L
+    row$awardee <- l$applicant
+    row$amount <- l$bp1_amount_awarded
+    row$note <- paste0(
+      "First listed in NVHA's RHTP Subrecipient Report for BP1 (2026-10-13), ",
+      sec$heading, ", line ", l$bp1_line_id, "; the Funded Projects page ",
+      "carries no row for it.")
+    row$recipient_confirmed <- "Yes"
+    row$amount_confirmed <- "No"
+    row$fiscal_year <- 2026L
+    row$source_document_title <- paste0("NVHA RHTP Subrecipient Report for BP1: ",
+                                        sec$heading)
+    row$state_source_url <- url
+    row$validation_source_type <- "NOTICE_OF_INTENT_TO_AWARD"
+    row$extraction_method <- "PARSED_PDF_TABLE"
+    row$validator <- "R/03u_nv_year1_awardees.R"
+    row$award_pool <- sec$award_pool
+    row$budget_period <- "BP1 (12/29/2025 - 10/30/2026)"
+    row$amount_basis <- paste0(
+      "NVHA's RHTP Subrecipient Report for BP1 (2026-10-13), line ",
+      l$bp1_line_id, ": BP1 Amount Awarded $",
+      formatC(l$bp1_amount_awarded, format = "f", digits = 2, big.mark = ","),
+      " (Funding Requested $",
+      formatC(l$funding_requested, format = "f", digits = 2, big.mark = ","),
+      "). PROVISIONAL: 'may not be final'. Archived: ", arch, ".")
+    row$section <- sec$heading
+    row$listed_from <- "2026-10-13 (BP1 report)"
+    row$source_archive_path <- arch
+    row$bp1_line_id <- l$bp1_line_id
+    row$bp1_applicant <- l$applicant
+    row$bp1_funding_requested <- l$funding_requested
+    row
+  })
+  out <- dplyr::bind_rows(out, new)
+  nv_assert_vocabulary(out)
+  out
+}
+
+#' NV's hospital buckets, with and without the SOURCE_SUSPECT rows.
+nv_bp1_partition <- function(out = readr::read_csv(NV_OUT_CSV,
+                               show_col_types = FALSE, progress = FALSE)) {
+  susp <- !is.na(out$flag_reason) & grepl("SOURCE_SUSPECT", out$flag_reason)
+  list(with = rhtp_hospital_dollar_partition(out),
+       without = rhtp_hospital_dollar_partition(out[!susp, ]),
+       suspect_rows = out[susp, c("row_no", "awardee", "amount",
+                                  "hospital_attribution")])
+}
+
+
 # -- the watch (session 64) ----------------------------------------------------
 #
 # NEVADA HAD NO PROBE UNTIL SESSION 64, which is how a roster that grew from 72
@@ -2236,8 +2957,10 @@ nv_report <- function() {
 # so rhtp_watch_reduce() never reads it and it cannot move the content digest.
 NV_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
+  # Re-based in session 101 to the 2026-10-15 copy, which differs from
+  # 2026-09-24 only by the "Subrecipient Report for BP1" link (read).
   "roster", paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
-  "data/evidence/NV/2026-09-24_nv_rht_funded_projects_bp1.html", TRUE,
+  "data/evidence/NV/2026-10-15_nv_rht_funded_projects_bp1.html", TRUE,
   "nofos", paste0(NV_BASE, "/RHTP/rht-nofos/"),
   "data/evidence/NV/2026-08-31_nv_rht_nofos.html", TRUE
 )
@@ -2252,11 +2975,20 @@ nv_probe <- function() {
                                 sections = names(live_tabs))
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
                                           state = NV_STATE)
+  # SESSION 101: the BP1 Subrecipient Report, by DIGEST. NVHA says its amounts
+  # "may not be final"; a revised file is the signal to re-parse it.
+  bp1 <- rhtp_probe_get(NV_BP1_KEY, function()
+    nv_get(nv_source(NV_BP1_KEY, "url"), "probe:bp1_report"), nv_path(NV_BP1_KEY))
+  w$changed <- dplyr::bind_rows(w$changed, tibble::tibble(
+    key = NV_BP1_KEY,
+    changed = !identical(digest::digest(bp1, algo = "sha256", serialize = FALSE),
+                         NV_BP1_SHA256)))
   message("[NV] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
                           collapse = "; "),
           " -- seven sections, ", sum(NV_POOLS$round_awards),
-          " award actions, no amount, no new organisation.")
+          " award actions on the page, no new organisation; the BP1 report ",
+          "is the priced source (session 101).")
   invisible(w$changed)
 }
 

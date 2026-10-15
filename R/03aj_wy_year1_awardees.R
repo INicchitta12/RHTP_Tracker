@@ -2347,7 +2347,13 @@ wy_probe <- function() {
   cat("\nWYOMING -- live probe\n"); cat(strrep("-", 78), "\n")
   changed <- character(0)
   for (k in keys) {
-    body <- tryCatch(rawToChar(wy_get(wy_url(k), k)), error = function(e) NULL)
+    body <- tryCatch(rawToChar(wy_get(wy_url(k), k)), error = function(e) {
+      # Session 101: an unreachable page is logged ERROR, not left unlogged.
+      if (rhtp_probe_ctx_active()) {
+        rhtp_probe_note("page_errors", k, conditionMessage(e))
+      }
+      NULL
+    })
     if (is.null(body)) { cat(sprintf("  %-16s UNREACHABLE\n", k)); next }
     live <- wy_content_digest(k, body)
     archived <- wy_content_digest(k)

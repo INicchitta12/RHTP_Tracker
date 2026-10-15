@@ -988,6 +988,68 @@ SD,2026-10-15T12:23:19Z,UNCHANGED,'Rural Strong' in the description,,trig_01Pozm
 SD,2026-10-15T12:23:19Z,UNCHANGED,'Rural Health Transformation' in the description,,trig_01PozmJvhJnKHVQf7GBHkbvY
 CMS,2026-10-15T13:21:13Z,CHANGED,newsroom+medicaid,new states: NE; new releases in listed states: 2 (DE MO); changed rows: 0,trig_01LUqkDnDGErLj9N8SJUDb1C
 CMS,2026-10-15T13:21:13Z,UNCHANGED,obligation_report,,trig_01LUqkDnDGErLj9N8SJUDb1C
+MO,2026-10-15T14:28:01Z,UNCHANGED,bids,,interactive
+MO,2026-10-15T14:28:01Z,UNCHANGED,program_page,,interactive
+MO,2026-10-15T14:28:01Z,UNCHANGED,hub_roster,,interactive
+MO,2026-10-15T14:28:01Z,UNCHANGED,smrp_awardees,,interactive
+NV,2026-10-15T14:47:02Z,UNCHANGED,roster,,interactive
+NV,2026-10-15T14:47:02Z,UNCHANGED,nofos,,interactive
+NV,2026-10-15T14:47:02Z,UNCHANGED,bp1_report,,interactive
+VT,2026-10-15T14:49:02Z,UNCHANGED,awards,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,programme,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,noia_index,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,council,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,council_0827,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,hhs_news,,interactive
+IA,2026-10-15T14:57:05Z,UNCHANGED,gov_news,,interactive
+IA,2026-10-15T14:57:05Z,TRIPWIRE,noia_index,"[IA] the name tripwire has NO BASELINE on 'noia_index': the archived copy yields 2 organisation-shaped name(s), below the 3 this check needs to prove it is reading anything at all. That is a fact about OUR READING and never about the state (§0.4). Re-check the archive and the reduction before trusting any verdict from this page -- a diff against an empty baseline reports UNCHANGED forever.",interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,programme,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,noia_index,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,council,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,council_0827,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,hhs_news,,interactive
+IA,2026-10-15T14:57:19Z,UNCHANGED,gov_news,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,programme,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,noia_index,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,council,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,council_0827,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,hhs_news,,interactive
+IA,2026-10-15T14:58:45Z,UNCHANGED,gov_news,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,grow_regional,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,idoa_recs,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,grow_home,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,newsletter,,interactive
+IN,2026-10-15T15:01:42Z,UNCHANGED,init6,,interactive
+IN,2026-10-15T15:01:42Z,TRIPWIRE,(finding),"IDOA: NEW RHTP award recommendation(s): 10/09/2026 | /idoa/proc/recommendations/files/RFP 26-87450 Rural Health Transformation Program - Program Evaluator_20261009.zip || RFP 26-87450 Rural Health Transformation Program - Program Evaluator | /idoa/proc/recommendations/files/RFP 26-87450 Rural Health Transformation Program - Program Evaluator_20261009.zip || 09/28/2026 | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260928.zip || RFP 26-87448 RHTP MOCC | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260928.zip || 08/21/2026 | /idoa/proc/recommendations/files/RFP 26-87449 RHTP Teleconsult and Telehealth Landscape Assessment_20260821.zip || RFP 26-87449 RHTP Teleconsult and Telehealth Landscape Assessment | /idoa/proc/recommendations/files/RFP 26-87449 RHTP Teleconsult and Telehealth Landscape Assessment_20260821.zip || 07/28/2026 | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260728.zip || RFP 26-87448 RHTP MOCC | /idoa/proc/recommendations/files/RFP 26-87448 RHTP MOCC_20260728.zip || 06/26/2026 | /idoa/proc/recommendations/files/RFP 26-87450 RHTP Program Evaluator_20260626.zip || RFP 26-87450 RHTP Program Evaluator | /idoa/proc/recommendations/files/RFP 26-87450 RHTP Program Evaluator_20260626.zip || 06/03/2026 | /idoa/proc/recommendations/files/RFP 26-87449 RHTP07 Teleconsult and Telehealth Landscape Assessment_20260603.zip || RFP 26-87449 RHTP07 Teleconsult and Telehealth Landscape Assessment | /idoa/proc/recommendations/files/RFP 26-87449 RHTP07 Teleconsult and Telehealth Landscape Assessment_20260603.zip. Read the letter: vendor, amount, and whether it names a hospital.",interactive
+IN,2026-10-15T15:01:42Z,TRIPWIRE,(finding),INIT6: A MEDS-TO-BEDS HOSPITAL IS NAMED: Completed Activities NameDescriptionStatusRural Hospital. Indiana said '20 hospitals awarded funding for Budget Period One' and named none; extract the roster.,interactive
+IN,2026-10-15T15:01:42Z,TRIPWIRE,init6,"[IN] 'init6' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Ongoing Completed Activities NameDescriptionStatusRural Hospital SurveyREDCapClosed. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,grow_regional,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,idoa_recs,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,grow_home,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,newsletter,,interactive
+IN,2026-10-15T15:02:38Z,UNCHANGED,init6,,interactive
+KY,2026-10-15T15:03:29Z,CHANGED,funding,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,programme,,interactive
+KY,2026-10-15T15:03:29Z,CHANGED,rch,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-15T15:03:29Z,UNCHANGED,rfa_rda,,interactive
+KY,2026-10-15T15:03:29Z,TRIPWIRE,rch,"[KY] 'rch' NAMES 8 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Community | The Rural Community Hub Lead Organizations | Rural Health Transformation Hub Leadership Opportunity for Rural Community Hubs for Chronic Care Innovation You | Local Health Departments | Healthcare Organizations | Community-Based Organizations | Schools and Educational Institutions | Senior Centers. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CA,2026-10-15T15:04:02Z,CHANGED,calrht,,interactive
+CA,2026-10-15T15:04:02Z,TRIPWIRE,calrht,"[CA] 'calrht' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: CMS RHT Program Obligated Funds. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,funding,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,programme,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rch,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-15T15:05:32Z,UNCHANGED,rfa_rda,,interactive
+CA,2026-10-15T15:07:12Z,UNCHANGED,(all),,interactive
 AL,2026-10-15T14:42:39Z,UNCHANGED,resources,,trig_01NtbC312pu2u8d7uePQXEty
 AL,2026-10-15T14:42:39Z,UNCHANGED,home,,trig_01NtbC312pu2u8d7uePQXEty
 AL,2026-10-15T14:42:39Z,UNCHANGED,adeca,,trig_01NtbC312pu2u8d7uePQXEty

@@ -2003,7 +2003,8 @@ sc_rcj_candidate_count <- function() {
 sc_probe <- function() {
   keys <- c("programme", "rmua_control", "bhcs_control")
   live <- purrr::map(keys, function(k) {
-    r <- sc_get(sc_source(k, "url"), k); Sys.sleep(3); r
+    r <- rhtp_probe_get(k, function() sc_get(sc_source(k, "url"), k),
+                          sc_path(k)); Sys.sleep(3); r
   })
   names(live) <- keys
 
@@ -2023,7 +2024,8 @@ sc_probe <- function() {
   # The award list itself is checked by DIGEST rather than re-parsed: a probe
   # must not write, and parsing a live PDF would mean holding 194KB of it in
   # memory to answer a question the digest answers.
-  live_pdf <- sc_get(sc_source("award_list", "url"), "award_list")
+  live_pdf <- rhtp_probe_get("award_list", function()
+    sc_get(sc_source("award_list", "url"), "award_list"), sc_path("award_list"))
   pdf_changed <- digest::digest(live_pdf, algo = "sha256", serialize = FALSE) !=
     digest::digest(file = sc_path("award_list"), algo = "sha256")
   cmp <- dplyr::bind_rows(cmp, tibble::tibble(
