@@ -11,12 +11,12 @@ test_that("twenty-one rows, twelve priced, $9,248,417, each quoted verbatim from
   expect_silent(wv_assert_sources())
 })
 
-test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton and the six 09-30 hospitals are the hospital rows", {
+test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton, the six 09-30 hospitals and Vandalia Health are the hospital rows", {
   h <- wv[wv$distributed_to_hospital == "Yes", ]
   expect_setequal(unique(h$awardee), c("CAMC/Vandalia Health", "Cabell Huntington Foundation",
                                        "Minnie Hamilton Health Care Center",
-                                       WV_INV_ENROL$awardee))
-  expect_equal(nrow(h), 11L)
+                                       WV_INV_ENROL$awardee, "Vandalia Health"))
+  expect_equal(nrow(h), 12L)
   expect_equal(sum(h$amount, na.rm = TRUE), 2924000)
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # The foundation rests on §10.2's named-parent row, a reading -> LOW.
@@ -157,10 +157,14 @@ test_that("session 100: seven 09-30 rows, none priced, six hospitals typed on CM
     expect_match(e[["PROVIDER TYPE TEXT"]][k], "HOSPITAL")
     expect_true(startsWith(x$cms_org, e[["ORGANIZATION NAME"]][k]))
   }
-  # Vandalia Health: a system parent, no enrolment under that name -- Unclear.
+  # Vandalia Health: a system parent, no enrolment under that name. Session
+  # 101's owner ruling types it a hospital at $0, LOW, general knowledge.
   v <- r[r$awardee == "Vandalia Health", ]
-  expect_equal(v$distributed_to_hospital, "Unclear")
-  expect_equal(v$recipient_type, "NONPROFIT_CBO")
-  expect_equal(v$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_equal(v$distributed_to_hospital, "Yes")
+  expect_equal(v$recipient_type, "HOSPITAL_OR_SYSTEM")
+  expect_equal(v$flow_type, "DIRECT")
+  expect_equal(v$determination_confidence, "LOW")
+  expect_equal(v$basis_type, "GENERAL_KNOWLEDGE")
+  expect_true(is.na(v$amount) && is.na(v$ccn))
   expect_false(any(e[["ORGANIZATION NAME"]] == "VANDALIA HEALTH"))
 })
