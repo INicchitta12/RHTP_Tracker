@@ -1736,6 +1736,11 @@ determinations are OVERLAYS on top of that rebuild and must be re-applied:
 **Alaska is rolling.** Roll `AK_PRIOR_FILE` on every refresh. **Leave `AK_CMS_ANCHOR_FILE` alone**: it is the
 2026-08-28 file CMS described as 142 projects. A withdrawn award leaves the file; list it in `AK_WITHDRAWN`.
 
+**Published hospital figures leave `SOURCE_SUSPECT` rows out (session 102, owner ruling).**
+`rhtp_hospital_dollar_partition()` and `R/03ar`'s rural cut drop them by default (`rhtp_is_source_suspect()`); the
+with-suspect figure is internal (`include_source_suspect = TRUE`) and is never published alone. `PROVISIONAL_SOURCE`
+is retired into `AMOUNT_PRELIMINARY`; `test_state_union.R` refuses a row carrying it.
+
 **Confidence (session 88).** `determination_confidence = HIGH` needs a CCN on the row (§7). No name rule,
 state type field or hand coding may emit it; pass any value through `rhtp_confidence_ceiling()`.
 `test_state_union.R` fails a file that breaks this.
@@ -1877,11 +1882,15 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-15, session 101, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-10-16, session 102, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+
+PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 1,338 / $1,310,674,588.63
+(NV's FLEX-28 $997,361.00 and FLEX-36 $2,458,060.00 back in); never publish it alone.
 
 ```
-NAMED_HOSPITAL          1,336 rows   $1,309,664,382.63   32 states
-POOL_NAMED_HOSPITALS        4 rows      $51,084,910.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHPF $20,278,054.31, 2 rows)
+NAMED_HOSPITAL          1,336 rows   $1,307,219,167.63   32 states
+POOL_NAMED_HOSPITALS        6 rows      $55,255,171.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows)
 POOL_UNNAMED_HOSPITALS      5 rows      $69,323,109.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + HI (HAH, $0)
 ```
 
@@ -1901,7 +1910,7 @@ Change a state file and you must update this table in the same commit. Never loo
 |---|---:|---:|---:|---|
 | AK | 254 | 254 | $248,976,548 | 45 / $69,816,744 (intents; rolling, 10-12 notice; 2 withdrawn) |
 | FL | 81 | 81 | $188,201,256 | 15 / $49,345,213 (Year 1 COMPLETE) |
-| NV | 167 | 157 | $175,245,034 (BP1 report, PROVISIONAL) | 46 / $49,169,396 + POOL_NAMED 2 / $20,278,054 (NRHPF, owner ruling; without the 2 SOURCE_SUSPECT rows: 44 / $45,713,975) |
+| NV | 167 | 157 | $175,245,034 (BP1 report, AMOUNT_PRELIMINARY) | 46 / $46,724,181 + POOL_NAMED 4 / $24,448,315 (published, SOURCE_SUSPECT rows out; internal with them 48 / $50,179,602. NRHPF + RHOAP-18 + RHIT-19 owner rulings; Intermountain and Renown system parents, LOW) |
 | WY | 77 | 75 | $173,859,752 | 35 / $84,369,024 (committee approvals) |
 | CO | 92 | 92 | $170,210,575 (release says $169,587,181) | 36 / $86,693,159 (typed on CMS enrolment) |
 | SC | 228 | 228 | $167,299,901 | 114 / $115,985,715 (partial year) |
@@ -1963,7 +1972,7 @@ Stage 4's `data/interim/review_queue.rds`, which does not exist yet.
 
 ### Routines
 
-Every Routine is in `config/routines.csv`. There are 40 (AL added session 84, IA session 101), each on its own persistent runner session. Prompts:
+Every Routine is in `config/routines.csv`. There are 41 (AL added session 84, IA session 101, HI session 102), each on its own persistent runner session. Prompts:
 `config/routine_prompts/v4/<ST>.txt`, derived from the stored v3 prompts by `R/routine_prompts_worktree.R`
 (`--write`, `--check`); runner moves in `config/routine_prompts/runner_moves.csv`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
 `config/probe_gaps_explained.csv`.
@@ -2027,7 +2036,7 @@ Network is Full; the old allowlist blockers are superseded.
     re-run `R/03u --parse-bp1` (needs poppler) and `--build`, and re-read the crosswalk.
   - **IA watch:** Year 2 award window 2026-10-15 .. 11-20 (recorded only). The deck's nine hospitals and the Rural Residency
     NOIA (not RHTP on its face) are read, not extracted.
-  - **Unwatched:** HI SHPDA page (HI is EXTRACTED with no probe), NCDHHS press index.
+  - **Unwatched:** NCDHHS press index. (HI went on a probe and Routine in session 102.)
 - **Session 100.** Detail: `docs/session100_probe_log_runners_wv_hunting_sweep.md`.
   - **Owner decisions that move hospital dollars:** MO SMRP pricing (+$34,646,479.34, the probe's name trip HID it);
     NV BP1 report (`recheck/2026-10-14/NV/`, `AMOUNT_PRELIMINARY`; NRHPF $20,278,054.31 flow call; two source

@@ -170,7 +170,11 @@ test_that("THE COUNTERFACTUAL: the rule does not reach an ASSOCIATION's foundati
   expect_equal(sum(rr), 2L)
   expect_true(all(nrhp$flow_type[rr] == "PASS_THROUGH_DESIGNATED"))
   expect_true(all(nrhp$hospital_attribution[rr] == "POOL_NAMED_HOSPITALS"))
-  expect_true(all(nrhp$flow_type[!rr] == "IN_KIND_BENEFIT"))
+  # SESSION 102: the owner extended the ruling to the RHIT row (RHIT-19) too.
+  # Still by OWNER RULING, never by the foundation row: the type is unchanged.
+  expect_true(all(nrhp$flow_type[!rr] == "PASS_THROUGH_DESIGNATED"))
+  expect_true(all(grepl("OWNER RULING (session 102", nrhp$determination_basis[!rr],
+                        fixed = TRUE)))
 })
 
 test_that("THE SECOND COUNTERFACTUAL: a foundation whose parent is not a hospital", {
@@ -545,7 +549,13 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Retreat, 2 / $713,992) and WV's Vandalia Health (1 / $0, owner ruling):
   # 5 rows / $84,529,867.05, no new state: 1,336 / $1,309,664,382.63 / 32.
   # Subtracted first.
+  # Session 102: + NV's Intermountain RHIT-08 and Renown Health Foundation
+  # RHIT-22, system parents (2 / $1,010,206.00), and the PUBLISHED partition
+  # leaves out NV's two SOURCE_SUSPECT rows (2 / $3,455,421.00; owner ruling):
+  # 1,336 / $1,307,219,167.63 / 32. Restored first, then subtracted as before.
   expect_equal(named$rows, 1336L)
+  expect_equal(round(named$dollars, 2), 1307219167.63, tolerance = 0)
+  named$dollars <- named$dollars - 1010206 + 3455421
   expect_equal(round(named$dollars, 2), 1309664382.63, tolerance = 0)
   named$rows <- named$rows - 5L
   named$dollars <- named$dollars - 84529867.05
@@ -658,10 +668,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 101: + Nevada Rural Hospital Partners Foundation's R+R subaward,
   # $20,278,054.31 on two page rows, on the owner's ruling (Tier 3, BP1
   # report). Subtracted, the session-54 figure is what remains.
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 51084910.43)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 4L)
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 20278054.31, 2),
-               30806856.12)
+  # Session 102: + NRHP's RHOAP-18 ($3,772,261.00) and RHIT-19 ($398,000.00)
+  # on the owner's extension of that ruling, 2 rows / $4,170,261.00.
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 55255171.43)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 6L)
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 4170261, 2),
+               51084910.43)
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 4170261 -
+                       20278054.31, 2), 30806856.12)
   ne <- p %>% filter(bucket == "POOL_NAMED_HOSPITALS", state == "NE")
   expect_equal(ne$dollars, 18156856.12)
 })

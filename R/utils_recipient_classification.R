@@ -1059,19 +1059,42 @@ rhtp_hospital_attribution <- function(flow_type,
 }
 
 
+#' Rows whose flag_reason carries SOURCE_SUSPECT (session 102)
+#'
+#' The published hospital figures leave these rows out by default (owner
+#' ruling); the with-suspect figure is internal. One helper, so the partition
+#' and the rural cut cannot disagree about which rows those are.
+rhtp_is_source_suspect <- function(records) {
+  if (!"flag_reason" %in% names(records)) return(rep(FALSE, nrow(records)))
+  f <- records$flag_reason
+  !is.na(f) & grepl("(^|;)SOURCE_SUSPECT(;|$)", f)
+}
+
+
 #' Partition hospital dollars into NAMED and POOLED -- and never their sum
 #'
 #' @param records Any union of state award files. Needs `amount`,
 #'   `distributed_to_hospital`, `flow_type`, and optionally
 #'   `hospital_attribution` and `state`.
+#' @param include_source_suspect FALSE (the default) drops every row whose
+#'   `flag_reason` carries SOURCE_SUSPECT: the PUBLISHED figure (owner ruling,
+#'   session 102). TRUE keeps them: the INTERNAL figure, never published alone.
 #' @return A tibble, one row per (state, bucket), plus a `bucket` total row per
 #'   bucket. Deliberately NO grand total: see rhtp_hospital_total().
-rhtp_hospital_dollar_partition <- function(records) {
+rhtp_hospital_dollar_partition <- function(records,
+                                           include_source_suspect = FALSE) {
   required <- c("amount", "distributed_to_hospital")
   missing_cols <- setdiff(required, names(records))
   if (length(missing_cols) > 0) {
     stop("rhtp_hospital_dollar_partition() needs: ",
          paste(missing_cols, collapse = ", "), call. = FALSE)
+  }
+
+  # SESSION 102 (owner ruling): a SOURCE_SUSPECT row carries a figure the
+  # source prints and that is internally implausible (Nevada's BP1 FLEX-28 and
+  # FLEX-36). Published figures leave it out; the internal figure keeps it.
+  if (!include_source_suspect) {
+    records <- records[!rhtp_is_source_suspect(records), , drop = FALSE]
   }
 
   attribution <- if ("hospital_attribution" %in% names(records)) {

@@ -44,8 +44,11 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Session 100: + WV's six 09-30 hospitals at $0: 1,331 / same / 32.
   # Session 101: MO SMRP priced, NV BP1 priced (+2 rows), VT 10-08 (+2 rows),
   # WV Vandalia (+1 row, $0): 1,336 / $1,309,664,382.63 / 32.
+  # Session 102: + NV Intermountain/Renown system parents (2 / $1,010,206.00);
+  # the published cut leaves out NV's 2 SOURCE_SUSPECT rows ($3,455,421.00):
+  # 1,336 / $1,307,219,167.63 / 32.
   expect_equal(nrow(rows), 1336L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1309664382.63,
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1307219167.63,
                tolerance = 0)
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
@@ -92,14 +95,16 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   # prices ($12,149,876.33) and NV's two CCN 291306 rows their BP1 figures
   # (Washoe Barton $2,458,060.00 -- SOURCE_SUSPECT -- and Carson Valley
   # $404,791.00): 268 / $282,660,793.99.
-  expect_equal(nrow(r), 268L)
+  # Session 102: Washoe Barton's FLEX-36 van is SOURCE_SUSPECT and the
+  # published cut leaves it out (owner ruling): 267 / $280,202,733.99.
+  expect_equal(nrow(r), 267L)
   expect_equal(sum(r$state == "OK"), 8L)
   expect_equal(sum(r$state == "WV"), 6L)
   expect_equal(sum(r$state == "SD"), 9L)
   expect_equal(sum(r$state == "CO"), 26L)
-  expect_equal(sum(r$state == "NV"), 3L)
+  expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 282660793.99, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 280202733.99, tolerance = 0)
   expect_equal(round(sum(r$amount[r$state == "MO"], na.rm = TRUE), 2), 12149876.33)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 18L)
@@ -152,7 +157,7 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 268L)   # session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
+  expect_equal(sum(by$rural_rows), 267L)   # session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,

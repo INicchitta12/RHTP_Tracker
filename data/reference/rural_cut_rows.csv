@@ -585,7 +585,6 @@ NV,nv_year1_awardees.csv,12,Humboldt General Hospital,4715155,NOT_RECORDED,,FALS
 NV,nv_year1_awardees.csv,13,Lincoln County Hospital District dba Grover C. Dils Medical Center,744804,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,14,Mesa View Regional Hospital,4492438.45,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,15,Mt. Grant General Hospital,257415,NOT_RECORDED,,FALSE,,
-NV,nv_year1_awardees.csv,16,Northern Nevada Regional Hospital,997361,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,17,Northern Nye County Hospital District Clinic,1303896,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,18,Pershing General Hospital,2750073,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,19,Silver Springs Stagecoach Hospital District,1595956,NOT_RECORDED,,FALSE,,
@@ -605,7 +604,6 @@ NV,nv_year1_awardees.csv,49,Grover C. Dils Medical Center,,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,52,Desert View Hospital,274907.43,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,70,Renown Health,616903,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,71,Carson Valley Health,19583,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-NV,nv_year1_awardees.csv,76,Washoe Barton Medical Clinic,2458060,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 291306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,291306,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,80,Mt. Grant General Hospital,266725,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,81,Incline Village Hospital,486996,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,82,N. Nye Hospital District,3771330,NOT_RECORDED,,FALSE,,
@@ -616,9 +614,11 @@ NV,nv_year1_awardees.csv,94,Northeastern Nevada Regional Hospital,197685,NOT_REC
 NV,nv_year1_awardees.csv,102,South Lyon Medical Center,225321,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,103,Mesa View Hospital,3965505.09,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,104,Banner Churchill,145428.23,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 291313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,291313,GENERAL_KNOWLEDGE
+NV,nv_year1_awardees.csv,105,Intermountain Health,24506,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,107,Grover c. Dils Medical Center,46700,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,108,Pershing General Hospital,597552.37,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,110,Desert View Hospital,1183284,NOT_RECORDED,,FALSE,,
+NV,nv_year1_awardees.csv,112,Renown Health Foundation,985700,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NV,nv_year1_awardees.csv,120,Humboldt General Hospital,84603,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,123,Desert View Hospital,225840,NOT_RECORDED,,FALSE,,
 NV,nv_year1_awardees.csv,128,Carson Valley Health,404791,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 291306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,291306,GENERAL_KNOWLEDGE
