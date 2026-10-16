@@ -126,7 +126,9 @@ RC_ENROLMENTS <- c(
   # Session 82: Colorado's 36 hospital lines, typed on CMS's CO files.
   CO = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_CO.json",
   # Session 92: Virginia's VHCF round, four exact-record hospital lines.
-  VA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_VA.json")
+  VA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_VA.json",
+  # Session 103: Texas's Rural Texas Strong lines, typed on CMS's TX files.
+  TX = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_TX.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -326,11 +328,14 @@ rc_assert <- function(rows = rc_rows()) {
   # SOURCE_SUSPECT rows (FLEX-28 $997,361.00, FLEX-36 $2,458,060.00; owner
   # ruling): 1,336 / $1,307,219,167.63 / 32. The internal figure, with them, is
   # 1,338 / $1,310,674,588.63.
-  if (nrow(rows) != 1336L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1307219167.63) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 32L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,336 rows / $1,307,219,167.63 ",
-         "/ 32 states; re-state the rural cut against the new partition.",
+  # Session 103: Texas's Rural Texas Strong list (+201 / +$117,571,194.73, a
+  # 33rd state) and OK RRR's SSM St. Anthony Shawnee Cancer Center
+  # (+$1,623,498.82): 1,538 / $1,426,413,861.18 / 33.
+  if (nrow(rows) != 1538L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1426413861.18) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 33L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,538 rows / $1,426,413,861.18 ",
+         "/ 33 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

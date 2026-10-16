@@ -145,7 +145,10 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
                              "ID", "IL", "IN", "KS", "KY", "LA", "MD", "ME", "MI", "MO",
                              "MS", "MT", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
-                             "WV", "WY", "HI")
+                             "WV", "WY", "HI", "TX")
+# Session 103: TX joins from INVESTIGATED_NO_LIST by EXTRACTION -- HHSC's
+# weekly Rural Texas Strong "Intent to Award" list (R/03ce_tx_rts_awardees.R).
+# R/03n's Routine still watches it.
 # Session 101: HI joins from INVESTIGATED_NO_PROBE by EXTRACTION -- SHPDA's
 # page names three RVBI Notices of Award, no amounts (R/03cd_hi_year1_awardees.R).
 
@@ -314,8 +317,9 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
 # negative, never a claim that Montana has awarded nothing.
 # Session 88: Montana leaves for SURVEY_EXTRACTED_STATES (R/03bv).
 # Session 94: Kentucky leaves for SURVEY_EXTRACTED_STATES (R/03by).
+# Session 103: Texas leaves for SURVEY_EXTRACTED_STATES (R/03ce).
 SURVEY_INVESTIGATED_NO_LIST_STATES <- c("CA", "MN", "ND",
-                                        "NM", "TX", "WI")
+                                        "NM", "WI")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them

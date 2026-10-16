@@ -856,3 +856,13 @@ test_that("--probe is wired through rhtp_probe_run and runs the name tripwire", 
   expect_true(grepl('rhtp_probe_run("NV", nv_probe())', src, fixed = TRUE))
   expect_true(grepl("rhtp_assert_no_new_organisations_across", src, fixed = TRUE))
 })
+
+test_that("session 103: NRHP's RHOAP-18 and RHIT-19 carry ASSOCIATION_SERVICE and subtract in one step", {
+  nv <- readr::read_csv(here::here("data", "reference", "nv_year1_awardees.csv"),
+                        show_col_types = FALSE)
+  tag <- nv[grepl("ASSOCIATION_SERVICE", nv$flag_reason), ]
+  expect_setequal(tag$row_no, c(109L, 143L))
+  expect_equal(round(sum(tag$amount), 2), 4170261)
+  expect_true(all(tag$hospital_attribution == "POOL_NAMED_HOSPITALS"))
+  expect_true("ASSOCIATION_SERVICE" %in% rhtp_vocabulary("flag_reason"))
+})

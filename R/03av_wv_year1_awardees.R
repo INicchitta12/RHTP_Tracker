@@ -138,7 +138,7 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 WV_STATE     <- "WV"
 WV_ALLOTMENT <- 199476099        # cms_fy2026_allotments.csv (§7.1)
-WV_TOTAL     <- 9248417          # the PRICED rows; two Minnie Hamilton rows carry none
+WV_TOTAL     <- 15404875         # the PRICED rows (session 103: + $6,156,458); unpriced rows carry none
 WV_NOA_DATE  <- as.Date("2025-12-29")
 WV_DIR       <- file.path("data", "evidence", "recheck", "2026-09-23", "WV")
 WV_CSV       <- here::here("data", "reference", "wv_year1_awardees.csv")
@@ -161,7 +161,11 @@ WV_SLUG <- c(
   chg  = "governor-morrisey-announces-first-provider-productivity-support-fund-award-through-rural",
   ccwv = "governor-morrisey-announces-more-11-million-rural-health-transformation-awards-community",
   mh   = "governor-morrisey-announces-more-4-million-rural-health-transformation-awards-minnie",
-  inv  = "governor-morrisey-announces-more-32-million-rural-health-transformation-investments")
+  inv  = "governor-morrisey-announces-more-32-million-rural-health-transformation-investments",
+  eye  = "governor-morrisey-announces-2-million-investment-expand-teleophthalmology-network-across",
+  phg  = "governor-morrisey-announces-500000-strengthen-mental-health-and-addiction-recovery-services",
+  pca  = "governor-morrisey-announces-nearly-22-million-strengthen-community-health-centers-across",
+  ars  = "governor-morrisey-announces-more-17-million-help-west-virginians-recovery-return-work")
 
 # AWARD RELEASES READ AND JUDGED NOT RHTP (session 99). Each slug is excluded
 # from the tripwire with the sentence that justifies it; a release is never
@@ -188,7 +192,11 @@ WV_PATHS <- c(
   stats::setNames(file.path(WV_DIR, WV_FILES), names(WV_FILES)),
   ccwv = file.path("data", "evidence", "WV", "2026-10-02_wv_art_ccwv_rhtp_awards.html"),
   mh   = file.path("data", "evidence", "WV", "2026-10-02_wv_art_minnie_hamilton_rhtp_awards.html"),
-  inv  = file.path("data", "evidence", "WV", "2026-10-12_wv_art_32m_rhtp_investments.html"))
+  inv  = file.path("data", "evidence", "WV", "2026-10-12_wv_art_32m_rhtp_investments.html"),
+  eye  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_wvu_eye_institute_2m.html"),
+  phg  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_potomac_highlands_guild_500k.html"),
+  pca  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_wvpca_mva_2_2m.html"),
+  ars  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_ascension_recovery_1_5m_and_arc.html"))
 
 # Minnie Hamilton's CMS enrolment (session 85), read from the archived file.
 WV_MH_ENROLMENT <- paste0(
@@ -385,6 +393,57 @@ WV_AWARDS_S100 <- dplyr::bind_rows(
     rounded = FALSE))
 WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S100)
 
+# Session 103: the four 2026-10-13/14 releases the probe passed as CHANGED
+# (headlines say "Investment" and "$X to Strengthen", not "award"). Owner
+# approval, session 103. WVU EYE INSTITUTE: no CMS WV enrolment carries
+# "WVU Eye Institute" or any "Eye" string on a hospital record; the enrolled
+# legal entity, WEST VIRGINIA UNIVERSITY HOSPITALS INC (CCN 510001), is not
+# named, and §10.2 never reaches a sub-unit named without its legal entity.
+# The owner's instruction for that case is Unclear: UNIVERSITY_OR_AHC,
+# PASS_THROUGH_UNRESOLVED, in no bucket (the convention every Unclear row in
+# the union follows). LAUREN'S WISH ($211,700, same release as ARS) is
+# Appalachian Regional Commission INSPIRE money, never a row (§0.1 mode 1).
+WV_EYE_WHY <- paste0(
+  "UNCLEAR ON THE OWNER'S INSTRUCTION (session 103): the release names 'the ",
+  "West Virginia University (WVU) Eye Institute' and states no form. CMS ",
+  "Hospital Enrollments (", WV_INV_ENROL_FILE, ") carries WEST VIRGINIA ",
+  "UNIVERSITY HOSPITALS INC dba WVU HOSPITALS (CCN 510001, Morgantown) and no ",
+  "hospital record whose name or DBA contains 'Eye'. A sub-unit named without ",
+  "its enrolled legal entity is not matched (§10.2, 'what it does not reach'; ",
+  "AHC_STRING_NAMES_NO_ENROLLED_ENTITY's shape), so no ACADEMIC_HEALTH_CENTER ",
+  "typing and no bucket. Queued WV_WVU_EYE_INSTITUTE_UNCLEAR, one-directional: ",
+  "$2,000,026 joins NAMED_HOSPITAL only if a human bridges it.")
+WV_PPSF <- "Provider Productivity Support Fund"
+WV_AWARDS_S103 <- tibble::tribble(
+  ~key, ~date, ~initiative, ~awardee, ~amount, ~quote,
+  ~recipient_type, ~basis_type, ~flow_type, ~dist, ~why, ~rounded,
+  "eye", "2026-10-14", "Connected Care Grid",
+  "West Virginia University (WVU) Eye Institute", 2000026,
+  "announced a $2,000,026 West Virginia Rural Health Transformation Program (WV RHTP) award to the West Virginia University (WVU) Eye Institute",
+  "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "PASS_THROUGH_UNRESOLVED", "Unclear", WV_EYE_WHY, FALSE,
+  "phg", "2026-10-14", paste0(WV_PPSF, " (the release's closing line; the award sentence names no initiative)"),
+  "Potomac Highlands Guild", 500000,
+  "announced a $500,000 Rural Health Transformation Program award to Potomac Highlands Guild",
+  NA, NA, "NON_HOSPITAL", "No",
+  "NON_HOSPITAL on the owner's approval (session 103): a mental-health and addiction-recovery provider ('has served these communities for more than 40 years'); the release states no form and no CMS WV hospital, FQHC or RHC enrolment carries the name, so §8's standing fallback, NOT promoted (§0.4).", FALSE,
+  "pca", "2026-10-13", WV_PPSF,
+  "West Virginia Primary Care Association (WVPCA)", 1656432,
+  "includes a $1,656,432 award to the West Virginia Primary Care Association (WVPCA)",
+  "NONPROFIT_CBO", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "NON_HOSPITAL on the owner's approval (session 103): the state's association of community health centres, funding 'a statewide clinically integrated network, beginning with 16 community health center organizations'. Not a hospital association, so §10.2's association row is not reached; on no CMS WV enrolment.", FALSE,
+  "pca", "2026-10-13", WV_PPSF,
+  "Monongahela Valley Association of Health Centers (MVA)", 500000,
+  "a $500,000 award to the Monongahela Valley Association of Health Centers (MVA)",
+  "FQHC_OR_RHC", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "The release: 'MVA, a Federally Qualified Health Center (FQHC)'; CMS FQHC Enrollments: MONONGAHELA VALLEY ASSOCIATION OF HEALTH CENTERS, INC (CCNs 511923, 511925, 511115). No hospital record.", FALSE,
+  "ars", "2026-10-13", "Health to Prosperity",
+  "Ascension Recovery Services (ARS)", 1500000,
+  "announced a $1.5 million award to Ascension Recovery Services (ARS)",
+  NA, NA, "NON_HOSPITAL", "No",
+  "NON_HOSPITAL on the owner's approval (session 103): a recovery-services provider, not the Ascension health system; the release states no form and no CMS WV enrolment carries 'Ascension' or 'Recovery', so §8's standing fallback. The same release's $211,700 to Lauren's Wish is Appalachian Regional Commission INSPIRE money and is not a row.", TRUE)
+WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S103)
+WV_S103_KEYS <- c("eye", "phg", "pca", "ars")
+
 # Each release's own headline total, which the priced rows must not exceed
 # (CCWV) or which bounds the unpriced remainder (Minnie Hamilton).
 WV_CCWV_TOTAL <- 1103614     # "more than $1.1 million": the four rows, exactly
@@ -430,6 +489,16 @@ wv_assert_sources <- function() {
     stop("[WV] a 09-30 Investments row carries an amount the release does not print.",
          call. = FALSE)
   }
+  # Session 103: WVPCA + MVA make the release's "nearly $2.2 million"; the
+  # ARS release's "More Than $1.7 Million" includes $211,700 of ARC money.
+  if (sum(WV_AWARDS$amount[WV_AWARDS$key == "pca"]) != 2156432 ||
+      !grepl("nearly $2.2 million in Rural Health Transformation Program awards", wv_text("pca"), fixed = TRUE)) {
+    stop("[WV] WVPCA + MVA no longer make the release's 'nearly $2.2 million'.", call. = FALSE)
+  }
+  ars <- wv_text("ars")
+  if (!grepl("Lauren's Wish CAREERS Program will receive $211,700 in Appalachian Regional Commission funding", ars, fixed = TRUE)) {
+    stop("[WV] the ARS release no longer marks Lauren's Wish as ARC money.", call. = FALSE)
+  }
   if (!all(as.Date(WV_AWARDS$date) > WV_NOA_DATE)) stop("[WV] date test.")
   invisible(TRUE)
 }
@@ -443,7 +512,8 @@ wv_year1_awardees <- function() {
                            a$basis_type == "GENERAL_KNOWLEDGE" ~ "LOW",
                            TRUE ~ "MEDIUM")
   flag <- ifelse(!typed, "RECIPIENT_TYPE_INFERRED", NA_character_)
-  flag <- ifelse(a$rounded, "AMOUNT_ROUNDED_IN_SOURCE", flag)
+  flag <- ifelse(a$rounded, ifelse(is.na(flag), "AMOUNT_ROUNDED_IN_SOURCE",
+                                   paste0(flag, ";AMOUNT_ROUNDED_IN_SOURCE")), flag)
   flag <- ifelse(is.na(a$amount),
                  ifelse(!typed, "RECIPIENT_TYPE_INFERRED;AMOUNT_MISSING", "AMOUNT_MISSING"),
                  flag)
@@ -489,8 +559,8 @@ wv_year1_awardees <- function() {
     reviewer = NA_character_,
     initiative = a$initiative,
     recipient_type_source = ifelse(
-      typed, paste0(ifelse(inv, "TYPED (session 100): ",
-                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): ")),
+      typed, paste0(ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
+                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): "))),
                     a$why, " Classifier said ",
                     cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
@@ -512,6 +582,7 @@ wv_year1_awardees <- function() {
       inv ~ "NOT PRICED: the 2026-09-30 release prints only 'more than $3.2 million' across seven recipients and prices none; never divided (§6.2).",
       is.na(a$amount) ~ "NOT PRICED: the release prices one of Minnie Hamilton's three projects; the rest of 'More Than $4 Million' is not divided (§6.2).",
       a$awardee == "Ascend WV" ~ "ROUNDED IN SOURCE: printed only as '$2.4 million'.",
+      a$key == "ars" ~ "ROUNDED IN SOURCE: printed only as '$1.5 million'. The headline's '$1.7 million' adds ARC money and is not this row's total.",
       a$rounded ~ "ROUNDED IN SOURCE: printed only as '$1.7 million'.",
       TRUE ~ "EXACT, as printed in the release."),
     basis_type = a$basis_type,
@@ -591,8 +662,51 @@ wv_assert_no_new_award_release <- function(raw) {
   invisible(arts)
 }
 
+#' THE NAME CHECK (session 103): read the BODY of every article new to the
+#' index, whatever its headline says.
+#'
+#' The headline filter above missed the 09-30 "Investments" release and then
+#' all four 10-13/10-14 award releases ("$2 Million Investment ...", "$500,000
+#' to Strengthen ..."): a phrase list holds only the phrasings West Virginia
+#' has already used (§2.3). So every slug on the live index that the archived
+#' index does not carry, and that this file has not recorded or judged, is
+#' fetched (into memory, never data/evidence/, §2.2) and trips when its body
+#' says "Rural Health Transformation" and "award". The finding names the
+#' organisations in its award sentences, so the recipient trips regardless of
+#' the headline's wording.
+#'
+#' @param raw The live index. @param archived_raw The committed index.
+#' @param fetch_article function(slug) returning the article's raw HTML.
+#' @return The findings (character), empty when nothing new awards.
+wv_new_article_findings <- function(raw, archived_raw, fetch_article, cap = 12L) {
+  live <- wv_news_articles(raw)
+  held <- wv_news_articles(archived_raw)
+  new <- live[!live$slug %in% c(held$slug, unname(WV_SLUG), WV_NOT_RHTP$slug,
+                                WV_READ_UNEXTRACTED$slug), , drop = FALSE]
+  if (nrow(new) > cap) {
+    return(paste0("NEWS INDEX: ", nrow(new), " articles are new against the ",
+                  "archived index -- more than the ", cap, " this check reads. ",
+                  "Re-base the index (READ it first) so the name check can run."))
+  }
+  out <- character(0)
+  for (i in seq_len(nrow(new))) {
+    body <- wv_page_text(fetch_article(new$slug[i]))
+    if (!grepl("Rural Health Transformation", body, fixed = TRUE) ||
+        !grepl("\\bawards?\\b|\\bawarded\\b", body, ignore.case = TRUE)) next
+    sent <- rhtp_sentences(body)
+    sent <- sent[grepl("\\baward", sent, ignore.case = TRUE)]
+    nm <- rhtp_organisation_names(paste(sent, collapse = " "))
+    out <- c(out, paste0("NEW RHTP AWARD ARTICLE: '", new$headline[i], "' (/article/",
+                         new$slug[i], ") names ",
+                         if (length(nm)) paste(nm, collapse = "; ") else "no organisation-shaped name",
+                         ". Read it; archive it and add the row(s) to WV_AWARDS, or ",
+                         "record it in WV_NOT_RHTP with its sentence."))
+  }
+  out
+}
+
 wv_probe <- function() {
-  live <- list(); arch <- list(); changed <- logical(0)
+  live <- list(); arch <- list(); changed <- logical(0); findings <- character(0)
   for (i in seq_len(nrow(WV_PROBE_PAGES))) {
     p <- WV_PROBE_PAGES[i, ]
     raw <- rhtp_probe_get(p$key, function() {
@@ -607,15 +721,35 @@ wv_probe <- function() {
     lt <- wv_page_text(raw)
     at <- wv_page_text(here::here(WV_PROBE_DIR, p$file))
     changed[p$key] <- !identical(digest::digest(lt), digest::digest(at))
-    if (p$key == "news") wv_assert_no_new_award_release(raw)
+    if (p$key == "news") {
+      held_raw <- here::here(WV_PROBE_DIR, p$file)
+      found <- wv_new_article_findings(raw, held_raw, function(slug) {
+        Sys.sleep(1)
+        resp <- httr::GET(paste0(WV_URL, slug), httr::user_agent(WV_USER_AGENT),
+                          httr::timeout(60))
+        if (httr::status_code(resp) != 200L) {
+          stop("[WV] HTTP ", httr::status_code(resp), " from /article/", slug,
+               call. = FALSE)
+        }
+        httr::content(resp, as = "raw")
+      })
+      # Session 101's rule: nothing throws early. The headline trip and the
+      # body check are both collected as findings and logged TRIPWIRE.
+      head_trip <- tryCatch({ wv_assert_no_new_award_release(raw); NULL },
+                            error = function(e) conditionMessage(e))
+      findings <- c(findings, head_trip, found)
+    }
     if (isTRUE(p$name_diff)) { live[[p$key]] <- lt; arch[[p$key]] <- at }
   }
   rhtp_assert_no_new_organisations_across(live = live, archived = arch,
                                           state = WV_STATE)
   message("[WV] ", paste0(names(changed), ": ",
                           ifelse(changed, "CHANGED", "UNCHANGED"), collapse = "; "),
-          " -- no new award release.")
-  invisible(tibble::tibble(key = names(changed), changed = unname(changed)))
+          if (length(findings)) paste0(" -- ", length(findings), " FINDING(S).")
+          else " -- no new award release.")
+  invisible(list(sources = stats::setNames(lapply(changed, function(x) list(changed = x)),
+                                           names(changed)),
+                 findings = findings))
 }
 
 
@@ -639,7 +773,9 @@ wv_status_table <- function() {
 wv_validate <- function() {
   wv_assert_sources()
   d <- wv_year1_awardees()
-  stopifnot(nrow(d) == 21L, sum(!is.na(d$amount)) == 12L,
+  # Session 103: + 5 rows, all priced; WVU Eye Institute is Unclear ($2,000,026).
+  stopifnot(nrow(d) == 26L, sum(!is.na(d$amount)) == 17L,
+            sum(d$distributed_to_hospital == "Unclear") == 1L,
             sum(d$distributed_to_hospital == "Yes") == 12L,   # session 101: + Vandalia Health ($0)
             sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 2924000)
   message("[WV] all assertions pass.")
@@ -660,7 +796,7 @@ wv_build <- function() {
                      dplyr::across(dplyr::everything(), as.character))
   readr::write_csv(s71$s71_overlay(d, basename(WV_CSV)), WV_CSV, na = "")
   readr::write_csv(wv_status_table(), WV_STATUS_CSV, na = "")
-  message("[WV] wrote 21 award rows.")
+  message("[WV] wrote 26 award rows.")
 }
 
 wv_report <- function() {

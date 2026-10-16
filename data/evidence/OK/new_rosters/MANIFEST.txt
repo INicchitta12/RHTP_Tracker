@@ -30,3 +30,19 @@ R httr2)"; passed ok_assert_credential_free(). Bytes as served.
 
 2026-10-12_ok_rhtp_funding_recipients.html  256550  e000ef82c8fb8d3ee2f6c8dae955d524bab40cb0e6f075c0627deaf601725606
   https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html
+
+OKLAHOMA -- the Funding Recipients page as served 2026-10-16 (session 103)
+
+Read on the owner's approval (session 103, Task 4) after the OK Routine's
+2026-10-15 TRIPWIRE. "Last Modified on Oct 15, 2026". Against 2026-10-12: RRR
+GAINED "SSM St. Anthony Shawnee Cancer Center, $1,623,498.82" (19 -> 20,
+$40,078,521.82); every RRR line now carries its "Counties covered:" text and
+two names are re-punctuated ("CREOKS ... Inc DBA", "Cancer Centers of
+Southwest Oklahoma, LLC"); "City of Wewoka (Fire Department), serving Hughes
+and Seminole Counties" is GONE from the ambulance-funding list
+(38 -> 37; the first line under "Organizations receiving ambulance funding:"). Source for R/03bt (RRR) and R/03cc (EMS/CP). Fetched with curl -L,
+agent "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)";
+passed ok_assert_credential_free(). Bytes as served.
+
+2026-10-16_ok_rhtp_funding_recipients.html  260356  4383da5dd3bd3690054c459b1cd204032d5b0a5e997139d535a5c972cf0f94ce
+  https://oklahoma.gov/rhtp/rhtp-funding-recipients.html

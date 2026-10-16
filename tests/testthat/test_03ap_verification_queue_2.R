@@ -553,6 +553,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # RHIT-22, system parents (2 / $1,010,206.00), and the PUBLISHED partition
   # leaves out NV's two SOURCE_SUSPECT rows (2 / $3,455,421.00; owner ruling):
   # 1,336 / $1,307,219,167.63 / 32. Restored first, then subtracted as before.
+  # Session 103: + Texas's Rural Texas Strong list (201 / $117,571,194.73, a
+  # 33rd state) and OK RRR's SSM St. Anthony Shawnee Cancer Center
+  # (1 / $1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Subtracted first.
+  expect_equal(named$rows, 1538L)
+  expect_equal(round(named$dollars, 2), 1426413861.18, tolerance = 0)
+  named$rows <- named$rows - 202L
+  named$dollars <- named$dollars - 119194693.55
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1336L)
   expect_equal(round(named$dollars, 2), 1307219167.63, tolerance = 0)
   named$dollars <- named$dollars - 1010206 + 3455421
@@ -711,6 +719,11 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # UAMS re-type puts Arkansas back in front ($128,336,961.52).
   expect_equal(p$state[[1]], "AR")
   expect_equal(round(p$dollars[[1]], 2), 128336961.52)
+  # SESSION 103: Texas's Rural Texas Strong list ($117,571,194.73, 113 of its
+  # 201 rows intents) goes second; the order below it is unchanged.
+  expect_equal(p$state[[2]], "TX")
+  expect_equal(round(p$dollars[[2]], 2), 117571194.73)
+  p <- p[p$state != "TX", ]
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53
   # SESSION 83: Alabama's two rounds ($83,548,287 + $20,886,572) go ahead of

@@ -4,10 +4,11 @@
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
 wv <- wv_year1_awardees()
 
-test_that("twenty-one rows, twelve priced, $9,248,417, each quoted verbatim from its release", {
-  expect_equal(nrow(wv), 21L)
-  expect_equal(sum(!is.na(wv$amount)), 12L)
-  expect_equal(sum(wv$amount, na.rm = TRUE), 9248417)
+test_that("twenty-six rows, seventeen priced, $15,404,875, each quoted verbatim from its release", {
+  # Session 103: + five rows from the 10-13/10-14 releases ($6,156,458).
+  expect_equal(nrow(wv), 26L)
+  expect_equal(sum(!is.na(wv$amount)), 17L)
+  expect_equal(sum(wv$amount, na.rm = TRUE), 15404875)
   expect_silent(wv_assert_sources())
 })
 
@@ -167,4 +168,40 @@ test_that("session 100: seven 09-30 rows, none priced, six hospitals typed on CM
   expect_equal(v$basis_type, "GENERAL_KNOWLEDGE")
   expect_true(is.na(v$amount) && is.na(v$ccn))
   expect_false(any(e[["ORGANIZATION NAME"]] == "VANDALIA HEALTH"))
+})
+
+test_that("session 103: WVU Eye Institute is Unclear and the other four are not hospitals", {
+  eye <- wv[wv$awardee == "West Virginia University (WVU) Eye Institute", ]
+  expect_equal(eye$amount, 2000026)
+  expect_equal(eye$distributed_to_hospital, "Unclear")
+  expect_equal(eye$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_equal(eye$hospital_attribution, "NOT_HOSPITAL")
+  expect_true(is.na(eye$ccn))
+  s103 <- wv[wv$state_source_url %in% paste0(WV_URL, WV_SLUG[c("phg", "pca", "ars")]), ]
+  expect_equal(nrow(s103), 4L)
+  expect_true(all(s103$distributed_to_hospital == "No"))
+  expect_equal(sum(s103$amount), 4156432)
+  ars <- wv[grepl("^Ascension Recovery", wv$awardee), ]
+  expect_match(ars$flag_reason, "AMOUNT_ROUNDED_IN_SOURCE")
+  expect_match(ars$flag_reason, "RECIPIENT_TYPE_INFERRED")
+  expect_false(any(grepl("Lauren", wv$awardee)))
+})
+
+test_that("session 103: the name check reads the BODY of a new article, not its headline", {
+  idx <- function(slugs, heads) charToRaw(paste0("<html><body>", paste0(
+    '<a href="/article/', slugs, '" title="Read article: ', heads, '">Full Story</a>',
+    collapse = ""), "</body></html>"))
+  held <- idx(paste0("old-", 1:3), paste("Old", 1:3))
+  live <- idx(c(paste0("old-", 1:3), "x-investment", "y-flu"),
+              c("Old 1", "Old 2", "Old 3", "Governor Announces $9 Million Investment", "Flu Shots"))
+  bodies <- list(
+    "x-investment" = charToRaw("<html><main><p>Governor Morrisey announced a $9,000,000 Rural Health Transformation Program award to Mountaineer Regional Hospital. More follows.</p></main></html>"),
+    "y-flu" = charToRaw("<html><main><p>Get a flu shot at the Kanawha County Health Department.</p></main></html>"))
+  f <- wv_new_article_findings(live, held, function(slug) bodies[[slug]])
+  expect_length(f, 1L)
+  expect_match(f, "x-investment")
+  expect_match(f, "Mountaineer Regional Hospital")
+  # a recorded release is never re-read
+  rec <- idx(c(paste0("old-", 1:3), WV_SLUG[["eye"]]), c("Old 1", "Old 2", "Old 3", "Eye"))
+  expect_length(wv_new_article_findings(rec, held, function(slug) stop("fetched")), 0L)
 })

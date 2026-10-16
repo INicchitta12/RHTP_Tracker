@@ -331,7 +331,12 @@ STATE_FILES <- c(
   # NO amounts (they are in HANDS, 403 here). The Healthcare Association of
   # Hawaii is POOL_UNNAMED_HOSPITALS at $0 on the owner's instruction: a
   # hospital bucket row with no dollar figure, which must union cleanly.
-  HI = "data/reference/hi_year1_awardees.csv"
+  HI = "data/reference/hi_year1_awardees.csv",
+  # TEXAS (session 103): HHSC's weekly Rural Texas Strong "Intent to Award"
+  # list, 312 application lines. `amount` is the Year 1 subset; the
+  # multi-year total sits in total_award_amount and must never be summed with
+  # it. 97 lines are executed contracts, 215 intents (AMOUNT_PRELIMINARY).
+  TX = "data/reference/tx_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -375,7 +380,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "VA", "VT", "WA",
+                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WA",
                  "WV", "WY"))
 })
 

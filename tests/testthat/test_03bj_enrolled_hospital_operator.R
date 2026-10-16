@@ -283,6 +283,14 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 102: + NV system parents (2 / $1,010,206.00), published partition
   # without NV's 2 SOURCE_SUSPECT rows ($3,455,421.00): 1,336 /
   # $1,307,219,167.63. Restored first.
+  # Session 103: + Texas's Rural Texas Strong list (201 / $117,571,194.73, a
+  # 33rd state) and OK RRR's SSM St. Anthony Shawnee Cancer Center
+  # (1 / $1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Subtracted first.
+  expect_equal(n$rows, 1538L)
+  expect_equal(round(n$dollars, 2), 1426413861.18)
+  n$rows <- n$rows - 202L
+  n$dollars <- n$dollars - 119194693.55
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1336L)
   expect_equal(round(n$dollars, 2), 1307219167.63)
   n$dollars <- n$dollars - 1010206 + 3455421
@@ -370,7 +378,10 @@ test_that("every OTHER row in the repository states a determined form", {
   # association of municipal governments.
   # Session 101: + Physicians of Southwest Washington, LLC (HI, R/03cd), a
   # physician-led IPA / MSO.
-  expect_equal(nrow(rev), 124L)
+  # Session 103: + 10 Texas OTHER rows (R/03ce): seven retail pharmacies, one
+  # grocery-pharmacy chain (Brookshire Brothers), two U.S. Renal Care dialysis
+  # facilities -- each with its form in determination_basis.
+  expect_equal(nrow(rev), 134L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

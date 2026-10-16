@@ -36,5 +36,7 @@ test_that("the floor is never an award file in the union", {
   ex <- parse(here::here("tests", "testthat", "test_state_union.R"))
   for (x in ex) if (is.call(x) && identical(x[[2]], as.name("STATE_FILES")))
     sf <- eval(x[[3]], envir = baseenv())
-  expect_false(any(grepl("tx_", sf)))
+  # Session 103: Texas's award file (R/03ce) is in the union; the floor never is.
+  expect_false(any(grepl("tx_bp1", sf)))
+  expect_true("data/reference/tx_year1_awardees.csv" %in% sf)
 })

@@ -3038,7 +3038,10 @@ nv_apply_s102_rulings <- function(out) {
     out$hospital_attribution[r] <- "POOL_NAMED_HOSPITALS"
     out$intermediary_name[r] <- x$intermediary
     out$determination_confidence[r] <- "LOW"
+    # Session 103 (owner): ASSOCIATION_SERVICE, CMS_OBLIGATION_ASSOCIATION's
+    # pattern, so these two lines subtract in one step by flag.
     out$flag_reason[r] <- nv_bp1_flags(out$flag_reason[r],
+      add = "ASSOCIATION_SERVICE",
       drop = "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED")
     out$determination_basis[r] <- paste0(
       "OWNER RULING (session 102, NV_BP1_FOLLOWUPS (1)): takes the NRHPF ",
