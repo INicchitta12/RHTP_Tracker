@@ -82,7 +82,8 @@ Y1_AWARD_FILES <- c(
   NJ = "nj_year1_awardees.csv",
   LA = "la_year1_awardees.csv",
   CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv",
-  HI = "hi_year1_awardees.csv"
+  HI = "hi_year1_awardees.csv",
+  TX = "tx_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -331,6 +332,11 @@ Y1_STATUS <- tibble::tribble(
   "2026-10-14",
   "Three RVBI Notices of Award (HPCA 8/28, Healthcare Association of Hawaii 9/3, Physicians of Southwest Washington 9/11) under a '$25 million' RVBI line; amounts only in HANDS (403). RHIN ($45M) and the other initiatives name no recipient (session 101).",
   "data/evidence/recheck/2026-10-14/HI/hi_shpda_rhtp_programme_three_notices_of_award.html",
+
+  "TX", "PARTIAL", "No", "Yes",
+  "2026-10-14",
+  "HHSC's weekly Rural Texas Strong list: 'Applications or applicants that don't appear on this list haven't reached that stage of the process ... The list will be updated weekly' and 'HHSC will continue to announce its intent to award funding on a weekly basis'. 312 lines, 215 of them intents (session 103).",
+  "data/evidence/recheck/2026-10-16/TX/2026-10-16_hhsc_rts_list_award_recipients_as_of_2026-10-14.xlsx",
 
   "KY", "PARTIAL", "No", "Yes",
   "2026-10-05",

@@ -127,8 +127,9 @@ test_that("OK: the probe baseline is separate from the extraction archive", {
   e <- new.env()
   sys.source(here::here("R", "03t_ok_year1_awardees.R"), envir = e)
   f <- e$ok_probe_baseline_file("funding")
-  # Re-based 2026-10-02 (session 86) after RRR and CDM were written.
-  expect_match(f, "probe_baseline/2026-10-02_ok_rhtp_funding.html$")
+  # Re-based 2026-10-02 (session 86) after RRR and CDM were written, and
+  # 2026-10-16 (session 103) after BHI, EMS/CP and SSM Shawnee were read.
+  expect_match(f, "probe_baseline/2026-10-16_ok_rhtp_funding.html$")
   expect_true(file.exists(here::here(f)))
   expect_false(identical(f, e$ok_path("funding")))
   # The live-bytes override is empty outside a probe, so --validate still
@@ -141,13 +142,21 @@ test_that("OK: the pending-opportunity check fires on live bytes carrying an awa
   sys.source(here::here("R", "03t_ok_year1_awardees.R"), envir = e)
   raw <- readBin(here::here(e$ok_path("recipients")), "raw",
                  file.info(here::here(e$ok_path("recipients")))$size)
-  # Session 86: CDM is written and no longer pending; Behavioral Health
-  # Integration still is.
-  txt <- sub("</main>", "<p>Behavioral Health Integration awardees</p></main>",
+  # Session 103: nothing is pending (every closed opportunity is extracted),
+  # so the check is exercised with a stand-in pending entry, as it will be
+  # the day OSDH closes a new opportunity.
+  expect_length(e$OK_PENDING_OPPORTUNITIES, 0L)
+  assign("OK_PENDING_OPPORTUNITIES", "Example New Opportunity - Round 1", envir = e)
+  funding_raw <- readBin(here::here(e$ok_path("funding")), "raw",
+                         file.info(here::here(e$ok_path("funding")))$size)
+  assign("funding", charToRaw(sub("</main>", "<p>Example New Opportunity - Round 1</p></main>",
+                                  rawToChar(funding_raw), fixed = TRUE)), envir = e$.ok_live)
+  txt <- sub("</main>", "<p>Example New Opportunity awardees</p></main>",
              rawToChar(raw), fixed = TRUE)
   assign("recipients", charToRaw(txt), envir = e$.ok_live)
   e$ok_cache_clear()
   expect_error(e$ok_assert_pending_not_awarded(), "Funding Recipients page")
+  assign("OK_PENDING_OPPORTUNITIES", character(0), envir = e)
   rm(list = ls(e$.ok_live), envir = e$.ok_live)
   e$ok_cache_clear()
   expect_true(e$ok_assert_pending_not_awarded())
