@@ -1127,3 +1127,7 @@ WI,2026-10-16T14:03:51Z,TRIPWIRE,dhs_solicit,"[WI] 'dhs_solicit' NAMES 4 ORGANIS
 NV,2026-10-16T15:15:53Z,UNCHANGED,roster,,trig_013u9wiLjrzkXJJ6PCax6LVm
 NV,2026-10-16T15:15:53Z,UNCHANGED,nofos,,trig_013u9wiLjrzkXJJ6PCax6LVm
 NV,2026-10-16T15:15:53Z,UNCHANGED,bp1_report,,trig_013u9wiLjrzkXJJ6PCax6LVm
+ME,2026-10-16T16:21:41Z,UNCHANGED,(all),,trig_01D21P4pNZXJv9vN7Uv6jmdn
+ME,2026-10-16T16:21:41Z,ERROR,rhef,[ME] HTTP 403 for https://www.maine.gov/dhhs/news/maine-dhhs-releases-30-million-strengthen-rural-hospital-resiliency-2026-07-31,trig_01D21P4pNZXJv9vN7Uv6jmdn
+ME,2026-10-16T16:21:41Z,ERROR,doe,[ME] HTTP 403 for https://www.maine.gov/doe/pathways/healthcareexplorations,trig_01D21P4pNZXJv9vN7Uv6jmdn
+ME,2026-10-16T16:21:41Z,ERROR,programme,[ME] HTTP 403 for https://www.maine.gov/dhhs/ruralhealth,trig_01D21P4pNZXJv9vN7Uv6jmdn
