@@ -1163,3 +1163,37 @@ TX,2026-10-16T22:11:23Z,CHANGED,rts_init4r2,,interactive
 TX,2026-10-16T22:11:23Z,CHANGED,rts_init6p1,,interactive
 TX,2026-10-16T22:11:23Z,CHANGED,state_debt_rfa,,interactive
 TX,2026-10-16T22:11:23Z,CHANGED,state_impr_rfa,,interactive
+WY,2026-10-16T21:11:54Z,CHANGED,programme,,trig_01CLqQDvGoWCDoSMtS29FJbQ
+WY,2026-10-16T21:11:54Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Year One Award Approvals View Year One Award Approvals Project and Budget Narratives. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01CLqQDvGoWCDoSMtS29FJbQ
+TN,2026-10-17T09:42:10Z,UNCHANGED,rhtp,,trig_01Bky7YZTFgaT2dZddvfNL4g
+TN,2026-10-17T09:42:10Z,CHANGED,news,,trig_01Bky7YZTFgaT2dZddvfNL4g
+TN,2026-10-17T09:42:10Z,UNCHANGED,ramp,,trig_01Bky7YZTFgaT2dZddvfNL4g
+NC,2026-10-17T10:52:27Z,CHANGED,pr_mih,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-10-17T10:52:27Z,CHANGED,pr_roots,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-10-17T10:52:27Z,CHANGED,roots_page,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-10-17T10:52:27Z,CHANGED,opportunities,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-10-17T10:52:27Z,CHANGED,trillium,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-10-17T10:52:27Z,TRIPWIRE,trillium,"[NC] 'trillium' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: NC Rural Health Transformation Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_018AHiDwHQLWm9DHxr96c9qB
+NJ,2026-10-17T12:12:28Z,UNCHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
+NJ,2026-10-17T12:12:28Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
+LA,2026-10-17T12:51:36Z,CHANGED,programme,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+LA,2026-10-17T12:51:36Z,CHANGED,funding,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+LA,2026-10-17T12:51:36Z,CHANGED,leg_reports,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+CA,2026-10-17T17:07:29Z,TRIPWIRE,(probe),[CA] the name-tripwire SCOPE anchor for 'funding' was not found: ‘Rural Health California Rural Health Transformation \(CalRHT\)’. The page's layout has moved; re-read it and re-anchor the scope rather than reading the whole page's furniture (§2.3).,trig_01JEYQK9ZNMVpe27H19DFjzX
+NY,2026-10-18T11:12:04Z,UNCHANGED,programme,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-18T11:12:04Z,UNCHANGED,roster,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-18T11:12:04Z,CHANGED,press_index,,trig_012g3adVBX9KEgDt9XiVi2tU
+NY,2026-10-18T11:12:04Z,CHANGED,scr,,trig_012g3adVBX9KEgDt9XiVi2tU
+AR,2026-10-18T20:21:45Z,CHANGED,home2,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-18T20:21:45Z,CHANGED,resources,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-18T20:21:45Z,CHANGED,rise,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-18T20:21:45Z,CHANGED,heart,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-18T20:21:45Z,TRIPWIRE,home2,"[AR] 'home2' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Home Resources Funding Resources Frequently Asked Questions Resource Library Initiatives Healthy Eating. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-18T20:21:45Z,TRIPWIRE,rise,"[AR] 'rise' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Home Resources Funding Resources Frequently Asked Questions Resource Library Initiatives Healthy Eating. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-18T20:21:45Z,TRIPWIRE,heart,"[AR] 'heart' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Home Resources Funding Resources Frequently Asked Questions Resource Library Initiatives Healthy Eating. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01DLRYTSBPvrst5LqGBv1M9M
+KS,2026-10-19T08:13:16Z,ERROR,(probe),ℹ In index: 1. Caused by error: ! [KS] HTTP 403 for https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program,trig_01HYYurhCCUFATgTUuTqqjpn
+CO,2026-10-19T09:11:59Z,UNCHANGED,awardees,,trig_012SyFT6QNtKsZK6veV5KznF
+CO,2026-10-19T09:11:59Z,CHANGED,programme,,trig_012SyFT6QNtKsZK6veV5KznF
+CO,2026-10-19T09:11:59Z,TRIPWIRE,programme,"[CO] 'programme' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Healthcare Providers RHTP Links RHTP Grant RFA Info RFA Applicant Guidance RHTP FAQs Grant Program RFA Sample Activities Webinar Recordings Eligibility Rural Census Tract Definitions Colorado's Rural and Frontier Counties CMS Funding Restrictions Colorado's BY1 Documents Budget Narrative Project Narrative Budget Overview | RHTP Awardees RHTP Program History RHTP Advisory Committee Vendor Interest Form. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_012SyFT6QNtKsZK6veV5KznF
+DE,2026-10-19T11:42:33Z,UNCHANGED,release,,trig_013VNzWcrr3sZKAgTgUTuEvL
+DE,2026-10-19T11:42:33Z,CHANGED,programme,,trig_013VNzWcrr3sZKAgTgUTuEvL
