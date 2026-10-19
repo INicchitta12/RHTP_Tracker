@@ -180,3 +180,42 @@ test_that("session 104: the probe reads the child pages and trips on a new name"
   f$hospitals <- charToRaw(x)
   expect_error(oh_probe_s104(f), "Riverbend Rural Hospital")
 })
+
+
+# -- session 105: the owner ruling on the pool (CLAUDE.md §7) ----------------
+# The shared-with-non-hospitals test applies to each SEPARATELY PRICED
+# COMPONENT of an announcement, not to its headline. A component is a pool
+# only when the source prices it for named hospitals alone.
+
+test_that("session 105: the $30.3M pool rests on a component priced for the 22 hospitals alone", {
+  d <- oh_all_rows()
+  pool <- d[d$hospital_attribution %in% "POOL_NAMED_HOSPITALS", ]
+  expect_equal(nrow(pool), 1L)
+  expect_equal(pool$amount, OH_HOSP_POOL)
+  expect_match(pool$award_pool, "22 rural hospitals", fixed = TRUE)
+  expect_match(pool$determination_basis, "confirmed session 105", fixed = TRUE)
+  # Every recipient the pool names is itself a hospital row.
+  expect_equal(nrow(OH_22), 22L)
+  expect_true(all(d$recipient_type[d$awardee %in% OH_22$awardee] == "HOSPITAL_OR_SYSTEM"))
+  # The headline and the two shared components are in no bucket. The maternal
+  # component is ALSO $30.3M, so it is excluded by its pool, not its amount.
+  expect_false(any(d$amount %in% c(92e6, 31.4e6)))
+  expect_false(any(grepl("Maternal|Clinically Integrated|Innovation Hub|\\$92", d$award_pool)))
+  expect_false(any(d$hospital_attribution[grepl("Maternal|Hub", d$award_pool)] %in%
+                     c("NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS")))
+})
+
+test_that("session 105: a component the source shares with non-hospitals stops the build", {
+  f <- here::here(OH_S104_DIR, OH_S104_PAGES$file[OH_S104_PAGES$key == "hospitals"])
+  x <- rawToChar(readBin(f, "raw", file.size(f)))
+  expect_true(oh_assert_s104_sources(charToRaw(x)))
+  shared <- sub("one-time direct payments to 22 rural hospitals.",
+                "one-time direct payments to 22 rural hospitals and health centers.", x, fixed = TRUE)
+  expect_false(identical(shared, x))
+  expect_error(oh_assert_s104_sources(charToRaw(shared)), "no longer says")
+})
+
+test_that("session 105: CLAUDE.md §7 carries the per-component pool rule", {
+  md <- readLines(here::here("CLAUDE.md"), warn = FALSE)
+  expect_true(any(grepl("^#### A pool is judged per priced component, never by its headline \\(session 105\\)", md)))
+})

@@ -1395,6 +1395,18 @@ it overlaps the named rows by an amount the source does not resolve, and a
 facility type is a setting, not a recipient (§0.3a). Report it beside the
 partition, never inside it. It reopens only when the state names the awards.
 
+#### A pool is judged per priced component, never by its headline (session 105)
+
+The shared-with-non-hospitals test applies to **each separately priced
+component** of an announcement, not to its headline total. A component is a
+`POOL_NAMED_HOSPITALS` row only when the source prices it **for named hospitals
+alone**; a component the source shares with any non-hospital is in no bucket.
+Ohio (owner ruling): ODH's *"$30.3 million in one-time direct payments to 22
+rural hospitals"* is one pool row, never divided (§6.2); the rest of the $92M
+(CINs/Hubs $31.4M, maternal care $30.3M) names non-hospitals and stays out of
+every bucket. The 22 named hospitals are rows at $0 either way. Pinned in
+`test_03an_oh_year1_awardees.R`.
+
 #### Hospital foundations and affiliated arms
 
 **A foundation or affiliated arm of a *named* hospital or health system is
