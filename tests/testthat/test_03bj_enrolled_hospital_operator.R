@@ -286,6 +286,15 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 103: + Texas's Rural Texas Strong list (201 / $117,571,194.73, a
   # 33rd state) and OK RRR's SSM St. Anthony Shawnee Cancer Center
   # (1 / $1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Subtracted first.
+  # Session 104: + TX county-test bridges (7 / $1,987,387.40), MD Labor
+  # (9 / $3,574,030) and Ohio's 22 named hospitals at $0, a 34th state:
+  # 1,576 / $1,431,975,278.58 / 34. Subtracted first.
+  expect_equal(n$rows, 1576L)
+  expect_equal(round(n$dollars, 2), 1431975278.58)
+  expect_equal(n$states, 34L)
+  n$rows <- n$rows - 38L
+  n$dollars <- n$dollars - 5561417.40
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1538L)
   expect_equal(round(n$dollars, 2), 1426413861.18)
   n$rows <- n$rows - 202L
@@ -344,8 +353,9 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   expect_equal(n$states, 30L)
   # Session 101: + NRHPF's R+R subaward (NV, owner ruling), $20,278,054.31.
   # Session 102: + NRHP's RHOAP-18 and RHIT-19 (owner ruling), $4,170,261.00.
-  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 4170261 -
-                       20278054.31, 2), 30806856.12)
+  # Session 104: + Ohio's ODH 22-hospital pool, $30,300,000.
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 30300000 -
+                       4170261 - 20278054.31, 2), 30806856.12)
   # Session 98: + HARI and NHA (CMS_OBLIGATION_ASSOCIATION), $19,314,845.17.
   expect_equal(round(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"] - 19314845.17, 2),
                50008264)
@@ -381,7 +391,9 @@ test_that("every OTHER row in the repository states a determined form", {
   # Session 103: + 10 Texas OTHER rows (R/03ce): seven retail pharmacies, one
   # grocery-pharmacy chain (Brookshire Brothers), two U.S. Renal Care dialysis
   # facilities -- each with its form in determination_basis.
-  expect_equal(nrow(rev), 134L)
+  # Session 104: + Susquehanna Workforce Network, Inc. (MD Labor, R/03cf), a
+  # local workforce development board.
+  expect_equal(nrow(rev), 135L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })
