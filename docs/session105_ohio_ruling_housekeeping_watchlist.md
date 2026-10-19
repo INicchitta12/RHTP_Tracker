@@ -174,4 +174,4 @@ No item opened or resolved. The Ohio pool question was never a queue row; it was
 
 - **Session 104 on `main` (`d96a5c4`, clean detached worktree):** 0 failed, 1 expected skip (`test_00_cms_press_monitor.R:188`, the first-run branch).
 - **This branch, first run:** 3 failures, all in one `test_03ah` test, "Dynatrace's per-request rpid moves the FILE digest". It read `roots_page`, and the re-based capture was served **without** the Dynatrace beacon (ncdhhs.gov, 10-19), so the test lost its sample. It now pins the same mechanism on the un-rebased `programme` capture, which still carries the beacon. The assertions are unchanged and nothing was loosened.
-- **This branch, after the fix:** FINAL_RESULT
+- **This branch, after the fix:** 0 failed, 1 expected skip (the same skip).
