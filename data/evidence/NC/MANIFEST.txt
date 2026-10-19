@@ -10,14 +10,18 @@ attribute: four fetches gave three distinct SHA-256s AND FETCHES 1 AND 2
 WERE IDENTICAL, so a back-to-back pair reports this host stable. Compare
 nc_content_digest(), which discards attributes.
 
+Session 105 (2026-10-19) re-fetched the five PROBE pages (pr_mih,
+pr_roots, roots_page, opportunities, trillium) after reading their
+diffs: page chrome and a Region 2 event notice only, no roster moved.
+
 NOTE: this state has PUBLISHED ROSTERS (39 MIH recipients, 5 ROOTS Hub
 Leads). No extraction has been performed -- see the file header.
 
 file  bytes  sha256
 2026-09-02_nc_ncrhtp_programme.html  84857  7f6773b5d355327d7f53c86568e5e069b6d4e9d6d1b1d443cca4066af1786b0f
-2026-09-02_nc_ncrhtp_grant_opportunities.html  84142  c316acd55a67a1a7cb4b65aacca22398830206dcdc944b5d7b5ef92b463a4721
-2026-09-02_nc_roots_hub_leads.html  207708  35df6bd8e337d9d420bf64ebaa6d5b235bb6846d91accf266e7f2ad06f837a4f
-2026-05-01_nc_pr_roots_hub_leads.html  73024  29ecaf3f78f52417226e11036a3057490561c755edce0cc575f5bfe5bbe49312
-2026-06-08_nc_pr_mobile_integrated_health.html  68454  8a46f13c77be3b40030b0e568231fa5739a8402e6d60c6dfe712e220755768c4
+2026-09-02_nc_ncrhtp_grant_opportunities.html  86223  2cc2347e7ed3e28cd08725ee603740048f63c90541031e630472086de08cf8d2
+2026-09-02_nc_roots_hub_leads.html  207714  a57507502a0da1617d802f0fa10654a8402129864728603a9db49583a6927739
+2026-05-01_nc_pr_roots_hub_leads.html  72756  8d4ffb0da9410cccfdbb6f4b5cadd660360667779a311517d52836d8aac72584
+2026-06-08_nc_pr_mobile_integrated_health.html  68180  8874c350c214097abd33199e419aa60e925592e9482f79378af059dbc0a15229
 2026-06-24_nc_pr_three_digital_programs.html  68255  3958b15782c7e85e3703475d160e986cc12f0faa947d15e4c4ef36b39f7c73bb
-2026-09-02_nc_trillium_roots_region2.html  163072  4413bb99d9c2232d29b79d8a081262b2c9f6ef2d7d2557272d00d9fde6d39cce
+2026-09-02_nc_trillium_roots_region2.html  165348  4ccf38d4fb863f4f0336ba39061a9dd67661b39fb1633879015edb24439ff9df
