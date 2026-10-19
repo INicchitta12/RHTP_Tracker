@@ -439,7 +439,9 @@ oh_year1_awardees <- function() {
 # additional $30.3 million will go to hospital networks and health centers".
 # So NON-HOSPITALS SHARE THE $92M, and the $92M, the $31.4M and the maternal
 # $30.3M stay out of every bucket (owner rule, session 104). THE HOSPITAL
-# $30.3M IS STATED FOR THE 22 HOSPITALS ALONE, so it is ONE
+# $30.3M IS STATED FOR THE 22 HOSPITALS ALONE (owner ruling, session 105: the
+# shared-with-non-hospitals test applies to each separately priced component,
+# not to the headline; CLAUDE.md §7), so it is ONE
 # POOL_NAMED_HOSPITALS row at the stated (rounded) amount, never split per
 # hospital (§6.2) -- CT's Hartford HealthCare pair is the shape. The page also
 # says "The funded projects haven't been announced yet", which is the row's
@@ -502,8 +504,8 @@ OH_22 <- tibble::tribble(
   "Memorial Hospital", "AMBIGUOUS", NA, "TWO enrolled entities carry 'Memorial Hospital' exactly: MEMORIAL HOSPITAL (360156, Fremont) and MEMORIAL HOSPITAL OF UNION COUNTY dba MEMORIAL HOSPITAL (360092, Marysville). The page carries no city, so neither is chosen (no bridge by elimination, session 104)",
   "Wooster Community Hospital", "EXACT", "360036", "CITY OF WOOSTER dba WOOSTER COMMUNITY HOSPITAL (360036, Wooster)")
 
-oh_assert_s104_sources <- function() {
-  t <- oh_s104_text("hospitals")
+oh_assert_s104_sources <- function(hospitals_body = NULL) {
+  t <- oh_s104_text("hospitals", hospitals_body)
   need <- c(OH_POOL_SENTENCE,
             "This project provides $31.4 million to establish/expand these structured alliances.",
             "This investment dedicates $30.3 million to improving maternal care.",
@@ -592,7 +594,7 @@ oh_s104_rows <- function() {
     determination_confidence = "MEDIUM", flag_reason = "AMOUNT_ROUNDED_IN_SOURCE;MULTI_RECIPIENT_FIELD",
     award_pool = "ODH Hospitals: one-time direct payments to 22 rural hospitals ($30.3M)",
     flow_type = "DIRECT", hospital_benefiting = "Yes", hospital_attribution = "POOL_NAMED_HOSPITALS",
-    determination_basis = paste0("§10.2 DIRECT, POOL_NAMED_HOSPITALS (owner rule, session 104): the call rests on ODH's sentence '",
+    determination_basis = paste0("§10.2 DIRECT, POOL_NAMED_HOSPITALS (owner rule, session 104; confirmed session 105, CLAUDE.md §7: a separately priced component stated for named hospitals alone): the call rests on ODH's sentence '",
                                  OH_POOL_SENTENCE, "' -- a figure stated for those 22 hospitals and no one else, all 22 named. ",
                                  "No per-hospital split is published, so the figure is one pool row and is never divided (§6.2); CT's Hartford HealthCare pair is the shape. ",
                                  "VULNERABILITY: the payments are announced, but the page says the funded projects are not."),

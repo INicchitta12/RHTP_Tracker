@@ -1411,9 +1411,18 @@ ca_content_digest <- function(body) {
 #' cannot keep up with a menu, so the tripwire reads from the page's own
 #' breadcrumb ("... Rural Health California Rural Health Transformation
 #' (CalRHT)") to the site footer, on the live and archived copy alike.
+#'
+#' SESSION 105 (proposed and tested session 104, owner-approved): HCAI put a
+#' "Planned Service Outage" banner between the menu and the breadcrumb on
+#' 2026-10-16, which split "Rural Health California Rural Health
+#' Transformation (CalRHT)" and stopped the probe. The anchor now starts at
+#' the page title and requires the heading that follows it on each page, so
+#' a banner above the breadcrumb cannot break it.
 ca_name_scope <- function(text, page) {
   rhtp_name_scope(text,
-                  from = "Rural Health California Rural Health Transformation \\(CalRHT\\)",
+                  from = paste0("California Rural Health Transformation \\(CalRHT\\) ",
+                                "(?:CalRHT Grant Funding Opportunities|",
+                                "Rural Health Transformation Program \\(RHTP\\))"),
                   to = "Subscribe Footer Column 1", state = "CA", page = page)
 }
 

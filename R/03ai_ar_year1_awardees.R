@@ -395,6 +395,19 @@ AR_SOURCES <- tibble::tribble(
 # evidence and is what the round-1 assertions still read.
 AR_WATCHED <- c("home2", "resources", "rise", "heart")
 
+# Read and judged NOT a recipient; matched EXACTLY (§2.3). Session 105
+# (proposed session 104, owner-approved): the 2026-10-18 Routine tripped on
+# home2, rise and heart with this run. Read 2026-10-19: the site menu gained a
+# "Resource Library" item, and the run is the menu ("Home Resources Funding
+# Resources Frequently Asked Questions Resource Library Initiatives Healthy
+# Eating"). The Resource Library page holds subrecipient training videos and
+# names no recipient. Session 105 also re-based the four pages, so the entry
+# is inert until the menu moves again.
+AR_MENU_RUN <- paste("Home Resources Funding Resources Frequently Asked",
+                     "Questions Resource Library Initiatives Healthy Eating")
+AR_NAME_FURNITURE <- list(home2 = AR_MENU_RUN, rise = AR_MENU_RUN,
+                          heart = AR_MENU_RUN)
+
 
 # -- fetch --------------------------------------------------------------------
 
@@ -2890,6 +2903,7 @@ ar_probe <- function() {
     live = stats::setNames(purrr::map(nm_keys, function(k)
       ar_html_text(k, out$html[out$key == k])), nm_keys),
     archived = stats::setNames(purrr::map(nm_keys, ar_html_text), nm_keys),
+    furniture = AR_NAME_FURNITURE,
     state = "AR")
 
   home_html <- out$html[out$key == "home2"]

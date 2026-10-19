@@ -134,7 +134,10 @@ test_that("that figure is refused as a pool, and the MIH pool is not", {
 
 test_that("per-hub amounts appearing turns this into an extraction", {
   skip_without_archive()
-  raw <- readBin(nc_path("roots_page"), "raw", file.size(nc_path("roots_page")))
+  # Session 105: the re-based probe pages were served WITHOUT the Dynatrace
+  # beacon (ncdhhs.gov, 2026-10-19), so the mechanism is pinned on the
+  # programme capture, which still carries it.
+  raw <- readBin(nc_path("programme"), "raw", file.size(nc_path("programme")))
   faked <- sub("Impact Health", "Impact Health $18,000,000",
                rawToChar(raw), fixed = TRUE)
   expect_error(nc_assert_roots_page_has_no_pool(body = charToRaw(faked)),
@@ -205,7 +208,10 @@ test_that("North Carolina reads EXTRACTED, never INVESTIGATED_NO_LIST", {
 
 test_that("Dynatrace's per-request rpid moves the FILE digest, not content", {
   skip_without_archive()
-  raw <- readBin(nc_path("roots_page"), "raw", file.size(nc_path("roots_page")))
+  # Session 105: the re-based probe pages were served WITHOUT the Dynatrace
+  # beacon (ncdhhs.gov, 2026-10-19), so the mechanism is pinned on the
+  # programme capture, which still carries it.
+  raw <- readBin(nc_path("programme"), "raw", file.size(nc_path("programme")))
   txt <- rawToChar(raw)
   expect_true(grepl("ruxitagentjs", txt, fixed = TRUE))
   rolled <- sub("rpid=-?[0-9]+", "rpid=123456789", txt)

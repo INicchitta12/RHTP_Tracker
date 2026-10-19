@@ -346,6 +346,10 @@ nc_write_manifest <- function(entries) {
     "WERE IDENTICAL, so a back-to-back pair reports this host stable. Compare",
     "nc_content_digest(), which discards attributes.",
     "",
+    "Session 105 (2026-10-19) re-fetched the five PROBE pages (pr_mih,",
+    "pr_roots, roots_page, opportunities, trillium) after reading their",
+    "diffs: page chrome and a Region 2 event notice only, no roster moved.",
+    "",
     "NOTE: this state has PUBLISHED ROSTERS (39 MIH recipients, 5 ROOTS Hub",
     "Leads). No extraction has been performed -- see the file header.",
     "",
@@ -1338,10 +1342,17 @@ nc_status_table <- function() {
 # ROOTS Hubs ("Each of the ROOTS Hubs has $5.79 million for workforce
 # initiatives in the first year" -- a Tier 2 pool per Hub) that names no
 # awardee. A page title, not a recipient.
+#
+# Session 105 (proposed session 104, owner-approved): trillium fired on "NC
+# Rural Health Transformation Program". Read 2026-10-19: it is a Region 2 event
+# notice -- "Join us for the Rural Ready Roundtable, a quarterly public meeting
+# for NC ROOTS Hub Region 2. Get updates on the NC Rural Health Transformation
+# Program in your region" -- the programme's own name, not a recipient.
 NC_NAME_FURNITURE <- list(
   trillium = c(
     "About the Advisory Board The NC ROOTS Region",
-    "Advisory Board Members"),
+    "Advisory Board Members",
+    "NC Rural Health Transformation Program"),
   roots_page = c("Rural Health Workforce Transformation"),
   # Session 82: the opportunities page gained the Rural Health Innovation Fund
   # (launched 2026-09-30) as an OPEN opportunity -- "NCDHHS and NCDIT announced

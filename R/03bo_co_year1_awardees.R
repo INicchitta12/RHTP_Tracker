@@ -502,10 +502,28 @@ co_assert_roster_unchanged <- function(raw) {
   invisible(d)
 }
 
+# Read and judged NOT a recipient; matched EXACTLY (§2.3). Session 105
+# (proposed session 104, owner-approved): the 2026-10-19 Routine tripped on the
+# programme page's SIDEBAR. Read 2026-10-19: "Colorado's Approved Documents"
+# became "Colorado's BY1 Documents", and a link "Colorado Annual Report as of
+# 6.31.26" (sic) was added, which splits the menu into two runs. The report is
+# the state's CMS annual-report workbook: four first-tier entities (CDPHE,
+# Colorado Rural Health Center, HealthTech Solutions, HCPF), no hospital, and
+# no subrecipient (session 105 doc). Session 105 also re-based the page, so
+# these entries are inert until the sidebar moves again.
+CO_NAME_FURNITURE <- list(programme = c(
+  paste("Rural Healthcare Providers RHTP Links RHTP Grant RFA Info RFA Applicant",
+        "Guidance RHTP FAQs Grant Program RFA Sample Activities Webinar Recordings",
+        "Eligibility Rural Census Tract Definitions Colorado's Rural and Frontier",
+        "Counties CMS Funding Restrictions Colorado's BY1 Documents Budget",
+        "Narrative Project Narrative Budget Overview"),
+  "RHTP Awardees RHTP Program History RHTP Advisory Committee Vendor Interest Form"))
+
 co_awardee_probe <- function() {
   w <- rhtp_watch_pages(CO_PROBE_PAGES, CO_AW_AGENT)
   co_assert_roster_unchanged(w$raw$awardees)
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+                                          furniture = CO_NAME_FURNITURE,
                                           state = CO_STATE)
   message("[CO] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
