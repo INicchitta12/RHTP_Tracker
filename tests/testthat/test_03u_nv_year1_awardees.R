@@ -661,8 +661,9 @@ test_that("the committed CSV matches what the parser produces", {
   # and appends its eleven new lines (three more columns).
   cols <- c(NV_COLUMN_ORDER, "basis_type", "verified_by", "verified_basis",
             "recipient_subtype", "cms_enrolment_match", "cms_enrolment_record",
-            "bp1_line_id", "bp1_applicant", "bp1_funding_requested")
-  built <- nv_apply_bp1(nv_with_overlay(nv_records())) %>%
+            "bp1_line_id", "bp1_applicant", "bp1_funding_requested",
+            "co_applicant")   # session 102
+  built <- nv_apply_s102_rulings(nv_apply_bp1(nv_with_overlay(nv_records()))) %>%
     dplyr::select(dplyr::all_of(cols))
   expect_equal(nrow(on_disk), nrow(built))
   expect_equal(names(on_disk), cols)
@@ -721,10 +722,12 @@ test_that("determination_basis is present and non-empty on every Nevada row", {
   # SESSION 101: + Banner Churchill (RHIT, row 104, on CCN 291313, owner-
   # approved bridge) and Mt. Grant's new FLEX line (row 158) -> 46 named;
   # + NRHPF rows 26 and 45 on the owner's ruling -> 48 Yes in all.
-  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 48L)
+  # SESSION 102: + rows 105 and 112 (system parents) -> 48 named; + rows 109
+  # and 143 (NRHP lines) -> 4 POOL_NAMED; 52 Yes in all.
+  expect_equal(sum(recs$distributed_to_hospital == "Yes"), 52L)
   expect_equal(sum(recs$distributed_to_hospital[1:72] == "Yes"), 29L)
-  expect_equal(sum(recs$hospital_attribution == "NAMED_HOSPITAL"), 46L)
-  expect_equal(sum(recs$hospital_attribution == "POOL_NAMED_HOSPITALS"), 2L)
+  expect_equal(sum(recs$hospital_attribution == "NAMED_HOSPITAL"), 48L)
+  expect_equal(sum(recs$hospital_attribution == "POOL_NAMED_HOSPITALS"), 4L)
 })
 
 
@@ -744,10 +747,12 @@ test_that("the BP1 table reconciles to every section's own TOTALS row, to the ce
   expect_equal(sum(!is.na(recs$amount)), 157L)
 })
 
-test_that("every priced row is PROVISIONAL_SOURCE, and amount_confirmed stays No", {
+test_that("every priced row is AMOUNT_PRELIMINARY, and amount_confirmed stays No", {
   recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
   priced <- recs[!is.na(recs$amount), ]
-  expect_true(all(grepl("PROVISIONAL_SOURCE", priced$flag_reason, fixed = TRUE)))
+  # Session 102: PROVISIONAL_SOURCE collapsed into AMOUNT_PRELIMINARY.
+  expect_true(all(grepl("AMOUNT_PRELIMINARY", priced$flag_reason, fixed = TRUE)))
+  expect_false(any(grepl("PROVISIONAL_SOURCE", recs$flag_reason, fixed = TRUE)))
   expect_true(all(recs$amount_confirmed == "No"))
   expect_false(any(grepl("AMOUNT_MISSING", priced$flag_reason, fixed = TRUE)))
 })
@@ -761,10 +766,42 @@ test_that("the two source defects are carried AS PUBLISHED and flagged SOURCE_SU
   expect_equal(s$bp1_funding_requested[s$bp1_line_id == "FLEX-28"], 103725086)
   p <- nv_bp1_partition(recs)
   named <- function(x) x[x$bucket == "NAMED_HOSPITAL", ]
-  expect_equal(named(p$with)$rows, 46L)
-  expect_equal(round(named(p$with)$dollars, 2), 49169395.71)
-  expect_equal(named(p$without)$rows, 44L)
-  expect_equal(round(named(p$without)$dollars, 2), 45713974.71)
+  # Session 102: + Intermountain RHIT-08 and Renown Health Foundation RHIT-22
+  # (system parents, +2 / +$1,010,206.00). `without` is the PUBLISHED figure.
+  expect_equal(named(p$with)$rows, 48L)
+  expect_equal(round(named(p$with)$dollars, 2), 50179601.71)
+  expect_equal(named(p$without)$rows, 46L)
+  expect_equal(round(named(p$without)$dollars, 2), 46724180.71)
+  # The partition's DEFAULT is the published figure (owner ruling, session 102).
+  d <- rhtp_hospital_dollar_partition(recs)
+  expect_equal(round(sum(d$dollars[d$bucket == "NAMED_HOSPITAL"]), 2), 46724180.71)
+})
+
+test_that("SESSION 102: the NV_BP1_FOLLOWUPS rulings are on the rows", {
+  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  r <- function(n) recs[recs$row_no == n, ]
+  # (a) NRHP's other two lines take the NRHPF ruling
+  for (n in c(143, 109)) {
+    expect_equal(r(n)$hospital_attribution, "POOL_NAMED_HOSPITALS")
+    expect_equal(r(n)$flow_type, "PASS_THROUGH_DESIGNATED")
+    expect_equal(r(n)$determination_confidence, "LOW")
+    expect_match(r(n)$determination_basis, "OWNER RULING (session 102", fixed = TRUE)
+  }
+  expect_equal(r(143)$amount + r(109)$amount, 4170261)
+  pool <- recs[recs$hospital_attribution == "POOL_NAMED_HOSPITALS", ]
+  expect_equal(round(sum(pool$amount, na.rm = TRUE), 2), 24448315.31)
+  # (b) Intermountain and Renown are system parents, LOW, general knowledge
+  for (n in c(31, 105, 70, 112)) {
+    expect_equal(r(n)$recipient_type, "HOSPITAL_OR_SYSTEM")
+    expect_equal(r(n)$hospital_attribution, "NAMED_HOSPITAL")
+    expect_equal(r(n)$basis_type, "GENERAL_KNOWLEDGE")
+    expect_equal(r(n)$determination_confidence, "LOW")
+    expect_true(is.na(r(n)$ccn))
+  }
+  # (c) RWP-03: the recipient NVHA lists; Banner Churchill a co-applicant at $0
+  expect_equal(r(90)$co_applicant, "Banner Churchill Health")
+  expect_equal(r(90)$distributed_to_hospital, "No")
+  expect_equal(sum(!is.na(recs$co_applicant)), 1L)
 })
 
 test_that("NRHPF is POOL_NAMED_HOSPITALS on the owner's ruling, and the 14 are named", {
@@ -818,4 +855,14 @@ test_that("--probe is wired through rhtp_probe_run and runs the name tripwire", 
   src <- paste(readLines(here::here("R", "03u_nv_year1_awardees.R")), collapse = "\n")
   expect_true(grepl('rhtp_probe_run("NV", nv_probe())', src, fixed = TRUE))
   expect_true(grepl("rhtp_assert_no_new_organisations_across", src, fixed = TRUE))
+})
+
+test_that("session 103: NRHP's RHOAP-18 and RHIT-19 carry ASSOCIATION_SERVICE and subtract in one step", {
+  nv <- readr::read_csv(here::here("data", "reference", "nv_year1_awardees.csv"),
+                        show_col_types = FALSE)
+  tag <- nv[grepl("ASSOCIATION_SERVICE", nv$flag_reason), ]
+  expect_setequal(tag$row_no, c(109L, 143L))
+  expect_equal(round(sum(tag$amount), 2), 4170261)
+  expect_true(all(tag$hospital_attribution == "POOL_NAMED_HOSPITALS"))
+  expect_true("ASSOCIATION_SERVICE" %in% rhtp_vocabulary("flag_reason"))
 })

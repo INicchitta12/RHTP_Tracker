@@ -70,3 +70,20 @@ test_that("the firewall retry stays wired into the Delaware fetch paths", {
   expect_true(grepl("rhtp_fetch_past_firewall(function()",
                     r_src("03al_de_year1_awardees.R"), fixed = TRUE))
 })
+
+test_that("session 103: maine.gov takes the project's other honest agent, and only maine.gov", {
+  suppressWarnings(suppressMessages(source(here::here("R", "03aa_me_year1_awardees.R"))))
+  expect_identical(ME_MAINE_GOV_AGENT,
+                   "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)")
+  expect_true(grepl("aha.org", ME_MAINE_GOV_AGENT, fixed = TRUE))
+  expect_false(grepl("AppleWebKit|Chrome/|Safari/|Gecko", ME_MAINE_GOV_AGENT))
+  expect_identical(me_agent_for("https://www.maine.gov/dhhs/ruralhealth"), ME_MAINE_GOV_AGENT)
+  expect_identical(me_agent_for("https://maine.gov/x"), ME_MAINE_GOV_AGENT)
+  # every other host keeps ME_USER_AGENT, including look-alikes
+  expect_identical(me_agent_for("https://www.mcd.org/focus-areas/x"), ME_USER_AGENT)
+  expect_identical(me_agent_for("https://maine.gov.example.com/"), ME_USER_AGENT)
+  expect_identical(me_agent_for("https://notmaine.gov/"), ME_USER_AGENT)
+  me <- r_src("03aa_me_year1_awardees.R")
+  expect_true(grepl("httr::user_agent(me_agent_for(url))", me, fixed = TRUE))
+  expect_false(grepl("httr::user_agent(ME_USER_AGENT)", me, fixed = TRUE))
+})

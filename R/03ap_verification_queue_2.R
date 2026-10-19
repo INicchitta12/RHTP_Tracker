@@ -449,7 +449,10 @@ vq_union_for_partition <- function(files = VQ_STATE_FILES()) {
       recipient_type = d$recipient_type,
       flow_type = if ("flow_type" %in% names(d)) d$flow_type else NA_character_,
       hospital_attribution = if ("hospital_attribution" %in% names(d))
-        d$hospital_attribution else NA_character_
+        d$hospital_attribution else NA_character_,
+      # Session 102: carried so the partition's published default can leave
+      # SOURCE_SUSPECT rows out (owner ruling).
+      flag_reason = if ("flag_reason" %in% names(d)) d$flag_reason else NA_character_
     )
   })
 }

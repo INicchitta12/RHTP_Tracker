@@ -1981,6 +1981,8 @@ nv_build <- function() {
   out <- nv_with_overlay(recs)
   # SESSION 101: the BP1 report prices the file and adds eleven lines.
   out <- nv_apply_bp1(out)
+  # SESSION 102: the owner's NV_BP1_FOLLOWUPS rulings.
+  out <- nv_apply_s102_rulings(out)
   readr::write_csv(out, NV_OUT_CSV, na = "")
   message("[NV] wrote ", NV_OUT_CSV, " (", nrow(out), " rows)")
 
@@ -2115,6 +2117,18 @@ nv_report <- function() {
   soft <- recs[stringr::str_detect(recs$flag_reason, "RECIPIENT_TYPE_INFERRED"), ]
 
   cat("\nNEVADA -- RHTP Year 1\n"); cat(strrep("=", 74), "\n")
+  # SESSIONS 101-102: the BP1 report prices the file. PUBLISHED figures leave
+  # the SOURCE_SUSPECT rows out (owner ruling, session 102); the with-suspect
+  # figure is INTERNAL and printed only beside it.
+  bp <- nv_bp1_partition()   # the committed, priced file
+  fmt_part <- function(p) paste0(p$bucket, " ", p$rows, " / $",
+                                 formatC(p$dollars, format = "f", digits = 2,
+                                         big.mark = ","), collapse = "; ")
+  cat("PRICED FROM NVHA's BP1 SUBRECIPIENT REPORT (2026-10-13), AMOUNT_PRELIMINARY.\n")
+  cat("  PUBLISHED (no SOURCE_SUSPECT rows): ", fmt_part(bp$without), "\n", sep = "")
+  cat("  INTERNAL  (with ", nrow(bp$suspect_rows), " SOURCE_SUSPECT rows): ",
+      fmt_part(bp$with), "\n", sep = "")
+  cat("  The narrative below predates the BP1 report (session 64).\n\n")
   cat("A COMPLETE, NAMED RECIPIENT ROSTER WITH NO AMOUNTS ON IT.\n\n")
 
   cat("Announced by pool (NEVER per recipient):\n")
@@ -2232,7 +2246,9 @@ nv_report <- function() {
 # sections that each end in a printed TOTALS row. It is PROVISIONAL, in NVHA's
 # own words: "Note: The following list of subaward amounts may not be final as
 # project budgets continue to be refined for CMS approval at the time of this
-# writing (early October 2026)." Every priced row carries PROVISIONAL_SOURCE.
+# writing (early October 2026)." Every priced row carries AMOUNT_PRELIMINARY
+# (session 101 coded it PROVISIONAL_SOURCE; collapsed in session 102, see
+# NV_S102 below).
 #
 # HOW IT IS READ. The report is one Word table per section with wrapped cells.
 # This project's own run reader gives the right x for the FIRST run of a line
@@ -2494,7 +2510,7 @@ nv_assert_bp1 <- function(t = nv_bp1_table()) {
   flat <- nv_pdf_flat(NV_BP1_KEY)
   if (!grepl(NV_BP1_PROVISIONAL, flat, fixed = TRUE)) {
     stop("[NV] the BP1 report no longer carries NVHA's 'may not be final' ",
-         "note; PROVISIONAL_SOURCE would be unsupported.", call. = FALSE)
+         "note; AMOUNT_PRELIMINARY would be unsupported.", call. = FALSE)
   }
   fmt <- function(x) paste0("$", formatC(x, format = "f", digits = 2,
                                          big.mark = ","))
@@ -2773,7 +2789,7 @@ nv_apply_bp1 <- function(out) {
       suspect <- l$bp1_line_id %in% NV_BP1_SOURCE_SUSPECT$bp1_line_id
       out$flag_reason[r] <- nv_bp1_flags(
         out$flag_reason[r], drop = "AMOUNT_MISSING",
-        add = c("PROVISIONAL_SOURCE", if (suspect) "SOURCE_SUSPECT"))
+        add = c("AMOUNT_PRELIMINARY", if (suspect) "SOURCE_SUSPECT"))
       out$amount_basis[r] <- paste0(
         "NVHA's RHTP Subrecipient Report for BP1 (2026-10-13), line ",
         l$bp1_line_id, " ('", l$applicant, "'): BP1 Amount Awarded $",
@@ -2882,7 +2898,7 @@ nv_apply_bp1 <- function(out) {
     row$flag_reason <- nv_bp1_flags(row$flag_reason,
       drop = c("AMOUNT_MISSING",
                if (!wrrap) "POOL_AMOUNT_CONFLICTS_ACROSS_SOURCES"),
-      add = c("PROVISIONAL_SOURCE", if (suspect) "SOURCE_SUSPECT"))
+      add = c("AMOUNT_PRELIMINARY", if (suspect) "SOURCE_SUSPECT"))
     row$state <- NV_STATE
     row$row_no <- first + i - 1L
     row$awardee <- l$applicant
@@ -2922,12 +2938,171 @@ nv_apply_bp1 <- function(out) {
   out
 }
 
+# -- the owner's NV_BP1_FOLLOWUPS rulings (session 102) ------------------------
+#
+# Five questions session 101 queued as NV_BP1_FOLLOWUPS, all answered by the
+# owner on 2026-10-16. Applied AFTER nv_apply_bp1() so every row already
+# carries its BP1 price; keyed on page row numbers and asserted against the
+# awardee string at each, so a re-ordered page fails here rather than moving a
+# ruling onto the wrong row.
+#
+# (a) NRHP's other two lines take the NRHPF ruling: POOL_NAMED_HOSPITALS, LOW.
+#     THE RULING RESTS ON WEAKER TEXT THAN NRHPF'S, AND THE ROWS SAY SO.
+#     NRHPF's R+R line names all fourteen hospitals in its own service-area
+#     cell. These two do not:
+#       RHOAP-18 (row 143, "Nevada Rural Hospital Partners", $3,772,261.00):
+#         service area "All rural hospitals"; project "Support rural hospitals
+#         to build capacity to participate in multi-payer alternative payment
+#         strategies." No hospital is named on the line; the class is the
+#         fourteen NRHPF's line enumerates.
+#       RHIT-19 (row 109, NRHP Foundation, $398,000.00): service area
+#         "Lincoln, Lyon, Mineral, Humboldt Counties"; project "Cybersecurity
+#         for four rural hospitals through a shared CIO model and a pilot
+#         program with Grover C. Dils for endpoint protection and email
+#         security." ONE hospital is named (Grover C. Dils); the other three
+#         are identifiable only by county, which is a reading, not a naming.
+#     Both describe a service NRHP delivers (a shared CIO; capacity-building),
+#     which is the shape §10.2's AHHA negative calls IN_KIND_BENEFIT. That is
+#     why both were IN_KIND until this ruling, and why they are LOW.
+# (b) Intermountain and Renown are hospital/system rows as SYSTEM PARENTS: LOW,
+#     GENERAL_KNOWLEDGE, no CCN, subtractable by basis_type (the SD, VA and WV
+#     system-parent rulings). Rows 31 and 70 were already HOSPITAL_OR_SYSTEM
+#     on session 49's general-knowledge answer; rows 105 and 112 move.
+#     Neither legal name has a Nevada CMS enrolment (session 101).
+# (c) WRRAP_RWP-03 (row 90): coded to the recipient NVHA lists, the Board of
+#     Regents, NSHE, for UNR. "+ Banner Churchill Health" is recorded as a
+#     CO-APPLICANT in `co_applicant`, with NO dollars attributed: a hospital
+#     in the partnership is not a recipient (§7, New York's RCHI rule). Not a
+#     §6.2 MULTI_RECIPIENT_FIELD, on the owner's instruction.
+# (d) Published figures exclude SOURCE_SUSPECT rows by default:
+#     rhtp_hospital_dollar_partition(include_source_suspect = FALSE). The
+#     with-suspect figure is internal and is what nv_bp1_partition()$with
+#     returns.
+# (e) PROVISIONAL_SOURCE is collapsed into AMOUNT_PRELIMINARY. The two
+#     definitions state the same condition -- the publisher says the amount is
+#     not final; amount_confirmed = No; the figure is never dropped or
+#     replaced. The one difference session 101 recorded (a document-level note
+#     against a column header) is where the caveat is PRINTED, not what it
+#     says about the amount, and AMOUNT_PRELIMINARY already carries a
+#     document-level case (Indiana's recommendation letter).
+NV_S102_NRHP <- tibble::tribble(
+  ~row_no, ~awardee,                                     ~bp1_line_id, ~intermediary,
+  143L,    "Nevada Rural Hospital Partners",            "RHOAP-18",   "Nevada Rural Hospital Partners",
+  109L,    "Nevada Rural Hospital Partners Foundation", "RHIT-19",    "Nevada Rural Hospital Partners Foundation, Inc."
+)
+NV_S102_NRHP_WHY <- c(
+  "RHOAP-18" = paste(
+    "The line's service area is 'All rural hospitals' and its project is",
+    "'Support rural hospitals to build capacity to participate in multi-payer",
+    "alternative payment strategies.' NO HOSPITAL IS NAMED ON THIS LINE: the",
+    "named class is the fourteen NRHPF's R+R line (WRRAP_RR-15) enumerates."),
+  "RHIT-19" = paste(
+    "The line's service area is 'Lincoln, Lyon, Mineral, Humboldt Counties' and",
+    "its project is 'Cybersecurity for four rural hospitals through a shared CIO",
+    "model and a pilot program with Grover C. Dils for endpoint protection and",
+    "email security.' ONE hospital is named (Grover C. Dils Medical Center); the",
+    "other three are identifiable only by county, which is a reading, not a",
+    "naming."))
+NV_S102_SYSTEM <- tibble::tribble(
+  ~row_no, ~awardee,                   ~bp1_line_id,  ~system,
+  31L,     "Intermountain Health",     "WRRAP_RR-11", "Intermountain Health (IHC Health Services, Inc.)",
+  105L,    "Intermountain Health",     "RHIT-08",     "Intermountain Health (IHC Health Services, Inc.)",
+  70L,     "Renown Health",            "WRRAP_AT-18", "Renown Health",
+  112L,    "Renown Health Foundation", "RHIT-22",     "Renown Health"
+)
+NV_S102_RWP03 <- list(row_no = 90L,
+                      awardee = "University of Nevada, Reno School of Medicine",
+                      bp1_line_id = "WRRAP_RWP-03",
+                      co_applicant = "Banner Churchill Health")
+
+nv_s102_check_row <- function(out, row_no, awardee, bp1_line_id) {
+  r <- which(out$row_no == row_no)
+  if (length(r) != 1L || !identical(out$awardee[r], awardee) ||
+      !identical(out$bp1_line_id[r], bp1_line_id)) {
+    stop("[NV] session 102's ruling expects row ", row_no, " = '", awardee,
+         "' on BP1 line ", bp1_line_id, "; the file carries something else.",
+         call. = FALSE)
+  }
+  r
+}
+
+nv_apply_s102_rulings <- function(out) {
+  # (a)
+  for (i in seq_len(nrow(NV_S102_NRHP))) {
+    x <- NV_S102_NRHP[i, ]
+    r <- nv_s102_check_row(out, x$row_no, x$awardee, x$bp1_line_id)
+    prior <- paste0(out$flow_type[r], "; ", out$determination_basis[r])
+    out$flow_type[r] <- "PASS_THROUGH_DESIGNATED"
+    out$distributed_to_hospital[r] <- "Yes"
+    out$hospital_benefiting[r] <- "Yes"
+    out$hospital_attribution[r] <- "POOL_NAMED_HOSPITALS"
+    out$intermediary_name[r] <- x$intermediary
+    out$determination_confidence[r] <- "LOW"
+    # Session 103 (owner): ASSOCIATION_SERVICE, CMS_OBLIGATION_ASSOCIATION's
+    # pattern, so these two lines subtract in one step by flag.
+    out$flag_reason[r] <- nv_bp1_flags(out$flag_reason[r],
+      add = "ASSOCIATION_SERVICE",
+      drop = "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED")
+    out$determination_basis[r] <- paste0(
+      "OWNER RULING (session 102, NV_BP1_FOLLOWUPS (1)): takes the NRHPF ",
+      "ruling of session 101 -- PASS_THROUGH_DESIGNATED, Yes, ",
+      "POOL_NAMED_HOSPITALS, LOW, intermediary ", x$intermediary, ". ",
+      NV_S102_NRHP_WHY[[x$bp1_line_id]], " The project describes a service ",
+      "NRHP delivers, the shape §10.2's AHHA negative codes IN_KIND_BENEFIT; ",
+      "no per-hospital split is published and none is imputed (§6.2). ",
+      "PRIOR CODING: ", prior)
+  }
+  # (b)
+  for (i in seq_len(nrow(NV_S102_SYSTEM))) {
+    x <- NV_S102_SYSTEM[i, ]
+    r <- nv_s102_check_row(out, x$row_no, x$awardee, x$bp1_line_id)
+    prior <- paste0(out$recipient_type[r], " / ", out$flow_type[r], "; ",
+                    out$determination_basis[r])
+    out$recipient_type[r] <- "HOSPITAL_OR_SYSTEM"
+    out$flow_type[r] <- "DIRECT"
+    out$distributed_to_hospital[r] <- "Yes"
+    out$hospital_benefiting[r] <- "Yes"
+    out$hospital_attribution[r] <- "NAMED_HOSPITAL"
+    out$determination_confidence[r] <- "LOW"
+    out$basis_type[r] <- "GENERAL_KNOWLEDGE"
+    out$ccn[r] <- NA
+    out$flag_reason[r] <- nv_bp1_flags(out$flag_reason[r],
+      drop = "RECIPIENT_TYPE_INFERRED")
+    out$recipient_type_source[r] <- paste0(
+      "Owner ruling (session 102): ", x$system, " is a hospital system, typed ",
+      "as a SYSTEM PARENT on general knowledge (the SD, VA and WV ",
+      "system-parent rulings). No Nevada CMS enrolment carries this legal ",
+      "name (session 101), so there is no CCN.")
+    out$determination_basis[r] <- paste0(
+      "OWNER RULING (session 102, NV_BP1_FOLLOWUPS (2)): HOSPITAL_OR_SYSTEM as ",
+      "a system parent, DIRECT, NAMED_HOSPITAL, LOW, GENERAL_KNOWLEDGE, no ",
+      "CCN; subtractable by basis_type. BP1 applicant: '", out$bp1_applicant[r],
+      "'. PRIOR CODING: ", prior)
+  }
+  # (c)
+  x <- NV_S102_RWP03
+  r <- nv_s102_check_row(out, x$row_no, x$awardee, x$bp1_line_id)
+  out$co_applicant <- NA_character_
+  out$co_applicant[r] <- x$co_applicant
+  out$determination_basis[r] <- paste0(
+    "OWNER RULING (session 102, NV_BP1_FOLLOWUPS (3)): coded to the recipient ",
+    "NVHA lists, '", out$bp1_applicant[r], "' -- the Board of Regents, NSHE, ",
+    "for the University of Nevada, Reno. '", x$co_applicant, "' is recorded in ",
+    "co_applicant with NO dollars attributed: a hospital in the partnership is ",
+    "not a recipient (§7, New York's RCHI rule; participation is not receipt). ",
+    "Not a §6.2 multi-recipient field. ", out$determination_basis[r])
+  nv_assert_vocabulary(out)
+  out
+}
+
 #' NV's hospital buckets, with and without the SOURCE_SUSPECT rows.
 nv_bp1_partition <- function(out = readr::read_csv(NV_OUT_CSV,
                                show_col_types = FALSE, progress = FALSE)) {
   susp <- !is.na(out$flag_reason) & grepl("SOURCE_SUSPECT", out$flag_reason)
-  list(with = rhtp_hospital_dollar_partition(out),
-       without = rhtp_hospital_dollar_partition(out[!susp, ]),
+  # SESSION 102: the published figure is `without` (the partition's default);
+  # `with` is the internal figure.
+  list(with = rhtp_hospital_dollar_partition(out, include_source_suspect = TRUE),
+       without = rhtp_hospital_dollar_partition(out),
        suspect_rows = out[susp, c("row_no", "awardee", "amount",
                                   "hospital_attribution")])
 }

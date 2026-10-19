@@ -210,10 +210,15 @@ OK_NO_AWARDEE_COUNTIES <- c("Beckham", "Canadian", "Cherokee", "Love",
 # SESSION 86: RRR and Chronic Disease Management left this list. The owner
 # approved them; R/03bt writes ok_year1_rrr_awardees.csv (20, $39,578,523) and
 # ok_year1_cdm_awardees.csv (15, $15,608,845.22). Two opportunities remain.
-OK_PENDING_OPPORTUNITIES <- c(
-  "Emergency Medical Service & Community Paramedicine Vehicles",
-  "Behavioral Health Integration - Medications for Opioid and Alcohol Use Disorder"
-)
+#
+# SESSION 103: the last two left. Session 99 extracted Behavioral Health
+# Integration and EMS & Community Paramedicine (R/03cc) but left them here, so
+# the 10-15 Routine tripped on its own extracted rosters. EVERY CLOSED
+# OPPORTUNITY OSDH LISTS NOW HAS A ROSTER IN AN AWARD FILE, and this list is
+# empty: the pending-opportunity check runs on nothing until OSDH closes a new
+# opportunity, at which point it goes here. A new roster section on the page
+# still trips the probe's name tripwire on `recipients` (§2.3).
+OK_PENDING_OPPORTUNITIES <- character(0)
 
 # The two awarded sections, by their anchor on the Funding Recipients page.
 OK_AWARDED_ANCHORS <- c("roots", "microgrants")
@@ -1545,7 +1550,7 @@ OK_PROBE_BASELINE_DIR <- file.path("data", "evidence", "OK", "probe_baseline")
 # and all three new rosters were written by R/03bt: the live recipients page's
 # reduced text was identical to data/evidence/OK/new_rosters/2026-10-02_*, and
 # named nobody that copy does not. The 09-28 baseline files are kept.
-OK_PROBE_BASELINE_DATE <- "2026-10-02"
+OK_PROBE_BASELINE_DATE <- "2026-10-16"   # session 103: re-based after reading the 10-15 page (SSM Shawnee, Wewoka); 10-02 predates the BHI and EMS/CP rosters
 ok_probe_baseline_file <- function(key) {
   file.path(OK_PROBE_BASELINE_DIR,
             paste0(OK_PROBE_BASELINE_DATE, "_", ok_source(key, "file") %>%
@@ -1584,7 +1589,7 @@ ok_probe <- function() {
   message("[OK] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
                           collapse = "; "),
-          " -- five rosters, all extracted; the two pending opportunities name nobody.")
+          " -- every listed roster is extracted (session 103: no pending opportunity remains).")
   invisible(w$changed)
 }
 

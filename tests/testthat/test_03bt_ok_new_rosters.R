@@ -38,16 +38,23 @@ test_that("RRR and CDM are written (session 86), each to its own file", {
   }
 })
 
-test_that("RRR: 10 hospital rows / $21,099,804; the four bridges are LOW", {
+test_that("RRR: 11 hospital rows / $22,723,302.82; the five bridges are LOW", {
+  # Session 103: + SSM St. Anthony Shawnee Cancer Center ($1,623,498.82, 10-16).
   a <- okn_roster_rows("rrr")
   h <- a[a$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 10L)
-  expect_equal(sum(h$amount), 21099804)
+  expect_equal(nrow(h), 11L)
+  expect_equal(round(sum(h$amount), 2), 22723302.82)
   low <- h$awardee[h$determination_confidence == "LOW"]
   expect_setequal(low, c("Ascension St. John Jane Phillips Medical Center",
                          "Fairview Regional Medical Center",
                          "Lindsay Municipal Hospital Authority",
-                         "Mercy Health Oklahoma Communities, Inc."))
+                         "Mercy Health Oklahoma Communities, Inc.",
+                         "SSM St. Anthony Shawnee Cancer Center"))
+  ssm <- a[a$awardee == "SSM St. Anthony Shawnee Cancer Center", ]
+  expect_equal(ssm$row_no, 20L)
+  expect_equal(ssm$ccn, "370149")
+  expect_true(is.na(ssm$cms_enrolment_match))
+  expect_equal(ssm$source_archive_path, OKN_ARCHIVE_1016)
   expect_true(all(h$basis_type[h$determination_confidence == "LOW"] == "GENERAL_KNOWLEDGE"))
   expect_true(is.na(h$ccn[grepl("^Mercy", h$awardee)]))
   # OPQIC's training reaches hospitals in kind; SWOSU's local hospital is unnamed.
@@ -83,5 +90,16 @@ test_that("R/03t no longer trips on Doulas, RRR or CDM", {
   expect_false(any(c("Expanding Care: Doulas Program",
                      "Rural Regional Reorientation (RRR) Program",
                      "Chronic Disease Management Program") %in% OK_PENDING_OPPORTUNITIES))
-  expect_equal(length(OK_PENDING_OPPORTUNITIES), 2L)
+  # Session 103: BHI and EMS/CP (extracted session 99 by R/03cc) left too.
+  expect_equal(length(OK_PENDING_OPPORTUNITIES), 0L)
+})
+
+test_that("session 103: Wewoka is recorded as removed from the ambulance list, not dropped silently", {
+  suppressWarnings(suppressMessages(source(here::here("R", "03cc_ok_bhi_ems_rosters.R"))))
+  e <- readr::read_csv(OKC_EMS_CSV, show_col_types = FALSE)
+  expect_equal(nrow(e), 50L)
+  expect_false(any(grepl("Wewoka", e$awardee)))
+  expect_equal(nrow(OKC_EMS_WITHDRAWN), 1L)
+  expect_match(OKC_EMS_WITHDRAWN$round, "Ambulance Funding")
+  expect_equal(nrow(okc_ems_now()), 50L)
 })

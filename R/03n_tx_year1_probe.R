@@ -2,7 +2,13 @@
 #
 # TEXAS — Rural Health Transformation Program, Year 1 (FY2026).
 #
-# THERE IS NO TEXAS AWARD FILE, AND THAT IS WHAT THIS FILE RECORDS.
+# SESSION 103: TEXAS HAS AN AWARD FILE NOW. HHSC's weekly Rural Texas Strong
+# "Intent to Award" list is extracted by R/03ce_tx_rts_awardees.R into
+# tx_year1_awardees.csv. This file keeps the RCJ dispositions, the status
+# table and the Routine's probe, which now also trips on a new weekly list.
+# The negative below is history (sessions 19-102).
+#
+# THERE IS NO TEXAS AWARD FILE, AND THAT IS WHAT THIS FILE RECORDED.
 #
 # Texas led the remaining queue by every measure `state_trigger_queue.csv`
 # carries: rank 1, 68 RCJ Tier 3 candidates across 67 distinct awardees, and
@@ -100,6 +106,7 @@ suppressPackageStartupMessages({
 
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "03bp_tx_bp1_floor.R"))
+source(here::here("R", "03ce_tx_rts_awardees.R"))
 
 TX_STATE         <- "TX"
 TX_FISCAL_YEAR   <- "FY2026 (Year 1)"
@@ -753,8 +760,8 @@ tx_build_disposition <- function(cands = NULL, withdrawn = NULL) {
            "the first Rural Texas Strong Notice-of-Award date HHSC published ",
            "(2026-06-19). No HHSC page read by this repository names these ",
            "three awards, so WHAT PROGRAMME THEY BELONG TO IS UNKNOWN, NOT ",
-           "ESTABLISHED (§0.4). They are in no award file -- Texas has none -- ",
-           "and nothing here treats them as RHTP. Resolving them needs the ",
+           "ESTABLISHED (§0.4). None is on HHSC's Rural Texas Strong Intent to ",
+           "Award list (R/03ce, session 103) and nothing here treats them as RHTP. Resolving them needs the ",
            "state document RCJ read, which this repository does not have."),
     NA_character_, NA_character_, NA_character_, "2026-09-24"
   ) %>%
@@ -943,7 +950,7 @@ tx_build <- function() {
   message("[TX] wrote ", nrow(disp), " disposition rows (",
           sum(disp$rcj_rows), " RCJ candidates, none an RHTP subaward) -> ",
           TX_DISPOSITION_CSV)
-  message("[TX] NO TX_year1_awardees.xlsx was written, and that is the finding.")
+  message("[TX] the award file is R/03ce's tx_year1_awardees.csv (session 103); this script writes none.")
   invisible(list(status = status, disposition = disp))
 }
 
@@ -1130,6 +1137,14 @@ tx_probe <- function(keys = TX_PROBE_KEYS) {
   if (!is.null(bp1$finding)) findings <- c(findings, bp1$finding)
   message("[TX] BP1 report: ", bp1$n_districts, " hospital districts named",
           if (isTRUE(bp1$changed)) " (CONTENT CHANGED -- read it)" else "", ".")
+
+  # SESSION 103: THE RURAL TEXAS STRONG WEEKLY LIST. HHSC posts a new
+  # "list-award-recipients.xlsx" each week; R/03ce extracted the 10/14 list.
+  # A different link on the programme page is a new roster to extract.
+  rts <- tx_rts_live_finding()
+  if (!is.null(rts$finding)) findings <- c(findings, rts$finding)
+  message("[TX] Rural Texas Strong list linked: ",
+          paste(basename(rts$links), collapse = ", "), ".")
 
   moved <- vapply(live, function(x) x$changed, logical(1))
 

@@ -102,12 +102,28 @@ ME_STATUS_CSV   <- "data/reference/me_year1_status.csv"
 ME_DISPO_CSV    <- "data/reference/me_rcj_candidate_disposition.csv"
 ME_XLSX         <- "ME_year1_awardees.xlsx"
 
-# maine.gov answers the project's honest agent with HTTP 200 on every host used
-# here, so §3's michigan.gov exception is not reached and must not be.
+# maine.gov answered this agent with HTTP 200 on every host used here until
+# 2026-10-16; see ME_MAINE_GOV_AGENT below. §3's michigan.gov exception is not
+# reached and must not be.
 ME_USER_AGENT <- paste(
   "AHA-RHTP-Tracker/0.1 (+https://www.aha.org;",
   "contact: AHA Data and Policy; R httr2)"
 )
+# SESSION 103 (owner decision): maine.gov's CloudFront now answers the agent
+# above with HTTP 403 (three Routine ERRORs on 2026-10-16; 3 of 3 here) and
+# serves the project's OTHER honest agent, the one most state files already
+# send, with HTTP 200 (3 of 3). Both identify the project and carry its URL; it
+# is not a browser agent and not michigan.gov's bare exception (§3). It is
+# used FOR maine.gov ONLY: every other host (www.mcd.org) keeps ME_USER_AGENT.
+ME_MAINE_GOV_AGENT <- "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)"
+me_agent_for <- function(url) {
+  host <- tolower(httr::parse_url(url)$hostname)
+  if (!is.null(host) && (host == "maine.gov" || endsWith(host, ".maine.gov"))) {
+    ME_MAINE_GOV_AGENT
+  } else {
+    ME_USER_AGENT
+  }
+}
 ME_HOST_THROTTLE_S <- 3
 
 ME_CREDENTIAL_SHAPES <- c(
@@ -319,7 +335,7 @@ me_assert_credential_free <- function(body, label) {
 
 me_get <- function(url, label) {
   message("[ME] fetching ", url)
-  resp <- httr::GET(url, httr::user_agent(ME_USER_AGENT), httr::timeout(300))
+  resp <- httr::GET(url, httr::user_agent(me_agent_for(url)), httr::timeout(300))
   if (httr::status_code(resp) != 200L) {
     stop("[ME] HTTP ", httr::status_code(resp), " for ", url, call. = FALSE)
   }

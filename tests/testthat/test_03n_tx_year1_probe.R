@@ -208,12 +208,13 @@ test_that("the archive verifies and the manifest does not list itself", {
   expect_equal(nrow(TX_SOURCES), 11L)
 })
 
-test_that("no TX award file exists, deliberately", {
-  # The assertion that stops a future session assuming Texas was extracted
-  # because a Texas CSV is present. tx_year1_status.csv is a status table; it
-  # is not tx_year1_awardees.csv and must never be mistaken for one.
-  expect_false(file.exists(here::here("data", "reference",
-                                      "tx_year1_awardees.csv")))
+test_that("the TX award file is R/03ce's, never this script's", {
+  # Sessions 19-102 asserted that no Texas award file existed. Session 103
+  # extracted HHSC's Rural Texas Strong list (R/03ce). This script still
+  # writes only the status table and the dispositions.
+  aw <- readr::read_csv(here::here("data", "reference", "tx_year1_awardees.csv"),
+                        show_col_types = FALSE)
+  expect_true(all(aw$validator == "R/03ce_tx_rts_awardees.R"))
   expect_false(file.exists(here::here("TX_year1_awardees.xlsx")))
   expect_true(file.exists(here::here("data", "reference",
                                      "tx_year1_status.csv")))

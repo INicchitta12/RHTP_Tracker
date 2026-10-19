@@ -42,6 +42,8 @@
 #
 # Usage:
 #   Rscript R/03cd_hi_year1_awardees.R --validate | --build | --report
+#   Rscript R/03cd_hi_year1_awardees.R --fetch-probe [--force]   # baselines (session 102)
+#   RHTP_PROBE_ORIGIN=interactive Rscript R/03cd_hi_year1_awardees.R --probe
 
 suppressPackageStartupMessages({
   library(dplyr); library(stringr); library(tibble); library(readr)
@@ -235,11 +237,189 @@ hi_build <- function() {
   invisible(d)
 }
 
+
+
+# -- the watch (session 102) ---------------------------------------------------
+#
+# HAWAII WAS EXTRACTED IN SESSION 101 WITH NO PROBE, which is how SHPDA's page
+# went from one Notice of Award (8/28, archived 2026-09-03) to three (9/3,
+# 9/11) without anything here noticing until session 100 happened to look.
+# READ-ONLY (§2.2): through rhtp_probe_run() and the shared page watch; the
+# baselines are written only by `--fetch-probe`, a deliberate act.
+#
+#   shpda         SHPDA's RHTP page, the SUBJECT page. Its baseline is the
+#                 2026-10-14 copy the award file is extracted from (HI_PAGE),
+#                 so the probe and the extractor read the same bytes. It trips
+#                 on (1) any "(Notice of Award on <date> to <recipient>)"
+#                 annotation the archive lacks, or one it carries going away;
+#                 (2) any currency figure the archive lacks -- an amount
+#                 appearing OUTSIDE HANDS; (3) the name tripwire (§2.3).
+#   rhtp_home     rhtp.hawaii.gov, the Governor's landing page, and
+#   rhtp_funding  its Funding Opportunities page: the same three checks,
+#                 plus a NEW sentence carrying award language ("notice of
+#                 award", "awarded to", "award recipients"...). The Stevens
+#                 Amendment footer's $188,892,439.75 is Tier 1 (§7.1 anchor
+#                 $188,892,440) and is in the baseline, so it costs nothing.
+#   gov_news      governor.hawaii.gov/newsroom and
+#   doh_news      DOH's newsroom index: a NEW headline naming Rural Health
+#                 Transformation, RHTP, SHPDA, a Notice of Award or the RVBI /
+#                 RHIN initiatives. Press indexes, so no name tripwire (§2.3);
+#                 a headline-link diff, never a sentence diff (AL session 84,
+#                 IA session 101: a press index has no full stops).
+#
+# HANDS (hands.ehawaii.gov), where the amounts are, is 403 to this environment
+# and is NOT probed: a probe that can only ever log ERROR there says nothing
+# about the state (§0.4). An amount reaching any of the five pages above is
+# the trip that matters.
+HI_PROBE_DIR <- file.path("data", "evidence", "HI", "probe")
+HI_PROBE_PAGES <- tibble::tribble(
+  ~key,           ~url,                                                ~file,                                                    ~name_diff,
+  "shpda",        HI_PAGE_URL,                                         HI_PAGE,                                                  TRUE,
+  "rhtp_home",    "https://rhtp.hawaii.gov/",                          file.path(HI_PROBE_DIR, "2026-10-16_hi_rhtp_home.html"),  TRUE,
+  "rhtp_funding", "https://rhtp.hawaii.gov/funding-opportunities",     file.path(HI_PROBE_DIR, "2026-10-16_hi_rhtp_funding_opportunities.html"), TRUE,
+  "gov_news",     "https://governor.hawaii.gov/newsroom/",             file.path(HI_PROBE_DIR, "2026-10-16_hi_governor_newsroom.html"), FALSE,
+  "doh_news",     "https://health.hawaii.gov/news/category/newsroom/", file.path(HI_PROBE_DIR, "2026-10-16_hi_doh_newsroom.html"), FALSE
+)
+HI_USER_AGENT <- paste(
+  "AHA-RHTP-Tracker/0.1 (+https://www.aha.org;",
+  "contact: AHA Data and Policy; R httr2)"
+)
+HI_HOST_THROTTLE_S <- 3
+HI_RHTP_HEADLINE <- paste0(
+  "(?i)rural health transformation|\\bRHTP\\b|\\bSHPDA\\b|notice of award|",
+  "\\bRVBI\\b|\\bRHIN\\b|value[- ]based innovation|rural health information network")
+HI_AWARD_SENTENCE <- paste0(
+  "(?i)notice of award|awarded to|has awarded|have been awarded|",
+  "award (recipient|winner)s?|awardees?\\b|selected (organi[sz]ations|applicants|recipients)")
+
+#' Archive the probe baselines -- the deliberate act (§2.2), never the probe.
+#' The shpda baseline is the extractor's own 2026-10-14 copy and is not re-taken.
+hi_probe_fetch <- function(force = FALSE) {
+  pages <- HI_PROBE_PAGES[HI_PROBE_PAGES$key != "shpda", ]
+  for (i in seq_len(nrow(pages))) {
+    f <- pages$file[i]
+    if (file.exists(here::here(f)) && !force) next
+    if (i > 1L) Sys.sleep(HI_HOST_THROTTLE_S)
+    rhtp_watch_archive(pages$url[i], f, HI_USER_AGENT)
+    message("[HI] archived ", f)
+  }
+  invisible(pages$file)
+}
+
+#' Every "(Notice of Award on <date> to <recipient>)" annotation on a page
+hi_noa_annotations <- function(text) {
+  t <- gsub("ʻ", "'", text)
+  unique(stringr::str_squish(
+    stringr::str_extract_all(t, "\\(Notice of Award[^)]*\\)")[[1]]))
+}
+
+#' Every currency figure on a page ("$25 million", "$188.9M", "$188,892,440")
+hi_money <- function(text) {
+  unique(stringr::str_extract_all(
+    text, "\\$\\s?[0-9][0-9,]*(\\.[0-9]+)?(\\s?(million|billion|thousand)|[MBK]\\b)?")[[1]])
+}
+
+#' The headlines a newsroom index links, one per release
+hi_news_headlines <- function(raw) {
+  h <- xml2::read_html(raw)
+  a <- rvest::html_elements(h, paste(
+    "a[href*='governor.hawaii.gov/newsroom/']",
+    "a[href*='governor.hawaii.gov/main/']",
+    "a[href*='governor.hawaii.gov/featured/']",
+    "a[href*='/news/newsroom/']", sep = ", "))
+  hl <- stringr::str_squish(rvest::html_text2(a))
+  unique(hl[nchar(hl) > 15 & !grepl("^(Read more|More|Subscribe)", hl,
+                                     ignore.case = TRUE)])
+}
+
+#' NEW headlines about RHTP, live against the archive
+hi_new_rhtp_headlines <- function(live_raw, arch_raw) {
+  new <- setdiff(hi_news_headlines(live_raw), hi_news_headlines(arch_raw))
+  new[grepl(HI_RHTP_HEADLINE, new, perl = TRUE)]
+}
+
+#' The subject-page checks, on reduced text. Returns findings; never throws.
+hi_subject_findings <- function(key, live, arch) {
+  out <- character(0)
+  la <- hi_noa_annotations(live); aa <- hi_noa_annotations(arch)
+  new_noa <- setdiff(la, aa); gone_noa <- setdiff(aa, la)
+  if (length(new_noa)) {
+    out <- c(out, paste0(toupper(key), ": NEW Notice of Award annotation(s): ",
+      paste0("\"", rhtp_watch_quote(new_noa), "\"", collapse = " | "),
+      ". Extract the recipient into hi_year1_awardees.csv (R/03cd) and type ",
+      "it under §10.2; the amount is in HANDS unless the page prints one."))
+  }
+  if (length(gone_noa)) {
+    out <- c(out, paste0(toupper(key), ": Notice of Award annotation(s) GONE: ",
+      paste0("\"", rhtp_watch_quote(gone_noa), "\"", collapse = " | "),
+      ". Read the page: withdrawn, re-worded, or moved to a roster."))
+  }
+  new_money <- setdiff(hi_money(live), hi_money(arch))
+  if (length(new_money)) {
+    ctx <- unlist(lapply(new_money, function(m) stringr::str_extract(
+      live, paste0(".{0,90}", stringr::str_replace_all(
+        m, "([$.])", "\\\\\\1"), ".{0,60}"))))
+    out <- c(out, paste0(toupper(key), ": NEW currency figure(s) -- an amount ",
+      "OUTSIDE HANDS: ", paste0("\"", rhtp_watch_quote(stats::na.omit(ctx)),
+                                "\"", collapse = " | "),
+      ". If it prices a named Notice of Award, it is the first Hawaii amount ",
+      "this project can read; extract it."))
+  }
+  if (key != "shpda") {
+    new_s <- rhtp_watch_new_sentences(live, arch, HI_AWARD_SENTENCE)
+    if (length(new_s)) {
+      out <- c(out, paste0(toupper(key), ": NEW award sentence(s): ",
+        paste0("\"", rhtp_watch_quote(substr(utils::head(new_s, 6), 1, 300)),
+               "\"", collapse = " | "), ". Read the page and extract whom it ",
+        "names."))
+    }
+  }
+  out
+}
+
+hi_probe <- function() {
+  w <- rhtp_watch_pages(HI_PROBE_PAGES, HI_USER_AGENT)
+  findings <- character(0)
+  # 1-3. The subject pages: Notices of Award, amounts, award sentences.
+  for (k in c("shpda", "rhtp_home", "rhtp_funding")) {
+    findings <- c(findings, hi_subject_findings(k, w$live_all[[k]],
+                                                w$arch_all[[k]]))
+  }
+  # 4. The newsrooms: a NEW headline about RHTP.
+  for (k in c("gov_news", "doh_news")) {
+    nh <- hi_new_rhtp_headlines(w$raw[[k]], here::here(
+      HI_PROBE_PAGES$file[HI_PROBE_PAGES$key == k]))
+    if (length(nh)) {
+      findings <- c(findings, paste0(
+        toupper(k), ": NEW RHTP headline(s): ",
+        paste0("\"", rhtp_watch_quote(nh), "\"", collapse = " | "),
+        ". Read the release for named recipients and amounts (the Governor ",
+        "announced the $58M first-year release of 2026-09-01 here)."))
+    }
+  }
+  # 5. THE NAME TRIPWIRE (§2.3), on the subject pages only.
+  rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+                                          state = HI_STATE)
+
+  message("[HI] ", paste0(w$changed$key, ": ",
+                          ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
+                          collapse = "; "))
+  for (f in findings) message("[HI]   ", f)
+  invisible(list(changed = w$changed$changed, findings = findings,
+                 sources = stats::setNames(
+                   lapply(w$changed$changed, function(x) list(changed = x)),
+                   w$changed$key)))
+}
+
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--validate" %in% args) hi_validate()
   if ("--build" %in% args) hi_build()
   if ("--report" %in% args) print(as.data.frame(hi_year1_awardees()[
     , c("awardee", "award_date", "recipient_type", "hospital_attribution")]))
-  if (!length(args)) message("Usage: --validate | --build | --report")
+  if ("--fetch-probe" %in% args) hi_probe_fetch(force = "--force" %in% args)
+  if ("--probe" %in% args) rhtp_probe_run("HI", hi_probe())
+  if (!length(args)) {
+    message("Usage: --validate | --build | --report | --fetch-probe [--force] | --probe")
+  }
 }

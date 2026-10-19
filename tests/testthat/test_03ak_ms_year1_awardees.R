@@ -435,6 +435,8 @@ test_that("Mississippi now contributes 68 rows and $47.5M, and that is new", {
   expect_gt(part$dollars, 47e6)
   # THE YEAR IS PARTIAL, and Mississippi dates the rest itself.
   st <- ms_status_table()
-  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PUBLISHED_PENDING"), 2L)
+  # Session 103: WEI and EmPATH moved to the portal's Closed page, nobody named.
+  expect_equal(sum(st$stage == "MOVED_TO_CLOSED_NO_RECIPIENT_NAMED"), 2L)
+  expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PUBLISHED_PENDING"), 0L)
   expect_lt(sum(d$amount), MS_ALLOTMENT)
 })

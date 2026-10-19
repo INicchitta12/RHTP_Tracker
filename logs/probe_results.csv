@@ -1138,6 +1138,31 @@ MT,2026-10-16T17:41:53Z,UNCHANGED,home,,trig_01YJFwwSQ1pEQEScfUfGzgSD
 MT,2026-10-16T17:41:53Z,UNCHANGED,communications,,trig_01YJFwwSQ1pEQEScfUfGzgSD
 MN,2026-10-16T18:12:37Z,UNCHANGED,grants,,trig_018tLxX82fNyKgxw5JkRw5PV
 MN,2026-10-16T18:12:37Z,UNCHANGED,programme,,trig_018tLxX82fNyKgxw5JkRw5PV
+LA,2026-10-16T14:12:44Z,CHANGED,programme,,interactive
+LA,2026-10-16T14:12:44Z,CHANGED,funding,,interactive
+LA,2026-10-16T14:12:44Z,CHANGED,leg_reports,,interactive
+HI,2026-10-16T18:59:18Z,UNCHANGED,shpda,,interactive
+HI,2026-10-16T18:59:18Z,UNCHANGED,rhtp_home,,interactive
+HI,2026-10-16T18:59:18Z,UNCHANGED,rhtp_funding,,interactive
+HI,2026-10-16T18:59:18Z,UNCHANGED,gov_news,,interactive
+HI,2026-10-16T18:59:18Z,UNCHANGED,doh_news,,interactive
+WV,2026-10-16T21:29:30Z,CHANGED,news,,interactive
+WV,2026-10-16T21:29:30Z,UNCHANGED,rhtp,,interactive
+WV,2026-10-16T21:29:30Z,UNCHANGED,grants,,interactive
+OK,2026-10-16T21:35:02Z,UNCHANGED,recipients,,interactive
+OK,2026-10-16T21:35:02Z,UNCHANGED,funding,,interactive
+OK,2026-10-16T21:35:02Z,UNCHANGED,program,,interactive
+CMS,2026-10-16T21:36:17Z,CHANGED,newsroom+medicaid,new states: NH; new releases in listed states: 4 (MT OH TX); changed rows: 0,interactive
+CMS,2026-10-16T21:36:17Z,UNCHANGED,obligation_report,,interactive
+ME,2026-10-16T21:37:46Z,CHANGED,rhef,,interactive
+ME,2026-10-16T21:37:46Z,CHANGED,doe,,interactive
+ME,2026-10-16T21:37:46Z,CHANGED,programme,,interactive
+TX,2026-10-16T22:11:23Z,CHANGED,rts_init1p2,,interactive
+TX,2026-10-16T22:11:23Z,CHANGED,rts_init4r1,,interactive
+TX,2026-10-16T22:11:23Z,CHANGED,rts_init4r2,,interactive
+TX,2026-10-16T22:11:23Z,CHANGED,rts_init6p1,,interactive
+TX,2026-10-16T22:11:23Z,CHANGED,state_debt_rfa,,interactive
+TX,2026-10-16T22:11:23Z,CHANGED,state_impr_rfa,,interactive
 WY,2026-10-16T21:11:54Z,CHANGED,programme,,trig_01CLqQDvGoWCDoSMtS29FJbQ
 WY,2026-10-16T21:11:54Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Year One Award Approvals View Year One Award Approvals Project and Budget Narratives. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01CLqQDvGoWCDoSMtS29FJbQ
 TN,2026-10-17T09:42:10Z,UNCHANGED,rhtp,,trig_01Bky7YZTFgaT2dZddvfNL4g

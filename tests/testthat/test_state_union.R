@@ -331,7 +331,12 @@ STATE_FILES <- c(
   # NO amounts (they are in HANDS, 403 here). The Healthcare Association of
   # Hawaii is POOL_UNNAMED_HOSPITALS at $0 on the owner's instruction: a
   # hospital bucket row with no dollar figure, which must union cleanly.
-  HI = "data/reference/hi_year1_awardees.csv"
+  HI = "data/reference/hi_year1_awardees.csv",
+  # TEXAS (session 103): HHSC's weekly Rural Texas Strong "Intent to Award"
+  # list, 312 application lines. `amount` is the Year 1 subset; the
+  # multi-year total sits in total_award_amount and must never be summed with
+  # it. 97 lines are executed contracts, 215 intents (AMOUNT_PRELIMINARY).
+  TX = "data/reference/tx_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -375,7 +380,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "VA", "VT", "WA",
+                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WA",
                  "WV", "WY"))
 })
 
@@ -515,8 +520,10 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # ($20,278,054.31, NVHA's BP1 report, PROVISIONAL) names all fourteen rural
   # hospitals and publishes no split -- Tier 3, the same condition.
   expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV"))
+  # SESSION 102: + NRHP's RHOAP-18 and RHIT-19 on the owner's extension
+  # ($4,170,261.00).
   expect_equal(round(pooled_named$dollars[pooled_named$state == "NV"], 2),
-               20278054.31)
+               24448315.31)
   expect_equal(round(pooled_named$dollars[pooled_named$state == "NE"], 2),
                18156856.12)
   expect_equal(pooled_named$dollars[pooled_named$state == "CT"], 12650000)
@@ -633,4 +640,14 @@ test_that("SESSION 88: no row in any state file is HIGH without a CCN (§7)", {
     d$ccn <- as.character(d$ccn)
     expect_silent(rhtp_assert_high_has_ccn(d, label = st))
   }
+})
+
+
+test_that("SESSION 102: no row carries the retired PROVISIONAL_SOURCE code", {
+  u <- purrr::map(STATE_FILES, function(p) readr::read_csv(
+    here::here(p), col_types = readr::cols(.default = "c"), progress = FALSE))
+  hit <- names(u)[vapply(u, function(d) "flag_reason" %in% names(d) &&
+    any(grepl("PROVISIONAL_SOURCE", d$flag_reason, fixed = TRUE)), logical(1))]
+  expect(length(hit) == 0L, paste("PROVISIONAL_SOURCE (collapsed into",
+                                  "AMOUNT_PRELIMINARY) is on:", paste(hit, collapse = ", ")))
 })

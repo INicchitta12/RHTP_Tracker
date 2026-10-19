@@ -93,7 +93,19 @@ OKN_ARCHIVE_1012 <- file.path("data", "evidence", "OK", "new_rosters",
                               "2026-10-12_ok_rhtp_funding_recipients.html")
 OKN_SHA256_1012  <- "e000ef82c8fb8d3ee2f6c8dae955d524bab40cb0e6f075c0627deaf601725606"
 OKN_READ_1012    <- as.Date("2026-10-12")
-OKN_RRR_NOW      <- list(n = 19L, total = 38455023.00)
+# SESSION 103: THE 2026-10-16 RE-READ (owner-approved, Task 4). RRR gained one
+# line, SSM St. Anthony Shawnee Cancer Center, $1,623,498.82. Rows 1-19 keep
+# their 10-12 strings (the 10-16 page re-punctuates two names and appends
+# "Counties covered:" to every line, so the two copies are matched on AMOUNT,
+# asserted below); the new line is appended as row 20 from the 10-16 archive.
+OKN_ARCHIVE_1016 <- file.path("data", "evidence", "OK", "new_rosters",
+                              "2026-10-16_ok_rhtp_funding_recipients.html")
+OKN_SHA256_1016  <- "4383da5dd3bd3690054c459b1cd204032d5b0a5e997139d535a5c972cf0f94ce"
+OKN_READ_1016    <- as.Date("2026-10-16")
+OKN_RRR_ADDED    <- tibble::tribble(
+  ~awardee,                                ~amount,    ~first_seen,
+  "SSM St. Anthony Shawnee Cancer Center", 1623498.82, "2026-10-16")
+OKN_RRR_NOW      <- list(n = 20L, total = 40078521.82)
 OKN_RRR_WITHDRAWN <- tibble::tribble(
   ~awardee,                                   ~last_amount, ~last_seen,   ~first_absent, ~coded_before,
   "Keetoowah Economic Development Authority", 1123500,      "2026-10-02", "2026-10-12",  "NONPROFIT_CBO / No (§8 fallback)"
@@ -327,6 +339,9 @@ OKN_RRR_CDM_TYPING <- tibble::tribble(
   "rrr", "SSM Health Care of Oklahoma", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370037", "EXACT_LEGAL_NAME", NA,
   "H:SSM HEALTH CARE OF OKLAHOMA, INC.|370037",
   "§10.2 DIRECT: CMS OK Hospital Enrollments carry SSM HEALTH CARE OF OKLAHOMA, INC. dba SSM HEALTH ST ANTHONY HOSPITAL - OKLAHOMA CITY, PART A PROVIDER - HOSPITAL, CCN 370037 (and 370094, Midwest City) -- the awardee's legal name less its corporate suffix. The enrolled hospitals are URBAN; the award is for 'pulmonary rehabilitation access at a local hospital ... across seven rural hospitals'. The rural cut is R/03ar's, never a re-coding.",
+  "rrr", "SSM St. Anthony Shawnee Cancer Center", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "370149", NA, NA,
+  "H:ST ANTHONY SHAWNEE HOSPITAL INC|370149",
+  "§10.2 DIRECT on a HAND-READ BRIDGE, TYPED ON ENROLMENT ON THE OWNER'S INSTRUCTION (session 103): CMS OK Hospital Enrollments carry ST ANTHONY SHAWNEE HOSPITAL INC dba ST. ANTHONY SHAWNEE HOSPITAL, PART A PROVIDER - HOSPITAL, CCN 370149, Shawnee. The awardee string names that hospital's cancer centre ('Complete Phase 3 of the SSM Health St. Anthony Shawnee Cancer Center modernization'), a department, not the enrolled legal name, so LOW and no cms_enrolment_match code. VULNERABILITY, stated: §10.2's 'what it does not reach' keeps a sub-unit named without its legal entity off the hospital rows (OHSU Casey Eye, WVU Eye Institute). This string differs in naming the hospital itself ('St. Anthony Shawnee'), which is the reading the owner's instruction takes.",
   "rrr", "Stillwater Medical Center Authority", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "370049", "EXACT_LEGAL_NAME", NA,
   "H:STILLWATER MEDICAL CENTER AUTHORITY|370049",
   "§10.2 DIRECT: CMS OK Hospital Enrollments carry STILLWATER MEDICAL CENTER AUTHORITY dba STILLWATER MEDICAL CENTER, PART A PROVIDER - HOSPITAL, CCN 370049 -- the awardee's exact legal name.",
@@ -412,14 +427,29 @@ okn_rrr_now <- function(n_detail = 1L) {
   if (any(abs(was$amount[w] - OKN_RRR_WITHDRAWN$last_amount) > 0.005)) {
     stop("[OK RRR] OKN_RRR_WITHDRAWN's last amount does not match 10-02.", call. = FALSE)
   }
-  now
+  now$archive <- OKN_ARCHIVE_1012; now$read_date <- OKN_READ_1012
+  # Session 103: the 10-16 roster is the 10-12 roster plus OKN_RRR_ADDED, by
+  # amount (names were re-punctuated), and the added line by name and amount.
+  n16 <- okn_parse("rrr", okn_lines(OKN_ARCHIVE_1016, OKN_SHA256_1016), n_detail)
+  key <- function(x) sprintf("%.2f", x)
+  if (!identical(sort(key(n16$amount)), sort(key(c(now$amount, OKN_RRR_ADDED$amount)))) ||
+      !all(OKN_RRR_ADDED$awardee %in% n16$awardee)) {
+    stop("[OK RRR] the 10-16 roster is not the 10-12 roster plus OKN_RRR_ADDED; ",
+         "re-read both archives.", call. = FALSE)
+  }
+  add <- n16[match(OKN_RRR_ADDED$awardee, n16$awardee), ]
+  if (any(abs(add$amount - OKN_RRR_ADDED$amount) > 0.005)) {
+    stop("[OK RRR] OKN_RRR_ADDED's amount does not match the 10-16 page.", call. = FALSE)
+  }
+  add$archive <- OKN_ARCHIVE_1016; add$read_date <- OKN_READ_1016
+  dplyr::bind_rows(now, add)
 }
 
 okn_roster_rows <- function(key, p = if (key == "rrr") okn_rrr_now() else
                               okn_parse(key, n_detail = 1L)) {
   r <- OKN_ROSTERS[OKN_ROSTERS$key == key, ]
-  read_date <- if (key == "rrr") OKN_READ_1012 else OKN_READ
-  archive <- if (key == "rrr") OKN_ARCHIVE_1012 else OKN_ARCHIVE
+  read_date <- if ("read_date" %in% names(p)) p$read_date else OKN_READ
+  archive <- if ("archive" %in% names(p)) p$archive else OKN_ARCHIVE
   ty <- OKN_RRR_CDM_TYPING[OKN_RRR_CDM_TYPING$key == key, ]
   ty <- ty[match(p$awardee, ty$awardee), ]
   if (any(is.na(ty$awardee))) {
@@ -488,7 +518,7 @@ okn_roster_rows <- function(key, p = if (key == "rrr") okn_rrr_now() else
 # The hospital figures each roster is pinned to (session 86).
 OKN_HOSP_PIN <- tibble::tribble(
   ~key,  ~rows, ~usd,        ~low_rows, ~low_usd,
-  "rrr", 10L,   21099804,    4L,        8272013,
+  "rrr", 11L,   22723302.82, 5L,        9895511.82,
   "cdm", 6L,    9197657.15,  3L,        5108475.41)
 
 okn_assert_roster_rows <- function(key, a) {

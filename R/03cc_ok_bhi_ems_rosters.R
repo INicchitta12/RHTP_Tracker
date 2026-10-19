@@ -71,11 +71,27 @@ OKC_CPV_ROUND <- "Expanding Care: Community Paramedicine -- Community Paramedici
 
 # Counts and totals READ on 2026-10-12, asserted, never assumed.
 OKC_BHI_N <- 3L; OKC_BHI_TOTAL <- 1228012.70
-OKC_AMB_N <- 38L; OKC_CPV_N <- 13L
+OKC_AMB_N <- 37L; OKC_CPV_N <- 13L   # session 103: ambulance 38 on 10-12, Wewoka removed 10-16
 
-okc_lines <- function() {
-  raw <- readr::read_file_raw(here::here(OKC_ARCHIVE))
-  if (digest::digest(raw, algo = "sha256", serialize = FALSE) != OKC_SHA256) {
+# SESSION 103: THE 2026-10-16 RE-READ (owner-approved, Task 4). "City of Wewoka
+# (Fire Department), serving Hughes and Seminole Counties" is GONE from the
+# AMBULANCE-funding list (38 -> 37; session 102's note said the vehicle list,
+# and the archive says ambulance -- it is the first line under "Organizations
+# receiving ambulance funding:"); nothing else in either
+# roster moved (asserted). OSDH says nothing about why: it is recorded as
+# REMOVED here, Alaska's rule, never shrunk silently. Not a hospital.
+OKC_ARCHIVE_1016 <- file.path("data", "evidence", "OK", "new_rosters",
+                              "2026-10-16_ok_rhtp_funding_recipients.html")
+OKC_SHA256_1016  <- "4383da5dd3bd3690054c459b1cd204032d5b0a5e997139d535a5c972cf0f94ce"
+OKC_EMS_WITHDRAWN <- tibble::tribble(
+  ~round, ~line, ~last_seen, ~first_absent, ~coded_before,
+  "Expanding Care: Community Paramedicine -- Ambulance Funding",
+  "City of Wewoka (Fire Department), serving Hughes and Seminole Counties",
+  "2026-10-12", "2026-10-16", "EMS_OR_PSAP / No")
+
+okc_lines <- function(archive = OKC_ARCHIVE, sha = OKC_SHA256) {
+  raw <- readr::read_file_raw(here::here(archive))
+  if (digest::digest(raw, algo = "sha256", serialize = FALSE) != sha) {
     stop("[OK BHI/EMS] the archive's SHA-256 does not match its manifest.", call. = FALSE)
   }
   t <- rvest::html_text2(rvest::html_element(xml2::read_html(raw), "main"))
@@ -141,7 +157,7 @@ okc_assert_source <- function(x = okc_lines()) {
     stop("[OK BHI] an award line equals the allotment (§0.2).", call. = FALSE)
   }
   e <- okc_parse_ems(x)
-  if (sum(e$round == OKC_AMB_ROUND) != OKC_AMB_N || sum(e$round == OKC_CPV_ROUND) != OKC_CPV_N) {
+  if (sum(e$round == OKC_AMB_ROUND) != OKC_AMB_N + 1L || sum(e$round == OKC_CPV_ROUND) != OKC_CPV_N) {
     stop("[OK EMS/CP] read ", sum(e$round == OKC_AMB_ROUND), " + ",
          sum(e$round == OKC_CPV_ROUND), " lines; expected 38 + 13.", call. = FALSE)
   }
@@ -307,12 +323,32 @@ okc_assert_rows <- function(a, kind) {
   invisible(TRUE)
 }
 
+#' The EMS/CP lists as of 10-16: the 10-12 lists less OKC_EMS_WITHDRAWN, and
+#' nothing else; BHI unchanged. Rows keep their 10-12 strings and order.
+okc_ems_now <- function(x = okc_lines()) {
+  was <- okc_parse_ems(x)
+  x16 <- okc_lines(OKC_ARCHIVE_1016, OKC_SHA256_1016)
+  now <- okc_parse_ems(x16)
+  k <- function(d) paste(d$round, d$line)
+  gone <- k(was)[!k(was) %in% k(now)]
+  if (!setequal(gone, paste(OKC_EMS_WITHDRAWN$round, OKC_EMS_WITHDRAWN$line)) ||
+      !identical(k(was)[!k(was) %in% gone], k(now))) {
+    stop("[OK EMS/CP] the 10-16 lists are not the 10-12 lists less OKC_EMS_WITHDRAWN; ",
+         "re-read both archives.", call. = FALSE)
+  }
+  b0 <- okc_parse_bhi(x); b1 <- okc_parse_bhi(x16)
+  if (!identical(paste(b0$awardee, b0$amount), paste(b1$awardee, b1$amount))) {
+    stop("[OK BHI] the Behavioral Health roster moved between 10-12 and 10-16.", call. = FALSE)
+  }
+  was[!k(was) %in% gone, ]
+}
+
 okc_build_tables <- function() {
   x <- okc_lines()
   okc_assert_source(x)
   okc_assert_federal()
   b <- okc_rows(okc_parse_bhi(x) %>% dplyr::mutate(round = OKC_BHI_ROUND), OKC_BHI_ROUND, "bhi")
-  e <- okc_rows(okc_parse_ems(x), NA, "ems")
+  e <- okc_rows(okc_ems_now(x), NA, "ems")
   okc_assert_rows(b, "bhi"); okc_assert_rows(e, "ems")
   list(bhi = b, ems = e)
 }
