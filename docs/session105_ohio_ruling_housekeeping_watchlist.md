@@ -102,6 +102,7 @@ Files are saved outside the repo, in `/tmp/claude-0/-home-user-RHTP-Tracker/3202
 | AK 14:14Z | UNCHANGED | — |
 | CT 15:42Z | CHANGED `opm`, `programme`, `dmhas_rfps`; TRIPWIRE `programme` | NOISE, read live 10-19. `programme`: a stray "-->" (an HTML comment leak) is welded onto the menu run, and that is the name trip. `opm`: the CTsource bid link for OPM's State Police / DOC **staffing-study RFP** changed (bid 145966 → 146239); that RFP is not RHTP. `dmhas_rfps`: a new **Opioid Services Unit "Recovery Centers"** RFP (deadline 2026-12-18; opioid money, §6.2) and a Homeless to Housing "Addendum 2". No RHTP award. |
 | TX, NC, AR, CO, CA 16:02Z–16:10Z | UNCHANGED (interactive) | Task 1. |
+| NEWSROOM 16:53Z (merged from `main` after write-up) | TRIPWIRE DE, TX, MD; CHANGED on 14 index pages | **Already handled, nothing new:** TX "Recipients of $78 Million in Rural Texas Strong Grants" (extracted session 103), MD "$16.4 Million … Workforce Awards" (extracted session 104), DE "… Strengthen Physician Workforce" (10-14, read session 102: students as recipients, no hospital). These are stale NEWSROOM baselines. A re-base after reading is proposed, not done. |
 
 **Hawaii.** The first firing (`trig_017PbAESTaaMfYZ3nKcS3j1m`, Mon 18:30Z) had not happened when this was written (the clock read 16:15Z). A check-in is scheduled for 18:50Z; its result is under "Hawaii, after 18:30Z" below.
 
