@@ -556,6 +556,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 103: + Texas's Rural Texas Strong list (201 / $117,571,194.73, a
   # 33rd state) and OK RRR's SSM St. Anthony Shawnee Cancer Center
   # (1 / $1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Subtracted first.
+  # Session 104: + TX county-test bridges (7 / $1,987,387.40), MD Labor
+  # (9 / $3,574,030) and Ohio's 22 named hospitals at $0, a 34th state:
+  # 1,576 / $1,431,975,278.58 / 34. Subtracted first.
+  expect_equal(named$rows, 1576L)
+  expect_equal(round(named$dollars, 2), 1431975278.58, tolerance = 0)
+  expect_equal(named$states, 34L)
+  named$rows <- named$rows - 38L
+  named$dollars <- named$dollars - 5561417.40
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1538L)
   expect_equal(round(named$dollars, 2), 1426413861.18, tolerance = 0)
   named$rows <- named$rows - 202L
@@ -678,12 +687,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # report). Subtracted, the session-54 figure is what remains.
   # Session 102: + NRHP's RHOAP-18 ($3,772,261.00) and RHIT-19 ($398,000.00)
   # on the owner's extension of that ruling, 2 rows / $4,170,261.00.
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 55255171.43)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 6L)
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 4170261, 2),
-               51084910.43)
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 4170261 -
-                       20278054.31, 2), 30806856.12)
+  # Session 104: + Ohio's $30,300,000 pool for ODH's 22 named hospitals (one
+  # row, rounded, never split). Subtracted first.
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 85555171.43)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 7L)
+  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 30300000
+  expect_equal(round(pn, 2), 55255171.43)
+  expect_equal(round(pn - 4170261, 2), 51084910.43)
+  expect_equal(round(pn - 4170261 - 20278054.31, 2), 30806856.12)
   ne <- p %>% filter(bucket == "POOL_NAMED_HOSPITALS", state == "NE")
   expect_equal(ne$dollars, 18156856.12)
 })
@@ -722,7 +733,8 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # SESSION 103: Texas's Rural Texas Strong list ($117,571,194.73, 113 of its
   # 201 rows intents) goes second; the order below it is unchanged.
   expect_equal(p$state[[2]], "TX")
-  expect_equal(round(p$dollars[[2]], 2), 117571194.73)
+  # SESSION 104: + the seven county-test bridges ($1,987,387.40).
+  expect_equal(round(p$dollars[[2]], 2), 119558582.13)
   p <- p[p$state != "TX", ]
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53

@@ -170,11 +170,12 @@ test_that("session 100: seven 09-30 rows, none priced, six hospitals typed on CM
   expect_false(any(e[["ORGANIZATION NAME"]] == "VANDALIA HEALTH"))
 })
 
-test_that("session 103: WVU Eye Institute is Unclear and the other four are not hospitals", {
+test_that("session 104: WVU Eye Institute is NON_HOSPITAL and the other four are not hospitals", {
   eye <- wv[wv$awardee == "West Virginia University (WVU) Eye Institute", ]
   expect_equal(eye$amount, 2000026)
-  expect_equal(eye$distributed_to_hospital, "Unclear")
-  expect_equal(eye$flow_type, "PASS_THROUGH_UNRESOLVED")
+  expect_equal(eye$distributed_to_hospital, "No")
+  expect_equal(eye$flow_type, "NON_HOSPITAL")
+  expect_equal(eye$recipient_type, "UNIVERSITY_OR_AHC")
   expect_equal(eye$hospital_attribution, "NOT_HOSPITAL")
   expect_true(is.na(eye$ccn))
   s103 <- wv[wv$state_source_url %in% paste0(WV_URL, WV_SLUG[c("phg", "pca", "ars")]), ]

@@ -37,28 +37,42 @@ test_that("intents are preliminary, executed contracts are confirmed", {
 
 test_that("the hospital figure and its LOW bridges", {
   h <- tx[tx$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 201L)
-  expect_equal(round(sum(h$amount), 2), 117571194.73)
+  # Session 104 rulings: +7 county-test bridges (+$1,987,387.40); Memorial
+  # Hospital stays a hospital row with no CCN. Before: 201 / $117,571,194.73.
+  expect_equal(nrow(h), 208L)
+  expect_equal(round(sum(h$amount), 2), 119558582.13)
   low <- h[h$determination_confidence == "LOW", ]
-  expect_equal(nrow(low), 80L)
-  expect_equal(round(sum(low$amount), 2), 54468593.79)
+  expect_equal(nrow(low), 87L)
+  expect_equal(round(sum(low$amount), 2), 56455981.19)
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
   expect_false(any(tx$determination_confidence == "HIGH"))
 })
 
-test_that("districts with no enrolment are not hospital rows (Hardeman precedent)", {
-  dn <- tx[tx$awardee %in% TX_RTS_DISTRICTS_NOT_ENROLLED$awardee, ]
-  expect_equal(nrow(dn), 6L)
-  expect_true(all(dn$distributed_to_hospital == "No"))
-  expect_true(all(dn$recipient_type == "LOCAL_GOVT_OR_PUBLIC_HEALTH"))
-  expect_true(any(grepl("HARDEMAN COUNTY MEMORIAL HOSP", dn$determination_basis)))
+test_that("session 104 county test: bridge only where one enrolled hospital sits in the county", {
+  expect_silent(tx_rts_assert_county_bridges())
+  cb <- tx[tx$awardee %in% setdiff(names(TRT_COUNTY_OF), "Winnie Stowell Hospital District"), ]
+  expect_equal(nrow(cb), 7L)
+  expect_true(all(cb$distributed_to_hospital == "Yes"))
+  expect_true(all(cb$determination_confidence == "LOW"))
+  expect_equal(sort(unique(cb$ccn)), sort(c("451352", "451318", "450055", "450092", "450698", "450475")))
+  expect_true(all(grepl("COUNTY-TEST BRIDGE", cb$determination_basis)))
+  # Chambers County has two enrolled CAHs: Winnie Stowell stays NON_HOSPITAL.
+  ws <- tx[tx$awardee %in% TX_RTS_DISTRICTS_NOT_ENROLLED$awardee, ]
+  expect_equal(ws$awardee, "Winnie Stowell Hospital District")
+  expect_equal(ws$distributed_to_hospital, "No")
+  expect_equal(ws$recipient_type, "LOCAL_GOVT_OR_PUBLIC_HEALTH")
+  # The two not reached by the county test stay off the hospital rows.
+  expect_true(all(tx$distributed_to_hospital[grepl("Principle|Trinity Clinic", tx$awardee)] == "No"))
 })
 
 test_that("every BP1 district corresponds to exactly one Initiative 1 line", {
   expect_silent(tx_rts_assert_bp1(tx))
+  # Session 104 ruling (c), as corrected: a hospital, no CCN, no elimination.
   m <- tx[tx$awardee == "Memorial Hospital", ]
-  expect_equal(m$ccn, "451386")
-  expect_match(m$determination_basis, "BY ELIMINATION")
+  expect_true(is.na(m$ccn))
+  expect_equal(m$distributed_to_hospital, "Yes")
+  expect_equal(m$determination_confidence, "LOW")
+  expect_match(m$determination_basis, "NO SOURCE FIELD")
 })
 
 test_that("Christus Trinity Clinic is a physician group, not a hospital", {

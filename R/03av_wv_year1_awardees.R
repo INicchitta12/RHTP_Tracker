@@ -399,20 +399,18 @@ WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S100)
 # "WVU Eye Institute" or any "Eye" string on a hospital record; the enrolled
 # legal entity, WEST VIRGINIA UNIVERSITY HOSPITALS INC (CCN 510001), is not
 # named, and §10.2 never reaches a sub-unit named without its legal entity.
-# The owner's instruction for that case is Unclear: UNIVERSITY_OR_AHC,
-# PASS_THROUGH_UNRESOLVED, in no bucket (the convention every Unclear row in
-# the union follows). LAUREN'S WISH ($211,700, same release as ARS) is
+# Session 103 coded it Unclear on the owner's instruction; SESSION 104's owner
+# ruling makes it UNIVERSITY_OR_AHC / NON_HOSPITAL. LAUREN'S WISH ($211,700, same release as ARS) is
 # Appalachian Regional Commission INSPIRE money, never a row (§0.1 mode 1).
 WV_EYE_WHY <- paste0(
-  "UNCLEAR ON THE OWNER'S INSTRUCTION (session 103): the release names 'the ",
-  "West Virginia University (WVU) Eye Institute' and states no form. CMS ",
-  "Hospital Enrollments (", WV_INV_ENROL_FILE, ") carries WEST VIRGINIA ",
-  "UNIVERSITY HOSPITALS INC dba WVU HOSPITALS (CCN 510001, Morgantown) and no ",
-  "hospital record whose name or DBA contains 'Eye'. A sub-unit named without ",
-  "its enrolled legal entity is not matched (§10.2, 'what it does not reach'; ",
-  "AHC_STRING_NAMES_NO_ENROLLED_ENTITY's shape), so no ACADEMIC_HEALTH_CENTER ",
-  "typing and no bucket. Queued WV_WVU_EYE_INSTITUTE_UNCLEAR, one-directional: ",
-  "$2,000,026 joins NAMED_HOSPITAL only if a human bridges it.")
+  "NON_HOSPITAL ON THE OWNER'S RULING (session 104; session 103 had it Unclear): ",
+  "the release names 'the West Virginia University (WVU) Eye Institute', a unit of ",
+  "the university, and states no other form. CMS Hospital Enrollments (",
+  WV_INV_ENROL_FILE, ") carries WEST VIRGINIA UNIVERSITY HOSPITALS INC dba WVU ",
+  "HOSPITALS (CCN 510001, Morgantown) and no hospital record whose name or DBA ",
+  "contains 'Eye'; the enrolled legal entity is not named, so the row is not ",
+  "bridged (§10.2, 'what it does not reach'). UNIVERSITY_OR_AHC / NON_HOSPITAL, ",
+  "$0 of hospital money. WV_WVU_EYE_INSTITUTE_UNCLEAR resolved.")
 WV_PPSF <- "Provider Productivity Support Fund"
 WV_AWARDS_S103 <- tibble::tribble(
   ~key, ~date, ~initiative, ~awardee, ~amount, ~quote,
@@ -420,7 +418,7 @@ WV_AWARDS_S103 <- tibble::tribble(
   "eye", "2026-10-14", "Connected Care Grid",
   "West Virginia University (WVU) Eye Institute", 2000026,
   "announced a $2,000,026 West Virginia Rural Health Transformation Program (WV RHTP) award to the West Virginia University (WVU) Eye Institute",
-  "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "PASS_THROUGH_UNRESOLVED", "Unclear", WV_EYE_WHY, FALSE,
+  "UNIVERSITY_OR_AHC", "STATE_SOURCE", "NON_HOSPITAL", "No", WV_EYE_WHY, FALSE,
   "phg", "2026-10-14", paste0(WV_PPSF, " (the release's closing line; the award sentence names no initiative)"),
   "Potomac Highlands Guild", 500000,
   "announced a $500,000 Rural Health Transformation Program award to Potomac Highlands Guild",
@@ -773,9 +771,10 @@ wv_status_table <- function() {
 wv_validate <- function() {
   wv_assert_sources()
   d <- wv_year1_awardees()
-  # Session 103: + 5 rows, all priced; WVU Eye Institute is Unclear ($2,000,026).
+  # Session 103: + 5 rows, all priced. Session 104: WVU Eye Institute is
+  # NON_HOSPITAL on the owner's ruling (was Unclear), so no WV row is Unclear.
   stopifnot(nrow(d) == 26L, sum(!is.na(d$amount)) == 17L,
-            sum(d$distributed_to_hospital == "Unclear") == 1L,
+            sum(d$distributed_to_hospital == "Unclear") == 0L,
             sum(d$distributed_to_hospital == "Yes") == 12L,   # session 101: + Vandalia Health ($0)
             sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 2924000)
   message("[WV] all assertions pass.")
