@@ -1203,3 +1203,9 @@ CT,2026-10-19T15:42:23Z,CHANGED,opm,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-10-19T15:42:23Z,CHANGED,programme,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-10-19T15:42:23Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-10-19T15:42:23Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
+TX,2026-10-19T16:02:43Z,UNCHANGED,rts_init1p2,,interactive
+TX,2026-10-19T16:02:43Z,UNCHANGED,rts_init4r1,,interactive
+TX,2026-10-19T16:02:43Z,UNCHANGED,rts_init4r2,,interactive
+TX,2026-10-19T16:02:43Z,UNCHANGED,rts_init6p1,,interactive
+TX,2026-10-19T16:02:43Z,UNCHANGED,state_debt_rfa,,interactive
+TX,2026-10-19T16:02:43Z,UNCHANGED,state_impr_rfa,,interactive
