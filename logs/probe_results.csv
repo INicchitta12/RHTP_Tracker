@@ -1221,3 +1221,24 @@ AR,2026-10-19T16:06:59Z,UNCHANGED,heart,,interactive
 CO,2026-10-19T16:08:57Z,UNCHANGED,awardees,,interactive
 CO,2026-10-19T16:08:57Z,UNCHANGED,programme,,interactive
 CA,2026-10-19T16:10:45Z,UNCHANGED,(all),,interactive
+NEWSROOM,2026-10-19T16:52:53Z,CHANGED,AZ:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:52:53Z,CHANGED,AZ:ahcccs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:00Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Delaware Announces Rural Health Transformation Funding to Strengthen Physician Workforce'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:02Z,CHANGED,FL:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:03Z,CHANGED,IA:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:03Z,CHANGED,ID:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:03Z,CHANGED,ID:dhw,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:05Z,CHANGED,MN:mdh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:06Z,UNCHANGED,MT:news,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:06Z,CHANGED,MT:dphhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:08Z,CHANGED,NE:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:08Z,UNCHANGED,NE:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:09Z,CHANGED,NJ:doh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:09Z,CHANGED,NV:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:09Z,UNCHANGED,NV:nvha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:11Z,UNCHANGED,OK:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:11Z,UNCHANGED,OR:oha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:12Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: hhsc: 'Gov. Abbott, HHSC Announce Recipients of $78 Million in Rural Texas Strong Grants'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:19Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:19Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-10-19T16:53:20Z,TRIPWIRE,(probe),"[MD] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: governor: 'Governor Moore and Maryland Department of Labor Announce $16.4 Million in Rural Health Transformation Program Workforce Awards'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
