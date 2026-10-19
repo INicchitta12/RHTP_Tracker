@@ -60,7 +60,7 @@ $149,177,618.45 is a PARTIAL YEAR against a $208,779,396 allotment.
 Both NOFOs have closed, NEITHER names an award date, and CMS requires all
 Year 1 funds obligated by 2026-10-30.
 
-Fetched: 2026-09-03
+Fetched: 2026-10-19
 
 file                                                            bytes  sha256
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -70,9 +70,9 @@ file                                                            bytes  sha256
 2026-08-27_governor_sanders_nearly_150_million_awarded.html     134725  30e0030b988ea8d2866a8197047992ceaad4791253036b29085042c7ede35888
 2026-09-03_ar_rhtp_thrive.html                                 192658  5a755329293a6a6ce1a10d4acb85e1f334e5f1eb25aeb6b92f39ee6081d0f850
 2026-09-03_ar_rhtp_pact.html                                   189778  d14720f67fba32e7073aced4a86c777228dd3f4634a5bd83e3d4cb007429d132
-2026-09-03_ar_rhtp_rise.html                                   190084  c9fca2e2bd9d16cfb15af5c8db25736b2736eb3c781229280fac4016f4581989
-2026-09-03_ar_rhtp_heart.html                                  190448  4e9168b4fc384b4a1acc6d3c8c8e27f6a0e83a364c9d2bdd2bad7cf070626495
-2026-09-03_ar_rhtp_resources.html                              392804  efb17c99033fdc390bea86df7316522188f46039ddd052f16369e42b678bdd26
+2026-09-03_ar_rhtp_rise.html                                   191215  53fd96f21565b933c03f19cb7ca708b71186f8ef1e5d0afefc474f373cb37e18
+2026-09-03_ar_rhtp_heart.html                                  191497  dc5759d6bdc2b784d4eb9331877e9227c61e48a743a80a05804f2dea78ebd137
+2026-09-03_ar_rhtp_resources.html                              395536  1c330b1a33c5218a9f5b08effe6b0664b2c3f5804fe26fdf597b7bdd35e55ed8
 2026-05-11_ar_nofo_thrive.pdf                                  156978  0ffe3086ed451396e704f687517338cb88f62ef9613bdb433172e10422c32627
 2026-06-08_ar_nofo_pact.pdf                                    886548  e23d56205e520baa670ba673b859a02f52603f42af99e3f71d214558cf1ae9e5
 2026-06-22_ar_nofo_rise_ar.pdf                                 802975  1f6ed1f15d344b2a508e989023d07c7e156a7c4bbb2025101ed7db880b53dde7

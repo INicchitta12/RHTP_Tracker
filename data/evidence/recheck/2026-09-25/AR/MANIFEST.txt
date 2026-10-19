@@ -26,7 +26,10 @@ SHA-256:
 9e325ae6b40f85b78f81fbcec7bba5cde1cce5f5627e5fd071c2d38e97871f9d  2026-09-24_ar_dfa_year1_rise_heart_award_list.pdf
 e37e4b9a6f11c4cc61101bd2e96f32e722b98aa4111440acc8790c55fb0bca97  2026-09-24_ar_dfa_year1_rise_heart_by_county_map.pdf
 995b661729e24c54f24f12f5adb31aff4a51fa4bc0012d9c80fdc2236afae6c0  2026-09-24_governor_sanders_54_6_million_awarded.html
-c688b6a07ac3dba7fde64508b1ad0d8de22400d64de0bae26786714d240e9f04  2026-09-25_ar_rhtp_home.html
+8f8bd0aed5fb076ade9cfe5b344f19ed8760a9244c19781e6fe129093da30274  2026-09-25_ar_rhtp_home.html
+  (re-based 2026-10-19, session 105, after reading the diff: the site menu gained
+  "Resource Library"; both award-list links are still present. The prior bytes
+  were c688b6a07ac3dba7fde64508b1ad0d8de22400d64de0bae26786714d240e9f04, in git.)
 
 ADDED SESSION 69 (the AR_ARHP_CONSORTIUM_FLOW test): Arkansas Rural Health
 Partnership's own site, fetched 2026-09-25 with the honest agent, bodies byte
