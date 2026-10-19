@@ -70,6 +70,10 @@ STATE_FILES <- c(
   # because MDH publishes no organisation-type column. That makes it the state
   # most likely to put a name-derived value outside §8 into the union.
   MD = "data/reference/md_year1_awardees.csv",
+  # Session 104: MD Labor's RHTP workforce roster (R/03cf), a separate
+  # subaward channel (SORH -> MD Labor). "$16.4 million" on its page is the
+  # Transformation Fund's size, never an award; the 38 lines sum to $13,965,196.
+  MD_LABOR = "data/reference/md_labor_awardees.csv",
   # Nebraska is the first state file to carry a THIRD hospital-attribution
   # bucket (POOL_NAMED_HOSPITALS, §8, session 23) and the first to mix priced
   # award rows with deliberately un-priced ones inside a single pool -- the 21

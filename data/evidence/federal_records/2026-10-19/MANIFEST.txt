@@ -1,0 +1,11 @@
+FEDERAL RECORDS -- fetched 2026-10-19 by session 104
+
+WHY: (1) the owner's Texas county test (R/03ce tx_rts_assert_county_bridges()): a hospital-shaped
+name is bridged only where exactly one enrolled hospital CCN sits in its county. CMS's enrolment
+file carries no county, so CMS's Provider Data Catalog "Hospital General Information" (xubh-q36u,
+which carries County/Parish) supplies it, by CCN. (2) Ohio's 22 named hospitals (R/03an), typed on
+CMS Hospital Enrollments for OH. Committed as served (§0.5); the readers use THESE.
+
+file | sha256 | bytes | rows | url
+cms_pdc_hospital_general_information_TX.json | f63df5f7c9eb8aa7140ce2a95d660d567fb638d7c4440fd9403ca7661758a400 | 646974 | 467 | https://data.cms.gov/provider-data/api/1/datastore/query/xubh-q36u/0?conditions[0][property]=state&conditions[0][value]=TX&conditions[0][operator]=%3D&limit=1500
+cms_hosp_enrollments_OH.json | 3fce7bb4cd716cfad7c8eeb1e201d8a1f718e4d4bec90fcbf13668ac01ea253f | 375943 | 316 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=OH&size=5000

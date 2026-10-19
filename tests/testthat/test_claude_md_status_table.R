@@ -43,7 +43,8 @@ TABLE_LABEL_TO_KEY <- c(
   "SD CCBHC" = "SD_CCBHC", "VA VHCF" = "VA_VHCF",
   "IN GROW" = "IN_GROW",
   "NE CMS obl" = "NE_CMS", "PA CMS obl" = "PA_CMS",
-  "OK BHI" = "OK_BHI", "OK EMS/CP" = "OK_EMS_CP"
+  "OK BHI" = "OK_BHI", "OK EMS/CP" = "OK_EMS_CP",
+  "MD Labor" = "MD_LABOR"
 )
 
 # The hospital cell's bucket prefixes. An unprefixed "N / $X" is NAMED_HOSPITAL,

@@ -66,34 +66,33 @@
 # not yet executed (Llano, Mitchell, Hansford, Fairfield). Each is bridged by
 # hand to one enrolled legal entity, cross-checked against the 33 full names in
 # HHSC's BP1 annual report (R/03bp): every one of those 33 corresponds to
-# exactly one bridged line (tx_rts_assert_bp1()). "Memorial Hospital" is
-# bridged to MOORE COUNTY HOSPITAL DISTRICT dba MEMORIAL HOSPITAL (Dumas) BY
-# ELIMINATION -- Moore County is the one BP1 name no other line abbreviates --
-# and is the weakest bridge in the file; the 10/14 list's own Initiative 4 line
-# "Memorial Hospital (Dumas)" names the same hospital.
+# exactly one line (tx_rts_assert_bp1()).
 #
-# A DISTRICT WITH NO HOSPITAL ENROLMENT IS NOT A HOSPITAL ROW (the owner's
-# Hardeman precedent, session 103). Five districts on the list carry no
-# enrolment under their own name: Hardeman County HD (2 lines), Maverick County
-# HD, Nolan County HD, Stonewall County HD and Winnie Stowell HD. A Texas
-# hospital district is a political subdivision, so each is
-# LOCAL_GOVT_OR_PUBLIC_HEALTH / NON_HOSPITAL at MEDIUM (the form is in the
-# name), and $0 of hospital money. THREE OF THE FIVE SIT NEXT TO AN ENROLLED
-# HOSPITAL CARRYING ANOTHER NAME: HARDEMAN COUNTY MEMORIAL HOSP (CAH 451352,
-# Quanah), ROLLING PLAINS MEMORIAL HOSPITAL (450055, Sweetwater, Nolan County)
-# and STONEWALL MEMORIAL HOSPITAL dba STONEWALL MEMORIAL HOSPITAL DISTRICT
-# (CAH 451318, Aspermont). R/03bp's "Hardeman ... has no hospital enrolment at
-# all" is therefore imprecise: the DISTRICT has none; a hospital in its county
-# seat does. Whether each district operates that hospital is not on any
-# document read, so nothing is bridged (§2, §0.4) and the three are queued
-# (TX_RTS_DISTRICT_NAME_NOT_ENROLLED, ONE-DIRECTIONAL: bridging only adds).
-#
-# NOT BRIDGED, ALSO QUEUED: "Lamb County Hospital" (enrolled LAMB HEALTHCARE
-# CENTER, Littlefield: a different name); "UT Health Henderson" (HENDERSON
-# HOSPITAL LLC carries no UT Health DBA, unlike Carthage, Jacksonville and
-# Pittsburg, which are bridged). Christus Trinity Clinic's 13 county lines are
-# a system's PHYSICIAN GROUP, not an enrolled hospital: PHYSICIAN_PRACTICE,
-# the CalvertHealth Medical Group footing (session 102).
+# SESSION 104, THE OWNER'S THREE TEXAS RULINGS (docs/session104_*):
+#   (a) Hardeman, Stonewall and Nolan County Hospital Districts, which carry no
+#       enrolment under their own names, are bridged to the enrolled hospital in
+#       their county: HARDEMAN COUNTY MEMORIAL HOSP (CAH 451352, Quanah; both
+#       Hardeman lines), STONEWALL MEMORIAL HOSPITAL (CAH 451318, Aspermont) and
+#       ROLLING PLAINS MEMORIAL HOSPITAL (450055, Sweetwater). LOW.
+#   (b) Every other unbridged hospital-shaped name is bridged ONLY where exactly
+#       one enrolled hospital CCN sits in its county, on CMS's Hospital General
+#       Information file (federal_records/2026-10-19/; tx_rts_assert_county_
+#       bridges()). Bridged: Maverick County HD (Fort Duncan, 450092), Lamb
+#       County Hospital (Lamb Healthcare Center, 450698), UT Health Henderson
+#       (Henderson Hospital LLC, 450475). NOT bridged: Winnie Stowell HD
+#       (Chambers County has two enrolled CAHs), Principle Health Systems (the
+#       string names no county), and Christus Trinity Clinic's 13 county lines
+#       (a physician group: the string names a clinic, not a hospital, so the
+#       county test does not reach it).
+#   (c) "Memorial Hospital" (Initiative 1, $750,000) is NO LONGER bridged by
+#       elimination to Moore County HD (CAH 451386). The owner rules it a
+#       hospital; the list carries no county/address/district field to identify
+#       it, so it is a hospital row with NO CCN, LOW (TX_RTS_NO_CCN), and out of
+#       the rural cut. The BP1 cross-check still pairs it with Moore County, as
+#       a record, not a bridge.
+# The district rule that remains: a district with no enrolment of its own and
+# no single enrolled hospital in its county is LOCAL_GOVT_OR_PUBLIC_HEALTH /
+# NON_HOSPITAL (the owner's Hardeman precedent, session 103), now one line.
 #
 # §6.2: the list post-dates Texas's 2025-12-29 NOA, and the release states the
 # provenance: "Rural Texas Strong, the CMS-approved state plan, is 100%
@@ -345,6 +344,12 @@ tx_rts_exact <- function(a, f) {
 # enrolled ORGANIZATION NAME it abbreviates or truncates. `bp1` is the BP1
 # report's full name for that first-tier entity, where the report names it.
 TRT_I1 <- "Initiative 1 $750,000 line (abbreviated name)"
+TRT_COUNTY_RULE <- paste0(
+  "COUNTY-TEST BRIDGE (owner ruling, session 104): no CMS TX enrolment carries ",
+  "this name, and exactly one enrolled hospital CCN sits in its county on CMS's ",
+  "Hospital General Information file (federal_records/2026-10-19/). Whether the ",
+  "named body operates that hospital is on no document read; the bridge rests on ",
+  "the county alone, so LOW.")
 TX_RTS_BRIDGES <- tibble::tribble(
   ~awardee, ~org, ~bp1, ~why,
   "Fannin County", "FANNIN COUNTY HOSPITAL AUTHORITY", NA, TRT_I1,
@@ -410,8 +415,6 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "North Runnels Co", "NORTH RUNNELS COUNTY HOSPITAL", NA, TRT_I1,
   "Iraan Hospital Dis", "GENERAL HOSPITAL", NA, paste(TRT_I1, "-- the enrolled ORGANIZATION NAME is bare 'GENERAL HOSPITAL', DBA IRAAN GENERAL HOSPITAL DISTRICT (CAH, Iraan)"),
   "Wilbarger General", "WILBARGER COUNTY HOSPITAL DISTRICT", NA, paste(TRT_I1, "-- DBA WILBARGER GENERAL HOSPITAL"),
-  "Memorial Hospital", "MOORE COUNTY HOSPITAL DISTRICT", "Moore County Hospital District",
-  paste(TRT_I1, "-- BRIDGED BY ELIMINATION, THE WEAKEST BRIDGE IN THE FILE: 'Memorial Hospital' is the DBA of three enrolled entities (Moore County HD, Seminole HD, Gonzales Healthcare Systems). Seminole and Gonzales each have their own Initiative 1 line; Moore County Hospital District is the one BP1 first-tier name no other line abbreviates; the list's own Initiative 4 line 'Memorial Hospital (Dumas)' names the same hospital"),
   "Rolling Plains", "ROLLING PLAINS MEMORIAL HOSPITAL", NA, TRT_I1,
   "Andrews County", "ANDREWS COUNTY HOSPITAL DISTRICT", NA, TRT_I1,
   "Fairfield Hospital", "FAIRFIELD HOSPITAL DISTRICT", NA, TRT_I1,
@@ -429,7 +432,19 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Rolling Plains Memorial Hosp", "ROLLING PLAINS MEMORIAL HOSPITAL", NA, "'Hosp' for 'Hospital'",
   "Heart Of Texas Community Health Center I", "HEART OF TEXAS COMMUNITY HEALTH CENTER, INC.", NA, "the list truncates the name at 40 characters (FQHC)",
   "Matagorda Episcopal Health Outreach Prog", "MATAGORDA EPISCOPAL HEALTH OUTREACH PROGRAM CORPORATION", NA, "the list truncates the name at 40 characters (FQHC)",
-  "Vida Y Salud Health System", "VIDA Y SALUD - HEALTH SYSTEMS, INC.", NA, "'System' against 'Systems' (FQHC)"
+  "Vida Y Salud Health System", "VIDA Y SALUD - HEALTH SYSTEMS, INC.", NA, "'System' against 'Systems' (FQHC)",
+  # SESSION 104, OWNER RULINGS (a) and (b): the COUNTY TEST. A hospital-shaped
+  # string with no enrolment under its own name is bridged to the enrolled
+  # hospital in its county ONLY where exactly one enrolled hospital CCN sits in
+  # that county (tx_rts_assert_county_bridges(), on CMS's Hospital General
+  # Information file, federal_records/2026-10-19/). LOW; the basis says so.
+  "Hardeman County Hospital District", "HARDEMAN COUNTY MEMORIAL HOSP", NA, TRT_COUNTY_RULE,
+  "Hardeman County", "HARDEMAN COUNTY MEMORIAL HOSP", "Hardeman County Hospital District", paste(TRT_I1, "--", TRT_COUNTY_RULE),
+  "Stonewall County Hospital District", "STONEWALL MEMORIAL HOSPITAL", NA, paste(TRT_COUNTY_RULE, "The enrolled entity's DBA is STONEWALL MEMORIAL HOSPITAL DISTRICT"),
+  "Nolan County Hospital District", "ROLLING PLAINS MEMORIAL HOSPITAL", NA, paste(TRT_COUNTY_RULE, "VULNERABILITY: Rolling Plains Memorial Hospital also carries its own Initiative 1 and Initiative 6 lines, so this bridge gives one hospital a third first-tier name"),
+  "Maverick County Hospital District", "FORT DUNCAN MEDICAL CENTER, L.P.", NA, paste(TRT_COUNTY_RULE, "VULNERABILITY: the enrolled entity is an L.P. (DBA FORT DUNCAN REGIONAL MEDICAL CENTER), a different legal body from the district; no document read says the district operates or owns it"),
+  "Lamb County Hospital", "LAMB HEALTHCARE CENTER", NA, paste(TRT_COUNTY_RULE, "The string is not a district's name; it names Lamb County, where the one enrolled hospital is LAMB HEALTHCARE CENTER (Littlefield)"),
+  "UT Health Henderson", "HENDERSON HOSPITAL LLC", NA, paste(TRT_COUNTY_RULE, "The string names the city of Henderson (Rusk County), where the one enrolled hospital is HENDERSON HOSPITAL LLC; it carries no UT Health DBA, unlike Carthage, Jacksonville and Pittsburg")
 )
 
 # Districts with no enrolment under their own name: NOT hospital rows (the
@@ -437,12 +452,35 @@ TX_RTS_BRIDGES <- tibble::tribble(
 # judge to be the district's -- recorded, never bridged.
 TX_RTS_DISTRICTS_NOT_ENROLLED <- tibble::tribble(
   ~awardee, ~near,
-  "Hardeman County Hospital District", "HARDEMAN COUNTY MEMORIAL HOSP (CAH 451352, Quanah)",
-  "Hardeman County", "HARDEMAN COUNTY MEMORIAL HOSP (CAH 451352, Quanah); the BP1 report names this first-tier entity 'Hardeman County Hospital District'",
-  "Stonewall County Hospital District", "STONEWALL MEMORIAL HOSPITAL dba STONEWALL MEMORIAL HOSPITAL DISTRICT (CAH 451318, Aspermont)",
-  "Nolan County Hospital District", "ROLLING PLAINS MEMORIAL HOSPITAL (450055, Sweetwater, the Nolan County seat)",
-  "Maverick County Hospital District", NA,
-  "Winnie Stowell Hospital District", NA)
+  "Winnie Stowell Hospital District", paste0(
+    "Chambers County has TWO enrolled hospitals, WINNIE COMMUNITY HOSPITAL LLC dba ",
+    "RICELAND MEDICAL CENTER (CAH 451328, Winnie) and CHAMBERS COUNTY PUBLIC HOSPITAL ",
+    "DISTRICT NO. 1 dba BAYSIDE COMMUNITY HOSPITAL (CAH 451320, Anahuac), so the ",
+    "session 104 county test does not bridge it; both carry their own lines"))
+
+# SESSION 104, OWNER RULING (c), AS CORRECTED BY THE OWNER MID-SESSION:
+# "Memorial Hospital" (Initiative 1) is a HOSPITAL (the owner's ruling) and is
+# NOT bridged by elimination. The facility was to be identified from the list's
+# county, address, applicant-entity or district fields; the list has none (its
+# six columns are name, initiative, total, Year 1 subset, intent, executed), so
+# the row is a hospital with NO CCN, LOW, and out of the rural cut.
+TX_RTS_NO_CCN <- tibble::tribble(
+  ~awardee, ~why,
+  "Memorial Hospital", paste0(
+    "HOSPITAL ON THE OWNER'S RULING (session 104), NO CCN: the string is a hospital's ",
+    "name, and Initiative 1 funds 'rural hospital districts and authorities' (CMS ",
+    "2026-10-01 release, '68 rural hospital districts and authorities'). HHSC's list ",
+    "carries no county, address, applicant-entity or district field, so NO SOURCE FIELD ",
+    "identifies the facility and no CCN is recorded. CMS TX enrolment has five hospital ",
+    "CCNs whose name or DBA is a 'Memorial Hospital': MOORE COUNTY HOSPITAL DISTRICT dba ",
+    "MEMORIAL HOSPITAL (CAH 451386, Dumas), SEMINOLE HOSPITAL DISTRICT OF GAINES COUNTY ",
+    "TEXAS dba MEMORIAL HOSPITAL (CAH 451358, Seminole), GONZALES HEALTHCARE SYSTEMS dba ",
+    "MEMORIAL HOSPITAL (450235, Gonzales), MEMORIAL HOSPITAL OF POLK COUNTY (450395, ",
+    "Livingston) and TEXAS HEALTH ARLINGTON MEMORIAL HOSPITAL (450064, Arlington). ",
+    "Arlington is an urban system hospital, not a district or authority, so the ",
+    "initiative's own class does not reach it. Session 103 bridged the line to Moore ",
+    "County BY ELIMINATION (Seminole and Gonzales have their own Initiative 1 lines); ",
+    "that is withdrawn. It reopens if HHSC prints the full legal name."))
 
 # Hand-read typings of non-hospital lines the exact screen and the classifier
 # cannot settle. Everything else: exact federal record, bridge, or classifier.
@@ -452,10 +490,6 @@ TX_RTS_OVERRIDES <- tibble::tribble(
   "CHRISTUS Trinity Clinic is CHRISTUS Health's physician group; no CMS TX Hospital, FQHC or RHC record carries the string. A system's medical group is not an enrolled hospital (CalvertHealth Medical Group footing, session 102). Queued with the system-affiliate question (TX_RTS_HOSPITAL_SHAPED_NOT_BRIDGED).",
   "(M\\.D\\., P\\.A\\.|Md Pa$|O\\.D\\., PLLC)", "PHYSICIAN_PRACTICE", "STATE_SOURCE", "MEDIUM",
   "A physician's or optometrist's professional association (the form is in the string). Not a hospital.",
-  "^Lamb County Hospital$", "NONPROFIT_CBO", NA, "LOW",
-  "NOT BRIDGED: the enrolled hospital in Lamb County is LAMB HEALTHCARE CENTER (450698, Littlefield), a different name; no record carries 'Lamb County Hospital' (§2). §8's standing fallback; queued (TX_RTS_HOSPITAL_SHAPED_NOT_BRIDGED), one-directional.",
-  "^UT Health Henderson$", "NONPROFIT_CBO", NA, "LOW",
-  "NOT BRIDGED: HENDERSON HOSPITAL LLC (450475) carries no 'UT Health' DBA, unlike Carthage, Jacksonville and Pittsburg; the string may name a clinic. §8's standing fallback; queued (TX_RTS_HOSPITAL_SHAPED_NOT_BRIDGED), one-directional.",
   "(Pharmacy|Apothecary|Pharmacare|Pharmaceuticals| Rx )|Rx LLC$", "OTHER", "STATE_SOURCE", "MEDIUM",
   "DETERMINED FORM: a retail pharmacy (the form is in the string). Not a hospital.",
   "^Brookshire Brothers Inc$", "OTHER", "GENERAL_KNOWLEDGE", "LOW",
@@ -502,11 +536,12 @@ tx_rts_type_one <- function(a, f, cls_type) {
                         paste0(" dba ", paste(unique(stats::na.omit(hk$dba[nzchar(hk$dba)])), collapse = " / ")) else "",
                       " (", paste(six, collapse = "/"), ", ", unique(hk$city)[1], ")"))
   }
+  nc <- TX_RTS_NO_CCN[TX_RTS_NO_CCN$awardee == a, ]
+  if (nrow(nc)) return(res("HOSPITAL_OR_SYSTEM", "STATE_SOURCE", "LOW", "OWNER_RULING_NO_CCN", nc$why))
   if (nrow(dn)) {
     return(res("LOCAL_GOVT_OR_PUBLIC_HEALTH", "STATE_SOURCE", "MEDIUM", "DISTRICT_NOT_ENROLLED",
                paste0(TRT_DISTRICT_NOTE, if (!is.na(dn$near))
-                 paste0("An enrolled hospital nearby carries another name: ", dn$near,
-                        ". Whether the district operates it is on no document read, so it is NOT bridged (§2, §0.4); queued TX_RTS_DISTRICT_NAME_NOT_ENROLLED, one-directional.")
+                 paste0(dn$near, ". NOT bridged (session 104 county test; §2, §0.4).")
                  else "No enrolled hospital in the file carries the county's or district's name.")))
   }
   if (nrow(b)) {
@@ -599,7 +634,7 @@ tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
     contract_executed = d$contract_executed,
     list_section = d$list_section,
     award_pool = paste0("Rural Texas Strong ", sub(":.*", "", TRT_INITIATIVES[d$initiative])),
-    recipient_type_source = paste0("TYPED (session 103, ", t$typing, "): ", t$why,
+    recipient_type_source = paste0("TYPED (session ", ifelse(grepl("session 104", t$why), "104", "103"), ", ", t$typing, "): ", t$why,
                                    " Classifier said ", t$classifier, "."),
     cms_enrolment_record = t$enrolment,
     determination_confidence = rhtp_confidence_ceiling(t$determination_confidence, t$ccn),
@@ -629,7 +664,15 @@ tx_rts_assert_bp1 <- function(a = tx_rts_awardees()) {
             abs(a$total_award_amount - 3500000) < 0.005, ]
   if (nrow(i1) != 72L) stop("[TX RTS] Initiative 1 has ", nrow(i1), " $750,000 lines, not 72.", call. = FALSE)
   cited <- TX_RTS_BRIDGES$bp1[TX_RTS_BRIDGES$awardee %in% i1$awardee]
-  cited <- c(cited, "Hardeman County Hospital District")   # not enrolled; still the BP1 name
+  # SESSION 104: 'Memorial Hospital' is a hospital with no CCN, not bridged.
+  # Moore County Hospital District is still the one BP1 name it can correspond
+  # to (by elimination); recorded here, never as a bridge or a CCN.
+  m <- a[a$awardee == "Memorial Hospital", ]
+  if (nrow(m) != 1L || m$distributed_to_hospital != "Yes" || !is.na(m$ccn)) {
+    stop("[TX RTS] 'Memorial Hospital' must stay a hospital row with NO CCN (session 104 ruling).",
+         call. = FALSE)
+  }
+  cited <- c(cited, "Moore County Hospital District")
   full  <- intersect(bp1, i1$awardee)
   got <- c(stats::na.omit(cited), full)
   if (!setequal(got, bp1) || anyDuplicated(got)) {
@@ -640,15 +683,65 @@ tx_rts_assert_bp1 <- function(a = tx_rts_awardees()) {
   invisible(TRUE)
 }
 
+#' SESSION 104: the county test behind every TRT_COUNTY_RULE bridge.
+#' County comes from CMS's Hospital General Information file (by CCN, else by
+#' a city that file places in exactly one county). Every county-test bridge
+#' must sit in a county with exactly ONE enrolled six-digit hospital CCN, and
+#' Winnie Stowell's Chambers County must still have more than one.
+TRT_PDC <- file.path("data", "evidence", "federal_records", "2026-10-19",
+                     "cms_pdc_hospital_general_information_TX.json")
+TRT_COUNTY_OF <- c("Hardeman County Hospital District" = "HARDEMAN", "Hardeman County" = "HARDEMAN",
+                   "Stonewall County Hospital District" = "STONEWALL",
+                   "Nolan County Hospital District" = "NOLAN",
+                   "Maverick County Hospital District" = "MAVERICK",
+                   "Lamb County Hospital" = "LAMB", "UT Health Henderson" = "RUSK",
+                   "Winnie Stowell Hospital District" = "CHAMBERS")
+tx_rts_hospital_counties <- function(f = tx_rts_federal()) {
+  p <- jsonlite::fromJSON(here::here(TRT_PDC))$results
+  p <- tibble::tibble(ccn = p$facility_id, county = p$countyparish, city = p$citytown)
+  city1 <- p %>% dplyr::distinct(city, county) %>% dplyr::group_by(city) %>%
+    dplyr::filter(dplyr::n() == 1L) %>% dplyr::ungroup()
+  h <- f[f$kind == "HOSPITAL" & grepl("^[0-9]{6}$", f$ccn), ] %>% dplyr::distinct(ccn, org, city)
+  h$county <- dplyr::coalesce(p$county[match(h$ccn, p$ccn)], city1$county[match(h$city, city1$city)])
+  h
+}
+tx_rts_assert_county_bridges <- function(h = tx_rts_hospital_counties()) {
+  n_in <- function(cty) length(unique(h$ccn[h$county %in% cty]))
+  cb <- TX_RTS_BRIDGES[TX_RTS_BRIDGES$why %>% grepl("COUNTY-TEST BRIDGE", ., fixed = TRUE), ]
+  if (!setequal(cb$awardee, setdiff(names(TRT_COUNTY_OF), "Winnie Stowell Hospital District"))) {
+    stop("[TX RTS] the county-test bridges and TRT_COUNTY_OF disagree.", call. = FALSE)
+  }
+  for (i in seq_len(nrow(cb))) {
+    cty <- TRT_COUNTY_OF[[cb$awardee[i]]]
+    if (n_in(cty) != 1L || !identical(unique(h$org[h$county %in% cty]), cb$org[i])) {
+      stop("[TX RTS] county test fails for '", cb$awardee[i], "': ", n_in(cty),
+           " enrolled hospital CCN(s) in ", cty, " County. Re-read it (session 104).", call. = FALSE)
+    }
+  }
+  if (n_in("CHAMBERS") < 2L) {
+    stop("[TX RTS] Chambers County no longer has two enrolled hospitals: re-read Winnie Stowell.", call. = FALSE)
+  }
+  if (sum(is.na(h$county)) > 0L) {
+    unk <- h[is.na(h$county), ]
+    hit <- unk$city %in% c("QUANAH", "ASPERMONT", "SWEETWATER", "EAGLE PASS", "LITTLEFIELD", "HENDERSON")
+    if (any(hit)) stop("[TX RTS] an enrolled hospital with no county sits in a bridged county seat.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 tx_rts_assert_typing <- function(a = tx_rts_awardees()) {
   h <- a[a$distributed_to_hospital == "Yes", ]
   if (any(h$recipient_type != "HOSPITAL_OR_SYSTEM") || any(h$flow_type != "DIRECT")) {
     stop("[TX RTS] a Yes row is not a DIRECT hospital row.", call. = FALSE)
   }
   dn <- a[a$awardee %in% TX_RTS_DISTRICTS_NOT_ENROLLED$awardee, ]
-  if (nrow(dn) != 6L || any(dn$distributed_to_hospital != "No")) {
-    stop("[TX RTS] the six lines of districts with no enrolment must stay NON_HOSPITAL.", call. = FALSE)
+  if (nrow(dn) != 1L || any(dn$distributed_to_hospital != "No")) {
+    stop("[TX RTS] Winnie Stowell HD must stay the one NON_HOSPITAL district line.", call. = FALSE)
   }
+  if (any(a$distributed_to_hospital == "Unclear")) {
+    stop("[TX RTS] no Texas line is Unclear (session 104).", call. = FALSE)
+  }
+  tx_rts_assert_county_bridges()
   unused <- setdiff(TX_RTS_BRIDGES$awardee, a$awardee)
   if (length(unused)) stop("[TX RTS] bridges match no line: ", paste(unused, collapse = "; "), call. = FALSE)
   rhtp_assert_high_has_ccn(a, "TX RTS")

@@ -160,6 +160,13 @@ nw_probe_state <- function(st, pages = NW_PAGES) {
     h <- nw_new_hot(w$raw[[k]], arch_raw, st, k)
     if (length(h)) hot <- c(hot, paste0(k, ": '", rhtp_watch_quote(h), "'"))
   }
+  # SESSION 104: the MD probe also reads MD Labor's RHTP roster page (the
+  # owner's "add the roster page to the MD probe"): into memory only, diffed
+  # line by line against R/03cf's archive. A changed roster is a finding.
+  if (st == "MD") {
+    f <- nw_md_labor_finding()
+    if (!is.null(f)) hot <- c(hot, paste0("labor_roster: ", f))
+  }
   if (length(hot)) {
     stop("[", st, "] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: ",
          paste(hot, collapse = "; "),
@@ -169,6 +176,21 @@ nw_probe_state <- function(st, pages = NW_PAGES) {
   }
   tibble::tibble(page = paste0(st, ":", w$changed$key),
                  changed = w$changed$changed)
+}
+
+#' MD Labor's roster, live and read-only (session 104). An access failure
+#' carries "HTTP" so the log files it as ERROR (§0.4).
+nw_md_labor_finding <- function(fetch = NULL) {
+  e <- new.env()
+  suppressMessages(source(here::here("R", "03cf_md_labor_awardees.R"), local = e))
+  raw <- if (!is.null(fetch)) fetch else {
+    r <- httr::GET(e$MDL_URL, httr::user_agent(NW_USER_AGENT), httr::timeout(60))
+    if (httr::status_code(r) != 200L) {
+      stop("[MD:labor_roster] HTTP ", httr::status_code(r), " from ", e$MDL_URL, call. = FALSE)
+    }
+    httr::content(r, as = "text", encoding = "UTF-8")
+  }
+  e$md_labor_live_finding(raw)
 }
 
 nw_retest_unreadable <- function(u = NW_UNREADABLE) {

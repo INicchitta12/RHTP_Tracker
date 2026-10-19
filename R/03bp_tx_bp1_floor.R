@@ -29,8 +29,12 @@
 # CODES NOTHING: no recipient_type, no distributed_to_hospital, no bucket. 28
 # of 33 match an enrolled hospital's ORGANIZATION NAME exactly; 4 have a
 # near-name enrolled entity that a human must bridge (Coryell, DeWitt, Haskell,
-# Ochiltree); Hardeman County Hospital District has no hospital enrolment at
-# all. The file is never in STATE_FILES, and its dollar column is named for
+# Ochiltree); Hardeman County Hospital District has no enrolment under ITS OWN
+# NAME (screen result NO_HOSPITAL_ENROLMENT_FOUND). CORRECTED SESSION 104: that is
+# not "no hospital enrolment at all" -- the one enrolled hospital in Hardeman
+# County is HARDEMAN COUNTY MEMORIAL HOSP (CAH 451352, Quanah), and R/03ce
+# bridges the district's Rural Texas Strong lines to it on the owner's county
+# ruling (LOW). This file still codes nothing. The file is never in STATE_FILES, and its dollar column is named for
 # what it is (obligated_bp1_report) so it is not read as an award amount.
 #
 # THE WATCH. R/03n's --probe reads the live xlsx (into a temp file, never

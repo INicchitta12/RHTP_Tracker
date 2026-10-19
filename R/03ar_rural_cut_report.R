@@ -128,7 +128,10 @@ RC_ENROLMENTS <- c(
   # Session 92: Virginia's VHCF round, four exact-record hospital lines.
   VA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_VA.json",
   # Session 103: Texas's Rural Texas Strong lines, typed on CMS's TX files.
-  TX = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_TX.json")
+  TX = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_TX.json",
+  # Session 104: Maryland's MD Labor roster and Ohio's 22 named hospitals.
+  MD = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MD.json",
+  OH = "data/evidence/federal_records/2026-10-19/cms_hosp_enrollments_OH.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -330,12 +333,14 @@ rc_assert <- function(rows = rc_rows()) {
   # 1,338 / $1,310,674,588.63.
   # Session 103: Texas's Rural Texas Strong list (+201 / +$117,571,194.73, a
   # 33rd state) and OK RRR's SSM St. Anthony Shawnee Cancer Center
-  # (+$1,623,498.82): 1,538 / $1,426,413,861.18 / 33.
-  if (nrow(rows) != 1538L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1426413861.18) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 33L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,538 rows / $1,426,413,861.18 ",
-         "/ 33 states; re-state the rural cut against the new partition.",
+  # (+$1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Session 104: + 7 TX
+  # county-test bridges (+$1,987,387.40), + 9 MD Labor (+$3,574,030), + 22 OH
+  # named hospitals at $0 (Ohio the 34th state): 1,576 / $1,431,975,278.58 / 34.
+  if (nrow(rows) != 1576L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1431975278.58) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 34L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,576 rows / $1,431,975,278.58 ",
+         "/ 34 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

@@ -143,3 +143,40 @@ test_that("the OH disposition covers the live candidates and its prose agrees", 
   expect_equal(committed$rcj_rows, d$rcj_rows)
   expect_equal(committed[[ncol(committed)]], d[[ncol(d)]])
 })
+
+
+# -- session 104: ODH's child pages ------------------------------------------
+
+test_that("session 104: 22 hospitals at $0, one $30.3M pool, OPA non-hospital", {
+  expect_true(oh_assert_s104_sources())
+  d <- oh_all_rows()
+  expect_true(oh_assert_s104_rows(d))
+  part <- rhtp_hospital_dollar_partition(d)
+  expect_equal(part$rows[part$bucket == "NAMED_HOSPITAL"], 22L)
+  expect_equal(part$dollars[part$bucket == "NAMED_HOSPITAL"], 0)
+  expect_equal(part$dollars[part$bucket == "POOL_NAMED_HOSPITALS"], 30300000)
+  pool <- d[d$hospital_attribution == "POOL_NAMED_HOSPITALS", ]
+  expect_match(pool$determination_basis, OH_POOL_SENTENCE, fixed = TRUE)
+  # The shared sub-pools never become rows.
+  expect_false(any(d$amount %in% c(92e6, 31.4e6)))
+  opa <- d[d$awardee == "Ohio Pharmacists Association", ]
+  expect_equal(opa$amount, 2000000)
+  expect_equal(opa$distributed_to_hospital, "No")
+  # "Memorial Hospital" answers two enrolled entities: a hospital, no CCN.
+  mh <- d[d$awardee == "Memorial Hospital", ]
+  expect_true(is.na(mh$ccn))
+  committed <- readr::read_csv(OH_CSV, show_col_types = FALSE)
+  expect_equal(committed$awardee, d$awardee)
+})
+
+test_that("session 104: the probe reads the child pages and trips on a new name", {
+  f <- lapply(c(hospitals = "hospitals", pharmacy = "pharmacy"), function(k)
+    readBin(here::here(OH_S104_DIR, OH_S104_PAGES$file[OH_S104_PAGES$key == k]), "raw", 1e6))
+  r <- oh_probe_s104(f)
+  expect_false(any(r$cmp$changed))
+  expect_length(r$findings, 0L)
+  x <- rawToChar(f$hospitals)
+  x <- sub("The funded projects haven\u2019t been announced yet.", "Riverbend Rural Hospital: $900,000.", x, fixed = TRUE)
+  f$hospitals <- charToRaw(x)
+  expect_error(oh_probe_s104(f), "Riverbend Rural Hospital")
+})

@@ -417,6 +417,231 @@ oh_year1_awardees <- function() {
                                     oh_source("release", "file")))
 }
 
+# -- session 104: ODH's child pages (owner-approved) --------------------------
+#
+# ODH's "Hospitals, Clinically Integrated Networks and Rural Health Innovation
+# Hubs, and Maternal Care" page (2026-10-16) and its "Pharmacy" page
+# (2026-10-15), archived by session 103 under recheck/2026-10-16/OH/.
+#
+# THE $92M IS THREE SUB-POOLS, AND ONLY ONE IS HOSPITALS ONLY. The page's
+# "Total Funding $92,000,000" is $30.3M + $31.4M + $30.3M:
+#   Hospitals   "This investment provides $30.3 million in one-time direct
+#               payments to 22 rural hospitals." -- 22 named, every one a
+#               hospital on CMS OH enrolment (below).
+#   CINs/Hubs   "$31.4 million to establish/expand these structured alliances"
+#               -- 7 named, including the Ohio Association of Community Health
+#               Centers and the Child & Family Health Collaborative of Ohio.
+#   Maternal    "$30.3 million to improving maternal care" -- 6 named,
+#               including the Ohio Association of Community Health Centers and
+#               the Ohio Health Institute.
+# CMS's 2026-10-16 Ohio release says the same: "another $30.3 million will fund
+# one-time equipment and facility upgrades at 22 rural hospitals", and "An
+# additional $30.3 million will go to hospital networks and health centers".
+# So NON-HOSPITALS SHARE THE $92M, and the $92M, the $31.4M and the maternal
+# $30.3M stay out of every bucket (owner rule, session 104). THE HOSPITAL
+# $30.3M IS STATED FOR THE 22 HOSPITALS ALONE, so it is ONE
+# POOL_NAMED_HOSPITALS row at the stated (rounded) amount, never split per
+# hospital (§6.2) -- CT's Hartford HealthCare pair is the shape. The page also
+# says "The funded projects haven't been announced yet", which is the row's
+# stated vulnerability: the payments are announced, the per-hospital projects
+# are not.
+#
+# THE 22 ARE ALSO ROWS AT $0 (owner instruction (a)), typed on CMS OH Hospital
+# Enrollments (federal_records/2026-10-19/). The pool row carries the money;
+# the 22 carry the names; the two buckets are never added.
+#
+# THE OHIO PHARMACISTS ASSOCIATION: "The Ohio Pharmacists Association (OPA)
+# has been awarded $2 million" -- a non-hospital row. The State of Ohio Board of
+# Pharmacy "will use $1.15 million" (the Funded Projects list prints "$1.5
+# million", and the total "$3,150,00"): a STATE AGENCY's own allocation, never
+# an award row (CT DEEP precedent); the page's internal conflict is recorded.
+
+OH_S104_DIR <- file.path("data", "evidence", "recheck", "2026-10-16", "OH")
+OH_S104_PAGES <- tibble::tribble(
+  ~key, ~url, ~file,
+  "hospitals", "https://odh.ohio.gov/wps/portal/gov/odh/know-our-programs/rural-health-transformation-program/rht-resources/healthcare-centers",
+  "2026-10-16_odh_rht_hospitals_cins_hubs_maternal.html",
+  "pharmacy", "https://odh.ohio.gov/wps/portal/gov/odh/know-our-programs/rural-health-transformation-program/rht-resources/pharmacy",
+  "2026-10-16_odh_rht_pharmacy.html")
+OH_S104_ANNOUNCED <- as.Date("2026-10-16")
+OH_HOSP_FED <- file.path("data", "evidence", "federal_records", "2026-10-19",
+                         "cms_hosp_enrollments_OH.json")
+OH_POOL_SENTENCE <- "This investment provides $30.3 million in one-time direct payments to 22 rural hospitals."
+OH_HOSP_POOL <- 30300000
+
+oh_s104_text <- function(key, body = NULL) {
+  f <- file.path(OH_S104_DIR, OH_S104_PAGES$file[OH_S104_PAGES$key == key])
+  raw <- if (is.null(body)) readBin(here::here(f), "raw", file.size(here::here(f))) else body
+  stringr::str_squish(gsub("[\u2018\u2019]", "'", oh_reduce_html(raw)))
+}
+
+# The 22, as printed (trailing full stop dropped), with the CMS OH enrolment
+# each is typed on. `ccn` only where ONE hospital CCN answers the string.
+OH_22 <- tibble::tribble(
+  ~awardee, ~match, ~ccn, ~enrolment,
+  "Joint Township District Memorial Hospital", "EXACT", "360032", "JOINT TOWNSHIP DISTRICT MEMORIAL HOSPITAL dba GRAND LAKE HEALTH SYSTEM (360032, Saint Marys)",
+  "Knox Community Hospital", "EXACT", "360040", "KNOX COMMUNITY HOSPITAL dba OVATION HEALTHCARE (360040, Mount Vernon)",
+  "Pomerene Hospital", "EXACT", "361337", "POMERENE HOSPITAL (361337, Millersburg), CRITICAL ACCESS HOSPITAL",
+  "Salem Community Hospital", "EXACT", "360185", "SALEM COMMUNITY HOSPITAL dba SALEM REGIONAL MEDICAL CENTER (360185, Salem)",
+  "Van Wert County Hospital", "BRIDGE", "360071", "VAN WERT COUNTY HOSPITAL ASSOCIATION (360071, Van Wert): the string drops 'Association'",
+  "Mercer County Community Hospital", "BRIDGE", "360058", "MERCER COUNTY JOINT TOWNSHIP COMMUNITY HOSPITAL dba MERCER HEALTH (360058, Coldwater): the string drops 'Joint Township'",
+  "Southeastern Ohio Regional Medical Center", "EXACT", "360203", "SOUTHEASTERN OHIO REGIONAL MEDICAL CENTER INC dba OHIOHEALTH SOUTHEASTERN MEDICAL CENTER (360203, Cambridge)",
+  "TriHealth Clinton Regional Hospital", "EXACT", "360175", "TRIHEALTH HOSPITAL, INC dba TRIHEALTH CLINTON REGIONAL HOSPITAL (360175, Wilmington)",
+  "Holzer Medical Center", "BRIDGE", NA, "HOLZER MEDICAL CENTER JACKSON (361320, Jackson, CAH) and HOLZER HOSPITAL FOUNDATION dba HOLZER (360054, Gallipolis): the string names neither exactly, and two enrolled Holzer hospitals answer it, so no CCN",
+  "Ashtabula County Medical Center", "EXACT", "360125", "ASHTABULA COUNTY MEDICAL CENTER dba ASHTABULA REGIONAL MEDICAL CENTER (360125, Ashtabula)",
+  "Wilson Memorial Hospital", "BRIDGE", "360013", "SHELBY COUNTY MEMORIAL HOSPITAL ASSOCIATION INC. dba WILSON HEALTH (360013, Sidney): Wilson Memorial Hospital is that hospital's name (general knowledge)",
+  "Marion General Hospital", "EXACT", "360011", "MARION GENERAL HOSPITAL INC. (360011, Marion)",
+  "O'Bleness Memorial Hospital", "EXACT", "360014", "SHELTERING ARMS HOSPITAL FOUNDATION, INC. dba OBLENESS MEMORIAL HOSPITAL (360014, Athens)",
+  "Sojourn at Seneca", "BRIDGE", "364055", "50 ST LAWRENCE OPCO LLC dba SOJOURN AT SENECA SENIOR BEHAVIORAL HEALTH HOSPITAL (364055, Tiffin): the string truncates the DBA; a senior behavioral health hospital",
+  "Fisher-Titus Medical Center", "EXACT", "360065", "FISHER-TITUS MEDICAL CENTER dba FISHER-TITUS HOSPITAL (360065, Norwalk)",
+  "Mary Rutan Hospital", "EXACT", "360197", "MARY RUTAN HOSPITAL (360197, Bellefontaine)",
+  "Blanchard Valley Regional Health Center", "EXACT", NA, "BLANCHARD VALLEY REGIONAL HEALTH CENTER dba BLANCHARD VALLEY HOSPITAL (360095, Findlay) and dba BLUFFTON HOSPITAL (361322, Bluffton, CAH): one legal entity, two hospital CCNs, so none on the row",
+  "Community Hospital of Williams County", "BRIDGE", NA, "COMMUNITY HOSPITALS AND WELLNESS CENTERS dba PARKVIEW BRYAN HOSPITAL (360121, Bryan) and dba PARKVIEW MONTPELIER HOSPITAL (361327, Montpelier, CAH), Williams County: the string is not the enrolled name and the entity holds two hospital CCNs, so none on the row",
+  "Coshocton Regional Medical Center", "EXACT", "360109", "PRIME HEALTHCARE FOUNDATION - COSHOCTON, LLC dba COSHOCTON REGIONAL MEDICAL CENTER (360109, Coshocton)",
+  "East Liverpool City Hospitals", "BRIDGE", "360096", "THE CITY HOSPITAL ASSOCIATION dba EAST LIVERPOOL CITY HOSPITAL (360096, East Liverpool): the string pluralises the DBA",
+  "Memorial Hospital", "AMBIGUOUS", NA, "TWO enrolled entities carry 'Memorial Hospital' exactly: MEMORIAL HOSPITAL (360156, Fremont) and MEMORIAL HOSPITAL OF UNION COUNTY dba MEMORIAL HOSPITAL (360092, Marysville). The page carries no city, so neither is chosen (no bridge by elimination, session 104)",
+  "Wooster Community Hospital", "EXACT", "360036", "CITY OF WOOSTER dba WOOSTER COMMUNITY HOSPITAL (360036, Wooster)")
+
+oh_assert_s104_sources <- function() {
+  t <- oh_s104_text("hospitals")
+  need <- c(OH_POOL_SENTENCE,
+            "This project provides $31.4 million to establish/expand these structured alliances.",
+            "This investment dedicates $30.3 million to improving maternal care.",
+            "Total Funding $92,000,000",
+            "The funded projects haven't been announced yet.",
+            "Ohio Association of Community Health Centers.",
+            paste0(OH_22$awardee, "."))
+  miss <- need[!vapply(need, function(w) grepl(w, t, fixed = TRUE), logical(1))]
+  if (length(miss)) stop("[OH] the ODH hospitals page no longer says: ", paste(sQuote(miss), collapse = "; "), call. = FALSE)
+  # Exactly 22 names between the pool sentence and the CINs heading.
+  i <- regexpr(OH_POOL_SENTENCE, t, fixed = TRUE)
+  blk <- substr(t, i + nchar(OH_POOL_SENTENCE), nchar(t))
+  blk <- substr(blk, 1L, regexpr(" Clinically Integrated Networks and Rural Health Innovation Hubs Clinically",
+                                 blk, fixed = TRUE) - 1L)
+  nm <- stringr::str_trim(strsplit(stringr::str_trim(blk), "\\. ")[[1]])
+  nm <- sub("\\.$", "", nm[nzchar(nm)])
+  if (!identical(nm, OH_22$awardee)) {
+    stop("[OH] the 22 hospital names moved: ", paste(setdiff(nm, OH_22$awardee), collapse = "; "), call. = FALSE)
+  }
+  if (abs(30.3e6 + 31.4e6 + 30.3e6 - 92e6) > 1) stop("[OH] the three sub-pools no longer sum to $92M.", call. = FALSE)
+  p <- oh_s104_text("pharmacy")
+  if (!grepl("The Ohio Pharmacists Association (OPA) has been awarded $2 million", p, fixed = TRUE) ||
+      !grepl("Ohio Pharmacists Association: $2 million.", p, fixed = TRUE)) {
+    stop("[OH] the pharmacy page no longer awards OPA $2 million.", call. = FALSE)
+  }
+  # §0.2: both footers print "$202 million", the ALLOTMENT ROUNDED to the
+  # million ($202,030,262). The shared parser reads "$202 million" as $202, so
+  # the rounding is asserted here rather than through rhtp_assert_footer_text_tier().
+  for (k in OH_S104_PAGES$key) {
+    if (!grepl("as part of a financial assistance award totaling $202 million with 100 percent funded by CMS/HHS",
+               oh_s104_text(k), fixed = TRUE) || round(OH_ALLOTMENT / 1e6) != 202) {
+      stop("[OH] the ODH ", k, " footer no longer prints the allotment as '$202 million' at 100 percent.", call. = FALSE)
+    }
+  }
+  f <- jsonlite::fromJSON(here::here(OH_HOSP_FED))
+  for (cc in stats::na.omit(OH_22$ccn)) {
+    if (!cc %in% f$CCN) stop("[OH] CCN ", cc, " is not in the CMS OH hospital file.", call. = FALSE)
+  }
+  mh <- f$CCN[f$`ORGANIZATION NAME` == "MEMORIAL HOSPITAL" | f$`DOING BUSINESS AS NAME` %in% "MEMORIAL HOSPITAL"]
+  if (length(unique(mh[grepl("^[0-9]{6}$", mh)])) < 2L) {
+    stop("[OH] 'Memorial Hospital' is no longer ambiguous on CMS OH enrolment: re-read it.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+oh_s104_rows <- function() {
+  src <- file.path(OH_S104_DIR, OH_S104_PAGES$file)
+  url <- OH_S104_PAGES$url
+  base <- function(n) tibble::tibble(
+    state = OH_STATE, fiscal_year = "FY2026 (Year 1)", extraction_method = "DIRECT_TEXT",
+    validator = "R/03an_oh_year1_awardees.R", aha_id = NA_character_,
+    rural_designation = NA_character_, reviewer = NA_character_,
+    budget_period = "Budget Period 1", intermediary_name = NA_character_,
+    round_amount = NA_real_, validation_source_type = "AGENCY_PRESS_RELEASE")[rep(1, n), ]
+  conf <- ifelse(OH_22$match == "EXACT", "MEDIUM", "LOW")
+  why <- paste0(
+    ifelse(OH_22$match == "EXACT", "EXACT federal record: CMS OH Hospital Enrollments carry the string as the enrolled name or DBA: ",
+           ifelse(OH_22$match == "AMBIGUOUS", "A HOSPITAL WITH NO CCN: ", "HAND-READ BRIDGE (LOW): ")),
+    OH_22$enrolment, ".")
+  h <- dplyr::bind_cols(base(22L), tibble::tibble(
+    awardee = OH_22$awardee, amount = NA_real_, recipient_type = "HOSPITAL_OR_SYSTEM",
+    distributed_to_hospital = "Yes",
+    note = paste0("One of the 22 rural hospitals ODH names under 'Hospitals' (2026-10-16): '", OH_POOL_SENTENCE,
+                  "' No per-hospital amount is published; the $30.3M is ONE POOL_NAMED_HOSPITALS row of this file, never divided (§6.2)."),
+    recipient_confirmed = "Yes", amount_confirmed = "No",
+    source_document_title = "ODH, Hospitals, Clinically Integrated Networks and Rural Health Innovation Hubs, and Maternal Care",
+    state_source_url = url[1], ccn = OH_22$ccn,
+    recipient_type_source = paste0("TYPED (session 104, ", OH_22$match, "): ", why),
+    determination_confidence = conf, flag_reason = NA_character_,
+    award_pool = "ODH Hospitals: one-time direct payments to 22 rural hospitals ($30.3M)",
+    flow_type = "DIRECT", hospital_benefiting = "Yes", hospital_attribution = "NAMED_HOSPITAL",
+    determination_basis = paste0("§10.2 DIRECT: ", why, " NAMED AT $0: the state prices only the 22-hospital pool."),
+    amount_basis = "NO AMOUNT: ODH publishes no per-hospital figure. The pool is a separate row; it is never divided.",
+    basis_type = ifelse(OH_22$match == "EXACT", "ORG_WEBSITE", "GENERAL_KNOWLEDGE"),
+    announcement_date = OH_S104_ANNOUNCED, source_archive_path = src[1],
+    cms_enrolment_record = paste0("CMS OH Hospital Enrollments: ", OH_22$enrolment, " (", OH_HOSP_FED, ")")))
+  pool <- dplyr::bind_cols(base(1L), tibble::tibble(
+    awardee = paste0("22 rural hospitals named by ODH (", paste(OH_22$awardee, collapse = "; "), ")"),
+    amount = OH_HOSP_POOL, recipient_type = "HOSPITAL_OR_SYSTEM", distributed_to_hospital = "Yes",
+    note = paste0("ODH: '", OH_POOL_SENTENCE, "' CMS (2026-10-16): 'another $30.3 million will fund one-time equipment and facility upgrades at 22 rural hospitals'. ",
+                  "The page also says 'The funded projects haven't been announced yet.' The rest of the $92M ($31.4M CINs/Hubs, $30.3M maternal care) is shared with non-hospitals and is in no bucket."),
+    recipient_confirmed = "Yes", amount_confirmed = "No",
+    source_document_title = "ODH, Hospitals, Clinically Integrated Networks and Rural Health Innovation Hubs, and Maternal Care",
+    state_source_url = url[1], ccn = NA_character_,
+    recipient_type_source = "TYPED (session 104): the 22 named recipients are each a hospital on CMS OH Hospital Enrollments (see their own rows).",
+    determination_confidence = "MEDIUM", flag_reason = "AMOUNT_ROUNDED_IN_SOURCE;MULTI_RECIPIENT_FIELD",
+    award_pool = "ODH Hospitals: one-time direct payments to 22 rural hospitals ($30.3M)",
+    flow_type = "DIRECT", hospital_benefiting = "Yes", hospital_attribution = "POOL_NAMED_HOSPITALS",
+    determination_basis = paste0("§10.2 DIRECT, POOL_NAMED_HOSPITALS (owner rule, session 104): the call rests on ODH's sentence '",
+                                 OH_POOL_SENTENCE, "' -- a figure stated for those 22 hospitals and no one else, all 22 named. ",
+                                 "No per-hospital split is published, so the figure is one pool row and is never divided (§6.2); CT's Hartford HealthCare pair is the shape. ",
+                                 "VULNERABILITY: the payments are announced, but the page says the funded projects are not."),
+    amount_basis = "ROUNDED IN SOURCE ('$30.3 million'); never un-rounded or split.",
+    basis_type = "STATE_SOURCE", announcement_date = OH_S104_ANNOUNCED, source_archive_path = src[1],
+    cms_enrolment_record = NA_character_))
+  opa <- dplyr::bind_cols(base(1L), tibble::tibble(
+    awardee = "Ohio Pharmacists Association", amount = 2000000, recipient_type = "NONPROFIT_CBO",
+    distributed_to_hospital = "No",
+    note = "ODH Pharmacy page (2026-10-15): 'The Ohio Pharmacists Association (OPA) has been awarded $2 million for this initiative' -- an HIE connection for rural pharmacies. The State of Ohio Board of Pharmacy's $1.15M ('$1.5 million' in the Funded Projects list) is a state agency's own allocation and is not a row.",
+    recipient_confirmed = "Yes", amount_confirmed = "Yes",
+    source_document_title = "ODH, Pharmacy (Rural Health Transformation Resources)",
+    state_source_url = url[2], ccn = NA_character_,
+    recipient_type_source = "TYPED (session 104, FALLBACK): the page states no form and no CMS OH hospital enrolment carries the name (§8's standing fallback).",
+    determination_confidence = "LOW", flag_reason = "AMOUNT_ROUNDED_IN_SOURCE;RECIPIENT_TYPE_INFERRED",
+    award_pool = "ODH Pharmacy initiative", flow_type = "NON_HOSPITAL", hospital_benefiting = "Unclear",
+    hospital_attribution = "NOT_HOSPITAL",
+    determination_basis = "§10.2 NON_HOSPITAL: a pharmacists' association, not a hospital; §0.3a, the HIE's outpatient-hospital-pharmacy users do not make it a hospital row.",
+    amount_basis = "ROUNDED IN SOURCE ('$2 million'), stated twice on the page.",
+    basis_type = NA_character_, announcement_date = as.Date("2026-10-15"), source_archive_path = src[2],
+    cms_enrolment_record = NA_character_))
+  dplyr::bind_rows(opa, h, pool)
+}
+
+oh_all_rows <- function() {
+  d <- dplyr::bind_rows(oh_year1_awardees(), oh_s104_rows())
+  d$row_no <- seq_len(nrow(d))
+  d
+}
+
+oh_assert_s104_rows <- function(d = oh_all_rows()) {
+  part <- rhtp_hospital_dollar_partition(d)
+  nh <- part[part$bucket == "NAMED_HOSPITAL", ]; pn <- part[part$bucket == "POOL_NAMED_HOSPITALS", ]
+  if (nrow(d) != 25L || nh$rows != 22L || nh$dollars != 0 || pn$rows != 1L || pn$dollars != OH_HOSP_POOL ||
+      nrow(part) != 2L) {
+    stop("[OH] expected 25 rows: NAMED_HOSPITAL 22 / $0 and POOL_NAMED_HOSPITALS 1 / $30,300,000.", call. = FALSE)
+  }
+  if (any(d$amount %in% c(92e6, 31.4e6))) stop("[OH] a shared sub-pool became a row.", call. = FALSE)
+  rhtp_assert_high_has_ccn(d, "OH")
+  for (col in c("recipient_type", "flow_type", "distributed_to_hospital", "determination_confidence",
+                "hospital_attribution", "basis_type", "hospital_benefiting")) {
+    bad <- setdiff(stats::na.omit(unique(d[[col]])), rhtp_vocabulary(col))
+    if (length(bad)) stop("[OH] ", col, " outside §8: ", paste(bad, collapse = ", "), call. = FALSE)
+  }
+  fl <- unlist(strsplit(stats::na.omit(d$flag_reason), ";"))
+  if (length(setdiff(fl, rhtp_vocabulary("flag_reason")))) stop("[OH] flag_reason outside §8.", call. = FALSE)
+  invisible(TRUE)
+}
+
 oh_status_table <- function() {
   tibble::tribble(
     ~state, ~channel, ~stage, ~publishes_roster, ~note,
@@ -443,6 +668,18 @@ oh_status_table <- function() {
           "inside it is a statement about OUR ACCESS, never about Ohio",
           "(§0.4). Maine's, Connecticut's, Louisiana's and Tennessee's",
           "precedent."),
+    OH_STATE, "ODH Hospitals: one-time direct payments to 22 rural hospitals ($30.3M)",
+    "ANNOUNCED_NAMED_POOL_UNSPLIT", "Yes - 22 NAMES, ONE POOL FIGURE",
+    paste("Session 104. ODH (2026-10-16): 'This investment provides $30.3 million in",
+          "one-time direct payments to 22 rural hospitals.' 22 rows at $0 and ONE",
+          "POOL_NAMED_HOSPITALS row at the rounded $30.3M, never divided. 'The funded",
+          "projects haven't been announced yet.'"),
+    OH_STATE, "ODH CINs / Rural Health Innovation Hubs ($31.4M) and Maternal Care ($30.3M)",
+    "ANNOUNCED_NAMED_NO_AMOUNTS_SHARED", "Yes - NAMES ONLY",
+    paste("Session 104. 7 and 6 named organisations, no per-recipient amount, and",
+          "non-hospitals among them (Ohio Association of Community Health Centers,",
+          "Ohio Health Institute, Child & Family Health Collaborative of Ohio): in no",
+          "bucket and not extracted. With the hospital pool they make CMS's $92M."),
     OH_STATE, "Governor's newsroom (channel control)",
     "PUBLISHES_AWARDS", "Yes",
     paste("The channel that carried this award and the 2025-12-29 allotment",
@@ -515,6 +752,11 @@ oh_probe <- function() {
     archived = stats::setNames(purrr::map(nm_keys, oh_html_text), nm_keys),
     state = "OH")
 
+  # SESSION 104: ODH's child pages, where the 22 hospitals and the pharmacy
+  # award are. Session 103 found the roster on a page this probe never read.
+  s104 <- oh_probe_s104()
+  cmp <- dplyr::bind_rows(cmp, s104$cmp)
+
   message("[OH] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
     message(sprintf("  %-9s content %s", cmp$key[i],
@@ -524,9 +766,45 @@ oh_probe <- function() {
     message("[OH] CONTENT CHANGED. Ohio said additional contracts were ",
             "coming; re-read for a second named award.")
   } else {
-    message("[OH] UNCHANGED. One named award, $10,000,000, still the only one.")
+    message("[OH] UNCHANGED.")
   }
-  invisible(cmp)
+  invisible(list(changed = cmp$key[cmp$changed], findings = s104$findings))
+}
+
+#' The child pages: content digest, the name tripwire scoped to the page body
+#' (the WebSphere chrome is the same on both copies but is read out of scope
+#' anyway), and two findings -- the 22-hospital sentence going, and "The funded
+#' projects haven't been announced yet" going (the per-hospital projects).
+OH_S104_SCOPE <- c(from = "\\|\\s*Agency", to = "This project is supported by the Centers")
+oh_probe_s104 <- function(fetch = NULL) {
+  keys <- OH_S104_PAGES$key
+  live <- stats::setNames(lapply(keys, function(k) {
+    path <- here::here(OH_S104_DIR, OH_S104_PAGES$file[OH_S104_PAGES$key == k])
+    if (!is.null(fetch)) return(fetch[[k]])
+    r <- rhtp_probe_get(k, function() oh_get(OH_S104_PAGES$url[OH_S104_PAGES$key == k], k), path)
+    Sys.sleep(2); r
+  }), keys)
+  cmp <- tibble::tibble(
+    key = keys,
+    changed = vapply(keys, function(k) digest::digest(oh_s104_text(k)) != digest::digest(oh_s104_text(k, live[[k]])),
+                     logical(1)))
+  scope <- function(t, k) rhtp_name_scope(t, OH_S104_SCOPE[["from"]], OH_S104_SCOPE[["to"]], state = "OH", page = k)
+  rhtp_assert_no_new_organisations_across(
+    live = stats::setNames(lapply(keys, function(k) scope(oh_s104_text(k, live[[k]]), k)), keys),
+    archived = stats::setNames(lapply(keys, function(k) scope(oh_s104_text(k), k)), keys),
+    state = "OH")
+  findings <- character(0)
+  h <- oh_s104_text("hospitals", live$hospitals)
+  if (!grepl(OH_POOL_SENTENCE, h, fixed = TRUE)) {
+    findings <- c(findings, "OH ODH HOSPITALS PAGE: the '$30.3 million ... 22 rural hospitals' sentence is gone. Re-read the pool row (session 104).")
+  }
+  if (!grepl("The funded projects haven't been announced yet", h, fixed = TRUE)) {
+    findings <- c(findings, "OH ODH HOSPITALS PAGE: 'The funded projects haven't been announced yet' is gone -- ODH may now price the 22 hospitals or name CIN/Hub/maternal projects. Read it.")
+  }
+  if (!grepl("The Ohio Pharmacists Association (OPA) has been awarded $2 million", oh_s104_text("pharmacy", live$pharmacy), fixed = TRUE)) {
+    findings <- c(findings, "OH ODH PHARMACY PAGE: the OPA $2 million award sentence is gone. Read it.")
+  }
+  list(cmp = cmp, findings = findings)
 }
 
 oh_validate <- function() {
@@ -540,14 +818,18 @@ oh_validate <- function() {
   oh_assert_odh_names_nobody()
   oh_assert_after_noa()
   oh_assert_contributes_no_bucket()
+  oh_assert_s104_sources()
+  oh_assert_s104_rows()
   message("[OH] all assertions pass.")
   invisible(TRUE)
 }
 
 oh_build <- function() {
-  d <- oh_year1_awardees()
-  oh_assert_contributes_no_bucket(d)
-  readr::write_csv(d, OH_CSV)
+  oh_assert_contributes_no_bucket(oh_year1_awardees())
+  # Session 104: + OPA, the 22 named hospitals at $0 and the $30.3M pool row.
+  d <- oh_all_rows()
+  oh_assert_s104_rows(d)
+  readr::write_csv(d, OH_CSV, na = "")
   message("[OH] wrote ", OH_CSV, " (", nrow(d), " rows)")
   st <- oh_status_table()
   if ("amount" %in% names(st)) stop("[OH] status table must have no amount col")
