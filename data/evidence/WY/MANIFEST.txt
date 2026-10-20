@@ -20,7 +20,7 @@ the file digests below were taken once and no rotating-token study was done.
 
 
 file  bytes  sha256  url
-2026-09-03_wy_wdh_rhtp_programme.html  199951  801ee48bf0d13acf83a6aeaadf056a7fbf8bbee03b3f30e0073eae50490be1cc  https://health.wyo.gov/admin/rural-health-transformation-program/
+2026-09-03_wy_wdh_rhtp_programme.html  201637  5894f86d070ad806aeab081c1c6e0890e64d3cf855a4069d650a9e3821571f98  https://health.wyo.gov/admin/rural-health-transformation-program/
 2026-09-03_wy_wdh_public_notice_advisory_committee_2026-08-11.html  190068  c4567888b9b1c19d38243bb2eb7fddd535a827e068364dc5ae7f4e3dcfbc953d  https://health.wyo.gov/public-notice-rural-health-transformation-advisory-committee-meeting/
 2026-09-03_wy_wdh_applications_opened_2026-07-01.html  191612  0231174fa49006c4902acbd83d7daa6ad02dff5e9d274489697a4a0d5c34c474  https://health.wyo.gov/applications-opened-july-1-for-wyomings-rural-health-transformation-funding/
 2026-09-03_wy_submittable_no_open_calls.html  37867  fae2bbea39f526190e0bf1659c973b03e0e2178d9cb47515ce590762837eed30  https://wyrhtp.submittable.com/submit
@@ -29,3 +29,11 @@ file  bytes  sha256  url
 2026-09-03_wy_advisory_committee_agenda_2026-08-11.pdf  79533  59a25de4bb1c4377dec69ae4050d5a6043fd204026bd2fde2d657be3d42ba1ae  https://drive.google.com/uc?export=download&id=16UYyAzM7WZUqW0Y7NKWrw2Zc85XmIF1O
 2026-09-03_wy_cms_notice_of_award_2026-05-14.pdf  3966281  8f4b0d42c0af899564a7581d24082aab99c902d97fa6bad560e3650d268c4bfa  https://drive.google.com/uc?export=download&id=1lGDh1Ndi_2ji1hwwsFFAyASUFAhk82ut
 2026-09-03_wy_revised_budget_narrative_2026-05-08.pdf  190501  8f9be3beb7797d4f82387db79465d165e55c0c82ad41a31952e20b67e65ea44f  https://drive.google.com/uc?export=download&id=1NFs2qS-q0QjeBOZ6TpbWwRF6H0YUNx-N
+
+Re-based 2026-10-20 (session 106), the programme page only, after reading the
+diff: the 2026-08-11 meeting notice ('Program News And Updates') is gone; a
+'Year One Award Approvals' button links Drive file 1jqfbHzZPrX-_xT-uLg3TFXorckp3b3uX,
+the approvals PDF above (live bytes 195009, SHA-256 identical); the timeline gains
+a 'Year One' heading and drops two clauses ('establishment of Perpetuity', 'scope of
+practice and compact issues'). No recipient named. The prior bytes were 199951,
+801ee48bf0d13acf83a6aeaadf056a7fbf8bbee03b3f30e0073eae50490be1cc, in git.
