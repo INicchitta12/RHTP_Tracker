@@ -131,3 +131,10 @@ These three buckets are never added together. The internal figure, with SOURCE_S
 Merge **before Wed 10-21 16:20Z**. That is IL's first firing, and CA's 17:00Z firing follows it. It also covers the WY firing Fri 10-23 21:10Z, MT Fri 17:40Z and MS Fri 09:40Z.
 - WY fires tonight, **Tue 10-20 21:10Z**, from `main` and will trip once more on the approvals label. That trip is read here.
 - Never merge Mon/Thu 13:00–14:00Z.
+
+## Suite
+
+`Rscript tests/run_tests.R`: **0 failed, 1 expected skip** (CMS monitor's first-run branch). The first run
+failed two `test_03l` expectations because `data/evidence/IL/` gained the `probe/` directory. `test_03l` now
+matches its manifest against top-level files only, since `probe/` has its own manifest checked by `test_03cg`.
+Its credential scan is now recursive, so it also covers the probe baselines.
