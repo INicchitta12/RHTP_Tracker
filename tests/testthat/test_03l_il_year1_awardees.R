@@ -151,7 +151,11 @@ test_that("the cited evidence archive is on disk and verifies", {
   # The manifest never lists itself, and the listed set is the on-disk set --
   # session 15's defect, which passed on absence.
   expect_false(any(manifest == "MANIFEST.txt"))
-  on_disk <- setdiff(list.files(here::here("data/evidence/IL")), "MANIFEST.txt")
+  # Files only: probe/ (session 106, R/03cg) carries its own MANIFEST.txt,
+  # checked by test_03cg.
+  top <- list.files(here::here("data/evidence/IL"))
+  top <- top[!dir.exists(here::here("data/evidence/IL", top))]
+  on_disk <- setdiff(top, "MANIFEST.txt")
   expect_setequal(files, on_disk)
 })
 
@@ -161,7 +165,9 @@ test_that("no archived Illinois file carries a third-party credential", {
   # fetcher removes that node and asserts the result clean; this re-checks the
   # committed bytes, because the assertion runs at fetch time and the archive
   # is what actually ships.
-  for (f in list.files(here::here("data/evidence/IL"), full.names = TRUE)) {
+  # Recursive (session 106): the probe baselines under probe/ ship too.
+  for (f in list.files(here::here("data/evidence/IL"), full.names = TRUE,
+                       recursive = TRUE)) {
     raw <- readBin(f, "raw", file.info(f)$size)
     # Strip NULs before rawToChar: the archived PDF is binary and contains
     # them. A credential is ASCII, so dropping NULs cannot hide one.
