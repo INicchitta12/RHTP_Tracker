@@ -1280,3 +1280,9 @@ MT,2026-10-20T17:42:01Z,TRIPWIRE,(probe),"[MT] 'grants' HAS 1 NEW SENTENCE(S) OF
 NM,2026-10-20T18:41:44Z,CHANGED,news,,trig_01EeEQZDPeG4xW4GBA7p8WcZ
 NM,2026-10-20T18:41:44Z,CHANGED,rhcdf,,trig_01EeEQZDPeG4xW4GBA7p8WcZ
 WY,2026-10-20T19:19:15Z,UNCHANGED,(all),,interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,funding,,interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,home,,interactive
+MS,2026-10-20T19:25:09Z,CHANGED,gov_newsroom,,interactive
+MS,2026-10-20T19:25:09Z,ERROR,dom_completed,"[MS] dom_completed: DOM WEBSITE OUTAGE -- medicaid.ms.gov serves its 'Temporary Site' placeholder (HTTP 404) for https://medicaid.ms.gov/resources/procurement/completed-procurements/. Our access, not Mississippi (§0.4).",interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,release,,interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,closed,,interactive
