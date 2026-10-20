@@ -1286,3 +1286,4 @@ MS,2026-10-20T19:25:09Z,CHANGED,gov_newsroom,,interactive
 MS,2026-10-20T19:25:09Z,ERROR,dom_completed,"[MS] dom_completed: DOM WEBSITE OUTAGE -- medicaid.ms.gov serves its 'Temporary Site' placeholder (HTTP 404) for https://medicaid.ms.gov/resources/procurement/completed-procurements/. Our access, not Mississippi (§0.4).",interactive
 MS,2026-10-20T19:25:09Z,UNCHANGED,release,,interactive
 MS,2026-10-20T19:25:09Z,UNCHANGED,closed,,interactive
+CT,2026-10-20T19:31:14Z,UNCHANGED,(all),,interactive
