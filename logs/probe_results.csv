@@ -1362,3 +1362,13 @@ OK,2026-10-22T18:13:19Z,UNCHANGED,recipients,,trig_0195epZAcyF5L1WbYJYMQ5Za
 OK,2026-10-22T18:13:19Z,CHANGED,funding,,trig_0195epZAcyF5L1WbYJYMQ5Za
 OK,2026-10-22T18:13:19Z,UNCHANGED,program,,trig_0195epZAcyF5L1WbYJYMQ5Za
 OK,2026-10-22T18:13:19Z,TRIPWIRE,funding,"[OK] 'funding' NAMES 9 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Funding Recipients Pulsara System Active Funding Opportunities OSU’s Tech Co-Op and Consumer Facing Tech Enrollment Forms | OSU’s Tech Co-Op and Consumer Facing Tech Enrollment Forms The Oklahoma RHTP Technology Cooperative | OSU Oklahoma Rural Health Research | Innovation and Deployment Network | One Clinic | Community Needs Assessment | Submit Response RHTP Statewide Rural Provider and Community Needs Assessment Deadline | Submit Response Clinic | MyHealth Access Network. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_0195epZAcyF5L1WbYJYMQ5Za
+KY,2026-10-22T19:32:14Z,UNCHANGED,funding,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,programme,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,CHANGED,rch,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,chfs_grants,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,rfa_cmhc,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,rfa_chw,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,rfa_cp,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,rfa_et,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,UNCHANGED,rfa_rda,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-22T19:32:14Z,TRIPWIRE,rch,"[KY] 'rch' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Statewide Program Positions Deputy Director of Collective Impact. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01Jk2igfuAsju6aaCnT3bP28
