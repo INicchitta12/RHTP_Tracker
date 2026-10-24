@@ -1430,3 +1430,4 @@ NJ,2026-10-24T12:12:07Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
 LA,2026-10-24T12:51:59Z,CHANGED,programme,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
 LA,2026-10-24T12:51:59Z,CHANGED,funding,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
 LA,2026-10-24T12:51:59Z,CHANGED,leg_reports,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+CA,2026-10-24T17:05:04Z,TRIPWIRE,(probe),[CA] the name-tripwire SCOPE anchor for 'calrht' was not found: ‘California Rural Health Transformation \(CalRHT\) (?:CalRHT Grant Funding Opportunities|Rural Health Transformation Program \(RHTP\))’. The page's layout has moved; re-read it and re-anchor the scope rather than reading the whole page's furniture (§2.3).,trig_01JEYQK9ZNMVpe27H19DFjzX
