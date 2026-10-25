@@ -1432,3 +1432,7 @@ LA,2026-10-24T12:51:59Z,CHANGED,funding,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
 LA,2026-10-24T12:51:59Z,CHANGED,leg_reports,,trig_01NRTUU1Vg3DoQPL1uK2gKBt
 CA,2026-10-24T17:05:04Z,TRIPWIRE,(probe),[CA] the name-tripwire SCOPE anchor for 'calrht' was not found: ‘California Rural Health Transformation \(CalRHT\) (?:CalRHT Grant Funding Opportunities|Rural Health Transformation Program \(RHTP\))’. The page's layout has moved; re-read it and re-anchor the scope rather than reading the whole page's furniture (§2.3).,trig_01JEYQK9ZNMVpe27H19DFjzX
 NY,2026-10-25T11:13:16Z,TRIPWIRE,(probe),[NY] the roster's header is not the three columns it was: ‘Lead Applicant Name’ | ‘Project Title’ | ‘Lead Applicant County’ | ‘Type’ | ‘Fund Amount’ | ‘Summary’. Re-read the page before trusting a positional parse.,trig_012g3adVBX9KEgDt9XiVi2tU
+AR,2026-10-25T20:21:46Z,UNCHANGED,home2,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-25T20:21:46Z,UNCHANGED,resources,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-25T20:21:46Z,UNCHANGED,rise,,trig_01DLRYTSBPvrst5LqGBv1M9M
+AR,2026-10-25T20:21:46Z,UNCHANGED,heart,,trig_01DLRYTSBPvrst5LqGBv1M9M
