@@ -137,7 +137,7 @@ KY_SOURCES <- tibble::tribble(
         "reduction, sentence by sentence). The 2026-09-02 copy stays on disk."),
   "chfs_grants",
   "https://www.chfs.ky.gov/agencies/os/oas/Pages/grants.aspx",
-  "2026-09-02_ky_chfs_grant_opportunities.html",
+  "2026-10-26_ky_chfs_grant_opportunities.html",  # re-based session 108 after reading (the Community Paramedicine RFA left; a new RHTP Tier 2 RFA, Rapid Response to Recovery: Transportation Support, for the 14 CMHCs); the 09-02 copy stays
   paste("THE POSITIVE CONTROL. CHFS's cabinet-wide grants channel, which",
         "states presence or absence PER AGENCY in its own words ('No grant",
         "opportunities are available at this time'), so silence is a",
@@ -190,7 +190,7 @@ KY_SOURCES <- tibble::tribble(
         "the status row, NOT in KY_AWARD_DATES, and the stage is unchanged."),
   "rch",
   "https://healthy-ky.org/rch",
-  "2026-10-15_ky_foundation_healthy_kentucky_rch.html",
+  "2026-10-26_ky_foundation_healthy_kentucky_rch.html",  # re-based session 108 after reading (FHKY job postings only); the 10-15 copy stays
   paste("The designated pass-through's own page (§7, Illinois/ICAHN's",
         "route). RE-BASED session 94: its 'Program News' now names ONE Hub",
         "Lead (Lake Cumberland District Health Department, 2026-10-05;",
@@ -850,7 +850,16 @@ KY_NAME_FURNITURE <- list(rch = c(
   "Rural Health Transformation Fund", "Rural Health Transformation Plan",
   "About the Program This", "Centers for Medicare and Medicaid Services",
   "U.S. Department of Health and Human Services",
-  "The Rural Health Transformation"))
+  "The Rural Health Transformation",
+  # SESSION 108 (the 10-22 and 10-26 trips, read 2026-10-26): FHKY added an
+  # "Employment Opportunities" block -- "Statewide Program Positions Deputy
+  # Director of Collective Impact RCH Technology Lead" and "Location-Based
+  # Positions Purchase: FHKY RCH Operations Support ...". These are JOB
+  # TITLES the administrator is hiring for, welded into one run by the
+  # reduction; no organisation is named. Both forms the run has taken are
+  # listed, because the posting list grows.
+  "Statewide Program Positions Deputy Director of Collective Impact",
+  "Statewide Program Positions Deputy Director of Collective Impact RCH Technology Lead"))
 
 ky_probe <- function() {
   # The four RFAs carrying a published award date are read LIVE too (session

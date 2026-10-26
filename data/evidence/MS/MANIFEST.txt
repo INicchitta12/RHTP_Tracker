@@ -48,3 +48,12 @@ recheck/2026-10-16/MS/.
 medicaid.ms.gov: every path, including dom_completed, serves a 'Temporary
 Site' vendor-outage placeholder at HTTP 404 (read 2026-10-20). The
 2026-09-03 dom_completed capture stays the archive.
+
+SESSION 108 (2026-10-26): funding and home RE-BASED in place after reading each diff, and gov_newsroom re-based to a NEW FILE (2026-10-26_ms_governor_newsroom.html; the 09-21 copy stays):
+funding added one link label ('Apply for the EHR Program', the EHR Replacement opportunity, Tier 2);
+home changed a survey deadline (October 31 -> 30); gov_newsroom now carries the 2026-10-21 60-award
+headline (extracted by R/03cj). New digests:
+2026-09-21_ms_rhtp_funding_ANNOUNCEMENT_BANNER.html  184489  4810683d51d2397b386df5a282d028b53474f5dfc54bb5a0770ea7accf42e32e
+2026-09-21_ms_rhtp_home.html  191163  49a35176835eb4616c20b1e8b3780567ea1831a6dec7a947ba8b84ef1844e5ff
+2026-10-26_ms_governor_newsroom.html  113434  9604ad24d95c40f3e8cff56e95dae80f9cf6fe8dac2804cc980ab3a72d5a136c
+

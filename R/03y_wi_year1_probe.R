@@ -113,15 +113,19 @@ WI_USER_AGENT <- paste(
   "+https://www.aha.org)"
 )
 
+# Session 108: dhs_rhtp and dhs_solicit re-based to 2026-10-26 copies after
+# reading the diffs (navigation, a sign-up box and a revised date on the
+# first; six non-RHTP solicitations on the second, each in WI_NAME_FURNITURE).
+# The 2026-09-01 copies stay on disk.
 WI_SOURCES <- tibble::tribble(
   ~key,             ~file,                                       ~url,
-  "dhs_rhtp",       "2026-09-01_dhs_rhtp_program.html",
+  "dhs_rhtp",       "2026-10-26_dhs_rhtp_program.html",
   "https://www.dhs.wisconsin.gov/rhtp/index.htm",
   "dhs_rhtpac",     "2026-09-01_dhs_rhtp_advisory_council.html",
   "https://www.dhs.wisconsin.gov/rhtp/rhtpac.htm",
   "dhs_deck_0723",  "2026-09-01_dhs_rhtpac_presentation_260723.pdf",
   "https://www.dhs.wisconsin.gov/rhtp/rhtpac-presentation260723.pdf",
-  "dhs_solicit",    "2026-09-01_dhs_current_grant_solicitations.html",
+  "dhs_solicit",    "2026-10-26_dhs_current_grant_solicitations.html",
   "https://www.dhs.wisconsin.gov/business/solicitations-list.htm",
   "dwd_heart",      "2026-09-01_dwd_wig_heart.html",
   "https://dwd.wisconsin.gov/det/heart/",
@@ -1033,7 +1037,32 @@ WI_NAME_FURNITURE <- list(dhs_solicit = c(
   "Increasing Tenant and Homeowner Environmental Health Literacy Mini–Grant Request for Application",
   "Participation in the National Diabetes Prevention Program in Local and Tribal Health Department Settings Request for Application",
   "Room and Board Residential Substance Use Disorder Opioid Settlement Funds Request for Application",
-  "Qualified Treatment Trainee Expanding Agency Awards Request for Application"))
+  "Qualified Treatment Trainee Expanding Agency Awards Request for Application",
+  # SESSION 108 (the 10-16, 10-20 and 10-23 trips, read 2026-10-26). Six new
+  # titles on the UNAWARDED index, each detail page read: "Rural Health
+  # Transformation" appears on every one ONCE, and it is the DHS site menu
+  # (<li class="c-menu__item">); "RHTP" appears zero times. Funding, in the
+  # pages' own words: Title V MCH (adolescent mental health; Southern Region
+  # CYSHCN, which also names HRSA), Title X (reproductive health and family
+  # planning), a CHIP health services initiative "funded through the Centers
+  # for Medicare and Medicaid (CMS)" for Asthma-Safe Homes -- CMS money that is
+  # NOT RHTP, the §0.1 trap -- and the Hospital Preparedness Program ("up to
+  # five awards for a total of up to $175,000"; ASPR's programme). Solicitations
+  # with no awardee, and not RHTP.
+  "Wisconsin Title V MCH Adolescent Mental Health Youth Engagement Expansion Funding Request for Application",
+  "Asthma Education Services Provider Capacity Building Request for Application",
+  "Reproductive Health and Family Planning Grants Request for Application",
+  "Southern Region Children\u2019s Resource Center for Children and Youth",
+  "Special Health Care Needs",
+  "Wisconsin Hospital Preparedness Program"),
+  # SESSION 108: DHS's RHTP page now prints its breadcrumb and sub-navigation
+  # as one run ("Home About DHS Rural Health Transformation Program ..."). The
+  # page's only other changes (read 2026-10-26): an email sign-up box, "Last
+  # revised October 13, 2026", and its footer's "(HSS)" typo. Navigation, not
+  # a recipient.
+  dhs_rhtp = c(
+    "Home About DHS Rural Health Transformation Program Rural Health Transformation Program",
+    "Home Advisory Council About DHS Rural Health Transformation Program Harnessing"))
 
 wi_probe <- function(keys = WI_PROBE_KEYS) {
   live <- list()

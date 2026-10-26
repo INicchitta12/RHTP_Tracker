@@ -72,6 +72,22 @@
 # spellings, Northeastern Vermont Regional Hospital under three, Northern
 # Counties Health Care under four. One row per EXECUTED AGREEMENT.
 #
+# SESSION 108 -- THE 2026-10-23 UPDATE: 237 ROWS, $180,171,067.00. Sixty-two
+# new agreements ($49,113,439.73). Every 2026-10-08 agreement is still printed
+# at its cents under its initiative and activity, but FOURTEEN are re-spelled
+# (a name-first key reads them as 14 gone and 14 added; each pairs with exactly
+# one new row of the same initiative, activity and amount). ONE RE-SPELLING
+# MOVES A TYPING: the $1,008,012.10 facility-upgrade agreement printed "Gifford
+# Medical" (the hospital, a LOW hand-read bridge to CCN 471301) is now printed
+# "Gifford Health Care", the FQHC's legal name (CCN 471852), so the recipient as
+# printed is the FQHC and that agreement leaves the hospital figure. The
+# St. Johnsbury nursing facility's $63,760 telehealth row is now printed as a
+# second "Springfield Center for Living and Rehabilitation" row: OTHER either
+# way. New hospital typings: University of Vermont Health (three agreements,
+# $8,265,083.59), the 2025 trading name of the UVM Health Network, a SYSTEM
+# PARENT (LOW, GENERAL_KNOWLEDGE, subtractable); Copley, NVRH, North Country and
+# Mt Ascutney on their CMS enrolments.
+#
 # SESSION 101 -- THE 2026-10-08 UPDATE: 175 ROWS, $131,057,627.27. Nine new
 # agreements ($3,637,773.36), every 2026-10-02 agreement still printed and
 # none re-priced or re-filed. Two are BRATTLEBORO RETREAT ($525,000 facility
@@ -103,14 +119,18 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 VT_STATE        <- "VT"
 VT_ALLOTMENT    <- 195053740      # cms_fy2026_allotments.csv (§7.1)
-VT_PAGE_TOTAL   <- 131057627.27   # the table's own total row (2026-10-08 update)
-VT_PAGE_ROWS    <- 175L           # 112 on 09-18; 146 on 09-25; 166 on 10-02; 175 on 10-08
+VT_PAGE_TOTAL   <- 180171067.00   # the table's own total row (2026-10-23 update)
+VT_PAGE_ROWS    <- 237L           # 112 on 09-18; 146 on 09-25; 166 on 10-02; 175 on 10-08; 237 on 10-23
 VT_MOU_AMOUNT   <- 2635000
-VT_UPDATED      <- as.Date("2026-10-08")
-VT_UPDATED_TXT  <- "Updated as of October 8, 2026"
+VT_UPDATED      <- as.Date("2026-10-23")
+VT_UPDATED_TXT  <- "Updated as of October 23, 2026"
 VT_NOA_DATE     <- as.Date("2025-12-29")
 
-VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-10-15", "VT")
+VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-10-26", "VT")
+# SESSION 108: the 2026-10-08 list (175 rows, $131,057,627.27), which session
+# 101 extracted, is the immediate prior of the 2026-10-23 update.
+VT_PRIOR_FILE_1008 <- file.path("data", "evidence", "recheck", "2026-10-15", "VT",
+                                "vt_year1_awards.html")
 # SESSION 101: the 2026-10-02 list (166 rows, $127,419,853.91), which session
 # 94 extracted, is the immediate prior of the 2026-10-08 update.
 VT_PRIOR_FILE_1002 <- file.path("data", "evidence", "recheck", "2026-10-07", "VT",
@@ -202,12 +222,8 @@ VT_TYPES <- tibble::tribble(
   "CMS Hospital Enrollment: COPLEY HOSPITAL INC, CCN 471305 (CAH), Morrisville. (Printed 'Copley Hospital' on 2026-09-25.)",
   "Porter Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: PORTER HOSPITAL INC, CCN 471307 (CAH), Middlebury. (Printed 'Porter Hospital' on 2026-09-25.)",
-  "Gifford Medical", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
-  "HAND-READ BRIDGE, LOW (session 74; LEGAL_NAME_TRUNCATED's shape): the only Vermont enrolment whose legal name begins 'GIFFORD MEDICAL' is GIFFORD MEDICAL CENTER INC, CCN 471301 (CAH), Randolph -- the hospital. The FQHC is a different legal body, GIFFORD HEALTH CARE INC, and is printed under that name elsewhere on the same page. A prefix is never matched by machine (§2); this is a reading, priced at LOW so a reader can subtract it, and queued.",
   "Southwestern Vermont Health", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
   "GENERAL KNOWLEDGE, LOW (session 74): Southwestern Vermont Health Care, the parent system of SOUTHWESTERN VERMONT MEDICAL CENTER, INC (CMS 470012, Bennington). The page truncates the system's name and the system is not itself an enrolled provider -- the UVM Health Network precedent in this file. Priced at LOW so a reader can subtract it, and queued.",
-  "Gifford Health Care, Inc", "FQHC_OR_RHC", VT_FED, "VT",
-  "CMS FQHC Enrollment: GIFFORD HEALTH CARE INC, CCN 471852. NOT the hospital (GIFFORD MEDICAL CENTER INC, CCN 471301).",
   "Five-Town Health Alliance Inc", "FQHC_OR_RHC", VT_FED, "VT",
   "CMS FQHC Enrollment: FIVE-TOWN HEALTH ALLIANCE, INC dba MOUNTAIN HEALTH CENTER, CCN 471846.",
   "North Star Health", "FQHC_OR_RHC", VT_FED, "VT",
@@ -216,8 +232,6 @@ VT_TYPES <- tibble::tribble(
   "NURSING FACILITY. CMS SNF Enrollment: RUTLAND CROSSINGS LLC dba THE PINES AT RUTLAND CENTER FOR NURSING AND REHABILITATION, CCN 475018.",
   "Health Care and Rehabilitation Services of Southeastern Vermont, Inc.", "OTHER", VT_GK, "VT",
   "COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (HCRS, southeastern Vermont), by general knowledge. The page's full legal name for the row printed as 'Health Care and Rehabilitation Services (HCRS)' on 2026-09-18.",
-  "Howard Center, Inc.", "OTHER", VT_GK, "VT",
-  "COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Chittenden County), by general knowledge. Not merged with 'Howard Center' (§2).",
   "Rutland Mental Health Services", "OTHER", VT_GK, "VT",
   "COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Rutland County; Community Care Network), by general knowledge.",
   "BAART St Albans", "OTHER", VT_GK, "VT",
@@ -240,10 +254,6 @@ VT_TYPES <- tibble::tribble(
   # ---- session 94: the 2026-10-02 update ----------------------------------
   # Re-spellings first (same initiative, activity and amount as a 2026-09-25
   # agreement, a different legal-name string), each carrying its prior typing.
-  "Brattleboro Memorial Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
-  "CMS Hospital Enrollment: BRATTLEBORO MEMORIAL HOSPITAL, CCN 470011 (re-spelled with ', Inc.' on 2026-10-02).",
-  "Central Vermont Medical Center, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
-  "CMS Hospital Enrollment: CENTRAL VERMONT MEDICAL CENTER INC, CCN 470001.",
   "North Country Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: NORTH COUNTRY HOSPITAL & HEALTH CENTER INC, CCN 471304 (CAH); printed 'North Country Hospital & Health Center' until 2026-09-25, same agreement.",
   "Rutland Hospital, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
@@ -254,12 +264,8 @@ VT_TYPES <- tibble::tribble(
   "CMS FQHC Enrollment: GIFFORD HEALTH CARE INC, CCN 471852. NOT the hospital (GIFFORD MEDICAL CENTER INC, CCN 471301).",
   "Little Rivers Health Care", "FQHC_OR_RHC", VT_FED, "VT",
   "CMS FQHC Enrollment: LITTLE RIVERS HEALTH CARE, INC. (printed with 'Inc.' until 2026-09-25).",
-  "The Richford Health Center Inc", "FQHC_OR_RHC", VT_FED, "VT",
-  "CMS FQHC Enrollment: THE RICHFORD HEALTH CENTER, INC. (dba Northern Tier Center for Health).",
   "Community Health Centers of the Rutland Regional", "FQHC_OR_RHC", VT_GK, "VT",
   "The page's MISSPELLING of COMMUNITY HEALTH CENTERS OF THE RUTLAND REGION INC (CMS FQHC). The same agreement was printed with the correct name on 2026-09-25; a misspelling is not an exact match, so it is LOW. It is not a hospital either way.",
-  "Richmond Family Med", "PHYSICIAN_PRACTICE", VT_GK, "VT",
-  "Printed 'Richmond Family Medicine' until 2026-09-25: independent family-medicine practice (Richmond), by general knowledge.",
   # New recipients and new agreements.
   "Northeastern Vermont Regional Hospital (NVRH)", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: NORTHEASTERN VERMONT REGIONAL HOSPITAL INC dba NVRH, CCN 471303 (CAH). The string is the enrolment's legal name less 'Inc' with the enrolment's own DBA in parentheses -- both halves on one record.",
@@ -273,8 +279,6 @@ VT_TYPES <- tibble::tribble(
   "CMS FQHC Enrollment: GIFFORD HEALTH CARE INC, CCN 471852 -- the legal name less 'Inc'. THE FQHC, NOT THE HOSPITAL (GIFFORD MEDICAL CENTER INC, CCN 471301): its new $633,201.40 facility-upgrade agreement stays out of the hospital total on a federal record.",
   "UVM - Health Network", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
   "GENERAL KNOWLEDGE, LOW (session 94; the system-parent rule this file applies to 'THE UNIVERSITY OF VERMONT HEALTH NETWORK INC.'): the parent health system of UVM Medical Center (470003), Central Vermont Medical Center (470001) and others; not itself an enrolled provider, so no CCN. Priced at LOW so a reader can subtract it.",
-  "Kinney Drugs", "OTHER", VT_GK, "VT",
-  "RETAIL PHARMACY CHAIN, by general knowledge -- the trade name of KPH Healthcare Services Inc., typed OTHER elsewhere in this file. Not merged with that row (§2).",
   "Bennington Rescue Squad", "EMS_OR_PSAP", VT_GK, "VT",
   "Volunteer ambulance service (Bennington), by general knowledge and by its own name.",
   "Bristol Rescue Squad, Inc.", "EMS_OR_PSAP", VT_GK, "VT",
@@ -309,8 +313,6 @@ VT_TYPES <- tibble::tribble(
   # ---- nursing facilities --------------------------------------------------
   "105 Chester Road Opco LLC", "OTHER", VT_FED, "VT",
   "NURSING FACILITY. CMS SNF Enrollment: 105 CHESTER ROAD OPCO LLC dba SPRINGFIELD CENTER FOR LIVING AND REHABILITATION, CCN 475025B.",
-  "46 NICHOLS STREET OPCO LLC", "OTHER", VT_FED, "VT",
-  "NURSING FACILITY. CMS SNF Enrollment: 46 NICHOLS STREET OPCO LLC dba RUTLAND CENTER FOR LIVING AND REHABILITATION, CCN 475039.",
   "Rutland Center for Living and Rehabilitation", "OTHER", VT_FED, "VT",
   "NURSING FACILITY. CMS SNF Enrollment carries this string as the DBA of 46 NICHOLS STREET OPCO LLC, CCN 475039.",
   "CLR Opco", "OTHER", VT_FED, "VT",
@@ -361,7 +363,43 @@ VT_TYPES <- tibble::tribble(
   "Ophthalmic Consultants of Vermont", "PHYSICIAN_PRACTICE", VT_GK, "VT",
   "Ophthalmology practice, by general knowledge.",
   "Eye Care Associates", "PHYSICIAN_PRACTICE", VT_GK, "VT",
-  "Eye-care practice, by general knowledge."
+  "Eye-care practice, by general knowledge.",
+  # ---- session 108: the 2026-10-23 update ---------------------------------
+  "Northeastern Vermont Regional Hospital, Inc", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: NORTHEASTERN VERMONT REGIONAL HOSPITAL INC dba NVRH, CCN 471303 (CAH), St. Johnsbury.",
+  "Northeastern Vermont Regional Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: NORTHEASTERN VERMONT REGIONAL HOSPITAL INC, CCN 471303 (CAH) -- the legal name less 'Inc'.",
+  "Copley Hospital", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: COPLEY HOSPITAL INC, CCN 471305 (CAH), Morrisville -- the legal name less 'Inc'.",
+  "North Country Hospital & Health Center, Inc.", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: NORTH COUNTRY HOSPITAL & HEALTH CENTER INC, CCN 471304 (CAH), Newport.",
+  "Windsor Hospital Corp", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  "CMS Hospital Enrollment: WINDSOR HOSPITAL CORPORATION dba MT ASCUTNEY HOSPITAL AND HEALTH CENTER, CCN 471302 (CAH); the page prints the same DBA.",
+  "University of Vermont Health", "HOSPITAL_OR_SYSTEM", VT_GK, "VT",
+  paste0("SYSTEM PARENT, LOW, GENERAL_KNOWLEDGE (session 108, on the owner's system-parent rulings: ",
+         "Vandalia, Sanford/Avera, Guthrie, Ballad/Sentara/Valley). 'University of Vermont Health' is ",
+         "the 2025 trading name of The University of Vermont Health Network Inc., which this file already ",
+         "types as the parent system (session 54) of UNIVERSITY OF VERMONT MEDICAL CENTER INC (470003), ",
+         "CENTRAL VERMONT MEDICAL CENTER INC (470001), COPLEY HOSPITAL INC (471305), NORTHWESTERN MEDICAL ",
+         "CENTER INC (470024) and PORTER HOSPITAL INC (471307). It is not itself an enrolled provider, so no ",
+         "CCN. The classifier reads 'University' and says UNIVERSITY_OR_AHC; that is wrong about this body, ",
+         "which is a hospital system, not the University of Vermont. Subtractable by basis_type."),
+  "UVM - Home Health & Hospice", "OTHER", VT_FED, "VT",
+  "HOME HEALTH AGENCY. CMS HHA Enrollment: THE UNIVERSITY OF VERMONT HEALTH NETWORK HOME HEALTH & HOSPICE, INC. dba UVMHN HOME HEALTH AND HOSPICE, CCN 477000 (the page abbreviates). A separately enrolled provider type, not the hospital.",
+  "Lamoille Home Health", "OTHER", VT_FED, "VT",
+  "HOME HEALTH AGENCY. CMS HHA Enrollment: LAMOILLE HOME HEALTH AGENCY, INC. dba LAMOILLE HOME HEALTH & HOSPICE, CCN 477015 (the page drops '& Hospice' on 2026-10-23).",
+  "Five Town Health Alliance", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: FIVE-TOWN HEALTH ALLIANCE, INC dba MOUNTAIN HEALTH CENTER, CCN 471846. The page now prints the legal name in the legal column (it printed 'Mountain Community Health' there until 2026-10-08).",
+  "Rescue Inc.", "EMS_OR_PSAP", VT_GK, "VT",
+  "A regional ambulance service (Brattleboro), by general knowledge. Not a hospital.",
+  "Health Care and Rehabilitation Services of Southeastern Vermont, Inc. (2)", "OTHER", VT_GK, "VT",
+  "COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Windham and Windsor counties), by general knowledge. The page appends '(2)' to the name.",
+  "Lamoille County Mental Health Services (LCMHS)", "OTHER", VT_GK, "VT",
+  "COMMUNITY MENTAL HEALTH DESIGNATED AGENCY (Lamoille County), by general knowledge.",
+  "Public Consulting Group", "VENDOR_OR_CONTRACTOR", VT_GK, NA,
+  "Management consultancy, by general knowledge. Not a hospital.",
+  "Unite USA, Inc.", "VENDOR_OR_CONTRACTOR", VT_GK, NA,
+  "Closed-loop referral software vendor (dba Unite Us, the page's DBA), by general knowledge. Not a hospital."
 )
 
 vt_legal_key <- function(x) stringr::str_squish(stringr::str_remove(x, "\\s*\\*+\\s*$"))
@@ -530,7 +568,7 @@ vt_year1_awardees <- function(tb = vt_parse_table()) {
     facility_state = ifelse(typed, ty$facility_state, NA_character_),
     recipient_type_source = ifelse(
       typed,
-      paste0("TYPED (session 54/74/94): ", ty$why, " Classifier said ",
+      paste0("TYPED (session 54/74/94/101/108): ", ty$why, " Classifier said ",
              cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
              cls$recipient_type, "/", cls$determination_confidence, ".")),
@@ -568,8 +606,16 @@ vt_status_table <- function(tb = vt_parse_table()) {
     paste(VT_PAGE_ROWS - 1L, "executed agreements to named recipients in the award file.",
           "The page calls itself 'a partial and ongoing list and does not",
           "represent the full Year 1 awards or funding decisions', so this is",
-          "a FLOOR. Updated as of 2026-10-08 (165 award rows on 2026-10-02,",
-          "145 on 2026-09-25, 111 on 2026-09-18)."),
+          "a FLOOR. Updated as of 2026-10-23 (174 award rows on 2026-10-08,",
+          "165 on 2026-10-02, 145 on 2026-09-25, 111 on 2026-09-18)."),
+    VT_STATE, "Gifford facility-upgrade agreement -- re-printed under the FQHC (2026-10-23)",
+    "AGREEMENT_REPRINTED_OTHER_RECIPIENT", "Yes", 1008012.12,
+    paste0("One executed agreement, $1,008,012.12, Regionalization / Facility upgrades, printed ",
+           "'Gifford Medical' through 2026-10-08 (typed the hospital, GIFFORD MEDICAL CENTER INC, ",
+           "CAH 471301, on a LOW hand-read bridge) and 'Gifford Health Care' on 2026-10-23, the ",
+           "legal name of the FQHC (GIFFORD HEALTH CARE INC, CCN 471852). Same initiative, activity ",
+           "and cents. The recipient as printed is the FQHC, so the agreement leaves the hospital ",
+           "figure (session 108). Which printing is right is AHS's to say; the latest list governs."),
     VT_STATE, "Northern Counties Health Care -- initiative re-filed (2026-10-02)",
     "AGREEMENT_REFILED_SAME_AMOUNT", "Yes", VT_NCHC_MOVE$amount,
     paste0("One executed agreement, $226,194.70, printed under '",

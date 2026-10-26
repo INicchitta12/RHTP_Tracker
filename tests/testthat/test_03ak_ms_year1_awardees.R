@@ -48,12 +48,39 @@ test_that("the tranche tripwire does NOT fire on the 167 already recorded", {
   # Governor's own 167-award headline is on the watched newsroom page, and it
   # must not re-fire: it is the finding, not a new one.
   expect_true(ms_assert_remaining_tranches())
-  expect_match(ms_html_text("gov_newsroom"), "Announces 167 Rural Health")
+  # Session 108: the newsroom archive is re-based; its first page now carries
+  # the 60-award headline (R/03cj), not the 167.
+  expect_match(ms_html_text("gov_newsroom"), "Announces 60 Rural Health")
+})
+
+test_that("session 108: a new RHTP headline on the newsroom trips (the 10-21 miss)", {
+  skip_without_archive()
+  # The 2026-10-21 headline, as the 10-23 firing saw it and passed.
+  fixture <- as_raw_html(paste0(
+    "<html><body><ul><li><a href=\"/x\">Rural Health Transformation Program</a></li>",
+    "<li><a href=\"/governor-reeves-announces-60-rural-health-transformation-program-awards-totaling-32-6-million/\">",
+    "Governor Reeves Announces 60 Rural Health Transformation Program Awards Totaling $32.6 Million</a></li>",
+    "</ul></body></html>"))
+  # With only session 107's knowledge (the 167 headline), it trips.
+  expect_error(ms_assert_no_new_rhtp_headline(fixture, known = MS_KNOWN_RHTP_HEADLINES[1]),
+               "NEW RHTP HEADLINE")
+  # The pending-tranche phrase check alone did NOT trip on it: the miss itself.
+  expect_true(ms_assert_remaining_tranches(list(funding = fixture, home = fixture,
+                                                gov_newsroom = fixture, closed = fixture)))
+  # Recorded now, it is quiet; any other RHTP headline trips, whatever its verb.
+  expect_true(ms_assert_no_new_rhtp_headline(fixture))
+  other <- as_raw_html(paste0("<html><body><a href=\"/y\">Governor Reeves Celebrates Rural ",
+                              "Health Transformation Program Investments in the Delta</a></body></html>"))
+  expect_error(ms_assert_no_new_rhtp_headline(other), "Investments in the Delta")
+  # The menu label alone is not a headline.
+  expect_true(ms_assert_no_new_rhtp_headline(as_raw_html(
+    "<html><body><a href=\"/x\">Rural Health Transformation Program</a></body></html>")))
 })
 
 test_that("the announcement is on the channel Mississippi itself named", {
   skip_without_archive()
-  expect_true(ms_assert_announcement_on_channel())
+  rel0 <- readBin(ms_path("release"), "raw", file.size(ms_path("release")))
+  expect_true(suppressMessages(ms_assert_announcement_on_channel(release_body = rel0)))
   expect_error(
     ms_assert_announcement_on_channel(
       body = as_raw_html("<html><body>nothing here</body></html>")),
@@ -316,7 +343,8 @@ test_that("THE RETIRED CHANNEL CONTROL, and why it halted the Routine", {
   # underneath that, the thing it guarded had already happened: the one
   # matching headline WAS Mississippi's own RHTP award announcement, which its
   # second half would have caught had the first half not stopped first.
-  txt <- ms_html_text("gov_newsroom")
+  # Session 108: pinned on the 2026-09-21 copy the finding was made on.
+  txt <- ms_html_text("gov_newsroom_0921")
   lines <- stringr::str_split(txt, "\n")[[1]]
   announce <- lines[grepl("announce", lines, ignore.case = TRUE)]
   expect_lt(length(announce), 3L)
@@ -328,7 +356,8 @@ test_that("the retired control now delegates to the one that names a headline", 
   # A count of headlines was the wrong instrument either way. What replaced it
   # asserts the ONE headline this file actually depends on, by name, and a
   # name cannot drift with pagination.
-  expect_true(suppressWarnings(ms_assert_governor_channel_control()))
+  n0921 <- readBin(ms_path("gov_newsroom_0921"), "raw", file.size(ms_path("gov_newsroom_0921")))
+  expect_true(suppressWarnings(ms_assert_governor_channel_control(n0921)))
   expect_error(
     suppressWarnings(ms_assert_governor_channel_control(
       as_raw_html("<html><body>nothing</body></html>"))),

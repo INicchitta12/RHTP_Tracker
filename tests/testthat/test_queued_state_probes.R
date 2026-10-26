@@ -199,7 +199,14 @@ test_that("session 74: VA's ways-to-apply table is diffed on its PARTNER column,
   f <- here::here(VA_PAGES$file[VA_PAGES$key == "ways_to_apply"])
   arch <- paste(readLines(f, warn = FALSE), collapse = "\n")
   p <- va_wta_partners(arch)
-  expect_length(p, 10L)
+  # Session 108: the re-based table adds five Regional Collaboratives on Mobile
+  # & Hybrid Care (first-tier administrators with Open RFAs, not in the award
+  # file; recorded for the owner).
+  va_rc <- c("SWVA Regional Collaborative",
+             "Roanoke-Alleghany/Central Shenandoah/New River Valley Regional Collaborative",
+             "Northern Piedmont Regional Collaborative", "Southside Regional Collaborative",
+             "Eastern Shore Regional Collaborative")
+  expect_length(p, 15L)
   vaf <- readr::read_csv(here::here("data/reference/va_year1_awardees.csv"),
                          show_col_types = FALSE)
   # Every partner but the Commonwealth itself is a first-tier partner already
@@ -207,7 +214,7 @@ test_that("session 74: VA's ways-to-apply table is diffed on its PARTNER column,
   # 'Virginia Hospital Research and Education Foundation (d/b/a VHHA
   # Foundation)', matched by hand (§2).
   expect_setequal(setdiff(p, vaf$awardee),
-                  c("Commonwealth of VA", "Virginia Hospital and Healthcare Foundation"))
+                  c("Commonwealth of VA", "Virginia Hospital and Healthcare Foundation", va_rc))
   expect_true(any(grepl("VHHA Foundation", vaf$awardee, fixed = TRUE)))
   # A status change is silent ...
   st <- sub("Closed (August 31st 2026)", "Closed", arch, fixed = TRUE)

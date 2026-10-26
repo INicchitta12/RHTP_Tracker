@@ -11,7 +11,8 @@
 #          for Provider Interoperability and October 14, 2026, for Provider
 #          Productivity."
 #   VHHA Foundation (Remote Patient Monitoring, GME, Food is Medicine):
-#          "Awards announced by October 30, 2026"
+#          "Awards announced by October 30, 2026" (gone by 2026-10-26: the
+#          Foundation's site moved to vhha.com; session 108)
 #
 # TWICE-WEEKLY, because those are published dates and the first is a week out.
 # Both administrators are §7's designated pass-through route (Illinois/ICAHN):
@@ -54,10 +55,19 @@ VA_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "vhcf", "https://www.vhcf.org/rural-health/",
   file.path(VA_DIR, "2026-10-26_vhcf_rural_health.html"), TRUE,
-  "vhha_foundation", "https://vhhafoundation.org/virginia-rural-health-transformation/",
-  file.path(VA_RECHECK, "vhha_foundation_rht.html"), TRUE,
+  # Session 108: vhhafoundation.org now redirects to vhha.com/foundation/; the
+  # RHT page is vhha.com/foundation/rural-health-transformation/. Re-pointed
+  # and re-based after reading (the 09-23 copy of the old page stays).
+  "vhha_foundation", "https://www.vhha.com/foundation/rural-health-transformation/",
+  file.path(VA_DIR, "2026-10-26_vhha_foundation_rht.html"), TRUE,
+  # Session 108: re-based after reading. The partner table now lists FIVE
+  # Regional Collaboratives (SWVA; Roanoke-Alleghany/Central Shenandoah/New
+  # River Valley; Northern Piedmont; Southside; Eastern Shore) beside the
+  # Commonwealth on Mobile & Hybrid Care, each with an Open RFA and no amount:
+  # first-tier administrators, not awards. Recorded for the owner
+  # (docs/session108_*); the 09-23 copy stays.
   "ways_to_apply", paste0(VA_RHT, "/ways-to-apply/"),
-  file.path(VA_RECHECK, "rhtva_ways_to_apply.html"), TRUE,
+  file.path(VA_DIR, "2026-10-26_rhtva_ways_to_apply.html"), TRUE,
   "news", paste0(VA_RHT, "/news--updates/"),
   file.path(VA_RECHECK, "rhtva_news_updates.html"), FALSE,
   "vhcf_news", "https://www.vhcf.org/news/",
@@ -76,7 +86,14 @@ VA_ANCHORS <- list(
   # trips; both pages are re-based to 2026-10-26 after reading (the 10-12 and
   # 10-05 copies stay archived).
   vhcf = "We anticipate that the next funding cycle will open in Spring 2027.",
-  vhha_foundation = "Awards announced by October 30, 2026")
+  # SESSION 108: the VHHA Foundation's site moved to vhha.com, and the new page
+  # carries NO award date ("Awards announced by October 30, 2026" is gone) and
+  # names no awardee. The anchor is the Foundation's own future-tense role
+  # sentence: the day it says the Foundation HAS administered or awarded, or
+  # the sentence goes, this trips.
+  vhha_foundation = paste("Through this role, the Foundation will administer key initiatives that",
+                          "directly support rural providers: Remote Patient Monitoring, Attract and",
+                          "Retain Physicians (GME) and Food is Medicine."))
 VA_AWARD_WORDS <- "\\baward(s|ed|ee|ees)?\\b|\\brecipients?\\b|\\bselected\\b|\\bgrantees?\\b"
 
 #' The normal CA bundle plus the one missing intermediate, in a temp file
@@ -114,7 +131,7 @@ va_validate <- function() {
   arch <- lapply(stats::setNames(VA_PAGES$file, VA_PAGES$key),
                  function(f) rhtp_watch_reduce(here::here(f)))
   va_assert_watch(arch, arch)
-  message("[VA] the archive carries both administrators' award dates and no ",
+  message("[VA] the archive carries each administrator's anchor sentence and no ",
           "award sentence.")
   invisible(TRUE)
 }

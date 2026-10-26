@@ -632,7 +632,7 @@ wv_year1_awardees <- function() {
       is.na(a$amount) ~ "NOT PRICED: the release prices one of Minnie Hamilton's three projects; the rest of 'More Than $4 Million' is not divided (§6.2).",
       a$awardee == "Ascend WV" ~ "ROUNDED IN SOURCE: printed only as '$2.4 million'.",
       a$key == "ars" ~ "ROUNDED IN SOURCE: printed only as '$1.5 million'. The headline's '$1.7 million' adds ARC money and is not this row's total.",
-      a$key == "wvu" & a$rounded ~ "A FLOOR IN SOURCE: printed only as 'more than $2.5 million'; $2,500,000 is the published lower bound, never reconstructed upward.",
+      a$key == "wvu" & a$rounded ~ "A FLOOR IN SOURCE: printed only as 'more than $2.5 million'; $2,500,000 is the published lower bound, never reconstructed upward. Kept at $2,500,000 on the owner's ruling (session 108).",
       a$rounded ~ "ROUNDED IN SOURCE: printed only as '$1.7 million'.",
       TRUE ~ "EXACT, as printed in the release."),
     basis_type = a$basis_type,

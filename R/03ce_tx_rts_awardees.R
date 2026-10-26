@@ -127,19 +127,30 @@ TRT_RELEASE_Y1 <- 78089434.73
 TRT_RELEASE_N  <- 216L
 TRT_ROUND1_N   <- 68L        # 2026-09-28: "68 ... awarded $750,000 each"
 TRT_ROUND1_Y1  <- 750000
+# The extracted list (session 108: the 10/23 list; session 103 extracted 10/14,
+# 312 lines, $137,234,879.62, 97 executed).
+TRT_AS_OF      <- "10/23/26"
+TRT_LINES      <- 441L
+TRT_LIST_Y1    <- 224591245.41
+TRT_EXECUTED   <- 159L
 TRT_DIR        <- file.path("data", "evidence", "recheck", "2026-10-16", "TX")
 TRT_CSV        <- here::here("data", "reference", "tx_year1_awardees.csv")
 TRT_AGENT      <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                          "research use; +https://www.aha.org)")
 TRT_PFD        <- "https://pfd.hhs.texas.gov"
 TRT_PROGRAMME_URL <- paste0(TRT_PFD, "/rural-health-transformation-program")
-TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/10-15-2026-list-award-recipients.xlsx"
+TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/10-23-2026-list-award-recipients.xlsx"
+TRT_DIR_108    <- file.path("data", "evidence", "recheck", "2026-10-26", "TX")
 TRT_LIST_URL   <- paste0(TRT_PFD, TRT_LIST_PATH)
 TRT_PRIOR_URL  <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/",
                          "2026/10-8-2026-list-award-recipients.xlsx")
+TRT_PRIOR14_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/",
+                          "10-15-2026-list-award-recipients.xlsx")
 TRT_SOURCES <- tibble::tribble(
   ~key, ~url, ~file, ~kind,
   "list", TRT_LIST_URL,
+  file.path(TRT_DIR_108, "2026-10-26_hhsc_rts_list_award_recipients_as_of_2026-10-23.xlsx"), "xlsx",
+  "prior14", TRT_PRIOR14_URL,
   file.path(TRT_DIR, "2026-10-16_hhsc_rts_list_award_recipients_as_of_2026-10-14.xlsx"), "xlsx",
   "prior", TRT_PRIOR_URL,
   file.path(TRT_DIR, "2026-10-16_hhsc_rts_list_award_recipients_as_of_2026-10-08.xlsx"), "xlsx",
@@ -148,13 +159,13 @@ TRT_SOURCES <- tibble::tribble(
   "hhsc_release", "https://www.hhs.texas.gov/news/2026/10/gov-abbott-hhsc-announce-recipients-78-million-rural-texas-strong-grants",
   file.path(TRT_DIR, "2026-10-16_hhsc_release_2026-10-15_78m_rural_texas_strong.html"), "html",
   "programme", TRT_PROGRAMME_URL,
-  file.path(TRT_DIR, "2026-10-16_pfd_rhtp_programme.html"), "html")
+  file.path(TRT_DIR_108, "2026-10-26_pfd_rhtp_programme.html"), "html")
 TRT_FED <- c(
   HOSPITAL = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_hosp_enrollments_TX.json"),
   FQHC     = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_fqhc_enrollments_TX.json"),
   RHC      = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_rhc_enrollments_TX.json"))
 TRT_TITLE <- paste0("HHSC, Rural Texas Strong list of applications at 'Intent to ",
-                    "Award' status as of 10/14/26 (10-15-2026-list-award-recipients.xlsx)")
+                    "Award' status as of 10/23/26 (10-23-2026-list-award-recipients.xlsx)")
 TRT_INITIATIVES <- c(
   "1" = "Initiative 1: Make Rural Texans Healthy Again (rural hospital districts)",
   "4" = "Initiative 4: Infrastructure and Capital Investments for Rural Texas",
@@ -196,9 +207,16 @@ tx_rts_read <- function(path = here::here(TRT_SOURCES$file[TRT_SOURCES$key == "l
     sec[i] <- cur
   }
   keep <- !is.na(body[[1]]) & nzchar(stringr::str_squish(body[[1]]))
+  # Session 108: the 10/23 list prints SUB-initiatives (1.1, 1.2, 4.1, 4.2,
+  # 6.1), stored as binary floats ("4.0999999999999996"). `initiative` keeps
+  # the major number every earlier list used; `sub_initiative` the printed one.
+  ini <- as.character(body[[2]][keep])
+  sub_ini <- ifelse(grepl(".", ini, fixed = TRUE),
+                    sprintf("%.1f", suppressWarnings(as.numeric(ini))), NA_character_)
   out <- tibble::tibble(
     awardee = stringr::str_squish(body[[1]][keep]),
-    initiative = as.character(body[[2]][keep]),
+    initiative = ifelse(is.na(sub_ini), ini, substr(sub_ini, 1L, 1L)),
+    sub_initiative = sub_ini,
     total_award_amount = round(as.numeric(body[[3]][keep]), 2),
     amount = round(as.numeric(body[[4]][keep]), 2),
     intent_to_award = body[[5]][keep],
@@ -210,11 +228,15 @@ tx_rts_read <- function(path = here::here(TRT_SOURCES$file[TRT_SOURCES$key == "l
 }
 
 tx_rts_assert_list <- function(d = tx_rts_read()) {
-  if (!identical(attr(d, "as_of"), "10/14/26")) {
-    stop("[TX RTS] the list is no longer 'as of 10/14/26' (", attr(d, "as_of"),
+  if (!identical(attr(d, "as_of"), TRT_AS_OF)) {
+    stop("[TX RTS] the list is no longer 'as of ", TRT_AS_OF, "' (", attr(d, "as_of"),
          "): a new weekly list. Re-fetch and rebuild.", call. = FALSE)
   }
-  if (nrow(d) != 312L) stop("[TX RTS] ", nrow(d), " lines, not 312.", call. = FALSE)
+  if (nrow(d) != TRT_LINES) stop("[TX RTS] ", nrow(d), " lines, not ", TRT_LINES, ".", call. = FALSE)
+  if (is.null(d$county) || anyNA(d$county) || any(!nzchar(d$county))) {
+    stop("[TX RTS] a line has no County: the session 108 county test needs one on every line.",
+         call. = FALSE)
+  }
   if (anyNA(d$amount) || anyNA(d$total_award_amount)) {
     stop("[TX RTS] a line has no parseable amount.", call. = FALSE)
   }
@@ -225,16 +247,18 @@ tx_rts_assert_list <- function(d = tx_rts_read()) {
   if (!all(d$intent_to_award == "Yes") || !all(d$contract_executed %in% c("Yes", "No"))) {
     stop("[TX RTS] a status column holds something other than Yes/No.", call. = FALSE)
   }
-  if (any(d$amount > d$total_award_amount + 0.005)) {
-    stop("[TX RTS] a Year 1 subset exceeds its total award.", call. = FALSE)
+  over <- d$amount > d$total_award_amount + 0.005
+  if (!setequal(tx_rts_suspect_key(d[over, ]), tx_rts_suspect_key(TRT_SOURCE_SUSPECT))) {
+    stop("[TX RTS] the lines whose Year 1 subset exceeds the total award are not the ",
+         "recorded SOURCE_SUSPECT lines (TRT_SOURCE_SUSPECT): re-read them.", call. = FALSE)
   }
-  if (abs(sum(d$amount) - 137234879.62) > 0.005) {
-    stop("[TX RTS] the 10/14 list's Year 1 subset sums to $",
-         format(sum(d$amount), nsmall = 2, big.mark = ","), ", not $137,234,879.62.",
-         call. = FALSE)
+  if (abs(sum(d$amount) - TRT_LIST_Y1) > 0.005) {
+    stop("[TX RTS] the list's Year 1 subset sums to $",
+         format(sum(d$amount), nsmall = 2, big.mark = ","), ", not $",
+         format(TRT_LIST_Y1, nsmall = 2, big.mark = ","), ".", call. = FALSE)
   }
-  if (sum(d$contract_executed == "Yes") != 97L) {
-    stop("[TX RTS] executed lines are no longer 97.", call. = FALSE)
+  if (sum(d$contract_executed == "Yes") != TRT_EXECUTED) {
+    stop("[TX RTS] executed lines are no longer ", TRT_EXECUTED, ".", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -261,19 +285,54 @@ tx_rts_assert_reconciles <- function(prior = tx_rts_read(here::here(TRT_SOURCES$
     stop("[TX RTS] $129,089,434.73 = $78,089,434.73 + 68 x $750,000 no longer holds.",
          call. = FALSE)
   }
-  # The 10/14 list supersedes the 10/8 list: every 10/8 line (initiative, both
-  # amounts) is on it. Names are NOT compared -- HHSC re-cased and expanded
-  # them between the two (e.g. 'SOUTH LIMESTONE' block names).
+  # Each newer list supersedes the older: every older line (initiative, both
+  # amounts) is on it. Names are NOT compared -- HHSC re-cased, expanded and
+  # corrected them between lists (session 108: "UT Health Carthage" is now
+  # "Carthage Hospital, LLC"; "Center for Life Resources" is "Central Texas
+  # MHMR Center"). A line HHSC RE-PRICED is the one recorded exception
+  # (TRT_AMENDED), and an amendment nobody recorded fails here.
   k <- function(x) paste(x$initiative, sprintf("%.2f", x$total_award_amount), sprintf("%.2f", x$amount))
-  miss <- vctrs::vec_count(k(prior)) %>%
-    dplyr::left_join(vctrs::vec_count(k(cur)), by = "key", suffix = c("_p", "_c")) %>%
-    dplyr::filter(is.na(count_c) | count_c < count_p)
-  if (nrow(miss)) {
-    stop("[TX RTS] ", nrow(miss), " 10/8 line shape(s) are missing from the 10/14 list: ",
-         "the newer list does not supersede the older. Read both.", call. = FALSE)
+  older <- list(`10/8` = prior,
+                `10/14` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior14"])))
+  for (nm in names(older)) {
+    miss <- vctrs::vec_count(k(older[[nm]])) %>%
+      dplyr::left_join(vctrs::vec_count(k(cur)), by = "key", suffix = c("_p", "_c")) %>%
+      dplyr::filter(is.na(count_c) | count_c < count_p) %>%
+      dplyr::filter(!(.data$key %in% TRT_AMENDED$old_key))
+    if (nrow(miss)) {
+      stop("[TX RTS] ", nrow(miss), " ", nm, " line shape(s) are missing from the ",
+           attr(cur, "as_of"), " list and no amendment is recorded: ",
+           paste(miss$key, collapse = "; "), ". Read both.", call. = FALSE)
+    }
+  }
+  for (i in seq_len(nrow(TRT_AMENDED))) {
+    if (!(TRT_AMENDED$new_key[i] %in% k(cur)) || TRT_AMENDED$old_key[i] %in% k(cur)) {
+      stop("[TX RTS] the recorded amendment '", TRT_AMENDED$awardee[i],
+           "' no longer reads as it did: re-read it.", call. = FALSE)
+    }
   }
   invisible(TRUE)
 }
+
+# SESSION 108: THE SOURCE CONTRADICTS ITSELF ON THREE 10/23 LINES. Each prints
+# a "Year 1 Subset" LARGER than its "Total Award Amount", and each pair is the
+# Initiative 6 ratio (Year 1 = 51.49% of total) read backwards: the two columns
+# look transposed. NOTHING IS CORRECTED (a guessed swap publishes a figure HHSC
+# has not): `amount` is the printed Year 1 Subset, the row is SOURCE_SUSPECT,
+# and published figures leave it out (session 102 ruling).
+TRT_SOURCE_SUSPECT <- tibble::tribble(
+  ~awardee, ~total_award_amount, ~amount,
+  "AultMcInnis PLLC", 393561.95, 764346.37,
+  "Border Region MHMR Community Center", 1029800.00, 2000000.00,
+  "Anson Hospital District", 262566.30, 509936.50)
+tx_rts_suspect_key <- function(x) {
+  paste(x$awardee, sprintf("%.2f", x$total_award_amount), sprintf("%.2f", round(x$amount, 2)))
+}
+
+# Session 108: lines HHSC re-priced between lists (old shape -> new shape).
+TRT_AMENDED <- tibble::tribble(
+  ~awardee, ~old_key, ~new_key,
+  "Memorial Hospital (Dumas)", "4 371453.99 113739.00", "4 724952.00 221980.30")
 
 tx_rts_text <- function(key) {
   h <- xml2::read_html(here::here(TRT_SOURCES$file[TRT_SOURCES$key == key]))
@@ -299,7 +358,7 @@ tx_rts_assert_release <- function() {
     stop("[TX RTS] HHSC's release moved.", call. = FALSE)
   }
   p <- tx_rts_text("programme")
-  if (!grepl("10-15-2026-list-award-recipients.xlsx", paste(readLines(here::here(
+  if (!grepl(basename(TRT_LIST_PATH), paste(readLines(here::here(
     TRT_SOURCES$file[TRT_SOURCES$key == "programme"]), warn = FALSE), collapse = " "), fixed = TRUE)) {
     stop("[TX RTS] the archived programme page does not link the extracted list.", call. = FALSE)
   }
@@ -380,7 +439,6 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Fisher County", "FISHER COUNTY HOSPITAL DISTRICT", "Fisher County Hospital District", TRT_I1,
   "Graham Regional", "GRAHAM HOSPITAL DISTRICT", NA, paste(TRT_I1, "-- DBA GRAHAM REGIONAL MEDICAL CENTER; the entity holds two hospital CCNs (450085, 671300), so none is put on the row"),
   "LLano Regional", "LLANO REGIONAL HOSPITAL", NA, TRT_I1,
-  "Tyler County Hosp", "TYLER COUNTY HOSPITAL DISTRICT", NA, paste(TRT_I1, "-- Woodville; not the city of Tyler's hospitals"),
   "Reagan Hospital", "REAGAN HOSPITAL DISTRICT", NA, TRT_I1,
   "Gonzales Healthcare", "GONZALES HEALTHCARE SYSTEMS", "Gonzales Healthcare Systems", TRT_I1,
   "Rankin County", "RANKIN COUNTY HOSPITAL DISTRICT", "Rankin County Hospital District", TRT_I1,
@@ -429,13 +487,9 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Fairfield Hospital", "FAIRFIELD HOSPITAL DISTRICT", NA, TRT_I1,
   # Not Initiative 1's short block, but the same kind of hand-read bridge:
   "Christus Jasper Memorial Hospital", "CHRISTUS HEALTH SOUTHEAST TEXAS", NA, "DBA CHRISTUS SOUTHEAST TEXAS-JASPER MEMORIAL (Jasper)",
-  "UT Health Carthage", "CARTHAGE HOSPITAL, LLC", NA, "DBA UT HEALTH EAST TEXAS CARTHAGE HOSPITAL",
-  "UT Health Jacksonville", "JACKSONVILLE HOSPITAL LLC", NA, "DBA UT HEALTH EAST TEXAS JACKSONVILLE HOSPITAL",
-  "Ut Health Pittsburg", "PITTSBURG HOSPITAL LLC", NA, "DBA UT HEALTH EAST TEXAS PITTSBURG HOSPITAL",
   "Chambers County Public Hospital District", "CHAMBERS COUNTY PUBLIC HOSPITAL DISTRICT NO. 1", NA, "the string drops 'No. 1'",
   "Lockney Gen Hospital District", "LOCKNEY GENERAL HOSPITAL DISTRICT", NA, "'Gen' for 'General'",
   "Lynn Co Hospital District", "LYNN COUNTY HOSPITAL DISTRICT", NA, "'Co' for 'County'",
-  "Memorial Hospital (Dumas) 1711169", "MOORE COUNTY HOSPITAL DISTRICT", NA, "DBA MEMORIAL HOSPITAL, city DUMAS: the parenthetical names the city",
   "Throckmorton County Memorial Hospital", "THROCKMORTON COUNTY MEMORIAL HOSP", NA, "the enrolled name truncates 'HOSPITAL'",
   "Ward County", "COUNTY OF WARD", NA, "the same legal body, words reordered (DBA WARD MEMORIAL HOSPITAL, Monahans)",
   "Rolling Plains Memorial Hosp", "ROLLING PLAINS MEMORIAL HOSPITAL", NA, "'Hosp' for 'Hospital'",
@@ -452,44 +506,31 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Stonewall County Hospital District", "STONEWALL MEMORIAL HOSPITAL", NA, paste(TRT_COUNTY_RULE, "The enrolled entity's DBA is STONEWALL MEMORIAL HOSPITAL DISTRICT"),
   "Nolan County Hospital District", "ROLLING PLAINS MEMORIAL HOSPITAL", NA, paste(TRT_COUNTY_RULE, "VULNERABILITY: Rolling Plains Memorial Hospital also carries its own Initiative 1 and Initiative 6 lines, so this bridge gives one hospital a third first-tier name"),
   "Maverick County Hospital District", "FORT DUNCAN MEDICAL CENTER, L.P.", NA, paste(TRT_COUNTY_RULE, "VULNERABILITY: the enrolled entity is an L.P. (DBA FORT DUNCAN REGIONAL MEDICAL CENTER), a different legal body from the district; no document read says the district operates or owns it"),
-  "Lamb County Hospital", "LAMB HEALTHCARE CENTER", NA, paste(TRT_COUNTY_RULE, "The string is not a district's name; it names Lamb County, where the one enrolled hospital is LAMB HEALTHCARE CENTER (Littlefield)"),
-  "UT Health Henderson", "HENDERSON HOSPITAL LLC", NA, paste(TRT_COUNTY_RULE, "The string names the city of Henderson (Rusk County), where the one enrolled hospital is HENDERSON HOSPITAL LLC; it carries no UT Health DBA, unlike Carthage, Jacksonville and Pittsburg")
+  "Lamb County Hospital", "LAMB HEALTHCARE CENTER", NA, paste(TRT_COUNTY_RULE, "The string is not a district's name; it names Lamb County, where the one enrolled hospital is LAMB HEALTHCARE CENTER (Littlefield)")
 )
 
 # Districts with no enrolment under their own name: NOT hospital rows (the
 # owner's Hardeman precedent). `near` is the enrolled hospital a human may
 # judge to be the district's -- recorded, never bridged.
-TX_RTS_DISTRICTS_NOT_ENROLLED <- tibble::tribble(
-  ~awardee, ~near,
-  "Winnie Stowell Hospital District", paste0(
-    "Chambers County has TWO enrolled hospitals, WINNIE COMMUNITY HOSPITAL LLC dba ",
-    "RICELAND MEDICAL CENTER (CAH 451328, Winnie) and CHAMBERS COUNTY PUBLIC HOSPITAL ",
-    "DISTRICT NO. 1 dba BAYSIDE COMMUNITY HOSPITAL (CAH 451320, Anahuac), so the ",
-    "session 104 county test does not bridge it; both carry their own lines"))
+TX_RTS_DISTRICTS_NOT_ENROLLED <- tibble::tribble(~awardee, ~near)
+# SESSION 108: EMPTY. Its one entry, Winnie Stowell Hospital District, is not on
+# the 10/23 list: its line (Initiative 6, $293,222.75 / $150,980.39) now names
+# GHC Hemphill Operations, LLC (Hemphill County), the same two amounts to the
+# cent, so HHSC re-attributed the line rather than adding one. A district the
+# county test cannot bridge is now typed in tx_rts_type_one() from the list's
+# own County (Menard County Hospital District: Menard County holds no enrolled
+# hospital).
 
-# SESSION 104, OWNER RULING (c), AS CORRECTED BY THE OWNER MID-SESSION:
-# "Memorial Hospital" (Initiative 1) is a HOSPITAL (the owner's ruling) and is
-# NOT bridged by elimination. The facility was to be identified from the list's
-# county, address, applicant-entity or district fields; the list has none (its
-# six columns are name, initiative, total, Year 1 subset, intent, executed), so
-# the row is a hospital with NO CCN, LOW, and out of the rural cut.
-TX_RTS_NO_CCN <- tibble::tribble(
-  ~awardee, ~why,
-  "Memorial Hospital", paste0(
-    "HOSPITAL ON THE OWNER'S RULING (session 104), NO CCN: the string is a hospital's ",
-    "name, and Initiative 1 funds 'rural hospital districts and authorities' (CMS ",
-    "2026-10-01 release, '68 rural hospital districts and authorities'). HHSC's list ",
-    "carries no county, address, applicant-entity or district field, so NO SOURCE FIELD ",
-    "identifies the facility and no CCN is recorded. CMS TX enrolment has five hospital ",
-    "CCNs whose name or DBA is a 'Memorial Hospital': MOORE COUNTY HOSPITAL DISTRICT dba ",
-    "MEMORIAL HOSPITAL (CAH 451386, Dumas), SEMINOLE HOSPITAL DISTRICT OF GAINES COUNTY ",
-    "TEXAS dba MEMORIAL HOSPITAL (CAH 451358, Seminole), GONZALES HEALTHCARE SYSTEMS dba ",
-    "MEMORIAL HOSPITAL (450235, Gonzales), MEMORIAL HOSPITAL OF POLK COUNTY (450395, ",
-    "Livingston) and TEXAS HEALTH ARLINGTON MEMORIAL HOSPITAL (450064, Arlington). ",
-    "Arlington is an urban system hospital, not a district or authority, so the ",
-    "initiative's own class does not reach it. Session 103 bridged the line to Moore ",
-    "County BY ELIMINATION (Seminole and Gonzales have their own Initiative 1 lines); ",
-    "that is withdrawn. It reopens if HHSC prints the full legal name."))
+# SESSION 104, OWNER RULING (c), AND ITS SESSION 108 SEQUEL. Session 104 kept
+# "Memorial Hospital" (Initiative 1) a hospital with NO CCN because the list
+# carried no county, address, applicant-entity or district field. THE 10/23
+# LIST CARRIES A COUNTY, and it prints "Moore" on that line. Moore County holds
+# exactly one enrolled hospital (MOORE COUNTY HOSPITAL DISTRICT dba MEMORIAL
+# HOSPITAL, CAH 451386, Dumas), so the line is now a county-test bridge to it
+# (LOW), on the owner's session 108 instruction, and enters the rural cut. The
+# ruling's no-elimination half stands: the bridge rests on HHSC's County, not
+# on the other Memorial Hospitals having lines of their own.
+TX_RTS_NO_CCN <- tibble::tribble(~awardee, ~why)
 
 # Hand-read typings of non-hospital lines the exact screen and the classifier
 # cannot settle. Everything else: exact federal record, bridge, or classifier.
@@ -519,13 +560,19 @@ TX_RTS_OVERRIDES <- tibble::tribble(
   "The string names an electronic-provider system, not an organisation form; no CMS record (§8's standing fallback)."
 )
 
+TRT_COUNTY_108 <- paste0(
+  "COUNTY-TEST BRIDGE ON THE LIST'S OWN COUNTY (session 108; the owner's session ",
+  "104 rule): exactly one enrolled hospital CCN sits in the county HHSC prints on ",
+  "this line, on CMS's Hospital General Information file (federal_records/2026-10-19/). ",
+  "LOW.")
+
 TRT_DISTRICT_NOTE <- paste0(
   "NOT A HOSPITAL ROW (the owner's Hardeman precedent, session 103): no CMS TX ",
   "Hospital, FQHC or RHC enrolment carries this district's name. A Texas hospital ",
   "district is a political subdivision, so LOCAL_GOVT_OR_PUBLIC_HEALTH (the form is ",
   "in the name). ")
 
-tx_rts_type_one <- function(a, f, cls_type) {
+tx_rts_type_one <- function(a, f, cls_type, county = NA_character_, hc = NULL) {
   b <- TX_RTS_BRIDGES[TX_RTS_BRIDGES$awardee == a, ]
   dn <- TX_RTS_DISTRICTS_NOT_ENROLLED[TX_RTS_DISTRICTS_NOT_ENROLLED$awardee == a, ]
   ov <- TX_RTS_OVERRIDES[vapply(TX_RTS_OVERRIDES$pattern, grepl, logical(1), x = a), ][1, ]
@@ -570,6 +617,24 @@ tx_rts_type_one <- function(a, f, cls_type) {
                       ". The string is not the enrolled name, so LOW."),
                ccn = p$ccn, rec = p$rec))
   }
+  # SESSION 108: THE LIST'S OWN COUNTY COLUMN. An exact name that several
+  # legal entities carry ("Memorial Hospital" is the DBA of three) is settled
+  # only by the County HHSC prints beside it, and only where that county holds
+  # exactly one of them; otherwise the line falls through (§2: never a guess).
+  cty_hosp <- if (!is.null(hc) && !is.na(county)) hc[hc$county %in% toupper(county), ] else NULL
+  if (nrow(hit) && length(unique(hit$org[hit$kind == "HOSPITAL"])) > 1L && !is.null(cty_hosp)) {
+    keep_org <- intersect(unique(hit$org[hit$kind == "HOSPITAL"]), cty_hosp$org)
+    if (length(keep_org) == 1L && length(unique(cty_hosp$ccn)) == 1L) {
+      p <- pick(hit[hit$org == keep_org, ])
+      return(res("HOSPITAL_OR_SYSTEM", "STATE_SOURCE", "LOW", "COUNTY",
+                 paste0(TRT_COUNTY_108, " The string equals the DBA or name of ",
+                        length(unique(hit$org[hit$kind == "HOSPITAL"])), " enrolled legal entities; in ",
+                        county, " County, the County HHSC prints on the line, the one enrolled hospital is ",
+                        p$rec, ", ", p$hk$ptype[p$hk$ccn %in% p$six][1], "."),
+                 ccn = p$ccn, rec = p$rec))
+    }
+    hit <- hit[0, ]
+  }
   if (nrow(hit)) {
     p <- pick(hit)
     rt <- c(HOSPITAL = "HOSPITAL_OR_SYSTEM", FQHC = "FQHC_OR_RHC", RHC = "FQHC_OR_RHC")[[p$k]]
@@ -584,6 +649,28 @@ tx_rts_type_one <- function(a, f, cls_type) {
     }
   }
   if (!is.na(ov$pattern)) return(res(ov$recipient_type, ov$basis_type, ov$confidence, "HAND-READ", ov$why))
+  # SESSION 108: the session 104 county test, on the list's OWN County column
+  # (owner instruction: "bridge only where exactly one enrolled hospital sits in
+  # the county"). Reached only by a line the classifier calls a hospital and no
+  # exact record, hand bridge or hand reading covers.
+  if (cls_type == "HOSPITAL_OR_SYSTEM" && !is.null(cty_hosp)) {
+    if (length(unique(cty_hosp$ccn)) == 1L) {
+      p <- pick(f[f$kind == "HOSPITAL" & f$ccn %in% cty_hosp$ccn, ])
+      return(res("HOSPITAL_OR_SYSTEM", "STATE_SOURCE", "LOW", "COUNTY",
+                 paste0(TRT_COUNTY_108, " No CMS TX enrolment carries this name; in ", county,
+                        " County, the County HHSC prints on the line, the one enrolled hospital is ",
+                        p$rec, ", ", p$hk$ptype[p$hk$ccn %in% p$six][1],
+                        ". Whether the named body operates it is on no document read."),
+                 ccn = p$ccn, rec = p$rec))
+    }
+    if (grepl("(Hospital|Medical) (District|Authority)", a)) {
+      return(res("LOCAL_GOVT_OR_PUBLIC_HEALTH", "STATE_SOURCE", "MEDIUM", "DISTRICT_NOT_ENROLLED",
+                 paste0(TRT_DISTRICT_NOTE, county, " County, the County HHSC prints on the line, holds ",
+                        length(unique(cty_hosp$ccn)), " enrolled hospital CCNs",
+                        if (nrow(cty_hosp)) paste0(" (", paste(unique(paste0(cty_hosp$org, " ", cty_hosp$ccn)), collapse = "; "), ")") else "",
+                        ", so the county test (session 108, on the list's County) does not bridge it (§2, §0.4).")))
+    }
+  }
   if (cls_type == "HOSPITAL_OR_SYSTEM") {
     stop("[TX RTS] the classifier calls '", a, "' a hospital and no federal record, ",
          "bridge or hand-read decision covers it. Read it.", call. = FALSE)
@@ -593,8 +680,10 @@ tx_rts_type_one <- function(a, f, cls_type) {
 
 tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
   cls <- rhtp_classify_recipient_type(d$awardee, TRT_STATE)
+  hc <- tx_rts_hospital_counties(f)
+  cty <- if (is.null(d$county)) rep(NA_character_, nrow(d)) else d$county
   out <- lapply(seq_len(nrow(d)), function(i) {
-    r <- tx_rts_type_one(d$awardee[i], f, cls$recipient_type[i])
+    r <- tx_rts_type_one(d$awardee[i], f, cls$recipient_type[i], cty[i], hc)
     if (is.null(r)) {
       fb <- cls$rule[i] == "FALLBACK"
       r <- tibble::tibble(
@@ -615,6 +704,8 @@ tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
   flag <- ifelse(ex, NA_character_, "AMOUNT_PRELIMINARY")
   flag <- ifelse(t$typing == "FALLBACK", ifelse(is.na(flag), "RECIPIENT_TYPE_INFERRED",
                                                 paste0(flag, ";RECIPIENT_TYPE_INFERRED")), flag)
+  sus <- tx_rts_suspect_key(d) %in% tx_rts_suspect_key(TRT_SOURCE_SUSPECT)
+  flag <- ifelse(sus, ifelse(is.na(flag), "SOURCE_SUSPECT", paste0(flag, ";SOURCE_SUSPECT")), flag)
   tibble::tibble(
     state = TRT_STATE,
     row_no = seq_len(nrow(d)),
@@ -623,7 +714,7 @@ tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
     recipient_type = t$recipient_type,
     distributed_to_hospital = ifelse(hosp, "Yes", "No"),
     note = paste0("Rural Texas Strong application line, ", TRT_INITIATIVES[d$initiative],
-                  ". 'Intent to Award' as of 10/14/26; contract fully executed: ",
+                  ". 'Intent to Award' as of ", TRT_AS_OF, "; contract fully executed: ",
                   d$contract_executed, ". ", d$list_section, ". Total (multi-year) award $",
                   formatC(d$total_award_amount, format = "f", digits = 2, big.mark = ","), "."),
     recipient_confirmed = "Yes",
@@ -639,11 +730,13 @@ tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
     rural_designation = NA_character_,
     reviewer = NA_character_,
     initiative = d$initiative,
+    sub_initiative = if (is.null(d$sub_initiative)) NA_character_ else d$sub_initiative,
+    county = if (is.null(d$county)) NA_character_ else d$county,
     total_award_amount = d$total_award_amount,
     contract_executed = d$contract_executed,
     list_section = d$list_section,
     award_pool = paste0("Rural Texas Strong ", sub(":.*", "", TRT_INITIATIVES[d$initiative])),
-    recipient_type_source = paste0("TYPED (session ", ifelse(grepl("session 104", t$why), "104", "103"), ", ", t$typing, "): ", t$why,
+    recipient_type_source = paste0("TYPED (session ", ifelse(grepl("session 108", t$why), "108", ifelse(grepl("session 104", t$why), "104", "103")), ", ", t$typing, "): ", t$why,
                                    " Classifier said ", t$classifier, "."),
     cms_enrolment_record = t$enrolment,
     determination_confidence = rhtp_confidence_ceiling(t$determination_confidence, t$ccn),
@@ -658,7 +751,10 @@ tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
     amount_basis = paste0("The line's 'Year 1 Subset' on HHSC's list, exact",
                           ifelse(ex, " (contract fully executed).",
                                  "; an INTENT, 'not considered awarded until a contract has been fully executed'."),
-                          " The multi-year 'Total Award Amount' is in total_award_amount and is never added to amount."),
+                          " The multi-year 'Total Award Amount' is in total_award_amount and is never added to amount.",
+                          ifelse(sus, paste0(" SOURCE_SUSPECT (session 108): HHSC prints a Year 1 Subset LARGER than the ",
+                                             "line's Total Award Amount, the Initiative 6 ratio read backwards (the columns ",
+                                             "look transposed). Carried exactly as printed; published figures leave it out."), "")),
     basis_type = t$basis_type,
     announcement_date = TRT_ANNOUNCED,
     source_archive_path = TRT_SOURCES$file[TRT_SOURCES$key == "list"])
@@ -673,12 +769,13 @@ tx_rts_assert_bp1 <- function(a = tx_rts_awardees()) {
             abs(a$total_award_amount - 3500000) < 0.005, ]
   if (nrow(i1) != 72L) stop("[TX RTS] Initiative 1 has ", nrow(i1), " $750,000 lines, not 72.", call. = FALSE)
   cited <- TX_RTS_BRIDGES$bp1[TX_RTS_BRIDGES$awardee %in% i1$awardee]
-  # SESSION 104: 'Memorial Hospital' is a hospital with no CCN, not bridged.
-  # Moore County Hospital District is still the one BP1 name it can correspond
-  # to (by elimination); recorded here, never as a bridge or a CCN.
+  # SESSION 108: 'Memorial Hospital' is bridged on the 10/23 list's own County
+  # ("Moore") to MOORE COUNTY HOSPITAL DISTRICT (CAH 451386), which is the BP1
+  # name it corresponds to. Session 104 recorded that pairing by elimination
+  # only; the County now carries it.
   m <- a[a$awardee == "Memorial Hospital", ]
-  if (nrow(m) != 1L || m$distributed_to_hospital != "Yes" || !is.na(m$ccn)) {
-    stop("[TX RTS] 'Memorial Hospital' must stay a hospital row with NO CCN (session 104 ruling).",
+  if (nrow(m) != 1L || m$distributed_to_hospital != "Yes" || !identical(m$ccn, "451386")) {
+    stop("[TX RTS] 'Memorial Hospital' must be the county-test bridge to CCN 451386 (session 108).",
          call. = FALSE)
   }
   cited <- c(cited, "Moore County Hospital District")
@@ -703,8 +800,7 @@ TRT_COUNTY_OF <- c("Hardeman County Hospital District" = "HARDEMAN", "Hardeman C
                    "Stonewall County Hospital District" = "STONEWALL",
                    "Nolan County Hospital District" = "NOLAN",
                    "Maverick County Hospital District" = "MAVERICK",
-                   "Lamb County Hospital" = "LAMB", "UT Health Henderson" = "RUSK",
-                   "Winnie Stowell Hospital District" = "CHAMBERS")
+                   "Lamb County Hospital" = "LAMB")
 tx_rts_hospital_counties <- function(f = tx_rts_federal()) {
   p <- jsonlite::fromJSON(here::here(TRT_PDC))$results
   p <- tibble::tibble(ccn = p$facility_id, county = p$countyparish, city = p$citytown)
@@ -738,15 +834,35 @@ tx_rts_assert_county_bridges <- function(h = tx_rts_hospital_counties()) {
   invisible(TRUE)
 }
 
+# Session 108: the districts the list's own County cannot bridge.
+TRT_DISTRICTS_NOT_BRIDGED <- c("Menard County Hospital District")
+
+#' SESSION 108: every hand-coded county-test bridge sits in the County HHSC now
+#' prints on its line. A disagreement means the session 104 inference and the
+#' state's own field part company, and the state's field wins: re-read it.
+tx_rts_assert_list_county <- function(a = tx_rts_awardees()) {
+  for (nm in names(TRT_COUNTY_OF)) {
+    cty <- unique(toupper(a$county[a$awardee == nm]))
+    if (!identical(cty, TRT_COUNTY_OF[[nm]])) {
+      stop("[TX RTS] '", nm, "' is printed in ", paste(cty, collapse = "/"),
+           " County, not ", TRT_COUNTY_OF[[nm]], ": re-read the bridge.", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
 tx_rts_assert_typing <- function(a = tx_rts_awardees()) {
   h <- a[a$distributed_to_hospital == "Yes", ]
   if (any(h$recipient_type != "HOSPITAL_OR_SYSTEM") || any(h$flow_type != "DIRECT")) {
     stop("[TX RTS] a Yes row is not a DIRECT hospital row.", call. = FALSE)
   }
-  dn <- a[a$awardee %in% TX_RTS_DISTRICTS_NOT_ENROLLED$awardee, ]
-  if (nrow(dn) != 1L || any(dn$distributed_to_hospital != "No")) {
-    stop("[TX RTS] Winnie Stowell HD must stay the one NON_HOSPITAL district line.", call. = FALSE)
+  dn <- a[grepl("DISTRICT_NOT_ENROLLED", a$recipient_type_source, fixed = TRUE), ]
+  if (!identical(sort(unique(dn$awardee)), TRT_DISTRICTS_NOT_BRIDGED) ||
+      any(dn$distributed_to_hospital != "No")) {
+    stop("[TX RTS] the NON_HOSPITAL district lines are ", paste(unique(dn$awardee), collapse = "; "),
+         ", not ", paste(TRT_DISTRICTS_NOT_BRIDGED, collapse = "; "), ". Re-read them.", call. = FALSE)
   }
+  tx_rts_assert_list_county(a)
   if (any(a$distributed_to_hospital == "Unclear")) {
     stop("[TX RTS] no Texas line is Unclear (session 104).", call. = FALSE)
   }
@@ -814,7 +930,7 @@ tx_rts_report <- function(a = tx_rts_awardees()) {
               nrow(a), money(a$amount), sum(a$contract_executed == "Yes"),
               money(a$amount[a$contract_executed == "Yes"]),
               sum(a$contract_executed == "No"), money(a$amount[a$contract_executed == "No"])))
-  ty <- sub("^TYPED \\(session 103, ([A-Z_-]+)\\).*", "\\1", a$recipient_type_source)
+  ty <- sub("^TYPED \\(session [0-9]+, ([A-Z_-]+)\\).*", "\\1", a$recipient_type_source)
   print(a %>% dplyr::mutate(route = ty) %>%
           dplyr::group_by(route, distributed_to_hospital) %>%
           dplyr::summarise(rows = dplyr::n(), year1 = sum(amount), .groups = "drop"))

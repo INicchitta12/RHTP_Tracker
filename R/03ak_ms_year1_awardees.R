@@ -216,6 +216,13 @@ MS_SOURCES <- tibble::tribble(
         "BRIDGE) and no recipient named."),
   "gov_newsroom",
   "https://governorreeves.ms.gov/newsroom/",
+  "2026-10-26_ms_governor_newsroom.html",
+  paste("SESSION 108: RE-BASED after reading -- the index's first page now",
+        "carries the 2026-10-21 60-award headline (R/03cj) and has rolled past",
+        "the 167. The probe reads RHTP HEADLINES off it",
+        "(ms_assert_no_new_rhtp_headline())."),
+  "gov_newsroom_0921",
+  NA_character_,
   "2026-09-21_ms_governor_newsroom_CARRIES_THE_ANNOUNCEMENT.html",
   paste("THE CHANNEL MISSISSIPPI ITSELF NAMED, AND IT DELIVERED. Session 44",
         "archived this page as a positive control -- it carried dated, priced",
@@ -448,6 +455,42 @@ ms_assert_remaining_tranches <- function(bodies = NULL) {
            "re-derive -- ms_year1_awardees.csv is 167 rows of a PARTIAL year.",
            call. = FALSE)
     }
+  }
+  invisible(TRUE)
+}
+
+#' SESSION 108: A NEW RHTP HEADLINE ON THE GOVERNOR'S NEWSROOM IS A FINDING.
+#'
+#' The 2026-10-23 firing read the newsroom CHANGED and tripped on nothing,
+#' while its first headline was "Governor Reeves Announces 60 Rural Health
+#' Transformation Program Awards Totaling $32.6 Million": the pending-tranche
+#' check above wants "Workforce Expansion" or "EmPATH" near an award word, and
+#' the headline names neither. A phrase list is built from wordings already
+#' seen (§2.3), so this asks a different question, by HEADLINE LINK (the
+#' standing rule for a press index): does the index carry an RHTP headline this
+#' file has not recorded? Every recorded one is in MS_KNOWN_RHTP_HEADLINES with
+#' the file that extracted it.
+MS_KNOWN_RHTP_HEADLINES <- c(
+  # R/03ak (ms_year1_awardees.csv), 2026-09-14
+  "Governor Reeves Announces 167 Rural Health Transformation Program Awards Totaling More Than $104 Million",
+  # R/03cj (ms_round2_awardees.csv), 2026-10-21
+  "Governor Reeves Announces 60 Rural Health Transformation Program Awards Totaling $32.6 Million")
+
+ms_gov_rhtp_headlines <- function(body = NULL) {
+  raw <- if (is.null(body)) readBin(ms_path("gov_newsroom"), "raw", file.size(ms_path("gov_newsroom"))) else body
+  h <- xml2::read_html(rawToChar(raw[raw != as.raw(0)]))
+  t <- unique(stringr::str_squish(xml2::xml_text(xml2::xml_find_all(h, "//a"))))
+  t <- gsub("[\u2018\u2019]", "'", t)
+  t[grepl("Rural Health Transformation|RHTP", t, ignore.case = TRUE) &
+      t != "Rural Health Transformation Program"]
+}
+
+ms_assert_no_new_rhtp_headline <- function(body = NULL, known = MS_KNOWN_RHTP_HEADLINES) {
+  new <- setdiff(ms_gov_rhtp_headlines(body), known)
+  if (length(new)) {
+    stop("[MS] NEW RHTP HEADLINE on the Governor's newsroom: ", paste(sQuote(new), collapse = "; "),
+         ". THAT IS THE SIGNAL: read the release; if it prices awards, extract it ",
+         "(R/03cj's shape) and add the headline to MS_KNOWN_RHTP_HEADLINES.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -1446,6 +1489,7 @@ ms_probe <- function() {
   ms_assert_footer_is_not_fully_federal(body = live$funding)
   ms_assert_announcement_on_channel(body = live$gov_newsroom,
                                     release_body = live$release)
+  ms_assert_no_new_rhtp_headline(body = live$gov_newsroom)
   ms_assert_dom_consultant_predates_noa(body = live$dom_completed)
 
   # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW
@@ -1492,7 +1536,12 @@ ms_validate <- function() {
   ms_assert_selection_complete_unnamed()
   ms_assert_footer_is_not_fully_federal()
   ms_assert_footer_cms_share_is_the_allotment()
-  ms_assert_announcement_on_channel()
+  # Session 108: the newsroom archive is re-based to an index whose first page
+  # has rolled past the 167-award headline, so the channel rule's second limb
+  # (the release still served on the Governor's host) carries it (session 74).
+  ms_assert_announcement_on_channel(
+    release_body = readBin(ms_path("release"), "raw", file.size(ms_path("release"))))
+  ms_assert_no_new_rhtp_headline()
   ms_assert_dom_consultant_predates_noa()
   # The roster.
   d <- ms_parse_release()

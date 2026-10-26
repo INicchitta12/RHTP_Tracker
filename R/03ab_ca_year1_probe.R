@@ -152,12 +152,30 @@ CA_SOURCES <- tibble::tribble(
   # one link, "CMS RHT Program Obligated Funds (October 8, 2026)" -- CMS's
   # obligation report, byte-identical to data/raw/cms/obligations/2026-07-31/
   # and parsed by R/00c. Nothing else moved. The 2026-09-02 copy stays on disk.
+  # SESSION 108: RE-BASED after reading. Between the page title and the RHTP
+  # heading HCAI added "Latest News CalRHT Awardees Announced ... Explore Grant
+  # Awardees", linking the "updates" page below; that block is what moved the
+  # name-scope anchor (the 10-24 TRIPWIRE). The 10-15 copy stays.
   "calrht",
-  "2026-10-15_ca_hcai_calrht_programme.html",
+  "2026-10-26_ca_hcai_calrht_programme.html",
   "https://hcai.ca.gov/rural-health/calrht/",
 
+  # SESSION 108: HCAI's "Recommended Subrecipients for CalRHT Budget Period 1
+  # Announced" (2026-10-21): five tables, 108 rows, $138,464,043.97 as printed
+  # (the page's prose says "$166.72 million ... for 108 organizations"). The
+  # awards are TENTATIVE in HCAI's own words. HELD for the owner, NOT extracted
+  # (docs/session108_*); watched here so an addition or a change trips.
+  "updates",
+  "2026-10-26_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
+  "https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/",
+
+  # Session 108: re-based after reading. Added a Tribal Set-Aside section
+  # ("$11.65 million ... reserved for California's federally recognized
+  # Tribes", every document "Coming Soon": Tier 2) and an FAQ label naming the
+  # "Family Medicine Obstetrics (FM-OB)" programme. No recipient. The 09-02
+  # copy stays.
   "funding",
-  "2026-09-02_ca_hcai_calrht_funding_opportunities.html",
+  "2026-10-26_ca_hcai_calrht_funding_opportunities.html",
   "https://hcai.ca.gov/rural-health/calrht/funding/",
 
   "cms_noa",
@@ -195,8 +213,9 @@ CA_SOURCES <- tibble::tribble(
   "2026-09-02_ca_hcai_srhrp_BOTH_CONTROLS.html",
   "https://hcai.ca.gov/facilities/health-facility-financing/srhrp/",
 
+  # Session 108: re-based after reading (no new headline link; the 09-02 copy stays).
   "newsroom",
-  "2026-09-02_ca_hcai_newsroom_CONTROL.html",
+  "2026-10-26_ca_hcai_newsroom_CONTROL.html",
   "https://hcai.ca.gov/media-center/",
 
   # SESSION 88. Linked from the CalRHT page as "CalRHT Frequently Asked
@@ -1360,7 +1379,7 @@ rhtp_ca_report <- function() {
 #   funding   the four "(Closed)" headings -- a fifth pool, or one relabelled
 #   calrht    the programme page, where a roster or an award link would appear
 #   newsroom  HCAI's own announcement channel, which mentions RHTP zero times
-CA_PROBE_KEYS <- c("funding", "calrht", "newsroom")
+CA_PROBE_KEYS <- c("funding", "calrht", "newsroom", "updates")
 
 #' The change test: a digest of the REDUCED text, not of the file
 #'
@@ -1422,8 +1441,39 @@ ca_name_scope <- function(text, page) {
   rhtp_name_scope(text,
                   from = paste0("California Rural Health Transformation \\(CalRHT\\) ",
                                 "(?:CalRHT Grant Funding Opportunities|",
-                                "Rural Health Transformation Program \\(RHTP\\))"),
-                  to = "Subscribe Footer Column 1", state = "CA", page = page)
+                                "Rural Health Transformation Program \\(RHTP\\)|",
+                                # Session 108: the news block now follows the title on
+                                # calrht, and the updates page's own heading.
+                                "Latest News|CalRHT Program Updates)"),
+                  # The updates page has no Subscribe box above its footer.
+                  to = if (identical(page, "updates")) "Footer Column 1 Bold Links" else "Subscribe Footer Column 1",
+                  state = "CA", page = page)
+}
+
+#' SESSION 108: HCAI's tentative Budget Period 1 roster, pinned as read. HCAI
+#' says "Additional awards are pending and will be added to this page", so a
+#' new row or a moved figure is the signal: read it before the owner decides.
+CA_REC_ROWS  <- 108L
+CA_REC_TOTAL <- 138464043.97
+ca_recommended_rows <- function(raw = NULL) {
+  if (is.null(raw)) raw <- readBin(ca_path("updates"), "raw", file.size(ca_path("updates")))
+  h <- xml2::read_html(rawToChar(raw[raw != as.raw(0)]))
+  tb <- rvest::html_table(rvest::html_elements(h, "table"))
+  tb <- Filter(function(t) identical(names(t), c("Awarded Entity", "Counties Served", "Recommended Funding")), tb)
+  dplyr::bind_rows(lapply(seq_along(tb), function(i) tibble::tibble(
+    table = i, awardee = stringr::str_squish(tb[[i]][[1]]),
+    counties = stringr::str_squish(tb[[i]][[2]]),
+    amount = as.numeric(gsub("[^0-9.]", "", tb[[i]][[3]])))))
+}
+ca_assert_recommended_roster <- function(raw = NULL) {
+  d <- ca_recommended_rows(raw)
+  if (nrow(d) != CA_REC_ROWS || anyNA(d$amount) || abs(sum(d$amount) - CA_REC_TOTAL) > 0.005) {
+    stop("[CA] HCAI's tentative Budget Period 1 roster moved: ", nrow(d), " rows, $",
+         formatC(sum(d$amount, na.rm = TRUE), format = "f", digits = 2, big.mark = ","),
+         " (recorded 108 / $138,464,043.97). THAT IS THE SIGNAL: read the change and put it ",
+         "to the owner with the held roster (session 108).", call. = FALSE)
+  }
+  invisible(TRUE)
 }
 
 ca_probe <- function(keys = CA_PROBE_KEYS) {
@@ -1456,16 +1506,16 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
   # matched. Subject pages only -- a control or a press index changes for
   # reasons that are not this state awarding, and a tripwire that halts on
   # those is session 46's stale dated anchor in a new costume.
+  ca_assert_recommended_roster(bodies$updates)
+  nk <- intersect(c("funding", "calrht", "updates"), names(txt))
   rhtp_assert_no_new_organisations_across(
-    live = list(funding = ca_name_scope(txt$funding, "funding"),
-                calrht = ca_name_scope(txt$calrht, "calrht")),
-    archived = list(
-      funding = ca_name_scope(ca_html_text("funding"), "funding"),
-      calrht = ca_name_scope(ca_html_text("calrht"), "calrht")),
+    live = stats::setNames(lapply(nk, function(k) ca_name_scope(txt[[k]], k)), nk),
+    archived = stats::setNames(lapply(nk, function(k) ca_name_scope(ca_html_text(k), k)), nk),
     state = "CA")
 
-  message("[CA] the award tripwires pass against the LIVE bytes: California ",
-          "has not published a recipient-level RHTP award roster.")
+  message("[CA] the award tripwires pass against the LIVE bytes: the funding ",
+          "page is unchanged in shape, and HCAI's tentative Budget Period 1 ",
+          "roster (108 rows, HELD for the owner, session 108) is as recorded.")
   if (length(changed)) {
     message("[CA] CHANGED, read them: ", paste(changed, collapse = ", "))
   }

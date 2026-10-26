@@ -152,7 +152,9 @@ test_that("session 104: 22 hospitals at $0, one $30.3M pool, OPA non-hospital", 
   d <- oh_all_rows()
   expect_true(oh_assert_s104_rows(d))
   part <- rhtp_hospital_dollar_partition(d)
-  expect_equal(part$rows[part$bucket == "NAMED_HOSPITAL"], 22L)
+  # Session 108 ruling (c): + 5 hospital rows at $0 among the 13 network and
+  # maternal-care listings.
+  expect_equal(part$rows[part$bucket == "NAMED_HOSPITAL"], 27L)
   expect_equal(part$dollars[part$bucket == "NAMED_HOSPITAL"], 0)
   expect_equal(part$dollars[part$bucket == "POOL_NAMED_HOSPITALS"], 30300000)
   pool <- d[d$hospital_attribution == "POOL_NAMED_HOSPITALS", ]
@@ -171,12 +173,14 @@ test_that("session 104: 22 hospitals at $0, one $30.3M pool, OPA non-hospital", 
 
 test_that("session 104: the probe reads the child pages and trips on a new name", {
   f <- lapply(c(hospitals = "hospitals", pharmacy = "pharmacy"), function(k)
-    readBin(here::here(OH_S104_DIR, OH_S104_PAGES$file[OH_S104_PAGES$key == k]), "raw", 1e6))
+    readBin(here::here(oh_s104_path(k)), "raw", 1e6))
   r <- oh_probe_s104(f)
   expect_false(any(r$cmp$changed))
   expect_length(r$findings, 0L)
   x <- rawToChar(f$hospitals)
-  x <- sub("The funded projects haven\u2019t been announced yet.", "Riverbend Rural Hospital: $900,000.", x, fixed = TRUE)
+  # Session 108: the 'haven't been announced yet' line is gone from the live
+  # page; a new name in the maternal-care list is what the probe watches now.
+  x <- sub("Ohio Health Institute.", "Riverbend Rural Hospital.", x, fixed = TRUE)
   f$hospitals <- charToRaw(x)
   expect_error(oh_probe_s104(f), "Riverbend Rural Hospital")
 })
@@ -200,13 +204,21 @@ test_that("session 105: the $30.3M pool rests on a component priced for the 22 h
   # The headline and the two shared components are in no bucket. The maternal
   # component is ALSO $30.3M, so it is excluded by its pool, not its amount.
   expect_false(any(d$amount %in% c(92e6, 31.4e6)))
-  expect_false(any(grepl("Maternal|Clinically Integrated|Innovation Hub|\\$92", d$award_pool)))
-  expect_false(any(d$hospital_attribution[grepl("Maternal|Hub", d$award_pool)] %in%
-                     c("NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS")))
+  # Session 108 ruling (c): the 13 listings in those pools are rows at $0; no
+  # row in them is priced and none is a pool bucket.
+  sh <- d[grepl("Maternal|Clinically Integrated|Innovation Hub|\\$92", d$award_pool), ]
+  expect_equal(nrow(sh), 13L)
+  expect_true(all(is.na(sh$amount)))
+  expect_false(any(sh$hospital_attribution %in% c("POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS")))
+  expect_equal(sort(unique(sh$awardee[sh$distributed_to_hospital == "Yes"])),
+               sort(c("University Hospitals Health System",
+                      "Beavercreek Medical Center (Soin/Kettering Health)",
+                      "Mercy Health - St. Rita's Medical Center (Lima)")))
+  expect_silent(oh_assert_s108_lists())
 })
 
 test_that("session 105: a component the source shares with non-hospitals stops the build", {
-  f <- here::here(OH_S104_DIR, OH_S104_PAGES$file[OH_S104_PAGES$key == "hospitals"])
+  f <- here::here(oh_s104_path("hospitals"))
   x <- rawToChar(readBin(f, "raw", file.size(f)))
   expect_true(oh_assert_s104_sources(charToRaw(x)))
   shared <- sub("one-time direct payments to 22 rural hospitals.",
