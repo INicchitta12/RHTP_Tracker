@@ -9,26 +9,28 @@ suppressWarnings(suppressMessages(source(here::here("R", "03at_vt_year1_awardees
 tb <- vt_parse_table()
 vt <- vt_year1_awardees(tb)
 
-test_that("175 agreements reconcile to the page's own total, to the cent", {
-  expect_equal(nrow(tb), 175L)
-  expect_equal(round(sum(tb$amount), 2), 131057627.27)
-  expect_equal(attr(tb, "printed_total"), 131057627.27)
+test_that("237 agreements reconcile to the page's own total, to the cent", {
+  # Session 108: the 2026-10-23 update (175 rows / $131,057,627.27 on 10-08).
+  expect_equal(nrow(tb), 237L)
+  expect_equal(round(sum(tb$amount), 2), 180171067.00)
+  expect_equal(attr(tb, "printed_total"), 180171067.00)
   expect_silent(vt_assert_reconciles(tb))
 })
 
 test_that("the GMCB inter-agency MOU is OUT of the award file and puts the total back", {
-  expect_equal(nrow(vt), 174L)
+  expect_equal(nrow(vt), 236L)
   expect_false(any(grepl("Memorandum of Understanding", vt$awardee)))
-  expect_equal(round(sum(vt$amount) + VT_MOU_AMOUNT, 2), 131057627.27)
+  expect_equal(round(sum(vt$amount) + VT_MOU_AMOUNT, 2), 180171067.00)
   st <- vt_status_table(tb)
   expect_false("amount" %in% names(st))
   expect_true(any(st$stage == "INTER_AGENCY_NOT_SUBAWARD"))
 })
 
-test_that("53 named-hospital rows, $45,580,691.26 -- and Mary Hitchcock is NH", {
+test_that("84 named-hospital rows, $75,513,793.13 -- and Mary Hitchcock is NH", {
+  # Session 108 (2026-10-23 update); 53 / $45,580,691.26 on 2026-10-08.
   h <- vt[vt$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 53L)
-  expect_equal(round(sum(h$amount), 2), 45580691.26)
+  expect_equal(nrow(h), 84L)
+  expect_equal(round(sum(h$amount), 2), 75513793.13)
   mh <- h[grepl("^Mary Hitchcock", h$awardee), ]
   expect_equal(nrow(mh), 3L)
   expect_true(all(mh$facility_state == "NH"))
@@ -38,8 +40,11 @@ test_that("53 named-hospital rows, $45,580,691.26 -- and Mary Hitchcock is NH", 
   # UVM Health Network $2,474,684.82 + Gifford Medical (bridge) $1,008,012.12
   # + Southwestern Vermont Health $2,517,797.35 (session 74)
   # + UVM - Health Network $1,972,160 + Grace Cottage Family Health and
-  # Hospital (bridge) $347,098.80 (session 94).
-  expect_equal(round(sum(gk$amount), 2), 8319753.09)
+  # Hospital (bridge) $347,098.80 (session 94). Session 108: Gifford Medical's
+  # $1,008,012.10 is now printed under the FQHC's name and leaves; University
+  # of Vermont Health (the network's 2025 name, a system parent) adds
+  # $8,265,083.59.
+  expect_equal(round(sum(gk$amount), 2), 15576824.59)
   expect_true(all(gk$determination_confidence == "LOW"))
 })
 
@@ -49,7 +54,9 @@ test_that("the name rule's two traps are refused on a federal record", {
     "1248 Hospital Drive Opco LLC DBA St. Johnsbury Center for Living and Rehabilitation",
     "VT")$recipient_type, "HOSPITAL_OR_SYSTEM")
   nh <- vt[grepl("^1248 Hospital Drive", vt$awardee), ]
-  expect_equal(nrow(nh), 3L)
+  # Session 108: its $63,760 telehealth row is now printed under the
+  # Springfield facility's name, so two rows remain.
+  expect_equal(nrow(nh), 2L)
   expect_true(all(nh$recipient_type == "OTHER" & nh$distributed_to_hospital == "No"))
   # Gifford Health Care is the FQHC, not Gifford Medical Center.
   g <- vt[grepl("^Gifford Health Care", vt$awardee), ]
@@ -98,17 +105,42 @@ test_that("session 74: the +34 is a diff of two archived lists, and re-spellings
   expect_true(all(ka(prior) %in% ka(p25)))
   expect_equal(nrow(p25) - nrow(prior), 34L)
   expect_equal(round(sum(p25$amount) - sum(prior$amount), 2), 22120182.17)
-  # The Gifford prefix is a hand-read bridge at LOW, never a machine match.
-  gm <- vt[vt$awardee == "Gifford Medical", ]
-  expect_equal(gm$recipient_type, "HOSPITAL_OR_SYSTEM")
-  expect_equal(gm$determination_confidence, "LOW")
+  # Session 108: the agreement once printed "Gifford Medical" (a LOW bridge to
+  # the hospital) is printed "Gifford Health Care" on 2026-10-23: the FQHC.
+  expect_false("Gifford Medical" %in% vt$awardee)
+  g <- vt[vt$awardee == "Gifford Health Care" & abs(vt$amount - 1008012.12) < 0.01, ]
+  expect_equal(nrow(g), 1L)
+  expect_equal(g$recipient_type, "FQHC_OR_RHC")
+  # University of Vermont Health is the system parent, LOW, general knowledge.
+  u108 <- vt[vt$awardee == "University of Vermont Health", ]
+  expect_equal(nrow(u108), 3L)
+  expect_true(all(u108$recipient_type == "HOSPITAL_OR_SYSTEM" &
+                    u108$determination_confidence == "LOW" &
+                    u108$basis_type == "GENERAL_KNOWLEDGE"))
+  expect_equal(round(sum(u108$amount), 2), 8265083.59)
   # The university and its cancer centre are not the enrolled hospital.
   u <- vt[vt$awardee %in% c("UVM - State Agricultural College",
                             "University of Vermont Cancer Center"), ]
   expect_true(all(u$distributed_to_hospital == "No"))
 })
 
+test_that("session 108: the 2026-10-23 update adds 62 agreements; 14 are re-spelled, none re-priced", {
+  p08 <- vt_parse_table(readBin(here::here(VT_PRIOR_FILE_1008), "raw",
+                                file.size(here::here(VT_PRIOR_FILE_1008))))
+  expect_equal(nrow(p08), 175L)
+  ka <- function(t) paste(t$initiative, t$activity, sprintf("%.2f", t$amount))
+  cnt <- vctrs::vec_count(ka(p08)) %>%
+    dplyr::left_join(vctrs::vec_count(ka(tb)), by = "key", suffix = c("_o", "_n"))
+  expect_true(all(!is.na(cnt$count_n) & cnt$count_n >= cnt$count_o))
+  expect_equal(nrow(tb) - nrow(p08), 62L)
+  expect_equal(round(sum(tb$amount) - sum(p08$amount), 2), 49113439.73)
+  kn <- function(t) paste(vt_legal_key(t$legal), ka(t))
+  expect_equal(sum(!(kn(p08) %in% kn(tb))), 14L)
+})
+
 test_that("session 101: the 2026-10-08 update adds 9 agreements and moves nothing", {
+  tb <- vt_parse_table(readBin(here::here(VT_PRIOR_FILE_1008), "raw",
+                               file.size(here::here(VT_PRIOR_FILE_1008))))
   p02 <- vt_parse_table(readBin(here::here(VT_PRIOR_FILE_1002), "raw",
                                 file.size(here::here(VT_PRIOR_FILE_1002))))
   expect_equal(nrow(p02), 166L)
@@ -168,9 +200,10 @@ test_that("session 94: 20 new agreements, and ONE re-filed under a new initiativ
                     low$basis_type == "GENERAL_KNOWLEDGE"))
   # Gifford Health Care (no Inc) is the FQHC again: its new $633,201.40 is NOT
   # hospital money.
+  # (Session 108: a second agreement is printed under that name, so two rows.)
   g <- vt[vt$awardee == "Gifford Health Care", ]
-  expect_equal(g$recipient_type, "FQHC_OR_RHC")
-  expect_equal(g$distributed_to_hospital, "No")
+  expect_true(all(g$recipient_type == "FQHC_OR_RHC"))
+  expect_true(all(g$distributed_to_hospital == "No"))
   # Nothing in the file is HIGH: no row carries a CCN (session 88).
   expect_false(any(vt$determination_confidence == "HIGH"))
 })
