@@ -439,3 +439,74 @@ test_that("the disposition covers every live Tier 3 candidate (there are none)",
 test_that("all assertions pass together", {
   expect_silent(wy_assert_all())
 })
+
+
+# -- (s106) THE PROGRAMME PAGE'S KNOWN APPROVALS LINK ------------------------
+# Every firing from 10-09 to 10-20 tripped on the approvals button. Session 106
+# made that ONE label furniture and re-based the page. These tests prove the
+# fix is that narrow: the known label cannot trip, and a new name, a new Drive
+# link or changed text on the same page still does.
+
+wy_prog_html <- paste(readLines(wy_path("programme"), warn = FALSE,
+                                encoding = "UTF-8"), collapse = "\n")
+wy_prog_txt <- wy_html_text(wy_prog_html)
+# The page as it stood before the button: the label run removed.
+wy_prog_without_button <- stringr::str_replace(
+  wy_prog_txt, stringr::fixed("Year One Award Approvals View Year One Award Approvals "), "")
+
+test_that("the re-based programme page carries the approvals button, to the extracted PDF", {
+  expect_true(stringr::str_detect(wy_prog_txt, stringr::fixed(
+    WY_NAME_FURNITURE$programme)))
+  expect_identical(wy_drive_targets(wy_prog_html), sort(WY_KNOWN_DRIVE_TARGETS))
+  expect_identical(wy_drive_link_findings(wy_prog_html), character(0))
+  # the button's target is the approvals PDF's own Drive id
+  expect_true(stringr::str_detect(wy_url("approvals"), stringr::fixed(
+    sub("^file/d/", "", WY_KNOWN_DRIVE_TARGETS[2]))))
+})
+
+test_that("the known approvals label cannot trip the name tripwire", {
+  # Without the furniture it is exactly the run the 10-09..10-20 firings reported
+  expect_identical(
+    rhtp_new_organisation_names(wy_prog_txt, wy_prog_without_button),
+    WY_NAME_FURNITURE$programme)
+  expect_silent(rhtp_assert_no_new_organisations(
+    live = wy_prog_txt, archived = wy_prog_without_button, state = "WY",
+    page = "programme", furniture = WY_NAME_FURNITURE$programme))
+})
+
+test_that("a NEW name on the programme page still trips, furniture or not", {
+  live <- paste(wy_prog_txt,
+                "The Committee approved an award to Ivinson Memorial Hospital.")
+  expect_error(rhtp_assert_no_new_organisations(
+    live = live, archived = wy_prog_txt, state = "WY", page = "programme",
+    furniture = WY_NAME_FURNITURE$programme), "Ivinson Memorial Hospital")
+  # a re-worded approvals button is not the furniture string, so it trips
+  live2 <- stringr::str_replace(wy_prog_txt, stringr::fixed(
+    "View Year One Award Approvals"), "View Year One Executed Agreements")
+  expect_error(rhtp_assert_no_new_organisations(
+    live = live2, archived = wy_prog_txt, state = "WY", page = "programme",
+    furniture = WY_NAME_FURNITURE$programme), "NAMES")
+})
+
+test_that("a NEW Drive link on the programme page is a finding", {
+  html <- paste0(wy_prog_html, '<a href="https://drive.google.com/file/d/',
+                 'NEWFILE123abc/view?usp=sharing">View Executed Agreements</a>')
+  f <- wy_drive_link_findings(html)
+  expect_length(f, 1L)
+  expect_match(f, "file/d/NEWFILE123abc", fixed = TRUE)
+  # a uc?id= download link is read as the same kind of target
+  html2 <- paste0(wy_prog_html,
+                  '<a href="https://drive.google.com/uc?export=download&id=XYZ789">x</a>')
+  expect_match(wy_drive_link_findings(html2), "file/d/XYZ789", fixed = TRUE)
+})
+
+test_that("changed text on the programme page still moves the content digest", {
+  changed <- stringr::str_replace(wy_prog_html, stringr::fixed(
+    "Initial meetings with CMS project staff"),
+    "Initial meetings with CMS and the Governor")
+  expect_false(identical(changed, wy_prog_html))
+  expect_false(identical(wy_content_digest("programme", changed),
+                         wy_content_digest("programme")))
+  expect_identical(wy_content_digest("programme", wy_prog_html),
+                   wy_content_digest("programme"))
+})

@@ -176,8 +176,13 @@ CT_MEDIA <- paste0("https://portal.ct.gov/dss/-/media/departments-and-agencies",
 CT_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
+  # Session 106: RE-BASED after reading the change -- portal.ct.gov leaks a
+  # stray HTML comment closer, "-->", after the breadcrumb, which ends the
+  # breadcrumb run one word early ("... Documents Overview" instead of
+  # "... Documents Overview Federal"); that shorter run was the 10-19 name
+  # trip. Nothing else on the page moved. The 2026-09-02 copy stays on disk.
   "programme",
-  "2026-09-02_ct_dss_rhtp_programme.html",
+  "2026-10-20_ct_dss_rhtp_programme.html",
   "https://portal.ct.gov/dss/rural-health-transformation-program",
 
   # Session 94: RE-BASED after reading the change -- one new document link,
@@ -209,8 +214,11 @@ CT_SOURCES <- tibble::tribble(
   # Correction staffing RFP #26OPM0202AA (read session 85, CT_NAME_FURNITURE)
   # posted above the RHTP NOFO, whose block is byte-identical in the reduced
   # text. The 2026-09-02 copy stays on disk.
+  # Session 106: RE-BASED again after reading the change -- the CTsource bid
+  # link inside the SAME staffing-study RFP block moved (bid 145966 -> 146239).
+  # The RHTP NOFO block is unchanged. The 2026-10-07 copy stays on disk.
   "opm",
-  "2026-10-07_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
+  "2026-10-20_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
   "https://portal.ct.gov/opm/root/rfp/request-for-proposals",
 
   "leadership",
@@ -240,8 +248,16 @@ CT_SOURCES <- tibble::tribble(
          "investments-to-improve-outdoor-recreation-at"),
 
   # Session 92. DMHAS's RFP index (WATCHED) and the REST Center RFP it links.
+  # Session 106: RE-BASED after reading the change -- two new RFPs, neither
+  # RHTP: Opioid Services Unit/Community Services Division "Recovery Centers"
+  # (due 2026-12-18; $3,742,834, "Funding Source: Opioid Settlement Funds")
+  # and Community Services Division "Regional Infectious Services for
+  # Enhancement" (RISE, due 2026-12-10; $1,000,000, "Substance Use State and
+  # Federal funding", no RHTP mention), plus Homeless to Housing Addenda 2-3.
+  # The REST row is unchanged and still links no outcome. The 2026-10-05 copy
+  # stays on disk.
   "dmhas_rfps",
-  "2026-10-05_ct_dmhas_rfp_index.html",
+  "2026-10-20_ct_dmhas_rfp_index.html",
   "https://portal.ct.gov/dmhas/rfps/index/rfps-and-rfqs",
 
   "dmhas_rest_rfp",
@@ -1323,7 +1339,15 @@ CT_NAME_FURNITURE <- list(opm = c(
   # string and still fire.
   programme = c(
     "CT Office of Rural Health Policies Accessibility About CT Directories Social Media For State Employees United States FULL Connecticut FULL",
-    "CT Office of Rural Health Policies Accessibility About CT Directories Social Media For State Employees United States HALF Connecticut HALF"))
+    "CT Office of Rural Health Policies Accessibility About CT Directories Social Media For State Employees United States HALF Connecticut HALF",
+    # Session 106 (proposed session 105, owner-approved): the breadcrumb run,
+    # read 2026-10-19/20. A stray "-->" after it (an HTML comment leak; 5 of
+    # 5 fetches on 10-20 carried it) ends the run before the body heading
+    # "Federal ...", and the shorter run read as new. Both variants are
+    # listed so neither the leak nor its repair trips; a real organisation
+    # in the breadcrumb changes the string and still fires.
+    "Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview",
+    "Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview Federal"))
 
 #' The change test: a digest of the REDUCED text, not of the file
 #'

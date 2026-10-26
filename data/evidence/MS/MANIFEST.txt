@@ -23,8 +23,28 @@ one differing line. Fixed-width, so a byte-count check passes it.
 
 file  bytes  sha256
 2026-09-14_ms_governor_167_awards_ROSTER.html  134840  8a9cd4a4503864ab8e76d12a77696b1d2fa80fa95c7fbbc7e5396e3ba84649a9
-2026-09-21_ms_rhtp_funding_ANNOUNCEMENT_BANNER.html  215390  97d0ec183aa527c5ffedce445caeee693809d90fd665f9b61aa3356751369ba4
-2026-09-21_ms_rhtp_home.html  399897  8e05e9e546a0e3b026ab2ff64b4b21b61798531844eac05b25654d16c2bf7079
+2026-09-21_ms_rhtp_funding_ANNOUNCEMENT_BANNER.html  184232  7079f4606c8148dfbd6900aaf19c5bd4a8d46e06f0e3ff66a8bb962a8115ed96
+2026-09-21_ms_rhtp_home.html  65861  8b681d8898da72c2b29b839455c1d1a7e9eeb9fe375aa69d243858c3e3f0b764
 2026-09-21_ms_governor_newsroom_CARRIES_THE_ANNOUNCEMENT.html  112218  e800e0bdd5fff8b3177fb6bbbe090d7288e7124ccad16e0856b8a74e7196843b
 2026-09-03_ms_dom_completed_procurements.html  101840  77bff95e61b57103f5f76047cdaf60b6a1d65eccc6bdecde40a022627e7a19f0
 2026-09-03_ms_dom_rhtp_programme.html  81433  464c20356349f2311bfadc4d74215d63fd9dc195322477e8653014b6b7b29ce0
+2026-10-20_ms_rhtp_closed_funding_opportunities.html  85159  b34f186e9da153a7ac35ab72a7ae8fa1d464ac773106c42e1ee14d7b9c5deedb
+
+Re-based 2026-10-20 (session 106), after reading each diff, keeping the
+file names: funding (prior 215390 / 97d0ec18...ba4) and home (prior
+399897 / 8e05e9e5...79), both in git. funding: the Innovative Pilot
+(opens 10-14), EHR Replacement (opens 10-21) and MSDH HIE/HDU RFP
+(OpenGov, due 11-03) opportunities were added; WEI, EmPATH, the EMS
+Capacity RFP and the three awarded programmes moved to the closed page;
+'Downloadable Resources / Events / FAQ' left the menu. home: re-laid out
+(the five initiative blurbs replaced by 'Program Funding' / 'Resources' /
+'Contact Us' panels; an HIE stakeholder survey due 10-31). No recipient
+is named on either. The 'selection process is complete' sentence and the
+99.96% / 0.04% footer are unchanged on funding.
+closed: ADDED (new source). 'The application periods for the following
+opportunities have passed' -- WEI, EmPATH, EMS Capacity Assessment RFP,
+TCE, RTG, RCGC. Names no awardee. Its 10-16 reading is
+recheck/2026-10-16/MS/.
+medicaid.ms.gov: every path, including dom_completed, serves a 'Temporary
+Site' vendor-outage placeholder at HTTP 404 (read 2026-10-20). The
+2026-09-03 dom_completed capture stays the archive.

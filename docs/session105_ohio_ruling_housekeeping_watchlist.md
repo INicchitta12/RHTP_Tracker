@@ -104,7 +104,7 @@ Files are saved outside the repo, in `/tmp/claude-0/-home-user-RHTP-Tracker/3202
 | TX, NC, AR, CO, CA 16:02Z–16:10Z | UNCHANGED (interactive) | Task 1. |
 | NEWSROOM 16:53Z (merged from `main` after write-up) | TRIPWIRE DE, TX, MD; CHANGED on 14 index pages | **Already handled, nothing new:** TX "Recipients of $78 Million in Rural Texas Strong Grants" (extracted session 103), MD "$16.4 Million … Workforce Awards" (extracted session 104), DE "… Strengthen Physician Workforce" (10-14, read session 102: students as recipients, no hospital). These are stale NEWSROOM baselines. A re-base after reading is proposed, not done. |
 
-**Hawaii.** The first firing (`trig_017PbAESTaaMfYZ3nKcS3j1m`, Mon 18:30Z) had not happened when this was written (the clock read 16:15Z). A check-in is scheduled for 18:50Z; its result is under "Hawaii, after 18:30Z" below.
+**Hawaii.** The first firing (`trig_017PbAESTaaMfYZ3nKcS3j1m`) ran at 18:35Z and its line is on `main` (`5c74dd7`) under that Routine's own origin. Four pages read UNCHANGED (`shpda`, `rhtp_home`, `rhtp_funding`, `doh_news`). `gov_news` read CHANGED with no finding: the probe's RHTP-headline check passed, and a live headline diff at 18:52Z showed no new RHTP item. Coverage on `main` after the line: "193 due firing(s) since the logging fix; all logged except 4 EXPLAINED miss(es)". CMS 10-19 13:00Z falls due at 19:00Z and is already explained.
 
 **Coverage.** `Rscript R/probe_coverage.R --check`: "192 due firing(s) since the logging fix; all logged except 4 EXPLAINED miss(es)". A fifth explained miss, CMS 10-19, is added below; it was not yet due when the check ran.
 
