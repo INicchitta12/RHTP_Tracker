@@ -33,7 +33,8 @@ test_that("the RCHI roster is 56 lead rows, 55 names, the pool to the dollar", {
 
 test_that("the roster tripwire fires on a moved figure or an unread lead", {
   skip_without_archive()
-  r <- ny_parse_roster()
+  # Session 108: the lead-grain list the award rows come from.
+  r <- ny_lead_roster()
   r2 <- r; r2$amount[1] <- r2$amount[1] + 1
   expect_error(ny_assert_roster(r2), "sums to")
   r3 <- r; r3$awardee[1] <- "Brand New Rural Hospital"
@@ -41,20 +42,44 @@ test_that("the roster tripwire fires on a moved figure or an unread lead", {
   expect_error(ny_assert_roster(r[-1, ]), "priced rows")
 })
 
+test_that("session 108: the project-grain list reconciles lead by lead, and its tripwire fires", {
+  skip_without_archive()
+  p <- ny_parse_roster()
+  expect_equal(attr(p, "grain"), "project")
+  expect_equal(nrow(p), 107L)
+  expect_equal(round(sum(p$amount), 2), 76190022)
+  expect_silent(ny_assert_project_roster(p))
+  expect_true(NY_JOINT_LEAD %in% p$awardee)
+  p2 <- p; p2$amount[1] <- p2$amount[1] + 1
+  expect_error(ny_assert_project_roster(p2), "sums to")
+  p3 <- p; p3$awardee[1] <- "Brand New Rural Hospital"
+  expect_error(ny_assert_project_roster(p3), "lead by lead")
+  expect_error(ny_assert_project_roster(p[-1, ]), "106 lines")
+})
+
 test_that("participation is not receipt: non-hospital leads are Unclear", {
   skip_without_archive()
   aw <- ny_award_rows()
   x <- ny_assert_participation_not_receipt(aw)
   h <- aw[aw$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 35L)
-  expect_equal(round(sum(h$amount), 2), 47358790.79)
+  # Session 108, owner ruling (b): Glens Falls Hospital/ Hudson Headwaters
+  # ($1,500,000) leaves NAMED_HOSPITAL for no bucket (35 / $47,358,790.79 before).
+  expect_equal(nrow(h), 34L)
+  expect_equal(round(sum(h$amount), 2), 45858790.79)
+  jt <- aw[aw$awardee == NY_JOINT_LEAD, ]
+  expect_equal(jt$distributed_to_hospital, "Unclear")
+  expect_equal(jt$hospital_attribution, "NOT_HOSPITAL")
+  expect_match(jt$flag_reason, "MULTI_RECIPIENT_FIELD")
+  expect_equal(jt$amount, 1500000)
   expect_equal(round(x$held_out, 2), 28831231.21)
   expect_true(all(aw$flow_type[aw$recipient_type != "HOSPITAL_OR_SYSTEM"] ==
                     "PASS_THROUGH_UNRESOLVED"))
   # THE COUNTERFACTUAL: coding off the eligibility rule would publish the
   # whole pool as hospital money.
-  bad <- aw; bad$distributed_to_hospital <- "Yes"
+  bad <- aw; bad$distributed_to_hospital[bad$awardee != NY_JOINT_LEAD] <- "Yes"
   expect_error(ny_assert_participation_not_receipt(bad), "non-hospital")
+  bad2 <- aw; bad2$distributed_to_hospital <- "Yes"
+  expect_error(ny_assert_participation_not_receipt(bad2), "joint award")
   expect_equal(sum(bad$amount), 76190022)
 })
 

@@ -140,10 +140,18 @@ NY_SOURCES <- tibble::tribble(
         "of what the page said before New York awarded. Never re-fetched."),
   "roster",
   "https://www.health.ny.gov/facilities/transforming_rural_healthcare/awardees.htm",
+  "2026-10-26_ny_rchi_awardees_list.html",
+  paste("THE ROSTER, RE-PUBLISHED AT PROJECT GRAIN (re-based session 108 after",
+        "reading): 107 lines of Lead Applicant Name | Project Title | Lead",
+        "Applicant County | Type | Fund Amount | Summary, the same $76,190,022.00",
+        "and the same 55 leads; every lead's total equals the 09-22 lead list's,",
+        "and Glens Falls Hospital is now printed with Hudson Headwaters."),
+  "roster_prior",
+  NA_character_,
   "2026-09-22_ny_rchi_awardees_list.html",
-  paste("THE ROSTER. 'Rural Community Health Integration Awardees List':",
-        "56 rows of Lead Applicant Name | Counties | Total Dollar Award",
-        "Amount, summing to $76,190,022.00. Found live by session 51."),
+  paste("THE LEAD-GRAIN ROSTER the award file is built from (session 52): 56 rows",
+        "of Lead Applicant Name | Counties | Total Dollar Award Amount. Kept;",
+        "never re-fetched."),
   "gov_release",
   paste0("https://www.governor.ny.gov/news/governor-hochul-announces-76-",
          "million-strengthen-rural-healthcare-across-new-york-state"),
@@ -165,12 +173,12 @@ NY_SOURCES <- tibble::tribble(
         "'Reviews and Funding Recommendation In Progress'."),
   "press_index",
   "https://www.health.ny.gov/press/releases/2026/",
-  "2026-09-02_ny_doh_press_releases_2026.html",
+  "2026-10-26_ny_doh_press_releases_2026.html",
   paste("THE POSITIVE CONTROL. Fifteen named award announcements with",
         "amounts, and exactly ONE RHTP item -- a funding OPPORTUNITY."),
   "scr",
   "https://www.nyscr.ny.gov/",
-  "2026-09-02_ny_contract_reporter.html",
+  "2026-10-26_ny_contract_reporter.html",
   paste("The NYS Contract Reporter. UNREADABLE/UNKNOWN (§0.4): a stateful",
         "search application behind a free account.")
 )
@@ -740,7 +748,17 @@ NY_LEAD_TYPES <- tibble::tribble(
   "Elizabethtown Community Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "331302", "CAH", "CMS ORGANIZATION NAME, Elizabethtown",
   "Ellenville Regional Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "331310", "CAH", "CMS DBA, Ellenville",
   "Geneva General Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "330058", "HOSPITAL", "CMS ORGANIZATION NAME, Geneva",
-  "Glens Falls Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "330191", "HOSPITAL", "CMS ORGANIZATION NAME, Glens Falls",
+  # SESSION 108, OWNER RULING (b): DOH now prints this lead "Glens Falls
+  # Hospital/ Hudson Headwaters", a hospital (CMS 330191) and an FQHC sharing
+  # ONE $1,500,000. It is kept as one row, flagged MULTI_RECIPIENT_FIELD, and
+  # is OUT OF EVERY BUCKET (Unclear), never divided (§6.2): in the ceiling only.
+  "Glens Falls Hospital/ Hudson Headwaters", "HOSPITAL_OR_SYSTEM", "STATE_SOURCE", NA, "HOSPITAL",
+  paste0("JOINT AWARD (owner ruling, session 108): DOH's 2026-10-26 project-grain list prints the lead as ",
+         "'Glens Falls Hospital/ Hudson Headwaters', a hospital (CMS ORGANIZATION NAME GLENS FALLS HOSPITAL, ",
+         "CCN 330191) and Hudson Headwaters Health Network (an FQHC) on one undivided $1,500,000 (three ",
+         "county planning lines). A share reaching the hospital is not published; MULTI_RECIPIENT_FIELD, ",
+         "Unclear, in no bucket, counted in the ceiling only. The 2026-09-22 lead list printed 'Glens Falls ",
+         "Hospital' alone and session 52 coded it DIRECT."),
   "Guthrie Cortland Medical Center", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "330175", "HOSPITAL", "CMS ORGANIZATION NAME, Cortland",
   "Jones Memorial Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "330096", "HOSPITAL", "CMS DBA, Wellsville",
   "Lewis County General Hospital", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "331317", "CAH", "CMS ORGANIZATION NAME, Lowville",
@@ -806,6 +824,23 @@ ny_parse_roster <- function(body = NULL) {
     stringr::str_squish(xml2::xml_text(xml2::xml_find_all(r, "./td|./th")))
   })
   hdr <- purrr::detect(cells, function(c) any(grepl("Lead Applicant", c)))
+  # SESSION 108: DOH re-published the list at PROJECT grain. Its lines are
+  # returned as they are (attr grain = "project"); the award file is built from
+  # the lead-grain list (roster_prior), which these lines must reconcile to.
+  if (identical(hdr, NY_PROJECT_HEADER)) {
+    pl <- purrr::keep(cells, function(c) {
+      length(c) == 6L && grepl("^\\$[0-9,]+\\.[0-9]{2}$", c[5])
+    })
+    out <- tibble::tibble(
+      line = seq_along(pl),
+      awardee = purrr::map_chr(pl, 1L),
+      project = purrr::map_chr(pl, 2L),
+      county = purrr::map_chr(pl, 3L),
+      type = purrr::map_chr(pl, 4L),
+      amount = as.numeric(gsub("[$,]", "", purrr::map_chr(pl, 5L))))
+    attr(out, "grain") <- "project"
+    return(out)
+  }
   if (is.null(hdr) || !identical(hdr, c("Lead Applicant Name",
                                         "Counties (separated by spaces)",
                                         "Total Dollar Award Amount"))) {
@@ -824,8 +859,51 @@ ny_parse_roster <- function(body = NULL) {
     amount = as.numeric(gsub(",", "", purrr::map_chr(body_rows, 3L))))
 }
 
+NY_PROJECT_HEADER <- c("Lead Applicant Name", "Project Title", "Lead Applicant County",
+                       "Type", "Fund Amount", "Summary")
+NY_PROJECT_LINES <- 107L
+NY_JOINT_LEAD <- "Glens Falls Hospital/ Hudson Headwaters"
+NY_JOINT_WAS  <- "Glens Falls Hospital"
+
+#' The lead-grain list the award file is built from (session 52's 56 rows),
+#' with the one lead DOH re-printed (owner ruling b) carried under its new name.
+ny_lead_roster <- function() {
+  r <- ny_parse_roster(readBin(ny_path("roster_prior"), "raw", file.size(ny_path("roster_prior"))))
+  r$awardee_0922 <- r$awardee
+  r$awardee[r$awardee == NY_JOINT_WAS] <- NY_JOINT_LEAD
+  r
+}
+
+#' SESSION 108: the project-grain list reconciles, lead by lead, to the
+#' lead-grain list: 107 lines, 55 leads, the RCHI pool to the cent, and every
+#' lead's total equal (Glens Falls under its new printing).
+ny_assert_project_roster <- function(lines, leads = ny_lead_roster()) {
+  if (nrow(lines) != NY_PROJECT_LINES) {
+    stop("[NY] the project-grain list carries ", nrow(lines), " lines, not ",
+         NY_PROJECT_LINES, ". DOH has changed it: re-read before rebuilding.", call. = FALSE)
+  }
+  if (round(sum(lines$amount), 2) != NY_RCHI_POOL) {
+    stop("[NY] the project-grain list no longer sums to $76,190,022.", call. = FALSE)
+  }
+  a <- tapply(lines$amount, lines$awardee, sum)
+  b <- tapply(leads$amount, leads$awardee, sum)
+  if (!setequal(names(a), names(b)) || any(abs(a[names(b)] - b) > 0.005)) {
+    stop("[NY] the project-grain list no longer reconciles lead by lead to the 56-row list: ",
+         paste(union(setdiff(names(a), names(b)), setdiff(names(b), names(a))), collapse = "; "),
+         ". Re-read it.", call. = FALSE)
+  }
+  if (!all(lines$type %in% c("Planning", "Implementation"))) {
+    stop("[NY] a project line's Type is not Planning/Implementation.", call. = FALSE)
+  }
+  invisible(lines)
+}
+
 #' The roster is what it was: 56 lead rows, 55 names, exactly the RCHI pool
 ny_assert_roster <- function(roster = ny_parse_roster()) {
+  if (identical(attr(roster, "grain"), "project")) {
+    ny_assert_project_roster(roster)
+    roster <- ny_lead_roster()
+  }
   if (nrow(roster) != NY_ROSTER_ROWS) {
     stop("[NY] the RCHI roster carries ", nrow(roster), " priced rows, not ",
          NY_ROSTER_ROWS, ". New York has changed it -- re-read before ",
@@ -935,6 +1013,13 @@ ny_assert_roster_linked <- function(body = NULL) {
 #' the whole pool as hospital money. This asserts the non-hospital leads are
 #' held out, and says what the mistake would cost.
 ny_assert_participation_not_receipt <- function(rows = ny_award_rows()) {
+  jt <- rows[rows$awardee == NY_JOINT_LEAD, ]
+  if (nrow(jt) != 1L || jt$distributed_to_hospital != "Unclear" ||
+      jt$hospital_attribution != "NOT_HOSPITAL" || !grepl("MULTI_RECIPIENT_FIELD", jt$flag_reason)) {
+    stop("[NY] the Glens Falls / Hudson Headwaters joint award must stay one Unclear row in no ",
+         "bucket, flagged MULTI_RECIPIENT_FIELD (owner ruling, session 108).", call. = FALSE)
+  }
+  rows <- rows[rows$awardee != NY_JOINT_LEAD, ]
   nonhosp <- rows[rows$recipient_type != "HOSPITAL_OR_SYSTEM", ]
   if (any(nonhosp$distributed_to_hospital != "Unclear")) {
     stop("[NY] a non-hospital RCHI lead is coded other than Unclear.",
@@ -952,6 +1037,7 @@ ny_assert_participation_not_receipt <- function(rows = ny_award_rows()) {
 }
 
 ny_award_rows <- function(roster = ny_assert_roster()) {
+  joint <- roster$awardee == NY_JOINT_LEAD
   types <- dplyr::bind_rows(
     NY_LEAD_TYPES,
     tibble::tibble(awardee = NY_LEAD_REFUSED, recipient_type = "NONPROFIT_CBO",
@@ -966,7 +1052,7 @@ ny_award_rows <- function(roster = ny_assert_roster()) {
     dplyr::mutate(
       machine_type = machine$recipient_type,
       machine_conf = machine$determination_confidence,
-      hospital = .data$recipient_type == "HOSPITAL_OR_SYSTEM",
+      hospital = .data$recipient_type == "HOSPITAL_OR_SYSTEM" & !joint,
       refused = .data$awardee %in% NY_LEAD_REFUSED)
 
   src <- ny_source("roster", "url")
@@ -979,9 +1065,10 @@ ny_award_rows <- function(roster = ny_assert_roster()) {
     distributed_to_hospital = ifelse(r$hospital, "Yes", "Unclear"),
     note = paste0(
       "RCHI lead applicant; counties: ", r$counties, ". ",
+      ifelse(joint, "JOINT AWARD: a hospital and an FQHC on one undivided figure (owner ruling, session 108); in no bucket, the ceiling only.",
       ifelse(r$hospital,
              "The LEAD IS THE HOSPITAL, so §10.2's ordinary DIRECT row applies and the partnership rule adds nothing.",
-             "The lead is NOT a hospital. RCHI required a hospital partner, and the roster names only the lead, so a hospital's presence is a fact about the APPLICATION and not about where a dollar went (§7, the third eligible class).")),
+             "The lead is NOT a hospital. RCHI required a hospital partner, and the roster names only the lead, so a hospital's presence is a fact about the APPLICATION and not about where a dollar went (§7, the third eligible class)."))),
     recipient_confirmed = "Yes",
     amount_confirmed = "Yes",
     fiscal_year = "FY2026 (Year 1)",
@@ -996,7 +1083,7 @@ ny_award_rows <- function(roster = ny_assert_roster()) {
     reviewer = NA_character_,
     counties = r$counties,
     award_pool = "Rural Community Health Integration (RCHI)",
-    awardee_as_published = r$awardee,
+    awardee_as_published = ifelse(joint, paste0(r$awardee, " (2026-10-26; '", NY_JOINT_WAS, "' on the 2026-09-22 list)"), r$awardee),
     recipient_type_source = paste0("machine: ", r$machine_type, "/",
                                    r$machine_conf),
     determination_confidence = dplyr::case_when(
@@ -1004,6 +1091,7 @@ ny_award_rows <- function(roster = ny_assert_roster()) {
       r$basis_type == "GENERAL_KNOWLEDGE" ~ "LOW",
       TRUE ~ "MEDIUM"),
     flag_reason = dplyr::case_when(
+      joint ~ "MULTI_RECIPIENT_FIELD",
       r$hospital ~ NA_character_,
       r$refused ~ "ELIGIBILITY_NOT_RECEIPT;RECIPIENT_TYPE_INFERRED",
       TRUE ~ "ELIGIBILITY_NOT_RECEIPT"),
@@ -1013,9 +1101,10 @@ ny_award_rows <- function(roster = ny_assert_roster()) {
     hospital_attribution = ifelse(r$hospital, "NAMED_HOSPITAL", "NOT_HOSPITAL"),
     intermediary_name = ifelse(r$hospital, NA_character_, r$awardee),
     determination_basis = paste0(
+      ifelse(joint, "§6.2 MULTI_RECIPIENT_FIELD, owner ruling (b), session 108: a hospital and a non-hospital share one undivided award, so PASS_THROUGH_UNRESOLVED / Unclear and no bucket; the hospital's share is never imputed. ",
       ifelse(r$hospital,
              "§10.2 DIRECT: the RCHI lead applicant is itself a hospital. ",
-             "§7 third eligible class: the lead is not a hospital and the roster names no partner hospital, so PASS_THROUGH_UNRESOLVED / Unclear -- a required partner is not a recipient. "),
+             "§7 third eligible class: the lead is not a hospital and the roster names no partner hospital, so PASS_THROUGH_UNRESOLVED / Unclear -- a required partner is not a recipient. ")),
       "Form: ", r$evidence,
       ifelse(is.na(r$basis_type), "", paste0(" [", r$basis_type, "]"))),
     amount_basis = paste(
@@ -1026,7 +1115,7 @@ ny_award_rows <- function(roster = ny_assert_roster()) {
     round_amount = NA_real_,
     announcement_date = as.character(NY_RELEASE_DATE),
     source_archive_path = file.path("data", "evidence", "NY",
-                                    ny_source("roster", "file")),
+                                    ifelse(joint, ny_source("roster", "file"), ny_source("roster_prior", "file"))),
     basis_type = r$basis_type,
     verified_by = "session 52 (hand-read against CMS enrolment)",
     verified_basis = r$evidence)
