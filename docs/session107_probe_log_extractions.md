@@ -140,4 +140,9 @@ SD **751,763**, WA **676,618**, VA **664,020**. All are idle. SD is above the 70
 
 ## Suite
 
-See the commit that follows this document for the full-suite result.
+`Rscript tests/run_tests.R`: **0 failed, 1 expected skip** (the CMS monitor's first-run branch).
+
+It took three runs to get there:
+- **Run 1: 80 failures.** The session-by-session partition pins in `test_03ap`, `test_03bj` and `test_state_union` needed a session-107 step: 9 rows / $7,979,000 NAMED and the $1M VA pair. Separately, `ri_probe()` called `rhtp_watch_fetch()` in its own body, which breaks the rule that a probe never reaches a `_fetch` writer, read textually; the fetch now sits in a helper, `ri_live()`.
+- **Run 2: 8 failures.** The WV test's row counts and the rural cut's non-TX count were still pinned to the old file, and WV's RCJ disposition needed a rebuild (`R/03bh --build`; only the WV file moved).
+- **Run 3: clean.**
