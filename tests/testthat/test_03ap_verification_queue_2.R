@@ -559,7 +559,18 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 104: + TX county-test bridges (7 / $1,987,387.40), MD Labor
   # (9 / $3,574,030) and Ohio's 22 named hospitals at $0, a 34th state:
   # 1,576 / $1,431,975,278.58 / 34. Session 107: + 2 WV, + 7 VA VHCF
-  # Productivity: 1,585 / $1,439,954,278.58 / 34. Subtracted first.
+  # Productivity: 1,585 / $1,439,954,278.58 / 34.
+  # Session 108: + ID's roster (48 / $85,389,815.69, a 35th state), TX's 10/23
+  # list (+76 / +$69,565,522.50), VT's 10-23 update (+31 / +$29,933,101.87),
+  # MS round 2 (30 / $22,886,995.92), Ohio's 13 listings (+5 / $0) and NY's
+  # joint Glens Falls row out (-1 / -$1,500,000): 189 / $206,275,435.98:
+  # 1,774 / $1,646,229,714.56 / 35. Subtracted first.
+  expect_equal(named$rows, 1774L)
+  expect_equal(round(named$dollars, 2), 1646229714.56, tolerance = 0)
+  expect_equal(named$states, 35L)
+  named$rows <- named$rows - 189L
+  named$dollars <- named$dollars - 206275435.98
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1585L)
   expect_equal(round(named$dollars, 2), 1439954278.58, tolerance = 0)
   expect_equal(named$states, 34L)
@@ -735,13 +746,14 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
             p$dollars[p$state == "GA"])
   # South Carolina went ahead of both on session 50's typing pass; session 71's
   # UAMS re-type puts Arkansas back in front ($128,336,961.52).
-  expect_equal(p$state[[1]], "AR")
-  expect_equal(round(p$dollars[[1]], 2), 128336961.52)
-  # SESSION 103: Texas's Rural Texas Strong list ($117,571,194.73, 113 of its
-  # 201 rows intents) goes second; the order below it is unchanged.
-  expect_equal(p$state[[2]], "TX")
-  # SESSION 104: + the seven county-test bridges ($1,987,387.40).
-  expect_equal(round(p$dollars[[2]], 2), 119558582.13)
+  # SESSION 108: Texas's 10/23 list ($189,124,104.63, 158 of its 284 rows
+  # intents) goes FIRST; Arkansas is second and the order below is unchanged.
+  # Session 103 put Texas second ($117,571,194.73); session 104 added its
+  # seven county-test bridges ($119,558,582.13).
+  expect_equal(p$state[[1]], "TX")
+  expect_equal(round(p$dollars[[1]], 2), 189124104.63)
+  expect_equal(p$state[[2]], "AR")
+  expect_equal(round(p$dollars[[2]], 2), 128336961.52)
   p <- p[p$state != "TX", ]
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53
@@ -749,5 +761,8 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Georgia; the session-49 comparison above (AR over GA) is unaffected.
   expect_equal(p$state[[3]], "AL")
   expect_equal(p$dollars[[3]], 104434859)
-  expect_equal(p$state[[4]], "GA")
+  # SESSION 108: Mississippi's two rounds ($68,898,205 + $22,886,995.92) go
+  # ahead of Georgia ($90,277,580); the session-49 comparison is unaffected.
+  expect_equal(p$state[[4]], "MS")
+  expect_equal(p$state[[5]], "GA")
 })

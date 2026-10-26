@@ -58,6 +58,10 @@ STATE_FILES <- c(
   # in different ways. A parse defect there reaches the union as a real
   # organisation in a county that does not exist, and no total would notice.
   MS = "data/reference/ms_year1_awardees.csv",
+  # Session 108: the Governor's second roster (2026-10-21, 60 awards,
+  # $32,606,496.32; R/03cj), its own file because R/03ak's rows carry
+  # sessions 49 and 50's row-index overlays.
+  MS_R2 = "data/reference/ms_round2_awardees.csv",
   # Kansas is the first state whose awards came out of PDFs rather than a page
   # or a workbook, and the first whose recipient forms are almost entirely
   # unstated by the publisher: 22 of its 46 rows carry §8's standing fallback.

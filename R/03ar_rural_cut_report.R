@@ -131,7 +131,9 @@ RC_ENROLMENTS <- c(
   TX = "data/evidence/federal_records/2026-10-01/cms_hosp_enrollments_TX.json",
   # Session 104: Maryland's MD Labor roster and Ohio's 22 named hospitals.
   MD = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MD.json",
-  OH = "data/evidence/federal_records/2026-10-19/cms_hosp_enrollments_OH.json")
+  OH = "data/evidence/federal_records/2026-10-19/cms_hosp_enrollments_OH.json",
+  # Session 108: Idaho's first roster (R/03ck), typed on CMS's ID files.
+  ID = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_ID.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -338,11 +340,17 @@ rc_assert <- function(rows = rc_rows()) {
   # named hospitals at $0 (Ohio the 34th state): 1,576 / $1,431,975,278.58 / 34.
   # Session 107: + 2 WV (WVU Health System, $3,400,000) and + 7 VA VHCF
   # Productivity ($4,579,000): 1,585 / $1,439,954,278.58 / 34.
-  if (nrow(rows) != 1585L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1439954278.58) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 34L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,585 rows / $1,439,954,278.58 ",
-         "/ 34 states; re-state the rural cut against the new partition.",
+  # Session 108: + ID's first roster (48 / $85,389,815.69, Idaho the 35th
+  # state), TX's 10/23 list (+76 / +$69,565,522.50 published; Anson HD's
+  # SOURCE_SUSPECT $509,936.50 out), VT's 10-23 update (+31 / +$29,933,101.87),
+  # MS's 10-21 roster (30 / $22,886,995.92), OH's 5 network/maternal hospital
+  # rows at $0, and NY's Glens Falls/Hudson Headwaters out (-1 / -$1,500,000):
+  # 1,774 / $1,646,229,714.56 / 35.
+  if (nrow(rows) != 1774L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1646229714.56) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 35L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,774 rows / $1,646,229,714.56 ",
+         "/ 35 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

@@ -289,7 +289,18 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 104: + TX county-test bridges (7 / $1,987,387.40), MD Labor
   # (9 / $3,574,030) and Ohio's 22 named hospitals at $0, a 34th state:
   # 1,576 / $1,431,975,278.58 / 34. Session 107: + 2 WV, + 7 VA VHCF
-  # Productivity: 1,585 / $1,439,954,278.58 / 34. Subtracted first.
+  # Productivity: 1,585 / $1,439,954,278.58 / 34.
+  # Session 108: + ID's roster (48 / $85,389,815.69, a 35th state), TX's 10/23
+  # list (+76 / +$69,565,522.50), VT's 10-23 update (+31 / +$29,933,101.87),
+  # MS round 2 (30 / $22,886,995.92), Ohio's 13 listings (+5 / $0) and NY's
+  # joint Glens Falls row out (-1 / -$1,500,000): 189 / $206,275,435.98:
+  # 1,774 / $1,646,229,714.56 / 35. Subtracted first.
+  expect_equal(n$rows, 1774L)
+  expect_equal(round(n$dollars, 2), 1646229714.56)
+  expect_equal(n$states, 35L)
+  n$rows <- n$rows - 189L
+  n$dollars <- n$dollars - 206275435.98
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1585L)
   expect_equal(round(n$dollars, 2), 1439954278.58)
   expect_equal(n$states, 34L)
@@ -399,7 +410,10 @@ test_that("every OTHER row in the repository states a determined form", {
   # facilities -- each with its form in determination_basis.
   # Session 104: + Susquehanna Workforce Network, Inc. (MD Labor, R/03cf), a
   # local workforce development board.
-  expect_equal(nrow(rev), 135L)
+  # Session 108: + 12 -- TX 6 (the 10/23 list), VT 3 (the 10-23 update), MS
+  # round 2 2 (Kinder Mind, Jefferson County Nursing Home), ID 1 -- each with
+  # its form in determination_basis.
+  expect_equal(nrow(rev), 147L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })
