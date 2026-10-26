@@ -1497,3 +1497,9 @@ NEWSROOM,2026-10-26T16:53:05Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON 
 NEWSROOM,2026-10-26T16:53:09Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-26T16:53:09Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-26T16:53:10Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+HI,2026-10-26T18:39:07Z,CHANGED,shpda,,trig_017PbAESTaaMfYZ3nKcS3j1m
+HI,2026-10-26T18:39:07Z,UNCHANGED,rhtp_home,,trig_017PbAESTaaMfYZ3nKcS3j1m
+HI,2026-10-26T18:39:07Z,UNCHANGED,rhtp_funding,,trig_017PbAESTaaMfYZ3nKcS3j1m
+HI,2026-10-26T18:39:07Z,CHANGED,gov_news,,trig_017PbAESTaaMfYZ3nKcS3j1m
+HI,2026-10-26T18:39:07Z,CHANGED,doh_news,,trig_017PbAESTaaMfYZ3nKcS3j1m
+HI,2026-10-26T18:39:07Z,TRIPWIRE,shpda,"[HI] 'shpda' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Publications Helpful Links Rural Health ADA Coordination Home. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_017PbAESTaaMfYZ3nKcS3j1m
