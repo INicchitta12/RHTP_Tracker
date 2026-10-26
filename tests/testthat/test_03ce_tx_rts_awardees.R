@@ -57,8 +57,9 @@ test_that("session 104 county test: bridge only where one enrolled hospital sits
   expect_silent(tx_rts_assert_county_bridges())
   cb <- tx[tx$awardee %in% setdiff(names(TRT_COUNTY_OF), "Winnie Stowell Hospital District"), ]
   # Session 108: 'UT Health Henderson' is now printed 'Henderson Hospital, LLC',
-  # an EXACT record, so six hand-coded county bridges remain.
-  expect_equal(nrow(cb), 6L)
+  # an EXACT record: six hand-coded county bridges remain, on eight lines
+  # (Lamb and Maverick each print two).
+  expect_equal(nrow(cb), 8L)
   expect_true(all(cb$distributed_to_hospital == "Yes"))
   expect_true(all(cb$determination_confidence == "LOW"))
   expect_equal(sort(unique(cb$ccn)), sort(c("451352", "451318", "450055", "450092", "450698")))
