@@ -1509,3 +1509,35 @@ VA,2026-10-26T17:34:25Z,UNCHANGED,vhha_foundation,,interactive
 VA,2026-10-26T17:34:25Z,UNCHANGED,ways_to_apply,,interactive
 VA,2026-10-26T17:34:25Z,UNCHANGED,news,,interactive
 VA,2026-10-26T17:34:25Z,UNCHANGED,vhcf_news,,interactive
+CA,2026-10-26T17:37:15Z,TRIPWIRE,(probe),[CA] the name-tripwire SCOPE end anchor for 'updates' was not found after the start: ‘Subscribe Footer Column 1’.,interactive
+CA,2026-10-26T17:38:37Z,CHANGED,funding,,interactive
+CA,2026-10-26T17:38:37Z,TRIPWIRE,funding,"[CA] 'funding' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Family Medicine Obstetrics. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CA,2026-10-26T17:40:05Z,UNCHANGED,(all),,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,funding,,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,programme,,interactive
+KY,2026-10-26T17:42:39Z,CHANGED,rch,,interactive
+KY,2026-10-26T17:42:39Z,CHANGED,chfs_grants,,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-26T17:42:39Z,UNCHANGED,rfa_rda,,interactive
+KY,2026-10-26T17:42:39Z,TRIPWIRE,rch,"[KY] 'rch' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Statewide Program Positions Deputy Director of Collective Impact RCH Technology Lead. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,funding,,interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,programme,,interactive
+KY,2026-10-26T17:43:38Z,CHANGED,rch,,interactive
+KY,2026-10-26T17:43:38Z,CHANGED,chfs_grants,,interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-26T17:43:38Z,UNCHANGED,rfa_rda,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,funding,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,programme,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,rch,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_et,,interactive
+KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_rda,,interactive
