@@ -178,4 +178,11 @@ The three buckets are never added together. Published figures leave `SOURCE_SUSP
 
 ## Suite
 
-See the CLAUDE.md "Last updated" line for the final count. Runs are recorded below as they completed.
+`Rscript tests/run_tests.R` on commit `7605afc`: **0 failures**. One standing skip (test_00's first-run branch). One warning, an unknown `cms_enrolment_match` column on `ms_round2_awardees.csv`, was fixed in the next commit by adding the column empty, and the affected files were re-run clean (03bj, 03cj, state_union, status table, rural cut).
+
+Pins carried forward in this session:
+- the partition-history chains in `test_03ap` and `test_03bj`, with a session-108 step: 1,774 − 189 = 1,585.
+- the rural cut in `test_03ar`: 518 rows, with TX 185 and ID 42.
+- the OTHER-form count, 135 → 147: TX +6, VT +3, MS r2 +2, ID +1.
+- the NAMED_HOSPITAL ranking. Texas is now first at $189.1M. Mississippi's two rounds, at $91.8M, pass Georgia at $90.3M.
+- VT's RCJ disposition CSV, rebuilt by `R/03bh --build`.

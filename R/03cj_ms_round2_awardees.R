@@ -345,6 +345,9 @@ ms2_awardees <- function(d = ms2_parse(), f = ms2_federal()) {
     rural_designation = NA_character_,
     reviewer = NA_character_,
     recipient_subtype = t$subtype,
+    # Empty on every row: UMMC Greenwood's bridge is by LOCATION (the one
+    # enrolled hospital in Greenwood), which none of the three codes names.
+    cms_enrolment_match = NA_character_,
     county = d$county,
     award_pool = d$section,
     row_in_pool = d$row_in_section,
