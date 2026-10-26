@@ -1471,3 +1471,8 @@ RI,2026-10-26T14:01:34Z,UNCHANGED,rss,,interactive
 RI,2026-10-26T14:01:34Z,UNCHANGED,index,,interactive
 CMS,2026-10-26T14:08:07Z,CHANGED,newsroom+medicaid,new states: FL MD WY; new releases in listed states: 4 (AK GA MS TX); changed rows: 0,interactive
 CMS,2026-10-26T14:08:07Z,CHANGED,obligation_report,NEW CMS obligation report linked: RHTP-Obligated-Funds-20261014.pdf. Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.,interactive
+AK,2026-10-26T14:29:21Z,UNCHANGED,(all),,trig_015gBufPkXhff7pa6igt2GSU
+CT,2026-10-26T15:42:21Z,CHANGED,opm,,trig_01MkoE5FCTVpcbi3MrzbS3NE
+CT,2026-10-26T15:42:21Z,CHANGED,programme,,trig_01MkoE5FCTVpcbi3MrzbS3NE
+CT,2026-10-26T15:42:21Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE
+CT,2026-10-26T15:42:21Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
