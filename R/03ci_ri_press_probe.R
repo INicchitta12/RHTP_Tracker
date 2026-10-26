@@ -144,11 +144,12 @@ ri_findings <- function(live_rss, arch_rss, live_idx, arch_idx) {
   f
 }
 
+#' The live bytes of one watched page, INTO MEMORY only (never data/evidence/)
+ri_live <- function(key) rhtp_watch_fetch(RI_PAGES$url[RI_PAGES$key == key], RI_AGENT)
+
 ri_probe <- function() {
-  live_rss <- rhtp_probe_get("rss", function() rhtp_watch_fetch(RI_PAGES$url[1], RI_AGENT),
-                             function() ri_archived("rss"))
-  live_idx <- rhtp_probe_get("index", function() rhtp_watch_fetch(RI_PAGES$url[2], RI_AGENT),
-                             function() ri_archived("index"))
+  live_rss <- rhtp_probe_get("rss", function() ri_live("rss"), function() ri_archived("rss"))
+  live_idx <- rhtp_probe_get("index", function() ri_live("index"), function() ri_archived("index"))
   arch_rss <- ri_archived("rss"); arch_idx <- ri_archived("index")
   findings <- ri_findings(live_rss, arch_rss, live_idx, arch_idx)
   # THE SHARED NAME TRIPWIRE (§2.3), on the index's AGENCY LIST only -- the

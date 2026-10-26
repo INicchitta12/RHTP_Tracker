@@ -293,6 +293,10 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   expect_equal(n$rows, 1585L)
   expect_equal(round(n$dollars, 2), 1439954278.58)
   expect_equal(n$states, 34L)
+  n$rows <- n$rows - 9L
+  n$dollars <- n$dollars - 7979000
+  expect_equal(n$rows, 1576L)
+  expect_equal(round(n$dollars, 2), 1431975278.58, tolerance = 0)
   n$rows <- n$rows - 38L
   n$dollars <- n$dollars - 5561417.40
   n$states <- n$states - 1L
@@ -355,7 +359,8 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 101: + NRHPF's R+R subaward (NV, owner ruling), $20,278,054.31.
   # Session 102: + NRHP's RHOAP-18 and RHIT-19 (owner ruling), $4,170,261.00.
   # Session 104: + Ohio's ODH 22-hospital pool, $30,300,000.
-  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 30300000 -
+  # Session 107: + VA VHCF's VCU Health pair, $1,000,000.
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 1000000 - 30300000 -
                        4170261 - 20278054.31, 2), 30806856.12)
   # Session 98: + HARI and NHA (CMS_OBLIGATION_ASSOCIATION), $19,314,845.17.
   expect_equal(round(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"] - 19314845.17, 2),

@@ -563,6 +563,10 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   expect_equal(named$rows, 1585L)
   expect_equal(round(named$dollars, 2), 1439954278.58, tolerance = 0)
   expect_equal(named$states, 34L)
+  named$rows <- named$rows - 9L
+  named$dollars <- named$dollars - 7979000
+  expect_equal(named$rows, 1576L)
+  expect_equal(round(named$dollars, 2), 1431975278.58, tolerance = 0)
   named$rows <- named$rows - 38L
   named$dollars <- named$dollars - 5561417.40
   named$states <- named$states - 1L
@@ -689,10 +693,12 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 102: + NRHP's RHOAP-18 ($3,772,261.00) and RHIT-19 ($398,000.00)
   # on the owner's extension of that ruling, 2 rows / $4,170,261.00.
   # Session 104: + Ohio's $30,300,000 pool for ODH's 22 named hospitals (one
-  # row, rounded, never split). Subtracted first.
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 85555171.43)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 7L)
-  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 30300000
+  # row, rounded, never split). Session 107: + VA VHCF's VCU Health pair
+  # (Community Memorial + Tappahannock), $1,000,000, one row, never split.
+  # Both subtracted first.
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 86555171.43)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 8L)
+  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 1000000 - 30300000
   expect_equal(round(pn, 2), 55255171.43)
   expect_equal(round(pn - 4170261, 2), 51084910.43)
   expect_equal(round(pn - 4170261 - 20278054.31, 2), 30806856.12)
