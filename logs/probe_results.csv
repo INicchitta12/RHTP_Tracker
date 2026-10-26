@@ -1503,3 +1503,9 @@ MS,2026-10-26T17:32:39Z,UNCHANGED,gov_newsroom,,interactive
 MS,2026-10-26T17:32:39Z,ERROR,dom_completed,SSL peer certificate or SSH remote key was not OK [medicaid.ms.gov]: SSL certificate problem: unable to get local issuer certificate,interactive
 MS,2026-10-26T17:32:39Z,UNCHANGED,release,,interactive
 MS,2026-10-26T17:32:39Z,UNCHANGED,closed,,interactive
+VA,2026-10-26T17:33:44Z,TRIPWIRE,(probe),"[VA] 'ways_to_apply' NAMES A NEW IMPLEMENTATION PARTNER: ‘Eastern Shore Regional Collaborative’, ‘Northern Piedmont Regional Collaborative’, ‘Roanoke-Alleghany/Central Shenandoah/New River Valley Regional Collaborative’, ‘Southside Regional Collaborative’, ‘SWVA Regional Collaborative’. THAT IS THE SIGNAL, NOT A DEFECT. Check it against va_year1_awardees.csv's first-tier partners and read the RFA it administers.",interactive
+VA,2026-10-26T17:34:25Z,UNCHANGED,vhcf,,interactive
+VA,2026-10-26T17:34:25Z,UNCHANGED,vhha_foundation,,interactive
+VA,2026-10-26T17:34:25Z,UNCHANGED,ways_to_apply,,interactive
+VA,2026-10-26T17:34:25Z,UNCHANGED,news,,interactive
+VA,2026-10-26T17:34:25Z,UNCHANGED,vhcf_news,,interactive
