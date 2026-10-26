@@ -16,3 +16,4 @@ file  bytes  sha256
 2026-09-03_oh_ohio_university_award_release.html  369459  e0f959ecef37e511939d451df5b6aff241d5887c7706c7d5fd4b8f4ce98de026
 2026-09-03_oh_odh_rhtp_programme.html  288083  8cdc5c603737ea496636bd0d651641aa53b62133bc94e75e14303f5f1b6ae2ab
 2026-09-03_oh_allotment_release.html  366115  8e0115a5bf4dce8f29f971879d841726f98edc9a1c39877428365b4ec2c4655e
+2026-10-26_oh_odh_rhtp_programme.html  285519  9d8d986e07f046f43f0776f7feafa0f5caa5a0093ebe22dadc4d75298dd5c40b
