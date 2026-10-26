@@ -18,7 +18,9 @@
 #     It TRIPS if the ambulance sentence or the "75 agencies" sentence goes,
 #     because those two sentences are what R/03bv's five rows rest on.
 #   * grants -- NAME-DIFFED; TRIPS if the "Date Awarded: Sept. 29, 2026" block
-#     goes, or on a NEW award sentence (a second round, the CIH pilot grant).
+#     goes, or on a NEW award sentence (a second round). Since session 107 it
+#     also anchors the CIH pilot block (awarded 10-13, $3.63M, nobody named),
+#     re-based to 2026-10-26.
 #   * rfps, home -- NAME-DIFFED; TRIP on a new award sentence.
 #   * communications -- DPHHS's RHTP announcement index. NOT name-diffed (an
 #     index of headlines moves every week, §2.3); TRIPS on a new headline
@@ -49,7 +51,7 @@ MT_PAGES <- tibble::tribble(
   "release", "https://dphhs.mt.gov/News/2026/September/Investment-in-Rural-EMS",
   file.path(MT_DIR, "2026-10-05_mt_dphhs_rural_ems_award_release.html"), TRUE,
   "grants", paste0(MT_BASE, "Grants"),
-  file.path(MT_DIR, "2026-10-05_mt_rhtp_grants.html"), TRUE,
+  file.path(MT_DIR, "2026-10-26_mt_rhtp_grants.html"), TRUE,
   "rfps", paste0(MT_BASE, "RHTP-RFPs"),
   file.path(MT_DIR, "2026-10-05_mt_rhtp_rfps.html"), TRUE,
   "home", MT_BASE,
@@ -65,7 +67,19 @@ MT_ANCHORS <- list(
     "Four agencies were awarded ambulances at a cost of approximately $340,000 each",
     "75 agencies, including three tribal governments, have been awarded funding for 238 pieces of equipment"),
   grants = c("Date Awarded: Sept. 29, 2026", "Amount: $8.7 million",
-             "The funds will support 78 EMS agencies."))
+             "The funds will support 78 EMS agencies.",
+             # SESSION 107: the 10-20 and 10-23 firings tripped on the CIH
+             # Pilot Site Grant block gaining "Date Awarded: Oct. 13, 2026 ·
+             # Amount: $3.63 million". It names NOBODY (the name tripwire
+             # stayed quiet), and its class is "emergency medical services
+             # (EMS) to administer Community Integrated Health (CIH)
+             # programs": an awarded round, unnamed, $0 of hospital money.
+             # Re-based on the owner's approval to 2026-10-26 after reading
+             # the diff (only this block moved); the 10-05 copy stays. The
+             # block is now an anchor, so a roster replacing it, or its
+             # removal, trips; the name tripwire is unchanged.
+             "13, 2026 Amount: $3.63 million",
+             "for emergency medical services (EMS) to administer Community Integrated Health (CIH) programs."))
 MT_AWARD_WORDS <- paste0("\\baward(s|ed|ee|ees)?\\b|\\brecipients?\\b|",
                          "\\bselected\\b|\\bgrantees?\\b|\\bfunding decisions\\b")
 

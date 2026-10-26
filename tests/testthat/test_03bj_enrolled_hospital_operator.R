@@ -288,9 +288,10 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # (1 / $1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Subtracted first.
   # Session 104: + TX county-test bridges (7 / $1,987,387.40), MD Labor
   # (9 / $3,574,030) and Ohio's 22 named hospitals at $0, a 34th state:
-  # 1,576 / $1,431,975,278.58 / 34. Subtracted first.
-  expect_equal(n$rows, 1576L)
-  expect_equal(round(n$dollars, 2), 1431975278.58)
+  # 1,576 / $1,431,975,278.58 / 34. Session 107: + 2 WV, + 7 VA VHCF
+  # Productivity: 1,585 / $1,439,954,278.58 / 34. Subtracted first.
+  expect_equal(n$rows, 1585L)
+  expect_equal(round(n$dollars, 2), 1439954278.58)
   expect_equal(n$states, 34L)
   n$rows <- n$rows - 38L
   n$dollars <- n$dollars - 5561417.40

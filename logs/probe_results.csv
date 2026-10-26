@@ -1459,3 +1459,15 @@ IL,2026-10-20T19:38:04Z,UNCHANGED,hfs_stakeholder,,interactive
 IL,2026-10-20T19:38:04Z,UNCHANGED,gov_press,,interactive
 IL,2026-10-20T19:38:04Z,UNCHANGED,planning_method,,interactive
 IL,2026-10-20T19:38:04Z,UNCHANGED,gov_sitemap,,interactive
+VA,2026-10-26T13:52:04Z,TRIPWIRE,(probe),"[VA] 'vhha_foundation' NO LONGER SAYS: ""Awards announced by October 30, 2026"". The dated anchor this watch rests on has moved. Read the page: it may have awarded, re-dated, or re-worded (§2.2).",interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,release,,interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,grants,,interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,rfps,,interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,home,,interactive
+MT,2026-10-26T13:58:03Z,CHANGED,communications,,interactive
+RI,2026-10-26T14:00:51Z,UNCHANGED,rss,,interactive
+RI,2026-10-26T14:00:51Z,UNCHANGED,index,,interactive
+RI,2026-10-26T14:01:34Z,UNCHANGED,rss,,interactive
+RI,2026-10-26T14:01:34Z,UNCHANGED,index,,interactive
+CMS,2026-10-26T14:08:07Z,CHANGED,newsroom+medicaid,new states: FL MD WY; new releases in listed states: 4 (AK GA MS TX); changed rows: 0,interactive
+CMS,2026-10-26T14:08:07Z,CHANGED,obligation_report,NEW CMS obligation report linked: RHTP-Obligated-Funds-20261014.pdf. Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.,interactive

@@ -671,6 +671,15 @@ test_that("the committed trigger list carries Virginia, and medicaid.gov has cau
   # file's own latest first_seen. A row stuck newsroom-only for weeks is the
   # finding (medicaid.gov stopped updating, or its parse regressed).
   only <- live[live$source == "CMS_NEWSROOM", ]
+  # Session 107: a release medicaid.gov has OMITTED (not lagged) is recorded,
+  # with its archived evidence, in config/cms_medicaid_gov_omissions.csv and
+  # exempted here. NC's 2026-09-30 release failed this check on the 10-22 and
+  # 10-26 runs and blocked the monitor from committing anything. Every row NOT
+  # listed is still held to 21 days, so a new straggler still fails.
+  om <- readr::read_csv(here::here("config", "cms_medicaid_gov_omissions.csv"),
+                        show_col_types = FALSE, progress = FALSE)
+  expect_true(all(file.exists(here::here(om$evidence))))
+  only <- only[!only$url %in% om$url, ]
   latest <- max(as.Date(live$first_seen))
   expect_true(all(latest - as.Date(only$date) <= 21))
   expect_false(any(live$source == "MEDICAID_GOV" & live$state == "VA"))

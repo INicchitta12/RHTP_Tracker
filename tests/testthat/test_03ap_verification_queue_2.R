@@ -558,9 +558,10 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # (1 / $1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Subtracted first.
   # Session 104: + TX county-test bridges (7 / $1,987,387.40), MD Labor
   # (9 / $3,574,030) and Ohio's 22 named hospitals at $0, a 34th state:
-  # 1,576 / $1,431,975,278.58 / 34. Subtracted first.
-  expect_equal(named$rows, 1576L)
-  expect_equal(round(named$dollars, 2), 1431975278.58, tolerance = 0)
+  # 1,576 / $1,431,975,278.58 / 34. Session 107: + 2 WV, + 7 VA VHCF
+  # Productivity: 1,585 / $1,439,954,278.58 / 34. Subtracted first.
+  expect_equal(named$rows, 1585L)
+  expect_equal(round(named$dollars, 2), 1439954278.58, tolerance = 0)
   expect_equal(named$states, 34L)
   named$rows <- named$rows - 38L
   named$dollars <- named$dollars - 5561417.40

@@ -1184,6 +1184,8 @@ WV,wv_year1_awardees.csv,18,Plateau Medical Center,,FEDERAL_RECORD_CCN,"CMS enro
 WV,wv_year1_awardees.csv,19,Webster Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511301: PART A PROVIDER - HOSPITAL",FALSE,511301,ORG_WEBSITE
 WV,wv_year1_awardees.csv,20,Broaddus Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511300,GENERAL_KNOWLEDGE
 WV,wv_year1_awardees.csv,21,Vandalia Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,27,West Virginia United (WVU) Health System,2500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510001: PART A PROVIDER - HOSPITAL",FALSE,510001,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,28,West Virginia United (WVU) Health System,900000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510001: PART A PROVIDER - HOSPITAL",FALSE,510001,GENERAL_KNOWLEDGE
 TN,tn_year1_awardees.csv,26,Cookeville Regional Medical Center Foundation,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440059: PART A PROVIDER - HOSPITAL",FALSE,440059,GENERAL_KNOWLEDGE
 TN,tn_year1_awardees.csv,36,"Macon Hospital, Inc",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 441305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,441305,GENERAL_KNOWLEDGE
 WA,wa_year1_awardees.csv,4,University of Washington (WWAMI Family Medicine Residency Network),5460000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 500008: PART A PROVIDER - HOSPITAL",FALSE,500008,ORG_WEBSITE
@@ -1360,6 +1362,13 @@ VA,va_year1_vhcf_awardees.csv,18,Ballad Health,2000000,NOT_RECORDED,,FALSE,,GENE
 VA,va_year1_vhcf_awardees.csv,19,Carilion Medical Center,69000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490024: PART A PROVIDER - HOSPITAL",FALSE,490024,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,20,Danville Regional Medical Center,150000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490075: PART A PROVIDER - HOSPITAL",FALSE,490075,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,22,Sentara Health,1700000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_productivity_awardees.csv,1,Ballad Health,1000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_productivity_awardees.csv,2,Bath County Community Hospital,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 491300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,491300,ORG_WEBSITE
+VA,va_year1_vhcf_productivity_awardees.csv,3,Buchanan General Hospital,418000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
+VA,va_year1_vhcf_productivity_awardees.csv,4,Buchanan General Hospital,121000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
+VA,va_year1_vhcf_productivity_awardees.csv,5,Carilion Medical Center,1000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490024: PART A PROVIDER - HOSPITAL",FALSE,490024,ORG_WEBSITE
+VA,va_year1_vhcf_productivity_awardees.csv,6,Sentara Health,1000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_productivity_awardees.csv,8,Valley Health System,1000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,2,Mayo Clinic,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,3,CHI Health St Marys,38239.96,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,4,CHI Health St Marys,2584.53,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE

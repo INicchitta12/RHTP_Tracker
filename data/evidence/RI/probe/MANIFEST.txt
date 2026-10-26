@@ -1,0 +1,2 @@
+c3c8e6fb47f9df9d8080d0963d57870e202b4b7e6e4b70b6b495a68eea7065e7  2026-10-26_ri_gov_press_rss.xml  https://www.ri.gov/rss/1/pressrelease.rss  full_page_sha256=c3c8e6fb47f9df9d8080d0963d57870e202b4b7e6e4b70b6b495a68eea7065e7  2026-10-26T14:00:45Z
+f648c3fc9d5d386e6bc85572285690f38c4a064f3c4a19df25ad00d01552cdb1  2026-10-26_ri_gov_press_index.html  https://www.ri.gov/press/  full_page_sha256=38824f0a01b08d89907b1aa4575e79e1a8b371a8585963c725bf3cd77a0899a6  2026-10-26T14:00:48Z

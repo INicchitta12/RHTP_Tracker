@@ -315,6 +315,11 @@ STATE_FILES <- c(
   # system parents (GENERAL_KNOWLEDGE, LOW, subtractable); the two UVA Health
   # strings are queued under AHC_STRING_NAMES_NO_ENROLLED_ENTITY.
   VA_VHCF = "data/reference/va_year1_vhcf_awardees.csv",
+  # Session 107: VHCF's Provider Productivity round (R/03ch, sourcing R/03bx's
+  # typing). 23 priced lines, $8,644,000. The VCU Health pair (Community
+  # Memorial + Tappahannock, $1,000,000) is ONE POOL_NAMED_HOSPITALS row,
+  # Connecticut's shape; "UVA Health" joins the AHC_STRING queue.
+  VA_VHCF_PP = "data/reference/va_year1_vhcf_productivity_awardees.csv",
   # Session 94: Kentucky's first named recipient (R/03by). Lake Cumberland
   # District Health Department, RCH Hub Lead, a local health department, NO
   # amount; "up to $10 million" over five years is a regional CEILING held as
