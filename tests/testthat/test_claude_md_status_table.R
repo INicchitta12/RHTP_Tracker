@@ -40,7 +40,7 @@ TABLE_LABEL_TO_KEY <- c(
   "AL r1" = "AL", "AL r2" = "AL_R2", "NC SBHC" = "NC_SBHC", "OK Doulas" = "OK_DOULAS",
   "OK RRR" = "OK_RRR", "OK CDM" = "OK_CDM", "DE FQHC" = "DE_FQHC",
   "SD contracts" = "SD_CONTRACTS", "SD rounds" = "SD_ANNOUNCEMENTS",
-  "SD CCBHC" = "SD_CCBHC", "VA VHCF" = "VA_VHCF",
+  "SD CCBHC" = "SD_CCBHC", "VA VHCF" = "VA_VHCF", "VA VHCF PP" = "VA_VHCF_PP",
   "IN GROW" = "IN_GROW",
   "NE CMS obl" = "NE_CMS", "PA CMS obl" = "PA_CMS",
   "OK BHI" = "OK_BHI", "OK EMS/CP" = "OK_EMS_CP",

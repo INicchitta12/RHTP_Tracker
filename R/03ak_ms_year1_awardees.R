@@ -233,6 +233,15 @@ MS_SOURCES <- tibble::tribble(
         "documents in one uniform form (positive), and the RHTP-titled",
         "HORNE LLP consultant award of 2025-08-13 -- FOUR AND A HALF MONTHS",
         "BEFORE the NOA (§6.2 negative, and RCJ's third candidate)."),
+  "closed",
+  "https://mississippirhtp.com/funding/closed-funding-opportunities/",
+  "2026-10-20_ms_rhtp_closed_funding_opportunities.html",
+  paste("SESSION 106. WHERE WEI AND EmPATH NOW LIVE. Between 10-14 and 10-16",
+        "both left the funding page for this one, which says only 'The",
+        "application periods for the following opportunities have passed'",
+        "and names nobody. Watched because the release's 30-45-day window",
+        "runs to 2026-10-29, and an award posted beside the opportunity it",
+        "closes would land HERE, on a page the probe did not read."),
   "dom_programme",
   "https://medicaid.ms.gov/rural-health-transformation-program/",
   "2026-09-03_ms_dom_rhtp_programme.html",
@@ -255,11 +264,24 @@ ms_path <- function(key) file.path(MS_EVIDENCE_DIR, ms_source(key, "file"))
 ms_get <- function(url, label) {
   resp <- httr::GET(url, httr::user_agent(MS_USER_AGENT),
                     httr::config(followlocation = TRUE), httr::timeout(120))
+  # Session 106: from 2026-10-16 medicaid.ms.gov serves one placeholder, "Mississippi
+  # Division of Medicaid | Temporary Site" ("currently down due to a temporary
+  # outage affecting our web-hosting vendor"), for EVERY path, at HTTP 404 off
+  # the home page. That is not a redesign and there is no new path to find.
+  # Said by name, so the day the placeholder goes but the path still 404s reads
+  # differently in the log: then the procurement page HAS moved.
+  body <- httr::content(resp, as = "raw")
+  if (grepl("medicaid\\.ms\\.gov", url) &&
+      length(grepRaw("Temporary Site", body, fixed = TRUE))) {
+    stop("[MS] ", label, ": DOM WEBSITE OUTAGE -- medicaid.ms.gov serves its ",
+         "'Temporary Site' placeholder (HTTP ", httr::status_code(resp),
+         ") for ", url, ". Our access, not Mississippi (§0.4).", call. = FALSE)
+  }
   if (httr::status_code(resp) != 200L) {
     stop("[MS] ", label, ": HTTP ", httr::status_code(resp), " from ", url,
          call. = FALSE)
   }
-  httr::content(resp, as = "raw")
+  body
 }
 
 ms_assert_no_credentials <- function(raw, label) {
@@ -407,7 +429,7 @@ ms_award_language <- function(txt) {
 #' $205.9 million first-year budget is in no public roster. This fires the day
 #' either of those lands, which is the day this file gains rows.
 ms_assert_remaining_tranches <- function(bodies = NULL) {
-  for (k in c("funding", "home", "gov_newsroom")) {
+  for (k in c("funding", "home", "gov_newsroom", "closed")) {
     txt <- ms_html_text(k, if (!is.null(bodies)) bodies[[k]] else NULL)
     # The 167 are RECORDED, so the roster language that announced them must
     # not re-fire here every run -- Kentucky's and New Mexico's device. What
@@ -1177,6 +1199,13 @@ ms_status_table <- function() {
     "CLOSED_NO_AWARD_DATE_PUBLISHED", "No", NA_character_,
     paste("Vendor RFP, closed 2026-07-24. A statewide EMS assessment, so a",
           "vendor award rather than a subaward when it lands."),
+    MS_STATE, "DMH RFP DMH-RHTP-2027-001, Veterans and First Responders Telehealth",
+    "CLOSED_NO_AWARD_DATE_PUBLISHED", "No", NA_character_,
+    paste("SESSION 107 (owner-approved; found session 106 in DFA's MAGIC",
+          "bid search, object 3150007058). A Department of Mental Health",
+          "VENDOR procurement: advertised 2026-09-29, closed 2026-10-14, no",
+          "award published. TIER 2, a SOLICITATION, never an award figure;",
+          "when it lands it is a vendor contract, not a subaward."),
     MS_STATE, "Statewide Health Information Exchange consultant",
     "OPEN", "No", NA_character_,
     paste("MSDH procuring consulting services through the ITS Managed",
@@ -1391,7 +1420,8 @@ ms_disposition <- function(cands = ms_rcj_candidates(), d = ms_parse_release()) 
 # -- the live probe ----------------------------------------------------------
 
 ms_probe <- function() {
-  keys <- c("funding", "home", "gov_newsroom", "dom_completed", "release")
+  keys <- c("funding", "home", "gov_newsroom", "dom_completed", "release",
+            "closed")
   live <- purrr::map(keys, function(k) {
     r <- rhtp_probe_get(k, function() ms_get(ms_source(k, "url"), k),
                           ms_path(k)); Sys.sleep(2); r
@@ -1423,7 +1453,7 @@ ms_probe <- function() {
   # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
   # one of its ten award phrases matched. Subject pages only -- a control or a
   # press index moves for reasons that are not this state awarding.
-  nm_keys <- c("funding", "home")
+  nm_keys <- c("funding", "home", "closed")
   rhtp_assert_no_new_organisations_across(
     live = stats::setNames(
       purrr::map(nm_keys, function(k) ms_html_text(k, live[[k]])), nm_keys),

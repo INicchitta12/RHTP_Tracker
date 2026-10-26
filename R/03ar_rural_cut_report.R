@@ -336,10 +336,12 @@ rc_assert <- function(rows = rc_rows()) {
   # (+$1,623,498.82): 1,538 / $1,426,413,861.18 / 33. Session 104: + 7 TX
   # county-test bridges (+$1,987,387.40), + 9 MD Labor (+$3,574,030), + 22 OH
   # named hospitals at $0 (Ohio the 34th state): 1,576 / $1,431,975,278.58 / 34.
-  if (nrow(rows) != 1576L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1431975278.58) > 0.005 ||
+  # Session 107: + 2 WV (WVU Health System, $3,400,000) and + 7 VA VHCF
+  # Productivity ($4,579,000): 1,585 / $1,439,954,278.58 / 34.
+  if (nrow(rows) != 1585L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1439954278.58) > 0.005 ||
       dplyr::n_distinct(rows$state) != 34L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,576 rows / $1,431,975,278.58 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,585 rows / $1,439,954,278.58 ",
          "/ 34 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

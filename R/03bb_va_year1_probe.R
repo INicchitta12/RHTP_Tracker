@@ -53,7 +53,7 @@ VA_INTERMEDIATE <- here::here("config", "certs",
 VA_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "vhcf", "https://www.vhcf.org/rural-health/",
-  file.path(VA_DIR, "2026-10-12_vhcf_rural_health.html"), TRUE,
+  file.path(VA_DIR, "2026-10-26_vhcf_rural_health.html"), TRUE,
   "vhha_foundation", "https://vhhafoundation.org/virginia-rural-health-transformation/",
   file.path(VA_RECHECK, "vhha_foundation_rht.html"), TRUE,
   "ways_to_apply", paste0(VA_RHT, "/ways-to-apply/"),
@@ -61,16 +61,21 @@ VA_PAGES <- tibble::tribble(
   "news", paste0(VA_RHT, "/news--updates/"),
   file.path(VA_RECHECK, "rhtva_news_updates.html"), FALSE,
   "vhcf_news", "https://www.vhcf.org/news/",
-  file.path("data", "evidence", "VA", "vhcf", "2026-10-05_vhcf_news_index.html"), FALSE)
+  file.path("data", "evidence", "VA", "vhcf", "2026-10-26_vhcf_news_index.html"), FALSE)
 
 VA_ANCHORS <- list(
   # Session 99: VHCF re-dated Provider Productivity by ONE DAY, October 14 ->
   # October 15, 2026 (the VA Routine's 10-09 10:21Z TRIPWIRE, read 2026-10-12;
   # the VHCF news index was unchanged, so nothing has been announced). The
   # baseline is re-based to 2026-10-12; the 09-23 copy stays archived.
-  vhcf = paste("VHCF anticipates sharing a Notice of Awards by September 30,",
-               "2026, for Provider Interoperability and October 15, 2026, for",
-               "Provider Productivity."),
+  # SESSION 107: BOTH VHCF ROUNDS HAVE AWARDED. The 10-20 and 10-23 firings
+  # tripped on the sentence above going: /rural-health/ now says VHCF "has
+  # awarded $23 million to 31 organizations" (Interoperability, R/03bx, and
+  # Productivity, 2026-10-16, R/03ch, both extracted) and dates its NEXT cycle.
+  # The anchor is that next-cycle sentence, so a re-dating or a new round
+  # trips; both pages are re-based to 2026-10-26 after reading (the 10-12 and
+  # 10-05 copies stay archived).
+  vhcf = "We anticipate that the next funding cycle will open in Spring 2027.",
   vhha_foundation = "Awards announced by October 30, 2026")
 VA_AWARD_WORDS <- "\\baward(s|ed|ee|ees)?\\b|\\brecipients?\\b|\\bselected\\b|\\bgrantees?\\b"
 

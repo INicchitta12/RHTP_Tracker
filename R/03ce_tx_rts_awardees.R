@@ -168,6 +168,14 @@ tx_rts_read <- function(path = here::here(TRT_SOURCES$file[TRT_SOURCES$key == "l
     path, col_names = FALSE, .name_repair = "minimal", col_types = "text")),
     stringsAsFactors = FALSE)
   hdr <- which(d[[1]] %in% "Legal Name of Subrecipient")
+  # Session 107: the 10/23 list inserts a "County" column after the name. It is
+  # kept as `county` and dropped from the positional read, so every other
+  # column keeps the meaning the header assertion below pins.
+  county <- NULL
+  if (length(hdr) == 1L && identical(d[hdr, 2], "County")) {
+    county <- d[[2]]
+    d <- d[, -2, drop = FALSE]
+  }
   if (length(hdr) != 1L ||
       !identical(unname(unlist(d[hdr, 1:6])),
                  c("Legal Name of Subrecipient", "Initiative Number", "Total Award Amount",
@@ -196,6 +204,7 @@ tx_rts_read <- function(path = here::here(TRT_SOURCES$file[TRT_SOURCES$key == "l
     intent_to_award = body[[5]][keep],
     contract_executed = stringr::str_squish(body[[6]][keep]),
     list_section = ifelse(is.na(sec[keep]), "On the list before Oct. 8, 2026", sec[keep]))
+  if (!is.null(county)) out$county <- stringr::str_squish(county[(hdr + 1L):length(county)][keep])
   attr(out, "as_of") <- as_of
   out
 }

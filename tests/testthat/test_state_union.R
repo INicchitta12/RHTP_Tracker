@@ -315,6 +315,11 @@ STATE_FILES <- c(
   # system parents (GENERAL_KNOWLEDGE, LOW, subtractable); the two UVA Health
   # strings are queued under AHC_STRING_NAMES_NO_ENROLLED_ENTITY.
   VA_VHCF = "data/reference/va_year1_vhcf_awardees.csv",
+  # Session 107: VHCF's Provider Productivity round (R/03ch, sourcing R/03bx's
+  # typing). 23 priced lines, $8,644,000. The VCU Health pair (Community
+  # Memorial + Tappahannock, $1,000,000) is ONE POOL_NAMED_HOSPITALS row,
+  # Connecticut's shape; "UVA Health" joins the AHC_STRING queue.
+  VA_VHCF_PP = "data/reference/va_year1_vhcf_productivity_awardees.csv",
   # Session 94: Kentucky's first named recipient (R/03by). Lake Cumberland
   # District Health Department, RCH Hub Lead, a local health department, NO
   # amount; "up to $10 million" over five years is a regional CEILING held as
@@ -526,8 +531,13 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # SESSION 104: OHIO JOINS. ODH's "$30.3 million in one-time direct payments
   # to 22 rural hospitals" names all 22 and prints no split -- Tier 3, rounded,
   # the same condition. The rest of Ohio's $92M is shared and in no bucket.
-  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH"))
+  # SESSION 107: VIRGINIA JOINS. VHCF's "VCU Health, Community Memorial &
+  # Tappahannock Hospitals" is ONE $1,000,000 Provider Productivity award to a
+  # system and two separately enrolled hospitals (CCN 490098, 490084), no split
+  # -- Connecticut's shape exactly, Tier 3.
+  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "VA"))
   expect_equal(pooled_named$dollars[pooled_named$state == "OH"], 30300000)
+  expect_equal(pooled_named$dollars[pooled_named$state == "VA"], 1000000)
   # SESSION 102: + NRHP's RHOAP-18 and RHIT-19 on the owner's extension
   # ($4,170,261.00).
   expect_equal(round(pooled_named$dollars[pooled_named$state == "NV"], 2),

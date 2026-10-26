@@ -2342,10 +2342,60 @@ WY_AWARD_POSTED <- c(
   "executed contract", "executed agreement", "notice of award to",
   "contracts have been executed", "grant agreement signed"
 )
+# Read and judged NOT a recipient; matched EXACTLY (§2.3). Session 106
+# (proposed session 98, owner-approved session 106): every firing since 10-09
+# tripped on this run. It is the label of a button on the programme page,
+# "View Year One Award Approvals", whose target is Drive file
+# 1jqfbHzZPrX-_xT-uLg3TFXorckp3b3uX -- the 2026-08-11 approvals PDF this file
+# is extracted from. Re-read 2026-10-20: the live Drive bytes are 195,009
+# bytes, SHA-256 30aed248...c5b372, identical to the archived PDF. Session 106
+# also re-based the page, so the entry is inert until the label moves again.
+WY_NAME_FURNITURE <- list(programme = paste(
+  "Year One Award Approvals View Year One Award Approvals",
+  "Project and Budget Narratives"))
+
+# The Drive targets the programme page links, each READ. Wyoming publishes its
+# documents in Drive, so a NEW Drive link on this page is a new document and
+# is a finding, whatever its button says -- the furniture above silences one
+# label, never the next link. `folders/` is the 'View Documents In Google
+# Drive' folder (MANIFEST.txt); `file/d/` is the approvals PDF above.
+WY_KNOWN_DRIVE_TARGETS <- c(
+  "folders/1A1fOg0WLERH2y0EJROAZhdw8TGLIrBcm",
+  "file/d/1jqfbHzZPrX-_xT-uLg3TFXorckp3b3uX"
+)
+
+#' Drive targets linked from an HTML page, normalised to `folders/<id>` or
+#' `file/d/<id>` (a `uc?id=` / `open?id=` link is read as a file).
+wy_drive_targets <- function(html) {
+  hrefs <- stringr::str_match_all(
+    html, "href=[\"'](https?://(?:drive|docs)\\.google\\.com/[^\"']+)[\"']")[[1]][, 2]
+  folder <- stringr::str_match(hrefs, "/folders/([A-Za-z0-9_-]+)")[, 2]
+  file   <- dplyr::coalesce(
+    stringr::str_match(hrefs, "/d/([A-Za-z0-9_-]+)")[, 2],
+    stringr::str_match(hrefs, "[?&]id=([A-Za-z0-9_-]+)")[, 2])
+  out <- dplyr::case_when(!is.na(folder) ~ paste0("folders/", folder),
+                          !is.na(file)   ~ paste0("file/d/", file),
+                          TRUE           ~ hrefs)
+  sort(unique(out))
+}
+
+#' A finding for every Drive target the programme page links that nobody has
+#' read. Empty when the page links only `WY_KNOWN_DRIVE_TARGETS`.
+wy_drive_link_findings <- function(html, known = WY_KNOWN_DRIVE_TARGETS) {
+  new <- setdiff(wy_drive_targets(html), known)
+  if (!length(new)) return(character(0))
+  paste0("[WY] 'programme' LINKS ", length(new), " DRIVE TARGET(S) NOBODY HAS ",
+         "READ: ", paste(new, collapse = " | "), ". Wyoming publishes its ",
+         "award documents in Drive. Fetch it, READ it, and either extract it ",
+         "or add it to WY_KNOWN_DRIVE_TARGETS with the sentence that says what ",
+         "it is.")
+}
+
 wy_probe <- function() {
   keys <- c("programme", "public_notice", "applications", "submittable")
   cat("\nWYOMING -- live probe\n"); cat(strrep("-", 78), "\n")
   changed <- character(0)
+  findings <- character(0)
   for (k in keys) {
     body <- tryCatch(rawToChar(wy_get(wy_url(k), k)), error = function(e) {
       # Session 101: an unreachable page is logged ERROR, not left unlogged.
@@ -2374,8 +2424,10 @@ wy_probe <- function() {
     if (k != "submittable") {
       rhtp_assert_no_new_organisations(
         live = live_txt, archived = wy_html_text(wy_path(k)),
-        state = "WY", page = k)
+        state = "WY", page = k,
+        furniture = WY_NAME_FURNITURE[[k]] %||% character(0))
     }
+    if (k == "programme") findings <- c(findings, wy_drive_link_findings(body))
     if (k == "submittable" &&
         !stringr::str_detect(live_txt, stringr::fixed("no open calls for submissions"))) {
       cat("      THE APPLICATION PORTAL HAS AN OPEN CALL. Year 1 may have a\n")
@@ -2385,7 +2437,7 @@ wy_probe <- function() {
   }
   cat("\n  Next Advisory Committee meeting: 4 or 5 November 2026, with the CMS\n")
   cat("  federal site visit. Nothing is expected to move before then.\n")
-  invisible(changed)
+  invisible(list(changed = changed, findings = findings))
 }
 
 

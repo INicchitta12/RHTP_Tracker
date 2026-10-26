@@ -1441,6 +1441,36 @@ CO,2026-10-26T09:12:30Z,UNCHANGED,awardees,,trig_012SyFT6QNtKsZK6veV5KznF
 CO,2026-10-26T09:12:30Z,CHANGED,programme,,trig_012SyFT6QNtKsZK6veV5KznF
 DE,2026-10-26T11:42:56Z,UNCHANGED,release,,trig_013VNzWcrr3sZKAgTgUTuEvL
 DE,2026-10-26T11:42:56Z,CHANGED,programme,,trig_013VNzWcrr3sZKAgTgUTuEvL
+WY,2026-10-20T19:19:15Z,UNCHANGED,(all),,interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,funding,,interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,home,,interactive
+MS,2026-10-20T19:25:09Z,CHANGED,gov_newsroom,,interactive
+MS,2026-10-20T19:25:09Z,ERROR,dom_completed,"[MS] dom_completed: DOM WEBSITE OUTAGE -- medicaid.ms.gov serves its 'Temporary Site' placeholder (HTTP 404) for https://medicaid.ms.gov/resources/procurement/completed-procurements/. Our access, not Mississippi (§0.4).",interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,release,,interactive
+MS,2026-10-20T19:25:09Z,UNCHANGED,closed,,interactive
+CT,2026-10-20T19:31:14Z,UNCHANGED,(all),,interactive
+IL,2026-10-20T19:37:49Z,UNCHANGED,hfs_rhtp,,interactive
+IL,2026-10-20T19:37:49Z,UNCHANGED,hfs_stakeholder,,interactive
+IL,2026-10-20T19:37:49Z,UNCHANGED,gov_press,,interactive
+IL,2026-10-20T19:37:49Z,UNCHANGED,planning_method,,interactive
+IL,2026-10-20T19:37:49Z,UNCHANGED,gov_sitemap,,interactive
+IL,2026-10-20T19:38:04Z,UNCHANGED,hfs_rhtp,,interactive
+IL,2026-10-20T19:38:04Z,UNCHANGED,hfs_stakeholder,,interactive
+IL,2026-10-20T19:38:04Z,UNCHANGED,gov_press,,interactive
+IL,2026-10-20T19:38:04Z,UNCHANGED,planning_method,,interactive
+IL,2026-10-20T19:38:04Z,UNCHANGED,gov_sitemap,,interactive
+VA,2026-10-26T13:52:04Z,TRIPWIRE,(probe),"[VA] 'vhha_foundation' NO LONGER SAYS: ""Awards announced by October 30, 2026"". The dated anchor this watch rests on has moved. Read the page: it may have awarded, re-dated, or re-worded (§2.2).",interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,release,,interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,grants,,interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,rfps,,interactive
+MT,2026-10-26T13:58:03Z,UNCHANGED,home,,interactive
+MT,2026-10-26T13:58:03Z,CHANGED,communications,,interactive
+RI,2026-10-26T14:00:51Z,UNCHANGED,rss,,interactive
+RI,2026-10-26T14:00:51Z,UNCHANGED,index,,interactive
+RI,2026-10-26T14:01:34Z,UNCHANGED,rss,,interactive
+RI,2026-10-26T14:01:34Z,UNCHANGED,index,,interactive
+CMS,2026-10-26T14:08:07Z,CHANGED,newsroom+medicaid,new states: FL MD WY; new releases in listed states: 4 (AK GA MS TX); changed rows: 0,interactive
+CMS,2026-10-26T14:08:07Z,CHANGED,obligation_report,NEW CMS obligation report linked: RHTP-Obligated-Funds-20261014.pdf. Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.,interactive
 AK,2026-10-26T14:29:21Z,UNCHANGED,(all),,trig_015gBufPkXhff7pa6igt2GSU
 CT,2026-10-26T15:42:21Z,CHANGED,opm,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-10-26T15:42:21Z,CHANGED,programme,,trig_01MkoE5FCTVpcbi3MrzbS3NE

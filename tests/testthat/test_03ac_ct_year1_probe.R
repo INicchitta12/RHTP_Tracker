@@ -507,8 +507,8 @@ test_that("the OPM staffing-study RFP and the HALF footer are quiet, a real reci
     state = "CT", furniture = CT_NAME_FURNITURE), "Day Kimball")
 })
 
-test_that("session 94: opm and documents are re-based; the prior copies stay on disk", {
-  expect_equal(ct_source("opm", "file"), "2026-10-07_ct_opm_rfp_index_AWARD_DATE_PASSED.html")
+test_that("sessions 94 and 106: opm and documents are re-based; the prior copies stay on disk", {
+  expect_equal(ct_source("opm", "file"), "2026-10-20_ct_opm_rfp_index_AWARD_DATE_PASSED.html")
   expect_equal(ct_source("documents", "file"), "2026-10-07_ct_dss_rhtp_documents.html")
   expect_true(file.exists(file.path(CT_EVIDENCE_DIR, "2026-09-02_ct_opm_rfp_index_AWARD_DATE_PASSED.html")))
   expect_true(file.exists(file.path(CT_EVIDENCE_DIR, "2026-09-02_ct_dss_rhtp_documents.html")))
@@ -517,4 +517,29 @@ test_that("session 94: opm and documents are re-based; the prior copies stay on 
   expect_true(grepl("26OPM0202AA", ct_html_text("opm"), fixed = TRUE))
   expect_true(grepl("26OHS001", ct_html_text("opm"), fixed = TRUE))
   expect_true(grepl("Connecticut PACE Frequently Asked Questions", ct_html_text("documents"), fixed = TRUE))
+})
+
+
+test_that("session 106: the breadcrumb run is furniture in both variants, and only that run", {
+  prog <- ct_html_text("programme")
+  expect_match(prog, "Documents Overview -->", fixed = TRUE)
+  old <- ct_reduce_html(readBin(
+    file.path(CT_EVIDENCE_DIR, "2026-09-02_ct_dss_rhtp_programme.html"), "raw",
+    file.size(file.path(CT_EVIDENCE_DIR, "2026-09-02_ct_dss_rhtp_programme.html"))))
+  # the leak and its repair, each against the other: quiet
+  for (pair in list(c(prog, old), c(old, prog))) {
+    expect_silent(rhtp_assert_no_new_organisations(
+      live = pair[1], archived = pair[2], state = "CT", page = "programme",
+      furniture = CT_NAME_FURNITURE$programme))
+  }
+  # a name welded into the breadcrumb is a different string and fires
+  live <- sub("Documents Overview -->", "Documents Overview Awardees -->",
+              prog, fixed = TRUE)
+  expect_error(rhtp_assert_no_new_organisations(
+    live = live, archived = prog, state = "CT", page = "programme",
+    furniture = CT_NAME_FURNITURE$programme), "NAMES")
+  expect_true(all(file.exists(file.path(CT_EVIDENCE_DIR, c(
+    "2026-09-02_ct_dss_rhtp_programme.html",
+    "2026-10-07_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
+    "2026-10-05_ct_dmhas_rfp_index.html")))))
 })

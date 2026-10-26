@@ -33,10 +33,12 @@ NEWSROOM,trig_016FmK98AUDVtzPBGtE5VVh2,"50 16 * * 1,4",R/03bg_newsroom_sweep.R,t
 IN,trig_01KZZ2aZLdhxo8X827vsNMyE,50 9 * * 5,R/03bi_in_grow_regional_awardees.R,weekly,2026-10-12T19:11:21Z,trig_01NZAAixvNoKcZMBKAiCUCYD;trig_01ARYZjcdJN2zm2fEP3ccDvq;trig_01FsVCDzD7N8pSMs6dzTnzSQ;trig_01UZ5QWh8No7uiRBz9S8T23C,2026-09-24T17:31:14Z;2026-09-24T19:06:11Z;2026-09-28T20:18:44Z;2026-09-30T15:30:22Z,trig_01UZ5QWh8No7uiRBz9S8T23C@2026-10-16
 NE,trig_01WDA8s6uzUSaCDF7DapUzX1,30 10 * * 3,R/03r_ne_year1_awardees.R,weekly,2026-09-30T15:30:46Z,trig_019qmwzbTMo9k83etPqjJV7z;trig_01WL3yTThf5vXHqP8vkCfdNF,2026-09-24T18:02:04Z;2026-09-28T20:18:47Z,
 NV,trig_013u9wiLjrzkXJJ6PCax6LVm,"10 15 * * 2,5",R/03u_nv_year1_awardees.R,twice-weekly,2026-10-01T14:53:26Z,trig_012WYj2vrKgD7oxuURp3ygCb;trig_01UHYF2PAcBJCBpJFtdocviC;trig_014c3kseN8WpCL5cMVcdaaYi,2026-09-24T18:02:15Z;2026-09-28T20:19:01Z;2026-09-30T15:31:09Z,
-MT,trig_01YJFwwSQ1pEQEScfUfGzgSD,"40 17 * * 2,5",R/03bl_mt_year1_probe.R,twice-weekly,2026-09-30T15:31:32Z,trig_019e4wVjfnazAh7AvYcr1yUN,2026-09-28T20:19:07Z,
+MT,trig_013NBAwSZ2Rh4hhbjtLZtYA6,"40 17 * * 2,5",R/03bl_mt_year1_probe.R,twice-weekly,2026-10-20T19:41:52Z,trig_019e4wVjfnazAh7AvYcr1yUN;trig_01YJFwwSQ1pEQEScfUfGzgSD,2026-09-28T20:19:07Z;2026-09-30T15:31:32Z,trig_01YJFwwSQ1pEQEScfUfGzgSD@2026-10-26
 NH,trig_01D5rZ2KjtjmyXcRuVjNxQr4,10 18 * * 3,R/03bm_nh_year1_probe.R,weekly,2026-09-30T15:33:30Z,trig_013kuBUJ39zAwF7SM7RYfwvk,2026-09-28T20:19:26Z,
 OK,trig_0195epZAcyF5L1WbYJYMQ5Za,10 18 * * 4,R/03t_ok_year1_awardees.R,weekly,2026-09-30T15:34:33Z,trig_01MT1CVgVd1LZQbMpRoRMRGD,2026-09-28T20:19:10Z,
 MN,trig_018tLxX82fNyKgxw5JkRw5PV,10 18 * * 5,R/03bn_mn_year1_probe.R,weekly,2026-09-30T15:35:36Z,trig_01TkZG5yB5a1LnuBMv67tPEj,2026-09-28T20:19:26Z,
 AL,trig_01NtbC312pu2u8d7uePQXEty,40 14 * * 4,R/03bs_al_year2_probe.R,weekly,2026-10-02T13:57:49Z,,,
 IA,trig_01ECTghY5iHNh5RvWGLMfqBY,20 15 * * 4,R/03z_ia_year1_awardees.R,weekly,2026-10-15T15:21:00Z,,,
 HI,trig_017PbAESTaaMfYZ3nKcS3j1m,30 18 * * 1,R/03cd_hi_year1_awardees.R,weekly,2026-10-16T19:01:00Z,,,
+IL,trig_01B62afWZaQXR4Hooi2gjZmH,20 16 * * 3,R/03cg_il_rhtp_probe.R,weekly,2026-10-20T19:42:15Z,,,
+RI,trig_01WXYStckEw4tjE1Er77BV94,50 19 * * 2,R/03ci_ri_press_probe.R,weekly,2026-10-26T14:05:16Z,,,

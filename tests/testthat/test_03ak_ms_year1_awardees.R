@@ -440,3 +440,25 @@ test_that("Mississippi now contributes 68 rows and $47.5M, and that is new", {
   expect_equal(sum(st$stage == "CLOSED_AWARD_DATE_PUBLISHED_PENDING"), 0L)
   expect_lt(sum(d$amount), MS_ALLOTMENT)
 })
+
+
+# -- (s106) WEI and EmPATH moved to the closed page; the tripwire follows them --
+test_that("the pending-tranche tripwire reads the closed-opportunities page", {
+  expect_true("closed" %in% MS_SOURCES$key)
+  expect_silent(ms_assert_remaining_tranches())
+  fake <- charToRaw(paste0(
+    "<html><body><p>The application periods for the following opportunities ",
+    "have passed.</p><p>Workforce Expansion Initiative (WEI) award ",
+    "recipients are listed below.</p></body></html>"))
+  expect_error(ms_assert_remaining_tranches(bodies = list(closed = fake)),
+               "'closed' now carries AWARD language")
+})
+
+test_that("the archived closed page names WEI and EmPATH and no awardee", {
+  txt <- ms_html_text("closed")
+  expect_match(txt, "application periods for the following opportunities have passed",
+               fixed = TRUE)
+  expect_match(txt, "WORKFORCE EXPANSION INITIATIVE (WEI)", fixed = TRUE)
+  expect_match(txt, "EmPATH", fixed = TRUE)
+  expect_length(ms_award_language(txt), 0L)
+})

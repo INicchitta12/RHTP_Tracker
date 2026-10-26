@@ -138,7 +138,7 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 WV_STATE     <- "WV"
 WV_ALLOTMENT <- 199476099        # cms_fy2026_allotments.csv (§7.1)
-WV_TOTAL     <- 15404875         # the PRICED rows (session 103: + $6,156,458); unpriced rows carry none
+WV_TOTAL     <- 18804875         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000); unpriced rows carry none
 WV_NOA_DATE  <- as.Date("2025-12-29")
 WV_DIR       <- file.path("data", "evidence", "recheck", "2026-09-23", "WV")
 WV_CSV       <- here::here("data", "reference", "wv_year1_awardees.csv")
@@ -165,7 +165,8 @@ WV_SLUG <- c(
   eye  = "governor-morrisey-announces-2-million-investment-expand-teleophthalmology-network-across",
   phg  = "governor-morrisey-announces-500000-strengthen-mental-health-and-addiction-recovery-services",
   pca  = "governor-morrisey-announces-nearly-22-million-strengthen-community-health-centers-across",
-  ars  = "governor-morrisey-announces-more-17-million-help-west-virginians-recovery-return-work")
+  ars  = "governor-morrisey-announces-more-17-million-help-west-virginians-recovery-return-work",
+  wvu  = "governor-morrisey-announces-more-34-million-rural-health-transformation-awards-west")
 
 # AWARD RELEASES READ AND JUDGED NOT RHTP (session 99). Each slug is excluded
 # from the tripwire with the sentence that justifies it; a release is never
@@ -196,7 +197,8 @@ WV_PATHS <- c(
   eye  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_wvu_eye_institute_2m.html"),
   phg  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_potomac_highlands_guild_500k.html"),
   pca  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_wvpca_mva_2_2m.html"),
-  ars  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_ascension_recovery_1_5m_and_arc.html"))
+  ars  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_ascension_recovery_1_5m_and_arc.html"),
+  wvu  = file.path("data", "evidence", "WV", "2026-10-26_wv_art_wvu_health_system_3_4m.html"))
 
 # Minnie Hamilton's CMS enrolment (session 85), read from the archived file.
 WV_MH_ENROLMENT <- paste0(
@@ -442,6 +444,46 @@ WV_AWARDS_S103 <- tibble::tribble(
 WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S103)
 WV_S103_KEYS <- c("eye", "phg", "pca", "ars")
 
+# Session 107: the 2026-10-19 release, "More Than $3.4 Million in Rural Health
+# Transformation Awards to West Virginia United Health" (the 10-23 Routine's
+# TRIPWIRE). Two awards to one recipient, "West Virginia United (WVU) Health
+# System". Pre-approved under session 107's Task 3 (under $10M of hospital
+# money, no new ruling): the recipient is a SYSTEM PARENT, typed on the
+# system-parent rulings exactly as Vandalia Health was (session 101). No CMS WV
+# enrolment carries its legal name; "WEST VIRGINIA UNIVERSITY HEALTH SYSTEM" is
+# the DBA of WEIRTON MEDICAL CENTER INC (CCN 510023), a different legal body,
+# and a DBA coincidence is never a bridge (§2). The CCG award is printed only as
+# "more than $2.5 million": the row carries $2,500,000, the published floor,
+# flagged AMOUNT_ROUNDED_IN_SOURCE, so the figure understates and never
+# overstates. The $900,000 MSCF award is exact.
+WV_WVU_WHY <- paste0(
+  "SYSTEM PARENT (session 107), typed HOSPITAL_OR_SYSTEM on the system-parent ",
+  "rulings (Vandalia Health session 101; Sanford/Avera, Valley Health/Ballad/",
+  "Sentara, Guthrie, Mercy) -- LOW, GENERAL_KNOWLEDGE, no CCN. The release ",
+  "names 'West Virginia United (WVU) Health System' and states no form; the ",
+  "MSCF award deploys staff 'across multiple WVU Health facilities' to 'hospitals ",
+  "experiencing staffing shortages'. CMS Hospital Enrollments (",
+  WV_INV_ENROL_FILE, ") carries no record under this legal name: its flagship ",
+  "enrols as WEST VIRGINIA UNIVERSITY HOSPITALS INC (CCN 510001), which the ",
+  "release does not name, and 'WEST VIRGINIA UNIVERSITY HEALTH SYSTEM' is only ",
+  "the DBA of WEIRTON MEDICAL CENTER INC (CCN 510023), a different legal body, so ",
+  "nothing is bridged (§2). Not the session-104 WVU Eye Institute or the ",
+  "session-54 Center for Nursing Education rulings: those named university ",
+  "units, this names the health system.")
+WV_AWARDS_S107 <- tibble::tribble(
+  ~key, ~date, ~initiative, ~awardee, ~amount, ~quote,
+  ~recipient_type, ~basis_type, ~flow_type, ~dist, ~why, ~rounded,
+  "wvu", "2026-10-19", "Connected Care Grid",
+  "West Virginia United (WVU) Health System", 2500000,
+  "One of the awards, totaling more than $2.5 million through the State's Connected Care Grid (CCG) initiative",
+  "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "DIRECT", "Yes", WV_WVU_WHY, TRUE,
+  "wvu", "2026-10-19", "Mountain State Care Force",
+  "West Virginia United (WVU) Health System", 900000,
+  "A second award of $900,000 through the Mountain State Care Force (MSCF) initiative",
+  "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "DIRECT", "Yes", WV_WVU_WHY, FALSE)
+WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S107)
+WV_S107_KEYS <- "wvu"
+
 # Each release's own headline total, which the priced rows must not exceed
 # (CCWV) or which bounds the unpriced remainder (Minnie Hamilton).
 WV_CCWV_TOTAL <- 1103614     # "more than $1.1 million": the four rows, exactly
@@ -464,7 +506,7 @@ wv_assert_sources <- function() {
                                  label = paste("WV", k, "footer"))
   }
   if (abs(sum(WV_AWARDS$amount, na.rm = TRUE) - WV_TOTAL) > 0.005) {
-    stop("[WV] the priced awards no longer sum to $9,248,417.", call. = FALSE)
+    stop("[WV] the priced awards no longer sum to WV_TOTAL.", call. = FALSE)
   }
   if (sum(WV_AWARDS$amount[WV_AWARDS$key == "ccwv"]) != WV_CCWV_TOTAL ||
       !grepl("more than $1.1 million", wv_text("ccwv"), fixed = TRUE)) {
@@ -496,6 +538,15 @@ wv_assert_sources <- function() {
   ars <- wv_text("ars")
   if (!grepl("Lauren's Wish CAREERS Program will receive $211,700 in Appalachian Regional Commission funding", ars, fixed = TRUE)) {
     stop("[WV] the ARS release no longer marks Lauren's Wish as ARC money.", call. = FALSE)
+  }
+  # Session 107: the CCG floor plus the exact MSCF award make the headline's
+  # "More Than $3.4 Million", and the CCG figure is a floor ("more than").
+  wvu <- wv_text("wvu")
+  if (sum(WV_AWARDS$amount[WV_AWARDS$key == "wvu"]) != 3400000 ||
+      !grepl("More Than $3.4 Million", wvu, fixed = TRUE) ||
+      !grepl("Additional awards will be announced", wvu, fixed = TRUE)) {
+    stop("[WV] the WVU Health System release no longer reads as 'More Than ",
+         "$3.4 Million' in two awards with more to follow.", call. = FALSE)
   }
   if (!all(as.Date(WV_AWARDS$date) > WV_NOA_DATE)) stop("[WV] date test.")
   invisible(TRUE)
@@ -557,8 +608,8 @@ wv_year1_awardees <- function() {
     reviewer = NA_character_,
     initiative = a$initiative,
     recipient_type_source = ifelse(
-      typed, paste0(ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
-                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): "))),
+      typed, paste0(ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
+                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): ")))),
                     a$why, " Classifier said ",
                     cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
@@ -581,6 +632,7 @@ wv_year1_awardees <- function() {
       is.na(a$amount) ~ "NOT PRICED: the release prices one of Minnie Hamilton's three projects; the rest of 'More Than $4 Million' is not divided (§6.2).",
       a$awardee == "Ascend WV" ~ "ROUNDED IN SOURCE: printed only as '$2.4 million'.",
       a$key == "ars" ~ "ROUNDED IN SOURCE: printed only as '$1.5 million'. The headline's '$1.7 million' adds ARC money and is not this row's total.",
+      a$key == "wvu" & a$rounded ~ "A FLOOR IN SOURCE: printed only as 'more than $2.5 million'; $2,500,000 is the published lower bound, never reconstructed upward.",
       a$rounded ~ "ROUNDED IN SOURCE: printed only as '$1.7 million'.",
       TRUE ~ "EXACT, as printed in the release."),
     basis_type = a$basis_type,
@@ -756,10 +808,13 @@ wv_status_table <- function() {
     ~state, ~channel, ~stage, ~publishes_roster, ~note,
     WV_STATE, "WV Department of Health / Governor releases",
     "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
-    "Twenty-one award rows in eight releases (2026-09-04..30), twelve priced, $9,248,417. Minnie Hamilton's 'More Than $4 Million' prices one of three projects; the 09-30 'Investments' release prices none of its seven. Each release says more awards will follow, so this is a PARTIAL year. Watched by `--probe` (session 55).",
+    "Twenty-one award rows in eight releases (2026-09-04..30), twelve priced, $9,248,417; sessions 103 and 107 add seven rows in five more releases (10-13..19), all priced, for 28 rows / $18,804,875 in all. Minnie Hamilton's 'More Than $4 Million' prices one of three projects; the 09-30 'Investments' release prices none of its seven. Each release says more awards will follow, so this is a PARTIAL year. Watched by `--probe` (session 55).",
     WV_STATE, "2026-09-30 'More Than $3.2 Million in Rural Health Transformation Investments' release",
     "AWARDED_NAMED_NOT_PRICED", "Yes",
     "Seven named recipients, no per-recipient amount ('more than $3.2 million' in all, never divided, §6.2). Six hospitals typed on CMS WV enrolment (rows at $0); Vandalia Health, a system parent, typed HOSPITAL_OR_SYSTEM at $0, LOW, on the owner's ruling (session 101; WV_VANDALIA_SYSTEM_PARENT resolved). Extracted session 100 on the owner's approval; the headline says 'Investments', which the pre-session-99 tripwire missed.",
+    WV_STATE, "2026-10-19 'More Than $3.4 Million ... to West Virginia United Health' release",
+    "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
+    "Two awards to West Virginia United (WVU) Health System: CCG 'more than $2.5 million' (a floor, carried as $2,500,000) and MSCF $900,000. A system parent, typed HOSPITAL_OR_SYSTEM, LOW, GENERAL_KNOWLEDGE, no CCN, on the system-parent rulings (session 107). 'Additional awards will be announced'.",
     WV_STATE, "2026-08-14 '$4.2 million investment' release",
     "SOLICITATION_TIER_2", "No",
     "Two funding OPPORTUNITIES (Tier 2), not awards. Kept out of the award file (§0.2).",
@@ -773,10 +828,11 @@ wv_validate <- function() {
   d <- wv_year1_awardees()
   # Session 103: + 5 rows, all priced. Session 104: WVU Eye Institute is
   # NON_HOSPITAL on the owner's ruling (was Unclear), so no WV row is Unclear.
-  stopifnot(nrow(d) == 26L, sum(!is.na(d$amount)) == 17L,
+  # Session 107: + 2 rows, both priced and both hospital (WVU Health System).
+  stopifnot(nrow(d) == 28L, sum(!is.na(d$amount)) == 19L,
             sum(d$distributed_to_hospital == "Unclear") == 0L,
-            sum(d$distributed_to_hospital == "Yes") == 12L,   # session 101: + Vandalia Health ($0)
-            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 2924000)
+            sum(d$distributed_to_hospital == "Yes") == 14L,   # session 101: + Vandalia Health ($0)
+            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 6324000)
   message("[WV] all assertions pass.")
   invisible(TRUE)
 }
@@ -795,7 +851,7 @@ wv_build <- function() {
                      dplyr::across(dplyr::everything(), as.character))
   readr::write_csv(s71$s71_overlay(d, basename(WV_CSV)), WV_CSV, na = "")
   readr::write_csv(wv_status_table(), WV_STATUS_CSV, na = "")
-  message("[WV] wrote 26 award rows.")
+  message("[WV] wrote ", nrow(d), " award rows.")
 }
 
 wv_report <- function() {
