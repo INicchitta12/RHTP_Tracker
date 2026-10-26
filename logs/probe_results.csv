@@ -1579,3 +1579,12 @@ HI,2026-10-26T18:39:07Z,UNCHANGED,rhtp_funding,,trig_017PbAESTaaMfYZ3nKcS3j1m
 HI,2026-10-26T18:39:07Z,CHANGED,gov_news,,trig_017PbAESTaaMfYZ3nKcS3j1m
 HI,2026-10-26T18:39:07Z,CHANGED,doh_news,,trig_017PbAESTaaMfYZ3nKcS3j1m
 HI,2026-10-26T18:39:07Z,TRIPWIRE,shpda,"[HI] 'shpda' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Publications Helpful Links Rural Health ADA Coordination Home. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_017PbAESTaaMfYZ3nKcS3j1m
+KY,2026-10-26T19:33:08Z,UNCHANGED,funding,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,programme,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,rch,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,chfs_grants,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_cmhc,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_chw,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_cp,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_et,,trig_01Jk2igfuAsju6aaCnT3bP28
+KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_rda,,trig_01Jk2igfuAsju6aaCnT3bP28
