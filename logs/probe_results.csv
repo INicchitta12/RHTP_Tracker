@@ -1541,3 +1541,14 @@ KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_chw,,interactive
 KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_cp,,interactive
 KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_et,,interactive
 KY,2026-10-26T17:45:25Z,UNCHANGED,rfa_rda,,interactive
+WI,2026-10-26T17:46:15Z,CHANGED,dhs_rhtp,,interactive
+WI,2026-10-26T17:46:15Z,CHANGED,dhs_solicit,,interactive
+WI,2026-10-26T17:46:15Z,UNCHANGED,dhs_deck_0723,,interactive
+WI,2026-10-26T17:46:15Z,TRIPWIRE,dhs_rhtp,"[WI] 'dhs_rhtp' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Home About DHS Rural Health Transformation Program Rural Health Transformation Program | Home Advisory Council About DHS Rural Health Transformation Program Harnessing. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+WI,2026-10-26T17:46:15Z,TRIPWIRE,dhs_solicit,"[WI] 'dhs_solicit' NAMES 6 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Wisconsin Title V MCH Adolescent Mental Health Youth Engagement Expansion Funding Request for Application | Asthma Education Services Provider Capacity Building Request for Application | Reproductive Health and Family Planning Grants Request for Application | Southern Region Children’s Resource Center for Children and Youth | Special Health Care Needs | Wisconsin Hospital Preparedness Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+WI,2026-10-26T17:48:11Z,CHANGED,dhs_rhtp,,interactive
+WI,2026-10-26T17:48:11Z,CHANGED,dhs_solicit,,interactive
+WI,2026-10-26T17:48:11Z,UNCHANGED,dhs_deck_0723,,interactive
+WI,2026-10-26T17:49:05Z,UNCHANGED,dhs_rhtp,,interactive
+WI,2026-10-26T17:49:05Z,UNCHANGED,dhs_solicit,,interactive
+WI,2026-10-26T17:49:05Z,UNCHANGED,dhs_deck_0723,,interactive
