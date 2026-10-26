@@ -1490,3 +1490,16 @@ OH,2026-10-26T17:26:26Z,CHANGED,odh,,interactive
 OH,2026-10-26T17:26:26Z,TRIPWIRE,(finding),OH ODH HOSPITALS PAGE: [OH] ODH's CIN/Hub or maternal-care recipient list moved: re-read it (session 108).,interactive
 OH,2026-10-26T17:26:26Z,TRIPWIRE,odh,"[OH] 'odh' NAMES 14 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Resources | Centers for Medicare and Medicaid Services | U.S. Department of Health and Human Services | Ohio’s Rural Health Transformation Program Program | Healthcare Workforce | Community Health Workers | Clinically Integrated Networks and Rural Health Innovation Hubs | Maternal Care | School-Based Health Centers | Oral Health | Emergency Medical Services | Contact the Program (and 2 more). THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
 OH,2026-10-26T17:27:32Z,UNCHANGED,(all),,interactive
+MS,2026-10-26T17:29:40Z,CHANGED,funding,,interactive
+MS,2026-10-26T17:29:40Z,CHANGED,home,,interactive
+MS,2026-10-26T17:29:40Z,CHANGED,gov_newsroom,,interactive
+MS,2026-10-26T17:29:40Z,ERROR,dom_completed,SSL peer certificate or SSH remote key was not OK [medicaid.ms.gov]: SSL certificate problem: unable to get local issuer certificate,interactive
+MS,2026-10-26T17:29:40Z,UNCHANGED,release,,interactive
+MS,2026-10-26T17:29:40Z,UNCHANGED,closed,,interactive
+MS,2026-10-26T17:29:40Z,TRIPWIRE,funding,"[MS] 'funding' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Apply for the EHR Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+MS,2026-10-26T17:32:39Z,UNCHANGED,funding,,interactive
+MS,2026-10-26T17:32:39Z,UNCHANGED,home,,interactive
+MS,2026-10-26T17:32:39Z,UNCHANGED,gov_newsroom,,interactive
+MS,2026-10-26T17:32:39Z,ERROR,dom_completed,SSL peer certificate or SSH remote key was not OK [medicaid.ms.gov]: SSL certificate problem: unable to get local issuer certificate,interactive
+MS,2026-10-26T17:32:39Z,UNCHANGED,release,,interactive
+MS,2026-10-26T17:32:39Z,UNCHANGED,closed,,interactive
