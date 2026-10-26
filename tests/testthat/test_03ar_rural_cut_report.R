@@ -55,7 +55,7 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   expect_equal(nrow(rows), 1585L)
   expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1439954278.58,
                tolerance = 0)
-  expect_equal(nrow(rows[rows$state != "TX", ]), 1368L)   # session 104: + 9 MD, + 22 OH
+  expect_equal(nrow(rows[rows$state != "TX", ]), 1377L)   # session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })

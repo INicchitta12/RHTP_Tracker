@@ -4,11 +4,12 @@
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
 wv <- wv_year1_awardees()
 
-test_that("twenty-six rows, seventeen priced, $15,404,875, each quoted verbatim from its release", {
+test_that("twenty-eight rows, nineteen priced, $18,804,875, each quoted verbatim from its release", {
   # Session 103: + five rows from the 10-13/10-14 releases ($6,156,458).
-  expect_equal(nrow(wv), 26L)
-  expect_equal(sum(!is.na(wv$amount)), 17L)
-  expect_equal(sum(wv$amount, na.rm = TRUE), 15404875)
+  # Session 107: + two WVU Health System rows from the 10-19 release ($3,400,000).
+  expect_equal(nrow(wv), 28L)
+  expect_equal(sum(!is.na(wv$amount)), 19L)
+  expect_equal(sum(wv$amount, na.rm = TRUE), 18804875)
   expect_silent(wv_assert_sources())
 })
 
@@ -16,9 +17,11 @@ test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton, the six
   h <- wv[wv$distributed_to_hospital == "Yes", ]
   expect_setequal(unique(h$awardee), c("CAMC/Vandalia Health", "Cabell Huntington Foundation",
                                        "Minnie Hamilton Health Care Center",
-                                       WV_INV_ENROL$awardee, "Vandalia Health"))
-  expect_equal(nrow(h), 12L)
-  expect_equal(sum(h$amount, na.rm = TRUE), 2924000)
+                                       WV_INV_ENROL$awardee, "Vandalia Health",
+                                       "West Virginia United (WVU) Health System"))
+  expect_equal(nrow(h), 14L)   # session 107: + 2 WVU Health System (system parent, LOW)
+  expect_equal(sum(h$amount, na.rm = TRUE), 6324000)
+  expect_true(all(h$determination_confidence[h$awardee == "West Virginia United (WVU) Health System"] == "LOW"))
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # The foundation rests on §10.2's named-parent row, a reading -> LOW.
   expect_equal(h$determination_confidence[h$awardee == "Cabell Huntington Foundation"], "LOW")
