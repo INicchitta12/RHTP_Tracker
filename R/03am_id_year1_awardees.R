@@ -68,6 +68,25 @@
 # an executed Idaho RHTP contract sits inside it is a statement about OUR
 # ACCESS, never about Idaho.
 #
+# ============================================================================
+# SESSION 108: IDAHO PUBLISHED ITS ROSTER, AND THIS FILE NOW WRITES IT.
+# ============================================================================
+# DHW's funding page (updated 10-21-2026) heads the section "Closed and awarded
+# funding opportunities" and links "See the list of awardees as of Oct. 16"
+# (Idaho-RHTP_List of Awardees dated 10192026.xlsx, archived under
+# data/evidence/recheck/2026-10-26/ID/). The "Awardee: Comagine Health" line is
+# gone: Comagine is now two priced lines on the list. Everything above this
+# block describes the page as it stood before; R/03ck_id_roster_awardees.R
+# reads the list and types it, and id_year1_awardees() returns its 112 award
+# lines (the two inter-agency MOA/MOU lines are status rows, Vermont's GMCB
+# footing). The probe is rewritten as a ROSTER WATCH (standing rule: a watched
+# state that awards gets its probe rewritten, never patched): it trips when the
+# funding page links a list other than the one extracted, or names an
+# organisation the re-based page did not. The funding and about pages were
+# re-based to the 2026-10-26 copies after reading the diff (only the "Closed
+# and awarded" heading, the list link and the closed-opportunity titles moved;
+# the about page added two link labels).
+#
 # Usage:
 #   Rscript R/03am_id_year1_awardees.R --fetch [--force] | --validate |
 #           --build | --probe | --report
@@ -79,6 +98,7 @@ suppressPackageStartupMessages({
 
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
+source(here::here("R", "03ck_id_roster_awardees.R"))
 
 ID_STATE     <- "ID"
 ID_ALLOTMENT <- 185974368        # cms_fy2026_allotments.csv (§7.1)
@@ -102,11 +122,11 @@ ID_BASE <- paste0("https://healthandwelfare.idaho.gov/providers/",
 ID_SOURCES <- tibble::tribble(
   ~key, ~url, ~file, ~note,
   "funding", paste0(ID_BASE, "funding-opportunities-rural-health"),
-  "2026-09-03_id_rhtp_funding_opportunities.html",
-  paste("THE AWARD SOURCE AND THE WATCH. Names Comagine Health as the ONE",
-        "awardee, with no amount, and lists eleven further opportunities."),
+  "2026-10-26_id_rhtp_funding_opportunities.html",
+  paste("THE WATCH (re-based session 108). Links DHW's list of awardees as of",
+        "Oct. 16; the 2026-09-03 copy, which named Comagine Health alone, stays."),
   "about", paste0(ID_BASE, "about-rural-health-transformation-program-grant"),
-  "2026-09-03_id_rhtp_about.html",
+  "2026-10-26_id_rhtp_about.html",
   paste("DHW's RHTP programme page -- the scope that carries the provenance",
         "the weak 'This website' footer does not.")
 )
@@ -156,7 +176,8 @@ id_fetch <- function(force = FALSE) {
   writeLines(c(
     "IDAHO -- RHTP evidence archive",
     "",
-    "Fetched 2026-09-03 by R/03am_id_year1_awardees.R --fetch.",
+    "Fetched 2026-09-03 by R/03am_id_year1_awardees.R --fetch; the two pages",
+    "re-based 2026-10-26 (session 108) after reading the diff. Older copies stay.",
     "Bodies are written with writeBin(), so re-hashing reproduces the digest.",
     "",
     "THE FUNDING PAGE PRINTS ITS OWN LAST-UPDATED DATE ('Page last updated:",
@@ -207,23 +228,26 @@ id_have_archive <- function() {
 
 # -- assertions --------------------------------------------------------------
 
-#' Idaho names Comagine Health, and names nobody else
-id_assert_one_awardee <- function(body = NULL) {
+#' SESSION 108: the funding page links the list this file extracted, and no
+#' other. A new list (a new date, a new document id) is a new roster to read.
+ID_ROSTER_LINK_TEXT <- "See the list of awardees as of Oct. 16."
+ID_ROSTER_DOCID <- "docid=37915"
+id_assert_roster_link <- function(body = NULL) {
   txt <- stringr::str_replace_all(id_html_text("funding", body), "\\s+", " ")
-  want <- paste("CLOSED 7/10/26: Maternal and Child Health Initiatives",
-                "Awardee: Comagine Health Perinatal Quality Collaborative",
-                "OB Readiness Anticipated award start date: Aug. 14, 2026")
-  if (!stringr::str_detect(txt, stringr::fixed(want))) {
-    stop("[ID] the funding page no longer carries Idaho's one award line in ",
-         "the form this file records. Read it -- either the award changed or ",
-         "Idaho named more.", call. = FALSE)
+  raw <- if (is.null(body)) readBin(id_path("funding"), "raw", file.size(id_path("funding"))) else body
+  html <- rawToChar(raw[raw != as.raw(0)])
+  ok_txt <- stringr::str_detect(txt, stringr::fixed(ID_ROSTER_LINK_TEXT))
+  ok_doc <- stringr::str_detect(html, stringr::fixed(ID_ROSTER_DOCID))
+  n <- stringr::str_count(txt, stringr::regex("list of awardees", ignore_case = TRUE))
+  if (!ok_txt || !ok_doc || n != 1L) {
+    stop("[ID] the funding page no longer links ONE list of awardees as of Oct. 16 (",
+         ID_ROSTER_DOCID, "): ", n, " 'list of awardees' link(s), text ",
+         if (ok_txt) "present" else "GONE", ", document id ", if (ok_doc) "present" else "GONE",
+         ". DHW has posted a new roster: fetch it (WebLink needs a session cookie), set ",
+         "R/03ck's IDR_FILE, rebuild and re-read the typing.", call. = FALSE)
   }
-  n <- stringr::str_count(txt, stringr::fixed("Awardee:"))
-  if (n != 1L) {
-    stop("[ID] the funding page now carries ", n, " 'Awardee:' lines where it ",
-         "carried ONE. Idaho has named more recipients -- read the page; ",
-         "id_year1_awardees.csv is a hand-read single row and nothing else ",
-         "updates it.", call. = FALSE)
+  if (stringr::str_detect(txt, stringr::fixed("Awardee: Comagine Health"))) {
+    stop("[ID] the old single 'Awardee:' line is back: read the page.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -239,8 +263,8 @@ id_assert_no_amount <- function(body = NULL) {
     stop("[ID] the funding page now carries ", length(vals),
          " currency figures (", paste(money, collapse = ", "),
          ") where it carried exactly ONE -- the allotment, in the CMS footer. ",
-         "If Idaho has priced its award, this file must be REWRITTEN: its ",
-         "empty amount column is a finding.", call. = FALSE)
+         "Idaho prices its awards on the linked list, not on this page; a ",
+         "figure here is new and must be read.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -288,15 +312,16 @@ id_assert_after_noa <- function() {
   invisible(as.integer(ID_CLOSED - ID_NOA_DATE))
 }
 
-#' One row, no dollars, and NO bucket at all
-id_assert_contributes_no_bucket <- function(awards = NULL) {
+#' SESSION 108: the roster's hospital partition, pinned.
+ID_ROSTER_NAMED_ROWS <- 48L
+ID_ROSTER_NAMED_DOLLARS <- 85389815.69
+id_assert_roster_partition <- function(awards = NULL) {
   d <- if (is.null(awards)) id_year1_awardees() else awards
-  stopifnot(nrow(d) == 1L, all(is.na(d$amount)))
+  if (nrow(d) != IDR_LINES - 2L) stop("[ID] the award file is not the list's 112 non-MOA lines.", call. = FALSE)
   part <- rhtp_hospital_dollar_partition(d)
-  if (nrow(part) != 0L) {
-    stop("[ID] Idaho now contributes to a hospital bucket. Its one named ",
-         "recipient is a nonprofit whose form Idaho does not state, so it ",
-         "should contribute to none -- read the change.", call. = FALSE)
+  if (!identical(part$bucket, "NAMED_HOSPITAL") || part$rows != ID_ROSTER_NAMED_ROWS ||
+      abs(part$dollars - ID_ROSTER_NAMED_DOLLARS) > 0.005) {
+    stop("[ID] the roster's hospital partition moved: read the change.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -304,104 +329,35 @@ id_assert_contributes_no_bucket <- function(awards = NULL) {
 
 # -- the award file ----------------------------------------------------------
 
-id_year1_awardees <- function() {
-  cls <- rhtp_classify_recipient_type("Comagine Health", ID_STATE)
-  tibble::tibble(
-    state = ID_STATE,
-    row_no = 1L,
-    awardee = "Comagine Health",
-    amount = NA_real_,
-    recipient_type = cls$recipient_type,
-    distributed_to_hospital = "No",
-    note = paste(
-      "Maternal and Child Health Initiatives; Perinatal Quality Collaborative",
-      "OB Readiness. Solicitation closed 2026-07-10; 'Anticipated award start",
-      "date: Aug. 14, 2026'. NO AMOUNT PUBLISHED -- Idaho's funding page",
-      "carries exactly one currency figure and it is the state allotment."),
-    recipient_confirmed = "Yes",
-    amount_confirmed = "No",
-    fiscal_year = "FY2026 (Year 1)",
-    source_document_title = paste(
-      "Funding opportunities | Rural Health Transformation Program |",
-      "Idaho Department of Health and Welfare"),
-    state_source_url = id_source("funding", "url"),
-    validation_source_type = "NOTICE_OF_INTENT_TO_AWARD",
-    extraction_method = "DIRECT_TEXT",
-    validator = "R/03am_id_year1_awardees.R",
-    ccn = NA_character_,
-    aha_id = NA_character_,
-    rural_designation = NA_character_,
-    reviewer = NA_character_,
-    recipient_type_source = paste(
-      "NOT STATED BY THE SOURCE. Idaho publishes a name, a programme and a",
-      "date and nothing about the recipient's organisational form, so §8's",
-      "standing answer applies -- and here it is the right answer rather than",
-      "a miss (contrast Delaware, where the spec states the form and the",
-      "classifier's fallback is wrong)."),
-    determination_confidence = cls$determination_confidence,
-    flag_reason = "RECIPIENT_TYPE_INFERRED;AMOUNT_PRELIMINARY",
-    award_pool = "Maternal and Child Health Initiatives",
-    budget_period = "Budget Period 1",
-    flow_type = "NON_HOSPITAL",
-    hospital_benefiting = "Unclear",
-    hospital_attribution = "NOT_HOSPITAL",
-    intermediary_name = NA_character_,
-    determination_basis = paste(
-      "§10.2 NON_HOSPITAL on the RECIPIENT (§0.3a): Comagine Health is a named",
-      "organisation that is not a hospital, and Idaho publishes no",
-      "organisation type for it. THE ACTIVITY IS NOT THE CODE -- a Perinatal",
-      "Quality Collaborative is the kind of body that works WITH birthing",
-      "hospitals, and Idaho's page says nothing whatever about money reaching",
-      "one, so IN_KIND_BENEFIT is not supported either (§10.2 requires the",
-      "source to show hospitals using what the recipient delivers, and the",
-      "source here is a single line). hospital_benefiting is Unclear rather",
-      "than No for that reason and it moves no figure. AMOUNT IS EMPTY",
-      "because Idaho published none; the award is an INTENT because 'award",
-      "start date' is Idaho's own future tense."),
-    amount_basis = paste(
-      "NOT PUBLISHED. Idaho names the awardee and no figure. The only",
-      "currency on the page is the $185,974,367.81 CMS footer, which is the",
-      "STATE ALLOTMENT (§0.2) and must never be read as this award."),
-    round_amount = NA_real_,
-    solicitation_closed = ID_CLOSED,
-    anticipated_start = ID_START,
-    source_archive_path = file.path("data", "evidence", "ID",
-                                    id_source("funding", "file")))
-}
+id_year1_awardees <- function() id_roster_awardees()
 
 id_status_table <- function() {
+  moa <- id_roster_moas()
   tibble::tribble(
     ~state, ~channel, ~stage, ~publishes_roster, ~note,
-    ID_STATE, "Maternal and Child Health Initiatives",
-    "AWARDED_ONE_NAMED_NO_AMOUNT", "Yes - ONE NAME, NO FIGURE",
-    paste("Closed 2026-07-10. 'Awardee: Comagine Health'. The only award",
-          "Idaho has named."),
-    ID_STATE, "Open and recently posted opportunities (11)",
-    "OPEN_OR_PRE_AWARD", "No",
-    paste("Healthcare Infrastructure Support, Healthcare Career Advancement,",
-          "School-Based Family Support Hubs, Chronic Disease Prevention and",
-          "Cancer Screening, Idaho Cognitive Care Pathway Network, Cognitive",
-          "Health Workforce Response Network, Diabetes Prevention and",
-          "Management, Crisis Intervention Training, Behavioral Health",
-          "Prevention, Statewide Chronic Disease Education Network and more,",
-          "with vendor conferences into early September 2026. THE MOST ACTIVE",
-          "OF THE FOURTEEN LOW-CANDIDATE STATES."),
-    ID_STATE, "Closed opportunities awaiting an awardee (4)",
-    "CLOSED_NO_AWARDEE_NAMED", "No",
-    paste("Technology Assessment RFP (8/21), Third Party Administrator -",
-          "Ladder Payments (8/17), Pediatric Psychiatry Access Line (8/17),",
-          "Facility Renovation Independent Verification (8/5). All closed,",
-          "none naming a recipient."),
-    ID_STATE, "Cooperative agreements (3)", "PROCUREMENT_CHANNEL", "No",
-    paste("Data Analytics and Outcomes Evaluation, Rural Cybersecurity",
-          "Modernization Assessment, Project Management Support. DHW uses",
-          "cooperative contract procurement for these, so awards may surface",
-          "in a procurement channel rather than here (Indiana's lesson)."),
+    ID_STATE, "DHW list of awardees as of Oct. 16 (dated 10-19-2026)",
+    "AWARDED_ROSTER_PUBLISHED", "Yes",
+    paste("114 priced lines (Subrecipient 100, Contractor 12, MOA/MOU 2), $180,701,813.99 by",
+          "this file's sum; the list prints no total. DHW lists them under 'Closed and awarded",
+          "funding opportunities' as awardees: AWARDS, not intents or allocations; execution is",
+          "not stated. 112 lines are the award file (R/03ck); the year is in the award and",
+          "procurement process, so later lists may add lines."),
+    ID_STATE, "Inter-agency MOA/MOU (NOT SUBAWARDS)", "INTER_AGENCY_NOT_SUBAWARD", "Yes",
+    paste0(paste0(moa$awardee, " (", moa$solicitation, ")", collapse = "; "),
+           ". Two memoranda between DHW and other state bodies, $",
+           formatC(sum(moa$amount), format = "f", digits = 2, big.mark = ","),
+           ": kept OUT of the award file on Vermont's GMCB MOU footing (owner decision, ",
+           "session 54). The award lines + these = the list's sum."),
+    ID_STATE, "Hospital networks and the ladder-payment administrator", "PASS_THROUGH_UNRESOLVED", "Yes",
+    paste("The Hospital Cooperative (1 line), Hospital Network of Idaho (3 lines) and Public",
+          "Consulting Group (Third Party Administrator for Ladder Payment Program, $14,520,000):",
+          "intermediaries whose onward recipients the list does not name. Unclear, no bucket",
+          "(§0.3, §10.2)."),
     ID_STATE, "publicdocuments.dhw.idaho.gov (Laserfiche)",
-    "UNREADABLE", "UNKNOWN",
-    paste("A stateful WebLink document repository this environment cannot",
-          "browse. Whether an executed contract sits inside it is a statement",
-          "about OUR ACCESS, never about Idaho (§0.4).")
+    "READABLE_WITH_SESSION_COOKIE", "Yes",
+    paste("The list is a WebLink document: a cookie-less GET returns a 1,897-byte HTML shell,",
+          "and the workbook was fetched with the session cookie WebLink sets (session 107).",
+          "Other documents in it are not browsed; what they hold is UNKNOWN (§0.4).")
   )
 }
 
@@ -423,10 +379,11 @@ id_disposition <- function() {
            "funding page names -- so it is evidently the same body under a ",
            "corrupted name. THAT MATCH IS THIS PROJECT'S READING AND NOT A ",
            "SOURCE'S (§0.4, §2's ban on a machine auto-resolving a fuzzy ",
-           "name), and it is recorded rather than relied on: the award row ",
-           "in id_year1_awardees.csv is built from the STATE PAGE, whose ",
-           "spelling is 'Comagine Health', so the aggregator contributes ",
-           "nothing to it either way. The $1 is Missouri's placeholder.")
+           "name), and it is recorded rather than relied on: the award rows ",
+           "in id_year1_awardees.csv are built from DHW's list of awardees ",
+           "(session 108), which prints 'Comagine Health' twice and 'Co Magine ",
+           "Health' once, so the aggregator contributes nothing to them. The ",
+           "$1 is Missouri's placeholder.")
   )
 }
 
@@ -469,7 +426,7 @@ id_probe <- function() {
                    live = id_content_digest(k, live[[k]]))
   }) %>% dplyr::mutate(changed = .data$archived != .data$live)
 
-  id_assert_one_awardee(body = live$funding)
+  id_assert_roster_link(body = live$funding)
   id_assert_no_amount(body = live$funding)
   id_assert_footer_is_weak_form(body = live$funding)
 
@@ -492,10 +449,10 @@ id_probe <- function() {
                     if (cmp$changed[i]) "CHANGED" else "unchanged"))
   })
   if (any(cmp$changed)) {
-    message("[ID] CONTENT CHANGED. Idaho has eleven opportunities in flight; ",
-            "re-read the page for a second 'Awardee:' line.")
+    message("[ID] CONTENT CHANGED. Re-read the page: the list link is unchanged, ",
+            "so look for Year 2 opportunities or a second roster.")
   } else {
-    message("[ID] UNCHANGED. Still one named awardee and no amount.")
+    message("[ID] UNCHANGED. The list of awardees as of Oct. 16 is still the one linked.")
   }
   invisible(cmp)
 }
@@ -505,20 +462,24 @@ id_validate <- function() {
     stop("[ID] the evidence archive is incomplete; run --fetch first.",
          call. = FALSE)
   }
-  id_assert_one_awardee()
+  id_assert_roster_link()
   id_assert_no_amount()
   id_assert_footer_is_the_allotment()
   id_assert_footer_is_weak_form()
   id_assert_after_noa()
-  id_assert_contributes_no_bucket()
+  idr_assert_roster()
+  idr_assert_typing(id_year1_awardees())
+  id_assert_roster_partition()
   message("[ID] all assertions pass.")
   invisible(TRUE)
 }
 
 id_build <- function() {
   d <- id_year1_awardees()
-  id_assert_contributes_no_bucket(d)
-  readr::write_csv(d, ID_CSV)
+  idr_assert_roster()
+  idr_assert_typing(d)
+  id_assert_roster_partition(d)
+  readr::write_csv(d, ID_CSV, na = "NA")
   message("[ID] wrote ", ID_CSV, " (", nrow(d), " rows)")
   st <- id_status_table()
   if ("amount" %in% names(st)) stop("[ID] status table must have no amount col")
@@ -533,19 +494,16 @@ id_build <- function() {
 
 id_report <- function() {
   d <- id_year1_awardees()
-  cat("\nIDAHO -- one named awardee, no amount, no hospital\n")
-  cat(strrep("=", 52), "\n\n")
-  cat("Allotment (§7.1)      : $", format(ID_ALLOTMENT, big.mark = ","), "\n",
-      sep = "")
-  cat("Award actions         : 1\n")
-  cat("sum(amount)           : $0 -- IDAHO PRICES NOBODY\n")
-  cat("Named-hospital rows   : 0 -- the one recipient is not a hospital\n")
-  cat("Hospital buckets      : NONE AT ALL (Maine's and Missouri's outcome)\n\n")
-  print(as.data.frame(d[, c("awardee", "award_pool", "recipient_type",
-                            "distributed_to_hospital")]), row.names = FALSE)
-  cat("\nELEVEN opportunities are open or just posted, with vendor\n")
-  cat("conferences into September 2026. Idaho is the most active of the\n")
-  cat("fourteen low-candidate states and the likeliest to name more.\n")
+  m <- function(x) paste0("$", formatC(sum(x), format = "f", digits = 2, big.mark = ","))
+  h <- d[d$distributed_to_hospital == "Yes", ]
+  cat("\nIDAHO -- DHW's list of awardees as of Oct. 16\n", strrep("=", 46), "\n", sep = "")
+  cat("Allotment (§7.1)    : $", format(ID_ALLOTMENT, big.mark = ","), "\n", sep = "")
+  cat("Award lines         : ", nrow(d), ", ", m(d$amount), " (+ 2 MOA/MOU lines out of file)\n", sep = "")
+  cat("NAMED_HOSPITAL      : ", nrow(h), ", ", m(h$amount), "\n", sep = "")
+  cat("  LOW               : ", sum(h$determination_confidence == "LOW"), ", ",
+      m(h$amount[h$determination_confidence == "LOW"]), "\n", sep = "")
+  cat("  system parents    : ", m(h$amount[h$basis_type %in% "GENERAL_KNOWLEDGE"]), "\n", sep = "")
+  cat("Unclear (no bucket) : ", m(d$amount[d$distributed_to_hospital == "Unclear"]), "\n", sep = "")
   invisible(d)
 }
 

@@ -11,3 +11,5 @@ because a page can change without its stamp moving.
 file  bytes  sha256
 2026-09-03_id_rhtp_funding_opportunities.html  186603  715cd61c403cdb69ac98c683c4ac659c1f5bcdb20e7da805a6e5a80c6c89721b
 2026-09-03_id_rhtp_about.html  184768  d8b276b004dcd3896534bcc9ed9d793ecdd074fdedc60314c8487d8cc767ac11
+2026-10-26_id_rhtp_funding_opportunities.html  180075  b14c6006896896c0192175af0cec2c458069d7c8dfa76ecd4837385af7329f67
+2026-10-26_id_rhtp_about.html  185678  93a15b235ac3e86f2d09b87fcff80dd99ad1a6da175d37e68361bca03cf35339

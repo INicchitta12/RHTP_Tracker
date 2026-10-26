@@ -1,5 +1,6 @@
 # test_03am_id_year1_awardees.R ----------------------------------------------
-# Idaho: ONE named awardee, no amount, no hospital. Committed files only.
+# Idaho: until session 108, ONE named awardee, no amount, no hospital. Session
+# 108: DHW's list of awardees as of Oct. 16 (R/03ck). Committed files only.
 #
 # Idaho is in the suite mainly as DELAWARE'S CONTROL: the same classifier
 # returns the same fallback for Comagine Health, and there it is the RIGHT
@@ -17,36 +18,53 @@ skip_without_archive <- function() {
 as_raw_html <- function(txt) charToRaw(enc2utf8(txt))
 
 
-test_that("Idaho names exactly one awardee", {
+test_that("session 108: the funding page links the one list extracted", {
   skip_without_archive()
-  expect_true(id_assert_one_awardee())
-  expect_equal(stringr::str_count(id_html_text("funding"),
-                                  stringr::fixed("Awardee:")), 1L)
-})
-
-test_that("a second 'Awardee:' line stops the build", {
-  skip_without_archive()
+  expect_true(id_assert_roster_link())
   faked <- paste0("<html><body>",
                   stringr::str_replace_all(id_html_text("funding"), "\n", " "),
-                  " Awardee: Some Other Organisation </body></html>")
-  expect_error(id_assert_one_awardee(as_raw_html(faked)),
-               "carried ONE")
+                  " See the list of awardees as of Nov. 20. </body></html>")
+  expect_error(id_assert_roster_link(as_raw_html(faked)), "new roster")
 })
 
-test_that("Idaho prices nobody", {
+test_that("the funding page still prices nobody itself: the list carries the figures", {
   skip_without_archive()
   expect_true(id_assert_no_amount())
-  d <- id_year1_awardees()
-  expect_true(is.na(d$amount))
-  expect_true(is.na(d$round_amount))
-})
-
-test_that("an amount appearing forces a rewrite", {
-  skip_without_archive()
   faked <- paste0("<html><body>",
                   stringr::str_replace_all(id_html_text("funding"), "\n", " "),
                   " Award amount: $2,400,000 </body></html>")
-  expect_error(id_assert_no_amount(as_raw_html(faked)), "must be REWRITTEN")
+  expect_error(id_assert_no_amount(as_raw_html(faked)), "must be read")
+})
+
+test_that("session 108: 114 lines, $180,701,813.99; the two MOA/MOU lines are out of the file", {
+  d <- idr_read()
+  expect_silent(idr_assert_roster(d))
+  expect_equal(nrow(d), 114L)
+  expect_equal(round(sum(d$amount), 2), 180701813.99)
+  a <- id_year1_awardees()
+  expect_equal(nrow(a), 112L)
+  expect_equal(round(sum(a$amount), 2), 157801813.99)
+  expect_false(any(grepl("Military Division|State Board of Education", a$awardee)))
+  st <- id_status_table()
+  expect_true(any(st$stage == "INTER_AGENCY_NOT_SUBAWARD"))
+  expect_true(all(a$validation_source_type == "NOTICE_OF_AWARD"))
+})
+
+test_that("session 108: the hospital rows, typed on CMS ID enrolment", {
+  a <- id_year1_awardees()
+  expect_silent(idr_assert_typing(a))
+  expect_silent(id_assert_roster_partition(a))
+  h <- a[a$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(h), 48L)
+  expect_equal(round(sum(h$amount), 2), 85389815.69)
+  sl <- h[grepl("Luke.s Health System", h$awardee), ]
+  expect_equal(nrow(sl), 3L)
+  expect_true(all(sl$basis_type == "GENERAL_KNOWLEDGE" & sl$determination_confidence == "LOW" & is.na(sl$ccn)))
+  expect_equal(a$ccn[a$awardee == "Syringa Hospital and Clinics"], "131315")
+  expect_equal(a$ccn[a$awardee == "Gritman Medical Center"], "131327")
+  un <- a[a$distributed_to_hospital == "Unclear", ]
+  expect_equal(round(sum(un$amount), 2), 18353321)
+  expect_false(any(a$determination_confidence == "HIGH"))
 })
 
 test_that("§0.2: the one figure is the allotment", {
@@ -63,28 +81,14 @@ test_that("the footer's subject is the WEAKEST form met so far", {
                     id_html_text("funding"), fixed = TRUE))
 })
 
-test_that("the classifier's fallback is the RIGHT answer here", {
-  # THE CONTRAST WITH DELAWARE. Same machine answer, opposite verdict, because
-  # Idaho states no form and no governing document does either.
+test_that("the classifier's fallback is still the answer for Comagine Health", {
+  # THE CONTRAST WITH DELAWARE: Idaho's list states no form for Comagine.
   cls <- rhtp_classify_recipient_type("Comagine Health", "ID")
   expect_equal(cls$recipient_type, "NONPROFIT_CBO")
-  expect_equal(cls$determination_confidence, "LOW")
   d <- id_year1_awardees()
-  expect_equal(d$recipient_type, cls$recipient_type)
-  expect_true(grepl("NOT STATED BY THE SOURCE", d$recipient_type_source))
-  expect_true(grepl("RECIPIENT_TYPE_INFERRED", d$flag_reason))
-})
-
-test_that("Idaho contributes to NO hospital bucket", {
-  expect_true(id_assert_contributes_no_bucket())
-  expect_equal(nrow(rhtp_hospital_dollar_partition(id_year1_awardees())), 0L)
-})
-
-test_that("the award is an INTENT, in Idaho's own future tense", {
-  d <- id_year1_awardees()
-  expect_equal(d$validation_source_type, "NOTICE_OF_INTENT_TO_AWARD")
-  expect_equal(d$amount_confirmed, "No")
-  expect_true(grepl("AMOUNT_PRELIMINARY", d$flag_reason))
+  cg <- d[d$awardee %in% c("Comagine Health", "Co Magine Health"), ]
+  expect_equal(nrow(cg), 3L)
+  expect_true(all(cg$recipient_type == "NONPROFIT_CBO" & cg$distributed_to_hospital == "No"))
 })
 
 test_that("the solicitation postdates the Notice of Award", {
@@ -96,13 +100,13 @@ test_that("the RCJ name is corrupted and is NOT what the row is built from", {
   expect_equal(sum(d$rcj_rows), 1L)
   expect_true(grepl("Co-Imagine Health", d$evidence[1]))
   expect_true(grepl("THIS PROJECT'S READING AND NOT A SOURCE'S", d$evidence[1]))
-  expect_equal(id_year1_awardees()$awardee, "Comagine Health")
+  expect_true("Comagine Health" %in% id_year1_awardees()$awardee)
 })
 
 test_that("the status table has no amount column", {
   st <- id_status_table()
   expect_false("amount" %in% names(st))
-  expect_true(any(st$stage == "UNREADABLE"))
+  expect_true(any(st$stage == "AWARDED_ROSTER_PUBLISHED"))
 })
 
 
