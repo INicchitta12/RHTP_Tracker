@@ -1588,3 +1588,9 @@ KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_chw,,trig_01Jk2igfuAsju6aaCnT3bP28
 KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_cp,,trig_01Jk2igfuAsju6aaCnT3bP28
 KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_et,,trig_01Jk2igfuAsju6aaCnT3bP28
 KY,2026-10-26T19:33:08Z,UNCHANGED,rfa_rda,,trig_01Jk2igfuAsju6aaCnT3bP28
+MS,2026-10-27T09:42:46Z,UNCHANGED,funding,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
+MS,2026-10-27T09:42:46Z,UNCHANGED,home,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
+MS,2026-10-27T09:42:46Z,UNCHANGED,gov_newsroom,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
+MS,2026-10-27T09:42:46Z,ERROR,dom_completed,SSL peer certificate or SSH remote key was not OK [medicaid.ms.gov]: SSL certificate problem: unable to get local issuer certificate,trig_01Ugf2k1rcJiQVTtMhpnb4V3
+MS,2026-10-27T09:42:46Z,UNCHANGED,release,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
+MS,2026-10-27T09:42:46Z,UNCHANGED,closed,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
