@@ -1594,3 +1594,8 @@ MS,2026-10-27T09:42:46Z,UNCHANGED,gov_newsroom,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
 MS,2026-10-27T09:42:46Z,ERROR,dom_completed,SSL peer certificate or SSH remote key was not OK [medicaid.ms.gov]: SSL certificate problem: unable to get local issuer certificate,trig_01Ugf2k1rcJiQVTtMhpnb4V3
 MS,2026-10-27T09:42:46Z,UNCHANGED,release,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
 MS,2026-10-27T09:42:46Z,UNCHANGED,closed,,trig_01Ugf2k1rcJiQVTtMhpnb4V3
+VA,2026-10-27T10:21:52Z,UNCHANGED,vhcf,,trig_01BUzx8AnvNR9kVkYKkfovDe
+VA,2026-10-27T10:21:52Z,UNCHANGED,vhha_foundation,,trig_01BUzx8AnvNR9kVkYKkfovDe
+VA,2026-10-27T10:21:52Z,CHANGED,ways_to_apply,,trig_01BUzx8AnvNR9kVkYKkfovDe
+VA,2026-10-27T10:21:52Z,UNCHANGED,news,,trig_01BUzx8AnvNR9kVkYKkfovDe
+VA,2026-10-27T10:21:52Z,UNCHANGED,vhcf_news,,trig_01BUzx8AnvNR9kVkYKkfovDe
