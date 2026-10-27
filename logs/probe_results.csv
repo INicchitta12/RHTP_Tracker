@@ -1618,3 +1618,5 @@ MT,2026-10-27T17:42:07Z,CHANGED,communications,,trig_013NBAwSZ2Rh4hhbjtLZtYA6
 NM,2026-10-27T18:43:14Z,CHANGED,news,,trig_01EeEQZDPeG4xW4GBA7p8WcZ
 NM,2026-10-27T18:43:14Z,CHANGED,rhcdf,,trig_01EeEQZDPeG4xW4GBA7p8WcZ
 NM,2026-10-27T18:43:14Z,TRIPWIRE,news,"[NM] 'news' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Virtual Meeting The New Mexico Health Care Authority and the Administrative Office of the Courts. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01EeEQZDPeG4xW4GBA7p8WcZ
+RI,2026-10-27T19:53:07Z,CHANGED,rss,,trig_01WXYStckEw4tjE1Er77BV94
+RI,2026-10-27T19:53:07Z,UNCHANGED,index,,trig_01WXYStckEw4tjE1Er77BV94
