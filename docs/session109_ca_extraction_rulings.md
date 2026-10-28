@@ -183,4 +183,6 @@ Neither explains the Workforce gap on its face. The gap is recorded in three pla
 
 ## Suite
 
-See the commit that records the full-suite result.
+- **Full run.** `Rscript tests/run_tests.R` on `173062d` took 23m31s. It had **one failure**, `test_queued_state_probes.R:216`, which pinned the five VA collaboratives as ABSENT from `va_year1_awardees.csv`. Ruling (f) adds them, so the pin now requires them present. With that change the file passes (0 failures).
+- **One standing skip:** `test_00`'s first-run branch.
+- **Run on the changed files after the fix:** test_03ab, 03cl, 03cj, 03be, 03am, 03ak, 03aq, 03ap, 03ar, 03aw, 03bh, 03bj, 03k, 00b, state_union, claude_md_status_table and queued_state_probes. Each has 0 failures.
