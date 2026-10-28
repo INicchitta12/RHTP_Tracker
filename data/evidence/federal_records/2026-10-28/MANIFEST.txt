@@ -1,0 +1,11 @@
+FEDERAL RECORDS -- fetched 2026-10-28 by session 109
+
+WHY: California's 108 recommended BP1 subrecipients (R/03cl_ca_bp1_awardees.R) are typed on CMS's CA
+Hospital, FQHC and RHC Enrollment files; Provider Data Catalog Hospital General Information (CA) is archived
+for county/type reading (CAH, by CCN) beside them. Committed as served (§0.5); the readers use THESE.
+
+file | sha256 | bytes | url
+cms_hosp_enrollments_CA.json | d7118c71ecd57e0ea125387b9944ce9963d97c71687d7b4577daa244b2553677 | 658504 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=CA&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_CA.json | 0fd908404c455471648ff57870a1e94d1031c173b622d73d0a95cea17e3a5823 | 1015548 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=CA&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_CA.json | 92521fe1f5289ca92bdd089097f8c152647e6e7136790fdb1e622d1fe7587dc2 | 169783 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=CA&size=5000 (RHC Enrollments)
+cms_pdc_hospital_general_information_CA.json | cf9b27a23c2eb5efd322374e148a90dac76ee21042f2a55e54e87c7ac78f7133 | 510921 | https://data.cms.gov/provider-data/api/1/datastore/query/xubh-q36u/0?conditions[0][property]=state&conditions[0][value]=CA&conditions[0][operator]=%3D&limit=1500 (Hospital General Information)

@@ -62,6 +62,11 @@ STATE_FILES <- c(
   # $32,606,496.32; R/03cj), its own file because R/03ak's rows carry
   # sessions 49 and 50's row-index overlays.
   MS_R2 = "data/reference/ms_round2_awardees.csv",
+  # Session 109: California, HCAI's "Recommended Subrecipients for CalRHT
+  # Budget Period 1" (2026-10-21; R/03cl). 108 TENTATIVE rows, intents, and a
+  # roster that does NOT reconcile to HCAI's own prose total ($138.5M printed
+  # vs "$166.72 million"); the gap is recorded, never imputed.
+  CA = "data/reference/ca_year1_awardees.csv",
   # Kansas is the first state whose awards came out of PDFs rather than a page
   # or a workbook, and the first whose recipient forms are almost entirely
   # unstated by the publisher: 22 of its 46 rows carry §8's standing fallback.
@@ -391,7 +396,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
+               c("AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WA",
                  "WV", "WY"))

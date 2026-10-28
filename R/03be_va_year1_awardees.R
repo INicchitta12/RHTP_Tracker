@@ -49,6 +49,17 @@
 # R/03bb still watches VHCF's and the VHHA Foundation's award dates (9/30,
 # 10/14, 10/30); this file holds the first tier.
 #
+# SESSION 109, OWNER RULING (f): THE FIVE MOBILE & HYBRID CARE REGIONAL
+# COLLABORATIVES ARE ADDED AT $0 AS FIRST-TIER ADMINISTRATORS, EACH TYPED.
+# The RHT site's Ways to Apply table (re-based session 108) lists them beside
+# "Commonwealth of VA" as Key Implementation Partners for Mobile & Hybrid
+# Care, each with an Open RFA and no amount, and links each to the site of a
+# PLANNING DISTRICT COMMISSION, whose own RFA page says the collaborative or
+# PDC "will competitively award funding to eligible organizations". A PDC is a
+# regional local-government body (NSVRC's typing above): LOCAL_GOVT_OR_PUBLIC_
+# HEALTH, PASS_THROUGH_UNRESOLVED, Unclear (§0.3: the RFAs' class is
+# "eligible organizations"), ELIGIBILITY_NOT_RECEIPT. Rows 12-16; amount empty.
+#
 # Usage: Rscript R/03be_va_year1_awardees.R --validate | --build | --report
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
@@ -188,6 +199,91 @@ VAA_ROWS <- tibble::tribble(
   "STATE_SOURCE"
 )
 
+VAA_WAYS_2026_10_26 <- file.path("data", "evidence", "VA", "2026-10-26_rhtva_ways_to_apply.html")
+VAA_RC_DIR <- file.path("data", "evidence", "VA", "collaboratives")
+VAA_RC <- tibble::tribble(
+  ~awardee, ~file, ~url, ~pdc, ~sentence, ~basis_type,
+  "SWVA Regional Collaborative", "2026-10-28_lenowisco_pdc_swva_rfa.html",
+  "https://www.lenowisco.org/rural-health-transformation-program-swva.html",
+  "LENOWISCO Planning District Commission",
+  "Through this RFA the LENOWISCO PDC will competitively award funding to eligible organizations", "ORG_WEBSITE",
+  "Roanoke-Alleghany/Central Shenandoah/New River Valley Regional Collaborative",
+  "2026-10-28_cspdc_roanoke_alleghany_cs_nrv_rfa.html",
+  "https://connect.cspdc.org/rural-health-transformation-program",
+  "Central Shenandoah Planning District Commission (the RFA is on connect.cspdc.org; the page does not print the PDC's name, so LOW)",
+  "Regional Collaborative will competitively award funding to eligible organizations", "ORG_WEBSITE",
+  "Northern Piedmont Regional Collaborative", "2026-10-28_tjpdc_northern_piedmont_rfa.html",
+  "https://tjpdc.org/rfa-rural-health-transformation/",
+  "Thomas Jefferson Planning District Commission",
+  "Through this RFA, the Thomas Jefferson Planning District Commission and the Northern Piedmont Regional Collaborative will competitively award funding", "ORG_WEBSITE",
+  "Southside Regional Collaborative", "2026-10-28_wppdc_southside_rfa.html",
+  "https://westpiedmontpdc.org/rural-health-transformation-fund/",
+  "West Piedmont Planning District Commission (WPPDC)",
+  "Through this RFA, Southside Regional Collaborative, managed by WPPDC, will competitively award funding", "ORG_WEBSITE",
+  "Eastern Shore Regional Collaborative", "2026-10-28_anpdc_eastern_shore_home.html",
+  "https://www.esvaplan.org/",
+  "Accomack-Northampton Planning District Commission",
+  "The Accomack-Northampton Planning District Commission (A-NPDC) invites applications from eligible organizations", "ORG_WEBSITE")
+
+vaa_assert_collaboratives <- function(ways = vaa_html(VAA_WAYS_2026_10_26)) {
+  for (i in seq_len(nrow(VAA_RC))) {
+    if (!grepl(paste(VAA_RC$awardee[i], "Open"), ways, fixed = TRUE)) {
+      stop("[VA] Ways to Apply no longer lists '", VAA_RC$awardee[i], " Open'.", call. = FALSE)
+    }
+    pg <- vaa_html(file.path(VAA_RC_DIR, VAA_RC$file[i]))
+    if (!grepl(VAA_RC$sentence[i], pg, fixed = TRUE)) {
+      stop("[VA] ", VAA_RC$file[i], " no longer says: ", sQuote(VAA_RC$sentence[i]), call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+va_collaborative_rows <- function(start = 12L) {
+  r <- VAA_RC
+  cls <- rhtp_classify_recipient_type(r$awardee, VAA_STATE)
+  why <- paste0("OWNER RULING (f), session 109: a Mobile & Hybrid Care REGIONAL COLLABORATIVE, a first-tier ",
+                "administrator. The state's Ways to Apply table lists it as a Key Implementation Partner with an ",
+                "Open RFA and links its RFA to ", r$pdc, ", whose page says: '", r$sentence, "'. A planning district ",
+                "commission is a regional local-government body (NSVRC's typing, row 10). The RFA's class is ",
+                "'eligible organizations' (§0.3): Unclear. No amount is published anywhere.")
+  tibble::tibble(
+    state = VAA_STATE,
+    row_no = start + seq_len(nrow(r)) - 1L,
+    awardee = r$awardee,
+    amount = NA_real_,
+    recipient_type = "LOCAL_GOVT_OR_PUBLIC_HEALTH",
+    distributed_to_hospital = "Unclear",
+    note = paste0("Key Implementation Partner for Mobile & Hybrid Care on the RHT site's Ways to Apply table ",
+                  "(RFA Status 'Open'); its RFA: ", r$url, ". No amount published."),
+    recipient_confirmed = "Yes",
+    amount_confirmed = "No",
+    fiscal_year = "FY2026 (Year 1)",
+    source_document_title = "Virginia Rural Health Transformation, 'Ways to Apply' (Key Implementation Partner table)",
+    state_source_url = "https://www.ruralhealthtransformationva.virginia.gov/ways-to-apply/",
+    validation_source_type = "OTHER",
+    extraction_method = "DIRECT_TEXT",
+    validator = "R/03be_va_year1_awardees.R",
+    ccn = NA_character_, aha_id = NA_character_,
+    rural_designation = NA_character_, reviewer = NA_character_,
+    initiative = "Mobile and Hybrid Care",
+    recipient_type_source = paste0("TYPED (session 109): ", why, " Classifier said ", cls$recipient_type,
+                                   "/", rhtp_confidence_ceiling(cls$determination_confidence), "."),
+    determination_confidence = "LOW",
+    flag_reason = "ELIGIBILITY_NOT_RECEIPT",
+    award_pool = "Mobile and Hybrid Care",
+    budget_period = "Budget Period 1",
+    flow_type = "PASS_THROUGH_UNRESOLVED",
+    hospital_benefiting = "Unclear",
+    hospital_attribution = "NOT_HOSPITAL",
+    intermediary_name = r$awardee,
+    determination_basis = paste0("§10.2 PASS_THROUGH_UNRESOLVED: ", why),
+    amount_basis = "NO AMOUNT PUBLISHED: the Ways to Apply table and the collaborative's RFA page print none.",
+    basis_type = r$basis_type,
+    round_amount = NA_real_,
+    announcement_date = as.Date("2026-10-26"),
+    source_archive_path = file.path(VAA_RC_DIR, r$file))
+}
+
 VAA_STATUS <- tibble::tribble(
   ~item, ~figure_in_source, ~stage, ~note,
   "Round total across the eleven partners", 122000000, "ANNOUNCED_NO_SPLIT",
@@ -291,7 +387,8 @@ va_year1_awardees <- function() {
     round_amount = NA_real_,
     announcement_date = VAA_RELEASE_DATE,
     source_archive_path = VAA_RELEASE
-  )
+  ) %>%
+    dplyr::bind_rows(va_collaborative_rows(nrow(a) + 1L))
 }
 
 va_year1_status <- function() {
@@ -301,8 +398,9 @@ va_year1_status <- function() {
 
 va_validate <- function() {
   vaa_assert_sources()
+  vaa_assert_collaboratives()
   d <- va_year1_awardees()
-  stopifnot(nrow(d) == 11L, all(is.na(d$amount)),
+  stopifnot(nrow(d) == 16L, all(is.na(d$amount)),
             !any(d$distributed_to_hospital == "Yes"),
             !"amount" %in% names(va_year1_status()))
   message("[VA] all assertions pass.")
@@ -313,7 +411,8 @@ va_build <- function() {
   va_validate()
   readr::write_csv(va_year1_awardees(), here::here(VAA_AWARD_CSV), na = "")
   readr::write_csv(va_year1_status(), here::here(VAA_STATUS_CSV), na = "")
-  message("[VA] wrote 11 award rows and ", nrow(VAA_STATUS), " status rows.")
+  message("[VA] wrote 16 award rows (11 release partners + 5 Regional Collaboratives) and ",
+          nrow(VAA_STATUS), " status rows.")
 }
 
 va_report <- function() {

@@ -55,7 +55,7 @@
 #     "Clearwater Valley Hospitals and Clinics" (plural; CAH 131320).
 #   * "Lifeways" is the exact legal name of LIFEWAYS INC, CMS-enrolled as
 #     LIFEWAYS HOSPITAL (134009, Boise, psychiatric): a hospital on its
-#     enrolment (§10.2), MEDIUM.
+#     enrolment (§10.2), MEDIUM. CONFIRMED by owner ruling (a), session 109.
 #   * The Hospital Cooperative and Hospital Network of Idaho are networks of
 #     hospitals, and the list says nothing of where their money goes: WSHA's
 #     shape (§10.2's association row needs the source to SHOW funds reaching
@@ -157,7 +157,14 @@ IDR_ASSOC <- paste0(
   "A NETWORK OF HOSPITALS, AND THE LIST SAYS NOTHING OF WHERE ITS MONEY GOES. §10.2's association ",
   "row requires the source to SHOW funds administered to or on behalf of member hospitals; the list ",
   "prints a name, a solicitation (Healthcare Infrastructure Support) and a figure. WSHA's shape ",
-  "(R/03bd): PASS_THROUGH_UNRESOLVED, Unclear, no bucket.")
+  "(R/03bd): PASS_THROUGH_UNRESOLVED, Unclear, no bucket. OWNER RULING (b), session 109: 'quote the ",
+  "source sentence; if it says the money goes to member hospitals, POOL_UNNAMED_HOSPITALS (ICAHN rule); ",
+  "otherwise Unclear'. THE ONLY SOURCE SENTENCE IS THE LIST LINE ITSELF -- Type 'Subrecipient', ",
+  "Solicitation Name 'Healthcare Infrastructure Support', the network's name and an Amount -- and it ",
+  "says nothing of member hospitals. The HIS FAQ (archived recheck/2026-10-28/ID/) says only that 'An ",
+  "applicant must fall within an eligible applicant type' under 'Sections 2.1-2.3 of the posted ",
+  "solicitation', and contemplates non-hospital applicants ('Could a generator at a retail WIC site be ",
+  "eligible under HIS?'): not ICAHN's hospitals-only class. STAYS Unclear.")
 IDR_EMS <- "An EMS provider (the form is in the string). Not a hospital."
 IDR_UNI <- "A public university or college programme (the institution is named in the string). Not a hospital."
 IDR_VENDOR <- paste0("A commercial firm by its name (the list's Type column is 'Contractor' on every such line ",
@@ -179,7 +186,18 @@ ID_HAND <- tibble::tribble(
   paste0("THIRD PARTY ADMINISTRATOR for the Ladder Payment Program (the list's Solicitation Name; Type ",
          "'Contractor'). The $14,520,000 includes payments whose recipients the list does not name; Idaho's ",
          "plan describes 'ladder payments for recruitment, retention' (CMS project abstract). Hospitals may be ",
-         "among the payees and nothing says so (§0.3): PASS_THROUGH_UNRESOLVED, Unclear, no bucket."),
+         "among the payees and nothing says so (§0.3): PASS_THROUGH_UNRESOLVED, Unclear, no bucket. ",
+         "OWNER RULING (b), session 109: PCG stays Unclear unless the ladder payments are stated to go only to ",
+         "hospitals. DHW's own description is 'Ladder payments based on priority positions and rural presence' ",
+         "(RHTP about page, Initiative 3, 'Sustaining rural workforce'), which ties payments to POSITIONS, not to ",
+         "hospitals; the TPA RFP sits on Idaho's Infor supplier portal, which serves an empty JavaScript shell ",
+         "(UNREADABLE, recorded UNKNOWN, never NO). Nothing states hospitals-only. STAYS Unclear."),
+  "^Lifeways$", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "134009", "DIRECT",
+  paste0("OWNER RULING (a), session 109 (Brattleboro Retreat precedent: a psychiatric hospital on its CMS ",
+         "enrolment is a hospital): 'Lifeways' is the exact legal name of LIFEWAYS INC, which CMS ID Hospital ",
+         "Enrollment (2026-09-25) carries dba LIFEWAYS HOSPITAL (134009, Boise), PROVIDER TYPE 'PART A PROVIDER - ",
+         "HOSPITAL', LOCATION OTHER TYPE TEXT 'FREE STANDING PSYCHIATRIC HOSPITAL', SUBGROUP - PSYCHIATRIC 'Y'. The ",
+         "ruling's condition holds, so HOSPITAL_OR_SYSTEM stands (§10.2's enrolled-operator row). MEDIUM."),
   "^CHAS Health$", "FQHC_OR_RHC", "ORG_WEBSITE", "LOW", NA, "NON_HOSPITAL",
   "HAND-READ BRIDGE: CMS ID FQHC Enrollment carries COMMUNITY HEALTH ASSOCIATION OF SPOKANE (dba CHAS LATAH COMMUNITY HEALTH and others); 'CHAS Health' is its trading name. An FQHC. LOW.",
   "(Ambulance|Paramedics|Fire Department|Fire District)", "EMS_OR_PSAP", "STATE_SOURCE", "MEDIUM", NA, "NON_HOSPITAL", IDR_EMS,

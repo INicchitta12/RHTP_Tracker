@@ -11,8 +11,16 @@ test_that("the sources still say what the rows rest on", {
   expect_true(vaa_assert_sources())
 })
 
-test_that("eleven partners, every amount empty, no round figure repeated", {
-  expect_equal(nrow(va), 11L)
+test_that("eleven partners + five Regional Collaboratives, every amount empty, no round figure repeated", {
+  # Session 109, owner ruling (f): rows 12-16 are the Mobile & Hybrid Care
+  # Regional Collaboratives, first-tier administrators at $0.
+  expect_equal(nrow(va), 16L)
+  rc <- va[12:16, ]
+  expect_true(all(grepl("Regional Collaborative$", rc$awardee)))
+  expect_true(all(rc$recipient_type == "LOCAL_GOVT_OR_PUBLIC_HEALTH"))
+  expect_true(all(rc$distributed_to_hospital == "Unclear"))
+  expect_true(all(rc$flow_type == "PASS_THROUGH_UNRESOLVED"))
+  expect_silent(vaa_assert_collaboratives())
   expect_true(all(is.na(va$amount)))
   expect_true(all(is.na(va$round_amount)))
   expect_equal(committed$awardee, va$awardee)

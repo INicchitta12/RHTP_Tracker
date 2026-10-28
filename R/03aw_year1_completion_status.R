@@ -83,7 +83,8 @@ Y1_AWARD_FILES <- c(
   LA = "la_year1_awardees.csv",
   CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv",
   HI = "hi_year1_awardees.csv",
-  TX = "tx_year1_awardees.csv"
+  TX = "tx_year1_awardees.csv",
+  CA = "ca_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -377,7 +378,12 @@ Y1_STATUS <- tibble::tribble(
   "MT", "PARTIAL", "No", "Yes",
   "2026-09-29",
   "DPHHS: 'This is the first round of funding for EMS modernization through Montana's RHTP.' The $8.7M EMS Equipment Grant is one channel of a $233,509,359 allotment; the CIH pilot grant and five RFPs on DPHHS's pages name no award (session 88).",
-  "data/evidence/MT/2026-10-05_mt_dphhs_rural_ems_award_release.html; data/evidence/MT/2026-10-05_mt_rhtp_grants.html"
+  "data/evidence/MT/2026-10-05_mt_dphhs_rural_ems_award_release.html; data/evidence/MT/2026-10-05_mt_rhtp_grants.html",
+
+  "CA", "PARTIAL", "No", "Yes",
+  "2026-10-21",
+  "HCAI: the list 'reflects awards announced to date and does not yet represent all Budget Period 1 investments included in the initiative totals above. Additional recommendations will be added as they are ready for publication.' 108 tentative rows, $138,464,043.97, against HCAI's own '$166.72 million' (gap $28,255,956.03, unreconciled), plus '$56.51 million in contract support' and '$10.41 million in HCAI program support' with no recipient published (session 109).",
+  "data/evidence/CA/2026-10-28_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html"
 )
 
 

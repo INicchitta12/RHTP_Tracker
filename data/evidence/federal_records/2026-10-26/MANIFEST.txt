@@ -1,0 +1,7 @@
+FEDERAL RECORDS -- fetched 2026-10-26 by session 108 (manifest written by session 109; session 108 committed the files without one)
+
+WHY: Idaho's roster (R/03ck) is typed on CMS's ID FQHC and RHC Enrollment files (the ID Hospital file is 2026-09-25's).
+
+file | sha256 | bytes | url
+cms_fqhc_enrollments_ID.json | 963aab43db15927917caf3879c739650e837d1c828d3e6d7939ab54038001e00 | 75949 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=ID&size=5000 (FQHC Enrollments; URL by this project's pattern, not recorded at fetch)
+cms_rhc_enrollments_ID.json | 6330ea5585e7782241e31028a330a868e6b4939d89f6c264f1ac8ec8bec017e0 | 33237 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=ID&size=5000 (RHC Enrollments; URL by this project's pattern, not recorded at fetch)

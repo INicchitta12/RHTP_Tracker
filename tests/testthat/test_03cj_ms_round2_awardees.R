@@ -41,14 +41,32 @@ test_that("the three EmPATH units are typed to their host hospitals", {
 
 test_that("the hospital figure, and what subtracts from it", {
   h <- a[a$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 30L)
-  expect_equal(round(sum(h$amount), 2), 22886995.92)
+  expect_equal(nrow(h), 31L)
+  expect_equal(round(sum(h$amount), 2), 22986995.92)
   expect_equal(round(sum(h$amount[h$basis_type %in% "GENERAL_KNOWLEDGE"]), 2), 219120)
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
   expect_false(any(a$determination_confidence == "HIGH"))
-  # A hospital's EMS department is not bridged (no department-name rule).
+  # Session 109, owner ruling (c): a hospital's EMS department named under the
+  # hospital's own legal name is the hospital (code the recipient, §0.3a); the
+  # WVU Eye Institute precedent covers university units only.
   m <- a[a$awardee == "Magnolia Regional Health Center EMS", ]
-  expect_equal(m$distributed_to_hospital, "No")
+  expect_equal(m$distributed_to_hospital, "Yes")
+  expect_equal(m$ccn, "250009")
+  expect_equal(m$determination_confidence, "LOW")
+  expect_match(m$recipient_type_source, "COVERS UNIVERSITY UNITS ONLY", fixed = TRUE)
+})
+
+test_that("SESSION 109, ruling (d): both rounds read 'Memorial Health System' as a system parent", {
+  expect_silent(ms2_assert_r1_agrees())
+  r1 <- readr::read_csv(here::here(MS2_R1_CSV), show_col_types = FALSE)
+  r1 <- r1[r1$awardee == "Memorial Health System", ]
+  expect_equal(nrow(r1), 12L)
+  expect_true(all(r1$determination_confidence == "LOW"))
+  expect_true(all(r1$basis_type == "GENERAL_KNOWLEDGE"))
+  expect_equal(sum(r1$amount), 15041222)
+  r2 <- a[a$awardee == "Memorial Health System", ]
+  expect_equal(r2$determination_confidence, "LOW")
+  expect_equal(r2$basis_type, "GENERAL_KNOWLEDGE")
 })
 
 test_that("the committed file is what the builder produces", {

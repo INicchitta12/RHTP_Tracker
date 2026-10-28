@@ -135,7 +135,7 @@ source(here::here("R", "utils_config.R"))
 CA_EVIDENCE_DIR <- here::here("data", "evidence", "CA")
 CA_STATUS_CSV   <- "data/reference/ca_year1_status.csv"
 CA_DISPO_CSV    <- "data/reference/ca_rcj_candidate_disposition.csv"
-CA_AWARDS_CSV   <- "data/reference/ca_year1_awardees.csv"   # MUST NOT EXIST
+CA_AWARDS_CSV   <- "data/reference/ca_year1_awardees.csv"   # R/03cl's, session 109
 CA_HOST_THROTTLE_S <- 3
 
 # hcai.ca.gov answers the project's honest agent with HTTP 200 on every path
@@ -156,8 +156,14 @@ CA_SOURCES <- tibble::tribble(
   # heading HCAI added "Latest News CalRHT Awardees Announced ... Explore Grant
   # Awardees", linking the "updates" page below; that block is what moved the
   # name-scope anchor (the 10-24 TRIPWIRE). The 10-15 copy stays.
+  # SESSION 109: RE-BASED after reading. Two changes, neither a name: HCAI's
+  # mega-menu swapped a data link ("Post Coronary Artery Bypass Graft (CABG)
+  # Readmissions and Complications" -> "Healthcare Payments Data (HPD) Primary
+  # Care Utilization Report"; on all four probe pages), and an "Explore CalRHT
+  # ... Click to Explore Funding Opportunities" navigation block. The 10-26
+  # copy stays.
   "calrht",
-  "2026-10-26_ca_hcai_calrht_programme.html",
+  "2026-10-28_ca_hcai_calrht_programme.html",
   "https://hcai.ca.gov/rural-health/calrht/",
 
   # SESSION 108: HCAI's "Recommended Subrecipients for CalRHT Budget Period 1
@@ -165,8 +171,11 @@ CA_SOURCES <- tibble::tribble(
   # (the page's prose says "$166.72 million ... for 108 organizations"). The
   # awards are TENTATIVE in HCAI's own words. HELD for the owner, NOT extracted
   # (docs/session108_*); watched here so an addition or a change trips.
+  # SESSION 109: EXTRACTED by R/03cl_ca_bp1_awardees.R (owner-approved), from
+  # this 10-28 copy; its 108 rows equal the 10-26 copy's to the cent (asserted
+  # there). Re-based after reading: only the mega-menu swap above moved.
   "updates",
-  "2026-10-26_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
+  "2026-10-28_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
   "https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/",
 
   # Session 108: re-based after reading. Added a Tribal Set-Aside section
@@ -174,8 +183,11 @@ CA_SOURCES <- tibble::tribble(
   # Tribes", every document "Coming Soon": Tier 2) and an FAQ label naming the
   # "Family Medicine Obstetrics (FM-OB)" programme. No recipient. The 09-02
   # copy stays.
+  # SESSION 109: RE-BASED after reading. The mega-menu swap; one opportunity's
+  # three "Coming Soon!" labels collapsed into one line; and the FM-OB block
+  # gained an "Application Portal" link (a solicitation, Tier 2). No name.
   "funding",
-  "2026-10-26_ca_hcai_calrht_funding_opportunities.html",
+  "2026-10-28_ca_hcai_calrht_funding_opportunities.html",
   "https://hcai.ca.gov/rural-health/calrht/funding/",
 
   "cms_noa",
@@ -214,8 +226,9 @@ CA_SOURCES <- tibble::tribble(
   "https://hcai.ca.gov/facilities/health-facility-financing/srhrp/",
 
   # Session 108: re-based after reading (no new headline link; the 09-02 copy stays).
+  # Session 109: re-based after reading (the mega-menu swap only).
   "newsroom",
-  "2026-10-26_ca_hcai_newsroom_CONTROL.html",
+  "2026-10-28_ca_hcai_newsroom_CONTROL.html",
   "https://hcai.ca.gov/media-center/",
 
   # SESSION 88. Linked from the CalRHT page as "CalRHT Frequently Asked
@@ -938,13 +951,23 @@ ca_assert_newsroom_control <- function(news = NULL) {
   invisible(TRUE)
 }
 
-#' No award file exists, and the status table cannot grow an amount column
+#' The award file is R/03cl's, and the status table cannot grow an amount column
+#'
+#' SESSION 109: CALIFORNIA HAS PUBLISHED A ROSTER. HCAI's "Recommended
+#' Subrecipients for CalRHT Budget Period 1" (2026-10-21) names 108 tentative
+#' awards, and R/03cl_ca_bp1_awardees.R builds the award file from it as
+#' INTENTS. The absence assertion that stood here is deleted in the same
+#' commit, as it asked (Connecticut's session-54 shape); what is asserted now
+#' is that the award file is R/03cl's and nobody else's -- this file watches
+#' HCAI's pages and must never write award rows itself.
 ca_assert_no_award_file <- function() {
   if (file.exists(here::here(CA_AWARDS_CSV))) {
-    stop("[CA] ", CA_AWARDS_CSV, " exists. California has published no ",
-         "recipient-level award list; if that has changed, write the ",
-         "extractor deliberately and delete this assertion in the same ",
-         "commit.", call. = FALSE)
+    v <- unique(readr::read_csv(here::here(CA_AWARDS_CSV),
+                                show_col_types = FALSE)$validator)
+    if (!identical(v, "R/03cl_ca_bp1_awardees.R")) {
+      stop("[CA] ", CA_AWARDS_CSV, " was not built by ",
+           "R/03cl_ca_bp1_awardees.R.", call. = FALSE)
+    }
   }
   path <- here::here(CA_STATUS_CSV)
   if (file.exists(path)) {
@@ -952,8 +975,8 @@ ca_assert_no_award_file <- function() {
     bad  <- intersect(cols, c("amount", "round_amount", "amount_announced"))
     if (length(bad)) {
       stop("[CA] ca_year1_status.csv carries an amount column (",
-           paste(bad, collapse = ", "), "). It is a STATUS table: California ",
-           "has named no recipient, so no sum over it could mean anything.",
+           paste(bad, collapse = ", "), "). It is a STATUS table; the award ",
+           "rows and their amounts are R/03cl's file.",
            call. = FALSE)
     }
   }
@@ -1109,7 +1132,8 @@ rhtp_ca_year1_status <- function() {
           "2026-09-24 PULL.")
   ) %>%
     dplyr::mutate(state = "CA", .before = 1) %>%
-    ca_status_private_notices()
+    ca_status_private_notices() %>%
+    ca_status_recommended()
 }
 
 #' SESSION 88: the four CalRHT pools have notified applicants privately
@@ -1133,6 +1157,71 @@ ca_status_private_notices <- function(st) {
     "published, so nothing is extracted and publishes_roster stays No. The FAQ",
     "does not say which of the four pools each notice belongs to.")
   st
+}
+
+
+#' SESSION 109: the four pools are RECOMMENDED AND PUBLISHED (tentative)
+#'
+#' HCAI's 2026-10-21 "Recommended Subrecipients for CalRHT Budget Period 1"
+#' names the recipients of all four pools, and of a fifth grant the guides
+#' never priced, Transformative Payments. Every one is "tentative" in HCAI's
+#' words, so the stage is RECOMMENDED_PUBLISHED_TENTATIVE, never AWARDED; the
+#' rows are R/03cl's (intents). The session-88 FAQ stays asserted: it is still
+#' the document that says notices went to applicants first.
+CA_RECOMMENDED_STAGE <- "RECOMMENDED_PUBLISHED_TENTATIVE"
+ca_status_recommended <- function(st) {
+  pools <- st$stage == "NOTICES_SENT_PRIVATELY_NO_PUBLIC_ROSTER"
+  if (sum(pools) != 4L) stop("[CA] expected four privately-notified pools.", call. = FALSE)
+  st$stage[pools] <- CA_RECOMMENDED_STAGE
+  st$publishes_roster[pools] <- "Yes -- tentative (intents)"
+  rows <- c(`Accelerator Partners` = "19 rows, $37,606,550.15",
+            `Workforce Development Recruitment` = "65 rows, $54,169,999.00",
+            `Electronic Health Record` = "9 rows, $9,958,395.82",
+            `FM-OB Fellowship` = "4 rows, $1,729,103.00")
+  for (k in names(rows)) {
+    i <- which(pools & startsWith(st$channel, k))
+    st$evidence[i] <- paste(
+      st$evidence[i], "SESSION 109: HCAI's 'Recommended Subrecipients for CalRHT",
+      "Budget Period 1' (2026-10-21, CalRHT Program Updates page) names this",
+      "pool's recipients:", rows[[k]], "as printed, extracted by R/03cl as",
+      "INTENTS ('The awards listed on this page are tentative'; 'Inclusion on",
+      "this list does not constitute a final grant award').")
+  }
+  tp <- tibble::tibble(
+    state = "CA",
+    channel = "Transformative Payments (Transformative Care Model)",
+    administrator = "HCAI",
+    stated_pool = paste("No pool figure in any guide; the roster prints 11 rows,",
+                        "$34,999,996.00, inside TCM's 'Approximately $87.51 million'"),
+    stage = CA_RECOMMENDED_STAGE,
+    eligible_class = paste("A 'select group of rural hospitals whose stabilization",
+                           "is essential': every row is a hospital or district."),
+    publishes_roster = "Yes -- tentative (intents)",
+    evidence = paste(
+      "SESSION 109: a grant no published guide described. HCAI: 'conditional,",
+      "milestone-based investments to support hospital participation in",
+      "feasible components of the TCM'. 11 named hospitals, extracted by R/03cl",
+      "as INTENTS."))
+  gap <- tibble::tibble(
+    state = "CA",
+    channel = "HCAI's BP1 total vs the published rows -- UNRECONCILED",
+    administrator = "HCAI",
+    stated_pool = paste("'$166.72 million ... for 108 organizations' (prose) vs",
+                        "108 rows, $138,464,043.97 (tables): gap $28,255,956.03"),
+    stage = "UNRECONCILED_NOT_FORCED",
+    eligible_class = "n/a",
+    publishes_roster = "Yes -- tentative (intents)",
+    evidence = paste(
+      "By initiative the row COUNTS equal HCAI's stated grant counts (TCM 34,",
+      "Workforce 65, Technology 9) and the dollars do not: TCM $74,335,649.15",
+      "vs 'Approximately $87.51 million'; Workforce $54,169,999.00 vs $67.56",
+      "million; Technology $9,958,395.82 vs $11.65 million. HCAI: the list",
+      "'does not yet represent all Budget Period 1 investments included in the",
+      "initiative totals above'; TCM's sentence adds 'milestone-based hospital",
+      "investments and clinical training partnerships'. Nothing is imputed.",
+      "HCAI also says 'One applicant that was recommended to receive an award",
+      "has subsequently withdrawn their application' without naming it."))
+  dplyr::bind_rows(st, tp, gap)
 }
 
 
@@ -1311,10 +1400,13 @@ rhtp_ca_build <- function() {
   rhtp_assert_disposition_prose(dispo, "CA")
   readr::write_csv(status, here::here(CA_STATUS_CSV))
   readr::write_csv(dispo,  here::here(CA_DISPO_CSV))
+  # Session 109: the award file is R/03cl's; built here so one --build
+  # writes California whole.
+  source(here::here("R", "03cl_ca_bp1_awardees.R"), local = TRUE)
+  car_build()
   ca_assert_no_award_file()
   message("[CA] wrote ", CA_STATUS_CSV, " (", nrow(status), " rows) and ",
           CA_DISPO_CSV, " (", nrow(dispo), " rows).")
-  message("[CA] NO ca_year1_awardees.csv was written, and that is the finding.")
   invisible(list(status = status, disposition = dispo))
 }
 
@@ -1333,9 +1425,8 @@ rhtp_ca_report <- function() {
   cat(sprintf("  Announced across four pools    $%s  (%.1f%%)\n",
               format(pools, big.mark = ",", scientific = FALSE),
               100 * pools / allot))
-  cat("  RECIPIENT-LEVEL AWARD LIST     NONE PUBLISHED\n")
-  cat("  NAMED HOSPITALS                0\n")
-  cat("  HOSPITAL DOLLARS               $0\n\n")
+  cat("  RECIPIENT-LEVEL AWARD LIST     HCAI 2026-10-21, TENTATIVE (R/03cl)\n")
+  cat("  See Rscript R/03cl_ca_bp1_awardees.R --report\n\n")
 
   cat("  California is at SOLICITATION stage, and the window is open NOW.\n")
   cat("  All four CalRHT opportunities are headed '(Closed)' and none names\n")
@@ -1452,7 +1543,7 @@ ca_name_scope <- function(text, page) {
 
 #' SESSION 108: HCAI's tentative Budget Period 1 roster, pinned as read. HCAI
 #' says "Additional awards are pending and will be added to this page", so a
-#' new row or a moved figure is the signal: read it before the owner decides.
+#' new row or a moved figure is the signal: read it, then re-run R/03cl (session 109).
 CA_REC_ROWS  <- 108L
 CA_REC_TOTAL <- 138464043.97
 ca_recommended_rows <- function(raw = NULL) {
@@ -1470,8 +1561,8 @@ ca_assert_recommended_roster <- function(raw = NULL) {
   if (nrow(d) != CA_REC_ROWS || anyNA(d$amount) || abs(sum(d$amount) - CA_REC_TOTAL) > 0.005) {
     stop("[CA] HCAI's tentative Budget Period 1 roster moved: ", nrow(d), " rows, $",
          formatC(sum(d$amount, na.rm = TRUE), format = "f", digits = 2, big.mark = ","),
-         " (recorded 108 / $138,464,043.97). THAT IS THE SIGNAL: read the change and put it ",
-         "to the owner with the held roster (session 108).", call. = FALSE)
+         " (recorded 108 / $138,464,043.97). THAT IS THE SIGNAL: read the change, then ",
+         "update R/03cl's constants and re-run R/03ab --build (session 109).", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -1515,7 +1606,7 @@ ca_probe <- function(keys = CA_PROBE_KEYS) {
 
   message("[CA] the award tripwires pass against the LIVE bytes: the funding ",
           "page is unchanged in shape, and HCAI's tentative Budget Period 1 ",
-          "roster (108 rows, HELD for the owner, session 108) is as recorded.")
+          "roster (108 rows, extracted by R/03cl in session 109) is as recorded.")
   if (length(changed)) {
     message("[CA] CHANGED, read them: ", paste(changed, collapse = ", "))
   }
