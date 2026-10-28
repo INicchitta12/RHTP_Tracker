@@ -1,0 +1,16 @@
+FEDERAL RECORDS -- fetched 2026-10-28 by session 109
+
+WHY THESE ARE HERE. California's tentative CalRHT Budget Period 1 roster
+(R/03cl_ca_bp1_recommended_awardees.R) is typed on CMS's California Hospital,
+FQHC and RHC Enrollment files (owner instruction, session 109).
+
+SOURCE. data.cms.gov data API, filter[STATE]=CA, size=5000, as served:
+  Hospital Enrollments  dataset f6f6505c-e8b0-4d57-b258-e2b94133aaf2
+  FQHC Enrollments      dataset 4bcae866-3411-439a-b762-90a6187c194b
+  RHC Enrollments       dataset 3b7e7659-067e-41ea-8e36-f9ee2036e1f6
+Records: hospital 551 (480 HOSPITAL, 71 CRITICAL ACCESS HOSPITAL), FQHC 1,523,
+RHC 262. Each file is below its 5,000-row page cap.
+
+cms_fqhc_enrollments_CA.json  1015548  0fd908404c455471648ff57870a1e94d1031c173b622d73d0a95cea17e3a5823
+cms_hosp_enrollments_CA.json  658504  d7118c71ecd57e0ea125387b9944ce9963d97c71687d7b4577daa244b2553677
+cms_rhc_enrollments_CA.json  169783  92521fe1f5289ca92bdd089097f8c152647e6e7136790fdb1e622d1fe7587dc2
