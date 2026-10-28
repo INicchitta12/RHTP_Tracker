@@ -236,7 +236,10 @@ test_that("session 72: UMMS matches NO CMS hospital enrolment on its own legal n
   q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
                        col_types = readr::cols(.default = "c"), show_col_types = FALSE)
   r <- q[q$question_id == "AHC_STRING_NAMES_NO_ENROLLED_ENTITY", ]
-  expect_equal(r$queue_status, "OPEN")
+  # Session 110: the owner resolved the question (ruling a); the UMMS record
+  # in why_it_is_open is kept.
+  expect_equal(r$queue_status, "RESOLVED")
+  expect_match(r$resolution, "Health-system strings become hospital rows", fixed = TRUE)
   expect_match(r$why_it_is_open, "UMMS CHECKED AGAINST ITS OWN LEGAL NAME", fixed = TRUE)
 })
 
@@ -297,10 +300,16 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # 1,774 / $1,646,229,714.56 / 35.
   # Session 109: + CALIFORNIA (R/03cl, 59 / $82,803,969.14, a 36th state) and
   # MS round 2's Magnolia EMS (owner ruling (c), 1 / $100,000): 60 /
-  # $82,903,969.14: 1,834 / $1,729,133,683.70 / 36. Subtracted first.
+  # $82,903,969.14: 1,834 / $1,729,133,683.70 / 36.
+  # Session 110: owner rulings (a) and (b): + UC San Diego Health, + UVA Health,
+  # - Providence Medical Foundation: 1,835 / $1,729,244,537.70. Subtracted first.
+  expect_equal(n$rows, 1835L)
+  expect_equal(round(n$dollars, 2), 1729244537.70)
+  expect_equal(n$states, 36L)
+  n$rows <- n$rows - 1L
+  n$dollars <- n$dollars - 110854
   expect_equal(n$rows, 1834L)
   expect_equal(round(n$dollars, 2), 1729133683.70)
-  expect_equal(n$states, 36L)
   n$rows <- n$rows - 60L
   n$dollars <- n$dollars - 82903969.14
   n$states <- n$states - 1L

@@ -178,6 +178,16 @@ FQHC incorporated as a foundation; Superior Health Foundation is a conversion
 grantmaker with no parent at all. The test is the PARENT, and it is applied
 before the word *foundation* is read.
 
+**And it does not reach a California medical foundation (session 110, owner
+ruling).** A California "medical foundation" (Health and Safety Code
+§1206(l)) is a clinic-operating affiliate that contracts physician groups to
+deliver outpatient care; *foundation* in its name is a licensure term, not a
+fundraising role. *Providence Medical Foundation* ($450,000, California WDRR)
+names its hospital parent and is still not a hospital row: it is
+`PHYSICIAN_PRACTICE`, `NON_HOSPITAL`. The foundation half of this row covers a
+hospital's FUNDRAISING foundation; a foundation that operates clinics is judged
+as the clinic operator it is.
+
 **Where the parent is not stated, the row is NOT promoted (§0.4).** Kansas
 publishes two spellings — *Citizen's Foundation (Citizens Health)*, which names
 its parent, and *Citizens Foundation*, which does not — and they classify

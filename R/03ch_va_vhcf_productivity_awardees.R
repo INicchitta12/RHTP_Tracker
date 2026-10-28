@@ -37,9 +37,10 @@
 #     on the Hartford HealthCare pair's footing (R/03au, session 54). LOW, not
 #     CT's MEDIUM: "Tappahannock Hospitals" is a hand-read bridge, not the
 #     enrolled string.
-#   * "UVA Health" ($62,000) names no enrolled legal entity:
-#     AHC_STRING_NAMES_NO_ENROLLED_ENTITY's shape (R/03bx's two UVA strings),
-#     UNIVERSITY_OR_AHC, NON_HOSPITAL, one-directional if the queue bridges it.
+#   * "UVA Health" ($62,000) names the health system: a LOW hospital row with
+#     recipient_subtype ACADEMIC_HEALTH_CENTER (owner ruling, session 110,
+#     resolving AHC_STRING_NAMES_NO_ENROLLED_ENTITY). R/03bx's two UVA
+#     programme strings stay NON_HOSPITAL under the same ruling.
 #   * The four Community Services Boards: the release heads them "Community
 #     Services Boards (CSBs)", which states the form: LOCAL_GOVT_OR_PUBLIC_HEALTH,
 #     Western Tidewater CSB's reading (R/03bx).
@@ -101,12 +102,14 @@ VA_PP_OVERRIDES <- tibble::tribble(
   paste0(HVA_PARENT_NOTE, "MOUNTAIN STATES HEALTH ALLIANCE (490002 dba RUSSELL COUNTY HOSPITAL; CAH 491309 dba LEE COUNTY COMMUNITY HOSPITAL) and WELLMONT HEALTH SYSTEM (490114 dba LONESOME PINE HOSPITAL). This round's line funds an AI suite 'across its Southwest Virginia hospitals'."),
   "Sentara Health", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW",
   paste0(HVA_PARENT_NOTE, "SENTARA HOSPITALS (490007, 490044, 490046, 490057, 490066, 490093), SENTARA RMH MEDICAL CENTER (490004), SENTARA PRINCESS ANNE HOSPITAL (490119) and others. This round's line partners 'with rural practices': the recipient is the system, whatever the activity (§0.3a)."),
-  "UVA Health", "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "LOW",
-  paste0("AHC_STRING_NAMES_NO_ENROLLED_ENTITY (queued): the University of ",
-         "Virginia's health system named without its enrolled legal entity, ",
-         "RECTOR & VISITORS OF THE UNIVERSITY OF VIRGINIA dba UVA HEALTH ",
-         "SCIENCES CENTER (CCN 490009); no bridge is made (§2, §0.4). ",
-         "One-directional if bridged ($62,000)."),
+  "UVA Health", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW",
+  paste0("OWNER RULING, SESSION 110 (AHC_STRING_NAMES_NO_ENROLLED_ENTITY): A ROW ",
+         "NAMING THE HEALTH SYSTEM IS A HOSPITAL ROW. 'UVA Health' is the trading ",
+         "name of the health system CMS enrols as RECTOR & VISITORS OF THE ",
+         "UNIVERSITY OF VIRGINIA dba UVA HEALTH SCIENCES CENTER (CCN 490009). ",
+         "HOSPITAL_OR_SYSTEM, recipient_subtype ACADEMIC_HEALTH_CENTER, LOW, ",
+         "GENERAL_KNOWLEDGE, no CCN on the row (the string does not print the ",
+         "enrolled legal entity). Subtractable by subtype and by basis_type."),
   "Horizon Behavioral Health", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "STATE_SOURCE", "MEDIUM", VA_PP_CSB_WHY,
   "Middle Peninsula Northern Neck CSB", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "STATE_SOURCE", "MEDIUM", VA_PP_CSB_WHY,
   "Piedmont Regional CSB", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "STATE_SOURCE", "MEDIUM", VA_PP_CSB_WHY,
@@ -273,6 +276,7 @@ va_pp_awardees <- function(d = va_pp_parse(), f = hva_federal()) {
                           "footer ($189,544,888) is Virginia's ALLOTMENT, Tier 1, and is ",
                           "not this round's total (§0.2)."),
     basis_type = t$basis_type,
+    recipient_subtype = ifelse(d$awardee == "UVA Health", "ACADEMIC_HEALTH_CENTER", NA_character_),
     round_amount = VA_PP_TOTAL,
     announcement_date = VA_PP_ANNOUNCED,
     source_archive_path = VA_PP_FILE)
@@ -289,9 +293,11 @@ va_pp_assert_typing <- function(a = va_pp_awardees()) {
     stop("[VA VHCF PP] the VCU pair must be the one POOL_NAMED row, $1,000,000, undivided.", call. = FALSE)
   }
   uva <- a[a$awardee == "UVA Health", ]
-  if (nrow(uva) != 1L || uva$distributed_to_hospital != "No") {
-    stop("[VA VHCF PP] 'UVA Health' must stay NON_HOSPITAL until ",
-         "AHC_STRING_NAMES_NO_ENROLLED_ENTITY is resolved.", call. = FALSE)
+  if (nrow(uva) != 1L || uva$hospital_attribution != "NAMED_HOSPITAL" ||
+      !identical(uva$recipient_subtype, "ACADEMIC_HEALTH_CENTER") ||
+      uva$determination_confidence != "LOW") {
+    stop("[VA VHCF PP] 'UVA Health' must be a LOW NAMED_HOSPITAL row with ",
+         "recipient_subtype ACADEMIC_HEALTH_CENTER (owner ruling, session 110).", call. = FALSE)
   }
   for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
                 "determination_confidence", "hospital_attribution", "basis_type")) {

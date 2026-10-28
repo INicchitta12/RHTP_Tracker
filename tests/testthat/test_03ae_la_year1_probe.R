@@ -33,6 +33,7 @@
 library(testthat)
 
 source(here::here("R", "03ae_la_year1_probe.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 
 la_prog  <- la_html_text("programme")
 # SESSION 88: the 09-21 page is now the prior; the window-shape tests below
@@ -556,7 +557,7 @@ test_that("the award file is five named rows plus ONE unnamed aggregate", {
 test_that("the file rebuilds from the deck exactly", {
   built <- s71(rhtp_la_year1_awardees(la_runs), "la_year1_awardees.csv") %>%
     dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
-  expect_equal(names(built), names(la_awards))
+  expect_equal(names(built), setdiff(names(la_awards), RHTP_SUMMARY_COLUMNS))
   expect_equal(built$awardee, la_awards$awardee)
   expect_equal(built$amount, la_awards$amount)
   expect_equal(built$recipient_type, la_awards$recipient_type)

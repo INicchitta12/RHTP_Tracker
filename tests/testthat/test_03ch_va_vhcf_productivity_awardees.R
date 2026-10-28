@@ -23,17 +23,18 @@ test_that("the CMS footer is the ALLOTMENT and is refused as the round total (§
   expect_true(all(committed$round_amount == 8644000))
 })
 
-test_that("hospital rows: four on exact CMS records, three system parents, one undivided pair", {
+test_that("hospital rows: exact CMS records, three system parents, UVA Health (AHC), one undivided pair", {
   h <- committed[committed$hospital_attribution == "NAMED_HOSPITAL", ]
-  expect_equal(nrow(h), 7L)
-  expect_equal(sum(h$amount), 4579000)
+  # Session 110 (owner ruling a): + UVA Health, $62,000: 7 / $4,579,000 -> 8 / $4,641,000.
+  expect_equal(nrow(h), 8L)
+  expect_equal(sum(h$amount), 4641000)
   exact <- h[h$basis_type == "ORG_WEBSITE", ]
   expect_setequal(unique(exact$awardee), c("Bath County Community Hospital",
     "Buchanan General Hospital", "Carilion Medical Center"))
   expect_true(all(!is.na(exact$ccn)) && all(exact$determination_confidence == "MEDIUM"))
   gk <- h[h$basis_type == "GENERAL_KNOWLEDGE", ]
-  expect_setequal(gk$awardee, c("Valley Health System", "Ballad Health", "Sentara Health"))
-  expect_equal(sum(gk$amount), 3000000)
+  expect_setequal(gk$awardee, c("Valley Health System", "Ballad Health", "Sentara Health", "UVA Health"))
+  expect_equal(sum(gk$amount), 3062000)
   expect_true(all(gk$determination_confidence == "LOW") && all(is.na(gk$ccn)))
   pr <- committed[committed$hospital_attribution == "POOL_NAMED_HOSPITALS", ]
   expect_equal(nrow(pr), 1L)
@@ -42,10 +43,12 @@ test_that("hospital rows: four on exact CMS records, three system parents, one u
   expect_false(any(committed$determination_confidence == "HIGH"))
 })
 
-test_that("UVA Health is NON_HOSPITAL and queued; FQHCs are not hospitals", {
+test_that("UVA Health is an AHC hospital row (owner ruling, session 110); FQHCs are not hospitals", {
   uva <- committed[committed$awardee == "UVA Health", ]
-  expect_equal(uva$distributed_to_hospital, "No")
-  expect_equal(uva$recipient_type, "UNIVERSITY_OR_AHC")
+  expect_equal(uva$distributed_to_hospital, "Yes")
+  expect_equal(uva$recipient_type, "HOSPITAL_OR_SYSTEM")
+  expect_equal(uva$recipient_subtype, "ACADEMIC_HEALTH_CENTER")
+  expect_equal(uva$determination_confidence, "LOW")
   fq <- committed[committed$category == "Federally Qualified Health Centers (FQHCs)", ]
   expect_true(all(fq$recipient_type == "FQHC_OR_RHC"))
 })

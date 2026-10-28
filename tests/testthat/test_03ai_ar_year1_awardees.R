@@ -31,6 +31,7 @@
 library(testthat)
 
 source(here::here("R", "03ai_ar_year1_awardees.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 
 skip_without_archive <- function() {
   if (!file.exists(ar_path("roster")) || !file.exists(ar_path("governor"))) {
@@ -927,7 +928,11 @@ test_that("the committed round-1 file is the builder + session 49 overlay + the 
     "ar_year1_awardees.csv")
   tmp <- tempfile(fileext = ".csv")
   readr::write_csv(built, tmp, na = "")
-  expect_identical(unname(tools::md5sum(tmp)), unname(tools::md5sum(AR_OUT_CSV)))
+  # Session 110: the committed file also carries R/07's three summary-call
+  # columns; compare against it without them (a byte-exact round trip).
+  committed <- tempfile(fileext = ".csv")
+  readr::write_csv(rhtp_strip_summary_calls(rhtp_summary_read(AR_OUT_CSV)), committed, na = "")
+  expect_identical(unname(tools::md5sum(tmp)), unname(tools::md5sum(committed)))
 })
 
 test_that("the allotment remainder decomposes, and only $4.68M of it is sourced", {
