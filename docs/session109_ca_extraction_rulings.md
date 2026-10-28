@@ -137,4 +137,7 @@ branch merges, `main`'s CA probe reads the 10-26 baselines and will trip on the 
 
 ## Suite
 
-See the commit message and the report for the full-suite result on the final commit.
+`Rscript tests/run_tests.R` on `0069d3e`: **0 failures**. One standing skip remains (test_00's first-run branch).
+The first full run, before `0069d3e`, failed four expectations, each a pin this session's changes moved: the VA
+disposition CSV (11 → 16 rows), the survey split (41/5 → 42/4), and VA's ways-to-apply test (the five
+collaboratives are now in the file). All four were fixed by rebuilding the disposition or updating the pin.
