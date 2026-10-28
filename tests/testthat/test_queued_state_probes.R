@@ -213,8 +213,10 @@ test_that("session 74: VA's ways-to-apply table is diffed on its PARTNER column,
   # in the file; 'Virginia Hospital and Healthcare Foundation' is the file's
   # 'Virginia Hospital Research and Education Foundation (d/b/a VHHA
   # Foundation)', matched by hand (§2).
+  # Session 109 (owner ruling): the five collaboratives are now in the file at $0.
+  expect_true(all(va_rc %in% vaf$awardee))
   expect_setequal(setdiff(p, vaf$awardee),
-                  c("Commonwealth of VA", "Virginia Hospital and Healthcare Foundation", va_rc))
+                  c("Commonwealth of VA", "Virginia Hospital and Healthcare Foundation"))
   expect_true(any(grepl("VHHA Foundation", vaf$awardee, fixed = TRUE)))
   # A status change is silent ...
   st <- sub("Closed (August 31st 2026)", "Closed", arch, fixed = TRUE)
