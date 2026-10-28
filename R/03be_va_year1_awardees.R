@@ -188,6 +188,67 @@ VAA_ROWS <- tibble::tribble(
   "STATE_SOURCE"
 )
 
+# SESSION 109 (owner ruling (f)): the FIVE Regional Collaboratives the Ways to
+# Apply table lists beside the Commonwealth on Mobile & Hybrid Care, each with
+# an Open RFA, added at $0 as first-tier ADMINISTRATORS. They are named only on
+# that table (no release, no amount, no stated form), so each carries §8's
+# standing fallback and the NSVRC row's flow reading: Mobile and Hybrid Care is
+# open to every audience including health systems and hospitals (§0.3).
+VAA_WAYS_1026 <- file.path("data", "evidence", "VA", "2026-10-26_rhtva_ways_to_apply.html")
+VAA_COLLABS <- c("SWVA Regional Collaborative",
+                 "Roanoke-Alleghany/Central Shenandoah/New River Valley Regional Collaborative",
+                 "Northern Piedmont Regional Collaborative",
+                 "Southside Regional Collaborative",
+                 "Eastern Shore Regional Collaborative")
+
+vaa_collab_table <- function(path = VAA_WAYS_1026) {
+  tb <- rvest::html_table(rvest::html_elements(xml2::read_html(here::here(path)), "table"))[[1]]
+  names(tb) <- c("initiative", "sub_initiative", "partner", "rfa_status")
+  tb[grepl("Regional Collaborative", tb$partner), ]
+}
+
+vaa_assert_collabs <- function(tb = vaa_collab_table()) {
+  if (!setequal(tb$partner, VAA_COLLABS) || nrow(tb) != 5L ||
+      any(tb$sub_initiative != "Mobile & Hybrid Care") || any(tb$rfa_status != "Open")) {
+    stop("[VA] the Ways to Apply table no longer lists the five Regional Collaboratives on ",
+         "Mobile & Hybrid Care with Open RFAs; re-read it.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+va_collab_rows <- function() {
+  cls <- rhtp_classify_recipient_type(VAA_COLLABS, VAA_STATE)
+  why <- paste("A REGIONAL COLLABORATIVE named as a Key Implementation Partner for",
+               "Mobile & Hybrid Care on the Ways to Apply table (RFA Status 'Open'):",
+               "a first-tier ADMINISTRATOR that will re-grant, not an award to a",
+               "provider. The page states no form (§8's standing fallback). Navigator",
+               "lists Mobile and Hybrid Care for every audience including health",
+               "systems and hospitals, so §0.3: Unclear, the NSVRC row's reading.",
+               "OWNER RULING (session 109): added at $0, typed.")
+  tibble::tibble(
+    state = VAA_STATE, row_no = NA_integer_, awardee = VAA_COLLABS, amount = NA_real_,
+    recipient_type = "NONPROFIT_CBO", distributed_to_hospital = "Unclear",
+    note = "Key implementation partner on rhtva's Ways to Apply table (2026-10-26); Open RFA; no amount published.",
+    recipient_confirmed = "Yes", amount_confirmed = "No", fiscal_year = "FY2026 (Year 1)",
+    source_document_title = "Rural Health Transformation Virginia, Ways to Apply (partner table, archived 2026-10-26)",
+    state_source_url = "https://www.ruralhealthtransformationva.virginia.gov/ways-to-apply/",
+    validation_source_type = "OTHER", extraction_method = "DIRECT_TEXT",
+    validator = "R/03be_va_year1_awardees.R",
+    ccn = NA_character_, aha_id = NA_character_, rural_designation = NA_character_,
+    reviewer = NA_character_, initiative = "Mobile and Hybrid Care",
+    recipient_type_source = paste0("TYPED (session 109): ", why, " Classifier said ",
+                                   cls$recipient_type, "/", cls$determination_confidence, "."),
+    determination_confidence = "LOW",
+    flag_reason = "ELIGIBILITY_NOT_RECEIPT;RECIPIENT_TYPE_INFERRED",
+    award_pool = "Mobile and Hybrid Care", budget_period = "Budget Period 1",
+    flow_type = "PASS_THROUGH_UNRESOLVED", hospital_benefiting = "Unclear",
+    hospital_attribution = "NOT_HOSPITAL", intermediary_name = VAA_COLLABS,
+    determination_basis = paste0("§10.2 PASS_THROUGH_UNRESOLVED: ", why),
+    amount_basis = "NO FIGURE PUBLISHED: the partner table carries no amount; $0 in every figure.",
+    basis_type = NA_character_, round_amount = NA_real_,
+    announcement_date = as.Date("2026-10-26"), source_archive_path = VAA_WAYS_1026)
+}
+
 VAA_STATUS <- tibble::tribble(
   ~item, ~figure_in_source, ~stage, ~note,
   "Round total across the eleven partners", 122000000, "ANNOUNCED_NO_SPLIT",
@@ -291,7 +352,9 @@ va_year1_awardees <- function() {
     round_amount = NA_real_,
     announcement_date = VAA_RELEASE_DATE,
     source_archive_path = VAA_RELEASE
-  )
+  ) %>%
+    dplyr::bind_rows(va_collab_rows()) %>%
+    dplyr::mutate(row_no = seq_len(dplyr::n()))
 }
 
 va_year1_status <- function() {
@@ -301,8 +364,9 @@ va_year1_status <- function() {
 
 va_validate <- function() {
   vaa_assert_sources()
+  vaa_assert_collabs()
   d <- va_year1_awardees()
-  stopifnot(nrow(d) == 11L, all(is.na(d$amount)),
+  stopifnot(nrow(d) == 16L, all(is.na(d$amount)),
             !any(d$distributed_to_hospital == "Yes"),
             !"amount" %in% names(va_year1_status()))
   message("[VA] all assertions pass.")
@@ -313,7 +377,8 @@ va_build <- function() {
   va_validate()
   readr::write_csv(va_year1_awardees(), here::here(VAA_AWARD_CSV), na = "")
   readr::write_csv(va_year1_status(), here::here(VAA_STATUS_CSV), na = "")
-  message("[VA] wrote 11 award rows and ", nrow(VAA_STATUS), " status rows.")
+  message("[VA] wrote 16 award rows (11 release partners + 5 Regional Collaboratives) and ",
+          nrow(VAA_STATUS), " status rows.")
 }
 
 va_report <- function() {

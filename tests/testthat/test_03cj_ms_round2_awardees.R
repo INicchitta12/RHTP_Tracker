@@ -41,14 +41,19 @@ test_that("the three EmPATH units are typed to their host hospitals", {
 
 test_that("the hospital figure, and what subtracts from it", {
   h <- a[a$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(h), 30L)
-  expect_equal(round(sum(h$amount), 2), 22886995.92)
+  # Session 109: + Magnolia Regional Health Center EMS ($100,000), owner ruling.
+  expect_equal(nrow(h), 31L)
+  expect_equal(round(sum(h$amount), 2), 22986995.92)
   expect_equal(round(sum(h$amount[h$basis_type %in% "GENERAL_KNOWLEDGE"]), 2), 219120)
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
   expect_false(any(a$determination_confidence == "HIGH"))
-  # A hospital's EMS department is not bridged (no department-name rule).
+  # SESSION 109 (owner ruling): a hospital's own EMS department is the
+  # hospital, typed on the hospital's enrolment. WVU Eye Institute's
+  # NON_HOSPITAL ruling covers a university's unit, not a hospital's.
   m <- a[a$awardee == "Magnolia Regional Health Center EMS", ]
-  expect_equal(m$distributed_to_hospital, "No")
+  expect_equal(m$distributed_to_hospital, "Yes")
+  expect_equal(m$ccn, "250009")
+  expect_match(m$determination_basis, "UNIVERSITY's unit", fixed = TRUE)
 })
 
 test_that("the committed file is what the builder produces", {

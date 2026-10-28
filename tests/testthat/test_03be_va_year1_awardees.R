@@ -11,8 +11,22 @@ test_that("the sources still say what the rows rest on", {
   expect_true(vaa_assert_sources())
 })
 
-test_that("eleven partners, every amount empty, no round figure repeated", {
-  expect_equal(nrow(va), 11L)
+test_that("SESSION 109: the five Regional Collaboratives, at $0, as first-tier administrators", {
+  expect_true(vaa_assert_collabs())
+  rc <- va[va$awardee %in% VAA_COLLABS, ]
+  expect_equal(nrow(rc), 5L)
+  expect_true(all(rc$distributed_to_hospital == "Unclear"))
+  expect_true(all(rc$flow_type == "PASS_THROUGH_UNRESOLVED"))
+  expect_true(all(rc$hospital_attribution == "NOT_HOSPITAL"))
+  expect_true(all(grepl("RECIPIENT_TYPE_INFERRED", rc$flag_reason)))
+  # A sixth collaborative, or one closing its RFA, fails the build.
+  tb <- vaa_collab_table()
+  tb$rfa_status[1] <- "Closed"
+  expect_error(vaa_assert_collabs(tb), "re-read")
+})
+
+test_that("sixteen partners (11 release + 5 collaboratives), every amount empty", {
+  expect_equal(nrow(va), 16L)
   expect_true(all(is.na(va$amount)))
   expect_true(all(is.na(va$round_amount)))
   expect_equal(committed$awardee, va$awardee)

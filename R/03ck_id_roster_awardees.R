@@ -250,8 +250,40 @@ idr_type <- function(d = idr_read(), f = idr_federal()) {
   })
   t <- dplyr::bind_rows(out)
   t$classifier <- paste0(cls$recipient_type, "/", rhtp_confidence_ceiling(cls$determination_confidence))
+  # SESSION 109: the owner's rulings, recorded on the rows they settle.
+  r <- ID_RULINGS$ruling[match(d$awardee, ID_RULINGS$awardee)]
+  t$why <- ifelse(is.na(r), t$why, paste(t$why, r))
   t
 }
+
+#' SESSION 109 owner rulings on session 108's open Idaho questions. Each is a
+#' recorded ruling on a coding the rows already carry; none moves a dollar.
+ID_RULINGS <- tibble::tribble(
+  ~awardee, ~ruling,
+  "Lifeways",
+  paste0("OWNER RULING (session 109, Brattleboro Retreat precedent): HOSPITAL_OR_SYSTEM because CMS ",
+         "enrols this legal entity as a psychiatric hospital -- ORGANIZATION NAME 'LIFEWAYS INC', DBA ",
+         "'LIFEWAYS HOSPITAL', CCN 134009, PART A PROVIDER - HOSPITAL, SUBGROUP - PSYCHIATRIC 'Y' ",
+         "(federal_records/2026-09-25/cms_hosp_enrollments_ID.json). Confirmed; unchanged."),
+  "The Hospital Cooperative",
+  paste0("OWNER RULING (session 109, ICAHN rule): POOL_UNNAMED_HOSPITALS only if the source says the ",
+         "money goes to member hospitals. THE SOURCE SENTENCE, the list's whole line: 'Subrecipient | ",
+         "Healthcare Infrastructure Support | The Hospital Cooperative | 1518287'. DHW's funding page ",
+         "says only 'CLOSED 9/18/26: Healthcare Infrastructure Support'. Neither says where the money ",
+         "goes, so the row STAYS Unclear."),
+  "Hospital Network of Idaho",
+  paste0("OWNER RULING (session 109, ICAHN rule): POOL_UNNAMED_HOSPITALS only if the source says the ",
+         "money goes to member hospitals. THE SOURCE SENTENCES, the list's three lines: 'Subrecipient | ",
+         "Healthcare Infrastructure Support | Hospital Network of Idaho | 28050', '... | 1888984' and ",
+         "'... | 398000'. DHW's funding page says only 'CLOSED 9/18/26: Healthcare Infrastructure ",
+         "Support'. None says where the money goes, so the rows STAY Unclear."),
+  "Public Consulting Group LLC",
+  paste0("OWNER RULING (session 109): stays Unclear unless the ladder payments are stated to go only to ",
+         "hospitals. THE SOURCE SENTENCES: the list's 'Contractor | Third Party Administrator for Ladder ",
+         "Payment Program | Public Consulting Group LLC | 14520000'; DHW's 'CLOSED 8/17/26: Third Party ",
+         "Administrator - Ladder Payments - RHTP RFP'; and the About page's 'Ladder payments based on ",
+         "priority positions and rural presence'. None restricts the payees to hospitals, so it STAYS ",
+         "Unclear."))
 
 #' The award file: every line but the two inter-agency MOA/MOU lines.
 id_roster_awardees <- function(d = idr_read(), f = idr_federal()) {

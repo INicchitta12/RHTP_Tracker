@@ -77,12 +77,11 @@
 #     HOSPITAL AT GULFPORT (250019); not itself enrolled. LOW, GENERAL_KNOWLEDGE.
 #     (R/03ak's two round-1 rows type the same string MEDIUM on the name alone;
 #     that file is not re-typed here.)
-#   * Magnolia Regional Health Center EMS -> NOT bridged to MAGNOLIA REGIONAL
-#     HEALTH CENTER (250009). The string names a hospital's EMS service, a
-#     department; the owner's WVU Eye Institute ruling (session 104) added NO
-#     department-name rule, so the row is typed on its stated form, EMS_OR_PSAP,
-#     NON_HOSPITAL, and queued (MS2_MAGNOLIA_EMS_DEPARTMENT). One-directional,
-#     $100,000, if the owner rules a hospital's own EMS is the hospital.
+#   * Magnolia Regional Health Center EMS -> MAGNOLIA REGIONAL HEALTH CENTER
+#     (250009), OWNER RULING session 109: the award names the hospital and EMS
+#     is a hospital department, so the hospital is the recipient (§0.3a). The
+#     WVU Eye Institute ruling (session 104) covers a UNIVERSITY's unit, whose
+#     legal entity is not an enrolled hospital; this unit's legal entity is.
 #   * Aaron E. Henry Community Health Services Center, Inc. -> the FQHC
 #     enrolled as AARON E HENRY COMMUNITY HEALTH (a truncation). LOW.
 #   * Kinder Mind and Jefferson County Nursing Home keep R/03ak's round-1
@@ -249,11 +248,15 @@ MS2_HAND <- tibble::tribble(
   "Memorial Health System", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, NA,
   paste0(MS2_PARENT_NOTE, "MEMORIAL HOSPITAL AT GULFPORT (CCN 250019), which CMS enrols under its ",
          "own name; Memorial Health System is not itself enrolled, so no CCN. Subtractable by basis_type."),
-  "Magnolia Regional Health Center EMS", "EMS_OR_PSAP", "STATE_SOURCE", "MEDIUM", NA, NA,
-  paste0("NOT BRIDGED (queued, MS2_MAGNOLIA_EMS_DEPARTMENT): the string names a hospital's EMS ",
-         "service, a department of MAGNOLIA REGIONAL HEALTH CENTER (CCN 250009, Corinth). The owner's ",
-         "WVU Eye Institute ruling (session 104) added no department-name rule, so the row is typed on ",
-         "the form its own name states, EMS. One-directional ($100,000) if the owner rules otherwise."),
+  "Magnolia Regional Health Center EMS", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "MEDIUM", "250009", NA,
+  paste0("OWNER RULING (session 109): TYPED TO THE HOSPITAL'S ENROLMENT. The award names the hospital, ",
+         "and its EMS service is a department of that hospital, so the recipient is the hospital (code ",
+         "the recipient, §0.3a). The string's legal-entity half is EXACTLY the ORGANIZATION NAME of ",
+         "MAGNOLIA REGIONAL HEALTH CENTER (CCN 250009, Corinth, PART A PROVIDER - HOSPITAL), which also ",
+         "holds its RHC, HHA and hospice enrolments. THE DISTINCTION FROM WVU EYE INSTITUTE (session ",
+         "104, NON_HOSPITAL): that ruling covers a UNIVERSITY's unit, whose legal entity (West Virginia ",
+         "University) is not an enrolled hospital; here the unit's legal entity IS the enrolled hospital. ",
+         "No department-name rule is added: each such row is read off its own legal entity. MEDIUM."),
   "Aaron E. Henry Community Health Services Center, Inc.", "FQHC_OR_RHC", "ORG_WEBSITE", "LOW", NA, NA,
   paste0("HAND-READ BRIDGE: CMS MS FQHC Enrollment carries AARON E HENRY COMMUNITY HEALTH (Clarksdale ",
          "and others), a truncation of the string. An FQHC, not a hospital. LOW."),
