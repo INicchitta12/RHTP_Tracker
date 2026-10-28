@@ -53,10 +53,12 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 1,576 / $1,431,975,278.58 / 34. Session 107: + 2 WV, + 7 VA VHCF
   # Productivity: 1,585 / $1,439,954,278.58 / 34. Session 108: + 48 ID, + 76 TX,
   # + 31 VT, + 30 MS r2, + 5 OH, - 1 NY: 1,774 / $1,646,229,714.56 / 35.
-  expect_equal(nrow(rows), 1774L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1646229714.56,
+  # Session 109: + 59 CA (intents), + 1 MS r2 (Magnolia EMS, ruling (c)):
+  # 1,834 / $1,729,133,683.70 / 36.
+  expect_equal(nrow(rows), 1834L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1729133683.70,
                tolerance = 0)
-  expect_equal(nrow(rows[rows$state != "TX", ]), 1490L)   # session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
+  expect_equal(nrow(rows[rows$state != "TX", ]), 1550L)   # session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
@@ -110,7 +112,11 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   # + VA's Bath County Community Hospital (CAH 491300, $40,000): 411 / $367,063,056.72.
   # Session 108: + ID 42 ($79,078,939.69), + TX 43 ($42,184,742.57), + VT 14
   # ($10,055,239.34), + MS r2 8 ($2,276,055.92), by CAH/REH CCN: 518 / $500,658,034.24.
-  expect_equal(nrow(r), 518L)
+  # Session 109: + CA 31 ($46,065,499.94) by CAH/REH CCN; Magnolia (250009) is
+  # not a CAH: 549 / $546,723,534.18.
+  expect_equal(nrow(r), 549L)
+  expect_equal(sum(r$state == "CA"), 31L)
+  expect_equal(round(sum(r$amount[r$state == "CA"], na.rm = TRUE), 2), 46065499.94)
   expect_equal(sum(r$state == "TX"), 185L)
   expect_equal(sum(r$state == "ID"), 42L)
   expect_equal(round(sum(r$amount[r$state == "TX"], na.rm = TRUE), 2), 129005065.30)
@@ -121,8 +127,8 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
   expect_equal(sum(r$state == "VA"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 500658034.24, tolerance = 0)
-  expect_equal(round(sum(r$amount[r$state != "TX"], na.rm = TRUE), 2), 371652968.94, tolerance = 0)  # OH Pomerene is $0
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 546723534.18, tolerance = 0)
+  expect_equal(round(sum(r$amount[r$state != "TX"], na.rm = TRUE), 2), 417718468.88, tolerance = 0)  # OH Pomerene is $0
   expect_equal(round(sum(r$amount[r$state == "MO"], na.rm = TRUE), 2), 12149876.33)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 32L)
@@ -175,11 +181,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 518L)   # session 108: + 42 ID, + 43 TX, + 14 VT, + 8 MS r2; session 107: + VA Bath County (CAH); session 104: + 3 TX CAH county bridges (Hardeman x2, Stonewall), - TX Memorial Hospital (no CCN), + OH Pomerene ($0); session 103: + 140 TX; session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
+  expect_equal(sum(by$rural_rows), 549L)   # session 109: + 31 CA; session 108: + 42 ID, + 43 TX, + 14 VT, + 8 MS r2; session 107: + VA Bath County (CAH); session 104: + 3 TX CAH county bridges (Hardeman x2, Stonewall), - TX Memorial Hospital (no CCN), + OH Pomerene ($0); session 103: + 140 TX; session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1774L)   # session 108: + 189 (ID TX VT MS r2 OH, - NY); session 107: + 2 WV, + 7 VA VHCF PP; session 104: + 7 TX, + 9 MD Labor, + 22 OH; session 103: + 201 TX, + 1 OK; session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
+  expect_equal(nrow(committed), 1834L)   # session 109: + 59 CA, + 1 MS r2 (Magnolia EMS); session 108: + 189 (ID TX VT MS r2 OH, - NY); session 107: + 2 WV, + 7 VA VHCF PP; session 104: + 7 TX, + 9 MD Labor, + 22 OH; session 103: + 201 TX, + 1 OK; session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
   expect_equal(committed$rural_class, rows$rural_class)
 })

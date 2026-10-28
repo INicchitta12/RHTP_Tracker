@@ -363,23 +363,23 @@ OR,or_year1_awardees.csv,229,Wallowa County Health Care District (DBA Wallowa Me
 OR,or_year1_awardees.csv,244,Oregon Health & Science University (OHSU),398000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 380009: PART A PROVIDER - HOSPITAL",FALSE,380009,ORG_WEBSITE
 MS,ms_year1_awardees.csv,2,South Mississippi State Hospital,50000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,4,"Corinth Family Medical Center, PC",98702,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,16,Memorial Health System,650000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,16,Memorial Health System,650000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,23,Magee Benevolent Association,825000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250124: PART A PROVIDER - HOSPITAL",FALSE,250124,ORG_WEBSITE
 MS,ms_year1_awardees.csv,35,Choctaw Regional Medical Center,46113,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,37,Northwest Mississippi Regional Medical Center,917166,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,38,George County Hospital,330000,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,39,Memorial Health System,2980874,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,39,Memorial Health System,2980874,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,40,"Baptist Memorial Hospital-Calhoun, Inc.",1491000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,41,George County Hospital,30555,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,42,Memorial Health System,83599,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,42,Memorial Health System,83599,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,43,Copiah County Medical Center,44404,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,44,George County Hospital,84000,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,45,Memorial Health System,156000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,45,Memorial Health System,156000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,46,Claiborne County Hospital d/b/a Claiborne County Medical Center,135070,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,47,George County Hospital,102381,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,48,"The Mississippi Methodist Hospital and Rehabilitation Center, Inc",179900.18,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,49,Covington County Hospital,829240,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,50,Memorial Health System,684325,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,50,Memorial Health System,684325,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,51,University of Mississippi Medical Center,826256,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,52,Northwest Mississippi Regional Medical Center,212674,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,53,"The Mississippi Methodist Hospital and Rehabilitation Center, Inc",87061,NOT_RECORDED,,FALSE,,
@@ -398,7 +398,7 @@ MS,ms_year1_awardees.csv,65,Neshoba County General Hospital,255000,NOT_RECORDED,
 MS,ms_year1_awardees.csv,66,Southwest Mississippi Regional Medical Center,18200,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,67,Southwest Mississippi Regional Medical Center,120000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,68,Magee Benevolent Association,2131454,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250124: PART A PROVIDER - HOSPITAL",FALSE,250124,ORG_WEBSITE
-MS,ms_year1_awardees.csv,69,Memorial Health System,2874728,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,69,Memorial Health System,2874728,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,70,Tallahatchie General Hospital,125790,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,71,Tippah County Hospital,151300,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,72,Tippah County Hospital,400000,NOT_RECORDED,,FALSE,,
@@ -414,7 +414,7 @@ MS,ms_year1_awardees.csv,88,"Simpson Community Healthcare, Inc.",830000,FEDERAL_
 MS,ms_year1_awardees.csv,90,Independent Healthcare Management Inc,730000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 251300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,251300,ORG_WEBSITE
 MS,ms_year1_awardees.csv,99,Winston County Medical Foundation,1090138.34,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250027: PART A PROVIDER - HOSPITAL",FALSE,250027,ORG_WEBSITE
 MS,ms_year1_awardees.csv,100,University of Mississippi Medical Center Greenwood,3000000,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,103,Memorial Health System,1151594,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,103,Memorial Health System,1151594,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,105,"Independent Healthcare Management, Inc.",3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 251300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,251300,ORG_WEBSITE
 MS,ms_year1_awardees.csv,107,Tate County Hospital,1500000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,108,Copiah County Medical Center,643700.4,NOT_RECORDED,,FALSE,,
@@ -423,7 +423,7 @@ MS,ms_year1_awardees.csv,111,Progressive Health of Houston,1645000,FEDERAL_RECOR
 MS,ms_year1_awardees.csv,112,Winston County Medical Foundation,240852.15,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250027: PART A PROVIDER - HOSPITAL",FALSE,250027,ORG_WEBSITE
 MS,ms_year1_awardees.csv,113,North Sunflower Medical Center,1000000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,114,Progressive Health of Houston,1383406,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250785: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,250785,ORG_WEBSITE
-MS,ms_year1_awardees.csv,115,Memorial Health System,1160837,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,115,Memorial Health System,1160837,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,116,"Webster Healthcare Services, Inc.",500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250020: PART A PROVIDER - HOSPITAL",FALSE,250020,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,117,Copiah County Medical Center,29063.6,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,119,South Central Regional Medical Center,3000000,NOT_RECORDED,,FALSE,,
@@ -433,20 +433,21 @@ MS,ms_year1_awardees.csv,124,Jasper General Hospital,535000,NOT_RECORDED,,FALSE,
 MS,ms_year1_awardees.csv,126,Southwest Mississippi Regional Center,277077,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250097: PART A PROVIDER - HOSPITAL",FALSE,250097,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,128,George County Hospital,220000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,129,George County Hospital,1501000,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,131,Memorial Health System,3000000,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,131,Memorial Health System,3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,134,Yalobusha General Hospital,275000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,138,Northwest Mississippi Regional Medical Center,834750,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,145,Choctaw Regional Medical Center,394000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,146,Progressive Health of Houston,336000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250785: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,250785,ORG_WEBSITE
-MS,ms_year1_awardees.csv,147,Memorial Health System,1920000,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,150,Memorial Health System,72750,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,147,Memorial Health System,1920000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
+MS,ms_year1_awardees.csv,150,Memorial Health System,72750,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_year1_awardees.csv,154,University of Mississippi Medical Center,149100,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,156,Forrest County General Hospital,596026,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,160,Wayne General Hospital,200000,NOT_RECORDED,,FALSE,,
 MS,ms_year1_awardees.csv,161,South Central Regional Medical Center,2543900,NOT_RECORDED,,FALSE,,
-MS,ms_year1_awardees.csv,165,Memorial Health System,306515,NOT_RECORDED,,FALSE,,
+MS,ms_year1_awardees.csv,165,Memorial Health System,306515,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,GENERAL_KNOWLEDGE
 MS,ms_round2_awardees.csv,1,Tippah County Hospital,267954,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 251337: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,251337,ORG_WEBSITE
 MS,ms_round2_awardees.csv,2,Tate County Hospital,300000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250172: PART A PROVIDER - HOSPITAL",FALSE,250172,ORG_WEBSITE
+MS,ms_round2_awardees.csv,3,Magnolia Regional Health Center EMS,100000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250009: PART A PROVIDER - HOSPITAL",FALSE,250009,ORG_WEBSITE
 MS,ms_round2_awardees.csv,5,"Natchez Hospital Company LLC, d.b.a. Merit Health Natchez",405000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250084: PART A PROVIDER - HOSPITAL",FALSE,250084,ORG_WEBSITE
 MS,ms_round2_awardees.csv,6,Merit Health River Region,263000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250031: PART A PROVIDER - HOSPITAL",FALSE,250031,ORG_WEBSITE
 MS,ms_round2_awardees.csv,7,South MS State Hospital,12000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 254008: PART A PROVIDER - HOSPITAL",FALSE,254008,ORG_WEBSITE
@@ -475,6 +476,65 @@ MS,ms_round2_awardees.csv,55,Northwest Mississippi Regional Medical Center,27927
 MS,ms_round2_awardees.csv,58,"Merit Health Central/Jackson MHA, LLC",4500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250072: PART A PROVIDER - HOSPITAL",FALSE,250072,ORG_WEBSITE
 MS,ms_round2_awardees.csv,59,Memorial Hospital at Gulfport,4496000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250019: PART A PROVIDER - HOSPITAL",FALSE,250019,ORG_WEBSITE
 MS,ms_round2_awardees.csv,60,University of Mississippi Medical Center Greenwood Hospital,4320032,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 250099: PART A PROVIDER - HOSPITAL",FALSE,250099,ORG_WEBSITE
+CA,ca_year1_awardees.csv,5,Lompoc Valley Medical Center,2573673.34,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050110: PART A PROVIDER - HOSPITAL",FALSE,050110,ORG_WEBSITE
+CA,ca_year1_awardees.csv,6,Marshall Medical Center,1648200.33,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050254: PART A PROVIDER - HOSPITAL",FALSE,050254,ORG_WEBSITE
+CA,ca_year1_awardees.csv,7,Mee Memorial Healthcare System,1436125.66,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051336,ORG_WEBSITE
+CA,ca_year1_awardees.csv,8,Mercy Medical Center – Northern California Maternity Collaborative,2434569,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+CA,ca_year1_awardees.csv,9,Northern Inyo Healthcare District,298480,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051324: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051324,ORG_WEBSITE
+CA,ca_year1_awardees.csv,10,Oak Valley District Hospital,1136750,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050067: PART A PROVIDER - HOSPITAL",FALSE,050067,ORG_WEBSITE
+CA,ca_year1_awardees.csv,12,Plumas District Hospital,2427666,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051326,ORG_WEBSITE
+CA,ca_year1_awardees.csv,13,Ridgecrest Regional Hospital,3037275.28,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051333: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051333,ORG_WEBSITE
+CA,ca_year1_awardees.csv,14,Salinas Valley Memorial Hospital,2476294,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050334: PART A PROVIDER - HOSPITAL",FALSE,050334,ORG_WEBSITE
+CA,ca_year1_awardees.csv,15,Sierra Nevada Memorial Hospital Foundation,708220.53,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+CA,ca_year1_awardees.csv,16,Tahoe Forest Hospital District,1559015,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051328,ORG_WEBSITE
+CA,ca_year1_awardees.csv,20,Kaweah Health,441210,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050057: PART A PROVIDER - HOSPITAL",FALSE,050057,ORG_WEBSITE
+CA,ca_year1_awardees.csv,21,"San Bernardino County, Arrowhead Regional Medical Center",500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050245: PART A PROVIDER - HOSPITAL",FALSE,050245,ORG_WEBSITE
+CA,ca_year1_awardees.csv,24,Adventist Health Howard Memorial,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051310,ORG_WEBSITE
+CA,ca_year1_awardees.csv,25,Adventist Health Sonora,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050335: PART A PROVIDER - HOSPITAL",FALSE,050335,ORG_WEBSITE
+CA,ca_year1_awardees.csv,26,Adventist Health Tehachapi Valley,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051301,ORG_WEBSITE
+CA,ca_year1_awardees.csv,27,Adventist Health Ukiah Valley,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050301: PART A PROVIDER - HOSPITAL",FALSE,050301,ORG_WEBSITE
+CA,ca_year1_awardees.csv,28,Fairchild Medical Center,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051316,ORG_WEBSITE
+CA,ca_year1_awardees.csv,29,Mayers Memorial Hospital District,3863636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051305,ORG_WEBSITE
+CA,ca_year1_awardees.csv,30,Mee Memorial Healthcare System,3863636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051336,ORG_WEBSITE
+CA,ca_year1_awardees.csv,31,Pioneers Memorial Hospital,3363636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050342: PART A PROVIDER - HOSPITAL",FALSE,050342,ORG_WEBSITE
+CA,ca_year1_awardees.csv,32,Ridgecrest Regional Hospital,3863636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051333: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051333,ORG_WEBSITE
+CA,ca_year1_awardees.csv,33,San Benito Healthcare District/Hazel Hawkins Memorial Hospital,3363636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051337: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051337,ORG_WEBSITE
+CA,ca_year1_awardees.csv,34,Sierra View Medical Center,3863636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050261: PART A PROVIDER - HOSPITAL",FALSE,050261,ORG_WEBSITE
+CA,ca_year1_awardees.csv,35,Adventist Health System/West,1592830,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+CA,ca_year1_awardees.csv,39,Banner Health Foundation,620000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+CA,ca_year1_awardees.csv,40,Barton Memorial Hospital,170446,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050352: PART A PROVIDER - HOSPITAL",FALSE,050352,ORG_WEBSITE
+CA,ca_year1_awardees.csv,42,Catalina Island Health,216153,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051307,ORG_WEBSITE
+CA,ca_year1_awardees.csv,44,Colorado River Medical Center,716667,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051323,ORG_WEBSITE
+CA,ca_year1_awardees.csv,47,Eastern Plumas Health Care,419000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051300,ORG_WEBSITE
+CA,ca_year1_awardees.csv,49,Fairchild Medical Center,1000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051316,ORG_WEBSITE
+CA,ca_year1_awardees.csv,53,"Good Samaritan Hospital, LP",340278,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050257: PART A PROVIDER - HOSPITAL",FALSE,050257,ORG_WEBSITE
+CA,ca_year1_awardees.csv,57,"Jerod Phelps Community Hospital, Southern Humboldt Community Clinic",357500,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051309,ORG_WEBSITE
+CA,ca_year1_awardees.csv,62,Mayers Memorial Hospital District,635000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051305,ORG_WEBSITE
+CA,ca_year1_awardees.csv,63,Mee Memorial Healthcare System,849246,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051336,ORG_WEBSITE
+CA,ca_year1_awardees.csv,65,Mercy Medical Center Mt. Shasta,288000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051319: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051319,ORG_WEBSITE
+CA,ca_year1_awardees.csv,66,Mountain Communities Healthcare District,997500,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051315: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051315,ORG_WEBSITE
+CA,ca_year1_awardees.csv,68,NorthBay Healthcare Corporation,1000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+CA,ca_year1_awardees.csv,69,Northern Inyo Healthcare District,332030,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051324: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051324,ORG_WEBSITE
+CA,ca_year1_awardees.csv,70,Oak Valley Hospital District,261905,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050067: PART A PROVIDER - HOSPITAL",FALSE,050067,ORG_WEBSITE
+CA,ca_year1_awardees.csv,73,Palo Verde Hospital,850000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051339: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051339,ORG_WEBSITE
+CA,ca_year1_awardees.csv,74,Pioneers Memorial Hospital,1030863,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050342: PART A PROVIDER - HOSPITAL",FALSE,050342,ORG_WEBSITE
+CA,ca_year1_awardees.csv,76,Plumas District Hospital,800000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051326,ORG_WEBSITE
+CA,ca_year1_awardees.csv,77,Providence Medical Foundation,450000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+CA,ca_year1_awardees.csv,83,San Benito Hospital District,563158,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051337: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051337,ORG_WEBSITE
+CA,ca_year1_awardees.csv,85,Seneca Healthcare District,255691,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051327,ORG_WEBSITE
+CA,ca_year1_awardees.csv,87,Sierra Nevada Memorial Miners Hospital,998240,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050150: PART A PROVIDER - HOSPITAL",FALSE,050150,ORG_WEBSITE
+CA,ca_year1_awardees.csv,88,Sierra View Medical Center,845000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050261: PART A PROVIDER - HOSPITAL",FALSE,050261,ORG_WEBSITE
+CA,ca_year1_awardees.csv,89,Sonoma Valley Hospital,550000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050090: PART A PROVIDER - HOSPITAL",FALSE,050090,ORG_WEBSITE
+CA,ca_year1_awardees.csv,90,Southern Inyo Healthcare District,1000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051302: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051302,ORG_WEBSITE
+CA,ca_year1_awardees.csv,91,St. Elizabeth Community Hospital,88600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050042: PART A PROVIDER - HOSPITAL",FALSE,050042,ORG_WEBSITE
+CA,ca_year1_awardees.csv,93,Sutter Coast Hospital,1000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050417: PART A PROVIDER - HOSPITAL",FALSE,050417,ORG_WEBSITE
+CA,ca_year1_awardees.csv,94,Tahoe Forest Hospital District,998208,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051328,ORG_WEBSITE
+CA,ca_year1_awardees.csv,100,Catalina Island Health,383333,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051307,ORG_WEBSITE
+CA,ca_year1_awardees.csv,102,John C. Fremont Healthcare District,2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051304,ORG_WEBSITE
+CA,ca_year1_awardees.csv,103,Lompoc Valley Medical Center,333191,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050110: PART A PROVIDER - HOSPITAL",FALSE,050110,ORG_WEBSITE
+CA,ca_year1_awardees.csv,104,Oak Valley Hospital District,2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050067: PART A PROVIDER - HOSPITAL",FALSE,050067,ORG_WEBSITE
+CA,ca_year1_awardees.csv,106,Sonoma Valley Hospital,1183655,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050090: PART A PROVIDER - HOSPITAL",FALSE,050090,ORG_WEBSITE
+CA,ca_year1_awardees.csv,107,Southern Inyo Healthcare District,2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051302: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051302,ORG_WEBSITE
 KS,ks_year1_awardees.csv,1,Hutchinson Regional Healthcare System,3000000,NOT_RECORDED,,FALSE,,
 KS,ks_year1_awardees.csv,2,Gove County Medical Center,3000000,NOT_RECORDED,,FALSE,,
 KS,ks_year1_awardees.csv,3,Clara Barton Medical Center,2933500,NOT_RECORDED,,FALSE,,

@@ -294,7 +294,16 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # list (+76 / +$69,565,522.50), VT's 10-23 update (+31 / +$29,933,101.87),
   # MS round 2 (30 / $22,886,995.92), Ohio's 13 listings (+5 / $0) and NY's
   # joint Glens Falls row out (-1 / -$1,500,000): 189 / $206,275,435.98:
-  # 1,774 / $1,646,229,714.56 / 35. Subtracted first.
+  # 1,774 / $1,646,229,714.56 / 35.
+  # Session 109: + CALIFORNIA (R/03cl, 59 / $82,803,969.14, a 36th state) and
+  # MS round 2's Magnolia EMS (owner ruling (c), 1 / $100,000): 60 /
+  # $82,903,969.14: 1,834 / $1,729,133,683.70 / 36. Subtracted first.
+  expect_equal(n$rows, 1834L)
+  expect_equal(round(n$dollars, 2), 1729133683.70)
+  expect_equal(n$states, 36L)
+  n$rows <- n$rows - 60L
+  n$dollars <- n$dollars - 82903969.14
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1774L)
   expect_equal(round(n$dollars, 2), 1646229714.56)
   expect_equal(n$states, 35L)

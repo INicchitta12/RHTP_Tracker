@@ -564,7 +564,17 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # list (+76 / +$69,565,522.50), VT's 10-23 update (+31 / +$29,933,101.87),
   # MS round 2 (30 / $22,886,995.92), Ohio's 13 listings (+5 / $0) and NY's
   # joint Glens Falls row out (-1 / -$1,500,000): 189 / $206,275,435.98:
-  # 1,774 / $1,646,229,714.56 / 35. Subtracted first.
+  # 1,774 / $1,646,229,714.56 / 35.
+  # Session 109: + CALIFORNIA's HCAI BP1 roster (R/03cl, 59 / $82,803,969.14,
+  # intents, a 36th state) and MS round 2's Magnolia Regional Health Center
+  # EMS (owner ruling (c), 1 / $100,000): 60 / $82,903,969.14:
+  # 1,834 / $1,729,133,683.70 / 36. Subtracted first.
+  expect_equal(named$rows, 1834L)
+  expect_equal(round(named$dollars, 2), 1729133683.70, tolerance = 0)
+  expect_equal(named$states, 36L)
+  named$rows <- named$rows - 60L
+  named$dollars <- named$dollars - 82903969.14
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1774L)
   expect_equal(round(named$dollars, 2), 1646229714.56, tolerance = 0)
   expect_equal(named$states, 35L)

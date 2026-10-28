@@ -75,14 +75,20 @@
 #   * Memorial Health System -> a SYSTEM PARENT (owner rulings: Vandalia,
 #     Sanford/Avera, Guthrie, Ballad/Sentara/Valley): the parent of MEMORIAL
 #     HOSPITAL AT GULFPORT (250019); not itself enrolled. LOW, GENERAL_KNOWLEDGE.
-#     (R/03ak's two round-1 rows type the same string MEDIUM on the name alone;
-#     that file is not re-typed here.)
-#   * Magnolia Regional Health Center EMS -> NOT bridged to MAGNOLIA REGIONAL
-#     HEALTH CENTER (250009). The string names a hospital's EMS service, a
-#     department; the owner's WVU Eye Institute ruling (session 104) added NO
-#     department-name rule, so the row is typed on its stated form, EMS_OR_PSAP,
-#     NON_HOSPITAL, and queued (MS2_MAGNOLIA_EMS_DEPARTMENT). One-directional,
-#     $100,000, if the owner rules a hospital's own EMS is the hospital.
+#     SESSION 109, OWNER RULING (d): rounds 1 and 2 must agree on the stronger
+#     evidence. No CMS MS file carries "Memorial Health System" as a legal name
+#     or DBA, so the ruling's example (an exact enrolment match -> MEDIUM in
+#     both) does not arise; the stronger evidence is THIS system-parent reading,
+#     and R/03ak's twelve round-1 rows (MEDIUM on the name alone) are brought to
+#     it by ms2_apply_r1_memorial() (--apply-r1). $0 moves; the LOW and
+#     GENERAL_KNOWLEDGE slices grow by round 1's $15,041,222.
+#   * Magnolia Regional Health Center EMS -> MAGNOLIA REGIONAL HEALTH CENTER
+#     (250009), OWNER RULING (c), session 109: the award names the hospital,
+#     and EMS is a hospital department (code the recipient, §0.3a). The WVU Eye
+#     Institute precedent (session 104) covers UNIVERSITY units only: there the
+#     unit named a university, which is not itself an enrolled hospital; here
+#     the department is named under the hospital's own exact legal name. LOW
+#     (a hand-read bridge: the string adds "EMS" to the enrolled name).
 #   * Aaron E. Henry Community Health Services Center, Inc. -> the FQHC
 #     enrolled as AARON E HENRY COMMUNITY HEALTH (a truncation). LOW.
 #   * Kinder Mind and Jefferson County Nursing Home keep R/03ak's round-1
@@ -249,11 +255,14 @@ MS2_HAND <- tibble::tribble(
   "Memorial Health System", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, NA,
   paste0(MS2_PARENT_NOTE, "MEMORIAL HOSPITAL AT GULFPORT (CCN 250019), which CMS enrols under its ",
          "own name; Memorial Health System is not itself enrolled, so no CCN. Subtractable by basis_type."),
-  "Magnolia Regional Health Center EMS", "EMS_OR_PSAP", "STATE_SOURCE", "MEDIUM", NA, NA,
-  paste0("NOT BRIDGED (queued, MS2_MAGNOLIA_EMS_DEPARTMENT): the string names a hospital's EMS ",
-         "service, a department of MAGNOLIA REGIONAL HEALTH CENTER (CCN 250009, Corinth). The owner's ",
-         "WVU Eye Institute ruling (session 104) added no department-name rule, so the row is typed on ",
-         "the form its own name states, EMS. One-directional ($100,000) if the owner rules otherwise."),
+  "Magnolia Regional Health Center EMS", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "LOW", "250009", NA,
+  paste0("OWNER RULING (c), session 109: HOSPITAL_OR_SYSTEM, typed to MAGNOLIA REGIONAL HEALTH CENTER ",
+         "(CCN 250009, Corinth; CMS MS Hospital Enrollment, the string's first four words exactly). The ",
+         "award names the hospital, and EMS is a hospital department: code the recipient, not the ",
+         "activity (§0.3a). THE WVU EYE INSTITUTE PRECEDENT (session 104, NON_HOSPITAL) COVERS UNIVERSITY ",
+         "UNITS ONLY: there the unit was named under a university, which is not itself an enrolled ",
+         "hospital; here the department is named under the hospital's own legal name. LOW: a hand-read ",
+         "bridge, because the string adds 'EMS' to the enrolled name."),
   "Aaron E. Henry Community Health Services Center, Inc.", "FQHC_OR_RHC", "ORG_WEBSITE", "LOW", NA, NA,
   paste0("HAND-READ BRIDGE: CMS MS FQHC Enrollment carries AARON E HENRY COMMUNITY HEALTH (Clarksdale ",
          "and others), a truncation of the string. An FQHC, not a hospital. LOW."),
@@ -397,12 +406,51 @@ ms2_assert_typing <- function(a = ms2_awardees()) {
   invisible(TRUE)
 }
 
+#' SESSION 109, OWNER RULING (d): round 1's "Memorial Health System" rows agree
+#' with round 2's system-parent reading. Keyed on the awardee STRING, never on
+#' row index. Run after any R/03ak rebuild (and after R/03ap/R/03aq's overlays):
+#'   Rscript R/03cj_ms_round2_awardees.R --apply-r1
+MS2_R1_CSV <- "data/reference/ms_year1_awardees.csv"
+MS2_R1_MEMORIAL_NOTE <- paste0(
+  " SESSION 109, OWNER RULING (d): rounds 1 and 2 agree on the stronger evidence. No CMS MS ",
+  "Hospital, FQHC, RHC, HHA, hospice or SNF Enrollment carries 'Memorial Health System' as an ",
+  "ORGANIZATION NAME or DBA, so there is no exact enrolment match to support MEDIUM; the stronger ",
+  "evidence is round 2's reading (R/03cj): ", MS2_PARENT_NOTE, "MEMORIAL HOSPITAL AT GULFPORT (CCN ",
+  "250019), which CMS enrols under its own name. LOW, GENERAL_KNOWLEDGE, no CCN; subtractable by basis_type.")
+MS2_R1_VERIFIER <- "session 109 owner ruling (d)"
+ms2_apply_r1_memorial <- function(path = here::here(MS2_R1_CSV)) {
+  d <- readr::read_csv(path, col_types = readr::cols(.default = readr::col_character()),
+                       na = character(), progress = FALSE)
+  i <- which(d$awardee == "Memorial Health System")
+  if (length(i) != 12L) stop("[MS r2] round 1 no longer carries 12 'Memorial Health System' rows.", call. = FALSE)
+  if (any(d$recipient_type[i] != "HOSPITAL_OR_SYSTEM")) stop("[MS r2] a round-1 Memorial row is not a hospital row.", call. = FALSE)
+  d$determination_confidence[i] <- "LOW"
+  d$basis_type[i] <- "GENERAL_KNOWLEDGE"
+  d$verified_by[i] <- MS2_R1_VERIFIER
+  d$verified_basis[i] <- "Owner ruling (d), session 109: system parent of MEMORIAL HOSPITAL AT GULFPORT (CCN 250019); no CMS record carries the string."
+  done <- grepl("OWNER RULING (d)", d$recipient_type_source[i], fixed = TRUE)
+  d$recipient_type_source[i[!done]] <- paste0(d$recipient_type_source[i[!done]], MS2_R1_MEMORIAL_NOTE)
+  readr::write_csv(d, path, na = "NA")
+  message("[MS r2] round 1: ", length(i), " 'Memorial Health System' rows set LOW / GENERAL_KNOWLEDGE.")
+  invisible(d[i, ])
+}
+ms2_assert_r1_agrees <- function(path = here::here(MS2_R1_CSV), a = NULL) {
+  d <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
+  r1 <- d[d$awardee == "Memorial Health System", ]
+  if (any(r1$determination_confidence != "LOW") || any(r1$basis_type != "GENERAL_KNOWLEDGE")) {
+    stop("[MS r2] round 1's 'Memorial Health System' rows disagree with round 2 (owner ruling (d)): ",
+         "run Rscript R/03cj_ms_round2_awardees.R --apply-r1.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 ms2_validate <- function() {
   l <- ms2_text()
   d <- ms2_parse(l)
   ms2_assert_roster(d, l)
   a <- ms2_awardees(d)
   ms2_assert_typing(a)
+  ms2_assert_r1_agrees()
   message("[MS r2] all assertions pass.")
   invisible(a)
 }
@@ -429,8 +477,9 @@ ms2_report <- function(a = ms2_awardees()) {
 
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
+  if ("--apply-r1" %in% args) ms2_apply_r1_memorial()
   if ("--validate" %in% args) ms2_validate()
   if ("--build" %in% args) ms2_build()
   if ("--report" %in% args) ms2_report()
-  if (!length(args)) message("Usage: --validate | --build | --report")
+  if (!length(args)) message("Usage: --apply-r1 | --validate | --build | --report")
 }

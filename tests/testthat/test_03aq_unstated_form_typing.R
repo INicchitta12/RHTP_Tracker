@@ -220,7 +220,10 @@ test_that("Mississippi and South Carolina carry the typing, and the residual onl
 test_that("every typed row carries basis_type, a verifier and a basis", {
   for (f in unname(UF_FILES)) {
     d <- uf_read(f)
-    touched <- d$basis_type != UF_EMPTY
+    # Session 109: MS round 1's 12 "Memorial Health System" rows carry
+    # GENERAL_KNOWLEDGE by owner ruling (d) (R/03cj --apply-r1), not by this
+    # pass; they are checked in test_03cj.
+    touched <- d$basis_type != UF_EMPTY & d$verified_by != "session 109 owner ruling (d)"
     expect_gt(sum(touched), 90L)
     expect_true(all(d$verified_by[touched] == "session 50 unstated-form typing"))
     expect_true(all(nzchar(d$verified_basis[touched])))

@@ -1,0 +1,9 @@
+Virginia's five Mobile & Hybrid Care Regional Collaboratives -- the pages the state's Ways to Apply table links (data/evidence/VA/2026-10-26_rhtva_ways_to_apply.html). Fetched 2026-10-28 by session 109 (owner ruling (f)) with the project's honest agent; bytes as served. Credential scan (API keys, CSRF, Maps/Mapbox tokens): none found.
+
+2026-10-28_anpdc_eastern_shore_home.html  84179  16925071b5a154b9eb6c859f9539a45ba4713a8b34d4bbbe6e9a9169c2e36acd
+2026-10-28_cspdc_roanoke_alleghany_cs_nrv_rfa.html  161256  5aa9aebe94c04f536dacbbc42ffb749da31f66e3f738c82118eeff8e32f58ecb
+2026-10-28_lenowisco_pdc_swva_rfa.html  31582  f41bfb0adb75a7a2fda8a45665d568f8816cac7211c759e7a3aa428e252418f1
+2026-10-28_tjpdc_northern_piedmont_rfa.html  117868  82f9f727936a8b491dbee4f93468478331b58185e75a763a39ac086f5f05a303
+2026-10-28_wppdc_southside_rfa.html  122169  6818238f013fdbf59e30550b9417cab89e040a8424f99ce54064e0b27571edfd
+
+URLs: lenowisco https://www.lenowisco.org/rural-health-transformation-program-swva.html | cspdc https://connect.cspdc.org/rural-health-transformation-program | tjpdc https://tjpdc.org/rfa-rural-health-transformation/ | wppdc https://westpiedmontpdc.org/rural-health-transformation-fund/ | anpdc https://www.esvaplan.org/

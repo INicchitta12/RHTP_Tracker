@@ -80,7 +80,8 @@
 # MOVES A TYPING: the $1,008,012.10 facility-upgrade agreement printed "Gifford
 # Medical" (the hospital, a LOW hand-read bridge to CCN 471301) is now printed
 # "Gifford Health Care", the FQHC's legal name (CCN 471852), so the recipient as
-# printed is the FQHC and that agreement leaves the hospital figure. The
+# printed is the FQHC and that agreement leaves the hospital figure (owner
+# ruling (e), session 109: the latest list governs; confirmed and closed). The
 # St. Johnsbury nursing facility's $63,760 telehealth row is now printed as a
 # second "Springfield Center for Living and Rehabilitation" row: OTHER either
 # way. New hospital typings: University of Vermont Health (three agreements,
@@ -615,7 +616,9 @@ vt_status_table <- function(tb = vt_parse_table()) {
            "CAH 471301, on a LOW hand-read bridge) and 'Gifford Health Care' on 2026-10-23, the ",
            "legal name of the FQHC (GIFFORD HEALTH CARE INC, CCN 471852). Same initiative, activity ",
            "and cents. The recipient as printed is the FQHC, so the agreement leaves the hospital ",
-           "figure (session 108). Which printing is right is AHS's to say; the latest list governs."),
+           "figure (session 108). OWNER RULING (e), session 109: the latest list governs -- ",
+           "CONFIRMED AND CLOSED. The agreement stays with the FQHC, out of the hospital figure, ",
+           "unless AHS prints it under the hospital again."),
     VT_STATE, "Northern Counties Health Care -- initiative re-filed (2026-10-02)",
     "AGREEMENT_REFILED_SAME_AMOUNT", "Yes", VT_NCHC_MOVE$amount,
     paste0("One executed agreement, $226,194.70, printed under '",
