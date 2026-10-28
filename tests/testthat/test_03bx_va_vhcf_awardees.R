@@ -55,7 +55,7 @@ test_that("hospital rows: five on exact CMS records, four system-parent lines on
   expect_false(any(committed$determination_confidence == "HIGH"))
 })
 
-test_that("the two UVA Health strings are NON_HOSPITAL and queued", {
+test_that("the two UVA Health programme strings are NON_HOSPITAL (owner ruling, session 110)", {
   uva <- committed[grepl("^UVA Health", committed$awardee), ]
   expect_equal(nrow(uva), 2L)
   expect_equal(sum(uva$amount), 884000)
@@ -67,6 +67,8 @@ test_that("the two UVA Health strings are NON_HOSPITAL and queued", {
   expect_match(row$state, "VA")
   expect_match(row$row_key, "UVA Health Comprehensive Epilepsy Program", fixed = TRUE)
   expect_match(row$dollar_effect, "+$884,000", fixed = TRUE)
+  expect_equal(row$queue_status, "RESOLVED")
+  expect_match(row$resolution, "UVA Health Comprehensive Epilepsy Program", fixed = TRUE)
 })
 
 test_that("the committed CSV is what the archive rebuilds", {

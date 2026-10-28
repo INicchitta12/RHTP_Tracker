@@ -83,11 +83,12 @@ test_that("Maryland's hospital figure: 8 / $23,661,116 -> 9 / $27,681,260", {
   expect_equal(sum(as.numeric(h$amount)), 27681260)
 })
 
-test_that("the queue row keeps the other three open and records the settlement", {
+test_that("the queue row recorded the UMMS settlement, and session 110 resolved the rest", {
   q <- readr::read_csv(here::here("data/reference/classification_review_queue.csv"),
                        col_types = readr::cols(.default = "c"), show_col_types = FALSE)
   r <- q[q$question_id == "AHC_STRING_NAMES_NO_ENROLLED_ENTITY", ]
-  expect_equal(r$queue_status, "OPEN")
+  # Session 110: owner ruling (a) resolved the other strings.
+  expect_equal(r$queue_status, "RESOLVED")
   expect_false(grepl("Maryland Medical System", r$row_key, fixed = TRUE))
   expect_match(r$row_key, "UAB Montgomery", fixed = TRUE)
   expect_match(r$row_key, "OHSU Casey Eye Institute", fixed = TRUE)

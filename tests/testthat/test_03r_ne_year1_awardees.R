@@ -44,6 +44,7 @@
 library(testthat)
 
 source(here::here("R", "03r_ne_year1_awardees.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 source(here::here("R", "03ap_verification_queue_2.R"))
 
 ne_award_rows <- ne_awards()
@@ -606,7 +607,7 @@ test_that("the committed CSV matches what the builder produces", {
   csv <- readr::read_csv(path, show_col_types = FALSE, progress = FALSE)
   built <- vq_overlay(ne_recs, "ne_year1_awardees.csv")
   expect_equal(nrow(csv), nrow(built))
-  expect_equal(names(csv), names(built))
+  expect_equal(setdiff(names(csv), RHTP_SUMMARY_COLUMNS), names(built))
   expect_equal(round(sum(csv$amount, na.rm = TRUE), 2), 41687307.15)
   expect_equal(csv$awardee, built$awardee)
   expect_equal(csv$recipient_type, built$recipient_type)

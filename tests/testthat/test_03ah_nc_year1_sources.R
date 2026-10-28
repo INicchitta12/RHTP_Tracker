@@ -14,6 +14,7 @@
 library(testthat)
 
 source(here::here("R", "03ah_nc_year1_sources.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 source(here::here("R", "03ap_verification_queue_2.R"))
 
 skip_without_archive <- function() {
@@ -553,7 +554,7 @@ test_that("the committed CSV is what the builder produces", {
                              progress = FALSE)
   built <- s71(vq_overlay(nc_award_rows(), "nc_year1_awardees.csv"), "nc_year1_awardees.csv")
   expect_equal(nrow(on_disk), nrow(built))
-  expect_equal(names(on_disk), names(built))
+  expect_equal(setdiff(names(on_disk), RHTP_SUMMARY_COLUMNS), names(built))
   expect_equal(on_disk$awardee, built$awardee)
   expect_equal(on_disk$recipient_type, built$recipient_type)
   expect_equal(on_disk$flow_type, built$flow_type)

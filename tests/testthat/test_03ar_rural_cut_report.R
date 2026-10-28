@@ -54,11 +54,13 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Productivity: 1,585 / $1,439,954,278.58 / 34. Session 108: + 48 ID, + 76 TX,
   # + 31 VT, + 30 MS r2, + 5 OH, - 1 NY: 1,774 / $1,646,229,714.56 / 35.
   # Session 109: + 59 CA (intents), + 1 MS r2 (Magnolia EMS, ruling (c)):
-  # 1,834 / $1,729,133,683.70 / 36.
-  expect_equal(nrow(rows), 1834L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1729133683.70,
+  # 1,834 / $1,729,133,683.70 / 36. Session 110: + UC San Diego Health,
+  # + UVA Health, - Providence Medical Foundation (owner rulings a, b):
+  # 1,835 / $1,729,244,537.70 / 36.
+  expect_equal(nrow(rows), 1835L)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1729244537.70,
                tolerance = 0)
-  expect_equal(nrow(rows[rows$state != "TX", ]), 1550L)   # session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
+  expect_equal(nrow(rows[rows$state != "TX", ]), 1551L)   # session 110: + 1 (CA +1 -1, VA +1); session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
@@ -186,6 +188,6 @@ test_that("the committed report tables match a fresh computation, and no state f
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 1834L)   # session 109: + 59 CA, + 1 MS r2 (Magnolia EMS); session 108: + 189 (ID TX VT MS r2 OH, - NY); session 107: + 2 WV, + 7 VA VHCF PP; session 104: + 7 TX, + 9 MD Labor, + 22 OH; session 103: + 201 TX, + 1 OK; session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
+  expect_equal(nrow(committed), 1835L)   # session 110: + 1 (UC San Diego Health, UVA Health in; Providence Medical Foundation out); session 109: + 59 CA, + 1 MS r2 (Magnolia EMS); session 108: + 189 (ID TX VT MS r2 OH, - NY); session 107: + 2 WV, + 7 VA VHCF PP; session 104: + 7 TX, + 9 MD Labor, + 22 OH; session 103: + 201 TX, + 1 OK; session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
   expect_equal(committed$rural_class, rows$rural_class)
 })

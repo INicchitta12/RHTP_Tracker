@@ -568,10 +568,18 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 109: + CALIFORNIA's HCAI BP1 roster (R/03cl, 59 / $82,803,969.14,
   # intents, a 36th state) and MS round 2's Magnolia Regional Health Center
   # EMS (owner ruling (c), 1 / $100,000): 60 / $82,903,969.14:
-  # 1,834 / $1,729,133,683.70 / 36. Subtracted first.
+  # 1,834 / $1,729,133,683.70 / 36.
+  # Session 110: owner rulings (a) and (b): + UC San Diego Health ($498,854) and
+  # + UVA Health ($62,000) as ACADEMIC_HEALTH_CENTER rows, - Providence Medical
+  # Foundation ($450,000): + 1 / + $110,854: 1,835 / $1,729,244,537.70 / 36.
+  # Subtracted first.
+  expect_equal(named$rows, 1835L)
+  expect_equal(round(named$dollars, 2), 1729244537.70, tolerance = 0)
+  expect_equal(named$states, 36L)
+  named$rows <- named$rows - 1L
+  named$dollars <- named$dollars - 110854
   expect_equal(named$rows, 1834L)
   expect_equal(round(named$dollars, 2), 1729133683.70, tolerance = 0)
-  expect_equal(named$states, 36L)
   named$rows <- named$rows - 60L
   named$dollars <- named$dollars - 82903969.14
   named$states <- named$states - 1L

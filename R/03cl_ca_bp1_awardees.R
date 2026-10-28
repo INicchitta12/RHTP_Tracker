@@ -193,9 +193,13 @@ CA_HAND <- tibble::tribble(
   CAR_PARENT("NorthBay Healthcare Corporation", "NorthBay Medical Center (CMS: NORTHBAY PHYSICIANS SURGERY CENTER, LLC dba NORTHBAY MEDICAL CENTER, 050367, Fairfield)"),
   "^Banner Health Foundation$", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, "DIRECT",
   CAR_FOUNDATION("Banner Health, a hospital system; the row serves Lassen County, whose hospital is BANNER LASSEN MEDICAL CENTER (CAH 051320)"),
-  "^Providence Medical Foundation$", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, "DIRECT",
-  paste(CAR_FOUNDATION("Providence, a hospital system (Humboldt County: Providence St. Joseph Hospital Eureka, Providence Redwood Memorial)"),
-        "NOTE: a California 'medical foundation' is a clinic-operating affiliate under HSC 1206(l), not a fundraising arm; the rule's words ('foundation or affiliated arm') reach it either way, and it is recorded for the owner."),
+  "^Providence Medical Foundation$", "PHYSICIAN_PRACTICE", "GENERAL_KNOWLEDGE", "LOW", NA, "NON_HOSPITAL",
+  paste("OWNER RULING, SESSION 110 (CA_PROVIDENCE_MEDICAL_FOUNDATION_FORM): NOT A HOSPITAL ROW. A California 'medical",
+        "foundation' is a clinic-operating affiliate under HSC 1206(l) that contracts physician groups to deliver",
+        "outpatient care; §10.2's foundation row covers a hospital's FUNDRAISING foundation only. Typed",
+        "PHYSICIAN_PRACTICE (the form it operates), LOW, GENERAL_KNOWLEDGE. Its parent, Providence, is a hospital",
+        "system (Humboldt County: Providence St. Joseph Hospital Eureka, Providence Redwood Memorial); that does not",
+        "make a clinic operator a hospital. -$450,000 from NAMED_HOSPITAL."),
   "^Sierra Nevada Memorial Hospital Foundation$", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, "DIRECT",
   CAR_FOUNDATION("Sierra Nevada Memorial Hospital (CMS: SIERRA NEVADA MEMORIAL-MINERS HOSPITAL dba SIERRA NEVADA MEMORIAL HOSPITAL, 050150, Grass Valley)"),
   "^Jerod Phelps Community Hospital, Southern Humboldt Community Clinic$", "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "LOW", "051309", "DIRECT",
@@ -225,17 +229,26 @@ CA_HAND <- tibble::tribble(
         "(050380, San Jose), a different legal entity; the row serves Kern County, which is Bakersfield's. MEDIUM."),
   "^Inland Empire Health Plan$", "MANAGED_CARE_ORGANIZATION", "GENERAL_KNOWLEDGE", "LOW", NA, "NON_HOSPITAL",
   "A Medi-Cal managed care plan (general knowledge; 'Health Plan' is in the string; the list states no form). Never a hospital type.",
-  "^(UC San Diego Health|Southern California Rural Health Collaborative – University of California, San Diego)$",
+  "^UC San Diego Health$", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", NA, "DIRECT",
+  paste("OWNER RULING, SESSION 110 (CA_UCSD_STRINGS_NO_ENROLLED_ENTITY, AHC_STRING_NAMES_NO_ENROLLED_ENTITY): A ROW",
+        "NAMING THE HEALTH SYSTEM IS A HOSPITAL ROW. 'UC San Diego Health' is the trading name of the health system",
+        "CMS enrols under REGENTS OF THE UNIVERSITY OF CALIFORNIA (050025, San Diego; 05S025 dba UCSD MEDICAL CENTER).",
+        "HOSPITAL_OR_SYSTEM, recipient_subtype ACADEMIC_HEALTH_CENTER, LOW, GENERAL_KNOWLEDGE, no CCN on the row (the",
+        "string does not print the enrolled legal entity). Subtractable by subtype and by basis_type."),
+  "^Southern California Rural Health Collaborative – University of California, San Diego$",
   "UNIVERSITY_OR_AHC", "STATE_SOURCE", "MEDIUM", NA, "NON_HOSPITAL",
-  paste("A UNIVERSITY STRING THAT NAMES NO ENROLLED LEGAL ENTITY. CMS enrols the UC San Diego hospitals under",
-        "REGENTS OF THE UNIVERSITY OF CALIFORNIA (050025, San Diego; 05S025 dba UCSD MEDICAL CENTER); the string names",
-        "the campus or its health-system brand, not the Regents. §10.2's enrolled-operator row does not reach 'an",
-        "abbreviation or a sub-unit named without the legal entity', so the row is not a hospital row. QUEUED with",
-        "CA_UCSD_STRINGS_NO_ENROLLED_ENTITY (AHC_STRING_NAMES_NO_ENROLLED_ENTITY's shape: UVA Health, UAB Montgomery)."),
+  paste("OWNER RULING, SESSION 110 (CA_UCSD_STRINGS_NO_ENROLLED_ENTITY): A ROW NAMING A SCHOOL, DEPARTMENT OR",
+        "PROGRAMME IS NOT A HOSPITAL ROW. The string names a collaborative and the University of California, San",
+        "Diego (the campus), not its health system; CMS enrols the hospitals under REGENTS OF THE UNIVERSITY OF",
+        "CALIFORNIA (050025), which the string does not name. UNIVERSITY_OR_AHC, NON_HOSPITAL."),
   "^Maternal Child Health Fellowship: Fresno Family Medicine Obstetrics$", "NONPROFIT_CBO", NA, "LOW", NA, "NON_HOSPITAL",
   paste("THE ROW NAMES A FELLOWSHIP PROGRAMME, NOT AN ORGANISATION. No CMS record carries it, and the sponsoring",
         "institution is not stated, so §8's standing fallback, RECIPIENT_TYPE_INFERRED. Not inferred to a Fresno",
         "hospital (§0.4). QUEUED: CA_FM_OB_FRESNO_SPONSOR_NOT_NAMED."))
+
+# Session 110 (owner ruling a): an academic health system named as itself is a
+# hospital row, flagged so it subtracts.
+CA_AHC_SUBTYPE <- c("UC San Diego Health")
 
 car_type <- function(d, f = car_federal()) {
   cls <- rhtp_classify_recipient_type(d$awardee, CAR_STATE)
@@ -371,6 +384,7 @@ ca_bp1_awardees <- function(d = car_read(), f = car_federal()) {
                                  "constitute a final grant award' until a subrecipient agreement is executed."),
     amount_basis = car_amount_basis(d),
     basis_type = t$basis_type,
+    recipient_subtype = ifelse(d$awardee %in% CA_AHC_SUBTYPE, "ACADEMIC_HEALTH_CENTER", NA_character_),
     round_amount = NA_real_,
     announcement_date = CAR_DATE,
     source_archive_path = CAR_FILE)

@@ -66,8 +66,14 @@ VA_PAGES <- tibble::tribble(
   # Commonwealth on Mobile & Hybrid Care, each with an Open RFA and no amount:
   # first-tier administrators, not awards. Recorded for the owner
   # (docs/session108_*); the 09-23 copy stays.
+  # Session 110: re-based after reading the 10-27 CHANGED diff, re-read live
+  # 2026-10-28. Exactly three RFA Status cells moved Open -> Closed: Earn to
+  # Learn Programs (Virginia Works), Career Pipelines (Virginia Department of
+  # Education) and Food is Medicine (Virginia Hospital and Healthcare
+  # Foundation). Tier 2 status only: no partner added, nobody named, no
+  # amount. The 10-26 copy stays (R/03be reads it for the collaboratives).
   "ways_to_apply", paste0(VA_RHT, "/ways-to-apply/"),
-  file.path(VA_DIR, "2026-10-26_rhtva_ways_to_apply.html"), TRUE,
+  file.path(VA_DIR, "2026-10-28_rhtva_ways_to_apply.html"), TRUE,
   "news", paste0(VA_RHT, "/news--updates/"),
   file.path(VA_RECHECK, "rhtva_news_updates.html"), FALSE,
   "vhcf_news", "https://www.vhcf.org/news/",

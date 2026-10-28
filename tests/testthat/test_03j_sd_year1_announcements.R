@@ -13,6 +13,7 @@
 library(testthat)
 
 source(here::here("R", "03j_sd_year1_announcements.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 
 SD_Y1_TEST_DIR <- here::here("data/evidence/SD/announcements")
 
@@ -220,7 +221,7 @@ test_that("the committed CSV matches a fresh build", {
                              progress = FALSE)
   fresh <- rhtp_sd_year1_build()
   expect_equal(nrow(on_disk), nrow(fresh))
-  expect_equal(names(on_disk), names(fresh))
+  expect_equal(setdiff(names(on_disk), RHTP_SUMMARY_COLUMNS), names(fresh))
   expect_equal(on_disk$round_amount, fresh$round_amount)
 })
 

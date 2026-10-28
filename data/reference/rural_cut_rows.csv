@@ -489,6 +489,7 @@ CA,ca_year1_awardees.csv,15,Sierra Nevada Memorial Hospital Foundation,708220.53
 CA,ca_year1_awardees.csv,16,Tahoe Forest Hospital District,1559015,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051328,ORG_WEBSITE
 CA,ca_year1_awardees.csv,20,Kaweah Health,441210,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050057: PART A PROVIDER - HOSPITAL",FALSE,050057,ORG_WEBSITE
 CA,ca_year1_awardees.csv,21,"San Bernardino County, Arrowhead Regional Medical Center",500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050245: PART A PROVIDER - HOSPITAL",FALSE,050245,ORG_WEBSITE
+CA,ca_year1_awardees.csv,22,UC San Diego Health,498854,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 CA,ca_year1_awardees.csv,24,Adventist Health Howard Memorial,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051310,ORG_WEBSITE
 CA,ca_year1_awardees.csv,25,Adventist Health Sonora,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050335: PART A PROVIDER - HOSPITAL",FALSE,050335,ORG_WEBSITE
 CA,ca_year1_awardees.csv,26,Adventist Health Tehachapi Valley,2563636,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051301,ORG_WEBSITE
@@ -519,7 +520,6 @@ CA,ca_year1_awardees.csv,70,Oak Valley Hospital District,261905,FEDERAL_RECORD_C
 CA,ca_year1_awardees.csv,73,Palo Verde Hospital,850000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051339: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051339,ORG_WEBSITE
 CA,ca_year1_awardees.csv,74,Pioneers Memorial Hospital,1030863,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050342: PART A PROVIDER - HOSPITAL",FALSE,050342,ORG_WEBSITE
 CA,ca_year1_awardees.csv,76,Plumas District Hospital,800000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051326,ORG_WEBSITE
-CA,ca_year1_awardees.csv,77,Providence Medical Foundation,450000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 CA,ca_year1_awardees.csv,83,San Benito Hospital District,563158,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051337: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051337,ORG_WEBSITE
 CA,ca_year1_awardees.csv,85,Seneca Healthcare District,255691,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 051327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,051327,ORG_WEBSITE
 CA,ca_year1_awardees.csv,87,Sierra Nevada Memorial Miners Hospital,998240,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 050150: PART A PROVIDER - HOSPITAL",FALSE,050150,ORG_WEBSITE
@@ -1541,6 +1541,7 @@ VA,va_year1_vhcf_productivity_awardees.csv,3,Buchanan General Hospital,418000,FE
 VA,va_year1_vhcf_productivity_awardees.csv,4,Buchanan General Hospital,121000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_productivity_awardees.csv,5,Carilion Medical Center,1000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490024: PART A PROVIDER - HOSPITAL",FALSE,490024,ORG_WEBSITE
 VA,va_year1_vhcf_productivity_awardees.csv,6,Sentara Health,1000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+VA,va_year1_vhcf_productivity_awardees.csv,7,UVA Health,62000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490009: PART A PROVIDER - HOSPITAL",FALSE,490009,GENERAL_KNOWLEDGE
 VA,va_year1_vhcf_productivity_awardees.csv,8,Valley Health System,1000000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,2,Mayo Clinic,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 NE,ne_cms_obligation_awardees.csv,3,CHI Health St Marys,38239.96,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281342,GENERAL_KNOWLEDGE

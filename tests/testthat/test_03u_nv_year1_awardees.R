@@ -18,6 +18,7 @@
 library(testthat)
 
 source(here::here("R", "03u_nv_year1_awardees.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 
 skip_if_no_archive <- function() {
   skip_if_not(file.exists(nv_path("roster")),
@@ -666,7 +667,7 @@ test_that("the committed CSV matches what the parser produces", {
   built <- nv_apply_s102_rulings(nv_apply_bp1(nv_with_overlay(nv_records()))) %>%
     dplyr::select(dplyr::all_of(cols))
   expect_equal(nrow(on_disk), nrow(built))
-  expect_equal(names(on_disk), cols)
+  expect_equal(setdiff(names(on_disk), RHTP_SUMMARY_COLUMNS), cols)   # session 110: + R/07's three columns
   expect_equal(on_disk$recipient_type, built$recipient_type)
   expect_equal(on_disk$awardee, built$awardee)
   expect_equal(on_disk$amount, built$amount)

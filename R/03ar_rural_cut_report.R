@@ -352,10 +352,13 @@ rc_assert <- function(rows = rc_rows()) {
   # INTENTS; California the 36th state) and MS round 2's Magnolia Regional
   # Health Center EMS (owner ruling (c), +1 / +$100,000, CCN 250009):
   # 1,834 / $1,729,133,683.70 / 36.
-  if (nrow(rows) != 1834L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1729133683.70) > 0.005 ||
+  # Session 110: owner rulings (a) and (b): + UC San Diego Health and + UVA
+  # Health (ACADEMIC_HEALTH_CENTER), - Providence Medical Foundation:
+  # 1,835 / $1,729,244,537.70 / 36.
+  if (nrow(rows) != 1835L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1729244537.70) > 0.005 ||
       dplyr::n_distinct(rows$state) != 36L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,834 rows / $1,729,133,683.70 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,835 rows / $1,729,244,537.70 ",
          "/ 36 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

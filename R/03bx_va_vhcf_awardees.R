@@ -72,7 +72,8 @@
 # UNIVERSITY OF VIRGINIA dba UVA HEALTH SCIENCES CENTER (CCN 490009), without
 # naming the entity. That is AHC_STRING_NAMES_NO_ENROLLED_ENTITY's shape
 # exactly (UAB Montgomery, OHSU Casey Eye, Michigan MEDIC): UNIVERSITY_OR_AHC,
-# NON_HOSPITAL, and queued there, $884,000 ONE-DIRECTIONAL.
+# NON_HOSPITAL. Session 110 (owner ruling): a programme string is not a
+# hospital row, so both stay NON_HOSPITAL; the queue item is RESOLVED.
 #
 # §6.2: announced 2026-10-02, after Virginia's 2025-12-29 NOA; RHTP provenance
 # is stated in the release's own words. THE TRAP is VHCF's 2026-07-10 "$2.7
@@ -283,9 +284,9 @@ HVA_OVERRIDES <- tibble::tribble(
   "Sentara Health", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW",
   paste0(HVA_PARENT_NOTE, "SENTARA HOSPITALS (490007, 490044, 490046, 490057, 490066, 490093), SENTARA RMH MEDICAL CENTER (490004), SENTARA PRINCESS ANNE HOSPITAL (490119) and others. The award extends its platforms 'to approximately 38 rural practices': the recipient is the system, whatever the activity (§0.3a)."),
   "UVA Health Comprehensive Epilepsy Program", "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "LOW",
-  "AHC_STRING_NAMES_NO_ENROLLED_ENTITY (queued): a programme of the University of Virginia's health system. The enrolled legal entity is RECTOR & VISITORS OF THE UNIVERSITY OF VIRGINIA dba UVA HEALTH SCIENCES CENTER (CCN 490009); the awardee string does not name it, so no bridge is made (§2, §0.4). One-directional if bridged.",
+  "OWNER RULING, SESSION 110 (AHC_STRING_NAMES_NO_ENROLLED_ENTITY, RESOLVED): a row naming a school, department or programme is not a hospital row. A programme of the University of Virginia's health system. The enrolled legal entity is RECTOR & VISITORS OF THE UNIVERSITY OF VIRGINIA dba UVA HEALTH SCIENCES CENTER (CCN 490009); the awardee string does not name it, so it is not re-typed.",
   "UVA Health–Fortify Children's Health", "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "LOW",
-  "AHC_STRING_NAMES_NO_ENROLLED_ENTITY (queued): a UVA Health children's-health programme string. The enrolled legal entity is RECTOR & VISITORS OF THE UNIVERSITY OF VIRGINIA dba UVA HEALTH SCIENCES CENTER (CCN 490009); the awardee string does not name it, so no bridge is made (§2, §0.4). One-directional if bridged.",
+  "OWNER RULING, SESSION 110 (AHC_STRING_NAMES_NO_ENROLLED_ENTITY, RESOLVED): a row naming a school, department or programme is not a hospital row. A UVA Health children's-health programme string. The enrolled legal entity is RECTOR & VISITORS OF THE UNIVERSITY OF VIRGINIA dba UVA HEALTH SCIENCES CENTER (CCN 490009); the awardee string names a programme, so it is not re-typed.",
   "Monroe County Health Center", "FQHC_OR_RHC", "ORG_WEBSITE", "LOW",
   "HAND-READ BRIDGE: CMS VA FQHC Enrollment carries MONROE COUNTY HEALTH CENTER BOARD OF TRUSTEES dba CRAIG COUNTY HEALTH CENTER (491881, New Castle) and dba CRAIG COUNTY WELLNESS CENTER (491952). The release names 'its Craig Health Center in New Castle'. The string drops 'Board of Trustees', so LOW.",
   "Western Tidewater Community Services Board", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "STATE_SOURCE", "MEDIUM",
