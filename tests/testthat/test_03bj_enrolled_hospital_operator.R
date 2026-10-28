@@ -294,7 +294,17 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # list (+76 / +$69,565,522.50), VT's 10-23 update (+31 / +$29,933,101.87),
   # MS round 2 (30 / $22,886,995.92), Ohio's 13 listings (+5 / $0) and NY's
   # joint Glens Falls row out (-1 / -$1,500,000): 189 / $206,275,435.98:
-  # 1,774 / $1,646,229,714.56 / 35. Subtracted first.
+  # 1,774 / $1,646,229,714.56 / 35.
+  # Session 109: + California's tentative BP1 roster (58 / $82,353,969.14,
+  # intents, a 36th state) and MS round 2's Magnolia Regional Health Center
+  # EMS (+1 / +$100,000, owner ruling): 1,833 / $1,728,683,683.70 / 36.
+  # Subtracted first.
+  expect_equal(n$rows, 1833L)
+  expect_equal(round(n$dollars, 2), 1728683683.70)
+  expect_equal(n$states, 36L)
+  n$rows <- n$rows - 59L
+  n$dollars <- n$dollars - 82453969.14
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1774L)
   expect_equal(round(n$dollars, 2), 1646229714.56)
   expect_equal(n$states, 35L)
@@ -413,7 +423,10 @@ test_that("every OTHER row in the repository states a determined form", {
   # Session 108: + 12 -- TX 6 (the 10/23 list), VT 3 (the 10-23 update), MS
   # round 2 2 (Kinder Mind, Jefferson County Nursing Home), ID 1 -- each with
   # its form in determination_basis.
-  expect_equal(nrow(rev), 147L)
+  # Session 109: + 1 -- California's Providence Medical Foundation (R/03cl),
+  # a California medical foundation (H&S Code 1206(l)), its form in
+  # determination_basis.
+  expect_equal(nrow(rev), 148L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

@@ -133,7 +133,10 @@ RC_ENROLMENTS <- c(
   MD = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MD.json",
   OH = "data/evidence/federal_records/2026-10-19/cms_hosp_enrollments_OH.json",
   # Session 108: Idaho's first roster (R/03ck), typed on CMS's ID files.
-  ID = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_ID.json")
+  ID = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_ID.json",
+  # Session 109: California's 58 hospital rows (R/03cl), typed on CMS's CA
+  # Hospital Enrollment fetched this session.
+  CA = "data/evidence/federal_records/2026-10-28/cms_hosp_enrollments_CA.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -346,11 +349,14 @@ rc_assert <- function(rows = rc_rows()) {
   # MS's 10-21 roster (30 / $22,886,995.92), OH's 5 network/maternal hospital
   # rows at $0, and NY's Glens Falls/Hudson Headwaters out (-1 / -$1,500,000):
   # 1,774 / $1,646,229,714.56 / 35.
-  if (nrow(rows) != 1774L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1646229714.56) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 35L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,774 rows / $1,646,229,714.56 ",
-         "/ 35 states; re-state the rural cut against the new partition.",
+  # Session 109: + California's tentative BP1 roster (58 / $82,353,969.14,
+  # intents, the 36th state) and MS round 2's Magnolia Regional Health Center
+  # EMS (+1 / +$100,000, owner ruling): 1,833 / $1,728,683,683.70 / 36.
+  if (nrow(rows) != 1833L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1728683683.70) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 36L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,833 rows / $1,728,683,683.70 ",
+         "/ 36 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

@@ -349,7 +349,12 @@ STATE_FILES <- c(
   # list, 312 application lines. `amount` is the Year 1 subset; the
   # multi-year total sits in total_award_amount and must never be summed with
   # it. 97 lines are executed contracts, 215 intents (AMOUNT_PRELIMINARY).
-  TX = "data/reference/tx_year1_awardees.csv"
+  TX = "data/reference/tx_year1_awardees.csv",
+  # CALIFORNIA (session 109): HCAI's tentative "Recommended Subrecipients for
+  # CalRHT Budget Period 1" (2026-10-21), 108 intents in five tables,
+  # $138,464,043.97 as printed against a prose "$166.72 million" that is NOT
+  # reconciled to the rows (R/03cl). Every row AMOUNT_PRELIMINARY.
+  CA = "data/reference/ca_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -391,7 +396,8 @@ test_that("the thirty-eight files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
+               # Session 109: + CA (R/03cl).
+               c("AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WA",
                  "WV", "WY"))

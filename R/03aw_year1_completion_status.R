@@ -83,7 +83,8 @@ Y1_AWARD_FILES <- c(
   LA = "la_year1_awardees.csv",
   CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv",
   HI = "hi_year1_awardees.csv",
-  TX = "tx_year1_awardees.csv"
+  TX = "tx_year1_awardees.csv",
+  CA = "ca_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -332,6 +333,11 @@ Y1_STATUS <- tibble::tribble(
   "2026-10-14",
   "Three RVBI Notices of Award (HPCA 8/28, Healthcare Association of Hawaii 9/3, Physicians of Southwest Washington 9/11) under a '$25 million' RVBI line; amounts only in HANDS (403). RHIN ($45M) and the other initiatives name no recipient (session 101).",
   "data/evidence/recheck/2026-10-14/HI/hi_shpda_rhtp_programme_three_notices_of_award.html",
+
+  "CA", "PARTIAL", "No", "Yes",
+  "2026-10-21",
+  "HCAI: 'The list reflects awards announced to date and does not yet represent all Budget Period 1 investments included in the initiative totals above. Additional recommendations will be added as they are ready for publication', and 'The awards listed on this page are tentative.' 108 intents, $138,464,043.97 printed against a prose $166.72 million (session 109).",
+  "data/evidence/CA/2026-10-26_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
 
   "TX", "PARTIAL", "No", "Yes",
   "2026-10-14",
