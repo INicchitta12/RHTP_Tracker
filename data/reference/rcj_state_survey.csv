@@ -8,16 +8,16 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 7,AL,Alabama,138,138,0,0,94,143745821,7000000,146,Yes,2026-08-24,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-144-million-improve-mental-health-substance-abuse-emergency-maternal,203404327,EXTRACTED,RCJ_AND_CMS,No
 8,GA,Georgia,110,102,8,7,103,110277585,20000000,120,Yes,2026-08-27,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-93-3-million-expand-telehealth-services-advance-surgical-robotics,218862170,EXTRACTED,RCJ_AND_CMS,No
 9,KS,Kansas,93,93,0,0,70,158478807.3,7137295.1,95,Yes,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-nearly-17-million-adopt-emerging-healthcare-technologies-improve,221898008,EXTRACTED,RCJ_AND_CMS,No
-10,FL,Florida,80,68,12,0,52,188083532.26,18512061.76,81,No,,,,209938195,EXTRACTED,RCJ_ONLY,No
+10,FL,Florida,80,68,12,0,52,188083532.26,18512061.76,81,Yes,2026-10-23,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-193-million-expand-preventive-care-bring-specialty-care-closer,209938195,EXTRACTED,RCJ_AND_CMS,No
 11,PA,Pennsylvania,66,63,3,0,66,42198309.8,1000000,66,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-35-million-investment-advance-screening-technology-secure-additional,193294054,EXTRACTED,RCJ_AND_CMS,No
-12,NE,Nebraska,52,46,6,0,48,15402668.92,2441936.73,52,Yes,2026-10-13,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-177-million-recruit-rural-healthcare-workers-expand-mobile-care,218529075,EXTRACTED,RCJ_AND_CMS,No
-13,MD,Maryland,42,42,0,0,41,84925071,6340198,42,No,,,,168180838,EXTRACTED,RCJ_ONLY,No
+12,NE,Nebraska,52,46,6,0,48,15402668.92,2441936.73,52,Yes,2026-10-13,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-177-million-recruit-rural-healthcare-workers-expand-mobile-care,218529075,EXTRACTED,RCJ_AND_CMS,No
+13,MD,Maryland,42,42,0,0,41,84925071,6340198,42,Yes,2026-10-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-16-million-rural-healthcare-workforce-training-retention-across,168180838,EXTRACTED,RCJ_AND_CMS,No
 14,OK,Oklahoma,36,35,1,0,26,237814376.02,38020000,52,No,,,,223476949,EXTRACTED,RCJ_ONLY,No
 15,NV,Nevada,33,15,18,9,33,186112475.88,40000000,54,No,,,,179931608,EXTRACTED,RCJ_ONLY,No
 16,AR,Arkansas,33,31,2,0,33,172553206.45,19738729.91,33,Yes,2026-08-31,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-149-3-million-expand-telehealth-increase-access-specialty-care,208779396,EXTRACTED,RCJ_AND_CMS,No
 17,MO,Missouri,30,3,27,0,30,7964687.43,6500000,31,Yes,2026-09-22,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-45-million-upgrade-rural-missouri-hospitals-connect-families,216276818,EXTRACTED,RCJ_AND_CMS,No
 18,SD,South Dakota,29,28,1,0,23,41223178,31500000,29,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,RCJ_AND_CMS,No
-19,NH,New Hampshire,23,11,12,3,15,302352411,43810000,26,No,,,,204016550,EXTRACTED,RCJ_ONLY,No
+19,NH,New Hampshire,23,11,12,3,15,302352411,43810000,26,Yes,2026-10-16,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-11-million-strengthen-rural-ems-expand-mobile-healthcare-across,204016550,EXTRACTED,RCJ_AND_CMS,No
 20,WI,Wisconsin,19,16,3,0,19,100139403,44000000,21,No,,,,203670005,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 21,ME,Maine,17,6,11,0,16,130102049,33821698,17,No,,,,190008051,EXTRACTED,RCJ_ONLY,No
 22,IA,Iowa,15,0,15,0,15,5,1,15,Yes,2026-10-09,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-209-million-expand-advanced-medical-care-maternal-telehealth-cancer,209040064,EXTRACTED,RCJ_AND_CMS,No
@@ -44,8 +44,8 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 43,ID,Idaho,1,0,1,0,1,1,1,1,No,,,,185974368,EXTRACTED,RCJ_ONLY,No
 44,MA,Massachusetts,1,0,1,0,1,1,1,1,No,,,,162005238,INVESTIGATED_NO_PROBE,RCJ_ONLY,No
 45,TN,Tennessee,1,0,1,0,1,1,1,1,No,,,,206888882,EXTRACTED,RCJ_ONLY,No
-46,CA,California,0,0,0,4,0,0,,5,No,,,,233639308,INVESTIGATED_NO_LIST,NEITHER,No
+46,CA,California,0,0,0,4,0,0,,5,No,,,,233639308,EXTRACTED,NEITHER,No
 47,IL,Illinois,0,0,0,0,0,0,,0,No,,,,193418216,EXTRACTED,NEITHER,No
 48,KY,Kentucky,0,0,0,0,0,0,,0,No,,,,212905591,EXTRACTED,NEITHER,No
 49,NY,New York,0,0,0,0,0,0,,0,Yes,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-76-million-strengthen-regional-coordination-modernize-healthcare,212058208,EXTRACTED,CMS_ONLY,No
-50,WY,Wyoming,0,0,0,0,0,0,,0,No,,,,205004743,EXTRACTED,NEITHER,No
+50,WY,Wyoming,0,0,0,0,0,0,,0,Yes,2026-10-23,CMS_NEWSROOM,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-205-million-strengthen-emergency-care-expand-rural-health-workforce,205004743,EXTRACTED,CMS_ONLY,No

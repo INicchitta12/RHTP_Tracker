@@ -17,8 +17,13 @@
 
 source(here::here("R", "03ab_ca_year1_probe.R"))
 
-test_that("no California award file exists, deliberately", {
-  expect_false(file.exists(here::here(CA_AWARDS_CSV)))
+test_that("SESSION 109: the award file is R/03cl's, and the status table still carries no amount", {
+  # The "no award file" assertion was deleted in the commit that wrote the
+  # file, as it asked to be: HCAI's tentative BP1 roster is extracted.
+  expect_true(file.exists(here::here(CA_AWARDS_CSV)))
+  a <- readr::read_csv(here::here(CA_AWARDS_CSV), show_col_types = FALSE)
+  expect_equal(nrow(a), 108L)
+  expect_true(all(a$validator == "R/03cl_ca_bp1_recommended_awardees.R"))
   expect_silent(ca_assert_no_award_file())
 })
 
@@ -391,18 +396,18 @@ test_that("the §6.2 sweep catches the Distressed Hospital rows by REGISTRY, not
   expect_equal(ca$caught_amount, 25000000)
 })
 
-test_that("California reads INVESTIGATED_NO_LIST, so it cannot rank 1 again", {
+test_that("SESSION 109: California reads EXTRACTED, from R/03k's constant", {
   s <- readr::read_csv(
     here::here("data", "reference", "rcj_state_survey.csv"),
     show_col_types = FALSE)
-  expect_equal(s$extraction_status[s$state == "CA"], "INVESTIGATED_NO_LIST")
-  # And the CSV is BUILT from R/03k's constant rather than hand-edited, so the
-  # constant is what a rebuild would read. Checked by reading the source rather
-  # than by sourcing a build script into the test session.
-  src <- readLines(here::here("R", "03k_rcj_state_survey.R"), warn = FALSE)
-  decl <- grep("^SURVEY_INVESTIGATED_NO_LIST_STATES <-", src, value = TRUE)
-  expect_length(decl, 1L)
-  expect_true(grepl('"CA"', decl, fixed = TRUE))
+  expect_equal(s$extraction_status[s$state == "CA"], "EXTRACTED")
+  # The CSV is BUILT from R/03k's constants rather than hand-edited. Checked by
+  # reading the source rather than by sourcing a build script.
+  src <- paste(readLines(here::here("R", "03k_rcj_state_survey.R"), warn = FALSE), collapse = "\n")
+  ext <- stringr::str_extract(src, "SURVEY_EXTRACTED_STATES <- c\\([^)]*\\)")
+  nol <- stringr::str_extract(src, "SURVEY_INVESTIGATED_NO_LIST_STATES <- c\\([^)]*\\)")
+  expect_true(grepl('"CA"', ext, fixed = TRUE))
+  expect_false(grepl('"CA"', nol, fixed = TRUE))
 })
 
 test_that("the change test is a CONTENT digest, and it absorbs both mechanisms", {
@@ -452,14 +457,20 @@ test_that("--validate passes end to end, offline", {
 })
 
 
-test_that("SESSION 88: the four CalRHT pools read NOTICES_SENT_PRIVATELY, off HCAI's FAQ", {
+test_that("SESSIONS 88 and 109: the four pools notified privately, then published a tentative roster", {
   expect_true(ca_assert_private_notices())
   st <- rhtp_ca_year1_status()
-  pools <- st[st$stage == "NOTICES_SENT_PRIVATELY_NO_PUBLIC_ROSTER", ]
+  # Session 109: the four pools and the Transformative Payments table read
+  # RECOMMENDED_ROSTER_PUBLISHED; the session-88 FAQ reading stays in evidence.
+  pools <- st[st$channel %in% names(CA_RECOMMENDED_TABLES), ]
   expect_equal(nrow(pools), 4L)
-  expect_false(any(st$stage == "CLOSED_UNAWARDED"))
-  expect_true(all(pools$publishes_roster == "No"))
+  expect_true(all(pools$stage == "RECOMMENDED_ROSTER_PUBLISHED"))
+  expect_false(any(st$stage %in% c("CLOSED_UNAWARDED", "NOTICES_SENT_PRIVATELY_NO_PUBLIC_ROSTER")))
+  expect_true(all(grepl("^Yes -- tentative", pools$publishes_roster)))
   expect_true(all(grepl("Submittable", pools$evidence, fixed = TRUE)))
+  expect_true(all(grepl("$166.72 million", pools$evidence, fixed = TRUE)))
+  expect_equal(sum(st$stage == "RECOMMENDED_ROSTER_PUBLISHED"), 5L)
+  expect_equal(st$stage[st$channel == "Tribal Set-Aside"], "OPEN")
   # The FAQ going away takes the stage with it.
   expect_error(ca_assert_private_notices("an unrelated document"),
                "no longer says")
