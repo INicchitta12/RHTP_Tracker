@@ -1,0 +1,17 @@
+RHTP_awards_10.23.26_.xlsx
+
+CHA informal analysis of HCAI's recommended-funding list (10-23); owner-supplied 10-29; not an official accounting; internal use only.
+
+- Uploaded to the repository root as "RHTP awards_10.23.26_.xlsx" in commit b8da792
+  (2026-10-29), moved here in session 111c and renamed only to drop the space.
+  The bytes are unchanged.
+- SHA-256: 1024e009323658406c199c148a70745ccbae06f8106f0b9cd43603662e724cbd
+- One sheet ("Sheet1"): a summary block in rows 1-9 (Rural Hospital, CAH Hospital,
+  Any Hospital-Based, Non-Hospital Based, Total) and 108 award lines from row 11
+  (Program, Non-hospital, ID, Hospital, State Rural, CAH, System, Location, Amount,
+  Notes).
+- This is NOT a state source and NOT evidence for any award, amount or recipient
+  form (spec §0.1, §0.4). It is a second reader's coding of the same HCAI roster
+  that R/03cl_ca_bp1_awardees.R extracts, used only to cross-check our calls.
+  R/03cm_ca_cha_reconciliation.R reads it; no award row, summary call or figure
+  is derived from it.
