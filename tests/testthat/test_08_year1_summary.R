@@ -208,15 +208,25 @@ test_that("currency and percentage formats, frozen panes, widths and the bold na
 test_that("the second national row: states with >=50% published on state award sources, pinned (owner decisions, session 111b)", {
   cms_states <- sort(unique(rows$state[rows$validation_source_type %in% "CMS_OBLIGATION_REPORT"]))
   expect_equal(cms_states, c("NE", "PA", "RI"))
-  over <- st_only[st_only$award_total_usd / st_only$allotment_usd >= 0.5, ]
-  # Rhode Island is over the line on CMS obligation lines alone and is left out
-  expect_true("RI" %in% over$state)
-  m <- over[!over$state %in% cms_states, ]
+  expect_setequal(ys_cms_obligation_files(rows), c("NE_CMS", "PA_CMS", "RI"))
+  # each state's "% published" is computed on its state-sourced awards only
+  ss <- ys_state_source_table(rows, NULL, NULL, sc_state_files())
+  sh <- function(t, x) t$award_total_usd[t$state == x] / t$allotment_usd[t$state == x]
+  expect_equal(ss$award_total_usd[ss$state == "NE"], st_only$award_total_usd[st_only$state == "NE"] - 3977841.10, tolerance = 1e-9)
+  expect_equal(ss$award_total_usd[ss$state == "PA"], st_only$award_total_usd[st_only$state == "PA"] - 2963577, tolerance = 1e-9)
+  expect_equal(ss$award_total_usd[ss$state == "RI"], 0)
+  expect_true(sh(st_only, "RI") >= 0.5)   # over the line on CMS lines alone ...
+  expect_true(sh(ss, "RI") < 0.5)         # ... and out on state-sourced awards
+  expect_equal(sum(ss$layer_cms_obligation_usd), 0)
+  m <- ss[ss$award_total_usd / ss$allotment_usd >= 0.5, ]
   expect_false("RI" %in% m$state)
   expect_equal(nrow(m), 21L)
   expect_equal(sort(m$state), c("AK", "AL", "AR", "CA", "CO", "FL", "GA", "ID", "IN", "MD", "MI", "MS",
                                 "NJ", "NV", "OH", "OR", "SC", "SD", "TX", "VT", "WY"))
   expect_equal(ge$layer_cms_obligation_usd, 0)
+  # members carry no CMS rows today, so their state-sourced rows equal their full rows
+  expect_equal(as.data.frame(m[, names(s)]), as.data.frame(st_only[match(m$state, st_only$state), names(s)]),
+               ignore_attr = TRUE)
   for (col in names(s)[vapply(s, is.numeric, logical(1))]) {
     if (grepl("_pct$", col)) next
     expect_equal(ge[[col]], sum(m[[col]]), info = col)
@@ -249,12 +259,29 @@ test_that("the second national row: states with >=50% published on state award s
   expect_equal(round(100 * as.numeric(dt$hospital_share_of_awards_pct[52]), 1), 46.3)
 })
 
+test_that("the subset drops CMS files, refuses a mixed file, and refuses a CMS dollar", {
+  bad <- rows
+  i <- which(bad$file_key == "AK")[1]
+  bad$validation_source_type[i] <- "CMS_OBLIGATION_REPORT"
+  expect_error(ys_cms_obligation_files(bad), "mix CMS obligation lines")
+  # a member state that gains a CMS-only file keeps its state-sourced row: the CMS
+  # file is dropped before the subset is built
+  ak <- rows[rows$file_key == "AK", ][1, ]
+  ak$file_key <- "AK_CMS_TEST"; ak$validation_source_type <- "CMS_OBLIGATION_REPORT"; ak$amount <- 1e6
+  extra <- dplyr::bind_rows(rows, ak)
+  expect_true("AK_CMS_TEST" %in% ys_cms_obligation_files(extra))
+  ss2 <- ys_state_source_table(extra, NULL, NULL, sc_state_files())
+  expect_equal(ss2$award_total_usd[ss2$state == "AK"], st_only$award_total_usd[st_only$state == "AK"])
+})
+
 test_that("Notes open with How to read this and carry the n/m and coverage notes", {
   n <- openxlsx::read.xlsx(ov_x, "Notes and caveats")$note
   expect_match(n[1], "^HOW TO READ THIS")
   expect_true(any(grepl(YS_NM_NOTE, n, fixed = TRUE)))
   expect_true(any(grepl("The national hospital share of awards is reported only for states where most of the money is published (see the second national row).", n, fixed = TRUE)))
-  expect_true(any(grepl("rest on state award sources only", n, fixed = TRUE) & grepl("Rhode Island (50.4%", n, fixed = TRUE)))
+  expect_true(any(grepl("rests on state award sources only", n, fixed = TRUE) &
+                    grepl("computed on its state-sourced awards alone", n, fixed = TRUE) &
+                    grepl("Rhode Island 0.0% state-sourced (50.4% with CMS lines; does not qualify)", n, fixed = TRUE)))
   expect_true(any(grepl("State shares are not comparable to one another", n, fixed = TRUE)))
 })
 

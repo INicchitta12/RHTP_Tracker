@@ -22,11 +22,13 @@ national row if the national share should print. `Hospital % of allotment` print
 
 **Second national row (owner decisions, same session).** The national row keeps n/m. Below it,
 `US_GE50` ("States with ≥50% published, state award sources (n = 21)") is added to the CSV, Detail
-and Overview. A state is a member when its awards published are at least 50% of its allotment
-**and** none of its award rows comes from CMS's Obligated Funds Report. The owner ruled that the
-subset rests on state award sources only. The row sums every column over the members and
-recomputes the three shares from those sums (`ys_subset_row()`). On Overview it shows only the
-six figures the owner named; % of allotment awarded and Hospitals named, no amount are blank.
+and Overview. **It rests on state award sources only, and the owner set that rule in its final form
+here.** The award files built from CMS's Obligated Funds Report (`NE_CMS`, `PA_CMS`, `RI`) are dropped,
+and the state table is then rebuilt without them (`ys_state_source_table()`). Each state's "% published"
+is therefore its state-sourced award total over its allotment, and a state qualifies at ≥50%. The row
+sums every column over the members' state-sourced figures and recomputes the three shares from those
+sums (`ys_subset_row()`). On Overview it shows only the six figures the owner named; % of allotment
+awarded and Hospitals named, no amount are blank.
 
 | | 21 states |
 |---|---:|
@@ -39,13 +41,20 @@ six figures the owner named; % of allotment awarded and Hospitals named, no amou
 
 Members: AK AL AR CA CO FL GA ID IN MD MI MS NJ NV OH OR SC SD TX VT WY.
 
-- **Rhode Island is excluded.** It is at 50.4%, and every one of its award rows is a CMS
-  obligation line. Taking it out moves the row by −$156,169,931 allotment, −$78,727,110.44 awards
-  and −$15,839,907.67 hospital (HARI, an unnamed pool). The strict named-hospital figure does not
-  move, because RI has no named-hospital dollars.
-- **Nebraska and Pennsylvania also carry CMS obligation lines.** Both are below the line today. If
-  either crosses it, the whole state is left out, so no CMS-obligation dollar can enter the row. The
-  builder also refuses outright if one does.
+- **The states carrying CMS obligation lines today, by state-sourced share:**
+  - Rhode Island: 0.0% state-sourced, 50.4% with its CMS lines. It does not qualify.
+  - Nebraska: 19.1% state-sourced, 20.9% with its CMS lines.
+  - Pennsylvania: 21.8% state-sourced, 23.4% with its CMS lines.
+- **Effect of the earlier rule.** An intermediate rule excluded a state outright if it had any CMS
+  line. Removing RI's rows under that rule moved the subset by −$156,169,931 allotment,
+  −$78,727,110.44 awards and −$15,839,907.67 hospital (HARI, an unnamed pool).
+- **The 21 members are unchanged under the final rule.** None of them has a CMS row, so the
+  committed CSV is byte-identical to the build under the earlier rule.
+- **A state with CMS lines can now qualify on its state files alone.** Nebraska and Pennsylvania
+  would, once they cross 50% on state-sourced awards, and their CMS lines would stay out of the row.
+- **Two guards stay in the builder.** It refuses an award file that mixes CMS lines with
+  state-sourced rows, because the subset drops whole files. It also refuses if any CMS-obligation
+  dollar reaches the row. `test_08` drives both guards.
 - **The row is a subset of the national row and is never added to it.** The first 51 CSV rows are
   identical to the build before it.
 - **Two members sit close to the line:** Indiana (54.7%) and Ohio (51.5%). The set will move as

@@ -146,7 +146,8 @@ ys_file_figures <- function(files = sc_state_files()) {
 }
 
 #' The per-state table, national row last
-ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
+ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = sc_state_files(),
+                     subset = TRUE) {
   if (is.null(pools)) {
     pools <- readr::read_csv(here::here(YS_POOLS), show_col_types = FALSE, progress = FALSE)
   }
@@ -156,7 +157,8 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
   allot <- readr::read_csv(here::here(YS_ALLOT), show_col_types = FALSE, progress = FALSE)
   status <- readr::read_csv(here::here(YS_STATUS), show_col_types = FALSE, progress = FALSE)
   survey <- readr::read_csv(here::here(YS_SURVEY), show_col_types = FALSE, progress = FALSE)
-  rural <- readr::read_csv(here::here(YS_RURAL), col_types = readr::cols(.default = "c"), progress = FALSE)
+  rural <- readr::read_csv(here::here(YS_RURAL), col_types = readr::cols(.default = "c"), progress = FALSE) %>%
+    dplyr::filter(file %in% basename(unlist(files)))
 
   rows <- rows %>% dplyr::mutate(
     suspect = ys_has(flag_reason, "SOURCE_SUSPECT"),
@@ -183,7 +185,7 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
   comp_by <- components %>% dplyr::group_by(state) %>% dplyr::summarise(
     hospital_bj_component_usd = ys_usd(component_usd[call == "HOSPITAL"]),
     not_hospital_component_usd = ys_usd(component_usd[call == "NOT_HOSPITAL"]), .groups = "drop")
-  fig <- ys_file_figures() %>% dplyr::group_by(state) %>% dplyr::summarise(
+  fig <- ys_file_figures(files) %>% dplyr::group_by(state) %>% dplyr::summarise(
     file_pool_level_usd = ys_usd(pool_level_unpriced - priced_inside_pool),
     .groups = "drop")
   rur <- rural %>% dplyr::mutate(amount = as.numeric(amount)) %>% dplyr::group_by(state) %>%
@@ -281,7 +283,8 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
       named_hospital_recipients_no_amount, named_hospital_rows_no_amount,
       layer_source_suspect_usd,
       confidential_source_flag)
-  dplyr::bind_rows(tab, ys_subset_row(tab, rows))
+  if (!subset) return(tab)
+  dplyr::bind_rows(tab, ys_subset_row(rows, pools, components, files))
 }
 
 ys_pct <- function(n, d) ifelse(d > 0, round(100 * n / d, 1), NA_real_)
@@ -296,12 +299,16 @@ ys_pct <- function(n, d) ifelse(d > 0, round(100 * n / d, 1), NA_real_)
 # national row is built from all fifty. It is a SUBSET of the fifty, never added
 # to the national row.
 #
-# IT RESTS ON STATE AWARD SOURCES ONLY (owner decision). A state any of whose
-# award rows comes from CMS's Obligated Funds Report (validation_source_type
-# CMS_OBLIGATION_REPORT) is left out of it, whatever its share: Rhode Island
-# (50.4%, CMS lines alone) is the case today. Nebraska and Pennsylvania carry
-# CMS lines too and are below the line; if either crosses it, it is left out
-# whole, so no CMS-obligation dollar can enter this row.
+# IT RESTS ON STATE AWARD SOURCES ONLY (owner decisions). Rows taken from CMS's
+# Obligated Funds Report (validation_source_type CMS_OBLIGATION_REPORT; whole
+# files: ne_cms_obligation_awardees, pa_cms_obligation_awardees,
+# ri_year1_awardees) are removed BEFORE the state table is rebuilt for the
+# subset, so each state's "% published" is its state-sourced award total over
+# its allotment, and a state qualifies when that is at least YS_AWARD_SHARE_MIN.
+# A state keeps its state-sourced dollars and loses only its CMS lines:
+# Rhode Island, whose every row is a CMS line, has no state-sourced awards and
+# cannot qualify; Nebraska and Pennsylvania would qualify, if they crossed the
+# line, on their state files alone.
 YS_NATIONAL <- c("US", "US_GE50")
 YS_AWARD_SHARE_MIN <- 0.5
 
@@ -310,17 +317,38 @@ ys_cms_obligation_states <- function(rows) {
   sort(unique(rows$state[rows$validation_source_type %in% "CMS_OBLIGATION_REPORT"]))
 }
 
-ys_subset_members <- function(tab, rows) {
-  st <- tab[!tab$state %in% YS_NATIONAL, ]
-  st[st$allotment_usd > 0 & st$award_total_usd / st$allotment_usd >= YS_AWARD_SHARE_MIN &
-       !st$state %in% ys_cms_obligation_states(rows), ]
+#' The award files whose rows are CMS obligation-report lines. A file mixing
+#' them with state-sourced rows is refused: the subset drops files, not rows.
+ys_cms_obligation_files <- function(rows) {
+  by <- rows %>% dplyr::group_by(file_key) %>%
+    dplyr::summarise(cms = sum(validation_source_type %in% "CMS_OBLIGATION_REPORT"), n = dplyr::n(), .groups = "drop")
+  mixed <- by$file_key[by$cms > 0 & by$cms < by$n]
+  if (length(mixed)) {
+    stop("[year1 summary] award file(s) mix CMS obligation lines with state-sourced rows: ",
+         paste(mixed, collapse = ", "), call. = FALSE)
+  }
+  by$file_key[by$cms > 0]
 }
 
-ys_subset_row <- function(tab, rows) {
-  m <- ys_subset_members(tab, rows)
+#' The per-state table rebuilt from state-sourced award files only
+ys_state_source_table <- function(rows, pools, components, files) {
+  cms <- ys_cms_obligation_files(rows)
+  ss_rows <- rows[!rows$file_key %in% cms, ]
+  tab <- ys_build(ss_rows, pools, components, files = files[!names(files) %in% cms], subset = FALSE)
+  tab[!tab$state %in% YS_NATIONAL, ]
+}
+
+ys_subset_members <- function(rows, pools, components, files) {
+  st <- ys_state_source_table(rows, pools, components, files)
+  st[st$allotment_usd > 0 & st$award_total_usd / st$allotment_usd >= YS_AWARD_SHARE_MIN, ]
+}
+
+ys_subset_row <- function(rows, pools, components, files) {
+  m <- ys_subset_members(rows, pools, components, files)
   if (any(m$layer_cms_obligation_usd != 0)) {
     stop("[year1 summary] a CMS-obligation dollar reached the state-source subset", call. = FALSE)
   }
+  tab <- m
   num <- names(tab)[vapply(tab, is.numeric, logical(1))]
   row <- m %>% dplyr::summarise(dplyr::across(dplyr::all_of(num), sum))
   row$award_share_of_allotment_pct <- ys_pct(row$award_total_usd, row$allotment_usd)
@@ -343,7 +371,7 @@ ys_subset_row <- function(tab, rows) {
 #' builder refuses a column without one.
 YS_DEFINITIONS <- tibble::tribble(
   ~column, ~definition,
-  "state", "Two-letter state code. US is the national row (the sum of the 50 state rows). US_GE50 is the second national row: the sum over the states whose awards published are at least 50% of their allotment AND rest on state award sources only (a state with any CMS obligation-report row, such as Rhode Island, is left out); a subset of US, never added to it.",
+  "state", "Two-letter state code. US is the national row (the sum of the 50 state rows). US_GE50 is the second national row, on state award sources only: CMS obligation-report rows are removed from all its figures, and it sums the states whose state-sourced awards published are at least 50% of their allotment (Rhode Island, whose only rows are CMS lines, cannot qualify); a subset of US, never added to it.",
   "state_name", "State name.",
   "completion_status", "Whether the state has finished awarding its Year 1 money: COMPLETE (a state source says so), PARTIAL (more awards are coming or initiatives remain unawarded), or NOT_ASSESSED (the repository has not judged it; the survey status is shown).",
   "allotment_usd", "The state's FY2026 RHTP allotment from CMS (Tier 1), from CMS's own table.",
@@ -381,12 +409,19 @@ YS_DEFINITIONS <- tibble::tribble(
   "layer_source_suspect_usd", "Hospital dollars on rows whose published amount is internally inconsistent (SOURCE_SUSPECT). EXCLUDED from every hospital figure; shown so the exclusion is visible.",
   "confidential_source_flag", "Marks a state whose rows or notes cite Delaware's confidential source (DE Verify.xlsx). Flagged material must not leave the team.")
 
-#' States at or above the line that the state-source criterion leaves out, with their shares
-ys_excluded_cms_states <- function(s, rows) {
-  st <- s[!s$state %in% YS_NATIONAL & s$state %in% ys_cms_obligation_states(rows) &
-            s$allotment_usd > 0 & s$award_total_usd / s$allotment_usd >= YS_AWARD_SHARE_MIN, ]
-  if (!nrow(st)) return("none")
-  paste0(st$state_name, " (", sprintf("%.1f%%", 100 * st$award_total_usd / st$allotment_usd), ", CMS obligation lines)")
+#' Each state carrying CMS obligation lines: its share of allotment published with
+#' and without them, and whether it qualifies on state-sourced awards
+ys_cms_state_shares <- function(s, rows) {
+  cms <- ys_cms_obligation_states(rows)
+  if (!length(cms)) return("none")
+  ss <- ys_state_source_table(rows, NULL, NULL, sc_state_files())
+  vapply(cms, function(x) {
+    all_sh <- s$award_total_usd[s$state == x] / s$allotment_usd[s$state == x]
+    ss_sh <- ss$award_total_usd[ss$state == x] / ss$allotment_usd[ss$state == x]
+    paste0(s$state_name[s$state == x], " ", sprintf("%.1f%%", 100 * ss_sh), " state-sourced (",
+           sprintf("%.1f%%", 100 * all_sh), " with CMS lines; ",
+           if (ss_sh >= YS_AWARD_SHARE_MIN) "qualifies" else "does not qualify", ")")
+  }, character(1))
 }
 
 ys_notes <- function(s, date, rows) {
@@ -417,9 +452,10 @@ ys_notes <- function(s, date, rows) {
     paste0("n/m (HOSPITAL % OF AWARDS). Shown only where awards published are at least ", 100 * YS_AWARD_SHARE_MIN, "% of the allotment. ", YS_NM_NOTE,
            " The national hospital share of awards is reported only for states where most of the money is published (see the second national row). ",
            "Hospital % of allotment is shown for every state."),
-    paste0("SECOND NATIONAL ROW. '", ge$state_name, "' sums the states whose awards published are at least ", 100 * YS_AWARD_SHARE_MIN,
-           "% of their allotment AND rest on state award sources only: a state with any award row taken from CMS's Obligated Funds Report is left out, whatever its share ",
-           "(excluded today: ", paste(ys_excluded_cms_states(s, rows), collapse = ", "), "). Members (", gsub("^.*: ", "", ge$completion_status), "): allotment ", f(ge$allotment_usd), ", awards published ", f(ge$award_total_usd),
+    paste0("SECOND NATIONAL ROW. '", ge$state_name, "' rests on state award sources only. Rows taken from CMS's Obligated Funds Report are removed from every figure in it, ",
+           "each state's '% published' is computed on its state-sourced awards alone, and a state qualifies when those are at least ", 100 * YS_AWARD_SHARE_MIN,
+           "% of its allotment. States carrying CMS obligation lines today: ", paste(ys_cms_state_shares(s, rows), collapse = "; "), ". ",
+           "Members (", gsub("^.*: ", "", ge$completion_status), "): allotment ", f(ge$allotment_usd), ", awards published ", f(ge$award_total_usd),
            ", hospital best estimate ", f(ge$hospital_summary_usd), " (", sprintf("%.1f%%", ge$hospital_share_of_awards_pct), " of those awards). ",
            "It is a subset of the national row, never added to it; the set changes as states publish."),
     paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail).")))
@@ -504,7 +540,7 @@ ys_frac <- function(n, d) ifelse(d > 0, n / d, NA_real_)
 #' The Overview sheet: one row per state, national row last
 YS_OVERVIEW_DEFINITIONS <- tibble::tribble(
   ~column, ~definition,
-  "State", "State name. Below the 50 states: the national total (the sum of the 50 state rows), then the states whose awards published are at least 50% of their allotment and rest on state award sources only (n in the label; a state with any CMS obligation-report row is left out), which shows only allotment, awards published, the hospital figures and strict named-hospital dollars. The second row is a subset of the national total, never added to it.",
+  "State", "State name. Below the 50 states: the national total (the sum of the 50 state rows), then the states whose state-sourced awards published are at least 50% of their allotment (n in the label; CMS obligation-report rows are removed from that row's figures and from each state's test), which shows only allotment, awards published, the hospital figures and strict named-hospital dollars. The second row is a subset of the national total, never added to it.",
   "Year 1 status", "Plain-language Year 1 status; each label is defined below.",
   "FY2026 allotment", "The state's FY2026 RHTP allotment from CMS (Tier 1), from CMS's own table (Detail: allotment_usd).",
   "Awards published", "Published Year 1 award total: per-award amounts plus pool-level totals (Detail: award_total_usd).",
