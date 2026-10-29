@@ -237,7 +237,6 @@ AL,al_year1_awardees.csv,121,City of York Health Care Authority DBA Hill Hospita
 AL,al_year1_awardees.csv,124,The University of Alabama at Birmingham,974084,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 010033: PART A PROVIDER - HOSPITAL",FALSE,010033,ORG_WEBSITE
 AL,al_year1_awardees.csv,126,AltaPointe Health Systems,935895,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 014014: PART A PROVIDER - HOSPITAL",FALSE,014014,ORG_WEBSITE
 AL,al_year1_awardees.csv,131,Floyd Cherokee Medical Center LLC,31152,NOT_RECORDED,,FALSE,,
-AK,ak_year1_awardees.csv,7,City of Ketchikan,350000,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,8,Mat-Su Regional Medical Center,5000000,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,16,Cordova Community Medical Center,155000,NOT_RECORDED,,FALSE,,
 AK,ak_year1_awardees.csv,24,Maniilaq Association,828892.8,NOT_RECORDED,,FALSE,,
@@ -1555,6 +1554,7 @@ TX,tx_year1_awardees.csv,2,PALO PINTO COUNTY HOSPITAL DISTRICT,818720.8,FEDERAL_
 TX,tx_year1_awardees.csv,3,TYLER COUNTY HOSPITAL DISTRICT,2747633.6,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 450460: PART A PROVIDER - HOSPITAL",FALSE,450460,ORG_WEBSITE
 TX,tx_year1_awardees.csv,4,St. Joseph Regional Health Center,2527185.38,NOT_RECORDED,,FALSE,,ORG_WEBSITE
 TX,tx_year1_awardees.csv,5,Madison St. Joseph Health Center,2527185.38,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451316,ORG_WEBSITE
+TX,tx_year1_awardees.csv,6,St. Joseph Health Burleson,2527185.38,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451305,ORG_WEBSITE
 TX,tx_year1_awardees.csv,7,El Campo Memorial Hospital,2697436.8,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 450694: PART A PROVIDER - HOSPITAL",FALSE,450694,ORG_WEBSITE
 TX,tx_year1_awardees.csv,8,Concho County Hospital District,1249086.9,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451325,ORG_WEBSITE
 TX,tx_year1_awardees.csv,9,Memorial Medical Center,2746974.08,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451356: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451356,ORG_WEBSITE

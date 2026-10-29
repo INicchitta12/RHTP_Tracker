@@ -355,10 +355,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 110: owner rulings (a) and (b): + UC San Diego Health and + UVA
   # Health (ACADEMIC_HEALTH_CENTER), - Providence Medical Foundation:
   # 1,835 / $1,729,244,537.70 / 36.
+  # Session 111: owner rulings (e) and (f): + TX St. Joseph Health Burleson
+  # (CAH 451305, +$2,527,185.38), - AK City of Ketchikan (-$350,000):
+  # 1,835 / $1,731,421,723.08 / 36.
   if (nrow(rows) != 1835L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1729244537.70) > 0.005 ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1731421723.08) > 0.005 ||
       dplyr::n_distinct(rows$state) != 36L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,835 rows / $1,729,244,537.70 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,835 rows / $1,731,421,723.08 ",
          "/ 36 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

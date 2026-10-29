@@ -1,0 +1,22 @@
+# Extracted from test_03ar_rural_cut_report.R:134
+
+# prequel ----------------------------------------------------------------------
+source(here::here("R", "03ar_rural_cut_report.R"))
+rows <- rc_rows()
+
+# test -------------------------------------------------------------------------
+r <- rows[rows$counts_as_rural, ]
+expect_equal(nrow(r), 549L)
+expect_equal(sum(r$state == "CA"), 31L)
+expect_equal(round(sum(r$amount[r$state == "CA"], na.rm = TRUE), 2), 46065499.94)
+expect_equal(sum(r$state == "TX"), 185L)
+expect_equal(sum(r$state == "ID"), 42L)
+expect_equal(round(sum(r$amount[r$state == "TX"], na.rm = TRUE), 2), 129005065.30)
+expect_equal(sum(r$state == "OK"), 8L)
+expect_equal(sum(r$state == "WV"), 6L)
+expect_equal(sum(r$state == "SD"), 9L)
+expect_equal(sum(r$state == "CO"), 26L)
+expect_equal(sum(r$state == "NV"), 2L)
+expect_equal(sum(r$state == "TN"), 1L)
+expect_equal(sum(r$state == "VA"), 1L)
+expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 546723534.18, tolerance = 0)

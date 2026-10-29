@@ -44,11 +44,15 @@ test_that("the hospital figure and its LOW bridges", {
   # Session 104: 208 / $119,558,582.13 on the 10/14 list. Session 108, the
   # 10/23 list: 285 / $189,634,041.13 with the one SOURCE_SUSPECT hospital row
   # (Anson Hospital District, $509,936.50), 284 / $189,124,104.63 without it.
-  expect_equal(nrow(h), 285L)
-  expect_equal(round(sum(h$amount), 2), 189634041.13)
+  # Session 111 (owner ruling e): + St. Joseph Health Burleson, LOW bridge to
+  # CAH 451305, $2,527,185.38: 286 / $192,161,226.51; 285 without Anson.
+  expect_equal(nrow(h), 286L)
+  expect_equal(round(sum(h$amount), 2), 192161226.51)
   low <- h[h$determination_confidence == "LOW", ]
-  expect_equal(nrow(low), 90L)
-  expect_equal(round(sum(low$amount), 2), 58965817.23)
+  expect_equal(nrow(low), 91L)
+  expect_equal(round(sum(low$amount), 2), 61493002.61)
+  b <- h[h$awardee == "St. Joseph Health Burleson", ]
+  expect_equal(b$ccn, "451305")
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
   expect_false(any(tx$determination_confidence == "HIGH"))
 })
@@ -94,7 +98,7 @@ test_that("session 108: the three self-contradicting lines are SOURCE_SUSPECT, c
   expect_equal(sort(s$awardee), sort(TRT_SOURCE_SUSPECT$awardee))
   expect_true(all(s$amount > s$total_award_amount))
   part <- rhtp_hospital_dollar_partition(tx)
-  expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2), 189124104.63)
+  expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2), 191651290.01)   # session 111: + Burleson
   # The re-priced line is recorded, not silently absorbed.
   expect_equal(nrow(TRT_AMENDED), 1L)
 })

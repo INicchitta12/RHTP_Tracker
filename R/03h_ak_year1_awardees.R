@@ -159,6 +159,48 @@ AK_WITHDRAWN <- tibble::tribble(
 )
 AK_MANIFEST_FILE <- "ak_rhtp_year1_awards.manifest.txt"
 
+# SESSION 111: OWNER RULINGS ON ONE ROW EACH, keyed on App ID so a rolling
+# refresh cannot move them onto another project. Applied at the END of
+# rhtp_ak_build(), so every rebuild carries them; `--apply-rulings` patches the
+# committed CSV through the same function (idempotent). A ruled App ID that
+# leaves the notice stops the build: the ruling is then stale and is re-read.
+#
+# BP1-IA-100, City of Ketchikan ($350,000), AK_KETCHIKAN_ALL_TYPES_TICKED:
+# Alaska ticked all fourteen Organization Type tokens, "Hospital (all types)"
+# and "Local government" among them, and the shared table took the first. A
+# form list that ticks every box states no form; the recipient is a city, and
+# PeaceHealth, not the City, operates Ketchikan Medical Center. LOCAL_GOVT,
+# NON_HOSPITAL, No (owner ruling, session 111).
+AK_OWNER_RULINGS <- tibble::tribble(
+  ~app_id, ~awardee, ~recipient_type, ~flow_type, ~distributed_to_hospital, ~hospital_benefiting, ~question_id, ~basis,
+  "BP1-IA-100", "City of Ketchikan", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "NON_HOSPITAL", "No", "Unclear",
+  "AK_KETCHIKAN_ALL_TYPES_TICKED",
+  paste("Alaska's Organization Type field ticks all fourteen of its tokens for this project, 'Hospital (all types)'",
+        "and 'Local government' among them, so it states no form; the recipient is the City of Ketchikan, a",
+        "municipal government, and its Mobile Integrated Healthcare and nurse-practitioner expansion is",
+        "municipal EMS. PeaceHealth, not the City, operates Ketchikan Medical Center. §10.2 NON_HOSPITAL."))
+
+rhtp_ak_apply_rulings <- function(d) {
+  for (i in seq_len(nrow(AK_OWNER_RULINGS))) {
+    r <- AK_OWNER_RULINGS[i, ]
+    k <- which(d$app_id == r$app_id)
+    if (length(k) != 1L || !identical(as.character(d$awardee[k]), r$awardee)) {
+      stop("[AK] owner ruling ", r$question_id, " names ", r$app_id, " (", r$awardee,
+           "), which is not exactly one row of the notice. Re-read the ruling.", call. = FALSE)
+    }
+    d$recipient_type[k] <- r$recipient_type
+    d$flow_type[k] <- r$flow_type
+    d$distributed_to_hospital[k] <- r$distributed_to_hospital
+    d$hospital_benefiting[k] <- r$hospital_benefiting
+    d$classification_rule[k] <- "OWNER_RULING"
+    tag <- paste0("OWNER RULING (session 111, ", r$question_id, "): ")
+    if (!startsWith(as.character(d$determination_basis[k]), tag)) {
+      d$determination_basis[k] <- paste0(tag, r$basis, " PRIOR BASIS: ", d$determination_basis[k])
+    }
+  }
+  d
+}
+
 # THE POSITIVE CONTROL. Alaska publishes its own weekly cumulative counts in a
 # separate document, so the growth below is a STATE-PUBLISHED FACT and not this
 # pipeline's diff of two downloads. Without it, "the file got bigger" is
@@ -751,7 +793,18 @@ rhtp_ak_build <- function() {
       "app_id", "project_type", "initiative_raw", "project_title",
       "project_summary", "service_area", "organization_type_raw",
       "notification_date"
-    )
+    ) %>%
+    rhtp_ak_apply_rulings()
+}
+
+#' Patch the committed CSV with AK_OWNER_RULINGS (session 111), every other
+#' byte as it was.
+rhtp_ak_apply_rulings_committed <- function(path = AK_CSV) {
+  d <- readr::read_csv(here::here(path), col_types = readr::cols(.default = "c"),
+                       na = character(), trim_ws = FALSE, progress = FALSE)
+  readr::write_csv(rhtp_ak_apply_rulings(d), here::here(path), na = "")
+  message("[AK] applied ", nrow(AK_OWNER_RULINGS), " owner ruling(s) to ", path,
+          ". Re-run Rscript R/07_summary_calls.R --apply.")
 }
 
 
@@ -1124,6 +1177,8 @@ if (sys.nframe() == 0L) {
   } else if ("--build" %in% args) {
     rhtp_ak_write()
     print(rhtp_ak_reconcile(rhtp_ak_records()), n = Inf)
+  } else if ("--apply-rulings" %in% args) {
+    rhtp_ak_apply_rulings_committed()
   } else if ("--validate" %in% args) {
     recs <- rhtp_ak_build()
     rhtp_ak_assert(recs)
@@ -1131,6 +1186,6 @@ if (sys.nframe() == 0L) {
     message("[AK] all assertions passed.")
   } else {
     message("Usage: Rscript R/03h_ak_year1_awardees.R ",
-            "[--probe|--fetch|--validate|--build]")
+            "[--probe|--fetch|--validate|--build|--apply-rulings]")
   }
 }

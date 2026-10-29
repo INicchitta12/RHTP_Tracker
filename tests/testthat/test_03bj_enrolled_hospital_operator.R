@@ -303,9 +303,13 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # $82,903,969.14: 1,834 / $1,729,133,683.70 / 36.
   # Session 110: owner rulings (a) and (b): + UC San Diego Health, + UVA Health,
   # - Providence Medical Foundation: 1,835 / $1,729,244,537.70. Subtracted first.
+  # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
+  # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
   expect_equal(n$rows, 1835L)
-  expect_equal(round(n$dollars, 2), 1729244537.70)
+  expect_equal(round(n$dollars, 2), 1731421723.08)
   expect_equal(n$states, 36L)
+  n$dollars <- n$dollars - 2177185.38   # session 111: rows unchanged (+1 TX, -1 AK)
+  expect_equal(round(n$dollars, 2), 1729244537.70)
   n$rows <- n$rows - 1L
   n$dollars <- n$dollars - 110854
   expect_equal(n$rows, 1834L)

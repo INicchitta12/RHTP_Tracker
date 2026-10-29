@@ -57,10 +57,12 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 1,834 / $1,729,133,683.70 / 36. Session 110: + UC San Diego Health,
   # + UVA Health, - Providence Medical Foundation (owner rulings a, b):
   # 1,835 / $1,729,244,537.70 / 36.
+  # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
+  # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
   expect_equal(nrow(rows), 1835L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1729244537.70,
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1731421723.08,
                tolerance = 0)
-  expect_equal(nrow(rows[rows$state != "TX", ]), 1551L)   # session 110: + 1 (CA +1 -1, VA +1); session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
+  expect_equal(nrow(rows[rows$state != "TX", ]), 1550L)   # session 111: - 1 AK (Ketchikan); session 110: + 1 (CA +1 -1, VA +1); session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
@@ -116,12 +118,14 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   # ($10,055,239.34), + MS r2 8 ($2,276,055.92), by CAH/REH CCN: 518 / $500,658,034.24.
   # Session 109: + CA 31 ($46,065,499.94) by CAH/REH CCN; Magnolia (250009) is
   # not a CAH: 549 / $546,723,534.18.
-  expect_equal(nrow(r), 549L)
+  # Session 111: + TX St. Joseph Health Burleson (CAH 451305, $2,527,185.38):
+  # 550 / $549,250,719.56.
+  expect_equal(nrow(r), 550L)
   expect_equal(sum(r$state == "CA"), 31L)
   expect_equal(round(sum(r$amount[r$state == "CA"], na.rm = TRUE), 2), 46065499.94)
-  expect_equal(sum(r$state == "TX"), 185L)
+  expect_equal(sum(r$state == "TX"), 186L)
   expect_equal(sum(r$state == "ID"), 42L)
-  expect_equal(round(sum(r$amount[r$state == "TX"], na.rm = TRUE), 2), 129005065.30)
+  expect_equal(round(sum(r$amount[r$state == "TX"], na.rm = TRUE), 2), 131532250.68)
   expect_equal(sum(r$state == "OK"), 8L)
   expect_equal(sum(r$state == "WV"), 6L)
   expect_equal(sum(r$state == "SD"), 9L)
@@ -129,7 +133,7 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 1L)
   expect_equal(sum(r$state == "VA"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 546723534.18, tolerance = 0)
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 549250719.56, tolerance = 0)
   expect_equal(round(sum(r$amount[r$state != "TX"], na.rm = TRUE), 2), 417718468.88, tolerance = 0)  # OH Pomerene is $0
   expect_equal(round(sum(r$amount[r$state == "MO"], na.rm = TRUE), 2), 12149876.33)
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
@@ -183,7 +187,7 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 549L)   # session 109: + 31 CA; session 108: + 42 ID, + 43 TX, + 14 VT, + 8 MS r2; session 107: + VA Bath County (CAH); session 104: + 3 TX CAH county bridges (Hardeman x2, Stonewall), - TX Memorial Hospital (no CCN), + OH Pomerene ($0); session 103: + 140 TX; session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
+  expect_equal(sum(by$rural_rows), 550L)   # session 111: + TX Burleson (CAH); session 109: + 31 CA; session 108: + 42 ID, + 43 TX, + 14 VT, + 8 MS r2; session 107: + VA Bath County (CAH); session 104: + 3 TX CAH county bridges (Hardeman x2, Stonewall), - TX Memorial Hospital (no CCN), + OH Pomerene ($0); session 103: + 140 TX; session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
