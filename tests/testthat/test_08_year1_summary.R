@@ -99,18 +99,112 @@ test_that("the committed 2026-10-29 build is what the builder produces", {
   expect_true(file.exists(here::here(YS_XLSX("2026-10-29"))))
 })
 
-test_that("the workbook has the four sheets, and every Summary column is defined", {
+test_that("the workbook has the five sheets, and every Detail column is defined", {
   x <- here::here(YS_XLSX("2026-10-29"))
-  expect_equal(openxlsx::getSheetNames(x), c("Summary", "Definitions", "Notes and caveats", "Sources"))
+  expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Definitions", "Notes and caveats", "Sources"))
   expect_setequal(YS_DEFINITIONS$column, names(s))
-  sm <- openxlsx::read.xlsx(x, "Summary")
-  expect_equal(nrow(sm), 51L)
+  dt <- openxlsx::read.xlsx(x, "Detail")
+  expect_equal(nrow(dt), 51L)
+  expect_equal(names(dt), names(s))
   expect_setequal(openxlsx::read.xlsx(x, "Sources")$state, s$state[s$state != "US"])
+  df <- openxlsx::read.xlsx(x, "Definitions")
+  expect_setequal(df$term[df$sheet == "Overview"], YS_OVERVIEW_DEFINITIONS$column)
+  expect_setequal(df$term[df$sheet == "Year 1 status label"], YS_STATUS_LABELS$label)
+  expect_setequal(df$term[df$sheet == "Detail"], names(s))
   # No dangling part references (openxlsx 4.2.9 lists drawings it never writes).
   tmp <- tempfile(); utils::unzip(x, exdir = tmp)
   for (f in list.files(file.path(tmp, "xl/worksheets/_rels"), full.names = TRUE)) {
     expect_false(grepl("drawing", paste(readLines(f, warn = FALSE), collapse = "")), info = f)
   }
+})
+
+# -- session 111b: presentation only. Every cell below is checked against
+# ys_build(), so a figure that moved would fail here, not just look different.
+
+ov_x <- here::here(YS_XLSX("2026-10-29"))
+ov <- openxlsx::read.xlsx(ov_x, "Overview", check.names = FALSE, sep.names = " ")
+so <- s[order(s$state == "US", s$state_name), ]
+meaningful <- so$award_total_usd / so$allotment_usd >= 0.5
+
+test_that("Overview has the ten plainly labelled columns, national row last", {
+  expect_equal(names(ov), c("State", "Year 1 status", "FY2026 allotment", "Awards published",
+                            "% of allotment awarded", "Hospital $ (best estimate)", "Hospital % of awards",
+                            "Hospital % of allotment", "Strict named-hospital $", "Hospitals named, no amount"))
+  expect_equal(nrow(ov), 51L)
+  expect_equal(ov$State, so$state_name)
+  expect_equal(ov$State[51], "National (50 states)")
+})
+
+test_that("Overview figures are the Detail figures, unchanged", {
+  expect_equal(ov[["FY2026 allotment"]], so$allotment_usd)
+  expect_equal(ov[["Awards published"]], so$award_total_usd)
+  expect_equal(ov[["Hospital $ (best estimate)"]], so$hospital_summary_usd)
+  expect_equal(ov[["Strict named-hospital $"]], so$strict_named_hospital_usd)
+  expect_equal(ov[["Hospitals named, no amount"]], so$named_hospital_recipients_no_amount)
+  # fractions round to the CSV's one-decimal percentages
+  expect_equal(round(100 * ov[["% of allotment awarded"]], 1), so$award_share_of_allotment_pct)
+  expect_equal(round(100 * ov[["Hospital % of allotment"]], 1), so$hospital_share_of_allotment_pct)
+  ha <- ov[["Hospital % of awards"]]
+  expect_equal(round(100 * as.numeric(ha[meaningful]), 1), so$hospital_share_of_awards_pct[meaningful])
+})
+
+test_that("Hospital % of awards is n/m below 50% of the allotment, in Overview and Detail", {
+  expect_true(all(ov[["Hospital % of awards"]][!meaningful] == "n/m"))
+  expect_false(any(ov[["Hospital % of awards"]][meaningful] == "n/m"))
+  expect_equal(ov[["Hospital % of awards"]][ov$State == "Illinois"], "n/m")
+  expect_equal(ov[["Hospital % of awards"]][ov$State == "National (50 states)"], "n/m")
+  dt <- openxlsx::read.xlsx(ov_x, "Detail")
+  dm <- s$award_total_usd / s$allotment_usd >= 0.5
+  expect_true(all(dt$hospital_share_of_awards_pct[!dm] == "n/m"))
+  expect_false(any(is.na(ov[["Hospital % of allotment"]])))
+})
+
+test_that("each state carries one defined plain-language status label", {
+  st <- ov[["Year 1 status"]][1:50]
+  expect_true(all(st %in% YS_STATUS_LABELS$label))
+  lab <- stats::setNames(st, so$state[1:50])
+  expect_equal(sort(names(lab)[lab == "Complete"]), c("AL", "AR", "FL", "GA"))
+  expect_equal(unname(lab["RI"]), "CMS obligation report only")
+  expect_equal(sort(names(lab)[lab == "Awards published, not priced"]), c("HI", "IA", "KY", "NC", "TN"))
+  expect_equal(sort(names(lab)[lab == "No awards published yet"]), c("AZ", "MA", "MN", "ND", "NM", "UT", "WI"))
+  expect_equal(ov[["Year 1 status"]][51], "4 Complete of 50")
+})
+
+test_that("currency and percentage formats, frozen panes, widths and the bold national row", {
+  wb <- openxlsx::loadWorkbook(ov_x)
+  fmts <- vapply(wb$styleObjects, function(o) {
+    paste(o$sheet, if (is.null(o$style$numFmt)) "" else o$style$numFmt$formatCode)
+  }, character(1))
+  for (sh in c("Overview", "Detail")) {
+    expect_true(any(fmts == paste(sh, "$#,##0")), info = sh)
+    expect_true(any(fmts == paste(sh, "0.0%")), info = sh)
+  }
+  tmp <- tempfile(); utils::unzip(ov_x, exdir = tmp)
+  for (i in 1:2) {
+    xml <- paste(readLines(file.path(tmp, "xl/worksheets", paste0("sheet", i, ".xml")), warn = FALSE), collapse = "")
+    expect_match(xml, '<pane ySplit="1" xSplit="1" topLeftCell="B2"[^>]*state="frozen"', info = as.character(i))
+    w <- as.numeric(regmatches(xml, gregexpr('(?<=width=")[0-9.]+', xml, perl = TRUE))[[1]])
+    sh <- c("Overview", "Detail")[i]
+    d <- openxlsx::read.xlsx(ov_x, sh, colNames = FALSE)
+    # every header and every formatted cell fits its column (or wraps, at the 60 cap)
+    need <- vapply(seq_along(d), function(j) {
+      v <- d[[j]][-1]; num <- suppressWarnings(as.numeric(v))
+      txt <- ifelse(is.na(num), v, paste0("$", formatC(num, format = "f", digits = 0, big.mark = ",")))
+      max(nchar(d[[j]][1]), nchar(txt[!is.na(txt)]))
+    }, numeric(1))
+    expect_equal(length(w), ncol(d), info = sh)
+    expect_true(all(w >= pmin(need, 60)), info = sh)
+  }
+  bold <- vapply(wb$styleObjects, function(o) o$sheet == "Overview" && identical(o$style$fontDecoration, "BOLD") &&
+                   52 %in% o$rows, logical(1))
+  expect_true(any(bold))
+})
+
+test_that("Notes open with How to read this and carry the n/m and coverage notes", {
+  n <- openxlsx::read.xlsx(ov_x, "Notes and caveats")$note
+  expect_match(n[1], "^HOW TO READ THIS")
+  expect_true(any(grepl(YS_NM_NOTE, n, fixed = TRUE)))
+  expect_true(any(grepl("State shares are not comparable to one another", n, fixed = TRUE)))
 })
 
 test_that("Delaware's confidential source is flagged, and no figure rests on it", {
