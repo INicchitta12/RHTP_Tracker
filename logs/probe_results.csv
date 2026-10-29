@@ -1709,3 +1709,13 @@ NEWSROOM,2026-10-29T16:54:08Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-29T16:54:08Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-29T16:54:09Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
 OK,2026-10-29T18:17:15Z,TRIPWIRE,(probe),"[OK] the Funding Recipients page's awardee anchors are now {}, not {microgrants, roots}. If OSDH has published a THIRD roster, this file is materially incomplete and must be extended, not re-run.",trig_0195epZAcyF5L1WbYJYMQ5Za
+KY,2026-10-29T19:40:24Z,CHANGED,funding,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,programme,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,rch,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,CHANGED,chfs_grants,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,rfa_cmhc,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,rfa_chw,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,rfa_cp,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,rfa_et,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,UNCHANGED,rfa_rda,,trig_01U66KdxFsqDuPjW85D983XU
+KY,2026-10-29T19:40:24Z,TRIPWIRE,funding,"[KY] 'funding' NAMES 4 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Transportation Services | Community Health Worker Specialized Certificate RFA FAQ ADA.pdf | Community Health Worker Specialized Certificates RFA Information Session ADA.pdf | Telebehavioral Health Support. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01U66KdxFsqDuPjW85D983XU
