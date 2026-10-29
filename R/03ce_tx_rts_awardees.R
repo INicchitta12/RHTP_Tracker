@@ -506,7 +506,15 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Stonewall County Hospital District", "STONEWALL MEMORIAL HOSPITAL", NA, paste(TRT_COUNTY_RULE, "The enrolled entity's DBA is STONEWALL MEMORIAL HOSPITAL DISTRICT"),
   "Nolan County Hospital District", "ROLLING PLAINS MEMORIAL HOSPITAL", NA, paste(TRT_COUNTY_RULE, "VULNERABILITY: Rolling Plains Memorial Hospital also carries its own Initiative 1 and Initiative 6 lines, so this bridge gives one hospital a third first-tier name"),
   "Maverick County Hospital District", "FORT DUNCAN MEDICAL CENTER, L.P.", NA, paste(TRT_COUNTY_RULE, "VULNERABILITY: the enrolled entity is an L.P. (DBA FORT DUNCAN REGIONAL MEDICAL CENTER), a different legal body from the district; no document read says the district operates or owns it"),
-  "Lamb County Hospital", "LAMB HEALTHCARE CENTER", NA, paste(TRT_COUNTY_RULE, "The string is not a district's name; it names Lamb County, where the one enrolled hospital is LAMB HEALTHCARE CENTER (Littlefield)")
+  "Lamb County Hospital", "LAMB HEALTHCARE CENTER", NA, paste(TRT_COUNTY_RULE, "The string is not a district's name; it names Lamb County, where the one enrolled hospital is LAMB HEALTHCARE CENTER (Littlefield)"),
+  # SESSION 111, OWNER RULING (e). Every word of the string is in the enrolled
+  # name (BURLESON ST JOSEPH HEALTH CENTER OF CALDWELL TEXAS dba CHI ST JOSEPH
+  # HEALTH BURLESON HOSPITAL, CAH 451305, Caldwell, Burleson County -- the
+  # County HHSC prints on the line). Missed until now because the county test
+  # runs only on lines the NAME classifier calls a hospital, and this string
+  # carries no hospital word; tx_rts_assert_no_contained_miss() now stops on
+  # that shape.
+  "St. Joseph Health Burleson", "BURLESON ST JOSEPH HEALTH CENTER OF CALDWELL TEXAS", NA, "the string drops 'CHI' and 'Hospital' from the enrolled DBA (CHI ST JOSEPH HEALTH BURLESON HOSPITAL); Burleson County, as HHSC prints"
 )
 
 # Districts with no enrolment under their own name: NOT hospital rows (the
@@ -678,6 +686,36 @@ tx_rts_type_one <- function(a, f, cls_type, county = NA_character_, hc = NULL) {
   NULL
 }
 
+#' SESSION 111: the miss that left St. Joseph Health Burleson off the hospital
+#' rows. A line on §8's standing fallback whose every word (generic suffixes,
+#' "CHI", "Hospital" and "Texas" set aside) is in the ORGANIZATION NAME or DBA
+#' of an enrolled hospital in the County HHSC prints beside it is a bridge
+#' nobody has read. It stops the build: a human reads it and adds a
+#' TX_RTS_BRIDGES row or a TX_RTS_OVERRIDES reading (§2: never auto-resolved).
+#' Session 111 re-ran this over every non-hospital line on the 10/23 list:
+#' Burleson was the only hit.
+tx_rts_contained_words <- function(x) {
+  x <- toupper(x)
+  x <- gsub("[^A-Z0-9 ]", " ", x)
+  x <- gsub("\\b(INC|LLC|LP|LTD|THE|CHI|HOSPITAL|HOSP|MEDICAL CENTER|OF|TEXAS|TX)\\b", " ", x)
+  strsplit(stringr::str_squish(x), " ")[[1]]
+}
+tx_rts_assert_no_contained_miss <- function(a, county, f, hc) {
+  if (is.na(county)) return(invisible(TRUE))
+  w <- tx_rts_contained_words(a)
+  if (sum(nchar(w)) < 5) return(invisible(TRUE))
+  h <- f[f$kind == "HOSPITAL" & f$ccn %in% hc$ccn[hc$county %in% toupper(county)], ]
+  for (j in seq_len(nrow(h))) {
+    hw <- tx_rts_contained_words(paste(h$org[j], dplyr::coalesce(h$dba[j], "")))
+    if (all(w %in% hw)) {
+      stop("[TX RTS] '", a, "' (", county, " County) is on the standing fallback, but every word of it is in ",
+           "the enrolled hospital ", h$org[j], " / ", h$dba[j], " (", h$ccn[j], ") in that county. ",
+           "Read it and add a TX_RTS_BRIDGES row or a TX_RTS_OVERRIDES reading (session 111).", call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
 tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
   cls <- rhtp_classify_recipient_type(d$awardee, TRT_STATE)
   hc <- tx_rts_hospital_counties(f)
@@ -696,6 +734,7 @@ tx_rts_awardees <- function(d = tx_rts_read(), f = tx_rts_federal()) {
         ccn = NA_character_, enrolment = NA_character_)
     }
     r$classifier <- paste0(cls$recipient_type[i], "/", rhtp_confidence_ceiling(cls$determination_confidence[i]))
+    if (identical(r$typing, "FALLBACK")) tx_rts_assert_no_contained_miss(d$awardee[i], cty[i], f, hc)
     r
   })
   t <- dplyr::bind_rows(out)

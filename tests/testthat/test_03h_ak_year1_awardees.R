@@ -321,7 +321,7 @@ test_that("only hospital recipients are coded distributed_to_hospital = Yes", {
                                             "HOSPITAL_AFFILIATED_ENTITY")))
 })
 
-test_that("45 hospital rows hold $69,370,639.00 in preliminary amounts", {
+test_that("44 hospital rows hold $69,466,743.96 in preliminary amounts", {
   # SESSION 75 (2026-09-28 snapshot): 44 / $66,955,876.00 -> 45 / $69,370,639.00,
   # +$2,414,763 = Mat-Su Regional Medical Center +$5,000,000 (new), City of
   # Ketchikan +$350,000 (new; queued AK_KETCHIKAN_ALL_TYPES_TICKED), ANTHC
@@ -337,9 +337,15 @@ test_that("45 hospital rows hold $69,370,639.00 in preliminary amounts", {
   # SESSION 99: the 2026-10-12 notice revises three hospital rows, +$446,104.96
   # (PeaceHealth Ketchikan +$449,699.34, YKHC BP1-IA-362 +$14,168.51,
   # Providence -$17,762.89); no hospital row added: 45 / $69,816,743.96.
+  # SESSION 111: owner ruling AK_KETCHIKAN_ALL_TYPES_TICKED -- the City of
+  # Ketchikan (BP1-IA-100, $350,000) is a local government, NON_HOSPITAL
+  # (AK_OWNER_RULINGS): 44 / $69,466,743.96.
   yes <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(yes), 45L)
-  expect_equal(sum(yes$amount), 69816743.96, tolerance = 1e-6)
+  expect_equal(nrow(yes), 44L)
+  expect_equal(sum(yes$amount), 69466743.96, tolerance = 1e-6)
+  k <- records[records$app_id == "BP1-IA-100", ]
+  expect_equal(k$recipient_type, "LOCAL_GOVT_OR_PUBLIC_HEALTH")
+  expect_equal(k$classification_rule, "OWNER_RULING")
 })
 
 test_that("determination_basis is populated on every row (§7)", {

@@ -125,8 +125,28 @@ y1_file_figures <- function(st, f) {
       k <- is.na(amt) & !is.na(r)
       pool_key <- if ("award_pool" %in% names(d)) d$award_pool else
         d$source_document_title
-      pool <- pool + sum(dplyr::distinct(
-        tibble::tibble(p = pool_key[k], r = r[k]))$r)
+      pools <- dplyr::distinct(tibble::tibble(p = pool_key[k], r = r[k]))
+      # SESSION 111 (owner, Task 1i): A ROUND FIGURE WHOSE OWN POOL IS ALREADY
+      # PRICED IS NOT ADDED AGAIN. Once Nevada's BP1 report priced the WRRAP
+      # and Flex lines (session 101), the round figures on the pool's unpriced
+      # rows and the priced lines were the same money, and adding both put
+      # Nevada at $243.5M against a $179.9M allotment. A round figure is now
+      # added only where the pool's priced rows do NOT already reach it.
+      # Louisiana is why the test is "reach", not "any priced row": its round
+      # figure ($10,736,208) is the 48 UNNAMED awards, and its five priced
+      # rows ($1,965,788) are other money. AND THE PRICED ROWS MUST CARRY THE
+      # SAME ROUND FIGURE: Wyoming's two "No bidders" lines carry their own
+      # line values ($164,700 + $102,300) in round_amount, inside a 4.2 pool
+      # whose priced rows carry the pool total ($3,218,160 = $2,951,160 priced
+      # + $267,000); those $267,000 are real pool-level money and stay in.
+      # (R/08 carried a looser form of this as ys_pool_overlap() in session
+      # 110, which dropped Wyoming's $267,000; it lives here now, once.)
+      covered <- vapply(seq_len(nrow(pools)), function(i) {
+        inp <- pool_key %in% pools$p[i] & !is.na(amt)
+        any(!is.na(r[inp]) & abs(r[inp] - pools$r[i]) < 0.005) &&
+          sum(amt[inp]) >= pools$r[i]
+      }, logical(1))
+      pool <- pool + sum(pools$r[!covered])
     }
     if ("pool_amount" %in% names(d)) {
       pa <- suppressWarnings(as.numeric(d$pool_amount))

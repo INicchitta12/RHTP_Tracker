@@ -68,6 +68,7 @@ source(here::here("R", "utils_summary_calls.R"))
 
 SC_REVIEW_CSV <- "data/reference/summary_calls_for_review.csv"
 SC_POOLS_CSV  <- "data/reference/summary_call_pools.csv"
+SC_COMPONENTS_CSV <- "data/reference/summary_call_components.csv"
 SC_QUEUE_CSV  <- "data/reference/classification_review_queue.csv"
 SC_REVIEW_FLOOR <- 1000000
 
@@ -116,7 +117,6 @@ SC_OPEN_QUEUE <- tibble::tribble(
   "AR_R2_QUEUED_FORM", "AR_R2", "CARTI",
   "AR_R2_RECIPIENT_FORM_NOT_STATED", "AR_R2", NA,
   "VT_S74_LOW_HOSPITAL_TYPINGS", "VT", "Southwestern Vermont Health",
-  "AK_KETCHIKAN_ALL_TYPES_TICKED", "AK", "City of Ketchikan",
   "CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT", "CO", "Walsh Hospital District",
   "CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT", "CO", "West Custer County Hospital District",
   "CO_HOSPITAL_DISTRICT_NO_HOSPITAL_ENROLMENT", "CO", "Telluride Regional Medical Center",
@@ -283,12 +283,12 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_j("OR", "School-Based Health Center Planning Grants", "NOT_HOSPITAL",
        "Planning grants for school-based health centres go to sponsors that are mostly FQHCs, schools and health departments; the row carries no dollars.",
        "Some SBHC sponsors are hospitals."),
-  sc_j("MS", "Delta Health Transformation Council, Inc.", "HOSPITAL",
-       "Its $3M funds robotic-assisted surgery in Washington County, which only a hospital can deliver, and its name tracks Delta Health System (DELTA HEALTH-THE MEDICAL CENTER, CCN 250082, Greenville); read as that hospital's affiliated arm.",
-       "No record establishes the affiliation (sessions 50-51 could not determine the form); the council could be a community coalition buying equipment for a hospital, which is in-kind."),
-  sc_j("MS_R2", "Delta Health Transformation Council, Inc.", "HOSPITAL",
-       "The same recipient as round 1's robotic-surgery award, read as Delta Health System's affiliated arm; this award funds a Delta Earn While You Learn workforce initiative.",
-       "No record establishes the affiliation; a regional workforce council is more often a coalition than a hospital arm."),
+  sc_j("MS", "Delta Health Transformation Council, Inc.", "NOT_HOSPITAL",
+       "Owner ruling (session 111, c): no record establishes that the council is Delta Health System's arm, so it is called a community council buying for its region, not a hospital.",
+       "Its $3M funds robotic-assisted surgery in Washington County, which only a hospital delivers, and its name tracks Delta Health System (CCN 250082)."),
+  sc_j("MS_R2", "Delta Health Transformation Council, Inc.", "NOT_HOSPITAL",
+       "Owner ruling (session 111, c): the same council as round 1, called a non-hospital; this award funds a Delta Earn While You Learn workforce initiative.",
+       "If the council is Delta Health System's affiliated arm, both rows reverse (+$3,291,000 with round 1)."),
   sc_j("MS", "CAMHP Foundation", "NOT_HOSPITAL",
        "A behavioral-health hub in Franklin County with no hospital enrolment and nothing tying it to a hospital; called a non-hospital.",
        "'Foundation' could be a hospital's, e.g. Franklin County Memorial Hospital's."),
@@ -334,9 +334,9 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_j("NE", "Winnebago Tribe of Nebraska DBA Winnebago Comprehensive Healthcare System", "HOSPITAL",
        "CMS enrols the Tribe's own name as the provider of Twelve Clans Unity Hospital (CCN 280059), and the award is to the health system that runs it.",
        "The awardee is a tribal government, and the 5.3 award modifies facilities for mental-health crisis care that may be outpatient."),
-  sc_j("NH", "Foundation for Healthy Communities (FHC)", "HOSPITAL",
-       "FHC is the New Hampshire Hospital Association's foundation and the designated GO-NORTH administrator, and the owner's standing ruling counts hospital associations and their foundations as hospitals.",
-       "FHC's eligible class is primary care, CAHs, EMS, behavioral health, oral health and CBOs (§0.3), its CAH RFA is about $17.5M of the $66.5M, and it has named no subrecipient."),
+  sc_j("NH", "Foundation for Healthy Communities (FHC)", "NOT_HOSPITAL",
+       "Owner ruling (session 111, a): only the separately priced Critical Access and Acute Care Hospital RFA is called HOSPITAL (SC_COMPONENTS, about $17.5M); the rest of FHC's award funds primary care, EMS, behavioral and oral health and CBOs and is called NOT_HOSPITAL.",
+       "FHC is the hospital association's foundation, and the owner's standing association ruling would call the whole $66.5M HOSPITAL."),
   sc_j("ME", "University of New England (Shaw Institute for Public and Planetary Health)", "NOT_HOSPITAL",
        "A university, subawarding to public health districts and tribal health centres.",
        "Hospitals may benefit from the CHW expansion (in-kind)."),
@@ -419,9 +419,6 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_j("MT", "75 EMS agencies (equipment awards) - recipient names not published", "NOT_HOSPITAL",
        "EMS agencies, called on the class Montana states; the row carries no dollars.",
        "Some rural Montana ambulance services are run by hospitals."),
-  sc_j("AK", "City of Ketchikan", "NOT_HOSPITAL",
-       "The City's Mobile Integrated Healthcare and nurse-practitioner expansion is municipal EMS; PeaceHealth, not the City, operates Ketchikan Medical Center.",
-       "Alaska's own notice ticked 'Hospital (all types)' (with every other type), and the City owns the hospital facility."),
   sc_j("IN_GROW", "Goshen Health System", "HOSPITAL",
        "The operator of Goshen Hospital, typed on a hand-read bridge; system parents count.", "No exact CMS IN enrolment carries the string."),
   sc_j("IN_GROW", "Northwest Health Starke Hospital", "HOSPITAL",
@@ -489,9 +486,6 @@ SC_JUDGMENTS <- dplyr::bind_rows(
        "A community mental health centre, not a hospital.", "None."),
   sc_j("OK", "60 grants (OSDE's ROOTS Competitive Grant) to PK-12 rural school sites at $10,000 each - recipient names not published", "NOT_HOSPITAL",
        "School sites, a class OSDE states. No dollars on the row.", "None."),
-  sc_j("TX", "St. Joseph Health Burleson", "HOSPITAL",
-       "CMS TX enrols BURLESON ST JOSEPH HEALTH CENTER OF CALDWELL TEXAS dba CHI ST JOSEPH HEALTH BURLESON HOSPITAL (CAH 451305), and the line sits in Initiative 1, the rural-hospital initiative.",
-       "The string matches no enrolment exactly; R/03ce did not bridge it (a candidate for the strict file)."),
   sc_j("TX", "Coastal Gateway Health Center", "NOT_HOSPITAL",
        "A community health centre, not a hospital.", "None."),
   sc_j("CT", "Hartford HealthCare -- Windham Hospital (Willimantic) and Charlotte Hungerford Hospital (Torrington)", "HOSPITAL",
@@ -536,28 +530,65 @@ SC_JUDGMENTS <- dplyr::bind_rows(
 
 #' One row per pool. `member_col`/`member_value` select its member rows in the
 #' file; every member must carry no amount (the pool is on no row).
+#'
+#' SESSION 111, OWNER RULING (b): A POOL IS CALLED ON ITS NAMED MEMBERS, USING
+#' THE TYPED ROWS. sc_pools() counts the member rows whose strict determination
+#' is Yes, and the pool is HOSPITAL only where they are a STRICT majority of the
+#' named members (sc_pool_call()). The call is computed, never typed, so the
+#' tribble carries no `call` column. A member called HOSPITAL on a written
+#' judgment but typed Unclear (Ohio's two hospital networks) is NOT a typed
+#' hospital and does not count. A tie goes to SC_POOL_TIEBREAKS, or fails.
 SC_POOLS <- tibble::tribble(
-  ~pool_id, ~file_key, ~state, ~pool_name, ~pool_usd, ~member_col, ~member_value, ~call, ~rationale, ~counter,
+  ~pool_id, ~file_key, ~state, ~pool_name, ~pool_usd, ~member_col, ~member_value, ~counter,
   "GA_P2_CONNECTING_TO_CARE", "GA", "GA", "Connecting to Care to Improve Healthcare Access in Rural Georgia (Phase 2)", 6500000,
-  "initiative", "Connecting to Care to Improve Healthcare Access in Rural Georgia", "HOSPITAL",
-  "Shared pool called on its majority: 17 of its 18 named recipients are hospitals (the other is DBHDD's mobile dental clinic); not split.",
-  "DBHDD's award is inside the $6.5M and no split is published, so part of it is not hospital money.",
+  "initiative", "Connecting to Care to Improve Healthcare Access in Rural Georgia",
+  "DBHDD's mobile dental award is inside the $6.5M and no split is published, so part of it is not hospital money.",
   "GA_P4_STRENGTHENING_CONTINUUM", "GA", "GA", "Strengthening the Continuum of Care in Rural Georgia (Phase 4)", 6209688,
-  "initiative", "Strengthening the Continuum of Care in Rural Georgia", "NOT_HOSPITAL",
-  "Shared pool called on its majority: one named hospital (Emory University) against five non-hospital members (GHCA, DPH, BPRC, actuarial work, the unawarded ambulances).",
+  "initiative", "Strengthening the Continuum of Care in Rural Georgia",
   "The ambulance procurement's eligible class is rural hospitals.",
   "GA_P4_TRANSFORMING", "GA", "GA", "Transforming for a Sustainable Health System in Rural Georgia (Phase 4)", 15635000,
-  "initiative", "Transforming for a Sustainable Health System in Rural Georgia", "HOSPITAL",
-  "Shared pool called on its majority: its seven named recipients are hospitals, and the only other line (AHEAD assessments) is a service delivered to hospitals; not split.",
+  "initiative", "Transforming for a Sustainable Health System in Rural Georgia",
   "The AHEAD assessments of all 87 hospitals are inside the $15.6M and pay an assessor, not a hospital.",
   "OH_CIN_HUBS", "OH", "OH", "Clinically Integrated Networks and Rural Health Innovation Hubs ($31.4M)", 31400000,
-  "award_pool", NA, "HOSPITAL",
-  "Shared pool called on its majority: five of seven named members are hospitals or hospital networks (UH, Kettering's Beavercreek, Mercy St. Rita's, Ohio High Value Network, Ohio State Health Network); not split.",
-  "Two members are not hospitals (the Ohio Association of Community Health Centers and the Child & Family Health Collaborative), and ODH publishes no split.",
+  "award_pool", NA,
+  "Ohio High Value Network and Ohio State Health Network are hospital networks, typed Unclear: under the owner's standing network ruling they would make five of seven members hospitals.",
   "OH_MATERNAL", "OH", "OH", "Maternal Care ($30.3M)", 30300000,
-  "award_pool", NA, "HOSPITAL",
-  "Shared pool called on its majority: four of six named members are hospitals or hospital networks (Beavercreek, Mercy St. Rita's, Ohio High Value Network, Ohio State Health Network); not split.",
-  "CMS says the money 'will go to hospital networks and health centers', and OACHC and the Ohio Health Institute are members.")
+  "award_pool", NA,
+  "Ohio High Value Network and Ohio State Health Network are hospital networks, typed Unclear: counted as hospitals they would make four of six members hospitals.")
+
+#' A tie between typed-hospital and other members is broken on the LEAD
+#' applicant's type (owner ruling d). Where the source names no lead, the proxy
+#' used is stated here with its document, and the call says it is a proxy.
+SC_POOL_TIEBREAKS <- tibble::tribble(
+  ~pool_id, ~lead, ~lead_is_hospital, ~basis,
+  "IN_GROW_REGION_5", "Sullivan County Community Hospital", TRUE,
+  paste("Indiana names no lead applicant for a GROW region: each Regional Coalition files one application.",
+        "PROXY: the first Primary Subrecipient signing Region 5's Letter of Intent is Sullivan County Community",
+        "Hospital (CEO Michelle Franklin, 'Email Confirmation Received 5/12/26'), and its CEO is also Region 5's",
+        "Rural Hospital Staff committee member (data/evidence/recheck/2026-10-29/IN/grow_region_5_letter_of_intent.pdf)."))
+
+sc_pool_call <- function(pool_id, members, hospital_members) {
+  tie <- hospital_members * 2 == members
+  call <- ifelse(hospital_members * 2 > members, "HOSPITAL", "NOT_HOSPITAL")
+  why <- paste0("Shared pool called on its named members, using the typed rows (owner ruling, session 111): ",
+                hospital_members, " of ", members, " named members are typed hospitals, ",
+                ifelse(hospital_members * 2 > members, "a strict majority", ifelse(tie, "a tie", "not a majority")),
+                "; not split.")
+  for (i in which(tie)) {
+    tb <- SC_POOL_TIEBREAKS[SC_POOL_TIEBREAKS$pool_id == pool_id[i], ]
+    if (nrow(tb) != 1L) {
+      stop("[summary calls] pool ", pool_id[i], " is a tie (", hospital_members[i], " of ", members[i],
+           ") and SC_POOL_TIEBREAKS has no lead applicant for it.", call. = FALSE)
+    }
+    call[i] <- if (tb$lead_is_hospital) "HOSPITAL" else "NOT_HOSPITAL"
+    why[i] <- paste0(why[i], " Tie broken on the lead applicant (owner ruling d): ", tb$lead, ", ",
+                     if (tb$lead_is_hospital) "a hospital" else "not a hospital", ". ", tb$basis)
+  }
+  stale <- setdiff(SC_POOL_TIEBREAKS$pool_id, pool_id[tie])
+  if (length(stale)) stop("[summary calls] SC_POOL_TIEBREAKS names a pool that is not a tie: ",
+                          paste(stale, collapse = ", "), call. = FALSE)
+  list(call = call, rationale = why)
+}
 
 sc_pool_members <- function(p, d) {
   if (p$file_key == "OH") {
@@ -579,29 +610,21 @@ sc_pool_members <- function(p, d) {
 }
 
 # Indiana GROW's eight regions and NC's SBHC pool: one figure per pool, every
-# member named, none priced. Built from the files so the counts are read, not
+# member named, none priced. Built from the files so the figures are read, not
 # typed.
 sc_pools_from_files <- function(files = sc_state_files()) {
   g <- rhtp_summary_read(here::here(files[["IN_GROW"]]))
-  reg <- g %>% dplyr::group_by(region, round_amount) %>%
-    dplyr::summarise(n = dplyr::n(), hosp = sum(distributed_to_hospital == "Yes"), .groups = "drop")
+  reg <- g %>% dplyr::distinct(region, round_amount)
   in_pools <- tibble::tibble(
     pool_id = paste0("IN_GROW_REGION_", reg$region), file_key = "IN_GROW", state = "IN",
     pool_name = paste0("GROW Regional Grants, Region ", reg$region),
     pool_usd = as.numeric(reg$round_amount), member_col = "region", member_value = reg$region,
-    call = ifelse(reg$hosp > reg$n / 2, "HOSPITAL", "NOT_HOSPITAL"),
-    rationale = paste0("Shared regional pool called on its majority: ", reg$hosp, " of ", reg$n,
-                       " named recipients are hospitals", ifelse(reg$hosp * 2 == reg$n, " (a tie is not a majority)", ""),
-                       "; not split."),
-    counter = paste0(reg$hosp, " named hospitals share the region's figure, and Indiana publishes no split."))
+    counter = "The region's named hospitals share its figure with non-hospital members, and Indiana publishes no split.")
   s <- rhtp_summary_read(here::here(files[["NC_SBHC"]]))
   nc <- tibble::tibble(
     pool_id = "NC_SBHC", file_key = "NC_SBHC", state = "NC",
     pool_name = "NC School-Based Health Center grants", pool_usd = as.numeric(unique(s$round_amount)),
     member_col = NA_character_, member_value = NA_character_,
-    call = if (sum(s$distributed_to_hospital == "Yes") > nrow(s) / 2) "HOSPITAL" else "NOT_HOSPITAL",
-    rationale = paste0("Shared pool called on its majority: ", sum(s$distributed_to_hospital == "Yes"), " of ",
-                       nrow(s), " named recipients is a hospital (FirstHealth); not split."),
     counter = "FirstHealth of the Carolinas is a named recipient, and its share is unknown.")
   dplyr::bind_rows(SC_POOLS, in_pools, nc)
 }
@@ -631,8 +654,52 @@ sc_pools <- function(files = sc_state_files()) {
     pools$in_file_round_figures[i] <- p$file_key == "GA" ||
       (all(!is.na(ra)) && all(abs(ra - p$pool_usd) < 0.01))
   }
+  cl <- sc_pool_call(pools$pool_id, pools$members, pools$hospital_members)
+  pools$call <- cl$call
+  pools$rationale <- cl$rationale
   if (any(!pools$call %in% RHTP_SUMMARY_CALL_VALUES)) stop("[summary calls] a pool call is not two-valued.", call. = FALSE)
-  pools
+  pools %>% dplyr::select(pool_id, file_key, state, pool_name, pool_usd, member_col, member_value,
+                          call, rationale, counter, members, hospital_members, in_file_round_figures)
+}
+
+# -- a separately priced component of one award row --------------------------------
+
+#' SESSION 111, OWNER RULING (a). One award row whose source prices a part of
+#' it separately: the ROW carries the call for the remainder (in SC_JUDGMENTS),
+#' and the component carries the opposite call here. R/08 counts the component
+#' on its own call and never adds it to the row's amount, so the award total
+#' is unchanged and no dollar is counted twice. The component's figure is the
+#' source's own, quoted with its archive path; it is never derived by
+#' subtraction or division (§6.2).
+SC_COMPONENTS <- tibble::tribble(
+  ~component_id, ~file_key, ~state, ~awardee, ~component_name, ~component_usd, ~call, ~rationale, ~counter, ~source_quote, ~source_path,
+  "NH_FHC_CAH_ACUTE_CARE_RFA", "NH", "NH", "Foundation for Healthy Communities (FHC)",
+  "FHC Critical Access Hospital and Acute Care Hospital RFA (2026-OCT-1)", 17500000, "HOSPITAL",
+  paste("Owner ruling (session 111, a): the RFA's lead applicants are New Hampshire CAHs and licensed hospitals,",
+        "so the component FHC prices separately is called HOSPITAL; the rest of the $66,547,394 is NOT_HOSPITAL on the row."),
+  paste("The figure is an RFA's anticipated awarding ('approximately'), not an executed award: awards are due mid-December 2026,",
+        "and 'organizations partnering with an eligible applicant' may also lead (Tier 2 inside a Tier 3 award)."),
+  "FHC anticipates awarding approximately $17.5 million through this RFA.",
+  "data/evidence/NH/rfa/2026-10-12_fhc_cah_acute_care_hospital_rfa_2026-10-01.pdf")
+
+sc_components <- function(calls) {
+  u <- dplyr::bind_rows(calls)
+  for (i in seq_len(nrow(SC_COMPONENTS))) {
+    cp <- SC_COMPONENTS[i, ]
+    r <- u[u$file_key == cp$file_key & u$awardee == cp$awardee, ]
+    if (nrow(r) != 1L) stop("[summary calls] component ", cp$component_id, " names no single row.", call. = FALSE)
+    if (is.na(r$amount) || cp$component_usd > r$amount) {
+      stop("[summary calls] component ", cp$component_id, " exceeds its row's amount.", call. = FALSE)
+    }
+    if (identical(r$summary_hospital_call, cp$call)) {
+      stop("[summary calls] component ", cp$component_id, " carries its row's own call; a component ",
+           "exists only to call part of a row the other way.", call. = FALSE)
+    }
+    if (!file.exists(here::here(cp$source_path))) {
+      stop("[summary calls] component ", cp$component_id, ": source not archived.", call. = FALSE)
+    }
+  }
+  SC_COMPONENTS
 }
 
 # -- compute, apply, validate ------------------------------------------------------
@@ -681,12 +748,14 @@ sc_apply <- function(files = sc_state_files()) {
   for (k in names(files)) rhtp_summary_write(here::here(files[[k]]), calls[[k]])
   p <- sc_pools(files)
   readr::write_csv(p, here::here(SC_POOLS_CSV), na = "")
+  readr::write_csv(sc_components(calls), here::here(SC_COMPONENTS_CSV), na = "")
   sc_write_review(calls, p)
   u <- dplyr::bind_rows(calls)
   message("[summary calls] wrote the three columns to ", length(files), " files: ",
           sum(u$summary_call_basis == "CODED"), " CODED, ",
           sum(u$summary_call_basis == "BEST_JUDGMENT"), " BEST_JUDGMENT rows; ",
-          nrow(p), " pool-level calls in ", SC_POOLS_CSV, ".")
+          nrow(p), " pool-level calls in ", SC_POOLS_CSV, "; ", nrow(SC_COMPONENTS),
+          " component call(s) in ", SC_COMPONENTS_CSV, ".")
   invisible(calls)
 }
 
@@ -709,6 +778,12 @@ sc_validate <- function(files = sc_state_files()) {
       !isTRUE(all.equal(as.numeric(committed$pool_usd), p$pool_usd))) {
     stop("[summary calls] ", SC_POOLS_CSV, " is stale. Re-run --apply.", call. = FALSE)
   }
+  cp <- sc_components(calls)
+  cc <- readr::read_csv(here::here(SC_COMPONENTS_CSV), col_types = readr::cols(.default = "c"), progress = FALSE)
+  if (!identical(cc$component_id, cp$component_id) || !identical(cc$call, cp$call) ||
+      !isTRUE(all.equal(as.numeric(cc$component_usd), cp$component_usd))) {
+    stop("[summary calls] ", SC_COMPONENTS_CSV, " is stale. Re-run --apply.", call. = FALSE)
+  }
   invisible(calls)
 }
 
@@ -717,7 +792,6 @@ sc_validate <- function(files = sc_state_files()) {
 # Rows the owner named for the list whatever their amount (session 110).
 SC_REVIEW_ALWAYS <- tibble::tribble(
   ~file_key, ~awardee,
-  "AK", "City of Ketchikan",
   "CA", "Maternal Child Health Fellowship: Fresno Family Medicine Obstetrics",
   "LA", "48 Rural Clinician Credit Bank awards (single home parish) - recipient names not published")
 
@@ -743,7 +817,13 @@ sc_review <- function(calls, pools) {
                      amount = pool_usd, strict_status = "NO_BUCKET (pool priced only at pool level)",
                      call, rationale, counter_argument = counter, reasons = "SHARED_AWARD",
                      judgment_source = "WRITTEN_POOL", listed_because = "OVER_1M")
-  dplyr::bind_rows(rows, pl) %>%
+  cp <- SC_COMPONENTS %>%
+    dplyr::transmute(state, file_key, record_kind = "ROW_COMPONENT", row_no = component_id,
+                     recipient = paste0(component_name, " [inside ", awardee, "]"),
+                     amount = component_usd, strict_status = "a separately priced part of one award row",
+                     call, rationale, counter_argument = counter, reasons = "COMPONENT",
+                     judgment_source = "WRITTEN_COMPONENT", listed_because = "OVER_1M")
+  dplyr::bind_rows(rows, pl, cp) %>%
     dplyr::arrange(dplyr::desc(dplyr::coalesce(amount, 0)), state, recipient)
 }
 

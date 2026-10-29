@@ -72,8 +72,10 @@ test_that("the summary layer does not move the strict partition", {
   # Session 110: 1,834 / $1,729,133,683.70 before; Task 1's three rulings move
   # it to 1,835 / $1,729,244,537.70 (+$498,854 UC San Diego Health, -$450,000
   # Providence Medical Foundation, +$62,000 UVA Health). Nothing else moved.
+  # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
+  # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
   expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1835L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1729244537.70)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1731421723.08)
   expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86555171.43)
   expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 69323109.17)
   # With the summary columns stripped, the partition is identical.
@@ -101,10 +103,14 @@ test_that("the named cases the owner listed are called, with counter-arguments",
   # Below the $1M floor, so in the files rather than the list:
   calls <- dplyr::bind_rows(lapply(names(tabs), function(k) dplyr::mutate(tabs[[k]], file_key = k)))
   call_of <- function(k, a) unique(calls$summary_hospital_call[calls$file_key == k & calls$awardee == a])
+  # Session 111 (ruling f): Ketchikan is strict No now, so its call is CODED and
+  # it leaves the review list.
   expect_equal(call_of("AK", "City of Ketchikan"), "NOT_HOSPITAL")
+  expect_equal(unique(calls$summary_call_basis[calls$file_key == "AK" & calls$awardee == "City of Ketchikan"]), "CODED")
   expect_equal(call_of("CA", "Maternal Child Health Fellowship: Fresno Family Medicine Obstetrics"), "NOT_HOSPITAL")
   expect_equal(call_of("LA", "48 Rural Clinician Credit Bank awards (single home parish) - recipient names not published"), "NOT_HOSPITAL")
-  expect_true(hit("AK", "City of Ketchikan") && hit("CA", "Fresno Family Medicine") &&
+  expect_false(hit("AK", "City of Ketchikan"))
+  expect_true(hit("CA", "Fresno Family Medicine") &&
                 hit("LA", "Rural Clinician Credit Bank"))
 })
 
@@ -112,9 +118,30 @@ test_that("every OPEN queue question is placed, and the pools are counted once",
   expect_silent(sc_assert_queue_covered())
   p <- readr::read_csv(here::here(SC_POOLS_CSV), show_col_types = FALSE)
   expect_true(all(p$call %in% RHTP_SUMMARY_CALL_VALUES))
-  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 83835000)
+  # Session 111 (rulings b, d): pools are called on typed members; OH's two
+  # are NOT, Indiana Region 5's tie goes to its lead (a hospital).
+  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 38835000)
   expect_setequal(p$pool_id[p$call == "HOSPITAL"],
-                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "OH_CIN_HUBS", "OH_MATERNAL"))
+                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "IN_GROW_REGION_5"))
+})
+
+test_that("the session 111 summary rulings hold", {
+  calls <- dplyr::bind_rows(lapply(names(tabs), function(k) dplyr::mutate(tabs[[k]], file_key = k)))
+  call_of <- function(k, a) unique(calls$summary_hospital_call[calls$file_key == k & calls$awardee == a])
+  expect_equal(call_of("NH", "Foundation for Healthy Communities (FHC)"), "NOT_HOSPITAL")
+  cp <- readr::read_csv(here::here(SC_COMPONENTS_CSV), show_col_types = FALSE)
+  expect_equal(cp$component_id, "NH_FHC_CAH_ACUTE_CARE_RFA")
+  expect_equal(cp$component_usd, 17500000)
+  expect_equal(cp$call, "HOSPITAL")
+  expect_match(cp$source_quote, "approximately \\$17.5 million", fixed = FALSE)
+  expect_equal(call_of("MS", "Delta Health Transformation Council, Inc."), "NOT_HOSPITAL")
+  expect_equal(call_of("MS_R2", "Delta Health Transformation Council, Inc."), "NOT_HOSPITAL")
+  tx <- tabs[["TX"]]
+  b <- tx[tx$awardee == "St. Joseph Health Burleson", ]
+  expect_equal(b$ccn, "451305"); expect_equal(b$distributed_to_hospital, "Yes")
+  expect_equal(b$summary_call_basis, "CODED")
+  ak <- tabs[["AK"]]
+  expect_equal(ak$recipient_type[ak$awardee == "City of Ketchikan"], "LOCAL_GOVT_OR_PUBLIC_HEALTH")
 })
 
 test_that("the Task 1 rulings are in the strict files", {

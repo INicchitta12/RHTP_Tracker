@@ -57,8 +57,10 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # 1,834 / $1,729,133,683.70 / 36. Session 110: + UC San Diego Health,
   # + UVA Health, - Providence Medical Foundation (owner rulings a, b):
   # 1,835 / $1,729,244,537.70 / 36.
+  # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
+  # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
   expect_equal(nrow(rows), 1835L)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1729244537.70,
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 1731421723.08,
                tolerance = 0)
   expect_equal(nrow(rows[rows$state != "TX", ]), 1551L)   # session 110: + 1 (CA +1 -1, VA +1); session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
   expect_true(all(rows$rural_class %in% RC_CLASSES))

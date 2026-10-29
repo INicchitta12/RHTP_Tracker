@@ -573,8 +573,10 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # + UVA Health ($62,000) as ACADEMIC_HEALTH_CENTER rows, - Providence Medical
   # Foundation ($450,000): + 1 / + $110,854: 1,835 / $1,729,244,537.70 / 36.
   # Subtracted first.
+  # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
+  # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
   expect_equal(named$rows, 1835L)
-  expect_equal(round(named$dollars, 2), 1729244537.70, tolerance = 0)
+  expect_equal(round(named$dollars, 2), 1731421723.08, tolerance = 0)
   expect_equal(named$states, 36L)
   named$rows <- named$rows - 1L
   named$dollars <- named$dollars - 110854
