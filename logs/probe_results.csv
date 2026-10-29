@@ -1708,3 +1708,4 @@ NEWSROOM,2026-10-29T16:54:04Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON 
 NEWSROOM,2026-10-29T16:54:08Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-29T16:54:08Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
 NEWSROOM,2026-10-29T16:54:09Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+OK,2026-10-29T18:17:15Z,TRIPWIRE,(probe),"[OK] the Funding Recipients page's awardee anchors are now {}, not {microgrants, roots}. If OSDH has published a THIRD roster, this file is materially incomplete and must be extended, not re-run.",trig_0195epZAcyF5L1WbYJYMQ5Za
