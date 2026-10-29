@@ -308,6 +308,8 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   expect_equal(n$rows, 1835L)
   expect_equal(round(n$dollars, 2), 1731421723.08)
   expect_equal(n$states, 36L)
+  n$dollars <- n$dollars - 2177185.38   # session 111: rows unchanged (+1 TX, -1 AK)
+  expect_equal(round(n$dollars, 2), 1729244537.70)
   n$rows <- n$rows - 1L
   n$dollars <- n$dollars - 110854
   expect_equal(n$rows, 1834L)

@@ -578,6 +578,8 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   expect_equal(named$rows, 1835L)
   expect_equal(round(named$dollars, 2), 1731421723.08, tolerance = 0)
   expect_equal(named$states, 36L)
+  named$dollars <- named$dollars - 2177185.38   # session 111: rows unchanged (+1 TX, -1 AK)
+  expect_equal(round(named$dollars, 2), 1729244537.70, tolerance = 0)
   named$rows <- named$rows - 1L
   named$dollars <- named$dollars - 110854
   expect_equal(named$rows, 1834L)
@@ -771,7 +773,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Session 103 put Texas second ($117,571,194.73); session 104 added its
   # seven county-test bridges ($119,558,582.13).
   expect_equal(p$state[[1]], "TX")
-  expect_equal(round(p$dollars[[1]], 2), 189124104.63)
+  expect_equal(round(p$dollars[[1]], 2), 191651290.01)   # session 111: + Burleson
   expect_equal(p$state[[2]], "AR")
   expect_equal(round(p$dollars[[2]], 2), 128336961.52)
   p <- p[p$state != "TX", ]
