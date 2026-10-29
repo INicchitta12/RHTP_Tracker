@@ -20,28 +20,36 @@ Detail. On the 10-29 data that is 28 states **and the national row**, because na
 are 41.7% of the allotment. The national 48.1% stays in the CSV. Owner call: exempt the
 national row if the national share should print. `Hospital % of allotment` prints for every state.
 
-**Second national row (owner decision, same session).** The national row keeps n/m. Below it,
-`US_GE50` ("States with ≥50% published (n = 22)") is added to the CSV, Detail and Overview. It
-sums every column over the 22 states whose awards published are at least 50% of their allotment,
-and recomputes the three shares from those sums (`ys_subset_row()`). On Overview it shows only the
-six figures the owner named. % of allotment awarded and Hospitals named, no amount are blank.
+**Second national row (owner decisions, same session).** The national row keeps n/m. Below it,
+`US_GE50` ("States with ≥50% published, state award sources (n = 21)") is added to the CSV, Detail
+and Overview. A state is a member when its awards published are at least 50% of its allotment
+**and** none of its award rows comes from CMS's Obligated Funds Report. The owner ruled that the
+subset rests on state award sources only. The row sums every column over the members and
+recomputes the three shares from those sums (`ys_subset_row()`). On Overview it shows only the
+six figures the owner named; % of allotment awarded and Hospitals named, no amount are blank.
 
-| | 22 states |
+| | 21 states |
 |---|---:|
-| FY2026 allotment | $4,440,562,268 |
-| Awards published | $3,441,569,061.22 |
-| Hospital $ (best estimate) | $1,572,986,177.36 |
-| Hospital % of awards | 45.7% |
-| Hospital % of allotment | 35.4% |
+| FY2026 allotment | $4,284,392,337 |
+| Awards published | $3,362,841,950.78 |
+| Hospital $ (best estimate) | $1,557,146,269.69 |
+| Hospital % of awards | 46.3% |
+| Hospital % of allotment | 36.3% |
 | Strict named-hospital $ | $1,451,104,633.38 |
 
-The 22 states: AK AL AR CA CO FL GA ID IN MD MI MS NJ NV OH OR RI SC SD TX VT WY.
+Members: AK AL AR CA CO FL GA ID IN MD MI MS NJ NV OH OR SC SD TX VT WY.
 
+- **Rhode Island is excluded.** It is at 50.4%, and every one of its award rows is a CMS
+  obligation line. Taking it out moves the row by −$156,169,931 allotment, −$78,727,110.44 awards
+  and −$15,839,907.67 hospital (HARI, an unnamed pool). The strict named-hospital figure does not
+  move, because RI has no named-hospital dollars.
+- **Nebraska and Pennsylvania also carry CMS obligation lines.** Both are below the line today. If
+  either crosses it, the whole state is left out, so no CMS-obligation dollar can enter the row. The
+  builder also refuses outright if one does.
 - **The row is a subset of the national row and is never added to it.** The first 51 CSV rows are
   identical to the build before it.
-- **Membership is near the line for three states:** Indiana (54.7%), Ohio (51.5%) and Rhode Island
-  (50.4%). Rhode Island qualifies on CMS obligation-report lines alone.
-- **The set will move as states publish**, so the n changes with it. Monday's re-run re-pins it.
+- **Two members sit close to the line:** Indiana (54.7%) and Ohio (51.5%). The set will move as
+  states publish, and Monday's re-run re-pins it.
 
 **Status labels** (`YS_STATUS_LABELS`, assigned in this order by `ys_status_label()`):
 

@@ -136,7 +136,7 @@ test_that("Overview has the ten plainly labelled columns, national row last", {
   expect_equal(nrow(ov), 52L)
   expect_equal(ov$State, so$state_name)
   expect_equal(ov$State[51], "National (50 states)")
-  expect_equal(ov$State[52], "States with \u226550% published (n = 22)")
+  expect_equal(ov$State[52], "States with \u226550% published, state award sources (n = 21)")
 })
 
 test_that("Overview figures are the Detail figures, unchanged", {
@@ -205,21 +205,29 @@ test_that("currency and percentage formats, frozen panes, widths and the bold na
   expect_true(any(bold))
 })
 
-test_that("the second national row: the states with >=50% published, pinned (owner decision, session 111b)", {
-  m <- st_only[st_only$award_total_usd / st_only$allotment_usd >= 0.5, ]
-  expect_equal(nrow(m), 22L)
+test_that("the second national row: states with >=50% published on state award sources, pinned (owner decisions, session 111b)", {
+  cms_states <- sort(unique(rows$state[rows$validation_source_type %in% "CMS_OBLIGATION_REPORT"]))
+  expect_equal(cms_states, c("NE", "PA", "RI"))
+  over <- st_only[st_only$award_total_usd / st_only$allotment_usd >= 0.5, ]
+  # Rhode Island is over the line on CMS obligation lines alone and is left out
+  expect_true("RI" %in% over$state)
+  m <- over[!over$state %in% cms_states, ]
+  expect_false("RI" %in% m$state)
+  expect_equal(nrow(m), 21L)
   expect_equal(sort(m$state), c("AK", "AL", "AR", "CA", "CO", "FL", "GA", "ID", "IN", "MD", "MI", "MS",
-                                "NJ", "NV", "OH", "OR", "RI", "SC", "SD", "TX", "VT", "WY"))
+                                "NJ", "NV", "OH", "OR", "SC", "SD", "TX", "VT", "WY"))
+  expect_equal(ge$layer_cms_obligation_usd, 0)
   for (col in names(s)[vapply(s, is.numeric, logical(1))]) {
     if (grepl("_pct$", col)) next
     expect_equal(ge[[col]], sum(m[[col]]), info = col)
   }
-  expect_equal(round(ge$allotment_usd, 2), 4440562268)
-  expect_equal(round(ge$award_total_usd, 2), 3441569061.22, tolerance = 1e-12)
-  expect_equal(round(ge$hospital_summary_usd, 2), 1572986177.36, tolerance = 1e-12)
+  # RI out: -$156,169,931 allotment, -$78,727,110.44 awards, -$15,839,907.67 hospital (HARI, unnamed pool)
+  expect_equal(round(ge$allotment_usd, 2), 4284392337)
+  expect_equal(round(ge$award_total_usd, 2), 3362841950.78, tolerance = 1e-12)
+  expect_equal(round(ge$hospital_summary_usd, 2), 1557146269.69, tolerance = 1e-12)
   expect_equal(round(ge$strict_named_hospital_usd, 2), 1451104633.38, tolerance = 1e-12)
-  expect_equal(ge$hospital_share_of_awards_pct, 45.7)
-  expect_equal(ge$hospital_share_of_allotment_pct, 35.4)
+  expect_equal(ge$hospital_share_of_awards_pct, 46.3)
+  expect_equal(ge$hospital_share_of_allotment_pct, 36.3)
   # a subset of the national row, never more
   for (col in c("allotment_usd", "award_total_usd", "hospital_summary_usd", "strict_named_hospital_usd")) {
     expect_true(ge[[col]] <= us[[col]], info = col)
@@ -229,8 +237,8 @@ test_that("the second national row: the states with >=50% published, pinned (own
   expect_equal(g[["FY2026 allotment"]], ge$allotment_usd)
   expect_equal(g[["Awards published"]], ge$award_total_usd)
   expect_equal(g[["Hospital $ (best estimate)"]], ge$hospital_summary_usd)
-  expect_equal(round(100 * as.numeric(g[["Hospital % of awards"]]), 1), 45.7)
-  expect_equal(round(100 * g[["Hospital % of allotment"]], 1), 35.4)
+  expect_equal(round(100 * as.numeric(g[["Hospital % of awards"]]), 1), 46.3)
+  expect_equal(round(100 * g[["Hospital % of allotment"]], 1), 36.3)
   expect_equal(g[["Strict named-hospital $"]], ge$strict_named_hospital_usd)
   expect_true(is.na(g[["% of allotment awarded"]]))
   expect_true(is.na(g[["Hospitals named, no amount"]]))
@@ -238,7 +246,7 @@ test_that("the second national row: the states with >=50% published, pinned (own
   expect_equal(ov[["Hospital % of awards"]][51], "n/m")
   dt <- openxlsx::read.xlsx(ov_x, "Detail")
   expect_equal(dt$state[52], "US_GE50")
-  expect_equal(round(100 * as.numeric(dt$hospital_share_of_awards_pct[52]), 1), 45.7)
+  expect_equal(round(100 * as.numeric(dt$hospital_share_of_awards_pct[52]), 1), 46.3)
 })
 
 test_that("Notes open with How to read this and carry the n/m and coverage notes", {
@@ -246,6 +254,7 @@ test_that("Notes open with How to read this and carry the n/m and coverage notes
   expect_match(n[1], "^HOW TO READ THIS")
   expect_true(any(grepl(YS_NM_NOTE, n, fixed = TRUE)))
   expect_true(any(grepl("The national hospital share of awards is reported only for states where most of the money is published (see the second national row).", n, fixed = TRUE)))
+  expect_true(any(grepl("rest on state award sources only", n, fixed = TRUE) & grepl("Rhode Island (50.4%", n, fixed = TRUE)))
   expect_true(any(grepl("State shares are not comparable to one another", n, fixed = TRUE)))
 })
 
