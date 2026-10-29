@@ -206,7 +206,25 @@ no record read shows hospital ownership:
 
 ## 4. Runners
 
-RUNNERS_PLACEHOLDER
+Survey on 10-29 (`get_session`, `context_usage.used_tokens`), 43 enabled Routines, all mapped one-to-one to
+`config/routines.csv`. **Above 600k: MS 701,611, NM 692,186, KY 684,012, NE 676,035, ND 673,537, OH 666,758,
+NY 640,952, OK 615,045.** The six above 650k are moved. NY and OK (600k–650k) are not, and are the next to move
+if they grow.
+
+| State | Old runner / Routine (disabled, chained) | New runner / Routine | Prompt byte-match | First firing |
+|---|---|---|---|---|
+| MS | `session_01U8L2MM…` / `trig_01Ugf2k1rcJiQVTtMhpnb4V3` | `session_01Y1P5eSQSit6WdRNvccDZ3Z` / `trig_017ZJJG3Vfbn4TWscnvaHqf8` | yes | Fri 10-30 09:40Z |
+| NM | `session_011DdQ5L…` / `trig_01EeEQZDPeG4xW4GBA7p8WcZ` | `session_01Y1P5eR7hsMsAJ4XbrwmGET` / `trig_01FYoAwtuoWkZDiCt4dsNvuj` | yes | Tue 11-03 18:40Z |
+| KY | `session_01XNp8CU…` / `trig_01Jk2igfuAsju6aaCnT3bP28` | `session_01Y1P5eRJQYq61tH9qXY6h2W` / `trig_01U66KdxFsqDuPjW85D983XU` | yes | **Thu 10-29 19:30Z** |
+| NE | `session_01DmBcpg…` / `trig_01WDA8s6uzUSaCDF7DapUzX1` | `session_01Y1P5eRezoApED6sTnLHK3q` / `trig_01Y7u6WZrCDc2zt5GuaGMDDR` | yes | Wed 11-04 10:30Z |
+| ND | `session_012ZNdeA…` / `trig_016DwLq1AKfmgKrFZtwPuPuK` | `session_01Y1P5eRyaWHKpwqVuV1jU3B` / `trig_017ezZqH75hRAr9e5GeF5o2X` | yes | Wed 11-04 09:20Z |
+| OH | `session_01QsYgWj…` / `trig_01VEe1KQEsuJRncwuoR8rQzJ` | `session_01Y1P5eU4wGL2sbhanF9Fz1S` / `trig_01SmiBet1QpVwpQrBe1GEBJ3` | yes | Wed 11-04 13:40Z |
+
+New runners have the old ones' configuration: `env_01RnpqJ1D6wFAaRMvFu43oV3`, claude-sonnet-5, auto mode, `main` as source
+and outcome, no seed. `runner_moves.csv` carries the new ids. `R/routine_prompts_worktree.R --write` changed only the six runner
+ids, and `--check` reads "v4 matches derived for 43 states". Each stored prompt was read back and matches its file
+byte-for-byte. `routines.csv` moves each old id into `old_trigger_id` / `old_logging_since`. **Merge before Thu
+10-29 19:30Z** (KY), never Mon/Thu 13:00–14:00Z; delete each old id once its successor logs on `main`.
 
 ## 5. Task 3 — the deliverable builder
 
