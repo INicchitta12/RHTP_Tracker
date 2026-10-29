@@ -1671,3 +1671,5 @@ WA,2026-10-29T10:15:22Z,TRIPWIRE,programme,"[WA] 'programme' NAMES 1 ORGANISATIO
 SD,2026-10-29T12:27:41Z,CHANGED,RHT number series (all agencies),,trig_01F8Bh62cRmxEshC3Ua2iwPB
 SD,2026-10-29T12:27:41Z,UNCHANGED,'Rural Strong' in the description,,trig_01F8Bh62cRmxEshC3Ua2iwPB
 SD,2026-10-29T12:27:41Z,CHANGED,'Rural Health Transformation' in the description,,trig_01F8Bh62cRmxEshC3Ua2iwPB
+CMS,2026-10-29T13:23:57Z,CHANGED,newsroom+medicaid,new states: ID; new releases in listed states: 0; changed rows: 0,trig_01LUqkDnDGErLj9N8SJUDb1C
+CMS,2026-10-29T13:23:57Z,CHANGED,obligation_report,NEW CMS obligation report linked: RHTP-Obligated-Funds-20261014.pdf. Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.,trig_01LUqkDnDGErLj9N8SJUDb1C
