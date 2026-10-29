@@ -248,16 +248,15 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
                     dplyr::starts_with("layer_")), sum),
     completion_status = paste0(sum(completion_status == "COMPLETE"), " COMPLETE of 50"))
 
-  pct <- function(n, d) ifelse(d > 0, round(100 * n / d, 1), NA_real_)
-  dplyr::bind_rows(out %>% dplyr::arrange(state), national) %>%
+  tab <- dplyr::bind_rows(out %>% dplyr::arrange(state), national) %>%
     dplyr::mutate(
       pool_level_usd = file_pool_level_usd + called_pool_outside_files_usd,
       award_total_usd = published_priced_usd + pool_level_usd,
       hospital_best_judgment_usd = hospital_bj_row_usd + hospital_bj_pool_usd + hospital_bj_component_usd,
       hospital_summary_usd = hospital_coded_usd + hospital_best_judgment_usd,
-      hospital_share_of_awards_pct = pct(hospital_summary_usd, award_total_usd),
-      hospital_share_of_allotment_pct = pct(hospital_summary_usd, allotment_usd),
-      award_share_of_allotment_pct = pct(award_total_usd, allotment_usd),
+      hospital_share_of_awards_pct = ys_pct(hospital_summary_usd, award_total_usd),
+      hospital_share_of_allotment_pct = ys_pct(hospital_summary_usd, allotment_usd),
+      award_share_of_allotment_pct = ys_pct(award_total_usd, allotment_usd),
       confidential_source_flag = dplyr::case_when(
         confidential_award_rows > 0 ~ paste0("YES: ", confidential_award_rows, " award row(s) / $",
                                              formatC(confidential_award_usd, format = "f", digits = 2, big.mark = ","),
@@ -282,6 +281,40 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
       named_hospital_recipients_no_amount, named_hospital_rows_no_amount,
       layer_source_suspect_usd,
       confidential_source_flag)
+  dplyr::bind_rows(tab, ys_subset_row(tab))
+}
+
+ys_pct <- function(n, d) ifelse(d > 0, round(100 * n / d, 1), NA_real_)
+
+# -- the second national row (session 111b, owner decision) -----------------------
+#
+# The national hospital share of AWARDS is n/m (national awards published are
+# under half the allotment). It is reported instead over the states where most
+# of the money is published: those whose award total is at least
+# YS_AWARD_SHARE_MIN of their allotment. Every column is the sum over those
+# states, and the three shares are recomputed from the sums, exactly as the
+# national row is built from all fifty. It is a SUBSET of the fifty, never added
+# to the national row.
+YS_NATIONAL <- c("US", "US_GE50")
+YS_AWARD_SHARE_MIN <- 0.5
+
+ys_subset_row <- function(tab) {
+  st <- tab[!tab$state %in% YS_NATIONAL, ]
+  m <- st[st$allotment_usd > 0 & st$award_total_usd / st$allotment_usd >= YS_AWARD_SHARE_MIN, ]
+  num <- names(tab)[vapply(tab, is.numeric, logical(1))]
+  row <- m %>% dplyr::summarise(dplyr::across(dplyr::all_of(num), sum))
+  row$award_share_of_allotment_pct <- ys_pct(row$award_total_usd, row$allotment_usd)
+  row$hospital_share_of_awards_pct <- ys_pct(row$hospital_summary_usd, row$award_total_usd)
+  row$hospital_share_of_allotment_pct <- ys_pct(row$hospital_summary_usd, row$allotment_usd)
+  row$state <- "US_GE50"
+  row$state_name <- paste0("States with \u2265", 100 * YS_AWARD_SHARE_MIN, "% published (n = ", nrow(m), ")")
+  row$completion_status <- paste0(sum(m$completion_status == "COMPLETE"), " COMPLETE of ", nrow(m), ": ",
+                                  paste(m$state, collapse = " "))
+  flagged <- m$state[nzchar(m$confidential_source_flag)]
+  row$confidential_source_flag <- if (length(flagged)) {
+    paste0("MEMBER STATES FLAGGED: ", paste(flagged, collapse = ", "), "; see their rows")
+  } else ""
+  row[, names(tab)]
 }
 
 # -- the workbook (session 111) ---------------------------------------------------
@@ -290,7 +323,7 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL) {
 #' builder refuses a column without one.
 YS_DEFINITIONS <- tibble::tribble(
   ~column, ~definition,
-  "state", "Two-letter state code; US is the national row (the sum of the 50 state rows).",
+  "state", "Two-letter state code. US is the national row (the sum of the 50 state rows). US_GE50 is the second national row: the sum over the states whose awards published are at least 50% of their allotment (a subset of US, never added to it).",
   "state_name", "State name.",
   "completion_status", "Whether the state has finished awarding its Year 1 money: COMPLETE (a state source says so), PARTIAL (more awards are coming or initiatives remain unawarded), or NOT_ASSESSED (the repository has not judged it; the survey status is shown).",
   "allotment_usd", "The state's FY2026 RHTP allotment from CMS (Tier 1), from CMS's own table.",
@@ -330,9 +363,10 @@ YS_DEFINITIONS <- tibble::tribble(
 
 ys_notes <- function(s, date) {
   us <- s[s$state == "US", ]
+  ge <- s[s$state == "US_GE50", ]
   f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
   tibble::tibble(note = c(
-    paste0("HOW TO READ THIS. Start on Overview (one row per state, national total last): 'Hospital $ (best estimate)' is the headline figure, ",
+    paste0("HOW TO READ THIS. Start on Overview (one row per state, then the national total and the states with at least half their money published): 'Hospital $ (best estimate)' is the headline figure, ",
            "'Strict named-hospital $' the source-confirmed floor; Detail carries every column, Definitions defines each column and status label, Sources lists the documents."),
     paste0("DATA AS OF ", date, ". Built by R/08_year1_summary.R from the committed award files; every figure traces to an archived state or CMS source (Sources sheet)."),
     paste0("BEST ESTIMATE vs STRICT. hospital_summary_usd (", f(us$hospital_summary_usd), ") combines the strict buckets with best-judgment calls on every undetermined row. ",
@@ -350,16 +384,21 @@ ys_notes <- function(s, date) {
     paste0("SOURCE_SUSPECT ROWS ARE EXCLUDED. ", f(us$layer_source_suspect_usd), " on rows whose published amount is internally inconsistent (Nevada FLEX-28 and FLEX-36, Texas Anson Hospital District) is left out of every hospital figure (owner ruling, session 102)."),
     "LAYERS OVERLAP. The layer_ columns (intents, association ruling, CMS obligation, AHC, general knowledge, LOW confidence) are parts of the best estimate and overlap one another. Never add them.",
     "NO STATE IS COMPARABLE TO ANOTHER WITHOUT READING ITS ROWS: figures mix intents, offers, executed agreements, rounded and partial-year amounts.",
-    paste0("AWARD COVERAGE VARIES WIDELY BY STATE. Awards published run from 0% to ", sprintf("%.1f%%", 100 * max(s$award_total_usd[s$state != "US"] / s$allotment_usd[s$state != "US"])),
+    paste0("AWARD COVERAGE VARIES WIDELY BY STATE. Awards published run from 0% to ", sprintf("%.1f%%", 100 * max(s$award_total_usd[!s$state %in% YS_NATIONAL] / s$allotment_usd[!s$state %in% YS_NATIONAL])),
            " of the allotment, so a state's hospital share describes only the money that state has published so far. State shares are not comparable to one another."),
     paste0("n/m (HOSPITAL % OF AWARDS). Shown only where awards published are at least ", 100 * YS_AWARD_SHARE_MIN, "% of the allotment. ", YS_NM_NOTE,
-           " Hospital % of allotment is shown for every state."),
+           " The national hospital share of awards is reported only for states where most of the money is published (see the second national row). ",
+           "Hospital % of allotment is shown for every state."),
+    paste0("SECOND NATIONAL ROW. '", ge$state_name, "' sums the states whose awards published are at least ", 100 * YS_AWARD_SHARE_MIN,
+           "% of their allotment (", gsub("^.*: ", "", ge$completion_status), "): allotment ", f(ge$allotment_usd), ", awards published ", f(ge$award_total_usd),
+           ", hospital best estimate ", f(ge$hospital_summary_usd), " (", sprintf("%.1f%%", ge$hospital_share_of_awards_pct), " of those awards). ",
+           "It is a subset of the national row, never added to it. Rhode Island qualifies on CMS obligation-report lines alone; the set changes as states publish."),
     paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail).")))
 }
 
 #' One row per state: the primary source document(s) and their archive paths
 ys_sources <- function(rows, s) {
-  st <- s$state[s$state != "US"]
+  st <- s$state[!s$state %in% YS_NATIONAL]
   j <- function(x) {
     x <- sort(unique(stats::na.omit(x[nzchar(x)])))
     out <- paste(x, collapse = " ; ")
@@ -393,7 +432,6 @@ ys_sources <- function(rows, s) {
 
 #' A share of the published award total is shown only where the published
 #' awards are at least this fraction of the allotment; below it, "n/m"
-YS_AWARD_SHARE_MIN <- 0.5
 YS_NM <- "n/m"
 YS_NM_NOTE <- paste(
   "Not meaningful where most of the state's money is not yet published; e.g., Illinois's only",
@@ -414,16 +452,18 @@ ys_status_label <- function(s, rows) {
     dplyr::summarise(cms_only = all(validation_source_type %in% "CMS_OBLIGATION_REPORT"), .groups = "drop")
   x <- s %>% dplyr::left_join(cms_only, by = "state") %>%
     dplyr::mutate(label = dplyr::case_when(
-      state == "US" ~ NA_character_,
+      state %in% YS_NATIONAL ~ NA_character_,
       completion_status == "COMPLETE" ~ "Complete",
       award_rows > 0 & cms_only %in% TRUE ~ "CMS obligation report only",
       award_rows > 0 & priced_rows > 0 ~ "Partial: awarding continues",
       award_rows > 0 ~ "Awards published, not priced",
       TRUE ~ "No awards published yet"))
-  if (any(is.na(x$label[x$state != "US"]))) stop("[year1 summary] a state has no status label", call. = FALSE)
-  if (!all(x$label[x$state != "US"] %in% YS_STATUS_LABELS$label)) stop("[year1 summary] undefined status label", call. = FALSE)
-  st <- x$label[x$state != "US"]
+  is_st <- !x$state %in% YS_NATIONAL
+  if (any(is.na(x$label[is_st]))) stop("[year1 summary] a state has no status label", call. = FALSE)
+  if (!all(x$label[is_st] %in% YS_STATUS_LABELS$label)) stop("[year1 summary] undefined status label", call. = FALSE)
+  st <- x$label[is_st]
   x$label[x$state == "US"] <- paste0(sum(st == "Complete"), " Complete of ", length(st))
+  # the second national row shows only its six figures (owner decision)
   x$label
 }
 
@@ -435,7 +475,7 @@ ys_frac <- function(n, d) ifelse(d > 0, n / d, NA_real_)
 #' The Overview sheet: one row per state, national row last
 YS_OVERVIEW_DEFINITIONS <- tibble::tribble(
   ~column, ~definition,
-  "State", "State name; the last row is the national total (the sum of the 50 state rows).",
+  "State", "State name. Below the 50 states: the national total (the sum of the 50 state rows), then the states whose awards published are at least 50% of their allotment (n in the label), which shows only allotment, awards published, the hospital figures and strict named-hospital dollars. The second row is a subset of the national total, never added to it.",
   "Year 1 status", "Plain-language Year 1 status; each label is defined below.",
   "FY2026 allotment", "The state's FY2026 RHTP allotment from CMS (Tier 1), from CMS's own table (Detail: allotment_usd).",
   "Awards published", "Published Year 1 award total: per-award amounts plus pool-level totals (Detail: award_total_usd).",
@@ -448,17 +488,19 @@ YS_OVERVIEW_DEFINITIONS <- tibble::tribble(
 
 ys_overview <- function(s, rows) {
   ok <- ys_share_meaningful(s)
+  ge <- s$state == "US_GE50"
+  blank <- function(x) { x[ge] <- NA; x }
   tibble::tibble(
     "State" = s$state_name,
     "Year 1 status" = ys_status_label(s, rows),
     "FY2026 allotment" = s$allotment_usd,
     "Awards published" = s$award_total_usd,
-    "% of allotment awarded" = ys_frac(s$award_total_usd, s$allotment_usd),
+    "% of allotment awarded" = blank(ys_frac(s$award_total_usd, s$allotment_usd)),
     "Hospital $ (best estimate)" = s$hospital_summary_usd,
     "Hospital % of awards" = ifelse(ok, ys_frac(s$hospital_summary_usd, s$award_total_usd), NA_real_),
     "Hospital % of allotment" = ys_frac(s$hospital_summary_usd, s$allotment_usd),
     "Strict named-hospital $" = s$strict_named_hospital_usd,
-    "Hospitals named, no amount" = s$named_hospital_recipients_no_amount)
+    "Hospitals named, no amount" = blank(s$named_hospital_recipients_no_amount))
 }
 
 #' The Detail sheet: every CSV column; the _pct columns as fractions, and the
@@ -485,7 +527,7 @@ ys_widths <- function(d, usd_cols, pct_cols, cap = 60) {
 
 #' Write one table sheet with currency and percentage formats, n/m cells, a
 #' bold national row, shaded confidential rows and a frozen header and first column
-ys_table_sheet <- function(wb, sheet, d, usd_cols, pct_cols, nm_rows, nm_col, conf_rows, styles) {
+ys_table_sheet <- function(wb, sheet, d, usd_cols, pct_cols, nm_rows, nm_col, conf_rows, bold_rows, styles) {
   openxlsx::addWorksheet(wb, sheet)
   openxlsx::writeData(wb, sheet, d, headerStyle = styles$hdr)
   body <- 2:(nrow(d) + 1)
@@ -497,7 +539,7 @@ ys_table_sheet <- function(wb, sheet, d, usd_cols, pct_cols, nm_rows, nm_col, co
   if (length(nm_rows)) {
     openxlsx::addStyle(wb, sheet, styles$right, rows = nm_rows + 1, cols = nm_col, stack = TRUE)
   }
-  openxlsx::addStyle(wb, sheet, styles$bold, rows = nrow(d) + 1, cols = seq_along(d), gridExpand = TRUE, stack = TRUE)
+  openxlsx::addStyle(wb, sheet, styles$bold, rows = bold_rows + 1, cols = seq_along(d), gridExpand = TRUE, stack = TRUE)
   if (length(conf_rows)) {
     openxlsx::addStyle(wb, sheet, styles$conf, rows = conf_rows + 1, cols = seq_along(d), gridExpand = TRUE, stack = TRUE)
   }
@@ -515,7 +557,7 @@ ys_workbook <- function(s, rows, date, path) {
     stop("[year1 summary] Definitions out of step with the Detail columns: missing ",
          paste(miss, collapse = ", "), "; extra ", paste(extra, collapse = ", "), call. = FALSE)
   }
-  if (s$state[nrow(s)] != "US") stop("[year1 summary] the national row must be last", call. = FALSE)
+  if (!identical(utils::tail(s$state, 2), YS_NATIONAL)) stop("[year1 summary] the two national rows must be last", call. = FALSE)
   wb <- openxlsx::createWorkbook()
   styles <- list(
     hdr = openxlsx::createStyle(textDecoration = "bold", fgFill = "#DDE6F0", wrapText = TRUE, valign = "top"),
@@ -527,24 +569,25 @@ ys_workbook <- function(s, rows, date, path) {
     wrap = openxlsx::createStyle(wrapText = TRUE, valign = "top"))
   wrap <- styles$wrap; hdr <- styles$hdr; conf <- styles$conf
   nm_rows <- which(!ys_share_meaningful(s))
-  conf_rows <- which(nzchar(s$confidential_source_flag))
+  conf_rows <- which(nzchar(s$confidential_source_flag) & !s$state %in% YS_NATIONAL)
 
   # Overview is sorted by state NAME (the column it shows), national row last.
-  so <- s[order(s$state == "US", s$state_name), ]
+  so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
   ov <- ys_overview(so, rows)
   ys_table_sheet(wb, "Overview", ov,
                  usd_cols = which(names(ov) %in% c("FY2026 allotment", "Awards published",
                                                     "Hospital $ (best estimate)", "Strict named-hospital $")),
                  pct_cols = which(grepl("%", names(ov))),
                  nm_rows = which(!ys_share_meaningful(so)), nm_col = which(names(ov) == "Hospital % of awards"),
-                 conf_rows = which(nzchar(so$confidential_source_flag)), styles = styles)
+                 conf_rows = which(nzchar(so$confidential_source_flag) & !so$state %in% YS_NATIONAL),
+                 bold_rows = which(so$state %in% YS_NATIONAL), styles = styles)
 
   de <- ys_detail(s)
   ys_table_sheet(wb, "Detail", de,
                  usd_cols = which(grepl("_usd$", names(de))),
                  pct_cols = which(grepl("_pct$", names(de))),
                  nm_rows = nm_rows, nm_col = which(names(de) == "hospital_share_of_awards_pct"),
-                 conf_rows = conf_rows, styles = styles)
+                 conf_rows = conf_rows, bold_rows = which(s$state %in% YS_NATIONAL), styles = styles)
 
   defs <- dplyr::bind_rows(
     YS_OVERVIEW_DEFINITIONS %>% dplyr::transmute(sheet = "Overview", term = column, definition),

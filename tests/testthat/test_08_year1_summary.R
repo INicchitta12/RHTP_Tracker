@@ -9,11 +9,14 @@ source(here::here("R", "08_year1_summary.R"))
 rows <- ys_rows()
 s <- ys_build(rows)
 us <- s[s$state == "US", ]
+ge <- s[s$state == "US_GE50", ]
+st_only <- s[!s$state %in% YS_NATIONAL, ]
 
 test_that("one row per state plus a national row, and the national row is the column sum", {
-  expect_equal(nrow(s), 51L)
-  expect_setequal(s$state[s$state != "US"], readr::read_csv(here::here(YS_ALLOT), show_col_types = FALSE)$state)
-  st <- s[s$state != "US", ]
+  expect_equal(nrow(s), 52L)
+  expect_equal(utils::tail(s$state, 2), YS_NATIONAL)
+  expect_setequal(st_only$state, readr::read_csv(here::here(YS_ALLOT), show_col_types = FALSE)$state)
+  st <- st_only
   for (col in c("allotment_usd", "award_total_usd", "hospital_coded_usd", "hospital_best_judgment_usd",
                 "hospital_summary_usd", "strict_named_hospital_usd", "strict_pool_named_hospitals_usd",
                 "strict_pool_unnamed_hospitals_usd", "layer_source_suspect_usd")) {
@@ -82,7 +85,7 @@ test_that("SOURCE_SUSPECT stays out of every hospital figure (owner ruling, sess
 })
 
 test_that("no state's award total exceeds its allotment (the NV double count stays fixed)", {
-  st <- s[s$state != "US", ]
+  st <- st_only
   expect_true(all(st$award_total_usd <= st$allotment_usd), info = paste(st$state[st$award_total_usd > st$allotment_usd], collapse = ","))
   expect_equal(st$pool_level_usd[st$state == "NV"], 0)
   expect_equal(st$pool_level_usd[st$state == "LA"], 10736208)
@@ -104,9 +107,9 @@ test_that("the workbook has the five sheets, and every Detail column is defined"
   expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Definitions", "Notes and caveats", "Sources"))
   expect_setequal(YS_DEFINITIONS$column, names(s))
   dt <- openxlsx::read.xlsx(x, "Detail")
-  expect_equal(nrow(dt), 51L)
+  expect_equal(nrow(dt), 52L)
   expect_equal(names(dt), names(s))
-  expect_setequal(openxlsx::read.xlsx(x, "Sources")$state, s$state[s$state != "US"])
+  expect_setequal(openxlsx::read.xlsx(x, "Sources")$state, st_only$state)
   df <- openxlsx::read.xlsx(x, "Definitions")
   expect_setequal(df$term[df$sheet == "Overview"], YS_OVERVIEW_DEFINITIONS$column)
   expect_setequal(df$term[df$sheet == "Year 1 status label"], YS_STATUS_LABELS$label)
@@ -123,16 +126,17 @@ test_that("the workbook has the five sheets, and every Detail column is defined"
 
 ov_x <- here::here(YS_XLSX("2026-10-29"))
 ov <- openxlsx::read.xlsx(ov_x, "Overview", check.names = FALSE, sep.names = " ")
-so <- s[order(s$state == "US", s$state_name), ]
+so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
 meaningful <- so$award_total_usd / so$allotment_usd >= 0.5
 
 test_that("Overview has the ten plainly labelled columns, national row last", {
   expect_equal(names(ov), c("State", "Year 1 status", "FY2026 allotment", "Awards published",
                             "% of allotment awarded", "Hospital $ (best estimate)", "Hospital % of awards",
                             "Hospital % of allotment", "Strict named-hospital $", "Hospitals named, no amount"))
-  expect_equal(nrow(ov), 51L)
+  expect_equal(nrow(ov), 52L)
   expect_equal(ov$State, so$state_name)
   expect_equal(ov$State[51], "National (50 states)")
+  expect_equal(ov$State[52], "States with \u226550% published (n = 22)")
 })
 
 test_that("Overview figures are the Detail figures, unchanged", {
@@ -140,9 +144,9 @@ test_that("Overview figures are the Detail figures, unchanged", {
   expect_equal(ov[["Awards published"]], so$award_total_usd)
   expect_equal(ov[["Hospital $ (best estimate)"]], so$hospital_summary_usd)
   expect_equal(ov[["Strict named-hospital $"]], so$strict_named_hospital_usd)
-  expect_equal(ov[["Hospitals named, no amount"]], so$named_hospital_recipients_no_amount)
+  expect_equal(ov[["Hospitals named, no amount"]][1:51], so$named_hospital_recipients_no_amount[1:51])
   # fractions round to the CSV's one-decimal percentages
-  expect_equal(round(100 * ov[["% of allotment awarded"]], 1), so$award_share_of_allotment_pct)
+  expect_equal(round(100 * ov[["% of allotment awarded"]][1:51], 1), so$award_share_of_allotment_pct[1:51])
   expect_equal(round(100 * ov[["Hospital % of allotment"]], 1), so$hospital_share_of_allotment_pct)
   ha <- ov[["Hospital % of awards"]]
   expect_equal(round(100 * as.numeric(ha[meaningful]), 1), so$hospital_share_of_awards_pct[meaningful])
@@ -161,6 +165,7 @@ test_that("Hospital % of awards is n/m below 50% of the allotment, in Overview a
 
 test_that("each state carries one defined plain-language status label", {
   st <- ov[["Year 1 status"]][1:50]
+  expect_true(is.na(ov[["Year 1 status"]][52]))
   expect_true(all(st %in% YS_STATUS_LABELS$label))
   lab <- stats::setNames(st, so$state[1:50])
   expect_equal(sort(names(lab)[lab == "Complete"]), c("AL", "AR", "FL", "GA"))
@@ -196,14 +201,51 @@ test_that("currency and percentage formats, frozen panes, widths and the bold na
     expect_true(all(w >= pmin(need, 60)), info = sh)
   }
   bold <- vapply(wb$styleObjects, function(o) o$sheet == "Overview" && identical(o$style$fontDecoration, "BOLD") &&
-                   52 %in% o$rows, logical(1))
+                   all(c(52, 53) %in% o$rows), logical(1))
   expect_true(any(bold))
+})
+
+test_that("the second national row: the states with >=50% published, pinned (owner decision, session 111b)", {
+  m <- st_only[st_only$award_total_usd / st_only$allotment_usd >= 0.5, ]
+  expect_equal(nrow(m), 22L)
+  expect_equal(sort(m$state), c("AK", "AL", "AR", "CA", "CO", "FL", "GA", "ID", "IN", "MD", "MI", "MS",
+                                "NJ", "NV", "OH", "OR", "RI", "SC", "SD", "TX", "VT", "WY"))
+  for (col in names(s)[vapply(s, is.numeric, logical(1))]) {
+    if (grepl("_pct$", col)) next
+    expect_equal(ge[[col]], sum(m[[col]]), info = col)
+  }
+  expect_equal(round(ge$allotment_usd, 2), 4440562268)
+  expect_equal(round(ge$award_total_usd, 2), 3441569061.22, tolerance = 1e-12)
+  expect_equal(round(ge$hospital_summary_usd, 2), 1572986177.36, tolerance = 1e-12)
+  expect_equal(round(ge$strict_named_hospital_usd, 2), 1451104633.38, tolerance = 1e-12)
+  expect_equal(ge$hospital_share_of_awards_pct, 45.7)
+  expect_equal(ge$hospital_share_of_allotment_pct, 35.4)
+  # a subset of the national row, never more
+  for (col in c("allotment_usd", "award_total_usd", "hospital_summary_usd", "strict_named_hospital_usd")) {
+    expect_true(ge[[col]] <= us[[col]], info = col)
+  }
+  # Overview shows its six figures and leaves the rest blank
+  g <- ov[52, ]
+  expect_equal(g[["FY2026 allotment"]], ge$allotment_usd)
+  expect_equal(g[["Awards published"]], ge$award_total_usd)
+  expect_equal(g[["Hospital $ (best estimate)"]], ge$hospital_summary_usd)
+  expect_equal(round(100 * as.numeric(g[["Hospital % of awards"]]), 1), 45.7)
+  expect_equal(round(100 * g[["Hospital % of allotment"]], 1), 35.4)
+  expect_equal(g[["Strict named-hospital $"]], ge$strict_named_hospital_usd)
+  expect_true(is.na(g[["% of allotment awarded"]]))
+  expect_true(is.na(g[["Hospitals named, no amount"]]))
+  # the national row keeps n/m
+  expect_equal(ov[["Hospital % of awards"]][51], "n/m")
+  dt <- openxlsx::read.xlsx(ov_x, "Detail")
+  expect_equal(dt$state[52], "US_GE50")
+  expect_equal(round(100 * as.numeric(dt$hospital_share_of_awards_pct[52]), 1), 45.7)
 })
 
 test_that("Notes open with How to read this and carry the n/m and coverage notes", {
   n <- openxlsx::read.xlsx(ov_x, "Notes and caveats")$note
   expect_match(n[1], "^HOW TO READ THIS")
   expect_true(any(grepl(YS_NM_NOTE, n, fixed = TRUE)))
+  expect_true(any(grepl("The national hospital share of awards is reported only for states where most of the money is published (see the second national row).", n, fixed = TRUE)))
   expect_true(any(grepl("State shares are not comparable to one another", n, fixed = TRUE)))
 })
 
@@ -211,7 +253,7 @@ test_that("Delaware's confidential source is flagged, and no figure rests on it"
   de <- s[s$state == "DE", ]
   expect_match(de$confidential_source_flag, "^CITED IN STATUS NOTES")
   expect_false(any(rows$confidential_hit))
-  others <- s[!s$state %in% c("DE", "US"), ]
+  others <- s[!s$state %in% c("DE", YS_NATIONAL), ]
   expect_true(all(others$confidential_source_flag == ""))
 })
 
