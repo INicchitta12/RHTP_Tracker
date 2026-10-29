@@ -2086,8 +2086,10 @@ Network is Full; the old allowlist blockers are superseded.
 ### Next session
 
 - **Session 111 (read first).** Detail: `docs/session111_review_fixes_builder.md`.
-  - **Merge before Thu 10-29 19:30Z** (KY's first firing on its new runner), never Mon/Thu 13:00–14:00Z. MS fires
-    Fri 10-30 09:40Z. Until `routines.csv` on `main` carries the six new ids, their lines read as unregistered.
+  - **Merged as PR #115 (10-29 14:10Z)**, so the six new ids are registered before KY's 19:30Z first firing. The
+    follow-up commits (check-in record, write-up) are on this branch; merge them, never Mon/Thu 13:00–14:00Z.
+  - **The 10-29 check-in ran:** old SD, WA and VA Routines deleted (`old_deleted`; commit 17f8d98 merged here).
+    Unread: WA `programme` names the Department of Health; SD's register gained rows (27RHT00055, $37.33M).
   - **Old ids to delete once each successor logs on `main`:** MS `trig_01Ugf2k1rcJiQVTtMhpnb4V3`, NM
     `trig_01EeEQZDPeG4xW4GBA7p8WcZ`, KY `trig_01Jk2igfuAsju6aaCnT3bP28`, NE `trig_01WDA8s6uzUSaCDF7DapUzX1`, ND
     `trig_016DwLq1AKfmgKrFZtwPuPuK`, OH `trig_01VEe1KQEsuJRncwuoR8rQzJ` (disabled, chained).
