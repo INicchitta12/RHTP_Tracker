@@ -127,7 +127,15 @@ test_that("the workbook has the five sheets, and every Detail column is defined"
 ov_x <- here::here(YS_XLSX("2026-10-29"))
 ov <- openxlsx::read.xlsx(ov_x, "Overview", check.names = FALSE, sep.names = " ")
 so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
-meaningful <- so$award_total_usd / so$allotment_usd >= 0.5
+# the n/m test reads STATE-SOURCED awards (CMS obligation-report files removed)
+ss_tab <- ys_state_source_table(rows, NULL, NULL, sc_state_files())
+ss_award <- function(t) {
+  v <- ss_tab$award_total_usd[match(t$state, ss_tab$state)]
+  v[t$state == "US"] <- sum(ss_tab$award_total_usd)
+  v[t$state == "US_GE50"] <- t$award_total_usd[t$state == "US_GE50"]
+  v
+}
+meaningful <- ss_award(so) / so$allotment_usd >= 0.5
 
 test_that("Overview has the ten plainly labelled columns, national row last", {
   expect_equal(names(ov), c("State", "Year 1 status", "FY2026 allotment", "Awards published",
@@ -158,9 +166,25 @@ test_that("Hospital % of awards is n/m below 50% of the allotment, in Overview a
   expect_equal(ov[["Hospital % of awards"]][ov$State == "Illinois"], "n/m")
   expect_equal(ov[["Hospital % of awards"]][ov$State == "National (50 states)"], "n/m")
   dt <- openxlsx::read.xlsx(ov_x, "Detail")
-  dm <- s$award_total_usd / s$allotment_usd >= 0.5
+  dm <- ss_award(s) / s$allotment_usd >= 0.5
   expect_true(all(dt$hospital_share_of_awards_pct[!dm] == "n/m"))
   expect_false(any(is.na(ov[["Hospital % of allotment"]])))
+})
+
+test_that("the state rows' n/m test is state-sourced: only Rhode Island moves (owner decision, session 111b)", {
+  all_src <- so$award_total_usd / so$allotment_usd >= 0.5
+  expect_equal(so$state[all_src != meaningful], "RI")
+  expect_equal(ov[["Hospital % of awards"]][ov$State == "Rhode Island"], "n/m")
+  dt <- openxlsx::read.xlsx(ov_x, "Detail")
+  expect_equal(dt$hospital_share_of_awards_pct[dt$state == "RI"], "n/m")
+  # 28 states read n/m before; 29 now, plus the national row
+  expect_equal(sum(!meaningful[!so$state %in% YS_NATIONAL]), 29L)
+  expect_false(meaningful[so$state == "US"])
+  expect_true(meaningful[so$state == "US_GE50"])
+  # the CSV keeps the computed value; the figure itself did not move
+  expect_equal(s$hospital_share_of_awards_pct[s$state == "RI"], 20.1)
+  # states with CMS lines that are meaningful keep a share; today there are none
+  expect_false(any(meaningful[so$state %in% c("NE", "PA", "RI")]))
 })
 
 test_that("each state carries one defined plain-language status label", {
@@ -278,6 +302,8 @@ test_that("Notes open with How to read this and carry the n/m and coverage notes
   n <- openxlsx::read.xlsx(ov_x, "Notes and caveats")$note
   expect_match(n[1], "^HOW TO READ THIS")
   expect_true(any(grepl(YS_NM_NOTE, n, fixed = TRUE)))
+  expect_true(any(grepl("Shown only where the state's STATE-SOURCED awards published are at least 50% of its allotment", n, fixed = TRUE) &
+                    grepl("Rhode Island, whose only rows are CMS lines, reads n/m", n, fixed = TRUE)))
   expect_true(any(grepl("The national hospital share of awards is reported only for states where most of the money is published (see the second national row).", n, fixed = TRUE)))
   expect_true(any(grepl("rests on state award sources only", n, fixed = TRUE) &
                     grepl("computed on its state-sourced awards alone", n, fixed = TRUE) &

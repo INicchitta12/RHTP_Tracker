@@ -391,7 +391,7 @@ YS_DEFINITIONS <- tibble::tribble(
   "hospital_bj_component_usd", "The part of the best-judgment dollars on a separately priced component of one award row (New Hampshire's CAH and Acute Care Hospital RFA).",
   "best_judgment_rows", "Award rows whose call is a best judgment rather than the strict coding.",
   "hospital_summary_usd", "BEST ESTIMATE of Year 1 RHTP dollars reaching hospitals: coded plus best-judgment hospital dollars.",
-  "hospital_share_of_awards_pct", "Best-estimate hospital dollars as a percent of the published award total.",
+  "hospital_share_of_awards_pct", "Best-estimate hospital dollars as a percent of the published award total. On the workbook's Detail sheet it reads n/m where the state's state-sourced awards (CMS obligation-report rows left out) are under 50% of its allotment; this CSV keeps the computed value.",
   "hospital_share_of_allotment_pct", "Best-estimate hospital dollars as a percent of the allotment.",
   "strict_named_hospital_usd", "STRICT: dollars awarded to a named hospital or health system on a state source. The defensible floor. Never added to the two strict pool columns.",
   "strict_pool_named_hospitals_usd", "STRICT: dollars awarded to an intermediary for named hospitals, with no per-hospital split published. Never added to the other strict columns.",
@@ -449,7 +449,9 @@ ys_notes <- function(s, date, rows) {
     "NO STATE IS COMPARABLE TO ANOTHER WITHOUT READING ITS ROWS: figures mix intents, offers, executed agreements, rounded and partial-year amounts.",
     paste0("AWARD COVERAGE VARIES WIDELY BY STATE. Awards published run from 0% to ", sprintf("%.1f%%", 100 * max(s$award_total_usd[!s$state %in% YS_NATIONAL] / s$allotment_usd[!s$state %in% YS_NATIONAL])),
            " of the allotment, so a state's hospital share describes only the money that state has published so far. State shares are not comparable to one another."),
-    paste0("n/m (HOSPITAL % OF AWARDS). Shown only where awards published are at least ", 100 * YS_AWARD_SHARE_MIN, "% of the allotment. ", YS_NM_NOTE,
+    paste0("n/m (HOSPITAL % OF AWARDS). Shown only where the state's STATE-SOURCED awards published are at least ", 100 * YS_AWARD_SHARE_MIN, "% of its allotment: ",
+           "rows taken from CMS's Obligated Funds Report do not count toward the test, the same rule as the second national row ",
+           "(Rhode Island, whose only rows are CMS lines, reads n/m). ", YS_NM_NOTE,
            " The national hospital share of awards is reported only for states where most of the money is published (see the second national row). ",
            "Hospital % of allotment is shown for every state."),
     paste0("SECOND NATIONAL ROW. '", ge$state_name, "' rests on state award sources only. Rows taken from CMS's Obligated Funds Report are removed from every figure in it, ",
@@ -532,8 +534,25 @@ ys_status_label <- function(s, rows) {
   x$label
 }
 
-#' TRUE where a share of the published award total is meaningful
-ys_share_meaningful <- function(s) s$allotment_usd > 0 & s$award_total_usd / s$allotment_usd >= YS_AWARD_SHARE_MIN
+#' Each row's STATE-SOURCED award total (CMS obligation-report files removed,
+#' as for the second national row): the state rows from the state-source table,
+#' the national row as their sum, the second national row as itself (it is
+#' state-sourced by construction)
+ys_state_sourced_awards <- function(s, rows) {
+  ss <- ys_state_source_table(rows, NULL, NULL, sc_state_files())
+  v <- ss$award_total_usd[match(s$state, ss$state)]
+  v[s$state == "US"] <- sum(ss$award_total_usd)
+  v[s$state == "US_GE50"] <- s$award_total_usd[s$state == "US_GE50"]
+  if (any(is.na(v))) stop("[year1 summary] a row has no state-sourced award total", call. = FALSE)
+  v
+}
+
+#' TRUE where a share of the published award total is meaningful: the row's
+#' STATE-SOURCED awards are at least YS_AWARD_SHARE_MIN of its allotment (owner
+#' decision; Rhode Island's CMS obligation lines no longer count toward it)
+ys_share_meaningful <- function(s, rows) {
+  s$allotment_usd > 0 & ys_state_sourced_awards(s, rows) / s$allotment_usd >= YS_AWARD_SHARE_MIN
+}
 
 ys_frac <- function(n, d) ifelse(d > 0, n / d, NA_real_)
 
@@ -546,13 +565,13 @@ YS_OVERVIEW_DEFINITIONS <- tibble::tribble(
   "Awards published", "Published Year 1 award total: per-award amounts plus pool-level totals (Detail: award_total_usd).",
   "% of allotment awarded", "Awards published as a share of the allotment (Detail: award_share_of_allotment_pct).",
   "Hospital $ (best estimate)", "BEST ESTIMATE of Year 1 RHTP dollars reaching hospitals: source-coded plus best-judgment hospital dollars (Detail: hospital_summary_usd).",
-  "Hospital % of awards", "Best-estimate hospital dollars as a share of awards published. Shown only where awards published are at least 50% of the allotment; otherwise n/m (not meaningful) (Detail: hospital_share_of_awards_pct).",
+  "Hospital % of awards", "Best-estimate hospital dollars as a share of awards published. Shown only where the state's STATE-SOURCED awards published (CMS obligation-report rows left out) are at least 50% of its allotment; otherwise n/m (not meaningful) (Detail: hospital_share_of_awards_pct).",
   "Hospital % of allotment", "Best-estimate hospital dollars as a share of the allotment, shown for every state (Detail: hospital_share_of_allotment_pct).",
   "Strict named-hospital $", "STRICT: dollars awarded to a named hospital or health system on a state source; the defensible floor (Detail: strict_named_hospital_usd).",
   "Hospitals named, no amount", "Named hospital recipients (distinct names) with no published amount; their money is in no dollar column (Detail: named_hospital_recipients_no_amount).")
 
 ys_overview <- function(s, rows) {
-  ok <- ys_share_meaningful(s)
+  ok <- ys_share_meaningful(s, rows)
   ge <- s$state == "US_GE50"
   blank <- function(x) { x[ge] <- NA; x }
   tibble::tibble(
@@ -570,8 +589,8 @@ ys_overview <- function(s, rows) {
 
 #' The Detail sheet: every CSV column; the _pct columns as fractions, and the
 #' award share "n/m" (written by the workbook) where it is not meaningful
-ys_detail <- function(s) {
-  ok <- ys_share_meaningful(s)
+ys_detail <- function(s, rows) {
+  ok <- ys_share_meaningful(s, rows)
   s %>% dplyr::mutate(
     award_share_of_allotment_pct = ys_frac(award_total_usd, allotment_usd),
     hospital_share_of_awards_pct = ifelse(ok, ys_frac(hospital_summary_usd, award_total_usd), NA_real_),
@@ -633,7 +652,7 @@ ys_workbook <- function(s, rows, date, path) {
     conf = openxlsx::createStyle(fgFill = "#F8D7DA"),
     wrap = openxlsx::createStyle(wrapText = TRUE, valign = "top"))
   wrap <- styles$wrap; hdr <- styles$hdr; conf <- styles$conf
-  nm_rows <- which(!ys_share_meaningful(s))
+  nm_rows <- which(!ys_share_meaningful(s, rows))
   conf_rows <- which(nzchar(s$confidential_source_flag) & !s$state %in% YS_NATIONAL)
 
   # Overview is sorted by state NAME (the column it shows), national row last.
@@ -643,11 +662,11 @@ ys_workbook <- function(s, rows, date, path) {
                  usd_cols = which(names(ov) %in% c("FY2026 allotment", "Awards published",
                                                     "Hospital $ (best estimate)", "Strict named-hospital $")),
                  pct_cols = which(grepl("%", names(ov))),
-                 nm_rows = which(!ys_share_meaningful(so)), nm_col = which(names(ov) == "Hospital % of awards"),
+                 nm_rows = which(!ys_share_meaningful(so, rows)), nm_col = which(names(ov) == "Hospital % of awards"),
                  conf_rows = which(nzchar(so$confidential_source_flag) & !so$state %in% YS_NATIONAL),
                  bold_rows = which(so$state %in% YS_NATIONAL), styles = styles)
 
-  de <- ys_detail(s)
+  de <- ys_detail(s, rows)
   ys_table_sheet(wb, "Detail", de,
                  usd_cols = which(grepl("_usd$", names(de))),
                  pct_cols = which(grepl("_pct$", names(de))),

@@ -14,11 +14,17 @@ allotment, Strict named-hospital $, Hospitals named, no amount. Each one is a re
 Detail column (Definitions names the source column). Rows are sorted by state name, and
 the national row is last and bold.
 
-**n/m rule.** `Hospital % of awards` is printed only where awards published are at least 50%
-of the allotment (`YS_AWARD_SHARE_MIN`). Otherwise it reads "n/m", in Overview and in
-Detail. On the 10-29 data that is 28 states **and the national row**, because national awards
-are 41.7% of the allotment. The national 48.1% stays in the CSV. Owner call: exempt the
-national row if the national share should print. `Hospital % of allotment` prints for every state.
+**n/m rule.** `Hospital % of awards` is printed only where a state's **state-sourced** awards
+published are at least 50% of its allotment (`YS_AWARD_SHARE_MIN`). Otherwise it reads "n/m", on
+Overview and on Detail. The owner set the state-sourced test in this session, the same rule as the
+second national row: rows from CMS's Obligated Funds Report do not count toward it. The CSV keeps
+the computed share on every row.
+
+On the 10-29 data, 29 states read n/m, and so does the national row. Rhode Island is the only state
+row the state-sourced test moved: it is 0.0% on state sources and 50.4% with its CMS lines, so its
+20.1% now reads n/m. A cell-by-cell diff of the workbook shows no other figure changed. The national
+row is n/m by owner decision, because national awards are 41.7% of the allotment; the national
+48.1% stays in the CSV. `Hospital % of allotment` prints for every state.
 
 **Second national row (owner decisions, same session).** The national row keeps n/m. Below it,
 `US_GE50` ("States with ≥50% published, state award sources (n = 21)") is added to the CSV, Detail
