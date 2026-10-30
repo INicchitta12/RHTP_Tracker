@@ -2086,7 +2086,12 @@ Network is Full; the old allowlist blockers are superseded.
 
 ### Next session
 
-- **Session 111 (read first).** Detail: `docs/session111_review_fixes_builder.md`.
+- **Session 111d (10-30 preflight, read first).** Detail: `docs/session111d_monday_preflight.md`. Suite 0 failures
+  on main; R/08 dry run equals every `test_08` pin. Check-in `trig_01CC8FCXRQWXpRaAaQYPqT8Q` (Wed 11-04 14:30Z)
+  deletes the six old MS NM KY NE ND OH ids once each successor has logged. NY's runner is at 640,952 (only one
+  above 600k): move it after Monday. Monday 12:00–21:00Z firings: CMS 13:00, AK 14:00, CT 15:40, NEWSROOM 16:50,
+  HI 18:30, KY 19:30.
+- **Session 111.** Detail: `docs/session111_review_fixes_builder.md`.
   - **Merged as PR #115 (10-29 14:10Z)**, so the six new ids are registered before KY's 19:30Z first firing. The
     follow-up commits (check-in record, write-up) are on this branch; merge them, never Mon/Thu 13:00–14:00Z.
   - **The 10-29 check-in ran:** old SD, WA and VA Routines deleted (`old_deleted`; commit 17f8d98 merged here).
