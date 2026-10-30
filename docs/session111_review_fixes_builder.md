@@ -186,8 +186,29 @@ no record read shows hospital ownership:
 
 ## 3. Task 2 — check-in and coverage
 
-- **The 10-29 14:30Z check-in** (`trig_014ALqpHqrs3SYKQRvN7HFA4`) had not
-  fired when this was written (CHECKIN_PLACEHOLDER).
+- **The 10-29 14:30Z check-in** (`trig_014ALqpHqrs3SYKQRvN7HFA4`) ran at 14:41Z
+  in session 108's session. Each successor had logged on `main`, so it deleted
+  all three old Routines:
+
+  | State | Successor's first line on `main` | Deleted | New runner tokens |
+  |---|---|---|---:|
+  | VA | Tue 10-27 10:21Z | `trig_017UtAGMofDhy3h8kpVmmiEx` | 191,859 |
+  | WA | Thu 10-29 10:15Z | `trig_01Ya2pEVp2p89TYntNPhjpX1` | 196,169 |
+  | SD | Thu 10-29 12:27Z | `trig_01PozmJvhJnKHVQf7GBHkbvY` | 194,890 |
+
+  It recorded them in `routines.csv` `old_deleted` on a branch from `main`
+  (`claude/s108-old-routines-deleted`, commit 17f8d98, no PR). That commit is
+  merged into this branch, so the two `routines.csv` edits cannot conflict. Its
+  coverage check: 278 due, all logged except 7 explained. It flagged two first
+  runs for a human:
+  - **WA `programme`** names "The Washington State Department of Health", which
+    is probably the agency, not a recipient.
+  - **SD** has new register rows (for example 27RHT00055; $37.04M → $37.33M
+    since 10-22).
+
+  Neither is read here.
+- **This branch (sessions 111's first three commits) merged to `main` as PR #115
+  at 14:10Z,** before KY's 19:30Z first firing.
 - **Coverage from 10-26.** 29 Routine firings fell due and 28 left a line. The
   29th, CMS 10-26 13:00Z, is explained in `config/probe_gaps_explained.csv`.
   `probe_coverage.R --check` reads: 277 due since the logging fix, all logged
