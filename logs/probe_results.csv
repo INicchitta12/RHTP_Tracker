@@ -1723,3 +1723,10 @@ AR,2026-10-29T20:22:41Z,UNCHANGED,home2,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-10-29T20:22:41Z,UNCHANGED,resources,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-10-29T20:22:41Z,UNCHANGED,rise,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-10-29T20:22:41Z,UNCHANGED,heart,,trig_01DLRYTSBPvrst5LqGBv1M9M
+MS,2026-10-30T09:41:23Z,CHANGED,funding,,trig_017ZJJG3Vfbn4TWscnvaHqf8
+MS,2026-10-30T09:41:23Z,UNCHANGED,home,,trig_017ZJJG3Vfbn4TWscnvaHqf8
+MS,2026-10-30T09:41:23Z,UNCHANGED,gov_newsroom,,trig_017ZJJG3Vfbn4TWscnvaHqf8
+MS,2026-10-30T09:41:23Z,ERROR,dom_completed,SSL peer certificate or SSH remote key was not OK [medicaid.ms.gov]: SSL certificate problem: unable to get local issuer certificate,trig_017ZJJG3Vfbn4TWscnvaHqf8
+MS,2026-10-30T09:41:23Z,UNCHANGED,release,,trig_017ZJJG3Vfbn4TWscnvaHqf8
+MS,2026-10-30T09:41:23Z,UNCHANGED,closed,,trig_017ZJJG3Vfbn4TWscnvaHqf8
+MS,2026-10-30T09:41:23Z,TRIPWIRE,funding,"[MS] 'funding' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: View the Innovative Pilot Program Public Questions and Answers | View the Innovative Pilot Program Frequently Asked Questions. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_017ZJJG3Vfbn4TWscnvaHqf8
