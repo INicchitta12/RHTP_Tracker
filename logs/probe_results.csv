@@ -1768,3 +1768,6 @@ MN,2026-10-30T18:13:12Z,TRIPWIRE,(probe),"[MN] 'grants' HAS 2 NEW SENTENCE(S) OF
 WY,2026-10-30T21:13:28Z,CHANGED,programme,,trig_01CLqQDvGoWCDoSMtS29FJbQ
 WY,2026-10-30T21:13:28Z,TRIPWIRE,(finding),"[WY] 'programme' LINKS 1 DRIVE TARGET(S) NOBODY HAS READ: folders/1BpezveAilDUDMFEalNrgFHpyisJszFjx. Wyoming publishes its award documents in Drive. Fetch it, READ it, and either extract it or add it to WY_KNOWN_DRIVE_TARGETS with the sentence that says what it is.",trig_01CLqQDvGoWCDoSMtS29FJbQ
 WY,2026-10-30T21:13:28Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Year One Award Summaries View Year One Award Summaries Project and Budget Narratives. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01CLqQDvGoWCDoSMtS29FJbQ
+TN,2026-10-31T09:35:47Z,UNCHANGED,rhtp,,trig_01Bky7YZTFgaT2dZddvfNL4g
+TN,2026-10-31T09:35:47Z,CHANGED,news,,trig_01Bky7YZTFgaT2dZddvfNL4g
+TN,2026-10-31T09:35:47Z,UNCHANGED,ramp,,trig_01Bky7YZTFgaT2dZddvfNL4g
