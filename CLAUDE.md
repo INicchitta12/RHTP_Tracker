@@ -1947,17 +1947,17 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 3 (UT AZ RI; 4 candidates, $518,902,453). A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-10-29, session 111, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-11-02, session 112, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 1,838 / $1,735,387,080.58
-(NV's FLEX-28 $997,361.00 and FLEX-36 $2,458,060.00 and TX's Anson Hospital District $509,936.50 back in); never
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 1,910 / $1,765,282,939.82
+(NV's FLEX-28 $997,361.00 and FLEX-36 $2,458,060.00 back in; HHSC corrected Anson in session 112); never
 publish it alone.
 
 ```
-NAMED_HOSPITAL          1,835 rows   $1,731,421,723.08   36 states   (CA 59 / $82,852,823.14, INTENTS; without CA 1,776 / $1,648,568,899.94 / 35)
-POOL_NAMED_HOSPITALS        8 rows      $86,555,171.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000)
-POOL_UNNAMED_HOSPITALS      5 rows      $69,323,109.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + HI (HAH, $0)
+NAMED_HOSPITAL          1,908 rows   $1,761,827,518.82   37 states   (CA 59 / $82,852,823.14 and UT 6 / $5,196,812.90 are INTENTS)
+POOL_NAMED_HOSPITALS       10 rows      $86,895,779.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
+POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
 
 Never add these. Rows with `validation_source_type = CMS_OBLIGATION_REPORT` can be subtracted (session 98:
@@ -1978,16 +1978,16 @@ Change a state file and you must update this table in the same commit. Never loo
 | FL | 81 | 81 | $188,201,256 | 15 / $49,345,213 (Year 1 COMPLETE) |
 | NV | 167 | 157 | $175,245,034 (BP1 report, AMOUNT_PRELIMINARY) | 46 / $46,724,181 + POOL_NAMED 4 / $24,448,315 (published, SOURCE_SUSPECT rows out; internal with them 48 / $50,179,602. NRHPF + RHOAP-18 + RHIT-19 owner rulings; Intermountain and Renown system parents, LOW) |
 | WY | 77 | 75 | $173,859,752 | 35 / $84,369,024 (committee approvals) |
-| CO | 92 | 92 | $170,210,575 (release says $169,587,181) | 36 / $86,693,159 (typed on CMS enrolment) |
+| CO | 92 | 92 | $163,954,733 (11-02 re-pricing, latest list governs; release says $169,587,181) | 36 / $80,033,287 (typed on CMS enrolment; San Luis Valley Health re-priced $7,889,561 → $1,556,234, unexplained) |
 | SC | 228 | 228 | $167,299,901 | 114 / $115,985,715 (partial year) |
 | AR r1 | 37 | 37 | $149,177,618 | 20 / $104,397,118 (intents) |
 | AL r1 | 138 | 138 | $143,745,821 | 70 / $83,548,287 |
 | OR | 278 | 272 | $140,994,009 (published $175.3M) | 57 / $54,520,575 (intents) |
-| VT | 236 | 236 | $177,536,067 | 84 / $75,513,793 (executed; partial; 10-23 list; LOW $15,576,825 subtractable, incl. University of Vermont Health $8,265,084 as a system parent; Gifford's $1,008,012 re-printed under the FQHC) |
+| VT | 240 | 240 | $179,117,448 | 84 / $75,513,793 (executed; 10-30 list; Year 1 COMPLETE on "fully obligated"; LOW $15,057,876 subtractable, incl. University of Vermont Health $8,265,084 as a system parent; SVMC $518,949 now exact enrolment) |
 | MS | 167 | 167 | $104,115,147 | 84 / $68,898,205 (partial year; Memorial Health System's 12 rows, $15,041,222, LOW/GENERAL_KNOWLEDGE as a system parent, owner ruling session 109) |
 | CA | 108 | 108 | $138,464,044 (HCAI prose "$166.72 million", gap $28,255,956 UNRECONCILED) | 59 / $82,852,823 (INTENTS, "tentative"; HCAI BP1 10-21; LOW 14 / $20,142,121 incl. 5 GENERAL_KNOWLEDGE $4,419,905: 4 system parents/foundations and UC San Diego Health $498,854, AHC, ruling a; Providence Medical Foundation out, ruling b; SCRHC–UCSD $6,213,882 not hospital) |
 | MS r2 | 60 | 60 | $32,606,496 | 31 / $22,986,996 (Governor 10-21, WEI + EmPATH; the three EmPATH units on their host hospitals; LOW $5,715,592 incl. UMMC Greenwood $4,320,032 AHC bridge, Memorial Health System $219,120 system parent and Magnolia Regional Health Center EMS $100,000 on CCN 250009, owner ruling session 109) |
-| MI | 145 | 145 | $101,318,437 | 5 / $2,694,121 (a TOTAL; MHA $8.625M in no bucket) |
+| MI | 231 | 231 | $161,740,847 | 24 / $15,654,777 (10-01 roster, a TOTAL; LOW/GENERAL_KNOWLEDGE $6,687,197; AHC $6,625,656; MHA $13.125M in no bucket) |
 | KS | 60 | 60 | $96,027,147 | 37 / $62,416,473 |
 | GA | 158 | 102 | $90,765,080 (published $197,148,327) | 126 / $90,277,580 (Year 1 COMPLETE) |
 | NJ | 103 | 103 | $83,060,837 | 35 / $35,275,076 |
@@ -2000,16 +2000,16 @@ Change a state file and you must update this table in the same commit. Never loo
 | AR r2 | 43 | 43 | $54,685,069 | 14 / $23,939,844 (AR Year 1 COMPLETE) |
 | IL | 1 | 1 | $50,008,264 | POOL_UNNAMED 1 / $50,008,264 |
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
-| PA | 66 | 66 | $42,198,310 | 27 / $24,149,111 (authorized, undisbursed) |
+| PA | 178 | 178 | $116,840,878 (header still says "$43,000,000", stale) | 60 / $41,709,703 (authorized; 11-02 page, five sections; The Guthrie Clinic $2,963,577 moved here from PA CMS obl) |
 | MO | 22 | 22 | $41,879,140 | 20 / $34,646,479 (SMRP priced by DSS 10-13; 27 hub anchors are NOT awards) |
 | NE | 91 | 70 | $41,687,307 | 60 / $14,431,596 + POOL_NAMED 1 / $18,156,856 |
 | OK RRR | 20 | 20 | $40,078,522 | 11 / $22,723,303 (Keetoowah $1,123,500 withdrawn 10-12; SSM St. Anthony Shawnee Cancer Center $1,623,498.82 added 10-16, CCN 370149, LOW; LOW $9,895,512: 4 enrolment bridges; Mercy $3,938,438 general knowledge, no CCN) |
-| SD contracts | 53 | 53 | $37,039,799 | 17 / $24,433,212 (10-12 register; Sanford + Avera parents $7,007,000 and 3 hand-read enrolment bridges $7,789,960 LOW; 18 Rural Strong inside $31.5M; 16 unplaced, never on top of $90M) |
+| SD contracts | 63 | 63 | $41,291,166 | 24 / $26,949,094 (11-02 register, +4 LOW bridges incl. Avera McKennan Cancer Inst $1,163,000; Sanford + Avera parents $7,007,000 and 3 hand-read enrolment bridges $7,789,960 LOW; 18 Rural Strong inside $31.5M; 16 unplaced, never on top of $90M) |
 | DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 38 | 3 | $42,300,000 | 27 / $0 + POOL_NAMED 1 / $30,300,000 (ODH's 22 named hospitals, no split; the 13 CIN/Hub and maternal-care listings at $0, owner ruling session 108, 5 hospital rows; the $92M's other $61.7M is shared with non-hospitals, no bucket; Ohio University $10M and OPA $2M non-hospital) |
-| WV | 28 | 19 | $18,804,875 | 14 / $6,324,000 (Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health system parent $0, LOW, owner ruling; 10-13/14: WVU Eye Institute $2,000,026 NON_HOSPITAL on the owner's ruling (session 104), 4 non-hospital; 10-19: WVU Health System, a system parent, two rows totalling $3,400,000, LOW, the CCG $2.5M a published floor) |
+| WV | 30 | 21 | $20,393,952 | 14 / $6,324,000 (10-26/27: WVU Cancer Institute $1,339,077 and Williamson H&WC (FQHC) $250,000, both NON_HOSPITAL; Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health system parent $0, LOW, owner ruling; 10-13/14: WVU Eye Institute $2,000,026 NON_HOSPITAL on the owner's ruling (session 104), 4 non-hospital; 10-19: WVU Health System, a system parent, two rows totalling $3,400,000, LOW, the CCG $2.5M a published floor) |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
 | MT | 5 | 4 | $1,360,000 | 0 (4 ambulance grants, rounded; 75 equipment awards unnamed, one pool row) |
@@ -2017,7 +2017,13 @@ Change a state file and you must update this table in the same commit. Never loo
 | OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 |
 | OK BHI | 3 | 3 | $1,228,013 | 1 / $90,172 (Mercy, system parent, LOW, general knowledge, no CCN) |
 | OK EMS/CP | 50 | 0 | — | 6 / $0 (37 ambulance + 13 vehicle lines, no amounts; Wewoka removed from ambulance 10-16; INTEGRIS Miami bridge LOW) |
-| TX | 441 | 441 | $224,591,245 (Year 1 subset, the 10/23 list; 10/8 intents reconcile to the release's $78,089,434.73) | 285 / $191,651,290 (published, SOURCE_SUSPECT Anson HD $509,937 out; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 159 / $108,586,856; LOW 91 / $61,493,003) |
+| OK Lung | 11 | 11 | $1,873,344 | 9 / $1,532,736 + POOL_NAMED 2 / $340,608 (OHA-administered, hospitals the subrecipients; 3 lines "contract not finalized", intents) |
+| OK Telestroke | 1 | 1 | $499,555 | 0 (OUHSC, a university; OU Medicine Inc is the enrolled hospital) |
+| OK Closed-Loop | 1 | 1 | $830,400 | 0 (Findhelp, vendor, IN_KIND_BENEFIT) |
+| OK GYO | 5 | 5 | $155,830 | 0 (CareerTech campuses) |
+| OK Transport | 11 | 11 | $2,260,859 | 0 (SWODA + 10 transit agencies; OSDH says 12) |
+| UT | 41 | 41 | $193,095,907 | 6 / $5,196,813 + POOL_UNNAMED 1 / $9,891,739 (INTENTS, DHHS announcement; UHA capital $38.3M Unclear, hospitals among others; Year 1 COMPLETE on 100% obligation) |
+| TX | 445 | 445 | $224,596,379 (Year 1 subset, the 10/29 list; the $8M and $87M releases reconcile to its weekly sections) | 286 / $191,913,856 (HHSC corrected the three SOURCE_SUSPECT lines, Anson HD now $262,566.30 on REH 670781; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 159 / $108,586,856; LOW 91 / $61,493,003) |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 0 | — | 218 / $0 |
 | NC | 44 | 0 | — | 2 / $0 |
@@ -2031,7 +2037,6 @@ Change a state file and you must update this table in the same commit. Never loo
 | HI | 3 | 0 | — (amounts in HANDS, 403) | POOL_UNNAMED 1 / $0 (Healthcare Association of Hawaii, association rule; PSW and HPCA not hospitals) |
 | KY | 2 | 0 | — | 0 (LCDHD and Purchase DHD, local health departments; "up to $10 million" per region over five years is a ceiling, text only) |
 | NE CMS obl | 6 | 6 | $3,977,841 | 5 / $502,904 + POOL_UNNAMED 1 / $3,474,938 (CMS obligation lines, as of 7/31; Mayo $120,000 out of state, LOW; Regional West + Chase County infection prevention $342,079 added session 99; NHA tagged CMS_OBLIGATION_ASSOCIATION) |
-| PA CMS obl | 2 | 2 | $2,963,577 | 2 / $2,963,577 (The Guthrie Clinic, system parent, LOW, GENERAL_KNOWLEDGE, no CCN) |
 | RI | 104 | 104 | $78,727,110 | POOL_UNNAMED 2 / $15,839,908 (CMS obligation lines only; HARI tagged CMS_OBLIGATION_ASSOCIATION; no enrolled RI hospital named) |
 | SD rounds | 2 | 0 | — ($121.5M, names nobody) | 0 |
 | SD CCBHC | 13 | 0 | — (pool "more than $13 million") | 0 (13-member cohort, 12 grants; every row Unclear) |
