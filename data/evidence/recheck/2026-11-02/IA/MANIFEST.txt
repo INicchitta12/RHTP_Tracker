@@ -1,0 +1,10 @@
+IOWA -- session 112 recheck, 2026-11-02 ~14:40Z, project's honest agent. Raw bytes; credential check: no key/token strings.
+release: https://hhs.iowa.gov/news-release/2026-10-09/iowa-leads-nation-early-rural-health-transformation-progress-obligating-20904006371-first-year-award
+noia index: https://hhs.iowa.gov/about/funding-opportunities/notice-intent-award (no Healthy Hometowns NOIA posted as of this fetch)
+media 19670 (rescinds RFP PHTHORC27001, 10-30) and 18818 (HHT NOIA delay to 'on or around November 2, 2026')
+
+file  bytes  sha256
+2026-11-02_ia_hhs_noia_index.html  187396  b4eeb6c8015369312906fc59af37a911ca530f18048507d612ca9876cfff51b6
+2026-11-02_ia_hhs_release_2026-10-09_fully_obligated.html  454640  fc1f0284dba3a6f1ed49ef699359289dc29f3f9770ccd39f885bdf3cc03bc495
+2026-11-02_ia_hht_notice_of_delay_2026-10-16.pdf  109179  9b3f677987b028e4b1ab2f864e487f6aa1543ef041c1c07f321a7d7f34e5d2a1
+2026-11-02_ia_notice_rescinding_rfp_phthorc27001_2026-10-30.pdf  109336  1f5ec0fe493f1b824e99b7186aaffeea5e97a5ce5bd387a05be5120d7a6e5c8a

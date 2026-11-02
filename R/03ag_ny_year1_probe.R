@@ -528,6 +528,32 @@ ny_assert_scr_unreadable <- function(body = NULL) {
 }
 
 
+# -- the Tier 2 allocations (session 112) -----------------------------------
+# The Governor's 2026-09-04 release splits New York's year-one money across
+# four initiatives. Each figure is an ALLOCATION (Tier 2): it names nobody.
+# They live in the status table's TEXT only (no amount column, by rule) and
+# are asserted here against the archived release, so the text cannot drift
+# from the source.
+NY_TIER2_ALLOCATION_SENTENCES <- c(
+  "Rural Community Health Integration Initiative \u2014 $77.2 million",
+  "The initiative includes $76.2 million for the 90 awards announced today and $1 million to increase the number of School-Based Health Centers",
+  "Strengthening Rural Communities with Technology-Enhanced Primary Care \u2014 $30 million",
+  "Rural Roots, Building a Sustainable Rural Healthcare Workforce \u2014 $13 million",
+  "Investments in Technology Innovation and Cybersecurity Resilience \u2014 $79.5 million"
+)
+
+ny_assert_tier2_allocations <- function(body = NULL) {
+  txt <- ny_html_text("gov_release", body) %>%
+    stringr::str_replace_all("\\s+", " ")
+  want <- NY_TIER2_ALLOCATION_SENTENCES
+  miss <- want[!stringr::str_detect(txt, stringr::fixed(want))]
+  if (length(miss) > 0) {
+    stop("[NY] the Governor's 2026-09-04 release no longer carries: ",
+         paste(miss, collapse = " | "), call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 # -- the status table --------------------------------------------------------
 
 ny_status_table <- function() {
@@ -548,18 +574,49 @@ ny_status_table <- function() {
           "'Reviews and Funding Recommendation In Progress' against 91",
           "applications and $156,000,000 of requests. THE POOL TO WATCH, and",
           "read its eligible class before coding: A HOSPITAL IS REQUIRED in",
-          "every partnership but need not be the recipient."),
+          "every partnership but need not be the recipient. THE $1M GAP",
+          "(session 112): the Governor's 2026-09-04 release prices the",
+          "initiative at '$77.2 million' and says 'The initiative includes",
+          "$76.2 million for the 90 awards announced today and $1 million to",
+          "increase the number of School-Based Health Centers.' So the roster's",
+          "$76,190,022 against $77.2M is the SBHC line, a Tier 2 allocation",
+          "with no recipient named -- never added to the award file."),
     NY_STATE, "Strengthening Rural Communities with Technology - Enhanced Primary Care",
     "NO_SOLICITATION_PUBLISHED", "No", NA_character_,
-    "An initiative in the CMS application. No funding opportunity published.",
+    paste("An initiative in the CMS application. No funding opportunity",
+          "published (DOH programme page re-read 2026-11-02, byte-identical",
+          "to the 2026-09-22 archive). TIER 2 ALLOCATION (session 112): the",
+          "Governor's 2026-09-04 release ('gov_release') prices it",
+          "'Strengthening Rural Communities with Technology-Enhanced Primary",
+          "Care — $30 million'. An allocation names nobody; it is",
+          "SOLICITATION tier and is never summed with an award (§0.2)."),
     NY_STATE, "Rural Roots: Building a Sustainable Rural Healthcare Workforce",
     "NO_SOLICITATION_PUBLISHED", "No", NA_character_,
-    "An initiative in the CMS application. No funding opportunity published.",
+    paste("An initiative in the CMS application. No funding opportunity",
+          "published (re-read 2026-11-02). TIER 2 ALLOCATION (session 112):",
+          "the Governor's 2026-09-04 release prices it 'Rural Roots, Building",
+          "a Sustainable Rural Healthcare Workforce — $13 million'. Names",
+          "nobody; SOLICITATION tier, never summed with an award (§0.2)."),
     NY_STATE, "Initiative 4: Technology Innovation and Cybersecurity",
     "PRE_SOLICITATION", "No", NA_character_,
     paste("DOH held a Cybersecurity Resilience webinar on 2026-08-17 and",
           "publishes an 'Interest Form'. An interest form is not a",
-          "solicitation and a webinar is not an award."),
+          "solicitation and a webinar is not an award. TIER 2 ALLOCATION",
+          "(session 112): the Governor's 2026-09-04 release prices it",
+          "'Investments in Technology Innovation and Cybersecurity",
+          "Resilience — $79.5 million'. Names nobody; SOLICITATION tier,",
+          "never summed with an award (§0.2). The four allocations",
+          "($77.2M + $30M + $13M + $79.5M) are the release's own split of",
+          "'more than $212 million', NY's Tier 1 allotment."),
+    NY_STATE, "Year 1 obligation (state-source check)",
+    "NOT_CONFIRMED_ON_STATE_SOURCE", "No", NA_character_,
+    paste("Session 112 (2026-11-02, after Budget Period 1 ended 10-30)",
+          "looked for a state statement that New York has fully obligated",
+          "Year 1: the DOH programme page (unchanged since 2026-09-22), the",
+          "DOH 2026 press index (latest RHTP item the 09-04 release) and",
+          "the Governor's newsroom (search: only the 09-04 release). None",
+          "found. Fully obligated per DOH spokesperson (Politico Pro, K.",
+          "Cordero, 10-29-2026); not confirmed on a state source."),
     NY_STATE, "NYS DOH press releases (channel control)",
     "PUBLISHES_AWARDS_FOR_OTHER_PROGRAMMES", "Yes - FOR OTHER PROGRAMMES",
     NA_character_,
@@ -1135,6 +1192,7 @@ ny_validate <- function() {
   ny_assert_roster_linked()
   ny_assert_cms_typing()
   ny_assert_release_provenance()
+  ny_assert_tier2_allocations()
   ny_assert_participation_not_receipt()
   ny_assert_contract_start_passed()
   ny_assert_reviews_in_progress()
