@@ -106,7 +106,7 @@ DISPO_AWARD_FILES <- list(
 DISPO_FILE_EVIDENCE <- c(
   FL = "data/evidence/recheck/2026-08-29/FL/FL_year1_awardees_governor_list.pdf",
   GA = "data/evidence/GA/ (four DCH announcements, the AHEAD roster, two signed notices of award)",
-  PA = "data/evidence/PA/2026-08-28_dhs_rural_health_selected_projects.html",
+  PA = "data/evidence/PA/2026-08-28_dhs_rural_health_selected_projects.html (Round 1); data/evidence/PA/2026-11-02_dhs_rural_health_selected_projects.html (178 rows, session 112)",
   AL = "data/evidence/AL/2026-08-24_governor_ivey_first_arhtp_grants.html (round 1); data/evidence/recheck/2026-10-01/AL/al_governor_2026-10-01_round2_34_grants.html (round 2)",
   AK = "data/evidence/AK/2026-09-21_ak_rhtp_awardsnotice_2026.xlsx",
   OR = "data/evidence/OR/ (2026-05-07 Transformation bulletin, 2026-07-07 release, Catalyst xlsx, awards page)",

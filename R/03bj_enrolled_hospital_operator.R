@@ -170,6 +170,14 @@ EH_APPLY <- tibble::tribble(
   "mi_year1_awardees.csv", "Regents of the University of Michigan - Ready to Respond: Rural Nursing Home Emergency Preparedness", 1L,
     "230046", "REGENTS OF THE UNIVERSITY OF MICHIGAN (dba UNIVERSITY OF MICHIGAN HEALTH)",
     "EXACT_LEGAL_NAME", TRUE, "",
+  # Session 112 (R/03v, MDHHS's 10-01 roster): three more awards to the same
+  # legal entity, typed the same way as the two rows above.
+  "mi_year1_awardees.csv", "Regents of the University of Michigan", 2L,
+    "230046", "REGENTS OF THE UNIVERSITY OF MICHIGAN (dba UNIVERSITY OF MICHIGAN HEALTH)",
+    "EXACT_LEGAL_NAME", TRUE, "",
+  "mi_year1_awardees.csv", "Regents of the University of Michigan - Data Modernization Initiative", 1L,
+    "230046", "REGENTS OF THE UNIVERSITY OF MICHIGAN (dba UNIVERSITY OF MICHIGAN HEALTH)",
+    "EXACT_LEGAL_NAME", TRUE, "",
   "ga_great_health_awards.csv", "Emory University", 1L,
     "110010", "EMORY UNIVERSITY (dba EMORY UNIVERSITY HOSPITAL)",
     "EXACT_LEGAL_NAME", TRUE, "",

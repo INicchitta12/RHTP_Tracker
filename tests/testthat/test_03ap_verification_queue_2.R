@@ -354,10 +354,16 @@ test_that("answering a _FLOW row did not settle its flow", {
 
   mi <- ref("mi_year1_awardees.csv") %>%
     filter(str_detect(awardee, "Michigan Health and Hospital Association"))
-  expect_equal(nrow(mi), 2L)
+  # Session 112: MDHHS's 10-01 roster adds three MHA awards ($4,500,000); they
+  # carry the same answer and the same unresolved flow. The original two are
+  # still the $8,625,000 the queue row describes.
+  expect_equal(nrow(mi), 5L)
   expect_true(all(mi$flow_type == "PASS_THROUGH_UNRESOLVED"))
   expect_true(all(mi$distributed_to_hospital == "Unclear"))
-  expect_equal(sum(as.numeric(mi$amount)), 8625000)
+  expect_equal(sum(as.numeric(mi$amount)), 13125000)
+  orig <- mi %>% filter(str_detect(note, fixed("On the roster as of 2026-07-10")))
+  expect_equal(nrow(orig), 2L)
+  expect_equal(sum(as.numeric(orig$amount)), 8625000)
 
   ar <- ref("ar_year1_awardees.csv") %>%
     filter(awardee == "Arkansas Rural Health Partnership")

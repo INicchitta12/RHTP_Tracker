@@ -36,7 +36,9 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # Session 100: + WV's three exact-name 09-30 hospitals (Mon Health Marion,
   # Preston, Webster); the three LEGAL_NAME_TRUNCATED bridges are not swept:
   # 70 -> 73.
-  expect_equal(nrow(sw), 73L)
+  # Session 112: + Michigan's three new Regents of the University of Michigan
+  # rows (MDHHS's 10-01 roster; EXACT_LEGAL_NAME, CCN 230046): 73 -> 76.
+  expect_equal(nrow(sw), 76L)
   expect_setequal(EH_READ_NOT_APPLIED$verdict, "DIFFERENT_LEGAL_BODY")
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
@@ -71,7 +73,17 @@ test_that("74 rows / $99,235,607.60 typed on enrolment, 30 / $60,226,387.31 of t
   # LEGAL_NAME_TRUNCATED bridge, $145,428.23), and NVHA's BP1 report prices
   # the two NV CCN 291306 rows already here (Washoe Barton $2,458,060.00,
   # SOURCE_SUSPECT; Carson Valley Health $404,791.00): 74 / $99,235,607.60.
-  expect_equal(nrow(eff), 74L)
+  # Session 112: + Michigan's three new Regents rows (CCN 230046, AHC,
+  # $4,625,656): 77 / $103,861,263.60. Set aside first; every pin below is the
+  # session-111 set.
+  expect_equal(nrow(eff), 77L)
+  s112 <- eff[eff$file == "mi_year1_awardees.csv" &
+                eff$awardee %in% c("Regents of the University of Michigan",
+                                   "Regents of the University of Michigan - Data Modernization Initiative"), ]
+  expect_equal(nrow(s112), 3L)
+  expect_equal(sum(s112$amount), 4625656)
+  expect_true(all(s112$subtype == "ACADEMIC_HEALTH_CENTER" & s112$match == "EXACT_LEGAL_NAME"))
+  eff <- dplyr::anti_join(eff, s112, by = c("file", "awardee"))
   s101 <- eff[eff$file == "nv_year1_awardees.csv", ]
   expect_equal(nrow(s101), 3L)
   expect_equal(round(sum(s101$amount, na.rm = TRUE), 2), 3008279.23)
