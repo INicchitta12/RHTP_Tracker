@@ -249,6 +249,13 @@ EH_APPLY <- tibble::tribble(
   "ok_year1_doulas_awardees.csv", "Newman Memorial Hospital", 1L,
     "371336", "NEWMAN MEMORIAL HOSPITAL, INC (CAH, Shattuck)",
     "EXACT_LEGAL_NAME", FALSE, "OSDH states no form (session 85, R/03bt). ",
+  # --- session 112: Oklahoma Lung Cancer Screening (R/03co), hand-read --------
+  "ok_year1_lung_screening_awardees.csv", "Duncan Regional Hospital", 1L,
+    "370023", "DUNCAN REGIONAL HOSPITAL, INC (Duncan)",
+    "EXACT_LEGAL_NAME", FALSE, "OSDH states no form; the awardee is the enrolled legal name less 'Inc' (session 112). ",
+  "ok_year1_lung_screening_awardees.csv", "Chickasaw Nation Medical Center", 1L,
+    "370180", "CHICKASAW NATION DIVISION OF HEALTH (dba CHICKASAW NATION MEDICAL CENTER, Ada)",
+    "DBA_OF_LEGAL_ENTITY", FALSE, "HAND-READ BRIDGE: the awardee is the enrolled hospital's exact DBA; LOW (session 112). ",
   # --- session 86: Oklahoma RRR and CDM (R/03bt), hand-read --------------------
   "ok_year1_rrr_awardees.csv", "Ascension St. John Jane Phillips Medical Center", 1L,
     "370018", "JANE PHILLIPS MEMORIAL MEDICAL CENTER INC (Bartlesville)",

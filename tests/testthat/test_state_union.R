@@ -361,7 +361,10 @@ STATE_FILES <- c(
   # list, 312 application lines. `amount` is the Year 1 subset; the
   # multi-year total sits in total_award_amount and must never be summed with
   # it. 97 lines are executed contracts, 215 intents (AMOUNT_PRELIMINARY).
-  TX = "data/reference/tx_year1_awardees.csv"
+  TX = "data/reference/tx_year1_awardees.csv",
+  # UTAH (session 112): DHHS's RHTP Awardee Announcement (R/03cn), 41 INTENT
+  # rows, $193,095,906.92; UHA's $9,891,739 R&R line is POOL_UNNAMED_HOSPITALS.
+  UT = "data/reference/ut_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -389,13 +392,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all thirty-seven files carry the leading 19 columns, in the same order", {
+test_that("all the state files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the thirty-eight files union without a coercion failure", {
+test_that("the state files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -405,7 +408,7 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WA",
+                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA",
                  "WV", "WY"))
 })
 
@@ -525,8 +528,8 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # by owner ruling, on CMS obligation lines (CMS_OBLIGATION_ASSOCIATION).
   # Session 101: + Hawaii's Healthcare Association of Hawaii, a row at $0
   # (its amount is in HANDS, 403), on the owner's instruction.
-  expect_equal(sort(unique(pooled$state)), c("HI", "IL", "NE", "RI"))
-  expect_equal(round(sum(pooled$dollars), 2), 69323109.17)
+  expect_equal(sort(unique(pooled$state)), c("HI", "IL", "NE", "RI", "UT"))
+  expect_equal(round(sum(pooled$dollars), 2), 79214848.17)
   expect_equal(pooled$dollars[pooled$state == "IL"], 50008264)
 
   # And Illinois contributes NOTHING to the named-hospital figure.

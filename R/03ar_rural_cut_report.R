@@ -361,11 +361,17 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 111: owner rulings (e) and (f): + TX St. Joseph Health Burleson
   # (CAH 451305, +$2,527,185.38), - AK City of Ketchikan (-$350,000):
   # 1,835 / $1,731,421,723.08 / 36.
-  if (nrow(rows) != 1835L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1731421723.08) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 36L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,835 rows / $1,731,421,723.08 ",
-         "/ 36 states; re-state the rural cut against the new partition.",
+  # Session 112 (end of BP1 sweep): + TX 10/29 list (Anson HD corrected, +1 /
+  # +$262,566.30), + SD register (+7 / +$2,515,882), + PA Selected Projects
+  # (+31 / +$14,597,014.54; Guthrie moved from PA CMS), + MI 10-01 roster (+19 /
+  # +$12,960,656), CO 11-02 re-pricing (-$6,659,872), + OK Lung Cancer
+  # Screening (+9 / +$1,532,736), + UTAH (R/03cn, 6 / $5,196,812.90, intents;
+  # Utah the 37th state): 1,908 / $1,761,827,518.82 / 37.
+  if (nrow(rows) != 1908L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1761827518.82) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 37L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,908 rows / $1,761,827,518.82 ",
+         "/ 37 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

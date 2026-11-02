@@ -1,0 +1,9 @@
+FEDERAL RECORDS -- fetched 2026-11-02 by session 112
+
+WHY: Utah's 41 DHHS Awardee Announcement lines (R/03cn_ut_year1_awardees.R) are typed on CMS's UT
+Hospital, FQHC and RHC Enrollment files. Committed as served (§0.5); the readers use THESE.
+
+file | sha256 | bytes | url
+cms_hosp_enrollments_UT.json | 37f866821c868fff390ae5ccd780a457d9e9ead220fcd2312c31f66d8fd7dcb4 | 96381 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=UT&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_UT.json | bacb8cf3117160afc508d62f07cfce85322af9392cf5366ea5bb7fdf31a24797 | 29460 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=UT&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_UT.json | 241b66141115502d66be9bd59a6d57b560df36b6ad59ee18117c17724fa85f93 | 12643 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=UT&size=5000 (RHC Enrollments)

@@ -145,7 +145,7 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
                              "ID", "IL", "IN", "KS", "KY", "LA", "MD", "ME", "MI", "MO",
                              "MS", "MT", "NC", "NE", "NH", "NJ", "NV", "NY", "OH", "OK",
                              "OR", "PA", "SC", "SD", "TN", "VA", "VT", "WA",
-                             "WV", "WY", "HI", "TX", "CA")
+                             "WV", "WY", "HI", "TX", "CA", "UT")
 # Session 109: CA joins from INVESTIGATED_NO_LIST by EXTRACTION -- HCAI's
 # "Recommended Subrecipients for CalRHT Budget Period 1", 108 tentative rows
 # (intents; R/03cl_ca_bp1_awardees.R). R/03ab's Routine still watches it.
@@ -322,6 +322,7 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
 # Session 94: Kentucky leaves for SURVEY_EXTRACTED_STATES (R/03by).
 # Session 103: Texas leaves for SURVEY_EXTRACTED_STATES (R/03ce).
 # Session 109: California leaves for SURVEY_EXTRACTED_STATES (R/03cl).
+# Session 112: Utah leaves for SURVEY_EXTRACTED_STATES (R/03cn); it has no probe or Routine yet.
 SURVEY_INVESTIGATED_NO_LIST_STATES <- c("MN", "ND",
                                         "NM", "WI")
 

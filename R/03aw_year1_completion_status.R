@@ -66,6 +66,11 @@ Y1_AWARD_FILES <- c(
   OK = "ok_year1_doulas_awardees.csv",
   OK = "ok_year1_rrr_awardees.csv",  OK = "ok_year1_cdm_awardees.csv",
   OK = "ok_year1_bhi_awardees.csv",  OK = "ok_year1_ems_cp_awardees.csv",
+  OK = "ok_year1_lung_screening_awardees.csv",
+  OK = "ok_year1_telestroke_awardees.csv",
+  OK = "ok_year1_closed_loop_awardees.csv",
+  OK = "ok_year1_grow_your_own_awardees.csv",
+  OK = "ok_year1_transportation_awardees.csv",
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
@@ -84,7 +89,8 @@ Y1_AWARD_FILES <- c(
   CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv",
   HI = "hi_year1_awardees.csv",
   TX = "tx_year1_awardees.csv",
-  CA = "ca_year1_awardees.csv"
+  CA = "ca_year1_awardees.csv",
+  UT = "ut_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -339,6 +345,11 @@ Y1_STATUS <- tibble::tribble(
   "Four of five initiatives awarded; the Tech Catalyst Fund ($32,730,351, via SCRA) 'will be announced through a future stage' (session 47).",
   "data/evidence/SC/2026-09-21_scdhhs_grants_rhtp_programme.html",
 
+  "UT", "COMPLETE", "Yes", "No",
+  "2026-10-29",
+  "Utah DHHS Office of Rural Health page (Last-Modified 10-29): 'We are proud to share that the CMS has officially reported that Utah has successfully demonstrated obligation for 100% of its Year 1 RHTP funding.' Full obligation on a state source (the test applied to New York and Vermont, session 112). The award file is DHHS's RHTP Awardee Announcement: 41 lines, $193,095,906.92, every row an INTENT ('DHHS is preparing to formally announce the grant awardees').",
+  "data/evidence/recheck/2026-11-02/UT/2026-11-02_ut_dhhs_ruralhealth_page.html",
+
   "NY", "PARTIAL", "No", "Yes",
   "2026-09-04",
   "RCHI ($76.2M in 90 awards) is awarded; the Governor's 09-04 release allocates RCHI $77.2M, the $1M gap being School-Based Health Centers, and three Tier 2 allocations with no recipient: Technology-Enhanced Primary Care $30M, Rural Roots (workforce) $13M, Technology Innovation and Cybersecurity Resilience $79.5M (session 112). Year 1 obligation: fully obligated per DOH spokesperson (Politico Pro, K. Cordero, 10-29-2026); not confirmed on a state source (DOH programme page, DOH and Governor newsrooms re-checked 11-02).",
@@ -522,7 +533,25 @@ Y1_AWARD_STAGE <- c(
              "ADECA/ARHTP pages for intent language and found none). Arkansas is",
              "the COMPLETE state whose rows are intents; Alabama's are not, and",
              "neither has an executed agreement on the record. 55 amounts are",
-             "rounded in the source (AMOUNT_ROUNDED_IN_SOURCE).")
+             "rounded in the source (AMOUNT_ROUNDED_IN_SOURCE)."),
+  # Session 112: four states join on a state-source statement.
+  VT = paste("EXECUTED, A FLOOR: every row is an executed grant or contract",
+             "agreement on AHS's list; the State says it has 'fully obligated' Year 1",
+             "and that the list 'does not reflect the entirety' of its commitments",
+             "(provider payment methodologies, administration, a few obligated but",
+             "unexecuted agreements). COMPLETE rests on full obligation, not on the list."),
+  ID = paste("AWARDED (GOVERNOR'S WORD): 'the State of Idaho completed the awards",
+             "for $186 million'; DHW's list of awardees as of Oct. 16 is the award",
+             "file (MOA/MOU lines to two state agencies out). No executed agreement",
+             "is published."),
+  WY = paste("COMMITTEE APPROVALS: DOH's 10-23 Year 1 summary says awards 'have",
+             "been completed'; the rows are the Advisory Committee's 08-11 approvals,",
+             "not executed agreements, and $30,877,990 is approved at pool level",
+             "naming no recipient."),
+  UT = paste("NOTICE OF INTENT, ALL 41 ROWS: DHHS 'is preparing to formally",
+             "announce the grant awardees'; COMPLETE rests on the State's page",
+             "reporting 100% obligation of Year 1. Nine rows are state-agency fiscal",
+             "agents whose own subgrants are not yet named.")
 )
 
 y1_hospital_share <- function(status = y1_build_status()) {
