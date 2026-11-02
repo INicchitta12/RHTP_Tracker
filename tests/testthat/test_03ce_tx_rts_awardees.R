@@ -1,7 +1,9 @@
 # test_03ce_tx_rts_awardees.R -------------------------------------------------
 # Session 103. Texas: HHSC's weekly Rural Texas Strong "Intent to Award" list,
 # typed on CMS's TX enrolment files. Session 108: the 10/23 list (441 lines,
-# a County column, sub-initiatives).
+# a County column, sub-initiatives). Session 112: the 10/29 list (445 lines;
+# HHSC corrected the three transposed lines; the $8M and $87M releases
+# reconcile to two "Added" sections).
 
 suppressWarnings(suppressMessages(source(here::here("R", "03ce_tx_rts_awardees.R"))))
 
@@ -9,14 +11,16 @@ tx <- tx_rts_awardees()
 committed <- readr::read_csv(TRT_CSV, show_col_types = FALSE,
                              col_types = readr::cols(ccn = "c", .default = readr::col_guess()))
 
-test_that("the 10/23 list is read whole and the release reconciles to the cent", {
+test_that("the 10/29 list is read whole and the release reconciles to the cent", {
   expect_silent(tx_rts_assert_list())
   expect_silent(tx_rts_assert_reconciles())
   expect_silent(tx_rts_assert_release())
-  expect_equal(nrow(tx), 441L)
-  expect_equal(round(sum(tx$amount), 2), 224591245.41)
+  expect_silent(tx_rts_assert_weekly_releases())
+  expect_equal(nrow(tx), 445L)
+  expect_equal(round(sum(tx$amount), 2), 224596379.37)
   expect_equal(sum(tx$list_section == "Added Oct. 23, 2026"), 129L)
-  expect_equal(sum(tx$contract_executed == "Yes"), 159L)
+  expect_equal(sum(tx$list_section == "Added Oct. 29, 2026"), 4L)
+  expect_equal(sum(tx$contract_executed == "Yes"), 204L)
   expect_true(all(nzchar(tx$county)))
   # 10/8 list: $129,089,434.73 = the release's $78,089,434.73 + 68 x $750,000.
   prior <- tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior"]))
@@ -46,11 +50,14 @@ test_that("the hospital figure and its LOW bridges", {
   # (Anson Hospital District, $509,936.50), 284 / $189,124,104.63 without it.
   # Session 111 (owner ruling e): + St. Joseph Health Burleson, LOW bridge to
   # CAH 451305, $2,527,185.38: 286 / $192,161,226.51; 285 without Anson.
+  # Session 112, the 10/29 list: Anson's line is corrected to Year 1
+  # $262,566.30 and is no longer SOURCE_SUSPECT; Castro and Crane are printed
+  # in full, so their Initiative 1 bridges are EXACT (LOW -2 / -$1,500,000).
   expect_equal(nrow(h), 286L)
-  expect_equal(round(sum(h$amount), 2), 192161226.51)
+  expect_equal(round(sum(h$amount), 2), 191913856.31)
   low <- h[h$determination_confidence == "LOW", ]
-  expect_equal(nrow(low), 91L)
-  expect_equal(round(sum(low$amount), 2), 61493002.61)
+  expect_equal(nrow(low), 89L)
+  expect_equal(round(sum(low$amount), 2), 59993002.61)
   b <- h[h$awardee == "St. Joseph Health Burleson", ]
   expect_equal(b$ccn, "451305")
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
@@ -93,19 +100,22 @@ test_that("every BP1 district corresponds to exactly one Initiative 1 line", {
   expect_match(m$determination_basis, "COUNTY-TEST BRIDGE ON THE LIST'S OWN COUNTY", fixed = TRUE)
 })
 
-test_that("session 108: the three self-contradicting lines are SOURCE_SUSPECT, carried as printed", {
-  s <- tx[grepl("SOURCE_SUSPECT", tx$flag_reason), ]
-  expect_equal(sort(s$awardee), sort(TRT_SOURCE_SUSPECT$awardee))
-  expect_true(all(s$amount > s$total_award_amount))
+test_that("session 112: HHSC corrected the three session 108 SOURCE_SUSPECT lines", {
+  expect_false(any(grepl("SOURCE_SUSPECT", tx$flag_reason)))
+  expect_equal(nrow(TRT_SOURCE_SUSPECT), 0L)
+  expect_false(any(tx$amount > tx$total_award_amount + 0.005))
+  fixed <- tx[tx$awardee %in% TRT_SOURCE_SUSPECT_10_23$awardee & tx$list_section == "Added Oct. 23, 2026", ]
+  expect_equal(nrow(fixed), 3L)
+  expect_equal(round(fixed$amount[fixed$awardee == "Anson Hospital District"], 2), 262566.30)
   part <- rhtp_hospital_dollar_partition(tx)
-  expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2), 191651290.01)   # session 111: + Burleson
-  # The re-priced line is recorded, not silently absorbed.
-  expect_equal(nrow(TRT_AMENDED), 1L)
+  expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2), 191913856.31)
+  # Each re-priced line is recorded, not silently absorbed.
+  expect_equal(nrow(TRT_AMENDED), 4L)
 })
 
 test_that("Christus Trinity Clinic is a physician group, not a hospital", {
   ct <- tx[grepl("Trinity Clinic", tx$awardee), ]
-  expect_equal(nrow(ct), 13L)
+  expect_equal(nrow(ct), 14L)   # session 112: + CHRISTUS Trinity Clinic Texas (Cass)
   expect_true(all(ct$recipient_type == "PHYSICIAN_PRACTICE"))
 })
 

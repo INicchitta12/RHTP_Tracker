@@ -773,7 +773,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Session 103 put Texas second ($117,571,194.73); session 104 added its
   # seven county-test bridges ($119,558,582.13).
   expect_equal(p$state[[1]], "TX")
-  expect_equal(round(p$dollars[[1]], 2), 191651290.01)   # session 111: + Burleson
+  expect_equal(round(p$dollars[[1]], 2), 191913856.31)   # session 111: + Burleson; session 112: 10/29 list, Anson corrected and in (+$262,566.30)
   expect_equal(p$state[[2]], "AR")
   expect_equal(round(p$dollars[[2]], 2), 128336961.52)
   p <- p[p$state != "TX", ]
