@@ -511,7 +511,7 @@ YS_NM_NOTE <- paste(
 #' The plain-language Year 1 status labels, in the order they are assigned
 YS_STATUS_LABELS <- tibble::tribble(
   ~label, ~definition,
-  "Complete", "A state source says the state has finished awarding its Year 1 money (completion_status COMPLETE: Florida, Georgia, Arkansas, Alabama).",
+  "Complete", "A state source says the state has finished awarding its Year 1 money, or has fully obligated it (completion_status COMPLETE; session 112 applied the full-obligation test to Vermont and Utah). Each state's row shows its own status; the national rows give the count. A COMPLETE state's rows may still be intents (Arkansas, Utah) or a floor of executed agreements (Vermont).",
   "CMS obligation report only", "Every award row comes from CMS's Obligated Funds Report (as of 2026-07-31), not from a state award document. Rhode Island: its state sites are unreadable from this environment, and CMS's report is the only source read. Obligated, per CMS, is not a confirmed subaward.",
   "Partial: awarding continues", "The state has published awards with dollar amounts, and more Year 1 awards are coming or some initiatives are not yet awarded.",
   "Awards published, not priced", "The state has named award recipients but published no per-recipient amount (Iowa, Tennessee, Kentucky, Hawaii, North Carolina). Their dollar columns are zero or pool-level only, and the hospital share cannot be computed.",
