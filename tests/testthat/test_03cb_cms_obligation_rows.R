@@ -28,11 +28,11 @@ test_that("a rebuild from the committed parse reproduces the committed files", {
 test_that("the ruled figures, pinned", {
   ne <- rd("NE"); pa <- rd("PA"); ri <- rd("RI")
   # Session 99: + Regional West and Chase County infection-prevention lines.
-  expect_equal(nrow(ne), 6L); expect_equal(nrow(pa), 2L); expect_equal(nrow(ri), 104L)
+  # Session 112: PA's two Guthrie lines are superseded by the state source.
+  expect_equal(nrow(ne), 6L); expect_equal(nrow(pa), 0L); expect_equal(nrow(ri), 104L)
   amt <- function(d, who) round(sum(as.numeric(d$amount[d$awardee == who])), 2)
   expect_equal(amt(ri, "Hospital Association of Rhode Island"), 15839907.67)
   expect_equal(amt(ne, "Nebraska Hospital Association"), 3474937.50)
-  expect_equal(amt(pa, "The Guthrie Clinic"), 2963577.00)
   expect_equal(amt(ne, "Mayo Clinic"), 120000)
   expect_equal(amt(ne, "CHI Health St Marys"), 40824.49)
   expect_equal(amt(ne, "Regional West Medical Center"), 254347)
@@ -53,8 +53,6 @@ test_that("the ruled figures, pinned", {
   expect_equal(mayo$basis_type, "GENERAL_KNOWLEDGE")
   expect_equal(mayo$determination_confidence, "LOW")
   expect_equal(mayo$ccn, "")
-  expect_true(all(pa$determination_confidence == "LOW" & pa$ccn == "" &
-                    pa$basis_type == "GENERAL_KNOWLEDGE"))
   stm <- ne[ne$awardee == "CHI Health St Marys", ]
   expect_true(all(stm$ccn == "281342" & stm$cms_enrolment_match == "DBA_OF_LEGAL_ENTITY"))
 
@@ -62,6 +60,22 @@ test_that("the ruled figures, pinned", {
   expect_true(all(ri$hospital_attribution %in% c("NOT_HOSPITAL", "POOL_UNNAMED_HOSPITALS")))
   expect_true(all(ri$recipient_type[ri$awardee == "Narragansett Indian Tribe"] == "FQHC_OR_RHC"))
   expect_true(all(nzchar(ri$cms_enrolment_record)))
+})
+
+test_that("the Guthrie Clinic is counted once: in the state file, not here (session 112)", {
+  sup <- OB_SUPERSEDED_BY_STATE
+  expect_setequal(sup$line_id, c("PA-005-20-59", "PA-005-21-60"))
+  l <- ob_lines()
+  expect_equal(round(sum(as.numeric(l$amount[l$line_id %in% sup$line_id])), 2), 2963577.00)
+  expect_silent(ob_superseded_check(l))
+  pa_state <- readr::read_csv(here::here("data", "reference", "pa_year1_awardees.csv"),
+                              col_types = readr::cols(.default = "c"))
+  g <- pa_state[pa_state$awardee == "The Guthrie Clinic", ]
+  expect_equal(nrow(g), 1L)
+  expect_equal(as.numeric(g$amount), 2963576.93)
+  expect_length(intersect(rd("PA")$cms_line_id, sup$line_id), 0L)
+  # the ruling still builds (and is then dropped), so the column template holds
+  expect_equal(nrow(ob_ne_pa_rows(l)[ob_ne_pa_rows(l)$state == "PA", ]), 0L)
 })
 
 test_that("every row is subtractable: one source type, one as_of, a CMS line id", {

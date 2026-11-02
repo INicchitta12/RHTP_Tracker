@@ -135,7 +135,10 @@ RC_ENROLMENTS <- c(
   # Session 108: Idaho's first roster (R/03ck), typed on CMS's ID files.
   ID = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_ID.json",
   # Session 109: California's HCAI BP1 roster (R/03cl), typed on CMS's CA file.
-  CA = "data/evidence/federal_records/2026-10-28/cms_hosp_enrollments_CA.json")
+  CA = "data/evidence/federal_records/2026-10-28/cms_hosp_enrollments_CA.json",
+  # Session 112: Pennsylvania's new selected-projects sections (R/03f), typed
+  # on CMS's PA file.
+  PA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_PA.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"

@@ -31,6 +31,13 @@
 # from any figure in one step, and the association rows can be subtracted
 # again on their own.
 #
+# SESSION 112: THE GUTHRIE CLINIC'S TWO PA LINES ARE SUPERSEDED. PA DHS's
+# selected-projects page now prints the same award ($2,963,576.93, Year One
+# Non-Solicitation; the lines sum to $2,963,577.00), so the state source carries
+# it and pa_cms_obligation_awardees.csv is written with NO rows
+# (OB_SUPERSEDED_BY_STATE, ob_superseded_check()). Counted once, in
+# pa_year1_awardees.csv.
+#
 # DEDUPE (owner instruction). Before any NE or PA row is written, each is
 # checked against the committed NE and PA award files by NAME and by AMOUNT
 # (ob_dedupe()). The build refuses if any amount matches an existing row to
@@ -111,6 +118,25 @@ OB_NAME_OVERLAPS <- tribble(
         "$195,523.20. This CMS line is infection prevention, $87,732.10. Not a",
         "duplicate."))
 
+# Lines the STATE'S OWN SOURCE now carries (session 112). Each was a ruled row
+# here until the state published the same award; the state source wins (§0.1,
+# §7: a state notice is the record), so the line is NOT written and the award
+# is counted once, in the state file. ob_superseded_check() refuses unless the
+# state file still carries the named recipient at the lines' total to within
+# $1 (publisher rounding: the CMS lines sum to $2,963,577.00, DHS prints
+# $2,963,576.93).
+OB_SUPERSEDED_BY_STATE <- tribble(
+  ~line_id,        ~state, ~org,                 ~state_file,               ~state_amount, ~why,
+  "PA-005-20-59",  "PA",   "The Guthrie Clinic", "pa_year1_awardees.csv",   2963576.93,
+  paste("SUPERSEDED BY THE STATE SOURCE (session 112): PA DHS's Rural Health",
+        "Selected Projects page (archived 2026-11-02) lists 'The Guthrie Clinic',",
+        "$2,963,576.93, Year One Non-Solicitation -- the same Pulse Center Pilot",
+        "(virtual telesitting and nursing) as this line and PA-005-21-60, whose",
+        "sum is $2,963,577.00. Counted once, in pa_year1_awardees.csv."),
+  "PA-005-21-60",  "PA",   "The Guthrie Clinic", "pa_year1_awardees.csv",   2963576.93,
+  paste("SUPERSEDED BY THE STATE SOURCE (session 112): see PA-005-20-59; the",
+        "two lines together are the one state-published award."))
+
 # --- the Rhode Island recipients -----------------------------------------------
 # Every distinct string the report prints on a single-recipient RI line, mapped
 # to one organisation and its typing. Each organisation was screened against
@@ -178,6 +204,7 @@ ob_name_key <- function(x) {
 #' Dedupe the NE and PA rows against the committed award files.
 #' Refuses an amount match to the cent, and any unreviewed name overlap.
 ob_dedupe <- function(rows = OB_NE_PA) {
+  rows <- rows[!rows$line_id %in% OB_SUPERSEDED_BY_STATE$line_id, ]
   out <- purrr::map_dfr(unique(rows$state), function(st) {
     ex <- ob_existing(st)
     ex_amt <- suppressWarnings(round(as.numeric(ex$amount), 2))
@@ -210,6 +237,33 @@ ob_dedupe <- function(rows = OB_NE_PA) {
          "the verdict in OB_NAME_OVERLAPS before writing.", call. = FALSE)
   }
   out
+}
+
+#' Each superseded line's award must still be in the state file, by name and
+#' by amount (to within $1 of the lines' total), or the build stops: a line
+#' leaves this file only while the state source carries it.
+ob_superseded_check <- function(l = ob_lines()) {
+  sup <- OB_SUPERSEDED_BY_STATE
+  if (!nrow(sup)) return(invisible(sup))
+  for (g in split(sup, paste(sup$state, sup$org))) {
+    lines <- l[l$line_id %in% g$line_id, ]
+    if (nrow(lines) != nrow(g) || !all(lines$named_orgs == g$org)) {
+      stop("[CMS obl] a superseded line no longer matches the parse: ",
+           paste(g$line_id, collapse = ", "), call. = FALSE)
+    }
+    total <- sum(as.numeric(lines$amount))
+    ex <- readr::read_csv(here::here("data", "reference", g$state_file[1]),
+                          col_types = readr::cols(.default = "c"))
+    hit <- ex$awardee == g$org[1] &
+      abs(suppressWarnings(as.numeric(ex$amount)) - g$state_amount[1]) < 0.005
+    if (sum(hit, na.rm = TRUE) != 1L || abs(g$state_amount[1] - total) > 1) {
+      stop("[CMS obl] ", g$org[1], ": the state file no longer carries the ",
+           "award that supersedes ", paste(g$line_id, collapse = " + "),
+           " ($", format(total, nsmall = 2), "). Re-read both before writing.",
+           call. = FALSE)
+    }
+  }
+  invisible(sup)
 }
 
 # --- row construction ----------------------------------------------------------
@@ -279,6 +333,7 @@ OB_ASSOC_BASIS <- paste(
 
 ob_ne_pa_rows <- function(l = ob_lines()) {
   ob_dedupe()
+  ob_superseded_check(l)
   sel <- l %>% dplyr::filter(.data$line_id %in% OB_NE_PA$line_id)
   chk <- dplyr::inner_join(sel, OB_NE_PA, by = c("line_id", "state"))
   if (nrow(chk) != nrow(OB_NE_PA) ||
@@ -363,7 +418,9 @@ ob_ne_pa_rows <- function(l = ob_lines()) {
         facility_state = "PA", hospital_benefiting = "Yes"),
       stop("[CMS obl] no rule for ", org, call. = FALSE))
   })
-  rows
+  # Session 112: a line the state's own source now carries is built (so the
+  # ruling and the column template stay checkable) and then NOT written.
+  rows[!rows$cms_line_id %in% OB_SUPERSEDED_BY_STATE$line_id, ]
 }
 
 ob_ri_rows <- function(l = ob_lines()) {
