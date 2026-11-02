@@ -113,7 +113,8 @@ SD_SEARCH_ARCHIVES <- c(
   "2026-08-28_open_sd_contract_search_RHT.html",
   "2026-09-24_open_sd_contract_search_RHT.html",
   "2026-10-02_open_sd_contract_search_RHT.html",
-  "2026-10-12_open_sd_contract_search_RHT.html"
+  "2026-10-12_open_sd_contract_search_RHT.html",
+  "2026-11-02_open_sd_contract_search_RHT.html"
 )
 SD_SEARCH_FILE <- SD_SEARCH_ARCHIVES[1]                          # the first read
 SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
@@ -128,8 +129,8 @@ SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
 #     number series -- two of them on 2026-09-24 (see SD_OUTSIDE_SERIES).
 SD_DESC_SEARCHES <- tibble::tribble(
   ~probe_key,     ~description_contains,          ~file,
-  "rural_strong", "Rural Strong",                 "2026-10-12_open_sd_contract_search_desc_rural_strong.html",
-  "rht_desc",     "Rural Health Transformation",  "2026-10-12_open_sd_contract_search_desc_rural_health_transformation.html"
+  "rural_strong", "Rural Strong",                 "2026-11-02_open_sd_contract_search_desc_rural_strong.html",
+  "rht_desc",     "Rural Health Transformation",  "2026-11-02_open_sd_contract_search_desc_rural_health_transformation.html"
 )
 
 # A Rural Strong GRANT is identified by the register's own full description on
@@ -190,7 +191,33 @@ SD_PLACEMENT <- tibble::tribble(
   "27RHT00050",     "UNPLACED", "Northern Hills Training Center: 'purchase equipment'. No round named.",
   "27RHT00052",     "UNPLACED", "SD Urban Indian Health: 'implement chronic disease management activities'. No round named; its 2026-09 contract 27RHT00015 is a separate award.",
   "27RHT00053",     "UNPLACED", "Highland Hills LLC: 'fund a western South Dakota Regional Innovation Center'. KB0047023 names Regional Innovation Centers (DSU's 27RHT00039 is the same shape); the register does not name the round.",
-  "27RHT00054",     "UNPLACED", "Center for Family Medicine: 'purchase equipment and train employees on technology'. No round named."
+  "27RHT00054",     "UNPLACED", "Center for Family Medicine: 'purchase equipment and train employees on technology'. No round named.",
+  # SESSION 112: THE 2026-11-02 RE-READ. 53 -> 63 contracts, +$3,970,367 new,
+  # and one AMENDMENT (26RHT00003, see SD_AMENDMENTS): $37,039,799 ->
+  # $41,291,166. None is a Rural Strong grant (the 'Rural Strong' search is
+  # unchanged at 18) and none names a round, so all ten are UNPLACED.
+  "27RHT00055",     "UNPLACED", "Avera McKennan Cancer Inst: 'To implement the Avera Maternal Health Hub & eOB Network as part of the Rural Health Transformation Project.' The same hub as Avera McKennan (Milbank)'s 27RHT00038. No round named.",
+  "27RHT00056",     "UNPLACED", "Great Plains Tribal Leaders: 'To implement the Avera Maternal Health Hub & eOB Network as part of the Rural Health Transformation Project.' No round named.",
+  "27RHT00057",     "UNPLACED", "Chamberlain Sanford Health: 'implement chronic disease management activities' -- the wording of the 00035/00036/00040/00043/00052 contracts. No round named.",
+  "27RHT00058",     "UNPLACED", "Madison Community Hospital: 'implement chronic disease management activities'. No round named.",
+  "27RHT00059",     "UNPLACED", "Huron Regional Medical Center: 'implement chronic disease management activities'. No round named; Huron's 27RHT00092 is a separate award.",
+  "27RHT00060",     "UNPLACED", "Faulkton Area Schools 24-4: 'implement chronic disease management activities' ($1,372). No round named.",
+  "27RHT00061",     "UNPLACED", "Hometown Family Health PLLC (Plankinton): 'implement chronic disease management activities'. No round named.",
+  "27RHT00062",     "UNPLACED", "Winner Regional Healthcare Ctr: 'implement chronic disease management activities'. No round named.",
+  "27RHT00063",     "UNPLACED", "Webster Sanford Health: 'implement chronic disease management activities'. No round named.",
+  "27RHT00092",     "UNPLACED", "Huron Regional Medical Center: 'fund EHR enhancements and cyber security infrastructure' -- Lakeside Pain Center's 27RHT00044 wording. Reads like the $90M round's EHR modernisation; the register does not name the round."
+)
+
+# AMENDMENTS READ BY A HUMAN (session 112). A contract whose amount moved
+# between archives fails the build unless it is listed here with the two
+# figures and the re-read detail page. 26RHT00003 (Business Concepts & Apps,
+# DSS project management, an ADMINISTRATIVE contract, RFP 26-08RHT-010) was
+# $250,000 on every archive to 2026-10-12 and is $531,000 on 2026-11-02; the
+# vendor, description and RFP number are unchanged on the re-read detail page.
+# The register publishes no amendment document; the latest figure is carried.
+SD_AMENDMENTS <- tibble::tribble(
+  ~contract_number, ~amount_prior, ~amount_latest, ~detail_reread,
+  "26RHT00003",     250000,        531000,         "contract_details/26RHT00003_reread_2026-11-02.html"
 )
 
 # HAND-READ CMS ENROLMENT BRIDGES (session 99). The register TRUNCATES vendor
@@ -210,8 +237,30 @@ SD_ENROLMENT_BRIDGES <- tibble::tribble(
   ~contract_number, ~awardee,                         ~cms_org,                                  ~cms_city,     ~bridge,
   "27RHT00048",     "MONUMENT HEALTH RAPID CITY HOS", "MONUMENT HEALTH RAPID CITY HOSPITAL INC", "RAPID CITY",  "LEGAL_NAME_TRUNCATED",
   "27RHT00051",     "AVERA HEART HOSPITAL OF SD LLC", "HEART HOSPITAL OF SOUTH DAKOTA LLC",      "SIOUX FALLS", "DBA_OF_LEGAL_ENTITY",
-  "27RHT00043",     "PRAIRIE LAKES HEALTH CARE SYST", "PRAIRIE LAKES HEALTH CARE SYSTEM INC",    "WATERTOWN",   "LEGAL_NAME_TRUNCATED"
+  "27RHT00043",     "PRAIRIE LAKES HEALTH CARE SYST", "PRAIRIE LAKES HEALTH CARE SYSTEM INC",    "WATERTOWN",   "LEGAL_NAME_TRUNCATED",
+  # SESSION 112, hand-read the same way (each answered by exactly one
+  # six-digit enrolment in the vendor's own city; swing-bed 43Z rows dropped):
+  #   * Winner: the 30-character truncation of the enrolled legal name.
+  #   * Chamberlain / Webster: the register's string is the TOWN plus the
+  #     system name; the one enrolled hospital in each town is SANFORD HEALTH
+  #     NETWORK dba SANFORD <TOWN> MEDICAL CENTER (Avera Heart's shape).
+  #   * Avera McKennan Cancer Inst: the enrolled legal name AVERA MCKENNAN
+  #     plus a unit name, in Sioux Falls (CCN 430016). A sub-unit named WITH
+  #     its legal entity, unlike WVU Eye Institute (named without it).
+  #   Huron Regional Medical Center (x2) is NOT bridged: the name rule already
+  #   types it a hospital (MEDIUM); CMS carries HURON REGIONAL MEDICAL CENTER
+  #   INC, CCN 431335, which Stage 5's CCN match should attach.
+  "27RHT00062",     "WINNER REGIONAL HEALTHCARE CTR", "WINNER REGIONAL HEALTHCARE CENTER",       "WINNER",      "LEGAL_NAME_TRUNCATED",
+  "27RHT00057",     "CHAMBERLAIN SANFORD HEALTH",     "SANFORD HEALTH NETWORK",                  "CHAMBERLAIN", "DBA_OF_LEGAL_ENTITY",
+  "27RHT00063",     "WEBSTER SANFORD HEALTH",         "SANFORD HEALTH NETWORK",                  "WEBSTER",     "DBA_OF_LEGAL_ENTITY",
+  "27RHT00055",     "AVERA MCKENNAN CANCER INST",     "AVERA MCKENNAN",                          "SIOUX FALLS", "DBA_OF_LEGAL_ENTITY"
 )
+# What each session-112 bridge read, in place of session 99's truncation sentence.
+SD_BRIDGE_READING <- c(
+  "27RHT00062" = "the register truncates vendor names at 30 characters",
+  "27RHT00057" = "the register prints the town and the system name, not the enrolled DBA; the only enrolled hospital in Chamberlain is Sanford's",
+  "27RHT00063" = "the register prints the town and the system name, not the enrolled DBA; the only enrolled hospital in Webster is Sanford's",
+  "27RHT00055" = "the register prints the enrolled legal name AVERA MCKENNAN plus a unit name (a sub-unit named WITH its legal entity); the only non-swing-bed enrolment of AVERA MCKENNAN in Sioux Falls")
 SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
 
 # Health-system PARENTS, typed by hand on the owner's resolution of
@@ -243,7 +292,8 @@ SD_TD_ROUND_AMOUNT <- 90000000
 SD_OUTSIDE_SERIES <- tibble::tribble(
   ~contract_number, ~awardee,                         ~amount, ~what,
   "27SC091800",     "SD FOUNDATION FOR MEDICAL CARE", 150000,  "grant, begun 2026-05-01, CFDA 93.798; description is DOH's generic Rural Health Transformation paragraph -- RHTP money outside the series, a candidate for extraction",
-  "26SC090058",     "BLACK HILLS SPECIAL SERVICES",   45000,   "contract, begun 2025-09-22 -- BEFORE the 2025-12-29 Notice of Award -- Professional Services under $50K; 'grant writing support for the Rural Health Transformation Program funding opportunity': APPLICATION support, not an award of RHTP money (§6.2 date test)"
+  "26SC090058",     "BLACK HILLS SPECIAL SERVICES",   45000,   "contract, begun 2025-09-22 -- BEFORE the 2025-12-29 Notice of Award -- Professional Services under $50K; 'grant writing support for the Rural Health Transformation Program funding opportunity': APPLICATION support, not an award of RHTP money (§6.2 date test)",
+  "CT015408",       "PARAUX LLC",                     20500,   "contract, begun 2026-10-01, Professional Services under $50K, first seen 2026-11-02 (session 112): 'build out the consultation platform and website and provide hosting and maintenance for the maternal mental health and substance use expansion of the rural health transformation work'. A VENDOR, not a hospital; outside the series, recorded not extracted"
 )
 
 # What South Dakota has ANNOUNCED. Held here so the reconciliation can name
@@ -660,7 +710,13 @@ rhtp_sd_search_rows <- function(dir = here::here(SD_EVIDENCE_DIR)) {
       dplyr::inner_join(latest, by = "contract_number",
                         suffix = c("_prior", "_latest")) %>%
       dplyr::filter(.data$amount_prior != .data$amount_latest |
-                      .data$awardee_prior != .data$awardee_latest)
+                      .data$awardee_prior != .data$awardee_latest) %>%
+      # Session 112: an amendment a human read (SD_AMENDMENTS) passes only on
+      # its exact two figures and an unchanged vendor.
+      dplyr::filter(!(paste(.data$contract_number, .data$amount_prior, .data$amount_latest) %in%
+                        paste(SD_AMENDMENTS$contract_number, SD_AMENDMENTS$amount_prior,
+                              SD_AMENDMENTS$amount_latest) &
+                        .data$awardee_prior == .data$awardee_latest))
     if (nrow(moved)) {
       stop("[SD] contract(s) changed amount or vendor between archives: ",
            paste(moved$contract_number, collapse = ", "),
@@ -836,7 +892,9 @@ rhtp_sd_build <- function() {
     classified$ccn[i] <- raw[["CCN"]][rec]
     classified$recipient_type_source[i] <- paste0(
       rec_txt, ". HAND-READ BRIDGE (", SD_ENROLMENT_BRIDGES$bridge[k],
-      ", session 99): the register truncates vendor names at 30 characters and ",
+      if (SD_ENROLMENT_BRIDGES$contract_number[k] %in% names(SD_BRIDGE_READING))
+        paste0(", session 112): ", SD_BRIDGE_READING[[SD_ENROLMENT_BRIDGES$contract_number[k]]], ", and it ")
+      else ", session 99): the register truncates vendor names at 30 characters and ",
       "prints '", classified$awardee[i], "'. Machine answer on the name: ",
       classified$recipient_type[i], "/", classified$determination_confidence[i], "."
     )

@@ -433,3 +433,46 @@ test_that("the committed CSV matches what the extractor builds", {
   expect_true(all(nzchar(on_disk$state_source_url)))
   expect_true(all(nzchar(on_disk$source_document_title)))
 })
+
+
+test_that("session 112: the moved roster is read from its dropdown index and fragments", {
+  idx <- ok_xf_index(here::here(OK_XF_INDEX_FILE))
+  expect_equal(nrow(idx), 29L)
+  expect_false(anyNA(idx$slug))
+  expect_true(all(file.exists(here::here(OK_XF_FRAGMENT_DIR, paste0(idx$slug, ".html")))))
+  # The five extracted rosters are still on it, at the extracted figures.
+  amt <- function(slug) {
+    t <- rhtp_watch_reduce(here::here(OK_XF_FRAGMENT_DIR, paste0(slug, ".html")))
+    a <- stringr::str_extract_all(t, "\\$[0-9][0-9,]*[0-9](\\.[0-9]{2})?")[[1]]
+    sum(as.numeric(gsub("[$,]", "", a)))
+  }
+  expect_equal(amt("chronic-disease-management-program"), 15608845.22)
+  expect_equal(amt("rural-regional-reorientation--rrr--program"), 40078521.82)
+  expect_equal(amt("expanding-care--doulasprogram"), 647967.83)
+  expect_equal(amt("behavioral-health-integration"), 1228012.70)
+  # Archived bytes served back: nothing fires.
+  served <- function(url) {
+    if (grepl("xfdisplay.json", url, fixed = TRUE)) {
+      return(readBin(here::here(OK_XF_INDEX_FILE), "raw", file.size(here::here(OK_XF_INDEX_FILE))))
+    }
+    slug <- stringr::str_match(url, "/rhtp-funding-recipients/([^/]+)/jcr:content")[, 2]
+    f <- here::here(OK_XF_FRAGMENT_DIR, paste0(slug, ".html"))
+    readBin(f, "raw", file.size(f))
+  }
+  quiet <- ok_xf_findings(fetch = served)
+  expect_length(quiet$findings, 0L)
+  expect_false(any(quiet$changed))
+  # A fragment that names somebody new, at a new figure, fires.
+  moved <- function(url) {
+    r <- served(url)
+    if (grepl("ehr-expansion", url, fixed = TRUE)) {
+      r <- charToRaw(sub("Recipients have not yet been selected.",
+                         "Acme Regional Hospital, $250,000.00.", rawToChar(r), fixed = TRUE))
+    }
+    r
+  }
+  fired <- ok_xf_findings(fetch = moved)
+  expect_length(fired$findings, 1L)
+  expect_match(fired$findings, "EHR Expansion", fixed = TRUE)
+  expect_match(fired$findings, "$250,000.00", fixed = TRUE)
+})

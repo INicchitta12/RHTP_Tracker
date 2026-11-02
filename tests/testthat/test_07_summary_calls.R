@@ -74,10 +74,15 @@ test_that("the summary layer does not move the strict partition", {
   # Providence Medical Foundation, +$62,000 UVA Health). Nothing else moved.
   # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
   # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1835L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1731421723.08)
-  expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86555171.43)
-  expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 69323109.17)
+  # Session 112: the strict files moved, not the summary layer: TX +1, SD +7,
+  # PA +31 (Guthrie now on PA's state source), MI +19, CO re-priced, OK Lung
+  # Cancer Screening +9, UT +6 (a new state): 1,908 / $1,761,827,518.82 / 37.
+  # POOL_NAMED + OK's two SSM affiliate lines ($340,608); POOL_UNNAMED + UT's
+  # Utah Hospital Association ($9,891,739).
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1908L)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1761827518.82)
+  expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
+  expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.
   p2 <- rhtp_hospital_dollar_partition(rhtp_strip_summary_calls(u))
   expect_equal(p, p2)
@@ -118,11 +123,15 @@ test_that("every OPEN queue question is placed, and the pools are counted once",
   expect_silent(sc_assert_queue_covered())
   p <- readr::read_csv(here::here(SC_POOLS_CSV), show_col_types = FALSE)
   expect_true(all(p$call %in% RHTP_SUMMARY_CALL_VALUES))
-  # Session 111 (rulings b, d): pools are called on typed members; OH's two
-  # are NOT, Indiana Region 5's tie goes to its lead (a hospital).
-  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 38835000)
+  # Session 111 (ruling b): pools are called on typed members; OH's two are
+  # NOT. Session 112 (ruling a): a tie is not a majority, so Indiana
+  # Region 5 (8 of 16) is NOT_HOSPITAL.
+  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 22135000)
   expect_setequal(p$pool_id[p$call == "HOSPITAL"],
-                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "IN_GROW_REGION_5"))
+                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING"))
+  expect_equal(p$call[p$pool_id == "IN_GROW_REGION_5"], "NOT_HOSPITAL")
+  expect_true(all((p$hospital_members * 2 > p$members) == (p$call == "HOSPITAL")))
+  expect_false(exists("SC_POOL_TIEBREAKS"))
 })
 
 test_that("the session 111 summary rulings hold", {

@@ -1,0 +1,2 @@
+# Session 112 end-of-BP1 lead sweep, fetched 2026-11-02 by curl, agent 'Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)'. Archived as a LEAD; nothing extracted.
+864908351718cffb0bd2720882452e60f754724a827334d4d020c50cf3f94cd8  2026-11-02_id_governor_2026-10-28_year1_awardees_release.html  https://gov.idaho.gov/pressrelease/gov-little-announces-awardees-of-year-1-rural-health-transformation-program-funds/ (DHW list still "as of Oct. 16", xlsx docid 37915 byte-identical to recheck/2026-10-26/ID)

@@ -309,6 +309,11 @@ STATE_FILES <- c(
   # hospital rows at $0, Nevada's shape -- read the row count).
   OK_BHI = "data/reference/ok_year1_bhi_awardees.csv",
   OK_EMS_CP = "data/reference/ok_year1_ems_cp_awardees.csv",
+  OK_LUNG = "data/reference/ok_year1_lung_screening_awardees.csv",
+  OK_TELESTROKE = "data/reference/ok_year1_telestroke_awardees.csv",
+  OK_CLOSED_LOOP = "data/reference/ok_year1_closed_loop_awardees.csv",
+  OK_GYO = "data/reference/ok_year1_grow_your_own_awardees.csv",
+  OK_TRANSPORT = "data/reference/ok_year1_transportation_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
@@ -343,7 +348,9 @@ STATE_FILES <- c(
   # separate files so a rebuild of either state's own award file can never
   # wipe them, and never mixes a notice of award with an obligation line.
   NE_CMS = "data/reference/ne_cms_obligation_awardees.csv",
-  PA_CMS = "data/reference/pa_cms_obligation_awardees.csv",
+  # PA_CMS dropped session 112: its only line (The Guthrie Clinic, $2,963,577) is
+  # now on DHS's own Selected Projects page and is counted once, in PA (R/03cb
+  # OB_SUPERSEDED_BY_STATE); pa_cms_obligation_awardees.csv is header-only.
   RI = "data/reference/ri_year1_awardees.csv",
   # HAWAII (session 101): three RVBI Notices of Award named on SHPDA's page,
   # NO amounts (they are in HANDS, 403 here). The Healthcare Association of
@@ -354,7 +361,14 @@ STATE_FILES <- c(
   # list, 312 application lines. `amount` is the Year 1 subset; the
   # multi-year total sits in total_award_amount and must never be summed with
   # it. 97 lines are executed contracts, 215 intents (AMOUNT_PRELIMINARY).
-  TX = "data/reference/tx_year1_awardees.csv"
+  TX = "data/reference/tx_year1_awardees.csv",
+  # UTAH (session 112): DHHS's RHTP Awardee Announcement (R/03cn), 41 INTENT
+  # rows, $193,095,906.92; UHA's $9,891,739 R&R line is POOL_UNNAMED_HOSPITALS.
+  UT = "data/reference/ut_year1_awardees.csv",
+  # MINNESOTA (session 112): MDH's Sub-Recipient Awardees (R/03cp), 11 rows,
+  # $12,453,451 ("$12.5 million"); no hospital. Direct-allocation grants to
+  # CAHs and others "will be announced in the coming days".
+  MN = "data/reference/mn_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -382,13 +396,13 @@ test_that("every state file exists and is non-empty", {
   }
 })
 
-test_that("all thirty-seven files carry the leading 19 columns, in the same order", {
+test_that("all the state files carry the leading 19 columns, in the same order", {
   for (st in names(state_tables)) {
     expect_equal(names(state_tables[[st]])[1:19], LEADING_COLUMNS, info = st)
   }
 })
 
-test_that("the thirty-eight files union without a coercion failure", {
+test_that("the state files union without a coercion failure", {
   u <- dplyr::bind_rows(lapply(state_tables, function(d) {
     d %>%
       dplyr::select(dplyr::all_of(LEADING_COLUMNS)) %>%
@@ -397,8 +411,8 @@ test_that("the thirty-eight files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
-                 "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
-                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "VA", "VT", "WA",
+                 "KS", "KY", "LA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
+                 "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA",
                  "WV", "WY"))
 })
 
@@ -518,8 +532,8 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # by owner ruling, on CMS obligation lines (CMS_OBLIGATION_ASSOCIATION).
   # Session 101: + Hawaii's Healthcare Association of Hawaii, a row at $0
   # (its amount is in HANDS, 403), on the owner's instruction.
-  expect_equal(sort(unique(pooled$state)), c("HI", "IL", "NE", "RI"))
-  expect_equal(round(sum(pooled$dollars), 2), 69323109.17)
+  expect_equal(sort(unique(pooled$state)), c("HI", "IL", "NE", "RI", "UT"))
+  expect_equal(round(sum(pooled$dollars), 2), 79214848.17)
   expect_equal(pooled$dollars[pooled$state == "IL"], 50008264)
 
   # And Illinois contributes NOTHING to the named-hospital figure.
@@ -544,7 +558,7 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # Tappahannock Hospitals" is ONE $1,000,000 Provider Productivity award to a
   # system and two separately enrolled hospitals (CCN 490098, 490084), no split
   # -- Connecticut's shape exactly, Tier 3.
-  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "VA"))
+  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "OK", "VA"))
   expect_equal(pooled_named$dollars[pooled_named$state == "OH"], 30300000)
   expect_equal(pooled_named$dollars[pooled_named$state == "VA"], 1000000)
   # SESSION 102: + NRHP's RHOAP-18 and RHIT-19 on the owner's extension

@@ -95,8 +95,10 @@ test_that("no obligation table is an award file, and the layers never carry a bu
   # report's own tables (lines, matches, leads, decision lists) never are.
   refs <- unlist(stringr::str_extract_all(src, "data/reference/[a-z0-9_]+\\.csv"))
   obl <- unique(refs[grepl("cms_obligation", refs)])
-  expect_setequal(obl, c("data/reference/ne_cms_obligation_awardees.csv",
-                         "data/reference/pa_cms_obligation_awardees.csv"))
+  # Session 112: PA_CMS left STATE_FILES (Guthrie is on PA's own Selected
+  # Projects list; pa_cms_obligation_awardees.csv is header-only), so NE's is
+  # the only obligation file left in it.
+  expect_setequal(obl, "data/reference/ne_cms_obligation_awardees.csv")
   expect_false(any(grepl("cms_obligations?_(bp1|name|hospital|gap)", src)))
   pur <- ref("cms_obligation_hospital_purpose.csv")
   expect_true(all(pur$layer == "LEAD_ONLY_NEVER_IN_A_BUCKET"))

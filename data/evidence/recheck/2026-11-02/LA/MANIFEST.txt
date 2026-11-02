@@ -1,0 +1,5 @@
+LOUISIANA -- session 112, 2026-11-02, honest agent. https://ldh.la.gov/page/rural-health-transformation-program
+Carries: 'All RHTP Budget Year 1 award notifications have been completed as of October 30, 2026 . Contract execution will be completed in November 2026 . RHTP Budget Year 2 anticipated funding announcements - January 2027 .' Names no recipient; no new document links vs the LA archive.
+
+file  bytes  sha256
+2026-11-02_la_ldh_rhtp_programme_YEAR1_NOTIFICATIONS_COMPLETE.html  172321  919731bc5dbe4541fd2de5e721a11e93bb4572fdaeab1b158ce4d4cd3af512b0

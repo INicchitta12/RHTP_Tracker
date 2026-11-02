@@ -34,6 +34,22 @@
 #   * programme -- name-diffed; same award-sentence diff.
 # MDH's press index is already on R/03bg's newsroom sweep and is not repeated.
 #
+# SESSION 112: RE-BASED AFTER READING THE 2026-10-30 TRIP. MDH's grants page
+# (Last Updated 10/27/2026) now says "The Minnesota Department of Health has
+# awarded $12.5 million in Rural Health Transformation Program funding to the
+# following sole-source and competitive grant program recipients" and links
+# nine "RHTP Sub-Recipient Awardees" PDFs -- ten organisations, eleven priced
+# lines, $12,453,451, NO HOSPITAL -- extracted by R/03cp into
+# mn_year1_awardees.csv. The trip's other new sentence was the Rural Maternity
+# Care System RFP block (closed; questions due 2026-08-31): Tier 2, read.
+# The `grants` baseline is now the 2026-11-02 archive, so those sentences cost
+# nothing, and two checks were ADDED rather than anything silenced:
+#   * the page must still say the direct-allocation grants "will be announced
+#     in the coming days" -- the sentence's disappearance is the most likely
+#     shape of the hospital announcement, and it TRIPS;
+#   * the awardee PDF titles must still be the nine R/03cp read; a tenth, or a
+#     changed one, is a new award (R/03cp --validate also checks the links).
+#
 # Usage: Rscript R/03bn_mn_year1_probe.R --fetch | --validate | --probe
 
 suppressPackageStartupMessages({ library(dplyr); library(stringr) })
@@ -48,7 +64,7 @@ MN_BASE <- "https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/"
 MN_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "grants", paste0(MN_BASE, "grants.html"),
-  file.path(MN_DIR, "2026-09-28_mdh_rhtp_grants.html"), TRUE,
+  file.path(MN_DIR, "2026-11-02_mdh_rhtp_grants.html"), TRUE,
   "programme", paste0(MN_BASE, "index.html"),
   file.path(MN_DIR, "2026-09-28_mdh_rhtp_programme.html"), TRUE)
 
@@ -58,6 +74,20 @@ MN_PAGES <- tibble::tribble(
 MN_TABLE <- paste0("Hospitals70%ofMN'sRHTPAward94FQHCs5%ofMN'sRHTPAward5",
                    "CCBHCs/CMHCs2%ofMN'sRHTPAward16TribalNations2%ofMN's",
                    "RHTPAward10")
+# Session 112: the direct-allocation (hospital) announcement is pending in
+# these words; when they go, Minnesota's hospital money has been announced.
+MN_PENDING_SENTENCE <- paste0("through direct allocation grant will be announced ",
+                              "in the coming days")
+# The nine awardee PDFs' link titles, in page order (R/03cp's MNA_PDFS$link).
+MN_AWARDEE_LINKS <- paste0(
+  "RHTP Sub-Recipient Awardees Technical Assistance for Healthcare Providers on ",
+  "Health Information Technology (PDF) Rural Ambulance Treatment in Place (PDF) ",
+  "Earn and Train Pathways (PDF) Health Information Technology Advisory Services ",
+  "(PDF) Identifying Performance Measures for RHTP Information Technology ",
+  "Investments (PDF) Medication for Opioid Use Disorder Education Development ",
+  "Council (PDF) Project Echo for Maternal and Behavioral Health (PDF) K-12 ",
+  "Healthcare Career Exposure and Earn & Train Pathways (PDF) RHTP Evaluation ",
+  "(PDF) Sub-Recipient Public-facing Materials Guidelines")
 MN_AWARD_WORDS <- paste0("\\baward(s|ed|ee|ees)?\\b|\\b(sub)?recipients?\\b|",
                          "\\bselected\\b|\\b(sub)?grantees?\\b")
 
@@ -70,7 +100,20 @@ mn_assert_watch <- function(live, arch) {
          "the 94 are ELIGIBLE, not awarded, until MDH says otherwise (§0.3).",
          call. = FALSE)
   }
-  why <- paste("MDH has named no RHTP grantee. The 94 eligible hospitals are",
+  if (!grepl(MN_PENDING_SENTENCE, live$grants, fixed = TRUE)) {
+    stop("[MN] 'grants' NO LONGER SAYS the direct-allocation grants \"will be ",
+         "announced in the coming days\". MDH may have announced its hospital, ",
+         "FQHC, Tribal and CCBHC/CMHC grants -- Minnesota's hospital money. Read ",
+         "the page and extract (R/03cp); never re-base unread.", call. = FALSE)
+  }
+  if (!grepl(gsub("\\s+", "", MN_AWARDEE_LINKS), gsub("\\s+", "", live$grants),
+             fixed = TRUE)) {
+    stop("[MN] 'grants' NO LONGER LISTS the nine RHTP Sub-Recipient Awardee PDFs ",
+         "R/03cp read, in order. A new or changed title is a new award: read it ",
+         "and update R/03cp.", call. = FALSE)
+  }
+  why <- paste("MDH has named no RHTP grantee beyond the nine sub-recipient",
+               "awardee PDFs R/03cp extracted. The 94 eligible hospitals are",
                "a class, not a roster (§0.3); read what the page now names.")
   for (k in c("grants", "programme")) {
     rhtp_watch_forbid_new(live[[k]], arch[[k]], MN_AWARD_WORDS, MN_STATE, k, why)
@@ -94,8 +137,12 @@ mn_validate <- function() {
                   arch$grants, fixed = TRUE),
             grepl("formula-based, non-competitive grants", arch$grants,
                   fixed = TRUE))
-  message("[MN] the archive carries the 94-hospital allocation table and no ",
-          "award sentence; nothing open, nobody named.")
+  stopifnot(grepl(paste0("The Minnesota Department of Health has awarded $12.5 ",
+                         "million in Rural Health Transformation Program funding"),
+                  arch$grants, fixed = TRUE))
+  message("[MN] the archive carries the 94-hospital allocation table, the nine ",
+          "sub-recipient awardee PDFs (R/03cp) and the pending direct-allocation ",
+          "announcement; no hospital named.")
   invisible(TRUE)
 }
 

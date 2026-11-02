@@ -151,7 +151,21 @@
 # which is §10.2's association row and NOT a hospital, and is the single
 # largest classification trap in the file. See `MI_RECIPIENT_TYPE_OVERRIDES`.
 #
+# SESSION 112: THE ROSTER GREW AGAIN AND, FOR THE FIRST TIME, SHRANK. MDHHS's
+# page now reads "Award notices as of October 1, 2026": 231 award actions,
+# $161,740,847 (93.4% of the allotment). Against the 145-row file it ADDS 93
+# rows ($63,022,410) and DROPS 7 ($2,600,000): five AHEC regional centres and a
+# Community Mental Health Association of Michigan award reappear under new
+# labels at the same initiative, fund and amount, and Saginaw County Health
+# Department's $100,000 moved initiative and fund. Michigan claims the page is
+# complete, so the dropped rows leave the file (MI_S112_DROPPED, pinned), the
+# rows after them move up, and session 49's index-keyed overlay was re-keyed
+# to match (`--rekey-overlay`). The 93 additions are typed through the shared
+# classifier, then MI_S112_TYPINGS (CMS MI enrolment, system parents, hospital
+# foundations), then session 49's verified answer for the same string.
+#
 # CLI:
+#   Rscript R/03v_mi_year1_awardees.R --rekey-overlay   # session 112, idempotent
 #   Rscript R/03v_mi_year1_awardees.R --fetch [--force]
 #   Rscript R/03v_mi_year1_awardees.R --validate
 #   Rscript R/03v_mi_year1_awardees.R --build
@@ -203,7 +217,9 @@ MI_STATED <- list(
   award_release_amount = 173128201,
   # SESSION 64: the roster re-dated itself. The 2026-09-01 archive read "Award
   # notices as of July 10, 2026"; the 2026-09-24 one reads "August 31, 2026".
-  roster_as_of        = as.Date("2026-08-31"),
+  # SESSION 112: the 2026-11-02 archive reads "October 1, 2026".
+  roster_as_of        = as.Date("2026-10-01"),
+  roster_0924_as_of   = as.Date("2026-08-31"),
   roster_prior_as_of  = as.Date("2026-07-10"),
   noa_announced       = as.Date("2025-12-30"),
   workforce_gfo_date  = as.Date("2026-07-08"),
@@ -227,7 +243,8 @@ MI_SECTIONS <- c(
 
 # MDHHS's own completeness claim, and the contingency on every amount.
 MI_COMPLETENESS_SENTENCE <- "MDHHS maintains a dedicated webpage featuring all RHTP Subrecipients"
-MI_ROSTER_ASOF_SENTENCE  <- "Award notices as of August 31, 2026"
+MI_ROSTER_ASOF_SENTENCE  <- "Award notices as of October 1, 2026"
+MI_ROSTER_0924_ASOF_SENTENCE <- "Award notices as of August 31, 2026"
 MI_ROSTER_PRIOR_ASOF_SENTENCE <- "Award notices as of July 10, 2026"
 MI_CONTINGENCY_SENTENCE  <- paste(
   "Award amount is contingent upon review by Centers for Medicare & Medicaid",
@@ -251,6 +268,12 @@ MI_NON_RHTP_SENTENCE <- "New opioid settlement-funded grants support 12 organiza
 MI_NON_RHTP_ABSENT   <- c("Rural Health Transformation", "RHTP")
 
 MI_FORM_NOT_STATED_QUESTION <- "MI_RECIPIENT_FORM_NOT_STATED"
+# The count the queue row states (the 145-row roster of "August 31, 2026").
+MI_FORM_NOT_STATED_QUEUED_N <- 84L
+# Named-hospital award actions AS BUILT, before sessions 49 and 71's overlays
+# (session 112: 1 prior + the added rows typed hospital in MI_S112_TYPINGS
+# or by the shared classifier).
+MI_S112_NAMED_BUILT <- 17L
 
 
 # -- sources ------------------------------------------------------------------
@@ -260,8 +283,16 @@ MI_RHTP <- paste0(MI_BASE, "/mdhhs/assistance-programs/medicaid/rural-health-tra
 
 MI_SOURCES <- tibble::tribble(
   ~key, ~file, ~url, ~agent,
-  # THE ROSTER. Five tables, 145 named awards WITH amounts (session 64).
-  "roster", "2026-09-24_mi_rhtp_subrecipients.html",
+  # THE ROSTER. Five tables, 231 named awards WITH amounts (session 112,
+  # "Award notices as of October 1, 2026"). A byte-for-byte copy of
+  # data/evidence/recheck/2026-11-02/MI/ (same digest), not a second fetch.
+  "roster", "2026-11-02_mi_rhtp_subrecipients.html",
+  paste0(MI_RHTP, "/rhtp-subrecipients"), "MICHIGAN_GOV",
+  # THE 2026-09-24 ROSTER, KEPT (sessions 64-111: 145 rows, "as of August 31,
+  # 2026"). ARCHIVE-ONLY. With roster_prior it fixes the file's row order for
+  # the rows still on the page, and it is what session 112's additions and
+  # removals are measured against.
+  "roster_0924", "2026-09-24_mi_rhtp_subrecipients.html",
   paste0(MI_RHTP, "/rhtp-subrecipients"), "MICHIGAN_GOV",
   # THE PRIOR ROSTER, KEPT. The 139-row page the file was first built from
   # (sessions 27-63). It fixes the ROW ORDER of the file -- session 49's
@@ -354,7 +385,7 @@ mi_get <- function(key) {
 }
 
 # Sources that are kept as history and must never be overwritten by a fetch.
-MI_ARCHIVE_ONLY <- c("roster_prior")
+MI_ARCHIVE_ONLY <- c("roster_prior", "roster_0924")
 
 mi_fetch <- function(force = FALSE) {
   dir.create(MI_EVIDENCE_DIR, recursive = TRUE, showWarnings = FALSE)
@@ -386,9 +417,10 @@ mi_fetch <- function(force = FALSE) {
 mi_write_manifest <- function(entries) {
   path <- file.path(MI_EVIDENCE_DIR, "MANIFEST.txt")
   writeLines(c(
-    "Michigan -- RHTP Year 1: MDHHS's RHTP Subrecipients roster (145 named",
-    "awards WITH amounts, 2026-09-24) and the PRIOR 139-row roster it grew",
-    "from (2026-09-01), the programme page carrying its completeness claim,",
+    "Michigan -- RHTP Year 1: MDHHS's RHTP Subrecipients roster (231 named",
+    "awards WITH amounts, 2026-11-02, 'as of October 1, 2026'), the 145-row",
+    "roster it replaced (2026-09-24) and the 139-row roster before that",
+    "(2026-09-01), the programme page carrying its completeness claim,",
     "the 2025-12-30 award release, a post-NOA solicitation, MHA's own RHTP",
     "page, CMS's 50-state spotlights, and the §6.2 NEGATIVE CONTROL.",
     "Archived by R/03v_mi_year1_awardees.R --fetch",
@@ -415,7 +447,18 @@ mi_write_manifest <- function(entries) {
     "`mi_agent_for()` refuses to use it on any other host, so the exception",
     "cannot quietly spread. mha.org and cms.gov take the honest agent.",
     "",
-    "THE ROSTER IS `2026-09-24_mi_rhtp_subrecipients.html`. Five accordion",
+    "SESSION 112: THE ROSTER IS `2026-11-02_mi_rhtp_subrecipients.html`, a",
+    "byte-for-byte copy of data/evidence/recheck/2026-11-02/MI/ (same digest;",
+    "fetched with the bare michigan.gov agent). 26 + 78 + 72 + 42 + 13 = 231",
+    "award actions, $161,740,847, 'Award notices as of October 1, 2026'.",
+    "Against the 145-row roster below it ADDS 93 rows and DROPS 7 (exact",
+    "initiative + name + amount + fund); five AHEC regional centres and one",
+    "Community Mental Health Association row reappear under new labels at the",
+    "same initiative, fund and amount, and Saginaw County Health Department's",
+    "$100,000 moved initiative and fund. The file follows the page: dropped",
+    "rows leave, because MDHHS claims the page is complete.",
+    "",
+    "THE 2026-09-24 ROSTER IS `2026-09-24_mi_rhtp_subrecipients.html`. Five accordion",
     "sections, one per initiative, each a Subrecipient Organization / Award",
     "Amount* / Fund table: 23 + 71 + 21 + 17 + 13 = 145 award actions and",
     "$101,318,437, 'Award notices as of August 31, 2026'. It is a byte-for-byte",
@@ -679,9 +722,17 @@ MI_RECIPIENT_TYPE_OVERRIDES <- tibble::tribble(
   paste("MDHHS's parenthetical is the PROJECT, not the recipient's form; the",
         "§8 activity token would type the recipient EMS_OR_PSAP, which is",
         "§0.3a's error. Form not stated by the source -> §8 fallback."),
-  "Northern Lower Regional Center (MidMichigan Health Services)", "NONPROFIT_CBO", "LOW",
-  paste("An AHEC regional centre named for its host organisation. The",
-        "parenthetical is the host, not the recipient's form."),
+  # SESSION 112: "Northern Lower Regional Center (MidMichigan Health Services)"
+  # left the roster; MDHHS now prints "Area Health Education Center (AHEC):
+  # Northern Lower Regional Center" at the same fund and amount, which states
+  # the form (AHEC) and needs no override.
+  # SESSION 112: MDHHS's 10-01 roster adds a third MHA spelling with no
+  # "(MHA)" suffix. Same association, same trap, same override.
+  "Michigan Health and Hospital Association", "HOSPITAL_AFFILIATED_ENTITY", "HIGH",
+  paste("Michigan's hospital trade association, not a hospital (the same body",
+        "as 'Michigan Health and Hospital Association (MHA)'). The §8 name rule",
+        "would return HOSPITAL_OR_SYSTEM -> DIRECT -> Yes; typed",
+        "HOSPITAL_AFFILIATED_ENTITY so the flow must read the source (MI_MHA_FLOW)."),
   # SESSION 64: two of MDHHS's six 2026-08-31 additions are STATE AGENCIES
   # receiving RHTP money as SUBRECIPIENTS -- an interagency allocation, not the
   # grantor (MDHHS is the grantor and is on no row). The §8 name rule gets the
@@ -751,45 +802,284 @@ mi_recipient_type <- function(awardee, award_fund) {
 }
 
 
+# -- session 112: the 93 rows MDHHS added "as of October 1, 2026" ---------------
+#
+# Every added row goes through the shared classifier first (mi_recipient_type()
+# above). The rows below are the ones that classifier cannot settle on its own,
+# each typed on CMS's Michigan Hospital Enrollments extract
+# (data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MI.json) or on
+# §7's system-parent and foundation rules. Keyed on the EXACT awardee string,
+# applied to session-112 additions ONLY, and `n` (rows carrying the string) is
+# asserted, so a stale or widened entry stops the build.
+#
+#   basis_type follows R/03bj's convention: an EXACT legal-name match is
+#   MEDIUM / ORG_WEBSITE; a hand-read bridge (an exact DBA, a misspelling, a
+#   unit of the enrolled entity) is LOW / GENERAL_KNOWLEDGE (Carson Valley
+#   Health, NV, is the exact-DBA precedent); a system parent or a named
+#   hospital's foundation, with no enrolment under its own name, is LOW /
+#   GENERAL_KNOWLEDGE with no CCN (§7, SD Sanford/Avera, VA Ballad/Sentara).
+#
+#   `ccn` goes on the row only where the enrolment IS the typing. HIGH still
+#   needs Stage 5 (§7), so nothing here exceeds MEDIUM.
+MI_S112_ENROL <- "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_MI.json"
+MI_S112_TYPINGS <- tibble::tribble(
+  ~awardee, ~n, ~recipient_type, ~confidence, ~basis_type, ~ccn, ~why,
+  # --- exact legal name on the CMS MI enrolment ----------------------------
+  "DLP Marquette General Hospital", 1L, "HOSPITAL_OR_SYSTEM", "MEDIUM", "ORG_WEBSITE", "230054",
+    "CMS MI enrolment: DLP MARQUETTE GENERAL HOSPITAL LLC (dba UP HEALTH SYSTEM MARQUETTE), CCN 230054, Marquette -- the awardee's exact legal name less 'LLC'.",
+  "Helen Newberry Joy Hospital", 1L, "HOSPITAL_OR_SYSTEM", "MEDIUM", "ORG_WEBSITE", "231304",
+    "CMS MI enrolment: HELEN NEWBERRY JOY HOSPITAL, CCN 231304 (critical access hospital), Newberry -- exact legal name.",
+  "Kalkaska Memorial Health Center", 1L, "HOSPITAL_OR_SYSTEM", "MEDIUM", "ORG_WEBSITE", "231301",
+    "CMS MI enrolment: KALKASKA MEMORIAL HEALTH CENTER, CCN 231301 (critical access hospital), Kalkaska -- exact legal name. The §8 name rule reads no hospital token in it and took the fallback; the federal record settles the form (§7, enrolled hospital operators).",
+  "Ella E. M. Brown Charitable Circle DBA Oaklawn Hospital", 1L, "HOSPITAL_OR_SYSTEM", "MEDIUM", "ORG_WEBSITE", "230217",
+    "CMS MI enrolment: ELLA E M BROWN CHARITABLE CIRCLE (dba OAKLAWN HOSPITAL), CCN 230217, Marshall -- MDHHS prints the exact legal name AND the DBA.",
+  # --- hand-read bridges to an enrolled hospital ----------------------------
+  "Memorial Healthcare", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", "230121",
+    "HAND-READ BRIDGE: the awardee is the exact DBA of MEMORIAL HOSPITAL (dba MEMORIAL HEALTHCARE), CCN 230121, Owosso, on CMS's MI enrolment; an exact DBA is a bridge, not a legal-name match (Carson Valley Health, NV, session 71). The §8 name rule took the fallback.",
+  "Insight Hospital and Medical Center - Coldwater", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", "230022",
+    "HAND-READ BRIDGE: the awardee is the exact DBA (INSIGHT HOSPITAL AND MEDICAL CENTER COLDWATER) of COMMUNITY HEALTH CENTER OF BRANCH COUNTY, CCN 230022, Coldwater, on CMS's MI enrolment.",
+  "OSF Healthcare - Saint Francis Hospital", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", "231337",
+    "HAND-READ BRIDGE: CMS MI enrolment ST FRANCIS HOSPITAL (dba OSF HEALTHCARE ST. FRANCIS HOSPITAL & MEDICAL GROUP), CCN 231337 (critical access hospital), Escanaba; the awardee is the DBA's system-plus-hospital form, not an exact string.",
+  "Mackinac Straights Health System", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", "231306",
+    "HAND-READ BRIDGE: MDHHS's 'Straights' is CMS's MACKINAC STRAITS HEALTH SYSTEM INC (dba MACKINAC STRAITS HOSPITAL AND HEALTH CENTER), CCN 231306 (critical access hospital), St. Ignace -- the enrolled legal name misspelled, the only Mackinac hospital enrolled.",
+  "Sheridan Community Hospital Clinic", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", "231312",
+    "HAND-READ BRIDGE: the awardee names SHERIDAN COMMUNITY HOSPITAL, CCN 231312 (critical access hospital), Sheridan, plus 'Clinic' -- read as a clinic of the enrolled hospital (§0.3a: the site does not change the recipient). Counter: a hospital-owned clinic may be separately enrolled as an RHC, and Oregon held such rows on the state's stated form; MDHHS states no form here.",
+  # --- system parents and named hospitals' foundations (no own enrolment) ---
+  "Marshfield Clinic Health System Hospitals, Inc.", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "SYSTEM PARENT (§7): Marshfield Clinic Health System's hospital corporation; in Michigan it operates Marshfield Medical Center - Dickinson, which CMS enrols under DICKINSON COUNTY HEALTHCARE SYSTEM (CCN 231342), a different legal name, so no CCN is put on the row.",
+  "McClaren Health Care Corporation", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "SYSTEM PARENT (§7): MDHHS's 'McClaren' is McLaren Health Care Corporation, the parent of the McLaren hospitals CMS enrols in Michigan (McLaren Northern Michigan, Caro Region, Thumb Region, Bay Region and others), none under the parent's own name.",
+  "Munson Healthcare", 2L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "SYSTEM PARENT (§7): Munson Healthcare is the parent of Munson Medical Center (CCN 230097) and the Munson Healthcare Charlevoix, Grayling, Cadillac, Manistee and Otsego hospitals on CMS's MI enrolment; the parent is not enrolled under its own name.",
+  "Aspire Rural Health System", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "SYSTEM PARENT (§7), general knowledge: Aspire Rural Health System is the Thumb-region system formed by Hills & Dales General Hospital (CCN 231316), Marlette Regional Hospital (231330) and Deckerville Community Hospital (231311); not enrolled under its own name.",
+  "MyMichigan Health Foundation", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "HOSPITAL FOUNDATION (§7): the foundation of a NAMED health system, MyMichigan Health (MyMichigan Medical Centers on CMS's MI enrolment); a hospital's fundraising arm is the hospital's.",
+  "Bronson Health Foundation", 1L, "HOSPITAL_OR_SYSTEM", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "HOSPITAL FOUNDATION (§7): the foundation of a NAMED health system, Bronson (Bronson Methodist, Battle Creek, LakeView and South Haven hospitals on CMS's MI enrolment).",
+  # --- names that read as hospitals and are not enrolled as one ------------
+  "Drummond Island Medical Center", 1L, "NONPROFIT_CBO", "LOW", NA_character_, NA_character_,
+    "NOT A HOSPITAL ROW: the §8 name rule read 'Medical Center' as a hospital, but no hospital on CMS's MI enrolment carries the name (Drummond Island has no inpatient hospital); MDHHS states no form, so §8's standing fallback (Texas's no-enrolment precedent, session 103).",
+  # --- hospital-governed, flow unresolved (MI_MHA_FLOW's shape) -------------
+  "Upper Peninsula Health Care Solution, Inc.", 1L, "HOSPITAL_AFFILIATED_ENTITY", "LOW", "GENERAL_KNOWLEDGE", NA_character_,
+    "HOSPITAL-GOVERNED ENTITY, general knowledge: a shared-services network owned by Upper Peninsula hospitals, not itself enrolled as a hospital. MDHHS publishes no description, so nothing states that the money is administered to member hospitals (§10.2's association row): PASS_THROUGH_UNRESOLVED + Unclear, MHA's treatment."
+)
+
+#' Apply MI_S112_TYPINGS and carry session 49's verified typing onto added
+#' rows that print an already-verified string (MCRH, MPCA, MHA ...).
+mi_s112_type <- function(recs, raw) {
+  recs$basis_type <- NA_character_
+  added <- raw$roster_status == "ADDED_1001"
+  for (i in seq_len(nrow(MI_S112_TYPINGS))) {
+    t <- MI_S112_TYPINGS[i, ]
+    hit <- added & recs$awardee == t$awardee
+    if (sum(hit) != t$n) {
+      stop("[MI] MI_S112_TYPINGS expects ", t$n, " added row(s) for '",
+           t$awardee, "'; found ", sum(hit), ".", call. = FALSE)
+    }
+    recs$recipient_type[hit] <- t$recipient_type
+    recs$determination_confidence[hit] <- rhtp_confidence_ceiling(t$confidence)
+    recs$basis_type[hit] <- t$basis_type
+    recs$ccn[hit] <- t$ccn
+    recs$recipient_type_rule[hit] <- "HAND_READ_S112"
+    hosp <- t$recipient_type == "HOSPITAL_OR_SYSTEM"
+    aff  <- t$recipient_type == "HOSPITAL_AFFILIATED_ENTITY"
+    recs$flow_type[hit] <- if (hosp) "DIRECT" else if (aff) "PASS_THROUGH_UNRESOLVED" else "NON_HOSPITAL"
+    recs$distributed_to_hospital[hit] <- if (hosp) "Yes" else if (aff) "Unclear" else "No"
+    recs$hospital_attribution[hit] <- if (hosp) "NAMED_HOSPITAL" else "NOT_HOSPITAL"
+    recs$hospital_benefiting[hit] <- NA_character_
+    recs$intermediary_name[hit] <- NA_character_
+    recs$flag_reason[hit] <- if (aff) "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED" else
+      if (is.na(t$basis_type)) "RECIPIENT_TYPE_INFERRED" else NA_character_
+    recs$determination_basis[hit] <- paste0(
+      "TYPED SESSION 112 (", t$recipient_type, ", ", t$confidence,
+      if (!is.na(t$basis_type)) paste0(", ", t$basis_type) else "", "): ",
+      t$why, if (hosp) " §10.2 DIRECT: the recipient is the hospital or system." else "")
+  }
+
+  # Session 49's verified answers, carried by EXACT string onto added rows.
+  # The MHA spelling without "(MHA)" is the same association and takes the
+  # same answer (alias). Flow is NOT re-run: none of these crosses §10.2's
+  # DIRECT test, and MHA's flow stays MI_MHA_FLOW's (PASS_THROUGH_UNRESOLVED).
+  ch <- suppressMessages(readr::read_csv(
+    here::here("data", "reference", "verification_queue_2_changes.csv"),
+    col_types = readr::cols(.default = "c"), progress = FALSE))
+  ch <- ch[ch$file == "mi_year1_awardees.csv", ]
+  alias <- c("Michigan Health and Hospital Association" =
+               "Michigan Health and Hospital Association (MHA)")
+  look <- ifelse(recs$awardee %in% names(alias), alias[recs$awardee], recs$awardee)
+  typed <- recs$awardee %in% MI_S112_TYPINGS$awardee
+  for (r in which(added & !typed & look %in% ch$name)) {
+    v <- ch[ch$name == look[r], ][1, ]
+    recs$recipient_type[r] <- v$new_type
+    recs$determination_confidence[r] <- rhtp_confidence_ceiling(v$new_conf)
+    recs$basis_type[r] <- v$basis_type
+    recs$recipient_type_rule[r] <- "CARRIED_S49"
+    fr <- setdiff(stats::na.omit(strsplit(dplyr::coalesce(recs$flag_reason[r], ""),
+                                          ";", fixed = TRUE)[[1]]),
+                  c("RECIPIENT_TYPE_INFERRED", ""))
+    recs$flag_reason[r] <- if (length(fr)) paste(fr, collapse = ";") else NA_character_
+    recs$determination_basis[r] <- paste0(
+      "TYPE CARRIED FROM SESSION 49'S VERIFICATION OF THE SAME ",
+      if (look[r] != recs$awardee[r]) "ORGANISATION ('" else "STRING ('",
+      look[r], "', ", v$new_type, ", ", v$basis_type, "): ", v$basis,
+      " Flow as built: ", recs$determination_basis[r])
+  }
+  recs
+}
+
+
+#' SESSION 112: carry the 10-01 row shift into session 49's overlay
+#'
+#' `verification_queue_2_changes.csv` keys Michigan's 86 verified answers on
+#' the ROW INDEX of the 145-row file. Seven rows left the roster (three of them
+#' carried a verified answer: rows 104, 107 and 112), so every row after 102
+#' moves up. This rewrites ONLY the Michigan lines, ONLY their `row` field, as
+#' raw text (the file is never round-tripped through readr), and deletes the
+#' lines of rows that left. Alaska's session-99 re-key is the precedent.
+#'
+#' IDEMPOTENT: a line is re-keyed only where its `name` is the awardee of its
+#' row in the OLD order; a line already naming the awardee of its row in the
+#' NEW order is left alone; a line that is neither stops.
+mi_s112_rekey_overlay <- function(write = FALSE) {
+  path <- here::here("data", "reference", "verification_queue_2_changes.csv")
+  lines <- readLines(path, warn = FALSE)
+  ch <- suppressMessages(readr::read_csv(path, col_types = readr::cols(.default = "c"),
+                                         progress = FALSE))
+  is_mi <- grepl("^mi_year1_awardees\\.csv,[0-9]+,", lines)
+  mi <- ch[ch$file == "mi_year1_awardees.csv", ]
+  if (sum(is_mi) != nrow(mi)) {
+    stop("[MI] the changes CSV has a multi-line Michigan record; re-key by hand.",
+         call. = FALSE)
+  }
+  base <- mi_roster_committed_order()
+  cur <- mi_roster_in_file_order()
+  new_of_old <- match(base$row_0924, cur$row_0924)   # NA = dropped
+  old_row <- as.integer(mi$row)
+  old_hit <- base$awardee[old_row] == mi$name
+  new_hit <- !is.na(cur$awardee[old_row]) & cur$awardee[old_row] == mi$name
+  moves <- old_hit & (is.na(new_of_old[old_row]) | new_of_old[old_row] != old_row)
+  if (any(!old_hit & !new_hit)) {
+    stop("[MI] overlay line(s) name neither the old nor the new row's awardee: ",
+         paste(mi$name[!old_hit & !new_hit], collapse = "; "), call. = FALSE)
+  }
+  plan <- tibble::tibble(name = mi$name, old_row = old_row,
+                         new_row = ifelse(moves, new_of_old[old_row], old_row),
+                         action = dplyr::case_when(!moves ~ "UNCHANGED",
+                                                   is.na(new_of_old[old_row]) ~ "DELETED_ROW_DROPPED",
+                                                   TRUE ~ "REKEYED"))
+  if (write && any(plan$action != "UNCHANGED")) {
+    idx <- which(is_mi)
+    for (i in seq_along(idx)) {
+      if (plan$action[i] == "REKEYED") {
+        lines[idx[i]] <- sub("^mi_year1_awardees\\.csv,[0-9]+,",
+                             paste0("mi_year1_awardees.csv,", plan$new_row[i], ","),
+                             lines[idx[i]])
+      }
+    }
+    lines <- lines[-idx[plan$action == "DELETED_ROW_DROPPED"]]
+    con <- file(path, "wb"); writeLines(lines, con, sep = "\n"); close(con)
+  }
+  plan
+}
+
 # -- assemble -----------------------------------------------------------------
 
-#' The roster in the file's ROW ORDER: the prior roster's rows first, in its
-#' order, then the rows MDHHS has added since, in page order
+#' The roster in the file's ROW ORDER
 #'
 #' SESSION 49's VERIFICATION OVERLAY IS KEYED ON (file, ROW INDEX), and MDHHS
-#' inserts new rows MID-TABLE (its tables are alphabetical within a fund): the
-#' six 2026-08-31 additions sit at positions 11-13 of Interoperability, 11-12 of
-#' Workforce and 4 of Care Closer to Home. Read in page order they would shift
-#' 100+ existing rows and the overlay would write verified types onto the
-#' WRONG organisations -- silently, because every index still exists. So the
-#' 139 rows keep indices 1-139 and additions are appended.
+#' inserts new rows MID-TABLE (its tables are alphabetical within a fund). Read
+#' in page order, additions would shift existing rows and the overlay would
+#' write verified types onto the WRONG organisations -- silently, because every
+#' index still exists. So the file keeps its own order: the 139 rows of the
+#' 2026-09-01 roster in that page's order, then the six 2026-09-24 additions
+#' (sessions 64-111, rows 1-145), then session 112's additions in page order.
+#'
+#' SESSION 112: MDHHS's 10-01 roster DROPS rows, which appending cannot
+#' express. Michigan claims the page is complete, so a row that leaves the page
+#' leaves the file, and every later row moves up. The removal set is PINNED
+#' (`MI_S112_DROPPED`): any other drop stops the build, because a removal is
+#' read, never inferred. The row shift is carried into session 49's overlay by
+#' re-keying `verification_queue_2_changes.csv` (`mi_s112_rekey_overlay()`),
+#' Alaska's session-99 precedent; the overlay entries of dropped rows are
+#' removed with them.
 #'
 #' Matching is a MULTISET on (initiative, awardee, amount, fund): the Community
-#' Mental Health Association of Michigan holds two awards at one amount. The
-#' prior roster must be wholly contained in the current one; a DROPPED or
-#' CHANGED row stops the build, because appending cannot express a removal.
-mi_roster_in_file_order <- function() {
-  cur <- mi_roster_tables("roster")
+#' Mental Health Association of Michigan held two awards at one amount.
+mi_row_key <- function(d) paste(d$initiative, d$awardee, d$amount_raw,
+                                d$award_fund, sep = " | ")
+mi_occ_key <- function(d) {
+  k <- mi_row_key(d)
+  paste(k, stats::ave(seq_along(k), k, FUN = seq_along))
+}
+
+#' The 145-row file of sessions 64-111, in its own order (never re-derived
+#' from the 09-24 page order, for the reason above).
+mi_roster_committed_order <- function() {
+  r0924 <- mi_roster_tables("roster_0924")
   prior <- mi_roster_tables("roster_prior")
-  key <- function(d) paste(d$initiative, d$awardee, d$amount_raw, d$award_fund,
-                           sep = " | ")
-  occ <- function(k) stats::ave(seq_along(k), k, FUN = seq_along)
-  kc <- paste(key(cur), occ(key(cur)))
-  kp <- paste(key(prior), occ(key(prior)))
-  gone <- setdiff(kp, kc)
+  k0924 <- mi_occ_key(r0924); kp <- mi_occ_key(prior)
+  gone <- setdiff(kp, k0924)
   if (length(gone)) {
-    stop("[MI] ", length(gone), " row(s) of the PRIOR roster are not on the ",
-         "current one (dropped or changed): ", paste(utils::head(gone, 5),
-         collapse = "; "), ". Appending new rows cannot express that; read ",
-         "the page and re-plan the verification overlay.", call. = FALSE)
+    stop("[MI] the 09-01 roster is not contained in the 09-24 one: ",
+         paste(utils::head(gone, 5), collapse = "; "), call. = FALSE)
   }
-  new_i <- which(!kc %in% kp)
-  out <- dplyr::bind_rows(cur[match(kp, kc), ], cur[new_i, ])
-  out$roster_status <- c(rep("PRIOR", length(kp)), rep("ADDED", length(new_i)))
+  new_i <- which(!k0924 %in% kp)
+  out <- dplyr::bind_rows(r0924[match(kp, k0924), ], r0924[new_i, ])
+  out$roster_status <- c(rep("PRIOR", length(kp)), rep("ADDED_0924", length(new_i)))
+  out$row_0924 <- seq_len(nrow(out))
   out
 }
 
-#' The 145 Michigan Year 1 award actions, in the §8 union schema
+# THE SEVEN ROWS MDHHS DROPPED BETWEEN "AUGUST 31" AND "OCTOBER 1, 2026"
+# (session 112), as initiative | awardee | amount | fund. Six reappear under a
+# new label at the SAME initiative, fund and amount (five AHEC regional centres
+# now printed "Area Health Education Center (AHEC): ...", and the Community
+# Mental Health Association of Michigan's Care Closer to Home award now printed
+# with "(CMHA)"); Saginaw County Health Department's $100,000 left Workforce /
+# Recruitment and a $100,000 row appears under Interoperability / Rural Access
+# and Connectivity. None is MERGED with its look-alike here: the page dropped
+# one string and printed another, and pairing them is a reading (§2), so each
+# old row leaves and each new one is typed on its own string.
+MI_S112_DROPPED <- c(
+  "Workforce for Wellness Initiative | Mid-Central Regional Center (Area Health Education Center) | $400,000 | Rural Health Workforce Pipeline and Education Fund",
+  "Workforce for Wellness Initiative | Northern Lower Regional Center (MidMichigan Health Services) | $315,000 | Rural Health Workforce Pipeline and Education Fund",
+  "Workforce for Wellness Initiative | Saginaw County Health Department | $100,000 | Rural Provider Recruitment, Retention, and Capacity Fund",
+  "Workforce for Wellness Initiative | Southeast Regional Center (Area Health Education Center) | $200,000 | Rural Health Workforce Pipeline and Education Fund",
+  "Workforce for Wellness Initiative | Upper Peninsula Regional Center (Upper Great Lakes Family Health) | $185,000 | Rural Health Workforce Pipeline and Education Fund",
+  "Workforce for Wellness Initiative | Western Regional Center (Area Health Education Center) | $400,000 | Rural Health Workforce Pipeline and Education Fund",
+  "Care Closer to Home Initiative | Community Mental Health Association of Michigan | $1,000,000 | Advancing Rural Behavioral Health Blueprint"
+)
+
+#' The rows of the 145-row file that MDHHS's current roster no longer carries
+mi_roster_dropped <- function() {
+  base <- mi_roster_committed_order()
+  cur <- mi_roster_tables("roster")
+  base[!mi_occ_key(base) %in% mi_occ_key(cur), ]
+}
+
+mi_roster_in_file_order <- function() {
+  cur <- mi_roster_tables("roster")
+  base <- mi_roster_committed_order()
+  kc <- mi_occ_key(cur); kb <- mi_occ_key(base)
+  dropped <- base[!kb %in% kc, ]
+  if (!setequal(mi_row_key(dropped), MI_S112_DROPPED) ||
+      nrow(dropped) != length(MI_S112_DROPPED)) {
+    stop("[MI] the rows dropped from the roster are not the seven pinned in ",
+         "MI_S112_DROPPED: ", paste(utils::head(setdiff(mi_row_key(dropped),
+         MI_S112_DROPPED), 5), collapse = "; "), ". A removal is read, never ",
+         "inferred; read the page and re-plan the verification overlay.",
+         call. = FALSE)
+  }
+  kept <- base[kb %in% kc, ]
+  new_i <- which(!kc %in% kb)
+  added <- cur[new_i, ]
+  added$roster_status <- rep("ADDED_1001", nrow(added))
+  added$row_0924 <- NA_integer_
+  dplyr::bind_rows(kept, added)
+}
+
+#' The 231 Michigan Year 1 award actions, in the §8 union schema
 rhtp_mi_year1_awardees <- function() {
   raw <- mi_roster_in_file_order()
   amount <- mi_parse_amount(raw$amount_raw)
@@ -819,13 +1109,18 @@ rhtp_mi_year1_awardees <- function() {
     distributed_to_hospital  = flow$distributed_to_hospital,
     note                     = paste0(
       "MDHHS RHTP subrecipient, ", raw$initiative, " -- ", raw$award_fund,
-      ifelse(raw$roster_status == "PRIOR",
-             paste0(". On the roster as of ",
-                    format(MI_STATED$roster_prior_as_of, "%Y-%m-%d"), " and ",
-                    format(MI_STATED$roster_as_of, "%Y-%m-%d")),
-             paste0(". ADDED to the roster between ",
-                    format(MI_STATED$roster_prior_as_of, "%Y-%m-%d"), " and ",
-                    format(MI_STATED$roster_as_of, "%Y-%m-%d"))),
+      dplyr::case_when(
+        raw$roster_status == "PRIOR" ~ paste0(". On the roster as of ",
+          format(MI_STATED$roster_prior_as_of, "%Y-%m-%d"), ", ",
+          format(MI_STATED$roster_0924_as_of, "%Y-%m-%d"), " and ",
+          format(MI_STATED$roster_as_of, "%Y-%m-%d")),
+        raw$roster_status == "ADDED_0924" ~ paste0(". ADDED to the roster between ",
+          format(MI_STATED$roster_prior_as_of, "%Y-%m-%d"), " and ",
+          format(MI_STATED$roster_0924_as_of, "%Y-%m-%d"), "; still on it as of ",
+          format(MI_STATED$roster_as_of, "%Y-%m-%d")),
+        TRUE ~ paste0(". ADDED to the roster between ",
+          format(MI_STATED$roster_0924_as_of, "%Y-%m-%d"), " and ",
+          format(MI_STATED$roster_as_of, "%Y-%m-%d"), " (session 112)")),
       "; MDHHS states the amount is contingent on CMS approval."),
     recipient_confirmed      = "Yes",
     # MDHHS: "Award amount is contingent upon review by CMS for final
@@ -879,7 +1174,8 @@ rhtp_mi_year1_awardees <- function() {
       .data$flow_type == "PASS_THROUGH_UNRESOLVED" &
         .data$recipient_type == "HOSPITAL_AFFILIATED_ENTITY" ~
         "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED",
-      TRUE ~ NA_character_))
+      TRUE ~ NA_character_)) %>%
+    mi_s112_type(raw)
 }
 
 
@@ -951,7 +1247,8 @@ mi_assert_after_noa <- function() {
     stop("[MI] MDHHS's award release is dated on or before the NOA.",
          call. = FALSE)
   }
-  for (nm in c("workforce_gfo_date", "roster_as_of", "roster_prior_as_of")) {
+  for (nm in c("workforce_gfo_date", "roster_as_of", "roster_0924_as_of",
+                "roster_prior_as_of")) {
     if (MI_STATED[[nm]] <= noa) {
       stop("[MI] ", nm, " is not after Michigan's CMS Notice of Award (",
            noa, "). A solicitation that closed before the state had the money ",
@@ -1008,8 +1305,13 @@ mi_assert_completeness_claim <- function() {
   }
   roster <- mi_html_text("roster")
   if (!stringr::str_detect(roster, stringr::fixed(MI_ROSTER_ASOF_SENTENCE))) {
-    stop("[MI] the roster no longer carries its 'as of August 31, 2026' ",
+    stop("[MI] the roster no longer carries its 'as of October 1, 2026' ",
          "date. A roster with no as-of date cannot be compared to a later one.",
+         call. = FALSE)
+  }
+  if (!stringr::str_detect(mi_html_text("roster_0924"),
+                           stringr::fixed(MI_ROSTER_0924_ASOF_SENTENCE))) {
+    stop("[MI] the 09-24 roster archive no longer reads 'as of August 31, 2026'.",
          call. = FALSE)
   }
   # The prior roster is the baseline the six additions are measured from, and
@@ -1066,19 +1368,30 @@ mi_assert_header_promoted <- function(recs) {
 
 #' MHA is not a hospital, and $8,625,000 turns on that
 mi_assert_mha_not_a_hospital <- function(recs) {
-  mha <- recs[recs$awardee == "Michigan Health and Hospital Association (MHA)", ]
-  if (nrow(mha) != 2L) {
-    stop("[MI] expected MHA to hold exactly 2 awards; found ", nrow(mha), ".",
+  # SESSION 112: five MHA awards (three added "as of October 1, 2026", one
+  # under a spelling without "(MHA)"). MHA's own $8.625 million footer
+  # corroborates the ORIGINAL two only, which are the rows on the roster since
+  # 2026-07-10; the three additions post-date that page.
+  mha <- recs[grepl("^Michigan Health and Hospital Association", recs$awardee), ]
+  if (nrow(mha) != 5L) {
+    stop("[MI] expected MHA to hold exactly 5 awards; found ", nrow(mha), ".",
          call. = FALSE)
   }
-  if (any(mha$recipient_type == "HOSPITAL_OR_SYSTEM")) {
+  if (!all(mha$flow_type == "PASS_THROUGH_UNRESOLVED") ||
+      !all(mha$distributed_to_hospital == "Unclear")) {
+    stop("[MI] an MHA row has left MI_MHA_FLOW's PASS_THROUGH_UNRESOLVED + ",
+         "Unclear without the queue question being answered.", call. = FALSE)
+  }
+  mha_all <- mha
+  mha <- mha[grepl("On the roster as of 2026-07-10", mha$note, fixed = TRUE), ]
+  if (any(mha_all$recipient_type == "HOSPITAL_OR_SYSTEM")) {
     stop("[MI] the Michigan Health & Hospital Association is typed as a ",
          "HOSPITAL. It is the state's hospital trade association (§10.2), and ",
          "typing it as a hospital publishes $",
          format(sum(mha$amount), big.mark = ","),
          " as direct hospital dollars on a name match.", call. = FALSE)
     }
-  if (any(mha$hospital_attribution == "NAMED_HOSPITAL")) {
+  if (any(mha_all$hospital_attribution == "NAMED_HOSPITAL")) {
     stop("[MI] MHA is in the NAMED_HOSPITAL bucket.", call. = FALSE)
   }
   # MHA's OWN page states its own total, and it matches MDHHS's two rows to
@@ -1128,8 +1441,8 @@ mi_assert_tribal_from_source <- function(recs) {
 #' unresolved pass-through and enters NEITHER bucket.
 mi_assert_hospital_shape <- function(recs) {
   named <- recs[recs$hospital_attribution == "NAMED_HOSPITAL", ]
-  if (nrow(named) != 1L) {
-    stop("[MI] expected exactly 1 named-hospital award action; found ",
+  if (nrow(named) != MI_S112_NAMED_BUILT) {
+    stop("[MI] expected exactly ", MI_S112_NAMED_BUILT, " named-hospital award actions as built (before the overlays); found ",
          nrow(named), ". Michigan's hospital figure is the most surprising ",
          "number in the file and must not move silently.", call. = FALSE)
   }
@@ -1140,8 +1453,8 @@ mi_assert_hospital_shape <- function(recs) {
   }
   unresolved <- recs[!is.na(recs$flag_reason) &
                        recs$flag_reason == "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED", ]
-  if (nrow(unresolved) != 2L) {
-    stop("[MI] expected MHA's 2 rows to carry ",
+  if (nrow(unresolved) != 6L) {
+    stop("[MI] expected MHA's 5 rows and Upper Peninsula Health Care Solution to carry ",
          "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED; found ", nrow(unresolved), ".",
          call. = FALSE)
   }
@@ -1229,9 +1542,13 @@ mi_assert_form_not_stated_queued <- function(recs) {
     stop("[MI] ", MI_FORM_NOT_STATED_QUESTION, " is not a findable row (OPEN, or RESOLVED with a resolution) in the ",
          "classification review queue.", call. = FALSE)
   }
-  if (!grepl(as.character(nrow(soft)), row$row_key, fixed = TRUE)) {
-    stop("[MI] the queue row does not state ", nrow(soft),
-         " rows; the queue and the data disagree.", call. = FALSE)
+  # SESSION 112: the queue row states the count on the 145-row roster it was
+  # written for (84). The 10-01 roster changes that set; the queue is not
+  # re-written from here, so the pinned figure is the one asserted and the
+  # current count is reported (mi_report()).
+  if (!grepl(as.character(MI_FORM_NOT_STATED_QUEUED_N), row$row_key, fixed = TRUE)) {
+    stop("[MI] the queue row does not state ", MI_FORM_NOT_STATED_QUEUED_N,
+         " rows; the queue and this file disagree.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -1280,7 +1597,7 @@ mi_roster_rows_text <- function(path) {
     xml2::xml_find_all(x, "./td|./th"))), collapse = " | "), character(1))
 }
 mi_live_roster_added <- function() {
-  live <- mi_roster_rows_text(mi_path("roster"))
+  live <- mi_roster_rows_text(mi_path("roster_0924"))
   old <- mi_roster_rows_text(mi_path("roster_prior"))
   if (length(setdiff(old, live))) {
     stop("[MI] MDHHS's live roster (09-24) has DROPPED rows the award file ",
@@ -1305,8 +1622,11 @@ mi_assert_rcj_disposition <- function(recs) {
   # Every RCJ roster row is either in the award file (name AND amount) or one
   # of the rows MDHHS added after the file's 2026-09-01 archive.
   ros <- cand[cand$group == "SUBRECIPIENTS_ROSTER", ]
+  # SESSION 112: RCJ's 09-24 pull also carries rows MDHHS DROPPED on 10-01.
+  drop <- mi_roster_dropped()
   stray <- ros[!m$in_file & !(paste(ros$awardee, ros$rcj_amount) %in%
-                                paste(added$awardee, added$amount)), ]
+                                c(paste(added$awardee, added$amount),
+                                  paste(drop$awardee, mi_parse_amount(drop$amount_raw)))), ]
   if (nrow(stray)) {
     stop("[MI] ", nrow(stray), " RCJ roster row(s) match neither the award ",
          "file nor MDHHS's 09-24 additions: ",
@@ -1380,6 +1700,9 @@ mi_disposition_table <- function(recs) {
   m <- mi_roster_match(cand, recs)
   ros <- cand[cand$group == "SUBRECIPIENTS_ROSTER", ]
   infile <- ros[m$in_file, ]
+  drop <- mi_roster_dropped()
+  ros_drop <- ros[!m$in_file & paste(ros$awardee, ros$rcj_amount) %in%
+                    paste(drop$awardee, mi_parse_amount(drop$amount_raw)), ]
   added <- mi_live_roster_added()
   n_of <- function(g) sum(cand$group == g)
   amt_of <- function(g) sum(cand$rcj_amount[cand$group == g])
@@ -1402,14 +1725,34 @@ mi_disposition_table <- function(recs) {
       "re-extracted in session 64 from MDHHS's 2026-09-24 roster ('as of August ",
       "31, 2026'), which ADDED ", nrow(added), " rows ($", money(sum(added$amount)),
       ", every one to a Michigan STATE AGENCY as a subrecipient) to the ",
-      "139-row roster of 2026-09-01; those are rows 140-", nrow(recs), " of the ",
-      "file, and the Michigan Veterans Affairs Agency (MVAA) $2,000,000 row is ",
-      "the one RCJ carries. RCJ still lacks ", length(m$file_not_in_rcj),
+      "139-row roster of 2026-09-01, and the Michigan Veterans Affairs Agency ",
+      "(MVAA) $2,000,000 row is the one RCJ carries. Session 112 re-extracted ",
+      "it from the 2026-11-02 roster ('as of October 1, 2026'): ",
+      sum(grepl("(session 112)", recs$note, fixed = TRUE)), " rows ADDED (the ",
+      "file's last rows; RCJ's 2026-09-24 pull predates them) and ",
+      nrow(drop), " DROPPED (next group). RCJ still lacks ", length(m$file_not_in_rcj),
       " of the file's ", nrow(recs), " award actions: ",
       paste(m$file_not_in_rcj, collapse = "; "),
       ". Every row in mi_year1_awardees.csv is built from MDHHS's page, never ",
       "from RCJ (§0.1)."),
     "name and amount identical to the MDHHS roster row",
+    paste0(MI_RHTP, "/rhtp-subrecipients"),
+    file.path("data", "evidence", "MI", mi_source("roster", "file")),
+
+    "Roster rows MDHHS DROPPED between 'August 31' and 'October 1, 2026'",
+    nrow(ros_drop), sum(ros_drop$rcj_amount), "RHTP_SUBAWARD_DROPPED_FROM_ROSTER",
+    paste0(
+      nrow(ros_drop), " candidates under 'MI - 2026 - RHTP Subrecipients' match, ",
+      "on name AND amount, a row of MDHHS's 2026-09-24 roster ('as of August 31, ",
+      "2026') that the 2026-11-02 roster ('as of October 1, 2026') no longer ",
+      "prints: ", paste0(ros_drop$awardee, " $", money(ros_drop$rcj_amount),
+                         collapse = "; "),
+      ". MDHHS claims the roster is complete, so those rows left ",
+      "mi_year1_awardees.csv in session 112. Five AHEC regional centres and the ",
+      "Community Mental Health Association of Michigan reappear under new labels ",
+      "at the same initiative, fund and amount; those are typed on their new ",
+      "strings, never merged by this file (§2)."),
+    "the string is not on MDHHS's 2026-11-02 roster",
     paste0(MI_RHTP, "/rhtp-subrecipients"),
     file.path("data", "evidence", "MI", mi_source("roster", "file")),
 
@@ -1515,9 +1858,10 @@ mi_write_workbook <- function(recs, disp) {
   wb <- openxlsx::createWorkbook()
   openxlsx::addWorksheet(wb, "READ FIRST")
   openxlsx::writeData(wb, "READ FIRST", tibble::tibble(note = c(
-    "MICHIGAN -- RHTP YEAR 1 SUBRECIPIENTS. 145 award actions, $101,318,437",
-    "(roster 'as of August 31, 2026'; rows 140-145 are six STATE-AGENCY",
-    "subrecipients MDHHS added after the 139-row July 10 roster).",
+    "MICHIGAN -- RHTP YEAR 1 SUBRECIPIENTS. 231 award actions, $161,740,847",
+    "(roster 'as of October 1, 2026', session 112). Rows 1-138 are the 145-row",
+    "'August 31' roster less seven rows MDHHS dropped; rows 139-231 are the 93",
+    "awards it added. Read note for when each row appeared.",
     "",
     "MDHHS CLAIMS THIS ROSTER IS COMPLETE, which no other state file here can",
     "say: its programme page reads \"MDHHS maintains a dedicated webpage",
@@ -1526,13 +1870,15 @@ mi_write_workbook <- function(recs, disp) {
     "",
     "THE AMOUNTS ARE NOT FINAL. Every one is \"contingent upon review by",
     "Centers for Medicare & Medicaid Services (CMS) for final approval\", so",
-    "all 145 rows are amount_confirmed = No. The recipients ARE confirmed.",
+    "every row is amount_confirmed = No. The recipients ARE confirmed.",
     "",
-    "ONE NAMED-HOSPITAL AWARD ACTION, $76,924. That is not a parse failure.",
-    "Michigan's recipients are health departments, community action agencies,",
-    "FQHCs, Area Agencies on Aging, universities and tribal governments, and",
-    "its hospital-facing money runs through the MICHIGAN HEALTH & HOSPITAL",
-    "ASSOCIATION -- $8,625,000 across two awards, which is §10.2's",
+    "THIS SHEET IS THE BUILD, BEFORE SESSIONS 49 AND 71'S OVERLAYS. The",
+    "committed CSV carries them: 24 named-hospital award actions, $15,654,777",
+    "(LOW / general knowledge $6,687,197; academic health centre $6,625,656).",
+    "Michigan's recipients are mostly health departments, community action",
+    "agencies, FQHCs, Area Agencies on Aging, universities and tribal",
+    "governments, and much of its hospital-facing money runs through the MICHIGAN",
+    "HEALTH & HOSPITAL ASSOCIATION -- $13,125,000 across five awards, §10.2's",
     "association row and NOT a hospital. MDHHS publishes no project",
     "description, so nothing states where MHA's money goes: those two rows are",
     "PASS_THROUGH_UNRESOLVED + Unclear and enter NEITHER bucket of the",
@@ -1577,14 +1923,15 @@ mi_report <- function() {
                         big.mark = ",")))
   }
 
-  cat("\nTHE HOSPITAL FIGURE, AND WHY IT IS ONE ROW\n")
+  cat("\nTHE HOSPITAL FIGURE AS BUILT (the committed CSV carries the overlays)\n")
   cat(strrep("-", 74), "\n")
   print(as.data.frame(rhtp_hospital_dollar_partition(recs)))
   cat("\n  Michigan publishes an amount on every row and almost none of it\n")
   cat("  reaches a named hospital. Its hospital-facing money runs through\n")
   cat("  the MICHIGAN HEALTH & HOSPITAL ASSOCIATION: $",
       format(sum(recs$amount[grepl("^Michigan Health and Hospital", recs$awardee)]),
-             big.mark = ","), " across 2 awards,\n", sep = "")
+             big.mark = ","), " across ",
+      sum(grepl("^Michigan Health and Hospital", recs$awardee)), " awards,\n", sep = "")
   cat("  which is §10.2's association row and NOT a hospital. MDHHS publishes\n")
   cat("  no project description, so nothing says where that money goes --\n")
   cat("  PASS_THROUGH_UNRESOLVED, Unclear, NEITHER bucket (session 19).\n")
@@ -1638,7 +1985,8 @@ if (sys.nframe() == 0L) {
   if ("--validate" %in% args) mi_validate()
   if ("--build" %in% args) mi_build()
   if ("--report" %in% args) mi_report()
-  if (!any(c("--fetch", "--validate", "--build", "--report") %in% args)) {
+  if ("--rekey-overlay" %in% args) print(as.data.frame(mi_s112_rekey_overlay(write = TRUE)))
+  if (!any(c("--fetch", "--validate", "--build", "--report", "--rekey-overlay") %in% args)) {
     cat("Usage: Rscript R/03v_mi_year1_awardees.R",
         "[--fetch [--force]] [--validate] [--build] [--report]\n")
   }

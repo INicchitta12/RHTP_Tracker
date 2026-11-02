@@ -14,8 +14,11 @@ ak_year1_awardees.csv,123,Alaska Native Tribal Health Consortium,TRIBAL_ORG,LEGA
 ak_year1_awardees.csv,178,Providence Health & Services- Washington,HOSPITAL_OR_SYSTEM,LEGAL,020001,PROVIDENCE HEALTH & SERVICES WASHINGTON,APPLIED: EXACT_LEGAL_NAME
 ak_year1_awardees.csv,220,"Alaska Psychiatric Institute, Department of Family & Community Services",STATE_AGENCY,DBA,024002,STATE OF ALASKA DEPARTMENT OF ADMINISTRATION,"HELD: Alaska's own Organization Type states 'State Agency', and the awardee names a state department. CMS enrols API as a DBA of the STATE OF ALASKA DEPARTMENT OF ADMINISTRATION (CCN 024002), a different department: a DBA match, not the legal entity the award names."
 mi_year1_awardees.csv,15,National Jewish Health (Quitlink),HOSPITAL_OR_SYSTEM,LEGAL,060107,NATIONAL JEWISH HEALTH,APPLIED: EXACT_LEGAL_NAME
-mi_year1_awardees.csv,118,Regents of the University of Michigan - Ready to Respond: Rural Nursing Home Emergency Preparedness,HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
-mi_year1_awardees.csv,119,Regents of the University of Michigan - Overdose Prevention Engagement Network (OPEN),HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
+mi_year1_awardees.csv,111,Regents of the University of Michigan - Ready to Respond: Rural Nursing Home Emergency Preparedness,HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
+mi_year1_awardees.csv,112,Regents of the University of Michigan - Overdose Prevention Engagement Network (OPEN),HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
+mi_year1_awardees.csv,139,Regents of the University of Michigan - Data Modernization Initiative,HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
+mi_year1_awardees.csv,197,Regents of the University of Michigan,HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
+mi_year1_awardees.csv,198,Regents of the University of Michigan,HOSPITAL_OR_SYSTEM,LEGAL,230046,REGENTS OF THE UNIVERSITY OF MICHIGAN,APPLIED: EXACT_LEGAL_NAME
 or_year1_awardees.csv,72,Lake Health District,FQHC_OR_RHC,LEGAL,381309,LAKE HEALTH DISTRICT,"HELD: OHA pays this award from its Rural Health Clinic pool under its own Organization Type 'Rural Health Clinic' (session 17 recorded the 23 hospital-owned RHCs and did not re-code them). CMS: CCN 381309, Lake District Hospital (CAH)."
 or_year1_awardees.csv,97,Providence Hood River Memorial Hospital,FQHC_OR_RHC,DBA,381318,PROVIDENCE HEALTH & SERVICES OREGON,"HELD: OHA's Rural Health Clinic table, Organization Type 'Rural Health Clinic'. CMS carries the string as a DBA of PROVIDENCE HEALTH & SERVICES OREGON (CCN 381318), not as a legal name."
 or_year1_awardees.csv,98,Providence Seaside Hospital - Providence Cannon Beach Clinic,FQHC_OR_RHC,DBA,381303,PROVIDENCE HEALTH & SERVICES OREGON,"HELD: OHA's Rural Health Clinic table; the awardee is a clinic SITE of Providence Seaside Hospital (a DBA of Providence Health & Services Oregon, CCN 381303)."
@@ -39,6 +42,9 @@ wy_year1_awardees.csv,31,University of Utah,HOSPITAL_OR_SYSTEM,LEGAL,460009,UNIV
 wv_year1_awardees.csv,12,Minnie Hamilton Health Care Center,HOSPITAL_OR_SYSTEM,LEGAL,51Z303,MINNIE HAMILTON HEALTH CARE CENTER INC,APPLIED: EXACT_LEGAL_NAME
 wv_year1_awardees.csv,13,Minnie Hamilton Health Care Center,HOSPITAL_OR_SYSTEM,LEGAL,51Z303,MINNIE HAMILTON HEALTH CARE CENTER INC,APPLIED: EXACT_LEGAL_NAME
 wv_year1_awardees.csv,14,Minnie Hamilton Health Care Center,HOSPITAL_OR_SYSTEM,LEGAL,51Z303,MINNIE HAMILTON HEALTH CARE CENTER INC,APPLIED: EXACT_LEGAL_NAME
+wv_year1_awardees.csv,16,Mon Health Marion Neighborhood Hospital,HOSPITAL_OR_SYSTEM,LEGAL,510093,"MON HEALTH MARION NEIGHBORHOOD HOSPITAL, INC.",APPLIED: EXACT_LEGAL_NAME
+wv_year1_awardees.csv,17,Preston Memorial Hospital,HOSPITAL_OR_SYSTEM,LEGAL,51Z312,PRESTON MEMORIAL HOSPITAL CORPORATION,APPLIED: EXACT_LEGAL_NAME
+wv_year1_awardees.csv,19,Webster Memorial Hospital,HOSPITAL_OR_SYSTEM,LEGAL,511301,WEBSTER MEMORIAL HOSPITAL INC,APPLIED: EXACT_LEGAL_NAME
 wa_year1_awardees.csv,4,University of Washington (WWAMI Family Medicine Residency Network),HOSPITAL_OR_SYSTEM,LEGAL,500008,UNIVERSITY OF WASHINGTON,APPLIED: EXACT_LEGAL_NAME
 wa_year1_awardees.csv,6,"University of Washington (School of Medicine, Project ECHO)",HOSPITAL_OR_SYSTEM,LEGAL,500008,UNIVERSITY OF WASHINGTON,APPLIED: EXACT_LEGAL_NAME
 la_year1_awardees.csv,1,Ochsner Clinic Foundation,HOSPITAL_OR_SYSTEM,LEGAL,190036,OCHSNER CLINIC FOUNDATION,APPLIED: EXACT_LEGAL_NAME
@@ -60,11 +66,13 @@ ok_year1_cdm_awardees.csv,3,Choctaw Nation of Oklahoma,HOSPITAL_OR_SYSTEM,LEGAL,
 ok_year1_cdm_awardees.csv,6,Fairview Regional Medical Center,HOSPITAL_OR_SYSTEM,DBA,371329,FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY,APPLIED: DBA_OF_LEGAL_ENTITY
 ok_year1_cdm_awardees.csv,8,Jackson County Memorial Hospital Authority,HOSPITAL_OR_SYSTEM,LEGAL,370022,JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY,APPLIED: EXACT_LEGAL_NAME
 ok_year1_cdm_awardees.csv,14,"Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital",HOSPITAL_OR_SYSTEM,LEGAL,370166,WAGONER HOSPITAL AUTHORITY,APPLIED: EXACT_LEGAL_NAME
-ok_year1_ems_cp_awardees.csv,8,The Choctaw Nation of Oklahoma,HOSPITAL_OR_SYSTEM,LEGAL,370172,CHOCTAW NATION OF OKLAHOMA,APPLIED: EXACT_LEGAL_NAME
-ok_year1_ems_cp_awardees.csv,29,"Newman Memorial Hospital, Inc.",HOSPITAL_OR_SYSTEM,LEGAL,37Z336,"NEWMAN MEMORIAL HOSPITAL, INC",APPLIED: EXACT_LEGAL_NAME
-ok_year1_ems_cp_awardees.csv,30,Northeastern Health System,HOSPITAL_OR_SYSTEM,LEGAL,370089,NORTHEASTERN HEALTH SYSTEM,APPLIED: EXACT_LEGAL_NAME
-ok_year1_ems_cp_awardees.csv,35,Purcell Municipal Hospital,HOSPITAL_OR_SYSTEM,LEGAL,370158,PURCELL MUNICIPAL HOSPITAL,APPLIED: EXACT_LEGAL_NAME
-ok_year1_ems_cp_awardees.csv,40,Purcell Municipal Hospital,HOSPITAL_OR_SYSTEM,LEGAL,370158,PURCELL MUNICIPAL HOSPITAL,APPLIED: EXACT_LEGAL_NAME
+ok_year1_ems_cp_awardees.csv,7,The Choctaw Nation of Oklahoma,HOSPITAL_OR_SYSTEM,LEGAL,370172,CHOCTAW NATION OF OKLAHOMA,APPLIED: EXACT_LEGAL_NAME
+ok_year1_ems_cp_awardees.csv,28,"Newman Memorial Hospital, Inc.",HOSPITAL_OR_SYSTEM,LEGAL,37Z336,"NEWMAN MEMORIAL HOSPITAL, INC",APPLIED: EXACT_LEGAL_NAME
+ok_year1_ems_cp_awardees.csv,29,Northeastern Health System,HOSPITAL_OR_SYSTEM,LEGAL,370089,NORTHEASTERN HEALTH SYSTEM,APPLIED: EXACT_LEGAL_NAME
+ok_year1_ems_cp_awardees.csv,34,Purcell Municipal Hospital,HOSPITAL_OR_SYSTEM,LEGAL,370158,PURCELL MUNICIPAL HOSPITAL,APPLIED: EXACT_LEGAL_NAME
+ok_year1_ems_cp_awardees.csv,39,Purcell Municipal Hospital,HOSPITAL_OR_SYSTEM,LEGAL,370158,PURCELL MUNICIPAL HOSPITAL,APPLIED: EXACT_LEGAL_NAME
+ok_year1_lung_screening_awardees.csv,4,Chickasaw Nation Medical Center,HOSPITAL_OR_SYSTEM,DBA,370180,CHICKASAW NATION DIVISION OF HEALTH,APPLIED: DBA_OF_LEGAL_ENTITY
+ok_year1_lung_screening_awardees.csv,10,Duncan Regional Hospital,HOSPITAL_OR_SYSTEM,LEGAL,370023,"DUNCAN REGIONAL HOSPITAL, INC",APPLIED: EXACT_LEGAL_NAME
 ne_cms_obligation_awardees.csv,3,CHI Health St Marys,HOSPITAL_OR_SYSTEM,DBA,281342,ST MARYS COMMUNITY HOSPITAL,APPLIED: DBA_OF_LEGAL_ENTITY
 ne_cms_obligation_awardees.csv,4,CHI Health St Marys,HOSPITAL_OR_SYSTEM,DBA,281342,ST MARYS COMMUNITY HOSPITAL,APPLIED: DBA_OF_LEGAL_ENTITY
 ne_cms_obligation_awardees.csv,5,Regional West Medical Center,HOSPITAL_OR_SYSTEM,LEGAL,28T061,REGIONAL WEST MEDICAL CENTER,APPLIED: EXACT_LEGAL_NAME

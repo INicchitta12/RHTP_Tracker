@@ -261,7 +261,7 @@ test_that("the reconciliation does not subtract the Rural Strong contracts twice
   contracts <- readr::read_csv(here::here(SD_Y1_CONTRACTS_CSV),
                                show_col_types = FALSE, progress = FALSE)
   admin <- sum(contracts$amount[is.na(contracts$round_id)])
-  expect_equal(admin, 7693072)                     # session 86: + CHAS $349,047
+  expect_equal(admin, 7974072)                     # session 86: + CHAS $349,047; session 112: 26RHT00003 amended +$281,000
   unacc <- recon$amount[startsWith(recon$measure, "Unaccounted")]
   expect_equal(unacc, SD_Y1_CMS_AWARD - SD_Y1_TOTAL_ANNOUNCED - admin)
   # the wrong answer -- every contract subtracted on top of the rounds

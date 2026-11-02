@@ -72,6 +72,25 @@
 # spellings, Northeastern Vermont Regional Hospital under three, Northern
 # Counties Health Care under four. One row per EXECUTED AGREEMENT.
 #
+# SESSION 112 -- THE 2026-10-30 UPDATE: 241 ROWS, $181,752,448.14, AND "FULLY
+# OBLIGATED". Four new agreements (+$1,581,381.14): Town of Barre EMS $750,000
+# (community paramedicine), Howard Center $323,627.74 (facility upgrades),
+# Dentistry One of Vermont, PC $125,000.40 and Manatt, Phelps & Phillips, LLP
+# $382,753 (transformation grants). None is a hospital. Every 2026-10-23
+# agreement is still printed at its cents under its activity; nine are
+# re-spelled and ONE RE-SPELLING MOVES A CONFIDENCE: the $518,949 agreement
+# printed "Southwestern Vermont Health" (the system parent, LOW) is printed
+# "Southwestern Vermont Medical Center", the enrolled hospital's legal name less
+# ", Inc" (CCN 470012) -- MEDIUM, still a hospital row. The e-Consult activity
+# gained a "/VTCPAP" suffix (three rows, same names and cents). The page left
+# the Regionalization INITIATIVE CELL BLANK; vt_parse_table() restores it from
+# the activity pairing and refuses anything else. The page's new sentence:
+# "Vermont has fully obligated its approximately $195 million Year 1 RHT award.
+# ... The list below list represents executed grant and contract agreements
+# only and does not reflect the entirety of Vermont's Year 1 RHT funding
+# commitments." Obligation is not award (CLAUDE.md, the Year 1 deadlines): the
+# file stays a floor of executed agreements.
+#
 # SESSION 108 -- THE 2026-10-23 UPDATE: 237 ROWS, $180,171,067.00. Sixty-two
 # new agreements ($49,113,439.73). Every 2026-10-08 agreement is still printed
 # at its cents under its initiative and activity, but FOURTEEN are re-spelled
@@ -120,14 +139,19 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 VT_STATE        <- "VT"
 VT_ALLOTMENT    <- 195053740      # cms_fy2026_allotments.csv (§7.1)
-VT_PAGE_TOTAL   <- 180171067.00   # the table's own total row (2026-10-23 update)
-VT_PAGE_ROWS    <- 237L           # 112 on 09-18; 146 on 09-25; 166 on 10-02; 175 on 10-08; 237 on 10-23
+VT_PAGE_TOTAL   <- 181752448.14   # the table's own total row (2026-10-30 update)
+VT_PAGE_ROWS    <- 241L           # 112 on 09-18; 146 on 09-25; 166 on 10-02; 175 on 10-08; 237 on 10-23; 241 on 10-30
 VT_MOU_AMOUNT   <- 2635000
-VT_UPDATED      <- as.Date("2026-10-23")
-VT_UPDATED_TXT  <- "Updated as of October 23, 2026"
+VT_UPDATED      <- as.Date("2026-10-30")
+VT_UPDATED_TXT  <- "Updated as of October 30, 2026"
 VT_NOA_DATE     <- as.Date("2025-12-29")
 
-VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-10-26", "VT")
+VT_ARCHIVE_DIR  <- file.path("data", "evidence", "recheck", "2026-11-02", "VT")
+VT_AWARDS_BASENAME <- "2026-11-02_vt_year1_awards_FULLY_OBLIGATED_10-30.html"
+# SESSION 112: the 2026-10-23 list (237 rows, $180,171,067.00), which session
+# 108 extracted, is the immediate prior of the 2026-10-30 update.
+VT_PRIOR_FILE_1023 <- file.path("data", "evidence", "recheck", "2026-10-26", "VT",
+                                "vt_year1_awards.html")
 # SESSION 108: the 2026-10-08 list (175 rows, $131,057,627.27), which session
 # 101 extracted, is the immediate prior of the 2026-10-23 update.
 VT_PRIOR_FILE_1008 <- file.path("data", "evidence", "recheck", "2026-10-15", "VT",
@@ -159,7 +183,20 @@ VT_NCHC_MOVE <- list(
   from = c("Regionalization", "Transformation, innovation, and regionalization support grants"),
   to   = c("Primary Care", "Expanding access to Federally Qualified Health Center (FQHC) primary care services"))
 VT_FED_DIR      <- file.path("data", "evidence", "federal_records", "2026-09-23")
-VT_AWARDS_FILE  <- file.path(VT_ARCHIVE_DIR, "vt_year1_awards.html")
+
+# SESSION 112: the eight activities printed under "Regionalization" on the
+# 2026-09-18 .. 2026-10-23 lists. The 2026-10-30 list leaves that initiative
+# cell blank; vt_parse_table() restores the label only beside these.
+VT_REGIONALIZATION_ACTIVITIES <- c(
+  "Community paramedicine/Mobile Integrated Health model",
+  "Facility upgrades to support regionalization",
+  "Transformation, innovation, and regionalization support grants",
+  "Mobile units offering medical, dental and integrated Mental Health (MH) and Substance Use Disorder (SUD) services",
+  "Improve availability and access to high-acuity services for nursing home residents including dialysis services and ventilators",
+  "Transformation analytics and support",
+  "Mental Health (MH) and Substance Use Disorder (SUD) urgent care expansion",
+  "Development of a statewide health care delivery strategic plan")
+VT_AWARDS_FILE  <- file.path(VT_ARCHIVE_DIR, VT_AWARDS_BASENAME)
 VT_AWARDS_URL   <- paste0("https://healthcarereform.vermont.gov/",
                           "rht-year-1-executed-agreements-and-contracts")
 
@@ -265,8 +302,8 @@ VT_TYPES <- tibble::tribble(
   "CMS FQHC Enrollment: GIFFORD HEALTH CARE INC, CCN 471852. NOT the hospital (GIFFORD MEDICAL CENTER INC, CCN 471301).",
   "Little Rivers Health Care", "FQHC_OR_RHC", VT_FED, "VT",
   "CMS FQHC Enrollment: LITTLE RIVERS HEALTH CARE, INC. (printed with 'Inc.' until 2026-09-25).",
-  "Community Health Centers of the Rutland Regional", "FQHC_OR_RHC", VT_GK, "VT",
-  "The page's MISSPELLING of COMMUNITY HEALTH CENTERS OF THE RUTLAND REGION INC (CMS FQHC). The same agreement was printed with the correct name on 2026-09-25; a misspelling is not an exact match, so it is LOW. It is not a hospital either way.",
+  # Session 112: the misspelling "Community Health Centers of the Rutland Regional" is
+  # no longer printed (2026-10-30 prints the correct name); its entry is gone.
   # New recipients and new agreements.
   "Northeastern Vermont Regional Hospital (NVRH)", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
   "CMS Hospital Enrollment: NORTHEASTERN VERMONT REGIONAL HOSPITAL INC dba NVRH, CCN 471303 (CAH). The string is the enrolment's legal name less 'Inc' with the enrolment's own DBA in parentheses -- both halves on one record.",
@@ -400,7 +437,25 @@ VT_TYPES <- tibble::tribble(
   "Public Consulting Group", "VENDOR_OR_CONTRACTOR", VT_GK, NA,
   "Management consultancy, by general knowledge. Not a hospital.",
   "Unite USA, Inc.", "VENDOR_OR_CONTRACTOR", VT_GK, NA,
-  "Closed-loop referral software vendor (dba Unite Us, the page's DBA), by general knowledge. Not a hospital."
+  "Closed-loop referral software vendor (dba Unite Us, the page's DBA), by general knowledge. Not a hospital.",
+  # ---- session 112: the 2026-10-30 update ---------------------------------
+  "Southwestern Vermont Medical Center", "HOSPITAL_OR_SYSTEM", VT_FED, "VT",
+  paste0("CMS Hospital Enrollment: SOUTHWESTERN VERMONT MEDICAL CENTER, INC, CCN 470012, Bennington -- ",
+         "the legal name less ', Inc'. Session 112: the $518,949 Regionalization transformation-grant ",
+         "agreement printed 'Southwestern Vermont Health' (the system parent, LOW, GENERAL_KNOWLEDGE) ",
+         "through 2026-10-23 is printed under the enrolled hospital's name on 2026-10-30, same ",
+         "initiative, activity and cents; it moves from LOW to MEDIUM and stays a hospital row. ",
+         "The CCN is cited here, not in the ccn column, as for every other VT enrolment typing."),
+  "Community Health Centers of Burlington", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: COMMUNITY HEALTH CENTERS OF BURLINGTON INC, CCN 471800 (printed without ', Inc.' on 2026-10-30).",
+  "Northern Counties Health Care, Inc.", "FQHC_OR_RHC", VT_FED, "VT",
+  "CMS FQHC Enrollment: NORTHERN COUNTIES HEALTH CARE INC (printed with ', Inc.' on 2026-10-30).",
+  "St. Johnsbury Center for Living and Rehabilitation", "OTHER", VT_FED, "VT",
+  "NURSING FACILITY. CMS SNF Enrollment: 1248 HOSPITAL DRIVE OPCO LLC dba ST JOHNSBURY CENTER FOR LIVING AND REHABILITATION, CCN 475019B. The $63,760 telehealth agreement printed under the Springfield facility's name on 2026-10-23 is printed under this DBA alone on 2026-10-30.",
+  "Habit Opco LLC", "OTHER", VT_GK, "VT",
+  "OPIOID TREATMENT PROGRAM (dba Brattleboro Comprehensive Treatment Center, as printed; Habit OPCO operates Comprehensive Treatment Centers), by general knowledge -- the BAART precedent in this file. Printed 'Brattleboro Comprehensive Treatment Center' alone until 2026-10-23 (then §8's fallback). Not a hospital either way.",
+  "Manatt, Phelps & Phillips, LLP", "VENDOR_OR_CONTRACTOR", VT_GK, NA,
+  "LAW AND HEALTH-POLICY CONSULTING FIRM (an LLP), by general knowledge; the Public Consulting Group precedent in this file. Not a hospital."
 )
 
 vt_legal_key <- function(x) stringr::str_squish(stringr::str_remove(x, "\\s*\\*+\\s*$"))
@@ -443,6 +498,23 @@ vt_parse_table <- function(body = NULL) {
                   amount = as.numeric(gsub("[$,\\s ]", "", .data$amount_txt,
                                            perl = TRUE)),
                   page_row = dplyr::row_number())
+  # SESSION 112: the 2026-10-30 list prints the initiative cell of the
+  # Regionalization block (rowspan 102) as a bare &nbsp;. Its eight activities
+  # are exactly the eight printed under "Regionalization" on every list from
+  # 2026-09-18 to 2026-10-23, and none of them appears under any other
+  # initiative, so the label is restored from that pairing -- and ONLY where
+  # every blank row's activity is one of the eight. Anything else stops.
+  blank <- tb$initiative == ""
+  if (any(blank)) {
+    bad <- setdiff(unique(tb$activity[blank]), VT_REGIONALIZATION_ACTIVITIES)
+    if (length(bad)) {
+      stop("[VT] a blank initiative cell sits beside an activity never printed ",
+           "under Regionalization: ", paste(sQuote(bad), collapse = "; "),
+           ". Read the page.", call. = FALSE)
+    }
+    tb$initiative[blank] <- "Regionalization"
+  }
+  attr(tb, "initiative_blank_rows") <- tb$page_row[blank]
   attr(tb, "printed_total") <- printed_total
   tb
 }
@@ -476,14 +548,20 @@ vt_assert_reconciles <- function(tb = vt_parse_table()) {
 
 vt_assert_partial_and_executed <- function(body = NULL) {
   txt <- stringr::str_squish(rvest::html_text2(vt_read_page(body)))
+  # SESSION 112: the 2026-10-30 page drops "partial and ongoing list" and says
+  # instead that the list "does not reflect the entirety of Vermont's Year 1
+  # RHT funding commitments" -- still a floor, in different words -- beside
+  # "Vermont has fully obligated its approximately $195 million Year 1 RHT
+  # award". Both are asserted; the apostrophe is left out of the match.
   want <- c("executed agreements for Vermont",
-            "partial and ongoing list",
+            "does not reflect the entirety of Vermont",
+            "Vermont has fully obligated its approximately $195 million Year 1 RHT award",
             VT_UPDATED_TXT)
   miss <- want[!vapply(want, function(w) grepl(w, txt, fixed = TRUE), TRUE)]
   if (length(miss)) {
     stop("[VT] the page no longer says: ", paste(sQuote(miss), collapse = "; "),
-         ". 'executed' is why these are NOTICE_OF_AWARD rows and 'partial' is ",
-         "why the figure is a floor -- re-read before rebuilding.",
+         ". 'executed' is why these are NOTICE_OF_AWARD rows and 'not the ",
+         "entirety' is why the figure is a floor -- re-read before rebuilding.",
          call. = FALSE)
   }
   invisible(TRUE)
@@ -549,7 +627,7 @@ vt_year1_awardees <- function(tb = vt_parse_table()) {
     recipient_type = rtype,
     distributed_to_hospital = flow$distributed_to_hospital,
     note = paste0("Executed agreement, ", aw$initiative, ": ", aw$activity,
-                  ". Vermont's list is 'partial and ongoing'."),
+                  ". AHS: the list 'does not reflect the entirety of Vermont's Year 1 RHT funding commitments'."),
     recipient_confirmed = "Yes",
     amount_confirmed = "Yes",
     fiscal_year = "FY2026 (Year 1)",
@@ -569,7 +647,7 @@ vt_year1_awardees <- function(tb = vt_parse_table()) {
     facility_state = ifelse(typed, ty$facility_state, NA_character_),
     recipient_type_source = ifelse(
       typed,
-      paste0("TYPED (session 54/74/94/101/108): ", ty$why, " Classifier said ",
+      paste0("TYPED (session 54/74/94/101/108/112): ", ty$why, " Classifier said ",
              cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
              cls$recipient_type, "/", cls$determination_confidence, ".")),
@@ -605,10 +683,13 @@ vt_status_table <- function(tb = vt_parse_table()) {
     "EXECUTED_ROSTER_PUBLISHED_PARTIAL", "Yes",
     sum(tb$amount[!vt_is_mou(tb)]),
     paste(VT_PAGE_ROWS - 1L, "executed agreements to named recipients in the award file.",
-          "The page calls itself 'a partial and ongoing list and does not",
-          "represent the full Year 1 awards or funding decisions', so this is",
-          "a FLOOR. Updated as of 2026-10-23 (174 award rows on 2026-10-08,",
-          "165 on 2026-10-02, 145 on 2026-09-25, 111 on 2026-09-18)."),
+          "Updated as of 2026-10-30: 'Vermont has fully obligated its approximately",
+          "$195 million Year 1 RHT award. ... The list below list represents executed",
+          "grant and contract agreements only and does not reflect the entirety of",
+          "Vermont's Year 1 RHT funding commitments.' So this is a FLOOR of the",
+          "EXECUTED agreements, and 'fully obligated' is an obligation statement, not",
+          "an award figure (236 award rows on 2026-10-23, 174 on 2026-10-08, 165 on",
+          "2026-10-02, 145 on 2026-09-25, 111 on 2026-09-18)."),
     VT_STATE, "Gifford facility-upgrade agreement -- re-printed under the FQHC (2026-10-23)",
     "AGREEMENT_REPRINTED_OTHER_RECIPIENT", "Yes", 1008012.12,
     paste0("One executed agreement, $1,008,012.12, Regionalization / Facility upgrades, printed ",

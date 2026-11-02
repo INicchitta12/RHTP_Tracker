@@ -354,10 +354,16 @@ test_that("answering a _FLOW row did not settle its flow", {
 
   mi <- ref("mi_year1_awardees.csv") %>%
     filter(str_detect(awardee, "Michigan Health and Hospital Association"))
-  expect_equal(nrow(mi), 2L)
+  # Session 112: MDHHS's 10-01 roster adds three MHA awards ($4,500,000); they
+  # carry the same answer and the same unresolved flow. The original two are
+  # still the $8,625,000 the queue row describes.
+  expect_equal(nrow(mi), 5L)
   expect_true(all(mi$flow_type == "PASS_THROUGH_UNRESOLVED"))
   expect_true(all(mi$distributed_to_hospital == "Unclear"))
-  expect_equal(sum(as.numeric(mi$amount)), 8625000)
+  expect_equal(sum(as.numeric(mi$amount)), 13125000)
+  orig <- mi %>% filter(str_detect(note, fixed("On the roster as of 2026-07-10")))
+  expect_equal(nrow(orig), 2L)
+  expect_equal(sum(as.numeric(orig$amount)), 8625000)
 
   ar <- ref("ar_year1_awardees.csv") %>%
     filter(awardee == "Arkansas Rural Health Partnership")
@@ -575,6 +581,18 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Subtracted first.
   # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
   # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
+  # Session 112: TX 10/29 list (+1 / +$262,566.30, Anson corrected), SD register
+  # (+7 / +$2,515,882), PA Selected Projects (+31 / +$14,597,014.54; Guthrie now
+  # on PA's state source, the PA CMS obligation file gone), MI 10-01 roster
+  # (+19 / +$12,960,656), CO 11-02 re-pricing (-$6,659,872), OK Lung Cancer
+  # Screening (+9 / +$1,532,736) and UT, a 37th state (+6 / +$5,196,812.90):
+  # +73 / +$30,405,795.74: 1,908 / $1,761,827,518.82 / 37. Subtracted first.
+  expect_equal(named$rows, 1908L)
+  expect_equal(round(named$dollars, 2), 1761827518.82, tolerance = 0)
+  expect_equal(named$states, 37L)
+  named$rows <- named$rows - 73L
+  named$dollars <- named$dollars - 30405795.74
+  named$states <- named$states - 1L
   expect_equal(named$rows, 1835L)
   expect_equal(round(named$dollars, 2), 1731421723.08, tolerance = 0)
   expect_equal(named$states, 36L)
@@ -713,8 +731,10 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 98: + HARI ($15,839,907.67, 2 rows) and the Nebraska Hospital
   # Association ($3,474,937.50) on CMS obligation lines, owner-ruled, tagged
   # CMS_OBLIGATION_ASSOCIATION. Subtracted, ICAHN's figure is what remains.
-  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 2), 69323109.17)
-  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"] - 15839907.67 -
+  # Session 112: + UT's Utah Hospital Association ($9,891,739), subtracted first.
+  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"], 2), 79214848.17)
+  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"] - 9891739, 2), 69323109.17)
+  expect_equal(round(t$dollars[t$bucket == "POOL_UNNAMED_HOSPITALS"] - 9891739 - 15839907.67 -
                        3474937.50, 2), 50008264)
   # POOL_NAMED_HOSPITALS is Nebraska alone again (session 51) -- one Tier 3
   # award -- and did NOT gain anything from session 49.
@@ -729,9 +749,12 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # row, rounded, never split). Session 107: + VA VHCF's VCU Health pair
   # (Community Memorial + Tappahannock), $1,000,000, one row, never split.
   # Both subtracted first.
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 86555171.43)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 8L)
-  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 1000000 - 30300000
+  # Session 112: + OK's two SSM affiliate lines (Lung Cancer Screening),
+  # 2 rows / $340,608, subtracted first: 10 rows / $86,895,779.43.
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 86895779.43)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 10L)
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 340608, 2), 86555171.43)
+  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 340608 - 1000000 - 30300000
   expect_equal(round(pn, 2), 55255171.43)
   expect_equal(round(pn - 4170261, 2), 51084910.43)
   expect_equal(round(pn - 4170261 - 20278054.31, 2), 30806856.12)
@@ -773,7 +796,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Session 103 put Texas second ($117,571,194.73); session 104 added its
   # seven county-test bridges ($119,558,582.13).
   expect_equal(p$state[[1]], "TX")
-  expect_equal(round(p$dollars[[1]], 2), 191651290.01)   # session 111: + Burleson
+  expect_equal(round(p$dollars[[1]], 2), 191913856.31)   # session 111: + Burleson; session 112: 10/29 list, Anson corrected and in (+$262,566.30)
   expect_equal(p$state[[2]], "AR")
   expect_equal(round(p$dollars[[2]], 2), 128336961.52)
   p <- p[p$state != "TX", ]

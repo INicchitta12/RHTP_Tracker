@@ -212,7 +212,8 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
   got <- queue$queue_status[match(two, queue$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
               info = paste(two, got, collapse = "; "))
-  expect_equal(queue$queue_status[queue$state == "MN"], "INVESTIGATED_NO_LIST")
+  # Session 112: MN then left INVESTIGATED_NO_LIST by EXTRACTION (R/03cp).
+  expect_equal(queue$queue_status[queue$state == "MN"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "SC"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "TN"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "NJ"], "EXTRACTED")
@@ -241,15 +242,18 @@ test_that("the QUEUED bucket is exactly the TEN low-candidate states left", {
   # Session 77: MT left for INVESTIGATED_NO_LIST THROUGH THE WORK (archive,
   # R/03bl, Routine), Minnesota's route -- 6 - 2 = 4 candidates,
   # $752,411,812 - $233,509,359 = $518,902,453.
-  three <- c("UT", "AZ", "RI")
-  expect_setequal(queue$state[queue$queue_status == "QUEUED"], three)
+  # Session 112: UT left by EXTRACTION (R/03cn) -- 4 - 2 = 2 candidates,
+  # $518,902,453 - $195,743,566 = $323,158,887.
+  two <- c("AZ", "RI")
+  expect_setequal(queue$state[queue$queue_status == "QUEUED"], two)
+  expect_equal(queue$queue_status[queue$state == "UT"], "EXTRACTED")
   # Session 62 (2026-09-24 pull): 11 -> 6 candidates -- AZ's three webinar
   # rows are now QUARANTINED by Stage 2 on PROVENANCE_PREDATES_NOA and RCJ
   # withdrew RI's three opioid rows (one new RI row).
   expect_equal(sum(queue$rcj_tier3_candidates[queue$queue_status == "QUEUED"]),
-               4L)
+               2L)
   expect_equal(sum(queue$cms_fy2026_allotment[queue$queue_status == "QUEUED"]),
-               518902453)
+               323158887)
   # Session 88: MT EXTRACTED (R/03bv), so it leaves the watched negatives.
   expect_equal(queue$queue_status[queue$state == "MT"], "EXTRACTED")
   # Session 82: CO left INVESTIGATED_NO_LIST by EXTRACTION (HCPF's

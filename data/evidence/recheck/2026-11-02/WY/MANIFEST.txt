@@ -1,0 +1,12 @@
+WYOMING -- session 112 recheck (2026-11-02), fetched by hand with the project's honest agent.
+Drive folder folders/1BpezveAilDUDMFEalNrgFHpyisJszFjx ('Year One Award Summaries'), newly linked from
+https://health.wyo.gov/admin/rural-health-transformation-program/ (probe TRIPWIRE 2026-10-30).
+Folder lists 4 files; the fourth, 'RHT - Advisory Committee - Award Approvals - 8.11.26.pdf' (id 1jOlo8O43g5mog5P5J9TfdHzfCfTh5uMw),
+is BYTE-IDENTICAL (sha256 30aed248...c5b372) to data/evidence/WY/2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf and is not re-copied.
+Drive ids: year1_summary=1R2OpPz5-WngENQnZynvlBfx-hG1ayyCd; awards_by_county=1vcv3JsbSBKzCz4uCPsVKHkjE_x-nWb8f; allocation png=1h7ghqi-NvSXEhQgQ3IkY4S4rLh8umwyc
+
+file  bytes  sha256
+2026-11-02_wy_drive_folder_year_one_award_summaries.html  4757  6ee290380483dc2cad953671f75bfaa0b4ca591e1b84bb565456aedc90e47e78
+2026-11-02_wy_rht_award_allocation_2.png  553909  ba3a87ec3e5d9290ed8d8cd0a4b35b6a3e31720e8d1ebeb3aee10e76416873bb
+2026-11-02_wy_rht_awards_by_county.pdf  273976  312b4777006389730b91a47651b83b3861d5483ff4101b37b1667d0e2693dcc3
+2026-11-02_wy_rhtp_year1_summary_2026-10-23.pdf  198408  92f75ca5e719fc789fae0d4ede8ca64aed520c82fa598a77fd319c638bd6282c

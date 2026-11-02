@@ -36,7 +36,12 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # Session 100: + WV's three exact-name 09-30 hospitals (Mon Health Marion,
   # Preston, Webster); the three LEGAL_NAME_TRUNCATED bridges are not swept:
   # 70 -> 73.
-  expect_equal(nrow(sw), 73L)
+  # Session 112: + Michigan's three new Regents of the University of Michigan
+  # rows (MDHHS's 10-01 roster; EXACT_LEGAL_NAME, CCN 230046): 73 -> 76.
+  # Session 112: + OK Lung Cancer Screening's Duncan Regional Hospital (LEGAL,
+  # 370023) and Chickasaw Nation Medical Center (DBA, 370180), both in
+  # EH_APPLY: 76 -> 78.
+  expect_equal(nrow(sw), 78L)
   expect_setequal(EH_READ_NOT_APPLIED$verdict, "DIFFERENT_LEGAL_BODY")
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
@@ -71,7 +76,26 @@ test_that("74 rows / $99,235,607.60 typed on enrolment, 30 / $60,226,387.31 of t
   # LEGAL_NAME_TRUNCATED bridge, $145,428.23), and NVHA's BP1 report prices
   # the two NV CCN 291306 rows already here (Washoe Barton $2,458,060.00,
   # SOURCE_SUSPECT; Carson Valley Health $404,791.00): 74 / $99,235,607.60.
-  expect_equal(nrow(eff), 74L)
+  # Session 112: + Michigan's three new Regents rows (CCN 230046, AHC,
+  # $4,625,656): 77 / $103,861,263.60. Set aside first; every pin below is the
+  # session-111 set.
+  # Session 112: + OK Lung Cancer Screening (R/03co), 9 rows typed on CMS OK
+  # enrolment at $170,304 each, $1,532,736, none an AHC: 86 /
+  # $105,393,999.60. Set aside with the Michigan rows.
+  expect_equal(nrow(eff), 86L)
+  s112ok <- eff[eff$file == "ok_year1_lung_screening_awardees.csv", ]
+  expect_equal(nrow(s112ok), 9L)
+  expect_equal(sum(s112ok$amount), 1532736)
+  expect_true(all(is.na(s112ok$subtype)))
+  eff <- eff[eff$file != "ok_year1_lung_screening_awardees.csv", ]
+  expect_equal(nrow(eff), 77L)
+  s112 <- eff[eff$file == "mi_year1_awardees.csv" &
+                eff$awardee %in% c("Regents of the University of Michigan",
+                                   "Regents of the University of Michigan - Data Modernization Initiative"), ]
+  expect_equal(nrow(s112), 3L)
+  expect_equal(sum(s112$amount), 4625656)
+  expect_true(all(s112$subtype == "ACADEMIC_HEALTH_CENTER" & s112$match == "EXACT_LEGAL_NAME"))
+  eff <- dplyr::anti_join(eff, s112, by = c("file", "awardee"))
   s101 <- eff[eff$file == "nv_year1_awardees.csv", ]
   expect_equal(nrow(s101), 3L)
   expect_equal(round(sum(s101$amount, na.rm = TRUE), 2), 3008279.23)
@@ -305,6 +329,16 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # - Providence Medical Foundation: 1,835 / $1,729,244,537.70. Subtracted first.
   # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
   # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
+  # Session 112: TX +1 (Anson corrected), SD +7, PA +31 (Guthrie on PA's state
+  # source), MI +19, CO re-priced, OK Lung Cancer Screening +9 and UT +6 (a
+  # 37th state): +73 / +$30,405,795.74: 1,908 / $1,761,827,518.82 / 37.
+  # Subtracted first.
+  expect_equal(n$rows, 1908L)
+  expect_equal(round(n$dollars, 2), 1761827518.82)
+  expect_equal(n$states, 37L)
+  n$rows <- n$rows - 73L
+  n$dollars <- n$dollars - 30405795.74
+  n$states <- n$states - 1L
   expect_equal(n$rows, 1835L)
   expect_equal(round(n$dollars, 2), 1731421723.08)
   expect_equal(n$states, 36L)
@@ -393,10 +427,12 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 102: + NRHP's RHOAP-18 and RHIT-19 (owner ruling), $4,170,261.00.
   # Session 104: + Ohio's ODH 22-hospital pool, $30,300,000.
   # Session 107: + VA VHCF's VCU Health pair, $1,000,000.
-  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 1000000 - 30300000 -
+  # Session 112: + OK Lung Cancer Screening's two SSM affiliate lines, $340,608.
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 340608 - 1000000 - 30300000 -
                        4170261 - 20278054.31, 2), 30806856.12)
   # Session 98: + HARI and NHA (CMS_OBLIGATION_ASSOCIATION), $19,314,845.17.
-  expect_equal(round(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"] - 19314845.17, 2),
+  # Session 112: + UT's Utah Hospital Association, $9,891,739.
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_UNNAMED_HOSPITALS"] - 9891739 - 19314845.17, 2),
                50008264)
   # A reader can subtract the AHC rows without re-coding anything.
   expect_equal(round(n$dollars - 53539221.31, 2), 968775621.21)
@@ -435,7 +471,9 @@ test_that("every OTHER row in the repository states a determined form", {
   # Session 108: + 12 -- TX 6 (the 10/23 list), VT 3 (the 10-23 update), MS
   # round 2 2 (Kinder Mind, Jefferson County Nursing Home), ID 1 -- each with
   # its form in determination_basis.
-  expect_equal(nrow(rev), 147L)
+  # Session 112: + 16 -- PA 12 (DHS Selected Projects), VT 2 (the 10-30 list),
+  # TX 1 (the 10/29 list), UT 1 -- each with its form in determination_basis.
+  expect_equal(nrow(rev), 163L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

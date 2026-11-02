@@ -50,3 +50,33 @@ This tranche is the FIRST of Pennsylvania's $193,294,053.98 Year 1 award.
 $42.2M of $193.3M is 21.8%; the remainder is not yet awarded and no residual
 may be inferred from it (§0.3).
 
+
+UPDATE, SESSION 112 (2026-11-02): THE SELECTED-PROJECTS PAGE RE-PUBLISHED
+
+  file    : 2026-11-02_dhs_rural_health_selected_projects.html
+  role    : the CURRENT source of every row's NAME and AMOUNT. Byte-identical
+            copy of data/evidence/recheck/2026-11-02/PA/
+            2026-11-02_pa_dhs_rural_health_selected_projects.html (fetched
+            2026-11-02 ~14:38Z by curl, agent 'Mozilla/5.0 (compatible;
+            AHA-RHTP-Tracker/0.1; +https://www.aha.org)').
+  title   : Rural Health Selected Projects (breadcrumb 'Rural Health
+            Eligible Projects'; heading 'List of Eligible Projects')
+  url     : https://www.pa.gov/agencies/dhs/programs-services/healthcare/rural-health/rural-health-selected-projects
+  bytes   : 693055
+  sha256  : 039a17c1b5d8c87d137e78b64bf6e370f95f38833a479a3f2ae3d0492d437bf9
+
+  The table gained a sixth column, 'Funding Opportunity', and 112 rows: 178
+  rows, $116,840,877.67 by parse, in FIVE sections -- Rapid Response
+  Stablization - Round 1 (66, $42,198,309.80, identical name for name and
+  cent for cent to the 2026-08-28 table), Round 2 (71, $25,853,962.10), EHR &
+  HIO (22, $1,733,579.20), FQHC & FQH Look-Alikes (4, $1,179,232.33) and Year
+  One Non-Solicitation (15, $45,875,794.24).
+
+  THE PAGE'S OWN HEADER IS STALE AND CONTRADICTS ITS ROWS. It reads 'Below is
+  a list of authorized projects ... Total Awarded to Date: $43,000,000'
+  against $116.8M of rows. RECORDED, NOT ADOPTED: no row contradicts itself,
+  so no row is SOURCE_SUSPECT; the figure is the header's, and the rows are
+  what the extraction reads.
+
+  The 2026-08-28 file above is KEPT: it is the archive Round 1's coding was
+  first made from.

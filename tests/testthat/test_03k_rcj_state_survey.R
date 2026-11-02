@@ -221,8 +221,9 @@ test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
   got <- survey$extraction_status[match(two, survey$state)]
   expect_true(all(got == "INVESTIGATED_NO_PROBE"),
               info = paste(two, got, collapse = "; "))
+  # Session 112: MN then left INVESTIGATED_NO_LIST by EXTRACTION (R/03cp).
   expect_equal(survey$extraction_status[survey$state == "MN"],
-               "INVESTIGATED_NO_LIST")
+               "EXTRACTED")
   expect_true(file.exists(here::here("R/03bn_mn_year1_probe.R")))
   expect_equal(survey$extraction_status[survey$state == "TN"], "EXTRACTED")
   expect_equal(survey$extraction_status[survey$state == "NJ"], "EXTRACTED")
@@ -303,9 +304,11 @@ test_that("session 43's four working states left the queue THROUGH the work", {
   # so four remain.
   # Session 77 worked MT out by PROBING it (archive, R/03bl, Routine) --
   # Minnesota's route -- so three remain.
-  three <- c("UT", "AZ", "RI")
-  expect_true(all(survey$extraction_status[match(three, survey$state)] ==
+  # Session 112 worked UT out by EXTRACTING it (R/03cn), so two remain.
+  two <- c("AZ", "RI")
+  expect_true(all(survey$extraction_status[match(two, survey$state)] ==
                     "NOT_EXTRACTED"))
+  expect_equal(survey$extraction_status[survey$state == "UT"], "EXTRACTED")
   # Session 88: MT EXTRACTED (R/03bv); R/03bl is now its roster watch.
   expect_equal(survey$extraction_status[survey$state == "MT"], "EXTRACTED")
   expect_true(file.exists(here::here("R/03bl_mt_year1_probe.R")))
@@ -341,8 +344,10 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 101: HI (INVESTIGATED_NO_PROBE) -> EXTRACTED, so 40/6/1/3.
   # Session 103: TX (INVESTIGATED_NO_LIST) -> EXTRACTED, so 41/5/1/3.
   # Session 109: CA (INVESTIGATED_NO_LIST) -> EXTRACTED, so 42/4/1/3.
-  expect_equal(unname(tab[["EXTRACTED"]]), 42L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 4L)
+  # Session 112: UT (QUEUED) -> EXTRACTED, and MN (INVESTIGATED_NO_LIST) ->
+  # EXTRACTED (R/03cp, MDH Sub-Recipient Awardees), so 44/3/1/2.
+  expect_equal(unname(tab[["EXTRACTED"]]), 44L)
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 3L)
   expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 1L)
-  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 3L)
+  expect_equal(unname(tab[["NOT_EXTRACTED"]]), 2L)
 })

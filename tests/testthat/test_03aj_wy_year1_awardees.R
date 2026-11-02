@@ -457,7 +457,9 @@ wy_prog_without_button <- stringr::str_replace(
 test_that("the re-based programme page carries the approvals button, to the extracted PDF", {
   expect_true(stringr::str_detect(wy_prog_txt, stringr::fixed(
     WY_NAME_FURNITURE$programme)))
-  expect_identical(wy_drive_targets(wy_prog_html), sort(WY_KNOWN_DRIVE_TARGETS))
+  # Session 112 registered the 'Year One Award Summaries' folder, READ, which
+  # the live page links and this archived copy predates: a subset, not equal.
+  expect_true(all(wy_drive_targets(wy_prog_html) %in% WY_KNOWN_DRIVE_TARGETS))
   expect_identical(wy_drive_link_findings(wy_prog_html), character(0))
   # the button's target is the approvals PDF's own Drive id
   expect_true(stringr::str_detect(wy_url("approvals"), stringr::fixed(

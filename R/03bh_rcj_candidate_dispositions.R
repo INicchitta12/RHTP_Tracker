@@ -106,7 +106,7 @@ DISPO_AWARD_FILES <- list(
 DISPO_FILE_EVIDENCE <- c(
   FL = "data/evidence/recheck/2026-08-29/FL/FL_year1_awardees_governor_list.pdf",
   GA = "data/evidence/GA/ (four DCH announcements, the AHEAD roster, two signed notices of award)",
-  PA = "data/evidence/PA/2026-08-28_dhs_rural_health_selected_projects.html",
+  PA = "data/evidence/PA/2026-08-28_dhs_rural_health_selected_projects.html (Round 1); data/evidence/PA/2026-11-02_dhs_rural_health_selected_projects.html (178 rows, session 112)",
   AL = "data/evidence/AL/2026-08-24_governor_ivey_first_arhtp_grants.html (round 1); data/evidence/recheck/2026-10-01/AL/al_governor_2026-10-01_round2_34_grants.html (round 2)",
   AK = "data/evidence/AK/2026-09-21_ak_rhtp_awardsnotice_2026.xlsx",
   OR = "data/evidence/OR/ (2026-05-07 Transformation bulletin, 2026-07-07 release, Catalyst xlsx, awards page)",
@@ -306,6 +306,10 @@ DISPO_HAND_READ <- tibble::tribble(
   "SD", "First Awards for RHT Grant Program Management", "", "",
   "Program-management consultants from DOH's release, priced by the release", "RHTP_ADMINISTRATIVE_CONTRACT_PRICED_ELSEWHERE",
   "{rows} row(s), {amount}. The same consultants the portal carries (session 14): Black Hills Special Services Cooperative at a $1 placeholder, and Business Concepts & Applications at the release's $500,000 against the portal contract's $250,000 -- two figures, neither corrected (§8). Evidence: data/evidence/SD/2026-08-28_open_sd_contract_search_RHT.html. {new} first seen after 08-27.",
+
+  "SD", "RHTP Contract & Grant Awards", "Business Concepts", "",
+  "Business Concepts & Applications at the register's PRE-AMENDMENT figure", "RHTP_ADMINISTRATIVE_CONTRACT_PRICED_ELSEWHERE",
+  "{rows} row(s), {amount}. Contract 26RHT00003 (DSS project management, RFP 26-08RHT-010), carried by RCJ at the $250,000 every register archive printed to 2026-10-12. The 2026-11-02 register prints $531,000 for the same contract, vendor and description (an amendment; R/03i SD_AMENDMENTS, session 112), and sd_rht_contracts.csv carries the current figure. ADMINISTRATIVE, never a hospital row. Evidence: data/evidence/SD/2026-11-02_open_sd_contract_search_RHT.html; data/evidence/SD/contract_details/26RHT00003_reread_2026-11-02.html. {new} first seen after 08-27.",
 
   "SD", "Technology and Data Grants", "", "",
   "The Rural Strong round as one awardee, under the wrong release", "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",

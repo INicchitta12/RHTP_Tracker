@@ -262,6 +262,40 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_j("MI", "Michigan Health and Hospital Association (MHA)", "HOSPITAL",
        "The Michigan Health and Hospital Association is the state hospital association, and the owner's standing ruling counts hospital associations as hospitals.",
        "MDHHS never says the $8.625M reaches member hospitals; MHA may spend it on its own programmes, which §10.2 would code NON_HOSPITAL or IN_KIND_BENEFIT."),
+  sc_j("MI", "Michigan Health and Hospital Association", "HOSPITAL",
+       "Session 112: the same hospital association printed without its '(MHA)' suffix on the 10-01 roster; called as the MHA rows are, under the owner's standing ruling that hospital associations count as hospitals.",
+       "MDHHS never says this $1,000,000 reaches member hospitals; MHA may spend it on its own programmes."),
+  sc_j("MI", "Upper Peninsula Health Care Solution, Inc.", "HOSPITAL",
+       "Session 112: a shared-services network owned by Upper Peninsula hospitals (general knowledge), called as a hospital network under the standing association/network ruling.",
+       "No source says the $1,050,000 is passed to member hospitals; a network that keeps it as shared services is IN_KIND_BENEFIT under §10.2."),
+  sc_j("MI", "Drummond Island Medical Center", "NOT_HOSPITAL",
+       "Session 112: an island primary-care clinic with no CMS hospital enrolment in Michigan; 'Medical Center' in a clinic's name is not an enrolment (the Texas no-enrolment precedent).",
+       "'Medical Center' reads as a hospital, and a reader may take it for one."),
+  sc_j("UT", "Utah Hospital Association (UHA)", "NOT_HOSPITAL",
+       "Session 112: UHA's $38.3M capital line awards grants 'for rural facilities' and UHA's own RFA names 'rural hospitals, clinics, and other eligible providers' and crisis receiving centres -- hospitals among others, the NH FHC precedent (NOT_HOSPITAL); held for an owner ruling.",
+       "A hospital association runs it and the service lines it names (tele-ICU, OB, dialysis, diagnostic equipment) are hospital lines, so most of it may reach hospitals.",
+       row_no = 36),
+  sc_j("UT", "Utah Health Information Network (UHIN)", "NOT_HOSPITAL",
+       "Session 112: HIE readiness funding and technical assistance to a mixed class ('rural hospitals, clinics, and tribal health entities'); hospitals among others.",
+       "Rural hospitals are the main HIE connectors, so much of it may reach hospitals."),
+  sc_j("OK_LUNG", "SSM Affiliates: Purcell Municipal, Newman Memorial, Harper County Community, Beaver County Memorial", "HOSPITAL",
+       "Shared award: every named recipient is a CMS-enrolled hospital, so the call is HOSPITAL whatever the split (the CT Hartford HealthCare pair precedent).",
+       "No per-hospital split is published, and the contract is not finalized."),
+  sc_j("OK_LUNG", "SSM Affiliates: Cordell Memorial Hospital, Okeene Municipal Hospital, Weatherford Regional Hospital", "HOSPITAL",
+       "Shared award: every named recipient is a CMS-enrolled hospital, so the call is HOSPITAL whatever the split (the CT Hartford HealthCare pair precedent).",
+       "No per-hospital split is published, and the contract is not finalized."),
+  sc_j("UT", "73 Rural Clinical Preceptors", "NOT_HOSPITAL",
+       "Payments to individual clinical preceptors (clinicians), not to a hospital.",
+       "Some preceptors may practise in hospitals."),
+  sc_j("UT", "U of U Physician Assistant Program (UPAP)/Switchpoint", "NOT_HOSPITAL",
+       "Shared award called on its lead, a university physician assistant programme; Switchpoint is a community organisation; neither is a hospital.",
+       "None."),
+  sc_j("MN", "Minnesota Community Health Worker Alliance", "NOT_HOSPITAL",
+       "Session 112: a CHW workforce intermediary whose grant funds go to employers ('clinics, hospitals, Tribal health...'), none named; hospitals among others.",
+       "Some of the employer grants may go to hospitals."),
+  sc_j("MN", "HealthForce MN", "NOT_HOSPITAL",
+       "Session 112: a workforce intermediary whose grant funds go to employers including clinics and hospitals, none named; hospitals among others.",
+       "Some of the employer grants may go to hospitals."),
   sc_j("OR", "Alano Club, Comagine Health, Tabor North", "NOT_HOSPITAL",
        "Joint award called on its lead, Alano Club (a recovery club); none of the three named parties is a hospital.",
        "None."),
@@ -488,6 +522,9 @@ SC_JUDGMENTS <- dplyr::bind_rows(
        "School sites, a class OSDE states. No dollars on the row.", "None."),
   sc_j("TX", "Coastal Gateway Health Center", "NOT_HOSPITAL",
        "A community health centre, not a hospital.", "None."),
+  sc_j("TX", "GHC Hemphill Operations, LLC", "HOSPITAL",
+       "Owner ruling (session 112, b): likely operator of Hemphill County Hospital (CCN 671301); the strict file is unchanged.",
+       "No source states the operating relationship; HHSC types nothing and the LLC carries no CMS hospital enrolment under its own name."),
   sc_j("CT", "Hartford HealthCare -- Windham Hospital (Willimantic) and Charlotte Hungerford Hospital (Torrington)", "HOSPITAL",
        "Shared award: both named recipients are Hartford HealthCare hospitals, so the call is HOSPITAL whatever the split.",
        "No per-hospital split is published."),
@@ -537,7 +574,7 @@ SC_JUDGMENTS <- dplyr::bind_rows(
 #' named members (sc_pool_call()). The call is computed, never typed, so the
 #' tribble carries no `call` column. A member called HOSPITAL on a written
 #' judgment but typed Unclear (Ohio's two hospital networks) is NOT a typed
-#' hospital and does not count. A tie goes to SC_POOL_TIEBREAKS, or fails.
+#' hospital and does not count. A tie is NOT_HOSPITAL (session 112: a tie is not a majority).
 SC_POOLS <- tibble::tribble(
   ~pool_id, ~file_key, ~state, ~pool_name, ~pool_usd, ~member_col, ~member_value, ~counter,
   "GA_P2_CONNECTING_TO_CARE", "GA", "GA", "Connecting to Care to Improve Healthcare Access in Rural Georgia (Phase 2)", 6500000,
@@ -556,37 +593,20 @@ SC_POOLS <- tibble::tribble(
   "award_pool", NA,
   "Ohio High Value Network and Ohio State Health Network are hospital networks, typed Unclear: counted as hospitals they would make four of six members hospitals.")
 
-#' A tie between typed-hospital and other members is broken on the LEAD
-#' applicant's type (owner ruling d). Where the source names no lead, the proxy
-#' used is stated here with its document, and the call says it is a proxy.
-SC_POOL_TIEBREAKS <- tibble::tribble(
-  ~pool_id, ~lead, ~lead_is_hospital, ~basis,
-  "IN_GROW_REGION_5", "Sullivan County Community Hospital", TRUE,
-  paste("Indiana names no lead applicant for a GROW region: each Regional Coalition files one application.",
-        "PROXY: the first Primary Subrecipient signing Region 5's Letter of Intent is Sullivan County Community",
-        "Hospital (CEO Michelle Franklin, 'Email Confirmation Received 5/12/26'), and its CEO is also Region 5's",
-        "Rural Hospital Staff committee member (data/evidence/recheck/2026-10-29/IN/grow_region_5_letter_of_intent.pdf)."))
-
+#' SESSION 112, OWNER RULING (a): A TIE IS NOT A MAJORITY. A pool is HOSPITAL
+#' only where its typed-hospital members are a STRICT majority of its named
+#' members; an exact tie is NOT_HOSPITAL, the same test the Ohio and Georgia
+#' pools pass or fail. This retires session 111's lead-applicant tiebreak
+#' (Indiana GROW Region 5, 8 of 16, had been called HOSPITAL on a signature-order
+#' proxy). There is no tiebreak table any more, so a tie cannot be re-typed.
 sc_pool_call <- function(pool_id, members, hospital_members) {
   tie <- hospital_members * 2 == members
   call <- ifelse(hospital_members * 2 > members, "HOSPITAL", "NOT_HOSPITAL")
   why <- paste0("Shared pool called on its named members, using the typed rows (owner ruling, session 111): ",
                 hospital_members, " of ", members, " named members are typed hospitals, ",
-                ifelse(hospital_members * 2 > members, "a strict majority", ifelse(tie, "a tie", "not a majority")),
+                ifelse(hospital_members * 2 > members, "a strict majority",
+                       ifelse(tie, "a tie, and a tie is not a majority (owner ruling, session 112)", "not a majority")),
                 "; not split.")
-  for (i in which(tie)) {
-    tb <- SC_POOL_TIEBREAKS[SC_POOL_TIEBREAKS$pool_id == pool_id[i], ]
-    if (nrow(tb) != 1L) {
-      stop("[summary calls] pool ", pool_id[i], " is a tie (", hospital_members[i], " of ", members[i],
-           ") and SC_POOL_TIEBREAKS has no lead applicant for it.", call. = FALSE)
-    }
-    call[i] <- if (tb$lead_is_hospital) "HOSPITAL" else "NOT_HOSPITAL"
-    why[i] <- paste0(why[i], " Tie broken on the lead applicant (owner ruling d): ", tb$lead, ", ",
-                     if (tb$lead_is_hospital) "a hospital" else "not a hospital", ". ", tb$basis)
-  }
-  stale <- setdiff(SC_POOL_TIEBREAKS$pool_id, pool_id[tie])
-  if (length(stale)) stop("[summary calls] SC_POOL_TIEBREAKS names a pool that is not a tie: ",
-                          paste(stale, collapse = ", "), call. = FALSE)
   list(call = call, rationale = why)
 }
 

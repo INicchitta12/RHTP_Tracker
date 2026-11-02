@@ -1,6 +1,7 @@
-Michigan -- RHTP Year 1: MDHHS's RHTP Subrecipients roster (145 named
-awards WITH amounts, 2026-09-24) and the PRIOR 139-row roster it grew
-from (2026-09-01), the programme page carrying its completeness claim,
+Michigan -- RHTP Year 1: MDHHS's RHTP Subrecipients roster (231 named
+awards WITH amounts, 2026-11-02, 'as of October 1, 2026'), the 145-row
+roster it replaced (2026-09-24) and the 139-row roster before that
+(2026-09-01), the programme page carrying its completeness claim,
 the 2025-12-30 award release, a post-NOA solicitation, MHA's own RHTP
 page, CMS's 50-state spotlights, and the §6.2 NEGATIVE CONTROL.
 Archived by R/03v_mi_year1_awardees.R --fetch
@@ -27,7 +28,18 @@ Michigan inverts it. The bare agent is used for michigan.gov ONLY and
 `mi_agent_for()` refuses to use it on any other host, so the exception
 cannot quietly spread. mha.org and cms.gov take the honest agent.
 
-THE ROSTER IS `2026-09-24_mi_rhtp_subrecipients.html`. Five accordion
+SESSION 112: THE ROSTER IS `2026-11-02_mi_rhtp_subrecipients.html`, a
+byte-for-byte copy of data/evidence/recheck/2026-11-02/MI/ (same digest;
+fetched with the bare michigan.gov agent). 26 + 78 + 72 + 42 + 13 = 231
+award actions, $161,740,847, 'Award notices as of October 1, 2026'.
+Against the 145-row roster below it ADDS 93 rows and DROPS 7 (exact
+initiative + name + amount + fund); five AHEC regional centres and one
+Community Mental Health Association row reappear under new labels at the
+same initiative, fund and amount, and Saginaw County Health Department's
+$100,000 moved initiative and fund. The file follows the page: dropped
+rows leave, because MDHHS claims the page is complete.
+
+THE 2026-09-24 ROSTER IS `2026-09-24_mi_rhtp_subrecipients.html`. Five accordion
 sections, one per initiative, each a Subrecipient Organization / Award
 Amount* / Fund table: 23 + 71 + 21 + 17 + 13 = 145 award actions and
 $101,318,437, 'Award notices as of August 31, 2026'. It is a byte-for-byte
@@ -72,10 +84,11 @@ to corroborate the AMOUNT against the §7.1 anchor and never as the
 evidence that these awards are RHTP; three programme-scoped sentences do
 that, and each is asserted separately.
 
-Manifest written: 2026-09-24. Each file's fetch date is the date in its name.
+Manifest written: 2026-11-02. Each file's fetch date is the date in its name.
 
 file                                                      bytes  sha256
 --------------------------------------------------------------------------------------------------------------------------------
+2026-11-02_mi_rhtp_subrecipients.html                    785209  950c7afc8f9f140beb9cf1777c62c9a7e99c170f919abdba72502ac25bf90b5c
 2026-09-24_mi_rhtp_subrecipients.html                    770247  4f371674912d76bbc644ba6cdcc147b3fd46c0b2f5699c5463413de6d5036831
 2026-09-01_mi_rhtp_subrecipients.html                    762955  a09bbc05e0ad3b1ec627ef62470d3f280e296906afad9008b30d88c22f7ef521
 2026-09-01_mi_rhtp_program_page.html                     777497  4a81fba273791f78b0a38a3f9bffa4db5ce4dc45eca39eb08b02ba89c81e4639
@@ -88,6 +101,7 @@ file                                                      bytes  sha256
 
 Source URLs and agents
   roster          MICHIGAN_GOV  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-subrecipients
+  roster_0924     MICHIGAN_GOV  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-subrecipients
   roster_prior    MICHIGAN_GOV  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-subrecipients
   program         MICHIGAN_GOV  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program
   award_release   MICHIGAN_GOV  https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2025/12/30/rht-funding

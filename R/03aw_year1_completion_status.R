@@ -66,6 +66,11 @@ Y1_AWARD_FILES <- c(
   OK = "ok_year1_doulas_awardees.csv",
   OK = "ok_year1_rrr_awardees.csv",  OK = "ok_year1_cdm_awardees.csv",
   OK = "ok_year1_bhi_awardees.csv",  OK = "ok_year1_ems_cp_awardees.csv",
+  OK = "ok_year1_lung_screening_awardees.csv",
+  OK = "ok_year1_telestroke_awardees.csv",
+  OK = "ok_year1_closed_loop_awardees.csv",
+  OK = "ok_year1_grow_your_own_awardees.csv",
+  OK = "ok_year1_transportation_awardees.csv",
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
@@ -84,7 +89,9 @@ Y1_AWARD_FILES <- c(
   CO = "co_year1_awardees.csv", MT = "mt_year1_awardees.csv",
   HI = "hi_year1_awardees.csv",
   TX = "tx_year1_awardees.csv",
-  CA = "ca_year1_awardees.csv"
+  CA = "ca_year1_awardees.csv",
+  UT = "ut_year1_awardees.csv",
+  MN = "mn_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -250,9 +257,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/MS/2026-09-14_ms_governor_167_awards_ROSTER.html",
 
   "LA", "PARTIAL", "No", "Yes",
-  "2026-09-21",
-  "One of seven Budget Year 1 solicitations has a published award (the Rural Clinician Credit Bank, 53 awards as of 8/28, session 64). The other six had Notices of Intent to Contract dated 2026-10-02, sent to applicants privately, with denials 'by October 16, 2026'; nothing names a selectee (session 88).",
-  "data/evidence/LA/2026-10-05_la_ldh_rhtp_programme_NOTICES_DATED_OCT_2.html",
+  "2026-10-30",
+  "LDH programme page: 'All RHTP Budget Year 1 award notifications have been completed as of October 30, 2026. Contract execution will be completed in November 2026.' Notifications went to applicants privately; one of seven solicitations has a published award (Rural Clinician Credit Bank). Not COMPLETE: six programmes have no public roster and no executed contract (session 112).",
+  "data/evidence/recheck/2026-11-02/LA/2026-11-02_la_ldh_rhtp_programme_YEAR1_NOTIFICATIONS_COMPLETE.html",
 
   "KS", "PARTIAL", "No", "Yes",
   "2026-09-22",
@@ -295,9 +302,9 @@ Y1_STATUS <- tibble::tribble(
   "data/evidence/NH/2026-09-01_fhc_go_north_rhtp.html",
 
   "IA", "PARTIAL", "No", "Yes",
-  "2026-06-18",
-  "Iowa HHS: 'As we continue awarding funds through Healthy Hometowns...' (2026-06-18, the latest Iowa statement archived). Iowa prices no recipient, so no percentage of allotment can be computed.",
-  "data/evidence/IA/2026-06-18_ia_hhs_gme_approval_new_healthy_hometowns_awardees.html",
+  "2026-10-09",
+  "Iowa HHS, 2026-10-09: 'The state has fully obligated the full $209,040,063.71 Iowa was awarded in the first year of the program'. An obligation is not an award (standing rule); four Healthy Hometowns RFP notices are delayed to 'on or around November 2, 2026' and none was posted at 11-02 14:40Z. Iowa prices no recipient, so no percentage of allotment can be computed (session 112).",
+  "data/evidence/recheck/2026-11-02/IA/2026-11-02_ia_hhs_release_2026-10-09_fully_obligated.html",
 
   "ME", "PARTIAL", "No", "Yes",
   "2026-09-02",
@@ -314,20 +321,20 @@ Y1_STATUS <- tibble::tribble(
   "Governor Sanders, 2026-09-24: 'Combined with the previous round of funding through the Telehealth, Health-Monitoring, and Response Innovation for Vital Expansion (THRIVE) and the Promoting Access Coordination and Transformation (PACT) priority, this round of funding completes the distribution of the $208 million awarded to Arkansas this year.' All four initiatives have a published DF&A list (round 1 2026-08-27, round 2 2026-09-24; session 69). The $4,916,708.71 left of the allotment is $4,680,988 of PLANNED administration in the Year 1 Revised Budget Narrative plus $235,720.73 UNEXPLAINED (allocation less award, net), not an unawarded initiative: ar_year1_allotment_gap.csv. Every award is an INTENT: 'the details of each grant will not be finalized until DFA signs an official agreement with each grantee'.",
   "data/evidence/recheck/2026-09-25/AR/2026-09-24_governor_sanders_54_6_million_awarded.html; data/evidence/recheck/2026-09-25/AR/2026-09-24_ar_dfa_year1_rise_heart_award_list.pdf; data/evidence/AR/2026-05_ar_year1_revised_budget_narrative.pdf",
 
-  "WY", "PARTIAL", "No", "Yes",
-  "2026-08-11",
-  "The Advisory Committee approved every budget line, but $30,877,990 is approved at POOL level naming nobody, including three competitive RFPs; every row is an approval pending execution (session 42).",
-  "data/evidence/WY/2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf",
+  "WY", "COMPLETE", "Yes", "No",
+  "2026-10-23",
+  "Wyoming DOH, 'RHTP Year 1 Summary_10.23.26' (Year One Award Summaries folder linked from the programme page): 'As of October 2026, funding allocations, competitive applications, and awards have been completed for Year 1 of Wyoming's $205 million Rural Health Transformation Program'. CMS 10-23: 'Wyoming has committed its full $205 million'. Caveat: $30,877,990 is approved at POOL level naming no recipient (incl. the $17,612,195 sole-source fiscal-agent contract and three competitive RFPs), and the committee rows are approvals, not executed agreements (session 112).",
+  "data/evidence/recheck/2026-11-02/WY/2026-11-02_wy_rhtp_year1_summary_2026-10-23.pdf",
 
   "DE", "PARTIAL", "No", "Yes",
   "2026-10-02",
   "Two of fifteen Year 1 initiatives have published awards: School-Based Health Centers (four named, unpriced, session 44) and Value-based care transformation (three FQHCs, ~$22.69M rounded, 2026-09-24, de_year1_fqhc_awardees.csv, session 86; the DHSS line is $24,322,042.48). Thirteen have no roster.",
   "data/evidence/DE/2026-09-03_de_dhss_rhtp_programme.html; data/evidence/DE/2026-10-02_de_fqhc_award_release.html",
 
-  "ID", "PARTIAL", "No", "Yes",
-  "2026-09-03",
-  "One named awardee; eleven opportunities open or just posted and four closed with no awardee (session 44).",
-  "data/evidence/ID/2026-09-03_id_rhtp_funding_opportunities.html",
+  "ID", "COMPLETE", "Yes", "No",
+  "2026-10-28",
+  "Governor Little, 2026-10-28: 'Governor Brad Little announced today the State of Idaho completed the awards for $186 million in Year 1 grant funding for the Rural Health Transformation Program (RHTP)'. DHW's list of awardees as of Oct. 16 (extracted session 108, R/03ck) is byte-identical on 11-02; the two MOA/MOU lines ($22.9M, state agencies) stay out of the award file (session 112).",
+  "data/evidence/recheck/2026-11-02/ID/2026-11-02_id_governor_2026-10-28_year1_awardees_release.html",
 
   "OH", "PARTIAL", "No", "Yes",
   "2026-07-01",
@@ -339,15 +346,25 @@ Y1_STATUS <- tibble::tribble(
   "Four of five initiatives awarded; the Tech Catalyst Fund ($32,730,351, via SCRA) 'will be announced through a future stage' (session 47).",
   "data/evidence/SC/2026-09-21_scdhhs_grants_rhtp_programme.html",
 
+  "UT", "COMPLETE", "Yes", "No",
+  "2026-10-29",
+  "Utah DHHS Office of Rural Health page (Last-Modified 10-29): 'We are proud to share that the CMS has officially reported that Utah has successfully demonstrated obligation for 100% of its Year 1 RHTP funding.' Full obligation on a state source (the test applied to New York and Vermont, session 112). The award file is DHHS's RHTP Awardee Announcement: 41 lines, $193,095,906.92, every row an INTENT ('DHHS is preparing to formally announce the grant awardees').",
+  "data/evidence/recheck/2026-11-02/UT/2026-11-02_ut_dhhs_ruralhealth_page.html",
+
+  "MN", "PARTIAL", "No", "Yes",
+  "2026-10-27",
+  "MDH grants page (Last Updated 10/27/2026): 'The Minnesota Department of Health has awarded $12.5 million in Rural Health Transformation Program funding to the following sole-source and competitive grant program recipients. Grants made to rural Critical Access Hospitals, Federally Qualified Health Centers, Tribal Nations, Certified Community Behavioral Health Centers and Community Mental Health Centers through direct allocation grant will be announced in the coming days.' The direct-allocation grants are the remainder (session 112).",
+  "data/evidence/MN/2026-11-02_mdh_rhtp_grants.html",
+
   "NY", "PARTIAL", "No", "Yes",
   "2026-09-04",
-  "RCHI ($76.2M) is awarded; Enhanced Primary Care and Rural Roots have no solicitation and Initiative 4 (cybersecurity) is at interest-form stage (session 37/52).",
+  "RCHI ($76.2M in 90 awards) is awarded; the Governor's 09-04 release allocates RCHI $77.2M, the $1M gap being School-Based Health Centers, and three Tier 2 allocations with no recipient: Technology-Enhanced Primary Care $30M, Rural Roots (workforce) $13M, Technology Innovation and Cybersecurity Resilience $79.5M (session 112). Year 1 obligation: fully obligated per DOH spokesperson (Politico Pro, K. Cordero, 10-29-2026); not confirmed on a state source (DOH programme page, DOH and Governor newsrooms re-checked 11-02).",
   "data/evidence/NY/2026-09-22_ny_governor_rchi_awards_release.html",
 
-  "VT", "PARTIAL", "No", "Yes",
-  "2026-10-08",
-  "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.' (still printed on the 2026-10-08 update, session 101)",
-  "data/evidence/recheck/2026-10-15/VT/vt_year1_awards.html",
+  "VT", "COMPLETE", "Yes", "No",
+  "2026-10-30",
+  "AHS executed-agreements page, 'Update, October 30, 2026: Vermont has fully obligated its approximately $195 million Year 1 RHT award. This means that the State has committed the full award and documented with CMS how the funding will be used.' Full obligation on a state source (the test applied to New York, session 112). The list itself is a floor: it 'does not reflect the entirety of Vermont's Year 1 RHT funding commitments' (provider payment methodologies, administration, and a small number of obligated agreements not yet executed).",
+  "data/evidence/recheck/2026-11-02/VT/2026-11-02_vt_year1_awards_FULLY_OBLIGATED_10-30.html",
 
   "HI", "PARTIAL", "No", "Yes",
   "2026-10-14",
@@ -522,7 +539,25 @@ Y1_AWARD_STAGE <- c(
              "ADECA/ARHTP pages for intent language and found none). Arkansas is",
              "the COMPLETE state whose rows are intents; Alabama's are not, and",
              "neither has an executed agreement on the record. 55 amounts are",
-             "rounded in the source (AMOUNT_ROUNDED_IN_SOURCE).")
+             "rounded in the source (AMOUNT_ROUNDED_IN_SOURCE)."),
+  # Session 112: four states join on a state-source statement.
+  VT = paste("EXECUTED, A FLOOR: every row is an executed grant or contract",
+             "agreement on AHS's list; the State says it has 'fully obligated' Year 1",
+             "and that the list 'does not reflect the entirety' of its commitments",
+             "(provider payment methodologies, administration, a few obligated but",
+             "unexecuted agreements). COMPLETE rests on full obligation, not on the list."),
+  ID = paste("AWARDED (GOVERNOR'S WORD): 'the State of Idaho completed the awards",
+             "for $186 million'; DHW's list of awardees as of Oct. 16 is the award",
+             "file (MOA/MOU lines to two state agencies out). No executed agreement",
+             "is published."),
+  WY = paste("COMMITTEE APPROVALS: DOH's 10-23 Year 1 summary says awards 'have",
+             "been completed'; the rows are the Advisory Committee's 08-11 approvals,",
+             "not executed agreements, and $30,877,990 is approved at pool level",
+             "naming no recipient."),
+  UT = paste("NOTICE OF INTENT, ALL 41 ROWS: DHHS 'is preparing to formally",
+             "announce the grant awardees'; COMPLETE rests on the State's page",
+             "reporting 100% obligation of Year 1. Nine rows are state-agency fiscal",
+             "agents whose own subgrants are not yet named.")
 )
 
 y1_hospital_share <- function(status = y1_build_status()) {

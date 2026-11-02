@@ -2361,7 +2361,16 @@ WY_NAME_FURNITURE <- list(programme = paste(
 # Drive' folder (MANIFEST.txt); `file/d/` is the approvals PDF above.
 WY_KNOWN_DRIVE_TARGETS <- c(
   "folders/1A1fOg0WLERH2y0EJROAZhdw8TGLIrBcm",
-  "file/d/1jqfbHzZPrX-_xT-uLg3TFXorckp3b3uX"
+  "file/d/1jqfbHzZPrX-_xT-uLg3TFXorckp3b3uX",
+  # Session 112 READ it (2026-11-02; archived under
+  # data/evidence/recheck/2026-11-02/WY/): 'Year One Award Summaries', four
+  # files. The 8/11 Award Approvals PDF is byte-identical to the archived one;
+  # 'Wyoming-RHT-Awards-by-County.pdf' re-presents it by county ("Source dated
+  # August 11, 2026"), naming nobody new; 'RHT-award-allocation-2.png' is a
+  # Tier 2 initiative split; 'RHTP Year 1 Summary_10.23.26' says "As of
+  # October 2026, funding allocations, competitive applications, and awards
+  # have been completed for Year 1". No recipient row follows from it.
+  "folders/1BpezveAilDUDMFEalNrgFHpyisJszFjx"
 )
 
 #' Drive targets linked from an HTML page, normalised to `folders/<id>` or

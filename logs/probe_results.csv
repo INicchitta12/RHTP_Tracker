@@ -1797,6 +1797,8 @@ DE,2026-11-02T11:42:38Z,UNCHANGED,release,,trig_013VNzWcrr3sZKAgTgUTuEvL
 DE,2026-11-02T11:42:38Z,CHANGED,programme,,trig_013VNzWcrr3sZKAgTgUTuEvL
 CMS,2026-11-02T13:17:44Z,CHANGED,newsroom+medicaid,new states: CA; new releases in listed states: 3 (MO TX WV); changed rows: 0,trig_01LUqkDnDGErLj9N8SJUDb1C
 CMS,2026-11-02T13:17:44Z,CHANGED,obligation_report,NEW CMS obligation report linked: RHTP-Obligated-Funds-20261014.pdf. Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.,trig_01LUqkDnDGErLj9N8SJUDb1C
+MN,2026-11-02T15:15:31Z,UNCHANGED,grants,,interactive
+MN,2026-11-02T15:15:31Z,UNCHANGED,programme,,interactive
 AK,2026-11-02T14:45:17Z,UNCHANGED,(all),,trig_015gBufPkXhff7pa6igt2GSU
 CT,2026-11-02T15:57:17Z,CHANGED,opm,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-02T15:57:17Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE

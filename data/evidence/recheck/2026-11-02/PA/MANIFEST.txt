@@ -1,0 +1,2 @@
+# Session 112 end-of-BP1 lead sweep, fetched 2026-11-02 by curl, agent 'Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)'. Archived as a LEAD; nothing extracted.
+039a17c1b5d8c87d137e78b64bf6e370f95f38833a479a3f2ae3d0492d437bf9  2026-11-02_pa_dhs_rural_health_selected_projects.html  https://www.pa.gov/agencies/dhs/programs-services/healthcare/rural-health/rural-health-selected-projects (176 priced rows, $116,741,982.67 by parse; header still reads 'Total Awarded to Date: $43,000,000'; no as-of date; 2026-08-28 archive 65 rows / $42,119,414.80)

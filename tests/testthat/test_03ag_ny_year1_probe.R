@@ -243,7 +243,7 @@ test_that("the Contract Reporter is UNREADABLE and says so (0.4)", {
 test_that("the status table has NO amount column", {
   st <- ny_status_table()
   expect_false("amount" %in% names(st))
-  expect_equal(nrow(st), 6L)
+  expect_equal(nrow(st), 7L)
   expect_equal(sum(st$stage == "AWARDED_ROSTER_PUBLISHED"), 1L)
 })
 
@@ -273,4 +273,13 @@ test_that("New York carries no Tier 3 candidate at all", {
   expect_match(d$evidence, "76,190,022", fixed = TRUE)
   committed <- readr::read_csv(NY_DISPO_CSV, show_col_types = FALSE)
   expect_equal(committed$evidence, d$evidence)
+})
+
+test_that("the four initiative allocations are Tier 2 text, asserted on the release", {
+  skip_if_not(ny_have_archive())
+  expect_true(ny_assert_tier2_allocations())
+  st <- ny_status_table()
+  expect_false("amount" %in% names(st))
+  expect_true(any(grepl("$79.5 million", st$note, fixed = TRUE)))
+  expect_true(any(grepl("not confirmed on a state source", st$note, fixed = TRUE)))
 })

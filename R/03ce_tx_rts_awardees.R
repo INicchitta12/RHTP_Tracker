@@ -14,6 +14,15 @@
 # ONE EXTRACTED, because it supersedes the 10/8 list (asserted below: every
 # 10/8 line, by initiative and both amounts, is on it).
 #
+# SESSION 112 (2026-11-02): THE 10/29 LIST, 445 lines, Year 1 $224,596,379.37,
+# 204 executed. Four lines "Added Oct. 29, 2026" ($1,593,488.58; none a
+# hospital); HHSC corrected the three session 108 SOURCE_SUSPECT lines (now
+# TRT_AMENDED); four lines re-named (Castro and Crane "County Hosp" printed in
+# full, now EXACT; the Valley Health Clinic / Valley Pediatric Clinic Initiative
+# 4 lines now name Gauri Kanhere PLLC and Luis Valencia MD PA, same amounts).
+# The 10-22 "$8 Million" and 10-29 "$87 Million" releases name nobody and price
+# two "Added" sections to the cent (tx_rts_assert_weekly_releases()).
+#
 # WHAT THE LIST IS. Its own header: "a list of applications for the Rural Texas
 # Strong program for which HHSC has advanced the application to an 'Intent to
 # Award' status ... A grant is not considered awarded until a contract has been
@@ -127,20 +136,24 @@ TRT_RELEASE_Y1 <- 78089434.73
 TRT_RELEASE_N  <- 216L
 TRT_ROUND1_N   <- 68L        # 2026-09-28: "68 ... awarded $750,000 each"
 TRT_ROUND1_Y1  <- 750000
-# The extracted list (session 108: the 10/23 list; session 103 extracted 10/14,
-# 312 lines, $137,234,879.62, 97 executed).
-TRT_AS_OF      <- "10/23/26"
-TRT_LINES      <- 441L
-TRT_LIST_Y1    <- 224591245.41
-TRT_EXECUTED   <- 159L
+# The extracted list (session 112: the 10/29 list; session 108 extracted 10/23,
+# 441 lines, $224,591,245.41, 159 executed; session 103 extracted 10/14, 312
+# lines, $137,234,879.62, 97 executed).
+TRT_AS_OF      <- "10/29/26"
+TRT_LINES      <- 445L
+TRT_LIST_Y1    <- 224596379.37
+TRT_EXECUTED   <- 204L
 TRT_DIR        <- file.path("data", "evidence", "recheck", "2026-10-16", "TX")
 TRT_CSV        <- here::here("data", "reference", "tx_year1_awardees.csv")
 TRT_AGENT      <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                          "research use; +https://www.aha.org)")
 TRT_PFD        <- "https://pfd.hhs.texas.gov"
 TRT_PROGRAMME_URL <- paste0(TRT_PFD, "/rural-health-transformation-program")
-TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/10-23-2026-list-award-recipients.xlsx"
+TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/2026/10-29-2026-list-award-recipients.xlsx"
 TRT_DIR_108    <- file.path("data", "evidence", "recheck", "2026-10-26", "TX")
+TRT_DIR_112    <- file.path("data", "evidence", "recheck", "2026-11-02", "TX")
+TRT_PRIOR23_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/",
+                          "10-23-2026-list-award-recipients.xlsx")
 TRT_LIST_URL   <- paste0(TRT_PFD, TRT_LIST_PATH)
 TRT_PRIOR_URL  <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/",
                          "2026/10-8-2026-list-award-recipients.xlsx")
@@ -149,6 +162,8 @@ TRT_PRIOR14_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-pr
 TRT_SOURCES <- tibble::tribble(
   ~key, ~url, ~file, ~kind,
   "list", TRT_LIST_URL,
+  file.path(TRT_DIR_112, "2026-11-02_hhsc_rts_list_award_recipients_as_of_2026-10-29.xlsx"), "xlsx",
+  "prior23", TRT_PRIOR23_URL,
   file.path(TRT_DIR_108, "2026-10-26_hhsc_rts_list_award_recipients_as_of_2026-10-23.xlsx"), "xlsx",
   "prior14", TRT_PRIOR14_URL,
   file.path(TRT_DIR, "2026-10-16_hhsc_rts_list_award_recipients_as_of_2026-10-14.xlsx"), "xlsx",
@@ -158,14 +173,21 @@ TRT_SOURCES <- tibble::tribble(
   file.path(TRT_DIR, "2026-10-16_governor_release_2026-10-15_78m_rural_texas_strong.html"), "html",
   "hhsc_release", "https://www.hhs.texas.gov/news/2026/10/gov-abbott-hhsc-announce-recipients-78-million-rural-texas-strong-grants",
   file.path(TRT_DIR, "2026-10-16_hhsc_release_2026-10-15_78m_rural_texas_strong.html"), "html",
+  # SESSION 112: the two later weekly releases. Each prices one "Added" section
+  # of the list to the cent (tx_rts_assert_weekly_releases()); neither names
+  # anyone itself ("A list of all recipients is available here").
+  "gov_release_8m", "https://gov.texas.gov/news/post/governor-abbott-announces-8-million-in-rural-texas-strong-grants",
+  file.path(TRT_DIR_112, "2026-11-02_governor_release_2026-10-22_8m_rural_texas_strong.html"), "html",
+  "gov_release_87m", "https://gov.texas.gov/news/post/governor-abbott-announces-87-million-in-rural-healthcare-grants",
+  file.path(TRT_DIR_112, "2026-11-02_governor_release_2026-10-29_87m_rural_texas_strong.html"), "html",
   "programme", TRT_PROGRAMME_URL,
-  file.path(TRT_DIR_108, "2026-10-26_pfd_rhtp_programme.html"), "html")
+  file.path(TRT_DIR_112, "2026-11-02_pfd_rhtp_programme.html"), "html")
 TRT_FED <- c(
   HOSPITAL = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_hosp_enrollments_TX.json"),
   FQHC     = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_fqhc_enrollments_TX.json"),
   RHC      = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_rhc_enrollments_TX.json"))
 TRT_TITLE <- paste0("HHSC, Rural Texas Strong list of applications at 'Intent to ",
-                    "Award' status as of 10/23/26 (10-23-2026-list-award-recipients.xlsx)")
+                    "Award' status as of 10/29/26 (2026/10-29-2026-list-award-recipients.xlsx)")
 TRT_INITIATIVES <- c(
   "1" = "Initiative 1: Make Rural Texans Healthy Again (rural hospital districts)",
   "4" = "Initiative 4: Infrastructure and Capital Investments for Rural Texas",
@@ -293,7 +315,8 @@ tx_rts_assert_reconciles <- function(prior = tx_rts_read(here::here(TRT_SOURCES$
   # (TRT_AMENDED), and an amendment nobody recorded fails here.
   k <- function(x) paste(x$initiative, sprintf("%.2f", x$total_award_amount), sprintf("%.2f", x$amount))
   older <- list(`10/8` = prior,
-                `10/14` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior14"])))
+                `10/14` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior14"])),
+                `10/23` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior23"])))
   for (nm in names(older)) {
     miss <- vctrs::vec_count(k(older[[nm]])) %>%
       dplyr::left_join(vctrs::vec_count(k(cur)), by = "key", suffix = c("_p", "_c")) %>%
@@ -320,11 +343,22 @@ tx_rts_assert_reconciles <- function(prior = tx_rts_read(here::here(TRT_SOURCES$
 # look transposed. NOTHING IS CORRECTED (a guessed swap publishes a figure HHSC
 # has not): `amount` is the printed Year 1 Subset, the row is SOURCE_SUSPECT,
 # and published figures leave it out (session 102 ruling).
-TRT_SOURCE_SUSPECT <- tibble::tribble(
+#
+# SESSION 112: HHSC CORRECTED ALL THREE ON THE 10/29 LIST. Each line now prints
+# the two figures the other way round (Total > Year 1, the Initiative 6 ratio),
+# so the session 108 reading -- transposed columns -- was right, and the source
+# itself, not this script, has fixed it. The set is now EMPTY; the three are
+# recorded in TRT_AMENDED (old shape -> new shape), and the 10/23 list's
+# "Added Oct. 23" section falls by exactly $1,588,354.62 ($87,248,124.49 ->
+# $85,659,769.87). Anson Hospital District is now a published hospital row at
+# its corrected Year 1 $262,566.30.
+TRT_SOURCE_SUSPECT_10_23 <- tibble::tribble(
   ~awardee, ~total_award_amount, ~amount,
   "AultMcInnis PLLC", 393561.95, 764346.37,
   "Border Region MHMR Community Center", 1029800.00, 2000000.00,
   "Anson Hospital District", 262566.30, 509936.50)
+TRT_SOURCE_SUSPECT <- tibble::tibble(awardee = character(), total_award_amount = numeric(),
+                                     amount = numeric())
 tx_rts_suspect_key <- function(x) {
   paste(x$awardee, sprintf("%.2f", x$total_award_amount), sprintf("%.2f", round(x$amount, 2)))
 }
@@ -332,7 +366,11 @@ tx_rts_suspect_key <- function(x) {
 # Session 108: lines HHSC re-priced between lists (old shape -> new shape).
 TRT_AMENDED <- tibble::tribble(
   ~awardee, ~old_key, ~new_key,
-  "Memorial Hospital (Dumas)", "4 371453.99 113739.00", "4 724952.00 221980.30")
+  "Memorial Hospital (Dumas)", "4 371453.99 113739.00", "4 724952.00 221980.30",
+  # Session 112: the 10/23 SOURCE_SUSPECT lines, transposed back by HHSC.
+  "AultMcInnis PLLC", "6 393561.95 764346.37", "6 764346.37 393561.95",
+  "Border Region MHMR Community Center", "6 1029800.00 2000000.00", "6 2000000.00 1029800.00",
+  "Anson Hospital District", "6 262566.30 509936.50", "6 509936.50 262566.30")
 
 tx_rts_text <- function(key) {
   h <- xml2::read_html(here::here(TRT_SOURCES$file[TRT_SOURCES$key == key]))
@@ -372,6 +410,48 @@ tx_rts_assert_release <- function() {
   }, error = function(e) TRUE)
   if (!refused) stop("[TX RTS] §0.2 no longer refuses the allotment as a pool.", call. = FALSE)
   if (!(TRT_ANNOUNCED > TRT_NOA_DATE)) stop("[TX RTS] §6.2 date test.", call. = FALSE)
+  invisible(TRUE)
+}
+
+#' SESSION 112: the 10-22 "$8 Million" and 10-29 "$87 Million" releases. Each
+#' says HHSC "plans to award" (intents, not awards), names nobody, and prices
+#' one "Added" section of the weekly list to the cent:
+#'   $8,145,444.89  = the 28 lines "Added Oct. 14, 2026" (on every list since
+#'                    10/14, so already extracted since session 103);
+#'   $87,248,124.49 = the 129 lines "Added Oct. 23, 2026" AS PRINTED ON THE 10/23
+#'                    LIST, i.e. WITH the three transposed lines. On the 10/29
+#'                    list HHSC corrected them and the section is $85,659,769.87.
+#' The release's $87.2M therefore carries HHSC's own transposition; it is not
+#' a figure for the corrected section. Both releases repeat the $281,319,360.67
+#' first-year award (Tier 1, asserted in tx_rts_assert_release()).
+TRT_WEEKLY <- tibble::tribble(
+  ~key, ~list_key, ~section, ~n, ~y1, ~phrase,
+  "gov_release_8m", "list", "Added Oct. 14, 2026", 28L, 8145444.89,
+  "plans to award $8 million in Rural Texas Strong grants to 28 rural healthcare providers",
+  "gov_release_87m", "prior23", "Added Oct. 23, 2026", 129L, 87248124.49,
+  "plans to award $87 million in Rural Texas Strong grants to 129 rural healthcare providers")
+TRT_SEC23_CORRECTED <- 85659769.87
+tx_rts_assert_weekly_releases <- function(cur = tx_rts_read()) {
+  for (i in seq_len(nrow(TRT_WEEKLY))) {
+    w <- TRT_WEEKLY[i, ]
+    g <- tx_rts_text(w$key)
+    fig <- paste0("The $", formatC(w$y1, format = "f", digits = 2, big.mark = ","),
+                  " is a portion of the $281,319,360.67 first-year award")
+    for (p in c(w$phrase, fig)) {
+      if (!grepl(p, g, fixed = TRUE)) stop("[TX RTS] ", w$key, " no longer carries: ", p, call. = FALSE)
+    }
+    l <- if (w$list_key == "list") cur else tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == w$list_key]))
+    sec <- l[l$list_section == w$section, ]
+    if (nrow(sec) != w$n || abs(sum(sec$amount) - w$y1) > 0.005) {
+      stop("[TX RTS] ", w$key, ": the '", w$section, "' section is ", nrow(sec), " / $",
+           format(sum(sec$amount), nsmall = 2, big.mark = ","), ", not the release's ",
+           w$n, " / $", format(w$y1, nsmall = 2, big.mark = ","), ".", call. = FALSE)
+    }
+  }
+  s23 <- cur[cur$list_section == "Added Oct. 23, 2026", ]
+  if (nrow(s23) != 129L || abs(sum(s23$amount) - TRT_SEC23_CORRECTED) > 0.005) {
+    stop("[TX RTS] the corrected 'Added Oct. 23' section is no longer 129 / $85,659,769.87.", call. = FALSE)
+  }
   invisible(TRUE)
 }
 
@@ -459,9 +539,10 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Knox County Hosp", "KNOX COUNTY HOSPITAL DISTRICT", "Knox County Hospital District", TRT_I1,
   "Seminole Hospital", "SEMINOLE HOSPITAL DISTRICT OF GAINES COUNTY TEXAS", "Seminole Hospital District of Gaines County, Texas", TRT_I1,
   "Baylor County", "BAYLOR COUNTY HOSPITAL DISTRICT", NA, paste(TRT_I1, "-- Seymour; not a Baylor Scott & White entity"),
-  "Castro County Hosp", "CASTRO COUNTY HOSPITAL DISTRICT", "Castro County Hospital District", TRT_I1,
+  # Session 112: "Castro County Hosp" and "Crane County Hosp" are printed in
+  # full on the 10/29 list ("... Hospital District", same lines, same amounts),
+  # so both are EXACT records now and their bridges are gone.
   "Concho County Hosp", "CONCHO COUNTY HOSPITAL DISTRICT", "Concho County Hospital District", TRT_I1,
-  "Crane County Hosp", "CRANE COUNTY HOSPITAL DISTRICT", "Crane County Hospital District", TRT_I1,
   "Wilson County", "WILSON COUNTY MEMORIAL HOSPITAL DISTRICT", NA, TRT_I1,
   "Dallam-Hartley", "DALLAM-HARTLEY COUNTIES HOSPITAL DISTRICT", NA, TRT_I1,
   "Starr County Hosp", "STARR COUNTY HOSPITAL DISTRICT", NA, TRT_I1,
@@ -544,11 +625,12 @@ TX_RTS_NO_CCN <- tibble::tribble(~awardee, ~why)
 # cannot settle. Everything else: exact federal record, bridge, or classifier.
 TX_RTS_OVERRIDES <- tibble::tribble(
   ~pattern, ~recipient_type, ~basis_type, ~confidence, ~why,
-  "^Chris?tus Trinity Clinic - ", "PHYSICIAN_PRACTICE", "GENERAL_KNOWLEDGE", "LOW",
+  # Session 112: the 10/29 list adds "CHRISTUS Trinity Clinic Texas" (Cass), the same group, upper-cased.
+  "^(Chris?tus|CHRISTUS) Trinity Clinic( - | Texas$)", "PHYSICIAN_PRACTICE", "GENERAL_KNOWLEDGE", "LOW",
   "CHRISTUS Trinity Clinic is CHRISTUS Health's physician group; no CMS TX Hospital, FQHC or RHC record carries the string. A system's medical group is not an enrolled hospital (CalvertHealth Medical Group footing, session 102). Queued with the system-affiliate question (TX_RTS_HOSPITAL_SHAPED_NOT_BRIDGED).",
   "(M\\.D\\., P\\.A\\.|Md Pa$|O\\.D\\., PLLC)", "PHYSICIAN_PRACTICE", "STATE_SOURCE", "MEDIUM",
   "A physician's or optometrist's professional association (the form is in the string). Not a hospital.",
-  "(Pharmacy|Apothecary|Pharmacare|Pharmaceuticals| Rx )|Rx LLC$", "OTHER", "STATE_SOURCE", "MEDIUM",
+  "(Pharmacy|Pharmacies|Apothecary|Pharmacare|Pharmaceuticals| Rx )|Rx LLC$", "OTHER", "STATE_SOURCE", "MEDIUM",
   "DETERMINED FORM: a retail pharmacy (the form is in the string). Not a hospital.",
   "^Brookshire Brothers Inc$", "OTHER", "GENERAL_KNOWLEDGE", "LOW",
   "DETERMINED FORM: a grocery and retail-pharmacy chain (general knowledge). Not a hospital.",
@@ -921,11 +1003,14 @@ tx_rts_assert_typing <- function(a = tx_rts_awardees()) {
 
 # -- fetch, validate, build -------------------------------------------------
 
-tx_rts_fetch <- function() {
-  dir.create(here::here(TRT_DIR), recursive = TRUE, showWarnings = FALSE)
+tx_rts_fetch <- function(force = FALSE) {
   for (i in seq_len(nrow(TRT_SOURCES))) {
     s <- TRT_SOURCES[i, ]
-    if (i > 1L) Sys.sleep(2)
+    # SESSION 112: the archive is write-once. A file already archived keeps
+    # its bytes and its fetch date (§2.2); only a new source is fetched.
+    if (!force && file.exists(here::here(s$file))) next
+    dir.create(dirname(here::here(s$file)), recursive = TRUE, showWarnings = FALSE)
+    Sys.sleep(2)
     if (s$kind == "html") {
       rhtp_watch_archive(s$url, s$file, TRT_AGENT)
     } else {
@@ -936,10 +1021,10 @@ tx_rts_fetch <- function() {
       cat(paste(digest::digest(file = dest, algo = "sha256"), basename(dest), s$url,
                 paste0("last_modified=", httr::headers(r)[["last-modified"]]),
                 format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"), sep = "  "),
-          "\n", file = here::here(TRT_DIR, "MANIFEST.txt"), append = TRUE, sep = "")
+          "\n", file = here::here(dirname(s$file), "MANIFEST.txt"), append = TRUE, sep = "")
     }
+    message("[TX RTS] archived ", s$file)
   }
-  message("[TX RTS] archived ", nrow(TRT_SOURCES), " sources under ", TRT_DIR)
 }
 
 tx_rts_validate <- function() {
@@ -947,6 +1032,7 @@ tx_rts_validate <- function() {
   tx_rts_assert_list(d)
   tx_rts_assert_reconciles(cur = d)
   tx_rts_assert_release()
+  tx_rts_assert_weekly_releases(d)
   a <- tx_rts_awardees(d)
   tx_rts_assert_typing(a)
   tx_rts_assert_bp1(a)
@@ -1003,7 +1089,7 @@ tx_rts_live_finding <- function(body = NULL) {
 
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
-  if ("--fetch" %in% args) tx_rts_fetch()
+  if ("--fetch" %in% args) tx_rts_fetch(force = "--force" %in% args)
   if ("--validate" %in% args) tx_rts_validate()
   if ("--build" %in% args) tx_rts_build()
   if ("--report" %in% args) tx_rts_report()
