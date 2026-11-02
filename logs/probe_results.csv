@@ -1795,3 +1795,5 @@ KS,2026-11-02T08:25:49Z,ERROR,(probe),ℹ In index: 1. Caused by error: ! [KS] H
 CO,2026-11-02T09:16:02Z,TRIPWIRE,(probe),"[CO] THE AWARDEE ROSTER MOVED: 92 lines, $163,954,733.00 (recorded: 92 lines, $170,210,575.26). Diff it against data/evidence/CO/ on name AND amount, then --fetch --force and rebuild (§2.2).",trig_012SyFT6QNtKsZK6veV5KznF
 DE,2026-11-02T11:42:38Z,UNCHANGED,release,,trig_013VNzWcrr3sZKAgTgUTuEvL
 DE,2026-11-02T11:42:38Z,CHANGED,programme,,trig_013VNzWcrr3sZKAgTgUTuEvL
+CMS,2026-11-02T13:17:44Z,CHANGED,newsroom+medicaid,new states: CA; new releases in listed states: 3 (MO TX WV); changed rows: 0,trig_01LUqkDnDGErLj9N8SJUDb1C
+CMS,2026-11-02T13:17:44Z,CHANGED,obligation_report,NEW CMS obligation report linked: RHTP-Obligated-Funds-20261014.pdf. Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.,trig_01LUqkDnDGErLj9N8SJUDb1C
