@@ -113,7 +113,10 @@ test_that("South Dakota: the Rural Strong grants are now IN the SD file (session
   sd <- tables[["SD"]]
   expect_false("Rural Strong grants now posted to OpenSD" %in% sd$group)
   inf <- sd[sd$disposition == "RHTP_SUBAWARD_IN_FILE", ]
-  expect_equal(sum(inf$rcj_rows), 26L)
+  # Session 112: 25 -- Business Concepts & Apps (26RHT00003) was amended
+  # $250,000 -> $531,000 and RCJ carries the old figure (its own hand-read group).
+  expect_equal(sum(inf$rcj_rows), 25L)
+  expect_true("Business Concepts & Applications at the register's PRE-AMENDMENT figure" %in% sd$group)
   html <- paste(readLines(here::here(DISPO_NEW_EVIDENCE, "SD", "open_sd_contracts_rural_strong.html"),
                           warn = FALSE), collapse = " ")
   expect_true(grepl("BENNETT COUNTY HOSPITAL", html, fixed = TRUE))

@@ -4,12 +4,14 @@
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
 wv <- wv_year1_awardees()
 
-test_that("twenty-eight rows, nineteen priced, $18,804,875, each quoted verbatim from its release", {
+test_that("thirty rows, twenty-one priced, $20,393,952, each quoted verbatim from its release", {
   # Session 103: + five rows from the 10-13/10-14 releases ($6,156,458).
   # Session 107: + two WVU Health System rows from the 10-19 release ($3,400,000).
-  expect_equal(nrow(wv), 28L)
-  expect_equal(sum(!is.na(wv$amount)), 19L)
-  expect_equal(sum(wv$amount, na.rm = TRUE), 18804875)
+  # Session 112: + WVU Cancer Institute ($1,339,077) and Williamson Health &
+  # Wellness Center ($250,000), neither a hospital row.
+  expect_equal(nrow(wv), 30L)
+  expect_equal(sum(!is.na(wv$amount)), 21L)
+  expect_equal(sum(wv$amount, na.rm = TRUE), 20393952)
   expect_silent(wv_assert_sources())
 })
 
@@ -208,4 +210,19 @@ test_that("session 103: the name check reads the BODY of a new article, not its 
   # a recorded release is never re-read
   rec <- idx(c(paste0("old-", 1:3), WV_SLUG[["eye"]]), c("Old 1", "Old 2", "Old 3", "Eye"))
   expect_length(wv_new_article_findings(rec, held, function(slug) stop("fetched")), 0L)
+})
+
+
+test_that("session 112: Williamson Health & Wellness Center is the FQHC, not Williamson Memorial; WVU Cancer Institute is a university unit", {
+  w <- wv[wv$awardee == "Williamson Health & Wellness Center", ]
+  expect_equal(nrow(w), 1L)
+  expect_equal(w$amount, 250000)
+  expect_equal(w$recipient_type, "FQHC_OR_RHC")
+  expect_equal(w$distributed_to_hospital, "No")
+  expect_true(is.na(w$ccn))
+  expect_match(w$determination_basis, "WILLIAMSON MEMORIAL INC", fixed = TRUE)
+  c <- wv[wv$awardee == "WVU Cancer Institute", ]
+  expect_equal(c$amount, 1339077)
+  expect_equal(c$recipient_type, "UNIVERSITY_OR_AHC")
+  expect_equal(c$distributed_to_hospital, "No")
 })

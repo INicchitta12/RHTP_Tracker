@@ -1,0 +1,3 @@
+Session 112 (2026-11-02): HCPF's RHTP awardee roster and programme page (project agent), SCRIPTS STRIPPED (Drupal settings JSON). The roster re-prices 11 of 92 lines (92 lines, $163,954,733; was $170,210,575.26 on 2026-10-01) with no statement of revision on the page. READ, NOT EXTRACTED (owner decision).
+003db360ab1dcb2bf6988681208241ecd41495ba3ef4df5b084664a4034fa69d  2026-11-02_hcpf_rhtp_awardees.html
+f1ea284b48f870cdf43b86bef79ba8efa80b35540ae7e60a5181b03ca57d908e  2026-11-02_hcpf_rhtp_programme.html

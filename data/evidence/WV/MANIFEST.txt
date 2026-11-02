@@ -50,3 +50,7 @@ f59e20473fb367c5f803883d0fd5fa3bcc43fe77fa40ecef6559f3cc97356cd7  2026-10-16_wv_
 
 Session 107 (2026-10-26): the 2026-10-19 West Virginia United Health System release, scripts stripped (the full page is the second digest). Credential scan: none.
 241fd20e464409bc15c9fdf1b3a42692cdb63bfb2d87bd9621c234cd9fc14237  2026-10-26_wv_art_wvu_health_system_3_4m.html  https://health.wv.gov/article/governor-morrisey-announces-more-34-million-rural-health-transformation-awards-west  full_page_sha256=73886ea5f3e45c9bf81086e2722bd4e9c97625d33c46679861bbb4421584a5d8  2026-10-26T13:45:53Z
+
+Session 112 (2026-11-02): the 2026-10-27 Williamson Health & Wellness Center release and the 2026-10-26 WVU Cancer Institute release, scripts stripped (the full page is the second digest). Credential scan: none.
+d43557fbd092307dabe4333798d3fea6e7d2f01c3dbe0ff52424cfc29187a6de  2026-11-02_wv_art_williamson_hwc_250k.html  https://health.wv.gov/article/governor-patrick-morrisey-today-announced-250000-award-williamson-health-wellness-center  full_page_sha256=9c9081977cf61ad0b5775b040476b4ca90331a89fdb1c4aec3231ea217cc3e34  2026-11-02T14:30:36Z
+f34e8902ef67d3621a3e2a04b64eff450b5904547873498508be2b7887b0ee5c  2026-11-02_wv_art_wvu_cancer_institute_1_3m.html  https://health.wv.gov/article/governor-morrisey-announces-13-million-expand-mobile-cancer-screenings-across-west-virginia  full_page_sha256=c4c821b5ddcaf1980795a7190a8d7b83eed6c3e85df29aee99ed0fe215a35f76  2026-11-02T14:30:36Z

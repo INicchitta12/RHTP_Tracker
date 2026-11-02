@@ -307,6 +307,10 @@ DISPO_HAND_READ <- tibble::tribble(
   "Program-management consultants from DOH's release, priced by the release", "RHTP_ADMINISTRATIVE_CONTRACT_PRICED_ELSEWHERE",
   "{rows} row(s), {amount}. The same consultants the portal carries (session 14): Black Hills Special Services Cooperative at a $1 placeholder, and Business Concepts & Applications at the release's $500,000 against the portal contract's $250,000 -- two figures, neither corrected (§8). Evidence: data/evidence/SD/2026-08-28_open_sd_contract_search_RHT.html. {new} first seen after 08-27.",
 
+  "SD", "RHTP Contract & Grant Awards", "Business Concepts", "",
+  "Business Concepts & Applications at the register's PRE-AMENDMENT figure", "RHTP_ADMINISTRATIVE_CONTRACT_PRICED_ELSEWHERE",
+  "{rows} row(s), {amount}. Contract 26RHT00003 (DSS project management, RFP 26-08RHT-010), carried by RCJ at the $250,000 every register archive printed to 2026-10-12. The 2026-11-02 register prints $531,000 for the same contract, vendor and description (an amendment; R/03i SD_AMENDMENTS, session 112), and sd_rht_contracts.csv carries the current figure. ADMINISTRATIVE, never a hospital row. Evidence: data/evidence/SD/2026-11-02_open_sd_contract_search_RHT.html; data/evidence/SD/contract_details/26RHT00003_reread_2026-11-02.html. {new} first seen after 08-27.",
+
   "SD", "Technology and Data Grants", "", "",
   "The Rural Strong round as one awardee, under the wrong release", "RHTP_BUT_A_CLASS_NOT_A_RECIPIENT",
   "{rows} row(s), {amount}. 'South Dakota Rural Strong Grants' at $31.5M is a ROUND, not a recipient -- 28 grants that the July release named nobody for -- and RCJ files it under the August Technology and Data release, which is the OTHER round ($90M, 82 grants). sd_year1_awardees.csv carries both rounds as unnamed aggregate rows with `amount` empty. Evidence: data/evidence/SD/announcements/KB0046839.html. {new} first seen after 08-27.",

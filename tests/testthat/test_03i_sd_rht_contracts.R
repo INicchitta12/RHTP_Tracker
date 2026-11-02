@@ -31,20 +31,22 @@ test_that("the committed CSV matches a fresh parse of the committed archives", {
 
 # -- What was extracted ------------------------------------------------------
 
-test_that("53 contracts in the RHT series, $37,039,799, in three pools", {
+test_that("63 contracts in the RHT series, $41,291,166, in three pools", {
   # Session 86: the 2026-10-02 re-read added 15 contracts, +$17,612,967.
   # Session 99: the 2026-10-12 re-read added 12 more, +$10,203,655.
-  expect_equal(nrow(records), 53L)
-  expect_equal(sum(records$amount), 37039799)
+  # Session 112: the 2026-11-02 re-read added 10 more, +$3,970,367, and
+  # 26RHT00003 was amended $250,000 -> $531,000 (SD_AMENDMENTS).
+  expect_equal(nrow(records), 63L)
+  expect_equal(sum(records$amount), 41291166)
   expect_true(all(grepl("RHT", records$contract_number)))
   rs <- records$round_id %in% "RS"
   un <- records$round_id %in% "UNPLACED"
   expect_equal(sum(rs), 18L)
   expect_equal(sum(records$amount[rs]), 25012010)
-  expect_equal(sum(un), 16L)
-  expect_equal(sum(records$amount[un]), 4334717)
+  expect_equal(sum(un), 26L)
+  expect_equal(sum(records$amount[un]), 8305084)
   expect_equal(sum(!rs & !un), 19L)
-  expect_equal(sum(records$amount[!rs & !un]), 7693072)
+  expect_equal(sum(records$amount[!rs & !un]), 7974072)
   expect_setequal(unique(records$award_pool),
                   c(SD_POOL_ADMIN, SD_POOL_RS, SD_POOL_UNPLACED))
 })
@@ -98,7 +100,7 @@ test_that("the 13 contracts of 2026-08-28 keep rows 1-13 and their amounts", {
                "27RHT00009", "27RHT00010", "27RHT00011", "27RHT00012",
                "27RHT00013")
   expect_equal(records$contract_number[1:13], first13)
-  expect_equal(sum(records$amount[1:13]), 5618367)
+  expect_equal(sum(records$amount[1:13]), 5899367)   # session 112: 26RHT00003 amended +$281,000
   expect_true(all(records$first_seen_archive[1:13] == SD_SEARCH_ARCHIVES[1]))
   expect_true(all(records$first_seen_archive[14:26] == SD_SEARCH_ARCHIVES[2]))
   expect_true(all(records$first_seen_archive[27:41] == SD_SEARCH_ARCHIVES[3]))
@@ -115,7 +117,7 @@ test_that("the 12 contracts of 2026-10-12: 4 Rural Strong, 8 unplaced, 3 bridged
   expect_false(any(is.na(late$round_id)))
   # The three hand-read CMS bridges: LOW, CCN read from the archived file.
   br <- late[late$classification_rule %in% "CMS_ENROLMENT_BRIDGE", ]
-  expect_setequal(br$contract_number, SD_ENROLMENT_BRIDGES$contract_number)
+  expect_setequal(br$contract_number, SD_ENROLMENT_BRIDGES$contract_number[1:3])
   expect_equal(setNames(as.character(br$ccn), br$contract_number)[
     c("27RHT00048", "27RHT00051", "27RHT00043")],
     c("27RHT00048" = "430077", "27RHT00051" = "430095", "27RHT00043" = "430005A"))
@@ -149,14 +151,15 @@ test_that("the eighteen Rural Strong grants are exactly the register's own read"
   expect_equal(rs$awardee[is.na(rs$cfda_number)], "UNIVERSITY OF SOUTH DAKOTA")
 })
 
-test_that("no ADMINISTRATIVE dollar reaches a hospital; 13 RS and 4 unplaced rows do", {
+test_that("no ADMINISTRATIVE dollar reaches a hospital; 13 RS and 11 unplaced rows do", {
   admin <- records[is.na(records$round_id), ]
   expect_true(all(admin$distributed_to_hospital == "No"))
   hosp <- records[records$distributed_to_hospital == "Yes", ]
-  expect_equal(nrow(hosp), 17L)
-  expect_equal(sum(hosp$amount), 24433212)
+  # Session 112: + 7 unplaced hospital rows, +$2,515,882.
+  expect_equal(nrow(hosp), 24L)
+  expect_equal(sum(hosp$amount), 26949094)
   expect_equal(sum(hosp$round_id == "RS"), 13L)
-  expect_equal(sum(hosp$amount[hosp$round_id == "UNPLACED"]), 1969104)
+  expect_equal(sum(hosp$amount[hosp$round_id == "UNPLACED"]), 4484986)
   expect_true(all(hosp$recipient_type == "HOSPITAL_OR_SYSTEM"))
 })
 
@@ -177,7 +180,8 @@ test_that("Sanford Health and Avera Health are system parents, typed LOW on gene
   expect_true(all(par$round_id == "RS"))
   # Nothing else in the file is general knowledge except the three hand-read
   # CMS enrolment bridges of session 99 (subtractable on the same column).
-  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 5L)
+  # Session 112: + the four hand-read bridges of the 2026-11-02 re-read.
+  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 9L)
 })
 
 test_that("the two Community Memorial Hospitals are two hospitals, not one", {
@@ -368,4 +372,24 @@ test_that("the register's own words classify its vendors, not a guess", {
   expect_equal(nrow(vendors), 6L)
   expect_equal(sum(vendors$classification_rule == "OVERRIDE"), 5L)
   expect_false(any(vendors$determination_confidence == "LOW"))
+})
+
+
+test_that("the 10 contracts of 2026-11-02 (session 112): all unplaced, four bridged, 26RHT00003 amended", {
+  late <- records[records$first_seen_archive == SD_SEARCH_ARCHIVES[5], ]
+  expect_equal(nrow(late), 10L)
+  expect_equal(sum(late$amount), 3970367)
+  expect_true(all(late$round_id == "UNPLACED"))
+  br <- late[late$classification_rule %in% "CMS_ENROLMENT_BRIDGE", ]
+  expect_equal(setNames(as.character(br$ccn), br$contract_number)[
+    c("27RHT00055", "27RHT00057", "27RHT00062", "27RHT00063")],
+    c("27RHT00055" = "430016", "27RHT00057" = "431329",
+      "27RHT00062" = "431334", "27RHT00063" = "431311"))
+  expect_true(all(br$determination_confidence == "LOW"))
+  h <- late[late$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(h), 7L)
+  expect_equal(sum(h$amount), 2515882)
+  expect_setequal(late$contract_number[late$distributed_to_hospital == "No"],
+                  c("27RHT00056", "27RHT00060", "27RHT00061"))
+  expect_equal(records$amount[records$contract_number == "26RHT00003"], 531000)
 })

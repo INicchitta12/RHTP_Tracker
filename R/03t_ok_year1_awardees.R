@@ -1550,7 +1550,7 @@ OK_PROBE_BASELINE_DIR <- file.path("data", "evidence", "OK", "probe_baseline")
 # and all three new rosters were written by R/03bt: the live recipients page's
 # reduced text was identical to data/evidence/OK/new_rosters/2026-10-02_*, and
 # named nobody that copy does not. The 09-28 baseline files are kept.
-OK_PROBE_BASELINE_DATE <- "2026-10-16"   # session 103: re-based after reading the 10-15 page (SSM Shawnee, Wewoka); 10-02 predates the BHI and EMS/CP rosters
+OK_PROBE_BASELINE_DATE <- "2026-11-02"   # session 112: funding + home re-based after reading (both MOVED to oklahoma.gov/rhtp/; new Tier 2 items only: CP Consulting Services RFP due 11-18, OSU Tech Co-Op enrollment forms due 12-01, OHCA EHR Expansion RFI due 12-01; past events dropped from home). The recipients roster is read from OK_XF_* below. 10-16 (session 103) and earlier copies stay.
 ok_probe_baseline_file <- function(key) {
   file.path(OK_PROBE_BASELINE_DIR,
             paste0(OK_PROBE_BASELINE_DATE, "_", ok_source(key, "file") %>%
@@ -1562,12 +1562,108 @@ ok_probe_agent <- function() {
 
 #' Write the probe baseline -- the deliberate act, never called by the probe
 ok_probe_baseline <- function() {
-  for (k in names(OK_PROBE_KEYS)) {
+  # Session 112: the recipients roster has its own baseline (OK_XF_DIR).
+  for (k in setdiff(names(OK_PROBE_KEYS), "recipients")) {
     rhtp_watch_archive(ok_source(k, "url"), ok_probe_baseline_file(k),
                        ok_probe_agent())
     Sys.sleep(OK_HOST_THROTTLE_S)
   }
   message("[OK] probe baseline written to ", OK_PROBE_BASELINE_DIR, ".")
+}
+
+# SESSION 112: THE ROSTER MOVED, AND IT IS NO LONGER ONE PAGE. The 10-29
+# Routine logged "awardee anchors are now {}" -- read, it is not a withdrawal.
+# https://oklahoma.gov/health/rhtp/rhtp-funding-recipients.html now answers
+# HTTP 302 to https://oklahoma.gov/rhtp/rhtp-funding-recipients.html ("Last
+# Modified on Oct 23, 2026"), a page whose body carries NO roster: a dropdown
+# loads one AEM experience fragment per programme from an xfdisplay.json index
+# (29 programmes on 2026-11-02). Every roster this repository extracted is
+# still there at the same figures (microgrants $3,572,120.71, CDM
+# $15,608,845.22, RRR $40,078,521.82, Doulas $647,967.83, BHI $1,228,012.70),
+# so NO row is removed. The probe therefore reads THE INDEX AND EVERY FRAGMENT,
+# against the committed 2026-11-02 copies under recheck/2026-11-02/OK/:
+#   * a programme NEW to the index trips; one that LEAVES it trips too (a page
+#     to re-read, never a withdrawal);
+#   * a fragment whose reduced text moved trips, naming its new organisation
+#     names and new dollar figures.
+# The extraction archive (2026-08-31 and later) is untouched: --validate and
+# the tests still read it, and ok_assert_award_index() is now an ARCHIVE
+# assertion only. The anchors it reads exist only on the old page.
+OK_XF_DIR        <- file.path("data", "evidence", "recheck", "2026-11-02", "OK")
+OK_XF_PAGE_URL   <- "https://oklahoma.gov/rhtp/rhtp-funding-recipients.html"
+OK_XF_PAGE_FILE  <- file.path(OK_XF_DIR, "2026-11-02_ok_rhtp_funding_recipients.html")
+OK_XF_INDEX_URL  <- paste0("https://oklahoma.gov/content/sok-wcm/en/rhtp/",
+                           "rhtp-funding-recipients/jcr:content/responsivegrid-second/",
+                           "container_copy/xfdisplay.json?xf")
+OK_XF_INDEX_FILE <- file.path(OK_XF_DIR, "2026-11-02_ok_funding_recipients_xfdisplay.json")
+OK_XF_FRAGMENT_DIR <- file.path(OK_XF_DIR, "fragments")
+
+#' The dropdown's programmes: label and fragment slug, from the JSON index
+ok_xf_index <- function(raw) {
+  txt <- if (is.raw(raw)) rawToChar(raw) else paste(readLines(raw, warn = FALSE,
+                                                               encoding = "UTF-8"),
+                                                    collapse = "")
+  Encoding(txt) <- "UTF-8"
+  j <- jsonlite::fromJSON(txt)
+  if (!is.data.frame(j) || !all(c("label", "value") %in% names(j)) || !nrow(j)) {
+    stop("[OK] the Funding Recipients dropdown index no longer parses as ",
+         "label/value pairs. The reader, not Oklahoma, has changed (§0.4).",
+         call. = FALSE)
+  }
+  tibble::tibble(label = stringr::str_squish(j$label),
+                 slug = stringr::str_match(j$value, "/rhtp-funding-recipients/([^/]+)/jcr:content")[, 2],
+                 value = j$value)
+}
+
+ok_xf_amounts <- function(text) {
+  unique(stringr::str_extract_all(text, "\\$[0-9][0-9,.]*[0-9]")[[1]])
+}
+
+#' Read the index and every fragment LIVE (memory only) against the archive
+ok_xf_findings <- function(agent = ok_probe_agent(),
+                           fetch = function(url) rhtp_watch_fetch(url, agent)) {
+  live_idx <- ok_xf_index(rhtp_probe_get("xf_index", function() fetch(OK_XF_INDEX_URL),
+                                         here::here(OK_XF_INDEX_FILE)))
+  arch_idx <- ok_xf_index(here::here(OK_XF_INDEX_FILE))
+  findings <- character(0)
+  added <- setdiff(live_idx$slug, arch_idx$slug)
+  gone <- setdiff(arch_idx$slug, live_idx$slug)
+  if (length(added)) {
+    findings <- c(findings, paste0(
+      "[OK] NEW PROGRAMME(S) ON THE FUNDING RECIPIENTS DROPDOWN: ",
+      paste0("'", live_idx$label[live_idx$slug %in% added], "'", collapse = "; "),
+      ". Read the fragment and extract any named, priced recipient."))
+  }
+  if (length(gone)) {
+    findings <- c(findings, paste0(
+      "[OK] PROGRAMME(S) LEFT THE FUNDING RECIPIENTS DROPDOWN: ",
+      paste0("'", arch_idx$label[arch_idx$slug %in% gone], "'", collapse = "; "),
+      ". A page to re-read, never a withdrawal (session 112): remove no row ",
+      "unless a source says an award was withdrawn."))
+  }
+  changed <- c(xf_index = length(added) > 0 || length(gone) > 0)
+  for (i in which(live_idx$slug %in% arch_idx$slug)) {
+    slug <- live_idx$slug[i]
+    key <- paste0("xf:", slug)
+    f <- here::here(OK_XF_FRAGMENT_DIR, paste0(slug, ".html"))
+    raw <- rhtp_probe_get(key, function() fetch(paste0(
+      "https://oklahoma.gov", live_idx$value[i], ".html")), f)
+    lt <- rhtp_watch_reduce(raw)
+    at <- rhtp_watch_reduce(f)
+    moved <- !identical(gsub("\\s+", "", lt), gsub("\\s+", "", at))
+    changed[key] <- moved
+    if (moved) {
+      nm <- setdiff(rhtp_organisation_names(lt), rhtp_organisation_names(at))
+      am <- setdiff(ok_xf_amounts(lt), ok_xf_amounts(at))
+      findings <- c(findings, paste0(
+        "[OK] FUNDING RECIPIENTS fragment '", live_idx$label[i], "' CHANGED",
+        if (length(nm)) paste0("; new names: ", paste(rhtp_watch_quote(nm), collapse = " | ")) else "",
+        if (length(am)) paste0("; new figures: ", paste(am, collapse = ", ")) else "",
+        ". Read it against ", OK_XF_FRAGMENT_DIR, "/", slug, ".html; extract a ",
+        "named, priced roster, and never remove a row on a disappearance alone."))
+    }
+  }
+  list(changed = changed, findings = findings)
 }
 
 ok_probe <- function() {
@@ -1578,19 +1674,27 @@ ok_probe <- function() {
     url = vapply(names(OK_PROBE_KEYS), ok_source, character(1), field = "url"),
     file = vapply(names(OK_PROBE_KEYS), ok_probe_baseline_file, character(1)),
     name_diff = unname(OK_PROBE_KEYS))
+  # Session 112: the roster shell is read at its new address, against its
+  # 2026-11-02 copy; the programmes are read from their fragments below.
+  pages$url[pages$key == "recipients"] <- OK_XF_PAGE_URL
+  pages$file[pages$key == "recipients"] <- OK_XF_PAGE_FILE
+  # The shell names no organisation (its roster is in the fragments, which
+  # ok_xf_findings() name-diffs one by one), so it is digest-only.
+  pages$name_diff[pages$key == "recipients"] <- FALSE
   w <- rhtp_watch_pages(pages, ok_probe_agent())
   for (k in names(w$raw)) assign(k, w$raw[[k]], envir = .ok_live)
   ok_cache_clear()
-  ok_assert_award_index()
   ok_assert_pending_not_awarded()
-  ok_assert_lung_screening_unnamed()
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
                                           state = OK_STATE)
-  message("[OK] ", paste0(w$changed$key, ": ",
-                          ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
-                          collapse = "; "),
-          " -- every listed roster is extracted (session 103: no pending opportunity remains).")
-  invisible(w$changed)
+  xf <- ok_xf_findings()
+  changed <- c(stats::setNames(w$changed$changed, w$changed$key), xf$changed)
+  message("[OK] ", paste0(names(changed), ": ",
+                          ifelse(changed, "CHANGED", "UNCHANGED"),
+                          collapse = "; "))
+  invisible(list(sources = stats::setNames(lapply(changed, function(x) list(changed = x)),
+                                           names(changed)),
+                 findings = xf$findings))
 }
 
 
