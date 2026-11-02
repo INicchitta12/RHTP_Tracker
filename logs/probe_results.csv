@@ -1792,3 +1792,4 @@ AR,2026-11-01T20:22:28Z,UNCHANGED,resources,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-01T20:22:28Z,UNCHANGED,rise,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-01T20:22:28Z,UNCHANGED,heart,,trig_01DLRYTSBPvrst5LqGBv1M9M
 KS,2026-11-02T08:25:49Z,ERROR,(probe),ℹ In index: 1. Caused by error: ! [KS] HTTP 403 for https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program,trig_01HYYurhCCUFATgTUuTqqjpn
+CO,2026-11-02T09:16:02Z,TRIPWIRE,(probe),"[CO] THE AWARDEE ROSTER MOVED: 92 lines, $163,954,733.00 (recorded: 92 lines, $170,210,575.26). Diff it against data/evidence/CO/ on name AND amount, then --fetch --force and rebuild (§2.2).",trig_012SyFT6QNtKsZK6veV5KznF
