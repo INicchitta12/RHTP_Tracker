@@ -364,7 +364,11 @@ STATE_FILES <- c(
   TX = "data/reference/tx_year1_awardees.csv",
   # UTAH (session 112): DHHS's RHTP Awardee Announcement (R/03cn), 41 INTENT
   # rows, $193,095,906.92; UHA's $9,891,739 R&R line is POOL_UNNAMED_HOSPITALS.
-  UT = "data/reference/ut_year1_awardees.csv"
+  UT = "data/reference/ut_year1_awardees.csv",
+  # MINNESOTA (session 112): MDH's Sub-Recipient Awardees (R/03cp), 11 rows,
+  # $12,453,451 ("$12.5 million"); no hospital. Direct-allocation grants to
+  # CAHs and others "will be announced in the coming days".
+  MN = "data/reference/mn_year1_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -407,7 +411,7 @@ test_that("the state files union without a coercion failure", {
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
                c("AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
-                 "KS", "KY", "LA", "MD", "ME", "MI", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
+                 "KS", "KY", "LA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
                  "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA",
                  "WV", "WY"))
 })

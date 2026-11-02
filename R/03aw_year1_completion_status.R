@@ -90,7 +90,8 @@ Y1_AWARD_FILES <- c(
   HI = "hi_year1_awardees.csv",
   TX = "tx_year1_awardees.csv",
   CA = "ca_year1_awardees.csv",
-  UT = "ut_year1_awardees.csv"
+  UT = "ut_year1_awardees.csv",
+  MN = "mn_year1_awardees.csv"
 )
 
 # Round-level figures that are NOT awards and must not be counted as
@@ -349,6 +350,11 @@ Y1_STATUS <- tibble::tribble(
   "2026-10-29",
   "Utah DHHS Office of Rural Health page (Last-Modified 10-29): 'We are proud to share that the CMS has officially reported that Utah has successfully demonstrated obligation for 100% of its Year 1 RHTP funding.' Full obligation on a state source (the test applied to New York and Vermont, session 112). The award file is DHHS's RHTP Awardee Announcement: 41 lines, $193,095,906.92, every row an INTENT ('DHHS is preparing to formally announce the grant awardees').",
   "data/evidence/recheck/2026-11-02/UT/2026-11-02_ut_dhhs_ruralhealth_page.html",
+
+  "MN", "PARTIAL", "No", "Yes",
+  "2026-10-27",
+  "MDH grants page (Last Updated 10/27/2026): 'The Minnesota Department of Health has awarded $12.5 million in Rural Health Transformation Program funding to the following sole-source and competitive grant program recipients. Grants made to rural Critical Access Hospitals, Federally Qualified Health Centers, Tribal Nations, Certified Community Behavioral Health Centers and Community Mental Health Centers through direct allocation grant will be announced in the coming days.' The direct-allocation grants are the remainder (session 112).",
+  "data/evidence/MN/2026-11-02_mdh_rhtp_grants.html",
 
   "NY", "PARTIAL", "No", "Yes",
   "2026-09-04",
