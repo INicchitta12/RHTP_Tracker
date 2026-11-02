@@ -309,6 +309,11 @@ STATE_FILES <- c(
   # hospital rows at $0, Nevada's shape -- read the row count).
   OK_BHI = "data/reference/ok_year1_bhi_awardees.csv",
   OK_EMS_CP = "data/reference/ok_year1_ems_cp_awardees.csv",
+  OK_LUNG = "data/reference/ok_year1_lung_screening_awardees.csv",
+  OK_TELESTROKE = "data/reference/ok_year1_telestroke_awardees.csv",
+  OK_CLOSED_LOOP = "data/reference/ok_year1_closed_loop_awardees.csv",
+  OK_GYO = "data/reference/ok_year1_grow_your_own_awardees.csv",
+  OK_TRANSPORT = "data/reference/ok_year1_transportation_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
@@ -343,7 +348,9 @@ STATE_FILES <- c(
   # separate files so a rebuild of either state's own award file can never
   # wipe them, and never mixes a notice of award with an obligation line.
   NE_CMS = "data/reference/ne_cms_obligation_awardees.csv",
-  PA_CMS = "data/reference/pa_cms_obligation_awardees.csv",
+  # PA_CMS dropped session 112: its only line (The Guthrie Clinic, $2,963,577) is
+  # now on DHS's own Selected Projects page and is counted once, in PA (R/03cb
+  # OB_SUPERSEDED_BY_STATE); pa_cms_obligation_awardees.csv is header-only.
   RI = "data/reference/ri_year1_awardees.csv",
   # HAWAII (session 101): three RVBI Notices of Award named on SHPDA's page,
   # NO amounts (they are in HANDS, 403 here). The Healthcare Association of
@@ -544,7 +551,7 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # Tappahannock Hospitals" is ONE $1,000,000 Provider Productivity award to a
   # system and two separately enrolled hospitals (CCN 490098, 490084), no split
   # -- Connecticut's shape exactly, Tier 3.
-  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "VA"))
+  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "OK", "VA"))
   expect_equal(pooled_named$dollars[pooled_named$state == "OH"], 30300000)
   expect_equal(pooled_named$dollars[pooled_named$state == "VA"], 1000000)
   # SESSION 102: + NRHP's RHOAP-18 and RHIT-19 on the owner's extension
