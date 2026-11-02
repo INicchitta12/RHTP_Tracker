@@ -74,10 +74,15 @@ test_that("the summary layer does not move the strict partition", {
   # Providence Medical Foundation, +$62,000 UVA Health). Nothing else moved.
   # Session 111: owner rulings (e) + TX Burleson (CAH 451305, +$2,527,185.38) and
   # (f) - AK City of Ketchikan (-$350,000): 1,835 / $1,731,421,723.08 / 36.
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1835L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1731421723.08)
-  expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86555171.43)
-  expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 69323109.17)
+  # Session 112: the strict files moved, not the summary layer: TX +1, SD +7,
+  # PA +31 (Guthrie now on PA's state source), MI +19, CO re-priced, OK Lung
+  # Cancer Screening +9, UT +6 (a new state): 1,908 / $1,761,827,518.82 / 37.
+  # POOL_NAMED + OK's two SSM affiliate lines ($340,608); POOL_UNNAMED + UT's
+  # Utah Hospital Association ($9,891,739).
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1908L)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1761827518.82)
+  expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
+  expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.
   p2 <- rhtp_hospital_dollar_partition(rhtp_strip_summary_calls(u))
   expect_equal(p, p2)

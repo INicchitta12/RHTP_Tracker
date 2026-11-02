@@ -4,6 +4,7 @@
 
 source(here::here("R", "03cp_mn_year1_awardees.R"))
 source(here::here("R", "03bn_mn_year1_probe.R"))
+source(here::here("R", "utils_summary_calls.R"))  # session 112: committed file carries the summary-call columns
 
 a <- mn_year1_awardees()
 committed <- readr::read_csv(here::here(MNA_OUT), show_col_types = FALSE,
@@ -70,7 +71,12 @@ test_that("the committed file is the build", {
   expect_equal(round(committed$amount, 2), round(a$amount, 2))
   expect_equal(committed$recipient_type, a$recipient_type)
   expect_equal(committed$distributed_to_hospital, a$distributed_to_hospital)
-  expect_equal(names(committed), names(a))
+  # Session 112: R/07 --apply (the last overlay) adds the three summary-call
+  # columns to the committed file; strip them, as the other extractor tests do
+  # since session 110, and every other column must match the build exactly.
+  expect_equal(names(rhtp_strip_summary_calls(committed)), names(a))
+  expect_true(all(c("summary_hospital_call", "summary_call_basis", "summary_call_rationale") %in%
+                    names(committed)))
 })
 
 # -- R/03bn: the watch, re-based on the 2026-11-02 archive -------------------------
