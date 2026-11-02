@@ -324,10 +324,10 @@ Y1_STATUS <- tibble::tribble(
   "Two of fifteen Year 1 initiatives have published awards: School-Based Health Centers (four named, unpriced, session 44) and Value-based care transformation (three FQHCs, ~$22.69M rounded, 2026-09-24, de_year1_fqhc_awardees.csv, session 86; the DHSS line is $24,322,042.48). Thirteen have no roster.",
   "data/evidence/DE/2026-09-03_de_dhss_rhtp_programme.html; data/evidence/DE/2026-10-02_de_fqhc_award_release.html",
 
-  "ID", "PARTIAL", "No", "Yes",
-  "2026-09-03",
-  "One named awardee; eleven opportunities open or just posted and four closed with no awardee (session 44).",
-  "data/evidence/ID/2026-09-03_id_rhtp_funding_opportunities.html",
+  "ID", "COMPLETE", "Yes", "No",
+  "2026-10-28",
+  "Governor Little, 2026-10-28: 'Governor Brad Little announced today the State of Idaho completed the awards for $186 million in Year 1 grant funding for the Rural Health Transformation Program (RHTP)'. DHW's list of awardees as of Oct. 16 (extracted session 108, R/03ck) is byte-identical on 11-02; the two MOA/MOU lines ($22.9M, state agencies) stay out of the award file (session 112).",
+  "data/evidence/recheck/2026-11-02/ID/2026-11-02_id_governor_2026-10-28_year1_awardees_release.html",
 
   "OH", "PARTIAL", "No", "Yes",
   "2026-07-01",

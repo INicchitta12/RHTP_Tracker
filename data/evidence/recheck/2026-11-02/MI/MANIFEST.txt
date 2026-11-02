@@ -1,0 +1,2 @@
+# Session 112 end-of-BP1 lead sweep, fetched 2026-11-02 by curl with agent 'Mozilla/5.0' (the recorded michigan.gov-only exception, CLAUDE.md §3). Archived as a LEAD; nothing extracted.
+950c7afc8f9f140beb9cf1777c62c9a7e99c170f919abdba72502ac25bf90b5c  2026-11-02_mi_rhtp_subrecipients_ASOF_2026-10-01.html  https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-subrecipients ("Award notices as of October 1, 2026"; 231 rows, $161,740,847 vs 145 rows / $101,318,437 in the 2026-09-24 archive)

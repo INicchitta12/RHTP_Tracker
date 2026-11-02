@@ -1,0 +1,2 @@
+# Session 112 end-of-BP1 lead sweep, fetched 2026-11-02 by curl, agent 'Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)'. Archived as a LEAD; nothing extracted.
+280428e64403c537f40b14c98d042fd6de32defe170961d0b2f24d6f11081577  2026-11-02_ne_governor_2026-10-29_oz_177m_release.html  https://governor.nebraska.gov/gov-pillen-welcomes-dr-oz-update-successful-implementation-177-million-rhtp-funding
