@@ -14,14 +14,15 @@ fallback build (identical to 10-29) is commit `788865d`.
 | Strict NAMED_HOSPITAL | $1,731,421,723.08 (1,835 / 36) | $1,761,827,518.82 (1,908 / 37) | +$30,405,795.74 |
 | POOL_NAMED_HOSPITALS | $86,555,171.43 | $86,895,779.43 | +$340,608 |
 | POOL_UNNAMED_HOSPITALS | $69,323,109.17 | $79,214,848.17 | +$9,891,739 |
-| Awards published | $4,171,734,402.31 | $4,499,752,447.91 | +$328,018,045.60 |
-| % of $10B allotment | 41.7% | 45.0% | |
-| Hospital % of awards (national) | 48.1% (n/m on Overview) | 45.2% (n/m on Overview) | |
+| Awards published | $4,171,734,402.31 | $4,512,205,898.91 | +$340,471,496.60 |
+| % of $10B allotment | 41.7% | 45.1% | |
+| Hospital % of awards (national) | 48.1% (n/m on Overview) | 45.1% (n/m on Overview) | |
 | Hospital % of allotment | 20.1% | 20.3% | |
 | Intents in awards published | — | $1,703,446,788.41 | |
 | Intents in hospital best estimate | — | $771,152,504.37 | |
 | Strict rural cut | $549,250,719.56 | $559,285,398.43 | |
 | Year 1 COMPLETE | 4 (FL GA AR AL) | 8 (+ VT ID WY UT) | |
+| Award files / rows | 61 / — | 67 / 4,699 | |
 
 Subset row (`US_GE50`, state award sources only, ≥50% of allotment published): **n = 23** (was 21; +PA,
 +UT). Allotment $4,673,429,957; awards $3,728,812,818.21; hospital best estimate $1,612,024,736.82 =
@@ -41,6 +42,7 @@ IN MD MI MS NJ NV OH OR PA SC SD TX UT VT WY. On Overview the row reads "23 stat
 | OK | +$1,873,344 | +$1,532,736 | Five new /rhtp/ rosters (R/03co): Lung Cancer Screening hospitals; two SSM affiliate pool lines |
 | TX | +$413,546.69 | +$262,566.30 | 10/29 list: HHSC corrected the three transposed lines (Anson HD now priced); GHC Hemphill ruling (b) +$150,980.39 |
 | VT, WV, ID, WY | 0 | 0 | VT +4 non-hospital agreements; WV +2 non-hospital awards; ID/WY status only |
+| MN | 0 | 0 | NEW (R/03cp): MDH Sub-Recipient Awardees, 11 rows / $12,453,451, no hospital — missed by the sweep, found by the independent check |
 
 ## 3. Owner rulings applied (Task 2)
 
@@ -98,12 +100,17 @@ The New York and Vermont test is the same: full obligation stated on a state sou
 
 All 50 states swept. Unreadable (UNKNOWN, not negative): MA (mass.gov 403), RI (EOHHS/RIDOH/Governor 403),
 KS (KDHE and Governor 403), MS DOM procurement (SSL chain), NH state hosts (403; FHC/CDFA read), IN Governor
-newsroom (JavaScript). Nothing new since 10-23: AL AZ CT DE GA HI IL MD ME MN MT NC NJ NM NV OH OR SC TN VA
-WI AR MS ND NH.
+newsroom (JavaScript). Nothing new since 10-23: AL AZ CT DE GA HI IL MD ME MT NC NJ NM NV OH OR SC TN VA WI AR MS ND
+NH. **Minnesota was wrongly in this list in the sweep** (its 10-30 tripwire was read as RFP noise); the
+independent check found MDH's nine awardee PDFs and MN was extracted before the final build.
+
+7. **MN state-agency rows, $9,775,054** (Office of EMS $9,499,109 in two lines; MMB $275,945) — kept as MDH
+   lists them as Sub-Recipient Awardees (Utah's fiscal-agent footing); the Idaho/Vermont inter-agency MOA
+   precedent would drop them (file → $2,678,397). No hospital figure moves either way.
 
 ## 8. New rows on the review list (`summary_calls_for_review.csv`)
 
 Written judgments added this session (R/07 `SC_JUDGMENTS`): TX GHC Hemphill (HOSPITAL); MI Michigan Health and
 Hospital Association (HOSPITAL), Upper Peninsula Health Care Solution (HOSPITAL), Drummond Island Medical Center
 (NOT); UT UHA capital row 36 (NOT), UHIN (NOT), 73 Rural Clinical Preceptors (NOT), UPAP/Switchpoint (NOT);
-OK two SSM affiliate lines (HOSPITAL). Those over $1M, or strict-Unclear, appear on the review list.
+OK two SSM affiliate lines (HOSPITAL); MN Community Health Worker Alliance and HealthForce MN (NOT). Those over $1M, or strict-Unclear, appear on the review list.
