@@ -344,10 +344,10 @@ Y1_STATUS <- tibble::tribble(
   "RCHI ($76.2M in 90 awards) is awarded; the Governor's 09-04 release allocates RCHI $77.2M, the $1M gap being School-Based Health Centers, and three Tier 2 allocations with no recipient: Technology-Enhanced Primary Care $30M, Rural Roots (workforce) $13M, Technology Innovation and Cybersecurity Resilience $79.5M (session 112). Year 1 obligation: fully obligated per DOH spokesperson (Politico Pro, K. Cordero, 10-29-2026); not confirmed on a state source (DOH programme page, DOH and Governor newsrooms re-checked 11-02).",
   "data/evidence/NY/2026-09-22_ny_governor_rchi_awards_release.html",
 
-  "VT", "PARTIAL", "No", "Yes",
-  "2026-10-08",
-  "AHS: the list 'does not represent the full Year 1 awards or funding decisions ... procurement and award processes remain underway for some activities.' (still printed on the 2026-10-08 update, session 101)",
-  "data/evidence/recheck/2026-10-15/VT/vt_year1_awards.html",
+  "VT", "COMPLETE", "Yes", "No",
+  "2026-10-30",
+  "AHS executed-agreements page, 'Update, October 30, 2026: Vermont has fully obligated its approximately $195 million Year 1 RHT award. This means that the State has committed the full award and documented with CMS how the funding will be used.' Full obligation on a state source (the test applied to New York, session 112). The list itself is a floor: it 'does not reflect the entirety of Vermont's Year 1 RHT funding commitments' (provider payment methodologies, administration, and a small number of obligated agreements not yet executed).",
+  "data/evidence/recheck/2026-11-02/VT/2026-11-02_vt_year1_awards_FULLY_OBLIGATED_10-30.html",
 
   "HI", "PARTIAL", "No", "Yes",
   "2026-10-14",
