@@ -9,16 +9,16 @@ a <- co_year1_awardees(d)
 built <- readr::read_csv(CO_CSV, show_col_types = FALSE,
                          col_types = readr::cols(ccn = "c", site = "c"))
 
-test_that("the roster is 92 lines, $170,210,575.26, 91 distinct strings", {
+test_that("the roster is 92 lines, $163,954,733 (11-02 re-pricing), 91 distinct strings", {
   expect_silent(co_assert_roster(d))
   expect_equal(nrow(d), 92L)
-  expect_equal(round(sum(d$amount), 2), 170210575.26)
+  expect_equal(round(sum(d$amount), 2), 163954733)
   expect_equal(sum(d$awardee == "Banner Health Foundation"), 2L)
 })
 
 test_that("the release total is stated beside the roster, never substituted", {
   expect_silent(co_assert_releases())
-  expect_equal(round(sum(d$amount) - CO_RELEASE_TOTAL, 2), 623394.26)
+  expect_equal(round(sum(d$amount) - CO_RELEASE_TOTAL, 2), -5632448)
   # Every line the state prints is in the file: nothing dropped on arithmetic.
   expect_true(any(grepl("Every Child Pediatrics", a$awardee, fixed = TRUE)))
   expect_equal(nrow(a), 92L)
@@ -58,16 +58,27 @@ test_that("the committed file is what the builder writes", {
   expect_equal(built$distributed_to_hospital, a$distributed_to_hospital)
   h <- built[built$distributed_to_hospital == "Yes", ]
   expect_equal(nrow(h), 36L)
-  expect_equal(sum(h$amount), 86693159)
+  expect_equal(sum(h$amount), 80033287)   # session 112: 86,693,159 before the re-pricing
   expect_false(any(h$determination_confidence == "HIGH"))
 })
 
 test_that("a moved roster trips the watch", {
   raw <- paste(readLines(here::here(CO_SOURCES$file[1]), warn = FALSE), collapse = "\n")
   expect_silent(co_assert_roster_unchanged(raw))
-  more <- sub("Hospital and Clinics - $1,301,814</li>",
-              "Hospital and Clinics - $1,301,814</li><li>New Rural Clinic - $1,000</li>",
+  more <- sub("Hospital and Clinics - $1,301,534</li>",
+              "Hospital and Clinics - $1,301,534</li><li>New Rural Clinic - $1,000</li>",
               raw, fixed = TRUE)
   expect_false(identical(more, raw))
   expect_error(co_assert_roster_unchanged(more), "ROSTER MOVED")
+})
+
+
+test_that("session 112: eleven lines re-priced, each row carrying its prior amount", {
+  rp <- a[grepl("RE-PRICED by HCPF", a$note, fixed = TRUE), ]
+  expect_equal(nrow(rp), 11L)
+  slv <- a[grepl("San Luis Valley Health (Regional Medical Center)", a$awardee, fixed = TRUE), ]
+  expect_equal(slv$amount, 1556234)
+  expect_match(slv$note, "prior $7,889,561", fixed = TRUE)
+  expect_match(slv$note, "-80.3%", fixed = TRUE)
+  expect_false(any(grepl("SOURCE_SUSPECT", a$flag_reason, fixed = TRUE)))
 })

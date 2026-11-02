@@ -90,6 +90,21 @@
 # pages are name-diffed (§2.3). R/03az's Routine delegates its --probe here,
 # because the dated anchor it watched is gone: the state awarded.
 #
+# SESSION 112: HCPF RE-PRICED THE ROSTER, AND THE LATEST LIST GOVERNS. The
+# 11-02 read of the same page carries the SAME 92 lines and the same 91
+# distinct strings, and ELEVEN amounts moved: the lines now sum to
+# $163,954,733 (was $170,210,575.26, -$6,255,842.26). The page prints no
+# statement of revision, no total and no footer. Applied on the owner's
+# standing "latest list governs" ruling (session 109 e, VT Gifford); every
+# re-priced row carries its prior amount in `note`. The largest move is
+# Lutheran Hospital Association of the San Luis Valley dba San Luis Valley
+# Health (Regional Medical Center), $7,889,561 -> $1,556,234 (-80.3%). The
+# roster is internally consistent (one line per name, all priced), so it is
+# NOT SOURCE_SUSPECT. Every Child Pediatrics lost its cents ($623,395.26 ->
+# $623,395), so session 82's H2 arithmetic (that line within $1.00 of the
+# roster-vs-release gap) no longer holds: the roster now sits $5,632,448
+# BELOW the release's $169,587,181. Neither total is adjusted.
+#
 # Usage:
 #   Rscript R/03bo_co_year1_awardees.R --fetch     # archive the four sources
 #   Rscript R/03bo_co_year1_awardees.R --validate  # assertions, offline
@@ -110,7 +125,9 @@ CO_ALLOTMENT    <- 200105604             # cms_fy2026_allotments.csv (§7.1)
 CO_NOA_DATE     <- as.Date("2025-12-29")
 CO_ANNOUNCED    <- as.Date("2026-09-28")
 CO_LINES        <- 92L
-CO_ROSTER_TOTAL <- 170210575.26
+CO_ROSTER_TOTAL <- 163954733        # session 112 (11-02 re-pricing); 170,210,575.26 on 10-01
+CO_PRIOR_TOTAL  <- 170210575.26
+CO_ROSTER_READ  <- "2026-11-02"
 CO_RELEASE_TOTAL <- 169587181
 CO_AW_DIR       <- file.path("data", "evidence", "CO")
 CO_FEDERAL      <- file.path("data", "evidence", "federal_records", "2026-10-01")
@@ -120,10 +137,14 @@ CO_AW_AGENT     <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                           "+https://www.aha.org)")
 CO_ROSTER_URL   <- "https://hcpf.colorado.gov/RHTP-awardees"
 
+# Session 112: the 11-02 roster (scripts stripped, Drupal settings JSON) is
+# the source; the 10-01 copy is the PRIOR list each row's re-pricing note
+# cites, and stays archived.
+CO_PRIOR_ROSTER <- file.path(CO_AW_DIR, "2026-10-01_hcpf_rhtp_awardees.html")
 CO_SOURCES <- tibble::tribble(
   ~key, ~url, ~file,
   "awardees", CO_ROSTER_URL,
-  file.path(CO_AW_DIR, "2026-10-01_hcpf_rhtp_awardees.html"),
+  file.path("data", "evidence", "recheck", "2026-11-02", "CO", "2026-11-02_hcpf_rhtp_awardees.html"),
   "programme", "https://hcpf.colorado.gov/rural-health-transformation-program",
   file.path(CO_AW_DIR, "2026-10-01_hcpf_rhtp_programme.html"),
   "release", "https://hcpf.colorado.gov/press-release/colorado-awards-rural-healthcare-providers",
@@ -168,18 +189,24 @@ co_assert_roster <- function(d = co_parse_roster()) {
   if (abs(sum(d$amount) - CO_ROSTER_TOTAL) > 0.005) {
     stop("[CO] the roster sums to $", format(sum(d$amount), nsmall = 2,
                                               big.mark = ","),
-         ", not $170,210,575.26.", call. = FALSE)
+         ", not $163,954,733.", call. = FALSE)
   }
   if (length(unique(d$awardee)) != 91L) {
     stop("[CO] the roster carries ", length(unique(d$awardee)), " distinct ",
          "strings, not 91 (Banner Health Foundation twice).", call. = FALSE)
   }
+  # Session 112: the re-priced roster sits $5,632,448 BELOW the release.
   gap <- sum(d$amount) - CO_RELEASE_TOTAL
-  ec <- d$amount[grepl("Every Child Pediatrics", d$awardee, fixed = TRUE)]
-  if (abs(gap - 623394.26) > 0.005 || length(ec) != 1L || abs(ec - gap - 1) > 0.005) {
-    stop("[CO] the roster-vs-release gap is no longer $623,394.26 against the ",
-         "Every Child line's $623,395.26. Re-read both before restating it.",
-         call. = FALSE)
+  if (abs(gap - (-5632448)) > 0.005) {
+    stop("[CO] the roster-vs-release gap is no longer -$5,632,448. Re-read ",
+         "both before restating it.", call. = FALSE)
+  }
+  # The prior list: same names in the same order, eleven amounts moved.
+  p <- co_parse_roster(here::here(CO_PRIOR_ROSTER))
+  if (!identical(p$awardee, d$awardee) || abs(sum(p$amount) - CO_PRIOR_TOTAL) > 0.005 ||
+      sum(abs(p$amount - d$amount) > 0.005) != 11L) {
+    stop("[CO] the 11-02 roster is no longer the 10-01 roster's 92 names with ",
+         "eleven re-priced lines. Re-read both.", call. = FALSE)
   }
   if (sum(!is.na(d$site)) != 2L) stop("[CO] expected two SITE lines.", call. = FALSE)
   raw <- paste(readLines(here::here(CO_SOURCES$file[1]), warn = FALSE), collapse = " ")
@@ -322,6 +349,19 @@ CO_SITE_CCN <- c(
 
 co_year1_awardees <- function(d = co_parse_roster()) {
   f <- co_federal()
+  prior <- co_parse_roster(here::here(CO_PRIOR_ROSTER))$amount
+  if (length(prior) != nrow(d)) stop("[CO] prior roster length differs.", call. = FALSE)
+  moved <- abs(prior - d$amount) > 0.005
+  fmt <- function(x) format(x, big.mark = ",", nsmall = ifelse(x %% 1 > 0, 2, 0),
+                            scientific = FALSE, trim = TRUE)
+  reprice <- ifelse(moved, paste0(
+    " RE-PRICED by HCPF between the 2026-10-01 and 2026-11-02 reads: prior $",
+    vapply(prior, fmt, character(1)), ", now $", vapply(d$amount, fmt, character(1)),
+    " (", sprintf("%+.1f%%", 100 * (d$amount - prior) / prior), "). The page states ",
+    "no reason; the latest list governs (owner ruling, session 109 e).",
+    ifelse(grepl("San Luis Valley Health (Regional Medical Center)", d$awardee, fixed = TRUE),
+           " THE LARGEST MOVE ON THE ROSTER: -80.3%, $6,333,327. Internally consistent (one priced line), so NOT SOURCE_SUSPECT.",
+           "")), "")
   cls <- rhtp_classify_recipient_type(d$awardee, CO_STATE)
   out <- vector("list", nrow(d))
   for (i in seq_len(nrow(d))) {
@@ -400,11 +440,12 @@ co_year1_awardees <- function(d = co_parse_roster()) {
     distributed_to_hospital = t$distributed_to_hospital,
     note = paste0("HCPF RHTP award line, announced 2026-09-28 ('organizations ",
                   "selected to receive funding').",
-                  ifelse(is.na(d$site), "", paste0(" SITE (not the recipient): ", d$site, "."))),
+                  ifelse(is.na(d$site), "", paste0(" SITE (not the recipient): ", d$site, ".")),
+                  reprice),
     recipient_confirmed = "Yes",
     amount_confirmed = "Yes",
     fiscal_year = "FY2026 (Year 1)",
-    source_document_title = "HCPF, About our RHTP Awardees (Our Awardees), read 2026-10-01",
+    source_document_title = "HCPF, About our RHTP Awardees (Our Awardees), read 2026-11-02",
     state_source_url = CO_ROSTER_URL,
     validation_source_type = "AGENCY_PRESS_RELEASE",
     extraction_method = "DIRECT_TEXT",
@@ -426,9 +467,10 @@ co_year1_awardees <- function(d = co_parse_roster()) {
     intermediary_name = NA_character_,
     determination_basis = paste0("§10.2 ", t$flow_type, ": ", t$why,
                                  ifelse(hosp, " §0.3a: the recipient is a hospital whatever the activity.", "")),
-    amount_basis = paste0("The line's own amount on HCPF's awardee page, exact. ",
-                          "THE PAGE PRINTS NO TOTAL: its 92 lines sum to $170,210,575.26, ",
-                          "against HCPF's release figure of $169,587,181 ($623,394.26 apart). ",
+    amount_basis = paste0("The line's own amount on HCPF's awardee page as read 2026-11-02, exact. ",
+                          "THE PAGE PRINTS NO TOTAL: its 92 lines sum to $163,954,733 ",
+                          "($170,210,575.26 on 2026-10-01; eleven lines re-priced), against ",
+                          "HCPF's release figure of $169,587,181 ($5,632,448 apart). ",
                           "Neither is adjusted here; see co_year1_status.csv."),
     basis_type = t$basis_type,
     round_amount = NA_real_,
@@ -466,16 +508,15 @@ co_status_table <- function(a = co_year1_awardees()) {
     ~state, ~channel, ~stage, ~publishes_roster, ~note,
     CO_STATE, "HCPF 'About our RHTP Awardees' page, linked from the RHTP programme page",
     "AWARDED_ROSTER_PUBLISHED", "Yes",
-    paste0("92 priced lines, 91 distinct strings, NO TOTAL PRINTED: the lines sum to $170,210,575.26. ",
+    paste0("92 priced lines, 91 distinct strings, NO TOTAL PRINTED: the lines sum to $163,954,733 as read 2026-11-02 (eleven lines re-priced since 2026-10-01, when they summed to $170,210,575.26; San Luis Valley Health (Regional Medical Center) $7,889,561 -> $1,556,234; no statement of revision; latest list governs). ",
            nrow(h), " named-hospital lines, $", format(sum(h$amount), big.mark = ","),
            ", typed on CMS CO enrolment files. 'Approximately 250 projects' are behind these lines; the page prices organisations, not projects."),
     CO_STATE, "HCPF release, 2026-09-28 (and CMS's the same day)", "TOTAL_CONFLICTS_WITH_ROSTER", "No",
     paste0("HCPF: '$169,587,181' and '91 applicants'. CMS: '$169.6 million', '91 grantees'. ",
-           "The roster is $623,394.26 higher. The Every Child Pediatrics line, $623,395.26, ",
-           "is within $1.00 of the gap; a line added after the release would explain both the ",
-           "dollars and the 92-vs-91 count. That is ARITHMETIC, NOT A STATEMENT BY HCPF: no ",
-           "state total is published from this file until HCPF reconciles it (queued ",
-           "CO_ROSTER_VS_RELEASE_TOTAL)."),
+           "On 2026-10-01 the roster was $623,394.26 higher (the Every Child Pediatrics line, ",
+           "$623,395.26, within $1.00 of that gap). On 2026-11-02, after HCPF re-priced eleven ",
+           "lines, it is $5,632,448 LOWER. No state total is published from this file until ",
+           "HCPF reconciles it (queued CO_ROSTER_VS_RELEASE_TOTAL)."),
     CO_STATE, "Year 1 coverage", "PARTIAL_OR_UNSTATED", "n/a",
     paste0("The round is $169.6M of a $200,105,604 allotment; CMS calls it 'one part of the ",
            "larger overall funding amount'. HCPF's earlier Colorado Rural Health Center ",
@@ -488,7 +529,11 @@ co_status_table <- function(a = co_year1_awardees()) {
 CO_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "awardees", CO_ROSTER_URL, CO_SOURCES$file[1], TRUE,
-  "programme", CO_SOURCES$url[2], CO_SOURCES$file[2], TRUE)
+  # Session 112: re-based to the 11-02 copy after reading it (menu
+  # restructure, "Grant Awardees"/"Grantee Resources" links, 11-23/24 meeting
+  # dates; no recipient named). The 10-01 copy stays CO_SOURCES' release check.
+  "programme", CO_SOURCES$url[2],
+  file.path("data", "evidence", "recheck", "2026-11-02", "CO", "2026-11-02_hcpf_rhtp_programme.html"), TRUE)
 
 #' TRIPWIRE: the roster's line count or total moved
 co_assert_roster_unchanged <- function(raw) {
@@ -496,7 +541,7 @@ co_assert_roster_unchanged <- function(raw) {
   if (nrow(d) != CO_LINES || abs(sum(d$amount) - CO_ROSTER_TOTAL) > 0.005) {
     stop("[CO] THE AWARDEE ROSTER MOVED: ", nrow(d), " lines, $",
          format(sum(d$amount), nsmall = 2, big.mark = ","), " (recorded: 92 lines, ",
-         "$170,210,575.26). Diff it against data/evidence/CO/ on name AND amount, ",
+         "$163,954,733 as read 2026-11-02). Diff it against data/evidence/CO/ on name AND amount, ",
          "then --fetch --force and rebuild (§2.2).", call. = FALSE)
   }
   invisible(d)
