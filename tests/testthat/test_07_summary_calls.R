@@ -118,11 +118,15 @@ test_that("every OPEN queue question is placed, and the pools are counted once",
   expect_silent(sc_assert_queue_covered())
   p <- readr::read_csv(here::here(SC_POOLS_CSV), show_col_types = FALSE)
   expect_true(all(p$call %in% RHTP_SUMMARY_CALL_VALUES))
-  # Session 111 (rulings b, d): pools are called on typed members; OH's two
-  # are NOT, Indiana Region 5's tie goes to its lead (a hospital).
-  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 38835000)
+  # Session 111 (ruling b): pools are called on typed members; OH's two are
+  # NOT. Session 112 (ruling a): a tie is not a majority, so Indiana
+  # Region 5 (8 of 16) is NOT_HOSPITAL.
+  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 22135000)
   expect_setequal(p$pool_id[p$call == "HOSPITAL"],
-                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "IN_GROW_REGION_5"))
+                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING"))
+  expect_equal(p$call[p$pool_id == "IN_GROW_REGION_5"], "NOT_HOSPITAL")
+  expect_true(all((p$hospital_members * 2 > p$members) == (p$call == "HOSPITAL")))
+  expect_false(exists("SC_POOL_TIEBREAKS"))
 })
 
 test_that("the session 111 summary rulings hold", {

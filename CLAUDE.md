@@ -1414,6 +1414,16 @@ rural hospitals"* is one pool row, never divided (§6.2); the rest of the $92M
 every bucket. The 22 named hospitals are rows at $0 either way. Pinned in
 `test_03an_oh_year1_awardees.R`.
 
+#### A tie is not a majority (session 112, owner ruling)
+
+A shared pool priced only at pool level is called HOSPITAL in the summary layer
+only where its members typed as hospitals are a **strict** majority of its named
+members. **An exact tie is NOT_HOSPITAL**, the same test Ohio's two pools fail
+and Georgia's two pass. Indiana GROW Region 5 (8 typed hospitals of 16 named
+members, $16.7M) is the worked case: session 111 broke the tie on a
+signature-order proxy for a lead applicant Indiana never names; session 112
+withdrew that. There is no tiebreak table, so a tie cannot be re-typed by hand.
+
 #### Hospital foundations and affiliated arms
 
 **A foundation or affiliated arm of a *named* hospital or health system is
@@ -1786,7 +1796,7 @@ is called once in `SC_POOLS` and its members must carry no amount. Every OPEN qu
 `SC_OPEN_QUEUE` or exempted in `SC_QUEUE_EXEMPT`, or `--validate` fails.
 
 **Summary-call pools and components (session 111).** A pool's call is computed, never typed: HOSPITAL only where
-its named members typed Yes are a strict majority (`sc_pool_call()`); a tie needs a lead in `SC_POOL_TIEBREAKS`. A
+its named members typed Yes are a strict majority (`sc_pool_call()`); a tie is NOT_HOSPITAL (session 112, §7). A
 separately priced part of one row is an `SC_COMPONENTS` entry carrying the opposite call, with the source's own figure
 and quote; it is never derived by subtraction and never added to the award total.
 

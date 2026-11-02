@@ -460,6 +460,10 @@ ys_notes <- function(s, date, rows) {
            "Members (", gsub("^.*: ", "", ge$completion_status), "): allotment ", f(ge$allotment_usd), ", awards published ", f(ge$award_total_usd),
            ", hospital best estimate ", f(ge$hospital_summary_usd), " (", sprintf("%.1f%%", ge$hospital_share_of_awards_pct), " of those awards). ",
            "It is a subset of the national row, never added to it; the set changes as states publish."),
+    paste0("* SUBSET ROW ON OVERVIEW. '", ys_overview_state_label(ge), "' is the second national row, in full: '", ge$state_name,
+           "'. It is defined under SECOND NATIONAL ROW above."),
+    "NATIONAL ALLOTMENT. National allotment sums to $10,000,000,003 because each state's allotment is rounded to the dollar.",
+    "NEW HAMPSHIRE. The $17.5M Critical Access and Acute Care Hospital RFA (inside the Foundation for Healthy Communities award, called HOSPITAL) has not yet awarded: FHC's notification of award for its initial cohort is due mid-December 2026.",
     paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail).")))
 }
 
@@ -570,12 +574,23 @@ YS_OVERVIEW_DEFINITIONS <- tibble::tribble(
   "Strict named-hospital $", "STRICT: dollars awarded to a named hospital or health system on a state source; the defensible floor (Detail: strict_named_hospital_usd).",
   "Hospitals named, no amount", "Named hospital recipients (distinct names) with no published amount; their money is in no dollar column (Detail: named_hospital_recipients_no_amount).")
 
+#' Overview's State column: the subset row's long name is shortened to
+#' "<n> states \u2265 50% published*" (session 112; n follows the data, the
+#' full definition is in Notes). Detail and the CSV keep the full state_name.
+ys_overview_state_label <- function(s) {
+  ge <- s$state == "US_GE50"
+  n <- sub("^.*\\(n = ([0-9]+)\\).*$", "\\1", s$state_name[ge])
+  out <- s$state_name
+  out[ge] <- paste0(n, " states \u2265", 100 * YS_AWARD_SHARE_MIN, "% published*")
+  out
+}
+
 ys_overview <- function(s, rows) {
   ok <- ys_share_meaningful(s, rows)
   ge <- s$state == "US_GE50"
   blank <- function(x) { x[ge] <- NA; x }
   tibble::tibble(
-    "State" = s$state_name,
+    "State" = ys_overview_state_label(s),
     "Year 1 status" = ys_status_label(s, rows),
     "FY2026 allotment" = s$allotment_usd,
     "Awards published" = s$award_total_usd,
