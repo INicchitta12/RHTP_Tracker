@@ -1868,3 +1868,5 @@ MT,2026-11-03T17:42:43Z,TRIPWIRE,(probe),"[MT] 'home' HAS 1 NEW SENTENCE(S) OF T
 NM,2026-11-03T18:42:33Z,CHANGED,news,,trig_01FYoAwtuoWkZDiCt4dsNvuj
 NM,2026-11-03T18:42:33Z,CHANGED,rhcdf,,trig_01FYoAwtuoWkZDiCt4dsNvuj
 NM,2026-11-03T18:42:33Z,TRIPWIRE,news,"[NM] 'news' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Virtual Meeting The New Mexico Health Care Authority and the Administrative Office of the Courts. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01FYoAwtuoWkZDiCt4dsNvuj
+RI,2026-11-03T19:55:52Z,CHANGED,rss,,trig_01WXYStckEw4tjE1Er77BV94
+RI,2026-11-03T19:55:52Z,CHANGED,index,,trig_01WXYStckEw4tjE1Er77BV94
