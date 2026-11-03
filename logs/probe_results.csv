@@ -1851,3 +1851,6 @@ VA,2026-11-03T10:22:08Z,CHANGED,ways_to_apply,,trig_01BUzx8AnvNR9kVkYKkfovDe
 VA,2026-11-03T10:22:08Z,UNCHANGED,news,,trig_01BUzx8AnvNR9kVkYKkfovDe
 VA,2026-11-03T10:22:08Z,UNCHANGED,vhcf_news,,trig_01BUzx8AnvNR9kVkYKkfovDe
 VT,2026-11-03T11:34:56Z,UNCHANGED,awards,,trig_016RPWQycLeLLJngvFZPQKsj
+ID,2026-11-03T12:42:09Z,CHANGED,funding,,trig_019dET8MmsxwJAHBnx6dCLqF
+ID,2026-11-03T12:42:09Z,UNCHANGED,about,,trig_019dET8MmsxwJAHBnx6dCLqF
+ID,2026-11-03T12:42:09Z,TRIPWIRE,funding,"[ID] 'funding' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Extenders Webinar | Community Health Emergency Medical Services | Community Health Workers. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_019dET8MmsxwJAHBnx6dCLqF
