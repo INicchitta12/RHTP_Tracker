@@ -1666,6 +1666,61 @@ ok_xf_findings <- function(agent = ok_probe_agent(),
   list(changed = changed, findings = findings)
 }
 
+# SESSION 113: THE LEGISLATIVE QUARTERLY REPORTS. OSDH posts each quarter's
+# "RHTP Legislative Quarterly Report" on the Resources & Data page under
+# "Quarterly Legislative Reports" (Q1 06-03, Q2 07-10, Q3 10-16 so far). The
+# Q3 report was found by hand, 18 days after posting, because nothing watched
+# that page. What the reports ARE is settled (header above): their "Funded
+# Entity" tables are first-tier, Tier 2 by their own glossary ("Y1 Budget
+# Allocation: The amount of funds dedicated to the program"; "Obligation:
+# Formally committing to spend funds through a contract"), dispositioned and
+# never extracted. But a report can NAME a subrecipient roster the Funding
+# Recipients page does not yet carry, so a new one is a document to READ: the
+# probe compares the set of report PDFs linked from the live page with the
+# set linked from the archived copy, and a report that appears (or leaves) is
+# a finding. Re-basing is re-archiving the page after a human has read the
+# new report (`rhtp_watch_archive()` into OK_LEG_DIR), never by this probe.
+OK_LEG_DIR       <- file.path("data", "evidence", "OK", "legislative_reports")
+OK_LEG_PAGE_URL  <- "https://oklahoma.gov/rhtp/resources---data.html"
+OK_LEG_PAGE_FILE <- file.path(OK_LEG_DIR, "2026-11-03_ok_rhtp_resources_data.html")
+
+#' The legislative-report PDFs a Resources & Data page links, decoded
+ok_leg_reports <- function(raw) {
+  txt <- if (is.raw(raw)) rawToChar(raw) else
+    paste(readLines(raw, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  hits <- stringr::str_extract_all(txt, "legislative-reports/[^\"'&<>\\\\]+?\\.pdf")[[1]]
+  sort(unique(utils::URLdecode(basename(hits))))
+}
+
+#' Read the Resources & Data page LIVE (memory only) against the archive
+ok_leg_findings <- function(agent = ok_probe_agent(),
+                            fetch = function(url) rhtp_watch_fetch(url, agent),
+                            archived = here::here(OK_LEG_PAGE_FILE)) {
+  arch <- ok_leg_reports(archived)
+  if (!length(arch)) {
+    stop("[OK] the archived Resources & Data page links no legislative report. ",
+         "The reader, not Oklahoma, has failed (§0.4); a diff against nothing ",
+         "would pass forever.", call. = FALSE)
+  }
+  live <- ok_leg_reports(rhtp_probe_get("legislative_reports",
+                                        function() fetch(OK_LEG_PAGE_URL), archived))
+  added <- setdiff(live, arch); gone <- setdiff(arch, live)
+  findings <- character(0)
+  if (length(added)) findings <- c(findings, paste0(
+    "[OK] NEW LEGISLATIVE QUARTERLY REPORT(S) LINKED: ", paste(added, collapse = "; "),
+    ". Read it: its Funded Entity table is Tier 2 (dispositioned, never extracted), ",
+    "but extract any named, priced SUBRECIPIENT roster it carries that the Funding ",
+    "Recipients fragments do not. Then archive it and re-archive the page into ", OK_LEG_DIR, "."))
+  if (length(gone)) findings <- c(findings, paste0(
+    "[OK] LEGISLATIVE REPORT(S) NO LONGER LINKED: ", paste(gone, collapse = "; "),
+    ". A page to re-read (a replaced or renamed report), never a finding about awards."))
+  if (!length(live)) findings <- c(findings, paste0(
+    "[OK] the live Resources & Data page links NO legislative report. A redesign ",
+    "or a move: find the reports before re-basing."))
+  list(changed = c(legislative_reports = length(added) > 0 || length(gone) > 0),
+       findings = findings, live = live)
+}
+
 ok_probe <- function() {
   on.exit({ rm(list = ls(.ok_live), envir = .ok_live); ok_cache_clear() },
           add = TRUE)
@@ -1688,6 +1743,9 @@ ok_probe <- function() {
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
                                           state = OK_STATE)
   xf <- ok_xf_findings()
+  leg <- ok_leg_findings()
+  xf$changed <- c(xf$changed, leg$changed)
+  xf$findings <- c(xf$findings, leg$findings)
   changed <- c(stats::setNames(w$changed$changed, w$changed$key), xf$changed)
   message("[OK] ", paste0(names(changed), ": ",
                           ifelse(changed, "CHANGED", "UNCHANGED"),

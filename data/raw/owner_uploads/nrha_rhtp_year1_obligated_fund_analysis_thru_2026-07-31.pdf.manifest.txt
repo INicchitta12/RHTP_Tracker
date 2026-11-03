@@ -1,0 +1,38 @@
+RHTP tracker archive (session 113): an OWNER-SUPPLIED third-party analysis.
+CONTEXT ONLY. NEVER A SOURCE FOR ANY FIGURE, ROW, CODING OR TOTAL IN THIS
+REPOSITORY (§0.1, §0.4; source_doc_type would be THIRD_PARTY_NEWS at best,
+which "can never support a Yes"). No script reads this file, and
+tests/testthat/test_owner_uploads_context_only.R fails if one does.
+
+  file      : nrha_rhtp_year1_obligated_fund_analysis_thru_2026-07-31.pdf
+  supplied  : by the owner in session 113 (2026-11-03), as
+              "nrha-rhtp-year-1-obligated-fund-analysis-thru-8-1-26.pdf"
+  sha256    : 3cafd9199959e2505ea0894bdf2256594241868b3e203bcb1662256df1f7d48e
+  pages     : 5
+  pdf       : Microsoft Word, created 2026-10-29T19:38:56Z, author "Un-named"
+  title     : "A Review of the Rural Health Transformation Program Year 1
+              Obligated Funds" (National Rural Health Association, by the
+              owner's file name; the document itself carries no byline)
+
+WHAT IT IS. A narrative reading of CMS's RHTP Obligated Funds Report, citing
+the 10-14 edition this repository archived in session 113
+(data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf),
+"Accessed October 26, 2026". Its headline: about 40% / $4.0B of $10.0B
+obligated as of 2026-07-31.
+
+DEFECTS NOTED ON READING (recorded so nobody quotes them from here):
+  * Its "More than 75% obligated (10 states)" bullet lists seven states;
+    its "Less than 10% obligated (15 states)" bullet lists eight, one with no
+    name ("(2.7%)").
+  * Table B lists "Maine Rural Hospital Efficiency $30M" and "Maine EMR
+    $30M" (and "Maine APM transition $28.5M") as "Illustrative Obligated
+    Efforts". CMS's report has neither for Maine as of 7/31: Maine's whole
+    Initiative 5 is $2,072,283.49 and its EMR line is $440,000 to the Maine
+    Department of Education. Those three figures are Maine's ANNOUNCED POOLS
+    (Tier 2), and session 113 found neither the RHEF nor the EMR pool awarded
+    on any Maine source (data/evidence/recheck/2026-11-03/ME/).
+  * It reads "obligated" as "legally committed via sub-awards, contracts, or
+    agreements". CMS's own cover says the figures are state-submitted
+    obligations to "state agencies, contractors and vendors, community
+    partners, hospitals and facilities", which this repository treats as
+    OBLIGATION BY ACTIVITY, never an award (CLAUDE.md §10, session 97).
