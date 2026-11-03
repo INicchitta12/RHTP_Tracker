@@ -1,0 +1,6 @@
+Session 113 (2026-11-03): Maine RHEF and EMR re-check, fetched 21:2xZ with the project agent R/03aa sends to maine.gov / mcd.org. Raw bytes, no scripts stripped (no credential token found). NEITHER PROGRAMME HAS PUBLISHED AN AWARD. RHEF: DHHS's programme page still says 'Participating hospitals will receive individualized technical assistance ... followed by funding for approved projects' (Sept 2026 - Aug 2027); the Year 2 Project Narrative (CMS submission 2026-08-28) calls the 11 a cohort selected to receive the investment, no amounts. EMR: MCD's page says applications closed 8/14 and 'Award amounts communicated to organizations' mid-September (privately); its Sept 2026 Emerging Insights gives 55 applicants / $29,453,912 requested / 206 projects and FORMULA ESTIMATES ($306,000 rural hospital, $204,000 non-rural), never an award, never a name. Nothing extracted (§0.3: an estimate per class is not an award).
+
+e2548509dbc343334447da01ca4cd084046ba532b5f013f2ae8b14bb4bd06280  mcd_emr_modernization.html
+e7e9d5ab91e9719b543e129fd288aabc2787dcaa815f6e5814428316cf917d9e  mcd_emr_year1_emerging_insights_2026-09.pdf
+937040e82678b2ddf063caa59b664a1cded55219752b4d3631b004d539e816d6  me_dhhs_rhtp_programme.html
+c9ae90c5eb591a00897df18f600796e117e48470ed6ad2632bc722218fbb4ab3  me_rhtp_year2_project_narrative_20260828.pdf

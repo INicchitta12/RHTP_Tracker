@@ -45,8 +45,10 @@ test_that("every archived source verifies against the manifest", {
   # Session 75: probe_baseline/ is the probe's own dated snapshot with its own
   # manifest, deliberately NOT the extraction archive this manifest covers.
   # Session 85: new_rosters/ is R/03bt's 10-02 snapshot, likewise with its own.
+  # Session 113: legislative_reports/ is the Q3 report and the probe's
+  # Resources & Data page baseline, likewise with its own manifest.
   on_disk <- setdiff(list.files(OK_EVIDENCE_DIR),
-                     c("MANIFEST.txt", "probe_baseline", "new_rosters"))
+                     c("MANIFEST.txt", "probe_baseline", "new_rosters", "legislative_reports"))
   expect_equal(sort(on_disk), sort(listed))
 })
 
@@ -475,4 +477,35 @@ test_that("session 112: the moved roster is read from its dropdown index and fra
   expect_length(fired$findings, 1L)
   expect_match(fired$findings, "EHR Expansion", fixed = TRUE)
   expect_match(fired$findings, "$250,000.00", fixed = TRUE)
+})
+
+test_that("session 113: the probe watches the Legislative Quarterly Reports", {
+  f <- here::here(OK_LEG_PAGE_FILE)
+  expect_true(file.exists(f))
+  expect_equal(ok_leg_reports(f), c("06-03-26 RHTP Legislative Quarterly Report_Q1.pdf",
+                                    "07-10-26 RHTP Legislative Quarterly Report_Q2.pdf",
+                                    "10-16-26 RHTP Legislative Quarterly Report_Q3.pdf"))
+  # The Q3 report is archived beside the page, and the manifest pins it.
+  q3 <- here::here(OK_LEG_DIR, "2026-10-16_ok_rhtp_legislative_quarterly_report_q3.pdf")
+  expect_equal(digest::digest(file = q3, algo = "sha256"),
+               "2a8894973d7416fc615a28e42ec6f16f43c443c1e7a442b8b39e532ef8728e9c")
+  page <- readBin(f, "raw", file.size(f))
+  # Archived bytes served back: quiet.
+  quiet <- ok_leg_findings(fetch = function(url) page)
+  expect_length(quiet$findings, 0L)
+  expect_false(quiet$changed[["legislative_reports"]])
+  # A Q4 link appearing fires, naming the file.
+  q4 <- charToRaw(sub("10-16-26%20RHTP%20Legislative%20Quarterly%20Report_Q3.pdf",
+                      "10-16-26%20RHTP%20Legislative%20Quarterly%20Report_Q3.pdf\"></a><a href=\"/content/dam/ok/en/rhtp/documents/legislative-reports/01-15-27%20RHTP%20Legislative%20Quarterly%20Report_Q4.pdf",
+                      rawToChar(page), fixed = TRUE))
+  fired <- ok_leg_findings(fetch = function(url) q4)
+  expect_true(fired$changed[["legislative_reports"]])
+  expect_match(fired$findings, "Report_Q4.pdf", fixed = TRUE)
+  # A page with no report links at all is not a pass.
+  bare <- charToRaw("<html><body>Resources</body></html>")
+  expect_match(ok_leg_findings(fetch = function(url) bare)$findings, "links NO legislative report",
+               all = FALSE)
+  # And the probe calls it: a file offering --probe must not skip the watch.
+  src <- paste(readLines(here::here("R", "03t_ok_year1_awardees.R")), collapse = "\n")
+  expect_match(src, "leg <- ok_leg_findings()", fixed = TRUE)
 })
