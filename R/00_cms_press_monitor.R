@@ -1459,19 +1459,41 @@ rhtp_cms_press_run <- function(fetch_date = Sys.Date(), force = FALSE,
                  only_newsroom = only_newsroom, only_medicaid = only_medicaid))
 }
 
-# -- The obligation-report watch (session 97) ---------------------------------
+# -- The obligation-report watch (session 97; rewritten session 113) ---------
 #
 # CMS posted its "RHTP Obligated Funds Report" (data as of 2026-07-31) on the
 # medicaid.gov resources page on 2026-10-08, and says it "will update this
 # information following the submission of the November 30, 2026 Quarterly
 # Report and will refresh the data quarterly thereafter". The resources page
 # is the page this monitor already archives, so the watch reads the link list
-# of that archive: a report file name not in the known set is CHANGED, and
-# from OBLIGATION_REFRESH_DUE onward the absence of one is said in the note.
-# A new report is archived by hand under data/raw/cms/obligations/<as-of>/
-# and parsed by R/00c, never by this monitor.
+# of that archive. A new report is archived by hand under
+# data/raw/cms/obligations/<as-of>/ and parsed by R/00c (or R/00e for the
+# Word-typeset editions), never by this monitor.
+#
+# SESSION 113: WHY THE 10-14 EDITION LOOKED UNFLAGGED, AND WHAT CHANGED.
+# CMS swapped "RHTP-Obligated-Funds-20261014.pdf" into the SAME media entity
+# (data-entity-uuid 3a7485dd-...) at 2026-10-19T23:33Z, after the 10-16
+# archive. The first firing that could see it (10-22 13:00Z) failed its
+# suite on the NC 21-day omission and committed nothing (probe_gaps_explained
+# row 7); the next (10-26) did too, and session 107's interactive run that
+# day logged CHANGED. The 10-29 and 11-02 Routine runs logged CHANGED again.
+# So the check fired at every run that reached main -- three times -- and the
+# line was not acted on, because it read exactly like the newsroom row's
+# routine CHANGED beside it and nothing distinguished "not yet archived" from
+# "already handled". Three defects are fixed:
+#   1. The KNOWN set was a hand-kept constant. It is now the ARCHIVE: a report
+#      is known when its PDF and manifest sit under data/raw/cms/obligations/.
+#      An unarchived report keeps firing, and its note says for how many days
+#      and since which archived page, so a reader can tell a stale flag.
+#   2. A SAME-NAME re-post was invisible: the page HTML would not move. Each
+#      linked report is now HEAD-checked (read-only; nothing is written) and
+#      its Content-Length compared with the archived file's size.
+#   3. A page that links NO obligation report (a redesign, or a removal) read
+#      UNCHANGED. It is CHANGED now.
+CMS_OBLIGATION_DIR          <- file.path("data", "raw", "cms", "obligations")
+CMS_OBLIGATION_REFRESH_DUE  <- as.Date("2026-12-07")
+# Kept for reference only: the session-97 constant. The watch reads the archive.
 CMS_OBLIGATION_REPORTS_KNOWN <- c("RHTP-Obligated-Funds-10082026.pdf")
-CMS_OBLIGATION_REFRESH_DUE   <- as.Date("2026-12-07")
 
 #' Obligation-report file names linked from an archived resources page
 rhtp_cms_obligation_links <- function(path = rhtp_cms_press_newest_archive()) {
@@ -1482,20 +1504,106 @@ rhtp_cms_obligation_links <- function(path = rhtp_cms_press_newest_archive()) {
   unique(basename(sub("[?#].*$", "", hits)))
 }
 
+#' The reports this repository holds: a PDF with its manifest beside it
+#'
+#' @return A tibble: name, path, bytes.
+rhtp_cms_obligation_archived <- function(dir = here::here(CMS_OBLIGATION_DIR)) {
+  pdfs <- list.files(dir, pattern = "\\.pdf$", recursive = TRUE, full.names = TRUE)
+  pdfs <- pdfs[file.exists(paste0(pdfs, ".manifest.txt"))]
+  tibble::tibble(name = basename(pdfs), path = pdfs, bytes = as.numeric(file.size(pdfs)))
+}
+
+#' The first archived resources page that links `name`, or NA
+rhtp_cms_obligation_first_linked <- function(name,
+                                             root = here::here(rhtp_config()$paths$raw_cms)) {
+  pages <- list.files(root, pattern = paste0("^", CMS_PRESS_ARCHIVE_FILE, "$"),
+                      recursive = TRUE, full.names = TRUE)
+  pages <- pages[order(basename(dirname(pages)))]
+  for (p in pages) if (name %in% rhtp_cms_obligation_links(p)) return(basename(dirname(p)))
+  NA_character_
+}
+
+#' HEAD each linked report (read-only: nothing is written)
+#'
+#' @return A tibble: name, status, bytes, last_modified. A failed HEAD is
+#'   status NA, which the verdict reports and never reads as "unchanged".
+rhtp_cms_obligation_heads <- function(links,
+                                      base = "https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/") {
+  cfg <- rhtp_config()
+  purrr::map_dfr(links, function(nm) {
+    r <- tryCatch(
+      httr2::request(paste0(base, nm)) %>%
+        httr2::req_method("HEAD") %>%
+        httr2::req_user_agent(cfg$api$user_agent) %>%
+        httr2::req_timeout(cfg$api$timeout_seconds) %>%
+        httr2::req_error(is_error = function(resp) FALSE) %>%
+        httr2::req_perform(),
+      error = function(e) NULL)
+    if (is.null(r)) return(tibble::tibble(name = nm, status = NA_integer_, bytes = NA_real_,
+                                          last_modified = NA_character_))
+    len <- httr2::resp_header(r, "content-length")
+    tibble::tibble(name = nm, status = httr2::resp_status(r),
+                   bytes = if (is.null(len)) NA_real_ else as.numeric(len),
+                   last_modified = httr2::resp_header(r, "last-modified") %||% NA_character_)
+  })
+}
+
 #' The obligation-report verdict row, in `rhtp_probe_log()`'s shape
+#'
+#' @param links Report file names linked from the newest archived page.
+#' @param today The run date.
+#' @param archived `rhtp_cms_obligation_archived()`'s table.
+#' @param heads `rhtp_cms_obligation_heads()`'s table, or NULL to skip the
+#'   same-name re-post check (fixtures and offline runs).
+#' @param first_linked A function name -> first archived page date.
 rhtp_cms_obligation_verdict <- function(links = rhtp_cms_obligation_links(),
-                                        today = Sys.Date()) {
-  new <- setdiff(links, CMS_OBLIGATION_REPORTS_KNOWN)
-  if (length(new)) {
-    return(tibble::tibble(verdict = "CHANGED", page = "obligation_report",
-                          note = paste0("NEW CMS obligation report linked: ", paste(new, collapse = " "),
-                                        ". Archive it under data/raw/cms/obligations/<as-of>/ and parse with R/00c.")))
+                                        today = Sys.Date(),
+                                        archived = rhtp_cms_obligation_archived(),
+                                        heads = NULL,
+                                        first_linked = rhtp_cms_obligation_first_linked) {
+  out <- function(verdict, note) tibble::tibble(verdict = verdict, page = "obligation_report",
+                                                note = note)
+  if (!length(links)) {
+    return(out("CHANGED", paste0("The resources page links NO obligation report (held: ",
+                                 paste(archived$name, collapse = " "),
+                                 "). A redesign or a removal: read the page.")))
   }
-  tibble::tibble(verdict = "UNCHANGED", page = "obligation_report",
-                 note = if (today >= CMS_OBLIGATION_REFRESH_DUE) {
-                   paste0("No refreshed obligation report yet (due after the 2026-11-30 quarterly report; check from ",
-                          CMS_OBLIGATION_REFRESH_DUE, "). Linked: ", paste(links, collapse = " "))
-                 } else NA_character_)
+  msgs <- character(0)
+  new <- setdiff(links, archived$name)
+  for (nm in new) {
+    since <- tryCatch(first_linked(nm), error = function(e) NA_character_)
+    age <- if (!is.na(since)) paste0(", linked since the archived page of ", since, " (",
+                                     as.integer(today - as.Date(since)), " days)") else ""
+    msgs <- c(msgs, paste0("NEW CMS obligation report linked and NOT YET ARCHIVED: ", nm, age,
+                           ". Archive it under data/raw/cms/obligations/<as-of>/ with a manifest, ",
+                           "diff it against the held edition and parse it (R/00c or R/00e). ",
+                           "This line repeats every run until the archive holds it."))
+  }
+  if (!is.null(heads) && nrow(heads)) {
+    h <- heads %>% dplyr::filter(name %in% archived$name) %>%
+      dplyr::left_join(archived %>% dplyr::select(name, held_bytes = bytes), by = "name")
+    unread <- h %>% dplyr::filter(is.na(status) | status != 200L)
+    for (k in seq_len(nrow(unread))) {
+      msgs <- c(msgs, paste0("HEAD of ", unread$name[k], " returned ",
+                             dplyr::coalesce(as.character(unread$status[k]), "no response"),
+                             ": its bytes could not be compared (our access, not a finding)."))
+    }
+    moved <- h %>% dplyr::filter(status == 200L, !is.na(bytes), bytes != held_bytes)
+    for (k in seq_len(nrow(moved))) {
+      msgs <- c(msgs, paste0("SAME-NAME RE-POST: ", moved$name[k], " is now ", moved$bytes[k],
+                             " bytes (Last-Modified ", moved$last_modified[k], "); the archive holds ",
+                             moved$held_bytes[k], ". Fetch it under a dated name beside the held copy ",
+                             "and diff; never overwrite."))
+    }
+  }
+  # A HEAD we could not read is a statement about our access (ERROR), and it
+  # never hides a finding: a new or re-posted report keeps the run CHANGED.
+  access_only <- length(msgs) && all(stringr::str_detect(msgs, "^HEAD of "))
+  if (length(msgs)) return(out(if (access_only) "ERROR" else "CHANGED", paste(msgs, collapse = " | ")))
+  out("UNCHANGED", if (today >= CMS_OBLIGATION_REFRESH_DUE) {
+    paste0("No refreshed obligation report yet (due after the 2026-11-30 quarterly report; check from ",
+           CMS_OBLIGATION_REFRESH_DUE, "). Linked: ", paste(links, collapse = " "))
+  } else NA_character_)
 }
 
 
@@ -1590,7 +1698,11 @@ if (sys.nframe() == 0L) {
       error = function(e) e)
     if (run_type == "PRODUCTION" && sources == "both") {
       # Session 97: a second row watches the obligation report's link.
-      obl <- tryCatch(rhtp_cms_obligation_verdict(), error = function(e)
+      # Session 113: each linked report is HEAD-checked against the archive.
+      obl <- tryCatch({
+        lk <- rhtp_cms_obligation_links()
+        rhtp_cms_obligation_verdict(lk, heads = rhtp_cms_obligation_heads(lk))
+      }, error = function(e)
         tibble::tibble(verdict = "ERROR", page = "obligation_report",
                        note = stringr::str_trunc(conditionMessage(e), 300)))
       rhtp_probe_log("CMS", dplyr::bind_rows(rhtp_cms_press_verdict(res), obl))

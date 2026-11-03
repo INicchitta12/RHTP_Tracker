@@ -119,10 +119,74 @@ test_that("the gap table ranks on obligation minus published Tier 3 and says it 
 
 test_that("the CMS monitor flags a new obligation report and a missed refresh", {
   source(here::here("R", "00_cms_press_monitor.R"))
+  held <- tibble::tibble(name = "RHTP-Obligated-Funds-10082026.pdf", path = NA_character_, bytes = 1065285)
   expect_equal(rhtp_cms_obligation_verdict("RHTP-Obligated-Funds-10082026.pdf",
-                                           as.Date("2026-11-01"))$verdict, "UNCHANGED")
-  late <- rhtp_cms_obligation_verdict("RHTP-Obligated-Funds-10082026.pdf", as.Date("2026-12-08"))
+                                           as.Date("2026-11-01"), archived = held)$verdict, "UNCHANGED")
+  late <- rhtp_cms_obligation_verdict("RHTP-Obligated-Funds-10082026.pdf", as.Date("2026-12-08"),
+                                      archived = held)
   expect_match(late$note, "No refreshed obligation report")
   expect_equal(rhtp_cms_obligation_verdict(c("RHTP-Obligated-Funds-10082026.pdf",
-                                             "RHTP-Obligated-Funds-12152026.pdf"))$verdict, "CHANGED")
+                                             "RHTP-Obligated-Funds-12152026.pdf"),
+                                           archived = held,
+                                           first_linked = function(n) NA_character_)$verdict, "CHANGED")
+})
+
+# SESSION 113 FIXTURE: the 10-14 edition. Two trimmed copies of the committed
+# resources-page archives (10-16, still linking 10082026; 10-26, linking
+# 20261014 in the SAME media entity) are the input; the archive table is
+# what this repository held before session 113 archived the new edition.
+test_that("session 113: the 10-14 edition is flagged from the page that first links it, until archived", {
+  source(here::here("R", "00_cms_press_monitor.R"))
+  fx <- here::here("tests", "testthat", "fixtures", "cms_obligation_watch")
+  p16 <- file.path(fx, "2026-10-16", "medicaid_rhtp_resources.html")
+  p26 <- file.path(fx, "2026-10-26", "medicaid_rhtp_resources.html")
+  expect_equal(rhtp_cms_obligation_links(p16), "RHTP-Obligated-Funds-10082026.pdf")
+  expect_equal(rhtp_cms_obligation_links(p26), "RHTP-Obligated-Funds-20261014.pdf")
+  # Both fixture links carry the one media entity: CMS swapped the file in place.
+  uuid <- function(p) stringr::str_match(readLines(p, warn = FALSE), "data-entity-uuid=\"([^\"]+)\"")[, 2]
+  expect_identical(uuid(p16), uuid(p26))
+
+  held_s112 <- tibble::tibble(name = "RHTP-Obligated-Funds-10082026.pdf", path = NA_character_,
+                              bytes = 1065285)
+  fl <- function(n) rhtp_cms_obligation_first_linked(n, root = fx)
+  expect_identical(fl("RHTP-Obligated-Funds-20261014.pdf"), "2026-10-26")
+
+  # 10-16: nothing new linked.
+  v16 <- rhtp_cms_obligation_verdict(rhtp_cms_obligation_links(p16), as.Date("2026-10-16"),
+                                     archived = held_s112, first_linked = fl)
+  expect_equal(v16$verdict, "UNCHANGED")
+  # 11-02 (the third CHANGED run): fires, says NOT YET ARCHIVED, and dates itself.
+  v1102 <- rhtp_cms_obligation_verdict(rhtp_cms_obligation_links(p26), as.Date("2026-11-02"),
+                                       archived = held_s112, first_linked = fl)
+  expect_equal(v1102$verdict, "CHANGED")
+  expect_match(v1102$note, "NOT YET ARCHIVED: RHTP-Obligated-Funds-20261014.pdf")
+  expect_match(v1102$note, "linked since the archived page of 2026-10-26 \\(7 days\\)")
+  # Once archived (this session), the same page is quiet.
+  held_s113 <- dplyr::bind_rows(held_s112, tibble::tibble(
+    name = "RHTP-Obligated-Funds-20261014.pdf", path = NA_character_, bytes = 1035227))
+  heads_ok <- tibble::tibble(name = "RHTP-Obligated-Funds-20261014.pdf", status = 200L,
+                             bytes = 1035227, last_modified = "Mon, 19 Oct 2026 23:33:11 GMT")
+  expect_equal(rhtp_cms_obligation_verdict(rhtp_cms_obligation_links(p26), as.Date("2026-11-05"),
+                                           archived = held_s113, heads = heads_ok,
+                                           first_linked = fl)$verdict, "UNCHANGED")
+  # The repository's real archive now holds it.
+  expect_true("RHTP-Obligated-Funds-20261014.pdf" %in% rhtp_cms_obligation_archived()$name)
+})
+
+test_that("session 113: a same-name re-post, an unreadable HEAD and an empty link list are not UNCHANGED", {
+  source(here::here("R", "00_cms_press_monitor.R"))
+  held <- tibble::tibble(name = "RHTP-Obligated-Funds-20261014.pdf", path = NA_character_, bytes = 1035227)
+  lk <- "RHTP-Obligated-Funds-20261014.pdf"
+  repost <- tibble::tibble(name = lk, status = 200L, bytes = 1040000,
+                           last_modified = "Mon, 07 Dec 2026 20:00:00 GMT")
+  v <- rhtp_cms_obligation_verdict(lk, as.Date("2026-12-08"), archived = held, heads = repost)
+  expect_equal(v$verdict, "CHANGED")
+  expect_match(v$note, "SAME-NAME RE-POST")
+  blocked <- tibble::tibble(name = lk, status = 403L, bytes = NA_real_, last_modified = NA_character_)
+  vb <- rhtp_cms_obligation_verdict(lk, archived = held, heads = blocked)
+  expect_equal(vb$verdict, "ERROR")
+  expect_match(vb$note, "could not be compared")
+  none <- rhtp_cms_obligation_verdict(character(0), archived = held)
+  expect_equal(none$verdict, "CHANGED")
+  expect_match(none$note, "links NO obligation report")
 })

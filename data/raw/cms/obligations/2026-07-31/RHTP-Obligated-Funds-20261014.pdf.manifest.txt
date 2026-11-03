@@ -1,0 +1,39 @@
+RHTP tracker archive: CMS "RHTP Obligated Funds Report", SECOND EDITION (session 113).
+
+file            : RHTP-Obligated-Funds-20261014.pdf
+sha256          : 05e6f0a9c488aeed94766d1ba73581b72faeb5676cdc9e22e8fb76a0a27dbbcf
+bytes           : 1035227
+pages           : 105
+pdf_created     : 2026-10-19T23:29:42Z (Microsoft Word; Author "Annadanam, Akhila (CMS/CMCS)")
+data_as_of      : 2026-07-31 (reporting period 2025-12-29 to 2026-07-31; Year 1 RHTP Annual Report)
+cms_file_stamp  : 2026-10-14 (file name "20261014"; link title "RHTP-Obligated-Funds-10142026")
+supersedes      : RHTP-Obligated-Funds-10082026.pdf (kept beside it; never overwritten)
+
+PROVENANCE
+  1. Fetched by this repository, 2026-11-03T21:17:06Z:
+       url           : https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+       http_status   : 200
+       content_type  : application/pdf
+       last_modified : Mon, 19 Oct 2026 23:33:11 GMT
+       bytes         : 1035227
+       sha256        : 05e6f0a9c488aeed94766d1ba73581b72faeb5676cdc9e22e8fb76a0a27dbbcf
+  2. The OLD URL (RHTP-Obligated-Funds-10082026.pdf) now answers HTTP 301 to
+     this file. CMS replaced the file inside the SAME media entity
+     (data-entity-uuid 3a7485dd-38c0-4461-840f-9a9177fa0197 on both links).
+  3. When it appeared on the resources page: NOT in the archived page of
+     2026-10-16 (data/raw/cms/2026-10-16/, still linking 10082026); FIRST in
+     the archived page of 2026-10-26. Last-Modified (10-19 23:33Z) puts the
+     posting after the 10-16 archive and before the 10-22 13:00Z CMS firing.
+
+WHAT CHANGED (parsed, R/00e_cms_obligation_report_v2.R; diff in
+data/reference/cms_obligations_bp1_diff_10082026_20261014.csv): ONE content
+change. Oregon, Initiative 5: Tribal, "Capital Expenditures and
+Infrastructure ($2,426,419.42)": the 10-08 edition printed under it the nine
+bullets of the IT Advances category above ($16,181,322.70); this edition
+prints four bullets summing to the header exactly. Every state total,
+initiative header and category header is unchanged. Everything else is
+typesetting (Word replaced Quartz: bullet glyph, ligatures, non-breaking
+hyphens).
+
+WHAT IT IS (§0.1, §0.2). As for the 10-08 edition: state self-reported
+obligation by activity. Not an award total. Parsed, never transcribed.
