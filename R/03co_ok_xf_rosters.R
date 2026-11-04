@@ -77,6 +77,7 @@ suppressPackageStartupMessages({
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
 source(here::here("R", "utils_page_watch.R"))
+source(here::here("R", "utils_pdf_text.R"))
 
 OKX_STATE  <- "OK"
 OKX_URL    <- "https://oklahoma.gov/rhtp/rhtp-funding-recipients.html"
@@ -423,10 +424,302 @@ okx_report <- function() {
   }
 }
 
+# -- COMMUNITY HEALTH WORKER EXPANSION (session 114, owner ruling) -------------
+#
+# The CHW fragment names its members and prices none: "Funding Administrator:
+# Oklahoma Hospital Association ... Funded through subrecipient agreement.
+# Sites Selected for a Community Health Worker: Funded 25 CHWs in 18 FQHCs:
+# <18 names> ... Hospitals receiving CHWs: <30 lines>". OSDH's Q3 Legislative
+# Quarterly Report (2026-10-16, data/evidence/OK/legislative_reports/) prices
+# the programme at the administrator's grain: "CHW Expansion | Foundation for a
+# Healthy Oklahoma (OHA) | $4,605,788.00 [Y1 Budget Allocation] |
+# $4,460,162.93 [Current Obligated] | 30 hospital and 18 FQHC CHW sites under
+# contract".
+#
+# OWNER RULING (session 114, Task 1a): the 30 hospital lines are rows at $0,
+# typed on CMS OK Hospital Enrollments; the 18 FQHCs are non-hospital rows at
+# $0; NO STRICT BUCKET carries the pool's dollars (shared with FQHCs, §7 "a pool
+# is judged per priced component"); the pool is ONE SC_POOLS entry in R/07 at
+# the Q3 obligated $4,460,162.93, called on its typed members (BEST_JUDGMENT).
+#
+# THE HOSPITAL ROWS. OHA administers through subrecipient agreements and the
+# hospitals are the named sites "under contract", so each hospital row is the
+# lung-screening shape: DIRECT, OHA recorded in intermediary_name, and a
+# NAMED_HOSPITAL row at NO AMOUNT (Ohio's 22 hospitals are the precedent: rows
+# at $0, the pool never divided, §6.2). Typing: exact legal name MEDIUM; an
+# exact DBA or OSDH short form is a hand-read bridge, LOW (§7). cms_enrolment_
+# match is left EMPTY (the CCN and the enrolment are in ccn and
+# cms_enrolment_record), so R/03bj's re-typing overlay does not claim these
+# rows; nothing here was re-typed against a state-stated form.
+#
+# THREE LINES NAME TWO SITES. "Beaver County Memorial Hospital/Harper County
+# Community Hospital" and "Mercy Kingfisher/Watonga" each name TWO enrolled
+# legal bodies; "Stillwater Medical Center - Blackwell/Perry" names two REHs of
+# ONE authority. Each stays one row as printed (MULTI_RECIPIENT_FIELD for the
+# two-body lines), no CCN, LOW. At $0 nothing is divided.
+#
+# AVEM HEALTH PARTNERS IS NOT TYPED A HOSPITAL. OSDH prints it under
+# "Hospitals receiving CHWs", but it carries no CMS hospital enrolment in
+# Oklahoma and is, on general knowledge, a rural-hospital MANAGEMENT company:
+# the CHW sits at a hospital it manages, which the page does not name. §0.3a
+# judges the recipient: HOSPITAL_AFFILIATED_ENTITY, PASS_THROUGH_UNRESOLVED,
+# Unclear, FLOW_UNRESOLVED_HOSPITAL_AFFILIATED. The owner's count was "30 of 48";
+# the typed count is 29 of 48, still a strict majority, so the pool's call is
+# the same either way.
+OKX_CHW_SLUG  <- "community-health-worker-expansion"
+OKX_CHW_LABEL <- "Community Health Worker Expansion"
+OKX_CHW_POOL_USD <- 4460162.93
+OKX_CHW_Q3 <- file.path("data", "evidence", "OK", "legislative_reports",
+                        "2026-10-16_ok_rhtp_legislative_quarterly_report_q3.pdf")
+
+OKX_CHW_FQHC <- c(
+  "Arkansas Verdigris Valley Health Centers", "Caring Hands Healthcare Centers",
+  "Central Oklahoma Family Medical Center", "Community Health Center of Southeast Kansas",
+  "Community Clinic NWA", "East Central Oklahoma Family Health Center",
+  "Fairfax Medical Facilities, Inc.", "Family Health Center of Southern Oklahoma",
+  "Great Salt Plains Health Center", "Kiamichi Family Medical Center",
+  "Lawton Community Health Center", "Morton Comprehensive Health Services", "NeoHealth",
+  "Pushmataha Family Medical Center", "Shortgrass Community Health Center",
+  "South Central Medical and Resource Center", "Stigler Health and Wellness Center",
+  "Variety Care")
+
+#   enrol: "<ORG>|<CCN>[;<ORG>|<CCN>]" on the archived CMS OK Hospital Enrollments.
+#   grade: LEGAL (exact legal name, MEDIUM) | BRIDGE (DBA or short form, LOW) |
+#          MULTI (two legal bodies, LOW, no CCN) | NONE (no enrolment).
+OKX_CHW_HOSP <- tibble::tribble(
+  ~awardee, ~grade, ~ccn, ~enrol, ~why,
+  "Beaver County Memorial Hospital/Harper County Community Hospital", "MULTI", NA,
+    "BEAVER COUNTY MEMORIAL HOSPITAL|371322;HARPER COUNTY COMMUNITY HOSPITAL|370781",
+    "TWO enrolled legal bodies on one line: BEAVER COUNTY MEMORIAL HOSPITAL (CAH 371322, Beaver) and HARPER COUNTY COMMUNITY HOSPITAL (REH 370781, Buffalo).",
+  "Great Plains Regional Medical Center", "BRIDGE", "370019", "FARMERS UNION HOSPITAL ASSOCIATION|370019",
+    "the exact DBA of FARMERS UNION HOSPITAL ASSOCIATION (PART A PROVIDER - HOSPITAL, CCN 370019, Elk City).",
+  "Okeene Municipal Hospital", "BRIDGE", "371327", "OKEENE MUNICIPAL HOSPITAL AND SCHALLMO AUTHORITY|371327",
+    "the exact DBA of OKEENE MUNICIPAL HOSPITAL AND SCHALLMO AUTHORITY (CAH 371327, Okeene).",
+  "AVEM Health Partners", "NONE", NA, NA,
+    "NO CMS hospital enrolment in Oklahoma carries the name; a rural-hospital management company on general knowledge.",
+  "Mercy Healdton", "BRIDGE", "371310", "MERCY HOSPITAL HEALDTON INC|371310",
+    "OSDH's short form of MERCY HOSPITAL HEALDTON INC (CAH 371310, Healdton), the one enrolled Mercy hospital there.",
+  "Northeastern Health System – Tahlequah", "LEGAL", "370089", "NORTHEASTERN HEALTH SYSTEM|370089",
+    "the exact legal name NORTHEASTERN HEALTH SYSTEM (dba TAHLEQUAH CITY HOSPITAL, PART A PROVIDER - HOSPITAL, CCN 370089) with its site.",
+  "Cimarron Memorial Hospital", "BRIDGE", "371307", "CIMARRON MEMORIAL HOSPITAL AND NURSING HOME|371307",
+    "the exact DBA of CIMARRON MEMORIAL HOSPITAL AND NURSING HOME (CAH 371307, Boise City).",
+  "Saint Francis – Vinita", "BRIDGE", "370237", "SAINT FRANCIS HOSPITAL VINITA, INC.|370237",
+    "OSDH's short form of SAINT FRANCIS HOSPITAL VINITA, INC. (PART A PROVIDER - HOSPITAL, CCN 370237, Vinita).",
+  "Weatherford Regional Hospital", "BRIDGE", "371323", "WEATHERFORD HOSPITAL AUTHORITY|371323",
+    "the exact DBA of WEATHERFORD HOSPITAL AUTHORITY (CAH 371323, Weatherford).",
+  "Harmon Memorial Hospital", "BRIDGE", "371338", "JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY|371338",
+    "the exact DBA of JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY (CAH 371338, Hollis); the same authority as the Jackson County Memorial Hospital line, listed separately by OSDH.",
+  "Jackson County Memorial Hospital", "BRIDGE", "370022", "JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY|370022",
+    "the exact DBA of JACKSON COUNTY MEMORIAL HOSPITAL AUTHORITY (PART A PROVIDER - HOSPITAL, CCN 370022, Altus).",
+  "Mercy Tishomingo", "BRIDGE", "371304", "MERCY HOSPITAL TISHOMINGO INC|371304",
+    "OSDH's short form of MERCY HOSPITAL TISHOMINGO INC (CAH 371304, Tishomingo).",
+  "Stillwater Medical Center - Blackwell/Perry", "BRIDGE", NA,
+    "STILLWATER MEDICAL CENTER AUTHORITY|370780;STILLWATER MEDICAL CENTER AUTHORITY|370779",
+    "ONE legal body, two sites: STILLWATER MEDICAL CENTER AUTHORITY enrols STILLWATER MEDICAL - BLACKWELL (REH 370780) and STILLWATER MEDICAL PERRY (REH 370779). One recipient; no CCN because the line names two.",
+  "Mercy Kingfisher/Watonga", "MULTI", NA,
+    "MERCY HOSPITAL KINGFISHER, INC|371313;MERCY HOSPITAL WATONGA INC|371302",
+    "TWO enrolled legal bodies on one line: MERCY HOSPITAL KINGFISHER, INC (CAH 371313) and MERCY HOSPITAL WATONGA INC (CAH 371302).",
+  "Eastern Oklahoma Medical Center", "BRIDGE", "371337", "LEFLORE COUNTY HOSPITAL AUTHORITY|371337",
+    "the exact DBA of LEFLORE COUNTY HOSPITAL AUTHORITY (CAH 371337, Poteau).",
+  "Mercy Logan County", "BRIDGE", "371317", "MERCY HOSPITAL LOGAN COUNTY, INC|371317",
+    "OSDH's short form of MERCY HOSPITAL LOGAN COUNTY, INC (CAH 371317, Guthrie).",
+  "Mercy Ardmore", "BRIDGE", "370047", "MERCY HOSPITAL ARDMORE INC|370047",
+    "OSDH's short form of MERCY HOSPITAL ARDMORE INC (PART A PROVIDER - HOSPITAL, CCN 370047), as on the lung-screening line.",
+  "Fairview Regional Medical Center", "BRIDGE", "371329", "FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY|371329",
+    "the exact DBA of FAIRVIEW REGIONAL MEDICAL CENTER AUTHORITY (CAH 371329, Fairview).",
+  "Purcell Municipal Hospital", "LEGAL", "370158", "PURCELL MUNICIPAL HOSPITAL|370158",
+    "the exact legal name PURCELL MUNICIPAL HOSPITAL (PART A PROVIDER - HOSPITAL, CCN 370158, Purcell).",
+  "Arbuckle Memorial Hospital", "LEGAL", "371328", "ARBUCKLE MEMORIAL HOSPITAL|371328",
+    "the exact legal name ARBUCKLE MEMORIAL HOSPITAL (CAH 371328, Sulphur).",
+  "Saint Francis – Muskogee", "BRIDGE", "370025", "SAINT FRANCIS HOSPITAL MUSKOGEE INC|370025",
+    "OSDH's short form of SAINT FRANCIS HOSPITAL MUSKOGEE INC (PART A PROVIDER - HOSPITAL, CCN 370025), as on the lung-screening line.",
+  "Hillcrest Hospital Henryetta", "BRIDGE", "370183", "AHS HENRYETTA HOSPITAL LLC|370183",
+    "the exact DBA of AHS HENRYETTA HOSPITAL LLC (PART A PROVIDER - HOSPITAL, CCN 370183, Henryetta).",
+  "Hillcrest Hospital Cushing", "BRIDGE", "370099", "AHS CUSHING HOSPITAL LLC|370099",
+    "the exact DBA of AHS CUSHING HOSPITAL LLC (PART A PROVIDER - HOSPITAL, CCN 370099, Cushing).",
+  "Stillwater Medical Center – Stillwater", "BRIDGE", "370049", "STILLWATER MEDICAL CENTER AUTHORITY|370049",
+    "the exact DBA STILLWATER MEDICAL CENTER of STILLWATER MEDICAL CENTER AUTHORITY (PART A PROVIDER - HOSPITAL, CCN 370049).",
+  "McAlester Regional Health Center", "BRIDGE", "370034", "MCALESTER REGIONAL HEALTH CENTER AUTHORITY|370034",
+    "the exact DBA of MCALESTER REGIONAL HEALTH CENTER AUTHORITY (PART A PROVIDER - HOSPITAL, CCN 370034, McAlester).",
+  "Northeastern Health System – Sequoyah", "BRIDGE", "370112", "SEQUOYAH COUNTY CITY OF SALLISAW HOSPITAL AUTHORITY|370112",
+    "the exact DBA NORTHEASTERN HEALTH SYSTEM SEQUOYAH of SEQUOYAH COUNTY CITY OF SALLISAW HOSPITAL AUTHORITY (CCN 370112, Sallisaw) -- a DIFFERENT legal body from the Tahlequah line.",
+  "Memorial Hospital of Texas County Authority", "LEGAL", "371340", "MEMORIAL HOSPITAL OF TEXAS COUNTY AUTHORITY|371340",
+    "the exact legal name MEMORIAL HOSPITAL OF TEXAS COUNTY AUTHORITY (CAH 371340, Guymon).",
+  "Ascension St. John - Jane Phillips", "BRIDGE", "370018", "JANE PHILLIPS MEMORIAL MEDICAL CENTER INC|370018",
+    "OSDH's trading name for JANE PHILLIPS MEMORIAL MEDICAL CENTER INC (PART A PROVIDER - HOSPITAL, CCN 370018, Bartlesville).",
+  "Cordell Memorial Hospital", "BRIDGE", "371325", "CORDELL MEMORIAL HOSPITAL 0189|371325",
+    "the exact DBA of CORDELL MEMORIAL HOSPITAL 0189 (CAH 371325, Cordell).",
+  "Share Medical Center", "BRIDGE", "371341", "ALVA HOSPITAL AUTHORITY|371341",
+    "the exact DBA of ALVA HOSPITAL AUTHORITY (CAH 371341, Alva).")
+
+okx_chw_assert_sources <- function() {
+  t <- okx_text(OKX_CHW_SLUG)
+  for (p in c("Funding Administrator: Oklahoma Hospital Association",
+              "Funded through subrecipient agreement.",
+              "Funded 25 CHWs in 18 FQHCs:", "Hospitals receiving CHWs:")) {
+    if (!grepl(p, t, fixed = TRUE)) stop("[OK CHW] the fragment lost '", p, "'.", call. = FALSE)
+  }
+  if (grepl("\\$[0-9]", t)) stop("[OK CHW] the fragment now prints a dollar figure: re-read it.", call. = FALSE)
+  fq <- sub(".*Funded 25 CHWs in 18 FQHCs: ", "", sub(" Hospitals receiving CHWs:.*$", "", t))
+  fq <- stringr::str_squish(strsplit(fq, ", (?!Inc\\.)", perl = TRUE)[[1]])
+  if (!identical(fq, OKX_CHW_FQHC)) {
+    stop("[OK CHW] the FQHC list moved: ", paste(union(setdiff(fq, OKX_CHW_FQHC),
+                                                        setdiff(OKX_CHW_FQHC, fq)), collapse = "; "),
+         call. = FALSE)
+  }
+  h <- stringr::str_squish(sub("^.*Hospitals receiving CHWs: ", "", t))
+  for (a in OKX_CHW_HOSP$awardee) {
+    if (!grepl(a, h, fixed = TRUE)) stop("[OK CHW] the fragment no longer names '", a, "'.", call. = FALSE)
+  }
+  # Every hospital line is one of ours: strip ours and nothing may remain.
+  rest <- h
+  for (a in OKX_CHW_HOSP$awardee[order(-nchar(OKX_CHW_HOSP$awardee))]) rest <- sub(a, "", rest, fixed = TRUE)
+  if (nzchar(stringr::str_squish(rest))) {
+    stop("[OK CHW] an unread hospital line: '", stringr::str_squish(rest), "'.", call. = FALSE)
+  }
+  if (nrow(OKX_CHW_HOSP) != 30L || length(OKX_CHW_FQHC) != 18L) {
+    stop("[OK CHW] expected 30 hospital lines and 18 FQHCs.", call. = FALSE)
+  }
+  q3 <- stringr::str_squish(paste(rhtp_pdf_text(here::here(OKX_CHW_Q3)), collapse = " "))
+  for (p in c("$4,460,162.93", "$4,605,788.00", "30 hospital and 18 FQHC CHW sites under contract")) {
+    if (!grepl(p, q3, fixed = TRUE)) stop("[OK CHW] the Q3 report no longer prints '", p, "'.", call. = FALSE)
+  }
+  e <- jsonlite::fromJSON(here::here(OKX_HOSP_FED))
+  fed <- paste0(e[["ORGANIZATION NAME"]], "|", e$CCN)
+  for (x in unlist(strsplit(stats::na.omit(OKX_CHW_HOSP$enrol), ";", fixed = TRUE))) {
+    if (!x %in% fed) stop("[OK CHW] the archived OK enrolment no longer carries ", x, ".", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+okx_chw_rows <- function() {
+  okx_chw_assert_sources()
+  h <- OKX_CHW_HOSP
+  is_h <- h$grade != "NONE"
+  conf_h <- ifelse(h$grade == "LEGAL", "MEDIUM", "LOW")
+  pool_note <- paste0("OHA administers the programme 'through subrecipient agreement'; OSDH's Q3 ",
+                      "Legislative Quarterly Report shows $4,460,162.93 obligated to the Foundation for a ",
+                      "Healthy Oklahoma (OHA), '30 hospital and 18 FQHC CHW sites under contract'. No ",
+                      "per-site amount is published; the pool is ONE summary-layer entry (R/07 SC_POOLS ",
+                      "OK_CHW_EXPANSION) and is never divided (§6.2).")
+  hosp <- tibble::tibble(
+    awardee = h$awardee,
+    recipient_type = ifelse(is_h, "HOSPITAL_OR_SYSTEM", "HOSPITAL_AFFILIATED_ENTITY"),
+    distributed_to_hospital = ifelse(is_h, "Yes", "Unclear"),
+    flow_type = ifelse(is_h, "DIRECT", "PASS_THROUGH_UNRESOLVED"),
+    hospital_attribution = ifelse(is_h, "NAMED_HOSPITAL", NA_character_),
+    ccn = h$ccn,
+    determination_confidence = ifelse(is_h, conf_h, "LOW"),
+    basis_type = ifelse(is_h, "STATE_SOURCE", "GENERAL_KNOWLEDGE"),
+    flag_reason = dplyr::case_when(!is_h ~ "FLOW_UNRESOLVED_HOSPITAL_AFFILIATED",
+                                   h$grade == "MULTI" ~ "MULTI_RECIPIENT_FIELD",
+                                   TRUE ~ NA_character_),
+    section = "Hospitals receiving CHWs",
+    why = h$why,
+    enrol = h$enrol)
+  fq <- tibble::tibble(
+    awardee = OKX_CHW_FQHC, recipient_type = "FQHC_OR_RHC", distributed_to_hospital = "No",
+    flow_type = "NON_HOSPITAL", hospital_attribution = "NOT_HOSPITAL", ccn = NA_character_,
+    determination_confidence = "MEDIUM", basis_type = "STATE_SOURCE", flag_reason = NA_character_,
+    section = "Funded 25 CHWs in 18 FQHCs",
+    why = paste0("OSDH states the form: 'Funded 25 CHWs in 18 FQHCs'.",
+                 ifelse(grepl("Kansas|NWA", OKX_CHW_FQHC),
+                        " An out-of-state FQHC as named (its Oklahoma sites are not named).", "")),
+    enrol = NA_character_)
+  a <- dplyr::bind_rows(hosp, fq)
+  tibble::tibble(
+    state = OKX_STATE,
+    row_no = seq_len(nrow(a)),
+    awardee = a$awardee,
+    amount = NA_real_,
+    recipient_type = a$recipient_type,
+    distributed_to_hospital = a$distributed_to_hospital,
+    note = paste0(OKX_CHW_LABEL, ", OSDH Funding Recipients page (fragment '", OKX_CHW_SLUG,
+                  "', page last modified ", OKX_PAGE_MODIFIED, ", read ", OKX_READ, "), under '",
+                  a$section, "'. ", pool_note),
+    recipient_confirmed = "Yes",
+    amount_confirmed = "No",
+    fiscal_year = "FY2026 (Year 1)",
+    source_document_title = paste0("Oklahoma RHTP Funding Recipients -- ", OKX_CHW_LABEL),
+    state_source_url = OKX_URL,
+    validation_source_type = "NOTICE_OF_AWARD",
+    extraction_method = "DIRECT_TEXT",
+    validator = "R/03co_ok_xf_rosters.R",
+    ccn = a$ccn,
+    aha_id = NA_character_,
+    rural_designation = NA_character_,
+    reviewer = NA_character_,
+    recipient_type_source = paste0("TYPED (session 114, owner ruling; HAND-READ on CMS OK Hospital Enrollments): ", a$why),
+    determination_confidence = a$determination_confidence,
+    flag_reason = a$flag_reason,
+    award_pool = OKX_CHW_LABEL,
+    budget_period = "Budget Period 1",
+    flow_type = a$flow_type,
+    hospital_benefiting = ifelse(a$recipient_type == "FQHC_OR_RHC", "Unclear", "Yes"),
+    hospital_attribution = a$hospital_attribution,
+    intermediary_name = OKX_OHA,
+    determination_basis = dplyr::case_when(
+      a$distributed_to_hospital == "Yes" ~ paste0(
+        "§10.2 DIRECT: OSDH names this site under 'Hospitals receiving CHWs' and the Q3 report has the hospital ",
+        "sites 'under contract' with OHA; the recipient is ", a$why, " NAMED AT $0: the state prices only the ",
+        "shared pool, which enters no strict bucket (§7 per-component rule, owner ruling session 114). ",
+        "§0.3a: the recipient is a hospital whatever the activity."),
+      a$recipient_type == "FQHC_OR_RHC" ~ paste0("§10.2 NON_HOSPITAL: ", a$why),
+      TRUE ~ paste0("§10.2 PASS_THROUGH_UNRESOLVED (§0.3a, judge the recipient): OSDH lists AVEM Health Partners under ",
+                    "'Hospitals receiving CHWs', but ", a$why, " The CHW sits at a hospital AVEM manages, which the page ",
+                    "does not name; flow to a hospital is unresolved. Owner question: OSDH's heading counts it as one of 30 hospitals.")),
+    amount_basis = "NO AMOUNT: OSDH publishes no per-site figure. The pool ($4,460,162.93 obligated, Q3 report) is a summary-layer entry, never divided.",
+    round_name = OKX_CHW_LABEL,
+    round_awards = nrow(a),
+    round_amount = NA_real_,
+    announcement_date = OKX_PAGE_MODIFIED,
+    source_archive_path = file.path(OKX_FRAG, paste0(OKX_CHW_SLUG, ".html")),
+    recipient_subtype = NA_character_,
+    cms_enrolment_record = ifelse(!is.na(a$enrol),
+      paste0("CMS Hospital Enrollments: ", gsub("\\|", ", CCN ", gsub(";", "; ", a$enrol)),
+             " (", OKX_HOSP_FED, ")"), NA_character_))
+}
+
+okx_chw_assert_rows <- function(a) {
+  for (col in c("recipient_type", "flow_type", "distributed_to_hospital",
+                "determination_confidence", "hospital_attribution", "basis_type",
+                "flag_reason", "hospital_benefiting")) {
+    vals <- unlist(strsplit(stats::na.omit(as.character(a[[col]])), ";", fixed = TRUE))
+    bad <- setdiff(unique(vals), rhtp_vocabulary(col))
+    if (length(bad)) stop("[OK CHW] ", col, " outside §8: ", paste(bad, collapse = ", "), call. = FALSE)
+  }
+  if (nrow(a) != 48L || any(!is.na(a$amount))) stop("[OK CHW] expected 48 rows at no amount.", call. = FALSE)
+  y <- a[a$distributed_to_hospital == "Yes", ]
+  if (nrow(y) != 29L || any(y$recipient_type != "HOSPITAL_OR_SYSTEM") ||
+      any(y$hospital_attribution != "NAMED_HOSPITAL") || any(y$flow_type != "DIRECT")) {
+    stop("[OK CHW] expected 29 DIRECT NAMED_HOSPITAL rows.", call. = FALSE)
+  }
+  if (any(is.na(y$ccn) & y$determination_confidence != "LOW") ||
+      any(a$determination_confidence == "HIGH")) {
+    stop("[OK CHW] a hospital row with no CCN must be LOW; nothing is HIGH (§7).", call. = FALSE)
+  }
+  if (sum(a$recipient_type == "FQHC_OR_RHC") != 18L) stop("[OK CHW] expected 18 FQHC rows.", call. = FALSE)
+  invisible(TRUE)
+}
+
+okx_chw_build <- function() {
+  a <- okx_chw_rows()
+  okx_chw_assert_rows(a)
+  out <- dplyr::mutate(a, dplyr::across(dplyr::everything(), as.character))
+  readr::write_csv(out, okx_csv("chw"), na = "")
+  message(sprintf("[OK CHW] %d rows at no amount; %d hospital rows; pool $%s in R/07 SC_POOLS.",
+                  nrow(a), sum(a$distributed_to_hospital == "Yes"),
+                  format(OKX_CHW_POOL_USD, big.mark = ",", nsmall = 2)))
+  invisible(a)
+}
+
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
-  if ("--validate" %in% args) { okx_build_tables(); message("[OK XF] all assertions pass.") }
-  if ("--build" %in% args) okx_build()
+  if ("--validate" %in% args) {
+    okx_build_tables(); okx_chw_assert_rows(okx_chw_rows())
+    message("[OK XF] all assertions pass (incl. CHW).")
+  }
+  if ("--build" %in% args) { okx_build(); okx_chw_build() }
   if ("--report" %in% args) okx_report()
   if (!length(args)) message("Usage: --validate | --build | --report")
 }

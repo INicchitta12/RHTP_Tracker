@@ -131,7 +131,17 @@ MO_SOURCES <- tibble::tribble(
   # University of Missouri Sinclair School of Nursing CNM contract, both from
   # 10-13 DSS releases and neither a hospital. The 09-23 copy stays as
   # `program_page_s54`.
-  "program_page", "2026-10-15_dss_rural_health.html",
+  # RE-BASED IN SESSION 114 (§2.2), after READING the 10-28 trip: the page
+  # gained the 10-30 "$39.4 Million to Modernize Rural Healthcare Services"
+  # news item (the Smart Growth contingent roster, extracted by R/03cq into
+  # mo_smart_growth_awardees.csv) and a Hub Workforce initiative ("Each of
+  # Missouri's 27 ToRCH Care Hubs will be allocated approximately $412,000 over
+  # two program years (contingent on CMS year 2 approval)", proposals 11-02 ..
+  # 11-22: a Tier 2 allocation naming nobody). The 10-15 copy stays as
+  # `program_page_s101`.
+  "program_page", "2026-11-04_dss_rural_health.html",
+  MO_PROGRAM_PAGE,
+  "program_page_s101", "2026-10-15_dss_rural_health.html",
   MO_PROGRAM_PAGE,
   "program_page_s54", "2026-09-23_dss_rural_health.html",
   MO_PROGRAM_PAGE,
@@ -140,8 +150,23 @@ MO_SOURCES <- tibble::tribble(
   # SESSION 101: the SMRP page now PRICES the twenty ("A full list of
   # awardees and allocation is below", an "Awarded Amount" column). The
   # 09-23 unpriced copy stays as `smrp_awardees_unpriced`.
-  "smrp_awardees", "2026-10-15_dss_smrp_awardees_priced.html",
+  # RE-BASED IN SESSION 114 (§2.2): the 10-28 SMRP trip was WHITESPACE ONLY
+  # (a trailing space after "Golden Valley Memorial Hospital" in its table
+  # cell, which the squished digest reads as a change); every name and amount
+  # parses identically. The 10-15 copy stays as `smrp_awardees_s101` and
+  # remains the source_archive_path of the twenty SMRP rows.
+  "smrp_awardees", "2026-11-04_dss_smrp_awardees_priced.html",
   "https://dss.mo.gov/rhtp-strategic-minor-renovations-program",
+  "smrp_awardees_s101", "2026-10-15_dss_smrp_awardees_priced.html",
+  "https://dss.mo.gov/rhtp-strategic-minor-renovations-program",
+  # SESSION 114: the Smart Growth and Service Line Modernization CONTINGENT
+  # roster (10-30) and its release. Extracted by R/03cq (intents pending CMS
+  # approval, owner ruling); watched here so a re-priced, re-listed or
+  # CMS-approved line trips.
+  "smart_growth", "2026-11-04_dss_smart_growth_contingent_roster.html",
+  "https://dss.mo.gov/mhd/rhtp-modernize-rural-healthcare-services",
+  "pr_smart_growth", "2026-11-04_dss_smart_growth_release.html",
+  "https://dss.mo.gov/mhd/rhtp/missouri-awards-394-million-modernize-rural-healthcare-services",
   "smrp_awardees_unpriced", "2026-09-23_dss_smrp_awardees.html",
   "https://dss.mo.gov/rhtp-strategic-minor-renovations-program",
   "hub_roster",   "2026-07-17_rhtp_hub_anchors.pdf",
@@ -430,6 +455,16 @@ mo_write_manifest <- function(entries) {
     "Nursing CNM contract, both non-hospital, NOT extracted). 2026-10-15",
     "_dss_bid_proposals.html no longer lists IFB DSS26015-02: CLOSED, OUTCOME",
     "UNKNOWN. The 09-01 bid table that lists it is kept as bids_prior.",
+    "",
+    "SESSION 114 (2026-11-04). 2026-11-04_dss_smart_growth_contingent_roster.html",
+    "is DSS's Smart Growth and Service Line Modernization roster: one table headed",
+    "'Contingent Awardee | City and County | Award', 25 rows, 'Total $39,400,820.55',",
+    "two rows marked '(approved by CMS)'. Its release (2026-11-04_dss_smart_growth_",
+    "release.html) says 'All contingent awards have to be approved by the Centers",
+    "for Medicare and Medicaid Services before a final award can be made' and",
+    "'awarding full or partial funding to 26 rural providers' (the table lists 25).",
+    "Extracted by R/03cq as INTENTS. The programme and SMRP pages are re-based",
+    "(news item + Hub Workforce allocation; SMRP whitespace only).",
     "",
     "MANIFEST.txt is deliberately absent from this listing: a manifest cannot",
     "record its own digest (session 15).",
@@ -869,7 +904,7 @@ mo_smrp_rows <- function() {
       "million'; the page prints no total. Session 54's $0 rows were",
       "REWRITTEN from the page, not patched (session 101)."),
     source_archive_path = file.path("data/evidence/MO",
-                                    MO_SOURCES$file[MO_SOURCES$key == "smrp_awardees"]))
+                                    MO_SOURCES$file[MO_SOURCES$key == "smrp_awardees_s101"]))
 }
 
 
@@ -894,7 +929,9 @@ mo_smrp_rows <- function() {
 #                 day a dollar figure lands on it, mo_hub_anchors.csv must be
 #                 REWRITTEN rather than patched, so a schedule that watched
 #                 procurement and not the roster would miss the larger event.
-MO_PROBE_KEYS <- c("bids", "program_page", "hub_roster", "smrp_awardees")
+#   smart_growth  SESSION 114: the Smart Growth contingent roster (R/03cq). Trips
+#                 on any row, price, Total or "(approved by CMS)" change.
+MO_PROBE_KEYS <- c("bids", "program_page", "hub_roster", "smrp_awardees", "smart_growth")
 
 
 #' The CONTENT digest -- NOT the file digest, and the difference is the point
@@ -974,7 +1011,7 @@ mo_probe <- function(keys = MO_PROBE_KEYS) {
     cur  <- mo_content_digest(body, kind)
     held <- mo_content_digest(readBin(mo_path(key), "raw",
                                       file.size(mo_path(key))), kind)
-    live[[key]] <- list(text = cur$text, sha = cur$sha, held_sha = held$sha,
+    live[[key]] <- list(text = cur$text, sha = cur$sha, held_sha = held$sha, raw = body,
                         file = src$file, url = src$url,
                         changed = !identical(cur$sha, held$sha))
   }
@@ -1020,7 +1057,11 @@ mo_probe <- function(keys = MO_PROBE_KEYS) {
     # them (a currency figure beyond "$35 million") or changes the wording.
     ask("SMRP", mo_assert_smrp(txt = live$smrp_awardees$text))
   }
-  nm_keys <- intersect(c("program_page", "hub_roster", "smrp_awardees"),
+  if ("smart_growth" %in% names(live)) {
+    source(here::here("R", "03cq_mo_smart_growth_awardees.R"), local = TRUE)
+    ask("SMART GROWTH", mosg_assert_live(live$smart_growth$raw))
+  }
+  nm_keys <- intersect(c("program_page", "hub_roster", "smrp_awardees", "smart_growth"),
                        names(live))
   mo_archived_text <- function(k) {
     mo_content_digest(readBin(mo_path(k), "raw", file.size(mo_path(k))),
