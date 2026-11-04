@@ -2142,8 +2142,10 @@ Network is Full; the old allowlist blockers are superseded.
     CO `programme` re-based in R/03bo; OK moved to `/rhtp/` (R/03t re-pointed, fragments diffed).
   - **CMS Year 2:** none announced at 11-02 14:35Z; Year 2 stays on hold.
 - **Session 111d (10-30 preflight, read first).** Detail: `docs/session111d_monday_preflight.md`. Suite 0 failures
-  on main; R/08 dry run equals every `test_08` pin. Check-in `trig_01CC8FCXRQWXpRaAaQYPqT8Q` (Wed 11-04 14:30Z)
-  deletes the six old MS NM KY NE ND OH ids once each successor has logged. NY's runner is at 640,952 (only one
+  on main; R/08 dry run equals every `test_08` pin. The 11-04 14:30Z check-in found all six successors logged on
+  `main` and deleted the old KY and ND ids (`old_deleted`). Deleting MS `trig_01Ugf2k1…`, NM `trig_01EeEQZD…`, NE
+  `trig_01WDA8s6…` and OH `trig_01VEe1KQ…` was refused by the session's permission classifier: all four are disabled
+  RHTP originals, safe to delete by hand, then record each in `old_deleted`. NY's runner is at 640,952 (only one
   above 600k): move it after Monday. Monday 12:00–21:00Z firings: CMS 13:00, AK 14:00, CT 15:40, NEWSROOM 16:50,
   HI 18:30, KY 19:30.
 - **Session 111.** Detail: `docs/session111_review_fixes_builder.md`.
