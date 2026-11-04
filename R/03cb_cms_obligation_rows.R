@@ -54,16 +54,20 @@ suppressPackageStartupMessages({
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
 
-OB_LINES <- here::here("data", "reference", "cms_obligations_bp1_lines.csv")
+# SESSION 114 (owner, Task 3): re-pointed at the 10-14 edition (R/00e). Every
+# NE/PA/RI line id, amount and description is identical on the two editions
+# (session 113 diff: only Oregon's lines differ); the provenance fields now cite
+# the 10-14 file, and the 10-08 file stays archived.
+OB_LINES <- here::here("data", "reference", "cms_obligations_bp1_lines_20261014.csv")
 OB_OUT <- c(
   NE = here::here("data", "reference", "ne_cms_obligation_awardees.csv"),
   PA = here::here("data", "reference", "pa_cms_obligation_awardees.csv"),
   RI = here::here("data", "reference", "ri_year1_awardees.csv"))
-OB_PDF <- "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-10082026.pdf"
+OB_PDF <- "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
 OB_URL <- paste0("https://www.medicaid.gov/resources-for-states/rural-health/",
-                 "rhtp-resources/RHTP-Obligated-Funds-10082026.pdf")
+                 "rhtp-resources/RHTP-Obligated-Funds-20261014.pdf")
 OB_TITLE <- paste("CMS, RHTP Obligated Funds Report (data as of 2026-07-31,",
-                  "posted 2026-10-08), Budget Period 1")
+                  "10-14 edition, posted 2026-10-19), Budget Period 1")
 OB_AS_OF <- "2026-07-31"
 OB_SOURCE <- "CMS_OBLIGATION_REPORT"
 OB_RULING <- "owner ruling 2026-10-12 (session 98)"
