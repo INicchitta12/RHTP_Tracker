@@ -587,6 +587,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # (+19 / +$12,960,656), CO 11-02 re-pricing (-$6,659,872), OK Lung Cancer
   # Screening (+9 / +$1,532,736) and UT, a 37th state (+6 / +$5,196,812.90):
   # +73 / +$30,405,795.74: 1,908 / $1,761,827,518.82 / 37. Subtracted first.
+  # Session 114 (owner rulings): + OK CHW Expansion (29 hospital rows at $0,
+  # R/03co) and MO's Smart Growth contingent roster (14 / $31,862,169.80, R/03cq),
+  # no new state: +43 / +$31,862,169.80: 1,951 / $1,793,689,688.62 / 37.
+  # Subtracted first.
+  expect_equal(named$rows, 1951L)
+  expect_equal(round(named$dollars, 2), 1793689688.62, tolerance = 0)
+  expect_equal(named$states, 37L)
+  named$rows <- named$rows - 43L
+  named$dollars <- named$dollars - 31862169.80
   expect_equal(named$rows, 1908L)
   expect_equal(round(named$dollars, 2), 1761827518.82, tolerance = 0)
   expect_equal(named$states, 37L)
