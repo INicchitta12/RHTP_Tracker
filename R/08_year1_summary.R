@@ -424,6 +424,18 @@ ys_cms_state_shares <- function(s, rows) {
   }, character(1))
 }
 
+#' The states whose best-estimate hospital dollars include intents, largest
+#' first, with each state's intent figure. Session 114: computed from the
+#' table so the Notes line cannot drift from the data (it was hand-written).
+ys_intent_states <- function(s) {
+  x <- s[!s$state %in% YS_NATIONAL & s$layer_intent_usd > 0, ]
+  if (!nrow(x)) return("no state")
+  x <- x[order(-x$layer_intent_usd, x$state_name), ]
+  paste0(paste0(x$state_name, " ", paste0("$", formatC(x$layer_intent_usd, format = "f", digits = 0, big.mark = ",")),
+                collapse = "; "),
+         "; ", nrow(x), " state", if (nrow(x) > 1) "s" else "")
+}
+
 ys_notes <- function(s, date, rows) {
   us <- s[s$state == "US", ]
   ge <- s[s$state == "US_GE50", ]
@@ -437,7 +449,8 @@ ys_notes <- function(s, date, rows) {
            "The three strict columns are never added to one another; the best estimate is a different measure built from the summary calls."),
     paste0("BEST JUDGMENT. ", f(us$hospital_best_judgment_usd), " of the best estimate rests on judgment (shared pools called on a strict majority of typed members, ",
            "hospital associations and networks, a component of New Hampshire's FHC award). Subtract hospital_best_judgment_usd to return to coded figures."),
-    paste0("INTENTS ARE NOT EXECUTED AWARDS. ", f(us$layer_intent_usd), " of the best estimate is published as notices of intent to award (Texas, California, Arkansas, Oregon, Alaska and others). ",
+    paste0("INTENTS ARE NOT EXECUTED AWARDS. ", f(us$layer_intent_usd), " of the best estimate is published as notices of intent to award (",
+           ys_intent_states(s), "). ",
            "States may change or withdraw them before agreements are signed."),
     paste0("CMS-OBLIGATION ROWS ARE 'OBLIGATED, PER CMS'. ", f(us$layer_cms_obligation_usd), " of the best estimate comes from CMS's Obligated Funds Report (as of 2026-07-31), ",
            "self-reported by the state; it is an obligation to a first-tier entity, not a confirmed subaward."),
