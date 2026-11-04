@@ -333,6 +333,13 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # source), MI +19, CO re-priced, OK Lung Cancer Screening +9 and UT +6 (a
   # 37th state): +73 / +$30,405,795.74: 1,908 / $1,761,827,518.82 / 37.
   # Subtracted first.
+  # Session 114 (owner rulings): + OK CHW Expansion (29 rows at $0, R/03co) and
+  # MO Smart Growth (14 / $31,862,169.80, R/03cq), neither through this overlay
+  # (cms_enrolment_match left empty): 1,951 / $1,793,689,688.62 / 37.
+  expect_equal(n$rows, 1951L)
+  expect_equal(round(n$dollars, 2), 1793689688.62)
+  n$rows <- n$rows - 43L
+  n$dollars <- n$dollars - 31862169.80
   expect_equal(n$rows, 1908L)
   expect_equal(round(n$dollars, 2), 1761827518.82)
   expect_equal(n$states, 37L)

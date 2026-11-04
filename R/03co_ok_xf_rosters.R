@@ -675,6 +675,7 @@ okx_chw_rows <- function() {
     announcement_date = OKX_PAGE_MODIFIED,
     source_archive_path = file.path(OKX_FRAG, paste0(OKX_CHW_SLUG, ".html")),
     recipient_subtype = NA_character_,
+    cms_enrolment_match = NA_character_,
     cms_enrolment_record = ifelse(!is.na(a$enrol),
       paste0("CMS Hospital Enrollments: ", gsub("\\|", ", CCN ", gsub(";", "; ", a$enrol)),
              " (", OKX_HOSP_FED, ")"), NA_character_))

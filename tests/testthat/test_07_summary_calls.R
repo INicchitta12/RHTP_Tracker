@@ -79,8 +79,10 @@ test_that("the summary layer does not move the strict partition", {
   # Cancer Screening +9, UT +6 (a new state): 1,908 / $1,761,827,518.82 / 37.
   # POOL_NAMED + OK's two SSM affiliate lines ($340,608); POOL_UNNAMED + UT's
   # Utah Hospital Association ($9,891,739).
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1908L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1761827518.82)
+  # Session 114: the strict files moved again (OK CHW +29 at $0, MO Smart
+  # Growth +14 / $31,862,169.80): 1,951 / $1,793,689,688.62 / 37.
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1951L)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1793689688.62)
   expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
   expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.
@@ -126,9 +128,13 @@ test_that("every OPEN queue question is placed, and the pools are counted once",
   # Session 111 (ruling b): pools are called on typed members; OH's two are
   # NOT. Session 112 (ruling a): a tie is not a majority, so Indiana
   # Region 5 (8 of 16) is NOT_HOSPITAL.
-  expect_equal(sum(p$pool_usd[p$call == "HOSPITAL"]), 22135000)
+  # Session 114 (owner ruling): + OK CHW Expansion, $4,460,162.93, 29 of 48
+  # typed members (a strict majority).
+  expect_equal(round(sum(p$pool_usd[p$call == "HOSPITAL"]), 2), 26595162.93)
   expect_setequal(p$pool_id[p$call == "HOSPITAL"],
-                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING"))
+                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "OK_CHW_EXPANSION"))
+  expect_equal(p$hospital_members[p$pool_id == "OK_CHW_EXPANSION"], 29L)
+  expect_equal(p$members[p$pool_id == "OK_CHW_EXPANSION"], 48L)
   expect_equal(p$call[p$pool_id == "IN_GROW_REGION_5"], "NOT_HOSPITAL")
   expect_true(all((p$hospital_members * 2 > p$members) == (p$call == "HOSPITAL")))
   expect_false(exists("SC_POOL_TIEBREAKS"))

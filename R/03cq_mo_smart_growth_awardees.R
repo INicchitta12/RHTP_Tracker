@@ -48,7 +48,7 @@
 #     affiliate on general knowledge: its name and the page name no hospital,
 #     so §7's affiliated-arm row (which needs the parent NAMED) does not reach it.
 #
-# cms_enrolment_match is left EMPTY on every row (the CCN and the enrolment are
+# cms_enrolment_match is present and EMPTY on every row (the CCN and the enrolment are
 # in ccn and cms_enrolment_record), so R/03bj's overlay does not claim them.
 #
 # Usage:
@@ -293,6 +293,7 @@ mosg_rows <- function() {
                           "PRELIMINARY: printed exactly, contingent on CMS approval (AMOUNT_PRELIMINARY)."),
     basis_type = dplyr::case_when(fb ~ NA_character_, TRUE ~ "STATE_SOURCE"),
     recipient_subtype = NA_character_,
+    cms_enrolment_match = NA_character_,
     round_amount = NA_real_,
     announcement_date = MOSG_POSTED,
     source_archive_path = MOSG_ROSTER,

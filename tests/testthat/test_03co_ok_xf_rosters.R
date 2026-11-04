@@ -61,7 +61,7 @@ test_that("OK CHW Expansion: 48 rows at no amount, 29 typed hospitals, AVEM Uncl
   expect_equal(av$recipient_type, "HOSPITAL_AFFILIATED_ENTITY")
   committed <- readr::read_csv(here::here(okx_csv("chw")), col_types = readr::cols(.default = "c"))
   expect_equal(committed$awardee, a$awardee)
-  expect_false("cms_enrolment_match" %in% names(committed))
+  expect_true(all(is.na(committed$cms_enrolment_match)))
   # The pool is on no row: R/07 carries it, at the Q3 obligated figure.
   src <- paste(readLines(here::here("R", "07_summary_calls.R")), collapse = "\n")
   expect_true(grepl('"OK_CHW_EXPANSION", "OK_CHW", "OK"', src, fixed = TRUE))
