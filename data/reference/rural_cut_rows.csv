@@ -1593,6 +1593,49 @@ OK,ok_year1_lung_screening_awardees.csv,6,Jackson County Memorial Hospital & Har
 OK,ok_year1_lung_screening_awardees.csv,7,Great Plains Medical Center,170304,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370019: PART A PROVIDER - HOSPITAL",FALSE,370019,GENERAL_KNOWLEDGE
 OK,ok_year1_lung_screening_awardees.csv,10,Duncan Regional Hospital,170304,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370023: PART A PROVIDER - HOSPITAL",FALSE,370023,ORG_WEBSITE
 OK,ok_year1_lung_screening_awardees.csv,11,Integris Enid,170304,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370016: PART A PROVIDER - HOSPITAL",FALSE,370016,GENERAL_KNOWLEDGE
+OK,ok_year1_chw_awardees.csv,1,Beaver County Memorial Hospital/Harper County Community Hospital,,NOT_RECORDED,,FALSE,,
+OK,ok_year1_chw_awardees.csv,2,Great Plains Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370019: PART A PROVIDER - HOSPITAL",FALSE,370019,
+OK,ok_year1_chw_awardees.csv,3,Okeene Municipal Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371327,
+OK,ok_year1_chw_awardees.csv,5,Mercy Healdton,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371310,
+OK,ok_year1_chw_awardees.csv,6,Northeastern Health System – Tahlequah,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370089: PART A PROVIDER - HOSPITAL",FALSE,370089,
+OK,ok_year1_chw_awardees.csv,7,Cimarron Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371307,
+OK,ok_year1_chw_awardees.csv,8,Saint Francis – Vinita,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370237: PART A PROVIDER - HOSPITAL",FALSE,370237,
+OK,ok_year1_chw_awardees.csv,9,Weatherford Regional Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371323,
+OK,ok_year1_chw_awardees.csv,10,Harmon Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371338: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371338,
+OK,ok_year1_chw_awardees.csv,11,Jackson County Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370022: PART A PROVIDER - HOSPITAL",FALSE,370022,
+OK,ok_year1_chw_awardees.csv,12,Mercy Tishomingo,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371304,
+OK,ok_year1_chw_awardees.csv,13,Stillwater Medical Center - Blackwell/Perry,,NOT_RECORDED,,FALSE,,
+OK,ok_year1_chw_awardees.csv,14,Mercy Kingfisher/Watonga,,NOT_RECORDED,,FALSE,,
+OK,ok_year1_chw_awardees.csv,15,Eastern Oklahoma Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371337: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371337,
+OK,ok_year1_chw_awardees.csv,16,Mercy Logan County,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371317: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371317,
+OK,ok_year1_chw_awardees.csv,17,Mercy Ardmore,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370047: PART A PROVIDER - HOSPITAL",FALSE,370047,
+OK,ok_year1_chw_awardees.csv,18,Fairview Regional Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371329: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371329,
+OK,ok_year1_chw_awardees.csv,19,Purcell Municipal Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370158: PART A PROVIDER - HOSPITAL",FALSE,370158,
+OK,ok_year1_chw_awardees.csv,20,Arbuckle Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371328,
+OK,ok_year1_chw_awardees.csv,21,Saint Francis – Muskogee,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370025: PART A PROVIDER - HOSPITAL",FALSE,370025,
+OK,ok_year1_chw_awardees.csv,22,Hillcrest Hospital Henryetta,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370183: PART A PROVIDER - HOSPITAL",FALSE,370183,
+OK,ok_year1_chw_awardees.csv,23,Hillcrest Hospital Cushing,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370099: PART A PROVIDER - HOSPITAL",FALSE,370099,
+OK,ok_year1_chw_awardees.csv,24,Stillwater Medical Center – Stillwater,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370049: PART A PROVIDER - HOSPITAL",FALSE,370049,
+OK,ok_year1_chw_awardees.csv,25,McAlester Regional Health Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370034: PART A PROVIDER - HOSPITAL",FALSE,370034,
+OK,ok_year1_chw_awardees.csv,26,Northeastern Health System – Sequoyah,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370112: PART A PROVIDER - HOSPITAL",FALSE,370112,
+OK,ok_year1_chw_awardees.csv,27,Memorial Hospital of Texas County Authority,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371340: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371340,
+OK,ok_year1_chw_awardees.csv,28,Ascension St. John - Jane Phillips,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370018: PART A PROVIDER - HOSPITAL",FALSE,370018,
+OK,ok_year1_chw_awardees.csv,29,Cordell Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371325,
+OK,ok_year1_chw_awardees.csv,30,Share Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371341: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371341,
+MO,mo_smart_growth_awardees.csv,1,Missouri Delta Medical Center,3265760.63,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260113: PART A PROVIDER - HOSPITAL",FALSE,260113,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,2,Heartland Regional Medical Center,5000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260006: PART A PROVIDER - HOSPITAL",FALSE,260006,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,5,Cameron Regional Medical Center,922262.25,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260057: PART A PROVIDER - HOSPITAL",FALSE,260057,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,10,Hannibal Regional Healthcare System,1086247.96,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260025: PART A PROVIDER - HOSPITAL",FALSE,260025,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,11,Hermann Area District Hospital,3637412,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261314,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,13,Lake Regional Health Center,2510342,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260186: PART A PROVIDER - HOSPITAL",FALSE,260186,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,15,Mercy Hospital Perry,2028750,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261311: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261311,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,16,Nevada Regional Medical Center,2431783.13,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260061: PART A PROVIDER - HOSPITAL",FALSE,260061,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,19,Ozarks Medical Center,3582525,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260078: PART A PROVIDER - HOSPITAL",FALSE,260078,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,21,Phelps County Regional Medical Center,1585002.75,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260017: PART A PROVIDER - HOSPITAL",FALSE,260017,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,22,Scotland County Hospital,611782.76,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261310,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,23,Texas County Memorial Hospital,989445.32,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260024: PART A PROVIDER - HOSPITAL",FALSE,260024,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,24,Washington County Memorial Hospital,1027413,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261308: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261308,STATE_SOURCE
+MO,mo_smart_growth_awardees.csv,25,Western Missouri Medical Center,3183443,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260097: PART A PROVIDER - HOSPITAL",FALSE,260097,STATE_SOURCE
 VA,va_year1_vhcf_awardees.csv,1,Buchanan General Hospital,382000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,7,Buchanan General Hospital,33000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,10,Valley Health System,1165000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE

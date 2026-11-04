@@ -314,6 +314,15 @@ STATE_FILES <- c(
   OK_CLOSED_LOOP = "data/reference/ok_year1_closed_loop_awardees.csv",
   OK_GYO = "data/reference/ok_year1_grow_your_own_awardees.csv",
   OK_TRANSPORT = "data/reference/ok_year1_transportation_awardees.csv",
+  # SESSION 114, OWNER RULING (R/03co): Oklahoma's Community Health Worker
+  # Expansion, 48 rows at NO AMOUNT (30 hospital lines, 29 typed hospitals
+  # with AVEM Health Partners Unclear, 18 FQHCs). The pool ($4,460,162.93
+  # obligated, Q3 report) is on no row: it is R/07's SC_POOLS OK_CHW_EXPANSION.
+  OK_CHW = "data/reference/ok_year1_chw_awardees.csv",
+  # SESSION 114, OWNER RULING (R/03cq): Missouri's Smart Growth and Service
+  # Line Modernization CONTINGENT roster (10-30), 25 rows / $39,400,820.55,
+  # INTENTS pending CMS approval (2 marked approved), typed on CMS MO enrolment.
+  MO_SG = "data/reference/mo_smart_growth_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.

@@ -509,3 +509,19 @@ test_that("session 113: the probe watches the Legislative Quarterly Reports", {
   src <- paste(readLines(here::here("R", "03t_ok_year1_awardees.R")), collapse = "\n")
   expect_match(src, "leg <- ok_leg_findings()", fixed = TRUE)
 })
+
+test_that("session 114: the LifeCare Provider Collaborative is a named watch item", {
+  f <- here::here(OK_XF_FRAGMENT_DIR, paste0(OK_LIFECARE_SLUG, ".html"))
+  raw <- readBin(f, "raw", file.size(f))
+  expect_identical(ok_lifecare_recipients(f), OK_LIFECARE_PLACEHOLDER)
+  expect_length(ok_lifecare_findings(function() raw), 0L)
+  named <- charToRaw(sub(OK_LIFECARE_PLACEHOLDER, "Mercy Hospital Ada, Saint Francis Health System",
+                         rawToChar(raw), fixed = TRUE))
+  expect_match(ok_lifecare_findings(function() named), "NAMES SUBCONTRACTORS: 'Mercy Hospital Ada, Saint Francis Health System'")
+  # A name with no organisation suffix still trips: the check is the label's text.
+  bare <- charToRaw(sub(OK_LIFECARE_PLACEHOLDER, "Mercy", rawToChar(raw), fixed = TRUE))
+  expect_length(ok_lifecare_findings(function() bare), 1L)
+  expect_match(ok_lifecare_findings(function() NULL), "no longer on the Funding Recipients dropdown")
+  nolabel <- charToRaw(sub(OK_LIFECARE_LABEL, "Recipients", rawToChar(raw), fixed = TRUE))
+  expect_match(ok_lifecare_findings(function() nolabel), "no longer carries")
+})

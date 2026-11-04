@@ -284,6 +284,23 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_j("OK_LUNG", "SSM Affiliates: Cordell Memorial Hospital, Okeene Municipal Hospital, Weatherford Regional Hospital", "HOSPITAL",
        "Shared award: every named recipient is a CMS-enrolled hospital, so the call is HOSPITAL whatever the split (the CT Hartford HealthCare pair precedent).",
        "No per-hospital split is published, and the contract is not finalized."),
+  # SESSION 114: Oklahoma CHW Expansion members (no amount; the pool is
+  # OK_CHW_EXPANSION in SC_POOLS) and Missouri's Smart Growth contingent roster.
+  sc_j("OK_CHW", "Beaver County Memorial Hospital/Harper County Community Hospital", "HOSPITAL",
+       "Shared site line: both named bodies are CMS-enrolled hospitals (CAH 371322, REH 370781), so the call is HOSPITAL whatever the split.",
+       "No amount is published for the line; the pool's dollars are counted once, on the pool."),
+  sc_j("OK_CHW", "Mercy Kingfisher/Watonga", "HOSPITAL",
+       "Shared site line: both named bodies are CMS-enrolled critical access hospitals (371313, 371302), so the call is HOSPITAL whatever the split.",
+       "No amount is published for the line; the pool's dollars are counted once, on the pool."),
+  sc_j("OK_CHW", "AVEM Health Partners", "HOSPITAL",
+       "OSDH lists it under 'Hospitals receiving CHWs'; AVEM manages rural hospitals, and the CHW sits at a hospital it manages (owner's count of 30 hospitals).",
+       "AVEM is a management company with no CMS hospital enrolment; strict coding keeps it Unclear and the pool's typed count at 29 of 48. No amount rides on the row."),
+  sc_j("MO_SG", "Ozarks Community Hospital", "NOT_HOSPITAL",
+       "No CMS hospital, FQHC or RHC enrolment in Missouri carries the name, and the awarded site is in Webb City, where no hospital of that name is enrolled; read as an outpatient/clinic operator.",
+       "The name says 'Hospital'; if OCH operates an enrolled hospital under another name (or in Arkansas), the $787,430.36 is hospital money."),
+  sc_j("MO_SG", "Ozark Center", "NOT_HOSPITAL",
+       "A behavioural-health provider (community mental health centre); no hospital enrolment carries its name and DSS names no hospital parent.",
+       "On general knowledge Ozark Center is Freeman Health System's behavioural-health affiliate (Freeman-Oak Hill Health System, CCN 260137): read as an affiliated arm of a named system, the $1,466,432.37 is hospital money."),
   sc_j("UT", "73 Rural Clinical Preceptors", "NOT_HOSPITAL",
        "Payments to individual clinical preceptors (clinicians), not to a hospital.",
        "Some preceptors may practise in hospitals."),
@@ -591,7 +608,15 @@ SC_POOLS <- tibble::tribble(
   "Ohio High Value Network and Ohio State Health Network are hospital networks, typed Unclear: under the owner's standing network ruling they would make five of seven members hospitals.",
   "OH_MATERNAL", "OH", "OH", "Maternal Care ($30.3M)", 30300000,
   "award_pool", NA,
-  "Ohio High Value Network and Ohio State Health Network are hospital networks, typed Unclear: counted as hospitals they would make four of six members hospitals.")
+  "Ohio High Value Network and Ohio State Health Network are hospital networks, typed Unclear: counted as hospitals they would make four of six members hospitals.",
+  # SESSION 114, OWNER RULING (Task 1a). OSDH's Q3 Legislative Quarterly
+  # Report: "CHW Expansion | Foundation for a Healthy Oklahoma (OHA) |
+  # $4,605,788.00 | $4,460,162.93 | 30 hospital and 18 FQHC CHW sites under
+  # contract" -- the OBLIGATED figure, the one tied to signed agreements. The
+  # members are R/03co's 48 rows at no amount; the pool is on no row.
+  "OK_CHW_EXPANSION", "OK_CHW", "OK", "Community Health Worker Expansion (OHA; $4,460,162.93 obligated, Q3 Legislative Quarterly Report)", 4460162.93,
+  "award_pool", "Community Health Worker Expansion",
+  "Eighteen FQHCs share the pool and OSDH publishes no split; the Q3 report also says OHA 'provided 30 hospitals and 18 FQHCs with 55 community health workers', which reads as CHWs placed (in kind) rather than dollars paid to the sites; and $4,460,162.93 is an obligation to OHA, not a per-site award.")
 
 #' SESSION 112, OWNER RULING (a): A TIE IS NOT A MAJORITY. A pool is HOSPITAL
 #' only where its typed-hospital members are a STRICT majority of its named
@@ -813,7 +838,8 @@ sc_validate <- function(files = sc_state_files()) {
 SC_REVIEW_ALWAYS <- tibble::tribble(
   ~file_key, ~awardee,
   "CA", "Maternal Child Health Fellowship: Fresno Family Medicine Obstetrics",
-  "LA", "48 Rural Clinician Credit Bank awards (single home parish) - recipient names not published")
+  "LA", "48 Rural Clinician Credit Bank awards (single home parish) - recipient names not published",
+  "MO_SG", "Ozarks Community Hospital")
 
 sc_review <- function(calls, pools) {
   u <- dplyr::bind_rows(calls)

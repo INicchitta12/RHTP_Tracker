@@ -427,7 +427,7 @@ test_that("the probe reads the CONTENT digest, not the file digest", {
 })
 
 test_that("the probe covers procurement AND the roster, and knows each kind", {
-  expect_setequal(MO_PROBE_KEYS, c("bids", "program_page", "hub_roster", "smrp_awardees"))
+  expect_setequal(MO_PROBE_KEYS, c("bids", "program_page", "hub_roster", "smrp_awardees", "smart_growth"))
   # A schedule that watched procurement and not the roster would miss the
   # larger event: the day a dollar figure lands on the 27, mo_hub_anchors.csv
   # must be REWRITTEN as an award file rather than patched.

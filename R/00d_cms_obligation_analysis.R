@@ -30,8 +30,13 @@ suppressPackageStartupMessages({
 })
 source(here::here("R", "utils_config.R"))
 
-OBLA_LINES   <- here::here("data", "reference", "cms_obligations_bp1_lines.csv")
-OBLA_STATE   <- here::here("data", "reference", "cms_obligations_bp1_state.csv")
+# SESSION 114 (owner, Task 3): RE-POINTED AT THE 10-14 EDITION. CMS swapped the
+# report into the same media entity on 2026-10-19 (R/00e); the 10-08 files stay
+# archived and committed beside it. The only content change is Oregon's Tribal
+# capital bullets, which feed no lead and no row (session 113 diff), so every
+# output here is identical apart from Oregon's line count in the gap table.
+OBLA_LINES   <- here::here("data", "reference", "cms_obligations_bp1_lines_20261014.csv")
+OBLA_STATE   <- here::here("data", "reference", "cms_obligations_bp1_state_20261014.csv")
 OBLA_MATCH   <- here::here("data", "reference", "cms_obligation_name_matches.csv")
 OBLA_PURPOSE <- here::here("data", "reference", "cms_obligation_hospital_purpose.csv")
 OBLA_GAP     <- here::here("data", "reference", "cms_obligation_gap_by_state.csv")

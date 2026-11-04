@@ -48,3 +48,24 @@ test_that("no other roster reaches a hospital; sites and cohorts are not rows", 
   expect_equal(t$closed_loop$hospital_benefiting, "Yes")
   expect_false(any(grepl("Atoka County Medical Center", t$telestroke$awardee)))
 })
+
+test_that("OK CHW Expansion: 48 rows at no amount, 29 typed hospitals, AVEM Unclear (session 114)", {
+  a <- okx_chw_rows()
+  expect_silent(okx_chw_assert_rows(a))
+  expect_equal(nrow(a), 48L)
+  expect_true(all(is.na(a$amount)))
+  expect_equal(sum(a$distributed_to_hospital == "Yes"), 29L)
+  expect_equal(sum(a$recipient_type == "FQHC_OR_RHC"), 18L)
+  av <- a[a$awardee == "AVEM Health Partners", ]
+  expect_equal(av$distributed_to_hospital, "Unclear")
+  expect_equal(av$recipient_type, "HOSPITAL_AFFILIATED_ENTITY")
+  committed <- readr::read_csv(here::here(okx_csv("chw")), col_types = readr::cols(.default = "c"))
+  expect_equal(committed$awardee, a$awardee)
+  expect_true(all(is.na(committed$cms_enrolment_match)))
+  # The pool is on no row: R/07 carries it, at the Q3 obligated figure.
+  src <- paste(readLines(here::here("R", "07_summary_calls.R")), collapse = "\n")
+  expect_true(grepl('"OK_CHW_EXPANSION", "OK_CHW", "OK"', src, fixed = TRUE))
+  expect_true(grepl("4460162.93", src, fixed = TRUE))
+  # A dollar on the fragment is a re-read, not a silent pass.
+  expect_false(grepl("\\$[0-9]", okx_text(OKX_CHW_SLUG)))
+})

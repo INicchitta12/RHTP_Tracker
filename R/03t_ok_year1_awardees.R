@@ -1663,7 +1663,67 @@ ok_xf_findings <- function(agent = ok_probe_agent(),
         "named, priced roster, and never remove a row on a disappearance alone."))
     }
   }
-  list(changed = changed, findings = findings)
+  lc <- ok_lifecare_findings(fetch_fragment = function() {
+    i <- which(live_idx$slug == OK_LIFECARE_SLUG)
+    if (length(i) != 1L) return(NULL)
+    rhtp_probe_get(paste0("xf:", OK_LIFECARE_SLUG), function() fetch(paste0(
+      "https://oklahoma.gov", live_idx$value[i], ".html")),
+      here::here(OK_XF_FRAGMENT_DIR, paste0(OK_LIFECARE_SLUG, ".html")))
+  })
+  list(changed = changed, findings = c(findings, lc))
+}
+
+# SESSION 114, OWNER RULING (Task 1d): THE LIFECARE PROVIDER COLLABORATIVE IS A
+# NAMED WATCH ITEM. The Q3 Legislative Quarterly Report (2026-10-16) shows
+# "OSDH: LifeCare" obligated $33,862,084.00 with "LifeCare finalizing
+# subcontracts; working on outreach for their first cohort of health systems";
+# the Provider Collaborative fragment reads "Funding Administrator: Lifecare
+# Alliance ... Provider Collaborative Funding Recipients: Hospital recruitment
+# in progress." The whole fragment is already digest-diffed above, but a
+# health system's name ("Mercy", "Saint Francis Health System") need not carry
+# an organisation suffix, so the NAME tripwire could miss it. This check is
+# phrasing- and suffix-independent: ANY text after the recipients label other
+# than the archived placeholder is a subcontractor named, and trips. A missing
+# label, or a fragment that leaves the dropdown, trips too (a page to re-read).
+OK_LIFECARE_SLUG <- "provider-collaborative"
+OK_LIFECARE_LABEL <- "Provider Collaborative Funding Recipients:"
+OK_LIFECARE_PLACEHOLDER <- "Hospital recruitment in progress."
+
+#' What the Provider Collaborative fragment says after its recipients label
+ok_lifecare_recipients <- function(raw) {
+  t <- stringr::str_squish(gsub("[​ ]", " ", rhtp_watch_reduce(raw)))
+  if (!grepl(OK_LIFECARE_LABEL, t, fixed = TRUE)) return(NA_character_)
+  stringr::str_squish(substring(t, regexpr(OK_LIFECARE_LABEL, t, fixed = TRUE) +
+                                  nchar(OK_LIFECARE_LABEL)))
+}
+
+#' TRIPWIRE: LifeCare has named a subcontractor (or the watch lost its anchor)
+ok_lifecare_findings <- function(fetch_fragment,
+                                 archived = here::here(OK_XF_FRAGMENT_DIR,
+                                                       paste0(OK_LIFECARE_SLUG, ".html"))) {
+  if (!identical(ok_lifecare_recipients(archived), OK_LIFECARE_PLACEHOLDER)) {
+    stop("[OK] the archived Provider Collaborative fragment no longer reads '",
+         OK_LIFECARE_LABEL, " ", OK_LIFECARE_PLACEHOLDER, "'. The reader, not ",
+         "Oklahoma, has changed (§0.4).", call. = FALSE)
+  }
+  raw <- fetch_fragment()
+  if (is.null(raw)) {
+    return(paste0("[OK] LIFECARE PROVIDER COLLABORATIVE: the fragment is no longer ",
+                  "on the Funding Recipients dropdown. Find it before re-basing."))
+  }
+  got <- ok_lifecare_recipients(raw)
+  if (is.na(got)) {
+    return(paste0("[OK] LIFECARE PROVIDER COLLABORATIVE: the fragment no longer ",
+                  "carries '", OK_LIFECARE_LABEL, "'. Read it for named health systems."))
+  }
+  if (!identical(got, OK_LIFECARE_PLACEHOLDER)) {
+    return(paste0("[OK] LIFECARE PROVIDER COLLABORATIVE NAMES SUBCONTRACTORS: '",
+                  substr(got, 1, 400), "'. LifeCare holds $33,862,084 obligated (Q3 report); ",
+                  "read the fragment and code each named health system under §10.2 ",
+                  "(LifeCare is the intermediary; a cohort member is not a recipient ",
+                  "until the fragment or a subcontract prices it)."))
+  }
+  character(0)
 }
 
 # SESSION 113: THE LEGISLATIVE QUARTERLY REPORTS. OSDH posts each quarter's

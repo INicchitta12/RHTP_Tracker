@@ -1,0 +1,10 @@
+FEDERAL RECORDS -- fetched 2026-11-04 by session 114
+
+WHY: Missouri's Smart Growth and Service Line Modernization contingent roster (R/03cq_mo_smart_growth_awardees.R)
+is typed on CMS's MO Hospital, FQHC and RHC Enrollment files. Committed as served (§0.5).
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)".
+
+file | sha256 | bytes | url
+cms_hosp_enrollments_MO.json | 1b624ee9cff209b7bc1d9b2cb721ec2b94eb16599b450543d91734d3151ecf39 | 256163 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MO&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_MO.json | 5634f3ad6d9a12caa95833877d61783b0e1fdda3acccd205a8fec3b6d75c08fb | 205482 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=MO&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_MO.json | 39622c2ea3bf7e18816df0b81fe1d5ccd95d3d79c3fa47e4fe5039c84a3c5fa8 | 206417 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=MO&size=5000 (RHC Enrollments)

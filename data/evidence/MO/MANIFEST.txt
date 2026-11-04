@@ -47,13 +47,27 @@ Nursing CNM contract, both non-hospital, NOT extracted). 2026-10-15
 _dss_bid_proposals.html no longer lists IFB DSS26015-02: CLOSED, OUTCOME
 UNKNOWN. The 09-01 bid table that lists it is kept as bids_prior.
 
+SESSION 114 (2026-11-04). 2026-11-04_dss_smart_growth_contingent_roster.html
+is DSS's Smart Growth and Service Line Modernization roster: one table headed
+'Contingent Awardee | City and County | Award', 25 rows, 'Total $39,400,820.55',
+two rows marked '(approved by CMS)'. Its release (2026-11-04_dss_smart_growth_
+release.html) says 'All contingent awards have to be approved by the Centers
+for Medicare and Medicaid Services before a final award can be made' and
+'awarding full or partial funding to 26 rural providers' (the table lists 25).
+Extracted by R/03cq as INTENTS. The programme and SMRP pages are re-based
+(news item + Hub Workforce allocation; SMRP whitespace only).
+
 MANIFEST.txt is deliberately absent from this listing: a manifest cannot
 record its own digest (session 15).
 
+c354a7501e54a1fc9d1b1ee0a33201138cd43c23e96df543ff337ac903b523d8  2026-11-04_dss_rural_health.html  (128389 bytes)  <- https://dss.mo.gov/mhd/rural-health
 24f02e7570feb7e77b55c90245a1d2a1268550d9ce9919b2a2b4b883e5238ca6  2026-10-15_dss_rural_health.html  (122137 bytes)  <- https://dss.mo.gov/mhd/rural-health
 3396fb267981bb88b08399b5efd758015f6afd8acc8a7fe6a16c82d0d02632d2  2026-09-23_dss_rural_health.html  (116173 bytes)  <- https://dss.mo.gov/mhd/rural-health
 87f5c206a916f127285b7879cf7c4e81f86334faf826b7df6be268b35542f019  2026-09-01_dss_rural_health.html  (116295 bytes)  <- https://dss.mo.gov/mhd/rural-health
+7746a1ef09d75cb4362be6d7db627e678bea2286a553c1bafd2b8af8d1de430b  2026-11-04_dss_smrp_awardees_priced.html  (45566 bytes)  <- https://dss.mo.gov/rhtp-strategic-minor-renovations-program
 10d2e066fd4e36fcdee67718ffe27f837a823d13d27af29c1faabd9775d9fc3c  2026-10-15_dss_smrp_awardees_priced.html  (45562 bytes)  <- https://dss.mo.gov/rhtp-strategic-minor-renovations-program
+6beb862079edfc9f5c42774e47911f3000e88333fda6508511d5f5ddb0e43ef1  2026-11-04_dss_smart_growth_contingent_roster.html  (45507 bytes)  <- https://dss.mo.gov/mhd/rhtp-modernize-rural-healthcare-services
+35783b313ca69c4b8040c5e850ccf5c03461f2d676364a0778ad8cf84cdf5c8c  2026-11-04_dss_smart_growth_release.html  (47526 bytes)  <- https://dss.mo.gov/mhd/rhtp/missouri-awards-394-million-modernize-rural-healthcare-services
 b9d0eb4e0ad2ce6c4661ebcc63337df2c2876d5e99b51b5b29b75caf9157bd2f  2026-09-23_dss_smrp_awardees.html  (44531 bytes)  <- https://dss.mo.gov/rhtp-strategic-minor-renovations-program
 4b632fde82490dc92175f87cd671b11430fa5b7a68100d45590e68a59e021b60  2026-07-17_rhtp_hub_anchors.pdf  (214168 bytes)  <- https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/RHTP-Hub-Anchors-07-17-2026.pdf
 667dd3ac8fcdc2ec8b4b5adf898dc09e0d2bee69d54b44c894758d99df1c2457  2026-07-17_dss_hub_anchors_release.html  (20829 bytes)  <- https://content.govdelivery.com/accounts/MODSS/bulletins/420acc4

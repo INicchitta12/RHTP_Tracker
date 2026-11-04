@@ -367,10 +367,13 @@ rc_assert <- function(rows = rc_rows()) {
   # +$12,960,656), CO 11-02 re-pricing (-$6,659,872), + OK Lung Cancer
   # Screening (+9 / +$1,532,736), + UTAH (R/03cn, 6 / $5,196,812.90, intents;
   # Utah the 37th state): 1,908 / $1,761,827,518.82 / 37.
-  if (nrow(rows) != 1908L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1761827518.82) > 0.005 ||
+  # Session 114 (owner rulings): + OK CHW Expansion (29 hospital rows at $0,
+  # R/03co) + MO Smart Growth contingent roster (14 / $31,862,169.80, intents,
+  # R/03cq): 1,951 / $1,793,689,688.62 / 37.
+  if (nrow(rows) != 1951L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1793689688.62) > 0.005 ||
       dplyr::n_distinct(rows$state) != 37L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,908 rows / $1,761,827,518.82 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,951 rows / $1,793,689,688.62 ",
          "/ 37 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

@@ -48,7 +48,9 @@ TABLE_LABEL_TO_KEY <- c(
   # Session 112: PA CMS obl dropped (superseded by the state source); five OK
   # /rhtp/ roster files added.
   "OK Lung" = "OK_LUNG", "OK Telestroke" = "OK_TELESTROKE",
-  "OK Closed-Loop" = "OK_CLOSED_LOOP", "OK GYO" = "OK_GYO", "OK Transport" = "OK_TRANSPORT"
+  "OK Closed-Loop" = "OK_CLOSED_LOOP", "OK GYO" = "OK_GYO", "OK Transport" = "OK_TRANSPORT",
+  # Session 114: OK's CHW Expansion members and MO's Smart Growth contingent roster.
+  "OK CHW" = "OK_CHW", "MO SG" = "MO_SG"
 )
 
 # The hospital cell's bucket prefixes. An unprefixed "N / $X" is NAMED_HOSPITAL,
