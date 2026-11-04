@@ -191,3 +191,11 @@ is an award-file effect, not an edition effect.
 4. Delete the four old MS, NM, NE and OH Routines, then record each in `old_deleted`.
 5. `claude/festive-cori-sm3p3c`: port the four items above, or discard.
 6. Merge before Sun 11-08 11:10Z (NY's first firing on its new runner). Never Mon/Thu 13:00–14:00Z.
+
+## 8. Suite
+
+Full suite on `93c13d6`: **12,436 expectations, 0 failures, 0 errors**. The first run failed on pinned partition and
+rural-cut totals in `test_03ap`, `test_03ar`, `test_03bj` and `test_07`. Each moved by exactly this session's additions
+(+43 NAMED rows / +$31,862,169.80; rural +$7,305,357.76; +$4,460,162.93 HOSPITAL pool), and each pin now carries a
+session 114 step. Four warnings remain in `test_03bj`, from older files that carry `recipient_subtype` without
+`cms_enrolment_match`; the two new files carry the column.
