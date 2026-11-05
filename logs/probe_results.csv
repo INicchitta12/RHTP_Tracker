@@ -1942,3 +1942,23 @@ IA,2026-11-05T15:22:30Z,TRIPWIRE,council_0827,"[IA] 'council_0827' NAMES 10 ORGA
 CT,2026-11-05T15:42:55Z,CHANGED,opm,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-05T15:42:55Z,CHANGED,dss_press,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-05T15:42:55Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-11-05T16:54:47Z,CHANGED,AZ:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:47Z,CHANGED,AZ:ahcccs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:53Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Delaware Announces Rural Health Transformation Funding to Strengthen Physician Workforce'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:55Z,CHANGED,FL:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:55Z,CHANGED,IA:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:56Z,TRIPWIRE,(probe),"[ID] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: governor: 'Gov. Little announces awardees of Year 1 Rural Health Transformation Program funds'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:58Z,CHANGED,MN:mdh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:59Z,UNCHANGED,MT:news,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:54:59Z,CHANGED,MT:dphhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:01Z,CHANGED,NE:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:01Z,UNCHANGED,NE:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:03Z,CHANGED,NJ:doh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:03Z,CHANGED,NV:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:03Z,UNCHANGED,NV:nvha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:05Z,UNCHANGED,OK:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:05Z,UNCHANGED,OR:oha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:06Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: hhsc: 'Gov. Abbott Announces Recipients of $87 Million in Rural Texas Strong Grants'; hhsc: 'Gov. Abbott, HHSC Announce Recipients of $8 Million in Rural Texas Strong Grants'; hhsc: 'Gov. Abbott, HHSC Announce Recipients of $78 Million in Rural Texas Strong Grants'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:13Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:13Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-05T16:55:14Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
