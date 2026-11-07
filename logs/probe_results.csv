@@ -2057,3 +2057,10 @@ WY,2026-11-06T21:12:08Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATIO
 TN,2026-11-07T09:35:35Z,UNCHANGED,rhtp,,trig_01Bky7YZTFgaT2dZddvfNL4g
 TN,2026-11-07T09:35:35Z,CHANGED,news,,trig_01Bky7YZTFgaT2dZddvfNL4g
 TN,2026-11-07T09:35:35Z,UNCHANGED,ramp,,trig_01Bky7YZTFgaT2dZddvfNL4g
+NC,2026-11-07T10:51:30Z,CHANGED,pr_mih,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-11-07T10:51:30Z,CHANGED,pr_roots,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-11-07T10:51:30Z,CHANGED,roots_page,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-11-07T10:51:30Z,CHANGED,opportunities,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-11-07T10:51:30Z,CHANGED,trillium,,trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-11-07T10:51:30Z,TRIPWIRE,roots_page,"[NC] 'roots_page' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Transforming Rural Health in North Carolina. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_018AHiDwHQLWm9DHxr96c9qB
+NC,2026-11-07T10:51:30Z,TRIPWIRE,opportunities,"[NC] 'opportunities' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Transforming Rural Health in North Carolina. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_018AHiDwHQLWm9DHxr96c9qB
