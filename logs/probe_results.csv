@@ -2067,3 +2067,6 @@ NC,2026-11-07T10:51:30Z,TRIPWIRE,opportunities,"[NC] 'opportunities' NAMES 1 ORG
 NJ,2026-11-07T12:11:35Z,UNCHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
 NJ,2026-11-07T12:11:35Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
 LA,2026-11-07T12:52:15Z,TRIPWIRE,(probe),[LA] LDH's programme page no longer carries an 'IMPORTANT DATES - BUDGET YEAR 1' block closed by 'Notice of Funding Opportunities'. That block is where every announcement date this file reports comes from -- re-read the page.,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+CA,2026-11-07T17:04:32Z,TRIPWIRE,(probe),"[CA] the CalRHT programme page no longer carries the programme-scoped sentence 'award'. Those sentences, and CMS's own Notice of Award, are what tie this state to RHTP.",trig_01JEYQK9ZNMVpe27H19DFjzX
+CA,2026-11-07T17:04:32Z,ERROR,funding,[CA] HTTP 404 for https://hcai.ca.gov/rural-health/calrht/funding/,trig_01JEYQK9ZNMVpe27H19DFjzX
+CA,2026-11-07T17:04:32Z,ERROR,updates,[CA] HTTP 404 for https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/,trig_01JEYQK9ZNMVpe27H19DFjzX
