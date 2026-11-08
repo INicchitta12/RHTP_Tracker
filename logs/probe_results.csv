@@ -2070,3 +2070,7 @@ LA,2026-11-07T12:52:15Z,TRIPWIRE,(probe),[LA] LDH's programme page no longer car
 CA,2026-11-07T17:04:32Z,TRIPWIRE,(probe),"[CA] the CalRHT programme page no longer carries the programme-scoped sentence 'award'. Those sentences, and CMS's own Notice of Award, are what tie this state to RHTP.",trig_01JEYQK9ZNMVpe27H19DFjzX
 CA,2026-11-07T17:04:32Z,ERROR,funding,[CA] HTTP 404 for https://hcai.ca.gov/rural-health/calrht/funding/,trig_01JEYQK9ZNMVpe27H19DFjzX
 CA,2026-11-07T17:04:32Z,ERROR,updates,[CA] HTTP 404 for https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/,trig_01JEYQK9ZNMVpe27H19DFjzX
+NY,2026-11-08T11:11:59Z,UNCHANGED,programme,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
+NY,2026-11-08T11:11:59Z,UNCHANGED,roster,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
+NY,2026-11-08T11:11:59Z,CHANGED,press_index,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
+NY,2026-11-08T11:11:59Z,CHANGED,scr,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
