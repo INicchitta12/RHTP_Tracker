@@ -147,4 +147,8 @@ Pins carried in `test_03av`, `test_03ar`, `test_03ap`, `test_03bj`, `test_07`, `
 
 ## Suite
 
-See the commit "Session 115: suite result recorded".
+- **First full run** (`Rscript tests/run_tests.R`): halted at its 10-failure cap, all of them in `test_03ap`'s historical partition chain, which did not yet back out the 3 WV rows before the session-114 step. Fixed.
+- **Second full run** (`testthat::test_dir`, no stop on failure): 2,172 expectations, 36 failures, 0 errors, in exactly two files:
+  - `test_03bj` had the same partition chain. Fixed the same way.
+  - `test_03bh`: WV's RCJ disposition CSV still said "24 of 30" rows. Rebuilt with `R/03bh --build`; it now says "27 of 33".
+- **Re-run of both files:** 0 failures, 0 errors. Every other file passed in the second full run.

@@ -339,6 +339,8 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
   expect_equal(n$rows, 1954L)
   expect_equal(round(n$dollars, 2), 1797619954.62)
+  n$rows <- n$rows - 3L
+  n$dollars <- n$dollars - 3930266
   n$rows <- n$rows - 43L
   n$dollars <- n$dollars - 31862169.80
   expect_equal(n$rows, 1908L)
