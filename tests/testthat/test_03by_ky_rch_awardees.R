@@ -7,6 +7,7 @@ suppressWarnings(suppressMessages(source(here::here("R", "03by_ky_rch_awardees.R
 
 d <- kyr_awardees()
 
+source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay before comparing a build
 test_that("two named rows, no amount, local health departments, not hospitals", {
   # Session 99: Purchase District Health Department (2026-10-07) is row 2,
   # found by R/03af's name tripwire on FHKY's RCH page.
@@ -34,7 +35,8 @@ test_that("both archived sources say what the row rests on", {
 })
 
 test_that("the committed CSV matches a fresh build", {
-  c <- readr::read_csv(KYR_CSV, show_col_types = FALSE)
+  # Session 116c: the FSRS overlay (R/09b) priced LCDHD's $0 row; undo it first.
+  c <- rhtp_strip_fsrs_overlay(readr::read_csv(KYR_CSV, show_col_types = FALSE))
   expect_equal(c$awardee, d$awardee)
   expect_equal(c$recipient_type, d$recipient_type)
   expect_true(all(is.na(c$amount)))

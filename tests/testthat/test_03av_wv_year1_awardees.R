@@ -4,6 +4,7 @@
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
 wv <- wv_year1_awardees()
 
+source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay before comparing a build
 test_that("thirty-three rows, twenty-four priced, $24,324,218, each quoted verbatim from its release", {
   # Session 103: + five rows from the 10-13/10-14 releases ($6,156,458).
   # Session 107: + two WVU Health System rows from the 10-19 release ($3,400,000).
@@ -68,7 +69,8 @@ test_that("session 85: Minnie Hamilton is typed on its CAH enrolment, CCWV on it
 })
 
 test_that("the committed CSV matches a fresh build", {
-  d <- readr::read_csv(WV_CSV, show_col_types = FALSE)
+  # Session 116c: the FSRS overlay (R/09b) priced seven $0 rows; undo it first.
+  d <- rhtp_strip_fsrs_overlay(readr::read_csv(WV_CSV, show_col_types = FALSE))
   expect_equal(d$awardee, wv$awardee)
   expect_equal(d$amount, wv$amount)
 })

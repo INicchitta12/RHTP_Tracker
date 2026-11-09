@@ -41,6 +41,7 @@ VOCAB <- ref("vocabularies.csv")
 
 # -- the workbook is read-only ------------------------------------------------
 
+source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay
 test_that("the returned workbook is on disk and has not been rewritten", {
   p <- here::here(VQ_WORKBOOK)
   expect_true(file.exists(p))
@@ -436,7 +437,10 @@ test_that("Sioux Center Health is a hospital and the COE pool is hospital-only",
   expect_equal(nrow(coe), 10L)
   expect_true(all(coe$recipient_type == "HOSPITAL_OR_SYSTEM"))
   expect_true(all(coe$distributed_to_hospital == "Yes"))
-  expect_true(all(is.na(coe$amount) | coe$amount == "NA"))
+  # Session 116c: Iowa's notices print no amount; FSRS priced some COE rows
+  # (R/09b). Iowa's own publication still carries none.
+  coe0 <- rhtp_strip_fsrs_overlay(coe)
+  expect_true(all(is.na(coe0$amount) | coe0$amount == "NA"))
 })
 
 test_that("the $50,000,000 stays TIER 2 and reaches no award row", {
@@ -452,7 +456,12 @@ test_that("the $50,000,000 stays TIER 2 and reaches no award row", {
   # it reaches NO row of the award file at all, which is this test's original
   # claim restored to its original strength.
   expect_false(any(grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason)))
-  expect_true(all(is.na(ia$amount) | ia$amount == "NA"))
+  # Session 116c: every amount now on the file is FSRS's own (R/09b), never the footer.
+  ia0 <- rhtp_strip_fsrs_overlay(ia)
+  expect_true(all(is.na(ia0$amount) | ia0$amount == "NA"))
+  pr <- !(is.na(ia$amount) | ia$amount == "NA")
+  expect_true(all(ia$validation_source_type[pr] == "FSRS_FFATA"))
+  expect_false(any(abs(as.numeric(ia$amount[pr]) - 50000000) < 1))
 })
 
 
@@ -593,6 +602,16 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
   # Subtracted first.
   # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958.
+  # Session 116c/d: FSRS/FFATA subawards as an award source (R/09b, owner
+  # ruling): +246 / +$372,805,292.26 and five states (AZ ND NM were new to the
+  # union; IL and IA gained named dollars; the count is states with named rows):
+  # 2,204 / $2,170,425,246.88 / 42. Subtracted first.
+  expect_equal(named$rows, 2204L)
+  expect_equal(round(named$dollars, 2), 2170425246.88, tolerance = 0)
+  expect_equal(named$states, 42L)
+  named$rows <- named$rows - 246L
+  named$dollars <- named$dollars - 372805292.26
+  named$states <- named$states - 5L
   expect_equal(named$rows, 1958L)
   expect_equal(round(named$dollars, 2), 1797619954.62, tolerance = 0)
   expect_equal(named$states, 37L)
@@ -784,7 +803,9 @@ test_that("North Carolina enters the partition for the first time", {
   # Session 71: + UNC Hospitals (CCN 340061, a hand-read bridge), $0.
   # Session 83: + FirstHealth of the Carolinas (SBHC roster, R/03br), $0.
   expect_equal(nc$rows, 3L)
-  expect_equal(nc$dollars, 0)     # North Carolina prices nobody
+  # Session 116c: North Carolina's FFATA report prices UNC Hospitals' Hub Lead
+  # subaward ($14,250,000) and Cape Fear Valley's MIH line ($300,000) (R/09b).
+  expect_equal(nc$dollars, 14550000)
 })
 
 test_that("session 49 took Arkansas past Georgia, and session 50 took South Carolina past Arkansas", {
@@ -811,6 +832,11 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # seven county-test bridges ($119,558,582.13).
   expect_equal(p$state[[1]], "TX")
   expect_equal(round(p$dollars[[1]], 2), 191913856.31)   # session 111: + Burleson; session 112: 10/29 list, Anson corrected and in (+$262,566.30)
+  # Session 116c: Iowa's FFATA subawards ($163,082,841.20) put Iowa second;
+  # the order below it is unchanged once Iowa is set aside.
+  expect_equal(p$state[[2]], "IA")
+  expect_equal(round(p$dollars[[2]], 2), 163082841.20)
+  p <- p[p$state != "IA", ]
   expect_equal(p$state[[2]], "AR")
   expect_equal(round(p$dollars[[2]], 2), 128336961.52)
   p <- p[p$state != "TX", ]

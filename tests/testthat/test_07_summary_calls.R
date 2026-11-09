@@ -83,12 +83,15 @@ test_that("the summary layer does not move the strict partition", {
   # Growth +14 / $31,862,169.80): 1,951 / $1,793,689,688.62 / 37.
   # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
   # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958.
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1958L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1797619954.62)
+  # Session 116c/d: FSRS/FFATA subawards (R/09b): 2,204 / $2,170,425,246.88 / 42.
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 2204L)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 2170425246.88)
   expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
   expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.
-  p2 <- rhtp_hospital_dollar_partition(rhtp_strip_summary_calls(u))
+  # (only the three summary columns: rhtp_strip_summary_calls() also undoes the
+  # FSRS overlay since session 116c, which is a different layer)
+  p2 <- rhtp_hospital_dollar_partition(u[, setdiff(names(u), RHTP_SUMMARY_COLUMNS), drop = FALSE])
   expect_equal(p, p2)
 })
 
@@ -147,7 +150,10 @@ test_that("the session 111 summary rulings hold", {
   call_of <- function(k, a) unique(calls$summary_hospital_call[calls$file_key == k & calls$awardee == a])
   expect_equal(call_of("NH", "Foundation for Healthy Communities (FHC)"), "NOT_HOSPITAL")
   cp <- readr::read_csv(here::here(SC_COMPONENTS_CSV), show_col_types = FALSE)
-  expect_equal(cp$component_id, "NH_FHC_CAH_ACUTE_CARE_RFA")
+  # Session 116d (owner ruling a): + VHHA Foundation's RPM and GME subawards.
+  expect_setequal(cp$component_id, c("NH_FHC_CAH_ACUTE_CARE_RFA", "VA_VHHA_RPM", "VA_VHHA_GME"))
+  expect_equal(sum(cp$component_usd[cp$component_id != "NH_FHC_CAH_ACUTE_CARE_RFA"]), 24728876)
+  cp <- cp[cp$component_id == "NH_FHC_CAH_ACUTE_CARE_RFA", ]
   expect_equal(cp$component_usd, 17500000)
   expect_equal(cp$call, "HOSPITAL")
   expect_match(cp$source_quote, "approximately \\$17.5 million", fixed = FALSE)

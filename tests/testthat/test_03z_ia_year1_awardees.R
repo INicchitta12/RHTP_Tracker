@@ -24,6 +24,21 @@ skip_without_archive <- function() {
 
 # -- the parse ----------------------------------------------------------------
 
+source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay before comparing a build
+# SESSION 116c: Iowa's NOTICES publish no per-recipient amount, and these tests
+# read Iowa's own publication: the FSRS overlay (R/09b), which prices rows from
+# Iowa's FFATA report under the owner's ruling, is stripped first. The test below
+# proves every Iowa amount on the committed file is FSRS's.
+test_that("every amount on the committed Iowa file is FSRS's (session 116c)", {
+  raw <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  pr <- !is.na(raw$amount)
+  expect_gt(sum(pr), 100L)
+  expect_true(all(raw$validation_source_type[pr] == "FSRS_FFATA"))
+  expect_true(all(raw$fsrs_match[pr] == "PRICED_FROM_FSRS"))
+  expect_true(all(raw$original_validation_source_type[pr] == "NOTICE_OF_INTENT_TO_AWARD"))
+  expect_false(anyNA(raw$fsrs_subaward_ids[pr]))
+})
+
 test_that("the Adair County case is two cells, not one welded name", {
   skip_without_archive()
   r <- ia_roster("phthorc26009_feb")
@@ -139,7 +154,7 @@ test_that("the footer's amount is TWO tiers and the eleven are never summed", {
 
 test_that("no footer figure reaches ANY row, and there is no pool row", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  rows <- rhtp_strip_fsrs_overlay(readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE))
   expect_false("round_amount" %in% names(rows))
   # SESSION 51 RESTORED THE ORIGINAL FORM. Session 50 appended a Centers of
   # Excellence POOL ROW at $50,000,000 in POOL_NAMED_HOSPITALS; that figure is
@@ -155,7 +170,7 @@ test_that("no footer figure reaches ANY row, and there is no pool row", {
 
 test_that("a pool row coming back is refused by the Iowa assertion", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  rows <- rhtp_strip_fsrs_overlay(readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE))
   back <- rows[1, ]
   back$amount <- 50000000
   back$flag_reason <- "AMOUNT_IS_POOL_NOT_AWARD"
@@ -290,7 +305,7 @@ test_that("a dollar figure inside a roster fails the build", {
 
 test_that("Iowa's zero dollars is not zero hospitals", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  rows <- rhtp_strip_fsrs_overlay(readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE))
   part <- rhtp_hospital_dollar_partition(rows)
   named <- part[part$bucket == "NAMED_HOSPITAL", ]
   # READ THE ROW COUNT. Both of these are true and reporting only the second
@@ -302,7 +317,7 @@ test_that("Iowa's zero dollars is not zero hospitals", {
 
 test_that("the committed file is 264 award actions across ten RFPs, and nothing else", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  rows <- rhtp_strip_fsrs_overlay(readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE))
   expect_equal(nrow(rows), 264L)
   expect_equal(dplyr::n_distinct(rows$award_pool), 10L)
   expect_true(all(rows$state == "IA"))
@@ -314,14 +329,14 @@ test_that("the committed file is 264 award actions across ten RFPs, and nothing 
 
 test_that("every row carries a non-empty determination_basis", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  rows <- rhtp_strip_fsrs_overlay(readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE))
   expect_true(all(nzchar(trimws(rows$determination_basis))))
   expect_true(all(nzchar(trimws(rows$amount_basis))))
 })
 
 test_that("every categorical value is inside §8", {
   skip_if_not(file.exists(IA_CSV))
-  rows <- readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE)
+  rows <- rhtp_strip_fsrs_overlay(readr::read_csv(IA_CSV, show_col_types = FALSE, progress = FALSE))
   for (col in c("recipient_type", "distributed_to_hospital", "flow_type",
                 "hospital_attribution", "determination_confidence",
                 "recipient_confirmed", "amount_confirmed")) {

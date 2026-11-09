@@ -934,7 +934,8 @@ fsrs_apply <- function(p = fsrs_plan(), files = fsrs_state_files()) {
                    d$fsrs_subaward_ids[pr], "; executed subaward, amount as filed. The recipient and the award ",
                    "come from the original source (", d$original_validation_source_type[pr], "), kept in ",
                    "original_validation_source_type and original_amount_basis.")
-      if ("amount_basis" %in% names(d)) d$amount_basis[pr] <- ab else d$amount_basis <- replace(rep(NA_character_, nrow(d)), pr, ab)
+      # a file with no amount_basis column gets none (the strip could not tell it was added)
+      if ("amount_basis" %in% names(d)) d$amount_basis[pr] <- ab
     }
     d$original_flag_reason <- NA_character_
     sc <- FSRS_SUSPECT_CONFIRMED[FSRS_SUSPECT_CONFIRMED$file_key == k, ]

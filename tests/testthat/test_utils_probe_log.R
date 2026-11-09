@@ -239,7 +239,8 @@ test_that("the committed log exists and every row is well formed", {
   # A state code, or one of the two registered multi-state probes: CMS (the
   # trigger list) and NEWSROOM (session 61's 18-state sweep, whose page
   # column carries the state as "<ST>:<key>").
-  expect_true(all(nchar(got$state) == 2L | got$state %in% c("CMS", "NEWSROOM")))
+  # Session 116d adds FSRS (the weekly USAspending 93.798 watch, R/09a).
+  expect_true(all(nchar(got$state) == 2L | got$state %in% c("CMS", "NEWSROOM", "FSRS")))
   expect_false(anyNA(got$probed_at))
 })
 

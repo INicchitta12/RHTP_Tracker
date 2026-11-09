@@ -176,7 +176,34 @@ rhtp_summary_write <- function(path, calls) {
 
 #' An award file without the summary columns, for tests that compare a
 #' committed file with what its extractor builds.
+#' SESSION 116c: undo R/09b's FSRS overlay, so a committed file compares with
+#' what its builder writes: priced $0 rows return to empty, their original
+#' source type, amount basis and confirmation come back, a cleared
+#' SOURCE_SUSPECT returns, and the overlay columns go.
+RHTP_FSRS_OVERLAY_COLUMNS <- c("fsrs_amount", "fsrs_match", "fsrs_subaward_ids",
+                               "original_validation_source_type", "original_amount_basis",
+                               "original_amount_confirmed", "original_flag_reason")
+rhtp_strip_fsrs_overlay <- function(d) {
+  if (!"fsrs_match" %in% names(d)) return(d)
+  if ("original_flag_reason" %in% names(d)) {
+    cf <- !is.na(d$original_flag_reason)
+    d$flag_reason[cf] <- d$original_flag_reason[cf]
+    if ("note" %in% names(d)) d$note[cf] <- sub(" \\[Session 116d, owner ruling e:.*\\]$", "", d$note[cf])
+  }
+  pr <- !is.na(d$fsrs_match) & d$fsrs_match == "PRICED_FROM_FSRS"
+  if (any(pr)) {
+    d$amount[pr] <- NA
+    d$validation_source_type[pr] <- d$original_validation_source_type[pr]
+    if ("amount_basis" %in% names(d)) d$amount_basis[pr] <- d$original_amount_basis[pr]
+    if ("amount_confirmed" %in% names(d) && "original_amount_confirmed" %in% names(d)) {
+      d$amount_confirmed[pr] <- d$original_amount_confirmed[pr]
+    }
+  }
+  d[, setdiff(names(d), RHTP_FSRS_OVERLAY_COLUMNS), drop = FALSE]
+}
+
 rhtp_strip_summary_calls <- function(d) {
+  d <- rhtp_strip_fsrs_overlay(d)
   # SESSION 116: also undo the budget_period stamp (R/07 --apply), so a
   # committed file compares with what its builder writes.
   if ("budget_period_text" %in% names(d)) {

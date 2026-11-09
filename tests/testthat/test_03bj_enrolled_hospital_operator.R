@@ -13,7 +13,10 @@ suppressMessages(source(here::here("R", "03bj_enrolled_hospital_operator.R")))
 suppressMessages(source(here::here("R", "03ap_verification_queue_2.R")))
 
 tabs <- eh_read_committed(unname(VQ_ALL_STATE_CSVS()))
-eff  <- eh_effect(tabs)
+# Session 116c: the overlay's effect is measured on the files as their builders
+# left them; R/09b's FSRS overlay (which prices some of the same rows) is stripped.
+source(here::here("R", "utils_summary_calls.R"))
+eff  <- eh_effect(lapply(tabs, rhtp_strip_fsrs_overlay))
 sw   <- eh_sweep(tabs)
 
 test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is stale", {
@@ -41,8 +44,11 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # Session 112: + OK Lung Cancer Screening's Duncan Regional Hospital (LEGAL,
   # 370023) and Chickasaw Nation Medical Center (DBA, 370180), both in
   # EH_APPLY: 76 -> 78.
-  expect_equal(nrow(sw), 78L)
-  expect_setequal(EH_READ_NOT_APPLIED$verdict, "DIFFERENT_LEGAL_BODY")
+  # Session 116c/d: + Sanford Medical Center (IA FSRS, SD CCN 430027), Texas
+  # DSHS x3 (its own CCN 670125), both OWNER_RULING_NOT_APPLIED (ruling f), and
+  # PA's The Guidance Center (AZ's Guidance Center, a different body): 78 -> 83.
+  expect_equal(nrow(sw), 83L)
+  expect_setequal(EH_READ_NOT_APPLIED$verdict, c("DIFFERENT_LEGAL_BODY", "OWNER_RULING_NOT_APPLIED"))
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
   expect_equal(nj$ccn, "060107")
@@ -338,6 +344,14 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # (cms_enrolment_match left empty): 1,951 / $1,793,689,688.62 / 37.
   # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
   # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958.
+  # Session 116c/d: FSRS/FFATA subawards (R/09b): +246 / +$372,805,292.26 / +5
+  # states: 2,204 / $2,170,425,246.88 / 42. Subtracted first.
+  expect_equal(n$rows, 2204L)
+  expect_equal(round(n$dollars, 2), 2170425246.88)
+  expect_equal(n$states, 42L)
+  n$rows <- n$rows - 246L
+  n$dollars <- n$dollars - 372805292.26
+  n$states <- n$states - 5L
   expect_equal(n$rows, 1958L)
   expect_equal(round(n$dollars, 2), 1797619954.62)
   n$rows <- n$rows - 4L   # session 116: IA Combat Cancer Round 2, $0

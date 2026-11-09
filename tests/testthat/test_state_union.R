@@ -575,8 +575,12 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   expect_equal(round(sum(pooled$dollars), 2), 79214848.17)
   expect_equal(pooled$dollars[pooled$state == "IL"], 50008264)
 
-  # And Illinois contributes NOTHING to the named-hospital figure.
-  expect_false("IL" %in% named$state)
+  # And ICAHN's pool contributes NOTHING to the named-hospital figure. Since
+  # session 116c Illinois has named hospitals, but only from HFS's own FFATA
+  # subawards to 80 hospitals (il_fsrs_awardees.csv), never from ICAHN.
+  il_named <- state_tables[["IL_FSRS"]]
+  expect_equal(round(named$dollars[named$state == "IL"], 2), 53821674.53)
+  expect_false(any(state_tables[["IL"]]$hospital_attribution %in% "NAMED_HOSPITAL"))
 
   # THE NAMED POOLED BUCKET IS NEBRASKA ALONE, AND ONE TIER. Session 50 added
   # Iowa's $50,000,000 Centers of Excellence footer here -- a TIER 2 pool --
@@ -608,10 +612,11 @@ test_that("named-hospital dollars and pooled dollars never merge", {
                18156856.12)
   expect_equal(pooled_named$dollars[pooled_named$state == "CT"], 12650000)
 
-  # Iowa is in NAMED_HOSPITAL only, at $0, with its ten Centers of Excellence
-  # award actions counted ONCE.
+  # Iowa is in NAMED_HOSPITAL only, with its ten Centers of Excellence award
+  # actions counted ONCE. Session 116c: Iowa's notices print no amount, and the
+  # dollars are Iowa's own FFATA subawards (R/09b), $163,082,841.20.
   expect_true("IA" %in% named$state)
-  expect_equal(named$dollars[named$state == "IA"], 0)
+  expect_equal(round(named$dollars[named$state == "IA"], 2), 163082841.20)
   # 6,990,996.01 -> 12,606,593.54 in session 49: thirteen Nebraska recipients
   # whose form DHHS never stated verified as hospitals. The POOLED figure
   # beside it did NOT move, which is the property this test is really about.
@@ -621,7 +626,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # (Mayo Clinic, CHI Health St Marys x2; session 98, R/03cb).
   # + 342,079.10 in session 99: Regional West and Chase County infection-
   # prevention CMS obligation lines (owner-approved, R/03cb).
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 14934499.41)
+  # Session 116c/d: + Nebraska's FFATA subawards ($0 rows priced, new rows typed
+  # on CMS enrolment) -> 27,922,279.67. The POOLED figure did not move.
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 27922279.67)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at

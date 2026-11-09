@@ -175,7 +175,8 @@ test_that("NO HOSPITAL FIGURE CHANGED: the partition is session 116's", {
     dplyr::summarise(rows = sum(rows), dollars = round(sum(dollars), 2), .groups = "drop")
   pin <- tibble::tribble(
     ~bucket, ~rows, ~dollars,
-    "NAMED_HOSPITAL", 1958L, 1797619954.62,
+    # Session 116c/d moved it (R/09b, FSRS as an award source); R/09 still moves nothing.
+    "NAMED_HOSPITAL", 2204L, 2170425246.88,
     "POOL_NAMED_HOSPITALS", 10L, 86895779.43,
     "POOL_UNNAMED_HOSPITALS", 6L, 79214848.17)
   for (i in seq_len(nrow(pin))) {

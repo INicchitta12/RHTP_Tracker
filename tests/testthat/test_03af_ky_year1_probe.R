@@ -21,6 +21,7 @@ as_raw_html <- function(txt) charToRaw(enc2utf8(txt))
 
 # -- the negative ------------------------------------------------------------
 
+source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay before comparing a build
 test_that("Kentucky names no recipient on any watched surface", {
   skip_without_archive()
   expect_true(ky_assert_no_roster())
@@ -232,7 +233,8 @@ test_that("session 94: Kentucky's award file is R/03by's, named rows at no amoun
   # other two Hubs and the RFAs.
   p <- here::here("data", "reference", "ky_year1_awardees.csv")
   expect_true(file.exists(p))
-  d <- readr::read_csv(p, show_col_types = FALSE, progress = FALSE)
+  # Session 116c: Kentucky's own publication (the FSRS overlay stripped; R/09b priced LCDHD).
+  d <- rhtp_strip_fsrs_overlay(readr::read_csv(p, show_col_types = FALSE, progress = FALSE))
   # Session 99: Purchase District Health Department is row 2.
   expect_equal(nrow(d), 2L)
   expect_true(all(is.na(d$amount)))

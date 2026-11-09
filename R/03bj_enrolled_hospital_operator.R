@@ -384,11 +384,21 @@ EH_HOLD <- tibble::tribble(
 #' cross-state by design (Vermont's NH-enrolled Mary Hitchcock rows), so a
 #' county or common name can hit another state's hospital. DEFERRED_TO_OWNER:
 #' the rule reads as APPLY, but applying it re-codes a state no task asked
-#' about; the question is queued instead. Nothing here writes to any row.
+#' about; the question is queued instead. OWNER_RULING_NOT_APPLIED (session
+#' 116d): the owner has ruled the strict typing stays (FSRS ruling f). Nothing
+#' here writes to any row.
 EH_READ_NOT_APPLIED <- tibble::tribble(
   ~file, ~awardee, ~ccn, ~verdict, ~reason,
   "co_year1_awardees.csv", "County of Logan", "171326", "DIFFERENT_LEGAL_BODY",
-    "The hit is COUNTY OF LOGAN dba LOGAN COUNTY HOSPITAL, Oakley, KANSAS (CCN 171326). HCPF's recipient is Logan County, COLORADO, a county government: a different legal body with the same name."
+    "The hit is COUNTY OF LOGAN dba LOGAN COUNTY HOSPITAL, Oakley, KANSAS (CCN 171326). HCPF's recipient is Logan County, COLORADO, a county government: a different legal body with the same name.",
+  # Session 116c/d: hits exposed by the FSRS rows and by the six enrolment files
+  # archived 2026-11-09 (AZ HI KY MN NM SD).
+  "pa_year1_awardees.csv", "The Guidance Center", "034023", "DIFFERENT_LEGAL_BODY",
+    "The hit is GUIDANCE CENTER, INC., a psychiatric hospital in Flagstaff, ARIZONA (CCN 034023), exposed by the AZ file archived 2026-11-09. Pennsylvania's recipient is a North Central PA EMS & transportation grantee: a different legal body with a common name.",
+  "ia_fsrs_awardees.csv", "SANFORD MEDICAL CENTER", "430027", "OWNER_RULING_NOT_APPLIED",
+    "The hit is SANFORD MEDICAL CENTER dba Sanford USD Medical Center, Sioux Falls, SOUTH DAKOTA (CCN 430027), out of state for an Iowa FFATA subaward. Owner ruling (session 116d, f): strict typing unchanged; the summary layer calls it HOSPITAL (SC_FSRS_OVERRIDES).",
+  "tx_fsrs_awardees.csv", "DEPARTMENT OF STATE HEALTH SERVICES", "670125", "OWNER_RULING_NOT_APPLIED",
+    "The hit is the Texas DEPARTMENT OF STATE HEALTH SERVICES' own hospital enrolment (CCN 670125; it operates state hospitals). Owner ruling (session 116d, f): a state body holding a hospital enrolment is STATE_AGENCY, NOT_HOSPITAL."
   # National Jewish Health (Quitlink), MI, CCN 060107, sat here as
   # DEFERRED_TO_OWNER in session 82; the owner applied it in session 83 and it
   # is now in EH_APPLY.

@@ -608,7 +608,8 @@ test_that("the committed CSV matches what the builder produces", {
   built <- vq_overlay(ne_recs, "ne_year1_awardees.csv")
   expect_equal(nrow(csv), nrow(built))
   expect_equal(names(rhtp_strip_summary_calls(csv)), names(built))
-  expect_equal(round(sum(csv$amount, na.rm = TRUE), 2), 41687307.15)
+  # Session 116c: the builder's figure, the FSRS overlay undone.
+  expect_equal(round(sum(rhtp_strip_fsrs_overlay(csv)$amount, na.rm = TRUE), 2), 41687307.15)
   expect_equal(csv$awardee, built$awardee)
   expect_equal(csv$recipient_type, built$recipient_type)
   # Session 49's 29 verified rows still sit at the index they were written for.

@@ -759,7 +759,13 @@ test_that("every priced row is AMOUNT_PRELIMINARY, and amount_confirmed stays No
 })
 
 test_that("the two source defects are carried AS PUBLISHED and flagged SOURCE_SUSPECT", {
-  recs <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  # Session 116d: the BUILDER still flags both; R/09b's overlay clears FLEX-28 on an
+  # exact FSRS pair (owner ruling e). Read the builder's view, then the overlay's.
+  committed <- readr::read_csv(NV_OUT_CSV, show_col_types = FALSE, progress = FALSE)
+  cs <- committed[grepl("SOURCE_SUSPECT", committed$flag_reason), ]
+  expect_setequal(cs$bp1_line_id, "FLEX-36")
+  expect_equal(committed$original_flag_reason[committed$bp1_line_id %in% "FLEX-28"], "AMOUNT_PRELIMINARY;SOURCE_SUSPECT")
+  recs <- rhtp_strip_fsrs_overlay(committed)
   s <- recs[grepl("SOURCE_SUSPECT", recs$flag_reason), ]
   expect_setequal(s$bp1_line_id, c("FLEX-28", "FLEX-36"))
   expect_equal(s$amount[s$bp1_line_id == "FLEX-36"], 2458060)

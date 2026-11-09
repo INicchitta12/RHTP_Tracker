@@ -34,6 +34,7 @@ plan <- function() uf_plan(built = built())
 
 # -- the pass is complete, and complete is not the same as total --------------
 
+source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay before comparing a build
 test_that("every open row is either typed or refused, and nothing falls between", {
   expect_true(uf_assert_complete(built = built()))
 })
@@ -363,9 +364,10 @@ test_that("the benchmark comparison is a check and not a target", {
 # -- Iowa's Centers of Excellence pool: out of the partition (session 51) -----
 
 test_that("Iowa has NO pool row: session 51 removed it (a bucket must not mix tiers)", {
-  ia <- suppressMessages(readr::read_csv(
+  # Session 116c: Iowa's own publication (the FSRS overlay stripped; R/09b prices from FSRS).
+  ia <- rhtp_strip_fsrs_overlay(suppressMessages(readr::read_csv(
     here::here("data/reference/ia_year1_awardees.csv"),
-    show_col_types = FALSE, progress = FALSE))
+    show_col_types = FALSE, progress = FALSE)))
   expect_equal(nrow(ia), 264L)
   expect_false(any(grepl("AMOUNT_IS_POOL_NOT_AWARD", ia$flag_reason)))
   expect_true(all(is.na(ia$amount)))
