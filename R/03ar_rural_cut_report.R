@@ -370,10 +370,12 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 114 (owner rulings): + OK CHW Expansion (29 hospital rows at $0,
   # R/03co) + MO Smart Growth contingent roster (14 / $31,862,169.80, intents,
   # R/03cq): 1,951 / $1,793,689,688.62 / 37.
-  if (nrow(rows) != 1951L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1793689688.62) > 0.005 ||
+  # Session 115: + WV's 10-30 CAMC release (3 / $3,930,266; CAMC carries no CCN
+  # on the row, as its 09-04 row): 1,954 / $1,797,619,954.62 / 37.
+  if (nrow(rows) != 1954L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 1797619954.62) > 0.005 ||
       dplyr::n_distinct(rows$state) != 37L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,951 rows / $1,793,689,688.62 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 1,954 rows / $1,797,619,954.62 ",
          "/ 37 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

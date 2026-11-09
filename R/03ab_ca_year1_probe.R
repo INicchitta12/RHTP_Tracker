@@ -162,9 +162,16 @@ CA_SOURCES <- tibble::tribble(
   # Care Utilization Report"; on all four probe pages), and an "Explore CalRHT
   # ... Click to Explore Funding Opportunities" navigation block. The 10-26
   # copy stays.
+  # SESSION 115: HCAI moved the CalRHT section from /rural-health/calrht/ to
+  # /calrht/ (the old funding and program-updates paths are hard 404s since
+  # 11-07; the old root redirects). URLs re-pointed ONLY: the 10-28 archives
+  # stay as baselines, because the live pages now print a $333,639,308.46
+  # footer (BP1 + a $100M BP2 Notice of Award, per Louisiana's 11-05 deck),
+  # which a re-base would archive and the footer-tier check refuses. The
+  # roster read 11-09 is the 10-28 roster, 108 rows / $138,464,043.97, to the cent.
   "calrht",
   "2026-10-28_ca_hcai_calrht_programme.html",
-  "https://hcai.ca.gov/rural-health/calrht/",
+  "https://hcai.ca.gov/calrht/",
 
   # SESSION 108: HCAI's "Recommended Subrecipients for CalRHT Budget Period 1
   # Announced" (2026-10-21): five tables, 108 rows, $138,464,043.97 as printed
@@ -176,7 +183,7 @@ CA_SOURCES <- tibble::tribble(
   # there). Re-based after reading: only the mega-menu swap above moved.
   "updates",
   "2026-10-28_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
-  "https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/",
+  "https://hcai.ca.gov/calrht/calrht-program-updates/",
 
   # Session 108: re-based after reading. Added a Tribal Set-Aside section
   # ("$11.65 million ... reserved for California's federally recognized
@@ -188,7 +195,7 @@ CA_SOURCES <- tibble::tribble(
   # gained an "Application Portal" link (a solicitation, Tier 2). No name.
   "funding",
   "2026-10-28_ca_hcai_calrht_funding_opportunities.html",
-  "https://hcai.ca.gov/rural-health/calrht/funding/",
+  "https://hcai.ca.gov/calrht/funding/",
 
   "cms_noa",
   "2026-03-31_ca_cms_notice_of_award_revised.pdf",
@@ -1221,7 +1228,39 @@ ca_status_recommended <- function(st) {
       "investments and clinical training partnerships'. Nothing is imputed.",
       "HCAI also says 'One applicant that was recommended to receive an award",
       "has subsequently withdrawn their application' without naming it."))
-  dplyr::bind_rows(st, tp, gap)
+  # Session 115 (carried from claude/festive-cori-sm3p3c, session 109's parallel
+  # branch): the Tribal Set-Aside is posted on the 10-28 funding page with its
+  # own Submittable portal. Tier 2, and INSIDE the initiative figures.
+  tsa <- tibble::tibble(
+    state = "CA",
+    channel = "Tribal Set-Aside",
+    administrator = "HCAI",
+    stated_pool = "$11.65 million, 'included within the initiative funding described above'",
+    stage = "OPEN",
+    eligible_class = paste("CALIFORNIA'S FEDERALLY RECOGNIZED TRIBES and the rural Tribal",
+                           "healthcare delivery system. Not a hospital class."),
+    publishes_roster = "No",
+    evidence = paste(
+      "SESSION 109: the funding page's Grant Guide and RFA are posted (no longer",
+      "'Coming Soon') with a Submittable 'Application Portal'",
+      "('calrht-bp1-tribal-set-aside'). Tier 2. The $11.65M is INSIDE the",
+      "initiative figures, so it is never added to them. Archived:",
+      paste0(CA_TRIBAL_SET_ASIDE_ARCHIVE, ".")))
+  ca_assert_tribal_set_aside()
+  dplyr::bind_rows(st, tp, gap, tsa)
+}
+
+CA_TRIBAL_SET_ASIDE_ARCHIVE <- "data/evidence/CA/2026-10-28_ca_hcai_calrht_funding_opportunities.html"
+
+#' The Tribal Set-Aside row rests on the archived funding page saying both
+#' sentences it quotes. Refuses if either is gone.
+ca_assert_tribal_set_aside <- function(path = here::here(CA_TRIBAL_SET_ASIDE_ARCHIVE)) {
+  txt <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  need <- c("calrht-bp1-tribal-set-aside", "11.65 million included within the initiative funding")
+  miss <- need[!vapply(need, grepl, logical(1), x = txt, fixed = TRUE)]
+  if (length(miss)) stop("[CA] the Tribal Set-Aside archive no longer says: ",
+                         paste(miss, collapse = "; "), call. = FALSE)
+  invisible(TRUE)
 }
 
 

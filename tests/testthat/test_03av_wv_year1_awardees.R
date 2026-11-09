@@ -4,14 +4,15 @@
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
 wv <- wv_year1_awardees()
 
-test_that("thirty rows, twenty-one priced, $20,393,952, each quoted verbatim from its release", {
+test_that("thirty-three rows, twenty-four priced, $24,324,218, each quoted verbatim from its release", {
   # Session 103: + five rows from the 10-13/10-14 releases ($6,156,458).
   # Session 107: + two WVU Health System rows from the 10-19 release ($3,400,000).
   # Session 112: + WVU Cancer Institute ($1,339,077) and Williamson Health &
   # Wellness Center ($250,000), neither a hospital row.
-  expect_equal(nrow(wv), 30L)
-  expect_equal(sum(!is.na(wv$amount)), 21L)
-  expect_equal(sum(wv$amount, na.rm = TRUE), 20393952)
+  # Session 115: + three CAMC awards from the 10-30 release ($3,930,266).
+  expect_equal(nrow(wv), 33L)
+  expect_equal(sum(!is.na(wv$amount)), 24L)
+  expect_equal(sum(wv$amount, na.rm = TRUE), 24324218)
   expect_silent(wv_assert_sources())
 })
 
@@ -20,9 +21,10 @@ test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton, the six
   expect_setequal(unique(h$awardee), c("CAMC/Vandalia Health", "Cabell Huntington Foundation",
                                        "Minnie Hamilton Health Care Center",
                                        WV_INV_ENROL$awardee, "Vandalia Health",
-                                       "West Virginia United (WVU) Health System"))
-  expect_equal(nrow(h), 14L)   # session 107: + 2 WVU Health System (system parent, LOW)
-  expect_equal(sum(h$amount, na.rm = TRUE), 6324000)
+                                       "West Virginia United (WVU) Health System",
+                                       "Charleston Area Medical Center (CAMC)"))
+  expect_equal(nrow(h), 17L)   # session 107: + 2 WVU Health System (system parent, LOW); session 115: + 3 CAMC
+  expect_equal(sum(h$amount, na.rm = TRUE), 10254266)
   expect_true(all(h$determination_confidence[h$awardee == "West Virginia United (WVU) Health System"] == "LOW"))
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # The foundation rests on §10.2's named-parent row, a reading -> LOW.
