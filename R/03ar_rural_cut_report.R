@@ -162,6 +162,7 @@ rc_named_rows <- function(files = rc_state_files()) {
   purrr::imap_dfr(files, function(path, key) {
     d <- readr::read_csv(here::here(path), col_types = readr::cols(.default = "c"),
                          na = c("", "NA"), progress = FALSE)
+    d <- rhtp_year1_only(d, path)   # session 116: Year 1 rows only
     if (!"distributed_to_hospital" %in% names(d)) return(NULL)
     b <- rhtp_hospital_attribution(rc_col(d, "flow_type"),
                                    d$distributed_to_hospital,

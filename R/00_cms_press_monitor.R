@@ -125,6 +125,16 @@ CMS_PRESS_ARCHIVE_FILE <- rhtp_config()$cms$press_monitor_archive_file
 CMS_PRESS_CSV <- rhtp_config()$paths$cms_state_announcements
 CMS_PRESS_MANIFEST <- rhtp_config()$paths$cms_press_manifest
 
+# SESSION 116 (Year 2 safeguards). A release naming no single state is a
+# NATIONAL event. It was excluded and counted in a message only; a national
+# Year 2 announcement ("all 50 states", a multi-state headline) would have left
+# no trace. Each is now ONE row here, keyed on its URL (or title), and a NEW
+# Year 2 event logs one YEAR2 verdict row. Never a state row, never a figure.
+CMS_NATIONAL_EVENTS_CSV <- "data/reference/cms_national_events.csv"
+# Budget Period 2 starts the day after BP1 ends (every NOA read: BP1 ends
+# 10/30/2026). Used only to size the announcements sanity ceiling.
+CMS_BP2_START <- as.Date("2026-10-31")
+
 # Column synonyms. Matched case-insensitively against a normalized header, so a
 # CMS rewording ("Award Amount" -> "Amount Awarded") does not need a code change.
 cms_press_synonyms <- list(
@@ -721,6 +731,10 @@ cms_newsroom_state <- function(title) {
       any(short != hit & stringr::str_detect(hit, stringr::fixed(short)))
     })]
 
+    # Session 116: a Year 2 headline naming several states is a NATIONAL
+    # event (cms_national_events.csv), never refused: a refusal here would
+    # stop the whole run, and with it the commit.
+    if (length(hit) > 1 && rhtp_is_year2(one)) return(NA_character_)
     if (length(hit) > 1) {
       stop(
         "A CMS newsroom headline names more than one state (",
@@ -1131,6 +1145,7 @@ rhtp_parse_cms_newsroom <- function(index = rhtp_newsroom_index()) {
   # are excluded deliberately and counted, exactly as the medicaid.gov "All"
   # rows are.
   national <- is.na(out$state_raw)
+  national_rows <- out[national, , drop = FALSE]
   if (any(national)) {
     message("  excluded ", sum(national), " national (non-state) rural-topic ",
             "release(s) -- Tier 1 programme announcements:")
@@ -1152,7 +1167,41 @@ rhtp_parse_cms_newsroom <- function(index = rhtp_newsroom_index()) {
     dplyr::arrange(.data$state, .data$date)
 
   attr(out, "cms_press_shape") <- "NEWSROOM_TOPIC"
+  # Session 116: the national releases travel with the state rows, as data.
+  attr(out, "national") <- tibble::tibble(
+    date = as.Date(national_rows$item_date), title = national_rows$title,
+    url = national_rows$url, source = "CMS_NEWSROOM",
+    first_seen = as.character(national_rows$first_indexed))
   out
+}
+
+#' One row per national release; a Year 2 one is typed YEAR2_NATIONAL
+rhtp_cms_national_events <- function(national) {
+  empty <- tibble::tibble(event_id = character(), event_type = character(),
+                          date = as.Date(character()), title = character(),
+                          url = character(), source = character(),
+                          first_seen = character())
+  if (is.null(national) || !nrow(national)) return(empty)
+  national %>%
+    dplyr::mutate(
+      event_id = dplyr::coalesce(.data$url, stringr::str_squish(.data$title)),
+      event_type = dplyr::if_else(rhtp_is_year2(.data$title), "YEAR2_NATIONAL",
+                                  "NATIONAL")) %>%
+    dplyr::distinct(.data$event_id, .keep_all = TRUE) %>%
+    dplyr::select(dplyr::all_of(names(empty))) %>%
+    dplyr::arrange(.data$date)
+}
+
+#' Merge into the committed events file; return the events that are NEW
+rhtp_cms_national_events_write <- function(events, path = here::here(CMS_NATIONAL_EVENTS_CSV)) {
+  prior <- if (file.exists(path)) {
+    readr::read_csv(path, col_types = readr::cols(.default = "c"), progress = FALSE)
+  } else NULL
+  ev <- events %>% dplyr::mutate(date = as.character(.data$date))
+  new <- if (is.null(prior)) ev else ev[!ev$event_id %in% prior$event_id, , drop = FALSE]
+  all <- dplyr::bind_rows(prior, new) %>% dplyr::arrange(.data$date, .data$event_id)
+  readr::write_csv(all, path, na = "")
+  new
 }
 
 
@@ -1226,7 +1275,13 @@ rhtp_cms_press_assert <- function(announcements) {
   # subawards. The check is on plausibility, and it is here to make the
   # comment unmissable to whoever adds a summary line to this file next.
   total <- sum(announcements$amount, na.rm = TRUE)
-  if (total > 1.0e10) {
+  # SESSION 116: the ceiling is $10B PER BUDGET PERIOD the list spans. A Year 2
+  # wave of state releases is volume, not a parse defect, and a fixed $10B
+  # ceiling would have stopped the run -- and with it the monitor's own commit
+  # -- on the day Year 2 arrived.
+  periods <- 1L + as.integer(any(!is.na(announcements$date) &
+                                   as.Date(announcements$date) >= CMS_BP2_START))
+  if (total > 1.0e10 * periods) {
     fail("The announcement amounts total more than the entire $10B RHTP ",
          "programme. That is Tier 1 and Tier 3 figures added together (§0.2). ",
          "This column is never summed -- it prioritises collection.")
@@ -1386,6 +1441,19 @@ rhtp_cms_press_run <- function(fetch_date = Sys.Date(), force = FALSE,
   )
 
   delta <- rhtp_cms_press_delta(announcements)
+
+  # Session 116: national releases, one event each.
+  national_new <- tryCatch({
+    rhtp_cms_national_events_write(rhtp_cms_national_events(attr(newsroom, "national")))
+  }, error = function(e) {
+    message("  national events not written: ", conditionMessage(e)); NULL
+  })
+  if (!is.null(national_new) && nrow(national_new)) {
+    message("[CMS press] NEW NATIONAL EVENT(S): ",
+            paste(national_new$event_type, stringr::str_trunc(national_new$title, 80),
+                  collapse = " | "))
+  }
+  delta$national_new <- national_new
 
   # Preserve the first_seen of a row we have seen before: it is the date this
   # project learned of the announcement, not the date of the newest parse.
@@ -1643,7 +1711,7 @@ rhtp_cms_press_verdict <- function(res) {
   n_rel <- nrow(old_state_rows)
   n_chg <- nrow(d$changed_rows)
   hit <- n_new || n_rel || n_chg
-  tibble::tibble(
+  main <- tibble::tibble(
     verdict = if (hit) "CHANGED" else "UNCHANGED",
     page = "newsroom+medicaid",
     note = if (hit) {
@@ -1653,6 +1721,19 @@ rhtp_cms_press_verdict <- function(res) {
                                            collapse = " "), ")") else "",
              "; changed rows: ", n_chg)
     } else NA_character_)
+  # Session 116: a NEW national Year 2 release is ONE national event, one
+  # YEAR2 row, however many states it covers. HELD: nothing is extracted.
+  nat <- d$national_new
+  y2 <- if (!is.null(nat) && nrow(nat)) nat[nat$event_type == "YEAR2_NATIONAL", , drop = FALSE] else NULL
+  if (!is.null(y2) && nrow(y2)) {
+    main <- dplyr::bind_rows(main, tibble::tibble(
+      verdict = "YEAR2", page = "national_year2",
+      note = paste0(RHTP_YEAR2_SIGNATURE, ": ONE national Year 2 event: ",
+                    paste(stringr::str_trunc(y2$title, 160), collapse = " | "),
+                    " -- recorded in ", CMS_NATIONAL_EVENTS_CSV,
+                    "; nothing enters cms_fy2027_allotments.csv or any total until a human reads it.")))
+  }
+  main
 }
 
 

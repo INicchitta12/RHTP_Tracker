@@ -1,0 +1,4 @@
+Session 116: pages carrying Year 2 (Budget Period 2) signals, read-only reads 2026-11-09, served bytes verbatim (writeBin). Credential scan: none. NOT probe baselines: R/03bn and R/03bl keep their own archives.
+319f751ff08774a6b9db4142f428e0652cfa24bfdef15477dd83b36803c5ddd9  2026-11-09_mn_grants.html
+b517235556b18b63d0ed660e51fd7fcc865b1173bb8c538b27316eac819abb5e  2026-11-09_mn_programme.html
+5cefab5f138a89f8c5ed32171950acea69a61a338b91fc120c73e4148207986e  2026-11-09_mt_home.html

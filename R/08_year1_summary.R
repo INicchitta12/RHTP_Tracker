@@ -83,6 +83,7 @@ ys_rows <- function(files = sc_state_files()) {
     d <- readr::read_csv(here::here(files[[k]]), col_types = readr::cols(.default = "c"),
                          na = c("", "NA"), progress = FALSE)
     rhtp_assert_summary_calls(d, k)
+    d <- rhtp_year1_only(d, k)   # session 116: the Year 1 summary reads Year 1 rows only
     col <- function(c) if (c %in% names(d)) d[[c]] else rep(NA_character_, nrow(d))
     tibble::tibble(
       file_key = k, file = files[[k]], state = d$state, awardee = d$awardee,

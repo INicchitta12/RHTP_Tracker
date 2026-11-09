@@ -107,8 +107,10 @@ Y1_POOL_EXCLUDED <- c("NH")
 # -- 1. What each state file publishes -----------------------------------------
 
 y1_read <- function(f) {
-  readr::read_csv(here::here("data", "reference", f),
-                  show_col_types = FALSE, progress = FALSE)
+  d <- readr::read_csv(here::here("data", "reference", f),
+                       show_col_types = FALSE, progress = FALSE)
+  # SESSION 116: completion status is a Year 1 statement; Year 1 rows only.
+  rhtp_year1_only(d, f)
 }
 
 #' Priced subawards, and priced + round-level figures, for one award file.
