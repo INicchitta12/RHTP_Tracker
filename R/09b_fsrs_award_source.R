@@ -89,7 +89,7 @@ FSRS_OUT <- list(
   totals    = "data/reference/fsrs_state_totals.csv",
   recon     = "data/reference/fsrs_reconciliation.csv",
   differs   = "data/reference/fsrs_differs_over_100k.csv",
-  held      = "data/reference/fsrs_held_items.csv",
+  held      = "data/reference/fsrs_held.csv",
   uncertain = "data/reference/fsrs_amendment_uncertain.csv",
   nonfilers = "data/reference/fsrs_nonfiling_states.csv"
 )
@@ -224,6 +224,7 @@ fsrs_award_rows <- function(states, files = fsrs_state_files()) {
                    awardee = d$awardee, amount = suppressWarnings(as.numeric(d$amount)),
                    award_pool = if ("award_pool" %in% names(d)) d$award_pool else NA_character_,
                    notice_date = if ("notice_date" %in% names(d)) d$notice_date else NA_character_,
+                   round_amount = if ("round_amount" %in% names(d)) suppressWarnings(as.numeric(d$round_amount)) else NA_real_,
                    distributed_to_hospital = d$distributed_to_hospital,
                    validation_source_type = d$validation_source_type)
   })) %>% dplyr::mutate(n = fsrs_norm(awardee), row_id = paste(file_key, row_no, sep = "#"))
@@ -567,7 +568,7 @@ fsrs_type_new <- function(new) {
           r$determination_basis <- paste0(r$determination_basis, " SAM lists HOSPITAL among its business ",
             "types but no archived CMS ", s, " Hospital Enrollment record carries this name or street address, ",
             "so it is not a hospital row (Hardeman precedent, session 103); held for a ruling in ",
-            "fsrs_held_items.csv.")
+            "fsrs_held.csv.")
         }
       } else if (grepl("\\bHOSPITAL\\b", bt) && r$recipient_type != "HOSPITAL_OR_SYSTEM") {
         r$sam_hospital_unenrolled <- TRUE
@@ -600,10 +601,20 @@ fsrs_plan <- function() {
   rec <- fsrs_dispose()
   tot <- fsrs_state_totals(rec)
   rc <- fsrs_reconcile(rec)
+  rc <- fsrs_pool_guard(rc)
   new <- rc$recon %>% dplyr::filter(status == "NEW_ROW")
   typed <- fsrs_type_new(new)
   # The owner's hold: hospital dollars on rows that need a NEW ruling (address
   # bridges), per state, above FSRS_HOLD_USD.
+  # A NEW row in a state whose files still carry a pool-level figure that names
+  # nobody may be money already inside that pool, so it is held: South
+  # Dakota's two rounds, Ohio's two shared pools, Oregon's and Washington's
+  # unnamed pools, and Indiana's eight GROW regions ($112.4M, against an FSRS
+  # total of $100.7M). A row larger than the state's pool figure cannot be
+  # inside it and is written.
+  typed <- typed %>% dplyr::mutate(status = dplyr::if_else(
+    status == "NEW_ROW" & st %in% names(FSRS_POOL_LEVEL_STATES) &
+      amount <= FSRS_POOL_LEVEL_STATES[st], "HELD_STATE_POOL_MAY_CONTAIN", status))
   bridge <- typed %>% dplyr::filter(typing == "CMS_ADDRESS") %>% dplyr::group_by(st) %>%
     dplyr::summarise(bridge_usd = sum(amount), .groups = "drop")
   held_states <- bridge$st[bridge$bridge_usd > FSRS_HOLD_USD]
@@ -612,6 +623,38 @@ fsrs_plan <- function() {
   rc$recon <- rc$recon %>% dplyr::rows_update(typed %>% dplyr::select(fsrs_id, status), by = "fsrs_id")
   list(records = rec, totals = tot, recon = rc$recon, overlay = rc$overlay, aw = rc$aw,
        typed = typed, candidates = rc$candidates, held_states = held_states)
+}
+
+# A $0 row that is a member of a pool already counted at pool level is NOT
+# priced: pricing it would count the same money twice (once in the pool figure,
+# once on the row). That is (i) every member of a summary-call pool
+# (R/07 SC_POOLS: IN GROW's eight regions, OK CHW, NC SBHC, GA, OH), and
+# (ii) a row carrying a round figure whose FSRS-priced rows would not reach it
+# (R/03aw adds a round figure on top of its priced rows unless they reach it:
+# SD CCBHC, 7 of 13 at $8.1M against "more than $13 million"). NC's Mobile
+# Integrated Health pool is priced: its 36 FSRS lines ($10.22M) reach the $10M
+# round figure, so R/03aw drops the round figure and nothing is counted twice.
+FSRS_POOL_LEVEL_STATES <- c(IN = 112400000, OH = 61700000, OR = 26700000, SD = 101182906, WA = 19410000)
+FSRS_POOL_FILES <- c("IN_GROW", "OK_CHW", "NC_SBHC", "GA", "OH")
+fsrs_pool_guard <- function(rc) {
+  ov <- rc$overlay %>% dplyr::left_join(rc$aw %>% dplyr::select(row_id, file_key, award_pool, round_amount, amount),
+                                        by = "row_id")
+  pool_tot <- rc$aw %>% dplyr::filter(!is.na(round_amount)) %>%
+    dplyr::left_join(ov %>% dplyr::filter(priced) %>% dplyr::select(row_id, new_amt = fsrs_amount), by = "row_id") %>%
+    dplyr::group_by(file_key, award_pool, round_amount) %>%
+    dplyr::summarise(after = sum(dplyr::coalesce(amount, new_amt, 0)), .groups = "drop")
+  ov <- ov %>% dplyr::left_join(pool_tot %>% dplyr::select(file_key, award_pool, after),
+                                by = c("file_key", "award_pool")) %>%
+    dplyr::mutate(block = priced & (file_key %in% FSRS_POOL_FILES |
+                                      (!is.na(round_amount) & dplyr::coalesce(after, 0) < round_amount - 0.005)))
+  blocked <- ov$fsrs_subaward_ids[ov$block]
+  ov <- ov %>% dplyr::mutate(fsrs_match = dplyr::if_else(block, "FSRS_POOL_MEMBER_NOT_PRICED", fsrs_match),
+                             priced = priced & !block)
+  # siblings that pointed at a blocked row keep their pointer text; harmless
+  ids <- unlist(strsplit(blocked, ";"))
+  rc$recon <- rc$recon %>% dplyr::mutate(status = dplyr::if_else(fsrs_id %in% ids, "HELD_POOL_MEMBER_COUNTED_AT_POOL_LEVEL", status))
+  rc$overlay <- ov %>% dplyr::select(row_id, fsrs_amount, fsrs_match, fsrs_subaward_ids, priced)
+  rc
 }
 
 fsrs_write_plan <- function(p = fsrs_plan()) {
