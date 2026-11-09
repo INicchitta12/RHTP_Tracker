@@ -406,7 +406,6 @@ STATE_FILES <- c(
   RI_FSRS = "data/reference/ri_fsrs_awardees.csv",
   TN_FSRS = "data/reference/tn_fsrs_awardees.csv",
   TX_FSRS = "data/reference/tx_fsrs_awardees.csv",
-  UT_FSRS = "data/reference/ut_fsrs_awardees.csv",
   VA_FSRS = "data/reference/va_fsrs_awardees.csv",
   VT_FSRS = "data/reference/vt_fsrs_awardees.csv",
   WV_FSRS = "data/reference/wv_fsrs_awardees.csv"

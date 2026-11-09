@@ -386,11 +386,12 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 116c: FSRS as an award source (R/09b, owner ruling): $0 rows priced
   # and new rows typed on CMS enrolment: 2,193 / $2,158,289,847.60 / 42.
   # Session 116d (owner rulings c-h): extra subawards, NV FLEX-28 cleared, the
-  # (h) matches: 2,213 / $2,176,937,123.12 / 42.
-  if (nrow(rows) != 2213L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2176937123.12) > 0.005 ||
+  # (h) matches: 2,213 / $2,176,937,123.12 / 42; independent check 2d (24 duplicate
+  # new rows paired to their roster rows): 2,207 / $2,172,147,222.88 / 42.
+  if (nrow(rows) != 2207L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2172147222.88) > 0.005 ||
       dplyr::n_distinct(rows$state) != 42L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,213 rows / $2,176,937,123.12 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,207 rows / $2,172,147,222.88 ",
          "/ 42 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

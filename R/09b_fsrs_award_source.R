@@ -84,6 +84,7 @@ FSRS_HOLD_USD <- 25e6     # owner: hold a state whose new-ruling hospital dollar
 FSRS_DIFFERS_REPORT_USD <- 1e5
 
 FSRS_CROSSWALK <- "config/fsrs_name_crosswalk.csv"
+FSRS_PAIRINGS  <- "config/fsrs_subaward_pairings.csv"
 FSRS_OUT <- list(
   records   = "data/reference/fsrs_subaward_records.csv",
   totals    = "data/reference/fsrs_state_totals.csv",
@@ -328,6 +329,19 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
                         by = c(st = "state", "file_key", "awardee"), relationship = "many-to-many") %>%
       dplyr::transmute(fsrs_id, row_id, how = "CROSSWALK")
   ) %>% dplyr::distinct(fsrs_id, row_id, .keep_all = TRUE)
+  # SESSION 116d: subaward-level pairings found by the independent check (same
+  # amount to the cent, same recipient under another name). A pairing replaces
+  # every other link of that subaward.
+  pr <- readr::read_csv(here::here(FSRS_PAIRINGS), col_types = readr::cols(.default = "c"), progress = FALSE)
+  pl <- pr %>% dplyr::mutate(amt = as.numeric(amount)) %>% dplyr::select(-amount) %>%
+    dplyr::inner_join(aw %>% dplyr::select(state, file_key, awardee, row_id, amount),
+                      by = c("state", "file_key", "awardee"), relationship = "many-to-many") %>%
+    dplyr::filter(abs(amount - amt) < 0.005) %>% dplyr::distinct(fsrs_id, .keep_all = TRUE)
+  miss <- setdiff(pr$fsrs_id, pl$fsrs_id)
+  if (length(miss)) stop("[fsrs] pairings whose roster row (same awardee, same amount) is not found: ",
+                         paste(miss, collapse = ", "), call. = FALSE)
+  link <- link %>% dplyr::filter(!fsrs_id %in% pl$fsrs_id) %>%
+    dplyr::bind_rows(pl %>% dplyr::transmute(fsrs_id, row_id, how = "PAIRING"))
   # a crosswalk entry naming an awardee that is not in its file is a stale entry
   xm <- xw %>% dplyr::filter(decision == "MATCH") %>%
     dplyr::anti_join(aw, by = c(state = "state", "file_key", "awardee"))
@@ -643,6 +657,17 @@ fsrs_plan <- function() {
     TRUE ~ status))
   typed <- fsrs_type_extra_from_roster(typed, rc$aw)
   typed <- fsrs_ia_round_check(typed, rc)
+  # SESSION 116d (independent check 2d): a new or extra row whose NON-ROUND
+  # amount equals, to the cent, an award row already in the same state is held:
+  # it is most likely that row under another name. Round amounts ($750,000
+  # districts) repeat legitimately and are left to the hand pairings.
+  ra <- rc$aw %>% dplyr::filter(!is.na(amount), amount > 0) %>% dplyr::select(state, amount)
+  same <- vapply(seq_len(nrow(typed)), function(i) {
+    a <- typed$amount[i]
+    typed$status[i] %in% c("NEW_ROW", "EXTRA_ROW") && abs(a - round(a, -2)) > 0.005 &&
+      any(ra$state == typed$st[i] & abs(ra$amount - a) < 0.005)
+  }, logical(1))
+  typed$status[same] <- "HELD_SAME_AMOUNT_ON_ROSTER"
   bridge <- typed %>% dplyr::filter(typing == "CMS_ADDRESS") %>% dplyr::group_by(st) %>%
     dplyr::summarise(bridge_usd = sum(amount), .groups = "drop")
   held_states <- bridge$st[bridge$bridge_usd > FSRS_HOLD_USD]

@@ -10,17 +10,17 @@ Assistance Listing 93.798, is an award source: the state's own federal filing of
 
 | | Before (pre-FSRS, `year1_summary_2026-11-09_pre_fsrs.csv`) | After (`year1_summary_2026-11-09.csv`) |
 |---|---:|---:|
-| Hospital best estimate | $2,075,115,137.63 | $2,479,894,187.13 |
-| Strict NAMED_HOSPITAL | 1,958 / $1,797,619,954.62 / 37 states | 2,213 / $2,176,937,123.12 / 42 states |
+| Hospital best estimate | $2,075,115,137.63 | $2,475,104,286.89 |
+| Strict NAMED_HOSPITAL | 1,958 / $1,797,619,954.62 / 37 states | 2,207 / $2,172,147,222.88 / 42 states |
 | Strict POOL_NAMED / POOL_UNNAMED | $86,895,779.43 / $79,214,848.17 | unchanged |
-| Awards published | $4,559,997,148.39 | $6,208,187,376.47 |
-| National hospital % of awards | n/m (45.5% computed) | 39.9% (prints, ruling b) |
-| Subset row (states >=50% published, state sources) | n = 23: best $1,612,024,736.82, strict $1,507,090,381.12, 43.2% | n = 32: best $2,140,252,967.17, strict $1,923,040,748.33, 41.2% |
+| Awards published | $4,559,997,148.39 | $6,192,275,181.27 |
+| National hospital % of awards | n/m (45.5% computed) | 40.0% (prints, ruling b) |
+| Subset row (states >=50% published, state sources) | n = 23: best $1,612,024,736.82, strict $1,507,090,381.12, 43.2% | n = 32: best $2,135,463,066.93, strict $1,918,250,848.09, 41.2% |
 
 Change by state (best estimate; strict in brackets where it differs): IA +$163,815,846 (strict +$163,082,841); MN
 +$68,840,377; IL +$53,821,675; VA +$24,728,876 (strict $0); TN +$16,699,482; CT +$15,005,890; NC +$14,550,000;
-NE +$13,232,882; ND +$8,751,589; WV +$6,083,596; KY +$4,348,529; DE +$3,291,276; OK +$2,752,123; KS +$2,612,752;
-VT +$2,516,627; TX +$2,471,976; NV +$997,361; ME +$258,193. Award totals also move in HI, AZ, RI, NM, MT, AK, UT
+NE +$12,987,780; ND +$8,751,589; WV +$6,083,596; KY +$4,348,529; DE +$3,291,276; VT +$2,000,000; KS +$1,950,110;
+TX +$1,721,976; NV +$997,361; ME +$258,193; OK +$136,594. Award totals also move in HI, AZ, RI, NM, MT, AK, UT
 (no hospital dollars).
 
 ## What was built
@@ -30,7 +30,8 @@ VT +$2,516,627; TX +$2,471,976; NV +$997,361; ME +$258,193. Award totals also mo
 | `R/09b_fsrs_award_source.R` | `--validate`, `--plan`, `--apply`, `--strip`, `--report`. The overlay and the new files |
 | `R/09a_usaspending_rhtp.R --probe` | READ-ONLY weekly watch (116d): live file to a temp dir, 93.798 filter enforced, trips per state on report ids the archive lacks |
 | `config/fsrs_name_crosswalk.csv` | 338 hand-reviewed recipients: 238 MATCH, 84 NO_MATCH, 16 HOLD |
-| `data/reference/<st>_fsrs_awardees.csv` | 24 files, 721 rows: recipients in no award file (688) and extra subawards (33) |
+| `data/reference/<st>_fsrs_awardees.csv` | 23 files, 696 rows: recipients in no award file (666) and extra subawards (30) |
+| `config/fsrs_subaward_pairings.csv` | 25 subaward-to-roster-row pairings from the independent check |
 | `data/reference/fsrs_subaward_records.csv` | all 2,025 records with `record_status` (CURRENT / REFILING_SUPERSEDED / PREDATES_NOA) |
 | `fsrs_state_totals.csv`, `fsrs_nonfiling_states.csv` | per state count, total, % of allotment; the 19 non-filers as fact only |
 | `fsrs_reconciliation.csv`, `fsrs_held.csv`, `fsrs_differs_over_100k.csv` | status of every current subaward; every hold; every DIFFERS over $100K |
@@ -119,4 +120,21 @@ generator derives only from stored v3 prompts).
 
 ## Independent check (116d, Task 3)
 
-See the final section appended after the check returned.
+A separate agent recomputed the build from the 94 award files and the raw zip without seeing how it was made.
+- **Arithmetic: PASS.** The strict buckets, the best estimate and the 32-state subset row matched the committed CSV
+  to the cent, with 0 per-state disagreements.
+- **Double counting: FAILED on (d), now fixed.** 25 new FSRS rows were roster rows under another name, each with the
+  same amount to the cent. Six were hospital rows ($4,789,900.24): Newton Healthcare = NMC Health (KS); Alegent
+  Creighton = CHI Health Plainview (NE); Mercy Health System Okla = Mercy Health Oklahoma Communities; Carlos G. Otis
+  HCC = Grace Cottage (VT, x2); "General Hospital", Iraan = Iraan Hospital District (TX). The rest are non-hospital
+  ($11.1M of awards). All 25 are pinned in `config/fsrs_subaward_pairings.csv`, and R/09b now holds any new row whose
+  non-round amount equals a roster row in its state; that guard caught one more, NE Alegent Creighton $711,629.63.
+  Strict NAMED fell by exactly $4,789,900.24 (2,213 / $2,176,937,123.12 -> 2,207 / $2,172,147,222.88).
+- **(a)-(c), (e): PASS.** No subaward is priced twice or both priced and written new; no FSRS-priced row sits in a
+  pool counted at pool level (NC MIH's 37 lines, $10,524,908, reach its $10M round); no state exceeds its allotment
+  (HI 99.98%). Minor: nine `FSRS_PRICED_ON_ROW_n` labels point at rows that were not priced (pool members blocked
+  after pairing); no dollar is affected.
+- **15 FSRS-priced hospital rows against the zip: PASS** (IA, MN, IL, TN, CT, NC, ND); 13 multi-subaward rows round
+  by $0.01-0.05.
+- **Summary calls: PASS** on all rows.
+
