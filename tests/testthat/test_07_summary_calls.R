@@ -81,8 +81,9 @@ test_that("the summary layer does not move the strict partition", {
   # Utah Hospital Association ($9,891,739).
   # Session 114: the strict files moved again (OK CHW +29 at $0, MO Smart
   # Growth +14 / $31,862,169.80): 1,951 / $1,793,689,688.62 / 37.
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1951L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1793689688.62)
+  # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 1954L)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 1797619954.62)
   expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
   expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.

@@ -1417,6 +1417,9 @@ WV,wv_year1_awardees.csv,20,Broaddus Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment
 WV,wv_year1_awardees.csv,21,Vandalia Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 WV,wv_year1_awardees.csv,27,West Virginia United (WVU) Health System,2500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510001: PART A PROVIDER - HOSPITAL",FALSE,510001,GENERAL_KNOWLEDGE
 WV,wv_year1_awardees.csv,28,West Virginia United (WVU) Health System,900000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510001: PART A PROVIDER - HOSPITAL",FALSE,510001,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,31,Charleston Area Medical Center (CAMC),500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510022: PART A PROVIDER - HOSPITAL",FALSE,510022,ORG_WEBSITE
+WV,wv_year1_awardees.csv,32,Charleston Area Medical Center (CAMC),1693946,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510022: PART A PROVIDER - HOSPITAL",FALSE,510022,ORG_WEBSITE
+WV,wv_year1_awardees.csv,33,Charleston Area Medical Center (CAMC),1736320,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510022: PART A PROVIDER - HOSPITAL",FALSE,510022,ORG_WEBSITE
 TN,tn_year1_awardees.csv,26,Cookeville Regional Medical Center Foundation,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440059: PART A PROVIDER - HOSPITAL",FALSE,440059,GENERAL_KNOWLEDGE
 TN,tn_year1_awardees.csv,36,"Macon Hospital, Inc",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 441305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,441305,GENERAL_KNOWLEDGE
 WA,wa_year1_awardees.csv,4,University of Washington (WWAMI Family Medicine Residency Network),5460000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 500008: PART A PROVIDER - HOSPITAL",FALSE,500008,ORG_WEBSITE

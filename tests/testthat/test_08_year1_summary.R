@@ -1,9 +1,10 @@
 # test_08_year1_summary.R -- the Year 1 summary table and workbook
 #
-# The totals are PINNED to the 2026-11-04 build (session 114, after the OK CHW
-# and MO Smart Growth owner rulings; session 112 pinned 2026-11-02, the final
+# The totals are PINNED to the 2026-11-09 build (session 115, after WV's 10-30
+# CAMC release; session 114 pinned 2026-11-04, after the OK CHW and MO Smart
+# Growth owner rulings; session 112 pinned 2026-11-02, the final
 # Monday build; session 111 pinned 2026-10-29; the session 110 dry run was
-# 2026-10-28). The change from 2026-11-02 is decomposed by state in its own test.
+# 2026-10-28). The change from 2026-11-04 is decomposed by state in its own test.
 
 source(here::here("R", "08_year1_summary.R"))
 
@@ -25,16 +26,19 @@ test_that("one row per state plus a national row, and the national row is the co
   }
 })
 
-test_that("the 2026-11-04 totals are pinned (session 114)", {
+test_that("the 2026-11-09 totals are pinned (session 115)", {
   expect_equal(us$allotment_usd, 1e10, tolerance = 1e-9)
   # Session 114: 4,052,876,537.91 -> 4,092,277,358.46 (+ MO Smart Growth
   # contingent roster, 25 rows, $39,400,820.55).
-  expect_equal(round(us$published_priced_usd, 2), 4092277358.46, tolerance = 1e-12)
+  # Session 115: + WV CAMC $3,930,266 -> 4,096,207,624.46.
+  expect_equal(round(us$published_priced_usd, 2), 4096207624.46, tolerance = 1e-12)
   # Session 114: 4,512,205,898.91 -> 4,556,066,882.39 (+ MO $39,400,820.55,
   # + OK CHW Expansion pool $4,460,162.93, on no row).
-  expect_equal(round(us$award_total_usd, 2), 4556066882.39, tolerance = 1e-12)
+  # Session 115: + WV CAMC $3,930,266.
+  expect_equal(round(us$award_total_usd, 2), 4559997148.39, tolerance = 1e-12)
   # Session 114: + MO's 14 hospital rows, $31,862,169.80.
-  expect_equal(round(us$hospital_coded_usd, 2), 1853207624.44, tolerance = 1e-12)
+  # Session 115: + WV CAMC's three hospital rows, $3,930,266.
+  expect_equal(round(us$hospital_coded_usd, 2), 1857137890.44, tolerance = 1e-12)
   expect_equal(round(us$hospital_best_judgment_usd, 2), 217977247.19, tolerance = 1e-12)
   expect_equal(round(us$hospital_bj_row_usd, 2), 173882084.26, tolerance = 1e-12)
   # GA $6.5M + $15.635M; session 114 + OK CHW Expansion $4,460,162.93 (29 of
@@ -43,8 +47,8 @@ test_that("the 2026-11-04 totals are pinned (session 114)", {
   expect_equal(round(us$hospital_bj_pool_usd, 2), 26595162.93)
   # NH FHC's CAH and Acute Care Hospital RFA, "approximately $17.5 million" (ruling a).
   expect_equal(round(us$hospital_bj_component_usd, 2), 17500000)
-  expect_equal(round(us$hospital_summary_usd, 2), 2071184871.63, tolerance = 1e-12)
-  expect_equal(round(us$strict_named_hospital_usd, 2), 1793689688.62, tolerance = 1e-12)
+  expect_equal(round(us$hospital_summary_usd, 2), 2075115137.63, tolerance = 1e-12)
+  expect_equal(round(us$strict_named_hospital_usd, 2), 1797619954.62, tolerance = 1e-12)
   expect_equal(round(us$strict_pool_named_hospitals_usd, 2), 86895779.43)
   expect_equal(round(us$strict_pool_unnamed_hospitals_usd, 2), 79214848.17)
   expect_equal(round(us$layer_association_ruling_usd, 2), 187258340.60)
@@ -52,33 +56,33 @@ test_that("the 2026-11-04 totals are pinned (session 114)", {
   # Session 114: + MO's four CAHs (Hermann, Mercy Perry, Scotland, Washington
   # County), $7,305,357.76.
   expect_equal(round(us$strict_rural_cut_usd, 2), 566590756.19)
-  expect_equal(us$best_judgment_rows, 639L)   # session 114: 631 -> 639 (OK CHW 3, MO SG 5)
-  expect_equal(us$named_hospital_recipients_no_amount, 298L)   # + 29 OK CHW
+  # session 114: 631 -> 639 (OK CHW 3, MO SG 5); session 115: -1 (CA Legacy MD
+  # Medical Group now CODED as PHYSICIAN_PRACTICE).
+  expect_equal(us$best_judgment_rows, 638L)
+  # + 29 OK CHW (session 114); - AVEM Health Partners (session 115, owner ruling a).
+  expect_equal(us$named_hospital_recipients_no_amount, 297L)
   expect_equal(us$hospital_share_of_awards_pct, 45.5)
-  expect_equal(us$hospital_share_of_allotment_pct, 20.7)
+  expect_equal(us$hospital_share_of_allotment_pct, 20.8)
 })
 
-test_that("the change from the 11-02 build is exactly the session 114 changes, state by state", {
-  old <- readr::read_csv(here::here(YS_OUT("2026-11-02")), show_col_types = FALSE)
+test_that("the change from the 11-04 build is exactly the session 115 changes, state by state", {
+  old <- readr::read_csv(here::here(YS_OUT("2026-11-04")), show_col_types = FALSE)
   d <- function(col) {
     v <- round(s[[col]] - old[[col]][match(s$state, old$state)], 2)
     k <- abs(v) > 0.005 & !s$state %in% YS_NATIONAL
     stats::setNames(v[k], s$state[k])
   }
-  # 2,034,862,538.90 -> 2,071,184,871.63 = +36,322,332.73:
-  #   MO Smart Growth contingent roster, 14 hospital rows (+31,862,169.80, intents but two)
-  #   OK CHW Expansion pool, called HOSPITAL on 29 of 48 typed members (+4,460,162.93)
-  expect_equal(round(us$hospital_summary_usd - 2034862538.90, 2), 36322332.73)
-  expect_equal(d("hospital_summary_usd"), c(MO = 31862169.80, OK = 4460162.93))
-  expect_equal(d("strict_named_hospital_usd"), c(MO = 31862169.80))
-  expect_equal(round(us$strict_named_hospital_usd - 1761827518.82, 2), 31862169.80)
-  expect_equal(d("hospital_bj_pool_usd"), c(OK = 4460162.93))
-  expect_equal(d("award_total_usd"), c(MO = 39400820.55, OK = 4460162.93))
-  expect_equal(round(us$award_total_usd - 4512205898.91, 2), 43860983.48)
-  # MO's 23 contingent rows are intents ($31,135,059.92); the two CMS-approved
-  # rows ($8,265,760.63) are not.
-  expect_equal(d("award_intent_usd"), c(MO = 31135059.92))
-  expect_equal(d("layer_intent_usd"), c(MO = 23596409.17))
+  # 2,071,184,871.63 -> 2,075,115,137.63 = +3,930,266: WV's 10-30 CAMC release,
+  # three priced awards to Charleston Area Medical Center (CCN 510022).
+  expect_equal(round(us$hospital_summary_usd - 2071184871.63, 2), 3930266)
+  expect_equal(d("hospital_summary_usd"), c(WV = 3930266))
+  expect_equal(d("strict_named_hospital_usd"), c(WV = 3930266))
+  expect_equal(d("award_total_usd"), c(WV = 3930266))
+  expect_equal(d("hospital_bj_pool_usd"), stats::setNames(numeric(0), character(0)))
+  # The owner rulings move rows, not dollars: OK AVEM (no amount) leaves the
+  # hospital rows; CA Legacy MD Medical Group becomes CODED.
+  expect_equal(d("hospital_rows"), c(OK = -1, WV = 3))
+  expect_equal(d("best_judgment_rows"), c(CA = -1))
 })
 
 test_that("the summary figure reconciles to the strict partition, dollar for dollar", {
@@ -112,19 +116,19 @@ test_that("no state's award total exceeds its allotment (the NV double count sta
   expect_equal(st$pool_level_usd[st$state == "LA"], 10736208)
 })
 
-test_that("the committed 2026-11-04 build is what the builder produces", {
-  f <- here::here(YS_OUT("2026-11-04"))
+test_that("the committed 2026-11-09 build is what the builder produces", {
+  f <- here::here(YS_OUT("2026-11-09"))
   expect_true(file.exists(f))
   committed <- readr::read_csv(f, show_col_types = FALSE)
   expect_equal(committed$state, s$state)
   expect_equal(names(committed), names(s))
   expect_equal(round(committed$hospital_summary_usd, 2), round(s$hospital_summary_usd, 2))
   expect_equal(round(committed$award_total_usd, 2), round(s$award_total_usd, 2))
-  expect_true(file.exists(here::here(YS_XLSX("2026-11-04"))))
+  expect_true(file.exists(here::here(YS_XLSX("2026-11-09"))))
 })
 
 test_that("the workbook has the five sheets, and every Detail column is defined", {
-  x <- here::here(YS_XLSX("2026-11-04"))
+  x <- here::here(YS_XLSX("2026-11-09"))
   expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Definitions", "Notes and caveats", "Sources"))
   expect_setequal(YS_DEFINITIONS$column, names(s))
   dt <- openxlsx::read.xlsx(x, "Detail")
@@ -145,7 +149,7 @@ test_that("the workbook has the five sheets, and every Detail column is defined"
 # -- session 111b: presentation only. Every cell below is checked against
 # ys_build(), so a figure that moved would fail here, not just look different.
 
-ov_x <- here::here(YS_XLSX("2026-11-04"))
+ov_x <- here::here(YS_XLSX("2026-11-09"))
 ov <- openxlsx::read.xlsx(ov_x, "Overview", check.names = FALSE, sep.names = " ")
 so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
 # the n/m test reads STATE-SOURCED awards (CMS obligation-report files removed)
@@ -373,7 +377,7 @@ test_that("Ohio's pools are NOT and Indiana Region 5 is NOT (a tie), on typed me
 })
 
 test_that("session 114: the Notes INTENTS line lists the states from the data", {
-  line <- ys_notes(s, "2026-11-04", rows)$note
+  line <- ys_notes(s, "2026-11-09", rows)$note
   line <- line[startsWith(line, "INTENTS ARE NOT EXECUTED AWARDS.")]
   expect_length(line, 1L)
   k <- st_only[st_only$layer_intent_usd > 0, ]
