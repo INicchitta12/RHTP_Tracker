@@ -20,7 +20,7 @@ Assistance Listing 93.798, is an award source: the state's own federal filing of
 Change by state (best estimate; strict in brackets where it differs): IA +$163,815,846 (strict +$163,082,841); MN
 +$68,840,377; IL +$53,821,675; VA +$24,728,876 (strict $0); TN +$16,699,482; CT +$15,005,890; NC +$14,550,000;
 NE +$12,987,780; ND +$8,751,589; WV +$6,083,596; KY +$4,348,529; DE +$3,291,276; VT +$2,000,000; KS +$1,950,110;
-TX +$1,721,976; NV +$997,361; ME +$258,193; OK +$136,594. Award totals also move in HI, AZ, RI, NM, MT, AK, UT
+NV +$997,361; ME +$258,193; OK +$136,594. Award totals also move in HI, AZ, RI, NM, MT, TX
 (no hospital dollars).
 
 ## What was built
