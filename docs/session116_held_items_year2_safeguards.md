@@ -107,8 +107,8 @@ held.**
 | KS | ERROR | KDHE 403 (our access). |
 | AK, CMS ×2 | UNCHANGED | |
 
-No priced state-source Year 1 roster appeared, so nothing was extracted under the pre-approval. HI (18:30Z) and KY
-(19:30Z) fire after this write-up; NEWSROOM's 16:50Z line is read below if it arrived before the suite finished.
+No priced state-source Year 1 roster appeared, so nothing was extracted under the pre-approval. `main` had nothing newer
+at 16:25Z. NEWSROOM (16:50Z), HI (18:30Z) and KY (19:30Z) fire after this write-up and are unread.
 
 ## Task 4 — Rebuild
 
@@ -184,7 +184,14 @@ lost.
 
 ## Suite
 
-See the commit that records the run.
+- **First full run** (`Rscript tests/run_tests.R`) stopped at its 10-failure cap. Every failure was a side effect of
+  the new column:
+  - Six committed-vs-built column checks now use `rhtp_strip_summary_calls()`, which undoes the stamp.
+  - `test_03bk`'s UMMS pin now reads `budget_period = "1"` and `budget_period_text = "BP1"`.
+  - The IA R2 file lacked the union's `aha_id`, `rural_designation` and `reviewer` columns.
+- **Second full run, after the last change:** 0 failures, 0 errors, in 19m31s.
+  - 1 skip: the CMS first-run branch, which is expected.
+  - 2 pre-existing warnings in `test_03bj`.
 
 ## Next
 
