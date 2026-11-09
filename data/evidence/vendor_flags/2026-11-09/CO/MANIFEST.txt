@@ -1,0 +1,15 @@
+Colorado HCPF -- "Colorado Annual Report as of 6.31.26" (CMS RHT Program Annual Report workbook, completed by the state)
+Archived by session 116b (vendor-flag layer) for its First-Tier Entities and Use of Funds tabs.
+
+url: https://hcpf.colorado.gov/sites/hcpf/files/Colorado%20Annual%20Report%20as%20of%206.31.26.xlsx
+  (301 to https://hcpf.colorado.gov/sites/g/files/lrnvjt4251/files/Colorado%20Annual%20Report%20as%20of%206.31.26.xlsx)
+fetched_at_utc: 2026-11-09
+user-agent: Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+  (the bare project agent "AHA-RHTP-Tracker/0.1 (+https://www.aha.org)" received a CloudFront 403 the same minute)
+774f1cacf8049910df910052bb76b4020fc060add88e099a90d90517f458fe99  2026-11-09_co_hcpf_annual_report_as_of_6.31.26.xlsx  (1879322 bytes, body as served)
+
+Session 105 read the same URL (1,879,322 bytes, the same size) but did not archive it.
+What it is: the state's own annual report. A First-Tier Entities dollar is an OBLIGATION to a
+first-tier entity, not a subaward (session 97's rule). Used ONLY by R/09_vendor_flags.R:
+HealthTech Solutions, LLC, entity type "Other Consulting", obligated $1,880,900, disbursed $186,310
+(Use of Funds CO13 $50,100 + CO14 $1,830,800).
