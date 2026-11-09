@@ -2123,7 +2123,7 @@ Stage 4's `data/interim/review_queue.rds`, which does not exist yet.
 
 ### Routines
 
-Every Routine is in `config/routines.csv`. There are 44 (AL added session 84, IA session 101, HI session 102, IL session 106, RI session 107, FSRS session 116d: `trig_01NcEJkGQZVkxSWcEd5rm538`, Tue 21:17Z, runner `session_01Y1P5ePyT1E4HK7tZNZiwpU`, `R/09a --probe`; its v4 prompt was written from AL's, not by the generator), each on its own persistent runner session. Session 108 moved SD, WA and VA to new runners (old ids disabled and chained). Prompts:
+Every Routine is in `config/routines.csv`. There are 44 (AL added session 84, IA session 101, HI session 102, IL session 106, RI session 107, FSRS session 116d: `trig_01NcEJkGQZVkxSWcEd5rm538`, Tue 21:17Z, runner `session_01Y1P5ePyT1E4HK7tZNZiwpU`, `R/09a --probe`; v3/FSRS.txt is AL's with the state, runner and script substituted, and v4 derives from it), each on its own persistent runner session. Session 108 moved SD, WA and VA to new runners (old ids disabled and chained). Prompts:
 `config/routine_prompts/v4/<ST>.txt`, derived from the stored v3 prompts by `R/routine_prompts_worktree.R`
 (`--write`, `--check`); runner moves in `config/routine_prompts/runner_moves.csv`. Coverage: `Rscript R/probe_coverage.R --check`. Explained misses:
 `config/probe_gaps_explained.csv`.
