@@ -38,10 +38,14 @@
 #
 # CLI
 #   Rscript R/09a_usaspending_rhtp.R --fetch      # request, poll, archive zip + manifest
+#   RHTP_PROBE_ORIGIN=interactive Rscript R/09a_usaspending_rhtp.R --probe
+#                                                 # READ-ONLY weekly watch (session 116d): live
+#                                                 # report ids vs the archive; trips per state
 #   Rscript R/09a_usaspending_rhtp.R --validate   # assertions on the archive, offline
 #   Rscript R/09a_usaspending_rhtp.R --build      # data/reference/usaspending_rhtp_*.csv
 #   Rscript R/09a_usaspending_rhtp.R --report
 
+source(here::here("R", "utils_config.R"))   # rhtp_probe_run() for --probe
 suppressPackageStartupMessages({
   library(dplyr)
   library(readr)
@@ -86,6 +90,66 @@ usa_post <- function(path, body, tries = 4) {
     Sys.sleep(2^i)
   }
   stop("[usaspending] POST ", path, " failed after ", tries, " tries", call. = FALSE)
+}
+
+#' Request, poll and download the custom award zip to `dest`. Refuses a download
+#' whose echoed filter is not 93.798 (the bulk endpoint dropped it once).
+usa_download <- function(dest, end_date, poll_seconds = 15, max_polls = 80) {
+  req <- usa_request_body(end_date)
+  resp <- usa_post("/download/awards/", req)
+  echoed <- resp$download_request$filters$program_numbers
+  if (!identical(as.character(echoed), USA_ALN)) {
+    stop("[usaspending] the download request did not keep the 93.798 filter ",
+         "(echoed: ", paste(echoed, collapse = ","), "). Refusing to fetch a ",
+         "national file.", call. = FALSE)
+  }
+  status <- NULL
+  for (i in seq_len(max_polls)) {
+    st <- httr::GET(resp$status_url, httr::user_agent(USA_AGENT), httr::timeout(60))
+    status <- httr::content(st, as = "parsed", simplifyVector = TRUE)
+    if (identical(status$status, "finished")) break
+    if (identical(status$status, "failed")) stop("[usaspending] download failed: ", status$message, call. = FALSE)
+    Sys.sleep(poll_seconds)
+  }
+  if (!identical(status$status, "finished")) stop("[usaspending] download never finished", call. = FALSE)
+  g <- httr::GET(resp$file_url, httr::user_agent(USA_AGENT), httr::timeout(600),
+                 httr::write_disk(dest, overwrite = TRUE))
+  httr::stop_for_status(g)
+  invisible(list(req = req, resp = resp, dest = dest))
+}
+
+#' READ-ONLY weekly watch (session 116d). Downloads the live 93.798 file into a
+#' temporary directory -- never data/raw or data/evidence -- and compares each
+#' state's FFATA subaward report ids with the committed archive. A state that
+#' has filed subawards the archive does not hold trips (one finding per state);
+#' re-archiving is `--fetch` with a new USA_AS_OF, a deliberate act after
+#' reading what changed (§2.2).
+usa_probe <- function(as_of = USA_AS_OF) {
+  td <- tempfile("usa_probe"); dir.create(td)
+  on.exit(unlink(td, recursive = TRUE), add = TRUE)
+  live_zip <- file.path(td, USA_ZIP)
+  usa_download(live_zip, format(Sys.Date(), "%Y-%m-%d"))
+  read_sub <- function(zip) {
+    m <- utils::unzip(zip, list = TRUE)$Name
+    m <- m[grepl("^Assistance_Subawards_", m)]
+    utils::unzip(zip, files = m, exdir = td)
+    readr::read_csv(file.path(td, m), col_types = readr::cols(.default = "c"), progress = FALSE, na = character())
+  }
+  live <- read_sub(live_zip)
+  old <- usa_read("sub", as_of)
+  st <- function(d) dplyr::if_else(d$prime_awardee_state_code == "", d$prime_award_primary_place_of_performance_state_code,
+                                   d$prime_awardee_state_code)
+  live$st <- st(live); old$st <- st(old)
+  new <- live[!live$subaward_sam_report_id %in% old$subaward_sam_report_id, ]
+  gone <- old[!old$subaward_sam_report_id %in% live$subaward_sam_report_id, ]
+  states <- sort(unique(c(live$st, old$st)))
+  res <- tibble::tibble(page = paste0("FSRS ", states),
+                        changed = vapply(states, function(x) any(new$st == x) || any(gone$st == x), logical(1)))
+  agg <- new %>% dplyr::group_by(st) %>%
+    dplyr::summarise(n = dplyr::n(), usd = sum(as.numeric(subaward_amount)), .groups = "drop")
+  findings <- if (nrow(agg)) paste0(agg$st, ": ", agg$n, " FFATA subaward report(s) not in the ", as_of,
+                                    " archive ($", format(round(agg$usd), big.mark = ","), "); read them, then re-archive with --fetch") else character(0)
+  list(changed = res$page[res$changed], findings = findings)
 }
 
 usa_fetch <- function(as_of = USA_AS_OF, poll_seconds = 15, max_polls = 80) {
@@ -228,6 +292,7 @@ usa_report <- function(as_of = USA_AS_OF) {
 if (sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--fetch" %in% args) usa_fetch()
+  if ("--probe" %in% args) rhtp_probe_run("FSRS", usa_probe())
   if ("--validate" %in% args) usa_validate()
   if ("--build" %in% args) usa_build()
   if ("--report" %in% args) usa_report()

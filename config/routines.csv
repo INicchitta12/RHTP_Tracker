@@ -42,3 +42,4 @@ IA,trig_01ECTghY5iHNh5RvWGLMfqBY,20 15 * * 4,R/03z_ia_year1_awardees.R,weekly,20
 HI,trig_017PbAESTaaMfYZ3nKcS3j1m,30 18 * * 1,R/03cd_hi_year1_awardees.R,weekly,2026-10-16T19:01:00Z,,,
 IL,trig_01B62afWZaQXR4Hooi2gjZmH,20 16 * * 3,R/03cg_il_rhtp_probe.R,weekly,2026-10-20T19:42:15Z,,,
 RI,trig_01WXYStckEw4tjE1Er77BV94,50 19 * * 2,R/03ci_ri_press_probe.R,weekly,2026-10-26T14:05:16Z,,,
+FSRS,trig_01NcEJkGQZVkxSWcEd5rm538,17 21 * * 2,R/09a_usaspending_rhtp.R,weekly,2026-11-09T20:45:04Z,,,

@@ -375,8 +375,10 @@ test_that("every probe that offers --probe also runs the name tripwire", {
   # Session 61 adds the NEWSROOM SWEEP: every page it reads is a press index,
   # the page §2.3 names as moving for reasons that are not the state awarding.
   # Its phrase test is scoped to headlines ABSENT from the baseline instead.
+  # Session 116d adds the FSRS watch: structured federal records diffed by
+  # report id (every new subaward IS a new recipient line), Alaska's shape.
   exempt <- c("03h_ak_year1_awardees.R", "03i_sd_rht_contracts.R",
-              "03bg_newsroom_sweep.R")
+              "03bg_newsroom_sweep.R", "09a_usaspending_rhtp.R")
   files <- list.files(here::here("R"), pattern = "\\.R$", full.names = TRUE)
   offenders <- character(0)
   for (f in files) {
