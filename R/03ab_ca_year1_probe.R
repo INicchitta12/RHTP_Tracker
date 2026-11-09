@@ -1221,7 +1221,39 @@ ca_status_recommended <- function(st) {
       "investments and clinical training partnerships'. Nothing is imputed.",
       "HCAI also says 'One applicant that was recommended to receive an award",
       "has subsequently withdrawn their application' without naming it."))
-  dplyr::bind_rows(st, tp, gap)
+  # Session 115 (carried from claude/festive-cori-sm3p3c, session 109's parallel
+  # branch): the Tribal Set-Aside is posted on the 10-28 funding page with its
+  # own Submittable portal. Tier 2, and INSIDE the initiative figures.
+  tsa <- tibble::tibble(
+    state = "CA",
+    channel = "Tribal Set-Aside",
+    administrator = "HCAI",
+    stated_pool = "$11.65 million, 'included within the initiative funding described above'",
+    stage = "OPEN",
+    eligible_class = paste("CALIFORNIA'S FEDERALLY RECOGNIZED TRIBES and the rural Tribal",
+                           "healthcare delivery system. Not a hospital class."),
+    publishes_roster = "No",
+    evidence = paste(
+      "SESSION 109: the funding page's Grant Guide and RFA are posted (no longer",
+      "'Coming Soon') with a Submittable 'Application Portal'",
+      "('calrht-bp1-tribal-set-aside'). Tier 2. The $11.65M is INSIDE the",
+      "initiative figures, so it is never added to them. Archived:",
+      paste0(CA_TRIBAL_SET_ASIDE_ARCHIVE, ".")))
+  ca_assert_tribal_set_aside()
+  dplyr::bind_rows(st, tp, gap, tsa)
+}
+
+CA_TRIBAL_SET_ASIDE_ARCHIVE <- "data/evidence/CA/2026-10-28_ca_hcai_calrht_funding_opportunities.html"
+
+#' The Tribal Set-Aside row rests on the archived funding page saying both
+#' sentences it quotes. Refuses if either is gone.
+ca_assert_tribal_set_aside <- function(path = here::here(CA_TRIBAL_SET_ASIDE_ARCHIVE)) {
+  txt <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  need <- c("calrht-bp1-tribal-set-aside", "11.65 million included within the initiative funding")
+  miss <- need[!vapply(need, grepl, logical(1), x = txt, fixed = TRUE)]
+  if (length(miss)) stop("[CA] the Tribal Set-Aside archive no longer says: ",
+                         paste(miss, collapse = "; "), call. = FALSE)
+  invisible(TRUE)
 }
 
 
