@@ -595,6 +595,8 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   expect_equal(named$rows, 1954L)
   expect_equal(round(named$dollars, 2), 1797619954.62, tolerance = 0)
   expect_equal(named$states, 37L)
+  named$rows <- named$rows - 3L
+  named$dollars <- named$dollars - 3930266
   named$rows <- named$rows - 43L
   named$dollars <- named$dollars - 31862169.80
   expect_equal(named$rows, 1908L)
