@@ -1,0 +1,13 @@
+FEDERAL RECORDS -- fetched 2026-11-09 by session 116c
+
+WHY: FSRS/FFATA subawards (R/09b_fsrs_award_source.R) add new award rows typed on CMS Hospital
+Enrollment (name and address). These six states had no archived hospital enrolment file. Committed as served (§0.5).
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)".
+
+file | sha256 | bytes | url
+cms_hosp_enrollments_AZ.json | 7d3a3daeaa929db59684974cb733ca463d0ae7b9748d4e5e68e6967d139a44e7 | 184622 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=AZ&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_HI.json | fa7124b203a33cb5046d86ce163106deccbb18ca7a225c22b5eb2ae1978353b0 | 40034 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=HI&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_KY.json | e970d7aa48ac08ba8c1d35c708a3add7551f0061f50c6a0abd153a20c1483d0d | 219714 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=KY&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_MN.json | 65a62209fa35c53ef1a32b3fe8136ff3afe7d55dfaced2a11bc6d160a7637bff | 276636 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=MN&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_NM.json | de6f9b719a584236a895fb39c502bb870542a81d8773ababd2bd894330dce70c | 86441 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=NM&size=5000 (Hospital Enrollments)
+cms_hosp_enrollments_SD.json | abc682bf3f8968907e13aa4ce5d7c3e93a3863758c910110b6d6ce9374fe4198 | 127404 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=SD&size=5000 (Hospital Enrollments)
