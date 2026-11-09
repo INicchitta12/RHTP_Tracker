@@ -607,6 +607,36 @@ rhtp_footer_allotments <- function() {
 #' failure -- if a figure fails this check, read the document.
 RHTP_FOOTER_ALLOTMENT_MARGIN <- 10000
 
+#' The Year 2 (Budget Period 2) INITIAL award every state is reported to get
+#'
+#' STATE-REPORTED, NOT A CMS FIGURE (session 116): Louisiana's 2026-11-05
+#' Advisory Council deck ("CMS provided Notice of Award for $100 million to
+#' cover state's administrative expenses for BP 2"), NCDHHS ("All states will
+#' receive an initial $100 million award, with additional funding to follow")
+#' and two footers that print allotment + $100M (CA, MN). Every signal is in
+#' data/reference/year2_signals.csv. CMS has published no FY2027 allotment;
+#' cms_fy2027_allotments.csv is empty. Used ONLY to recognise a cumulative
+#' footer so it is never read as a round total; it enters no figure.
+RHTP_YEAR2_INITIAL_AWARD <- 100000000
+
+#' What a footer figure IS, against the §7.1 anchor
+#'
+#' "ALLOTMENT" (Tier 1, BP1), "ALLOTMENT_PLUS_YEAR2_INITIAL" (BP1 + the $100M
+#' Year 2 initial award, cumulative, Tier 1), "OTHER" (read the document), or NA
+#' when the state has no anchor. Never returns a pool: a pool is "OTHER" that a
+#' human has read.
+rhtp_footer_class <- function(amount, state, margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                              allotments = NULL) {
+  if (is.null(allotments)) allotments <- rhtp_footer_allotments()
+  hit <- allotments$fy2026_allotment[allotments$state == state]
+  if (length(hit) != 1L || is.na(amount)) return(NA_character_)
+  if (abs(amount - hit) <= margin) return("ALLOTMENT")
+  if (abs(amount - (hit + RHTP_YEAR2_INITIAL_AWARD)) <= margin) {
+    return("ALLOTMENT_PLUS_YEAR2_INITIAL")
+  }
+  "OTHER"
+}
+
 #' Refuse a footer figure that is the state's allotment wearing a pool's grammar
 #'
 #' @param amount Numeric. The figure printed in the footer.
@@ -660,6 +690,21 @@ rhtp_assert_footer_not_allotment <- function(amount, state, declared_tier,
          "collision is the only signal there is. Read the document. If it IS ",
          "the allotment, declare it STATE_ALLOTMENT and keep it out of every ",
          "pool total; do NOT widen the margin.", call. = FALSE)
+  }
+
+  # SESSION 116: A FOOTER CAN NOW PRINT BP1 + THE YEAR 2 INITIAL AWARD.
+  # California's and Minnesota's pages print their allotment plus exactly
+  # $100,000,000 (Louisiana's 11-05 deck: "CMS provided Notice of Award for
+  # $100 million ... for BP 2"). That is a CUMULATIVE federal award, never a
+  # Tier 2 round total, and it is refused as a pool for the same reason the
+  # allotment itself is.
+  cumul <- hit + RHTP_YEAR2_INITIAL_AWARD
+  if (declared_tier == "SOLICITATION" && abs(amount - cumul) <= margin) {
+    stop("[§0.2] ", label, ": the footer prints ", money(amount),
+         ", which is ", state, "'s FY2026 allotment (", money(hit), ") plus the ",
+         "state-reported Year 2 initial award (", money(RHTP_YEAR2_INITIAL_AWARD),
+         "). That is a CUMULATIVE CMS award (BP1 + BP2), never a round total. ",
+         "Do not read it as a pool and do not widen the margin.", call. = FALSE)
   }
 
   if (!collides && declared_tier == "STATE_ALLOTMENT") {
