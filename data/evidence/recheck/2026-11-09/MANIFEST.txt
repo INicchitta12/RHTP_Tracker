@@ -1,0 +1,6 @@
+Session 115 (2026-11-09): sources read for the probe-log review since 11-02. HELD, NOT EXTRACTED (docs/session115_probe_log_cleanup.md). Fetched 2026-11-09 by session-115 read-only reads; HTML scripts stripped (full-page digest given). Credential scan: none.
+739816baf3461883b394ba742fba2161398eb08823eca382e2406d31934e550c  IA/2026-11-09_ia_noia_compadm26008_combat_cancer_round2.pdf  https://hhs.iowa.gov/media/19192/download?inline
+44592102cca11f7a9c72ff96650daa193063cbe54f3d4f3705e963bd3226f008  LA/2026-11-09_la_advisory_council_2026-11-05_bp1_awards_report.pdf  https://ldh.la.gov/assets/docs/Secretary/RHTP/AC_Meeting_11.05.2026.pdf
+04fedd4eb3ecf465b0aabb04877baaacbdf83e566bc8dd2a2d6c329aa81c76c9  NC/2026-11-09_nc_list_of_projects_year1.csv  https://www.ncdhhs.gov/nc-locator/list-of-projects-year-1/csv
+8db1fb0144b5a10847ac684350592499a10cb357f8a5a9c0fa8f007fd8fc1c90  NC/2026-11-09_nc_our_progress_page.html  https://www.ncdhhs.gov/about/department-initiatives/rural-health-transformation-program/transforming-rural-health-north-carolina-our-progress  full_page_sha256=d024168d3c98d7de9f46953a6990d5b05ae581886602600710bdf9ac51309881
+01d4e1c47b32eb3ff2ba777cd723d3ab8ed2fedaf643980e1a6fae8cb3eda22e  NC/2026-11-09_nc_year1_exec_summary.pdf  NCDHHS Year 1 executive summary (linked from the Our Progress page)
