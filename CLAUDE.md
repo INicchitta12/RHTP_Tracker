@@ -1952,15 +1952,15 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 2 (AZ RI). UT left QUEUED by extraction in session 112 (R/03cn); it has no probe or Routine yet. A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-11-09, session 115, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-11-09, session 116, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 1,956 / $1,801,075,375.62
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 1,960 / $1,801,075,375.62
 (NV's FLEX-28 $997,361.00 and FLEX-36 $2,458,060.00 back in; HHSC corrected Anson in session 112); never
 publish it alone.
 
 ```
-NAMED_HOSPITAL          1,954 rows   $1,797,619,954.62   37 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS)
+NAMED_HOSPITAL          1,958 rows   $1,797,619,954.62   37 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS)
 POOL_NAMED_HOSPITALS       10 rows      $86,895,779.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
@@ -2034,6 +2034,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | TX | 445 | 445 | $224,596,379 (Year 1 subset, the 10/29 list; the $8M and $87M releases reconcile to its weekly sections) | 286 / $191,913,856 (HHSC corrected the three SOURCE_SUSPECT lines, Anson HD now $262,566.30 on REH 670781; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 159 / $108,586,856; LOW 91 / $61,493,003) |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 0 | — | 218 / $0 |
+| IA CC R2 | 4 | 0 | — | 4 / $0 (Combat Cancer Health Hubs Round 2 NOIA, COMPADM26008, 2026-08-12; INTENTS; typed on CMS IA enrolment, CCNs 160047/160064/160082/160083 in the basis; footer is the allotment; owner ruling session 116) |
 | NC | 44 | 0 | — | 2 / $0 |
 | NC SBHC | 5 | 0 | — (pool $1.25M) | 1 / $0 (FirstHealth) |
 | TN | 53 | 0 | — | 2 / $0 |

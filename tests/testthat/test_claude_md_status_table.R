@@ -50,7 +50,9 @@ TABLE_LABEL_TO_KEY <- c(
   "OK Lung" = "OK_LUNG", "OK Telestroke" = "OK_TELESTROKE",
   "OK Closed-Loop" = "OK_CLOSED_LOOP", "OK GYO" = "OK_GYO", "OK Transport" = "OK_TRANSPORT",
   # Session 114: OK's CHW Expansion members and MO's Smart Growth contingent roster.
-  "OK CHW" = "OK_CHW", "MO SG" = "MO_SG"
+  "OK CHW" = "OK_CHW", "MO SG" = "MO_SG",
+  # Session 116.
+  "IA CC R2" = "IA_CC_R2"
 )
 
 # The hospital cell's bucket prefixes. An unprefixed "N / $X" is NAMED_HOSPITAL,
