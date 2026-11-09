@@ -1,0 +1,93 @@
+pattern,canonical_name,parent_company,entity_class,hq_state,basis,notes
+\bDeloitte\b,Deloitte Consulting LLP,Deloitte,CONSULTING_BIG,NY,GENERAL_KNOWLEDGE: Deloitte LLP US headquarters New York NY,FSRS address for the DE subaward is Lake Mary FL (an office); either is out of state for every awarding state here
+\bMcKinsey\b,McKinsey & Company,McKinsey & Company,CONSULTING_BIG,NY,GENERAL_KNOWLEDGE: headquarters New York NY,
+Ernst ?(&|and) ?Young|\bEY LLP\b,Ernst & Young LLP,EY,CONSULTING_BIG,NY,GENERAL_KNOWLEDGE: EY US headquarters New York NY,
+Boston Consulting Group|\bBCG\b,Boston Consulting Group,Boston Consulting Group,CONSULTING_BIG,MA,GENERAL_KNOWLEDGE: headquarters Boston MA,
+\bBain (&|and) Company\b,Bain & Company,Bain & Company,CONSULTING_BIG,MA,GENERAL_KNOWLEDGE: headquarters Boston MA,user-listed; no hit in any source at 2026-11-09
+\bKPMG\b,KPMG LLP,KPMG,CONSULTING_BIG,NY,GENERAL_KNOWLEDGE: KPMG US headquarters New York NY,user-listed; no hit in any source at 2026-11-09
+PricewaterhouseCoopers|\bPwC\b,PwC US,PwC,CONSULTING_BIG,NY,GENERAL_KNOWLEDGE: PwC US headquarters New York NY,user-listed; no hit in any source at 2026-11-09
+\bAccenture\b,Accenture,Accenture plc,CONSULTING_BIG,IE,GENERAL_KNOWLEDGE: Accenture plc is domiciled in Dublin Ireland,user-listed; no hit in any source at 2026-11-09
+\bGuidehouse\b,Guidehouse Inc.,Guidehouse,CONSULTING_BIG,VA,SOURCE_ADDRESS: USAspending FSRS subawardee address McLean VA (NM subaward); open.sd.gov vendor address Chicago IL (an office),
+Public Consulting Group,Public Consulting Group LLC,Public Consulting Group,CONSULTING_OTHER,MA,GENERAL_KNOWLEDGE: headquarters Boston MA,
+^Health Management Associates,"Health Management Associates, Inc.",Health Management Associates,CONSULTING_OTHER,MI,SOURCE_ADDRESS: open.sd.gov vendor address Okemos MI,"Anchored: the consulting firm only. ""METRO KNOXVILLE HMA, LLC"" (TN FSRS) is a hospital company subsidiary and must never match"
+\bManatt\b,Manatt Health Strategies LLC,"Manatt, Phelps & Phillips",CONSULTING_OTHER,CA,SOURCE_ADDRESS: USAspending FSRS subawardee address Los Angeles CA,
+Myers ?(&|and) ?Stauffer,Myers and Stauffer LC,Myers and Stauffer,CONSULTING_OTHER,MO,SOURCE_ADDRESS: open.sd.gov vendor address Kansas City MO,
+\bEide Bailly\b,Eide Bailly LLP,Eide Bailly,CONSULTING_OTHER,ND,GENERAL_KNOWLEDGE: headquarters Fargo ND,user-listed; no hit in any source at 2026-11-09
+\bCOPE Health\b,COPE Health Solutions,COPE Health Solutions,CONSULTING_OTHER,CA,GENERAL_KNOWLEDGE: headquarters Los Angeles CA,user-listed; no hit in any source at 2026-11-09
+\bChartis\b,The Chartis Group,The Chartis Group,CONSULTING_OTHER,IL,GENERAL_KNOWLEDGE: headquarters Chicago IL,user-listed; no hit in any source at 2026-11-09
+\bNavigant\b,Navigant Consulting,Guidehouse,CONSULTING_OTHER,IL,GENERAL_KNOWLEDGE: headquarters Chicago IL; acquired by Guidehouse 2019,user-listed; no hit in any source at 2026-11-09
+\bBDO\b,BDO USA / BDO Government Services LLC,BDO USA,CONSULTING_OTHER,IL,GENERAL_KNOWLEDGE: BDO USA headquarters Chicago IL,Added (not on the user's list): BDO is a national accounting and advisory firm
+\bMathematica\b,Mathematica Inc.,Mathematica,CONSULTING_OTHER,NJ,GENERAL_KNOWLEDGE: headquarters Princeton NJ,Added: national research and consulting firm
+RTI International,RTI International,RTI International,CONSULTING_OTHER,NC,GENERAL_KNOWLEDGE: headquarters Research Triangle Park NC,Added: nonprofit research institute that sells evaluation services
+National Opinion Research Center|\bNORC\b,NORC at the University of Chicago,NORC at the University of Chicago,CONSULTING_OTHER,IL,GENERAL_KNOWLEDGE: headquarters Chicago IL,Added: research and evaluation organisation
+\bBailit Health\b,"Bailit Health Purchasing, LLC",Bailit Health,CONSULTING_OTHER,MA,GENERAL_KNOWLEDGE: headquarters Needham MA,Added: health-policy consulting firm
+Alvarez ?(&|and) ?Marsal,Alvarez & Marsal,Alvarez & Marsal,CONSULTING_OTHER,NY,GENERAL_KNOWLEDGE: headquarters New York NY,Added: national management-consulting firm
+\bFreedman ?Health ?Care\b,"Freedman HealthCare, LLC",Freedman HealthCare,CONSULTING_OTHER,MA,SOURCE_ADDRESS: USAspending FSRS subawardee address Burlington MA,Added
+\bPYA\b,"PYA, P.C.",PYA,CONSULTING_OTHER,TN,GENERAL_KNOWLEDGE: headquarters Knoxville TN,"Added. KS budget narrative calls it ""a national healthcare consultancy"""
+\bBioSTL\b,BioSTL,BioSTL,CONSULTING_OTHER,MO,"SOURCE_ADDRESS: KS budget narrative, ""BioSTL is a St. Louis-based nonprofit organization""",Added: technology-adoption consulting (the KS narrative's own word is consulting services)
+HK Consulting,HK Consulting,HK Consulting,CONSULTING_OTHER,UNKNOWN,NONE: no address in the UT announcement and none known,Added. Utah's largest non-government line after its state agencies ($11M intent); headquarters not established here
+"^Engineering Solutions,? Inc",Engineering Solutions Inc,Engineering Solutions Inc,CONSULTING_OTHER,OR,SOURCE_ADDRESS: open.sd.gov vendor address West Linn OR,"Added: SD contract ""grant and administrative support"""
+Casi Wilson Consulting,"Casi Wilson Consulting, LLC",Casi Wilson Consulting,CONSULTING_OTHER,ID,SOURCE_ADDRESS: USAspending FSRS subawardee address Boise ID,Added
+\bCovendis\b,Covendis,Covendis,CONSULTING_OTHER,UNKNOWN,NONE: CMS obligation line gives no address,"Added: CMS line says ""vendor management, staffing, and professional consulting support services"""
+\bEpic Systems\b|^Epic$,Epic Systems Corporation,Epic Systems,TECH_VENDOR,WI,GENERAL_KNOWLEDGE: headquarters Verona WI,user-listed; named only as a PRODUCT in a CMS line (OR-004-24-140) and never as a recipient
+\bOracle\b|\bCerner\b,Oracle Health (Cerner),Oracle Corporation,TECH_VENDOR,TX,GENERAL_KNOWLEDGE: Oracle headquarters Austin TX,
+\bMicrosoft\b,Microsoft Corporation,Microsoft,TECH_VENDOR,WA,GENERAL_KNOWLEDGE: headquarters Redmond WA,
+\bSalesforce\b,Salesforce,Salesforce,TECH_VENDOR,CA,GENERAL_KNOWLEDGE: headquarters San Francisco CA,user-listed; no hit in any source at 2026-11-09
+\bTeladoc\b,Teladoc Health,Teladoc Health,TECH_VENDOR,NY,GENERAL_KNOWLEDGE: headquarters Purchase NY,user-listed; named only as a PRODUCT in a CMS line (Teladoc carts bought by a hospital) and never as a recipient
+BioIntelliSense,"BioIntelliSense, Inc.",BioIntelliSense,TECH_VENDOR,CO,GENERAL_KNOWLEDGE: headquarters Golden CO,
+Redi Health,Redi Health Analytics LLC,Redi Health Analytics,TECH_VENDOR,UNKNOWN,NONE: CMS obligation line gives no address,
+HealthTech Solutions,"HealthTech Solutions, LLC",HealthTech Solutions,TECH_VENDOR,KY,GENERAL_KNOWLEDGE: headquarters Frankfort KY,"Colorado's own annual report types it ""Other Consulting""; kept TECH_VENDOR on the user's list"
+CommunityHealth IT,CommunityHealth IT,CommunityHealth IT,TECH_VENDOR,UNKNOWN,NONE: no address in Florida's roster,Added: Florida's largest non-hospital recipient (four lines)
+\bFindhelp\b,"Findhelp, Inc.",Findhelp,TECH_VENDOR,TX,GENERAL_KNOWLEDGE: headquarters Austin TX,Added: closed-loop referral platform
+Unite USA|\bUnite Us\b,Unite USA Inc. (Unite Us),Unite Us,TECH_VENDOR,NY,SOURCE_ADDRESS: USAspending FSRS subawardee address New York NY,Added: closed-loop referral platform
+\bMapHabit\b,MapHabit Inc,MapHabit,TECH_VENDOR,GA,SOURCE_ADDRESS: USAspending FSRS subawardee address Atlanta GA,Added
+\bPear Suite\b,"Pear Suite, Inc.",Pear Suite,TECH_VENDOR,HI,SOURCE_ADDRESS: USAspending FSRS subawardee address Honolulu HI,Added: community health worker software
+Real Time Medical Systems,Real Time Medical Systems LLC,Real Time Medical Systems,TECH_VENDOR,MD,SOURCE_ADDRESS: USAspending FSRS subawardee address Columbia MD,Added
+\bCaringWire\b,CaringWire LLC,CaringWire,TECH_VENDOR,OH,SOURCE_ADDRESS: USAspending FSRS subawardee address Dublin OH,Added
+\bAndor Health\b,"Andor Health, LLC",Andor Health,TECH_VENDOR,FL,GENERAL_KNOWLEDGE: headquarters Orlando FL (not verified against a source),Added: virtual-care platform
+22nd Century Tech,"22nd Century Technologies, Inc.",22nd Century Technologies,TECH_VENDOR,UNKNOWN,NONE: no address in Idaho's roster,Added: IT services firm
+Fond of You|\bSomethings\b,"Fond of You, Inc. (Somethings)",Fond of You,TECH_VENDOR,NY,SOURCE_ADDRESS: USAspending FSRS subawardee address Brooklyn NY,Added: digital youth mental-health service
+\bGainwell\b,Gainwell Technologies,Gainwell Technologies,TECH_VENDOR,VA,GENERAL_KNOWLEDGE: headquarters Chantilly VA,Added as a watch pattern (large Medicaid IT vendor); no hit at 2026-11-09
+\bMaximus\b,Maximus Inc.,Maximus,TECH_VENDOR,VA,GENERAL_KNOWLEDGE: headquarters Tysons VA,Added as a watch pattern; no hit at 2026-11-09
+\bCentene\b,Centene Corporation,Centene,INSURER_MCO,MO,GENERAL_KNOWLEDGE: headquarters St. Louis MO,user-listed; no hit in any source at 2026-11-09
+UnitedHealth|\bOptum\b,UnitedHealth Group / Optum,UnitedHealth Group,INSURER_MCO,MN,GENERAL_KNOWLEDGE: headquarters Minnetonka MN,
+\bElevance\b|\bAnthem\b,Elevance Health,Elevance Health,INSURER_MCO,IN,GENERAL_KNOWLEDGE: headquarters Indianapolis IN,
+\bCarelon\b,"Carelon Behavioral Health, Inc.",Elevance Health,INSURER_MCO,MA,SOURCE_ADDRESS: USAspending FSRS subawardee address Boston MA,Carelon is Elevance Health's services arm; parent from general knowledge
+Inland Empire Health Plan,Inland Empire Health Plan,Inland Empire Health Plan,INSURER_MCO,CA,GENERAL_KNOWLEDGE: public Medi-Cal plan headquartered Rancho Cucamonga CA,
+^Moda\b,"Moda Partners, Inc.",Moda,INSURER_MCO,OR,SOURCE_ADDRESS: USAspending FSRS subawardee address Portland OR,Moda Health is a health insurer; Moda Partners is its parent
+\bMolina\b,Molina Healthcare,Molina Healthcare,INSURER_MCO,CA,GENERAL_KNOWLEDGE: headquarters Long Beach CA,
+\bHumana\b,Humana Inc.,Humana,INSURER_MCO,KY,GENERAL_KNOWLEDGE: headquarters Louisville KY,watch pattern; no hit at 2026-11-09
+\bAetna\b,Aetna,CVS Health,INSURER_MCO,CT,GENERAL_KNOWLEDGE: Aetna headquarters Hartford CT,watch pattern; no hit at 2026-11-09
+\bBlue Cross\b|\bBlue Shield\b,Blue Cross Blue Shield plan,Blue Cross Blue Shield (independent licensees),INSURER_MCO,UNKNOWN,NONE: each licensee differs,watch pattern; no hit at 2026-11-09
+Partners Behavioral Health Management,Partners Health Management,Partners Health Management,INSURER_MCO,NC,SOURCE_ADDRESS: USAspending FSRS subawardee state NC,NC LME/MCO (a public Medicaid managed care organization)
+Trillium Health Resources,Trillium Health Resources,Trillium Health Resources,INSURER_MCO,NC,"STATE_SOURCE: NCDHHS calls it ""an NC Medicaid Tailored Plan and Managed Care Organization""",NC LME/MCO
+\bVaya Health\b,Vaya Health,Vaya Health,INSURER_MCO,NC,"STATE_SOURCE: NCDHHS calls it ""a public NC Medicaid Managed Care Organization""",NC LME/MCO
+Community Health Network of Connecticut|\bCHNCT\b,"Community Health Network of Connecticut, Inc.",Community Health Network of Connecticut,INSURER_MCO,CT,GENERAL_KNOWLEDGE: HUSKY Health medical administrative services organization Wallingford CT,An ASO not a risk-bearing plan; listed only as an unpriced CT plan contractor
+\bBeneCare\b,Dental Benefit Management Inc. (BeneCare Dental Plans),BeneCare,INSURER_MCO,PA,GENERAL_KNOWLEDGE: headquarters Philadelphia PA,Dental benefits manager; listed only as an unpriced CT plan contractor
+^University of North Carolina( at Chapel Hill)?$,University of North Carolina at Chapel Hill,University of North Carolina,OUT_OF_STATE_ORG,NC,SOURCE_ADDRESS: USAspending FSRS subawardee address Chapel Hill NC (UT subaward),"Anchored: ""University of North Carolina Hospitals"" is a hospital and must never match"
+New York Ins(t)?itute of Technology,New York Institute of Technology,New York Institute of Technology,OUT_OF_STATE_ORG,NY,GENERAL_KNOWLEDGE: main campus Old Westbury NY,AR's rows spell it Insitute; NYIT also runs a medical-school campus in Jonesboro AR (so the money may be spent in AR)
+Thomas Jefferson University,Thomas Jefferson University,Thomas Jefferson University,OUT_OF_STATE_ORG,PA,SOURCE_ADDRESS: USAspending FSRS subawardee address Philadelphia PA,The university (medical school) not Jefferson's hospitals
+^Public Health Institute$,Public Health Institute,Public Health Institute,OUT_OF_STATE_ORG,CA,SOURCE_ADDRESS: USAspending FSRS subawardee address Oakland CA,
+Nurses for Newborns,Nurses for Newborns,Nurses for Newborns,OUT_OF_STATE_ORG,MO,SOURCE_ADDRESS: USAspending FSRS subawardee address Saint Louis MO,
+KPH Healthcare|Kinney Drugs,KPH Healthcare Services Inc. (Kinney Drugs),KPH Healthcare Services,OUT_OF_STATE_ORG,NY,SOURCE_ADDRESS: USAspending FSRS subawardee address Gouverneur NY,Retail pharmacy chain
+Spirit Medical Transport,Spirit Medical Transport LLC,Spirit Medical Transport,OUT_OF_STATE_ORG,OH,SOURCE_ADDRESS: USAspending FSRS subawardee address Greenville OH,For-profit EMS
+\bSkillsUSA\b,"SkillsUSA, Inc.",SkillsUSA,OUT_OF_STATE_ORG,VA,SOURCE_ADDRESS: USAspending FSRS subawardee address Leesburg VA,
+Postpartum Support International,Postpartum Support International,Postpartum Support International,OUT_OF_STATE_ORG,OR,SOURCE_ADDRESS: USAspending FSRS subawardee address Portland OR,
+"Alzheimer.?s (Disease .{0,30})?Association",Alzheimer's Association,Alzheimer's Association,OUT_OF_STATE_ORG,IL,SOURCE_ADDRESS: USAspending FSRS subawardee address Chicago IL (DE subaward),"Idaho's ""Alzheimer's Association"" row gives no address; the national association is one legal entity headquartered in Chicago (general knowledge for ID)"
+Brain Injury Association of America,"Brain Injury Association of America, Inc.",Brain Injury Association of America,OUT_OF_STATE_ORG,TX,SOURCE_ADDRESS: USAspending FSRS subawardee address Frisco TX,
+Mid-Atlantic Association of Community Health Centers,"Mid-Atlantic Association of Community Health Centers, Inc.",Mid-Atlantic Association of Community Health Centers,OUT_OF_STATE_ORG,MD,SOURCE_ADDRESS: USAspending FSRS subawardee address Lanham MD,
+Bi[- ]?State Primary Care,Bi-State Primary Care Association Inc,Bi-State Primary Care Association,OUT_OF_STATE_ORG,NH,SOURCE_ADDRESS: USAspending FSRS subawardee address Bow NH,
+Dentistry\.?One,"Dentistry.One of Vermont, P.C.",Dentistry.One,OUT_OF_STATE_ORG,NJ,SOURCE_ADDRESS: USAspending FSRS subawardee address Metuchen NJ,
+Valley Hope Association,Valley Hope Association,Valley Hope Association,OUT_OF_STATE_ORG,KS,SOURCE_ADDRESS: USAspending FSRS subawardee address Norton KS,
+Central Wyoming Counseling Center,Central Wyoming Counseling Center,Central Wyoming Counseling Center,OUT_OF_STATE_ORG,WY,SOURCE_ADDRESS: USAspending FSRS subawardee address Casper WY,
+Heartland Family Service,Heartland Family Service,Heartland Family Service,OUT_OF_STATE_ORG,NE,SOURCE_ADDRESS: USAspending FSRS subawardee address Omaha NE,
+Farm Table Delivery,Farm Table Delivery,Farm Table Delivery,OUT_OF_STATE_ORG,IA,SOURCE_ADDRESS: USAspending FSRS subawardee address Minden IA,
+Wirt County Health Service,"Wirt County Health Service Association, Inc",Wirt County Health Service Association,OUT_OF_STATE_ORG,WV,SOURCE_ADDRESS: USAspending FSRS subawardee address Elizabeth WV,A community health center
+Crossroads Medical Mission,Crossroads Medical Mission,Crossroads Medical Mission,OUT_OF_STATE_ORG,VA,SOURCE_ADDRESS: USAspending FSRS subawardee address Bristol VA,
+"^LifeNet,? Inc",LifeNet Inc,LifeNet,OUT_OF_STATE_ORG,TX,SOURCE_ADDRESS: USAspending FSRS subawardee address Texarkana TX,EMS provider
+"^Community Health Service,? Inc\.?$",Community Health Service Inc.,Community Health Service Inc.,OUT_OF_STATE_ORG,MN,SOURCE_ADDRESS: USAspending FSRS subawardee address Moorhead MN,Anchored to the exact string (a generic name)
+Shoshone-Paiute Tribes,Shoshone-Paiute Tribes of the Duck Valley Reservation,Shoshone-Paiute Tribes,OUT_OF_STATE_ORG,NV,SOURCE_ADDRESS: USAspending FSRS subawardee address Owyhee NV,"The reservation straddles the ID/NV line; ""out of state"" for Idaho is a technicality"
+\bAVEM Health\b,"AVEM Health, LLC",AVEM Health,OUT_OF_STATE_ORG,IL,SOURCE_ADDRESS: USAspending FSRS subawardee address Chicago IL,"Not a hospital itself (owner ruling session 115: NOT_HOSPITAL for ""AVEM Health Partners"" on OK CHW)"
+\bCo ?Magine\b,Comagine Health,Comagine Health,OUT_OF_STATE_ORG,WA,SOURCE_ADDRESS: USAspending FSRS subawardee address Seattle WA,Nonprofit quality-improvement organisation (a QIO) that also sells consulting; kept OUT_OF_STATE_ORG rather than CONSULTING_OTHER
+\bCartwheel\b,Cartwheel Health Services P.C.,Cartwheel,OUT_OF_STATE_ORG,MA,SOURCE_ADDRESS: USAspending FSRS subawardee address Cambridge MA,School-based telehealth mental-health provider
+^StationMD,StationMD Professional Corporation,StationMD,OUT_OF_STATE_ORG,NJ,SOURCE_ADDRESS: USAspending FSRS subawardee address Maplewood NJ,"Anchored: Kansas's ""InterHab (StationMD)"" is an award to InterHab, a Kansas recipient"

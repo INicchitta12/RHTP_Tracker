@@ -211,6 +211,9 @@ Rscript R/03i_sd_rht_contracts.R --fetch --force # SD register re-read: a NEW da
                                                  # --build, then R/03j --build
 Rscript R/02c_state_attribution_sweep.R --build  # §0.1 mode 6 — the wrong-state sweep
 Rscript R/02c_state_attribution_sweep.R --report # 10 misfiled in 5 states, NONE Tier 3
+Rscript R/09a_usaspending_rhtp.R --fetch        # USAspending 93.798 primes + FFATA subawards (archive; s116b)
+Rscript R/09a_usaspending_rhtp.R --validate --build --report
+Rscript R/09_vendor_flags.R --validate --build --xlsx --report  # vendor flags; READS ONLY (s116b)
 ```
 
 Stage 2 is idempotent against the same pull. Stage 3's `--allotments` reuses the
