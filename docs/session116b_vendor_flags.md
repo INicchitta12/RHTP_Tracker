@@ -195,4 +195,10 @@ Two of these lines are named elsewhere:
 
 ## Suite
 
-The full suite (`Rscript tests/run_tests.R`) result is recorded below once it finishes.
+- **First full run** (`Rscript tests/run_tests.R`, 16m24s): 1 failure. `test_utils_disposition_prose` treats any
+  script naming `*_rcj_candidate_disposition` as a disposition writer, and `R/09` named those files in its lead
+  notes. Reworded; no logic changed.
+- **Second full run, end to end:** 0 failures, 0 errors, in 16m15s. 1 expected skip (the CMS first-run branch) and the
+  4 pre-existing `test_03bj` warnings.
+- The runs were launched in the background, because a single foreground call is capped at 10 minutes, and nothing
+  else ran while they did.
