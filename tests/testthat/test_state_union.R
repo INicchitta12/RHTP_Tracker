@@ -323,6 +323,11 @@ STATE_FILES <- c(
   # Line Modernization CONTINGENT roster (10-30), 25 rows / $39,400,820.55,
   # INTENTS pending CMS approval (2 marked approved), typed on CMS MO enrolment.
   MO_SG = "data/reference/mo_smart_growth_awardees.csv",
+  # SESSION 116, OWNER RULING (R/03cs): Iowa's Combat Cancer Health Hubs
+  # Round 2 Notice of Intent to Award (COMPADM26008, 2026-08-12). Four named
+  # hospitals, typed on CMS IA enrolment, INTENTS at NO AMOUNT; the footer is
+  # Iowa's allotment, never a round total.
+  IA_CC_R2 = "data/reference/ia_combat_cancer_r2_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.

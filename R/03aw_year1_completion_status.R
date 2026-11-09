@@ -75,6 +75,7 @@ Y1_AWARD_FILES <- c(
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   MO = "mo_smart_growth_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
+  IA = "ia_combat_cancer_r2_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
   NC = "nc_year1_sbhc_awardees.csv",
   AR = "ar_year1_awardees.csv",  AR = "ar_year1_round2_awardees.csv",
