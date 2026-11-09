@@ -33,17 +33,17 @@ test_that("the 2026-11-09 totals are pinned (session 116c)", {
   # Session 114: 4,052,876,537.91 -> 4,092,277,358.46 (+ MO Smart Growth
   # contingent roster, 25 rows, $39,400,820.55).
   # Session 115: + WV CAMC $3,930,266 -> 4,096,207,624.46.
-  # Session 116c: FSRS priced $0 rows and added 684 new rows -> 5,738,485,657.34.
-  expect_equal(round(us$published_priced_usd, 2), 5738485657.34, tolerance = 1e-12)
+  # Session 116c: FSRS priced $0 rows and added 684 new rows -> 5,735,713,681.34.
+  expect_equal(round(us$published_priced_usd, 2), 5735713681.34, tolerance = 1e-12)
   # Session 114: 4,512,205,898.91 -> 4,556,066,882.39 (+ MO $39,400,820.55,
   # + OK CHW Expansion pool $4,460,162.93, on no row).
   # Session 115: + WV CAMC $3,930,266.
-  # Session 116c: 4,559,997,148.39 -> 6,192,275,181.27 (FSRS).
-  expect_equal(round(us$award_total_usd, 2), 6192275181.27, tolerance = 1e-12)
+  # Session 116c: 4,559,997,148.39 -> 6,189,503,205.27 (FSRS).
+  expect_equal(round(us$award_total_usd, 2), 6189503205.27, tolerance = 1e-12)
   # Session 114: + MO's 14 hospital rows, $31,862,169.80.
   # Session 115: + WV CAMC's three hospital rows, $3,930,266.
   # Session 116c: + FSRS strict named dollars (+$360,669,892.98).
-  expect_equal(round(us$hospital_coded_usd, 2), 2231665158.70, tolerance = 1e-12)
+  expect_equal(round(us$hospital_coded_usd, 2), 2229943182.70, tolerance = 1e-12)
   # Session 116c: + VHHA Foundation $27,201,764 (association ruling, now priced).
   expect_equal(round(us$hospital_best_judgment_usd, 2), 243439128.19, tolerance = 1e-12)
   expect_equal(round(us$hospital_bj_row_usd, 2), 174615089.26, tolerance = 1e-12)
@@ -54,26 +54,26 @@ test_that("the 2026-11-09 totals are pinned (session 116c)", {
   # NH FHC's CAH and Acute Care Hospital RFA, "approximately $17.5 million" (ruling a).
   # Session 116d (ruling a): + VHHA Foundation RPM $14,837,326 and GME $9,891,550.
   expect_equal(round(us$hospital_bj_component_usd, 2), 42228876)
-  expect_equal(round(us$hospital_summary_usd, 2), 2475104286.89, tolerance = 1e-12)
-  expect_equal(round(us$strict_named_hospital_usd, 2), 2172147222.88, tolerance = 1e-12)
+  expect_equal(round(us$hospital_summary_usd, 2), 2473382310.89, tolerance = 1e-12)
+  expect_equal(round(us$strict_named_hospital_usd, 2), 2170425246.88, tolerance = 1e-12)
   expect_equal(round(us$strict_pool_named_hospitals_usd, 2), 86895779.43)
   expect_equal(round(us$strict_pool_unnamed_hospitals_usd, 2), 79214848.17)
   expect_equal(round(us$layer_association_ruling_usd, 2), 187258340.60)
   expect_equal(round(us$layer_cms_obligation_usd, 2), 19817748.76)
   # Session 114: + MO's four CAHs (Hermann, Mercy Perry, Scotland, Washington
   # County), $7,305,357.76.
-  # Session 116c: FSRS rows typed on CMS enrolment -> 674,969,270.36.
-  expect_equal(round(us$strict_rural_cut_usd, 2), 674969270.36)
+  # Session 116c: FSRS rows typed on CMS enrolment -> 673,247,294.36.
+  expect_equal(round(us$strict_rural_cut_usd, 2), 673247294.36)
   # session 114: 631 -> 639 (OK CHW 3, MO SG 5); session 115: -1 (CA Legacy MD
   # Medical Group now CODED as PHYSICIAN_PRACTICE).
   # Session 116c: + 220 (FSRS new rows judged NOT_HOSPITAL by class, and others).
-  expect_equal(us$best_judgment_rows, 840L)
+  expect_equal(us$best_judgment_rows, 839L)
   # + 29 OK CHW (session 114); - AVEM Health Partners (session 115, owner ruling a).
   # Session 116 (same-date rebuild): + 4 IA Combat Cancer Round 2 intents at $0.
   # Session 116c: 301 -> 219, FSRS priced Iowa's and others' $0 hospital rows.
   expect_equal(us$named_hospital_recipients_no_amount, 218L)
   expect_equal(us$hospital_share_of_awards_pct, 40)
-  expect_equal(us$hospital_share_of_allotment_pct, 24.8)
+  expect_equal(us$hospital_share_of_allotment_pct, 24.7)
 })
 
 test_that("the change from the pre-FSRS 11-09 build is exactly the session 116c FSRS changes, state by state", {
@@ -83,11 +83,11 @@ test_that("the change from the pre-FSRS 11-09 build is exactly the session 116c 
     k <- abs(v) > 0.005 & !s$state %in% YS_NATIONAL
     stats::setNames(v[k], s$state[k])
   }
-  expect_equal(round(us$hospital_summary_usd - 2075115137.63, 2), 399989149.26)
+  expect_equal(round(us$hospital_summary_usd - 2075115137.63, 2), 398267173.26)
   expect_equal(d("hospital_summary_usd"),
                c(CT = 15005890, DE = 3291276, IA = 163815846.2, IL = 53821674.53, KS = 1950110, KY = 4348529,
                  ME = 258193, MN = 68840377, NC = 14550000, ND = 8751588.75, NE = 12987780.26, NV = 997361,
-                 OK = 136594, TN = 16699481.52, TX = 1721976, VA = 24728876, VT = 2000000, WV = 6083596))
+                 OK = 136594, TN = 16699481.52, VA = 24728876, VT = 2000000, WV = 6083596))
   # strict moves in the same states less VA (its $24.7M are the VHHA components,
   # a best-judgment figure) and IA by $733,005 less (Sanford Medical Center, a
   # best-judgment HOSPITAL call on a row typed non-hospital; ruling f)
@@ -329,9 +329,9 @@ test_that("the second national row: states with >=50% published on state award s
   # own session 112 changes.
   # Session 116c (n = 32).
   expect_equal(round(ge$allotment_usd, 2), 6429873667)
-  expect_equal(round(ge$award_total_usd, 2), 5180848327.93, tolerance = 1e-12)
-  expect_equal(round(ge$hospital_summary_usd, 2), 2135463066.93, tolerance = 1e-12)
-  expect_equal(round(ge$strict_named_hospital_usd, 2), 1918250848.09, tolerance = 1e-12)
+  expect_equal(round(ge$award_total_usd, 2), 5178076351.93, tolerance = 1e-12)
+  expect_equal(round(ge$hospital_summary_usd, 2), 2133741090.93, tolerance = 1e-12)
+  expect_equal(round(ge$strict_named_hospital_usd, 2), 1916528872.09, tolerance = 1e-12)
   expect_equal(ge$hospital_share_of_awards_pct, 41.2)
   expect_equal(ge$hospital_share_of_allotment_pct, 33.2)
   # a subset of the national row, never more

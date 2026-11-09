@@ -336,7 +336,9 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
   pl <- pr %>% dplyr::mutate(amt = as.numeric(amount)) %>% dplyr::select(-amount) %>%
     dplyr::inner_join(aw %>% dplyr::select(state, file_key, awardee, row_id, amount),
                       by = c("state", "file_key", "awardee"), relationship = "many-to-many") %>%
-    dplyr::filter(abs(amount - amt) < 0.005) %>% dplyr::distinct(fsrs_id, .keep_all = TRUE)
+    # max_diff: a hand-read rounding gap (TX Moore County $221,976 vs $221,980.30)
+    dplyr::filter(abs(amount - amt) < dplyr::coalesce(suppressWarnings(as.numeric(max_diff)), 0.005)) %>%
+    dplyr::distinct(fsrs_id, .keep_all = TRUE)
   miss <- setdiff(pr$fsrs_id, pl$fsrs_id)
   if (length(miss)) stop("[fsrs] pairings whose roster row (same awardee, same amount) is not found: ",
                          paste(miss, collapse = ", "), call. = FALSE)

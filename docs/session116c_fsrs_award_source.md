@@ -10,12 +10,12 @@ Assistance Listing 93.798, is an award source: the state's own federal filing of
 
 | | Before (pre-FSRS, `year1_summary_2026-11-09_pre_fsrs.csv`) | After (`year1_summary_2026-11-09.csv`) |
 |---|---:|---:|
-| Hospital best estimate | $2,075,115,137.63 | $2,475,104,286.89 |
-| Strict NAMED_HOSPITAL | 1,958 / $1,797,619,954.62 / 37 states | 2,207 / $2,172,147,222.88 / 42 states |
+| Hospital best estimate | $2,075,115,137.63 | $2,473,382,310.89 |
+| Strict NAMED_HOSPITAL | 1,958 / $1,797,619,954.62 / 37 states | 2,204 / $2,170,425,246.88 / 42 states |
 | Strict POOL_NAMED / POOL_UNNAMED | $86,895,779.43 / $79,214,848.17 | unchanged |
-| Awards published | $4,559,997,148.39 | $6,192,275,181.27 |
+| Awards published | $4,559,997,148.39 | $6,189,503,205.27 |
 | National hospital % of awards | n/m (45.5% computed) | 40.0% (prints, ruling b) |
-| Subset row (states >=50% published, state sources) | n = 23: best $1,612,024,736.82, strict $1,507,090,381.12, 43.2% | n = 32: best $2,135,463,066.93, strict $1,918,250,848.09, 41.2% |
+| Subset row (states >=50% published, state sources) | n = 23: best $1,612,024,736.82, strict $1,507,090,381.12, 43.2% | n = 32: best $2,133,741,090.93, strict $1,916,528,872.09, 41.2% |
 
 Change by state (best estimate; strict in brackets where it differs): IA +$163,815,846 (strict +$163,082,841); MN
 +$68,840,377; IL +$53,821,675; VA +$24,728,876 (strict $0); TN +$16,699,482; CT +$15,005,890; NC +$14,550,000;
@@ -30,8 +30,8 @@ TX +$1,721,976; NV +$997,361; ME +$258,193; OK +$136,594. Award totals also move
 | `R/09b_fsrs_award_source.R` | `--validate`, `--plan`, `--apply`, `--strip`, `--report`. The overlay and the new files |
 | `R/09a_usaspending_rhtp.R --probe` | READ-ONLY weekly watch (116d): live file to a temp dir, 93.798 filter enforced, trips per state on report ids the archive lacks |
 | `config/fsrs_name_crosswalk.csv` | 338 hand-reviewed recipients: 238 MATCH, 84 NO_MATCH, 16 HOLD |
-| `data/reference/<st>_fsrs_awardees.csv` | 23 files, 696 rows: recipients in no award file (666) and extra subawards (30) |
-| `config/fsrs_subaward_pairings.csv` | 25 subaward-to-roster-row pairings from the independent check |
+| `data/reference/<st>_fsrs_awardees.csv` | 22 files, 691 rows: recipients in no award file and extra subawards (30) |
+| `config/fsrs_subaward_pairings.csv` | 30 subaward-to-roster-row pairings from the independent check and its re-check |
 | `data/reference/fsrs_subaward_records.csv` | all 2,025 records with `record_status` (CURRENT / REFILING_SUPERSEDED / PREDATES_NOA) |
 | `fsrs_state_totals.csv`, `fsrs_nonfiling_states.csv` | per state count, total, % of allotment; the 19 non-filers as fact only |
 | `fsrs_reconciliation.csv`, `fsrs_held.csv`, `fsrs_differs_over_100k.csv` | status of every current subaward; every hold; every DIFFERS over $100K |
@@ -130,6 +130,15 @@ A separate agent recomputed the build from the 94 award files and the raw zip wi
   ($11.1M of awards). All 25 are pinned in `config/fsrs_subaward_pairings.csv`, and R/09b now holds any new row whose
   non-round amount equals a roster row in its state; that guard caught one more, NE Alegent Creighton $711,629.63.
   Strict NAMED fell by exactly $4,789,900.24 (2,213 / $2,176,937,123.12 -> 2,207 / $2,172,147,222.88).
+- **Re-check (fresh reads):** arithmetic, (a)-(c), (e) and summary calls PASS; the widened (d) found five more:
+  TX Lockney General Hospital District = Lockney Gen Hosp ($750,000); TX Moore County Hospital District = Memorial
+  Hospital (Dumas) ($750,000, and $221,976 vs $221,980.30, a $4.30 rounding gap, paired with `max_diff`); AK
+  Anchorage Community Mental Health Services = Alaska Behavioral Health ($1,000,000); AK City of Nenana = Nenana
+  Volunteer Fire/EMS ($50,000). Paired; strict NAMED 2,204 / $2,170,425,246.88 (-$1,721,976). Every Alaska and
+  Utah "new" row was a roster row, so `ak_` and `ut_fsrs_awardees.csv` are gone. Left as read: OK Mercy Health
+  System vs Fairview Regional ($100,000; Fairview's row carries its own subaward) and OK Wonderfully Made Therapy
+  vs Works Wonderfully Foundation ($50,000; different bodies). Iowa's 467 round-amount pairs are formula awards to
+  different hospitals.
 - **(a)-(c), (e): PASS.** No subaward is priced twice or both priced and written new; no FSRS-priced row sits in a
   pool counted at pool level (NC MIH's 37 lines, $10,524,908, reach its $10M round); no state exceeds its allotment
   (HI 99.98%). Minor: nine `FSRS_PRICED_ON_ROW_n` labels point at rows that were not priced (pool members blocked

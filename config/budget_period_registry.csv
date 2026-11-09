@@ -96,7 +96,6 @@ data/reference/wi_year1_status.csv,STATUS_TABLE,1,session 116: every existing ro
 data/reference/wv_year1_status.csv,STATUS_TABLE,1,session 116: every existing row is Budget Period 1 (12/29/2025 - 10/30/2026)
 data/reference/wy_year1_status.csv,STATUS_TABLE,1,session 116: every existing row is Budget Period 1 (12/29/2025 - 10/30/2026)
 data/reference/year1_completion_status.csv,STATUS_TABLE,1,session 116: every existing row is Budget Period 1 (12/29/2025 - 10/30/2026)
-data/reference/ak_fsrs_awardees.csv,AWARD_FILE,1,session 116c: FSRS subawards; every action date is on or before 2026-10-30 (Budget Period 1)
 data/reference/az_fsrs_awardees.csv,AWARD_FILE,1,session 116c: FSRS subawards; every action date is on or before 2026-10-30 (Budget Period 1)
 data/reference/ct_fsrs_awardees.csv,AWARD_FILE,1,session 116c: FSRS subawards; every action date is on or before 2026-10-30 (Budget Period 1)
 data/reference/de_fsrs_awardees.csv,AWARD_FILE,1,session 116c: FSRS subawards; every action date is on or before 2026-10-30 (Budget Period 1)

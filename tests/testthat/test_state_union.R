@@ -386,7 +386,6 @@ STATE_FILES <- c(
   # Session 116c: FSRS/FFATA first-tier subawards whose recipient is in no
   # other award file of the state (owner ruling 2026-11-09; R/09b). One file
   # per state so R/03aw's per-file figures read one state each.
-  AK_FSRS = "data/reference/ak_fsrs_awardees.csv",
   AZ_FSRS = "data/reference/az_fsrs_awardees.csv",
   CT_FSRS = "data/reference/ct_fsrs_awardees.csv",
   DE_FSRS = "data/reference/de_fsrs_awardees.csv",
