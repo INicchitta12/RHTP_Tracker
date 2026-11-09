@@ -91,11 +91,21 @@ FSRS_OUT <- list(
   differs   = "data/reference/fsrs_differs_over_100k.csv",
   held      = "data/reference/fsrs_held.csv",
   uncertain = "data/reference/fsrs_amendment_uncertain.csv",
-  nonfilers = "data/reference/fsrs_nonfiling_states.csv"
+  nonfilers = "data/reference/fsrs_nonfiling_states.csv",
+  pools     = "data/reference/fsrs_pool_reconciliation.csv",
+  ia_rounds = "data/reference/fsrs_ia_round_check.csv"
 )
 FSRS_NEW_FILE <- function(st) file.path("data", "reference", paste0(tolower(st), "_fsrs_awardees.csv"))
 FSRS_OVERLAY_COLS <- c("fsrs_amount", "fsrs_match", "fsrs_subaward_ids",
-                       "original_validation_source_type", "original_amount_basis")
+                       "original_validation_source_type", "original_amount_basis", "original_flag_reason")
+
+# SESSION 116d, OWNER RULING (e): a SOURCE_SUSPECT amount that FSRS confirms to
+# the dollar is cleared. Nevada's FLEX-28 prints $997,361 under "Northern Nevada
+# Regional Hospital" (Sparks); FSRS pays exactly $997,361 to PHC-Elko, Inc.,
+# the operator of NORTHEASTERN Nevada Regional Hospital (Elko). The amount was
+# never the defect; the hospital's name was. Cleared only on an EXACT pair.
+FSRS_SUSPECT_CONFIRMED <- tibble::tibble(file_key = "NV", awardee = "Northern Nevada Regional Hospital",
+                                         amount = 997361)
 
 # -- 1. the records ------------------------------------------------------------
 
@@ -425,8 +435,10 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
                     fsrs_id %in% link_all$fsrs_id ~ "HELD_EXTRA_SUBAWARD_RECIPIENT_ON_ROSTER",
                     dplyr::coalesce(hold, FALSE) ~ "HELD_REVIEWED_AMBIGUOUS",
                     dplyr::coalesce(has_candidate, FALSE) & !dplyr::coalesce(reviewed, FALSE) ~ "HELD_CANDIDATE_UNREVIEWED",
-                    TRUE ~ "NEW_ROW"),
-                  row_ids = NA_character_) %>%
+                    TRUE ~ "NEW_ROW")) %>%
+    dplyr::left_join(link_all %>% dplyr::group_by(fsrs_id) %>%
+                       dplyr::summarise(row_ids = paste(unique(row_id), collapse = ";"), .groups = "drop"),
+                     by = "fsrs_id") %>%
     dplyr::select(fsrs_id, status, row_ids)
   st_df <- dplyr::bind_rows(st_df, un)
   if (anyDuplicated(st_df$fsrs_id)) stop("[fsrs] a subaward received two statuses.", call. = FALSE)
@@ -602,8 +614,14 @@ fsrs_plan <- function() {
   tot <- fsrs_state_totals(rec)
   rc <- fsrs_reconcile(rec)
   rc <- fsrs_pool_guard(rc)
-  new <- rc$recon %>% dplyr::filter(status == "NEW_ROW")
-  typed <- fsrs_type_new(new)
+  # SESSION 116d, OWNER RULING (d): an extra subaward to a recipient already on
+  # a roster, in a programme the roster does not list, is written as an
+  # FSRS_FFATA row (EXTRA_ROW), under the same holds as a new row, and Iowa's
+  # are checked against each RFP's published total (fsrs_ia_round_check()).
+  rc$recon <- rc$recon %>% dplyr::mutate(status = dplyr::if_else(
+    status == "HELD_EXTRA_SUBAWARD_RECIPIENT_ON_ROSTER", "EXTRA_ROW", status))
+  new <- rc$recon %>% dplyr::filter(status %in% c("NEW_ROW", "EXTRA_ROW"))
+  typed <- fsrs_type_new(fsrs_fill_business_types(new, rec))
   # The owner's hold: hospital dollars on rows that need a NEW ruling (address
   # bridges), per state, above FSRS_HOLD_USD.
   # A NEW row in a state whose files still carry a pool-level figure that names
@@ -612,11 +630,19 @@ fsrs_plan <- function() {
   # unnamed pools, and Indiana's eight GROW regions ($112.4M, against an FSRS
   # total of $100.7M). A row larger than the state's pool figure cannot be
   # inside it and is written.
+  wr <- c("NEW_ROW", "EXTRA_ROW")
   typed <- typed %>% dplyr::mutate(status = dplyr::case_when(
-    status == "NEW_ROW" & st %in% names(FSRS_POOL_LEVEL_STATES) &
+    status %in% wr & st %in% names(FSRS_POOL_LEVEL_STATES) &
       amount <= FSRS_POOL_LEVEL_STATES[st] ~ "HELD_STATE_POOL_MAY_CONTAIN",
-    status == "NEW_ROW" & st %in% FSRS_COMPLETE_ROSTER_STATES ~ "HELD_STATE_ROSTER_IS_COMPLETE",
+    status %in% wr & st %in% FSRS_COMPLETE_ROSTER_STATES ~ "HELD_STATE_ROSTER_IS_COMPLETE",
+    # An EXTRA subaward in a state whose Year 1 is COMPLETE (R/03aw): the
+    # roster already covers that recipient's Year 1 money, so a second FSRS
+    # line is most likely the same money at another grain (Utah's UDAF $26.5M
+    # and USBE $13.1M would put Utah over its allotment).
+    status == "EXTRA_ROW" & st %in% fsrs_complete_states() ~ "HELD_EXTRA_STATE_YEAR1_COMPLETE",
     TRUE ~ status))
+  typed <- fsrs_type_extra_from_roster(typed, rc$aw)
+  typed <- fsrs_ia_round_check(typed, rc)
   bridge <- typed %>% dplyr::filter(typing == "CMS_ADDRESS") %>% dplyr::group_by(st) %>%
     dplyr::summarise(bridge_usd = sum(amount), .groups = "drop")
   held_states <- bridge$st[bridge$bridge_usd > FSRS_HOLD_USD]
@@ -665,6 +691,101 @@ fsrs_pool_guard <- function(rc) {
   rc
 }
 
+fsrs_complete_states <- function() {
+  d <- readr::read_csv(here::here("data/reference/year1_completion_status.csv"), show_col_types = FALSE)
+  d$state[d$year1_status == "COMPLETE"]
+}
+
+#' An EXTRA row is a recipient the roster already types: it takes the typing of
+#' its first matched roster row (never a fresh name or SAM reading).
+fsrs_type_extra_from_roster <- function(typed, aw) {
+  ex <- which(typed$status == "EXTRA_ROW")
+  if (!length(ex)) return(typed)
+  cols <- c("recipient_type", "distributed_to_hospital", "flow_type", "hospital_benefiting",
+            "determination_confidence", "basis_type", "ccn", "recipient_subtype", "flag_reason")
+  for (i in ex) {
+    rid <- strsplit(typed$row_ids[i], ";")[[1]][1]
+    a <- aw[aw$row_id == rid, ]
+    f <- fsrs_read_file(a$file[1]); r <- f[f$row_no == a$row_no[1], ]
+    for (c in cols) typed[[c]][i] <- if (c %in% names(r)) r[[c]][1] else NA_character_
+    if (identical(typed$recipient_type[i], "HOSPITAL_OR_SYSTEM") && identical(typed$distributed_to_hospital[i], "Yes"))
+      typed$flow_type[i] <- "DIRECT"
+    typed$typing[i] <- "ROSTER_ROW"; typed$sam_hospital_unenrolled[i] <- FALSE; typed$hold_state_operator[i] <- FALSE
+    typed$cms_enrolment_record[i] <- NA_character_
+    typed$recipient_type_source[i] <- paste0("TYPED (session 116d, ruling d): as the roster row ", rid,
+                                             " ('", a$awardee[1], "'), the same recipient.")
+    typed$determination_basis[i] <- paste0(typed$recipient_type_source[i], " Roster basis: ",
+                                           dplyr::coalesce(if ("determination_basis" %in% names(r)) r$determination_basis[1] else NA_character_, ""))
+  }
+  typed
+}
+
+#' A record whose SAM business types are blank takes them from another record of
+#' the same UEI (OHCA files some reports with the field empty).
+fsrs_fill_business_types <- function(new, rec) {
+  bt <- rec %>% dplyr::filter(!is.na(business_types), nzchar(business_types)) %>%
+    dplyr::group_by(uei) %>% dplyr::summarise(bt_fill = dplyr::first(business_types), .groups = "drop")
+  new %>% dplyr::left_join(bt, by = "uei") %>%
+    dplyr::mutate(business_types = dplyr::if_else(is.na(business_types) | !nzchar(business_types),
+                                                  bt_fill, business_types)) %>%
+    dplyr::select(-bt_fill)
+}
+
+#' OWNER RULING (d): no Iowa RFP may exceed its PUBLISHED total. The total is
+#' the notice footer where the footer is that RFP's Tier 2 pool
+#' (ia_notice_footers.csv, footer_tier SOLICITATION); the three June notices
+#' print the allotment and publish no round total, so they are checked against
+#' nothing narrower. Roster rows priced from FSRS plus extra rows in the pool
+#' must not pass the total: extras that would are held; a roster that already
+#' does stops the build.
+fsrs_ia_round_check <- function(typed, rc) {
+  ft <- readr::read_csv(here::here("data/reference/ia_notice_footers.csv"), show_col_types = FALSE) %>%
+    dplyr::filter(footer_tier == "SOLICITATION") %>% dplyr::distinct(rfp, footer_amount)
+  pr <- rc$overlay %>% dplyr::filter(priced) %>%
+    dplyr::inner_join(rc$aw %>% dplyr::filter(file_key == "IA") %>% dplyr::select(row_id, award_pool), by = "row_id") %>%
+    dplyr::group_by(award_pool) %>% dplyr::summarise(roster = sum(fsrs_amount), .groups = "drop")
+  ex <- typed %>% dplyr::filter(st == "IA", status == "EXTRA_ROW") %>%
+    dplyr::mutate(pool = FSRS_IA_FAMILY(description, action_date))
+  chk <- ft %>% dplyr::left_join(pr, by = c(rfp = "award_pool")) %>%
+    dplyr::left_join(ex %>% dplyr::group_by(pool) %>% dplyr::summarise(extra = sum(amount), .groups = "drop"),
+                     by = c(rfp = "pool")) %>%
+    dplyr::mutate(roster = dplyr::coalesce(roster, 0), extra = dplyr::coalesce(extra, 0))
+  bad <- chk %>% dplyr::filter(roster > footer_amount + 0.005)
+  if (nrow(bad)) stop("[fsrs] Iowa roster rows priced from FSRS exceed the published total of ",
+                      paste(bad$rfp, collapse = ", "), call. = FALSE)
+  over <- chk$rfp[chk$roster + chk$extra > chk$footer_amount + 0.005]
+  FSRS_IA_ROUND_CHECK <<- chk %>% dplyr::mutate(held = rfp %in% over)
+  typed %>% dplyr::mutate(status = dplyr::if_else(
+    st == "IA" & status == "EXTRA_ROW" & FSRS_IA_FAMILY(description, action_date) %in% over,
+    "HELD_IA_ROUND_TOTAL_EXCEEDED", status))
+}
+FSRS_IA_ROUND_CHECK <- NULL
+
+#' OWNER RULING (c): a pool counted at pool level is swapped for its members'
+#' FSRS amounts only where the members sum to the pool within 1%. Reported here.
+fsrs_pool_reconciliation <- function(p) {
+  rd <- function(f) fsrs_read_file(f)
+  g <- rd("data/reference/in_grow_regional_awardees.csv")
+  mem <- p$overlay %>% dplyr::filter(fsrs_match == "FSRS_POOL_MEMBER_NOT_PRICED") %>%
+    dplyr::left_join(p$aw %>% dplyr::select(row_id, file_key, award_pool, round_amount), by = "row_id")
+  a <- mem %>% dplyr::group_by(file_key, pool = award_pool) %>%
+    dplyr::summarise(pool_usd = dplyr::first(round_amount), members_with_fsrs = dplyr::n(),
+                     fsrs_usd = sum(fsrs_amount, na.rm = TRUE), .groups = "drop")
+  okchw <- 4460162.93
+  a$pool_usd[a$file_key == "OK_CHW"] <- okchw
+  st_pool <- tibble::tibble(file_key = paste0(names(FSRS_POOL_LEVEL_STATES), " (state)"),
+                            pool = "pool-level figures naming no recipient (R/08 pool_level_usd)",
+                            pool_usd = unname(FSRS_POOL_LEVEL_STATES))
+  held <- p$recon %>% dplyr::filter(status == "HELD_STATE_POOL_MAY_CONTAIN") %>%
+    dplyr::group_by(st) %>% dplyr::summarise(members_with_fsrs = dplyr::n(), fsrs_usd = sum(amount), .groups = "drop") %>%
+    dplyr::mutate(file_key = paste0(st, " (state)"))
+  b <- st_pool %>% dplyr::left_join(held %>% dplyr::select(-st), by = "file_key")
+  dplyr::bind_rows(a, b) %>%
+    dplyr::mutate(gap_usd = round(fsrs_usd - pool_usd, 2), gap_pct = round(100 * gap_usd / pool_usd, 1),
+                  decision = dplyr::if_else(!is.na(gap_pct) & abs(gap_pct) <= 1, "SWAP", "HOLD"),
+                  as_of = FSRS_AS_OF)
+}
+
 fsrs_write_plan <- function(p = fsrs_plan()) {
   readr::write_csv(p$records %>% dplyr::select(-kept_id), here::here(FSRS_OUT$records), na = "")
   readr::write_csv(p$totals, here::here(FSRS_OUT$totals), na = "")
@@ -682,6 +803,10 @@ fsrs_write_plan <- function(p = fsrs_plan()) {
                      dplyr::select(st, subaward_number, uei, name, action_date, amount, description, fsrs_id),
                    here::here(FSRS_OUT$uncertain), na = "")
   readr::write_csv(fsrs_nonfilers(p$totals), here::here(FSRS_OUT$nonfilers), na = "")
+  pr <- fsrs_pool_reconciliation(p)
+  if (any(pr$decision == "SWAP")) stop("[fsrs] a pool reconciles within 1%: implement its swap before writing.", call. = FALSE)
+  readr::write_csv(pr, here::here(FSRS_OUT$pools), na = "")
+  readr::write_csv(FSRS_IA_ROUND_CHECK, here::here(FSRS_OUT$ia_rounds), na = "")
   message("[fsrs] wrote the plan: ", paste(unlist(FSRS_OUT), collapse = ", "))
   invisible(p)
 }
@@ -700,12 +825,12 @@ fsrs_differs <- function(p) {
 fsrs_held <- function(p) {
   h1 <- p$recon %>% dplyr::filter(grepl("^HELD", status)) %>%
     dplyr::transmute(st, fsrs_id, status, name, amount, detail = dplyr::coalesce(candidates, row_ids))
-  h2 <- p$typed %>% dplyr::filter(sam_hospital_unenrolled) %>%
+  h2 <- p$typed %>% dplyr::filter(sam_hospital_unenrolled, status %in% c("NEW_ROW", "EXTRA_ROW")) %>%
     dplyr::transmute(st, fsrs_id, status = "WRITTEN_NOT_HOSPITAL_SAM_LISTS_HOSPITAL", name, amount,
                      detail = paste0("Typed ", recipient_type, "; SAM business types '", business_types,
                                      "'; no CMS enrolment by name or address. A hospital ruling would move ",
                                      "this amount into the hospital figures."))
-  h4 <- p$typed %>% dplyr::filter(hold_state_operator) %>%
+  h4 <- p$typed %>% dplyr::filter(hold_state_operator, status %in% c("NEW_ROW", "EXTRA_ROW")) %>%
     dplyr::transmute(st, fsrs_id, status = "WRITTEN_NOT_HOSPITAL_STATE_BODY_HOLDS_HOSPITAL_ENROLMENT", name, amount,
                      detail = paste0("Typed ", recipient_type, ". A state body that holds a CMS hospital enrolment ",
                                      "(it operates state hospitals); typing the subaward a hospital on that enrolment ",
@@ -732,6 +857,11 @@ fsrs_nonfilers <- function(tot) {
 
 fsrs_strip_overlay <- function(d) {
   if (!"fsrs_match" %in% names(d)) return(d)
+  if ("original_flag_reason" %in% names(d)) {
+    cf <- !is.na(d$original_flag_reason)
+    d$flag_reason[cf] <- d$original_flag_reason[cf]
+    d$note[cf] <- sub(" \\[Session 116d, owner ruling e:.*\\]$", "", d$note[cf])
+  }
   pr <- !is.na(d$fsrs_match) & d$fsrs_match == "PRICED_FROM_FSRS"
   if (any(pr)) {
     d$amount[pr] <- NA_character_
@@ -779,6 +909,20 @@ fsrs_apply <- function(p = fsrs_plan(), files = fsrs_state_files()) {
                    "original_validation_source_type and original_amount_basis.")
       if ("amount_basis" %in% names(d)) d$amount_basis[pr] <- ab else d$amount_basis <- replace(rep(NA_character_, nrow(d)), pr, ab)
     }
+    d$original_flag_reason <- NA_character_
+    sc <- FSRS_SUSPECT_CONFIRMED[FSRS_SUSPECT_CONFIRMED$file_key == k, ]
+    for (j in seq_len(nrow(sc))) {
+      w <- which(d$awardee == sc$awardee[j] & abs(suppressWarnings(as.numeric(d$amount)) - sc$amount[j]) < 0.005 &
+                   d$fsrs_match %in% "EXACT")
+      if (length(w) != 1L) stop("[fsrs] ruling (e): ", sc$awardee[j], " is not one EXACT FSRS pair in ", k, call. = FALSE)
+      d$original_flag_reason[w] <- d$flag_reason[w]
+      fr <- gsub("(^|;)SOURCE_SUSPECT(;|$)", "\\1", d$flag_reason[w])
+      fr <- gsub(";+$|^;+", "", gsub(";;+", ";", fr))
+      d$flag_reason[w] <- if (nzchar(fr)) fr else NA_character_
+      d$note[w] <- paste0(d$note[w], " [Session 116d, owner ruling e: SOURCE_SUSPECT cleared. FSRS pays exactly $",
+                          format(sc$amount[j], big.mark = ","), " to PHC-Elko, Inc., which operates Northeastern Nevada ",
+                          "Regional Hospital (Elko); the BP1 report's 'Northern Nevada' is the name defect, not the amount.]")
+    }
     # NOT_FOUND only means something where the state files FFATA at all
     readr::write_csv(d, here::here(files[[k]]), na = "")
   }
@@ -787,14 +931,16 @@ fsrs_apply <- function(p = fsrs_plan(), files = fsrs_state_files()) {
 }
 
 fsrs_new_rows <- function(p) {
-  t <- p$typed %>% dplyr::filter(status == "NEW_ROW") %>% dplyr::arrange(st, dplyr::desc(amount), name)
+  t <- p$typed %>% dplyr::filter(status %in% c("NEW_ROW", "EXTRA_ROW")) %>% dplyr::arrange(st, dplyr::desc(amount), name)
   t %>% dplyr::group_by(st) %>% dplyr::mutate(row_no = as.character(dplyr::row_number())) %>% dplyr::ungroup() %>%
     dplyr::transmute(
       state = st, row_no, awardee = name, amount = format(amount, scientific = FALSE, trim = TRUE),
       recipient_type, distributed_to_hospital,
       note = paste0("FFATA first-tier subaward filed by ", prime_awardee_name, " under ", prime_award_fain,
                     " (subaward ", subaward_number, ", action date ", action_date, "). Recipient in no award file ",
-                    "of this state (session 116c, case c). Description as filed: '", stringr::str_trunc(description, 400), "'."),
+                    "of this state (session 116c, case c)", ifelse(status == "EXTRA_ROW",
+                    paste0(" in this programme; the recipient is on ", row_ids, " for another programme (session 116d, ruling d)"), ""),
+                    ". Description as filed: '", stringr::str_trunc(description, 400), "'."),
       recipient_confirmed = "Yes", amount_confirmed = "Yes", fiscal_year = "FY2026 (Year 1)",
       source_document_title = paste0(prime_awardee_name, ", FFATA first-tier subaward report (SAM.gov/FSRS) under ",
                                      prime_award_fain, ", as republished by USAspending (ALN 93.798), subaward report ", fsrs_id),

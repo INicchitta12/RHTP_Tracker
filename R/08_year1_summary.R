@@ -466,7 +466,8 @@ ys_notes <- function(s, date, rows) {
     paste0("n/m (HOSPITAL % OF AWARDS). Shown only where the state's STATE-SOURCED awards published are at least ", 100 * YS_AWARD_SHARE_MIN, "% of its allotment: ",
            "rows taken from CMS's Obligated Funds Report do not count toward the test, the same rule as the second national row ",
            "(Rhode Island, whose only rows are CMS lines, reads n/m). ", YS_NM_NOTE,
-           " The national hospital share of awards is reported only for states where most of the money is published (see the second national row). ",
+           " The same test applies to the national row: since FSRS (session 116d), state-sourced awards exceed half the national allotment, so the national share prints; ",
+           "the second national row, over the states where most of the money is published, stays the headline. ",
            "Hospital % of allotment is shown for every state."),
     paste0("SECOND NATIONAL ROW. '", ge$state_name, "' rests on state award sources only. Rows taken from CMS's Obligated Funds Report are removed from every figure in it, ",
            "each state's '% published' is computed on its state-sourced awards alone, and a state qualifies when those are at least ", 100 * YS_AWARD_SHARE_MIN,
@@ -593,11 +594,11 @@ ys_state_sourced_awards <- function(s, rows) {
 #' STATE-SOURCED awards are at least YS_AWARD_SHARE_MIN of its allotment (owner
 #' decision; Rhode Island's CMS obligation lines no longer count toward it)
 ys_share_meaningful <- function(s, rows) {
-  # SESSION 116c: FSRS lifts national state-sourced awards above half the
-  # allotment, so the 50% test alone would now print the national share. The
-  # owner's session 111b decision ("the national row keeps n/m") is kept as a
-  # decision, not re-derived; the CSV carries the computed share. Owner call.
-  s$allotment_usd > 0 & s$state != "US" &
+  # SESSION 116d (owner ruling b): the >=50% rule applies to the national row
+  # too. FSRS lifts national state-sourced awards above half the allotment, so
+  # the national hospital % of awards now prints; the subset row stays the
+  # headline.
+  s$allotment_usd > 0 &
     ys_state_sourced_awards(s, rows) / s$allotment_usd >= YS_AWARD_SHARE_MIN
 }
 

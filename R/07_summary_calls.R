@@ -436,9 +436,13 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_j("NY", "Glens Falls Hospital/ Hudson Headwaters", "HOSPITAL",
        "Joint award called on its lead, Glens Falls Hospital (CCN 330191), listed first; the dollars are not split.",
        "Hudson Headwaters, an FQHC, is the co-recipient, and the hospital's share is unknown."),
-  sc_j("VA", "Virginia Hospital Research and Education Foundation (d/b/a VHHA Foundation)", "HOSPITAL",
-       "The Virginia Hospital & Healthcare Association's foundation, and the owner's standing ruling counts hospital associations and their foundations. Session 116c: priced at $27,201,764 from Virginia's FFATA subaward report (R/09b); the call is unchanged and now carries those dollars.",
-       "It administers Remote Patient Monitoring, GME and Food is Medicine, whose subrecipients may include non-hospitals."),
+  sc_j("VA", "Virginia Hospital Research and Education Foundation (d/b/a VHHA Foundation)", "NOT_HOSPITAL",
+       paste("Session 116d, owner ruling (a): priced at $27,201,764 from Virginia's FFATA subaward report (three",
+             "subawards). The award as a whole is NOT a hospital-only class: its Food is Medicine subaward ($2,472,888)",
+             "funds 'pilot projects led by health systems, rural health care providers, community-based organizations,",
+             "or partnerships among these entities' (New Hampshire FHC precedent). Its two subawards whose class is",
+             "health systems alone are called HOSPITAL as components (SC_COMPONENTS, session 105's per-component rule)."),
+       "The association ruling counts hospital associations' foundations; the FIM pilots may be led by health systems."),
   sc_j("VA", "Virginia Health Care Foundation", "NOT_HOSPITAL",
        "A public-private foundation funding safety-net providers; not a hospital body. No dollars on the row.",
        "Its subawards include hospital systems (R/03bx, R/03ch)."),
@@ -588,6 +592,26 @@ SC_JUDGMENTS <- dplyr::bind_rows(
 # owner's rule (CMS enrolment by name or street address) and no record carries
 # it. Every such row is listed in data/reference/fsrs_held.csv or the review
 # list, so a ruling that it is a hospital moves its dollars visibly.
+# SESSION 116d, OWNER RULING (f): the SAM-listed hospitals with no CMS
+# enrolment by name or address, judged one by one (strict typing unchanged).
+SC_FSRS_OVERRIDES <- tibble::tribble(
+  ~file_key, ~awardee, ~call, ~rationale, ~counter,
+  "IA_FSRS", "SANFORD MEDICAL CENTER", "HOSPITAL",
+  "Sanford Medical Center (Sioux Falls) is an enrolled HOSPITAL in CMS's SD Hospital Enrollment (dba Sanford USD Medical Center, CCN 430027); Iowa's equipment subaward goes to an out-of-state hospital entity. Not typed on the IA file, which does not carry it.",
+  "The equipment may sit at an Iowa clinic the entity operates rather than at the hospital.",
+  "AZ_FSRS", "ARIZONA DEPARTMENT OF HEALTH SERVICES", "NOT_HOSPITAL",
+  "A state agency; SAM lists HOSPITAL because ADHS operates the Arizona State Hospital. FSRS: 'ADHS serves as the designated administrator for several RHTP programs'.",
+  "ADHS may pass part of the money to hospitals; no subrecipient is filed.",
+  "TN_FSRS", "CHEROKEE HEALTH SYSTEMS", "NOT_HOSPITAL",
+  "An FQHC and community mental health provider; the subaward is Tennessee's uninsured adult safety-net programme (RHTP 3.1/3.2).",
+  "Its name reads as a health system.",
+  "TN_FSRS", "PERRY COUNTY MEDICAL CENTER, INC.", "NOT_HOSPITAL",
+  "The subaward is Tennessee's uninsured adult safety-net programme, which funds primary-care safety-net clinics; no CMS TN hospital enrolment carries the name or its Linden address.",
+  "If it operates a hospital under another enrolled name, the call reverses.",
+  "TN_FSRS", "SAINT THOMAS MEDICAL PARTNERS", "NOT_HOSPITAL",
+  "A physician group (Ascension Saint Thomas's employed-physician practice); the subaward is the uninsured adult safety-net programme.",
+  "It is owned by a hospital system.")
+
 sc_fsrs_judgments <- function() {
   fs <- list.files(here::here("data/reference"), "^[a-z]{2}_fsrs_awardees\\.csv$", full.names = TRUE)
   dplyr::bind_rows(lapply(fs, function(f) {
@@ -597,6 +621,11 @@ sc_fsrs_judgments <- function() {
                             !grepl(RHTP_SUMMARY_HOSPITAL_MARKER, d$awardee, ignore.case = TRUE))
     if (!any(need)) return(NULL)
     k <- paste0(toupper(substr(basename(f), 1, 2)), "_FSRS")
+    ov <- SC_FSRS_OVERRIDES[SC_FSRS_OVERRIDES$file_key == k, ]
+    if (nrow(ov)) need <- need & !d$awardee %in% ov$awardee
+    ovj <- if (nrow(ov)) tibble::tibble(file_key = k, awardee = ov$awardee, row_no = NA_character_,
+                                         call = ov$call, rationale = ov$rationale, counter = ov$counter) else NULL
+    if (!any(need)) return(ovj)
     pt <- grepl("PASS_THROUGH_UNRESOLVED", r[need])
     tibble::tibble(file_key = k, awardee = d$awardee[need], row_no = d$row_no[need],
       call = "NOT_HOSPITAL",
@@ -606,7 +635,8 @@ sc_fsrs_judgments <- function() {
         "The name reads as a hospital but no archived CMS Hospital Enrollment record carries it by name or street address, so it is not a hospital row (session 116c typing rule)."),
       counter = ifelse(pt,
         "If the recipient passes the money on to hospitals, part or all of it is hospital money.",
-        "SAM or the name may be right that it operates a hospital under another enrolled name; a hand bridge would reverse the call."))
+        "SAM or the name may be right that it operates a hospital under another enrolled name; a hand bridge would reverse the call.")) %>%
+      dplyr::bind_rows(ovj)
   }))
 }
 SC_JUDGMENTS <- dplyr::bind_rows(SC_JUDGMENTS, sc_fsrs_judgments())
@@ -749,6 +779,24 @@ sc_pools <- function(files = sc_state_files()) {
 #' subtraction or division (§6.2).
 SC_COMPONENTS <- tibble::tribble(
   ~component_id, ~file_key, ~state, ~awardee, ~component_name, ~component_usd, ~call, ~rationale, ~counter, ~source_quote, ~source_path,
+  "VA_VHHA_RPM", "VA", "VA", "Virginia Hospital Research and Education Foundation (d/b/a VHHA Foundation)",
+  "Remote Patient Monitoring subinitiative (FSRS subaward, 2026-07-10)", 14837326, "HOSPITAL",
+  paste("Owner ruling (session 116d, a): the subaward's class is rural health systems alone, deploying",
+        "hospital-to-home technology, so the component is called HOSPITAL; the row's remainder is NOT_HOSPITAL."),
+  "'Health systems' is not literally 'hospitals': a system without a hospital would fall outside the class.",
+  paste("REMOTE PATIENT MONITORING SUBINITIATIVE: SUPPORTS RURAL HEALTH SYSTEMS IN DEPLOYING AND SCALING REMOTE",
+        "PATIENT MONITORING AND HOSPITAL-TO-HOME TECHNOLOGIES, INCLUDING FUNDING FOR IMPLEMENTATION, INTEGRATION,",
+        "STAFFING, TRAINING, AND EVALUATION"),
+  "data/raw/usaspending/2026-11-09/usaspending_rhtp_93798_prime_and_subawards.zip",
+  "VA_VHHA_GME", "VA", "VA", "Virginia Hospital Research and Education Foundation (d/b/a VHHA Foundation)",
+  "Attract & Retain Physicians subinitiative (FSRS subaward, 2026-07-10)", 9891550, "HOSPITAL",
+  paste("Owner ruling (session 116d, a): rural residency slots and 'resources needed for health systems to",
+        "recruit, train, and retain physicians': a health-system class, called HOSPITAL as a component."),
+  "Residency slots may sit in non-hospital teaching settings (FQHC-based residencies).",
+  paste("ATTRACT & RETAIN PHYSICIANS SUBINITIATIVE: CREATES AND SUPPORTS APPROXIMATELY 80 RURAL RESIDENCY SLOTS",
+        "IN HIGH-NEED SPECIALTIES, INCLUDING FUNDING FOR RESIDENT SALARIES AND BENEFITS, WRAPAROUND SUPPORTS, RURAL",
+        "CLINICAL ROTATIONS, AND RESOURCES NEEDED FOR HEALTH SYSTEMS TO RECRUIT, TRAIN, AND RETAIN PHYSICIANS."),
+  "data/raw/usaspending/2026-11-09/usaspending_rhtp_93798_prime_and_subawards.zip",
   "NH_FHC_CAH_ACUTE_CARE_RFA", "NH", "NH", "Foundation for Healthy Communities (FHC)",
   "FHC Critical Access Hospital and Acute Care Hospital RFA (2026-OCT-1)", 17500000, "HOSPITAL",
   paste("Owner ruling (session 111, a): the RFA's lead applicants are New Hampshire CAHs and licensed hospitals,",

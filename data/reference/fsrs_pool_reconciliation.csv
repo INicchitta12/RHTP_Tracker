@@ -1,0 +1,18 @@
+file_key,pool,pool_usd,members_with_fsrs,fsrs_usd,gap_usd,gap_pct,decision,as_of
+IN_GROW,GROW Regional Grants -- Region 1,12600000,14,8394448.37,-4205551.63,-33.4,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 2,20700000,17,15173597.47,-5526402.53,-26.7,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 3,9700000,12,8019691.28,-1680308.72,-17.3,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 4,15200000,12,10859941.19,-4340058.81,-28.6,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 5,16700000,8,14957160.99,-1742839.01,-10.4,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 6,13000000,15,6931466.41,-6068533.59,-46.7,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 7,13100000,14,20142019.13,7042019.13,53.8,HOLD,2026-11-09
+IN_GROW,GROW Regional Grants -- Region 8,11400000,7,8644938.67,-2755061.33,-24.2,HOLD,2026-11-09
+NV,WRRAP_RECRUITMENT_RETENTION,32300000,1,486996,-31813004,-98.5,HOLD,2026-11-09
+OH,"ODH Clinically Integrated Networks and Rural Health Innovation Hubs ($31.4M, shared with non-hospitals; no bucket)",,1,137251,,,HOLD,2026-11-09
+OK_CHW,Community Health Worker Expansion,4460162.93,2,192158.06,-4268004.87,-95.7,HOLD,2026-11-09
+SD_CCBHC,Certified Community Behavioral Health Clinic (CCBHC) modernization and infrastructure grants,13000000,7,8087615,-4912385,-37.8,HOLD,2026-11-09
+IN (state),pool-level figures naming no recipient (R/08 pool_level_usd),112400000,19,6237260.04,-106162739.96,-94.5,HOLD,2026-11-09
+OH (state),pool-level figures naming no recipient (R/08 pool_level_usd),61700000,22,6790599.4799999995,-54909400.52,-89,HOLD,2026-11-09
+OR (state),pool-level figures naming no recipient (R/08 pool_level_usd),26700000,41,43658286.72,16958286.72,63.5,HOLD,2026-11-09
+SD (state),pool-level figures naming no recipient (R/08 pool_level_usd),101182906,23,6433154.07,-94749751.93,-93.6,HOLD,2026-11-09
+WA (state),pool-level figures naming no recipient (R/08 pool_level_usd),19410000,38,27292607.03,7882607.03,40.6,HOLD,2026-11-09
