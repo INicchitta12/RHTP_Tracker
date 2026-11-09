@@ -580,6 +580,37 @@ SC_JUDGMENTS <- dplyr::bind_rows(
   sc_ny("Upstate Caring Partners", "a developmental-disabilities services provider"),
   sc_ny("Western New York Rural Area Health Education Center", "an AHEC"))
 
+# SESSION 116c: FSRS first-tier subawards written as NEW rows (R/09b). A row whose
+# strict coding cannot carry over is called NOT_HOSPITAL here, by class, never
+# HOSPITAL: (a) PASS_THROUGH_UNRESOLVED -- a state agency, university,
+# association or intermediary whose filing names no hospital subrecipient
+# (§0.3); (b) FORM_INFERRED with a hospital-shaped name -- typed on the
+# owner's rule (CMS enrolment by name or street address) and no record carries
+# it. Every such row is listed in data/reference/fsrs_held.csv or the review
+# list, so a ruling that it is a hospital moves its dollars visibly.
+sc_fsrs_judgments <- function() {
+  fs <- list.files(here::here("data/reference"), "^[a-z]{2}_fsrs_awardees\\.csv$", full.names = TRUE)
+  dplyr::bind_rows(lapply(fs, function(f) {
+    d <- rhtp_summary_read(f)
+    r <- rhtp_summary_reasons(d)
+    need <- nzchar(r) & !(r == "FORM_INFERRED" & d$distributed_to_hospital == "No" &
+                            !grepl(RHTP_SUMMARY_HOSPITAL_MARKER, d$awardee, ignore.case = TRUE))
+    if (!any(need)) return(NULL)
+    k <- paste0(toupper(substr(basename(f), 1, 2)), "_FSRS")
+    pt <- grepl("PASS_THROUGH_UNRESOLVED", r[need])
+    tibble::tibble(file_key = k, awardee = d$awardee[need], row_no = d$row_no[need],
+      call = "NOT_HOSPITAL",
+      rationale = ifelse(pt,
+        paste0("An FSRS first-tier subaward to a ", tolower(gsub("_", " ", d$recipient_type[need])),
+               " whose filing names no hospital subrecipient: no hospital dollar is shown (§0.3)."),
+        "The name reads as a hospital but no archived CMS Hospital Enrollment record carries it by name or street address, so it is not a hospital row (session 116c typing rule)."),
+      counter = ifelse(pt,
+        "If the recipient passes the money on to hospitals, part or all of it is hospital money.",
+        "SAM or the name may be right that it operates a hospital under another enrolled name; a hand bridge would reverse the call."))
+  }))
+}
+SC_JUDGMENTS <- dplyr::bind_rows(SC_JUDGMENTS, sc_fsrs_judgments())
+
 # -- shared pools priced only at pool level --------------------------------------
 
 #' One row per pool. `member_col`/`member_value` select its member rows in the

@@ -382,7 +382,35 @@ STATE_FILES <- c(
   # MINNESOTA (session 112): MDH's Sub-Recipient Awardees (R/03cp), 11 rows,
   # $12,453,451 ("$12.5 million"); no hospital. Direct-allocation grants to
   # CAHs and others "will be announced in the coming days".
-  MN = "data/reference/mn_year1_awardees.csv"
+  MN = "data/reference/mn_year1_awardees.csv",
+  # Session 116c: FSRS/FFATA first-tier subawards whose recipient is in no
+  # other award file of the state (owner ruling 2026-11-09; R/09b). One file
+  # per state so R/03aw's per-file figures read one state each.
+  AK_FSRS = "data/reference/ak_fsrs_awardees.csv",
+  AZ_FSRS = "data/reference/az_fsrs_awardees.csv",
+  CT_FSRS = "data/reference/ct_fsrs_awardees.csv",
+  DE_FSRS = "data/reference/de_fsrs_awardees.csv",
+  HI_FSRS = "data/reference/hi_fsrs_awardees.csv",
+  IA_FSRS = "data/reference/ia_fsrs_awardees.csv",
+  IL_FSRS = "data/reference/il_fsrs_awardees.csv",
+  KS_FSRS = "data/reference/ks_fsrs_awardees.csv",
+  KY_FSRS = "data/reference/ky_fsrs_awardees.csv",
+  ME_FSRS = "data/reference/me_fsrs_awardees.csv",
+  MN_FSRS = "data/reference/mn_fsrs_awardees.csv",
+  MT_FSRS = "data/reference/mt_fsrs_awardees.csv",
+  NC_FSRS = "data/reference/nc_fsrs_awardees.csv",
+  ND_FSRS = "data/reference/nd_fsrs_awardees.csv",
+  NE_FSRS = "data/reference/ne_fsrs_awardees.csv",
+  NM_FSRS = "data/reference/nm_fsrs_awardees.csv",
+  NV_FSRS = "data/reference/nv_fsrs_awardees.csv",
+  OK_FSRS = "data/reference/ok_fsrs_awardees.csv",
+  RI_FSRS = "data/reference/ri_fsrs_awardees.csv",
+  TN_FSRS = "data/reference/tn_fsrs_awardees.csv",
+  TX_FSRS = "data/reference/tx_fsrs_awardees.csv",
+  UT_FSRS = "data/reference/ut_fsrs_awardees.csv",
+  VA_FSRS = "data/reference/va_fsrs_awardees.csv",
+  VT_FSRS = "data/reference/vt_fsrs_awardees.csv",
+  WV_FSRS = "data/reference/wv_fsrs_awardees.csv"
 )
 
 # Florida's schema is the one the others match on. It is the leading block, not
@@ -424,8 +452,8 @@ test_that("the state files union without a coercion failure", {
   }))
   expect_equal(nrow(u), sum(vapply(state_tables, nrow, integer(1))))
   expect_equal(sort(unique(u$state)),
-               c("AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
-                 "KS", "KY", "LA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "NE", "NH", "NJ", "NV",
+               c("AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
+                 "KS", "KY", "LA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV",
                  "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA",
                  "WV", "WY"))
 })
