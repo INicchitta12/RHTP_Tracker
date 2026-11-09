@@ -431,7 +431,9 @@ test_that("the status table has no amount column (the money is in the award file
 
 test_that("the status table names nine channels; only the RCCB publishes a (partial) roster", {
   st <- readr::read_csv(here::here(LA_STATUS_CSV), show_col_types = FALSE)
-  expect_equal(nrow(st), 12L)  # session 99: + Rural HERO, Grow Your Own, SR 198 report
+  # session 99: + Rural HERO, Grow Your Own, SR 198 report; session 116: + the
+  # 11-05 BP1 Data Report summary row.
+  expect_equal(nrow(st), 13L)
   rccb <- st[st$channel == "Rural Clinician Credit Bank", ]
   expect_equal(rccb$stage, "AWARDED_5_OF_53_NAMED")
   expect_equal(rccb$publishes_roster, "Partial -- 5 of 53 awardees named")
@@ -557,7 +559,7 @@ test_that("the award file is five named rows plus ONE unnamed aggregate", {
 test_that("the file rebuilds from the deck exactly", {
   built <- s71(rhtp_la_year1_awardees(la_runs), "la_year1_awardees.csv") %>%
     dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
-  expect_equal(names(built), setdiff(names(la_awards), RHTP_SUMMARY_COLUMNS))
+  expect_equal(names(built), names(rhtp_strip_summary_calls(la_awards)))
   expect_equal(built$awardee, la_awards$awardee)
   expect_equal(built$amount, la_awards$amount)
   expect_equal(built$recipient_type, la_awards$recipient_type)
@@ -759,4 +761,24 @@ test_that("the legislative-reports list is watched, and an SR 198 mention trips"
   st <- rhtp_la_year1_status()
   expect_equal(st$stage[st$channel == "Senate Resolution 198 report to the Senate"],
                "REPORT_DUE_NOT_YET_POSTED")
+})
+
+
+# -- session 116: the 11-05 "Budget Period 1 Data Report on Awards" -------------
+
+test_that("the 11-05 BP1 report is recorded in the status table only, in no bucket", {
+  expect_true(la_assert_bp1_report())
+  st <- readr::read_csv(here::here(LA_STATUS_CSV), show_col_types = FALSE)
+  expect_true("bp1_report_2026_11_05" %in% names(st))
+  expect_false(any(c("amount", "round_amount") %in% names(st)))
+  sm <- st[st$stage == "REPORTED_COUNTS_NO_NAMES", ]
+  expect_equal(nrow(sm), 1L)
+  expect_match(sm$evidence, "69 hospital-type awards", fixed = TRUE)
+  expect_match(sm$stated_pool, "$107,823,428", fixed = TRUE)
+  expect_equal(sum(LA_BP1_REPORT$hospital_n), 69L)
+  # Eight programme rows carry their line; nothing reached the award file.
+  expect_equal(sum(!is.na(st$bp1_report_2026_11_05)), 9L)
+  aw <- readr::read_csv(here::here(LA_AWARDS_CSV), show_col_types = FALSE)
+  expect_equal(nrow(aw), 6L)
+  expect_false(any(grepl("2026-11-05", aw$source_archive_path, fixed = TRUE)))
 })

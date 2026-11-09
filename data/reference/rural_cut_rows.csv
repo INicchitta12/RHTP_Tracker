@@ -1639,6 +1639,10 @@ MO,mo_smart_growth_awardees.csv,22,Scotland County Hospital,611782.76,FEDERAL_RE
 MO,mo_smart_growth_awardees.csv,23,Texas County Memorial Hospital,989445.32,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260024: PART A PROVIDER - HOSPITAL",FALSE,260024,STATE_SOURCE
 MO,mo_smart_growth_awardees.csv,24,Washington County Memorial Hospital,1027413,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261308: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261308,STATE_SOURCE
 MO,mo_smart_growth_awardees.csv,25,Western Missouri Medical Center,3183443,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260097: PART A PROVIDER - HOSPITAL",FALSE,260097,STATE_SOURCE
+IA,ia_combat_cancer_r2_awardees.csv,1,Methodist Jennie Edmundson,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160047: PART A PROVIDER - HOSPITAL",FALSE,160047,ORG_WEBSITE
+IA,ia_combat_cancer_r2_awardees.csv,2,MercyOne North Iowa Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160064: PART A PROVIDER - HOSPITAL",FALSE,160064,ORG_WEBSITE
+IA,ia_combat_cancer_r2_awardees.csv,3,UnityPoint Health - Des Moines,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160082: PART A PROVIDER - HOSPITAL",FALSE,160082,ORG_WEBSITE
+IA,ia_combat_cancer_r2_awardees.csv,4,MercyOne Des Moines Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160083: PART A PROVIDER - HOSPITAL",FALSE,160083,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,1,Buchanan General Hospital,382000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,7,Buchanan General Hospital,33000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 490127: PART A PROVIDER - HOSPITAL",FALSE,490127,ORG_WEBSITE
 VA,va_year1_vhcf_awardees.csv,10,Valley Health System,1165000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE

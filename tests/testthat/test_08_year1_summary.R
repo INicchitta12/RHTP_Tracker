@@ -60,7 +60,8 @@ test_that("the 2026-11-09 totals are pinned (session 115)", {
   # Medical Group now CODED as PHYSICIAN_PRACTICE).
   expect_equal(us$best_judgment_rows, 638L)
   # + 29 OK CHW (session 114); - AVEM Health Partners (session 115, owner ruling a).
-  expect_equal(us$named_hospital_recipients_no_amount, 297L)
+  # Session 116 (same-date rebuild): + 4 IA Combat Cancer Round 2 intents at $0.
+  expect_equal(us$named_hospital_recipients_no_amount, 301L)
   expect_equal(us$hospital_share_of_awards_pct, 45.5)
   expect_equal(us$hospital_share_of_allotment_pct, 20.8)
 })
@@ -81,7 +82,9 @@ test_that("the change from the 11-04 build is exactly the session 115 changes, s
   expect_equal(d("hospital_bj_pool_usd"), stats::setNames(numeric(0), character(0)))
   # The owner rulings move rows, not dollars: OK AVEM (no amount) leaves the
   # hospital rows; CA Legacy MD Medical Group becomes CODED.
-  expect_equal(d("hospital_rows"), c(OK = -1, WV = 3))
+  # Session 116 (same-date rebuild of 2026-11-09): + 4 IA Combat Cancer Round 2
+  # hospital intents at $0 (R/03cs, owner ruling); no dollar moves.
+  expect_equal(d("hospital_rows"), c(IA = 4, OK = -1, WV = 3))
   expect_equal(d("best_judgment_rows"), c(CA = -1))
 })
 

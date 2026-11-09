@@ -607,6 +607,36 @@ rhtp_footer_allotments <- function() {
 #' failure -- if a figure fails this check, read the document.
 RHTP_FOOTER_ALLOTMENT_MARGIN <- 10000
 
+#' The Year 2 (Budget Period 2) INITIAL award every state is reported to get
+#'
+#' STATE-REPORTED, NOT A CMS FIGURE (session 116): Louisiana's 2026-11-05
+#' Advisory Council deck ("CMS provided Notice of Award for $100 million to
+#' cover state's administrative expenses for BP 2"), NCDHHS ("All states will
+#' receive an initial $100 million award, with additional funding to follow")
+#' and two footers that print allotment + $100M (CA, MN). Every signal is in
+#' data/reference/year2_signals.csv. CMS has published no FY2027 allotment;
+#' cms_fy2027_allotments.csv is empty. Used ONLY to recognise a cumulative
+#' footer so it is never read as a round total; it enters no figure.
+RHTP_YEAR2_INITIAL_AWARD <- 100000000
+
+#' What a footer figure IS, against the §7.1 anchor
+#'
+#' "ALLOTMENT" (Tier 1, BP1), "ALLOTMENT_PLUS_YEAR2_INITIAL" (BP1 + the $100M
+#' Year 2 initial award, cumulative, Tier 1), "OTHER" (read the document), or NA
+#' when the state has no anchor. Never returns a pool: a pool is "OTHER" that a
+#' human has read.
+rhtp_footer_class <- function(amount, state, margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                              allotments = NULL) {
+  if (is.null(allotments)) allotments <- rhtp_footer_allotments()
+  hit <- allotments$fy2026_allotment[allotments$state == state]
+  if (length(hit) != 1L || is.na(amount)) return(NA_character_)
+  if (abs(amount - hit) <= margin) return("ALLOTMENT")
+  if (abs(amount - (hit + RHTP_YEAR2_INITIAL_AWARD)) <= margin) {
+    return("ALLOTMENT_PLUS_YEAR2_INITIAL")
+  }
+  "OTHER"
+}
+
 #' Refuse a footer figure that is the state's allotment wearing a pool's grammar
 #'
 #' @param amount Numeric. The figure printed in the footer.
@@ -660,6 +690,21 @@ rhtp_assert_footer_not_allotment <- function(amount, state, declared_tier,
          "collision is the only signal there is. Read the document. If it IS ",
          "the allotment, declare it STATE_ALLOTMENT and keep it out of every ",
          "pool total; do NOT widen the margin.", call. = FALSE)
+  }
+
+  # SESSION 116: A FOOTER CAN NOW PRINT BP1 + THE YEAR 2 INITIAL AWARD.
+  # California's and Minnesota's pages print their allotment plus exactly
+  # $100,000,000 (Louisiana's 11-05 deck: "CMS provided Notice of Award for
+  # $100 million ... for BP 2"). That is a CUMULATIVE federal award, never a
+  # Tier 2 round total, and it is refused as a pool for the same reason the
+  # allotment itself is.
+  cumul <- hit + RHTP_YEAR2_INITIAL_AWARD
+  if (declared_tier == "SOLICITATION" && abs(amount - cumul) <= margin) {
+    stop("[§0.2] ", label, ": the footer prints ", money(amount),
+         ", which is ", state, "'s FY2026 allotment (", money(hit), ") plus the ",
+         "state-reported Year 2 initial award (", money(RHTP_YEAR2_INITIAL_AWARD),
+         "). That is a CUMULATIVE CMS award (BP1 + BP2), never a round total. ",
+         "Do not read it as a pool and do not widen the margin.", call. = FALSE)
   }
 
   if (!collides && declared_tier == "STATE_ALLOTMENT") {
@@ -1021,7 +1066,71 @@ RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note",
 #   ERROR      the probe could not complete for a reason that is not a
 #              tripwire -- a host refusing, a timeout. A statement about our
 #              access, never about the state (§0.4).
-RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR")
+RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR", "YEAR2")
+
+# -- Year 2 on a probed page (session 116) -----------------------------------
+#
+# OWNER RULING (session 116, Year 2 safeguards). "Year 2", "Budget Period 2",
+# "BP2", "second budget period" and "FY2027" never trip as a YEAR 1 award: a
+# Year 2 solicitation (Kansas's Year 2 RPGP and CAP RFAs) or a Year 2 award
+# window (Iowa's "October 15 - November 20, 2026") is not a Year 1 signal. A
+# Year 2 ROSTER -- award language or a newly named organisation in a Year 2
+# context -- logs its own verdict, YEAR2, and is HELD: not extracted into any
+# Year 1 file, not thrown (the run still publishes), read by a human.
+#
+# The shared tripwires apply this: rhtp_watch_forbid(), rhtp_watch_forbid_new()
+# (utils_page_watch.R) and rhtp_assert_no_new_organisations(). A state probe's
+# OWN bespoke phrase check does not, and a Year 2 sentence that trips one is
+# logged TRIPWIRE; read it, it is not a Year 1 award either.
+RHTP_YEAR2_RX <- paste0(
+  "(?i)(\\byear[- ]?(2|two)\\b|\\bbudget (period|year) (2|two)\\b|",
+  "\\bsecond budget period\\b|\\bBP[- ]?2\\b|\\bF?FY ?2027\\b|",
+  "\\bfederal fiscal year 2027\\b)")
+RHTP_YEAR2_SIGNATURE <- "YEAR 2 SIGNAL, HELD"
+# How far back from a name a Year 2 marker still governs it: a heading
+# ("Year 2 Regional Partnership Grant Program ...") reduced into the text that
+# follows it carries no full stop.
+RHTP_YEAR2_WINDOW <- 250L
+
+rhtp_is_year2 <- function(x) {
+  !is.na(x) & grepl(RHTP_YEAR2_RX, x, perl = TRUE)
+}
+
+#' Sentences (or full-stop-free runs) of reduced page text
+rhtp_sentences <- function(text) {
+  s <- unlist(strsplit(paste(text, collapse = " "), "(?<=[.!?])\\s+|\\s{2,}", perl = TRUE))
+  stringr::str_squish(s[nzchar(s)])
+}
+
+#' Is each name, at EVERY place the text prints it, in a Year 2 context (a
+#' Year 2 marker in the same sentence or within RHTP_YEAR2_WINDOW characters
+#' before it)?
+rhtp_name_in_year2_context <- function(names, text) {
+  text <- paste(text, collapse = " ")
+  vapply(names, function(n) {
+    at <- gregexpr(n, text, fixed = TRUE)[[1]]
+    if (at[1] < 0) return(FALSE)
+    all(vapply(at, function(i) {
+      win <- substr(text, max(1L, i - RHTP_YEAR2_WINDOW), i + nchar(n) + 120L)
+      rhtp_is_year2(win)
+    }, logical(1)))
+  }, logical(1), USE.NAMES = FALSE)
+}
+
+#' Record (inside a probe) or raise (outside one) a held Year 2 signal
+rhtp_year2_fire <- function(state, page, what) {
+  msg <- paste0("[", state, "] '", page, "' ", RHTP_YEAR2_SIGNATURE, ": ", what,
+                ". A Year 2 (Budget Period 2) item is never a Year 1 award: ",
+                "do not extract it into any Year 1 file. Logged YEAR2 for a ",
+                "human to read (owner ruling, session 116).")
+  msg <- gsub("[\r\n]+", " ", msg)
+  if (rhtp_probe_ctx_active()) {
+    rhtp_probe_note("year2", page, msg)
+    message(msg)
+    return(invisible(msg))
+  }
+  stop(msg, call. = FALSE)
+}
 
 
 #' Snapshot data/evidence/ cheaply enough to do it on every probe
@@ -1308,6 +1417,9 @@ rhtp_probe_verdict <- function(msg) {
   # a concurrent reader wrote to the archive), never about the state. The
   # 2026-10-14 newsroom sweep counted MT's refusal as a TRIPWIRE.
   if (grepl("EVIDENCE GUARD REFUSAL", msg, fixed = TRUE)) return("ERROR")
+  # Session 116: a held Year 2 signal is its own verdict.
+  if (grepl(RHTP_YEAR2_SIGNATURE, msg, fixed = TRUE) &&
+      !grepl("THAT IS THE SIGNAL", msg, fixed = TRUE)) return("YEAR2")
   if (grepl("THAT IS THE SIGNAL", msg, fixed = TRUE)) return("TRIPWIRE")
   access <- paste0("\\bHTTP\\s+[0-9]{3}\\b|\\brefused\\b|\\btimed out\\b|",
                    "\\btimeout\\b|\\bcould not resolve\\b|\\bresolve host\\b|",
@@ -1346,7 +1458,8 @@ rhtp_probe_ctx_active <- function() isTRUE(.rhtp_probe_ctx$active)
 rhtp_probe_ctx_empty <- function() {
   list(active = TRUE,
        name_trips  = tibble::tibble(page = character(0), msg = character(0)),
-       page_errors = tibble::tibble(page = character(0), msg = character(0)))
+       page_errors = tibble::tibble(page = character(0), msg = character(0)),
+       year2       = tibble::tibble(page = character(0), msg = character(0)))
 }
 
 #' Enter a probe context; returns the previous one, for rhtp_probe_ctx_pop()
@@ -1427,6 +1540,8 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   res <- tryCatch(force(expr), error = function(e) e)
   name_trips  <- .rhtp_probe_ctx$name_trips
   page_errors <- .rhtp_probe_ctx$page_errors
+  year2       <- .rhtp_probe_ctx$year2
+  if (is.null(year2)) year2 <- tibble::tibble(page = character(0), msg = character(0))
 
   after <- rhtp_evidence_snapshot(evidence_root)
   guard <- tryCatch({
@@ -1479,6 +1594,12 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
     rows <- dplyr::bind_rows(rows, one_row(
       vapply(name_trips$msg, rhtp_probe_verdict, character(1)),
       name_trips$page, name_trips$msg))
+  }
+  # Session 116: held Year 2 signals, one YEAR2 row each. Logged, NOT raised:
+  # the run still publishes, and a human reads the line.
+  if (nrow(year2)) {
+    rows <- dplyr::bind_rows(rows, one_row("YEAR2", year2$page, year2$msg))
+    for (m in year2$msg) message("[", state, "] HELD (YEAR2): ", m)
   }
   # (c) the guard's refusal is logged, as ERROR, before it is raised.
   if (!is.null(guard)) {
@@ -1850,6 +1971,17 @@ rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
                                            furniture = furniture)
   if (!length(new_names)) return(invisible(character(0)))
 
+  # Session 116: a name printed only in a Year 2 context is a held YEAR2
+  # signal, never a Year 1 tripwire.
+  y2 <- rhtp_name_in_year2_context(new_names, live)
+  if (any(y2)) {
+    rhtp_year2_fire(state, page, paste0(
+      "names ", sum(y2), " organisation(s) in a Year 2 context: ",
+      paste(utils::head(new_names[y2], 12L), collapse = " | ")))
+  }
+  new_names <- new_names[!y2]
+  if (!length(new_names)) return(invisible(character(0)))
+
   fire(paste0("[", state, "] '", page, "' NAMES ", length(new_names),
        " ORGANISATION(S) THE ARCHIVED COPY DOES NOT: ",
        paste(utils::head(new_names, 12L), collapse = " | "),
@@ -2034,4 +2166,140 @@ rhtp_assert_disposition_prose <- function(disp, state = "??") {
          "figure as one (\"N on the 2026-08-27 pull\").", call. = FALSE)
   }
   invisible(disp)
+}
+
+
+# -- budget periods (session 116): Year 1 is budget_period == 1 ----------------
+#
+# OWNER RULING (session 116, Year 2 safeguards; no Year 2 extraction). Every
+# award file and every status table carries an INTEGER `budget_period`; every
+# existing row is 1. The figure the column decides is whether a row may enter a
+# Year 1 total: R/08's summary, R/03aw's completion status and R/03ar's rural
+# cut read only budget_period == 1 (rhtp_year1_only()), and refuse a file that
+# lacks the column.
+#
+# WHERE IT COMES FROM. config/budget_period_registry.csv names every file and
+# its period. rhtp_budget_period_stamp() (run by R/07_summary_calls.R --apply,
+# which is LAST) writes the integer and keeps any text the builder wrote in
+# `budget_period_text`. A file not in the registry is refused -- so a Year 2
+# roster cannot be stamped 1 by default; it must be registered as 2, in its own
+# file. A file registered 1 whose builder text names a later period is refused.
+
+RHTP_BUDGET_PERIOD_REGISTRY <- "config/budget_period_registry.csv"
+RHTP_LATER_PERIOD_RX <- paste0(
+  "(?i)\\b(budget period 2|budget period two|second budget period|bp ?2|",
+  "year 2|year two|fy ?2027|ffy ?2027|federal fiscal year 2027)\\b")
+
+rhtp_budget_period_registry <- function() {
+  r <- readr::read_csv(here::here(RHTP_BUDGET_PERIOD_REGISTRY),
+                       col_types = readr::cols(.default = "c"), progress = FALSE)
+  stopifnot(all(c("file", "kind", "budget_period") %in% names(r)),
+            !anyDuplicated(r$file),
+            all(r$kind %in% c("AWARD_FILE", "STATUS_TABLE")),
+            all(grepl("^[1-5]$", r$budget_period)))
+  r$budget_period <- as.integer(r$budget_period)
+  r
+}
+
+#' Stamp one file. Reads every column as character and writes back with na = ""
+#' (the summary-call round trip), so no other byte moves.
+rhtp_budget_period_stamp <- function(file, period) {
+  path <- here::here(file)
+  d <- readr::read_csv(path, col_types = readr::cols(.default = "c"), na = character(),
+                       progress = FALSE, trim_ws = FALSE)
+  had_text <- "budget_period" %in% names(d) && !all(grepl("^[0-9]+$", d$budget_period))
+  if (had_text) {
+    later <- grepl(RHTP_LATER_PERIOD_RX, d$budget_period, perl = TRUE)
+    if (period == 1L && any(later)) {
+      stop("[budget period] ", file, " is registered 1, but its builder wrote '",
+           d$budget_period[which(later)[1]], "'. A later-period row is never stamped ",
+           "Year 1: put it in its own file and register that file.", call. = FALSE)
+    }
+    d$budget_period_text <- d$budget_period
+  }
+  d$budget_period <- if (nrow(d)) as.character(period) else character(0)
+  readr::write_csv(d, path, na = "")
+  invisible(nrow(d))
+}
+
+#' Stamp every registered file; refuse an award file or status table that is
+#' not registered.
+rhtp_budget_period_apply <- function(award_files) {
+  r <- rhtp_budget_period_registry()
+  status <- file.path("data", "reference",
+                      list.files(here::here("data", "reference"), "_status\\.csv$"))
+  want <- unique(c(unname(award_files), status))
+  miss <- setdiff(want, r$file)
+  if (length(miss)) {
+    stop("[budget period] not in ", RHTP_BUDGET_PERIOD_REGISTRY, ": ",
+         paste(miss, collapse = ", "), ". Register each file with its budget ",
+         "period (1 = Year 1) before it can be stamped.", call. = FALSE)
+  }
+  gone <- setdiff(r$file, want)
+  if (length(gone)) {
+    stop("[budget period] registered but not an award file or status table: ",
+         paste(gone, collapse = ", "), call. = FALSE)
+  }
+  for (i in seq_len(nrow(r))) rhtp_budget_period_stamp(r$file[i], r$budget_period[i])
+  invisible(r)
+}
+
+#' Year 1 rows only. Refuses a table with no budget_period, so a file that
+#' skipped the stamp cannot enter a Year 1 total silently.
+rhtp_year1_only <- function(d, label = "a table") {
+  if (!"budget_period" %in% names(d)) {
+    stop("[budget period] ", label, " has no budget_period column. Re-run ",
+         "Rscript R/07_summary_calls.R --apply (it stamps every registered file).",
+         call. = FALSE)
+  }
+  bp <- suppressWarnings(as.integer(d$budget_period))
+  if (anyNA(bp)) {
+    stop("[budget period] ", label, " has a row with no integer budget_period.",
+         call. = FALSE)
+  }
+  d[bp == 1L, , drop = FALSE]
+}
+
+
+# -- FY2027 (Year 2) allotments (session 116) ---------------------------------
+#
+# EMPTY UNTIL CMS PUBLISHES THEM. data/reference/cms_fy2027_allotments.csv has
+# the FY2026 file's shape (state, state_name, <fy>_allotment,
+# <fy>_allotment_published, source_url, source_fetched) with fy2027 column
+# names, and NO rows. cms_fy2026_allotments.csv is never edited for Year 2 (its
+# digest is pinned in test_year2_safeguards.R). A state-reported "initial $100
+# million award" is a SIGNAL (year2_signals.csv), never a row here: only a CMS
+# publication of every state's FY2027 figure fills this file, and then all 50
+# rows at once.
+RHTP_FY2027_ALLOTMENTS <- "data/reference/cms_fy2027_allotments.csv"
+RHTP_FY2027_COLUMNS <- c("state", "state_name", "fy2027_allotment",
+                         "fy2027_allotment_published", "source_url", "source_fetched")
+
+rhtp_load_fy2027_allotments <- function(path = here::here(RHTP_FY2027_ALLOTMENTS)) {
+  a <- readr::read_csv(path, col_types = readr::cols(.default = "c"), progress = FALSE)
+  fail <- function(...) stop("[FY2027 allotments] ", ..., call. = FALSE)
+  if (!identical(names(a), RHTP_FY2027_COLUMNS)) {
+    fail("columns are ", paste(names(a), collapse = ", "), "; expected ",
+         paste(RHTP_FY2027_COLUMNS, collapse = ", "), ".")
+  }
+  if (!nrow(a)) {
+    message("[FY2027 allotments] empty: CMS has published no FY2027 allotment.")
+    return(invisible(a))
+  }
+  if (nrow(a) != 50L || anyDuplicated(a$state)) {
+    fail("a filled table is all 50 states at once, one row each; found ", nrow(a), ".")
+  }
+  if (length(setdiff(a$state, rhtp_cms_states()$state))) fail("a state outside the fifty.")
+  amt <- suppressWarnings(as.numeric(a$fy2027_allotment))
+  if (anyNA(amt) || any(amt <= 0)) fail("a row has no positive amount.")
+  if (!all(grepl("^https://(www\\.)?(cms\\.gov|medicaid\\.gov)/", a$source_url))) {
+    fail("every row's source must be a CMS (cms.gov / medicaid.gov) URL; a state's ",
+         "own report of its Year 2 award is a signal, not an allotment.")
+  }
+  f26 <- rhtp_footer_allotments()
+  same <- merge(data.frame(state = a$state, amt = amt), f26, by = "state")
+  if (nrow(same) && all(abs(same$amt - same$fy2026_allotment) < 1)) {
+    fail("every FY2027 figure equals its FY2026 figure: the FY2026 table was copied.")
+  }
+  invisible(a)
 }

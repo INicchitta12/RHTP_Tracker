@@ -791,6 +791,9 @@ sc_compute <- function(files = sc_state_files(), strict = TRUE) {
 sc_apply <- function(files = sc_state_files()) {
   calls <- sc_compute(files)
   for (k in names(files)) rhtp_summary_write(here::here(files[[k]]), calls[[k]])
+  # SESSION 116: stamp budget_period on every registered award file and status
+  # table (config/budget_period_registry.csv), so this command stays LAST.
+  rhtp_budget_period_apply(files)
   p <- sc_pools(files)
   readr::write_csv(p, here::here(SC_POOLS_CSV), na = "")
   readr::write_csv(sc_components(calls), here::here(SC_COMPONENTS_CSV), na = "")

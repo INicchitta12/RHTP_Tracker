@@ -177,5 +177,14 @@ rhtp_summary_write <- function(path, calls) {
 #' An award file without the summary columns, for tests that compare a
 #' committed file with what its extractor builds.
 rhtp_strip_summary_calls <- function(d) {
+  # SESSION 116: also undo the budget_period stamp (R/07 --apply), so a
+  # committed file compares with what its builder writes.
+  if ("budget_period_text" %in% names(d)) {
+    d$budget_period <- d$budget_period_text
+    d$budget_period_text <- NULL
+  } else if ("budget_period" %in% names(d) &&
+             all(grepl("^[0-9]+$", as.character(d$budget_period)))) {
+    d$budget_period <- NULL
+  }
   d[, setdiff(names(d), RHTP_SUMMARY_COLUMNS), drop = FALSE]
 }

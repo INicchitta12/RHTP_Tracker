@@ -147,6 +147,19 @@ rhtp_watch_require <- function(text, must, state, page) {
 
 #' Refuse a page that now carries award language
 rhtp_watch_forbid <- function(text, patterns, state, page) {
+  # Session 116: award language in a Year 2 sentence is a held YEAR2 signal,
+  # never a Year 1 award; only the other sentences are tested below.
+  if (exists("rhtp_is_year2")) {
+    s <- rhtp_sentences(text)
+    y2 <- rhtp_is_year2(s)
+    y2hit <- s[y2][vapply(s[y2], function(x) any(vapply(patterns, function(p)
+      grepl(p, x, ignore.case = TRUE, perl = TRUE), logical(1))), logical(1))]
+    if (length(y2hit)) {
+      rhtp_year2_fire(state, page, paste0("award language in a Year 2 sentence: \"",
+                                          substr(y2hit[1], 1, 300), "\""))
+    }
+    text <- paste(s[!y2], collapse = " ")
+  }
   hit <- patterns[vapply(patterns, function(p)
     grepl(p, text, ignore.case = TRUE, perl = TRUE), logical(1))]
   if (length(hit)) {
@@ -180,6 +193,15 @@ rhtp_watch_new_sentences <- function(live, arch, pattern) {
 #' ... and the tripwire built on it
 rhtp_watch_forbid_new <- function(live, arch, pattern, state, page, why) {
   new <- rhtp_watch_new_sentences(live, arch, pattern)
+  # Session 116: a new Year 2 sentence is a held YEAR2 signal, not a trip.
+  if (length(new) && exists("rhtp_is_year2")) {
+    y2 <- rhtp_is_year2(new)
+    if (any(y2)) {
+      rhtp_year2_fire(state, page, paste0(sum(y2), " new Year 2 sentence(s): \"",
+                                          substr(new[y2][1], 1, 300), "\""))
+    }
+    new <- new[!y2]
+  }
   if (length(new)) {
     stop("[", state, "] '", page, "' HAS ", length(new), " NEW SENTENCE(S) ",
          "OF THE KIND THIS WATCH EXISTS FOR: ",

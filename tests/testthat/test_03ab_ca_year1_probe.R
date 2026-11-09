@@ -98,8 +98,11 @@ test_that("the one-cent disagreement is pinned in both directions", {
   # Three figures, all pinned, none corrected (§8, Kansas's rule).
   expect_true(stringr::str_detect(ca_pdf_text("cms_noa"),
                                   stringr::fixed("$233,639,308.47")))
+  # Session 116: the page's footer is now BP1 + the $100M Year 2 initial
+  # award, and it keeps HCAI's .46 cents: $333,639,308.46.
   expect_true(stringr::str_detect(ca_html_text("calrht"),
-                                  stringr::fixed("$233,639,308.46")))
+                                  stringr::fixed("$333,639,308.46")))
+  expect_true(grepl("$233,639,308.46", ca_pdf_text("faq_notifications"), fixed = TRUE))
   expect_true(stringr::str_detect(ca_pdf_text("gg_wcap"),
                                   stringr::fixed("$233,639,308.47")))
   expect_equal(round(ca_allotment_anchor()), 233639308)
@@ -473,4 +476,44 @@ test_that("SESSIONS 88 + 109: the four CalRHT pools read RECOMMENDED, PUBLISHED,
   # The FAQ going away takes the stage with it.
   expect_error(ca_assert_private_notices("an unrelated document"),
                "no longer says")
+})
+
+
+# -- session 116: the BP1 + BP2 footer -----------------------------------------
+
+test_that("the CalRHT footer is the allotment plus the Year 2 initial award, never a round total", {
+  amt <- as.numeric(gsub("[$,]", "", CA_STATED$footer_amount_bp1_bp2))
+  expect_equal(rhtp_footer_class(amt, "CA"), "ALLOTMENT_PLUS_YEAR2_INITIAL")
+  expect_equal(rhtp_footer_class(as.numeric(gsub("[$,]", "", CA_STATED$footer_amount)), "CA"),
+               "ALLOTMENT")
+  # Never a pool: declared SOLICITATION, either figure is refused.
+  expect_error(rhtp_assert_footer_not_allotment(amt, "CA", "SOLICITATION"),
+               "CUMULATIVE")
+  expect_error(rhtp_assert_footer_not_allotment(233639308.46, "CA", "SOLICITATION"),
+               "Tier 1")
+  # A genuine round figure is neither.
+  expect_equal(rhtp_footer_class(138464043.97, "CA"), "OTHER")
+  expect_true(rhtp_assert_footer_not_allotment(138464043.97, "CA", "SOLICITATION"))
+})
+
+test_that("FIXTURE: the footer check accepts BP1 + BP2 and stops on anything else", {
+  txt <- ca_html_text("calrht")
+  expect_true(grepl("totaling $333,639,308.46", txt, fixed = TRUE))
+  expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = txt))
+  # A footer moved to a figure that is neither the allotment nor BP1 + BP2.
+  odd <- sub("$333,639,308.46", "$166,720,000.00", txt, fixed = TRUE)
+  expect_error(ca_assert_footer_corroborates(strict = TRUE, calrht = odd),
+               "never a round total")
+  # The old BP1-only footer is a re-read too, not a silent pass: the pin moved.
+  old <- sub("$333,639,308.46", "$233,639,308.46", txt, fixed = TRUE)
+  expect_error(ca_assert_footer_corroborates(strict = TRUE, calrht = old),
+               "footer amount is no longer")
+})
+
+test_that("the re-based probe pages pass every tripwire as archived", {
+  expect_true(ca_assert_programme_provenance())
+  expect_true(ca_assert_recommended_roster())
+  for (k in c("funding", "calrht", "updates")) {
+    expect_gt(nchar(ca_name_scope(ca_html_text(k), k)), 1000)
+  }
 })

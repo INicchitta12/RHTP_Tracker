@@ -592,9 +592,11 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # no new state: +43 / +$31,862,169.80: 1,951 / $1,793,689,688.62 / 37.
   # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
   # Subtracted first.
-  expect_equal(named$rows, 1954L)
+  # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958.
+  expect_equal(named$rows, 1958L)
   expect_equal(round(named$dollars, 2), 1797619954.62, tolerance = 0)
   expect_equal(named$states, 37L)
+  named$rows <- named$rows - 4L   # session 116: IA Combat Cancer Round 2, $0
   named$rows <- named$rows - 3L
   named$dollars <- named$dollars - 3930266
   named$rows <- named$rows - 43L

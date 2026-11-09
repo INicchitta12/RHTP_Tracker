@@ -1096,6 +1096,20 @@ rhtp_hospital_dollar_partition <- function(records,
   if (!include_source_suspect) {
     records <- records[!rhtp_is_source_suspect(records), , drop = FALSE]
   }
+  # SESSION 116: the partition is a Year 1 figure. Where a table carries
+  # budget_period (every committed award file does, after R/07 --apply), only
+  # budget_period == 1 rows enter it.
+  # A builder's unstamped TEXT ("Budget Period 1") is kept unless it names a
+  # later period.
+  if ("budget_period" %in% names(records)) {
+    bpc <- as.character(records$budget_period)
+    bp <- suppressWarnings(as.integer(bpc))
+    later <- (!is.na(bp) & bp != 1L) |
+      (is.na(bp) & !is.na(bpc) & grepl(if (exists("RHTP_LATER_PERIOD_RX")) RHTP_LATER_PERIOD_RX else
+        "(?i)\\b(budget period 2|second budget period|bp ?2|year 2|fy ?2027)\\b",
+        bpc, perl = TRUE))
+    records <- records[!later, , drop = FALSE]
+  }
 
   attribution <- if ("hospital_attribution" %in% names(records)) {
     records$hospital_attribution

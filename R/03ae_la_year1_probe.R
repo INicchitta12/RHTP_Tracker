@@ -1248,7 +1248,142 @@ rhtp_la_year1_status <- function() {
     "aggregate row there. 20 of the 53 are 'Hospital settings' ($6,285,515)",
     "and none of those is named. The programme page's window and the funding",
     "page's 'Applications currently under review' LAG the deck.")
-  out %>% dplyr::select(-"window_key")
+  out <- out %>% dplyr::select(-"window_key")
+  la_status_add_bp1_report(out)
+}
+
+
+# -- session 116: LDH's 2026-11-05 "Budget Period 1 Data Report on Awards" -----
+#
+# OWNER RULING (session 116): RECORDED HERE ONLY, IN NO BUCKET -- the same
+# treatment as the Credit Bank's "Hospital settings 20 awards" (§7: a count of
+# hospital awards that names none enters no bucket). The deck (Advisory
+# Council, 2026-11-05; archived recheck/2026-11-09/LA/) prints, per programme,
+# applications received, requested funding, applications awarded, OBLIGATED
+# funding and a count of recipient TYPES. It names no recipient of any
+# competitive round, says the data are "preliminary as budgets continue to be
+# negotiated", and "Obligated" is CMS's good-faith-intent sense (its own
+# definitions slide), not an executed contract. So the figures are TEXT in a
+# column of this status table, never an `amount`, never a row of an award file.
+# Its footer prints $308,374,447.57 = the allotment + $100M (Year 2 initial
+# award, year2_signals.csv).
+
+LA_BP1_REPORT_ARCHIVE <- file.path(
+  "data", "evidence", "recheck", "2026-11-09", "LA",
+  "2026-11-09_la_advisory_council_2026-11-05_bp1_awards_report.pdf")
+LA_BP1_REPORT_SHA <- "44592102cca11f7a9c72ff96650daa193063cbe54f3d4f3705e963bd3226f008"
+
+# One line per competitive programme, as printed: received, requested, awarded,
+# obligated, and the hospital-type count ("Rural hospitals - n"). `channel` is
+# this table's own channel string (exact; §2).
+LA_BP1_REPORT <- tibble::tribble(
+  ~deck_strategy, ~channel, ~received, ~requested, ~awarded, ~obligated, ~hospital_n, ~types,
+  "Rural Clinician Credit Bank", "Rural Clinician Credit Bank", 136, "$20,348,118", 59, "$13,385,937", 20,
+  "Rural hospitals 20; Rural clinics 13; FQHCs 3; Other 23",
+  "Rural HERO", "Rural HERO (Rural Healthcare Employment Reinvestment Opportunity)", 18, "$21,868,413", 18, "$12,595,482", 0,
+  "Teaching institution 4 ('BP 1 funding directly to four public university / college systems')",
+  "Collaborative Provider Model", "Rural Collaborative Provider Models Program", 39, "$20,544,955", 8, "$2,322,307", 5,
+  "Rural hospitals 5; Rural clinics 3",
+  "Innovative Care Models", "Rural Medicaid Alternative Payment Model Program", 33, "$34,978,479", 18, "$26,728,713", 2,
+  "Rural hospitals 2; Rural clinics 5; FQHCs 1; Teaching institution 1; Other 9",
+  "Food \u201cFarm\u201dacy", "Food is Medicine Program", 37, "$20,338,369", 8, "$3,067,521", 2,
+  "Rural hospitals 2; Rural clinics 1; Other 5",
+  "Care Convener", "Regional Care Conveners and Navigation Networks Program", 25, "$28,985,895", 5, "$3,507,070", 1,
+  "Rural hospitals 1; Other 4",
+  "Telehealth", "Telehealth Infrastructure for Rural Access Program", 78, "$7,971,786", 20, "$4,577,479", 12,
+  "Rural hospitals 12; Rural clinics 4; FQHC 2; Other 2",
+  "Rural Facility Capital Improvement Program", "Rural Health Facilities Capital Improvement Program -- THE POOL TO WATCH", 163, "$272,192,420", 59, "$41,638,919", 27,
+  "Rural hospitals 27; Rural clinics 19; FQHCs 3; Other 10"
+)
+LA_BP1_REPORT_HOSPITAL_N <- 69L
+LA_BP1_REPORT_COMPETITIVE_OBLIGATED <- "$107,823,428"
+LA_BP1_REPORT_OTHER_AGREEMENTS <- "$69,375,858"
+
+la_bp1_report_text <- function() {
+  if (!identical(digest::digest(file = here::here(LA_BP1_REPORT_ARCHIVE), algo = "sha256"),
+                 LA_BP1_REPORT_SHA)) {
+    stop("[LA] the 11-05 deck's SHA-256 does not match MANIFEST.txt.", call. = FALSE)
+  }
+  if (!exists("rhtp_pdf_text")) source(here::here("R", "utils_pdf_text.R"))
+  stringr::str_squish(paste(rhtp_pdf_text(here::here(LA_BP1_REPORT_ARCHIVE)), collapse = " "))
+}
+
+#' Every figure in LA_BP1_REPORT is in the deck, and the sums hold
+la_assert_bp1_report <- function(t = la_bp1_report_text()) {
+  # The project reader keeps glyph runs, not the deck's spacing ("136$20,348,11859"),
+  # so every comparison is made with whitespace removed on both sides.
+  t <- gsub("\\s+", "", t)
+  nows <- function(x) gsub("\\s+", "", x)
+  musts <- c("Budget Period 1 Data Report on Awards",
+             "Numbers are subject to vary until contracts are executed",
+             # The project reader drops the "A" of "Award" on this slide.
+             "for $100 million to cover state", "administrative expenses for BP 2",
+             "financial assistance award totaling $308,374,447.57")
+  for (m in musts) if (!grepl(nows(m), t, fixed = TRUE)) {
+    stop("[LA] the 11-05 deck no longer carries: ", m, call. = FALSE)
+  }
+  for (i in seq_len(nrow(LA_BP1_REPORT))) {
+    r <- LA_BP1_REPORT[i, ]
+    want <- paste(r$received, r$requested, r$awarded, r$obligated)
+    if (!grepl(nows(want), t, fixed = TRUE)) {
+      stop("[LA] the 11-05 deck's line for ", r$deck_strategy, " is not '", want, "'.",
+           call. = FALSE)
+    }
+    if (r$hospital_n > 0 && !grepl(nows(paste0("Rural hospitals - ", r$hospital_n, "\u2022")), t, fixed = TRUE)) {
+      stop("[LA] 'Rural hospitals - ", r$hospital_n, "' is not in the deck (", r$deck_strategy, ").",
+           call. = FALSE)
+    }
+  }
+  cents <- function(x) as.numeric(gsub("[$,]", "", x))
+  if (sum(LA_BP1_REPORT$hospital_n) != LA_BP1_REPORT_HOSPITAL_N ||
+      sum(cents(LA_BP1_REPORT$obligated)) != cents(LA_BP1_REPORT_COMPETITIVE_OBLIGATED)) {
+    stop("[LA] the 11-05 report's hospital count or competitive total moved.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+la_status_add_bp1_report <- function(out) {
+  la_assert_bp1_report()
+  rep <- LA_BP1_REPORT %>% dplyr::transmute(
+    channel,
+    bp1_report_2026_11_05 = paste0(
+      "LDH Advisory Council 2026-11-05, 'Budget Period 1 Data Report on Awards' ",
+      "(PRELIMINARY; '", deck_strategy, "'): ", received, " applications received, ",
+      requested, " requested, ", awarded, " applications awarded, ", obligated,
+      " obligated. Recipient types awarded: ", types, ". NAMES NONE; ",
+      "hospital-type awards ", hospital_n, " (in no bucket, §7)."))
+  miss <- setdiff(rep$channel, out$channel)
+  if (length(miss)) stop("[LA] BP1 report channel not in the status table: ",
+                         paste(miss, collapse = "; "), call. = FALSE)
+  out <- out %>% dplyr::left_join(rep, by = "channel")
+  summary_row <- tibble::tibble(
+    channel = "Budget Period 1 Data Report on Awards (Advisory Council, 2026-11-05)",
+    administrator = "LDH",
+    stated_pool = paste0(LA_BP1_REPORT_COMPETITIVE_OBLIGATED, " obligated across eight ",
+                         "competitive programmes; ", LA_BP1_REPORT_OTHER_AGREEMENTS,
+                         " obligated through other agreements (text, never an amount)"),
+    stage = "REPORTED_COUNTS_NO_NAMES",
+    announcement_window = "2026-11-05",
+    eligible_class = "not applicable (a report)",
+    publishes_roster = "No",
+    evidence = paste(
+      "Counts and obligated dollars by programme, including", LA_BP1_REPORT_HOSPITAL_N,
+      "hospital-type awards (Rural hospitals: Credit Bank 20, Capital 27, Telehealth",
+      "12, Collaborative Provider 5, Innovative Care 2, Food 2, Care Convener 1) --",
+      "none named, so in no bucket (§7, the Credit Bank breakdown's treatment).",
+      "'Other agreements' NAME their vendors (UL-Lafayette, UL-Monroe, LSU-E, LSU-A,",
+      "Northwestern, Acadian Ambulance Service, Epic, McKinsey Group, Thrive",
+      "Mobile / Carahsoft, LCTCS, LSU Ag Center), none a hospital. Rural Tech",
+      "Catalyst Fund: 212 applications, awards 'TBD', CMS review mid-December.",
+      "PRELIMINARY: 'Numbers are subject to vary until contracts are executed'.",
+      "Year 2: 'CMS provided Notice of Award for $100 million to cover state's",
+      "administrative expenses for BP 2' (year2_signals.csv). Archived",
+      LA_BP1_REPORT_ARCHIVE, "(session 116, owner ruling)."),
+    bp1_report_2026_11_05 = paste(
+      "Summary: competitive", LA_BP1_REPORT_COMPETITIVE_OBLIGATED, "obligated,",
+      LA_BP1_REPORT_HOSPITAL_N, "hospital-type awards named nowhere; other agreements",
+      LA_BP1_REPORT_OTHER_AGREEMENTS, "."))
+  dplyr::bind_rows(out, summary_row)
 }
 
 

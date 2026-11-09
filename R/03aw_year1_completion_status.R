@@ -75,6 +75,7 @@ Y1_AWARD_FILES <- c(
   NV = "nv_year1_awardees.csv",  MO = "mo_year1_awardees.csv",
   MO = "mo_smart_growth_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
+  IA = "ia_combat_cancer_r2_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
   NC = "nc_year1_sbhc_awardees.csv",
   AR = "ar_year1_awardees.csv",  AR = "ar_year1_round2_awardees.csv",
@@ -106,8 +107,10 @@ Y1_POOL_EXCLUDED <- c("NH")
 # -- 1. What each state file publishes -----------------------------------------
 
 y1_read <- function(f) {
-  readr::read_csv(here::here("data", "reference", f),
-                  show_col_types = FALSE, progress = FALSE)
+  d <- readr::read_csv(here::here("data", "reference", f),
+                       show_col_types = FALSE, progress = FALSE)
+  # SESSION 116: completion status is a Year 1 statement; Year 1 rows only.
+  rhtp_year1_only(d, f)
 }
 
 #' Priced subawards, and priced + round-level figures, for one award file.

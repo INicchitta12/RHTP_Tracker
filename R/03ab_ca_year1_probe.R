@@ -169,8 +169,14 @@ CA_SOURCES <- tibble::tribble(
   # footer (BP1 + a $100M BP2 Notice of Award, per Louisiana's 11-05 deck),
   # which a re-base would archive and the footer-tier check refuses. The
   # roster read 11-09 is the 10-28 roster, 108 rows / $138,464,043.97, to the cent.
+  # SESSION 116: RE-BASED after reading (owner-approved): the 11-07 redesign
+  # (title "... Program (CalRHT)", a feedback-survey block, an "Explore CalRHT"
+  # card grid, the award sentence re-set as "$233.6 million Awarded to
+  # California for Federal Fiscal Year 2026", and the footer now printing
+  # $333,639,308.46 = BP1 + the $100M Year 2 initial award, cumulative). No
+  # name; the 10-28 copy stays.
   "calrht",
-  "2026-10-28_ca_hcai_calrht_programme.html",
+  "2026-11-09_ca_hcai_calrht_programme.html",
   "https://hcai.ca.gov/calrht/",
 
   # SESSION 108: HCAI's "Recommended Subrecipients for CalRHT Budget Period 1
@@ -181,8 +187,13 @@ CA_SOURCES <- tibble::tribble(
   # SESSION 109: EXTRACTED by R/03cl_ca_bp1_awardees.R (owner-approved), from
   # this 10-28 copy; its 108 rows equal the 10-26 copy's to the cent (asserted
   # there). Re-based after reading: only the mega-menu swap above moved.
+  # SESSION 116: RE-BASED after reading: the redesign's title and footer, a
+  # clause "- part of the state's $233.6 million total CalRHT award from the
+  # federal government", and an "Expand and Support Rural Workforce Capacity:"
+  # label above the FM-OB table. The roster is 108 rows / $138,464,043.97, to
+  # the cent (ca_assert_recommended_roster). R/03cl still reads the 10-28 copy.
   "updates",
-  "2026-10-28_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
+  "2026-11-09_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
   "https://hcai.ca.gov/calrht/calrht-program-updates/",
 
   # Session 108: re-based after reading. Added a Tribal Set-Aside section
@@ -193,8 +204,11 @@ CA_SOURCES <- tibble::tribble(
   # SESSION 109: RE-BASED after reading. The mega-menu swap; one opportunity's
   # three "Coming Soon!" labels collapsed into one line; and the FM-OB block
   # gained an "Application Portal" link (a solicitation, Tier 2). No name.
+  # SESSION 116: RE-BASED after reading: the redesign's title and footer, and
+  # the FM-OB block's "Coming Soon!" labels replaced by a webinar presentation
+  # link (Tier 2). Four "(Closed)" headings, no name.
   "funding",
-  "2026-10-28_ca_hcai_calrht_funding_opportunities.html",
+  "2026-11-09_ca_hcai_calrht_funding_opportunities.html",
   "https://hcai.ca.gov/calrht/funding/",
 
   "cms_noa",
@@ -234,8 +248,9 @@ CA_SOURCES <- tibble::tribble(
 
   # Session 108: re-based after reading (no new headline link; the 09-02 copy stays).
   # Session 109: re-based after reading (the mega-menu swap only).
+  # Session 116: re-based after reading (HCAI's maintenance banner gone; no new headline link).
   "newsroom",
-  "2026-10-28_ca_hcai_newsroom_CONTROL.html",
+  "2026-11-09_ca_hcai_newsroom_CONTROL.html",
   "https://hcai.ca.gov/media-center/",
 
   # SESSION 88. Linked from the CalRHT page as "CalRHT Frequently Asked
@@ -252,6 +267,11 @@ CA_STATED <- list(
   cms_allotment_anchor = 233639308,
   noa_amount           = "$233,639,308.47",
   footer_amount        = "$233,639,308.46",
+  # SESSION 116: the CalRHT pages' footer since 2026-11-07 (/calrht/ move):
+  # $233,639,308.46 + $100,000,000 -- the FY2026 allotment plus the Year 2
+  # initial award, CUMULATIVE (rhtp_footer_class() = ALLOTMENT_PLUS_YEAR2_INITIAL).
+  # Never a round total. The FAQ PDF and the archives before 11-09 keep .46.
+  footer_amount_bp1_bp2 = "$333,639,308.46",
   noa_award_number     = "RHTCMS332078-01-02",
   noa_fain             = "RHTCMS332078",
   noa_assistance_list  = "93.798",
@@ -277,13 +297,20 @@ CA_PROGRAMME_SCOPED <- c(
     "The California Rural Health Transformation (CalRHT) program is",
     "California's approach to the federal Rural Health Transformation Program",
     "(RHTP), led by the Department of Health Care Access and Information"),
+  # SESSION 116: the 11-07 redesign set the award as a heading-and-figure
+  # block ("A Connected and Resilient Rural Health System $233.6 million
+  # Awarded to California for Federal Fiscal Year 2026 ..."). Before it the
+  # sentence read "Through RHTP, California has been awarded $233.6 million for
+  # Federal Fiscal Year 2026 ...". Same claim, same figure, the FY2026 award.
   award = paste(
-    "Through RHTP, California has been awarded $233.6 million for Federal",
-    "Fiscal Year 2026 to support rural communities across the state")
+    "$233.6 million Awarded to California for Federal Fiscal Year 2026 to",
+    "support rural communities across the state")
 )
 
 # The CMS footer. STRONG form -- its subject names the programme -- and used
 # for the AMOUNT only, because the NOA is better evidence than any footer.
+# SESSION 116: the programme page keeps "program"; the funding and updates
+# pages capitalised it ("Program") in the 11-07 redesign.
 CA_FOOTER_STRONG <- "The CalRHT program is supported by the Centers for Medicare & Medicaid Services"
 
 # CMS's OWN NOTICE OF AWARD -- the §6.2 anchor, stronger than any footer.
@@ -693,10 +720,18 @@ ca_assert_footer_corroborates <- function(strict = FALSE, calrht = NULL,
             "carry the provenance, so this is reported, not fatal.")
     return(invisible(NA))
   }
-  if (!stringr::str_detect(calrht, stringr::fixed(CA_STATED$footer_amount))) {
-    stop("[CA] the footer amount is no longer ", CA_STATED$footer_amount,
-         ". It corroborates the §7.1 anchor and its cents are pinned.",
-         call. = FALSE)
+  # SESSION 116: the page's footer figure, classified against the anchor. It
+  # may be the allotment (BP1) or the allotment plus the $100M Year 2 initial
+  # award (cumulative); it is NEVER a round total, and anything else stops.
+  printed <- stringr::str_match(
+    calrht, "financial assistance award totaling (\\$[0-9,]+\\.[0-9]{2})")[, 2]
+  cls <- rhtp_footer_class(as.numeric(gsub("[$,]", "", printed)), "CA")
+  if (is.na(printed) || !identical(printed, CA_STATED$footer_amount_bp1_bp2) ||
+      !identical(cls, "ALLOTMENT_PLUS_YEAR2_INITIAL")) {
+    stop("[CA] the footer amount is no longer ", CA_STATED$footer_amount_bp1_bp2,
+         " (read: ", printed, ", class ", cls, "). It is the allotment plus the ",
+         "Year 2 initial award, and its cents are pinned. Re-read the page; a ",
+         "footer is never a round total.", call. = FALSE)
   }
   # The outlier that agrees with CMS.
   if (is.null(wcap)) wcap <- ca_pdf_text("gg_wcap")
@@ -1569,14 +1604,18 @@ ca_content_digest <- function(body) {
 #' a banner above the breadcrumb cannot break it.
 ca_name_scope <- function(text, page) {
   rhtp_name_scope(text,
-                  from = paste0("California Rural Health Transformation \\(CalRHT\\) ",
-                                "(?:CalRHT Grant Funding Opportunities|",
+                  # SESSION 116: the 11-07 redesign titles every page
+                  # "California Rural Health Transformation Program (CalRHT)"
+                  # and puts a feedback-survey block after the programme title.
+                  from = paste0("California Rural Health Transformation (?:Program )?\\(CalRHT\\) ",
+                                "(?:CalRHT Grant Funding Opportunities|Share Your Feedback|",
                                 "Rural Health Transformation Program \\(RHTP\\)|",
                                 # Session 108: the news block now follows the title on
                                 # calrht, and the updates page's own heading.
                                 "Latest News|CalRHT Program Updates)"),
                   # The updates page has no Subscribe box above its footer.
-                  to = if (identical(page, "updates")) "Footer Column 1 Bold Links" else "Subscribe Footer Column 1",
+                  # Session 116: nor, since the 11-07 redesign, has the programme page.
+                  to = if (page %in% c("updates", "calrht")) "Footer Column 1 Bold Links" else "Subscribe Footer Column 1",
                   state = "CA", page = page)
 }
 
