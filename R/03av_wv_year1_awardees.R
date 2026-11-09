@@ -138,7 +138,7 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 WV_STATE     <- "WV"
 WV_ALLOTMENT <- 199476099        # cms_fy2026_allotments.csv (§7.1)
-WV_TOTAL     <- 20393952         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000; session 112: + $1,589,077); unpriced rows carry none
+WV_TOTAL     <- 24324218         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000; session 112: + $1,589,077; session 115: + $3,930,266); unpriced rows carry none
 WV_NOA_DATE  <- as.Date("2025-12-29")
 WV_DIR       <- file.path("data", "evidence", "recheck", "2026-09-23", "WV")
 WV_CSV       <- here::here("data", "reference", "wv_year1_awardees.csv")
@@ -168,7 +168,8 @@ WV_SLUG <- c(
   ars  = "governor-morrisey-announces-more-17-million-help-west-virginians-recovery-return-work",
   wvu  = "governor-morrisey-announces-more-34-million-rural-health-transformation-awards-west",
   can  = "governor-morrisey-announces-13-million-expand-mobile-cancer-screenings-across-west-virginia",
-  whwc = "governor-patrick-morrisey-today-announced-250000-award-williamson-health-wellness-center")
+  whwc = "governor-patrick-morrisey-today-announced-250000-award-williamson-health-wellness-center",
+  camc = "governor-morrisey-announces-39-million-expand-rural-healthcare-training-and-workforce")
 
 # AWARD RELEASES READ AND JUDGED NOT RHTP (session 99). Each slug is excluded
 # from the tripwire with the sentence that justifies it; a release is never
@@ -202,7 +203,8 @@ WV_PATHS <- c(
   ars  = file.path("data", "evidence", "WV", "2026-10-16_wv_art_ascension_recovery_1_5m_and_arc.html"),
   wvu  = file.path("data", "evidence", "WV", "2026-10-26_wv_art_wvu_health_system_3_4m.html"),
   can  = file.path("data", "evidence", "WV", "2026-11-02_wv_art_wvu_cancer_institute_1_3m.html"),
-  whwc = file.path("data", "evidence", "WV", "2026-11-02_wv_art_williamson_hwc_250k.html"))
+  whwc = file.path("data", "evidence", "WV", "2026-11-02_wv_art_williamson_hwc_250k.html"),
+  camc = file.path("data", "evidence", "WV", "2026-11-09_wv_art_camc_3_9m.html"))
 
 # Minnie Hamilton's CMS enrolment (session 85), read from the archived file.
 WV_MH_ENROLMENT <- paste0(
@@ -533,6 +535,36 @@ WV_AWARDS_S112 <- tibble::tribble(
 WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S112)
 WV_S112_KEYS <- c("can", "whwc")
 
+# Session 115: the 2026-10-30 CAMC release, found by the 11-06 Routine's name
+# check. "more than $3.9 million in West Virginia Rural Health Transformation
+# Program (WV RHTP) awards to Charleston Area Medical Center (CAMC)": three
+# awards, each printed exactly, summing to $3,930,266. Typed exactly as the
+# 09-04 'CAMC/Vandalia Health' row (CCN 510022, ORG_WEBSITE, MEDIUM, no CCN on
+# the row). A separate award from that row: different amount, date and
+# programme; the release does not relate them.
+WV_CAMC_WHY <- paste0(
+  "CMS Hospital Enrollments (", WV_INV_ENROL_FILE, "): CHARLESTON AREA MEDICAL ",
+  "CENTER INC dba VANDALIA HEALTH CHARLESTON AREA MEDICAL CENTER, CCN 510022 -- ",
+  "the awardee's own name. The activities (provider training, APP fellows, ",
+  "workforce health liaisons) do not decide it; §0.3a judges the recipient.")
+WV_AWARDS_S115 <- tibble::tribble(
+  ~key, ~date, ~initiative, ~awardee, ~amount, ~quote,
+  ~recipient_type, ~basis_type, ~flow_type, ~dist, ~why, ~rounded,
+  "camc", "2026-10-30", "Mountain State Care Force",
+  "Charleston Area Medical Center (CAMC)", 500000,
+  "A $500,000 award will expand hands-on clinical education, simulation-enhanced training, and virtual mentorship",
+  "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "DIRECT", "Yes", WV_CAMC_WHY, FALSE,
+  "camc", "2026-10-30", "Mountain State Care Force",
+  "Charleston Area Medical Center (CAMC)", 1693946,
+  "A $1,693,946 award focused on Kanawha County",
+  "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "DIRECT", "Yes", WV_CAMC_WHY, FALSE,
+  "camc", "2026-10-30", "Health to Prosperity",
+  "Charleston Area Medical Center (CAMC)", 1736320,
+  "A $1,736,320 award will support CAMC's Pathways to Success program",
+  "HOSPITAL_OR_SYSTEM", "ORG_WEBSITE", "DIRECT", "Yes", WV_CAMC_WHY, FALSE)
+WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S115)
+WV_S115_KEYS <- "camc"
+
 # Each release's own headline total, which the priced rows must not exceed
 # (CCWV) or which bounds the unpriced remainder (Minnie Hamilton).
 WV_CCWV_TOTAL <- 1103614     # "more than $1.1 million": the four rows, exactly
@@ -597,6 +629,14 @@ wv_assert_sources <- function() {
     stop("[WV] the WVU Health System release no longer reads as 'More Than ",
          "$3.4 Million' in two awards with more to follow.", call. = FALSE)
   }
+  # Session 115: the three CAMC awards make "more than $3.9 million".
+  camc <- wv_text("camc")
+  if (sum(WV_AWARDS$amount[WV_AWARDS$key == "camc"]) != 3930266 ||
+      !grepl("more than $3.9 million", camc, fixed = TRUE) ||
+      !grepl("Charleston Area Medical Center (CAMC)", camc, fixed = TRUE)) {
+    stop("[WV] the CAMC release no longer reads as 'more than $3.9 million' in ",
+         "three awards to Charleston Area Medical Center.", call. = FALSE)
+  }
   if (!all(as.Date(WV_AWARDS$date) > WV_NOA_DATE)) stop("[WV] date test.")
   invisible(TRUE)
 }
@@ -657,8 +697,8 @@ wv_year1_awardees <- function() {
     reviewer = NA_character_,
     initiative = a$initiative,
     recipient_type_source = ifelse(
-      typed, paste0(ifelse(a$key %in% WV_S112_KEYS, "TYPED (session 112): ", ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
-                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): "))))),
+      typed, paste0(ifelse(a$key %in% WV_S115_KEYS, "TYPED (session 115): ", ifelse(a$key %in% WV_S112_KEYS, "TYPED (session 112): ", ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
+                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): ")))))),
                     a$why, " Classifier said ",
                     cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
@@ -857,7 +897,7 @@ wv_status_table <- function() {
     ~state, ~channel, ~stage, ~publishes_roster, ~note,
     WV_STATE, "WV Department of Health / Governor releases",
     "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
-    "Twenty-one award rows in eight releases (2026-09-04..30), twelve priced, $9,248,417; sessions 103 and 107 add seven rows in five more releases (10-13..19), all priced, for 28 rows / $18,804,875; session 112 adds two releases (10-26, 10-27), both priced, for 30 rows / $20,393,952 in all. Minnie Hamilton's 'More Than $4 Million' prices one of three projects; the 09-30 'Investments' release prices none of its seven. Each release says more awards will follow, so this is a PARTIAL year. Watched by `--probe` (session 55).",
+    "Twenty-one award rows in eight releases (2026-09-04..30), twelve priced, $9,248,417; sessions 103 and 107 add seven rows in five more releases (10-13..19), all priced, for 28 rows / $18,804,875; session 112 adds two releases (10-26, 10-27), both priced, for 30 rows / $20,393,952; session 115 adds the 10-30 CAMC release, three priced hospital awards, for 33 rows / $24,324,218 in all. Minnie Hamilton's 'More Than $4 Million' prices one of three projects; the 09-30 'Investments' release prices none of its seven. Each release says more awards will follow, so this is a PARTIAL year. Watched by `--probe` (session 55).",
     WV_STATE, "2026-09-30 'More Than $3.2 Million in Rural Health Transformation Investments' release",
     "AWARDED_NAMED_NOT_PRICED", "Yes",
     "Seven named recipients, no per-recipient amount ('more than $3.2 million' in all, never divided, §6.2). Six hospitals typed on CMS WV enrolment (rows at $0); Vandalia Health, a system parent, typed HOSPITAL_OR_SYSTEM at $0, LOW, on the owner's ruling (session 101; WV_VANDALIA_SYSTEM_PARENT resolved). Extracted session 100 on the owner's approval; the headline says 'Investments', which the pre-session-99 tripwire missed.",
@@ -867,6 +907,9 @@ wv_status_table <- function() {
     WV_STATE, "2026-10-26 WVU Cancer Institute and 2026-10-27 Williamson Health & Wellness Center releases",
     "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
     "WVU Cancer Institute $1,339,077 (Connected Care Grid; a university unit, NON_HOSPITAL on the session-104 WVU Eye Institute ruling) and Williamson Health & Wellness Center $250,000 (an FQHC on its exact CMS FQHC legal name; not Williamson Memorial Hospital). Extracted session 112. 'Additional awards will be announced' (10-26 release).",
+    WV_STATE, "2026-10-30 'More Than $3.9 Million to Expand Rural Healthcare Training and Workforce Programs' release",
+    "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
+    "Three awards to Charleston Area Medical Center (CAMC): MSCF $500,000 and $1,693,946, HTP $1,736,320 ($3,930,266, 'more than $3.9 million'). A hospital on its CMS WV enrolment (CCN 510022), typed as the 09-04 CAMC/Vandalia Health row. Found by the 11-06 Routine's name check; extracted session 115.",
     WV_STATE, "2026-08-14 '$4.2 million investment' release",
     "SOLICITATION_TIER_2", "No",
     "Two funding OPPORTUNITIES (Tier 2), not awards. Kept out of the award file (§0.2).",
@@ -883,10 +926,11 @@ wv_validate <- function() {
   # Session 107: + 2 rows, both priced and both hospital (WVU Health System).
   # Session 112: + 2 rows, both priced, neither a hospital (WVU Cancer
   # Institute, Williamson Health & Wellness Center).
-  stopifnot(nrow(d) == 30L, sum(!is.na(d$amount)) == 21L,
+  # Session 115: + 3 rows, all priced, all hospital (CAMC, $3,930,266).
+  stopifnot(nrow(d) == 33L, sum(!is.na(d$amount)) == 24L,
             sum(d$distributed_to_hospital == "Unclear") == 0L,
-            sum(d$distributed_to_hospital == "Yes") == 14L,   # session 101: + Vandalia Health ($0)
-            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 6324000)
+            sum(d$distributed_to_hospital == "Yes") == 17L,   # session 101: + Vandalia Health ($0)
+            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 10254266)
   message("[WV] all assertions pass.")
   invisible(TRUE)
 }
