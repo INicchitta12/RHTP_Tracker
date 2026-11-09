@@ -682,7 +682,7 @@ NE,ne_year1_awardees.csv,55,Regional West Medical Center,736148.14,NOT_RECORDED,
 NE,ne_year1_awardees.csv,56,Syracuse Area Health,200000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 NE,ne_year1_awardees.csv,57,Winnebago Comprehensive Healthcare System,414693.75,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,58,Boone County Health Center,,NOT_RECORDED,,FALSE,,
-NE,ne_year1_awardees.csv,59,Brodstone Healthcare,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,59,Brodstone Healthcare,395926,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,60,Brown County Hospital,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,61,Butler County Health Care Center,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,62,Callaway District Hospital,,NOT_RECORDED,,FALSE,,
@@ -694,14 +694,14 @@ NE,ne_year1_awardees.csv,67,Gothenburg Health,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,68,Harlan County Health System,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,69,Howard County Medical Center,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,70,Jefferson Community Health and Life,,NOT_RECORDED,,FALSE,,
-NE,ne_year1_awardees.csv,71,Jennie M. Melham Memorial Medical Center,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,71,Jennie M. Melham Memorial Medical Center,240000,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,72,Lexington Regional Health Center,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,73,Memorial Community Health,,NOT_RECORDED,,FALSE,,
-NE,ne_year1_awardees.csv,74,Memorial Health Care Systems,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,74,Memorial Health Care Systems,339998.92,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,75,Sidney Regional Medical Center,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,76,Tri Valley Health System,,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,77,Valley County Health System,,NOT_RECORDED,,FALSE,,
-NE,ne_year1_awardees.csv,78,York General Health Care Services,,NOT_RECORDED,,FALSE,,
+NE,ne_year1_awardees.csv,78,York General Health Care Services,239934.19,NOT_RECORDED,,FALSE,,
 NE,ne_year1_awardees.csv,79,Alegent Creighton Health DBA CHI Health Plainview,245101.8,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281346: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281346,ORG_WEBSITE
 NE,ne_year1_awardees.csv,80,Alegent Creighton Health DBA CHI Health Schuyler,235795.27,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281323,ORG_WEBSITE
 NE,ne_year1_awardees.csv,83,Dundy County Hospital,73953.48,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281340: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281340,ORG_WEBSITE
@@ -801,226 +801,226 @@ MO,mo_year1_awardees.csv,19,Ray County Memorial Hospital,1808703.71,FEDERAL_RECO
 MO,mo_year1_awardees.csv,20,Saint Francis Medical Center,2500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 260183: PART A PROVIDER - HOSPITAL",FALSE,260183,
 MO,mo_year1_awardees.csv,21,Salem Memorial District Hospital,1700599.5,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261318: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261318,
 MO,mo_year1_awardees.csv,22,Washington County Memorial Hospital,2337494,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 261308: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,261308,
-IA,ia_year1_awardees.csv,1,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,2,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,1,Adair County Memorial Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,2,Avera Holy Family Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,3,Avera Merrill Pioneer Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,4,Boone County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,4,Boone County Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,5,Boone County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,6,Cass County Memorial Hospital DBA Cass Health,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,7,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,6,Cass County Memorial Hospital DBA Cass Health,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,7,CHI Health Mercy Corning,360000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,8,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,9,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,10,CHI Health Missouri Valley,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,10,CHI Health Missouri Valley,240000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,11,CHI Health Missouri Valley,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,12,Clarke County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,12,Clarke County Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,18,Crawford County Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,19,Dallas County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,20,Davis County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,21,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,20,Davis County Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,21,Decatur County Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,22,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,23,Floyd County Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,23,Floyd County Medical Center,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,24,Floyd County Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,25,Floyd Valley Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,25,Floyd Valley Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,26,Floyd Valley Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,27,George C. Grape Community Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,28,George C. Grape Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,30,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,30,Greater Regional Medical Center,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,31,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,32,Guthrie County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,33,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,32,Guthrie County Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,33,Guttenberg Municipal Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,34,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,35,Hamilton County Hospital dba Van Diest Medical,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,36,Center Hancock County Health System,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,37,Hegg Memorial Hospital DBA Hegg Memorial,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,38,Health Center Humboldt County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,39,Ida County Iowa Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,36,Center Hancock County Health System,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,37,Hegg Memorial Hospital DBA Hegg Memorial,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,38,Health Center Humboldt County Memorial Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,39,Ida County Iowa Community Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,43,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,44,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,45,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,46,Keokuk Area Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,47,Kossuth Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,48,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,46,Keokuk Area Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,47,Kossuth Regional Health Center,120000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,48,Lucas County Health Center,240000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,49,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,50,Madison County Healthcare System,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,51,Mahaska County Hospital dba Mahaska Health,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,50,Madison County Healthcare System,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,51,Mahaska County Hospital dba Mahaska Health,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,52,Partnership Mahaska County Hospital dba Mahaska Health Partnership,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,53,Manning Regional Healthcare Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,54,Manning Regional Healthcare Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,55,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,55,Marengo Memorial Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,56,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,57,"Mercy Health Services- Iowa, Corp.",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,58,MercyOne Clinton Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,59,MercyOne Elkader Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,59,MercyOne Elkader Medical Center,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,60,MercyOneGenesis DeWitt Medical Center,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,61,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,62,MercyOne Newton Medical Center,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,63,MercyOne North Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,64,MercyOneNorth Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,65,MercyOne North Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,66,Mitchell County Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,68,Center Monroe County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,70,Osceola Community Hospital DBA Osceola Regional Health Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,71,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,66,Mitchell County Regional Health Center,120000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,68,Center Monroe County Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,70,Osceola Community Hospital DBA Osceola Regional Health Center,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,71,Ottumwa Regional Health Center,240000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,72,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,73,Palmer Lutheran Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,73,Palmer Lutheran Health Center,120000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,74,Palo Alto County Health System,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,75,Pella Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,75,Pella Regional Health Center,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,79,Regional Health Services of Howard County,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,80,Regional Health Services of Howard County,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,81,Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,82,Ringgold County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,82,Ringgold County Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,83,Ringgold County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,84,Sanford Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,85,"Sanford Health Network - Sioux Falls, SD",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,86,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical Center",,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,84,Sanford Health,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,85,"Sanford Health Network - Sioux Falls, SD",120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,86,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical Center",240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,87,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical",,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,88,Center Shenandoah Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,89,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
-IA,ia_year1_awardees.csv,90,Sioux Valley Memorial Hospital Association,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,88,Center Shenandoah Medical Center,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,89,Sioux Center Health,120000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,90,Sioux Valley Memorial Hospital Association,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,91,Sioux Valley Memorial Hospital Association,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,92,Spencer Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,92,Spencer Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,93,Spencer Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,94,St. Anthony Regional Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,95,St. Joseph's Mercy Hospital DBA MercyOne,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,96,Centerville Medical Center Stewart Memorial Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,97,UnityPoint Health - Marshalltown,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,96,Centerville Medical Center Stewart Memorial Community Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,97,UnityPoint Health - Marshalltown,240000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,98,UnityPoint Health - Marshalltown,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,99,Van Buren County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,100,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,101,Virginia Gay Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,99,Van Buren County Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,100,Veterans Memorial Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,101,Virginia Gay Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,102,Washington County Hospital and Clinics,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,103,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,103,Wayne County Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,105,WinnMed,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,106,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,107,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,108,University of Iowa Health Care,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160058: PART A PROVIDER - HOSPITAL",FALSE,160058,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,110,Shelby Co. DBA Myrtue Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,108,University of Iowa Health Care,2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160058: PART A PROVIDER - HOSPITAL",FALSE,160058,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,110,Shelby Co. DBA Myrtue Medical Center,500000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,111,Iowa Specialty Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,112,Manning Regional Health Care Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,113,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,112,Manning Regional Health Care Center,500000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,113,Marengo Memorial Hospital,500000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,114,Jennie Edmundson Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,115,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,116,Knoxville Hospital and Clinics,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,117,Guttenberg Municipal Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,118,Central Iowa Hospital Corporation,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,119,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
-IA,ia_year1_awardees.csv,121,University of Iowa Healthcare,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160058: PART A PROVIDER - HOSPITAL",FALSE,160058,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,122,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,123,Avera Holy Family Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,124,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,125,Burgess Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,126,Crawford County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,127,Dallas County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,128,Davis County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,129,Decatur County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,130,Ellsworth Municipal Hospital DBA Hansen Family Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,131,Floyd Valley Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,132,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,133,Hancock County Health System,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,115,Decatur County Hospital,500000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,116,Knoxville Hospital and Clinics,500000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,117,Guttenberg Municipal Hospital,500000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,118,Central Iowa Hospital Corporation,500000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,119,Sioux Center Health,500000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,121,University of Iowa Healthcare,2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160058: PART A PROVIDER - HOSPITAL",FALSE,160058,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,122,Adair County Memorial Hospital,1150640.4,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,123,Avera Holy Family Hospital,1988409,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,124,Belmond Community Hospital,3804000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,125,Burgess Health Center,514700,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,126,Crawford County Memorial Hospital,1253950,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,127,Dallas County Hospital,1300000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,128,Davis County Hospital,424906.3,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,129,Decatur County Hospital,2137129.4,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,130,Ellsworth Municipal Hospital DBA Hansen Family Hospital,2663551,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,131,Floyd Valley Hospital,2536000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,132,Greater Regional Medical Center,2502280,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,133,Hancock County Health System,1899887.3,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,134,Hawarden Regional Healthcare DBA Hawarden Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,135,Humboldt County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,136,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,137,Mahaska County Hospital dba Mahaska Health Partnership,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,138,Manning Regional Healthcare Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,139,Marengo Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,135,Humboldt County Memorial Hospital,1494160,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,136,Lucas County Health Center,1965266,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,137,Mahaska County Hospital dba Mahaska Health Partnership,3122894,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,138,Manning Regional Healthcare Center,1525000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,139,Marengo Memorial Hospital,2230454,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,140,"Mercy Health Services-Iowa, Corp.",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,141,MercyOne Clinton Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,142,MercyOne Elkader Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,142,MercyOne Elkader Medical Center,330000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,143,MercyOne Genesis Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,144,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,145,MercyOne Newton Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,145,MercyOne Newton Medical Center,1036200,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,146,MercyOne North Iowa Foundation,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,147,MercyOne Oelwein Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,148,Mitchell County Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,149,Orange City Area Health System,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,150,Pella Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,151,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical Center",,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,152,Sioux Valley Memorial Hospital Association,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,153,St. Joseph's Mercy Hospital DBA MercyOne Centerville Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,154,St. Luke's Jones Regional Medical Center DBA Jones Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,155,Van Buren County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,156,Waverly Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,157,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,148,Mitchell County Regional Health Center,842784,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,149,Orange City Area Health System,2375508.5,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,150,Pella Regional Health Center,1988240,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,151,"Shelby County Chris A Myrtue Memorial Hospital, DBA Myrtue Medical Center",1966800,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,152,Sioux Valley Memorial Hospital Association,1386342.5,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,153,St. Joseph's Mercy Hospital DBA MercyOne Centerville Medical Center,1085280,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,154,St. Luke's Jones Regional Medical Center DBA Jones Regional Medical Center,3265551,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,155,Van Buren County Hospital,2110000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,156,Waverly Health Center,2898608.9,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,157,Wayne County Hospital,5000000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,158,WinnMed,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,159,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,160,Wayne County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,161,Shenandoah Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,159,Ottumwa Regional Health Center,9656927,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,160,Wayne County Hospital,3342751,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,161,Shenandoah Medical Center,2095535,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,162,Greater Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,163,Mary Greeley Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,164,Hegg Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,165,Sioux Center Health,,NOT_RECORDED,,FALSE,,ORG_WEBSITE
-IA,ia_year1_awardees.csv,166,Henry County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,167,Montgomery County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,168,Floyd County Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,163,Mary Greeley Medical Center,1656320.9,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,164,Hegg Memorial Hospital,1985358,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,165,Sioux Center Health,3041064.1,NOT_RECORDED,,FALSE,,ORG_WEBSITE
+IA,ia_year1_awardees.csv,166,Henry County Health Center,3052347.9,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,167,Montgomery County Memorial Hospital,2536000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,168,Floyd County Medical Center,2582822.5,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,169,Buchanan County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,170,Cass County Memorial Hospital dba Cass Health,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,171,Kossuth Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,172,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,173,Regional Health Services of Howard County,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,174,CHI Health Mercy Corning,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,175,CHI Health Missouri Valley,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,176,Ringgold County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,177,Keokuk County Hospitals & Clinics,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,178,Guthrie County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,179,Grundy County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,180,Palo Alto County Health System,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,181,Washington County Hospital & Clinics,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,182,Iowa Specialty Hospital -Clarion,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,183,Unity Healthcare dba Trinity Muscatine Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,184,Jackson County Regional Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,185,Jefferson County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,186,Knoxville Hospital & Clinics,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,187,Spencer Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,188,Emplify Health by Gundersen,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,189,Grinnell Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,190,Southeast Iowa Regional Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,170,Cass County Memorial Hospital dba Cass Health,2719139,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,171,Kossuth Regional Health Center,2291443,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,172,Veterans Memorial Hospital,743327,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,173,Regional Health Services of Howard County,1142261,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,174,CHI Health Mercy Corning,2420000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,175,CHI Health Missouri Valley,2340686,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,176,Ringgold County Hospital,169414,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,177,Keokuk County Hospitals & Clinics,451200,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,178,Guthrie County Hospital,1118760,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,179,Grundy County Memorial Hospital,312778.8,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,180,Palo Alto County Health System,1998925,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,181,Washington County Hospital & Clinics,643750,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,182,Iowa Specialty Hospital -Clarion,1125063,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,183,Unity Healthcare dba Trinity Muscatine Hospital,2781346,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,184,Jackson County Regional Health Center,557855.5,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,185,Jefferson County Health Center,1046544,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,186,Knoxville Hospital & Clinics,2286889,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,187,Spencer Hospital,2344248,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,188,Emplify Health by Gundersen,917269,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,189,Grinnell Regional Medical Center,1289334,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,190,Southeast Iowa Regional Medical Center,681000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,191,Unity Healthcare dba Trinity Muscatine Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,192,Franklin General Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,192,Franklin General Hospital,128815,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,193,Regional Medical Center,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,194,Hamilton County Hospital dba Van Diest Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,196,Stewart Memorial Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,197,"Sanford Health Network –Sioux Falls, SD (Rock Rapids)",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,199,Shenandoah Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,200,Boone County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,201,Trinity Regional Medical Center –Ft. Dodge,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,196,Stewart Memorial Community Hospital,1975691,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,197,"Sanford Health Network –Sioux Falls, SD (Rock Rapids)",263752,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,199,Shenandoah Medical Center,1586314,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,200,Boone County Hospital,842039.4,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,201,Trinity Regional Medical Center –Ft. Dodge,3390025,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,202,Loring Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,203,Clarke County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,204,Hawarden Regional Healthcare dba Hawarden Community Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,203,Clarke County Hospital,202474.9,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,204,Hawarden Regional Healthcare dba Hawarden Community Hospital,661660.2,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,205,"Sanford Health Network –Sioux Falls, SD (Sheldon)",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,206,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,210,Montgomery County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,206,Ottumwa Regional Health Center,852063,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,210,Montgomery County Memorial Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,214,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,215,Veterans Memorial Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,217,Montgomery County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,218,Marengo Memorial Hospital dba Compass Memorial Healthcare,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,218,Marengo Memorial Hospital dba Compass Memorial Healthcare,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,219,Marengo Memorial Hospital dba Compass Memorial Healthcare,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,220,Buena Vista Regional Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,221,Palmer Lutheran Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,221,Palmer Lutheran Health Center,120000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,222,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,223,MercyOne New Hampton,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,224,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,227,Orange City Area Health System,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,229,Lucas County Health Center,,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,230,Virginia Gay Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,224,Belmond Community Hospital,320000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,227,Orange City Area Health System,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,229,Lucas County Health Center,120000,GENERAL_KNOWLEDGE_ONLY,verifier's general knowledge: critical access hospital,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,230,Virginia Gay Hospital,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,231,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,232,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,232,Ottumwa Regional Health Center,240000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,235,Belmond Community Hospital,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,237,MercyOne Oelwein Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,239,Knoxville Hospital & Clinics,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,240,Shelby County Chris A Myrtue Memorial Hospital dba Mrytue Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,241,Lakes Regional Healthcare,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,242,Iowa Specialty Hospital -Clarion,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,243,"Mercy Health Services -Iowa, Corp",,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,244,MercyOne Elkader Medical Center,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,239,Knoxville Hospital & Clinics,240000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,240,Shelby County Chris A Myrtue Memorial Hospital dba Mrytue Medical Center,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,241,Lakes Regional Healthcare,120000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,242,Iowa Specialty Hospital -Clarion,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,243,"Mercy Health Services -Iowa, Corp",360000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,244,MercyOne Elkader Medical Center,120000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,245,Audubon County Memorial Hospita,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 IA,ia_year1_awardees.csv,246,Knoxville Hospital & Clinics,,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,247,MercyOne Newton Medical Center,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,248,Clarke County Hospital,,NOT_RECORDED,,FALSE,,
-IA,ia_year1_awardees.csv,258,Audubon County Memorial Hospital,,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,248,Clarke County Hospital,120000,NOT_RECORDED,,FALSE,,
+IA,ia_year1_awardees.csv,258,Audubon County Memorial Hospital,240000,NOT_RECORDED,,FALSE,,
 IA,ia_year1_awardees.csv,261,Ottumwa Regional Health Center,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-IA,ia_year1_awardees.csv,262,Adair County Memorial Hospital,,NOT_RECORDED,,FALSE,,
-NC,nc_year1_awardees.csv,9,Cape Fear Valley Mobile Integrated Health (MIH),,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
-NC,nc_year1_awardees.csv,43,University of North Carolina Hospitals,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 340061: PART A PROVIDER - HOSPITAL",FALSE,340061,GENERAL_KNOWLEDGE
+IA,ia_year1_awardees.csv,262,Adair County Memorial Hospital,120000,NOT_RECORDED,,FALSE,,
+NC,nc_year1_awardees.csv,9,Cape Fear Valley Mobile Integrated Health (MIH),300000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+NC,nc_year1_awardees.csv,43,University of North Carolina Hospitals,14250000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 340061: PART A PROVIDER - HOSPITAL",FALSE,340061,GENERAL_KNOWLEDGE
 AR,ar_year1_awardees.csv,4,Arkansas Children's Hospital,301400,NOT_RECORDED,,FALSE,,
 AR,ar_year1_awardees.csv,7,Baptist Health,1926432,NOT_RECORDED,,FALSE,,ORG_WEBSITE
 AR,ar_year1_awardees.csv,8,Baptist Health,15000000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
@@ -1090,9 +1090,9 @@ WY,wy_year1_awardees.csv,40,Powell Valley Health Care,687302,GENERAL_KNOWLEDGE_O
 WY,wy_year1_awardees.csv,41,Campbell County Hospital District dba Campbell C,381672,NOT_RECORDED,,FALSE,,
 WY,wy_year1_awardees.csv,42,Riverton Memorial Hospital dba SageWest Health,2762508,NOT_RECORDED,,FALSE,,
 WY,wy_year1_awardees.csv,69,Sheridan Memorial Hospital,150660,NOT_RECORDED,,FALSE,,
-DE,de_year1_awardees.csv,1,Nemours Children's Health,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
-DE,de_year1_awardees.csv,2,TidalHealth,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
-DE,de_year1_awardees.csv,3,Beebe Healthcare,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+DE,de_year1_awardees.csv,1,Nemours Children's Health,48750,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+DE,de_year1_awardees.csv,2,TidalHealth,411817,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
+DE,de_year1_awardees.csv,3,Beebe Healthcare,2394309,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
 DE,de_year1_awardees.csv,4,Beebe Healthcare,,SITE_NOT_RECIPIENT,DE: Sussex County (rural) -- the SCHOOL's county,FALSE,,
 ID,id_year1_awardees.csv,25,Bingham Memorial Hospital,551145,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 131325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,131325,ORG_WEBSITE
 ID,id_year1_awardees.csv,26,St. Luke's Magic Valley,220000,NOT_RECORDED,,FALSE,,ORG_WEBSITE
@@ -1408,13 +1408,13 @@ WV,wv_year1_awardees.csv,3,Cabell Huntington Foundation,612000,FEDERAL_RECORD_CC
 WV,wv_year1_awardees.csv,12,Minnie Hamilton Health Care Center,1700000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511303,ORG_WEBSITE
 WV,wv_year1_awardees.csv,13,Minnie Hamilton Health Care Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511303,ORG_WEBSITE
 WV,wv_year1_awardees.csv,14,Minnie Hamilton Health Care Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511303,ORG_WEBSITE
-WV,wv_year1_awardees.csv,15,Stonewall Jackson Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510038: PART A PROVIDER - HOSPITAL",FALSE,510038,GENERAL_KNOWLEDGE
-WV,wv_year1_awardees.csv,16,Mon Health Marion Neighborhood Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510093: PART A PROVIDER - HOSPITAL",FALSE,510093,ORG_WEBSITE
-WV,wv_year1_awardees.csv,17,Preston Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511312: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511312,ORG_WEBSITE
-WV,wv_year1_awardees.csv,18,Plateau Medical Center,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511317: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511317,GENERAL_KNOWLEDGE
-WV,wv_year1_awardees.csv,19,Webster Memorial Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511301: PART A PROVIDER - HOSPITAL",FALSE,511301,ORG_WEBSITE
-WV,wv_year1_awardees.csv,20,Broaddus Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511300,GENERAL_KNOWLEDGE
-WV,wv_year1_awardees.csv,21,Vandalia Health,,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,15,Stonewall Jackson Memorial Hospital,363000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510038: PART A PROVIDER - HOSPITAL",FALSE,510038,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,16,Mon Health Marion Neighborhood Hospital,363000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510093: PART A PROVIDER - HOSPITAL",FALSE,510093,ORG_WEBSITE
+WV,wv_year1_awardees.csv,17,Preston Memorial Hospital,363000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511312: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511312,ORG_WEBSITE
+WV,wv_year1_awardees.csv,18,Plateau Medical Center,363000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511317: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511317,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,19,Webster Memorial Hospital,363000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511301: PART A PROVIDER - HOSPITAL",FALSE,511301,ORG_WEBSITE
+WV,wv_year1_awardees.csv,20,Broaddus Hospital,500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511300,GENERAL_KNOWLEDGE
+WV,wv_year1_awardees.csv,21,Vandalia Health,900000,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 WV,wv_year1_awardees.csv,27,West Virginia United (WVU) Health System,2500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510001: PART A PROVIDER - HOSPITAL",FALSE,510001,GENERAL_KNOWLEDGE
 WV,wv_year1_awardees.csv,28,West Virginia United (WVU) Health System,900000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510001: PART A PROVIDER - HOSPITAL",FALSE,510001,GENERAL_KNOWLEDGE
 WV,wv_year1_awardees.csv,31,Charleston Area Medical Center (CAMC),500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 510022: PART A PROVIDER - HOSPITAL",FALSE,510022,ORG_WEBSITE
@@ -1582,7 +1582,7 @@ OK,ok_year1_cdm_awardees.csv,11,"Mercy Health Oklahoma Communities, Inc.",261552
 OK,ok_year1_cdm_awardees.csv,14,"Wagoner Hospital Authority, an Oklahoma Public Trust, DBA Wagoner Community Hospital",2412325,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370166: PART A PROVIDER - HOSPITAL",FALSE,370166,ORG_WEBSITE
 OK,ok_year1_bhi_awardees.csv,2,Mercy Health Oklahoma Communities,90171.53,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 OK,ok_year1_ems_cp_awardees.csv,7,The Choctaw Nation of Oklahoma,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370172: PART A PROVIDER - HOSPITAL",FALSE,370172,ORG_WEBSITE
-OK,ok_year1_ems_cp_awardees.csv,26,"Baptist Healthcare of Oklahoma, LLC d/b/a INTEGRIS Miami Hospital",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370004: PART A PROVIDER - HOSPITAL",FALSE,370004,GENERAL_KNOWLEDGE
+OK,ok_year1_ems_cp_awardees.csv,26,"Baptist Healthcare of Oklahoma, LLC d/b/a INTEGRIS Miami Hospital",36594,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370004: PART A PROVIDER - HOSPITAL",FALSE,370004,GENERAL_KNOWLEDGE
 OK,ok_year1_ems_cp_awardees.csv,28,"Newman Memorial Hospital, Inc.",,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 371336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,371336,ORG_WEBSITE
 OK,ok_year1_ems_cp_awardees.csv,29,Northeastern Health System,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370089: PART A PROVIDER - HOSPITAL",FALSE,370089,ORG_WEBSITE
 OK,ok_year1_ems_cp_awardees.csv,34,Purcell Municipal Hospital,,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370158: PART A PROVIDER - HOSPITAL",FALSE,370158,ORG_WEBSITE
@@ -1957,3 +1957,238 @@ UT,ut_year1_awardees.csv,21,University of Utah,641712.6,FEDERAL_RECORD_CCN,"CMS 
 UT,ut_year1_awardees.csv,25,Intermountain Health Center (IHC),810640.3,NOT_RECORDED,,FALSE,,GENERAL_KNOWLEDGE
 UT,ut_year1_awardees.csv,28,Uintah Basin Medical Center (UBMC),1315000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 460019: PART A PROVIDER - HOSPITAL",FALSE,460019,ORG_WEBSITE
 UT,ut_year1_awardees.csv,32,Gunnison Valley Hospital,167260,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 461306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,461306,ORG_WEBSITE
+CT,ct_fsrs_awardees.csv,2,"VASSAR HEALTH CONNECTICUT, INC.",13116917,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 07S004: PART A PROVIDER - HOSPITAL",FALSE,07S004,ORG_WEBSITE
+CT,ct_fsrs_awardees.csv,10,UNIVERSITY OF CONNECTICUT HEALTH CENTER,1500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 070036: PART A PROVIDER - HOSPITAL",FALSE,070036,ORG_WEBSITE
+CT,ct_fsrs_awardees.csv,13,UNIVERSITY OF CONNECTICUT HEALTH CENTER,388973,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 070036: PART A PROVIDER - HOSPITAL",FALSE,070036,ORG_WEBSITE
+DE,de_fsrs_awardees.csv,17,BAYHEALTH MEDICAL CENTER INC,436400,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 080004: PART A PROVIDER - HOSPITAL",FALSE,080004,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,2,CATHOLIC HEALTH INITIATIVES - IOWA CORP,5226547.2,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160083: PART A PROVIDER - HOSPITAL",FALSE,160083,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,3,PEOPLE S MEMORIAL HOSPITAL,2686000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161335: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161335,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,4,"MERCY MEDICAL CENTER - CLINTON, INC.",2178000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160080: PART A PROVIDER - HOSPITAL",FALSE,160080,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,5,WINNESHIEK MEDICAL CENTER,1881276,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161371: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161371,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,6,DELAWARE COUNTY MEMORIAL HOSPITAL,1421342.5,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161343: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161343,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,7,HAMILTON COUNTY PUBLIC HOSPITAL,1083740,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161361: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161361,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,8,GENESIS HEALTH SYSTEM,904200,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160033: PART A PROVIDER - HOSPITAL",FALSE,160033,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,10,"MERCY HOSPITAL OF FRANCISCAN SISTERS, INC.",330000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161338: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161338,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,11,SAINT ANTHONY REGIONAL HOSPITAL AND NURSING HOME,200000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161382: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161382,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,12,AVERA MCKENNAN,120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 16Z321: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,16Z321,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,13,DELAWARE COUNTY MEMORIAL HOSPITAL,120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161343: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161343,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,14,GENESIS HEALTH SYSTEM,120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160033: PART A PROVIDER - HOSPITAL",FALSE,160033,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,15,"MERCY HOSPITAL OF FRANCISCAN SISTERS, INC.",120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161338: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161338,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,16,"MERCY MEDICAL CENTER - CLINTON, INC.",120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 160080: PART A PROVIDER - HOSPITAL",FALSE,160080,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,17,SAINT ANTHONY REGIONAL HOSPITAL AND NURSING HOME,120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161382: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161382,ORG_WEBSITE
+IA,ia_fsrs_awardees.csv,18,WINNESHIEK MEDICAL CENTER,120000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 161371: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,161371,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,3,UNIVERSITY OF ILLINOIS,14000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140150: PART A PROVIDER - HOSPITAL",FALSE,140150,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,9,UNIVERSITY OF ILLINOIS,4500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140150: PART A PROVIDER - HOSPITAL",FALSE,140150,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,10,UNIVERSITY OF ILLINOIS,3000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140150: PART A PROVIDER - HOSPITAL",FALSE,140150,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,11,OSF HEALTHCARE SYSTEM,2300000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,13,THE CARLE FOUNDATION,2187134.6,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140091: PART A PROVIDER - HOSPITAL",FALSE,140091,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,14,SOUTHERN ILLINOIS HOSPITAL SERVICES,1427412.28,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141334: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141334,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,16,DEACONESS ILLINOIS RED BUD REGIONAL HOSPITAL INC,356853.54,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141348: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141348,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,17,ALTON MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140002: PART A PROVIDER - HOSPITAL",FALSE,140002,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,18,BLESSING HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140015: PART A PROVIDER - HOSPITAL",FALSE,140015,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,19,BLESSINGCARE CORPORATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141315: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141315,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,20,CARLE BROMENN MEDICAL CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 14T127: PART A PROVIDER - HOSPITAL",FALSE,14T127,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,21,CARLE EUREKA HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141309,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,22,CARLINVILLE AREA HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141347: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141347,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,23,CITY OF CLINTON,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141303,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,24,COMMUNITY HOSPITAL OF STAUNTON,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141306,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,25,COUNTY OF CLAY,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141351: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141351,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,26,CRAWFORD HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141343: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141343,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,27,"DEACONESS ILLINOIS CROSSROADS, INC.",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140294: PART A PROVIDER - HOSPITAL",FALSE,140294,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,28,"DEACONESS ILLINOIS UNION COUNTY HOSPITAL, INC.",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141342,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,29,"DEACONESS REGIONAL HEALTHCARE SERVICES ILLINOIS, INC.",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140184: PART A PROVIDER - HOSPITAL",FALSE,140184,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,30,DECATUR MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140135: PART A PROVIDER - HOSPITAL",FALSE,140135,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,31,FAIRFIELD MEMORIAL HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141311: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141311,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,32,FERRELL HOSPITAL COMMUNITY FOUNDATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141324: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141324,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,33,FRANKLIN HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141321: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141321,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,34,FREEPORT MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140160: PART A PROVIDER - HOSPITAL",FALSE,140160,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,35,"GENESIS MEDICAL CENTER, ALEDO",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141304: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141304,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,36,GIBSON AREA HOSPITAL & HEALTH SERVICES,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141317: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141317,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,37,GOOD SAMARITAN REGIONAL HEALTH CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140046: PART A PROVIDER - HOSPITAL",FALSE,140046,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,38,GRAHAM HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141356: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141356,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,39,HAMILTON MEMORIAL HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141326,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,40,HARDIN COUNTY GENERAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141328,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,41,HENRY DISTRICT HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141319: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141319,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,42,"HILLSBORO AREA HOSPITAL, INC",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141332: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141332,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,43,HOOPESTON COMMUNITY MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141316,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,44,"HOSPITAL & MEDICAL FOUNDATION OF PARIS, INC",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141320: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141320,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,45,IROQUOIS MEMORIAL HOSPITAL & RESIDENT HOME,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141353: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141353,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,46,JERSEY COMMUNITY HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140059: PART A PROVIDER - HOSPITAL",FALSE,140059,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,47,KIRBY MEDICAL CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141301: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141301,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,48,LAWRENCE COUNTY MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141344: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141344,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,49,MARSHALL BROWNING HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141331: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141331,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,50,MASON HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141313,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,51,MASSAC COUNTY HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141323,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,52,MCDONOUGH COUNTY HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140089: PART A PROVIDER - HOSPITAL",FALSE,140089,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,53,MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140185: PART A PROVIDER - HOSPITAL",FALSE,140185,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,54,MEMORIAL HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 14Z305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,14Z305,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,55,MEMORIAL MEDICAL CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 14S148: PART A PROVIDER - HOSPITAL",FALSE,14S148,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,56,MENDOTA COMMUNITY HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141310,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,57,MIDWEST MEDICAL CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141302: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141302,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,58,OSF HEALTHCARE,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140161: PART A PROVIDER - HOSPITAL",FALSE,140161,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,59,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,60,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,61,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,62,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,63,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,64,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,65,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,66,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,67,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,68,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,69,OSF HEALTHCARE SYSTEM,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141325,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,70,OTTAWA REGIONAL HOSPITAL & HEALTHCARE CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140110: PART A PROVIDER - HOSPITAL",FALSE,140110,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,71,PANA COMMUNITY HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141341: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141341,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,72,PINCKNEYVILLE COMMUNITY HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141307,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,73,"RICHLAND MEMORIAL HOSPITAL, INC.",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141355: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141355,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,74,RIVERSIDE MEDICAL CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140186: PART A PROVIDER - HOSPITAL",FALSE,140186,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,75,SALEM TOWNSHIP HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141345: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141345,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,76,SARAH BUSH LINCOLN HEALTH CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140189: PART A PROVIDER - HOSPITAL",FALSE,140189,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,77,SARAH BUSH LINCOLN HEALTH CENTER,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140189: PART A PROVIDER - HOSPITAL",FALSE,140189,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,78,SCHUYLER COUNTY HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141333: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141333,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,79,SPARTA COMMUNITY HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141349: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141349,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,80,"ST. MARY'S HOSPITAL, CENTRALIA, ILLINOIS",356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 14S034: PART A PROVIDER - HOSPITAL",FALSE,14S034,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,81,TAYLORVILLE MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141339: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141339,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,82,THE ABRAHAM LINCOLN MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141322: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141322,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,83,THE CARLE FOUNDATION HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 140091: PART A PROVIDER - HOSPITAL",FALSE,140091,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,84,THE HOPEDALE MEDICAL FOUNDATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141330: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141330,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,85,THE PASSAVANT MEMORIAL AREA HOSPITAL ASSOCIATION,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141352: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141352,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,86,THE THOMAS H BOYD MEMORIAL HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141300,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,87,VALLEY WEST COMMUNITY HOSPITAL,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141340: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141340,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,88,WABASH GENERAL HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141327,ORG_WEBSITE
+IL,il_fsrs_awardees.csv,89,WASHINGTON COUNTY HOSPITAL DISTRICT,356853.07,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 141308: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,141308,ORG_WEBSITE
+KS,ks_fsrs_awardees.csv,6,"ADVENTHEALTH RANSOM MEMORIAL, INC.",1950110,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 170014: PART A PROVIDER - HOSPITAL",FALSE,170014,ORG_WEBSITE
+KS,ks_fsrs_awardees.csv,9,NEWTON HEALTHCARE CORP,662642,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 170103: PART A PROVIDER - HOSPITAL",FALSE,170103,ORG_WEBSITE
+KY,ky_fsrs_awardees.csv,3,"BAPTIST HEALTH DEACONESS MADISONVILLE, INC.",3529444,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 180093: PART A PROVIDER - HOSPITAL",FALSE,180093,ORG_WEBSITE
+KY,ky_fsrs_awardees.csv,22,APPALACHIAN REGIONAL HEALTHCARE INC,470165,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 181331: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,181331,ORG_WEBSITE
+KY,ky_fsrs_awardees.csv,28,ROCKCASTLE REGIONAL HOSPITAL & RESPIRATORY CARE CENTER,348920,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 180115: PART A PROVIDER - HOSPITAL",FALSE,180115,ORG_WEBSITE
+ME,me_fsrs_awardees.csv,5,MAINEHEALTH,247872,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 200009: PART A PROVIDER - HOSPITAL",FALSE,200009,ORG_WEBSITE
+ME,me_fsrs_awardees.csv,13,MAINEHEALTH,10321,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 200009: PART A PROVIDER - HOSPITAL",FALSE,200009,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,1,ALLINA HEALTH SYSTEM,5442880,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240057: PART A PROVIDER - HOSPITAL",FALSE,240057,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,4,"UNITED HOSPITAL DISTRICT, INC.",1708600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241369: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241369,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,5,WINDOM AREA HOSPITAL,1708600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241332: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241332,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,6,STEVENS COMMUNITY MEDICAL CENTER INC,1560000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241363: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241363,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,7,ASTERA HEALTH,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241354: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241354,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,8,AVERA GRANITE FALLS HEALTH CENTER,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241343: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241343,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,9,COUNTY OF MEEKER,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 24Z366: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,24Z366,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,10,JOHNSON MEMORIAL HEALTH SERVICES,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241314,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,11,KITTSON MEMORIAL HOSPITAL ASSOCIATION,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 24Z336: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,24Z336,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,12,LAKE REGION HEALTHCARE CORPORATION,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241379: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241379,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,13,LAKEWOOD HEALTH SYSTEM,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241329: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241329,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,14,MADELIA HEALTH,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241323,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,15,MADISON HEALTHCARE SERVICES,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241372: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241372,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,16,NORTHERN ITASCA HOSPITAL DISTRICT,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241316,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,17,SANFORD HEALTH OF NORTHERN MINNESOTA,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240100: PART A PROVIDER - HOSPITAL",FALSE,240100,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,18,SANFORD HEALTH OF NORTHERN MINNESOTA,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240100: PART A PROVIDER - HOSPITAL",FALSE,240100,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,19,THE COOK HOSPITAL,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241312: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241312,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,20,WELIA HEALTH,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241367: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241367,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,21,WINONA HEALTH SERVICES,1548600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240044: PART A PROVIDER - HOSPITAL",FALSE,240044,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,22,AVERA TYLER,1548596,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241348: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241348,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,23,AITKIN COMMUNITY HOSPITAL,1548587,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241305: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241305,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,24,AVERA MARSHALL,1548531,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241359: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241359,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,25,RIVERVIEW HEALTHCARE ASSOCIATION,1548455,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241320: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241320,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,26,ALOMERE HEALTH,1547619,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240030: PART A PROVIDER - HOSPITAL",FALSE,240030,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,27,APPLETON AREA HEALTH,1547184,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241341: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241341,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,28,CCM HEALTH,1545300,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241325,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,30,COMMUNITY MEMORIAL HOSPITAL ASSOCIATION,1532912,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 24Z364: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,24Z364,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,31,HENDRICKS COMMUNITY HOSPITAL ASSOCIATION,1532187,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241339: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241339,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,32,CUYUNA REGIONAL MEDICAL CENTER,1526442,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241353: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241353,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,33,CITY OF SLEEPY EYE,1488672,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 24Z327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,24Z327,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,34,GLACIAL RIDGE HEALTH SYSTEM,1467973,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241376: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241376,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,35,LIFECARE MEDICAL CENTER,1406610,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241344: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241344,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,36,"ESSENTIA HEALTH VIRGINIA, LLC",1367944,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240084: PART A PROVIDER - HOSPITAL",FALSE,240084,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,37,CITY OF ORTONVILLE,1353880,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 241342: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,241342,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,38,MAHNOMEN HEALTH CENTER,1066410,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240779: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,240779,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,41,HENNEPIN HEALTHCARE SYSTEM INC,525902,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240004: PART A PROVIDER - HOSPITAL",FALSE,240004,ORG_WEBSITE
+MN,mn_fsrs_awardees.csv,48,SANFORD HEALTH OF NORTHERN MINNESOTA,275840,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 240100: PART A PROVIDER - HOSPITAL",FALSE,240100,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,2,"MCKENZIE COUNTY HEALTHCARE SYSTEMS, INC",1279101.5,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351302: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351302,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,8,CHRISTIAN UNITY HOSPITAL INC,304614,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351320: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351320,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,9,P. R. HEALTH CORPORATION,287570,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351326,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,10,SOUTHWEST HEALTHCARE SERVICES,282545.91,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351313,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,11,WEST RIVER HEALTH SERVICES,276343.64,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351330: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351330,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,12,WISHEK HOSPITAL-CLINIC ASSOCIATION,274264,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351321: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351321,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,13,TRINITY HEALTH,273150,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 350006: PART A PROVIDER - HOSPITAL",FALSE,350006,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,14,CAVALIER COUNTY MEMORIAL HOSPITAL ASSOCIATION,270750,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351323,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,15,ASHLEY MEDICAL CENTER,270000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351322: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351322,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,16,LUTHERAN CHARITY ASSOCIATION,270000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 35Z335: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,35Z335,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,17,SANFORD HEALTH NETWORK NORTH,270000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351309,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,18,SANFORD HEALTH NETWORK NORTH,270000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351309,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,19,SMP HEALTH ST ALOISIUS,270000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351327,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,20,"TOWNER COUNTY MEDICAL CENTER, INC.",270000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351331: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351331,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,21,LINTON HOSPITAL,269900,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351328,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,22,TIOGA MEDICAL CENTER,267546,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351300,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,23,NORTHWOOD DEACONESS HEALTH CENTER,264600,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351312: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351312,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,24,CARRINGTON HEALTH CENTER,252133,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351318: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351318,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,25,HAZEN MEMORIAL HOSPITAL ASSOCIATION,250000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351310,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,26,ST LUKES HOSPITAL,234490,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351325: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351325,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,27,JACOBSON MEMORIAL HOSPITAL CARE CENTER,213011.68,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351314,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,28,ST ANDREWS HOSPITAL,201548.45,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 35Z307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,35Z307,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,31,PRESENTATION MEDICAL CENTER,178548.45,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351316: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351316,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,32,PEMBINA COUNTY MEMORIAL HOSPITAL ASSOCIATION,148345.8,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 35Z319: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,35Z319,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,35,MERCY HOSPITAL OF VALLEY CITY,135918,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351324: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351324,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,38,P. R. HEALTH CORPORATION,104211,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351326: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351326,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,39,ST. ALEXIUS MEDICAL CENTER,102044,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 350002: PART A PROVIDER - HOSPITAL",FALSE,350002,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,40,CAVALIER COUNTY MEMORIAL HOSPITAL ASSOCIATION,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351323: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351323,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,41,CHRISTIAN UNITY HOSPITAL INC,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351320: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351320,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,42,HAZEN MEMORIAL HOSPITAL ASSOCIATION,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351310: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351310,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,43,LINTON HOSPITAL,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351328,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,44,SMP HEALTH ST ALOISIUS,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351327: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351327,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,45,SOUTHWEST HEALTHCARE SERVICES,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351313,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,46,TIOGA MEDICAL CENTER,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351300,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,47,"TOWNER COUNTY MEDICAL CENTER, INC.",82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351331: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351331,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,48,WISHEK HOSPITAL-CLINIC ASSOCIATION,82000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351321: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351321,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,63,LINTON HOSPITAL,69697,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351328: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351328,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,72,NELSON COUNTY HEALTH SYSTEM,62831,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 350779: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,350779,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,80,ASHLEY MEDICAL CENTER,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351322: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351322,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,83,GARRISON MEMORIAL HOSPITAL,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351303: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351303,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,84,GOOD SAMARITAN HOSPITAL ASSOCIATION,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351332: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351332,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,85,JACOBSON MEMORIAL HOSPITAL CARE CENTER,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351314: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351314,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,86,NORTHWOOD DEACONESS HEALTH CENTER,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351312: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351312,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,87,SANFORD HEALTH NETWORK NORTH,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351309,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,88,SANFORD HEALTH NETWORK NORTH,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351309,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,89,ST. ALEXIUS MEDICAL CENTER,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 350002: PART A PROVIDER - HOSPITAL",FALSE,350002,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,90,TRINITY HEALTH,40000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 350006: PART A PROVIDER - HOSPITAL",FALSE,350006,ORG_WEBSITE
+ND,nd_fsrs_awardees.csv,91,GRIGGS COUNTY NURSING HOME,30425.32,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 351306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,351306,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,6,WARREN MEMORIAL HOSPITAL,2523589,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280779: PART A PROVIDER - RURAL EMERGENCY HOSPITAL (REH)",TRUE,280779,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,12,DOUGLAS COUNTY NEBRASKA,1286646.67,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 284009: PART A PROVIDER - HOSPITAL",FALSE,284009,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,22,CHADRON COMMUNITY HOSPITAL CORPORATION,828663.76,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281341: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281341,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,30,PENDER COMMUNITY HOSPITAL,711820,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281349: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281349,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,33,COMMUNITY HOSPITAL ASSOCIATION,546000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281363: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281363,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,36,WEST HOLT MEMORIAL HOSPITAL,400117,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281343: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281343,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,46,"NEBRASKA MEDICAL CENTER, THE",210355,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 280013: PART A PROVIDER - HOSPITAL",FALSE,280013,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,48,KEARNEY COUNTY HEALTH SERVICES,200000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281306: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281306,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,58,MEMORIAL COMMUNITY HOSPITAL CORP,152195,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 281359: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,281359,ORG_WEBSITE
+NE,ne_fsrs_awardees.csv,74,DOUGLAS COUNTY NEBRASKA,99975,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 284009: PART A PROVIDER - HOSPITAL",FALSE,284009,ORG_WEBSITE
+OK,ok_fsrs_awardees.csv,11,MERCY HEALTH SYSTEM OKLA,2615529.21,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370013: PART A PROVIDER - HOSPITAL",FALSE,370013,ORG_WEBSITE
+OK,ok_fsrs_awardees.csv,26,MERCY HEALTH SYSTEM OKLA,100000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 370013: PART A PROVIDER - HOSPITAL",FALSE,370013,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,1,VANDERBILT UNIVERSITY MEDICAL CENTER,4692498,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,4,VANDERBILT UNIVERSITY MEDICAL CENTER,3070473.09,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,7,VANDERBILT UNIVERSITY MEDICAL CENTER,2301495.55,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,9,LECONTE MEDICAL CENTER,1555868.63,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440081: PART A PROVIDER - HOSPITAL",FALSE,440081,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,10,VANDERBILT UNIVERSITY MEDICAL CENTER,1499999.78,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,12,"METRO KNOXVILLE HMA, LLC",1246100,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440120: PART A PROVIDER - HOSPITAL",FALSE,440120,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,16,VANDERBILT UNIVERSITY MEDICAL CENTER,600000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,17,HARDIN COUNTY GENERAL HOSPITAL,547259.9,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440109: PART A PROVIDER - HOSPITAL",FALSE,440109,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,20,WILLIAMSON COUNTY HOSPITAL DST,437618.72,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440029: PART A PROVIDER - HOSPITAL",FALSE,440029,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,43,CHATTANOOGA HAMILTON COUNTY HOSPITAL AUTHORITY,225952.81,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440104: PART A PROVIDER - HOSPITAL",FALSE,440104,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,53,MAURY REGIONAL HOSPITAL,180762.24,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440073: PART A PROVIDER - HOSPITAL",FALSE,440073,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,59,VANDERBILT UNIVERSITY MEDICAL CENTER,115500,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,84,SAINT THOMAS HICKMAN HOSPITAL,45190.56,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 441300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,441300,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,91,VANDERBILT UNIVERSITY MEDICAL CENTER,45190.56,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,92,VANDERBILT UNIVERSITY MEDICAL CENTER,45190.56,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,93,VANDERBILT UNIVERSITY MEDICAL CENTER,45190.56,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TN,tn_fsrs_awardees.csv,94,VANDERBILT UNIVERSITY MEDICAL CENTER,45190.56,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 440039: PART A PROVIDER - HOSPITAL",FALSE,440039,ORG_WEBSITE
+TX,tx_fsrs_awardees.csv,2,GENERAL HOSPITAL,750000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 45Z307: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,45Z307,ORG_WEBSITE
+TX,tx_fsrs_awardees.csv,3,LOCKNEY GENERAL HOSPITAL DISTRICT,750000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451337: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451337,ORG_WEBSITE
+TX,tx_fsrs_awardees.csv,4,MOORE COUNTY HOSPITAL DISTRICT,750000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451386: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451386,ORG_WEBSITE
+TX,tx_fsrs_awardees.csv,6,MOORE COUNTY HOSPITAL DISTRICT,221976,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 451386: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,451386,ORG_WEBSITE
+VT,vt_fsrs_awardees.csv,1,"CARLOS G. OTIS HEALTH CARE CENTER, INC.",2000000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471300,ORG_WEBSITE
+VT,vt_fsrs_awardees.csv,2,"CARLOS G. OTIS HEALTH CARE CENTER, INC.",347098.83,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471300,ORG_WEBSITE
+VT,vt_fsrs_awardees.csv,5,"CARLOS G. OTIS HEALTH CARE CENTER, INC.",169528.4,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 471300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,471300,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,5,"WAR MEMORIAL HOSPITAL, INC.",698592,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511309,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,6,"HAMPSHIRE MEMORIAL HOSPITAL, INC.",500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511311: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511311,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,7,"WAR MEMORIAL HOSPITAL, INC.",500000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511309,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,9,"BOONE MEMORIAL HOSPITAL, INC.",420200,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511313,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,10,EAST MOUNTAIN HEALTH PHYSICIANS INC,355958,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511309: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511309,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,13,"PLEASANT VALLEY HOSPITAL FOUNDATION, INC.",203275,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 51U012: PART A PROVIDER - HOSPITAL",FALSE,51U012,ORG_WEBSITE
+WV,wv_fsrs_awardees.csv,14,"BOONE MEMORIAL HOSPITAL, INC.",190571,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 511313: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,511313,ORG_WEBSITE

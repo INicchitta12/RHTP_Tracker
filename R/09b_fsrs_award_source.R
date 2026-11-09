@@ -467,7 +467,7 @@ fsrs_enrolment <- function(states) {
     j <- jsonlite::fromJSON(latest[[s]])
     tibble::tibble(state = s, file = sub(paste0(here::here(), "/"), "", latest[[s]]),
                    org = j$`ORGANIZATION NAME`, dba = dplyr::coalesce(j$`DOING BUSINESS AS NAME`, ""),
-                   ccn = j$CCN, type = j$`PROVIDER TYPE TEXT`,
+                   ccn = stringr::str_pad(j$CCN, 6, pad = "0"), type = j$`PROVIDER TYPE TEXT`,
                    address = toupper(stringr::str_squish(j$`ADDRESS LINE 1`)),
                    city = toupper(stringr::str_squish(j$CITY)))
   })) %>% dplyr::mutate(n_org = fsrs_norm(org), n_dba = fsrs_norm(dba), n_addr = fsrs_addr(address))
@@ -612,9 +612,11 @@ fsrs_plan <- function() {
   # unnamed pools, and Indiana's eight GROW regions ($112.4M, against an FSRS
   # total of $100.7M). A row larger than the state's pool figure cannot be
   # inside it and is written.
-  typed <- typed %>% dplyr::mutate(status = dplyr::if_else(
+  typed <- typed %>% dplyr::mutate(status = dplyr::case_when(
     status == "NEW_ROW" & st %in% names(FSRS_POOL_LEVEL_STATES) &
-      amount <= FSRS_POOL_LEVEL_STATES[st], "HELD_STATE_POOL_MAY_CONTAIN", status))
+      amount <= FSRS_POOL_LEVEL_STATES[st] ~ "HELD_STATE_POOL_MAY_CONTAIN",
+    status == "NEW_ROW" & st %in% FSRS_COMPLETE_ROSTER_STATES ~ "HELD_STATE_ROSTER_IS_COMPLETE",
+    TRUE ~ status))
   bridge <- typed %>% dplyr::filter(typing == "CMS_ADDRESS") %>% dplyr::group_by(st) %>%
     dplyr::summarise(bridge_usd = sum(amount), .groups = "drop")
   held_states <- bridge$st[bridge$bridge_usd > FSRS_HOLD_USD]
@@ -634,6 +636,12 @@ fsrs_plan <- function() {
 # SD CCBHC, 7 of 13 at $8.1M against "more than $13 million"). NC's Mobile
 # Integrated Health pool is priced: its 36 FSRS lines ($10.22M) reach the $10M
 # round figure, so R/03aw drops the round figure and nothing is counted twice.
+# A state whose own published subrecipient report already covers its Year 1
+# money: a recipient FSRS names and the report does not is almost certainly on
+# the report under another name (Nevada: NVHA's BP1 Subrecipient Report, 157
+# lines, $175.2M of $179.9M; two FSRS "new" recipients were Mesa View and
+# Northeastern Nevada under their operators' names). New rows there are held.
+FSRS_COMPLETE_ROSTER_STATES <- c("NV")
 FSRS_POOL_LEVEL_STATES <- c(IN = 112400000, OH = 61700000, OR = 26700000, SD = 101182906, WA = 19410000)
 FSRS_POOL_FILES <- c("IN_GROW", "OK_CHW", "NC_SBHC", "GA", "OH")
 fsrs_pool_guard <- function(rc) {

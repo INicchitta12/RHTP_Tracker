@@ -138,7 +138,16 @@ RC_ENROLMENTS <- c(
   CA = "data/evidence/federal_records/2026-10-28/cms_hosp_enrollments_CA.json",
   # Session 112: Pennsylvania's new selected-projects sections (R/03f), typed
   # on CMS's PA file.
-  PA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_PA.json")
+  PA = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_PA.json",
+  # Session 116c: FSRS new rows (R/09b) typed on CMS's IL, ND, ME, MN, KY, DE
+  # files; the last four of the six states fetched 2026-11-09 (AZ HI KY MN NM SD)
+  # carry hospital rows too.
+  IL = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_IL.json",
+  ND = "data/evidence/federal_records/2026-10-12/cms_hosp_enrollments_ND.json",
+  ME = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_ME.json",
+  DE = "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_DE.json",
+  MN = "data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_MN.json",
+  KY = "data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_KY.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -374,11 +383,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 115: + WV's 10-30 CAMC release (3 / $3,930,266; CAMC carries no CCN
   # on the row, as its 09-04 row): 1,954 / $1,797,619,954.62 / 37.
   # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958 / $1,797,619,954.62 / 37.
-  if (nrow(rows) != 1958L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 1797619954.62) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 37L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 1,958 rows / $1,797,619,954.62 ",
-         "/ 37 states; re-state the rural cut against the new partition.",
+  # Session 116c: FSRS as an award source (R/09b, owner ruling): $0 rows priced
+  # and new rows typed on CMS enrolment: 2,193 / $2,158,289,847.60 / 42.
+  if (nrow(rows) != 2193L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2158289847.60) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 42L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,193 rows / $2,158,289,847.60 ",
+         "/ 42 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)

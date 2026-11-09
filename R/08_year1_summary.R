@@ -476,12 +476,27 @@ ys_notes <- function(s, date, rows) {
            "It is a subset of the national row, never added to it; the set changes as states publish."),
     paste0("* SUBSET ROW ON OVERVIEW. '", ys_overview_state_label(ge), "' is the second national row, in full: '", ge$state_name,
            "'. It is defined under SECOND NATIONAL ROW above."),
+    ys_fsrs_note(),
     "NATIONAL ALLOTMENT. National allotment sums to $10,000,000,003 because each state's allotment is rounded to the dollar.",
     "NEW HAMPSHIRE. The $17.5M Critical Access and Acute Care Hospital RFA (inside the Foundation for Healthy Communities award, called HOSPITAL) has not yet awarded: FHC's notification of award for its initial cohort is due mid-December 2026.",
     paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail).")))
 }
 
 #' One row per state: the primary source document(s) and their archive paths
+# SESSION 116c: FSRS / FFATA first-tier subawards are an award source (owner
+# ruling 2026-11-09; R/09b).
+YS_FSRS_TOTALS <- "data/reference/fsrs_state_totals.csv"
+ys_fsrs_note <- function() {
+  t <- readr::read_csv(here::here(YS_FSRS_TOTALS), show_col_types = FALSE, progress = FALSE)
+  non <- sort(t$st[!t$files_ffata])
+  paste0("FSRS / FFATA SUBAWARDS (session 116c, owner ruling). A state's own FFATA first-tier subaward report (SAM.gov/FSRS, republished by USAspending under ",
+         "Assistance Listing 93.798, archive ", t$as_of[1], ") is an award source: executed subawards, one amount per subaward action (re-filings collapsed). ",
+         "It prices rows a state roster left at $0 and adds recipients no roster names (files <st>_fsrs_awardees.csv). FSRS covers SUBAWARDS ONLY: ",
+         "a state's procurement contracts (consultants, vendors) are never reportable (2 CFR 170), so it is not a census of where the money went. ",
+         length(non), " states had filed no FFATA subaward: ", paste(non, collapse = " "), ". That is a fact about their filing, not about their awards. ",
+         "Subawards the reconciliation could not place without risk of counting one twice are held, not counted (data/reference/fsrs_held.csv).")
+}
+
 ys_sources <- function(rows, s) {
   st <- s$state[!s$state %in% YS_NATIONAL]
   j <- function(x) {
@@ -492,7 +507,16 @@ ys_sources <- function(rows, s) {
   }
   status <- readr::read_csv(here::here(YS_STATUS), show_col_types = FALSE, progress = FALSE)
   conf <- ys_confidential_status()
-  dplyr::bind_rows(lapply(st, function(x) {
+  fsrs <- tibble::tibble(
+    state = "FSRS (all states)",
+    award_files = "data/reference/<st>_fsrs_awardees.csv; FSRS overlay columns (fsrs_amount, fsrs_match) on every award file of a filing state",
+    source_documents = paste("USAspending custom award download, Assistance Listing 93.798 (prime awards and FFATA first-tier subawards as filed by each state in SAM.gov/FSRS).",
+                             "Covers subawards only; state procurement contracts are not reportable (2 CFR 170 App. A). 19 states had filed no subaward."),
+    source_urls = "https://api.usaspending.gov/api/v2/download/awards/ (custom award download, filter program_numbers = 93.798)",
+    archive_paths = "data/raw/usaspending/2026-11-09/usaspending_rhtp_93798_prime_and_subawards.zip (+ .manifest.txt with SHA-256)",
+    status_evidence = "data/reference/fsrs_state_totals.csv; data/reference/fsrs_reconciliation.csv; data/reference/fsrs_held.csv; data/reference/fsrs_nonfiling_states.csv",
+    evidence_directory = "data/raw/usaspending/2026-11-09", confidential_source = "")
+  dplyr::bind_rows(fsrs, lapply(st, function(x) {
     r <- rows[rows$state == x, ]
     ev <- status$evidence_path[status$state == x]
     tibble::tibble(
@@ -519,8 +543,8 @@ ys_sources <- function(rows, s) {
 #' awards are at least this fraction of the allotment; below it, "n/m"
 YS_NM <- "n/m"
 YS_NM_NOTE <- paste(
-  "Not meaningful where most of the state's money is not yet published; e.g., Illinois's only",
-  "published award is ICAHN's hospital network grant.")
+  "Not meaningful where most of the state's money is not yet published; e.g., Wisconsin has",
+  "published no award and filed no FFATA subaward.")
 
 #' The plain-language Year 1 status labels, in the order they are assigned
 YS_STATUS_LABELS <- tibble::tribble(
@@ -569,7 +593,12 @@ ys_state_sourced_awards <- function(s, rows) {
 #' STATE-SOURCED awards are at least YS_AWARD_SHARE_MIN of its allotment (owner
 #' decision; Rhode Island's CMS obligation lines no longer count toward it)
 ys_share_meaningful <- function(s, rows) {
-  s$allotment_usd > 0 & ys_state_sourced_awards(s, rows) / s$allotment_usd >= YS_AWARD_SHARE_MIN
+  # SESSION 116c: FSRS lifts national state-sourced awards above half the
+  # allotment, so the 50% test alone would now print the national share. The
+  # owner's session 111b decision ("the national row keeps n/m") is kept as a
+  # decision, not re-derived; the CSV carries the computed share. Owner call.
+  s$allotment_usd > 0 & s$state != "US" &
+    ys_state_sourced_awards(s, rows) / s$allotment_usd >= YS_AWARD_SHARE_MIN
 }
 
 ys_frac <- function(n, d) ifelse(d > 0, n / d, NA_real_)

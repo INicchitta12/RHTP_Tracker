@@ -437,7 +437,7 @@ SC_JUDGMENTS <- dplyr::bind_rows(
        "Joint award called on its lead, Glens Falls Hospital (CCN 330191), listed first; the dollars are not split.",
        "Hudson Headwaters, an FQHC, is the co-recipient, and the hospital's share is unknown."),
   sc_j("VA", "Virginia Hospital Research and Education Foundation (d/b/a VHHA Foundation)", "HOSPITAL",
-       "The Virginia Hospital & Healthcare Association's foundation, and the owner's standing ruling counts hospital associations and their foundations; no dollars on the row.",
+       "The Virginia Hospital & Healthcare Association's foundation, and the owner's standing ruling counts hospital associations and their foundations. Session 116c: priced at $27,201,764 from Virginia's FFATA subaward report (R/09b); the call is unchanged and now carries those dollars.",
        "It administers Remote Patient Monitoring, GME and Food is Medicine, whose subrecipients may include non-hospitals."),
   sc_j("VA", "Virginia Health Care Foundation", "NOT_HOSPITAL",
        "A public-private foundation funding safety-net providers; not a hospital body. No dollars on the row.",
