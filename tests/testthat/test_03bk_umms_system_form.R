@@ -57,7 +57,10 @@ test_that("the overlay is idempotent and the committed file carries it on one ro
     determination_confidence = "MEDIUM",
     flag_reason              = "",
     award_pool               = "PILLAR2_TRANSFORMATION_FUND",
-    budget_period            = "BP1",
+    # Session 116: R/07 --apply stamps budget_period = 1 and keeps the
+    # builder's text in budget_period_text.
+    budget_period            = "1",
+    budget_period_text       = "BP1",
     flow_type                = "DIRECT",
     hospital_benefiting      = "Yes",
     hospital_attribution     = "NAMED_HOSPITAL",

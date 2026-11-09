@@ -221,7 +221,7 @@ test_that("the committed CSV matches a fresh build", {
                              progress = FALSE)
   fresh <- rhtp_sd_year1_build()
   expect_equal(nrow(on_disk), nrow(fresh))
-  expect_equal(setdiff(names(on_disk), RHTP_SUMMARY_COLUMNS), names(fresh))
+  expect_equal(names(rhtp_strip_summary_calls(on_disk)), names(fresh))
   expect_equal(on_disk$round_amount, fresh$round_amount)
 })
 
