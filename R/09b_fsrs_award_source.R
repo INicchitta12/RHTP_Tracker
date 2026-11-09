@@ -260,8 +260,8 @@ fsrs_candidates <- function(cur, aw) {
 fsrs_crosswalk <- function() {
   x <- readr::read_csv(here::here(FSRS_CROSSWALK), col_types = readr::cols(.default = "c"),
                        na = c("", "NA"), progress = FALSE)
-  bad <- setdiff(x$decision, c("MATCH", "NO_MATCH"))
-  if (length(bad)) stop("[fsrs] crosswalk decision must be MATCH or NO_MATCH: ",
+  bad <- setdiff(x$decision, c("MATCH", "NO_MATCH", "HOLD"))
+  if (length(bad)) stop("[fsrs] crosswalk decision must be MATCH, NO_MATCH or HOLD: ",
                         paste(bad, collapse = ", "), call. = FALSE)
   if (any(x$decision == "MATCH" & (is.na(x$file_key) | is.na(x$awardee)))) {
     stop("[fsrs] a MATCH crosswalk entry needs file_key and awardee.", call. = FALSE)
@@ -304,10 +304,10 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
   # recipient -> award rows (exact normalised name/DBA, or a reviewed MATCH)
   link <- dplyr::bind_rows(
     cur %>% dplyr::select(fsrs_id, st, nn) %>%
-      dplyr::inner_join(aw %>% dplyr::select(state, n, row_id), by = c(st = "state", nn = "n")) %>%
+      dplyr::inner_join(aw %>% dplyr::select(state, n, row_id), by = c(st = "state", nn = "n"), relationship = "many-to-many") %>%
       dplyr::transmute(fsrs_id, row_id, how = "EXACT_NAME"),
     cur %>% dplyr::filter(nzchar(nd)) %>% dplyr::select(fsrs_id, st, nd) %>%
-      dplyr::inner_join(aw %>% dplyr::select(state, n, row_id), by = c(st = "state", nd = "n")) %>%
+      dplyr::inner_join(aw %>% dplyr::select(state, n, row_id), by = c(st = "state", nd = "n"), relationship = "many-to-many") %>%
       dplyr::transmute(fsrs_id, row_id, how = "EXACT_DBA"),
     cur %>% dplyr::select(fsrs_id, st, uei) %>%
       dplyr::inner_join(xw %>% dplyr::filter(decision == "MATCH") %>%
@@ -326,6 +326,7 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
   # Iowa: keep only links inside the subaward's own pool
   ia <- cur %>% dplyr::filter(st == "IA") %>%
     dplyr::transmute(fsrs_id, ia_pool = FSRS_IA_FAMILY(description, action_date))
+  link_all <- link
   link <- link %>% dplyr::left_join(ia, by = "fsrs_id") %>%
     dplyr::left_join(aw %>% dplyr::select(row_id, award_pool, file_key), by = "row_id") %>%
     dplyr::filter(is.na(ia_pool) | file_key != "IA" | award_pool == ia_pool) %>%
@@ -413,11 +414,17 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
   # unmatched subawards: NEW_ROW, or HELD where an unreviewed candidate exists
   reviewed <- xw %>% dplyr::distinct(state, subawardee_uei) %>% dplyr::mutate(reviewed = TRUE)
   candu <- cand %>% dplyr::distinct(st, uei) %>% dplyr::mutate(has_candidate = TRUE)
+  hold <- xw %>% dplyr::filter(decision == "HOLD") %>% dplyr::distinct(state, subawardee_uei) %>%
+    dplyr::mutate(hold = TRUE)
   un <- cur %>% dplyr::filter(!fsrs_id %in% link$fsrs_id) %>%
     dplyr::left_join(candu, by = c("st", "uei")) %>%
     dplyr::left_join(reviewed, by = c(st = "state", uei = "subawardee_uei")) %>%
-    dplyr::mutate(status = dplyr::if_else(dplyr::coalesce(has_candidate, FALSE) & !dplyr::coalesce(reviewed, FALSE),
-                                          "HELD_CANDIDATE_UNREVIEWED", "NEW_ROW"),
+    dplyr::left_join(hold, by = c(st = "state", uei = "subawardee_uei")) %>%
+    dplyr::mutate(status = dplyr::case_when(
+                    fsrs_id %in% link_all$fsrs_id ~ "HELD_EXTRA_SUBAWARD_RECIPIENT_ON_ROSTER",
+                    dplyr::coalesce(hold, FALSE) ~ "HELD_REVIEWED_AMBIGUOUS",
+                    dplyr::coalesce(has_candidate, FALSE) & !dplyr::coalesce(reviewed, FALSE) ~ "HELD_CANDIDATE_UNREVIEWED",
+                    TRUE ~ "NEW_ROW"),
                   row_ids = NA_character_) %>%
     dplyr::select(fsrs_id, status, row_ids)
   st_df <- dplyr::bind_rows(st_df, un)
@@ -501,6 +508,28 @@ fsrs_type_new <- function(new) {
                 basis_type = "STATE_SOURCE", ccn = NA_character_, cms_enrolment_record = NA_character_,
                 recipient_type_source = paste0("CLASSIFIER (", cls$classification_rule[i], ") on the FSRS name"),
                 typing = "CLASSIFIER", sam_hospital_unenrolled = FALSE)
+      state_body <- grepl("STATE GOVERNMENT", bt) &&
+        !grepl("HOSPITAL|MEDICAL CENTER|HEALTH SYSTEM", toupper(d$name[i]))
+      univ <- grepl("UNIVERSITY|COLLEGE", toupper(d$name[i]))
+      r$hold_state_operator <- FALSE; r$recipient_subtype <- NA_character_
+      if ((nrow(hit_name) || nrow(hit_addr)) && state_body && !univ) {
+        # A state agency that holds a hospital enrolment (Texas DSHS runs the
+        # state psychiatric hospitals) is not typed a hospital on that
+        # enrolment by machine: that is a new ruling, held.
+        r$hold_state_operator <- TRUE
+        hit_name <- hit_name[0, ]; hit_addr <- hit_addr[0, ]
+      }
+      if (identical(r$recipient_type, "HOSPITAL_OR_SYSTEM") && !nrow(hit_name) && !nrow(hit_addr)) {
+        # The owner's ruling types new rows ON CMS ENROLMENT. A hospital-shaped
+        # name with no enrolment by name or address is not a hospital row
+        # (the classifier read "Health Care Authority" as a hospital authority).
+        r$recipient_type <- "NONPROFIT_CBO"; r$determination_confidence <- "LOW"
+        r$flow_type <- "NON_HOSPITAL"; r$distributed_to_hospital <- "No"; r$hospital_benefiting <- "No"
+        r$flag_reason <- "RECIPIENT_TYPE_INFERRED"
+        r$determination_basis <- "The FSRS name reads as a hospital but no archived CMS Hospital Enrollment record carries it by name or street address; §8 standing fallback (session 116c: new rows are typed on CMS enrolment)."
+        r$sam_hospital_unenrolled <- TRUE
+        cls$classification_rule[i] <- "FALLBACK"
+      }
       if (nrow(hit_name) || nrow(hit_addr)) {
         h <- if (nrow(hit_name)) hit_name[1, ] else hit_addr[1, ]
         how <- if (nrow(hit_name)) "EXACT" else "ADDRESS"
@@ -512,6 +541,7 @@ fsrs_type_new <- function(new) {
         r$basis_type <- "ORG_WEBSITE"
         r$determination_confidence <- if (how == "EXACT") "MEDIUM" else "LOW"
         r$typing <- paste0("CMS_", how)
+        if (univ) r$recipient_subtype <- "ACADEMIC_HEALTH_CENTER"
         r$recipient_type_source <- paste0("TYPED (session 116c, ", how, "): CMS ", s,
           " Hospital Enrollment (", h$file, ") ", if (how == "EXACT")
             "carries the FSRS subrecipient name as an ORGANIZATION NAME or DBA" else
@@ -624,11 +654,16 @@ fsrs_held <- function(p) {
                      detail = paste0("Typed ", recipient_type, "; SAM business types '", business_types,
                                      "'; no CMS enrolment by name or address. A hospital ruling would move ",
                                      "this amount into the hospital figures."))
+  h4 <- p$typed %>% dplyr::filter(hold_state_operator) %>%
+    dplyr::transmute(st, fsrs_id, status = "WRITTEN_NOT_HOSPITAL_STATE_BODY_HOLDS_HOSPITAL_ENROLMENT", name, amount,
+                     detail = paste0("Typed ", recipient_type, ". A state body that holds a CMS hospital enrolment ",
+                                     "(it operates state hospitals); typing the subaward a hospital on that enrolment ",
+                                     "needs a ruling."))
   h3 <- p$records %>% dplyr::filter(record_status == "PREDATES_NOA") %>%
     dplyr::transmute(st, fsrs_id, status = "PREDATES_NOA", name, amount,
                      detail = paste0("action date ", action_date, " before the NOA (2025-12-29); description '",
                                      description, "'. §6.2 date test: quarantined, never written."))
-  dplyr::bind_rows(h1, h2, h3) %>% dplyr::arrange(status, st, dplyr::desc(amount))
+  dplyr::bind_rows(h1, h2, h4, h3) %>% dplyr::arrange(status, st, dplyr::desc(amount))
 }
 
 fsrs_nonfilers <- function(tot) {
@@ -722,7 +757,7 @@ fsrs_new_rows <- function(p) {
       intermediary_name = NA_character_, determination_basis,
       amount_basis = paste0("The subaward amount the state filed, per action (session 116c amendment rule: re-filings ",
                             "collapsed, distinct actions kept). An EXECUTED first-tier subaward."),
-      basis_type, recipient_subtype = NA_character_, cms_enrolment_record,
+      basis_type, recipient_subtype, cms_enrolment_record,
       source_archive_path = file.path("data/raw/usaspending", FSRS_AS_OF, USA_ZIP),
       announcement_date = action_date,
       fsrs_subaward_id = fsrs_id, fsrs_subaward_number = subaward_number, fsrs_uei = uei,
