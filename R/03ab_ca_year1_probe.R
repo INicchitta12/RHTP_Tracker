@@ -162,9 +162,16 @@ CA_SOURCES <- tibble::tribble(
   # Care Utilization Report"; on all four probe pages), and an "Explore CalRHT
   # ... Click to Explore Funding Opportunities" navigation block. The 10-26
   # copy stays.
+  # SESSION 115: HCAI moved the CalRHT section from /rural-health/calrht/ to
+  # /calrht/ (the old funding and program-updates paths are hard 404s since
+  # 11-07; the old root redirects). URLs re-pointed ONLY: the 10-28 archives
+  # stay as baselines, because the live pages now print a $333,639,308.46
+  # footer (BP1 + a $100M BP2 Notice of Award, per Louisiana's 11-05 deck),
+  # which a re-base would archive and the footer-tier check refuses. The
+  # roster read 11-09 is the 10-28 roster, 108 rows / $138,464,043.97, to the cent.
   "calrht",
   "2026-10-28_ca_hcai_calrht_programme.html",
-  "https://hcai.ca.gov/rural-health/calrht/",
+  "https://hcai.ca.gov/calrht/",
 
   # SESSION 108: HCAI's "Recommended Subrecipients for CalRHT Budget Period 1
   # Announced" (2026-10-21): five tables, 108 rows, $138,464,043.97 as printed
@@ -176,7 +183,7 @@ CA_SOURCES <- tibble::tribble(
   # there). Re-based after reading: only the mega-menu swap above moved.
   "updates",
   "2026-10-28_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
-  "https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/",
+  "https://hcai.ca.gov/calrht/calrht-program-updates/",
 
   # Session 108: re-based after reading. Added a Tribal Set-Aside section
   # ("$11.65 million ... reserved for California's federally recognized
@@ -188,7 +195,7 @@ CA_SOURCES <- tibble::tribble(
   # gained an "Application Portal" link (a solicitation, Tier 2). No name.
   "funding",
   "2026-10-28_ca_hcai_calrht_funding_opportunities.html",
-  "https://hcai.ca.gov/rural-health/calrht/funding/",
+  "https://hcai.ca.gov/calrht/funding/",
 
   "cms_noa",
   "2026-03-31_ca_cms_notice_of_award_revised.pdf",
