@@ -549,22 +549,22 @@ vf_validate_hand_rows <- function() {
 # -- RCJ leads ------------------------------------------------------------------------
 
 # RCJ leads are read against this repository's own RCJ dispositions
-# (data/reference/<st>_rcj_candidate_disposition.csv). EXCLUDE = the disposition
+# (data/reference/<st> RCJ disposition tables). EXCLUDE = the disposition
 # says the money is not RHTP; LEAD = kept as a labelled lead, with the
 # disposition quoted in notes.
 VF_RCJ_DISPOSITIONS <- tibble::tribble(
   ~state, ~canonical_name, ~action, ~disposition,
-  "TX", "Molina Healthcare", "EXCLUDE", "tx_rcj_candidate_disposition.csv: NOT_RHTP_MEDICAID (ATLIS incentive payments to Medicaid MCOs; 'not RHTP, and not to hospitals')",
-  "TX", "UnitedHealth Group / Optum", "EXCLUDE", "tx_rcj_candidate_disposition.csv: NOT_RHTP_MEDICAID (ATLIS incentive payments to Medicaid MCOs)",
-  "CO", "Deloitte Consulting LLP", "EXCLUDE", "co_rcj_candidate_disposition.csv: NOT_RHTP_MEDICAID (a Medicaid work-requirements Advance Planning Document, 'Not RHTP')",
-  "CO", "Ernst & Young LLP", "EXCLUDE", "co_rcj_candidate_disposition.csv: NOT_RHTP_MEDICAID (the same work-requirements APD)",
-  "TX", "Deloitte Consulting LLP", "LEAD", "tx_rcj_candidate_disposition.csv: RHTP_BUT_NOT_A_SUBAWARD ('Deloitte grants-management support at $1,750,000', a budget-narrative line)",
-  "AR", "BDO USA / BDO Government Services LLC", "LEAD", "ar_rcj_candidate_disposition.csv: RHTP_BUT_NOT_A_SUBAWARD (the Year 1 Revised Budget Narrative's 'Contracted Administrative Costs' line)",
-  "NH", "NORC at the University of Chicago", "LEAD", "nh_rcj_candidate_disposition.csv: RHTP_ADMINISTRATOR_NO_PRIMARY_AMOUNT (a named GO-NORTH evaluator with no amount this project can source)",
-  "NV", "Health Management Associates, Inc.", "LEAD", "nv_rcj_candidate_disposition.csv: AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED (NVHA's contractor; the state deck carries none of RCJ's names or figures in its text layer)",
-  "NV", "Manatt Health Strategies LLC", "LEAD", "nv_rcj_candidate_disposition.csv: AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED (as HMA)",
-  "MA", "Deloitte Consulting LLP", "LEAD", "ma_rcj_candidate_disposition.csv: RHTP_BUT_NOT_A_SUBAWARD (a project-management RFQ with Deloitte at a $1 placeholder; award UNKNOWN)",
-  "IN", "Myers and Stauffer LC", "LEAD", "in_rcj_candidate_disposition.csv covers Indiana's IDOA procurement rows; Myers and Stauffer is not on Indiana's award file"
+  "TX", "Molina Healthcare", "EXCLUDE", "TX RCJ disposition table: NOT_RHTP_MEDICAID (ATLIS incentive payments to Medicaid MCOs; 'not RHTP, and not to hospitals')",
+  "TX", "UnitedHealth Group / Optum", "EXCLUDE", "TX RCJ disposition table: NOT_RHTP_MEDICAID (ATLIS incentive payments to Medicaid MCOs)",
+  "CO", "Deloitte Consulting LLP", "EXCLUDE", "CO RCJ disposition table: NOT_RHTP_MEDICAID (a Medicaid work-requirements Advance Planning Document, 'Not RHTP')",
+  "CO", "Ernst & Young LLP", "EXCLUDE", "CO RCJ disposition table: NOT_RHTP_MEDICAID (the same work-requirements APD)",
+  "TX", "Deloitte Consulting LLP", "LEAD", "TX RCJ disposition table: RHTP_BUT_NOT_A_SUBAWARD ('Deloitte grants-management support at $1,750,000', a budget-narrative line)",
+  "AR", "BDO USA / BDO Government Services LLC", "LEAD", "AR RCJ disposition table: RHTP_BUT_NOT_A_SUBAWARD (the Year 1 Revised Budget Narrative's 'Contracted Administrative Costs' line)",
+  "NH", "NORC at the University of Chicago", "LEAD", "NH RCJ disposition table: RHTP_ADMINISTRATOR_NO_PRIMARY_AMOUNT (a named GO-NORTH evaluator with no amount this project can source)",
+  "NV", "Health Management Associates, Inc.", "LEAD", "NV RCJ disposition table: AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED (NVHA's contractor; the state deck carries none of RCJ's names or figures in its text layer)",
+  "NV", "Manatt Health Strategies LLC", "LEAD", "NV RCJ disposition table: AGGREGATOR_PLACEHOLDER_OR_UNRESOLVED (as HMA)",
+  "MA", "Deloitte Consulting LLP", "LEAD", "MA RCJ disposition table: RHTP_BUT_NOT_A_SUBAWARD (a project-management RFQ with Deloitte at a $1 placeholder; award UNKNOWN)",
+  "IN", "Myers and Stauffer LC", "LEAD", "IN RCJ disposition table covers Indiana's IDOA procurement rows; Myers and Stauffer is not on Indiana's award file"
 )
 
 vf_from_rcj <- function(dict = vf_dictionary()) {
