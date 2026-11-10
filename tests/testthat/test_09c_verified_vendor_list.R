@@ -30,6 +30,7 @@ test_that("categories, amount types and the floor hold", {
   expect_true(all(cats %in% VV_CATEGORIES))
   expect_true(all(v$amount_type %in% VV_AMOUNT_TYPES))
   expect_true(all(v$amount >= VV_FLOOR))
+  expect_true(all(b$pass_through$amount >= VV_FLOOR))
   expect_true(all(v$source_class %in% VV_ADMISSIBLE))
 })
 
@@ -66,12 +67,35 @@ test_that("every drop names a test V1-V9 and a reason", {
   expect_equal(nrow(hit), 0)
 })
 
-test_that("the independent check covers every case and its drops are honoured", {
+test_that("the independent check covers every case and its latest drops are honoured", {
   skip_if_not(file.exists(here::here(VV_INDEPENDENT)))
-  ind <- readr::read_csv(here::here(VV_INDEPENDENT), col_types = readr::cols(.default = "c"))
+  rd <- function(p) readr::read_csv(here::here(p), col_types = readr::cols(.default = "c"))
+  ind <- rd(VV_INDEPENDENT)
+  if (file.exists(here::here(VV_INDEPENDENT_R2))) {
+    r2 <- rd(VV_INDEPENDENT_R2)
+    expect_true(all(r2$verdict %in% c("KEEP", "DROP")))
+    ind <- dplyr::bind_rows(ind %>% dplyr::filter(!case_id %in% r2$case_id), r2)
+  }
   expect_true(all(ind$verdict %in% c("KEEP", "DROP")))
-  expect_true(all(v$case_id %in% ind$case_id[ind$verdict == "KEEP"]))
-  expect_false(any(v$case_id %in% ind$case_id[ind$verdict == "DROP"]))
+  listed <- c(v$case_id, b$pass_through$case_id)
+  expect_true(all(listed %in% ind$case_id[ind$verdict == "KEEP"]))
+  expect_false(any(listed %in% ind$case_id[ind$verdict == "DROP"]))
+})
+
+test_that("INTERMEDIARY is split, and provider pass-through and hospital money stay off the main list", {
+  expect_true(all(v$intermediary_type[grepl("INTERMEDIARY", v$categories)] %in%
+                    c("ADMINISTERS_ONLY", "NON_PROVIDER_RECIPIENTS")))
+  expect_true(all(is.na(v$intermediary_type[!grepl("INTERMEDIARY", v$categories)])))
+  expect_true(all(is.na(v$hospital_money)))
+  pt <- b$pass_through
+  expect_true(nrow(pt) > 0)
+  expect_true(all(!is.na(pt$hospital_money) | pt$intermediary_type %in% "PASS_THROUGH_TO_PROVIDERS"))
+  expect_length(intersect(v$case_id, pt$case_id), 0)
+  # the worked cases the owner named
+  expect_true("VV020" %in% pt$case_id)                               # Nebraska High Value Network
+  expect_true(all(c("VV014", "VV015") %in% pt$case_id))              # VHHA Foundation components
+  expect_false("VV057" %in% c(v$case_id, pt$case_id))                # Jefferson: in-state campus (V9)
+  expect_identical(v$categories[v$case_id == "VV001"], "CONSULTANT;OUT_OF_STATE_VENDOR")
 })
 
 test_that("planned lines and unnamed lines never enter the verified list", {
@@ -86,4 +110,5 @@ test_that("the committed CSVs equal a fresh build", {
   expect_equal(nrow(rd(VV_DROPPED_CSV)), nrow(b$dropped))
   expect_equal(nrow(rd(VV_UNNAMED_CSV)), nrow(b$unnamed))
   expect_equal(nrow(rd(VV_PLANNED_CSV)), nrow(b$planned))
+  expect_setequal(rd(VV_PASS_THROUGH_CSV)$case_id, b$pass_through$case_id)
 })

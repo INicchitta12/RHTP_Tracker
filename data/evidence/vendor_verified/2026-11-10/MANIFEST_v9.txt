@@ -1,0 +1,13 @@
+RHTP tracker archive (session 116e, verified vendor list, V9 location checks). Fetched 2026-11-10T18:33:12Z with the project agent; HTTP 200 for every file.
+
+file  bytes  sha256  url
+NM/hca_2026-05-06_crhsi_release.html  234089  39158a08b9aa047360f352d70a63b208feb126ba589bcdd4adb06f58dbbfd8ed  https://www.hca.nm.gov/2026/05/06/nm-to-stabilize-rural-health-care-with-new-support-center/
+NM/hca_rfp_27-630-1000-0003_crhsi.pdf  1801928  41ff6cf8f28e6c45f29ba3dbe308897cc65fe86d653e81e5c7f1a95f0ea564f8  https://www.hca.nm.gov/wp-content/uploads/RHTP_CRHSI_RFP_27-630-1000-0003.pdf
+NM/hca_qa_rfp_27-630-1000-0003_crhsi.pdf  781145  33db82b71189be5d07268b15e851522febdb777a121c83cf5571850a10fc72f3  https://www.hca.nm.gov/wp-content/uploads/HCA_QA_RFP27-630-1000-0003-CRHSI.pdf
+DE/news_delaware_2026-06-02_jefferson_medical_school.html  131942  83e833efd6d24dd55b758b72ebca175650ce18aad2a52f7d590324e0843d36de  https://news.delaware.gov/2026/06/02/state-and-thomas-jefferson-university-partner-to-establish-delawares-first-medical-school/
+DE/jefferson_skmc_delaware_campus.html  137461  b176d8b014b5f816571493664c050e31742075818d4e4f5605f001555c018691  https://www.jefferson.edu/academics/colleges-schools-institutes/skmc/locations/skmc-delaware-campus.html
+
+WHAT THEY SHOW (V9):
+- NM: HCA's CRHSI Q&A answer 101: 'HCA does not require the CRHSI Contractor to maintain a New Mexico-based office, locate a minimum percentage of FTEs in New Mexico, or provide routine on-site presence'. No in-state establishment is stated: Guidehouse keeps OUT_OF_STATE_VENDOR.
+- DE: Governor's release (2026-06-02): 'establish a regional campus of Sidney Kimmel Medical College' in Delaware; Jefferson's own page: first two years 'at the University of Delaware's Main Campus in Newark, DE'. In-state operations: Jefferson is dropped from OUT_OF_STATE_VENDOR (V9).
+- Both HTML pages carry page chrome only besides the quoted text; no credential tokens (checked by grep for key=, token, csrf).

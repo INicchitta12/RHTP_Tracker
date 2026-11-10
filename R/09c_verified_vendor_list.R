@@ -64,6 +64,11 @@ VV_HAND_DROPS <- "config/verified_vendor_hand_drops.csv"
 # Task 4: a separate agent that had not seen the case-building re-opened every
 # archive and re-checked V1-V9 for every passing case. Any DROP removes the case.
 VV_INDEPENDENT <- "config/verified_vendor_independent_check.csv"
+# Round 2 (session 116e, after the owner's rulings): re-checks the changed cases
+# only. Its verdict replaces round 1's for every case it covers.
+VV_INDEPENDENT_R2 <- "config/verified_vendor_independent_check_r2.csv"
+VV_INTERMEDIARY_TYPES <- c("PASS_THROUGH_TO_PROVIDERS", "ADMINISTERS_ONLY", "NON_PROVIDER_RECIPIENTS")
+VV_PASS_THROUGH_CSV <- "data/reference/verified_vendor_pass_through.csv"
 VV_LIST_CSV <- "data/reference/verified_vendor_list.csv"
 VV_DROPPED_CSV <- "data/reference/verified_vendor_dropped.csv"
 VV_UNNAMED_CSV <- "data/reference/verified_vendor_unnamed_lines.csv"
@@ -123,8 +128,18 @@ VV_SOURCES <- tibble::tribble(
   "CMS, RHTP Obligated Funds Report (10-14 edition; obligations as of 2026-07-31)",
   "https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf",
   "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf",
-  "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf.manifest.txt"
+  "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf.manifest.txt",
+  # A TIE source (owner ruling, session 116e): Idaho's awardee xlsx carries no
+  # programme name of its own; its RHTP tie is its publication on DHW's RHTP
+  # funding page under "Closed and awarded funding opportunities". The page
+  # must link the xlsx (link_key) or V2 fails.
+  "S_ID_PAGE", "STATE_RHTP_PAGE", "html",
+  "Idaho DHW, Funding Opportunities for Rural Health Transformation ('Closed and awarded funding opportunities' links the awardee list)",
+  "https://healthandwelfare.idaho.gov/providers/rural-health-transformation-program-grant/funding-opportunities-rural-health",
+  "data/evidence/ID/2026-10-26_id_rhtp_funding_opportunities.html",
+  "data/evidence/ID/MANIFEST.txt"
 )
+VV_SOURCES$link_key <- dplyr::if_else(VV_SOURCES$source_id == "S_ID_LIST", "docid=37915", NA_character_)
 
 # -- text helpers ------------------------------------------------------------------------
 
@@ -273,6 +288,36 @@ vv_link_fsrs <- function(case, fsrs) {
   hit
 }
 
+# Is a case money this tracker already counts as HOSPITAL money? A strict bucket
+# or a HOSPITAL summary call on the award-file row of the same recipient at the
+# same amount, or a HOSPITAL component in summary_call_components.csv.
+vv_hospital_money <- function(checked) {
+  sf <- vf_state_files()
+  u <- purrr::map_dfr(names(sf), function(k) {
+    d <- readr::read_csv(here::here(sf[[k]]), col_types = readr::cols(.default = "c"), progress = FALSE)
+    o <- function(c) if (c %in% names(d)) d[[c]] else rep(NA_character_, nrow(d))
+    tibble::tibble(file_key = k, state = d$state, key = vv_norm_name(d$awardee),
+                   amt = suppressWarnings(as.numeric(d$amount)),
+                   ha = o("hospital_attribution"), sc = o("summary_hospital_call"))
+  })
+  comp <- readr::read_csv(here::here("data/reference/summary_call_components.csv"),
+                          col_types = readr::cols(.default = "c"), progress = FALSE)
+  purrr::map_dfr(seq_len(nrow(checked)), function(i) {
+    c <- checked[i, ]; k <- vv_norm_name(c$recipient_as_printed)
+    hit <- u %>% dplyr::filter(state == c$state, startsWith(key, k) | startsWith(k, key),
+                               !is.na(amt), abs(amt - c$amount) < 0.01,
+                               ha %in% c("NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS") |
+                                 sc %in% "HOSPITAL")
+    ch <- comp %>% dplyr::filter(state == c$state, startsWith(vv_norm_name(awardee), k),
+                                 abs(as.numeric(component_usd) - c$amount) < 0.01, call == "HOSPITAL")
+    why <- c(if (nrow(hit) > 0) paste0(hit$file_key, " award file: hospital_attribution ", hit$ha,
+                                       ", summary call ", hit$sc),
+             if (nrow(ch) > 0) paste0("summary-call component ", ch$component_id, " called HOSPITAL"))
+    tibble::tibble(case_id = c$case_id,
+                   hospital_money = if (length(why) == 0) NA_character_ else paste(unique(why), collapse = "; "))
+  })
+}
+
 vv_check_case <- function(case, fsrs, types) {
   src <- VV_SOURCES[VV_SOURCES$source_id == case$source_id, ]
   if (nrow(src) != 1) stop("[vv] ", case$case_id, ": unknown source ", case$source_id, call. = FALSE)
@@ -280,6 +325,9 @@ vv_check_case <- function(case, fsrs, types) {
   cats <- strsplit(case$categories, ";", fixed = TRUE)[[1]]
   if (!all(cats %in% VV_CATEGORIES)) stop("[vv] ", case$case_id, ": bad category", call. = FALSE)
   if (!case$amount_type %in% VV_AMOUNT_TYPES) stop("[vv] ", case$case_id, ": bad amount_type", call. = FALSE)
+  itype <- dplyr::coalesce(case$intermediary_type, "")
+  if (("INTERMEDIARY" %in% cats) != (itype %in% VV_INTERMEDIARY_TYPES))
+    stop("[vv] ", case$case_id, ": INTERMEDIARY needs exactly one intermediary_type, and only INTERMEDIARY may carry one", call. = FALSE)
   cat_drops <- character(0)
 
   # V1
@@ -301,7 +349,18 @@ vv_check_case <- function(case, fsrs, types) {
   }
   hay <- vv_norm_tokens(doc_txt)
 
-  # V2
+  # V2 (with a separate tie source where the owner ruled one: it must say RHTP
+  # AND link the case's own document)
+  tie_id <- dplyr::coalesce(case$tie_source_id, "")
+  if (tie_id != "") {
+    ts <- VV_SOURCES[VV_SOURCES$source_id == tie_id, ]
+    if (nrow(ts) != 1) stop("[vv] ", case$case_id, ": unknown tie source ", tie_id, call. = FALSE)
+    tie_txt <- vv_source_text(tie_id)
+    raw <- paste(readLines(here::here(ts$archive_path), warn = FALSE), collapse = " ")
+    if (is.na(src$link_key) || !grepl(src$link_key, raw, fixed = TRUE))
+      fails <- c(fails, "V2: the tie page does not link the case's document")
+    if (!vv_sha_ok(tie_id)$ok) fails <- c(fails, "V8: tie source SHA-256 not in its manifest")
+  }
   if (!stringr::str_detect(tie_txt, VV_TIE_RX)) fails <- c(fails, "V2: the document does not tie the money to RHTP")
   # V3
   if (is.na(case$amount) || !any(abs(amounts - case$amount) < 0.005, na.rm = TRUE))
@@ -367,7 +426,11 @@ vv_check_case <- function(case, fsrs, types) {
     notes = case$notes,
     passed = length(fails) == 0,
     failed_tests = paste(fails, collapse = " | "),
-    category_drops = paste(cat_drops, collapse = " | ")
+    category_drops = paste(cat_drops, collapse = " | "),
+    intermediary_type = dplyr::na_if(dplyr::coalesce(case$intermediary_type, ""), ""),
+    tie_source = if (tie_id == "") NA_character_ else paste0(VV_SOURCES$title[VV_SOURCES$source_id == tie_id], " (",
+                                                             VV_SOURCES$archive_path[VV_SOURCES$source_id == tie_id], ")"),
+    v9_basis = dplyr::na_if(dplyr::coalesce(case$v9_basis, ""), "")
   )
 }
 
@@ -499,15 +562,35 @@ vv_build <- function(write = TRUE) {
     ind <- readr::read_csv(here::here(VV_INDEPENDENT), col_types = readr::cols(.default = "c"), progress = FALSE)
     miss <- setdiff(checked$case_id[checked$passed], ind$case_id)
     if (length(miss) > 0) stop("[vv] the independent check does not cover: ", paste(miss, collapse = ", "), call. = FALSE)
+    if (file.exists(here::here(VV_INDEPENDENT_R2))) {
+      r2 <- readr::read_csv(here::here(VV_INDEPENDENT_R2), col_types = readr::cols(.default = "c"), progress = FALSE)
+      ind <- dplyr::bind_rows(ind %>% dplyr::filter(!case_id %in% r2$case_id) %>% dplyr::mutate(round = "1"),
+                              r2 %>% dplyr::mutate(round = "2"))
+    } else {
+      ind$round <- "1"
+    }
+    ind <- ind %>% dplyr::filter(case_id %in% checked$case_id)
     dd <- ind %>% dplyr::filter(verdict == "DROP")
     ind_drops <- checked %>% dplyr::filter(case_id %in% dd$case_id) %>%
       dplyr::left_join(dd %>% dplyr::select(case_id, ind_reason = reason, dplyr::starts_with("V")), by = "case_id")
     checked$passed[checked$case_id %in% dd$case_id] <- FALSE
-    checked$independent_check <- dplyr::if_else(checked$case_id %in% ind$case_id[ind$verdict == "KEEP"], "KEEP", NA_character_)
+    checked$independent_check <- dplyr::if_else(checked$case_id %in% ind$case_id[ind$verdict == "KEEP"],
+                                                paste0("KEEP (round ", ind$round[match(checked$case_id, ind$case_id)], ")"),
+                                                NA_character_)
   } else {
     checked$independent_check <- NA_character_
   }
-  verified <- checked %>% dplyr::filter(passed) %>%
+  hm <- vv_hospital_money(checked)
+  checked <- checked %>% dplyr::left_join(hm, by = "case_id")
+  verified_all <- checked %>% dplyr::filter(passed) %>%
+    dplyr::mutate(firm = vv_firm_key(recipient_as_printed)) %>%
+    dplyr::arrange(dplyr::desc(amount))
+  pass_through <- verified_all %>%
+    dplyr::filter(!is.na(hospital_money) | intermediary_type %in% "PASS_THROUGH_TO_PROVIDERS") %>%
+    dplyr::mutate(why_here = dplyr::case_when(
+      !is.na(hospital_money) ~ paste0("Counted as hospital money by this tracker: ", hospital_money),
+      TRUE ~ "PASS_THROUGH_TO_PROVIDERS: the quote says the money is paid on to care providers"))
+  verified <- checked %>% dplyr::filter(passed, !case_id %in% pass_through$case_id) %>%
     dplyr::mutate(firm = vv_firm_key(recipient_as_printed)) %>%
     dplyr::arrange(dplyr::desc(amount))
   ind_dropped <- if (nrow(ind_drops) == 0) NULL else ind_drops %>%
@@ -515,7 +598,7 @@ vv_build <- function(write = TRUE) {
       x <- c(...); paste(names(x)[x %in% "FAIL"], collapse = ",") })) %>%
     dplyr::transmute(drop_id = case_id, state, recipient_as_printed, categories_considered = categories,
                      amount, amount_type, source_pointer = paste(source_title, dplyr::coalesce(archive_member, "")),
-                     failed_test = ft, reason = ind_reason, by = "independent check (Task 4)")
+                     failed_test = ft, reason = ind_reason, by = "independent check (Task 4, latest round)")
   machine_drops <- checked %>% dplyr::filter(!passed, !case_id %in% ind_drops$case_id) %>%
     dplyr::transmute(drop_id = case_id, state, recipient_as_printed, categories_considered = categories,
                      amount, amount_type, source_pointer = paste(source_title, archive_member),
@@ -542,11 +625,12 @@ vv_build <- function(write = TRUE) {
   planned <- vv_planned()
   if (write) {
     readr::write_csv(verified, here::here(VV_LIST_CSV), na = "")
+    readr::write_csv(pass_through, here::here(VV_PASS_THROUGH_CSV), na = "")
     readr::write_csv(dropped, here::here(VV_DROPPED_CSV), na = "")
     readr::write_csv(unnamed, here::here(VV_UNNAMED_CSV), na = "")
     readr::write_csv(planned, here::here(VV_PLANNED_CSV), na = "")
   }
-  invisible(list(verified = verified, dropped = dropped, unnamed = unnamed, planned = planned,
+  invisible(list(verified = verified, pass_through = pass_through, dropped = dropped, unnamed = unnamed, planned = planned,
                  flags = flags, checked = checked))
 }
 
@@ -651,17 +735,19 @@ VV_METHOD <- c(
   "CONSULTANT: consulting, advisory or professional services (planning, analysis, evaluation, project management, implementation support, staff augmentation). The category follows from the purpose quote, so a foundation paid for 'consulting, analytics, and decision support' is listed as a CONSULTANT case.",
   "INTERMEDIARY: an entity paid to administer, re-grant or pass money to others: grant administrators, third-party administrators, fiscal agents, hub leads (including MCOs acting as hub leads). PUBLIC marks a local government or public university, from the FSRS business type or this repository's award file.",
   "OUT_OF_STATE_VENDOR: a non-hospital organisation whose registered address (from the state's own FSRS filing) is outside the awarding state.",
+  "INTERMEDIARY is split by where the money goes, read from the purpose quote: PASS_THROUGH_TO_PROVIDERS (the quote says the money is paid on to hospitals, clinics, FQHCs or other care providers); ADMINISTERS_ONLY (fiscal agent, third-party administrator, award management, with no statement that it passes to providers); NON_PROVIDER_RECIPIENTS (the money goes on to companies, startups, a university or an association foundation).",
+  "The main list keeps CONSULTANT, ADMINISTERS_ONLY, NON_PROVIDER_RECIPIENTS and OUT_OF_STATE_VENDOR. Every PASS_THROUGH_TO_PROVIDERS case, and every case this tracker already counts as hospital money (a strict hospital bucket or a HOSPITAL summary call on the same recipient and amount), is on the 'Pass-through to providers' tab instead.",
   "",
   "The nine tests. A case that fails any test is dropped, not caveated.",
   "V1 Primary source: a state award list, executed contract or contract register, the state's FSRS/FFATA filing, or CMS's obligation report. Press releases, RCJ, annual reports and budget plans fail. Budget plans appear only on the 'Planned (not awarded)' tab.",
-  "V2 RHTP tie: the document itself says Rural Health Transformation, RHTP, or Assistance Listing 93.798.",
+  "V2 RHTP tie: the document itself says Rural Health Transformation, RHTP, or Assistance Listing 93.798. Owner ruling: Idaho's awardee sheet is tied by its publication on DHW's Rural Health Transformation funding page under 'Closed and awarded funding opportunities' (archived; the page must link the sheet), the same source this tracker's Idaho hospital rows rest on.",
   "V3 Amount: exactly as printed, with one amount type: award (executed), intent (announced, not executed), obligation (CMS's report of the state's self-reported obligation), or contract maximum (an executed contract's amount). Types are never added together.",
   "V4 Purpose: a verbatim quote from the same source saying what the money is for, and the category must follow from it. A programme name or initiative number alone fails. Segments joined by [...] are each verbatim.",
   "V5 Identity: the recipient's name as printed. UEI only where the state's FSRS filing carries the same record, the same identifier, or the same legal name. Parent company only where a registry or the source states it (none did).",
   "V6 Out-of-state: the FSRS registered address is outside the awarding state. General knowledge alone fails; the category is then removed, and the case survives only if another category passes.",
   "V7 Threshold and scope: $1,000,000 or more; not a hospital or health system; not a state agency of the awarding state (FSRS 'state government', other than a state university, or a state agency in this repository's award files).",
   "V8 Archived: the source is in the repository and its SHA-256 matches the manifest written when it was fetched. Whether the URL is still live on the check date is recorded separately.",
-  "V9 Not delivering in-state care: an out-of-state organisation whose source says the money funds its own operations inside the state (stores, campus, in-state staff) is dropped from OUT_OF_STATE_VENDOR.",
+  "V9 Not delivering in-state care: an out-of-state organisation whose source, or its own documents, says the money funds its own operations inside the state (stores, campus, in-state staff) is dropped from OUT_OF_STATE_VENDOR. Checked against the location documents for Guidehouse (New Mexico's center: HCA does not require an in-state office; kept) and Thomas Jefferson University (a Delaware campus in Newark; dropped).",
   "",
   "How it was checked",
   "1. Candidates were collected from the session-116b flag file, every FSRS subaward of $1M or more, every award file and contract register in the repository, the 10-14 CMS obligation report, state budget narratives, and a web search for RHTP contracts naming the large consulting firms.",
@@ -680,12 +766,14 @@ vv_xlsx <- function(as_of = VV_AS_OF) {
   tab1 <- v %>% dplyr::transmute(
     Rank = dplyr::row_number(), State = state, `Recipient (as printed)` = recipient_as_printed,
     UEI = uei, `Parent (verified)` = parent, Categories = gsub(";", ", ", categories),
+    `Intermediary type` = intermediary_type,
     PUBLIC = dplyr::if_else(public, "PUBLIC", ""), Amount = amount, `Amount type` = amount_type,
     `Purpose (verbatim quote)` = purpose_quote, `Source title` = source_title, `Source class` = source_class,
     URL = source_url, `Archive path` = archive_path, `Archive record` = archive_member,
     `Archive SHA-256` = archive_sha256, `Source date` = source_date,
     `FSRS registered address` = fsrs_address, `Live check` = live_status, `Live check (UTC)` = live_checked_utc,
-    `Independent check` = independent_check, Notes = notes, `Case ID` = case_id)
+    `Independent check` = independent_check, `RHTP tie page (V2)` = tie_source, `V9 location check` = v9_basis,
+    Notes = notes, `Case ID` = case_id)
   by_firm <- v %>% dplyr::group_by(Firm = firm, `Amount type` = amount_type) %>%
     dplyr::summarise(Cases = dplyr::n(), Total = sum(amount), States = paste(sort(unique(state)), collapse = " "),
                      Categories = paste(sort(unique(unlist(strsplit(categories, ";")))), collapse = ", "),
@@ -718,7 +806,19 @@ vv_xlsx <- function(as_of = VV_AS_OF) {
   add("Verified list", tab1, "Amount",
       note = c(paste0("Verified list, ", as_of, ". ", nrow(tab1), " cases passed V1-V9. Ranked by amount; amount types differ (award, intent, obligation, contract maximum) and are never added together."),
                "Internal use only. See 'Method'."),
-      widths = c(6, 6, 40, 15, 14, 34, 9, 16, 15, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 12, 60, 8))
+      widths = c(6, 6, 40, 15, 14, 34, 26, 9, 16, 15, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 16, 50, 50, 60, 8))
+  pt <- b$pass_through %>% dplyr::transmute(
+    State = state, `Recipient (as printed)` = recipient_as_printed, UEI = uei,
+    `Intermediary type` = intermediary_type, Amount = amount, `Amount type` = amount_type,
+    `Why it is on this tab` = why_here, `Purpose (verbatim quote)` = purpose_quote,
+    `Source title` = source_title, URL = source_url, `Archive path` = archive_path,
+    `Archive record` = archive_member, `Live check` = live_status,
+    `Independent check` = independent_check, `Case ID` = case_id)
+  add("Pass-through to providers", pt, "Amount",
+      note = c(paste0("Verified intermediary cases whose money reaches care providers. ", nrow(pt),
+                      " cases passed V1-V9. They are NOT on the main list: either the purpose quote says the money is paid on to hospitals, clinics, FQHCs or other care providers, or this tracker already counts the money as hospital money (a strict hospital bucket or a HOSPITAL summary call)."),
+               "Amount types differ and are never added together."),
+      widths = c(6, 40, 15, 26, 16, 15, 60, 80, 50, 50, 50, 30, 40, 16, 8))
   add("By firm", by_firm, "Total",
       note = "Verified cases only, grouped by firm and amount type. A firm's rows of different types are never added.",
       widths = c(48, 16, 7, 18, 14, 34, 30))
@@ -750,7 +850,16 @@ vv_xlsx <- function(as_of = VV_AS_OF) {
   if (file.exists(here::here(VV_INDEPENDENT))) {
     ind <- readr::read_csv(here::here(VV_INDEPENDENT), col_types = readr::cols(.default = "c"), progress = FALSE)
     fld <- ind %>% dplyr::select(dplyr::matches("^V[0-9]$")) %>% as.matrix()
-    method <- c(method, "", "Independent check (Task 4)",
+    if (file.exists(here::here(VV_INDEPENDENT_R2))) {
+      r2 <- readr::read_csv(here::here(VV_INDEPENDENT_R2), col_types = readr::cols(.default = "c"), progress = FALSE)
+      f2 <- r2 %>% dplyr::select(dplyr::matches("^V[0-9]$")) %>% as.matrix()
+      method <- c(method, "", "Independent check, round 2 (the changed cases, after the owner's rulings)",
+                  paste0(nrow(r2), " cases re-checked; ", sum(r2$verdict == "KEEP"), " kept and ", sum(r2$verdict == "DROP"),
+                         " dropped. Test-level agreement: ", sum(f2 %in% "PASS"), " PASS of ", sum(!is.na(f2)),
+                         " applicable results. Intermediary type agreed on ", sum(grepl("^AGREE", r2$intermediary_type_check)),
+                         " of ", sum(!is.na(r2$intermediary_type_check) & r2$intermediary_type_check != "NA"), " intermediary cases."))
+    }
+    method <- c(method, "", "Independent check, round 1 (all 57 original cases)",
                 paste0(nrow(ind), " cases re-checked; ", sum(ind$verdict == "KEEP"), " kept and ",
                        sum(ind$verdict == "DROP"), " dropped: case-level agreement ",
                        sprintf("%.1f%%", 100 * mean(ind$verdict == "KEEP")), ". Test-level agreement: ", sum(fld %in% "PASS"), " PASS of ", sum(!is.na(fld)),
