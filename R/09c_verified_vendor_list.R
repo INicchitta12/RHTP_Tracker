@@ -753,8 +753,8 @@ vv_xlsx <- function(as_of = VV_AS_OF) {
     method <- c(method, "", "Independent check (Task 4)",
                 paste0(nrow(ind), " cases re-checked; ", sum(ind$verdict == "KEEP"), " kept and ",
                        sum(ind$verdict == "DROP"), " dropped: case-level agreement ",
-                       sprintf("%.1f%%", 100 * mean(ind$verdict == "KEEP")), ". Test-level agreement (PASS or not applicable, of ",
-                       sum(!is.na(fld)), " test results): ", sprintf("%.1f%%", 100 * mean(fld %in% c("PASS", "NA")) ), ".",
+                       sprintf("%.1f%%", 100 * mean(ind$verdict == "KEEP")), ". Test-level agreement: ", sum(fld %in% "PASS"), " PASS of ", sum(!is.na(fld)),
+                       " applicable test results (", sprintf("%.1f%%", 100 * mean(fld[!is.na(fld)] == "PASS")), ").",
                        " Every case it dropped is on the 'Dropped' tab with its reason."))
   }
   openxlsx::addWorksheet(wb, "Method")
