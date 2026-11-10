@@ -2165,3 +2165,25 @@ RI,2026-11-10T19:52:09Z,CHANGED,rss,,trig_01WXYStckEw4tjE1Er77BV94
 RI,2026-11-10T19:52:09Z,CHANGED,index,,trig_01WXYStckEw4tjE1Er77BV94
 WY,2026-11-10T21:12:01Z,CHANGED,programme,,trig_01CLqQDvGoWCDoSMtS29FJbQ
 WY,2026-11-10T21:12:01Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Year One Award Summaries View Year One Award Summaries Project and Budget Narratives. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01CLqQDvGoWCDoSMtS29FJbQ
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS AL,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS IL,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS IN,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS MN,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS NC,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS NM,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS OK,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS OR,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS SD,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS TN,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,CHANGED,FSRS VT,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"AL: 49 FFATA subaward report(s) not in the 2026-11-09 archive ($ 62,677,759); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"IL: 1 FFATA subaward report(s) not in the 2026-11-09 archive ($    356,853); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"IN: 9 FFATA subaward report(s) not in the 2026-11-09 archive ($ 24,312,343); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"MN: 90 FFATA subaward report(s) not in the 2026-11-09 archive ($ 84,990,167); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"NC: 3 FFATA subaward report(s) not in the 2026-11-09 archive ($  1,995,105); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"NM: 6 FFATA subaward report(s) not in the 2026-11-09 archive ($141,030,647); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"OK: 19 FFATA subaward report(s) not in the 2026-11-09 archive ($  7,403,058); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"OR: 7 FFATA subaward report(s) not in the 2026-11-09 archive ($  3,862,258); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"SD: 6 FFATA subaward report(s) not in the 2026-11-09 archive ($  5,567,319); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"TN: 66 FFATA subaward report(s) not in the 2026-11-09 archive ($  5,583,619); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-10T21:18:45Z,TRIPWIRE,(finding),"VT: 9 FFATA subaward report(s) not in the 2026-11-09 archive ($  5,060,531); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
