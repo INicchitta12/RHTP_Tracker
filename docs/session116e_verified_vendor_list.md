@@ -6,120 +6,123 @@
 
 ## Deliverable
 
-- `output/verified_vendor_list_2026-11-10.xlsx`, with six tabs: Verified list, By firm, Unnamed contractor money, Planned (not awarded), Dropped, Method.
-- `R/09c_verified_vendor_list.R` (`--build`, `--live`, `--xlsx`, `--report`).
-- Hand inputs: `config/verified_vendor_cases.csv` (57 cases written up), `config/verified_vendor_hand_drops.csv` (69
-  drops by hand), and `config/verified_vendor_independent_check.csv` (Task 4's verdicts).
-- Outputs: `data/reference/verified_vendor_{list,dropped,unnamed_lines,planned}.csv` and
-  `verified_vendor_live_check_2026-11-10.csv`.
-- New archive: `data/evidence/vendor_verified/2026-11-10/MS/`. This is DFA's notice of intent to award the RHT funds contractor to BDO. It prints no amount, so it is a V3 drop.
+- **Workbook:** `output/verified_vendor_list_2026-11-10.xlsx`. Tabs: Verified list, Pass-through to providers, By firm, Unnamed contractor money, Planned (not awarded), Dropped, Method.
+- **Code:** `R/09c_verified_vendor_list.R` (`--build`, `--live`, `--xlsx`, `--report`).
+- **Hand inputs:**
+  - `config/verified_vendor_cases.csv`: 56 cases written up.
+  - `config/verified_vendor_hand_drops.csv`: 70 drops made by hand.
+  - `config/verified_vendor_independent_check{,_r2}.csv`: the two independent rounds.
+- **Outputs:** `data/reference/verified_vendor_{list,pass_through,dropped,unnamed_lines,planned}.csv` and `verified_vendor_live_check_2026-11-10.csv`.
+- **New archives:** `data/evidence/vendor_verified/2026-11-10/`. MS DFA's BDO notice of intent (no amount), and the NM and DE location documents for V9 (`MANIFEST_v9.txt`).
+
+## Owner rulings applied (second pass, same session)
+
+1. **Idaho: the RHTP tie is the publication.**
+   - DHW's "Funding Opportunities for Rural Health Transformation" page lists the awardee sheet under "Closed and awarded funding opportunities". The page is archived at `data/evidence/ID/2026-10-26_id_rhtp_funding_opportunities.html`, with its SHA-256 in `MANIFEST.txt`, and links `docid=37915`.
+   - That page is the V2 basis. R/09c checks that the page names Rural Health Transformation, that it links the sheet, and its hash.
+   - The five contractor cases return: PCG, BDO, Guidehouse, Deloitte and 22nd Century.
+   - PCG is INTERMEDIARY only.
+   - Co Magine Health ($1,998,975.94) stays dropped. Round 1 failed it on V4 ("Idaho Diabetes Prevention and Management" is a solicitation name). No ruling answered that, and a DROP in either round removes a case.
+2. **INTERMEDIARY split by where the money goes, read from the quote.**
+   - The three types are PASS_THROUGH_TO_PROVIDERS, ADMINISTERS_ONLY and NON_PROVIDER_RECIPIENTS.
+   - These cases move to the new "Pass-through to providers" tab:
+     - every PASS_THROUGH_TO_PROVIDERS case;
+     - every case the tracker already counts as hospital money, meaning a strict bucket or a HOSPITAL summary call on the same recipient and amount, or a HOSPITAL summary-call component. Examples are NHVN, UHA's $9.89M, and VHHA Foundation's RPM and GME.
+   - Round 2 re-typed two cases from PASS_THROUGH_TO_PROVIDERS to ADMINISTERS_ONLY, because neither quote says money is paid on: VHHA Foundation Food is Medicine ($2,472,888) and the Nebraska Health Care Foundation ALF grant programme ($2,000,919.44). Both stay on the main list.
+3. **V9 locations.**
+   - **Thomas Jefferson University ($1,599,955) is dropped.** The Governor's 2026-06-02 release says Delaware will "establish a regional campus of Sidney Kimmel Medical College". Jefferson's own page puts the first two years "at the University of Delaware's Main Campus in Newark, DE".
+   - **Guidehouse NM keeps both categories.** HCA's CRHSI Q&A (answer 101) says "HCA does not require the CRHSI Contractor to maintain a New Mexico-based office, locate a minimum percentage of FTEs in New Mexico, or provide routine on-site presence", and no source places the center in New Mexico.
 
 ## Result
 
-**48 cases pass. 179 drops are recorded** (a drop row can be a candidate, a session-116b flag row, or a category
-removed from a case that still passes). Each amount type is a separate figure; types are never added together.
+- **Main list: 39 cases.** Award $219,275,291 (25 cases); contract maximum $25,965,898 (6); intent $48,233,748 (7); obligation $2,205,500 (1).
+- **Pass-through to providers: 13 cases.** Award $109,700,301 (7); intent $61,337,524 (6).
+- **Drops recorded: 175.** 70 by hand, 4 by the independent check, and 101 by the machine sweep of the session-116b flags.
+
+Main list by category (types never added):
 
 | Category | award | intent | contract maximum | obligation |
 |---|---:|---:|---:|---:|
-| INTERMEDIARY | $276,407,802 (21) | $103,955,784 (10) | n/a | n/a |
-| CONSULTANT | $26,631,602 (3) | $1,668,126 (1) | $25,965,898 (6) | $2,205,500 (1) |
-| OUT_OF_STATE_VENDOR | $26,079,710 (5) | $3,947,362 (2) | n/a | n/a |
+| CONSULTANT | $33,668,808 (7) | $1,668,126 (1) | $25,965,898 (6) | $2,205,500 (1) |
+| INTERMEDIARY: ADMINISTERS_ONLY | $96,036,376 (8) | $42,618,260 (4) | n/a | n/a |
+| INTERMEDIARY: NON_PROVIDER_RECIPIENTS | $85,191,126 (7) | n/a | n/a | n/a |
+| OUT_OF_STATE_VENDOR | $24,479,755 (4) | $3,947,362 (2) | n/a | n/a |
 
-Guidehouse NM ($20.1M) is in both CONSULTANT and OUT_OF_STATE_VENDOR, so the category rows overlap and must not be summed.
+Guidehouse NM ($20.1M) is both CONSULTANT and OUT_OF_STATE_VENDOR, so the rows overlap and are never summed.
 
-### Top cases in plain language
+### Top cases on the main list, in plain language
 
-1. **Utah Hospital Association, UT, $38.3M intent.** DHHS names UHA "Fiscal Agent & Open Subgrant Administrator". It "Awards competitive capital grants for rural facilities". UHA also holds $9.9M (intent) to allocate recruitment-and-retention subawards to 21 hospitals.
-2. **UKHS Care Collaborative Association, KS, five FSRS subawards (award).** They total $87.1M, the largest $37.8M. The Care Collaborative administers Kansas's programmes: "making infrastructure and incentives payments to participating providers", and subawards to KUMC and HealthWorks.
-3. **Wyoming Innovation Partnership, WY, $35.4M + $3.2M intent.** The Advisory Committee approved a "sole-source ... master fiscal agent contract ... to administer statewide individual and institutional workforce/nursing grants".
-4. **NC ROOTS Hub Leads, NC, award.** Trillium $28.5M and Vaya $14.25M (both PUBLIC LME/MCOs), and Access East and Impact Health ($14.25M each).
-5. **Guidehouse, NM, $20.1M award (FSRS; McLean, VA).** The only Big-firm case that is both CONSULTANT and OUT_OF_STATE_VENDOR. It will "establish and operate the Center for Rural Health Sustainability & Innovation ... as the implementation and technical assistance entity".
-6. **Invest Nebraska, NE, $20.0M award.** A sub-award "to provide administer the catalyst fund". CMS carries the same figure as an obligation.
-7. **Nebraska High Value Network, NE, $18.2M award.** The notice lists "individual hospitals receiving funding".
-8. **Virginia Health Care Foundation ($16.1M + $9.9M), VHHA Foundation ($14.8M + $9.9M + $2.5M) and VIPC ($9.9M), VA (FSRS awards).** Each passes funds to providers, health systems or startups.
-9. **Foundation for a Healthy Kentucky, KY, $9.1M contract.** It "Provides consulting, analytics, and decision support". The figure equals CMS's unnamed line KY-001-02-03.
-10. **Ernst & Young, KY, $5.2M contract; McKinsey, VT, $5.1M award.** These are the Big-firm consultants that pass. EY: "Strategic planning and implementation support". McKinsey: "Transformation analytics and support".
+1. **Wyoming Innovation Partnership, WY, $35.4M + $3.2M intent (administers).** "master fiscal agent ... to administer statewide individual and institutional workforce/nursing grants".
+2. **NC ROOTS Hub Leads, NC, award (administer).** Trillium $28.5M and Vaya $14.25M (both PUBLIC), plus Access East and Impact Health at $14.25M each.
+3. **UKHS Care Collaborative Association, KS, four awards (non-provider recipients).** $23.8M, $15.6M, $5.4M and $4.5M, passed on by subaward to KUMC and HealthWorks KHA Foundation. Its fifth line, $37.8M of incentive payments to participating providers, is on the pass-through tab.
+4. **Guidehouse, NM, $20.1M award (consultant; McLean, VA).** It will run New Mexico's Center for Rural Health Sustainability & Innovation.
+5. **Invest Nebraska, $20.0M award (non-provider).** The Catalyst Fund for "health technology startups".
+6. **Public Consulting Group, ID, $14.52M award (administers).** "Third Party Administrator for Ladder Payment Program".
+7. **Virginia Innovation Partnership Corp., $9.9M (non-provider).** Grants to early-stage technology companies.
+8. **Foundation for a Healthy Kentucky, $9.1M contract (consultant).** "consulting, analytics, and decision support". The figure matches CMS's unnamed line KY-001-02-03.
+9. **Delaware Prosperity Partnership, $6.0M (catalyst funds) and Delaware Community Foundation, $5.8M (administers).**
+10. **Big firms.**
+    - Ernst & Young, KY: $5.2M contract.
+    - McKinsey, VT: $5.1M award.
+    - Idaho: Guidehouse $1.76M, BDO $1.99M, Deloitte $1.29M and 22nd Century $2.0M awards.
 
 ## Unnamed contractor money (CMS lines that name no firm)
 
-There are 45 lines in 24 states, **$148,946,402.72 obligated**, and none of it is attributed to a firm. The largest:
-- SC $25.9M (5 lines)
+There are 45 lines in 24 states, **$148,946,402.72 obligated**, none of it attributed to a firm. The largest:
+- SC $25.9M
 - NH $20.4M
-- KY $14.3M (4 lines)
-- OK $11.0M (8 lines)
+- KY $14.3M
+- OK $11.0M
 - MS $10.0M
 - ME $9.6M
 - AK $9.2M
 - KS $9.2M
 - CA $8.5M
 
-KY-001-02-03 ($9,102,500) has the same state and amount as verified case VV024 (FHKY). That is a match of figures, not a statement by CMS.
-
 ## Drops: the large ones and why
 
-- **V1 (no admissible source):**
-  - NH FHC $66.5M: only FHC's own page and CDFA; nh.gov is unreadable.
-  - IL ICAHN $50.0M: only ICAHN's own release.
-  - WA WSHA $42M: only a webinar deck.
-  - WV KPMG ~$8M: press only, and the name is disputed.
-  - CO HealthTech Solutions: a state annual report.
-  - CT Mathematica: a Governor's release.
-- **V4 (the quote does not show the category):**
-  - KY FHKY's $50.5M FSRS line and $29.2M overarching contract.
-  - OK LifeCare $33.9M: services to member hospitals, not money passed on.
+- **V1, no admissible source:**
+  - NH FHC $66.5M.
+  - IL ICAHN $50.0M (its own release only).
+  - WA WSHA $42M (a deck).
+  - WV KPMG ~$8M (press only).
+  - CO HealthTech Solutions (an annual report).
+  - CT Mathematica (a Governor release).
+- **V4, the quote does not show the category:**
+  - KY FHKY $50.5M FSRS and $29.2M lines.
+  - OK LifeCare $33.9M.
   - NV NRHPF $20.3M.
-  - IL PCA/CBHA $44M (4 lines).
+  - IL associations $44M.
   - RI HARI and CTC-RI.
-  - ME MCD $10.4M.
-  - UT HK Consulting $11M: a software build.
-  - VT PCG.
-  - Programme-name-only FSRS lines: WA Carelon, TN Nurses for Newborns, WV Cartwheel, UT Comagine $6M.
-- **V7 (a state agency):** AZ OEO $46.9M, UT UETN $47.4M (2 lines), HI SHPDA $25M, WV Jobs Investment Trust $18.8M, VA VFHY $11.1M, and others.
-- **V9 (funds in-state operations):**
-  - VT Kinney Drugs $8.65M and $1.59M (its Vermont stores).
-  - IN Spirit EMS.
-  - AK Fond of You ("Alaska-based Certified Peer Specialists").
-- **V6 (no FSRS address):** many national firms keep their CONSULTANT case but are not shown as out-of-state, for example EY, McKinsey, Bailit, RTI and Idaho's contractors.
+  - ME MCD.
+  - UT HK Consulting $11M (a software build).
+  - Programme-name-only FSRS lines.
+  - Independent check: VSAC $9.06M, UNC/UT $1.48M, Safetech $1.17M and Co Magine ID $2.0M.
+- **V7, a state agency:** AZ OEO $46.9M, UT UETN $47.4M, HI SHPDA $25M, WV Jobs Investment Trust $18.8M, VA VFHY $11.1M.
+- **V9, the money funds the vendor's own in-state operations:** VT Kinney Drugs, IN Spirit EMS, AK Fond of You, DE Thomas Jefferson University.
+- **V6, no FSRS address:** national firms keep their CONSULTANT case without an out-of-state label (EY, McKinsey, Bailit, RTI, the Idaho contractors).
 
-## Independent check (Task 4)
+## Independent checks
 
-A separate agent was given only the 57 cases and the archives. It was told not to read `config/`, `docs/` or R/09c, and it re-checked V1–V9 field by field.
+**Round 1 (all 57 original cases).**
+- 48 kept and 9 dropped; 406 of 417 applicable test results PASS (97.4%).
+- No amount, name, UEI, address or SHA-256 mismatch.
 
-- **Case-level agreement: 48 of 57 (84.2%).**
-- **Test-level agreement: 406 PASS of 417 applicable results (97.4%).**
-- It found no amount, name, UEI, address or SHA-256 mismatch.
+**Round 2 (the 39 changed cases plus Jefferson).** Changed means the Idaho cases, every INTERMEDIARY case (new type field), Guidehouse's V9 evidence and Invest Nebraska's longer quote.
+- 39 kept; Jefferson DROP (V9), agreeing with the hand drop.
+- Intermediary type agreed except VV016 and VV019, which were re-typed ADMINISTERS_ONLY as above.
+- **Combination rule.** A round-1 DROP stands unless an owner ruling answered it (`VV_R1_SUPERSEDED`: the five Idaho contractors). So VSAC and Co Magine, which round 2 kept, stay dropped.
 
-Its nine drops are honoured by the build:
-- **ID list cases fail V2.** These are VV032 PCG $14.52M (also V4 for CONSULTANT), VV033 BDO, VV034 Guidehouse, VV035 Deloitte, VV036 22nd Century and VV039 Co Magine (also V4).
-  - The archived xlsx carries no title, no CMS footer and no 93.798, so "RHTP" is only in the file name.
-  - **Disputed:** the same sheet does print the solicitation name "Tribal Rural Health Transformation Support" on five other rows, which R/09c's machine V2 check accepted.
-  - Under the brief's rule, a disagreement drops the case. If the owner rules the in-sheet programme name a sufficient tie, VV033–VV036 return and VV032 returns as INTERMEDIARY only.
-- **VV031 VSAC $9.06M (V4).** The quote is a programme name and does not say VSAC passes money on.
-- **VV049 UNC/UT $1.48M (V4).** The FSRS line is an initiative title. Utah's scope sentence would support it, but it is a different source and amount type.
-- **VV053 Safetech $1.17M (V4).** "support EMS regionalization" does not say consulting, and CMS uses the same words for a university line.
-
-Borderline passes it flagged:
-- **VV001 Guidehouse and VV057 Jefferson (V9).** Both pass because their sources do not say the funded centre or school is in-state. If it is, V9 would drop them.
-- **VV015 and VV022 (INTERMEDIARY).** These rest on "including funding for ..." and "to provide ... catalyst funds".
+**Round-2 notes kept for readers:**
+- **Comagine UT FAST 4.1:** the $2.0M intent and FSRS's $6.0M executed agreement for the same initiative are unreconciled.
+- **WY WIP:** a committee approval (intent), and WIP's legal form is not shown in the archive.
+- **Comagine ID:** keeps OUT_OF_STATE_VENDOR because no archived source places it in Idaho, although the verifier believes it has an Idaho presence. This is a risk.
+- **UKHS Care Collaborative:** treated as an association, not a health system; FSRS shows no parent.
+- **Hospital money overlap:** if this list and the hospital figures are ever combined, NHVN, UHA $9.89M and VHHA's RPM/GME are already counted as hospital money. That is why they are on the pass-through tab.
 
 ## Method notes and limits
 
-- **V7 state agency.** The test is FSRS "STATE GOVERNMENT" (other than a state university) or STATE_AGENCY in this repo's award files. That drops VFHY and WVJIT, which are state-created rather than line agencies.
-- **V5/V6 FSRS bridge.** UEI and address come only from the same record, the same identifier (AK App ID = FSRS subaward number), or an equal normalised legal name. That keeps Utah's "Comagine" off OUT_OF_STATE_VENDOR.
-- **Live check (`--live`).** All 48 surviving sources are live today. Every PDF and xlsx source re-serves its archived bytes; USAspending still lists every FSRS subaward.
-  - Idaho's WebLink needs a second request on the same cookie handle.
-  - The Vermont page and the Utah doc changed after archiving; every case's name, amount and quote are still on the live page. Utah's RTI scope paragraph was reworded after its first sentence, which is the part quoted.
-- **Coverage.** FFATA excludes procurement and 19 states file no FFATA subawards, so most consulting contracts are invisible.
-- **Portal search.** Web search found:
-  - MS DFA's BDO intent (archived, no amount).
-  - WV's KPMG contract (press only).
-  - SD North Star, already archived; its contract page fails V2 because it names no RHTP programme.
-  - Nothing for McKinsey, Accenture, Bain, BCG, PwC, Huron, HMA, Manatt or A&M beyond the cases above.
-  - Most state portals were not searched directly; this is a known gap.
-
-## Planned (not awarded)
-
-There are 23 budget-plan lines, labelled and never in the verified list:
-- Kansas's budget narrative: BioIntelliSense $7.0M and $2.5M, Oracle $6.0M, BCG $4.75M, BDO $2.3M, PYA $1.5M.
-- Connecticut's Carelon $3.8M and its shared Contractor 1 column.
-- NC Year 1 project list: Accenture "RHTP Grants Support Vendor" $4.5M, and the LME/MCO Hub Lead budget lines.
+- **V7 state agency.** FSRS "STATE GOVERNMENT" (other than a state university) or STATE_AGENCY in this repo's award files.
+- **UEI and address.** Only from the same FSRS record, the same identifier, or an equal normalised legal name.
+- **Live check.** All 52 listed sources are live today and serve their archived bytes, apart from the Vermont page and the Utah doc. Both changed after archiving, but each case's name, amount and quote are still on the live page.
+- **Coverage.** FFATA excludes procurement and 19 states file no subawards, so most consulting contracts are invisible. The web search for big-firm contracts was brief, and state portals were not searched directly.

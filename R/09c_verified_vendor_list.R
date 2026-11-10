@@ -67,6 +67,10 @@ VV_INDEPENDENT <- "config/verified_vendor_independent_check.csv"
 # Round 2 (session 116e, after the owner's rulings): re-checks the changed cases
 # only. Its verdict replaces round 1's for every case it covers.
 VV_INDEPENDENT_R2 <- "config/verified_vendor_independent_check_r2.csv"
+# Round-1 drops answered by the owner's Idaho ruling (V2 tie; PCG's CONSULTANT
+# label removed). VV039's round-1 V4 failure was not answered by any ruling, so
+# it is not here and stays dropped.
+VV_R1_SUPERSEDED <- c("VV032", "VV033", "VV034", "VV035", "VV036")
 VV_INTERMEDIARY_TYPES <- c("PASS_THROUGH_TO_PROVIDERS", "ADMINISTERS_ONLY", "NON_PROVIDER_RECIPIENTS")
 VV_PASS_THROUGH_CSV <- "data/reference/verified_vendor_pass_through.csv"
 VV_LIST_CSV <- "data/reference/verified_vendor_list.csv"
@@ -564,8 +568,14 @@ vv_build <- function(write = TRUE) {
     if (length(miss) > 0) stop("[vv] the independent check does not cover: ", paste(miss, collapse = ", "), call. = FALSE)
     if (file.exists(here::here(VV_INDEPENDENT_R2))) {
       r2 <- readr::read_csv(here::here(VV_INDEPENDENT_R2), col_types = readr::cols(.default = "c"), progress = FALSE)
-      ind <- dplyr::bind_rows(ind %>% dplyr::filter(!case_id %in% r2$case_id) %>% dplyr::mutate(round = "1"),
-                              r2 %>% dplyr::mutate(round = "2"))
+      # A round-1 DROP stands unless an owner ruling answered its reason
+      # (VV_R1_SUPERSEDED). Elsewhere a DROP in EITHER round drops the case:
+      # two verifiers disagreeing is not a pass.
+      r2 <- r2 %>% dplyr::filter(case_id %in% checked$case_id)
+      r1_drop <- ind$case_id[ind$verdict == "DROP" & !ind$case_id %in% VV_R1_SUPERSEDED]
+      ind <- dplyr::bind_rows(
+        ind %>% dplyr::filter(!case_id %in% r2$case_id | case_id %in% r1_drop) %>% dplyr::mutate(round = "1"),
+        r2 %>% dplyr::filter(!case_id %in% r1_drop) %>% dplyr::mutate(round = "2"))
     } else {
       ind$round <- "1"
     }
