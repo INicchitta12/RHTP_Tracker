@@ -1,0 +1,10 @@
+RHTP tracker archive (session 116e, verified vendor list): Mississippi DFA notice of intent to award, RFQ 3120003272 (RHT Program funds contractor).
+
+file        : dfa_rfx3120003272_notice_of_intent_to_award_rht.pdf
+url         : https://www.dfa.ms.gov/sites/default/files/Procurement%20Contracts%20Home/Active%20Procurements/DFA%20Active%20Procurements/RFx%23%203120003272/Notice%20of%20Intent%20to%20Award%20RHT%20Program.pdf
+fetched_utc : 2026-11-10T17:43:47Z
+http_status : 200
+agent       : AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes       : 22069
+sha256      : 62acbb2b57bccbb2f692c0fc797a1d06196c2443a28b95b253ec2a78067f93e3
+note        : Intent to award to BDO Government Services; NO AMOUNT printed, so it fails V3 and is listed on the Dropped tab only. Found by web search, session 116e.

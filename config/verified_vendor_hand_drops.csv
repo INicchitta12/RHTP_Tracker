@@ -1,0 +1,70 @@
+drop_id,state,recipient_as_printed,categories_considered,amount,amount_type,source_pointer,failed_test,reason
+HD01,KY,"THE FOUNDATION FOR A HEALTHY KENTUCKY, INC .",INTERMEDIARY,50490600,award,FSRS PON2 728 2600004355,V4,The FSRS description is only 'KENTUCKY RURAL HEALTH TRANSFORMATION PLAN'; it does not say what the money is for.
+HD02,KY,Foundation for a Healthy Kentucky,INTERMEDIARY,29238100,contract maximum,"KY Executed Contract Tracker, PON2 728 2600004355 (overarching line)",V4,"'Supports the development, launch, operation, and evaluation of Rural Community Hubs at the overarching level' does not show money passed on. The regional lines that do ('for lead organization in the ... region') are each under $1M."
+HD03,KY,Ersnt & Young Grants Accelerator/Carahsoft Technology Corp,CONSULTANT,1760264,contract maximum,"KY Executed Contract Tracker, DO 721 2600025100",V4,"'Provides an end-to-end grants management platform' is a software platform, not consulting; no category follows."
+HD04,OK,LIFECARE ALLIANCE LLC,INTERMEDIARY,33862084,award,FSRS 3409028583,V4,"The quote describes shared administrative support, technical assistance, staffing and technology for member hospitals, i.e. services, not money passed on."
+HD05,OK,FOUNDATION FOR A HEALTHY OKLAHOMA,INTERMEDIARY,4586721.33,award,FSRS 3409028256,V4,The quote states the programme's aim (expand CHWs); it does not say the foundation passes money on.
+HD06,ME,MEDICAL CARE DEVELOPMENT INC,INTERMEDIARY,10401311,award,FSRS COM-26-0312,V4,'serve as a CMS subrecipient to meet some ... of the activities' in Initiative 3; nothing says MCD re-grants.
+HD07,ME,Medical Care Development (MCD),INTERMEDIARY,1346150,obligation,CMS line ME-003-10-24,V4,"'project leadership, management, and oversight' is delivery, not re-granting."
+HD08,IL,ILLINOIS PRIMARY HEALTH CARE ASSOCIATION,INTERMEDIARY,15500000,award,FSRS 202600021C1,V4,"'This program will support rural primary care and behavioral health providers ...' describes the programme, not the association's role; nothing says it re-grants."
+HD09,IL,ILLINOIS PRIMARY HEALTH CARE ASSOCIATION,INTERMEDIARY,9000000,award,FSRS 202600021F1,V4,As HD08.
+HD10,IL,COMMUNITY BEHAVIORAL HEALTHCARE ASSOCIATION OF ILLINOIS,INTERMEDIARY,10500000,award,FSRS 202600021C2,V4,As HD08.
+HD11,IL,COMMUNITY BEHAVIORAL HEALTHCARE ASSOCIATION OF ILLINOIS,INTERMEDIARY,9000000,award,FSRS 202600021F2,V4,As HD08.
+HD12,IL,Illinois Critical Access Hospital Network (ICAHN),INTERMEDIARY,50008264,award,ICAHN's own news release (data/evidence/IL/2026-08-28_icahn_award.html),V1,The only source naming the amount and role is ICAHN's own press release; ICAHN is not in Illinois's FSRS filing.
+HD13,NH,Foundation for Healthy Communities (FHC),INTERMEDIARY,66547394,award,FHC's own GO-NORTH page and CDFA's statement,V1,"Neither is a state award list, contract register, FSRS filing or CMS line; every nh.gov host is unreadable from this environment."
+HD14,WA,Washington State Hospital Association,INTERMEDIARY,42000000,plan,HCA webinar deck 2026-09-16,V1,"A presentation deck, not an award list or contract register; WSHA is not in Washington's FSRS filing."
+HD15,WA,"CARELON BEHAVIORAL HEALTH, INC.",OUT_OF_STATE_VENDOR,1622825.03,award,FSRS K9131-01,V4,The description is only 'RURAL HEALTH TRANSFORMATION PROGRAM INITIATIVE 6.1'.
+HD16,WA,WASHINGTON RURAL HEALTH COLLABORATIVE,INTERMEDIARY,5430647,award,FSRS K8886-01,V4,The description is only 'RURAL HEALTH TRANSFORMATION PROGRAM INITIATIVE 1.1'.
+HD17,TN,NURSES FOR NEWBORNS,OUT_OF_STATE_VENDOR,1629537.06,award,FSRS 341690,V4,"'MATERNAL/INFANT AND CHILD HEALTH HEALTHCARE RESILIENCY PROGRAM' is a programme name, not a purpose."
+HD18,WV,CARTWHEEL HEALTH SERVICES P.C,OUT_OF_STATE_VENDOR,1945599,award,FSRS G270607,V4,"'CONNECTED CARE GRID - HUB & SPOKE MODEL' is a project name, not a purpose."
+HD19,UT,COMAGINE HEALTH,OUT_OF_STATE_VENDOR,6000000,award,FSRS 251694568,V4,"'RHTP AGREEMENT WITH COMAGINE HEALTH FOR FAST 4-1 INITIATIVE' names an initiative code only. The same initiative passes as VV047 at $2,000,000 (intent) from DHHS's announcement."
+HD20,IN,SPIRIT MEDICAL TRANSPORT LLC,OUT_OF_STATE_VENDOR,1409910,award,FSRS 102658,V9,"The source ties the money to activities in Indiana GROW Region 4's crisis-care proposal, delivered by an EMS operator inside Indiana."
+HD21,VT,KPH Healthcare Services Inc. (Kinney Drugs),OUT_OF_STATE_VENDOR,8649920,award,"VT executed list, 'Expand pharmacists' scope to include test-to-treat in more scenarios'",V9,The money funds pharmacist services in the chain's Vermont stores (the brief's own example).
+HD22,VT,KPH Healthcare Services Inc. (Kinney Drugs),OUT_OF_STATE_VENDOR,1586475,award,FSRS 'RHT - ACTIVITY 2 - FACILITIES UPGRADES'; VT executed list,V9,Facility upgrades to the chain's Vermont stores.
+HD23,VT,"VERMONT ALLIANCE FOR RECOVERY RESIDENCES, INC",OUT_OF_STATE_VENDOR,1801000,award,FSRS (Georgetown TX address),V6,"The only address is FSRS's Texas one, contradicted by the organisation's own Vermont name and Vermont work; SAM is not readable from this environment, so the registered address cannot be confirmed."
+HD24,AK,Fond of You Inc (Somethings),OUT_OF_STATE_VENDOR,2617260,intent,AK notice BP1-IA-141,V9,"The source says the service is delivered 'Through Alaska-based Certified Peer Specialists', i.e. in-state operations."
+HD26,UT,HK Consulting,CONSULTANT,11000000,intent,"UT DHHS announcement, LINCS 7.3-7.4",V4,"'Builds and deploys an open-source cloud-based semantic data translation platform' is a software build, not consulting."
+HD27,VT,Public Consulting Group,CONSULTANT,1104343,award,"VT executed list, activity 'Community paramedicine/Mobile Integrated Health model'",V4,The only purpose text is the care model; nothing says the money buys consulting.
+HD28,CT,Mathematica,CONSULTANT,3980000,award,Governor's release 2026-09,V1,Press release only; not in Connecticut's FSRS filing.
+HD29,CO,"HealthTech Solutions, LLC",CONSULTANT,1880900,obligation,Colorado Annual Report as of 6.31.26,V1,"A state annual performance report to CMS, not an award list, contract register, FSRS filing or CMS obligation report."
+HD30,SD,NORTH STAR SOLUTIONS LLC,CONSULTANT,1462802,contract maximum,open.sd.gov 26RHT00002,V2,"The contract page names no RHTP programme, CMS footer or 93.798; only the document number prefix 'RHT' and the RFP number '26-09rht-005'."
+HD31,MS,BDO Government Services,CONSULTANT,,,"DFA notice of intent to award, RFQ 3120003272 (archived 2026-11-10)",V3,No amount is printed.
+HD32,WV,KPMG (reported as 'KGMP'),CONSULTANT,8000000,contract maximum,Press reports of legislative hearings (States Newsroom; Weirton Daily Times),V1,"Press only; no state contract record found or archived, and the firm name differs between reports."
+HD33,UT,Utah Education and Telehealth Network (UETN),INTERMEDIARY,26500000,intent,"UT DHHS announcement, LIFT 5.1",V7,Typed STATE_AGENCY in the UT award file.
+HD34,UT,Utah Education and Telehealth Network (UETN),INTERMEDIARY,20900000,intent,"UT DHHS announcement, SPRINT 6-1 etc.",V7,Typed STATE_AGENCY in the UT award file.
+HD35,UT,Utah System of Higher Education (USHE) Talent Ready Utah (TRU),INTERMEDIARY,4000000,intent,"UT DHHS announcement, RISE 2.3",V7,Typed STATE_AGENCY in the UT award file.
+HD36,UT,Utah System of Higher Education (USHE),INTERMEDIARY,3000000,intent,"UT DHHS announcement, RISE 2.4",V7,Typed STATE_AGENCY in the UT award file.
+HD37,UT,Utah Department of Agriculture and Food; Utah Department of Transportation; Department of Public Safety; Utah State Board of Education,INTERMEDIARY,,intent,UT DHHS announcement,V7,"State agencies of Utah ($11.0M, $11.0M, $12.5M, $3.19M); listed together, never summed."
+HD38,VA,VIRGINIA FOUNDATION FOR HEALTHY YOUTH,INTERMEDIARY,9891550,award,FSRS RHT26-015-VFHY,V7,FSRS business type 'US STATE GOVERNMENT'.
+HD39,VA,VIRGINIA FOUNDATION FOR HEALTHY YOUTH,INTERMEDIARY,1236444,award,FSRS RHT26-010-VFHY,V7,FSRS business type 'US STATE GOVERNMENT'.
+HD40,WV,WEST VIRGINIA JOBS INVESTMENT TRUST,INTERMEDIARY,18800000,award,FSRS G270553,V7,FSRS business type 'US STATE GOVERNMENT'.
+HD41,AZ,ARIZONA OFFICE OF ECONOMIC OPPORTUNITY,INTERMEDIARY,46892800,award,FSRS,V7,A state agency ('designated administrator' for the workforce programme).
+HD42,HI,STATE HLTH. PLNG. & DEV. AGENCY,INTERMEDIARY,25000000,award,FSRS (RVBI and AHEAD Readiness Fund),V7,A state agency.
+HD43,VA,COMMONWEALTH OF VIRGINIA STATE BOARD OF EDUCATION,INTERMEDIARY,9891551,award,FSRS,V7,A state agency.
+HD44,NV,NEVADA DEPARTMENT OF EDUCATION,INTERMEDIARY,2000000,award,FSRS ('PASS-THROUGH SUBAWARD MODEL'),V7,A state agency.
+HD45,NV,Nevada Rural Hospital Partners Foundation,INTERMEDIARY,20278054.31,intent,NVHA RHT Funded Projects BP1,V4,'Clinician well-being and retention program supporting workforce stability across Nevada's rural hospital network' is a programme it runs; nothing says it passes money on.
+HD46,NV,Nevada Rural Hospital Partners,INTERMEDIARY,3772261,intent,"NVHA BP1 report, RHOAP-18",V4,'Support rural hospitals to build capacity ...' is a service NRHP delivers.
+HD47,NV,BANNER HEALTH FOUNDATION,OUT_OF_STATE_VENDOR,2793582,award,FSRS,V7,A health system's foundation (§7: HOSPITAL_OR_SYSTEM).
+HD48,MI,Michigan Health and Hospital Association (MHA),INTERMEDIARY,,award,"MDHHS RHTP Subrecipients roster (six lines, $1.0M-$6.0M)",V4,The roster prints only pool names; nothing says MHA passes money on.
+HD49,MI,"Upper Peninsula Health Care Solutions, Inc.",INTERMEDIARY,1500000,award,MDHHS RHTP Subrecipients roster,V4,Pool name only.
+HD50,ID,Hospital Network of Idaho; The Hospital Cooperative,INTERMEDIARY,,award,"DHW list ($1,888,984; $1,518,287)",V4,"The list line prints a name, a solicitation ('Healthcare Infrastructure Support') and a figure only."
+HD51,ID,Alzheimer’s Association,OUT_OF_STATE_VENDOR,2000000,award,DHW list,V6,Not in Idaho's FSRS filing; the out-of-state address rests on general knowledge only.
+HD52,RI,Care Transformation Collaborative (CTC)-RI,INTERMEDIARY,12499820.06,obligation,CMS line RI-011-57-132,V4,'to implement alternative payment models (APM) incentive structure for primary care practices' does not say CTC pays the practices.
+HD53,RI,Hospital Association of Rhode Island (HARI),INTERMEDIARY,15787413.2,obligation,CMS line RI-005-20-44,V4,'to assess needs for a rural hospital at home program' is work HARI performs.
+HD54,RI,Guidesoft; Uncommon Solutions,CONSULTANT,1182660.46,obligation,CMS line RI-001-01-02,V3,A joint amount for two firms; never divided (§6.2).
+HD55,NE,Nebraska Hospital Association,INTERMEDIARY,3474937.5,obligation,CMS line NE-002-08-13,V4,'to support Critical Access Hospitals evaluating and transitioning to the Rural Emergency Hospital model' is work the association performs.
+HD56,TN,Carahsoft,CONSULTANT,2169636.8,obligation,CMS line TN-009-18-19,V4,'will support TDH in defining and establishing a statewide HIE': a technology reseller; consulting does not follow from the quote.
+HD57,NC,PARTNERS BEHAVIORAL HEALTH MANAGEMENT,INTERMEDIARY,1337000,award,FSRS 27-PA-17R,V4,'FUNDS SUPPORTING MORES SERVICES IN THE SUBRECIPIENT'S CATCHMENT AREA' does not say the LME/MCO passes the money on.
+HD58,NC,TRILLIUM HEALTH RESOURCES,INTERMEDIARY,1038000,award,FSRS 27-TR-28,V4,Recovery-services support; not the hub-lead award and nothing says it passes money on.
+HD59,FL,CommunityHealth IT,CONSULTANT,,award,"Governor's Year 1 awardee PDF (four lines, $43,658,794)",V4,"Florida prints names and amounts only; no purpose, so no category can follow."
+HD60,AR,New York Institute of Technology,OUT_OF_STATE_VENDOR,,intent,"DF&A lists ($3,739,751 RISE AR; $1,524,031 PACT)",V4,Pool labels only. (Also not in FSRS: Arkansas files none.)
+HD61,OR,Comagine Health,OUT_OF_STATE_VENDOR,1726305,intent,"OHA awards data, 'Project 1'",V4,'Project 1' is not a purpose.
+HD62,CA,Inland Empire Health Plan,INTERMEDIARY,2472953,intent,"HCAI BP1 roster, 'Accelerator Partner Program'",V4,Programme label only; in-state.
+HD63,OK,"Andor Health, LLC",OUT_OF_STATE_VENDOR,1000000,award,OSDH Funding Recipients,V6,Not in Oklahoma's FSRS filing; the Florida address rests on general knowledge only.
+HD64,KY,Eight Eleven Group; CDC Foundation; Go-Hire; TEKSYSTEMS,OUT_OF_STATE_VENDOR,,contract maximum,KY Executed Contract Tracker,V6,None is in Kentucky's FSRS filing; out-of-state status rests on general knowledge. Each still passes as CONSULTANT (VV025-VV028).
+HD65,UT,Comagine (PATH 1.4 and FAST 4.1),OUT_OF_STATE_VENDOR,2000000,intent,UT DHHS announcement,V6,"'Comagine' has no identifier or exact-name bridge to the FSRS record 'COMAGINE HEALTH'. Each line still passes as INTERMEDIARY (VV046, VV047)."
+HD66,ID,"Public Consulting Group LLC; Guidehouse, Inc.; Deloitte Consulting LLP; BDO Government Services, LLC; 22nd Century Technologies, Inc.",OUT_OF_STATE_VENDOR,,award,DHW list,V6,Not in Idaho's FSRS filing; out-of-state status rests on general knowledge. Each still passes as CONSULTANT (VV032-VV036).
+HD67,VT,"McKinsey & Co.; Bailit Health Purchasing, LLC.",OUT_OF_STATE_VENDOR,,award,VT executed list,V6,"Not in Vermont's FSRS filing. Each still passes as CONSULTANT (VV029, VV030)."
+HD68,UT,RTI International,OUT_OF_STATE_VENDOR,1668126.29,intent,UT DHHS announcement,V6,Not in Utah's FSRS filing. Still passes as CONSULTANT (VV048).
+HD69,KY,Ernst & Young US LLP,OUT_OF_STATE_VENDOR,5226424,contract maximum,KY Executed Contract Tracker,V6,Not in Kentucky's FSRS filing. Still passes as CONSULTANT (VV023).
+HD70,NE,Redi Health Analytics LLC; Safetech Solutions LLP,OUT_OF_STATE_VENDOR,,obligation,"CMS lines NE-002-07-12, NE-002-14-42",V6,"Not in Nebraska's FSRS filing. Each still passes as CONSULTANT (VV052, VV053)."
