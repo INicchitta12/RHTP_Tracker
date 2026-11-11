@@ -59,6 +59,8 @@ test_that("HOSPITAL is exactly R/07's HOSPITAL call, and a hospital-coded row is
   # out_of_state: TRUE/FALSE on every non-hospital row, empty on a hospital row
   expect_true(all(both$out_of_state[both$spend_category == "HOSPITAL"] == ""))
   expect_true(all(both$out_of_state[both$spend_category != "HOSPITAL"] %in% c("TRUE", "FALSE")))
+  # V7: a state agency is never a vendor, whatever its name says
+  expect_false(any(both$recipient_type %in% "STATE_AGENCY" & both$spend_category %in% RHTP_VENDOR_CATEGORIES))
   # verified only on vendor categories
   expect_false(any(both$vendor_verified == "TRUE" & !both$spend_category %in% RHTP_VENDOR_CATEGORIES))
 })

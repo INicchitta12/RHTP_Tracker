@@ -50,13 +50,13 @@
 #   2 hospital guard  -> PROVIDER_PASS_THROUGH or OTHER
 #   3 116e case       config/spend_category_cases.csv (hand calls, each quoted)
 #   4 V9 ruling       -> OTHER, out_of_state FALSE (Kinney, Spirit, Fond of You,
-#                     Jefferson)
+#                     Jefferson); then STATE_AGENCY -> OTHER (V7: a state agency
+#                     is never a vendor, whatever its name says)
 #   5 entity config   config/spend_category_entities.csv
 #   6 dictionary      config/vendor_entity_dictionary.csv: CONSULTING_* ->
 #                     CONSULTANT, TECH_VENDOR -> DATA_TECH_VENDOR; INSURER_MCO
 #                     and OUT_OF_STATE_ORG are providers or plans -> OTHER
-#   7 STATE_AGENCY    -> OTHER (V7: a state agency is never a vendor)
-#   8 everything else -> OTHER
+#   7 everything else -> OTHER
 # No fuzzy matching anywhere: regex patterns a person wrote, and 116e cases
 # matched on state + name + amount.
 
@@ -275,6 +275,10 @@ rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spe
   v9 <- grepl(RHTP_V9_RX, rows$awardee, ignore.case = TRUE)
   set(v9, "OTHER", "Session 116e V9 ruling: the money funds the organisation's own in-state operations; not a vendor, not out of state")
 
+  # 4b V7: a state agency of the awarding state is never a vendor, whatever
+  # its name says (Delaware Health Information Network is typed STATE_AGENCY)
+  set(rows$recipient_type %in% "STATE_AGENCY", "OTHER", "A state agency of the awarding state (V7): never a vendor")
+
   # 5 entity config (non-affiliate rows)
   ew <- !is.na(eidx) & !affiliate
   set(ew, ifelse(ew, ent$spend_category[pmax(eidx, 1L)], NA_character_),
@@ -286,8 +290,7 @@ rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spe
   set(dw, ifelse(dw, RHTP_DICT_TO_SPEND[m$entity_class], NA_character_),
       paste0("config/vendor_entity_dictionary.csv: ", m$canonical_name, " (", m$entity_class, ")"))
 
-  # 7, 8
-  set(rows$recipient_type %in% "STATE_AGENCY", "OTHER", "A state agency of the awarding state (V7): never a vendor")
+  # 8
   set(rep(TRUE, n), "OTHER", "No hospital call, no 116e case, no dictionary or entity-config entry")
 
   # vendor_role for vendor categories and pass-through rows with no case role
