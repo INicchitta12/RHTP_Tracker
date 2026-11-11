@@ -900,6 +900,14 @@ ky_probe <- function() {
     furniture = KY_NAME_FURNITURE,
     state = "KY")
 
+  # SESSION 116f: the executed-contract tracker is a contract register
+  # (data/reference/contracts/ky_contracts.csv). CHANGED when it moves; a
+  # contract it lists that the contract file does not is a TRIPWIRE.
+  source(here::here("R", "10_contract_registers.R"))
+  cr_probe_register("KY", "ky_contract_tracker",
+                    function() ky_get(CR_KY_URL, "ky_contract_tracker"),
+                    "pdf", CR_KY_PDF, "KY")
+
   message("[KY] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
     r <- cmp[i, ]

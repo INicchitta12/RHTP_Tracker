@@ -91,3 +91,24 @@ Shoshone-Paiute Tribes,Shoshone-Paiute Tribes of the Duck Valley Reservation,Sho
 \bCo ?Magine\b,Comagine Health,Comagine Health,OUT_OF_STATE_ORG,WA,SOURCE_ADDRESS: USAspending FSRS subawardee address Seattle WA,Nonprofit quality-improvement organisation (a QIO) that also sells consulting; kept OUT_OF_STATE_ORG rather than CONSULTING_OTHER
 \bCartwheel\b,Cartwheel Health Services P.C.,Cartwheel,OUT_OF_STATE_ORG,MA,SOURCE_ADDRESS: USAspending FSRS subawardee address Cambridge MA,School-based telehealth mental-health provider
 ^StationMD,StationMD Professional Corporation,StationMD,OUT_OF_STATE_ORG,NJ,SOURCE_ADDRESS: USAspending FSRS subawardee address Maplewood NJ,"Anchored: Kansas's ""InterHab (StationMD)"" is an award to InterHab, a Kansas recipient"
+\bPulsara\b,Pulsara Inc.,Pulsara,TECH_VENDOR,MT,GENERAL_KNOWLEDGE: headquarters Bozeman MT,"Added session 116f: Oklahoma's EMS Centralization platform vendor (Q3 legislative report, 'OSDH: Pulsara')"
+TEK ?SYSTEMS,TEKsystems Inc.,Allegis Group,TECH_VENDOR,MD,GENERAL_KNOWLEDGE: headquarters Hanover MD,Added session 116f: KY executed-contract tracker (technology project management)
+Eight Eleven Group,Eight Eleven Group LLC,Eight Eleven Group,CONSULTING_OTHER,IN,GENERAL_KNOWLEDGE: headquarters Indianapolis IN,Added session 116f: KY executed-contract tracker (staff augmentation)
+\bGo-?Hire\b,Go-Hire Employment and Development Inc,Go-Hire Employment and Development,CONSULTING_OTHER,UNKNOWN,GENERAL_KNOWLEDGE: a staffing firm; headquarters not established,Added session 116f: KY executed-contract tracker (staff augmentation)
+\bCDC Foundation\b,CDC Foundation,CDC Foundation,CONSULTING_OTHER,GA,GENERAL_KNOWLEDGE: headquarters Atlanta GA,Added session 116f: KY executed-contract tracker (staff augmentation)
+\bWakely\b,Wakely Consulting Group,Wakely Consulting Group,CONSULTING_OTHER,FL,GENERAL_KNOWLEDGE: headquarters Clearwater FL,Added session 116f
+Laurel Health Advisors,Laurel Health Advisors LLC,Laurel Health Advisors,CONSULTING_OTHER,UNKNOWN,GENERAL_KNOWLEDGE: a health consultancy; headquarters not established,Added session 116f
+Public Policy Associates,Public Policy Associates LLC,Public Policy Associates,CONSULTING_OTHER,MI,GENERAL_KNOWLEDGE: headquarters Lansing MI,Added session 116f
+Denali Insight,Denali Insight LLC,Denali Insight,CONSULTING_OTHER,AK,GENERAL_KNOWLEDGE: an Alaska consultancy,Added session 116f
+Technology Management Corporation,Technology Management Corporation,Technology Management Corporation,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: an IT services firm; headquarters not established,Added session 116f
+\bOrca Labs\b,"Orca Labs, LLC",Orca Labs,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a software firm; headquarters not established,Added session 116f
+Business Concepts (&|and) Apps,Business Concepts & Apps Inc,Business Concepts & Apps,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a software firm; headquarters not established,Added session 116f
+\bGuidesoft\b,Guidesoft Inc.,Guidesoft,TECH_VENDOR,IN,GENERAL_KNOWLEDGE: headquarters Indianapolis IN (IT staffing),Added session 116f
+\bEquifax\b,Equifax Inc.,Equifax,TECH_VENDOR,GA,GENERAL_KNOWLEDGE: headquarters Atlanta GA,Added session 116f
+\bSharecare\b,Sharecare Inc.,Sharecare,TECH_VENDOR,GA,GENERAL_KNOWLEDGE: headquarters Atlanta GA,Added session 116f
+Collaborative Fusion,"Collaborative Fusion, Inc",Collaborative Fusion,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a health IT firm; headquarters not established,Added session 116f
+Communicare Technology,Communicare Technology,Communicare Technology,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a health IT firm; headquarters not established,Added session 116f
+Concourse Tech,Concourse Tech Inc,Concourse Tech,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a technology firm; headquarters not established,Added session 116f
+Patient Flow Innovations,Patient Flow Innovations,Patient Flow Innovations,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a hospital patient-flow software firm; headquarters not established,Added session 116f
+\bSHI International\b,SHI International Corp.,SHI International,TECH_VENDOR,NJ,GENERAL_KNOWLEDGE: headquarters Somerset NJ (software reseller),Added session 116f
+AGATE IGX,Agate Software (IGX),Agate Software,TECH_VENDOR,UNKNOWN,GENERAL_KNOWLEDGE: a grants-management software firm; headquarters not established,Added session 116f

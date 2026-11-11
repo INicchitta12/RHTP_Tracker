@@ -1066,7 +1066,10 @@ RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note",
 #   ERROR      the probe could not complete for a reason that is not a
 #              tripwire -- a host refusing, a timeout. A statement about our
 #              access, never about the state (§0.4).
-RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR", "YEAR2")
+#   VENDOR     (session 116f) a dictionary consultant or technology vendor is
+#              named on a probed page that its archived copy does not name.
+#              Logged, never raised: the run still publishes, a human reads it.
+RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR", "YEAR2", "VENDOR")
 
 # -- Year 2 on a probed page (session 116) -----------------------------------
 #
@@ -1459,7 +1462,11 @@ rhtp_probe_ctx_empty <- function() {
   list(active = TRUE,
        name_trips  = tibble::tibble(page = character(0), msg = character(0)),
        page_errors = tibble::tibble(page = character(0), msg = character(0)),
-       year2       = tibble::tibble(page = character(0), msg = character(0)))
+       year2       = tibble::tibble(page = character(0), msg = character(0)),
+       # Session 116f: dictionary vendors newly named (VENDOR, logged only) and
+       # contract registers whose content moved (CHANGED, logged only).
+       vendor      = tibble::tibble(page = character(0), msg = character(0)),
+       registers   = tibble::tibble(page = character(0), msg = character(0)))
 }
 
 #' Enter a probe context; returns the previous one, for rhtp_probe_ctx_pop()
@@ -1542,6 +1549,10 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   page_errors <- .rhtp_probe_ctx$page_errors
   year2       <- .rhtp_probe_ctx$year2
   if (is.null(year2)) year2 <- tibble::tibble(page = character(0), msg = character(0))
+  vendor      <- .rhtp_probe_ctx$vendor
+  if (is.null(vendor)) vendor <- tibble::tibble(page = character(0), msg = character(0))
+  registers   <- .rhtp_probe_ctx$registers
+  if (is.null(registers)) registers <- tibble::tibble(page = character(0), msg = character(0))
 
   after <- rhtp_evidence_snapshot(evidence_root)
   guard <- tryCatch({
@@ -1600,6 +1611,15 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   if (nrow(year2)) {
     rows <- dplyr::bind_rows(rows, one_row("YEAR2", year2$page, year2$msg))
     for (m in year2$msg) message("[", state, "] HELD (YEAR2): ", m)
+  }
+  # Session 116f: a contract register that moved is CHANGED for its page; a
+  # newly named dictionary vendor is a VENDOR row. Both logged, NOT raised.
+  if (nrow(registers)) {
+    rows <- dplyr::bind_rows(rows, one_row("CHANGED", registers$page, registers$msg))
+  }
+  if (nrow(vendor)) {
+    rows <- dplyr::bind_rows(rows, one_row("VENDOR", vendor$page, vendor$msg))
+    for (m in vendor$msg) message("[", state, "] VENDOR (logged): ", m)
   }
   # (c) the guard's refusal is logged, as ERROR, before it is raised.
   if (!is.null(guard)) {
@@ -1941,6 +1961,87 @@ rhtp_name_scope <- function(text, from, to = NULL, state = "??",
 #' @param min_baseline Names the archived copy must yield for the comparison to
 #'   mean anything. One is enough to prove the extractor ran; the default of 3
 #'   is comfortably below what every watched page in this repository carries.
+# -- The vendor-name tripwire (session 116f) ----------------------------------
+#
+# OWNER DIRECTION (session 116f): vendor spending is a standing category, so a
+# named consultant or technology vendor appearing on any probed page is logged.
+# Driven by config/vendor_entity_dictionary.csv, classes CONSULTING_BIG,
+# CONSULTING_OTHER and TECH_VENDOR only (INSURER_MCO and OUT_OF_STATE_ORG are
+# plans and providers, not vendors). The baseline is the ARCHIVED copy, as for
+# the name tripwire: a firm the page already named costs nothing. A new one is a
+# VENDOR row in logs/probe_results.csv -- logged, never raised, so it cannot
+# hide or replace a Year 1 TRIPWIRE. Outside a probe it only messages.
+RHTP_VENDOR_TRIPWIRE_CLASSES <- c("CONSULTING_BIG", "CONSULTING_OTHER", "TECH_VENDOR")
+RHTP_VENDOR_SIGNATURE <- "VENDOR NAMED, LOGGED"
+
+rhtp_vendor_tripwire_dictionary <- function() {
+  if (is.null(.rhtp_vendor_dict_cache$d)) {
+    d <- readr::read_csv(here::here("config", "vendor_entity_dictionary.csv"),
+                         col_types = readr::cols(.default = "c"), progress = FALSE, na = character())
+    .rhtp_vendor_dict_cache$d <- d[d$entity_class %in% RHTP_VENDOR_TRIPWIRE_CLASSES, , drop = FALSE]
+  }
+  .rhtp_vendor_dict_cache$d
+}
+.rhtp_vendor_dict_cache <- new.env(parent = emptyenv())
+
+#' Canonical names of dictionary vendors a text names
+rhtp_vendor_names_in <- function(text, dict = rhtp_vendor_tripwire_dictionary()) {
+  t <- paste(text, collapse = " ")
+  hit <- vapply(dict$pattern, function(p) stringr::str_detect(t, stringr::regex(p, ignore_case = TRUE)),
+                logical(1))
+  unique(dict$canonical_name[hit])
+}
+
+#' Record (inside a probe) or message (outside) dictionary vendors the live page
+#' names and its archived copy does not
+rhtp_vendor_tripwire <- function(live, archived, state = "??", page = "(page)") {
+  new <- setdiff(rhtp_vendor_names_in(live), rhtp_vendor_names_in(archived))
+  if (!length(new)) return(invisible(character(0)))
+  msg <- paste0("[", state, "] '", page, "' ", RHTP_VENDOR_SIGNATURE, ": names ", length(new),
+                " dictionary consultant/vendor(s) its archived copy does not: ",
+                paste(new, collapse = " | "),
+                ". Read the page: a vendor contract or award is a contract-layer row ",
+                "(data/reference/contracts/), never a hospital row (session 116f).")
+  if (rhtp_probe_ctx_active()) rhtp_probe_note("vendor", page, msg)
+  message(msg)
+  invisible(new)
+}
+
+#' A contract register on a state probe (session 116f, Task 3). Compares the
+#' live register's reduced content with the archived copy's; a move is logged
+#' CHANGED for the page, and every contract the live copy lists that the
+#' committed contract file does not is a TRIPWIRE ("NEW CONTRACT").
+#'
+#' @param live_rows,committed_rows tibbles with awardee and amount (the same
+#'   parser applied to the live bytes and the committed file).
+rhtp_contract_register_check <- function(state, page, live_text, archived_text,
+                                         live_rows = NULL, committed_rows = NULL) {
+  moved <- !identical(digest::digest(live_text, algo = "sha256"),
+                      digest::digest(archived_text, algo = "sha256"))
+  if (moved && rhtp_probe_ctx_active()) {
+    rhtp_probe_note("registers", page, paste0("[", state, "] contract register '", page,
+                                              "' moved against its archived copy; read it."))
+  }
+  if (!is.null(live_rows) && !is.null(committed_rows)) {
+    k <- function(d) paste(toupper(gsub("[^A-Za-z0-9]", "", d$awardee)), round(as.numeric(d$amount), 2))
+    new <- live_rows[!k(live_rows) %in% k(committed_rows), , drop = FALSE]
+    if (nrow(new)) {
+      msg <- paste0("[", state, "] '", page, "' lists ", nrow(new), " NEW CONTRACT(S) the committed ",
+                    "contract file does not: ", paste(utils::head(paste0(new$awardee, " $",
+                    format(as.numeric(new$amount), big.mark = ",", nsmall = 2)), 10), collapse = " | "),
+                    ". THAT IS THE SIGNAL, NOT A DEFECT. Re-archive the register (--fetch --force after ",
+                    "reading), rebuild with Rscript R/10_contract_registers.R --build, then R/07 --apply.")
+      if (rhtp_probe_ctx_active()) {
+        rhtp_probe_note("name_trips", page, msg)
+        message(msg)
+      } else {
+        stop(msg, call. = FALSE)
+      }
+    }
+  }
+  invisible(moved)
+}
+
 rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
                                              page = "(page)",
                                              known = character(0),
@@ -1966,6 +2067,10 @@ rhtp_assert_no_new_organisations <- function(live, archived, state = "??",
          "reduction before trusting any verdict from this page -- a diff ",
          "against an empty baseline reports UNCHANGED forever.")))
   }
+
+  # Session 116f: the dictionary-driven vendor tripwire runs on every page the
+  # name tripwire reads (logged VENDOR; never raised, never a TRIPWIRE).
+  rhtp_vendor_tripwire(live, archived, state = state, page = page)
 
   new_names <- rhtp_new_organisation_names(live, archived, known = known,
                                            furniture = furniture)

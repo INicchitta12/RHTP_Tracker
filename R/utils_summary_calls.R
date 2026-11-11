@@ -213,5 +213,9 @@ rhtp_strip_summary_calls <- function(d) {
              all(grepl("^[0-9]+$", as.character(d$budget_period)))) {
     d$budget_period <- NULL
   }
-  d[, setdiff(names(d), RHTP_SUMMARY_COLUMNS), drop = FALSE]
+  # SESSION 116f: and the spend-category columns (R/07 --apply writes them
+  # last; RHTP_SPEND_COLUMNS in R/utils_spend_category.R, pinned equal in test_10).
+  d[, setdiff(names(d), c(RHTP_SUMMARY_COLUMNS, RHTP_SPEND_STRIP_COLUMNS)), drop = FALSE]
 }
+RHTP_SPEND_STRIP_COLUMNS <- c("spend_category", "spend_category_basis", "vendor_role", "out_of_state",
+                              "vendor_public", "vendor_verified", "vendor_verified_usd", "vendor_case_id")
