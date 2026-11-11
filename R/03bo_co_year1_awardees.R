@@ -570,6 +570,12 @@ co_awardee_probe <- function() {
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
                                           furniture = CO_NAME_FURNITURE,
                                           state = CO_STATE)
+  # SESSION 116f: HCPF's CMS annual-report workbook (First-Tier Entities) is a
+  # contract register (co_contracts.csv). CHANGED when it moves; a first-tier
+  # entity or obligation the contract file does not carry is a TRIPWIRE.
+  source(here::here("R", "10_contract_registers.R"))
+  cr_probe_register("CO", "co_annual_report", function() cr_get(CR_CO_URL, CO_AW_AGENT, "co_annual_report"),
+                    "xlsx", CR_CO_XLSX, "CO")
   message("[CO] ", paste0(w$changed$key, ": ",
                           ifelse(w$changed$changed, "CHANGED", "UNCHANGED"),
                           collapse = "; "), " -- roster unchanged (92 lines).")

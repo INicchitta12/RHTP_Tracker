@@ -1,6 +1,7 @@
 # test_08_year1_summary.R -- the Year 1 summary table and workbook
 #
-# The totals are PINNED to the 2026-11-09 build (session 116c, FSRS/FFATA
+# The totals are PINNED to the 2026-11-09 build, re-pinned 2026-11-11 by session
+# 116f (the vendor layer; hospital columns unchanged to the cent) (session 116c, FSRS/FFATA
 # subawards as an award source; before it, session 115, after WV's 10-30
 # CAMC release; session 114 pinned 2026-11-04, after the OK CHW and MO Smart
 # Growth owner rulings; session 112 pinned 2026-11-02, the final
@@ -129,20 +130,58 @@ test_that("no state's award total exceeds its allotment (the NV double count sta
   expect_equal(st$pool_level_usd[st$state == "LA"], 10736208)
 })
 
-test_that("the committed 2026-11-09 build is what the builder produces", {
-  f <- here::here(YS_OUT("2026-11-09"))
+test_that("the committed 2026-11-11 build is what the builder produces", {
+  f <- here::here(YS_OUT("2026-11-11"))
   expect_true(file.exists(f))
   committed <- readr::read_csv(f, show_col_types = FALSE)
   expect_equal(committed$state, s$state)
   expect_equal(names(committed), names(s))
   expect_equal(round(committed$hospital_summary_usd, 2), round(s$hospital_summary_usd, 2))
   expect_equal(round(committed$award_total_usd, 2), round(s$award_total_usd, 2))
-  expect_true(file.exists(here::here(YS_XLSX("2026-11-09"))))
+  expect_true(file.exists(here::here(YS_XLSX("2026-11-11"))))
 })
 
-test_that("the workbook has the five sheets, and every Detail column is defined", {
-  x <- here::here(YS_XLSX("2026-11-09"))
-  expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Definitions", "Notes and caveats", "Sources"))
+# SESSION 116f: the vendor layer re-pinned the build to 2026-11-11. The hospital
+# columns must be unchanged to the cent: the whole 11-11 summary CSV equals the
+# 11-09 one, every column and every row.
+test_that("the 2026-11-11 hospital columns equal the 2026-11-09 build to the cent (session 116f)", {
+  a <- readr::read_csv(here::here(YS_OUT("2026-11-09")), show_col_types = FALSE)
+  b <- readr::read_csv(here::here(YS_OUT("2026-11-11")), show_col_types = FALSE)
+  expect_equal(names(a), names(b))
+  expect_equal(a$state, b$state)
+  for (col in grep("hospital|strict_|award_total|allotment", names(a), value = TRUE)) {
+    if (is.numeric(a[[col]])) expect_equal(round(b[[col]], 2), round(a[[col]], 2), info = col) else
+      expect_identical(b[[col]], a[[col]], info = col)
+  }
+  expect_identical(as.data.frame(b), as.data.frame(a))
+})
+
+test_that("the Vendor spending table: verified only, never across types, national pins (session 116f)", {
+  vt <- readr::read_csv(here::here(YS_VENDOR_OUT("2026-11-11")), show_col_types = FALSE)
+  expect_equal(nrow(vt), 51L)
+  expect_equal(utils::tail(vt$state, 1), "US")
+  usv <- vt[vt$state == "US", ]
+  st <- vt[vt$state != "US", ]
+  for (col in grep("_usd$|_rows$", names(vt), value = TRUE)) expect_equal(usv[[col]], sum(st[[col]]), info = col)
+  expect_equal(round(usv$vendor_total_award_usd, 2), 167506827.60)
+  expect_equal(round(usv$vendor_total_intent_usd, 2), 48233747.84)
+  expect_equal(round(usv$vendor_total_contract_maximum_usd, 2), 25965898)
+  expect_equal(round(usv$vendor_total_obligation_usd, 2), 2205500)
+  expect_equal(usv$vendor_verified_rows, 34L)
+  # the hospital columns on this sheet are Detail's, unchanged
+  expect_equal(round(usv$hospital_summary_usd, 2), 2473382310.89)
+  # within a type the categories add to the total
+  for (tn in c("award", "intent", "contract_maximum", "obligation")) {
+    parts <- grep(paste0("^vendor_(consultant|data_tech_vendor|administrator|non_provider_intermediary)_", tn, "_usd$"),
+                  names(vt), value = TRUE)
+    expect_equal(rowSums(vt[, parts]), vt[[paste0("vendor_total_", tn, "_usd")]], info = tn)
+  }
+  expect_true(all(vt$vendor_out_of_state_award_usd <= vt$vendor_total_award_usd))
+})
+
+test_that("the workbook has the six sheets, and every Detail column is defined", {
+  x <- here::here(YS_XLSX("2026-11-11"))
+  expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Vendor spending", "Definitions", "Notes and caveats", "Sources"))
   expect_setequal(YS_DEFINITIONS$column, names(s))
   dt <- openxlsx::read.xlsx(x, "Detail")
   expect_equal(nrow(dt), 52L)
@@ -155,6 +194,7 @@ test_that("the workbook has the five sheets, and every Detail column is defined"
   expect_setequal(df$term[df$sheet == "Overview"], YS_OVERVIEW_DEFINITIONS$column)
   expect_setequal(df$term[df$sheet == "Year 1 status label"], YS_STATUS_LABELS$label)
   expect_setequal(df$term[df$sheet == "Detail"], names(s))
+  expect_setequal(df$term[df$sheet == "Vendor spending"], YS_VENDOR_DEFINITIONS$column)
   # No dangling part references (openxlsx 4.2.9 lists drawings it never writes).
   tmp <- tempfile(); utils::unzip(x, exdir = tmp)
   for (f in list.files(file.path(tmp, "xl/worksheets/_rels"), full.names = TRUE)) {
@@ -165,7 +205,7 @@ test_that("the workbook has the five sheets, and every Detail column is defined"
 # -- session 111b: presentation only. Every cell below is checked against
 # ys_build(), so a figure that moved would fail here, not just look different.
 
-ov_x <- here::here(YS_XLSX("2026-11-09"))
+ov_x <- here::here(YS_XLSX("2026-11-11"))
 ov <- openxlsx::read.xlsx(ov_x, "Overview", check.names = FALSE, sep.names = " ")
 so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
 # the n/m test reads STATE-SOURCED awards (CMS obligation-report files removed)

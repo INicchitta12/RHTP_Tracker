@@ -751,7 +751,7 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 
 **`award_tier`:** `STATE_ALLOTMENT` | `SOLICITATION` | `SUBAWARD` | `UNASSIGNED`
 
-**`source_doc_type`:** `NOTICE_OF_AWARD` | `NOTICE_OF_INTENT_TO_AWARD` | `PROCUREMENT_PORTAL_POSTING` | `STATE_BUDGET_NARRATIVE` | `AGENCY_PRESS_RELEASE` | `GOVERNOR_PRESS_RELEASE` | `THIRD_PARTY_NEWS` | `OTHER`
+**`source_doc_type`:** `NOTICE_OF_AWARD` | `NOTICE_OF_INTENT_TO_AWARD` | `PROCUREMENT_PORTAL_POSTING` | `STATE_BUDGET_NARRATIVE` | `AGENCY_PRESS_RELEASE` | `GOVERNOR_PRESS_RELEASE` | `THIRD_PARTY_NEWS` | `OTHER` (session 116f adds `STATE_CONTRACT` for contract-file rows; §8.1)
 *(Strength ordering matters: the first three are primary; press releases are secondary; third-party news alone can never support a `Yes`.)*
 
 **`recipient_type`:** `HOSPITAL_OR_SYSTEM` | `HOSPITAL_AFFILIATED_ENTITY` | `FQHC_OR_RHC` | `EMS_OR_PSAP` | `UNIVERSITY_OR_AHC` | `AHEC` | `SCHOOL_OR_DISTRICT` | `LOCAL_GOVT_OR_PUBLIC_HEALTH` | `TRIBAL_ORG` | `STATE_AGENCY` | `VENDOR_OR_CONTRACTOR` | `NONPROFIT_CBO` | `PHYSICIAN_PRACTICE` | `MANAGED_CARE_ORGANIZATION` | `OTHER` | `NOT_YET_NAMED`
@@ -783,6 +783,32 @@ Store as `data/reference/vocabularies.csv` and validate every categorical column
 **`flag_reason`** additions: `PROVENANCE_MISMATCH` | `AMOUNT_PLACEHOLDER` | `AMOUNT_NULL_SENTINEL` | `SOURCE_IS_PLAN_NOT_AWARD` | `UNPARSED_AWARD_CANDIDATE` | `UNPARSED_DATA_EXISTS` | `NO_RCJ_DATA` | `MULTI_RECIPIENT_FIELD` | `JUNK_STATE_CODE` | `TITLE_JUNK` | `EVENT_BLEED` | `DEDUP_COLLISION`
 
 **`activity_type`:** map to the CMS RHTP allowable-use categories (the CMS category guidance series — e.g. Category E covers workforce). Retain the state's own raw activity language in a parallel `activity_type_raw` field; never discard it.
+
+### 8.1 Spend categories: vendor spending as a standing category (session 116f, owner direction)
+
+Consultants, data and technology vendors, programme administrators, non-provider intermediaries and out-of-state contractors are tracked as a standing spending category beside hospital spending. Every award row (`STATE_FILES`) and every contract row (`data/reference/contracts/`) carries these columns, written by one shared function (`rhtp_spend_category()`, `R/utils_spend_category.R`) and applied last by `R/07_summary_calls.R --apply`:
+
+**`spend_category`** (exactly one value per row): `HOSPITAL` | `CONSULTANT` | `DATA_TECH_VENDOR` | `ADMINISTRATOR` | `NON_PROVIDER_INTERMEDIARY` | `PROVIDER_PASS_THROUGH` | `OTHER`
+
+- `HOSPITAL`: the existing hospital logic, unchanged. An award row is `HOSPITAL` exactly where R/07 calls it HOSPITAL; every strict-bucket row is.
+- `CONSULTANT`: strategy, evaluation, staff augmentation, assessment and other professional services.
+- `DATA_TECH_VENDOR`: software, platforms, health information exchanges and technology services.
+- `ADMINISTRATOR`: a fiscal agent, third-party administrator, grant administrator or award manager.
+- `NON_PROVIDER_INTERMEDIARY`: money passed on to companies, startups or other non-providers.
+- `PROVIDER_PASS_THROUGH`: an intermediary paying providers. **Not vendor spending.**
+- `OTHER`: everything else (providers that are not hospitals, state agencies, local government, schools).
+
+The four vendor categories are `CONSULTANT`, `DATA_TECH_VENDOR`, `ADMINISTRATOR` and `NON_PROVIDER_INTERMEDIARY`.
+
+**`vendor_role`:** `ADMINISTERS_PROGRAM` | `DELIVERS_TO_PROVIDERS` | `MIXED` | `UNKNOWN`, read from the source's own purpose text (vendor categories and `PROVIDER_PASS_THROUGH` only).
+
+**`out_of_state`:** `TRUE` | `FALSE` on every non-hospital row, empty on a hospital row. The V6 registered-address rule: `TRUE` only where a linked FSRS record (same UEI, subaward number, or equal normalised name in the same prime state) carries a state code other than the awarding state's, and no V9 ruling says the money funds the recipient's own in-state operations. `FALSE` means "not shown out of state".
+
+**`vendor_verified`:** `TRUE` only where the row carries a session-116e case that passed V1–V9 and its category is a vendor category. **Only verified dollars (`vendor_verified_usd`) enter vendor totals; every other vendor-category row is a lead.** `vendor_public` marks a public recipient (the NC ROOTS hub leads Trillium and Vaya); `vendor_case_id` names the case.
+
+**Hospital and vendor categories are mutually exclusive.** A row typed `HOSPITAL_OR_SYSTEM` or `HOSPITAL_AFFILIATED_ENTITY`, an academic health centre, a system parent, or a hospital association or network (`config/spend_category_entities.csv`, `hospital_affiliate = TRUE`) follows the existing hospital rulings and never enters a vendor category: it is `HOSPITAL` where R/07 calls it so, otherwise `PROVIDER_PASS_THROUGH` where it passes money on and `OTHER` where it does not. A test fails if any row lacks `spend_category` or a hospital-coded row carries a vendor category.
+
+**Contract rows** (`source_doc_type = STATE_CONTRACT`, `budget_period = 1`) come from the executed-contract registers and first-tier lists this repository archives (`R/10_contract_registers.R`, `config/contract_registers.csv`). Contract maximums, obligations and intents keep their own amount type; **a contract row never counts toward published awards or the hospital share**, and vendor dollars are never summed across amount types.
 
 ---
 

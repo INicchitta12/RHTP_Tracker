@@ -831,6 +831,7 @@ vf_write_xlsx <- function(f, unnamed, as_of = VF_AS_OF) {
   openxlsx::addStyle(wb, "Notes", openxlsx::createStyle(wrapText = TRUE),
                      rows = seq_along(VF_NOTES), cols = 1)
   openxlsx::saveWorkbook(wb, VF_XLSX(as_of), overwrite = TRUE)
+  rhtp_xlsx_strip_dangling_rels(VF_XLSX(as_of))  # session 116f: openpyxl-clean
   message("[vendor] wrote ", VF_XLSX(as_of))
 }
 

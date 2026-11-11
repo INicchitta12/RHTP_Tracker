@@ -57,6 +57,7 @@ suppressPackageStartupMessages({
 })
 
 source(here::here("R", "09_vendor_flags.R"))
+source(here::here("R", "utils_spend_category.R"))
 
 VV_AS_OF <- "2026-11-10"
 VV_CASES <- "config/verified_vendor_cases.csv"
@@ -769,33 +770,70 @@ VV_METHOD <- c(
   "FFATA excludes procurement contracts (2 CFR 170), and 19 states file no FFATA subawards at all, so most state consulting contracts are invisible here. The 'Unnamed contractor money' tab shows CMS obligation lines for contractors that name no firm; those totals are never attributed to a firm. Intents and obligations are not awards. Figures by firm are split by amount type and never summed across types."
 )
 
-vv_xlsx <- function(as_of = VV_AS_OF) {
+# SESSION 116f, Task 6: the workbook is REBUILT FROM THE SPEND-CATEGORY LAYER.
+# A case's category is now the row's spend_category (R/utils_spend_category.R),
+# not the 116e label; the evidence columns (quote, source, archive, SHA-256,
+# live check, independent check) still come from this file's checks, which
+# have not changed. The live check is the 2026-11-10 one (VV_AS_OF).
+VV_XLSX_AS_OF <- "2026-11-11"
+
+#' Every verified 116e case with the row that carries it in the spend layer
+vv_layer_cases <- function(b = vv_build(write = FALSE)) {
+  spend <- rhtp_spend_rows(vf_state_files())
+  on_rows <- spend %>% dplyr::filter(!is.na(vendor_case_id), vendor_case_id != "") %>%
+    tidyr::separate_rows(vendor_case_id, sep = ";") %>%
+    dplyr::transmute(case_id = vendor_case_id, row_file = file, row_kind = kind, row_awardee = awardee,
+                     row_amount = amount, spend_category, vendor_role, out_of_state, vendor_public,
+                     vendor_verified)
+  ev <- dplyr::bind_rows(b$verified, b$pass_through %>% dplyr::select(-dplyr::any_of("why_here")))
+  ev %>% dplyr::left_join(on_rows, by = "case_id") %>%
+    dplyr::mutate(category_116e = dplyr::if_else(is.na(intermediary_type), categories,
+                                                 paste0(categories, " (", intermediary_type, ")")))
+}
+
+vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
   b <- vv_build(write = FALSE)
-  v <- b$verified
-  if (any(is.na(v$live_status))) stop("[vv] run --live before --xlsx", call. = FALSE)
-  tab1 <- v %>% dplyr::transmute(
-    Rank = dplyr::row_number(), State = state, `Recipient (as printed)` = recipient_as_printed,
-    UEI = uei, `Parent (verified)` = parent, Categories = gsub(";", ", ", categories),
-    `Intermediary type` = intermediary_type,
-    PUBLIC = dplyr::if_else(public, "PUBLIC", ""), Amount = amount, `Amount type` = amount_type,
+  if (any(is.na(b$verified$live_status))) stop("[vv] run --live before --xlsx", call. = FALSE)
+  lc <- vv_layer_cases(b)
+  if (any(is.na(lc$spend_category))) stop("[vv] a verified case reaches no award or contract row: ",
+                                         paste(lc$case_id[is.na(lc$spend_category)], collapse = ", "), call. = FALSE)
+  vend <- lc %>% dplyr::filter(spend_category %in% RHTP_VENDOR_CATEGORIES) %>%
+    dplyr::arrange(factor(spend_category, RHTP_VENDOR_CATEGORIES), dplyr::desc(amount))
+  pt <- lc %>% dplyr::filter(!spend_category %in% RHTP_VENDOR_CATEGORIES) %>% dplyr::arrange(dplyr::desc(amount))
+  moved <- lc %>% dplyr::filter(spend_category %in% RHTP_VENDOR_CATEGORIES != (tab_116e(lc) == "main"))
+  tab1 <- vend %>% dplyr::transmute(
+    Rank = dplyr::row_number(), `Spend category` = spend_category, `Vendor role` = vendor_role,
+    State = state, `Recipient (as printed)` = recipient_as_printed, UEI = uei, `Parent (verified)` = parent,
+    `Out of state (V6)` = dplyr::if_else(out_of_state %in% TRUE, "OUT OF STATE", ""),
+    PUBLIC = dplyr::if_else(vendor_public %in% TRUE, "PUBLIC", ""),
+    Amount = amount, `Amount type` = amount_type, `Row kind` = row_kind, `Row file` = row_file,
+    `116e label` = category_116e,
     `Purpose (verbatim quote)` = purpose_quote, `Source title` = source_title, `Source class` = source_class,
     URL = source_url, `Archive path` = archive_path, `Archive record` = archive_member,
     `Archive SHA-256` = archive_sha256, `Source date` = source_date,
-    `FSRS registered address` = fsrs_address, `Live check` = live_status, `Live check (UTC)` = live_checked_utc,
+    `FSRS registered address` = fsrs_address, `Live check (2026-11-10)` = live_status,
     `Independent check` = independent_check, `RHTP tie page (V2)` = tie_source, `V9 location check` = v9_basis,
     Notes = notes, `Case ID` = case_id)
-  by_firm <- v %>% dplyr::group_by(Firm = firm, `Amount type` = amount_type) %>%
+  by_cat <- vend %>% dplyr::group_by(`Spend category` = spend_category, `Amount type` = amount_type) %>%
+    dplyr::summarise(Cases = dplyr::n(), Total = sum(amount), `Out of state` = sum(amount[out_of_state %in% TRUE]),
+                     .groups = "drop") %>% dplyr::arrange(factor(`Spend category`, RHTP_VENDOR_CATEGORIES), `Amount type`)
+  by_firm <- vend %>% dplyr::group_by(Firm = firm, `Amount type` = amount_type) %>%
     dplyr::summarise(Cases = dplyr::n(), Total = sum(amount), States = paste(sort(unique(state)), collapse = " "),
-                     Categories = paste(sort(unique(unlist(strsplit(categories, ";")))), collapse = ", "),
+                     `Spend categories` = paste(sort(unique(spend_category)), collapse = ", "),
                      `Case IDs` = paste(case_id, collapse = ", "), .groups = "drop") %>%
-    dplyr::arrange(Firm, `Amount type`)
-  firm_order <- by_firm %>% dplyr::group_by(Firm) %>% dplyr::summarise(m = max(Total)) %>% dplyr::arrange(dplyr::desc(m))
-  by_firm <- by_firm %>% dplyr::mutate(Firm = factor(Firm, firm_order$Firm)) %>% dplyr::arrange(Firm, dplyr::desc(Total)) %>%
-    dplyr::mutate(Firm = as.character(Firm))
-  un_lines <- b$unnamed
+    dplyr::arrange(dplyr::desc(Total))
+  spend <- rhtp_spend_rows(vf_state_files())
+  leads <- spend %>% dplyr::filter(spend_category %in% RHTP_VENDOR_CATEGORIES, !vendor_verified) %>%
+    dplyr::arrange(dplyr::desc(amount)) %>%
+    dplyr::transmute(State = state, Recipient = awardee, `Spend category` = spend_category, `Vendor role` = vendor_role,
+                     Amount = amount, `Amount type` = amount_type, `Row kind` = kind, File = file,
+                     `Why it is a lead` = "No session-116e case passed V1-V9 for this row (dictionary, entity config or recipient form put it in a vendor category).",
+                     `Category basis` = spend_category_basis)
+  un_lines <- rhtp_unnamed_contractor_lines()
   un_state <- un_lines %>% dplyr::group_by(State = state) %>%
-    dplyr::summarise(Lines = dplyr::n(), `Obligated, no firm named` = sum(amount_obligated), .groups = "drop") %>%
-    dplyr::arrange(dplyr::desc(`Obligated, no firm named`))
+    dplyr::summarise(Lines = dplyr::n(), `CONTRACTOR_ONLY` = sum(amount_obligated[split == "CONTRACTOR_ONLY"]),
+                     `MIXED` = sum(amount_obligated[split == "MIXED"]), .groups = "drop") %>%
+    dplyr::arrange(dplyr::desc(CONTRACTOR_ONLY + MIXED))
   planned <- b$planned
   dropped <- b$dropped %>% dplyr::arrange(failed_test, dplyr::desc(amount))
 
@@ -814,36 +852,46 @@ vv_xlsx <- function(as_of = VV_AS_OF) {
     openxlsx::setColWidths(wb, name, cols = seq_along(df), widths = widths %||% "auto")
   }
   add("Verified list", tab1, "Amount",
-      note = c(paste0("Verified list, ", as_of, ". ", nrow(tab1), " cases passed V1-V9. Ranked by amount; amount types differ (award, intent, obligation, contract maximum) and are never added together."),
+      note = c(paste0("Verified vendor list, ", as_of, ", rebuilt from the session-116f spend-category layer. ", nrow(tab1),
+                      " cases passed V1-V9 and sit in a vendor category (consultant, data/tech vendor, administrator, non-provider intermediary). ",
+                      "Grouped by category, ranked by amount; amount types (award, intent, obligation, contract maximum) are never added together."),
                "Internal use only. See 'Method'."),
-      widths = c(6, 6, 40, 15, 14, 34, 26, 9, 16, 15, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 16, 50, 50, 60, 8))
-  pt <- b$pass_through %>% dplyr::transmute(
-    State = state, `Recipient (as printed)` = recipient_as_printed, UEI = uei,
-    `Intermediary type` = intermediary_type, Amount = amount, `Amount type` = amount_type,
-    `Why it is on this tab` = why_here, `Purpose (verbatim quote)` = purpose_quote,
-    `Source title` = source_title, URL = source_url, `Archive path` = archive_path,
-    `Archive record` = archive_member, `Live check` = live_status,
-    `Independent check` = independent_check, `Case ID` = case_id)
-  add("Pass-through to providers", pt, "Amount",
-      note = c(paste0("Verified intermediary cases whose money reaches care providers. ", nrow(pt),
-                      " cases passed V1-V9. They are NOT on the main list: either the purpose quote says the money is paid on to hospitals, clinics, FQHCs or other care providers, or this tracker already counts the money as hospital money (a strict hospital bucket or a HOSPITAL summary call)."),
+      widths = c(6, 26, 22, 6, 40, 15, 14, 14, 9, 16, 15, 9, 40, 30, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 50, 50, 60, 8))
+  add("By category", by_cat, c("Total", "Out of state"),
+      note = "Verified cases by spend category and amount type. Never add across amount types.",
+      widths = c(28, 18, 8, 18, 18))
+  add("Pass-through and hospital", pt %>% dplyr::transmute(
+        State = state, `Recipient (as printed)` = recipient_as_printed, `Spend category` = spend_category,
+        Amount = amount, `Amount type` = amount_type, `116e label` = category_116e,
+        `Purpose (verbatim quote)` = purpose_quote, `Source title` = source_title, URL = source_url,
+        `Archive path` = archive_path, `Row file` = row_file, `Case ID` = case_id),
+      "Amount",
+      note = c(paste0("Verified 116e cases whose row is NOT vendor spending: PROVIDER_PASS_THROUGH (an intermediary paying providers) or HOSPITAL (money this tracker already counts as hospital money). ",
+                      nrow(pt), " cases. Hospital associations, networks and system parents follow the hospital rulings and never enter a vendor category (owner direction, session 116f)."),
                "Amount types differ and are never added together."),
-      widths = c(6, 40, 15, 26, 16, 15, 60, 80, 50, 50, 50, 30, 40, 16, 8))
-  add("By firm", by_firm, "Total",
-      note = "Verified cases only, grouped by firm and amount type. A firm's rows of different types are never added.",
+      widths = c(6, 40, 24, 16, 15, 34, 80, 50, 50, 50, 40, 8))
+  add("Re-categorised in 116f", moved %>% dplyr::transmute(`Case ID` = case_id, State = state,
+                                                          Recipient = recipient_as_printed, Amount = amount,
+                                                          `116e label` = category_116e, `116f spend category` = spend_category),
+      "Amount", note = "Cases whose tab changed between the 116e list and the 116f spend layer, and why: config/spend_category_cases.csv carries each call with its quote.",
+      widths = c(8, 6, 44, 16, 40, 28))
+  add("By firm", by_firm, "Total", note = "Verified vendor cases only, grouped by firm and amount type. A firm's rows of different types are never added.",
       widths = c(48, 16, 7, 18, 14, 34, 30))
-  add("Unnamed contractor money", un_state, "Obligated, no firm named",
-      note = c("CMS RHTP Obligated Funds Report (10-14 edition, as of 2026-07-31): obligation lines for contractors, consultants or administrators that NAME NO FIRM. Totals by state; never attributed to any firm.",
+  add("Leads (not verified)", leads, "Amount",
+      note = "LEADS ONLY. Award and contract rows in a vendor category that no verified case covers. Never part of any vendor total.",
+      widths = c(6, 44, 26, 22, 16, 16, 9, 44, 50, 80))
+  add("Unnamed contractor money", un_state, c("CONTRACTOR_ONLY", "MIXED"),
+      note = c(paste0("CMS RHTP Obligated Funds Report (edition ", unique(un_lines$edition), "): obligation lines for contractors, consultants or administrators that NAME NO FIRM. ",
+                      "MIXED lines also cover state staff, agencies or administrative infrastructure. Context only; never attributed to any firm."),
                "Line-level quotes are in the second table below."),
-      widths = c(10, 8, 22))
+      widths = c(10, 8, 22, 22))
   openxlsx::writeData(wb, "Unnamed contractor money",
                       un_lines %>% dplyr::transmute(State = state, `Line ID` = line_id, Obligated = amount_obligated,
-                                                    `Quote (CMS's words)` = quote,
-                                                    `Same figure as a verified case` = same_figure_as_verified_case),
+                                                    Split = split, `Why` = split_basis, `Quote (CMS's words)` = quote),
                       startRow = nrow(un_state) + 6, headerStyle = hs)
   openxlsx::addStyle(wb, "Unnamed contractor money", money, rows = (nrow(un_state) + 7):(nrow(un_state) + 7 + nrow(un_lines)),
                      cols = 3, gridExpand = TRUE)
-  openxlsx::setColWidths(wb, "Unnamed contractor money", cols = 1:5, widths = c(10, 16, 22, 110, 60))
+  openxlsx::setColWidths(wb, "Unnamed contractor money", cols = 1:6, widths = c(10, 16, 22, 18, 50, 110))
   add("Planned (not awarded)", planned %>% dplyr::transmute(State = state, Recipient = recipient, Amount = amount,
                                                            `Amount type` = amount_type, `Purpose (quote)` = purpose_quote,
                                                            Source = source, URL = source_url, `Archive path` = archive_path,
@@ -856,32 +904,24 @@ vv_xlsx <- function(as_of = VV_AS_OF) {
                                             `Failed test` = failed_test, Reason = reason, `Dropped by` = by),
       "Amount", note = "Every candidate that failed a test, with the test and the reason. A row ending '-cat' is a category removed from a case that still passes.",
       widths = c(10, 6, 44, 24, 16, 16, 50, 9, 90, 30))
-  method <- VV_METHOD
-  if (file.exists(here::here(VV_INDEPENDENT))) {
-    ind <- readr::read_csv(here::here(VV_INDEPENDENT), col_types = readr::cols(.default = "c"), progress = FALSE)
-    fld <- ind %>% dplyr::select(dplyr::matches("^V[0-9]$")) %>% as.matrix()
-    if (file.exists(here::here(VV_INDEPENDENT_R2))) {
-      r2 <- readr::read_csv(here::here(VV_INDEPENDENT_R2), col_types = readr::cols(.default = "c"), progress = FALSE)
-      f2 <- r2 %>% dplyr::select(dplyr::matches("^V[0-9]$")) %>% as.matrix()
-      method <- c(method, "", "Independent check, round 2 (the changed cases, after the owner's rulings)",
-                  paste0(nrow(r2), " cases re-checked; ", sum(r2$verdict == "KEEP"), " kept and ", sum(r2$verdict == "DROP"),
-                         " dropped. Test-level agreement: ", sum(f2 %in% "PASS"), " PASS of ", sum(!is.na(f2)),
-                         " applicable results. Intermediary type agreed on ", sum(grepl("^AGREE", r2$intermediary_type_check)),
-                         " of ", sum(!is.na(r2$intermediary_type_check) & r2$intermediary_type_check != "NA"), " intermediary cases."))
-    }
-    method <- c(method, "", "Independent check, round 1 (all 57 original cases)",
-                paste0(nrow(ind), " cases re-checked; ", sum(ind$verdict == "KEEP"), " kept and ",
-                       sum(ind$verdict == "DROP"), " dropped: case-level agreement ",
-                       sprintf("%.1f%%", 100 * mean(ind$verdict == "KEEP")), ". Test-level agreement: ", sum(fld %in% "PASS"), " PASS of ", sum(!is.na(fld)),
-                       " applicable test results (", sprintf("%.1f%%", 100 * mean(fld[!is.na(fld)] == "PASS")), ").",
-                       " Every case it dropped is on the 'Dropped' tab with its reason."))
-  }
+  method <- c(paste0("SESSION 116f. This workbook is rebuilt from the spend-category layer (R/utils_spend_category.R): each verified case's category is the ",
+                     "spend_category of the award or contract row that carries it. Only verified dollars enter vendor totals; hospital and vendor categories never overlap."),
+              VV_METHOD)
   openxlsx::addWorksheet(wb, "Method")
   openxlsx::writeData(wb, "Method", tibble::tibble(Method = method), headerStyle = hs)
   openxlsx::addStyle(wb, "Method", wrap, rows = 2:(length(method) + 1), cols = 1)
   openxlsx::setColWidths(wb, "Method", cols = 1, widths = 150)
   openxlsx::saveWorkbook(wb, VV_XLSX(as_of), overwrite = TRUE)
+  # Task 6: openxlsx lists drawing parts it never writes; strip them so strict
+  # readers (openpyxl, Excel's repair prompt) open the file cleanly.
+  rhtp_xlsx_strip_dangling_rels(VV_XLSX(as_of))
   invisible(VV_XLSX(as_of))
+}
+
+#' Which 116e tab each case was on
+tab_116e <- function(lc) {
+  main <- readr::read_csv(here::here(VV_LIST_CSV), col_types = readr::cols(.default = "c"), progress = FALSE)$case_id
+  ifelse(lc$case_id %in% main, "main", "pass_through")
 }
 
 vv_report <- function() {

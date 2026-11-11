@@ -647,6 +647,7 @@ rhtp_write_registry_worksheet <- function(worksheet, xlsx = TRUE) {
   })
 
   openxlsx::saveWorkbook(wb, xlsx_path, overwrite = TRUE)
+  rhtp_xlsx_strip_dangling_rels(xlsx_path)  # session 116f: openpyxl-clean
   message("  written to ", xlsx_path)
 
   invisible(c(csv = csv_path, xlsx = xlsx_path))

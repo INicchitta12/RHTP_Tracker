@@ -65,6 +65,7 @@ suppressPackageStartupMessages({
 source(here::here("R", "utils_config.R"))
 source(here::here("R", "utils_recipient_classification.R"))
 source(here::here("R", "utils_summary_calls.R"))
+source(here::here("R", "utils_spend_category.R"))
 
 SC_REVIEW_CSV <- "data/reference/summary_calls_for_review.csv"
 SC_POOLS_CSV  <- "data/reference/summary_call_pools.csv"
@@ -873,6 +874,9 @@ sc_apply <- function(files = sc_state_files()) {
   # SESSION 116: stamp budget_period on every registered award file and status
   # table (config/budget_period_registry.csv), so this command stays LAST.
   rhtp_budget_period_apply(files)
+  # SESSION 116f: the spend-category layer reads the summary calls just
+  # written, so it runs here, LAST, on every award file and contract file.
+  rhtp_spend_apply(files)
   p <- sc_pools(files)
   readr::write_csv(p, here::here(SC_POOLS_CSV), na = "")
   readr::write_csv(sc_components(calls), here::here(SC_COMPONENTS_CSV), na = "")
@@ -899,6 +903,7 @@ sc_validate <- function(files = sc_state_files()) {
       }
     }
   }
+  rhtp_spend_validate(files)
   p <- sc_pools(files)
   committed <- readr::read_csv(here::here(SC_POOLS_CSV), col_types = readr::cols(.default = "c"), progress = FALSE)
   if (!identical(committed$pool_id, p$pool_id) || !identical(committed$call, p$call) ||

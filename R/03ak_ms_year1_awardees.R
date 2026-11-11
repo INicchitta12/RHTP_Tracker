@@ -1504,6 +1504,13 @@ ms_probe <- function() {
     archived = stats::setNames(purrr::map(nm_keys, ms_html_text), nm_keys),
     state = "MS")
 
+  # SESSION 116f: DFA's notice of intent to award the RHT Program contractor
+  # (RFQ 3120003272, BDO) is a contract register (ms_contracts.csv). It prints
+  # no amount, so only a move is logged (CHANGED); read it when it does.
+  source(here::here("R", "10_contract_registers.R"))
+  cr_probe_register("MS", "dfa_noi_rht", function() ms_get(CR_MS_URL, "dfa_noi_rht"),
+                    "pdf", CR_MS_PDF, "MS")
+
   message("[MS] live probe ", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), " UTC")
   purrr::walk(seq_len(nrow(cmp)), function(i) {
     r <- cmp[i, ]
