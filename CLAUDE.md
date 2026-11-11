@@ -1454,6 +1454,28 @@ the action date is after 2026-10-30. `R/09b_fsrs_award_source.R` reads the archi
 - **What it is not.** FSRS shows subawards only: state procurement contracts are not reportable (2 CFR 170),
   and 19 states had filed nothing (`fsrs_nonfiling_states.csv`). Every held subaward is in `fsrs_held.csv`.
 
+#### Spend categories: vendor spending is a standing category (session 116f, owner direction)
+
+Every award row and contract row carries `spend_category` (one of `HOSPITAL`, `CONSULTANT`, `DATA_TECH_VENDOR`,
+`ADMINISTRATOR`, `NON_PROVIDER_INTERMEDIARY`, `PROVIDER_PASS_THROUGH`, `OTHER`), `vendor_role`
+(`ADMINISTERS_PROGRAM` | `DELIVERS_TO_PROVIDERS` | `MIXED` | `UNKNOWN`, from the source's purpose text), `out_of_state`
+(V6: TRUE only on a linked FSRS address outside the awarding state; empty on hospital rows), `vendor_public`,
+`vendor_verified`, `vendor_verified_usd` and `vendor_case_id`. Spec §8.1.
+- **One function writes them:** `rhtp_spend_category()` (`R/utils_spend_category.R`), run LAST by `R/07 --apply`.
+  Hand calls live in `config/spend_category_cases.csv` (each 116e case, quoted) and `config/spend_category_entities.csv`;
+  the dictionary seeds the rest. No fuzzy matching.
+- **HOSPITAL is R/07's HOSPITAL call, unchanged.** Hospital and vendor categories are mutually exclusive: hospital-typed
+  rows, AHCs, system parents and hospital associations/networks never enter a vendor category (`PROVIDER_PASS_THROUGH`
+  where they pass money on, else `OTHER`).
+- **Only `vendor_verified` dollars (116e V1–V9) enter vendor totals**; every other vendor-category row is a lead.
+- **Contract files** (`data/reference/contracts/`, `R/10_contract_registers.R`, `STATE_CONTRACT`, budget period 1) are
+  never award files. A contract maximum, obligation or intent never counts toward published awards or the hospital
+  share, and vendor dollars are never summed across amount types. SD, VT and ID's registers are already award files.
+- **Owner rulings carried:** UKHS Care Collaborative is `PROVIDER_PASS_THROUGH` on every line; the NC ROOTS hub leads
+  are `ADMINISTRATOR` (Trillium and Vaya `vendor_public`); Kinney, Spirit, Fond of You and Jefferson fail V9 (`OTHER`).
+- **Probes:** a dictionary consultant or tech vendor newly named on a page the name tripwire reads logs `VENDOR`
+  (logged, never raised). A contract register on a state probe logs CHANGED when it moves and trips on a new contract.
+
 #### Hospital foundations and affiliated arms
 
 **A foundation or affiliated arm of a *named* hospital or health system is
