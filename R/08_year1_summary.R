@@ -65,6 +65,7 @@ source(here::here("R", "utils_recipient_classification.R"))
 source(here::here("R", "utils_summary_calls.R"))
 source(here::here("R", "07_summary_calls.R"))
 source(here::here("R", "03aw_year1_completion_status.R"))
+source(here::here("R", "utils_spend_category.R"))
 
 YS_ALLOT  <- "data/reference/cms_fy2026_allotments.csv"
 YS_STATUS <- "data/reference/year1_completion_status.csv"
@@ -693,7 +694,7 @@ ys_table_sheet <- function(wb, sheet, d, usd_cols, pct_cols, nm_rows, nm_col, co
   openxlsx::freezePane(wb, sheet, firstActiveRow = 2, firstActiveCol = 2)
 }
 
-ys_workbook <- function(s, rows, date, path) {
+ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows)) {
   miss <- setdiff(names(s), YS_DEFINITIONS$column)
   extra <- setdiff(YS_DEFINITIONS$column, names(s))
   if (length(miss) || length(extra)) {
@@ -732,17 +733,30 @@ ys_workbook <- function(s, rows, date, path) {
                  nm_rows = nm_rows, nm_col = which(names(de) == "hospital_share_of_awards_pct"),
                  conf_rows = conf_rows, bold_rows = which(s$state %in% YS_NATIONAL), styles = styles)
 
+  # SESSION 116f: the Vendor spending sheet (national row last, bold).
+  vs <- vt %>% dplyr::mutate(vendor_share_of_awards_pct = vendor_share_of_awards_pct / 100,
+                             hospital_share_of_awards_pct = hospital_share_of_awards_pct / 100)
+  vs_nm <- which(is.na(vs$vendor_share_of_awards_pct))
+  ys_table_sheet(wb, "Vendor spending", vs,
+                 usd_cols = which(grepl("_usd$", names(vs))), pct_cols = which(grepl("_pct$", names(vs))),
+                 nm_rows = vs_nm, nm_col = which(names(vs) == "vendor_share_of_awards_pct"),
+                 conf_rows = integer(0), bold_rows = which(vs$state == "US"), styles = styles)
+  if (length(vs_nm)) {
+    for (r in vs_nm) openxlsx::writeData(wb, "Vendor spending", YS_NM, startCol = which(names(vs) == "hospital_share_of_awards_pct"), startRow = r + 1)
+  }
+
   defs <- dplyr::bind_rows(
     YS_OVERVIEW_DEFINITIONS %>% dplyr::transmute(sheet = "Overview", term = column, definition),
     YS_STATUS_LABELS %>% dplyr::transmute(sheet = "Year 1 status label", term = label, definition),
-    YS_DEFINITIONS %>% dplyr::transmute(sheet = "Detail", term = column, definition))
+    YS_DEFINITIONS %>% dplyr::transmute(sheet = "Detail", term = column, definition),
+    YS_VENDOR_DEFINITIONS %>% dplyr::transmute(sheet = "Vendor spending", term = column, definition))
   openxlsx::addWorksheet(wb, "Definitions")
   openxlsx::writeData(wb, "Definitions", defs, headerStyle = hdr)
   openxlsx::setColWidths(wb, "Definitions", cols = 1:3, widths = c(22, 36, 120))
   openxlsx::addStyle(wb, "Definitions", wrap, rows = 2:(nrow(defs) + 1), cols = 3, stack = TRUE)
   openxlsx::freezePane(wb, "Definitions", firstRow = TRUE)
 
-  n <- ys_notes(s, date, rows)
+  n <- dplyr::bind_rows(ys_notes(s, date, rows), tibble::tibble(note = ys_vendor_notes(vt)))
   openxlsx::addWorksheet(wb, "Notes and caveats")
   openxlsx::writeData(wb, "Notes and caveats", n, headerStyle = hdr)
   openxlsx::setColWidths(wb, "Notes and caveats", cols = 1, widths = 160)
@@ -788,11 +802,119 @@ ys_strip_dangling_rels <- function(path) {
   invisible(path)
 }
 
+# -- SESSION 116f: VENDOR SPENDING, A STANDING CATEGORY BESIDE HOSPITAL SPENDING --
+#
+# Built from the spend-category layer (R/utils_spend_category.R, written by
+# R/07 --apply) on every award row AND every contract row. ys_build() above is
+# NOT touched: the hospital columns are computed exactly as before and the
+# vendor table is a separate table, the "Vendor spending" sheet and its own CSV.
+#
+#   ONLY VERIFIED DOLLARS. vendor_verified_usd (session 116e's V1-V9) and
+#   nothing else enters a vendor figure. Unverified vendor-category rows are
+#   LEADS (vendor_leads_award_file_usd, context only).
+#   NEVER SUMMED ACROSS AMOUNT TYPES. award, intent, contract maximum and
+#   obligation each get their own columns.
+#   THE SHARE uses vendor dollars on AWARD-FILE rows of type award or intent
+#   (the same rows the hospital share counts) over award_total_usd, under the
+#   same >=50% rule as the hospital share (n/m otherwise).
+#   UNNAMED CONTRACTOR OBLIGATIONS (CMS lines naming no firm) are CONTEXT,
+#   split CONTRACTOR_ONLY / MIXED, never vendor dollars.
+YS_VENDOR_OUT <- function(date) file.path("data", "reference", paste0("year1_vendor_summary_", date, ".csv"))
+YS_UNNAMED_OUT <- "data/reference/cms_unnamed_contractor_lines.csv"
+YS_VENDOR_TYPES <- c(award = "award", intent = "intent", contract_maximum = "contract maximum",
+                     obligation = "obligation")
+YS_VENDOR_CATS <- c(consultant = "CONSULTANT", data_tech_vendor = "DATA_TECH_VENDOR",
+                    administrator = "ADMINISTRATOR", non_provider_intermediary = "NON_PROVIDER_INTERMEDIARY")
+
+ys_vendor_build <- function(s, rows, spend = rhtp_spend_rows(sc_state_files()),
+                            unnamed = rhtp_unnamed_contractor_lines()) {
+  states <- s$state[!s$state %in% YS_NATIONAL]
+  v <- spend %>% dplyr::filter(vendor_verified, state %in% states)
+  one <- function(st) {
+    x <- v[v$state == st, , drop = FALSE]
+    out <- list(state = st)
+    for (cn in names(YS_VENDOR_CATS)) for (tn in names(YS_VENDOR_TYPES)) {
+      out[[paste0("vendor_", cn, "_", tn, "_usd")]] <-
+        sum(x$vendor_verified_usd[x$spend_category == YS_VENDOR_CATS[[cn]] & x$amount_type == YS_VENDOR_TYPES[[tn]]])
+    }
+    for (tn in names(YS_VENDOR_TYPES)) {
+      out[[paste0("vendor_total_", tn, "_usd")]] <- sum(x$vendor_verified_usd[x$amount_type == YS_VENDOR_TYPES[[tn]]])
+    }
+    for (tn in names(YS_VENDOR_TYPES)) {
+      out[[paste0("vendor_out_of_state_", tn, "_usd")]] <-
+        sum(x$vendor_verified_usd[x$amount_type == YS_VENDOR_TYPES[[tn]] & x$out_of_state %in% TRUE])
+    }
+    out$vendor_verified_rows <- nrow(x)
+    out$vendor_award_file_usd <- sum(x$vendor_verified_usd[x$kind == "award" & x$amount_type %in% c("award", "intent")])
+    lead <- spend$state == st & spend$kind == "award" & spend$spend_category %in% RHTP_VENDOR_CATEGORIES & !spend$vendor_verified
+    out$vendor_leads_award_file_usd <- sum(spend$amount[lead], na.rm = TRUE)
+    pt <- spend$state == st & spend$kind == "award" & spend$spend_category == "PROVIDER_PASS_THROUGH"
+    out$provider_pass_through_award_file_usd <- sum(spend$amount[pt], na.rm = TRUE)
+    u <- unnamed[unnamed$state == st, , drop = FALSE]
+    out$unnamed_contractor_only_obligation_usd <- sum(u$amount_obligated[u$split == "CONTRACTOR_ONLY"])
+    out$unnamed_contractor_mixed_obligation_usd <- sum(u$amount_obligated[u$split == "MIXED"])
+    tibble::as_tibble(out)
+  }
+  t <- dplyr::bind_rows(lapply(states, one))
+  num <- setdiff(names(t), "state")
+  us <- tibble::as_tibble(c(list(state = "US"), lapply(t[num], sum)))
+  t <- dplyr::bind_rows(t, us)
+  base <- s[match(t$state, s$state), ]
+  ok <- ys_share_meaningful(base, rows)
+  t %>% dplyr::mutate(
+    state_name = base$state_name, award_total_usd = base$award_total_usd,
+    hospital_summary_usd = base$hospital_summary_usd,
+    strict_named_hospital_usd = base$strict_named_hospital_usd,
+    vendor_share_of_awards_pct = ifelse(ok, ys_pct(vendor_award_file_usd, award_total_usd), NA_real_),
+    hospital_share_of_awards_pct = ifelse(ok, ys_pct(hospital_summary_usd, award_total_usd), NA_real_),
+    .after = state)
+}
+
+YS_VENDOR_DEFINITIONS <- tibble::tribble(
+  ~column, ~definition,
+  "state", "Two-letter state code; US is the national row (the sum of the 50 state rows).",
+  "state_name", "State name.",
+  "award_total_usd", "Awards published (as on Detail); the denominator of both shares.",
+  "hospital_summary_usd", "Hospital $ best estimate (as on Detail), for comparison; unchanged by the vendor layer.",
+  "strict_named_hospital_usd", "Strict named-hospital $ (as on Detail), for comparison.",
+  "vendor_share_of_awards_pct", "Verified vendor dollars on award rows (types award and intent) as a percentage of awards published. Same rule as the hospital share: shown only where the state's state-sourced awards are at least 50% of its allotment, otherwise blank (n/m).",
+  "hospital_share_of_awards_pct", "Hospital best estimate as a percentage of awards published, under the same rule, for side-by-side reading.",
+  "vendor_<category>_<type>_usd", "VERIFIED dollars (session 116e tests V1-V9) by vendor category (consultant, data/tech vendor, administrator, non-provider intermediary) and amount type (award, intent, contract maximum, obligation). Amount types are never added together.",
+  "vendor_total_<type>_usd", "Verified vendor dollars of one amount type, all four categories.",
+  "vendor_out_of_state_<type>_usd", "Verified vendor dollars of one amount type whose recipient's FSRS registered address is outside the awarding state (V6). A subset of vendor_total_<type>_usd.",
+  "vendor_verified_rows", "Number of award and contract rows carrying verified vendor dollars.",
+  "vendor_award_file_usd", "Verified vendor dollars on award rows of type award or intent: the numerator of vendor_share_of_awards_pct.",
+  "vendor_leads_award_file_usd", "LEADS, context only: dollars on award rows whose category is a vendor category but which no verified case covers. Never a vendor figure.",
+  "provider_pass_through_award_file_usd", "Context: award rows to intermediaries that pay providers (PROVIDER_PASS_THROUGH). Not vendor spending; some of these dollars are in the hospital best estimate.",
+  "unnamed_contractor_only_obligation_usd", "Context: CMS Obligated Funds Report lines (newest parsed edition) obligating money to contractors or consultants it does not name. Never a vendor figure.",
+  "unnamed_contractor_mixed_obligation_usd", "Context: as above, where the line also covers state staff, state agencies or administrative infrastructure (e.g. NH, KS), so not all of it is contractor money.")
+
+ys_vendor_notes <- function(vt) {
+  us <- vt[vt$state == "US", ]
+  f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
+  c(paste0("VENDOR SPENDING (session 116f, owner direction). The 'Vendor spending' sheet tracks consultants, data/tech vendors, programme administrators and ",
+           "non-provider intermediaries beside hospital spending. ONLY VERIFIED DOLLARS count (session 116e tests V1-V9); unverified vendor-category rows are leads. ",
+           "Nationally: award ", f(us$vendor_total_award_usd), ", intent ", f(us$vendor_total_intent_usd), ", contract maximum ",
+           f(us$vendor_total_contract_maximum_usd), ", obligation ", f(us$vendor_total_obligation_usd),
+           ". The four amount types are never added together."),
+    paste0("VENDOR vs HOSPITAL. Verified vendor dollars on award rows (award + intent) are ", f(us$vendor_award_file_usd),
+           " against a hospital best estimate of ", f(us$hospital_summary_usd), " on the same rows' denominator. ",
+           "Hospital and vendor categories never overlap (a hospital, health system, AHC or hospital association is never a vendor). ",
+           "Vendor money sits mostly in procurement contracts, which FSRS does not report and many states do not publish, so the vendor figure is a FLOOR."),
+    paste0("CONTRACT ROWS. Contract maximums and obligations come from state contract registers and CMS annual reports (data/reference/contracts/); they never count toward awards published or the hospital share."),
+    paste0("UNNAMED CONTRACTOR MONEY. CMS's Obligated Funds Report obligates ", f(us$unnamed_contractor_only_obligation_usd),
+           " to contractors it does not name, plus ", f(us$unnamed_contractor_mixed_obligation_usd), " on lines that also cover state staff or agencies (MIXED). Context only."))
+}
+
 ys_write <- function(date = format(Sys.Date(), "%Y-%m-%d")) {
   rows <- ys_rows()
   s <- ys_build(rows)
   readr::write_csv(s, here::here(YS_OUT(date)), na = "")
-  ys_workbook(s, rows, date, here::here(YS_XLSX(date)))
+  unnamed <- rhtp_unnamed_contractor_lines()
+  vt <- ys_vendor_build(s, rows, unnamed = unnamed)
+  readr::write_csv(vt, here::here(YS_VENDOR_OUT(date)), na = "")
+  readr::write_csv(unnamed, here::here(YS_UNNAMED_OUT), na = "")
+  ys_workbook(s, rows, date, here::here(YS_XLSX(date)), vt = vt)
   n <- s[s$state == "US", ]
   message(sprintf("[year1 summary] wrote %s and %s: award total $%s; hospital best estimate $%s (CODED $%s + BEST_JUDGMENT $%s); strict NAMED $%s.",
                   YS_OUT(date), YS_XLSX(date), format(n$award_total_usd, big.mark = ",", nsmall = 2),
