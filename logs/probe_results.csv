@@ -2200,3 +2200,9 @@ NY,2026-11-11T11:20:39Z,CHANGED,press_index,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
 NY,2026-11-11T11:20:39Z,CHANGED,scr,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
 LA,2026-11-11T12:52:49Z,TRIPWIRE,(probe),[LA] LDH's programme page no longer carries an 'IMPORTANT DATES - BUDGET YEAR 1' block closed by 'Notice of Funding Opportunities'. That block is where every announcement date this file reports comes from -- re-read the page.,trig_01NRTUU1Vg3DoQPL1uK2gKBt
 OH,2026-11-11T13:42:17Z,UNCHANGED,(all),,trig_01SmiBet1QpVwpQrBe1GEBJ3
+MO,2026-11-11T15:13:01Z,UNCHANGED,bids,,trig_01EB2Xxyn1bSy3LcGBEcuZra
+MO,2026-11-11T15:13:01Z,CHANGED,program_page,,trig_01EB2Xxyn1bSy3LcGBEcuZra
+MO,2026-11-11T15:13:01Z,UNCHANGED,hub_roster,,trig_01EB2Xxyn1bSy3LcGBEcuZra
+MO,2026-11-11T15:13:01Z,UNCHANGED,smrp_awardees,,trig_01EB2Xxyn1bSy3LcGBEcuZra
+MO,2026-11-11T15:13:01Z,UNCHANGED,smart_growth,,trig_01EB2Xxyn1bSy3LcGBEcuZra
+MO,2026-11-11T15:13:01Z,TRIPWIRE,program_page,"[MO] 'program_page' NAMES 7 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: OpportunitiesMissouri Department of Social Services | Host Rural Health Transformation Program Digital Backbone Application Webinar for Healthcare ProvidersDSS | Community-hosted EHR | Clinically Integrated Network | Rural Health Transformation Program.Webinar DetailsDate | Host Rural Health Transformation Program Digital Backbone Application Webinar for Healthcare Providers11 | Host Rural Health Transformation Program Digital Backbone Application Webinar for Healthcare ProvidersMissouri Awards. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01EB2Xxyn1bSy3LcGBEcuZra
