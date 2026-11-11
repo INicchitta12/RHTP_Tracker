@@ -2408,3 +2408,30 @@ rhtp_load_fy2027_allotments <- function(path = here::here(RHTP_FY2027_ALLOTMENTS
   }
   invisible(a)
 }
+
+# -- xlsx hygiene (session 111b; shared from session 116f) ----------------------
+#' openxlsx 4.2.9 (with zip 3.x) lists drawing and VML parts in each sheet's
+#' relationships without writing them, so strict readers (openpyxl) refuse the
+#' file and Excel may offer to "repair" it. Remove every relationship whose
+#' target part is not in the package; nothing in the sheets references them.
+rhtp_xlsx_strip_dangling_rels <- function(path) {
+  tmp <- tempfile("rhtp_xlsx_"); dir.create(tmp)
+  on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
+  utils::unzip(path, exdir = tmp)
+  rels <- list.files(file.path(tmp, "xl", "worksheets", "_rels"), "\\.rels$", full.names = TRUE)
+  for (f in rels) {
+    x <- paste(readLines(f, warn = FALSE, encoding = "UTF-8"), collapse = "")
+    parts <- regmatches(x, gregexpr("<Relationship [^>]*/>", x))[[1]]
+    keep <- vapply(parts, function(r) {
+      tgt <- sub('.*Target="([^"]+)".*', "\\1", r)
+      grepl('TargetMode="External"', r, fixed = TRUE) ||
+        file.exists(normalizePath(file.path(tmp, "xl", "worksheets", tgt), mustWork = FALSE))
+    }, logical(1))
+    for (r in parts[!keep]) x <- sub(r, "", x, fixed = TRUE)
+    writeLines(x, f, useBytes = TRUE)
+  }
+  files <- list.files(tmp, recursive = TRUE, all.files = TRUE)
+  unlink(path)
+  zip::zip(path, files = files, root = tmp)
+  invisible(path)
+}
