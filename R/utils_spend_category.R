@@ -455,3 +455,51 @@ rhtp_spend_rows <- function(award_files) {
       validation_source_type %in% "NOTICE_OF_INTENT_TO_AWARD" ~ "intent",
       TRUE ~ "award"))
 }
+
+# -- CMS's unnamed contractor lines (session 116f, Task 4) -------------------------
+#
+# A CMS obligation line that says money went to "contractors", "consultants", a
+# "grant management vendor" or a "fiscal agent" without naming one is CONTEXT,
+# never vendor dollars (no firm, so no V5). It is split in two:
+#   CONTRACTOR_ONLY  the line funds contractors alone
+#   MIXED            the line also covers state staff, state agencies or the
+#                    state's own administrative infrastructure (NH's
+#                    "staffing, financial management ... administrative
+#                    infrastructure"; KS's "state agencies, contractors, and
+#                    consultants"), or contractors are a secondary clause after
+#                    a first sentence about something else (MO's pharmacy line)
+# AUTOMATIC ON A NEW EDITION: the lines are read from the NEWEST parsed edition,
+# data/reference/cms_obligations_bp1_lines_<yyyymmdd>.csv (R/00c / R/00e write
+# it). The day a new edition is parsed, R/08 --build re-splits it with no edit.
+RHTP_MIXED_RX <- stringr::regex(paste0(
+  "state agenc|(?<!consultant )staffing|\\bstaff\\b|personnel|salar|\\bFTEs?\\b|",
+  "deputy director|financial management|administrative infrastructure|state employees"),
+  ignore_case = TRUE)
+
+rhtp_cms_lines_editions <- function() {
+  f <- list.files(here::here("data", "reference"), "^cms_obligations_bp1_lines_[0-9]{8}\\.csv$")
+  f[order(sub("^cms_obligations_bp1_lines_([0-9]{8})\\.csv$", "\\1", f))]
+}
+
+#' The unnamed contractor lines of one edition (default: the newest), split
+rhtp_unnamed_contractor_lines <- function(edition_file = utils::tail(rhtp_cms_lines_editions(), 1)) {
+  if (!length(edition_file)) stop("[spend] no parsed CMS obligation edition", call. = FALSE)
+  l <- readr::read_csv(here::here("data", "reference", edition_file), col_types = readr::cols(.default = "c"),
+                       progress = FALSE)
+  l <- l %>% dplyr::filter(is.na(named_orgs) | named_orgs == "") %>%
+    dplyr::mutate(amount = as.numeric(amount)) %>%
+    dplyr::filter(stringr::str_detect(description_clean, VF_UNNAMED_RX),
+                  !stringr::str_detect(description_clean, VF_UNNAMED_NOT_RX), amount > 0)
+  first <- sub("^(.*?\\.)(\\s|$).*$", "\\1", l$description_clean, perl = TRUE)
+  mixed_why <- dplyr::case_when(
+    stringr::str_detect(l$description_clean, RHTP_MIXED_RX) ~ "also covers state staff, agencies or administrative infrastructure",
+    !stringr::str_detect(first, VF_UNNAMED_RX) ~ "contractors are a secondary clause after a first sentence about other spending",
+    TRUE ~ NA_character_)
+  l %>% dplyr::transmute(
+    edition = sub("^cms_obligations_bp1_lines_([0-9]{8})\\.csv$", "\\1", edition_file),
+    state, line_id, amount_obligated = amount,
+    split = ifelse(is.na(mixed_why), "CONTRACTOR_ONLY", "MIXED"),
+    split_basis = dplyr::coalesce(mixed_why, "the line funds contractors only"),
+    quote = description_clean, initiative, as_of) %>%
+    dplyr::arrange(state, dplyr::desc(amount_obligated))
+}

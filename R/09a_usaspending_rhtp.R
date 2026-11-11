@@ -149,7 +149,37 @@ usa_probe <- function(as_of = USA_AS_OF) {
     dplyr::summarise(n = dplyr::n(), usd = sum(as.numeric(subaward_amount)), .groups = "drop")
   findings <- if (nrow(agg)) paste0(agg$st, ": ", agg$n, " FFATA subaward report(s) not in the ", as_of,
                                     " archive ($", format(round(agg$usd), big.mark = ","), "); read them, then re-archive with --fetch") else character(0)
+  # SESSION 116f: a new filing whose recipient is in the vendor dictionary or
+  # carries an out-of-state address is logged VENDOR (never raised).
+  for (m in usa_vendor_flags(new)) {
+    if (rhtp_probe_ctx_active()) rhtp_probe_note("vendor", "FSRS new filings", m)
+    message(m)
+  }
   list(changed = res$page[res$changed], findings = findings)
+}
+
+#' New FSRS filings whose recipient is in config/vendor_entity_dictionary.csv
+#' (any class) or whose registered address is outside the awarding state.
+#' @param new subaward rows (USAspending columns plus `st`, the awarding state)
+#' @return one message per flagged filing
+usa_vendor_flags <- function(new) {
+  if (!nrow(new)) return(character(0))
+  dict <- readr::read_csv(here::here("config", "vendor_entity_dictionary.csv"),
+                          col_types = readr::cols(.default = "c"), progress = FALSE, na = character())
+  in_dict <- vapply(new$subawardee_name, function(n) {
+    hit <- vapply(dict$pattern, function(p) stringr::str_detect(n, stringr::regex(p, ignore_case = TRUE)), logical(1))
+    if (any(hit)) dict$canonical_name[which(hit)[1]] else NA_character_
+  }, character(1), USE.NAMES = FALSE)
+  oos <- nzchar(new$subawardee_state_code) & new$subawardee_state_code != new$st
+  flag <- !is.na(in_dict) | oos
+  if (!any(flag)) return(character(0))
+  f <- new[flag, , drop = FALSE]
+  paste0("[FSRS] ", RHTP_VENDOR_SIGNATURE, ": new ", f$st, " FFATA filing to ", f$subawardee_name, " ($",
+         format(round(as.numeric(f$subaward_amount)), big.mark = ","), ", ", f$subawardee_city_name, ", ",
+         f$subawardee_state_code, ")",
+         ifelse(!is.na(in_dict[flag]), paste0(" -- in the vendor dictionary as ", in_dict[flag]), ""),
+         ifelse(oos[flag], " -- registered address outside the awarding state", ""),
+         ". Read it before R/09a --fetch re-archives (session 116f).")
 }
 
 usa_fetch <- function(as_of = USA_AS_OF, poll_seconds = 15, max_polls = 80) {
