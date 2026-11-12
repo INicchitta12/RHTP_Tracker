@@ -2251,3 +2251,23 @@ CT,2026-11-12T15:42:12Z,CHANGED,dss_press,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-12T15:42:12Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-12T15:42:12Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-12T15:42:12Z,TRIPWIRE,documents,"[CT] 'documents' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Public Comment on Connecticut's Application for Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Documents Documents On. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-11-12T16:53:06Z,CHANGED,AZ:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:06Z,CHANGED,AZ:ahcccs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:12Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Delaware Announces Rural Health Transformation Funding to Strengthen Physician Workforce'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:13Z,CHANGED,FL:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:14Z,CHANGED,IA:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:15Z,TRIPWIRE,(probe),"[ID] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: governor: 'Gov. Little announces awardees of Year 1 Rural Health Transformation Program funds'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:17Z,CHANGED,MN:mdh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:17Z,UNCHANGED,MT:news,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:17Z,CHANGED,MT:dphhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:19Z,CHANGED,NE:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:19Z,UNCHANGED,NE:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:20Z,CHANGED,NJ:doh,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:21Z,CHANGED,NV:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:21Z,UNCHANGED,NV:nvha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:22Z,UNCHANGED,OK:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:22Z,UNCHANGED,OR:oha,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:23Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: hhsc: 'Gov. Abbott Announces Recipients of $87 Million in Rural Texas Strong Grants'; hhsc: 'Gov. Abbott, HHSC Announce Recipients of $8 Million in Rural Texas Strong Grants'; hhsc: 'Gov. Abbott, HHSC Announce Recipients of $78 Million in Rural Texas Strong Grants'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:35Z,CHANGED,UT:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:35Z,CHANGED,UT:dhhs,,trig_016FmK98AUDVtzPBGtE5VVh2
+NEWSROOM,2026-11-12T16:53:36Z,CHANGED,MD:governor,,trig_016FmK98AUDVtzPBGtE5VVh2
