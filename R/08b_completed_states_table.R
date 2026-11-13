@@ -30,8 +30,18 @@ COMPLETE_MEANS <- tibble::tribble(
   "ID", "State 'completed the awards for $186 million in Year 1 grant funding' (Governor)", "2026-10-28",
   "UT", "'Utah has successfully demonstrated obligation for 100% of its Year 1 RHTP funding' (DHHS)", "2026-10-29",
   "VT", "'Vermont has fully obligated its approximately $195 million Year 1 RHT award' (AHS)", "2026-10-30",
-  "WY", "'funding allocations, competitive applications, and awards have been completed for Year 1' (WDH)", "2026-10-23"
+  "WY", "'funding allocations, competitive applications, and awards have been completed for Year 1' (WDH)", "2026-10-23",
+  # Session 117a: newly COMPLETE on a state-source full-obligation statement.
+  "NE", "Year 1 '$218.5 million ... has been fully obligated to implement all seven initiatives' (DHHS)", "2026-11-10",
+  "SD", "'South Dakota committed every dollar of its $189.5 million ... award by the federal deadline' (Governor/DOH)", "2026-11-10",
+  "WV", "'obligated 100 percent of its initial award through 145 signed awards and agreements' (Governor/DH)", "2026-11-09"
 )
+
+# Newly COMPLETE in session 117a, for the notes.
+NEW_COMPLETE_117A <- c(
+  NE = "Nebraska (DHHS Year 2 release, 2026-11-10: 'fully obligated'; data/evidence/recheck/2026-11-13/NE/)",
+  SD = "South Dakota (Governor/DOH Year 2 release KB0047476, 2026-11-10: 'committed every dollar'; data/evidence/recheck/2026-11-13/SD/)",
+  WV = "West Virginia (Governor/DH Year 2 release, 2026-11-09: 'obligated 100 percent'; data/evidence/recheck/2026-11-13/WV/)")
 
 cs_latest_summary_date <- function() {
   f <- list.files(here::here("data", "reference"), pattern = "^year1_summary_\\d{4}-\\d{2}-\\d{2}\\.csv$")
@@ -99,7 +109,10 @@ cs_notes <- function(tab, new_states = character(0), new_sources = character(0))
   c(
     paste0("Data date: ", sd, " (year1_summary_", sd, ".csv, built by R/08 from the committed award files; ",
            "completion status from year1_completion_status.csv). Year 1 = Budget Period 1 only; Year 2 is not included."),
-    "A state is COMPLETE only where a state source (or CMS) says Year 1 awarding is complete or Year 1 funds are fully obligated; the phrase column quotes it. 'Fully obligated' (UT, VT) is a statement that the money is committed, not that every award is published: their award lists are floors.",
+    paste0("A state is COMPLETE only where a state source (or CMS) says Year 1 awarding is complete or Year 1 funds are fully obligated, and no Year 1 remainder is known; the phrase column quotes it. ",
+           "'Fully obligated' or 'committed' (", paste(intersect(c("NE", "SD", "UT", "VT", "WV"), attr(tab, "sources")$state), collapse = ", "),
+           ") says the money is committed, not that every award is published: those award lists are FLOORS, and where awards published are well below the allotment ",
+           "(Nebraska, South Dakota, West Virginia) the hospital % of awards describes the published awards only, not the state's whole Year 1."),
     paste0("Hospital $ (best estimate) includes judgment calls on rows whose source does not settle whether a hospital receives the money (and UT's $9,891,739 Utah Hospital Association pool). ",
            "Strict named-hospital $ does not: it counts only awards to a named hospital, coded from the source. Total best estimate ", usd(tot$`Hospital $ (best estimate)`),
            "; strict ", usd(tot$`Strict named-hospital $`), "."),
@@ -178,7 +191,7 @@ cs_write_html <- function(tab, notes, path) {
 }
 
 cs_write <- function(summary_date = cs_latest_summary_date(), out_date = format(Sys.Date(), "%Y-%m-%d"),
-                     new_states = character(0), new_sources = character(0)) {
+                     new_states = names(NEW_COMPLETE_117A), new_sources = unname(NEW_COMPLETE_117A)) {
   tab <- cs_build(summary_date)
   notes <- cs_notes(tab, new_states, new_sources)
   x <- here::here("output", paste0("completed_states_", out_date, ".xlsx"))

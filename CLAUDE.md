@@ -2025,14 +2025,14 @@ through the work: an award file, or an archive plus a probe plus a Routine.
 ### Hospital partition (re-derived 2026-11-09, session 116d, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,205 / $2,172,883,306.88
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,206 / $2,174,427,619.88
 (NV's FLEX-36 $2,458,060.00 back in; FLEX-28 was cleared on an exact FSRS pair in session 116d); never
 publish it alone. SESSION 116c/116d: FSRS/FFATA subawards are an award source (R/09b): $0 rows priced
 (`validation_source_type = FSRS_FFATA`, original kept) and `<st>_fsrs_awardees.csv` new rows; both subtract by
 `validation_source_type`.
 
 ```
-NAMED_HOSPITAL          2,204 rows   $2,170,425,246.88   42 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
+NAMED_HOSPITAL          2,205 rows   $2,171,969,559.88   42 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
 POOL_NAMED_HOSPITALS       10 rows      $86,895,779.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
@@ -2087,7 +2087,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 38 | 3 | $42,300,000 | 27 / $0 + POOL_NAMED 1 / $30,300,000 (ODH's 22 named hospitals, no split; the 13 CIN/Hub and maternal-care listings at $0, owner ruling session 108, 5 hospital rows; the $92M's other $61.7M is shared with non-hospitals, no bucket; Ohio University $10M and OPA $2M non-hospital) |
-| WV | 33 | 31 | $27,539,218 (7 $0 rows priced from FSRS, session 116c) | 17 / $13,469,266 (10-30: Charleston Area Medical Center three awards $3,930,266, CCN 510022, session 115; 10-26/27: WVU Cancer Institute $1,339,077 and Williamson H&WC (FQHC) $250,000, both NON_HOSPITAL; Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health system parent $0, LOW, owner ruling; 10-13/14: WVU Eye Institute $2,000,026 NON_HOSPITAL on the owner's ruling (session 104), 4 non-hospital; 10-19: WVU Health System, a system parent, two rows totalling $3,400,000, LOW, the CCG $2.5M a published floor) |
+| WV | 40 | 38 | $44,515,698 (7 $0 rows priced from FSRS, session 116c) | 18 / $15,013,579 (11-10, session 117a: seven awards $16,976,480, Cabell Huntington Hospital $1,544,313 on CCN 510055 the one hospital row; Marshall University Research Corporation, WVPCA, ROAM WV non-hospital; 10-30: Charleston Area Medical Center three awards $3,930,266, CCN 510022, session 115; 10-26/27: WVU Cancer Institute $1,339,077 and Williamson H&WC (FQHC) $250,000, both NON_HOSPITAL; Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health system parent $0, LOW, owner ruling; 10-13/14: WVU Eye Institute $2,000,026 NON_HOSPITAL on the owner's ruling (session 104), 4 non-hospital; 10-19: WVU Health System, a system parent, two rows totalling $3,400,000, LOW, the CCG $2.5M a published floor) |
 | OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
 | MT | 5 | 4 | $1,360,000 | 0 (4 ambulance grants, rounded; 75 equipment awards unnamed, one pool row) |

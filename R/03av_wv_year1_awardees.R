@@ -138,7 +138,7 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 WV_STATE     <- "WV"
 WV_ALLOTMENT <- 199476099        # cms_fy2026_allotments.csv (§7.1)
-WV_TOTAL     <- 24324218         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000; session 112: + $1,589,077; session 115: + $3,930,266); unpriced rows carry none
+WV_TOTAL     <- 41300698         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000; session 112: + $1,589,077; session 115: + $3,930,266; session 117a: + $16,976,480); unpriced rows carry none
 WV_NOA_DATE  <- as.Date("2025-12-29")
 WV_DIR       <- file.path("data", "evidence", "recheck", "2026-09-23", "WV")
 WV_CSV       <- here::here("data", "reference", "wv_year1_awardees.csv")
@@ -169,7 +169,8 @@ WV_SLUG <- c(
   wvu  = "governor-morrisey-announces-more-34-million-rural-health-transformation-awards-west",
   can  = "governor-morrisey-announces-13-million-expand-mobile-cancer-screenings-across-west-virginia",
   whwc = "governor-patrick-morrisey-today-announced-250000-award-williamson-health-wellness-center",
-  camc = "governor-morrisey-announces-39-million-expand-rural-healthcare-training-and-workforce")
+  camc = "governor-morrisey-announces-39-million-expand-rural-healthcare-training-and-workforce",
+  dia  = "governor-morrisey-announces-nearly-17-million-rural-health-transformation-awards-strengthen")
 
 # AWARD RELEASES READ AND JUDGED NOT RHTP (session 99). Each slug is excluded
 # from the tripwire with the sentence that justifies it; a release is never
@@ -204,7 +205,8 @@ WV_PATHS <- c(
   wvu  = file.path("data", "evidence", "WV", "2026-10-26_wv_art_wvu_health_system_3_4m.html"),
   can  = file.path("data", "evidence", "WV", "2026-11-02_wv_art_wvu_cancer_institute_1_3m.html"),
   whwc = file.path("data", "evidence", "WV", "2026-11-02_wv_art_williamson_hwc_250k.html"),
-  camc = file.path("data", "evidence", "WV", "2026-11-09_wv_art_camc_3_9m.html"))
+  camc = file.path("data", "evidence", "WV", "2026-11-09_wv_art_camc_3_9m.html"),
+  dia  = file.path("data", "evidence", "recheck", "2026-11-13", "WV", "2026-11-13_wv_gov_17m_diabetes_awards.html"))
 
 # Minnie Hamilton's CMS enrolment (session 85), read from the archived file.
 WV_MH_ENROLMENT <- paste0(
@@ -565,6 +567,70 @@ WV_AWARDS_S115 <- tibble::tribble(
 WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S115)
 WV_S115_KEYS <- "camc"
 
+# Session 117a: the 2026-11-10 "Nearly $17 Million" release (seven awards, each
+# printed exactly, $16,976,480), found by the 11-13 Routine's name check and
+# extracted on the standing pre-approval. Announced after 10-30, but the 11-09
+# Year 2 release says all 145 Year 1 agreements were "finalized ahead of the
+# October 30 federal deadline", so these are Budget Period 1 awards.
+#   * CABELL HUNTINGTON HOSPITAL is the exact DBA (and legal name less 'INC') on
+#     CMS Hospital Enrollments, CCN 510055, Huntington: a hospital row, typed as
+#     the CAMC rows are (no CCN on the row; HIGH needs Stage 5).
+#   * MARSHALL UNIVERSITY RESEARCH CORPORATION is the university's research
+#     corporation: UNIVERSITY_OR_AHC / NON_HOSPITAL (no CMS hospital record).
+#   * WVPCA: NON_HOSPITAL on the session-103 owner approval (same recipient).
+#   * ROAM WEST VIRGINIA: the release states no form and no CMS WV enrolment
+#     carries the name; the Potomac Highlands Guild precedent (NON_HOSPITAL).
+WV_CABELL_WHY <- paste0(
+  "CMS Hospital Enrollments (", WV_INV_ENROL_FILE, "): CABELL HUNTINGTON HOSPITAL ",
+  "INC dba CABELL HUNTINGTON HOSPITAL, CCN 510055, Huntington, general/acute -- the ",
+  "awardee's own name ('Cabell Huntington Hospital, under Marshall Health Network'). ",
+  "Care coordination does not decide it; §0.3a judges the recipient.")
+WV_MURC_WHY <- paste0(
+  "UNIVERSITY_OR_AHC / NON_HOSPITAL: Marshall University Research Corporation is ",
+  "Marshall University's sponsored-research corporation (general knowledge; the ",
+  "release states no form). No CMS WV hospital record carries the name, and the ",
+  "release names no enrolled hospital as the recipient.")
+WV_ROAM_WHY <- paste0(
+  "NON_HOSPITAL on the Potomac Highlands Guild precedent (session 103): the release ",
+  "states no form ('ROAM West Virginia to recruit and train licensed practical nurse ",
+  "apprentices'; 'in-home foot scanning and nursing review') and no CMS WV hospital, ",
+  "FQHC or RHC enrolment carries the name; §8's standing fallback, NOT promoted (§0.4).")
+WV_DIA_INIT <- "One of: Personal Health Accelerator, Connected Care Grid, SmartCare Catalyst, Mountain State Care Force (the release maps no award to an initiative)"
+WV_AWARDS_S117 <- tibble::tribble(
+  ~key, ~date, ~initiative, ~awardee, ~amount, ~quote,
+  ~recipient_type, ~basis_type, ~flow_type, ~dist, ~why, ~rounded,
+  "dia", "2026-11-10", WV_DIA_INIT, "Marshall University Research Corporation", 5043333,
+  "$5,043,333 to Marshall University Research Corporation",
+  "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No", WV_MURC_WHY, FALSE,
+  "dia", "2026-11-10", WV_DIA_INIT, "Marshall University Research Corporation", 4640188,
+  "$4,640,188 to Marshall University Research Corporation",
+  "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No", WV_MURC_WHY, FALSE,
+  "dia", "2026-11-10", WV_DIA_INIT, "West Virginia Primary Care Association", 2795000,
+  "$2,795,000 to the West Virginia Primary Care Association",
+  "NONPROFIT_CBO", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "NON_HOSPITAL on the owner's approval (session 103): the state's association of community health centres ('expand diabetes management through community health centers'); not a hospital association; on no CMS WV enrolment.", FALSE,
+  "dia", "2026-11-10", WV_DIA_INIT, "Marshall University Research Corporation", 1753646,
+  "$1,753,646 to Marshall University Research Corporation",
+  "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No", WV_MURC_WHY, FALSE,
+  "dia", "2026-11-10", WV_DIA_INIT, "Cabell Huntington Hospital", 1544313,
+  "$1,544,313 to Cabell Huntington Hospital",
+  "HOSPITAL_OR_SYSTEM", "STATE_SOURCE", "DIRECT", "Yes", WV_CABELL_WHY, FALSE,
+  "dia", "2026-11-10", WV_DIA_INIT, "ROAM West Virginia", 700000,
+  "$700,000 to ROAM West Virginia",
+  NA, NA, "NON_HOSPITAL", "No", WV_ROAM_WHY, FALSE,
+  "dia", "2026-11-10", WV_DIA_INIT, "ROAM West Virginia", 500000,
+  "$500,000 to ROAM West Virginia",
+  NA, NA, "NON_HOSPITAL", "No", WV_ROAM_WHY, FALSE)
+WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S117)
+WV_S117_KEYS <- "dia"
+# Its footer prints BP1 + the FULL Year 2 award ($401,557,453 = $199,476,099 +
+# $202,081,354), which rhtp_footer_class() does not know (it knows only the
+# $100M initial award). Checked here against the 11-09 Year 2 release instead
+# of widening the shared check.
+WV_DIA_FOOTER <- 401557453
+WV_Y2_RELEASE <- file.path("data", "evidence", "recheck", "2026-11-13", "WV",
+                           "2026-11-13_wv_gov_202m_year2_100pct_obligated.html")
+
 # Each release's own headline total, which the priced rows must not exceed
 # (CCWV) or which bounds the unpriced remainder (Minnie Hamilton).
 WV_CCWV_TOTAL <- 1103614     # "more than $1.1 million": the four rows, exactly
@@ -582,7 +648,7 @@ wv_assert_sources <- function() {
     }
   }
   # §0.2: the footer on every release prints the ALLOTMENT.
-  for (k in names(WV_PATHS)) {
+  for (k in setdiff(names(WV_PATHS), "dia")) {
     rhtp_assert_footer_text_tier(wv_text(k), WV_STATE, "STATE_ALLOTMENT",
                                  label = paste("WV", k, "footer"))
   }
@@ -628,6 +694,18 @@ wv_assert_sources <- function() {
       !grepl("Additional awards will be announced", wvu, fixed = TRUE)) {
     stop("[WV] the WVU Health System release no longer reads as 'More Than ",
          "$3.4 Million' in two awards with more to follow.", call. = FALSE)
+  }
+  # Session 117a: seven awards make "nearly $17 million"; the footer is BP1 + BP2.
+  dia <- wv_text("dia")
+  y2 <- paste(readLines(here::here(WV_Y2_RELEASE), warn = FALSE), collapse = " ")
+  if (sum(WV_AWARDS$amount[WV_AWARDS$key == "dia"]) != 16976480 ||
+      !grepl("nearly $17 million across seven", dia, fixed = TRUE) ||
+      !grepl("financial assistance award totaling $401,557,453", dia, fixed = TRUE) ||
+      !grepl("$202,081,355", y2, fixed = TRUE) ||
+      abs(WV_DIA_FOOTER - rhtp_footer_allotments()$fy2026_allotment[
+        rhtp_footer_allotments()$state == WV_STATE] - 202081355) > 2) {
+    stop("[WV] the 11-10 release no longer reads as 'nearly $17 million' in seven ",
+         "awards with a BP1 + BP2 footer.", call. = FALSE)
   }
   # Session 115: the three CAMC awards make "more than $3.9 million".
   camc <- wv_text("camc")
@@ -697,8 +775,8 @@ wv_year1_awardees <- function() {
     reviewer = NA_character_,
     initiative = a$initiative,
     recipient_type_source = ifelse(
-      typed, paste0(ifelse(a$key %in% WV_S115_KEYS, "TYPED (session 115): ", ifelse(a$key %in% WV_S112_KEYS, "TYPED (session 112): ", ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
-                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): ")))))),
+      typed, paste0(ifelse(a$key %in% WV_S117_KEYS, "TYPED (session 117a): ", ifelse(a$key %in% WV_S115_KEYS, "TYPED (session 115): ", ifelse(a$key %in% WV_S112_KEYS, "TYPED (session 112): ", ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
+                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): "))))))),
                     a$why, " Classifier said ",
                     cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
@@ -927,10 +1005,11 @@ wv_validate <- function() {
   # Session 112: + 2 rows, both priced, neither a hospital (WVU Cancer
   # Institute, Williamson Health & Wellness Center).
   # Session 115: + 3 rows, all priced, all hospital (CAMC, $3,930,266).
-  stopifnot(nrow(d) == 33L, sum(!is.na(d$amount)) == 24L,
+  # Session 117a: + 7 rows, all priced, one hospital (Cabell Huntington, $1,544,313).
+  stopifnot(nrow(d) == 40L, sum(!is.na(d$amount)) == 31L,
             sum(d$distributed_to_hospital == "Unclear") == 0L,
-            sum(d$distributed_to_hospital == "Yes") == 17L,   # session 101: + Vandalia Health ($0)
-            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 10254266)
+            sum(d$distributed_to_hospital == "Yes") == 18L,   # session 101: + Vandalia Health ($0)
+            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 11798579)
   message("[WV] all assertions pass.")
   invisible(TRUE)
 }

@@ -236,10 +236,10 @@ Y1_STATUS <- tibble::tribble(
   "Alaska announces awards 'on a rolling weekly basis' (Funding Cycle Update; 185 -> 244 actions between snapshots, session 46). CMS's Alaska release: 'Additional awards are coming.'",
   "data/evidence/AK/2026-09-21_alaska_rhtp_year1_funding_cycle_update.pdf; data/raw/cms/2026-08-28/state_press_releases/AK_cms_press_release_main.html",
 
-  "SD", "PARTIAL", "No", "Yes",
-  "2026-09-24",
-  "Two announced rounds ($31.5M, $90M; 110 grants) name NO recipient. OpenSD's RHT series holds 41 contracts / $26,836,144 as of 2026-10-02 (session 86): 14 of the 28 Rural Strong grants ($15,967,960, INSIDE the $31.5M), 8 named awards whose round the register does not state ($3,175,112, capped at and never added to the $90M round), and 19 administrative contracts ($7,693,072). published_incl_pool_level is therefore administrative + the two rounds + the CCBHC pool, never the contracts on top. SESSION 90: the Governor's 2026-09-24 CCBHC release (12 grants, 'more than $13 million', a 13-member cohort, no per-grant amount; sd_year1_ccbhc_awardees.csv) says 'The next round of funding is anticipated later this fall', so a remainder is recorded and SD moves from UNKNOWN to PARTIAL. The ~$7.2M EMS round (CMS 10-02, Governor 10-03) names nobody and is in no file, so it is NOT in the figures here.",
-  "data/evidence/SD/announcements/KB0046839.html; data/evidence/SD/announcements/KB0047023.html; data/evidence/SD/ccbhc/KB0047183.html",
+  "SD", "COMPLETE", "Yes", "No",
+  "2026-11-10",
+  "Governor/DOH Year 2 release KB0047476 (2026-11-10): 'In Year One, South Dakota committed every dollar of its $189.5 million Rural Health Transformation award by the federal deadline, through 234 agreements supporting healthcare organizations and communities across the state.' Full commitment on a state source (the UT/VT test; 'committed' as in CMS's WY sentence; session 117a). The award files are a FLOOR: 63 register contracts against 234 agreements, and the two announced rounds ($31.5M, $90M) name nobody.",
+  "data/evidence/recheck/2026-11-13/SD/2026-11-13_sd_gov_year_two_release_KB0047476.html",
 
   "IL", "PARTIAL", "No", "Yes",
   "2026-08-29",
@@ -276,10 +276,10 @@ Y1_STATUS <- tibble::tribble(
   "MDH runs ten Budget Period 1 opportunities and links award offers for two (session 21).",
   "data/evidence/MD/2026-08-29_mdh_rhtp_program_page.html",
 
-  "NE", "PARTIAL", "No", "Yes",
-  "2026-08-31",
-  "DHHS's RFA timeline carries nineteen initiative rows and an 'Awardees' link on three (session 23).",
-  "data/evidence/NE/2026-08-31_ne_dhhs_rhtp_program_page.html",
+  "NE", "COMPLETE", "Yes", "No",
+  "2026-11-10",
+  "DHHS Year 2 release (2026-11-10): 'Nebraska received $218.5 million for year one, which has been fully obligated to implement all seven initiatives designed to strengthen access to care, enhance health care system resilience, and improve long-term health outcomes for Nebraskans.' Full obligation on a state source (the UT/VT test; session 117a). 'Additional funding opportunities' in the same release are Year 2. The award files are a FLOOR: NE's own pages publish awardees for three of nineteen RFA rows, and FSRS supplies most priced rows; the hospital share is not a share of the full Year 1 money.",
+  "data/evidence/recheck/2026-11-13/NE/2026-11-13_ne_dhhs_year2_release_fully_obligated.html",
 
   "IN", "PARTIAL", "No", "Yes",
   "2026-09-03",
@@ -391,10 +391,10 @@ Y1_STATUS <- tibble::tribble(
   "Four executed agreements ($49.98M) against DSS's $154.2M across 30 projects; the Governor's release points readers to 'updates on hospital projects and future phases of work' (session 54).",
   "data/evidence/recheck/2026-09-23/CT/ct_governor_rhtp_50m_release.html",
 
-  "WV", "PARTIAL", "No", "Yes",
-  "2026-09-30",
-  "The Governor calls them 'the first implementation awards'; CMS's WV release: 'Additional funding opportunities will also expand access...' (sessions 54-55). The 2026-09-30 CCWV release repeats it: 'Additional awards will be announced' (session 85).",
-  "data/evidence/recheck/2026-09-23/WV/wv_art_first-rural-health-transformation-progra.html; data/evidence/WV/2026-10-02_wv_art_ccwv_rhtp_awards.html; data/raw/cms/2026-09-21/newsroom/releases/trump-administration-announces-4-8-million-strengthen-west-virginias-rural-healthcare-workforce.html",
+  "WV", "COMPLETE", "Yes", "No",
+  "2026-11-09",
+  "Governor/DH Year 2 release (2026-11-09): 'West Virginia enters the second year having obligated 100 percent of its initial award through 145 signed awards and agreements, all finalized ahead of the October 30 federal deadline.' Full obligation on a state source (the UT/VT test; session 117a). The award file is a FLOOR: 40 rows of 145 agreements (incl. the 11-10 'nearly $17 million' release, extracted session 117a).",
+  "data/evidence/recheck/2026-11-13/WV/2026-11-13_wv_gov_202m_year2_100pct_obligated.html",
 
   "TN", "PARTIAL", "No", "Yes",
   "2026-09-03",
@@ -562,7 +562,21 @@ Y1_AWARD_STAGE <- c(
   UT = paste("NOTICE OF INTENT, ALL 41 ROWS: DHHS 'is preparing to formally",
              "announce the grant awardees'; COMPLETE rests on the State's page",
              "reporting 100% obligation of Year 1. Nine rows are state-agency fiscal",
-             "agents whose own subgrants are not yet named.")
+             "agents whose own subgrants are not yet named."),
+  # Session 117a: three states join on a state-source full-obligation statement.
+  NE = paste("MIXED, A FLOOR: DHHS's three signed Notices of Award, other DHHS",
+             "awardee pages, CMS obligation-report lines (owner ruling, session 98)",
+             "and FSRS/FFATA first-tier subawards; a few rows are intents. COMPLETE",
+             "rests on DHHS's 'fully obligated' sentence, not on the files, which",
+             "cover a minority of the allotment."),
+  SD = paste("EXECUTED CONTRACTS, A FLOOR: the open.sd.gov RHT register (executed",
+             "contracts) and FSRS subawards; the two announced rounds and the CCBHC",
+             "cohort name nobody or price nobody. COMPLETE rests on 'committed every",
+             "dollar ... through 234 agreements', not on the files."),
+  WV = paste("AWARDED (GOVERNOR'S WORD), A FLOOR: the Governor's award releases",
+             "and FSRS subawards, 40 + 14 rows against the 145 'signed awards and",
+             "agreements' the State reports; COMPLETE rests on 'obligated 100",
+             "percent of its initial award'.")
 )
 
 y1_hospital_share <- function(status = y1_build_status()) {
@@ -574,7 +588,9 @@ y1_hospital_share <- function(status = y1_build_status()) {
   }
   purrr::map_dfr(done, function(st) {
     fs <- Y1_AWARD_FILES[names(Y1_AWARD_FILES) == st]
-    d <- dplyr::bind_rows(lapply(fs, y1_read))
+    # Session 117a: NE's files disagree on fiscal_year's type; it is a label here.
+    d <- dplyr::bind_rows(lapply(fs, function(f) y1_read(f) %>%
+                                   dplyr::mutate(dplyr::across(dplyr::any_of("fiscal_year"), as.character))))
     if (!"flow_type" %in% names(d)) d$flow_type <- NA_character_
     p <- rhtp_hospital_dollar_partition(d)
     amt <- suppressWarnings(as.numeric(d$amount))
