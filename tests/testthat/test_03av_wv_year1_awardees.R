@@ -11,9 +11,10 @@ test_that("thirty-three rows, twenty-four priced, $24,324,218, each quoted verba
   # Session 112: + WVU Cancer Institute ($1,339,077) and Williamson Health &
   # Wellness Center ($250,000), neither a hospital row.
   # Session 115: + three CAMC awards from the 10-30 release ($3,930,266).
-  expect_equal(nrow(wv), 33L)
-  expect_equal(sum(!is.na(wv$amount)), 24L)
-  expect_equal(sum(wv$amount, na.rm = TRUE), 24324218)
+  # Session 117a: + seven awards from the 11-10 release ($16,976,480).
+  expect_equal(nrow(wv), 40L)
+  expect_equal(sum(!is.na(wv$amount)), 31L)
+  expect_equal(sum(wv$amount, na.rm = TRUE), 41300698)
   expect_silent(wv_assert_sources())
 })
 
@@ -23,9 +24,10 @@ test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton, the six
                                        "Minnie Hamilton Health Care Center",
                                        WV_INV_ENROL$awardee, "Vandalia Health",
                                        "West Virginia United (WVU) Health System",
-                                       "Charleston Area Medical Center (CAMC)"))
-  expect_equal(nrow(h), 17L)   # session 107: + 2 WVU Health System (system parent, LOW); session 115: + 3 CAMC
-  expect_equal(sum(h$amount, na.rm = TRUE), 10254266)
+                                       "Charleston Area Medical Center (CAMC)",
+                                       "Cabell Huntington Hospital"))
+  expect_equal(nrow(h), 18L)   # session 107: + 2 WVU Health System (system parent, LOW); session 115: + 3 CAMC; session 117a: + Cabell Huntington Hospital
+  expect_equal(sum(h$amount, na.rm = TRUE), 11798579)
   expect_true(all(h$determination_confidence[h$awardee == "West Virginia United (WVU) Health System"] == "LOW"))
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # The foundation rests on §10.2's named-parent row, a reading -> LOW.
