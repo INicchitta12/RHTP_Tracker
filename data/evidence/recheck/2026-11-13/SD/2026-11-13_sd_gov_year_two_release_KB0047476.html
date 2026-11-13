@@ -1,0 +1,776 @@
+<!DOCTYPE html><html lang="en" class=" ltr " data-doctype="true" dir="ltr" ontouchend="CustomEvent.fireAll('body_clicked', event);"><head><script>document.addEventListener('click', function (event) {
+				CustomEvent.fireAll('body_clicked', event);
+			});
+			document.hasBodyClickedTrigger = 'true';</script><script type="text/javascript"></script><title>SD.gov</title><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"></meta><meta http-equiv="cache-control" content="public"></meta><meta name="referrer" content="origin-when-cross-origin"></meta><meta name="viewport" content="initial-scale=1.0"></meta><script type="text/javascript" data-description="globals population">
+	window.NOW = window.NOW || {};
+	window.NOW.disableListInputValidation = false;
+	var g_loadTime = new Date();
+	var lastActivity = new Date();
+	var g_lang = 'en';
+	var g_system_lang = 'en';
+	var g_enhanced_activated = 'true';
+	  var g_popup_timeout = parseInt(100);
+	var g_export_warn_threshold = parseInt(10000);
+	  var g_event_handler_ids = {};
+	var g_event_handlers = [];
+	var g_event_handlers_onLoad = [];
+	var g_event_handlers_onSubmit = [];
+	var g_event_handlers_onChange = [];
+	var g_event_handlers_onCellEdit = {};
+	var g_event_handlers_localCache = {};
+	var g_event_handlers_queryTracking = true;
+	var g_user_date_time_format = "MM/dd/yyyy hh:mm:ss a";
+	var g_user_date_format = "MM/dd/yyyy";
+	var g_user_decimal_separator = ".";
+	var g_user_grouping_separator = ",";
+	var g_glide_list_separator = ", ";
+	var g_glide_duration_seconds_enabled = "false";
+	var g_allow_field_dependency_for_templates = ("true" === "true");
+	var g_tz = "US/Central";
+	var g_tz_offset = -21600000;
+	  var g_tz_user_offset = true;
+	var g_first_day_of_week = parseInt(1, 10);
+	var g_date_picker_first_day_of_week = parseInt(0, 10);
+	  var g_full_calendar_edit = true;
+	var g_submitted = false;
+	var g_max_table_length = 80;
+	var g_fontSizePreference = "";
+	var g_fontSize = "10pt";
+	// use to be the sys_property glide.ui.js_error_notify, hard coded for PRB603998
+	var g_jsErrorNotify = "true";
+	var g_cancelPreviousTransaction = true;
+	var g_text_direction = "ltr";
+	var g_glide_list_filter_max_length =  parseInt("0", 10);
+	var g_allow_extended_fields = false;
+	var g_accessibility = false;
+	var g_accessibility_tooltips = false;
+	var g_accessibility_tooltip_duration = parseInt("10", 10);
+	var g_accessibility_visual_patterns = false;
+	var g_accessibility_screen_reader_table = false;
+	var g_accessibility_date_format = false;
+	var g_detail_row = false;
+	var g_builddate = "09-23-2026_1511";
+	// default values to be used in absence of user preferences are hard coded below
+	// as well as in keyboardShortcuts.js and keyboard_preference_changer.xml
+	window.g_keyboard_shortcuts = {};
+	window.g_keyboard_shortcuts.allow_in_input_fields = false;
+	window.g_keyboard_shortcuts.enabled = true;
+	window.g_keyboard_shortcuts.global_search = {};
+	window.g_keyboard_shortcuts.global_search.enabled = true;
+	window.g_keyboard_shortcuts.global_search.key_combination = 'ctrl+alt+g';
+	window.g_keyboard_shortcuts.main_frame = {};
+	window.g_keyboard_shortcuts.main_frame.enabled = true;
+	window.g_keyboard_shortcuts.main_frame.key_combination = 'ctrl+alt+p';
+	window.g_keyboard_shortcuts.navigator_toggle = {};
+	window.g_keyboard_shortcuts.navigator_toggle.enabled = true;
+	window.g_keyboard_shortcuts.navigator_toggle.key_combination = 'ctrl+alt+c';
+	window.g_keyboard_shortcuts.navigator_filter = {};
+	window.g_keyboard_shortcuts.navigator_filter.enabled = true;
+	window.g_keyboard_shortcuts.navigator_filter.key_combination = 'ctrl+alt+f';
+	window.g_keyboard_shortcuts.impersonator = {}
+	window.g_keyboard_shortcuts.impersonator.enabled = true;
+	window.g_keyboard_shortcuts.impersonator.key_combination = 'ctrl+alt+i';
+	// The `g_concourse_onmessage_enforce_same_origin` and `g_concourse_onmessage_enforce_same_origin_whitelist` variables
+    // do not appear to be used anywhere other than the CustomEventManager, but leaving these for backwards compatability
+	var g_concourse_onmessage_enforce_same_origin = 'true'.toLowerCase() === 'true';
+	var g_concourse_onmessage_enforce_same_origin_whitelist = '';
+	window.g_load_functions = [];
+	window.g_render_functions = [];
+	window.g_late_load_functions = [];
+	window.g_tiny_url = {};
+	window.g_tiny_url.use_tiny = 'true' === 'true';
+	window.g_tiny_url.min_length = parseInt('1024');
+	
+	
+	var g_ck = 'ed39a39d9768db10ca9139b0f053af5925b9f494ec56c4a82c424809cc4489d993159174';
+	
+
+	
+	var g_acWaitTime = parseInt(250);
+	
+
+	var g_autoRequest = '';
+
+	try {
+		window.NOW.dateFormat = JSON.parse("{\"timeAgo\": false, \"dateBoth\": false}");
+	} catch (e) {
+		window.NOW.dateFormat = {timeAgo: false, dateBoth: false};
+	}
+
+	window.NOW.dateFormat.dateStringFormat = "MM/dd/yyyy";
+	window.NOW.dateFormat.timeStringFormat = "hh:mm:ss a";
+	window.NOW.shortDateFormat = false;
+	window.NOW.listTableWrap = true;
+	window.NOW.compact = false;
+  	window.NOW.templateToggle = false;
+	window.NOW.tabbed = true;
+	window.NOW.permalink = true;
+	window.NOW.useSimpleStorage = true;
+	window.NOW.httpRequestCompressionThreshold = 40000;
+	window.NOW.httpRequestCompressionLevel = -1;
+	window.NOW.httpRequestCompressionMemoryLevel = -1;
+	window.NOW.httpRequestCompressionExcludeUrls = 'xmlhttp.do,angular.do'.split(',');
+	window.NOW.deferAmbConnection = false;
+	window.NOW.deferredAmbConnectionTimeout = 10000;
+	window.NOW.simpleStorageSynch = "2ac3e541972c1b10ca9139b0f053afb8";
+	window.NOW.language =  'en';
+	window.NOW.listOpenInAppTab = false;
+	window.NOW.floatingScrollbars = 'false'.toLowerCase() === 'true';
+	
+	window.NOW.user = {};
+	window.NOW.user.preferences = [];
+	window.NOW.user.roles = '';
+	window.NOW.user.allRoles = '';
+	window.NOW.user.userID = '5136503cc611227c0183e96598c4f706';
+	window.NOW.user.departmentID = '';
+	window.NOW.user.firstName = '';
+	window.NOW.user.lastName = 'Guest';
+	window.NOW.user.name = 'guest';
+  	window.NOW.user.isImpersonating = false;
+	window.NOW.batch_glide_ajax_requests = 'true' === 'true';
+	window.NOW.batch_glide_ajax_requests_max_time_in_queue = ~~'50';
+	window.NOW.batch_glide_ajax_disable_time = ~~'1000';
+
+	window.NOW.currency = {};
+	window.NOW.currency.code = 'USD';
+	window.NOW.locale = {};
+	window.NOW.locale.code = 'en_US';
+
+	window.NOW.attachment = {};
+	
+	window.NOW.attachment.overflow_limit =  parseInt('3', 10);
+	window.NOW.isPolarisEnabled = "true";
+	window.NOW.polaris_page_info ={"canUsePolarisCSS":true,"canUsePolarisTemplates":true,"jvar_form_name":"ui_page_render"};</script><script data-comment="GlideUser initialization">(function() {
+		 g_render_functions.push(setGlideUser);
+		function setGlideUser() {
+			if (window.g_user || !window.GlideUser)
+		return;
+
+		window.g_user = new GlideUser(NOW.user.name,
+			  NOW.user.firstName,
+			  NOW.user.lastName,
+			  NOW.user.roles,
+			  NOW.user.userID,
+			  NOW.user.departmentID);
+		window.g_user.setRoles(NOW.user.allRoles, true);
+		}
+	})();</script><script data-description="NOW glide web analytics siteid and url">window.snWebaConfig = window.snWebaConfig || {};
+		// glide web analytics config
+		window.snWebaConfig.siteId = "0";
+		window.snWebaConfig.trackerURL = "";
+		window.snWebaConfig.webaScriptPath = "/scripts/piwik-3.1.1/thirdparty/piwik.min.js";
+		window.snWebaConfig.ambClient = (window.g_ambClient) ? window.g_ambClient : ((window.amb)? window.amb.getClient(): "");
+		window.snWebaConfig.subscribed = false;</script><script type="text/javascript" src="/ConditionalFocus.jsdbx?v=09-23-2026_1511&amp;c=13_274"></script><link href="sdGOV.png" rel="shortcut icon"></link><script type="text/javascript" src="/scripts/doctype/xperf_timing.jsx?v=09-23-2026_1511"></script><link type="text/css" rel="stylesheet" href="/styles/css_includes_doctype_polaris.cssx?v=09-23-2026_1511&amp;c=d54f87cc97289310ca9139b0f053afa4&amp;theme=Polaris"></link><script>window.NOW = window.NOW || {};
+		 NOW.isUsingPolaris = true;</script><link type="text/css" rel="stylesheet" href="/styles/polarisberg/css_includes_polarisberg.cssx?v=09-23-2026_1511&amp;c=d54f87cc97289310ca9139b0f053afa4&amp;theme=Polaris"></link><script>NOW.exclude_dark_theme = "false";</script><script type="text/javascript" src="/scripts/polaris_theme_refresh_observer.jsx?v=09-23-2026_1511"></script><link data-source-id="glide-theme" rel="stylesheet" id="polarisberg_theme_variables" href="/$uxappimmutables.do?sysparm_request_type=ux_theme&amp;sysparm_app_config_sys_id=e42a5af4c700201072b211d4d8c2607c&amp;sysparm_app_sys_id=c86a62e2c7022010099a308dc7c26022&amp;sysparm_page_registry=a84adaf4c700201072b211d4d8c260b7&amp;uxpcb=iNlGqEb4GiorZbCI51FpWBzQu2U=null"></link><script>NOW.xperf.cssEnd = NOW.xperf.now();
+			NOW.xperf.scriptBegin = NOW.xperf.now();</script><script src="/legacy_date_time_choices_processor.do?lang=en"></script><script type="text/javascript" src="/scripts/doctype/js_includes_doctype.jsx?v=09-23-2026_1511&amp;lp=Mon_Nov_09_12_24_09_PST_2026&amp;c=13_274"></script><script data-description="MessagesTag">(function() {
+ var messages = new GwtMessage();
+messages.set('ajax_session_timeout_goto_login_confirm','Your session has expired. Click OK to log in again.');
+messages.set('ajax_session_timeout_resubmit_request_confirm','Your session has expired. Click OK to continue.');
+messages.set('ajax_session_timeout_refresh_screen','Your session has expired. Click OK to continue.');
+})()</script><script type="text/javascript" src="/scripts/js_includes_customer.jsx?v=09-23-2026_1511&amp;lp=Mon_Nov_09_12_24_09_PST_2026&amp;c=13_274"></script><script type="text/javascript" src="/scripts/doctype/history_across_tabs.jsx?v=09-23-2026_1511"></script><script type="text/javascript" src="/scripts/doctype/js_includes_legacy.jsx?v=09-23-2026_1511&amp;lp=Mon_Nov_09_12_24_09_PST_2026&amp;c=13_274"></script><script type="text/javascript" data-comment="navpage layout preferences, onfocus observation">/**
+	* Every window needs to observe these events.
+	*/
+	if (Prototype.Browser.IE && !isMSIE9) {
+		document.onfocusout = function() { CustomEvent.fireTop(GlideEvent.WINDOW_BLURRED, window); };
+		document.onfocusin = function() { CustomEvent.fireTop(GlideEvent.WINDOW_FOCUSED, window); };
+	} else {
+		Event.observe(window, 'blur', function() { CustomEvent.fireTop(GlideEvent.WINDOW_BLURRED, window); });
+		Event.observe(window, 'focus', function() { CustomEvent.fireTop(GlideEvent.WINDOW_FOCUSED, window); });
+	}</script><script type="text/javascript">g_swLoadTime = new StopWatch(g_loadTime);
+
+    if (window.CustomEvent){
+        CustomEvent.fireAll("ck_updated", "ed39a39d9768db10ca9139b0f053af5925b9f494ec56c4a82c424809cc4489d993159174");
+	    CustomEvent.fireTop("navigation.complete", window);
+	}
+
+    addLoadEvent( function() {
+
+		if (isValidTouchDevice())
+			addTouchScrollClassToBody();
+
+      if (typeof g_ck != 'undefined') {
+        CustomEvent.observe("ck_updated", function(ck) { g_ck = ck; });
+        CustomEvent.fireAll("ck_updated", "ed39a39d9768db10ca9139b0f053af5925b9f494ec56c4a82c424809cc4489d993159174");}try {
+              var helpico = getTopWindow().document.getElementById("help_ico");
+
+              if (helpico) {
+                var urlname=window.location.pathname.split("?");
+                var search_str = window.location.search;
+                
+                // if this is a form, extract the record's sys_id...
+                var sys_id_loc = search_str.search(/sys_id=[0-9a-f]{32}/i);
+                var sys_id_str = (sys_id_loc != -1) ? search_str.substr(sys_id_loc, 39) : null;
+                
+                // make the URL to our context help processor...
+                var url_search = "?sysparm_url=" + urlname[0];
+                if (sys_id_loc != -1)
+                   url_search += "&" + sys_id_str;
+
+               	helpico.href="context_help.do" + url_search;                	
+              }
+            } catch (exception) {}
+
+      synchCache();
+      pageLoaded();
+    });
+    
+    function synchCache() {
+      try {
+        var w = getTopWindow();
+        if (w.g_cache_message)
+          w.g_cache_message.stamp("2ac3e541972c1b10ca9139b0f053afb8");
+  
+        if (w.g_cache_td)
+          w.g_cache_td.stamp("39e82bdd9768db10ca9139b0f053af2b");
+      } catch(e) {}
+    }
+
+    function isValidTouchDevice() {
+		var navigator = window.navigator || {};
+		var devices;
+		try {
+			devices = 'iPad,Android'.split(',');
+		} catch(ex) {
+			devices = [];
+		}
+		return devices.some(function(item) {return item.trim() === navigator.platform;});
+	}
+
+	function addTouchScrollClassToBody() {
+		if ('ontouchstart' in window ||
+				(navigator.maxTouchPoints !== 'undefined' && navigator.maxTouchPoints > 0) ||
+				(navigator.msMaxTouchPoints !== 'undefined' && navigator.msMaxTouchPoints > 0)) {
+			if (typeof document.body != undefined) {
+				document.body.classList.add('touch_scroll');
+			}
+		}
+	}
+  </script><!--googleoff: all--><noscript>This site requires JavaScript to be enabled</noscript> <!--googleon: all--><script type="text/javascript" src="/scripts/app.guided_tours/js_guided_tours_includes.jsx?v=09-23-2026_1511"></script><script>NOW.xperf.scriptEnd = NOW.xperf.now();
+				NOW.xperf.parseEnd = NOW.xperf.now();</script></head><body class="                -polaris " data-formName="ui_page_render"><span class="sr-only"><div id="html_page_aria_live_polite" role="region" aria-relevant="additions text" aria-atomic="false" aria-live="polite"></div><div id="html_page_aria_live_assertive" role="region" aria-relevant="additions text" aria-atomic="false" aria-live="assertive"></div></span><div class="outputmsg_div"><script data-description="MessagesTag">(function() {
+ var messages = new GwtMessage();
+messages.set('Info Message');
+messages.set('Warning Message');
+messages.set('Error Message');
+messages.set('Success Message');
+messages.set('Low priority Message');
+messages.set('Moderate priority Message');
+messages.set('High priority Message');
+messages.set('Suggestion Message');
+messages.set('Authentication Message');
+})()</script><div id="output_messages" class="outputmsg_container outputmsg_hide"><div class="outputmsg_div" aria-live="polite" role="region" data-server-messages="false" aria-label="Output messages"></div><button type="button" id="close-messages-btn" class="btn btn-icon close icon-cross" title="Close Messages" aria-label="Close Messages" tabindex="0" onclick="GlideUI.get().onCloseMessagesButtonClick(this); return false;"></button></div><script>addRenderEvent(function() {CustomEvent.fire('glide_optics_inspect_update_watchfield', '');});
+
+			var accessibilityEnabled = Boolean(false);
+			var hasMessages = false;
+			if (accessibilityEnabled && hasMessages) {
+				$j(function() {
+					$j('#output_messages .btn.btn-icon.close').focus();
+				});
+			}</script><span class="ui_notification" data-type="session_change" data-text="" data-attr-session_domain="global"></span></div><script type="text/javascript" src="/scripts/lib/jquery_includes.jsx?v=09-23-2026_1511"></script><script type="text/javascript" src="/scripts/classes/timeAgo.jsx?v=09-23-2026_1511"></script><link type="text/css" rel="stylesheet" href="/styles/knowledge.ng/css_includes_knowledge_polaris.cssx?v=09-23-2026_1511&amp;c=12/06/2021_14:55:31_d54f87cc97289310ca9139b0f053afa4&amp;theme=system"></link><link href="e113037c8d995110f877cc1790289d71.cssdbx?v=09-23-2026_1511" type="text/css" rel="stylesheet"></link><script eval="true">if('Gov. Rhoden Announces Year Two Rural Health Transformation Funding' != ''){
+			$j("title").text(new DOMParser().parseFromString("News - Gov. Rhoden Announces Year Two Rural Health Transformation Funding", "text/html").documentElement.textContent);
+		}
+		var kbConfig = {
+			canContribute: 'false',
+			historyRowCount: 0,
+			i18n: {
+				STATUS_MSG: {
+					draft: 'This knowledge item has been created',
+					review: 'This knowledge item has been published',
+					published: 'This knowledge item has been published',
+					pending_retirement: 'This knowledge item has been retired',
+					retired: 'This knowledge item has been retired',
+					delete_failed: 'This article could not be deleted'
+				},
+				TXT_PLACEHOLDER: 'Add content',
+				NOT_RETIRED: 'Article not retired',
+				NOT_PUBLISHED: 'Article not published',
+				NOT_SAVED: 'Article not saved',
+				SAVED: 'Article saved',
+				DISCARDED: 'Article changes discarded',
+				SUBMITTED: 'Your article has been submitted',
+				PREVIEW: ' Preview ',
+				PREVIEW_HINT: 'Preview changes',
+				CONFIRM_DELETE: 'Confirm deletion of this article?',
+				DELETE: 'Delete',
+				TITLE_RETIRE: 'Retire',
+				MESSAGE_RETIRE: 'Retire this article?',
+				TITLE_CANCEL: 'Cancel changes',
+				MESSAGE_CANCEL: 'Discard all changes?'
+			}
+		};
+
+		$j(function() {
+			if (parent.document) {
+				// fix iframe resize issue for CMS service portal
+				parent.CustomEvent.fire('content_frame.resized', window.name, parent.document.body.scrollHeight);
+			}
+
+			if('' != '') {
+				if(typeof URL != 'undefined') {
+					var url = new URL(window.location.href);
+					url.searchParams.set('sys_kb_id', '');
+					window.history.pushState({path: url.href}, '', url);
+				} else {
+					// Fallback solution for IE where URL is not defined.
+					var replaceQueryParameter = function(parameter, value, search) {
+						var regex = new RegExp("([?;&amp;])" + parameter + "[^&amp;]*[;&amp;]?");
+						var query = search.replace(regex, "$1").replace(/&amp;$/, '');
+
+						return (query.length > 2 ? query + "&amp;" : "?") + (value ? parameter + "=" + value : '');
+					}
+		
+					var url = window.location.origin + replaceQueryParameter('sys_kb_id', '', window.location.search);
+					window.history.pushState({path: url}, '', url);
+				} 
+			}
+		});</script><script eval="true">// variables for tinymce init
+				var g_tinymce_lang = "en";
+				var g_tinymce_remove_script_host = true;
+				var tinymce_toolbar_line1 = "bold,italic,underline,undo,redo,|,fontselect,fontsizeselect,table,|,forecolor,backcolor,link,unlink,|,image,media,code,|,alignleft,aligncenter,alignright,|,bullist,numlist,fullscreen";
+				var tinymce_toolbar_line2 = "";
+				var tinymce_fonts = "Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Journal=journal;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats;";
+
+				addLoadEvent(function() {
+					if (typeof g_sc_form == "undefined") if (typeof g_form != "undefined") {
+						g_sc_form = g_form;
+					}
+				});</script><script type="text/javascript" src="/KnowledgeFunctions.jsdbx?v=09-23-2026_1511&amp;c=13_274"></script><script type="text/javascript" src="/KBViewArticle.jsdbx?v=09-23-2026_1511&amp;c=13_274&amp;cache=2026-10-29 04:34:22"></script><div class="snc-article-hidden-fields" aria-hidden="true"><input id="articleId" type="hidden" value="017a7ad847acd310854b61d2e16d4337"></input><input type="hidden" aria-hidden="true" id="ts_queryId" value=""></input><input id="articleWorkflowState" type="hidden" value="published"></input><input id="articleTitleTemplate" type="hidden" value=""></input><input id="articleTemplate" type="hidden" value=""></input><input id="articleTitleOld" type="hidden" value="Gov. Rhoden Announces Year Two Rural Health Transformation Funding"></input><input id="articleOriginal" type="hidden" value=""></input><input id="articleTextType" type="hidden"></input><textarea id="articleWikiText" style="display:none" aria-label="Article wiki text"></textarea><input id="articleInPopUp" type="hidden" value="false"></input><input id="articleDirty" type="hidden" value="Changes have been made. Continuing will discard the changes."></input><input id="articleIsNew" type="hidden"></input><input id="articleModified" type="hidden" value="false"></input><input id="articleEditMode" type="hidden" value="false"></input><input id="articleVersion" type="hidden" value="3"></input><input id="articleDisplayAttachments" type="hidden" value="false"></input><input id="articleShowKBCreateIncident" type="hidden" value="false"></input><input id="articleVersioningInstalled" type="hidden" value="true"></input><input id="articleKnowledgeBase" type="hidden" value="e4bcd21edb22d510b2fb93d4f3961988"></input><input id="articleKnowledgeBaseName" type="hidden" value="News"></input><input id="articleNumber" type="hidden" value="KB0047476"></input><input id="attachFields" type="hidden" value="comments"></input><input id="canShowKBFeedback" type="hidden" value="false"></input><input id="isLiveFeedEnabled" type="hidden" value="false"></input></div><div class="row navbar navbar-default snc-article-header-toolbar" role="navigation"><div class="col-xs-7 kb-container-fluid"><div class="row kb-navbar-header"><div class="col-xs-2 head-back-n-star"><button role="link" id="backButton" data-toggle="tooltip" data-persistent="true" title="Back" aria-label="Back" class="btn btn-default icon-chevron-left navbar-btn snc-article-toolbar-btn pull-left"></button>
+	
+	<div class="modal" id="createFavoritesModal" aria-labelledby="favorite_modal_title" name="create_favorites_modal" role="dialog">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<header class="modal-header clearfix">
+					<button data-dismiss="modal" class="btn btn-icon close icon-cross">
+						<span class="sr-only">Close</span></button>
+					<h2 id="favorite_modal_title" class="modal-title pull-left h4">Create Favorite</h2></header>
+				<form class="create-favorite" name="create_favorite_form">
+					<div class="modal-body clearfix">
+					<div id="output_messages_favorite" class="outputmsg_container outputmsg_hide compact">
+						<button aria-label="Close Messages" class="btn btn-icon close icon-cross"></button>
+						<div class="outputmsg_div" aria-live="polite" role="region" data-server-messages="false"></div></div>
+						<div id="favorite_preview"><span></span></div>
+						<label class="sr-only" for="create_favorite_title" aria-labelledby="create_favorite_title">Bookmark title</label>
+						<input type="text" id="create_favorite_title" name="title" class="form-control" value="" aria-label="Bookmark title" aria-required="true" aria-invalid="false" placeholder="Bookmark title"></input>
+						<input type="hidden" name="url" value=""></input>
+						<input type="hidden" name="window_name" value=""></input>
+						<input type="hidden" name="id" value=""></input>
+						<input type="hidden" name="color" value=""></input>
+						<div class="color-picker">
+							<fieldset id="icon_colors">
+								<legend class="sr-only">Color</legend></fieldset></div>
+						<input type="hidden" name="icon" value=""></input>
+						<div class="icon-picker">
+							<fieldset id="icon_picker" class="nav-edit-favorites-icon-grid">
+								<legend class="sr-only">Icon</legend></fieldset></div></div>
+					<div class="modal-footer">
+						<button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+						<button type="submit" class="btn btn-primary">Done</button></div></form>
+				<script type="text/javascript">
+					
+						window.MagellanCreateFavorites = {
+							navColors : ["purple","blue","cyan","aquamarine","green","yellow","orange","burnt-orange","red","pink","fuschia","white"],
+							navIcons : ["article-document","user","user-group","lightbulb","home","mobile","comment","mail","locked","database","book","drawer","folder","catalog","tab","cards","tree-right","tree","book-open","paperclip","edit","trash","image","search","power","cog","star","star-empty","new-ticket","dashboard","cart-full","view","label","filter","calendar","script","add","delete","help","check-circle","alert","sort-ascending","console","list","form","livefeed","key","hr"],
+							paramBlackList : ["sysparm_no_stack","sysparm_userpref_module","sysparm_record_target","sysparm_record_row","sysparm_record_rows","sysparm_record_list"]
+						};
+					</script>
+				<script type="text/javascript" src="/scripts/thirdparty/radio/radioButton.jsx?v=09-23-2026_1511"></script>
+				<script type="text/javascript" src="/scripts/thirdparty/radio/radioGroup.jsx?v=09-23-2026_1511"></script>
+				<script type="text/javascript" src="/scripts/magellan.CreateFavoriteModal.jsx?v=09-23-2026_1511"></script></div></div></div><script eval="true">(function() {
+									var historyData = {
+										title: 'Gov. Rhoden Announces Year Two Rural Health Transformation Funding',
+										isTable: false,
+										url: '/kb_view.do?sysparm_article=KB0047476'
+									};
+									CustomEvent.fire('magellanNavigator.sendHistoryEvent', historyData);
+								})();
+								function showCreateFavoriteModal() {
+									if (MagellanCreateFavorites && MagellanCreateFavorites.addFavorite) {
+										MagellanCreateFavorites.addFavorite({
+										title : 'Gov. Rhoden Announces Year Two Rural Health Transformation Funding',
+										icon : 'book',
+										url: '/kb_view.do?sysparm_article=KB0047476'
+									});
+									}
+								}</script><button onclick="showCreateFavoriteModal()" class="btn btn-icon icon-star pull-left" data-toggle="tooltip" data-persistent="true" title="Create Favorite" aria-label="Create Favorite"></button></div><div class="col-xs-10 head-bc"><ol class="breadcrumb kb_view_breadcrumb"><li><a href="knowledge_home_launcher.do">Home</a></li><li><a href="knowledge_home_launcher.do?sysparm_kb=e4bcd21edb22d510b2fb93d4f3961988&amp;sysparm_category=NULL_VALUE&amp;browse_type=categories">General</a></li><li>Gov. Rhoden Announces Year Two Rural Health Transformation Funding</li></ol></div></div></div><div class="col-xs-5 snc-kb-navbar-right"><div class="header-bar-btn-group" id="header-bar-button-group"><button id="createIncident" data-toggle="tooltip" data-persistent="true" title="Create Incident" aria-label="Create Incident" class="btn btn-default navbar-btn snc-article-header-toolbar-button pull-right">Create Incident</button><button id="moreInformation" title="Information" aria-label="Information" class="btn btn-default navbar-btn snc-article-header-toolbar-button pull-right"><span class="icon icon-view"></span></button></div></div></div><div id="kb_confirmationDlg" tabindex="-1" aria-hidden="true" class="modal" role="dialog" aria-labelledby="modal1_title"><div class="modal-dialog modal-sm modal-alert"><div class="modal-content" tabindex="0" aria-label="Cancel changes confirmation dialog"><header class="modal-header"><h4 id="modal1_title" class="modal-title">Cancel changes</h4></header><div class="modal-body" tab-index="0" aria-label="Discard all changes?" aria-role="question"><p>Discard all changes?</p></div><footer class="modal-footer flex"><button data-dismiss="modal" aria-label="No" class="btn btn-default kb-no-btn" onclick="$j('#kb_confirmationDlg').hide()">No</button><button data-dismiss="modal" aria-label="Yes" class="btn btn-danger kb-yes-btn">Yes</button></footer></div></div></div><div id="unSubscribe" aria-hidden="true" class="modal" role="dialog" aria-labelledby="modal2_title"><div class="modal-dialog modal-sm"><div class="modal-content"><header class="modal-header"><h4 id="modal2_title" class="modal-title">Unsubscribe</h4></header><div class="modal-body"><p>In order to unsubscribe from this article, you will need to unsubscribe from the parent Knowledge Base: News.</p><p><b>Would you like to unsubscribe from News ?</b></p></div><footer class="modal-footer flex"><button data-dismiss="modal" class="btn btn-default kb-no-btn">No</button><button id="unsubscribeDialog" data-dismiss="modal" class="btn btn-primary kb-yes-btn">Yes</button></footer></div></div></div><div class="kb-view-content-wrapper"><div id="messageBox" class="snc-article-header-message outputmsg_container" aria-live="assertive" role="alert"><div class="outputmsg_div"><div id="messageType" class="outputmsg outputmsg_info notification notification-info" style="width:100%; display:inline-flex;" role="status"><div style="width:100%;" id="ariaNotification"><img class="outputmsg_image" id="info_outputmsg_image" title="Informational Message" aria-label="Informational Message" src="images/outputmsg_info_24.gifx"></img><span id="articleText" class="outputmsg_text"></span></div><button id="closeMessageBox" title="Close Messages" class="btn btn-icon close icon-cross" onclick="$j('#messageBox').hide()"><span class="sr-only">Close Messages</span></button></div></div></div><script eval="true">document.getElementById("info_outputmsg_image").setAttribute('alt', "Informational Message");</script><div class="snc-article-header-title"><input id="articleTitleEditable" type="text" aria-label="Article title" value="Gov. Rhoden Announces Year Two Rural Health Transformation Funding" class="snc-article-header-title-editable" placeholder="Add title" style="display:none" autofocus="true"></input><h1 id="articleTitleReadonly" class="snc-article-header-title-readonly" style="display:none">Gov. Rhoden Announces Year Two Rural Health Transformation Funding</h1><div id="articleNumberReadonly" class="snc-article-header-number-readonly" style="display:none">KB0047476</div></div><script eval="true">
+				function KbStarRatingClass() {
+					var currentId = '017a7ad847acd310854b61d2e16d4337';
+					var currentRating = 0;
+					function ajaxPost(value) {
+						if (currentId) {
+							var ajax = new GlideAjax('KBAjax');
+							ajax.addParam('sysparm_type', 'saveStarRating');
+							ajax.addParam('sysparm_rating', value);
+							ajax.addParam('sysparm_id', currentId);
+							var query = $j('#sysparm_search');
+							var ts_queryId = "";
+							ajax.addParam('sysparm_search', (query.length) ? escape(query.val()) : '');
+							ajax.addParam("ts_queryId", ts_queryId);
+							ajax.getXMLAnswer(postRatingDone);
+						}
+					}
+					function postRatingDone(answer){
+						var data = answer.evalJSON(true);
+						if (!data) {
+							return kbViewArticle.showErrorMessage('Article rating not submitted');
+						}
+						if (!data.success) {
+							return kbViewArticle.showErrorMessage(data.message);
+						}
+					}
+					function setStarsRating(value) {
+						if (!isNaN(value)) {
+							currentRating = Math.round(value);
+						}
+						if (currentRating > 0) {
+							var ratingMessage = getUIMessage([currentRating]);
+							$j('#articleStarRatingGroup').attr("title", ratingMessage);
+							$j('#articleStarRatingGroup').attr("data-original-title", ratingMessage);
+							$j('.kb-star-rating label').filter(function() {
+							return $j(this).attr('data-index') <= currentRating;
+							}).addClass('kb-active-star');
+							if(this.selfRated) {
+								$j('.kb-star-rating label.kb-active-star').addClass('kb-active-star-self').removeClass('kb-active-star');
+							}
+						}
+						else{
+								var message = "This article has not been rated yet. Use up and down arrow keys to select and submit the rating.";
+								
+								$j('#articleStarRatingGroup').attr("title", message);
+								$j('#articleStarRatingGroup').attr("data-original-title", message);
+						}
+					}
+					function saveRating(value) {
+						ajaxPost(value);
+						this.selfRated = true;
+					}
+					return {
+						setStarsRating: setStarsRating,
+						saveRating: saveRating
+					};
+				}
+				$j(function() {
+					// As the hex values of the Heisenberg icons keep changing it's impossible to reliably set the "content" CSS
+					// attribute of the :hover:before pseudo class in the stylesheet in order to display a full star instead of an
+					// empty one when hovering over with the mouse.
+					// Instead we set the pseudo to fetch its "content" from a "data-content" attribute. (see .kb-star-rating)
+					var ele = $j('#placeholder-icon-star')[0];
+					if(ele && window.getComputedStyle) {
+						var content;
+						var contentStyle = getComputedStyle(ele,':before');
+						if(!contentStyle) {
+							//Happens for FF in popovers
+							contentStyle = window.parent.getComputedStyle(ele,':before');
+						}
+						content = contentStyle.getPropertyValue('content');
+						if(content && content != 'none') {
+							content = content.replace(/"/g, '');
+							$j('.kb-star-rating .icon-star-empty').attr('data-content', content);
+						}else if(content == 'none'){
+							//This happens for popovers in IE
+							useIconStarImageClassess();
+						}
+					}
+					// create an instance
+					var kbArticleRating = new KbStarRatingClass();
+					kbArticleRating.setStarsRating();
+					$j('.kb-star-rating label').click(function (event) {
+						var targetIndex = $j(event.currentTarget).attr('data-index');
+						kbArticleRating.setStarsRating(targetIndex);
+						$j('#rated_value').val(targetIndex);
+						kbArticleRating.saveRating(targetIndex);
+						updateCurrentStarRatingForAria(targetIndex);
+					});
+					$j('.kb-star-rating input').on("focus",function(e) {
+						var id = e.target.id;
+						id = parseInt(id[id.length-1]);
+						$j('.kb-star-rating label').filter(function() {
+								return $j(this).attr('data-index') <= id;
+						}).addClass('kb-hover-star');
+					});
+					$j('.kb-star-rating input').on("blur",function(e) {
+						$j('.kb-star-rating label').removeClass('kb-hover-star');
+					});
+					$j('.kb-star-rating').on("keydown",function(e) {	
+						var id = e.target.id;
+						var int_id = parseInt(id[id.length-1]);
+						if(e.keyCode == 40) {
+							int_id %= 5;
+							if(int_id == 0){
+								$j(this).find('label').removeClass('kb-hover-star');
+							}
+							$j('.kb-star-rating label').filter(function() {
+								return $j(this).attr('data-index') <= int_id+1;
+							}).addClass('kb-hover-star');
+						}
+						else if(e.keyCode == 38) {
+							$j('.kb-star-rating label').filter(function() {
+								return $j(this).attr('data-index') >= int_id;
+							}).removeClass('kb-hover-star');
+							if(int_id == 1){
+								$j(this).find('label').addClass('kb-hover-star');
+							}
+						}
+						 else if(e.keyCode == 13) {
+							kbArticleRating.setStarsRating(int_id);
+							$j('#rated_value').val(int_id);
+							kbArticleRating.saveRating(int_id);
+							updateCurrentStarRatingForAria(int_id);
+						}
+						else if(e.keyCode == 9) {
+							$j(this).find('label').removeClass('kb-hover-star');
+						}
+					});
+					$j('.kb-star-rating').on("mouseenter focusin", function(){
+						removeToolTipForRatingParent("remove");
+						$j('.kb-star-rating label.kb-active-star').removeClass('kb-active-star');
+						$j('.kb-star-rating label.kb-active-star-self').removeClass('kb-active-star-self');
+					});
+					$j('.kb-star-rating').on("mouseleave focusout",function() {
+						kbArticleRating.setStarsRating();
+					});
+					$j('.kb-star-rating label.icon-star-empty').on("mouseenter focusin", function(){
+						$j(this).addClass('kb-hover-star').prevAll().addClass('kb-hover-star');
+					});
+					$j('.kb-star-rating label.icon-star-empty').on("mouseleave focusout",function() {
+						$j(this).removeClass('kb-hover-star').prevAll().removeClass('kb-hover-star');
+					});
+					if(false){
+						$j('#articleStarRatingGroup').find("*").unbind();
+					}
+					
+					function useIconStarImageClassess(){
+						$j('.kb-star-rating').addClass('kb-star-image');
+						$j('.icon-star-empty').mouseover(function() {
+							$j(this).addClass('kb-hover-star').prevAll().addClass('kb-hover-star');
+						}).mouseout(function() {
+							$j(this).removeClass('kb-hover-star').prevAll().removeClass('kb-hover-star');
+						});
+					}
+					updateCurrentStarRatingForAria();
+				});
+					function getUIMessage(params) {
+						var message = "This article has {0} star rating.Use up and down arrow keys to select and submit the rating.";
+					
+						return message.replace(/\{(\d+)\}/g, function() {
+						return params[arguments[1]];
+						});
+					};
+				
+					function removeToolTipForRatingParent(){
+						$j('#articleStarRatingGroup').removeAttr("title","");
+						$j('#articleStarRatingGroup').removeAttr("data-original-title","");
+					}
+					
+					function updateCurrentStarRatingForAria(currentRating){
+						if(currentRating)
+							$j('#articleStarRatingGroup').attr("aria-label", getUIMessage([Math.round(currentRating)]));
+						else{
+							$j('#articleStarRatingGroup').attr("aria-label","This article has not been rated yet.Use up and down arrow keys to select and submit the rating." );
+
+						}
+						if(false ){
+							$j('#articleStarRatingGroup').attr('tabindex', '0');
+						}
+					}
+				</script><input id="rating_value" type="hidden" value=""></input><input id="num_ratings" type="hidden" value="0"></input><input id="rated_value" type="hidden"></input><div role="group" id="articleStarRatingGroup" class="accessibility-disabled" style="display:inline-flex"><span class="rating kb-star-rating "><input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1" aria-label="1-star rating" title="1-star rating"></input><label data-index="1" for="rating-input-1-1" class="rating-star icon-star-empty"></label><input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1" aria-label="2-star rating" title="2-star rating"></input><label data-index="2" for="rating-input-1-2" class="rating-star icon-star-empty"></label><input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1" aria-label="3-star rating" title="3-star rating"></input><label data-index="3" for="rating-input-1-3" class="rating-star icon-star-empty"></label><input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1" aria-label="4-star rating" title="4-star rating"></input><label data-index="4" for="rating-input-1-4" class="rating-star icon-star-empty"></label><input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1" aria-label="5-star rating" title="5-star rating"></input><label data-index="5" for="rating-input-1-5" class="rating-star icon-star-empty"></label></span><span id="placeholder-icon-star" class="icon-star" style="visibility:hidden; position: absolute;"></span></div><div class="kb-article-view-count">376 views</div><script eval="true">window._ECE_ASSET_CONTEXT = document;
+            addLoadEvent(function() {
+                var jsElm = window.document.createElement('script');
+                jsElm.src = '/sys_attachment.do?sys_id=';
+                window.document.body.append(jsElm);
+            });</script><article id="article" class="snc-article-content-text row"><section class="prevent-wrap"><h3 style="display:none;">Article Body</h3><section id="x_g_sdbo_news_u_kb_article_body"><p style="text-align: right; margin: 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><strong><span style="font-size: 12.0pt; font-family: Corbel, sans-serif; color: black;">FOR IMMEDIATE RELEASE</span></strong></p>
+<p style="text-align: right; margin: 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif; color: black;">November 10, 2026</span></p>
+<p style="text-align: right; margin: 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif; color: black;">Contact: </span><a href="mailto:josie.harms&#64;state.sd.us" rel="nofollow"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Josie Harms</span></a></p>
+<p style="text-align: right; margin: 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="text-align: center; margin: 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><strong><span style="font-size: 14.0pt; font-family: Corbel, sans-serif; color: black;">Gov. Rhoden Announces Year Two Rural Health Transformation Funding</span></strong></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><strong><span style="font-size: 12.0pt; font-family: Corbel, sans-serif; color: black;"> </span></strong></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><strong><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">PIERRE, S.D. – </span></strong><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Governor Larry Rhoden and the South Dakota Department of Health (DOH) announced $187.7 million in Year Two funding through South Dakota&#39;s Rural Health Transformation (RHT) Program, a five-year initiative focused on strengthening health care access, workforce capacity, technology, and long-term sustainability for rural and frontier communities across the state.  </span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">&#34;Strong rural communities depend on strong rural health care,&#34; said <strong>Governor Larry Rhoden</strong>. &#34;South Dakotans shouldn’t have to choose between strong health care opportunities and their rural way of life, so these investments will allow them to access quality care close to home. These resources will support healthcare providers, strengthen local services, and help ensure a healthier future for generations to come.&#34;</span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Earlier this year, Governor Rhoden </span><a href="https://news.sd.gov/news?id&#61;news_kb_article_view&amp;sys_id&#61;46173fa81b3e3a90df4edb1de54bcb0b" rel="nofollow"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">signed</span></a><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;"> HB 1044, which appropriated funding for the RHT Program. In Year One, South Dakota committed every dollar of its $189.5 million Rural Health Transformation award by the federal deadline, through 234 agreements supporting healthcare organizations and communities across the state. Additional details on funded projects and communities can be explored through the program&#39;s </span><a href="https://experience.arcgis.com/experience/04fd0224ea394986b757f836a7442ede/page/Page-2" rel="nofollow"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">&#34;Where Investment Meets Impact&#34;</span></a><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;"> interactive map. </span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">“The Trump Administration’s $50 billion Rural Health Transformation Program gives states the resources and flexibility to bring care closer to home and build stronger, more sustainable health care systems for their rural communities,” said <strong>CMS Administrator Dr. Mehmet Oz</strong>. “As the program enters its second year, this next round of funding will help South Dakota build on the progress made in year one and continue working toward lasting improvements in access, quality, and health outcomes for rural communities.”</span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">The Year Two funding will support continued implementation of 10 statewide initiatives aligned with the state&#39;s RHT strategy, which focuses on four key areas: </span></p>
+<ul style="margin-top: 0in; margin-bottom: 0.0001pt; list-style-position: inside;"><li style="margin: 0in 7.45pt 0.0001pt 0px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Connecting technology and data to improve interoperability, care coordination, and digital infrastructure; </span></li><li style="margin: 0in 7.45pt 0.0001pt 0px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Advancing the rural healthcare workforce through recruitment, training, retention, and workforce development initiatives; </span></li><li style="margin: 0in 7.45pt 0.0001pt 0px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Keeping healthcare local and strong by expanding access to services, including maternal health, behavioral health, and chronic disease management; and  </span></li><li style="margin: 0in 7.45pt 0.0001pt 0px; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">Transforming systems for sustainability through innovative care models and long-term healthcare system improvements.  </span></li></ul>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;"> </span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">&#34;This program continues to reflect what can be achieved when healthcare partners across South Dakota come together around a shared vision,&#34; said <strong>DOH Secretary Melissa Magstadt</strong>. &#34;Through these investments, we are helping communities strengthen healthcare services, support the workforce, and create lasting improvements that will benefit South Dakotans for years to come.&#34;  </span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">You can find more information on Rural Health Transformation efforts in South Dakota </span><a href="https://doh.sd.gov/healthcare-professionals/rural-health/rural-health-transformation-project/" rel="nofollow"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">here</span></a><span style="font-size: 12.0pt; font-family: Corbel, sans-serif; color: black;">.</span></p>
+<p style="margin: 0in 7.45pt 0in 0in; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0.0001pt 5.55pt; text-align: center; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 12.0pt; font-family: Corbel, sans-serif;">###</span></p>
+<p style="margin: 0in 5.25pt 0in 0in; text-align: center; font-size: 11pt; font-family: Calibri, sans-serif;"> </p>
+<p style="margin: 0in 7.45pt 0in 0in; text-align: center; font-size: 11pt; font-family: Calibri, sans-serif;"><em><span style="font-size: 9.0pt; font-family: Corbel, sans-serif;">This press release is supported by the Centers for Medicare &amp; Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of the Rural Health Transformation Program, a financial assistance award totaling $377,131,053.07 with 100% funded by CMS/HHS. The contents are those of the State of South Dakota and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.</span></em></p></section></section></article></div><script type="text/javascript" eval="true">function openAttachment(url, name) {
+			window.open(url, name, "toolbar=no,menubar=no,personalbar=no,width=800,height=600," +
+						"scrollbars=yes,resizable=yes");
+			
+		}</script><div class="snc-article-header-author"><div class="snc-article-author"><div id="authorGhost" class="icon-user-profile snc-article-header-author-ghost"></div><div class="author-info"><div id="articleAuthor" class="snc-article-footer-metadata-published" style="display: block;padding-top: 5px">Authored by Josie Harms</div><div id="articleModifiedLabel" class="snc-article-footer-metadata-published">Last modified 4 days ago</div></div></div></div><div id="articleFooterSection" class="snc-article-footer-section" style="display: none;"><div class="snc-article-footer-section-ratings"><script eval="true">
+                    function KbArticleRatingClass() {
+                        var currentId = '017a7ad847acd310854b61d2e16d4337';
+                        var feedbackRequestState = null;
+                        var helpfulYesCount = parseInt("0");
+                        var helpfulTotalCount = parseInt("0");
+                        var isSubmitting = false;
+
+                        function ajaxPost(value) {
+                            if (isSubmitting) {
+                                return;
+                            }
+                            isSubmitting = true;
+                            if (currentId) {
+                                var ajax = new GlideAjax('KBAjax');
+                                ajax.addParam('sysparm_type', 'saveUseful');
+                                ajax.addParam('sysparm_useful', value);
+                                ajax.addParam("sysparm_article_id", currentId);
+                                var query = $j('#sysparm_search');
+                                ajax.addParam('sysparm_search', (query.length) ? escape(query.val()) : '');
+                                ajax.addParam("ts_queryId", "");
+                                ajax.getXMLAnswer(function(answer) {
+                                    postUsefulCallback(answer);
+                                    isSubmitting = false;
+                                });
+                            } else {
+                                isSubmitting = false;
+                            }
+                        }
+
+                        function postUsefulCallback(answer) {
+                            var data = answer.evalJSON(true);
+                            if (!data) {
+                                return kbViewArticle.showErrorMessage('Useful rating not submitted');
+                            }
+                            if (!data.success) {
+                                return kbViewArticle.showErrorMessage(data.message);
+                            }
+                            helpfulTotalCount += 1;
+                            if (feedbackRequestState === 'yes') {
+                                helpfulYesCount += 1;
+                            }
+                            var newPercent = (helpfulTotalCount > 0) ? Math.round(helpfulYesCount / helpfulTotalCount * 100) : 0;
+                            var messageTemplate = "{0}% found this useful";
+                            var notification = $j('#kb_feedback_notification');
+                            if (notification.length > 0) {
+                                notification.css({
+                                    'position': 'fixed',
+                                    'top': '10px',
+                                    'left': '10px',
+                                    'right': '10px',
+                                    'z-index': '9999',
+                                    'width': 'calc(100% - 20px)',
+                                    'max-width': 'none',
+                                    'margin': '0 auto',
+                                    'box-shadow': '0 2px 8px rgba(0,0,0,0.15)'
+                                }).fadeIn(300, function() {
+                                    setTimeout(function() {
+                                        notification.find('.icon-cross.close').focus();
+                                    }, 100);
+                                });
+                            }
+                            var percentageElement = $j('.kb-article-yn-percentage');
+                            if (percentageElement.length > 0) {
+                                if (newPercent > 0) {
+                                    messageTemplate = messageTemplate.replace("{0}", newPercent);
+                                    percentageElement.html(
+                                        '<span class="thankyou-text">' + "Thank you for your feedback!" + '</span>' +
+                                        '<span class="thankyou-percent" style="padding-left: 20px;">' + messageTemplate + '</span>'
+                                    ).css({
+                                        'display': 'block',
+                                        'opacity': 0
+                                    }).animate({
+                                        opacity: 1
+                                    }, 300);
+                                } else {
+                                    percentageElement.html(
+                                        '<span class="thankyou-text">' + "Thank you for your feedback!" + '</span>'
+                                    ).css({
+                                        'display': 'block',
+                                        'opacity': 0
+                                    }).animate({
+                                        opacity: 1
+                                    }, 300);
+                                }
+                            }
+                        }
+
+                        function feedback(value) {
+                            if (feedbackRequestState === value) {
+                                return;
+                            }
+                            if (isSubmitting) {
+                                return;
+                            }
+                            feedbackRequestState = value;
+                            var box = $j('.kb_box_centered');
+                            box.find('.kb-article-yn-label, .kb-article-yes-btn, .kb-article-no-btn, .kb-article-yn-percentage').fadeOut(200, function() {
+                                ajaxPost(value);
+                            });
+                        }
+
+                        function close() {
+                            var notification = $j('#kb_feedback_notification');
+                            notification.fadeOut(300, function() {
+                                notification.css('display', 'none');
+                            });
+                        }
+
+                        return {
+                            feedback: feedback,
+                            close: close
+                        };
+                    }
+
+                    // Create instance
+                    if (typeof kbArticleRating === 'undefined') {
+                        var kbArticleRating = new KbArticleRatingClass();
+                    }</script><div class="kb_box_centered"><span class="sr-only">Was this article helpful?</span><span class="kb-article-yn-label"><span id="kb_helpful_yn_label" aria-hidden="true">Helpful?</span></span><span role="group" aria-label="Was this article helpful?" class="kb-article-yn-box"><button class="btn btn-success-subdued kb-article-yes-btn" onclick="kbArticleRating.feedback('yes')" aria-label="Yes,this article was helpful">Yes</button><button class="btn btn-destructive-subdued kb-article-no-btn" onclick="kbArticleRating.feedback('no')" aria-label="No,this article was not helpful">No</button><span class="kb-article-yn-percentage" aria-hidden="true"></span></span></div><div id="kb_feedback_notification" class="notification notification-closable notification-info notification_message_sticky" style="display:none"><span class="icon-cross close" tabindex="0" role="button" aria-label="Close Notification" onclick="kbArticleRating.close()"></span><span role="alert">Feedback submitted.</span></div></div><div id="kbCommentsAndLiveFeedDisplay" class="snc-comments-live-feed-cntnr"><div class="snc-kb-layout"></div></div></div><div id="articleFooter" class="snc-article-footer"><div class="snc-article-footer-metadata-permalink"><a href="#" id="permalink" aria-label="Copy Permalink">Copy Permalink</a></div><script language="javascript" eval="true">$j('#permalink').click(
+			function(){
+				//generate direct url to this article, by getting the domain and adding sysparm_article=NUMBER_OF_ARTICLE
+				copyToClipboard(window.location.origin + '/kb_view.do?sysparm_article=KB0047476');
+				$j('#permalink').focus();
+				return false;
+			}
+		);</script></div><script eval="true">var params = new URLSearchParams(window.location.search);
+	var highlightData = params.get('sysparam_citation');
+	if(highlightData){
+		addLoadEvent(function() {
+				setTimeout(function() {
+					
+						var value = JSON.parse(highlightData);
+						var hash = "#:~:text=";
+						if(value.prefix){
+							var prefix = encodeURIComponent(value.prefix);
+							prefix = prefix.replace(/-/g, '%2D');
+							hash = hash + prefix + "-" + ",";
+						}
+						if(value.start){
+							var start = encodeURIComponent(value.start);
+							start = start.replace(/-/g, '%2D');
+							hash = hash + start;
+						}
+						if(value.end){
+							var end = encodeURIComponent(value.end);
+							end = end.replace(/-/g, '%2D');
+							hash = hash + "," + end;
+						}
+						if(value.suffix){
+							var suffix = encodeURIComponent(value.suffix);
+							suffix = suffix.replace(/-/g, '%2D');
+							hash = hash + "," + "-" + suffix;
+						}
+						
+						window.location.hash = hash;
+						const url = new URL(window.location.href);
+						url.searchParams.delete('sysparam_citation');
+						history.replaceState(null, '', url.toString());
+				}, 1500);
+			});
+	}</script><style type="text/css">::target-text {
+			background-color: rgba(var(--now-color--focus-1), 0.4);
+		}</style><script language="javascript" src="KnowledgeIframeFix.jsdbx" eval="true"></script><div style="border:none; visibility:hidden"><form name="sys_personalize" method="GET" action="slushbucket.do"><input type="hidden" name="sysparm_referring_url" value="kb_view.do?sys_kb_id=017a7ad847acd310854b61d2e16d4337"></input><input type="hidden" name="sysparm_view" value=""></input></form></div><script type="text/javascript" src="/scripts/ui_page_footer.jsx?v=09-23-2026_1511"></script><span style="display:none" data-comments="js_includes_last_doctype"></span><script type="text/javascript" src="/scripts/thirdparty/dom_purify/purify.jsx?v=09-23-2026_1511&amp;sysparm_substitute=false"></script><script>NOW.xperf.lastDoctypeBegin = NOW.xperf.now();</script><script type="text/javascript" src="/scripts/doctype/js_includes_last_doctype.jsx?v=09-23-2026_1511&amp;lp=Mon_Nov_09_12_24_09_PST_2026&amp;c=13_274"></script><script type="text/javascript" src="/scripts/heisenberg/heisenberg_all.jsx?v=09-23-2026_1511"></script><script type="text/javascript" src="/scripts/js_includes_list_edit_doctype.jsx?v=09-23-2026_1511&amp;lp=Mon_Nov_09_12_24_09_PST_2026&amp;c=13_274"></script><script type="text/javascript" src="/scripts/transaction_scope_includes.jsx?v=09-23-2026_1511"></script><script>if ('') 
+			GlideTransactionScope.setTransactionScope('');
+		if ('') 
+			GlideTransactionScope.setRecordScope('');
+		if ('') 
+			GlideTransactionScope.setTransactionUpdateSet('');
+		if (typeof g_form != 'undefined')
+			$(g_form.getFormElement()).fire('glidescope:initialized', {gts : GlideTransactionScope});</script><span style="display:none" data-comments="requires"></span><script>NOW.xperf.lastDoctypeEnd = NOW.xperf.now();</script><span style="display:none" data-comments="db_context_menu_script"></span><script>NOW.xperf.dbContextBegin = NOW.xperf.now();</script><script>NOW.xperf.dbContextEnd = NOW.xperf.now();</script><span style="display:none" data-comments="db_context_menu_script"></span><script type="text/javascript" src="/scripts/doctype/z_last_include.jsx?v=09-23-2026_1511"></script></body><script type="text/html" id="popup_template"><div class="popup popup_form" style=""><iframe src="$src" style=""></iframe></div></script></html>
