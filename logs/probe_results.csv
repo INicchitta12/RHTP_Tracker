@@ -2369,3 +2369,4 @@ TN,2026-11-14T09:35:12Z,TRIPWIRE,(probe),"[TN] NEW RHTP AWARD RELEASE ON THE TDH
 NC,2026-11-14T10:51:34Z,TRIPWIRE,(probe),"[NC] the ROOTS page now carries currency figures other than the allotment: $429,832,929.77. If NCDHHS has published per-hub amounts this is an extraction, not a source archive -- read them.",trig_018AHiDwHQLWm9DHxr96c9qB
 NJ,2026-11-14T12:12:41Z,CHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
 NJ,2026-11-14T12:12:41Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
+LA,2026-11-14T12:51:59Z,TRIPWIRE,(probe),[LA] LDH's programme page no longer carries an 'IMPORTANT DATES - BUDGET YEAR 1' block closed by 'Notice of Funding Opportunities'. That block is where every announcement date this file reports comes from -- re-read the page.,trig_01NRTUU1Vg3DoQPL1uK2gKBt
