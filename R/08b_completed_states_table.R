@@ -12,6 +12,7 @@
 #     writes output/completed_states_<out_date>.xlsx and .html
 #     (summary_date defaults to the newest year1_summary_<date>.csv)
 
+source(here::here("R", "utils_config.R"))
 suppressPackageStartupMessages({
   library(dplyr)
   library(readr)
@@ -154,6 +155,9 @@ cs_write_xlsx <- function(tab, notes, path) {
                         dplyr::select(-state), headerStyle = hdr)
   openxlsx::setColWidths(wb, 2, cols = 1:3, widths = c(16, 16, 120))
   openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
+  # Session 117 (Task 0e): openxlsx lists drawing parts it never writes; openpyxl
+  # then refuses the workbook. Every writer of output/ strips them (session 116f).
+  rhtp_xlsx_strip_dangling_rels(path)
 }
 
 cs_write_html <- function(tab, notes, path) {

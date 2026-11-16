@@ -606,6 +606,13 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # ruling): +246 / +$372,805,292.26 and five states (AZ ND NM were new to the
   # union; IL and IA gained named dollars; the count is states with named rows):
   # 2,204 / $2,170,425,246.88 / 42. Subtracted first.
+  # Session 117a: + WV 11-10 "nearly $17 million" release, Cabell Huntington
+  # Hospital (1 / $1,544,313): 2,205 / $2,171,969,559.88 / 42. Subtracted first.
+  expect_equal(named$rows, 2205L)
+  expect_equal(round(named$dollars, 2), 2171969559.88, tolerance = 0)
+  expect_equal(named$states, 42L)
+  named$rows <- named$rows - 1L
+  named$dollars <- named$dollars - 1544313
   expect_equal(named$rows, 2204L)
   expect_equal(round(named$dollars, 2), 2170425246.88, tolerance = 0)
   expect_equal(named$states, 42L)

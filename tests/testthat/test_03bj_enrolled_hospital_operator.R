@@ -346,6 +346,13 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958.
   # Session 116c/d: FSRS/FFATA subawards (R/09b): +246 / +$372,805,292.26 / +5
   # states: 2,204 / $2,170,425,246.88 / 42. Subtracted first.
+  # Session 117a: + WV 11-10 "nearly $17 million" release, Cabell Huntington
+  # Hospital (1 / $1,544,313): 2,205 / $2,171,969,559.88 / 42. Subtracted first.
+  expect_equal(n$rows, 2205L)
+  expect_equal(round(n$dollars, 2), 2171969559.88)
+  expect_equal(n$states, 42L)
+  n$rows <- n$rows - 1L
+  n$dollars <- n$dollars - 1544313
   expect_equal(n$rows, 2204L)
   expect_equal(round(n$dollars, 2), 2170425246.88)
   expect_equal(n$states, 42L)
