@@ -2458,3 +2458,8 @@ KY,2026-11-16T20:22:08Z,UNCHANGED,rfa_chw,,interactive
 KY,2026-11-16T20:22:08Z,UNCHANGED,rfa_cp,,interactive
 KY,2026-11-16T20:22:08Z,UNCHANGED,rfa_et,,interactive
 KY,2026-11-16T20:22:08Z,UNCHANGED,rfa_rda,,interactive
+HI,2026-11-16T20:26:50Z,CHANGED,shpda,,interactive
+HI,2026-11-16T20:26:50Z,UNCHANGED,rhtp_home,,interactive
+HI,2026-11-16T20:26:50Z,UNCHANGED,rhtp_funding,,interactive
+HI,2026-11-16T20:26:50Z,CHANGED,gov_news,,interactive
+HI,2026-11-16T20:26:50Z,CHANGED,doh_news,,interactive
