@@ -1,0 +1,2 @@
+file,sha256_as_served,sha256_committed,note
+2026-11-13_cms_ca_233m_release_borderline.html,e0d43124dcbc0a900b054a808ae871e4c2330e8334f8a21cccc02eb0e32e0cd2,00297c4be830c1989dfd83ca731f4b7d218f3dea4b8e00ab0705ca97ecd49a22,Mapbox access token(s) stripped by name before commit (standing rule)

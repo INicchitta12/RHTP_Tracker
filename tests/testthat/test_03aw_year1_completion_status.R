@@ -20,8 +20,9 @@ test_that("COMPLETE rests on a statement AND no recorded remainder -- never on a
   # Session 112: + VT (fully obligated, state source), ID (Governor 10-28,
   # "completed the awards"), WY (DOH 10-23 summary) and UT (100% obligation on
   # the State's page; a new extracted state).
+  # Session 117a: + NE, SD, WV (state-source full obligation, 11-09/11-10).
   expect_setequal(status$state[status$year1_status == "COMPLETE"],
-                  c("AL", "AR", "FL", "GA", "ID", "UT", "VT", "WY"))
+                  c("AL", "AR", "FL", "GA", "ID", "NE", "SD", "UT", "VT", "WV", "WY"))
   bad <- Y1_STATUS
   bad$year1_status[bad$state == "AK"] <- "COMPLETE"   # 87.9% of allotment, rolling
   expect_error(y1_assert_status(bad), "COMPLETE without")
@@ -29,9 +30,9 @@ test_that("COMPLETE rests on a statement AND no recorded remainder -- never on a
   # release ("The next round of funding is anticipated later this fall"). The
   # counterfactual is now an UNKNOWN carrying a recorded remainder.
   bad <- Y1_STATUS
-  bad$year1_status[bad$state == "SD"] <- "UNKNOWN"
+  bad$year1_status[bad$state == "MN"] <- "UNKNOWN"
   expect_error(y1_assert_status(bad), "UNKNOWN where")
-  expect_equal(status$year1_status[status$state == "SD"], "PARTIAL")
+  expect_equal(status$year1_status[status$state == "SD"], "COMPLETE")   # session 117a
 })
 
 test_that("Alabama's eleventh initiative has no Year 1 money, in ADECA's own words (session 84)", {
@@ -82,7 +83,7 @@ test_that("figures are recomputed from the award files, and Georgia is summed pe
 
 test_that("the hospital share is reported for COMPLETE states only, as a bounded range", {
   # Session 112: + ID, UT, VT, WY, the four states that moved to COMPLETE.
-  expect_setequal(share$state, c("AL", "AR", "FL", "GA", "ID", "UT", "VT", "WY"))
+  expect_setequal(share$state, c("AL", "AR", "FL", "GA", "ID", "NE", "SD", "UT", "VT", "WV", "WY"))
   # SESSION 84: Alabama. Community Medicine has no Year 1 money (ADECA
   # Program Manual 10.10), so the Governor's "round out year one" stands.
   expect_equal(share$share_floor_pct[share$state == "AL"], 52.6)
@@ -117,8 +118,9 @@ test_that("COMPLETE is a statement about the ROUND; the intent status is carried
   # Session 112: order AL AR FL GA ID UT VT WY. UT's 41 rows are notices of
   # intent (DHHS "is preparing to formally announce"); WY's 77 are committee
   # approvals carried as intents; ID and VT are awarded / executed.
-  expect_equal(s$intent_rows, c(0, 80, 0, 0, 0, 41, 0, 77))
-  expect_equal(s$pct_priced_on_intent, c(0, 100, 0, 0, 0, 100, 0, 100))
+  # Session 117a: order AL AR FL GA ID NE SD UT VT WV WY.
+  expect_equal(s$intent_rows, c(0, 80, 0, 0, 0, 13, 0, 41, 0, 0, 77))
+  expect_equal(s$pct_priced_on_intent, c(0, 100, 0, 0, 0, 12.3, 0, 100, 0, 0, 100))
   expect_match(s$award_action_stage[s$state == "AL"], "^AWARDED")
   expect_match(s$award_action_stage[s$state == "AR"], "^NOTICE OF INTENT")
   expect_match(s$award_action_stage[s$state == "FL"], "^AWARDED")

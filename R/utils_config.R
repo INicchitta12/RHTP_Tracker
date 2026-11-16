@@ -2415,6 +2415,9 @@ rhtp_load_fy2027_allotments <- function(path = here::here(RHTP_FY2027_ALLOTMENTS
 #' file and Excel may offer to "repair" it. Remove every relationship whose
 #' target part is not in the package; nothing in the sheets references them.
 rhtp_xlsx_strip_dangling_rels <- function(path) {
+  # Session 117: zip::zip() resolves a RELATIVE path against `root` (the temp
+  # dir), so a relative path deleted the workbook and wrote nothing. Absolute.
+  path <- normalizePath(path, mustWork = TRUE)
   tmp <- tempfile("rhtp_xlsx_"); dir.create(tmp)
   on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
   utils::unzip(path, exdir = tmp)

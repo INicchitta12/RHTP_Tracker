@@ -127,8 +127,8 @@ test_that("NO HOSPITAL FIGURE MOVED: the strict partition is pinned to the cent"
   })
   parts <- rhtp_hospital_dollar_partition(d)
   got <- parts %>% dplyr::group_by(bucket) %>% dplyr::summarise(rows = sum(rows), usd = round(sum(dollars), 2))
-  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2204L)
-  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2170425246.88)
+  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2205L)   # session 117a: + WV Cabell Huntington
+  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2171969559.88)
   expect_equal(got$usd[got$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
   expect_equal(got$usd[got$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
 })
