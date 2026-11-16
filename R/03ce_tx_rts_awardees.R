@@ -139,17 +139,28 @@ TRT_ROUND1_Y1  <- 750000
 # The extracted list (session 112: the 10/29 list; session 108 extracted 10/23,
 # 441 lines, $224,591,245.41, 159 executed; session 103 extracted 10/14, 312
 # lines, $137,234,879.62, 97 executed).
-TRT_AS_OF      <- "10/29/26"
-TRT_LINES      <- 445L
-TRT_LIST_Y1    <- 224596379.37
-TRT_EXECUTED   <- 204L
+# SESSION 117: the 11/12 list (posted 11/13 as rhtp-award-recipients.xlsx,
+# "Updated 11/13/2026"): 440 lines, $222,548,440.55, 294 executed. No new
+# "Added" section; five lines WITHDRAWN (TRT_WITHDRAWN) and two re-attributed
+# (Heart of Texas Memorial Hospital's County Brady -> McCulloch; Pediatric
+# Practice Association -> Stanislaus Nwafor Uzoigwe, M.D., P.A., same amounts).
+TRT_AS_OF      <- "11/12/26"
+TRT_LINES      <- 440L
+TRT_LIST_Y1    <- 222548440.55
+TRT_EXECUTED   <- 294L
 TRT_DIR        <- file.path("data", "evidence", "recheck", "2026-10-16", "TX")
 TRT_CSV        <- here::here("data", "reference", "tx_year1_awardees.csv")
 TRT_AGENT      <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                          "research use; +https://www.aha.org)")
 TRT_PFD        <- "https://pfd.hhs.texas.gov"
 TRT_PROGRAMME_URL <- paste0(TRT_PFD, "/rural-health-transformation-program")
-TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/2026/10-29-2026-list-award-recipients.xlsx"
+TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/rhtp-award-recipients.xlsx"
+# The "(Updated ...)" label beside the link on the programme page (session 117):
+# HHSC now keeps one stable file name, so the label is what moves weekly.
+TRT_LIST_UPDATED <- "11/13/2026"
+TRT_DIR_117    <- file.path("data", "evidence", "recheck", "2026-11-16", "TX")
+TRT_PRIOR29_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/2026/",
+                          "10-29-2026-list-award-recipients.xlsx")
 TRT_DIR_108    <- file.path("data", "evidence", "recheck", "2026-10-26", "TX")
 TRT_DIR_112    <- file.path("data", "evidence", "recheck", "2026-11-02", "TX")
 TRT_PRIOR23_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/",
@@ -162,6 +173,8 @@ TRT_PRIOR14_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-pr
 TRT_SOURCES <- tibble::tribble(
   ~key, ~url, ~file, ~kind,
   "list", TRT_LIST_URL,
+  file.path(TRT_DIR_117, "2026-11-16_hhsc_rts_list_award_recipients_as_of_2026-11-12.xlsx"), "xlsx",
+  "prior29", TRT_PRIOR29_URL,
   file.path(TRT_DIR_112, "2026-11-02_hhsc_rts_list_award_recipients_as_of_2026-10-29.xlsx"), "xlsx",
   "prior23", TRT_PRIOR23_URL,
   file.path(TRT_DIR_108, "2026-10-26_hhsc_rts_list_award_recipients_as_of_2026-10-23.xlsx"), "xlsx",
@@ -181,13 +194,13 @@ TRT_SOURCES <- tibble::tribble(
   "gov_release_87m", "https://gov.texas.gov/news/post/governor-abbott-announces-87-million-in-rural-healthcare-grants",
   file.path(TRT_DIR_112, "2026-11-02_governor_release_2026-10-29_87m_rural_texas_strong.html"), "html",
   "programme", TRT_PROGRAMME_URL,
-  file.path(TRT_DIR_112, "2026-11-02_pfd_rhtp_programme.html"), "html")
+  file.path(TRT_DIR_117, "2026-11-16_pfd_rhtp_programme.html"), "html")
 TRT_FED <- c(
   HOSPITAL = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_hosp_enrollments_TX.json"),
   FQHC     = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_fqhc_enrollments_TX.json"),
   RHC      = file.path("data", "evidence", "federal_records", "2026-10-01", "cms_rhc_enrollments_TX.json"))
 TRT_TITLE <- paste0("HHSC, Rural Texas Strong list of applications at 'Intent to ",
-                    "Award' status as of 10/29/26 (2026/10-29-2026-list-award-recipients.xlsx)")
+                    "Award' status as of 11/12/26 (rhtp-award-recipients.xlsx, Updated 11/13/2026)")
 TRT_INITIATIVES <- c(
   "1" = "Initiative 1: Make Rural Texans Healthy Again (rural hospital districts)",
   "4" = "Initiative 4: Infrastructure and Capital Investments for Rural Texas",
@@ -316,11 +329,15 @@ tx_rts_assert_reconciles <- function(prior = tx_rts_read(here::here(TRT_SOURCES$
   k <- function(x) paste(x$initiative, sprintf("%.2f", x$total_award_amount), sprintf("%.2f", x$amount))
   older <- list(`10/8` = prior,
                 `10/14` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior14"])),
-                `10/23` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior23"])))
+                `10/23` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior23"])),
+                `10/29` = tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior29"])))
+  wd <- vctrs::vec_count(TRT_WITHDRAWN$key) %>% dplyr::rename(withdrawn = count)
   for (nm in names(older)) {
     miss <- vctrs::vec_count(k(older[[nm]])) %>%
       dplyr::left_join(vctrs::vec_count(k(cur)), by = "key", suffix = c("_p", "_c")) %>%
-      dplyr::filter(is.na(count_c) | count_c < count_p) %>%
+      dplyr::left_join(wd, by = "key") %>%
+      dplyr::mutate(count_c = dplyr::coalesce(count_c, 0L) + dplyr::coalesce(withdrawn, 0L)) %>%
+      dplyr::filter(count_c < count_p) %>%
       dplyr::filter(!(.data$key %in% TRT_AMENDED$old_key))
     if (nrow(miss)) {
       stop("[TX RTS] ", nrow(miss), " ", nm, " line shape(s) are missing from the ",
@@ -371,6 +388,19 @@ TRT_AMENDED <- tibble::tribble(
   "AultMcInnis PLLC", "6 393561.95 764346.37", "6 764346.37 393561.95",
   "Border Region MHMR Community Center", "6 1029800.00 2000000.00", "6 2000000.00 1029800.00",
   "Anson Hospital District", "6 262566.30 509936.50", "6 509936.50 262566.30")
+
+# SESSION 117: lines on the 10/29 list that the 11/12 list no longer carries.
+# HHSC's list is the full roster of applications at "Intent to Award" as of its
+# date, so the latest list governs (the Colorado precedent): a line it drops is
+# out of the file. Each is recorded here by its shape and name, and the check
+# below fails if one reappears or another line goes unrecorded.
+TRT_WITHDRAWN <- tibble::tribble(
+  ~awardee, ~key, ~list_section,
+  "Yoakum Community Hospital", "6 1421187.28 731769.33", "Added Oct. 23, 2026",
+  "Yoakum Community Hospital", "4 698750.01 213957.25", "Added Oct. 14, 2026",
+  "Sol 2 Soul Healing Center PLLC", "4 720539.65 220629.24", "Added Oct. 8, 2026",
+  "Brookshire Brothers Inc", "6 255550.00 131583.00", "Added Oct. 8, 2026",
+  "LLano Regional", "1 3500000.00 750000.00", "Added Oct. 8, 2026")
 
 tx_rts_text <- function(key) {
   h <- xml2::read_html(here::here(TRT_SOURCES$file[TRT_SOURCES$key == key]))
@@ -426,7 +456,7 @@ tx_rts_assert_release <- function() {
 #' first-year award (Tier 1, asserted in tx_rts_assert_release()).
 TRT_WEEKLY <- tibble::tribble(
   ~key, ~list_key, ~section, ~n, ~y1, ~phrase,
-  "gov_release_8m", "list", "Added Oct. 14, 2026", 28L, 8145444.89,
+  "gov_release_8m", "prior29", "Added Oct. 14, 2026", 28L, 8145444.89,
   "plans to award $8 million in Rural Texas Strong grants to 28 rural healthcare providers",
   "gov_release_87m", "prior23", "Added Oct. 23, 2026", 129L, 87248124.49,
   "plans to award $87 million in Rural Texas Strong grants to 129 rural healthcare providers")
@@ -448,9 +478,16 @@ tx_rts_assert_weekly_releases <- function(cur = tx_rts_read()) {
            w$n, " / $", format(w$y1, nsmall = 2, big.mark = ","), ".", call. = FALSE)
     }
   }
-  s23 <- cur[cur$list_section == "Added Oct. 23, 2026", ]
+  p29 <- tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior29"]))
+  s23 <- p29[p29$list_section == "Added Oct. 23, 2026", ]
   if (nrow(s23) != 129L || abs(sum(s23$amount) - TRT_SEC23_CORRECTED) > 0.005) {
-    stop("[TX RTS] the corrected 'Added Oct. 23' section is no longer 129 / $85,659,769.87.", call. = FALSE)
+    stop("[TX RTS] the corrected 'Added Oct. 23' section of the 10/29 list is no longer 129 / $85,659,769.87.", call. = FALSE)
+  }
+  # Session 117: on the 11/12 list the section is one line smaller, by exactly
+  # the withdrawn Yoakum line ($731,769.33).
+  c23 <- cur[cur$list_section == "Added Oct. 23, 2026", ]
+  if (nrow(c23) != 128L || abs(sum(c23$amount) - (TRT_SEC23_CORRECTED - 731769.33)) > 0.005) {
+    stop("[TX RTS] the 11/12 list's 'Added Oct. 23' section is no longer 128 / $84,928,000.54.", call. = FALSE)
   }
   invisible(TRUE)
 }
@@ -518,7 +555,8 @@ TX_RTS_BRIDGES <- tibble::tribble(
   "Lockney Gen Hosp", "LOCKNEY GENERAL HOSPITAL DISTRICT", NA, TRT_I1,
   "Fisher County", "FISHER COUNTY HOSPITAL DISTRICT", "Fisher County Hospital District", TRT_I1,
   "Graham Regional", "GRAHAM HOSPITAL DISTRICT", NA, paste(TRT_I1, "-- DBA GRAHAM REGIONAL MEDICAL CENTER; the entity holds two hospital CCNs (450085, 671300), so none is put on the row"),
-  "LLano Regional", "LLANO REGIONAL HOSPITAL", NA, TRT_I1,
+  # Session 117: "LLano Regional" left the 11/12 list (TRT_WITHDRAWN); its bridge to
+  # LLANO REGIONAL HOSPITAL is retired with it.
   "Reagan Hospital", "REAGAN HOSPITAL DISTRICT", NA, TRT_I1,
   "Gonzales Healthcare", "GONZALES HEALTHCARE SYSTEMS", "Gonzales Healthcare Systems", TRT_I1,
   "Rankin County", "RANKIN COUNTY HOSPITAL DISTRICT", "Rankin County Hospital District", TRT_I1,
@@ -888,7 +926,8 @@ tx_rts_assert_bp1 <- function(a = tx_rts_awardees()) {
                          show_col_types = FALSE)$entity
   i1 <- a[a$initiative == "1" & abs(a$amount - TRT_ROUND1_Y1) < 0.005 &
             abs(a$total_award_amount - 3500000) < 0.005, ]
-  if (nrow(i1) != 72L) stop("[TX RTS] Initiative 1 has ", nrow(i1), " $750,000 lines, not 72.", call. = FALSE)
+  # Session 117: 71 since the 11/12 list withdrew LLano Regional (TRT_WITHDRAWN).
+  if (nrow(i1) != 71L) stop("[TX RTS] Initiative 1 has ", nrow(i1), " $750,000 lines, not 71.", call. = FALSE)
   cited <- TX_RTS_BRIDGES$bp1[TX_RTS_BRIDGES$awardee %in% i1$awardee]
   # SESSION 108: 'Memorial Hospital' is bridged on the 10/23 list's own County
   # ("Moore") to MOORE COUNTY HOSPITAL DISTRICT (CAH 451386), which is the BP1
@@ -1069,7 +1108,7 @@ tx_rts_report <- function(a = tx_rts_awardees()) {
 
 #' Has HHSC linked a newer weekly list? Reads the live programme page into
 #' memory (never data/evidence/, §2.2).
-tx_rts_live_finding <- function(body = NULL) {
+tx_rts_live_finding <- function(body = NULL, updated = TRT_LIST_UPDATED) {
   if (is.null(body)) {
     r <- httr::GET(TRT_PROGRAMME_URL, httr::user_agent(TRT_AGENT), httr::timeout(60))
     if (httr::status_code(r) != 200L) {
@@ -1077,14 +1116,35 @@ tx_rts_live_finding <- function(body = NULL) {
     }
     body <- httr::content(r, as = "text", encoding = "UTF-8")
   }
-  links <- unique(stringr::str_match_all(body, "href=\"([^\"]*list-award-recipients[^\"]*\\.xlsx)\"")[[1]][, 2])
-  links <- sub("^https?://pfd\\.hhs\\.texas\\.gov", "", links)
-  list(links = links,
-       finding = if (!identical(links, TRT_LIST_PATH)) paste0(
+  # SESSION 117: HHSC renamed the list to a STABLE file name
+  # (rhtp-award-recipients.xlsx, "Updated 11/13/2026"), which the old pattern
+  # ("list-award-recipients") did not match -- so the 11-13 probe reported "NO
+  # award-recipient list" while HHSC had posted a new one. The pattern now takes
+  # any *award-recipients*.xlsx, and because a stable name no longer changes
+  # week to week, the "(Updated mm/dd/yyyy)" label beside the link is compared
+  # too.
+  m <- stringr::str_match_all(body, "href=\"([^\"]*award-recipients[^\"]*\\.xlsx)\"[^>]*>([^<]*)</a>([^<]{0,80})")[[1]]
+  links <- unique(sub("^https?://pfd\\.hhs\\.texas\\.gov", "", m[, 2]))
+  # SESSION 117 (Task 1): a Year 2 list (by its file name, link text or label)
+  # is a held YEAR2 signal, never a Year 1 roster to extract.
+  if (length(links) && exists("rhtp_year2_screen")) {
+    lab <- paste(m[, 2], m[, 3], m[, 4])
+    keep <- rhtp_year2_screen(lab, "TX", "programme", "award-recipient list")
+    links <- unique(sub("^https?://pfd\\.hhs\\.texas\\.gov", "", m[lab %in% keep, 2]))
+  }
+  upd <- stringr::str_match(paste(m[, 4], collapse = " "), "Updated ([0-9]{1,2}/[0-9]{1,2}/[0-9]{4})")[, 2]
+  moved_link <- !identical(links, TRT_LIST_PATH)
+  moved_date <- !moved_link && !is.na(upd) && !identical(upd, updated)
+  list(links = links, updated = upd,
+       finding = if (moved_link) paste0(
          "RURAL TEXAS STRONG LIST: the programme page links ",
          if (length(links)) paste(links, collapse = ", ") else "NO award-recipient list",
          ", not the extracted ", basename(TRT_LIST_PATH),
-         ". A new weekly list: update R/03ce's TRT_LIST_PATH, --fetch, --build, re-read the bridges.") else NULL)
+         ". A new weekly list: update R/03ce's TRT_LIST_PATH, --fetch, --build, re-read the bridges.")
+       else if (moved_date) paste0(
+         "RURAL TEXAS STRONG LIST: HHSC's list is now 'Updated ", upd, "', not the extracted ",
+         updated, ". A new weekly list under the same name: update R/03ce's TRT_LIST_UPDATED and ",
+         "TRT_AS_OF, --fetch, --build, re-read the bridges.") else NULL)
 }
 
 if (!interactive() && sys.nframe() == 0L) {

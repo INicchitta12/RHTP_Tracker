@@ -614,8 +614,8 @@ RHTP_FOOTER_ALLOTMENT_MARGIN <- 10000
 #' cover state's administrative expenses for BP 2"), NCDHHS ("All states will
 #' receive an initial $100 million award, with additional funding to follow")
 #' and two footers that print allotment + $100M (CA, MN). Every signal is in
-#' data/reference/year2_signals.csv. CMS has published no FY2027 allotment;
-#' cms_fy2027_allotments.csv is empty. Used ONLY to recognise a cumulative
+#' data/reference/year2_signals.csv. (Session 117: CMS has since published every
+#' state's FY2027 award, cms_fy2027_allotments.csv, R/03cu.) Used ONLY to recognise a cumulative
 #' footer so it is never read as a round total; it enters no figure.
 RHTP_YEAR2_INITIAL_AWARD <- 100000000
 
@@ -634,7 +634,22 @@ rhtp_footer_class <- function(amount, state, margin = RHTP_FOOTER_ALLOTMENT_MARG
   if (abs(amount - (hit + RHTP_YEAR2_INITIAL_AWARD)) <= margin) {
     return("ALLOTMENT_PLUS_YEAR2_INITIAL")
   }
+  y2 <- rhtp_fy2027_amount(state)
+  if (!is.na(y2) && abs(amount - (hit + y2)) <= margin) return("ALLOTMENT_PLUS_FY2027")
   "OTHER"
+}
+
+#' A state's FY2027 (Year 2) CMS award, or NA while the table is empty
+#'
+#' SESSION 117: CMS published every state's FY2027 award on 2026-11-09
+#' (R/03cu). A footer printing FY2026 + FY2027 (Montana's $473,250,028.01,
+#' West Virginia's $401,557,453) is BP1 + BP2 CUMULATIVE, Tier 1, never a pool
+#' and never a Year 1 figure.
+rhtp_fy2027_amount <- function(state, path = here::here(RHTP_FY2027_ALLOTMENTS)) {
+  if (!file.exists(path)) return(NA_real_)
+  a <- readr::read_csv(path, col_types = readr::cols(.default = "c"), progress = FALSE)
+  v <- suppressWarnings(as.numeric(a$fy2027_allotment[a$state == state]))
+  if (length(v) != 1L) NA_real_ else v
 }
 
 #' Refuse a footer figure that is the state's allotment wearing a pool's grammar
@@ -705,6 +720,15 @@ rhtp_assert_footer_not_allotment <- function(amount, state, declared_tier,
          "state-reported Year 2 initial award (", money(RHTP_YEAR2_INITIAL_AWARD),
          "). That is a CUMULATIVE CMS award (BP1 + BP2), never a round total. ",
          "Do not read it as a pool and do not widen the margin.", call. = FALSE)
+  }
+
+  # SESSION 117: and BP1 + the FY2027 award CMS published on 2026-11-09.
+  y2 <- rhtp_fy2027_amount(state)
+  if (declared_tier == "SOLICITATION" && !is.na(y2) && abs(amount - (hit + y2)) <= margin) {
+    stop("[§0.2] ", label, ": the footer prints ", money(amount),
+         ", which is ", state, "'s FY2026 allotment (", money(hit), ") plus its ",
+         "FY2027 award (", money(y2), "). That is a CUMULATIVE CMS award (BP1 + BP2), ",
+         "never a round total. Do not read it as a pool and do not widen the margin.", call. = FALSE)
   }
 
   if (!collides && declared_tier == "STATE_ALLOTMENT") {
@@ -1136,6 +1160,56 @@ rhtp_year2_fire <- function(state, page, what) {
 }
 
 
+# -- SESSION 117 (Task 1): EVERY BESPOKE PHRASE CHECK THROUGH THE YEAR 2 RULE --
+#
+# Session 116 made the SHARED tripwires Year 2 aware and left each state
+# probe's own phrase checks logging an ordinary TRIPWIRE on a Year 2 sentence.
+# Two routes close that:
+#   1. rhtp_year2_screen(): a probe passes its candidate trigger strings
+#      (sentences, headlines, link names, report titles) through it BEFORE it
+#      builds a finding; the Year 2 ones fire a held YEAR2 signal and only the
+#      rest can trip (TX, OK, MS do this at source).
+#   2. rhtp_probe_run() re-reads every other bespoke TRIPWIRE message: where
+#      every string the message QUOTES ("...", curly double or single quotes)
+#      is a Year 2 string, the row is logged YEAR2 and not re-raised. A name
+#      tripwire is untouched (it is Year 2 aware already) and so is ERROR. A
+#      message that quotes nothing, or quotes any non-Year 2 string, is left a
+#      TRIPWIRE: mixed means a human reads it.
+# Page labels in ASCII single quotes ('funding') are not quotes of page text
+# and are ignored.
+
+#' Split candidate trigger strings: fire YEAR2 on the Year 2 ones, return the rest
+rhtp_year2_screen <- function(hits, state, page, what = "trigger") {
+  hits <- hits[!is.na(hits) & nzchar(hits)]
+  if (!length(hits)) return(hits)
+  y2 <- rhtp_is_year2(hits)
+  if (any(y2)) {
+    rhtp_year2_fire(state, page, paste0(sum(y2), " Year 2 ", what, "(s): \"",
+                                        substr(hits[y2][1], 1, 300), "\""))
+  }
+  hits[!y2]
+}
+
+#' The strings a probe message quotes from page text (double and curly quotes)
+rhtp_quoted_strings <- function(msg) {
+  m <- regmatches(msg, gregexpr('"[^"]{3,}"|\u201c[^\u201d]{3,}\u201d|\u2018[^\u2019]{3,}\u2019', msg, perl = TRUE))[[1]]
+  substr(m, 2, nchar(m) - 1)
+}
+
+#' TRUE where a bespoke TRIPWIRE message quotes only Year 2 strings
+rhtp_year2_only_message <- function(msg) {
+  if (is.na(msg) || rhtp_probe_verdict(msg) != "TRIPWIRE") return(FALSE)
+  if (grepl("NAMES [0-9]+ ORGANISATION", msg)) return(FALSE)
+  if (grepl(RHTP_YEAR2_SIGNATURE, msg, fixed = TRUE)) return(FALSE)
+  q <- rhtp_quoted_strings(msg)
+  length(q) > 0 && all(rhtp_is_year2(q))
+}
+
+rhtp_year2_relabel <- function(msg) {
+  paste0(RHTP_YEAR2_SIGNATURE, " (bespoke check; every quoted trigger is a Year 2 string, session 117): ",
+         msg, " A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file.")
+}
+
 #' Snapshot data/evidence/ cheaply enough to do it on every probe
 #'
 #' Path, size and mtime rather than a digest of 109 MB across 329 files. A
@@ -1564,11 +1638,14 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
                    note = gsub("[\r\n]+", " ", note))
   }
   failed <- inherits(res, "error")
+  # Session 117: a bespoke trip quoting only Year 2 strings is a held YEAR2.
+  y2_res <- failed && rhtp_year2_only_message(conditionMessage(res))
   rows <- if (failed) {
     msg <- conditionMessage(res)
     # A tripwire and a refused host are different claims and the log keeps
     # them apart: one is a statement about the state, the other our access.
-    one_row(rhtp_probe_verdict(msg), "(probe)", msg)
+    if (y2_res) one_row("YEAR2", "(probe)", rhtp_year2_relabel(msg))
+    else one_row(rhtp_probe_verdict(msg), "(probe)", msg)
   } else if (!is.null(guard)) {
     # The probe's per-page verdicts were taken against an archive that moved
     # under it; they are not logged as findings about the state.
@@ -1597,9 +1674,16 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   findings <- if (!failed && is.list(res) && "findings" %in% names(res) &&
                   is.character(res[["findings"]])) res[["findings"]] else
                     character(0)
-  if (length(findings)) {
-    rows <- dplyr::bind_rows(rows, one_row("TRIPWIRE", "(finding)", findings))
+  y2_find <- vapply(findings, rhtp_year2_only_message, logical(1), USE.NAMES = FALSE)
+  if (any(!y2_find)) {
+    rows <- dplyr::bind_rows(rows, one_row("TRIPWIRE", "(finding)", findings[!y2_find]))
   }
+  if (any(y2_find)) {
+    rows <- dplyr::bind_rows(rows, one_row("YEAR2", "(finding)",
+                                           vapply(findings[y2_find], rhtp_year2_relabel, "", USE.NAMES = FALSE)))
+    for (m in findings[y2_find]) message("[", state, "] HELD (YEAR2): ", m)
+  }
+  findings <- findings[!y2_find]
   # (a) the name trips, collected rather than thrown.
   if (nrow(name_trips)) {
     rows <- dplyr::bind_rows(rows, one_row(
@@ -1633,8 +1717,9 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   # has two problems, and the write corrupts the archive for every future run.
   if (!is.null(guard)) stop(guard)
 
-  msgs <- c(if (failed) conditionMessage(res), findings, name_trips$msg)
-  if (length(msgs) == 1L && failed) stop(res)
+  msgs <- c(if (failed && !y2_res) conditionMessage(res), findings, name_trips$msg)
+  if (length(msgs) == 1L && failed && !y2_res) stop(res)
+  if (y2_res) message("[", state, "] HELD (YEAR2): ", conditionMessage(res))
   if (length(msgs)) {
     for (m in msgs) message("[", state, "] FIRED: ", m)
     stop(paste(msgs, collapse = "\n---\n"), call. = FALSE)
@@ -2368,6 +2453,8 @@ rhtp_year1_only <- function(d, label = "a table") {
 
 # -- FY2027 (Year 2) allotments (session 116) ---------------------------------
 #
+# SESSION 117: FILLED. CMS published all 50 FY2027 awards on 2026-11-09
+# (R/03cu_cms_fy2027_allotments.R parses the archived release). Before that:
 # EMPTY UNTIL CMS PUBLISHES THEM. data/reference/cms_fy2027_allotments.csv has
 # the FY2026 file's shape (state, state_name, <fy>_allotment,
 # <fy>_allotment_published, source_url, source_fetched) with fy2027 column

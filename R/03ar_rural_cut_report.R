@@ -390,10 +390,11 @@ rc_assert <- function(rows = rc_rows()) {
   # new rows paired to their roster rows): 2,207 / $2,172,147,222.88 / 42; the
   # re-check (TX Lockney + Moore County x2): 2,204 / $2,170,425,246.88 / 42.
   # Session 117a: + WV Cabell Huntington (1 / $1,544,313): 2,205 / $2,171,969,559.88 / 42.
-  if (nrow(rows) != 2205L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2171969559.88) > 0.005 ||
+  # Session 117: TX 11/12 list (-3) and NE FSRS extras held (-3): 2,199 / $2,167,733,246.58 / 42.
+  if (nrow(rows) != 2199L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2167733246.58) > 0.005 ||
       dplyr::n_distinct(rows$state) != 42L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,205 rows / $2,171,969,559.88 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,199 rows / $2,167,733,246.58 ",
          "/ 42 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

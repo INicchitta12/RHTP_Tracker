@@ -1628,6 +1628,13 @@ ok_xf_findings <- function(agent = ok_probe_agent(),
   findings <- character(0)
   added <- setdiff(live_idx$slug, arch_idx$slug)
   gone <- setdiff(arch_idx$slug, live_idx$slug)
+  # Session 117 (Task 1): a Year 2 programme on the dropdown is a held YEAR2
+  # signal, never a Year 1 roster.
+  if (length(added)) {
+    keep <- rhtp_year2_screen(live_idx$label[live_idx$slug %in% added], OK_STATE, "xf_index",
+                              "Funding Recipients programme")
+    added <- live_idx$slug[live_idx$slug %in% added & live_idx$label %in% keep]
+  }
   if (length(added)) {
     findings <- c(findings, paste0(
       "[OK] NEW PROGRAMME(S) ON THE FUNDING RECIPIENTS DROPDOWN: ",
@@ -1716,6 +1723,11 @@ ok_lifecare_findings <- function(fetch_fragment,
     return(paste0("[OK] LIFECARE PROVIDER COLLABORATIVE: the fragment no longer ",
                   "carries '", OK_LIFECARE_LABEL, "'. Read it for named health systems."))
   }
+  if (!identical(got, OK_LIFECARE_PLACEHOLDER) &&
+      !length(rhtp_year2_screen(got, OK_STATE, paste0("xf:", OK_LIFECARE_SLUG),
+                                "Provider Collaborative recipients text"))) {
+    return(character(0))   # Session 117: a Year 2 cohort is held as YEAR2
+  }
   if (!identical(got, OK_LIFECARE_PLACEHOLDER)) {
     return(paste0("[OK] LIFECARE PROVIDER COLLABORATIVE NAMES SUBCONTRACTORS: '",
                   substr(got, 1, 400), "'. LifeCare holds $33,862,084 obligated (Q3 report); ",
@@ -1765,6 +1777,8 @@ ok_leg_findings <- function(agent = ok_probe_agent(),
   live <- ok_leg_reports(rhtp_probe_get("legislative_reports",
                                         function() fetch(OK_LEG_PAGE_URL), archived))
   added <- setdiff(live, arch); gone <- setdiff(arch, live)
+  # Session 117 (Task 1): a Year 2 report is a held YEAR2 signal.
+  added <- rhtp_year2_screen(added, OK_STATE, "legislative_reports", "legislative report")
   findings <- character(0)
   if (length(added)) findings <- c(findings, paste0(
     "[OK] NEW LEGISLATIVE QUARTERLY REPORT(S) LINKED: ", paste(added, collapse = "; "),

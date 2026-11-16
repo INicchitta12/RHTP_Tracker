@@ -628,7 +628,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # prevention CMS obligation lines (owner-approved, R/03cb).
   # Session 116c/d: + Nebraska's FFATA subawards ($0 rows priced, new rows typed
   # on CMS enrolment) -> 27,922,279.67. The POOLED figure did not move.
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 27922279.67)
+  # Session 117: NE is COMPLETE (117a), so R/09b holds its FSRS extras: three
+  # hospital rows (Antelope Memorial, St. Mary's Community, Box Butte General) out.
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 25381692.95)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at

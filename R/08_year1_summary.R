@@ -818,6 +818,13 @@ ys_vendor_build <- function(s, rows, spend = rhtp_spend_rows(sc_state_files()),
     for (tn in names(YS_VENDOR_TYPES)) {
       out[[paste0("vendor_total_", tn, "_usd")]] <- sum(x$vendor_verified_usd[x$amount_type == YS_VENDOR_TYPES[[tn]]])
     }
+    # SESSION 117 (Task 7c): every vendor total split PUBLIC (state-created or
+    # local public bodies, vendor_public: NC's Trillium and Vaya) / NON_PUBLIC.
+    for (tn in names(YS_VENDOR_TYPES)) {
+      ty <- x$amount_type == YS_VENDOR_TYPES[[tn]]
+      out[[paste0("vendor_public_", tn, "_usd")]] <- sum(x$vendor_verified_usd[ty & x$vendor_public %in% TRUE])
+      out[[paste0("vendor_non_public_", tn, "_usd")]] <- sum(x$vendor_verified_usd[ty & !(x$vendor_public %in% TRUE)])
+    }
     for (tn in names(YS_VENDOR_TYPES)) {
       out[[paste0("vendor_out_of_state_", tn, "_usd")]] <-
         sum(x$vendor_verified_usd[x$amount_type == YS_VENDOR_TYPES[[tn]] & x$out_of_state %in% TRUE])
@@ -859,7 +866,9 @@ YS_VENDOR_DEFINITIONS <- tibble::tribble(
   "hospital_share_of_awards_pct", "Hospital best estimate as a percentage of awards published, under the same rule, for side-by-side reading.",
   "vendor_<category>_<type>_usd", "VERIFIED dollars (session 116e tests V1-V9) by vendor category (consultant, data/tech vendor, administrator, non-provider intermediary) and amount type (award, intent, contract maximum, obligation). Amount types are never added together.",
   "vendor_total_<type>_usd", "Verified vendor dollars of one amount type, all four categories.",
-  "vendor_out_of_state_<type>_usd", "Verified vendor dollars of one amount type whose recipient's FSRS registered address is outside the awarding state (V6). A subset of vendor_total_<type>_usd.",
+  "vendor_public_<type>_usd", "Verified vendor dollars of one amount type paid to a PUBLIC body (state-created or local public entities, e.g. North Carolina's NC ROOTS hub leads Trillium Health Resources and Vaya Health, both Medicaid managed care organisations created under state law). PUBLIC + NON_PUBLIC = vendor_total_<type>_usd.",
+  "vendor_non_public_<type>_usd", "Verified vendor dollars of one amount type paid to a private firm or private nonprofit (NON_PUBLIC). PUBLIC + NON_PUBLIC = vendor_total_<type>_usd.",
+  "vendor_out_of_state_<type>_usd", "Verified vendor dollars of one amount type whose recipient's FSRS registered address is outside the awarding state (V6). A subset of vendor_total_<type>_usd. Every other vendor row is NOT_SHOWN out of state (out_of_state column), never 'in state': a national firm with no FSRS address (EY, McKinsey, Deloitte) is NOT_SHOWN.",
   "vendor_verified_rows", "Number of award and contract rows carrying verified vendor dollars.",
   "vendor_award_file_usd", "Verified vendor dollars on award rows of type award or intent: the numerator of vendor_share_of_awards_pct.",
   "vendor_leads_award_file_usd", "LEADS, context only: dollars on award rows whose category is a vendor category but which no verified case covers. Never a vendor figure.",
@@ -880,8 +889,12 @@ ys_vendor_notes <- function(vt) {
            "Hospital and vendor categories never overlap (a hospital, health system, AHC or hospital association is never a vendor). ",
            "Vendor money sits mostly in procurement contracts, which FSRS does not report and many states do not publish, so the vendor figure is a FLOOR."),
     paste0("CONTRACT ROWS. Contract maximums and obligations come from state contract registers and CMS annual reports (data/reference/contracts/); they never count toward awards published or the hospital share."),
-    paste0("UNNAMED CONTRACTOR MONEY. CMS's Obligated Funds Report obligates ", f(us$unnamed_contractor_only_obligation_usd),
-           " to contractors it does not name, plus ", f(us$unnamed_contractor_mixed_obligation_usd), " on lines that also cover state staff or agencies (MIXED). Context only."))
+    paste0("PUBLIC vs NON_PUBLIC. Of the verified award dollars, ", f(us$vendor_public_award_usd), " went to PUBLIC bodies ",
+           "(North Carolina's NC ROOTS hub leads Trillium Health Resources and Vaya Health) and ", f(us$vendor_non_public_award_usd),
+           " to private firms and nonprofits. Every vendor total is split this way on the sheet."),
+    paste0("UNNAMED CONTRACTOR MONEY (headline: CONTRACTOR_ONLY). CMS's Obligated Funds Report obligates ", f(us$unnamed_contractor_only_obligation_usd),
+           " to contractors it does not name, on lines that fund contractors only. A further ", f(us$unnamed_contractor_mixed_obligation_usd),
+           " sits on MIXED lines that also cover state staff or agencies (e.g. NH, KS), so not all of it is contractor money; it is shown separately and never added to the headline. Context only; each line and its quote is in cms_unnamed_contractor_lines.csv."))
 }
 
 ys_write <- function(date = format(Sys.Date(), "%Y-%m-%d")) {

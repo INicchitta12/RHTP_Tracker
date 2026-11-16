@@ -532,8 +532,16 @@ CO_PROBE_PAGES <- tibble::tribble(
   # Session 112: re-based to the 11-02 copy after reading it (menu
   # restructure, "Grant Awardees"/"Grantee Resources" links, 11-23/24 meeting
   # dates; no recipient named). The 10-01 copy stays CO_SOURCES' release check.
+  # Session 117: re-based to the 11-16 copy after reading the diff: a "Grantee
+  # Kickoff Meetings" notice (11-12; "Invitations will be sent directly to
+  # grantees, this is not an open meeting"), the Advisory Committee and
+  # stakeholder meetings moved to 11-16/11-17, the sidebar link renamed
+  # "Colorado Annual Report through 7.31.26" (a new file whose First-Tier
+  # Entities tab carries the same four entities and obligations as
+  # co_contracts.csv), and "Colorado's BY2 Documents Coming soon!". No
+  # recipient is named.
   "programme", CO_SOURCES$url[2],
-  file.path("data", "evidence", "recheck", "2026-11-02", "CO", "2026-11-02_hcpf_rhtp_programme.html"), TRUE)
+  file.path("data", "evidence", "recheck", "2026-11-16", "CO", "2026-11-16_hcpf_rhtp_programme.html"), TRUE)
 
 #' TRIPWIRE: the roster's line count or total moved
 co_assert_roster_unchanged <- function(raw) {

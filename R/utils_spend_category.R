@@ -11,14 +11,17 @@
 #   vendor_role           ADMINISTERS_PROGRAM | DELIVERS_TO_PROVIDERS | MIXED |
 #                         UNKNOWN, from the source's own purpose text (vendor
 #                         categories and PROVIDER_PASS_THROUGH only; else empty)
-#   out_of_state          TRUE | FALSE on every non-hospital row; empty on a
+#   out_of_state          TRUE | NOT_SHOWN on every non-hospital row; empty on a
 #                         HOSPITAL row. The V6 registered-address rule: TRUE only
 #                         where an FSRS record linked to the row (same UEI, same
 #                         subaward number, or an equal normalised name in the
 #                         same prime state) carries a state code that is not the
 #                         awarding state, and no V9 ruling says the money funds
-#                         the recipient's own in-state operations. FALSE means
-#                         "not shown out of state", never "shown in state".
+#                         the recipient's own in-state operations. NOT_SHOWN
+#                         (session 117; was FALSE) means "no registered
+#                         address shows it out of state", never "in state":
+#                         national firms with no FSRS address (EY, McKinsey,
+#                         Deloitte) are NOT_SHOWN.
 #   vendor_public         TRUE where the recipient is a public body (the NC ROOTS
 #                         hub leads Trillium and Vaya, owner ruling)
 #   vendor_verified       TRUE only where the row carries a session-116e case
@@ -49,9 +52,14 @@
 #                     row typed HOSPITAL_OR_SYSTEM
 #   2 hospital guard  -> PROVIDER_PASS_THROUGH or OTHER
 #   3 116e case       config/spend_category_cases.csv (hand calls, each quoted)
-#   4 V9 ruling       -> OTHER, out_of_state FALSE (Kinney, Spirit, Fond of You,
+#   4 V9 ruling       -> OTHER, out_of_state NOT_SHOWN (Kinney, Spirit, Fond of You,
 #                     Jefferson); then STATE_AGENCY -> OTHER (V7: a state agency
 #                     is never a vendor, whatever its name says)
+#   4c SOURCE LABEL   (session 117) the state's own document labels the vendor's
+#                     category (config/spend_category_source_labels.csv: e.g.
+#                     Colorado's annual report types HealthTech Solutions
+#                     "Other Consulting" -> CONSULTANT); the dictionary class,
+#                     where one matches, is recorded in the basis
 #   5 entity config   config/spend_category_entities.csv
 #   6 dictionary      config/vendor_entity_dictionary.csv: CONSULTING_* ->
 #                     CONSULTANT, TECH_VENDOR -> DATA_TECH_VENDOR; INSURER_MCO
@@ -71,6 +79,7 @@ RHTP_SPEND_COLUMNS <- c("spend_category", "spend_category_basis", "vendor_role",
                         "vendor_public", "vendor_verified", "vendor_verified_usd", "vendor_case_id")
 RHTP_SPEND_CASES <- "config/spend_category_cases.csv"
 RHTP_SPEND_ENTITIES <- "config/spend_category_entities.csv"
+RHTP_SPEND_SOURCE_LABELS <- "config/spend_category_source_labels.csv"
 RHTP_CONTRACT_DIR <- "data/reference/contracts"
 RHTP_SPEND_AMOUNT_TYPES <- c("award", "intent", "contract maximum", "obligation", "unpriced")
 RHTP_VV_LIST <- "data/reference/verified_vendor_list.csv"
@@ -113,6 +122,24 @@ rhtp_spend_entities <- function() {
             all(nzchar(e$basis)), !any(e$spend_category[e$hospital_affiliate == "TRUE"] %in% RHTP_VENDOR_CATEGORIES))
   for (p in e$pattern) stringr::str_detect("x", stringr::regex(p, ignore_case = TRUE))
   e
+}
+
+#' SESSION 117: the state's own label for a recipient's category, mapped
+rhtp_spend_source_labels <- function() {
+  l <- readr::read_csv(here::here(RHTP_SPEND_SOURCE_LABELS), col_types = readr::cols(.default = "c"),
+                       progress = FALSE, na = "")
+  stopifnot(!anyDuplicated(l$source_label), all(l$spend_category %in% RHTP_VENDOR_CATEGORIES),
+            all(nzchar(l$basis)))
+  l
+}
+
+#' The label a source prints for a row's category: the report's own "Entity
+#' Type" carried in recipient_type_source (contract registers from CMS annual
+#' reports), else an award file's entity_type_raw. NA where none.
+rhtp_spend_source_label <- function(recipient_type_source, entity_type_raw) {
+  a <- stringr::str_match(dplyr::coalesce(recipient_type_source, ""),
+                          "own Entity Type: '([^']+)'")[, 2]
+  dplyr::coalesce(a, dplyr::na_if(stringr::str_squish(dplyr::coalesce(entity_type_raw, "")), ""))
 }
 
 #' The first entity-config row each name matches (NA where none)
@@ -204,7 +231,8 @@ rhtp_spend_assign_cases <- function(rows, cases) {
 #' @return the rows with the eight RHTP_SPEND_COLUMNS added (character/logical
 #'   values as they will be written), and attr "unassigned_cases".
 rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spend_entities(),
-                                dict = vf_dictionary(), fsrs = rhtp_spend_fsrs()) {
+                                dict = vf_dictionary(), fsrs = rhtp_spend_fsrs(),
+                                labels = rhtp_spend_source_labels()) {
   n <- nrow(rows)
   cat_ <- rep(NA_character_, n); basis <- rep(NA_character_, n)
   role <- rep(NA_character_, n); public <- rep(FALSE, n)
@@ -279,6 +307,19 @@ rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spe
   # its name says (Delaware Health Information Network is typed STATE_AGENCY)
   set(rows$recipient_type %in% "STATE_AGENCY", "OTHER", "A state agency of the awarding state (V7): never a vendor")
 
+  # 4c SESSION 117: the source's own label beats the dictionary. Only labels
+  # listed in config/spend_category_source_labels.csv map (each to a vendor
+  # category, with its reason); the dictionary class is kept in the basis.
+  m0 <- vf_match(rows$awardee, dict)
+  slab <- if ("source_label" %in% names(rows)) rows$source_label else rep(NA_character_, n)
+  li <- match(slab, labels$source_label)
+  lw <- !is.na(li)
+  set(lw, ifelse(lw, labels$spend_category[pmax(li, 1L)], NA_character_),
+      paste0("Source label: the state's own document types the recipient '", slab, "' (",
+             ifelse(lw, labels$basis[pmax(li, 1L)], ""), ")",
+             ifelse(m0$matched, paste0("; dictionary class ", m0$entity_class, " (", m0$canonical_name,
+                                       ") recorded, not used"), "")))
+
   # 5 entity config (non-affiliate rows)
   ew <- !is.na(eidx) & !affiliate
   set(ew, ifelse(ew, ent$spend_category[pmax(eidx, 1L)], NA_character_),
@@ -351,6 +392,8 @@ rhtp_spend_input <- function(d, kind) {
     fsrs_subaward_number = na(dplyr::coalesce(na(rhtp_spend_col(d, "fsrs_subaward_number")),
                                               na(rhtp_spend_col(d, "fsrs_subaward_ids")))),
     fsrs_amount = suppressWarnings(as.numeric(na(rhtp_spend_col(d, "fsrs_amount")))),
+    source_label = rhtp_spend_source_label(na(rhtp_spend_col(d, "recipient_type_source")),
+                                           na(rhtp_spend_col(d, "entity_type_raw"))),
     kind = kind)
 }
 
@@ -365,7 +408,7 @@ rhtp_spend_fmt <- function(out) {
     spend_category = out$spend_category,
     spend_category_basis = out$spend_category_basis,
     vendor_role = dplyr::coalesce(out$vendor_role, ""),
-    out_of_state = ifelse(is.na(out$out_of_state), "", ifelse(out$out_of_state, "TRUE", "FALSE")),
+    out_of_state = ifelse(is.na(out$out_of_state), "", ifelse(out$out_of_state, "TRUE", "NOT_SHOWN")),
     vendor_public = ifelse(out$vendor_public, "TRUE", "FALSE"),
     vendor_verified = ifelse(out$vendor_verified, "TRUE", "FALSE"),
     vendor_verified_usd = ifelse(out$vendor_verified_usd > 0, format(out$vendor_verified_usd, scientific = FALSE, trim = TRUE, nsmall = 2), "0"),

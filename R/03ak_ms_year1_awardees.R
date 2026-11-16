@@ -487,6 +487,8 @@ ms_gov_rhtp_headlines <- function(body = NULL) {
 
 ms_assert_no_new_rhtp_headline <- function(body = NULL, known = MS_KNOWN_RHTP_HEADLINES) {
   new <- setdiff(ms_gov_rhtp_headlines(body), known)
+  # Session 117 (Task 1): a Year 2 headline is a held YEAR2 signal, not a trip.
+  new <- rhtp_year2_screen(new, "MS", "gov_newsroom", "RHTP headline")
   if (length(new)) {
     stop("[MS] NEW RHTP HEADLINE on the Governor's newsroom: ", paste(sQuote(new), collapse = "; "),
          ". THAT IS THE SIGNAL: read the release; if it prices awards, extract it ",
