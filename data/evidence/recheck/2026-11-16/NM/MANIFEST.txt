@@ -1,0 +1,3 @@
+c89539e0fb1cb92356518660bb056a832dbcde678621e6190b15cb56b0bfcc6d  2026-11-16_nm_hca_rht_programme_ASO_SELECTION_COMPLETE.html  https://www.hca.nm.gov/rural-health-transformation-program/  full_page_sha256=4f931c49df0ba10c89bc1a17ff0ee74ae449895310edbecd9567bc68a823632c (scripts and nonces stripped)  2026-11-16T20:08:57Z
+7d8dd7037e27e6779f2962154e98a7933c7f09ae128386e80795f4bd69b3b527  2026-04-30_nm_hca_aso_rfp_26-630-1000-0019.pdf  https://www.hca.nm.gov/wp-content/uploads/HCA_ASO_RFP-26-630-1000-0019-1.pdf  2026-11-16T20:08:57Z
+9b655a2c385c91be0f7d8cc7cf3927202709cb8cc586cb756d2049441116b420  2026-11-16_nm_hca_aso_rfp_faq.pdf  https://www.hca.nm.gov/wp-content/uploads/FAQ_HCA_ASO_RFP-26-630-1000-0019.pdf  2026-11-16T20:08:57Z

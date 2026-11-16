@@ -655,6 +655,16 @@ ig_validate <- function() {
 # District $176,080.16 (08-28; Region 5). If WCIEDD stays a member, Region 5
 # is 7 of 14, a tie, NOT_HOSPITAL. The removal is the latest state source and
 # governs (Vermont's Gifford precedent); the conflict is on the status table.
+#
+# SESSION 119, OWNER RULING (Task 3): INDIANA'S OWN FSRS FILINGS ARE EXECUTED-
+# AWARD RECORDS AND OUTRANK THE PROGRAMME PAGE. A removed member that still
+# holds a live FSRS subaward COUNTS AS A MEMBER. The five with a current filing
+# (fsrs_current_usd not NA) are reinstated; the five without one stay removed.
+# Region 5 regains West Central Indiana EDD: 7 typed hospitals of 14, a TIE,
+# and a tie is not a majority (session 112) -> NOT_HOSPITAL, reversing session
+# 118's +$16.7M. Region 2 regains four (Bluffton Health System LLC, a hospital
+# row, and three councils on aging). Their FSRS dollars stay held: a pool
+# priced at pool level is never priced member by member (§7, FSRS).
 IG_ARCHIVE_1116 <- file.path("data", "evidence", "recheck", "2026-11-16", "IN",
                              "2026-11-16_grow_regional_grants_page_TEN_REMOVED.html")
 IG_REMOVED_S118 <- tibble::tribble(
@@ -689,8 +699,9 @@ ig_assert_s118_removal <- function() {
 
 ig_apply_s118_removals <- function(a) {
   ig_assert_s118_removal()
-  out <- a[!paste(a$region, a$awardee) %in% paste(IG_REMOVED_S118$region, IG_REMOVED_S118$awardee), ]
-  stopifnot(nrow(out) == nrow(a) - 10L)
+  gone <- IG_REMOVED_S118[is.na(IG_REMOVED_S118$fsrs_current_usd), ]   # session 119: FSRS-held members stay
+  out <- a[!paste(a$region, a$awardee) %in% paste(gone$region, gone$awardee), ]
+  stopifnot(nrow(out) == nrow(a) - nrow(gone), nrow(gone) == 5L)
   out$row_no <- seq_len(nrow(out))
   out$source_archive_path <- IG_ARCHIVE_1116   # the current page; the 09-24 page stays archived
   out
@@ -699,19 +710,20 @@ ig_apply_s118_removals <- function(a) {
 ig_s118_status_row <- function() {
   f <- IG_REMOVED_S118
   tibble::tibble(
-    state = IG_STATE, channel = "GROW Regional Grants -- ten members removed by IDOH (page of 2026-11-16)",
+    state = IG_STATE, channel = "GROW Regional Grants -- ten members removed by IDOH (page of 2026-11-16); five reinstated on FSRS (session 119)",
     stage = "MEMBERS_REMOVED_BY_STATE", publishes_roster = "Yes -- names only, no per-organisation amount",
     region_figure_as_published = NA_character_, region_figure_dollars = NA_real_,
-    recipient_rows = 10L, distinct_names = 10L,
+    recipient_rows = 5L, distinct_names = 5L,
     named_hospital_rows = 1L,
     note = paste0(
       "The 11-16 page re-publishes every region table (new order, region figures unchanged, no name added) without: ",
       paste0(f$awardee, " (Region ", f$region, ")", collapse = "; "),
-      ". Owner ruling (d), session 118: removed by the state, so they leave the file and the strict-majority test runs on the current list ",
-      "(Region 5: 7 hospitals of 13, HOSPITAL; was 8 of 16, a tie). Hamilton Center, Inc. was the one hospital-typed row (a CMHC holding psychiatric CCN 154009). ",
-      "CONFLICT: Indiana's FFATA filings (FSRS 2026-11-16) still carry current subawards to five of the ten, $",
-      format(sum(f$fsrs_current_usd, na.rm = TRUE), big.mark = ",", nsmall = 2),
-      ", incl. West Central Indiana Economic Development District $176,080.16 (Region 5); with it Region 5 is 7 of 14, a tie."))
+      ". Owner ruling (d), session 118: removed by the state. OWNER RULING, SESSION 119: Indiana's own FSRS filings are executed-award records ",
+      "and outrank the programme page, so a removed member holding a live FSRS subaward counts as a member. Five do (FSRS 2026-11-16, $",
+      format(sum(f$fsrs_current_usd, na.rm = TRUE), big.mark = ",", nsmall = 2), "): ",
+      paste0(f$awardee[!is.na(f$fsrs_current_usd)], " (Region ", f$region[!is.na(f$fsrs_current_usd)], ")", collapse = "; "),
+      "; they stay in the file at $0 (their FSRS dollars held, pool priced at pool level). The other five leave it. ",
+      "Region 5: 7 typed hospitals of 14, a tie, NOT_HOSPITAL. Hamilton Center, Inc. (a CMHC holding psychiatric CCN 154009) stays removed (no FSRS filing)."))
 }
 
 ig_build <- function() {

@@ -189,7 +189,11 @@ cr_annual <- function(state, path, url, title) {
     source_document_title = title, source_url = url, source_archive_path = path,
     note = paste0("'Obligated Funds' $", format(x$obligated, big.mark = ",", nsmall = 2), ", disbursed $",
                   format(x$disbursed, big.mark = ",", nsmall = 2),
-                  ". An obligation to a first-tier entity (session 97's rule), never an award."))
+                  ". An obligation to a first-tier entity (session 97's rule), never an award."),
+    # SESSION 119, OWNER RULING (Task 2): a state annual report to CMS is the
+    # state's own official reporting (CMS's obligation report is compiled from
+    # them): source type STATE_REPORT, as SC's (session 118).
+    validation_source_type = "STATE_REPORT")
 }
 
 # -- Oklahoma: the Q3 Legislative Quarterly Report's Funded Entity table -------------

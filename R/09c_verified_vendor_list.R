@@ -23,7 +23,9 @@
 #
 # THE TESTS (the brief's V1-V9; the "Method" tab writes them out plainly)
 #   V1 source class in {FSRS_FFATA, STATE_AWARD_LIST, STATE_CONTRACT_REGISTER,
-#      CMS_OBLIGATION_REPORT}. Press, RCJ, plans, annual reports fail.
+#      CMS_OBLIGATION_REPORT, STATE_REPORT}. Press, RCJ and plans fail. A state
+#      annual report to CMS PASSES from session 119 (owner ruling), as an
+#      obligation.
 #   V2 the document itself says Rural Health Transformation / RHTP / 93.798.
 #   V3 the amount is printed in the source exactly; one amount type per case.
 #   V4 the purpose quote is found verbatim in the source (segments joined by
@@ -82,8 +84,15 @@ VV_LIVE_CSV <- function(as_of = VV_AS_OF) paste0("data/reference/verified_vendor
 VV_XLSX <- function(as_of = VV_AS_OF) here::here("output", paste0("verified_vendor_list_", as_of, ".xlsx"))
 VV_FLOOR <- 1e6
 VV_CATEGORIES <- c("CONSULTANT", "INTERMEDIARY", "OUT_OF_STATE_VENDOR")
-VV_AMOUNT_TYPES <- c("award", "intent", "obligation", "contract maximum")
-VV_ADMISSIBLE <- c("FSRS_FFATA", "STATE_AWARD_LIST", "STATE_CONTRACT_REGISTER", "CMS_OBLIGATION_REPORT")
+# 'administers' (session 119, owner Task 1d): the amount an administrator
+# handles, fee and pass-through unsplit (NM Accenture, "administers $129.0M");
+# a type of its own, never added to any other.
+VV_AMOUNT_TYPES <- c("award", "intent", "obligation", "contract maximum", "administers")
+# STATE_REPORT (session 119, OWNER RULING, Task 2): a state's annual report to
+# CMS is its own official reporting, and CMS's obligation report is compiled
+# from them. Amount type obligation.
+VV_ADMISSIBLE <- c("FSRS_FFATA", "STATE_AWARD_LIST", "STATE_CONTRACT_REGISTER", "CMS_OBLIGATION_REPORT",
+                   "STATE_REPORT")
 VV_TIE_RX <- regex("RURAL HEALTH TRANSFORMATION|\\bRHTP\\b|\\bRHT PROGRAM|93\\.798", ignore_case = TRUE)
 
 # -- sources -------------------------------------------------------------------------
@@ -134,6 +143,16 @@ VV_SOURCES <- tibble::tribble(
   "https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf",
   "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf",
   "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf.manifest.txt",
+  "S_SC_AR", "STATE_REPORT", "pdf",
+  "SCDHHS, SC RHTP Year 1 Annual Report (CMS annual-report workbook; obligations as of 7/31/2026)",
+  "https://www.scdhhs.gov/sites/dhhs/files/SC%20RHTP%20Year%201%20Annual%20Report.pdf",
+  "data/evidence/recheck/2026-11-16/SC/2026-11-16_sc_rhtp_year1_annual_report.pdf",
+  "data/evidence/recheck/2026-11-16/SC/MANIFEST.txt",
+  "S_CO_AR", "STATE_REPORT", "xlsx",
+  "Colorado HCPF, CMS RHTP Annual Report as of 6.31.26 (First-Tier Entities and Use of Funds tabs)",
+  "https://hcpf.colorado.gov/sites/hcpf/files/Colorado%20Annual%20Report%20as%20of%206.31.26.xlsx",
+  "data/evidence/vendor_flags/2026-11-09/CO/2026-11-09_co_hcpf_annual_report_as_of_6.31.26.xlsx",
+  "data/evidence/vendor_flags/2026-11-09/CO/MANIFEST.txt",
   # A TIE source (owner ruling, session 116e): Idaho's awardee xlsx carries no
   # programme name of its own; its RHTP tie is its publication on DHW's RHTP
   # funding page under "Closed and awarded funding opportunities". The page
@@ -750,7 +769,7 @@ VV_METHOD <- c(
   "The main list keeps CONSULTANT, ADMINISTERS_ONLY, NON_PROVIDER_RECIPIENTS and OUT_OF_STATE_VENDOR. Every PASS_THROUGH_TO_PROVIDERS case, and every case this tracker already counts as hospital money (a strict hospital bucket or a HOSPITAL summary call on the same recipient and amount), is on the 'Pass-through to providers' tab instead.",
   "",
   "The nine tests. A case that fails any test is dropped, not caveated.",
-  "V1 Primary source: a state award list, executed contract or contract register, the state's FSRS/FFATA filing, or CMS's obligation report. Press releases, RCJ, annual reports and budget plans fail. Budget plans appear only on the 'Planned (not awarded)' tab.",
+  "V1 Primary source: a state award list, executed contract or contract register, the state's FSRS/FFATA filing, CMS's obligation report, or (owner ruling, session 119) the state's own annual report to CMS, as an obligation. Press releases, RCJ and budget plans fail. Budget plans appear only on the 'Planned (not awarded)' tab.",
   "V2 RHTP tie: the document itself says Rural Health Transformation, RHTP, or Assistance Listing 93.798. Owner ruling: Idaho's awardee sheet is tied by its publication on DHW's Rural Health Transformation funding page under 'Closed and awarded funding opportunities' (archived; the page must link the sheet), the same source this tracker's Idaho hospital rows rest on.",
   "V3 Amount: exactly as printed, with one amount type: award (executed), intent (announced, not executed), obligation (CMS's report of the state's self-reported obligation), or contract maximum (an executed contract's amount). Types are never added together.",
   "V4 Purpose: a verbatim quote from the same source saying what the money is for, and the category must follow from it. A programme name or initiative number alone fails. Segments joined by [...] are each verbatim.",

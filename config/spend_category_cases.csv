@@ -51,3 +51,10 @@ VV052,CONSULTANT,DELIVERS_TO_PROVIDERS,FALSE,"Quote: 'financial sustainability a
 VV054,DATA_TECH_VENDOR,MIXED,FALSE,"Unite Us: a referral-platform company; quote: 'TRANSITIONING WELLNESS REFERRALS ... INTO A STATEWIDE, OUTCOMES-ORIENTED PROGRAM'."
 VV055,CONSULTANT,DELIVERS_TO_PROVIDERS,FALSE,"Quote: Moda partners with two hospitals 'to support implementation of ... PCMH model across four clinic sites' (implementation support)."
 VV056,DATA_TECH_VENDOR,DELIVERS_TO_PROVIDERS,FALSE,"Quote: 'MapHabit delivers AI-powered visual maps' (a software product)."
+VV064,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,"Session 119 (annual report admitted): 'rate methodology for community paramedics', analysis for the state."
+VV065,NON_PROVIDER_INTERMEDIARY,MIXED,FALSE,Session 119: 'passthrough to subrecipients for the Tech Catalyst Fund' (SC6) and 'overall grant manager' (SC7): pass-through to technology firms plus administration.
+VV066,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,Session 119: 'a comprehensive rural health assessment' for the state.
+VV067,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,Session 119: 'technical assstance and compliance monitoring of the overall program'.
+VV068,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,Session 119: 'a targeted transition plan for the dual population' for the state.
+VV069,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,"Session 119: 'Facilitation and Administrative Vendor' and 'Stakeholder/Advisory Committee Engagement', the report's own type 'Other Consulting'."
+VV070,ADMINISTRATOR,MIXED,FALSE,"Owner Task 1d (session 119): ADMINISTRATOR, MIXED. ASO 'fund administration, contract and subaward administration ... payment preparation and tracking'; HCA's RFP has the ASO 'process and issue payments to RHTP-funded entities'. Administers $128,979,618.21; no verified vendor dollars (fee unsplit)."

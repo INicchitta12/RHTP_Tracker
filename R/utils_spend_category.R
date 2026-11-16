@@ -351,6 +351,16 @@ rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spe
 
   verified <- cat_ %in% RHTP_VENDOR_CATEGORIES & ver_usd > 0
   ver_usd[!verified] <- 0
+  # SESSION 119 (owner Task 1d): an administrator row whose fee and pass-through
+  # share are unsplit (flag ADMINISTRATOR_PASS_THROUGH_UNRESOLVED: NM Accenture)
+  # is VERIFIED as the administrator of its amount ("administers $129.0M", the
+  # case's amount type 'administers'), but none of it enters a vendor dollar
+  # total: the fee is unknown and most of the money is paid on.
+  fl <- if ("flag_reason" %in% names(rows)) rows$flag_reason else rep(NA_character_, n)
+  adm <- verified & !is.na(fl) & grepl("(^|;)ADMINISTRATOR_PASS_THROUGH_UNRESOLVED(;|$)", fl)
+  ver_usd[adm] <- 0
+  basis[adm] <- paste0(basis[adm], "; ADMINISTERS ONLY (session 119): verified as the administrator of the row's amount; ",
+                       "no verified vendor dollars (fee and pass-through share unsplit)")
 
   out <- rows
   out$spend_category <- cat_
@@ -392,6 +402,7 @@ rhtp_spend_input <- function(d, kind) {
     fsrs_subaward_number = na(dplyr::coalesce(na(rhtp_spend_col(d, "fsrs_subaward_number")),
                                               na(rhtp_spend_col(d, "fsrs_subaward_ids")))),
     fsrs_amount = suppressWarnings(as.numeric(na(rhtp_spend_col(d, "fsrs_amount")))),
+    flag_reason = na(rhtp_spend_col(d, "flag_reason")),
     source_label = rhtp_spend_source_label(na(rhtp_spend_col(d, "recipient_type_source")),
                                            na(rhtp_spend_col(d, "entity_type_raw"))),
     kind = kind)
