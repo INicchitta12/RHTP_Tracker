@@ -2024,18 +2024,18 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 2 (AZ RI). UT left QUEUED by extraction in session 112 (R/03cn); it has no probe or Routine yet. A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-11-16, session 117, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-11-16, session 118, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,200 / $2,170,191,306.58
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,277 / $2,227,514,269.17
 (NV's FLEX-36 $2,458,060.00 back in; FLEX-28 was cleared on an exact FSRS pair in session 116d); never
 publish it alone. SESSION 116c/116d: FSRS/FFATA subawards are an award source (R/09b): $0 rows priced
 (`validation_source_type = FSRS_FFATA`, original kept) and `<st>_fsrs_awardees.csv` new rows; both subtract by
 `validation_source_type`.
 
 ```
-NAMED_HOSPITAL          2,199 rows   $2,167,733,246.58   42 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
-POOL_NAMED_HOSPITALS       10 rows      $86,895,779.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
+NAMED_HOSPITAL          2,276 rows   $2,225,056,209.17   43 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
+POOL_NAMED_HOSPITALS       11 rows      $96,565,779.43   WA (HCA's 28 hospitals $9,670,000, estimated, session 118) + NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
 
@@ -2073,7 +2073,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | MD | 41 | 41 | $78,625,071 | 9 / $27,681,260 (offers) |
 | MD Labor | 38 | 38 | $13,965,196 | 9 / $3,574,030 (MD Labor workforce roster; "$16.4M" is the Transformation Fund size, MPI 10-26; LOW $1,999,897: Charles bridge, Shore + UCH system parents, Meritus foundation) |
 | NY | 56 | 56 | $76,190,022 | 34 / $45,858,791 (Glens Falls Hospital/ Hudson Headwaters $1,500,000 a joint award in no bucket, owner ruling session 108) |
-| WA | 8 | 7 | $67,020,000 | 2 / $9,740,000 (WSHA $42M Unclear) |
+| WA | 37 | 8 | $76,690,000 | 30 / $9,740,000 + POOL_NAMED 1 / $9,670,000 (WSHA $42M Unclear; HCA 11-05 'Maternal, emergency, and specialty services', 28 hospitals at $0 on CMS WA enrolment, 11 LOW bridges, the $9.67M 'Estimated amount' one pool row never split, owner ruling c session 118) |
 | NH | 2 | 1 | $66,547,394 | 0 (FHC Unclear) |
 | AL r2 | 34 | 34 | $54,793,527 | 21 / $20,886,572 (AHC $6.69M; Greene $3.91M LOW, general knowledge, no CCN) |
 | AR r2 | 43 | 43 | $54,685,069 | 14 / $23,939,844 (AR Year 1 COMPLETE) |
@@ -2096,7 +2096,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | IN | 7 | 1 | $860,088 | 0 (vendors) |
 | OK Doulas | 4 | 4 | $647,968 | 1 / $38,525 |
 | OK BHI | 3 | 3 | $1,228,013 | 1 / $90,172 (Mercy, system parent, LOW, general knowledge, no CCN) |
-| OK EMS/CP | 50 | 5 | $632,960 (5 lines priced from FSRS, session 116c) | 6 / $36,594 (37 ambulance + 13 vehicle lines; Wewoka removed from ambulance 10-16; INTEGRIS Miami bridge LOW) |
+| OK EMS/CP | 50 | 15 | $4,081,216 (15 lines priced from FSRS, sessions 116c and 118) | 6 / $348,344 (Northeastern Health System ambulance $311,750 priced from FSRS via its Tahlequah Hospital Authority filing, session 118; 37 ambulance + 13 vehicle lines; Wewoka removed from ambulance 10-16; INTEGRIS Miami bridge LOW) |
 | OK Lung | 11 | 11 | $1,873,344 | 9 / $1,532,736 + POOL_NAMED 2 / $340,608 (OHA-administered, hospitals the subrecipients; 3 lines "contract not finalized", intents) |
 | OK Telestroke | 1 | 1 | $499,555 | 0 (OUHSC, a university; OU Medicine Inc is the enrolled hospital) |
 | OK Closed-Loop | 1 | 1 | $830,400 | 0 (Findhelp, vendor, IN_KIND_BENEFIT) |
@@ -2106,44 +2106,43 @@ Change a state file and you must update this table in the same commit. Never loo
 | MN | 11 | 11 | $12,453,451 | 0 (MDH Sub-Recipient Awardees, "$12.5 million"; state agencies $9,775,054 kept, an owner question; direct-allocation grants to CAHs "in the coming days") |
 | UT | 41 | 41 | $193,095,907 | 6 / $5,196,813 + POOL_UNNAMED 1 / $9,891,739 (INTENTS, DHHS announcement; UHA capital $38.3M Unclear, hospitals among others; Year 1 COMPLETE on 100% obligation) |
 | TX | 440 | 440 | $222,548,441 (Year 1 subset, the 11/12 list posted 11/13 as rhtp-award-recipients.xlsx; 5 lines withdrawn, session 117) | 283 / $190,218,130 (Yoakum Community Hospital x2 and LLano Regional withdrawn on the 11/12 list; HHSC corrected the three SOURCE_SUSPECT lines, Anson HD now $262,566.30 on REH 670781; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 71 / $47,814,390; LOW 88 / $59,243,003) |
-| IN GROW | 186 | 0 | — | 44 / $0 |
+| IN GROW | 176 | 0 | — | 42 / $0 (ten members removed by IDOH on the 11-16 page, owner ruling d session 118: Hamilton Center and Bluffton Health System were hospital-typed; five of the ten still carry current FFATA subawards, recorded on the status table) |
 | IA | 264 | 161 | $156,302,236 (161 $0 rows priced from FSRS, paired by RFP pool, session 116c; sibling rows point at the priced row) | 218 / $144,551,736 |
 | IA CC R2 | 4 | 0 | — | 4 / $0 (Combat Cancer Health Hubs Round 2 NOIA, COMPADM26008, 2026-08-12; INTENTS; typed on CMS IA enrolment, CCNs 160047/160064/160082/160083 in the basis; footer is the allotment; owner ruling session 116) |
 | NC | 44 | 42 | $97,102,908 (FSRS: 36 MIH counties, the five ROOTS Hub Leads; MIH reaches its $10M round) | 2 / $14,550,000 (UNC Hospitals $14,250,000 DIRECT; Cape Fear Valley MIH $300,000; the four non-hospital Hub Leads stay Unclear, FHC rule) |
 | NC SBHC | 5 | 0 | — (pool $1.25M) | 1 / $0 (FirstHealth) |
-| TN | 53 | 2 | $806,715 (FSRS) | 2 / $0 |
+| TN | 53 | 31 | $3,064,527 (FSRS) | 2 / $148,832 (the $422M / 138-project five-year roster is a NON-AWARD file, tn_multiyear_awards_or_requests.csv, owner ruling b session 118) |
 | DE | 4 | 3 | $2,854,876 (FSRS) | 4 / $2,854,876 |
 | VA | 16 | 7 | $86,929,718 (7 partners priced from FSRS) | 0 (VHHA Foundation $27,201,764 Unclear; summary call NOT_HOSPITAL with RPM + GME components HOSPITAL, $24,728,876, owner ruling 116d a) |
 | VA VHCF | 25 | 25 | $14,390,000 | 9 / $6,390,000 (system parents $5,700,000 LOW, GENERAL_KNOWLEDGE; UVA strings $884k queued; Highland is an FQHC) |
 | VA VHCF PP | 23 | 23 | $8,644,000 | 8 / $4,641,000 + POOL_NAMED 1 / $1,000,000 (Provider Productivity, 10-16; Ballad, Sentara, Valley system parents $3,000,000 LOW; VCU Health pair Community Memorial + Tappahannock undivided, CT's shape; UVA Health $62,000, AHC, LOW, ruling a, session 110) |
 | ID | 112 | 112 | $157,801,814 (DHW list of awardees as of Oct. 16; MOA/MOU $22.9M out of file) | 48 / $85,389,816 (LOW 15 / $9,027,261 incl. St. Luke's Health System $3,672,157 system parent; networks + ladder-payment TPA $18,353,321 Unclear) |
 | HI | 3 | 0 | — (amounts in HANDS, 403) | POOL_UNNAMED 1 / $0 (Healthcare Association of Hawaii, association rule; PSW and HPCA not hospitals) |
-| KY | 2 | 1 | $280,000 (FSRS) | 0 (LCDHD and Purchase DHD, local health departments; "up to $10 million" per region over five years is a ceiling, text only) |
+| KY | 3 | 1 | $280,000 (FSRS) | 0 (LCDHD, Purchase DHD and Martin County HD, the Big Sandy Hub Lead per owner ruling e session 118, all local health departments; "up to $10 million" per region over five years is a ceiling, text only) |
 | NE CMS obl | 6 | 6 | $3,977,841 | 5 / $502,904 + POOL_UNNAMED 1 / $3,474,938 (CMS obligation lines, as of 7/31; Mayo $120,000 out of state, LOW; Regional West + Chase County infection prevention $342,079 added session 99; NHA tagged CMS_OBLIGATION_ASSOCIATION) |
 | RI | 104 | 104 | $78,727,110 | POOL_UNNAMED 2 / $15,839,908 (CMS obligation lines only; HARI tagged CMS_OBLIGATION_ASSOCIATION; no enrolled RI hospital named) |
 | SD rounds | 2 | 0 | — ($121.5M, names nobody) | 0 |
 | SD CCBHC | 13 | 0 | — (pool "more than $13 million") | 0 (13-member cohort, 12 grants; every row Unclear) |
 | AZ_FSRS | 2 | 2 | $69,870,787 | 0 (FSRS new rows, session 116c; R/09b) |
-| CT_FSRS | 14 | 14 | $73,632,100 | 3 / $15,005,890 (FSRS new rows, session 116c; R/09b) |
+| CT_FSRS | 18 | 18 | $78,786,367 | 3 / $15,005,890 (FSRS new rows, session 116c; R/09b) |
 | DE_FSRS | 22 | 22 | $82,119,684 | 1 / $436,400 (FSRS new rows, session 116c; R/09b) |
 | HI_FSRS | 7 | 7 | $188,861,170 | 0 (FSRS new rows, session 116c; R/09b) |
 | IA_FSRS | 26 | 26 | $34,392,111 | 24 / $18,531,106 (FSRS new rows, session 116c; R/09b) |
-| IL_FSRS | 89 | 89 | $135,834,540 | 80 / $53,821,675 (FSRS new rows, session 116c; R/09b) |
+| IL_FSRS | 90 | 90 | $136,191,393 | 81 / $54,178,528 (FSRS new rows, sessions 116c and 118; R/09b) |
 | KS_FSRS | 14 | 14 | $92,435,349 | 1 / $1,950,110 (FSRS new rows, session 116c; R/09b) |
 | KY_FSRS | 41 | 41 | $101,037,784 | 3 / $4,348,529 (FSRS new rows, session 116c; R/09b) |
 | ME_FSRS | 14 | 14 | $13,778,347 | 2 / $258,193 (FSRS new rows, session 116c; R/09b) |
-| MN_FSRS | 61 | 61 | $78,351,427 | 44 / $68,840,377 (FSRS new rows, session 116c; R/09b) |
+| MN_FSRS | 139 | 139 | $144,593,812 | 86 / $117,523,237 (FSRS new rows, sessions 116c and 118; 42 hospital rows added session 118, the CAH direct allocations; R/09b) |
 | MT_FSRS | 1 | 1 | $22,093,078 | 0 (FSRS new rows, session 116c; R/09b) |
-| NC_FSRS | 6 | 6 | $5,129,299 | 0 (FSRS new rows, session 116c; R/09b) |
+| NC_FSRS | 9 | 9 | $7,124,404 | 0 (FSRS new rows, session 116c; R/09b) |
 | ND_FSRS | 103 | 103 | $15,927,797 | 48 / $8,751,589 (FSRS new rows, session 116c; R/09b) |
-| NE_FSRS | 120 | 120 | $83,036,784 | 10 / $6,959,361 (FSRS new rows, session 116c; R/09b; 21 extras held since NE is COMPLETE, session 117) |
-| NM_FSRS | 3 | 3 | $23,320,773 | 0 (FSRS new rows, session 116c; R/09b) |
-| OK_FSRS | 26 | 26 | $103,564,606 | 1 / $100,000 (FSRS new rows, session 116c; R/09b) |
+| NE_FSRS | 141 | 141 | $93,356,409 | 13 / $9,499,948 (FSRS new rows, session 116c; R/09b; 21 extras applied session 118, owner ruling a: NE is COMPLETE on FULL_OBLIGATION, its roster a floor; Alegent Creighton $711,629.63 held, same amount on roster) |
+| NM_FSRS | 9 | 9 | $164,351,420 | 3 / $6,338,580 (FSRS new rows, sessions 116c and 118; Healthy Horizons hub hospitals Gila Regional, Nor-Lea, Cibola; ACCENTURE LLP $128,979,618.21 ASO, VENDOR_OR_CONTRACTOR, held out of verified vendor totals pending an owner ruling) |
+| OK_FSRS | 27 | 27 | $107,564,606 | 1 / $100,000 (FSRS new rows, session 116c; R/09b) |
 | RI_FSRS | 5 | 5 | $37,724,387 | 0 (FSRS new rows, session 116c; R/09b) |
-| TN_FSRS | 96 | 96 | $48,437,192 | 17 / $16,699,482 (FSRS new rows, session 116c; R/09b) |
+| TN_FSRS | 115 | 115 | $52,091,792 | 20 / $17,642,982 (FSRS new rows, sessions 116c and 118; R/09b) |
 | TX_FSRS | 3 | 3 | $20,406,310 | 0 (FSRS new rows, session 116c; R/09b) |
 | VA_FSRS | 2 | 2 | $17,211,297 | 0 (FSRS new rows, session 116c; R/09b) |
-| VT_FSRS | 1 | 1 | $2,000,000 | 1 / $2,000,000 (FSRS new rows, session 116c; R/09b) |
 | WV_FSRS | 14 | 14 | $28,409,366 | 7 / $2,868,596 (FSRS new rows, session 116c; R/09b) |
 
 Each file's caveats are in its own `R/` header and in the history file. Reference tables: `data/reference/`.
