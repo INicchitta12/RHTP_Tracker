@@ -2383,3 +2383,6 @@ AR,2026-11-15T20:22:00Z,UNCHANGED,resources,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-15T20:22:00Z,UNCHANGED,rise,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-15T20:22:00Z,UNCHANGED,heart,,trig_01DLRYTSBPvrst5LqGBv1M9M
 KS,2026-11-16T08:12:25Z,ERROR,(probe),ℹ In index: 1. Caused by error: ! [KS] HTTP 403 for https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program,trig_01HYYurhCCUFATgTUuTqqjpn
+CO,2026-11-16T09:11:33Z,UNCHANGED,awardees,,trig_012SyFT6QNtKsZK6veV5KznF
+CO,2026-11-16T09:11:33Z,CHANGED,programme,,trig_012SyFT6QNtKsZK6veV5KznF
+CO,2026-11-16T09:11:33Z,TRIPWIRE,programme,"[CO] 'programme' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Healthcare Providers Upcoming Events Grantee Kickoff Meetings | Colorado's BY1 Documents Budget Narrative Project Narrative Budget Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_012SyFT6QNtKsZK6veV5KznF
