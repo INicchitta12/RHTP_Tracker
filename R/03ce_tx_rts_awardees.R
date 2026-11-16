@@ -150,6 +150,8 @@ TRT_AGENT      <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
 TRT_PFD        <- "https://pfd.hhs.texas.gov"
 TRT_PROGRAMME_URL <- paste0(TRT_PFD, "/rural-health-transformation-program")
 TRT_LIST_PATH  <- "/sites/default/files/documents/rural-hlth-prgm/2026/10-29-2026-list-award-recipients.xlsx"
+# The "(Updated ...)" label beside the link on the programme page (session 117).
+TRT_LIST_UPDATED <- NA_character_
 TRT_DIR_108    <- file.path("data", "evidence", "recheck", "2026-10-26", "TX")
 TRT_DIR_112    <- file.path("data", "evidence", "recheck", "2026-11-02", "TX")
 TRT_PRIOR23_URL <- paste0(TRT_PFD, "/sites/default/files/documents/rural-hlth-prgm/",
@@ -1069,7 +1071,7 @@ tx_rts_report <- function(a = tx_rts_awardees()) {
 
 #' Has HHSC linked a newer weekly list? Reads the live programme page into
 #' memory (never data/evidence/, §2.2).
-tx_rts_live_finding <- function(body = NULL) {
+tx_rts_live_finding <- function(body = NULL, updated = TRT_LIST_UPDATED) {
   if (is.null(body)) {
     r <- httr::GET(TRT_PROGRAMME_URL, httr::user_agent(TRT_AGENT), httr::timeout(60))
     if (httr::status_code(r) != 200L) {
@@ -1077,14 +1079,35 @@ tx_rts_live_finding <- function(body = NULL) {
     }
     body <- httr::content(r, as = "text", encoding = "UTF-8")
   }
-  links <- unique(stringr::str_match_all(body, "href=\"([^\"]*list-award-recipients[^\"]*\\.xlsx)\"")[[1]][, 2])
-  links <- sub("^https?://pfd\\.hhs\\.texas\\.gov", "", links)
-  list(links = links,
-       finding = if (!identical(links, TRT_LIST_PATH)) paste0(
+  # SESSION 117: HHSC renamed the list to a STABLE file name
+  # (rhtp-award-recipients.xlsx, "Updated 11/13/2026"), which the old pattern
+  # ("list-award-recipients") did not match -- so the 11-13 probe reported "NO
+  # award-recipient list" while HHSC had posted a new one. The pattern now takes
+  # any *award-recipients*.xlsx, and because a stable name no longer changes
+  # week to week, the "(Updated mm/dd/yyyy)" label beside the link is compared
+  # too.
+  m <- stringr::str_match_all(body, "href=\"([^\"]*award-recipients[^\"]*\\.xlsx)\"[^>]*>([^<]*)</a>([^<]{0,80})")[[1]]
+  links <- unique(sub("^https?://pfd\\.hhs\\.texas\\.gov", "", m[, 2]))
+  # SESSION 117 (Task 1): a Year 2 list (by its file name, link text or label)
+  # is a held YEAR2 signal, never a Year 1 roster to extract.
+  if (length(links) && exists("rhtp_year2_screen")) {
+    lab <- paste(m[, 2], m[, 3], m[, 4])
+    keep <- rhtp_year2_screen(lab, "TX", "programme", "award-recipient list")
+    links <- unique(sub("^https?://pfd\\.hhs\\.texas\\.gov", "", m[lab %in% keep, 2]))
+  }
+  upd <- stringr::str_match(paste(m[, 4], collapse = " "), "Updated ([0-9]{1,2}/[0-9]{1,2}/[0-9]{4})")[, 2]
+  moved_link <- !identical(links, TRT_LIST_PATH)
+  moved_date <- !moved_link && !is.na(upd) && !identical(upd, updated)
+  list(links = links, updated = upd,
+       finding = if (moved_link) paste0(
          "RURAL TEXAS STRONG LIST: the programme page links ",
          if (length(links)) paste(links, collapse = ", ") else "NO award-recipient list",
          ", not the extracted ", basename(TRT_LIST_PATH),
-         ". A new weekly list: update R/03ce's TRT_LIST_PATH, --fetch, --build, re-read the bridges.") else NULL)
+         ". A new weekly list: update R/03ce's TRT_LIST_PATH, --fetch, --build, re-read the bridges.")
+       else if (moved_date) paste0(
+         "RURAL TEXAS STRONG LIST: HHSC's list is now 'Updated ", upd, "', not the extracted ",
+         updated, ". A new weekly list under the same name: update R/03ce's TRT_LIST_UPDATED and ",
+         "TRT_AS_OF, --fetch, --build, re-read the bridges.") else NULL)
 }
 
 if (!interactive() && sys.nframe() == 0L) {
