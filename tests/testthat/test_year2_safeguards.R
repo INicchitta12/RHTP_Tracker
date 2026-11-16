@@ -119,8 +119,9 @@ test_that("every Year 2 signal is quoted from its archive and enters no total", 
   # The three footer signals are each the allotment plus exactly $100M.
   ft <- s[s$source_type == "FOOTER", ]
   for (i in seq_len(nrow(ft))) {
-    expect_equal(rhtp_footer_class(as.numeric(gsub("[$,]", "", ft$figure_text[i])), ft$state[i]),
-                 "ALLOTMENT_PLUS_YEAR2_INITIAL", info = ft$signal_id[i])
+    # Session 117: or BP1 + the state's FY2027 award, once CMS published it.
+    expect_true(rhtp_footer_class(as.numeric(gsub("[$,]", "", ft$figure_text[i])), ft$state[i]) %in%
+                  c("ALLOTMENT_PLUS_YEAR2_INITIAL", "ALLOTMENT_PLUS_FY2027"), info = ft$signal_id[i])
   }
 })
 
