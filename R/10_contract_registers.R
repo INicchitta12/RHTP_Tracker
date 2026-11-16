@@ -245,6 +245,68 @@ cr_ok <- function() {
                   "or other signed agreement'). An obligation, never an award; a joint OUHSC/OSU line is never divided."))
 }
 
+# -- South Carolina: the Year 1 Annual Report's First-Tier Entities (session 118) ------
+# OWNER DIRECTION (Task 3, session 118): SC's "SC RHTP Year 1 Annual Report" (the CMS
+# annual-report workbook as a PDF, obligations as of 7/31/2026, linked from SCDHHS's
+# grants page) names its first-tier entities. Amount type OBLIGATION ("Obligated
+# Funds"), source type STATE_REPORT, each row with the purpose its Use of Funds tab
+# prints. The report itself says "there are no subaward agreements executed as of
+# 7/31/2026". Every entity is carried, the state agency included (TX/CO precedent).
+CR_SC_PDF <- "data/evidence/recheck/2026-11-16/SC/2026-11-16_sc_rhtp_year1_annual_report.pdf"
+CR_SC_URL <- "https://www.scdhhs.gov/sites/dhhs/files/SC%20RHTP%20Year%201%20Annual%20Report.pdf"
+CR_SC_ROWS <- tibble::tribble(
+  ~awardee, ~entity_type, ~obligated, ~recipient_type, ~initiative, ~purpose,
+  "South Carolina Department of Health & Human Services", "State Health and Human Services Agency", "$569,133.31",
+  "STATE_AGENCY", "All",
+  "Payroll and fringe expenses to support operations of Rural Health Transformation Program. [...] Other costs to support operations of Rural Health Transformation Program.",
+  "Boston Consulting Group (BCG)", "Other Consulting", "$5,000,000.00", "VENDOR_OR_CONTRACTOR", "2",
+  "Contractor to perform a comprehensive rural health assessment.",
+  "Milliman, Inc.", "Other Consulting", "$10,000,000.00", "VENDOR_OR_CONTRACTOR", "3",
+  "Contractor to determine the financial feasibility of developing a rate methodology for community paramedics.",
+  "BDO Government Services, LLC", "Other Consulting", "$3,990,000.00", "VENDOR_OR_CONTRACTOR", "All",
+  "Contractor to perform technical assstance and compliance monitoring of the overall program.",
+  "South Carolina Research Authority (SCRA)", "Grants Management Vendor", "$5,025,452.32", "VENDOR_OR_CONTRACTOR", "5",
+  "Contractor to serve as passthrough to subrecipients for the Tech Catalyst Fund. [...] Contractor to serve as overall grant manager for the Tech Catalyst Fund.",
+  "Slalom Inc", "Other Consulting", "$2,079,813.31", "VENDOR_OR_CONTRACTOR", "2",
+  "Contractor to develop a targeted transition plan for the dual population.")
+
+cr_sc <- function() {
+  txt <- stringr::str_squish(paste(cr_pdf_lines(CR_SC_PDF), collapse = " "))
+  for (q in c("no subaward agreements executed as of 7/31/2026", "Rural Health Transformation")) {
+    if (!grepl(q, txt, fixed = TRUE)) stop("[contracts] SC annual report: '", q, "' is not printed", call. = FALSE)
+  }
+  for (i in seq_len(nrow(CR_SC_ROWS))) {
+    r <- CR_SC_ROWS[i, ]
+    segs <- c(r$awardee, r$entity_type, r$obligated, strsplit(r$purpose, " [...] ", fixed = TRUE)[[1]])
+    for (sg in segs) {
+      # (the layout wraps a long purpose across two lines between other columns:
+      # its first 30 characters are asserted, and the whole text is hand-read)
+      parts <- if (nchar(sg) > 60) substr(sg, 1, 30) else sg
+      for (p in parts) if (!grepl(p, txt, fixed = TRUE)) {
+        stop("[contracts] SC annual report: '", p, "' is not printed in ", CR_SC_PDF, call. = FALSE)
+      }
+    }
+  }
+  tibble::tibble(
+    state = "SC", awardee = CR_SC_ROWS$awardee,
+    amount = as.numeric(gsub("[$,]", "", CR_SC_ROWS$obligated)), amount_type = "obligation",
+    recipient_type = CR_SC_ROWS$recipient_type,
+    recipient_type_source = paste0("the report's own Entity Type: '", CR_SC_ROWS$entity_type, "'"),
+    contract_start = NA_character_, contract_end = NA_character_, initiative = CR_SC_ROWS$initiative,
+    contract_number = paste0("First-Tier Entity ID ", seq_len(nrow(CR_SC_ROWS))),
+    purpose = CR_SC_ROWS$purpose,
+    source_document_title = "SCDHHS, SC RHTP Year 1 Annual Report (CMS annual-report workbook; obligations as of 7/31/2026), First-Tier Entities",
+    source_url = CR_SC_URL, source_archive_path = CR_SC_PDF,
+    note = paste0("'Obligated Funds' ", CR_SC_ROWS$obligated, " (Entity Type '", CR_SC_ROWS$entity_type,
+                  "'). An obligation to a first-tier entity as of 7/31/2026 (session 97's rule), never an award. ",
+                  "The report: 'there are no subaward agreements executed as of 7/31/2026'.",
+                  ifelse(CR_SC_ROWS$awardee == "Slalom Inc",
+                         " Slalom's $2,079,813.31 = Use of Funds SC8 $1,914,683.31 + Uncategorized Funds $165,130.00.", ""),
+                  ifelse(grepl("SCRA", CR_SC_ROWS$awardee),
+                         " SCRA's two Use of Funds lines are SC6 $5,025,452.32 (pass-through to Tech Catalyst Fund subrecipients) and SC7 $0.00 (grant manager).", ""))) %>%
+    dplyr::mutate(validation_source_type = "STATE_REPORT")
+}
+
 # -- Mississippi: DFA's notice of intent to award (BDO) ----------------------------------
 
 cr_ms <- function() {
@@ -322,6 +384,7 @@ cr_build_all <- function() {
                              "Colorado HCPF, CMS RHTP Annual Report as of 6.31.26 (First-Tier Entities tab)"), award),
     OK = cr_finish(cr_ok(), award),
     MS = cr_finish(cr_ms(), award),
+    SC = cr_finish(cr_sc(), award),
     CMS_OBL = cr_finish(cr_cms_obl(award), award))
 }
 

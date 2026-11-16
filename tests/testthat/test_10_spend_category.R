@@ -108,7 +108,7 @@ test_that("contract files are never award files, carry budget period 1, and coun
   expect_length(intersect(unname(cf), unname(sf)), 0L)
   expect_true(all(contract$budget_period == "1"))
   expect_true(all(contract$amount_type %in% c("contract maximum", "obligation", "intent")))
-  expect_true(all(contract$validation_source_type %in% c("STATE_CONTRACT", "CMS_OBLIGATION_REPORT")))
+  expect_true(all(contract$validation_source_type %in% c("STATE_CONTRACT", "CMS_OBLIGATION_REPORT", "STATE_REPORT")))
   expect_setequal(names(cf), c("KY", "TX", "CO", "OK", "MS", "CMS_OBL"))
   expect_silent(suppressMessages(cr_validate()))
   ky <- contract %>% dplyr::filter(file_key == "KY")

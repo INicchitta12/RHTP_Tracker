@@ -197,3 +197,4 @@ vendor_role,DELIVERS_TO_PROVIDERS,"Added session 116f. From the source purpose t
 vendor_role,MIXED,"Added session 116f. Both."
 vendor_role,UNKNOWN,"Added session 116f. The source does not say what the vendor does."
 source_doc_type,STATE_CONTRACT,"Added session 116f. A row of a state executed-contract register or first-tier list (data/reference/contracts/). Never an award row: a contract maximum, obligation or intent never counts toward published awards or the hospital share."
+source_doc_type,STATE_REPORT,"Added session 118 by owner direction (Task 3). A state's own report of first-tier obligations (the CMS annual-report workbook as published by the state: SC RHTP Year 1 Annual Report). Contract files only (data/reference/contracts/); an obligation, never an award; not an admissible class for the verified vendor list (V1)."
