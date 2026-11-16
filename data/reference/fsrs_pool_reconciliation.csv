@@ -1,9 +1,9 @@
 file_key,pool,pool_usd,members_with_fsrs,fsrs_usd,gap_usd,gap_pct,decision,as_of
 IN_GROW,GROW Regional Grants -- Region 1,12600000,17,12796281.02,196281.02,1.6,HOLD,2026-11-16
-IN_GROW,GROW Regional Grants -- Region 2,20700000,19,19306015.98,-1393984.02,-6.7,HOLD,2026-11-16
+IN_GROW,GROW Regional Grants -- Region 2,20700000,15,18786867.66,-1913132.34,-9.2,HOLD,2026-11-16
 IN_GROW,GROW Regional Grants -- Region 3,9700000,16,12074104.57,2374104.57,24.5,HOLD,2026-11-16
 IN_GROW,GROW Regional Grants -- Region 4,15200000,12,13410048.02,-1789951.98,-11.8,HOLD,2026-11-16
-IN_GROW,GROW Regional Grants -- Region 5,16700000,8,14957160.99,-1742839.01,-10.4,HOLD,2026-11-16
+IN_GROW,GROW Regional Grants -- Region 5,16700000,7,14781080.83,-1918919.17,-11.5,HOLD,2026-11-16
 IN_GROW,GROW Regional Grants -- Region 6,13000000,16,7020636.58,-5979363.42,-46,HOLD,2026-11-16
 IN_GROW,GROW Regional Grants -- Region 7,13100000,16,21668951.22,8568951.22,65.4,HOLD,2026-11-16
 IN_GROW,GROW Regional Grants -- Region 8,11400000,7,9026970.67,-2373029.33,-20.8,HOLD,2026-11-16
@@ -12,8 +12,8 @@ NV,WRRAP_RECRUITMENT_RETENTION,32300000,1,486996,-31813004,-98.5,HOLD,2026-11-16
 OH,"ODH Clinically Integrated Networks and Rural Health Innovation Hubs ($31.4M, shared with non-hospitals; no bucket)",,1,137251,,,HOLD,2026-11-16
 OK_CHW,Community Health Worker Expansion,4460162.93,2,192158.06,-4268004.87,-95.7,HOLD,2026-11-16
 SD_CCBHC,Certified Community Behavioral Health Clinic (CCBHC) modernization and infrastructure grants,13000000,7,9810406,-3189594,-24.5,HOLD,2026-11-16
-IN (state),pool-level figures naming no recipient (R/08 pool_level_usd),112400000,21,7637260.04,-104762739.96,-93.2,HOLD,2026-11-16
+IN (state),pool-level figures naming no recipient (R/08 pool_level_usd),112400000,22,7657260.04,-104742739.96,-93.2,HOLD,2026-11-16
 OH (state),pool-level figures naming no recipient (R/08 pool_level_usd),61700000,22,6790599.4799999995,-54909400.52,-89,HOLD,2026-11-16
 OR (state),pool-level figures naming no recipient (R/08 pool_level_usd),26700000,44,46437958.83,19737958.83,73.9,HOLD,2026-11-16
 SD (state),pool-level figures naming no recipient (R/08 pool_level_usd),101182906,41,31899330.9,-69283575.1,-68.5,HOLD,2026-11-16
-WA (state),pool-level figures naming no recipient (R/08 pool_level_usd),19410000,38,27292607.03,7882607.03,40.6,HOLD,2026-11-16
+WA (state),pool-level figures naming no recipient (R/08 pool_level_usd),19410000,36,25953803.03,6543803.03,33.7,HOLD,2026-11-16
