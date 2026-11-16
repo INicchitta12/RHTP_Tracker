@@ -352,8 +352,11 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
   # every other link of that subaward.
   pr <- readr::read_csv(here::here(FSRS_PAIRINGS), col_types = readr::cols(.default = "c"), progress = FALSE)
   pl <- pr %>% dplyr::mutate(amt = as.numeric(amount)) %>% dplyr::select(-amount) %>%
-    dplyr::inner_join(aw %>% dplyr::select(state, file_key, awardee, row_id, amount),
+    dplyr::inner_join(aw %>% dplyr::select(state, file_key, awardee, row_id, amount, aw_row_no = row_no),
                       by = c("state", "file_key", "awardee"), relationship = "many-to-many") %>%
+    # session 119: an optional row_no pins a pairing to one of several rows of
+    # the same awardee (OK SWOSU's two microgrants)
+    dplyr::filter(is.na(row_no) | as.character(aw_row_no) == row_no) %>%
     # max_diff: a hand-read rounding gap (TX Moore County $221,976 vs $221,980.30)
     dplyr::filter(abs(amount - amt) < dplyr::coalesce(suppressWarnings(as.numeric(max_diff)), 0.005)) %>%
     dplyr::distinct(fsrs_id, .keep_all = TRUE)
@@ -690,6 +693,7 @@ fsrs_plan <- function() {
   # may not hold (CT filed five on 2026-10-08..28, -$1,250 to -$1,219,235); it
   # is never written as a row.
   typed$status[typed$status %in% wr & typed$amount < 0] <- "HELD_NEGATIVE_AMOUNT"
+  typed <- fsrs_net_deobligations(typed)
   typed <- fsrs_ia_round_check(typed, rc)
   # SESSION 116d (independent check 2d): a new or extra row whose NON-ROUND
   # amount equals, to the cent, an award row already in the same state is held:
@@ -723,6 +727,38 @@ fsrs_plan <- function() {
   rc$recon <- rc$recon %>% dplyr::rows_update(typed %>% dplyr::select(fsrs_id, status), by = "fsrs_id")
   list(records = rec, totals = tot, recon = rc$recon, overlay = rc$overlay, aw = rc$aw,
        typed = typed, candidates = rc$candidates, held_states = held_states)
+}
+
+# SESSION 119 RULE (owner Task 4): A NEGATIVE FSRS AMOUNT IS A DE-OBLIGATION
+# AND NETS AGAINST ITS SUBAWARD. FSRS amounts are per action (§7, session 116c),
+# so a negative action reduces the subaward it is filed under: same state,
+# subaward number and subawardee UEI. It is netted into the EARLIEST written
+# positive action of that key dated before it (the base award), whose amount
+# becomes base + negative, with the netting stated in amount_basis; the
+# negative itself is NETTED_DEOBLIGATION (listed in fsrs_held.csv, never a row).
+# A negative whose key has no written positive action (the base is paired to a
+# roster row, held, or not in the archive) stays HELD_NEGATIVE_AMOUNT. A net
+# below zero is refused. CT's six (2026-10-08..28) all net: DEEP 7,165,955 -
+# 1,219,235 = 5,946,720; five administrative -$625/-$1,250 adjustments.
+fsrs_net_deobligations <- function(typed) {
+  typed$netted_note <- NA_character_
+  neg <- which(typed$status == "HELD_NEGATIVE_AMOUNT")
+  for (i in neg) {
+    k <- which(typed$status %in% c("NEW_ROW", "EXTRA_ROW") & typed$st == typed$st[i] &
+                 typed$subaward_number == typed$subaward_number[i] & typed$uei == typed$uei[i] &
+                 typed$amount > 0 & typed$action_date < typed$action_date[i])
+    if (!length(k)) next
+    b <- k[order(typed$action_date[k], typed$fsrs_id[k])][1]
+    net <- round(typed$amount[b] + typed$amount[i], 2)
+    if (net < 0) stop("[FSRS] de-obligation ", typed$fsrs_id[i], " exceeds its base action ", typed$fsrs_id[b], call. = FALSE)
+    typed$netted_note[b] <- paste0(dplyr::coalesce(typed$netted_note[b], ""),
+      "NETTED (session 119 de-obligation rule): ", format(typed$amount[b], big.mark = ",", nsmall = 2), " filed ",
+      typed$action_date[b], " less a de-obligation of ", format(-typed$amount[i], big.mark = ",", nsmall = 2),
+      " filed ", typed$action_date[i], " under the same subaward (", typed$fsrs_id[i], "). ")
+    typed$amount[b] <- net
+    typed$status[i] <- "NETTED_DEOBLIGATION"
+  }
+  typed
 }
 
 # A $0 row that is a member of a pool already counted at pool level is NOT
@@ -766,14 +802,36 @@ fsrs_pool_guard <- function(rc) {
 # SESSION 118: hand typings, keyed on (state, UEI), for a recipient the
 # classifier mis-types. Each carries the sentence that decides it.
 FSRS_HAND_TYPING <- tibble::tribble(
-  ~st, ~uei, ~recipient_type, ~flow_type, ~distributed_to_hospital, ~hospital_benefiting, ~basis_type, ~basis,
+  ~st, ~uei, ~recipient_type, ~flow_type, ~distributed_to_hospital, ~hospital_benefiting, ~basis_type, ~flag, ~basis,
   "NM", "JQQ1BUVQQ845", "VENDOR_OR_CONTRACTOR", "NON_HOSPITAL", "No", "Unclear", "STATE_SOURCE",
+  "ADMINISTRATOR_PASS_THROUGH_UNRESOLVED",
   paste0("TYPED BY HAND (session 118): Accenture LLP is a for-profit consulting firm (vendor dictionary: ",
          "Accenture, CONSULTING_BIG), not a nonprofit. The state's own FFATA filing (PSC 27-630-1000-1007, ",
          "2026-10-28, $128,979,618.21) says what the money buys: '(RHT) ACCENTURE LLP WILL PROVIDE ADMINISTRATIVE ",
          "SERVICES ORGANIZATION (ASO) SUPPORT FOR THE NEW MEXICO RURAL HEALTH TRANSFORMATION PROGRAM (RHTP)'. ",
          "A vendor administering the programme: NON_HOSPITAL. Whether any of it reaches providers is not on the ",
-         "filing (hospital_benefiting Unclear); never a hospital dollar."))
+         "filing (hospital_benefiting Unclear); never a hospital dollar. ",
+         "SESSION 119: HCA's ASO RFP 26-630-1000-0019 (Appendix F.3 s.3.1.10) has the ASO 'process and issue payments ",
+         "to RHTP-funded entities', and the amount is about six times the statute's 10% administrative cap on NM's ",
+         "allotment ($21,148,474), so most of it is very likely programme money Accenture DISBURSES, not its fee. ",
+         "Neither the fee nor the pass-through share is published (HCA, 11-16: 'Selection complete; announcement ",
+         "will be made by November 30, 2026'). Held OUT of NM's published-award total and the >=50% subset test ",
+         "(flag ADMINISTRATOR_PASS_THROUGH_UNRESOLVED) until a state source splits it."),
+  # SESSION 119 (owner Task 4): Pipestone County Medical Center. FSRS files
+  # "PIPESTONE COUNTY MED CENTER", 916 5TH AVE SW, PIPESTONE; CMS MN enrolment
+  # carries PIPESTONE COUNTY MEDICAL CENTER, CAH 241374, 916 4TH AVE SW,
+  # PIPESTONE. "MED" abbreviates the enrolled legal name; the street differs by
+  # one avenue. A hand-read LEGAL_NAME_TRUNCATED bridge (§10.2), so LOW.
+  "MN", "NL3YAWLVSGK1", "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes", "Yes", "ORG_WEBSITE",
+  NA_character_,
+  paste0("§10.2 DIRECT, TYPED BY HAND (session 119): CMS MN Hospital Enrollment ",
+         "(data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_MN.json) carries PIPESTONE COUNTY MEDICAL CENTER, ",
+         "PART A PROVIDER - CRITICAL ACCESS HOSPITAL, CCN 241374, 916 4TH AVE SW, PIPESTONE. The FSRS filing names ",
+         "'PIPESTONE COUNTY MED CENTER', 916 5TH AVE SW, PIPESTONE: the enrolled legal name abbreviated, one avenue off ",
+         "(a hand-read LEGAL_NAME_TRUNCATED bridge, LOW). §0.3a: the recipient is a hospital whatever the activity."))
+FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374")
+FSRS_HAND_RECORD <- c(NL3YAWLVSGK1 = paste0("PIPESTONE COUNTY MEDICAL CENTER (241374, PIPESTONE), PART A PROVIDER - ",
+                                             "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"))
 
 fsrs_hand_typing <- function(typed) {
   for (i in seq_len(nrow(FSRS_HAND_TYPING))) {
@@ -782,11 +840,14 @@ fsrs_hand_typing <- function(typed) {
     if (!length(k)) next
     for (c in c("recipient_type", "flow_type", "distributed_to_hospital", "hospital_benefiting", "basis_type"))
       typed[[c]][k] <- h[[c]]
-    typed$determination_confidence[k] <- "MEDIUM"
-    typed$flag_reason[k] <- NA_character_
-    typed$ccn[k] <- NA_character_; typed$cms_enrolment_record[k] <- NA_character_
+    bridged <- h$uei %in% names(FSRS_HAND_CCN)
+    typed$determination_confidence[k] <- if (bridged) "LOW" else "MEDIUM"
+    typed$flag_reason[k] <- h$flag
+    typed$ccn[k] <- if (bridged) FSRS_HAND_CCN[[h$uei]] else NA_character_
+    typed$cms_enrolment_record[k] <- if (bridged) FSRS_HAND_RECORD[[h$uei]] else NA_character_
+    if ("recipient_subtype" %in% names(typed)) typed$recipient_subtype[k] <- NA_character_
     typed$typing[k] <- "HAND"
-    typed$recipient_type_source[k] <- "HAND (session 118, FSRS_HAND_TYPING)"
+    typed$recipient_type_source[k] <- "HAND (sessions 118-119, FSRS_HAND_TYPING)"
     typed$determination_basis[k] <- h$basis
   }
   typed
@@ -973,7 +1034,11 @@ fsrs_held <- function(p) {
     dplyr::transmute(st, fsrs_id, status = "BUDGET_PERIOD_2_HELD", name, amount,
                      detail = paste0("action date ", action_date, " after the end of Budget Period 1 (2026-10-30): ",
                                      "Year 2 money, held under the session-116 safeguards, never in a Year 1 file."))
-  dplyr::bind_rows(h1, h2, h4, h3, h5) %>% dplyr::arrange(status, st, dplyr::desc(amount))
+  h6 <- p$typed %>% dplyr::filter(status == "NETTED_DEOBLIGATION") %>%
+    dplyr::transmute(st, fsrs_id, status, name, amount,
+                     detail = paste0("Negative action of ", action_date, " under subaward ", subaward_number,
+                                     ": netted against that subaward's base action (session 119 rule); never a row."))
+  dplyr::bind_rows(h1, h2, h4, h3, h5, h6) %>% dplyr::arrange(status, st, dplyr::desc(amount))
 }
 
 fsrs_nonfilers <- function(tot) {
@@ -1088,7 +1153,8 @@ fsrs_new_rows <- function(p) {
       hospital_attribution = rhtp_hospital_attribution(flow_type, distributed_to_hospital, recipient_type, NA_character_),
       intermediary_name = NA_character_, determination_basis,
       amount_basis = paste0("The subaward amount the state filed, per action (session 116c amendment rule: re-filings ",
-                            "collapsed, distinct actions kept). An EXECUTED first-tier subaward."),
+                            "collapsed, distinct actions kept). An EXECUTED first-tier subaward.",
+                            ifelse(is.na(netted_note), "", paste0(" ", trimws(netted_note)))),
       basis_type, recipient_subtype, cms_enrolment_record,
       source_archive_path = file.path("data/raw/usaspending", FSRS_AS_OF, USA_ZIP),
       announcement_date = action_date,

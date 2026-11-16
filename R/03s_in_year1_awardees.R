@@ -932,9 +932,10 @@ in_assert_regional_awarded <- function() {
   g <- readr::read_csv(IN_GROW_REGIONAL_CSV, show_col_types = FALSE,
                        progress = FALSE)
   # Session 118: 186 -> 176, ten members removed by IDOH (owner ruling d, R/03bi).
-  if (nrow(g) != 176L || any(!is.na(g$amount))) {
+  # Session 119: 176 -> 181, five reinstated on Indiana's FSRS filings (owner ruling).
+  if (nrow(g) != 181L || any(!is.na(g$amount))) {
     stop("[IN] in_grow_regional_awardees.csv is ", nrow(g), " rows (expected ",
-         "176, every amount empty). Rebuild it from R/03bi.", call. = FALSE)
+         "181, every amount empty). Rebuild it from R/03bi.", call. = FALSE)
   }
   # And THIS file must not have absorbed it: the vendors stay seven.
   if (any(in_build_awards()$awardee %in% g$awardee)) {

@@ -377,6 +377,13 @@ hi_subject_findings <- function(key, live, arch) {
   out
 }
 
+# Read and judged NOT a recipient (session 119, the 11-16 18:39Z trip): SHPDA's
+# side menu ("Resources & Publications", "Helpful Links", "Rural Health", "ADA
+# Coordination", "Home"), welded into one run by the reduction. The page still
+# names the same three Notices of Award (HPCA 8/28, HAH 9/3, Physicians of
+# Southwest Washington 9/11). Matched EXACTLY (§2.3).
+HI_NAME_FURNITURE <- list(shpda = c("Publications Helpful Links Rural Health ADA Coordination Home"))
+
 hi_probe <- function() {
   w <- rhtp_watch_pages(HI_PROBE_PAGES, HI_USER_AGENT)
   findings <- character(0)
@@ -399,6 +406,7 @@ hi_probe <- function() {
   }
   # 5. THE NAME TRIPWIRE (§2.3), on the subject pages only.
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
+                                          furniture = HI_NAME_FURNITURE,
                                           state = HI_STATE)
 
   message("[HI] ", paste0(w$changed$key, ": ",

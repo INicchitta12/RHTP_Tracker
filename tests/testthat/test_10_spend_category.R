@@ -74,12 +74,13 @@ test_that("every verified 116e case lands on exactly one row, and verified dolla
   ids <- unlist(strsplit(both$vendor_case_id[nzchar(both$vendor_case_id)], ";", fixed = TRUE))
   expect_setequal(ids, cases$case_id)
   expect_false(anyDuplicated(ids) > 0)
-  vend <- cases %>% dplyr::filter(spend_category %in% RHTP_VENDOR_CATEGORIES)
+  # Session 119: an 'administers' case (NM Accenture) carries no verified dollars.
+  vend <- cases %>% dplyr::filter(spend_category %in% RHTP_VENDOR_CATEGORIES, !amount_type %in% "administers")
   expect_equal(sum(as.numeric(both$vendor_verified_usd)), sum(vend$amount), tolerance = 1e-9)
   # Session 116f national verified pins, by category (types never added)
   v <- both %>% dplyr::filter(vendor_verified == "TRUE")
-  expect_equal(nrow(v), 34L)
-  expect_equal(round(sum(as.numeric(v$vendor_verified_usd)), 2), 243911973.44)
+  expect_equal(nrow(v), 41L)   # session 119: + SC five, CO HealthTech, NM Accenture (administers, $0)
+  expect_equal(round(sum(as.numeric(v$vendor_verified_usd)), 2), 271888139.07)   # session 119: + $27,976,165.63 annual-report obligations
 })
 
 test_that("the owner's rulings hold", {
@@ -127,8 +128,8 @@ test_that("NO HOSPITAL FIGURE MOVED: the strict partition is pinned to the cent"
   })
   parts <- rhtp_hospital_dollar_partition(d)
   got <- parts %>% dplyr::group_by(bucket) %>% dplyr::summarise(rows = sum(rows), usd = round(sum(dollars), 2))
-  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2268L)   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington
-  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2204266238.38)
+  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2270L)   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington
+  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2205963832.38)
   expect_equal(got$usd[got$bucket == "POOL_NAMED_HOSPITALS"], 96565779.43)
   expect_equal(got$usd[got$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
 })
@@ -141,7 +142,9 @@ test_that("session 117 Task 7: NOT_SHOWN, the source label beats the dictionary,
   # dictionary's TECH_VENDOR class is recorded in the basis, not used.
   expect_equal(ht$spend_category, "CONSULTANT")
   expect_match(ht$spend_category_basis, "Other Consulting", fixed = TRUE)
-  expect_match(ht$spend_category_basis, "dictionary class TECH_VENDOR", fixed = TRUE)
+  # Session 119: now a verified case (VV069, annual reports admitted under V1),
+  # which keeps the state's label.
+  expect_match(ht$spend_category_basis, "VV069", fixed = TRUE)
   expect_equal(rhtp_spend_source_label("the report's own Entity Type: 'Other Consulting'", NA), "Other Consulting")
   # No row anywhere carries the old FALSE.
   files <- c(unname(sc_state_files()), unname(rhtp_contract_files()))

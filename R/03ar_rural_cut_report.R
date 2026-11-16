@@ -396,10 +396,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 118: FSRS 11-16 refresh (MN, NE, TN, OK priced; VT -1 duplicate
   # held; Year 2 filings and the independent check's duplicate pairs held),
   # WA's 28 at $0, IN GROW -2: 2,268 / $2,204,266,238.38 / 42.
-  if (nrow(rows) != 2268L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2204266238.38) > 0.005 ||
+  # Session 119: IN GROW Bluffton Health System reinstated at $0 (FSRS ruling)
+  # and MN Pipestone County Medical Center ($1,697,594, CAH 241374):
+  # 2,270 / $2,205,963,832.38 / 42.
+  if (nrow(rows) != 2270L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2205963832.38) > 0.005 ||
       dplyr::n_distinct(rows$state) != 42L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,268 rows / $2,204,266,238.38 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,270 rows / $2,205,963,832.38 ",
          "/ 42 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

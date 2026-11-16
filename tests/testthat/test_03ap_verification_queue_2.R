@@ -613,9 +613,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # VT's duplicate held, Year 2 filings held, the independent check's pairs incl.
   # CT Vassar/Sharon -$13,116,917), WA's 28 at $0, IN GROW -2:
   # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
+  expect_equal(named$rows, 2270L)   # session 119: + IN GROW Bluffton (FSRS ruling), + MN Pipestone
+  expect_equal(round(named$dollars, 2), 2205963832.38, tolerance = 0)
+  expect_equal(named$states, 42L)
+  # Session 119: + IN GROW Bluffton Health System ($0, FSRS member ruling) and
+  # MN Pipestone County Medical Center ($1,697,594, CAH 241374). Subtracted first.
+  named$rows <- named$rows - 2L
+  named$dollars <- named$dollars - 1697594
   expect_equal(named$rows, 2268L)
   expect_equal(round(named$dollars, 2), 2204266238.38, tolerance = 0)
-  expect_equal(named$states, 42L)
   named$rows <- named$rows - 69L
   named$dollars <- named$dollars - 36532991.80
   expect_equal(named$rows, 2199L)
@@ -869,7 +875,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Session 118: Minnesota's FFATA subawards (the CAH direct allocations, 86 rows)
   # put Minnesota next; the order below it is unchanged once it is set aside.
   expect_equal(p$state[[2]], "MN")
-  expect_equal(round(p$dollars[[2]]), 117523237)
+  expect_equal(round(p$dollars[[2]]), 119220831)   # session 119: + Pipestone CAH $1,697,594
   p <- p[p$state != "MN", ]
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53

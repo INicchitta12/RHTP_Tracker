@@ -70,7 +70,12 @@ VF_FLAG_COLUMNS <- c("flag_id", "state", "recipient", "canonical_name", "parent_
                      "entity_class", "hq_state", "amount", "amount_type", "budget_period",
                      "role", "purpose_quote", "source_type", "source_url", "archive_path",
                      "confidence", "notes", "out_of_state", "hq_basis", "is_lead",
-                     "also_cited_in")
+                     "also_cited_in",
+                     # session 119: the current spend-category layer, joined (vf_join_spend())
+                     "layer_spend_category", "layer_vendor_role", "layer_vendor_verified",
+                     "layer_vendor_verified_usd", "layer_vendor_case_id", "layer_file")
+VF_FLAG_COLUMNS_PRE_LAYER <- setdiff(VF_FLAG_COLUMNS, c("layer_spend_category", "layer_vendor_role",
+  "layer_vendor_verified", "layer_vendor_verified_usd", "layer_vendor_case_id", "layer_file"))
 
 # A name that reads as a hospital or health system. Used as a SECOND guard (the
 # first is the award files' own coding) and on USAspending rows, which carry no
@@ -97,7 +102,11 @@ VF_FSRS_REVIEWED_EXCLUSIONS <- tibble::tribble(
   "SEATTLE CHILDREN'S HOSPITAL", "hospital, excluded",
   "MAT-SU VALLEY MEDICAL CENTER LLC", "hospital (FSRS address is its operator's Franklin TN office), excluded",
   "THE EVANGELICAL LUTHERAN GOOD SAMARITAN SOCIETY", "senior-care subsidiary of Sanford Health (a health system), excluded on the health-system rule",
-  "VERMONT ALLIANCE FOR RECOVERY RESIDENCES, INC", "FSRS address Georgetown TX contradicts the organisation's Vermont name and Vermont work; the address is doubted, so the row is NOT flagged out of state (listed in the session doc as unsure)"
+  "VERMONT ALLIANCE FOR RECOVERY RESIDENCES, INC", "FSRS address Georgetown TX contradicts the organisation's Vermont name and Vermont work; the address is doubted, so the row is NOT flagged out of state (listed in the session doc as unsure)",
+  # Session 119 (Task 5): the four out-of-state FSRS subrecipients session 118 left unread.
+  "IVY CREEK HEALTHCARE, LLC", "an Alabama hospital system, typed HOSPITAL_OR_SYSTEM on AL's roster (rows 13, 59); the FSRS address is a Miami apartment (session 118 HD78), excluded",
+  "EVERGREEN NEPHROLOGY LLC", "a physician practice on AL's roster (row 46, PHYSICIAN_PRACTICE), $891,588, under the $1M floor; its Nashville TN address is a practice-management office, not a vendor relationship, excluded (session 119)",
+  "AMERICAN COLLEGE OF LIFESTYLE MEDICINE", "the FSRS purpose text describes Harrison County Hospital's project, not ACLM's (session 118 HD79, V4); read, not a vendor lead (session 119)"
 )
 
 # Multi-recipient fields (§6.2): the amount is joint and is never divided.
@@ -185,7 +194,7 @@ VF_ROLE_OVERRIDES <- tibble::tribble(
   ~state, ~canonical_name, ~source_type, ~amount, ~role, ~why,
   "ID", "Public Consulting Group LLC", "STATE_AWARD_FILE", 14520000, "ADMINISTERS_PROGRAM",
   "'Third Party Administrator for Ladder Payment Program': PCG administers payments that reach providers; it does not deliver care",
-  "NM", "Guidehouse Inc.", "USASPENDING_FSRS", 20100772.81, "MIXED",
+  "NM", "Guidehouse Inc.", "STATE_AWARD_FILE", 20100772.81, "MIXED",
   "establish and operate the CRHSI 'as the implementation and technical assistance' centre: programme operation plus TA delivered to rural providers",
   "UT", "HK Consulting", "STATE_AWARD_FILE", 11000000, "ADMINISTERS_PROGRAM",
   "'LINCS 7.3-7.4: Semantic Data Model and Applications': state data infrastructure",
@@ -695,7 +704,7 @@ vf_build_flags <- function() {
   f <- f %>%
     dplyr::arrange(state, entity_class, canonical_name, dplyr::desc(amount)) %>%
     dplyr::mutate(flag_id = sprintf("VF%04d", dplyr::row_number()))
-  f[, VF_FLAG_COLUMNS]
+  f[, VF_FLAG_COLUMNS_PRE_LAYER]
 }
 
 vf_assert_flags <- function(f) {
@@ -838,13 +847,38 @@ vf_write_xlsx <- function(f, unnamed, as_of = VF_AS_OF) {
 vf_read_flags <- function() {
   readr::read_csv(here::here(VF_FLAGS_CSV), progress = FALSE,
                   col_types = readr::cols(amount = "d", budget_period = "i",
-                                          out_of_state = "l", is_lead = "l",
+                                          out_of_state = "l", is_lead = "l", layer_vendor_verified = "l",
+                                          layer_vendor_verified_usd = "d",
                                           .default = "c"),
                   na = c("", "NA"))
 }
 
+# SESSION 119 (Task 5): the flags carry the CURRENT spend-category layer. Each
+# flag on an award or contract row is joined to that row's spend columns (same
+# state, same recipient string, same amount to the cent), so a flag shows what
+# the layer made of it (category, role, verified, verified dollars, case id).
+# A flag with no row (an FSRS-only record, a CMS line, an RCJ lead) carries
+# none. The layer is the authority; the flag is a lead list beside it.
+VF_SPEND_JOIN_COLUMNS <- c("layer_spend_category", "layer_vendor_role", "layer_vendor_verified",
+                           "layer_vendor_verified_usd", "layer_vendor_case_id", "layer_file")
+vf_join_spend <- function(f, spend = NULL) {
+  if (is.null(spend)) {
+    if (!exists("rhtp_spend_rows", mode = "function")) source(here::here("R", "utils_spend_category.R"))
+    spend <- rhtp_spend_rows(vf_state_files())
+  }
+  sp <- spend %>% dplyr::filter(!is.na(amount)) %>%
+    dplyr::transmute(state, .k = toupper(stringr::str_squish(awardee)), .a = round(amount, 2),
+                     layer_spend_category = spend_category, layer_vendor_role = vendor_role,
+                     layer_vendor_verified = vendor_verified, layer_vendor_verified_usd = vendor_verified_usd,
+                     layer_vendor_case_id = vendor_case_id, layer_file = file) %>%
+    dplyr::distinct(state, .k, .a, .keep_all = TRUE)
+  f %>% dplyr::mutate(.k = toupper(stringr::str_squish(recipient)), .a = round(amount, 2)) %>%
+    dplyr::left_join(sp, by = c("state", ".k", ".a")) %>%
+    dplyr::select(-.k, -.a)
+}
+
 vf_build <- function() {
-  f <- vf_build_flags()
+  f <- vf_join_spend(vf_build_flags())
   vf_assert_flags(f)
   readr::write_csv(f, here::here(VF_FLAGS_CSV), na = "")
   un <- vf_unnamed_contractor(f)

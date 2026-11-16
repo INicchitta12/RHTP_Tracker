@@ -162,6 +162,14 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
   rural <- readr::read_csv(here::here(YS_RURAL), col_types = readr::cols(.default = "c"), progress = FALSE) %>%
     dplyr::filter(file %in% basename(unlist(files)))
 
+  # Session 119 (owner Task 1c): an administrator row whose fee and pass-through
+  # share are unsplit (ADMINISTRATOR_PASS_THROUGH_UNRESOLVED: NM Accenture) is
+  # held OUT of every award and hospital figure, and so out of the >=50% subset
+  # test; its dollars are shown in excluded_award_usd.
+  excl_by <- rows %>% dplyr::filter(ys_has(flag_reason, YS_EXCLUDED_FLAG)) %>%
+    dplyr::group_by(state) %>%
+    dplyr::summarise(excluded_award_usd = ys_usd(amount), .groups = "drop")
+  rows <- rows %>% dplyr::filter(!ys_has(flag_reason, YS_EXCLUDED_FLAG))
   rows <- rows %>% dplyr::mutate(
     suspect = ys_has(flag_reason, "SOURCE_SUSPECT"),
     amt = dplyr::coalesce(amount, 0),
@@ -228,7 +236,7 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
                 "called_pool_outside_files_usd", "file_pool_level_usd", "hospital_bj_pool_usd",
                 "hospital_bj_component_usd", "not_hospital_component_usd",
                 "NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS",
-                "strict_rural_cut_usd", "strict_cah_usd", "confidential_award_usd")
+                "strict_rural_cut_usd", "strict_cah_usd", "confidential_award_usd", "excluded_award_usd")
   int_cols <- c("award_files", "award_rows", "priced_rows", "hospital_rows", "best_judgment_rows",
                 "named_hospital_rows_no_amount", "named_hospital_recipients_no_amount",
                 "confidential_award_rows", "status_rows_citing")
@@ -241,6 +249,7 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
     dplyr::left_join(strict, by = "state") %>%
     dplyr::left_join(rur, by = "state") %>%
     dplyr::left_join(conf_status, by = "state") %>%
+    dplyr::left_join(excl_by, by = "state") %>%
     dplyr::left_join(st_status, by = "state") %>%
     dplyr::mutate(dplyr::across(dplyr::all_of(int_cols), ~ dplyr::coalesce(as.integer(.x), 0L)),
                   dplyr::across(c(dplyr::all_of(num_cols), dplyr::starts_with("layer_")), ~ dplyr::coalesce(.x, 0)),
@@ -284,6 +293,7 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
       strict_rural_cut_usd, strict_cah_usd,
       named_hospital_recipients_no_amount, named_hospital_rows_no_amount,
       layer_source_suspect_usd,
+      excluded_award_usd,
       confidential_source_flag)
   if (!subset) return(tab)
   dplyr::bind_rows(tab, ys_subset_row(rows, pools, components, files))
@@ -312,6 +322,7 @@ ys_pct <- function(n, d) ifelse(d > 0, round(100 * n / d, 1), NA_real_)
 # cannot qualify; Nebraska and Pennsylvania would qualify, if they crossed the
 # line, on their state files alone.
 YS_NATIONAL <- c("US", "US_GE50")
+YS_EXCLUDED_FLAG <- "ADMINISTRATOR_PASS_THROUGH_UNRESOLVED"
 YS_AWARD_SHARE_MIN <- 0.5
 
 #' States carrying any CMS obligation-report award row
@@ -409,6 +420,7 @@ YS_DEFINITIONS <- tibble::tribble(
   "named_hospital_recipients_no_amount", "Named hospital recipients (distinct names) with no published amount. Their money is not in any dollar column, so the hospital share is understated where this is above zero.",
   "named_hospital_rows_no_amount", "Award rows behind the previous column.",
   "layer_source_suspect_usd", "Hospital dollars on rows whose published amount is internally inconsistent (SOURCE_SUSPECT). EXCLUDED from every hospital figure; shown so the exclusion is visible.",
+  "excluded_award_usd", "Award dollars held OUT of every figure in this row, including the award total and the >=50% subset test, pending a ruling: an administrator's award whose own fee and the programme money it pays on are not split on any state source (flag ADMINISTRATOR_PASS_THROUGH_UNRESOLVED; New Mexico's Accenture ASO subaward, session 119). Never a hospital dollar.",
   "confidential_source_flag", "Marks a state whose rows or notes cite Delaware's confidential source (DE Verify.xlsx). Flagged material must not leave the team.")
 
 #' Each state carrying CMS obligation lines: its share of allotment published with

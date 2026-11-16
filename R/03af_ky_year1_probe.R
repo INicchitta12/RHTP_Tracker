@@ -130,7 +130,7 @@ KY_SOURCES <- tibble::tribble(
         "new organisation. The 2026-09-02 copy stays on disk."),
   "funding",
   "https://ruralhealthplan.ky.gov/Pages/Request_For_Applications.aspx",
-  "2026-10-15_ky_ruralhealthplan_funding_opportunities.html",
+  "2026-11-16b_ky_ruralhealthplan_funding_opportunities.html",  # re-based session 119 after reading: three Tier 2 RFAs (Rapid Response to Recovery - Transportation Services, due 2026-11-06; Telebehavioral Health Support; CHW Specialized Certificate FAQ and information-session PDFs); nobody named; the 10-15 copy stays
   paste("NINE RFAs, NOT ONE naming a recipient. The page this whole finding",
         "rests on. RE-BASED session 101 after reading the diff: the top menu",
         "gained 'Reports and Documents' and nothing else moved (KY's own",
@@ -190,7 +190,7 @@ KY_SOURCES <- tibble::tribble(
         "the status row, NOT in KY_AWARD_DATES, and the stage is unchanged."),
   "rch",
   "https://healthy-ky.org/rch",
-  "2026-11-16_ky_foundation_healthy_kentucky_rch.html",  # re-based session 118 after reading: Big Sandy's Hub Lead (Martin County Health Department) extracted by R/03by; the 10-26 copy stays
+  "2026-11-16b_ky_foundation_healthy_kentucky_rch.html",  # re-based session 119 after reading the 11-16 19:35Z trip: the live page names the same three Hub Leads (Lake Cumberland, Purchase, Martin County, all in ky_year1_awardees.csv) in a different layout than session 118s capture, plus menu text ("Events Conference Facility Board"); nobody new. Session 118 after reading: Big Sandy's Hub Lead (Martin County Health Department) extracted by R/03by; the 10-26 copy stays
   paste("The designated pass-through's own page (§7, Illinois/ICAHN's",
         "route). RE-BASED session 94: its 'Program News' now names ONE Hub",
         "Lead (Lake Cumberland District Health Department, 2026-10-05;",
