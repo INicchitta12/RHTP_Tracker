@@ -804,8 +804,8 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
   tab1 <- vend %>% dplyr::transmute(
     Rank = dplyr::row_number(), `Spend category` = spend_category, `Vendor role` = vendor_role,
     State = state, `Recipient (as printed)` = recipient_as_printed, UEI = uei, `Parent (verified)` = parent,
-    `Out of state (V6)` = dplyr::if_else(out_of_state %in% TRUE, "OUT OF STATE", ""),
-    PUBLIC = dplyr::if_else(vendor_public %in% TRUE, "PUBLIC", ""),
+    `Out of state (V6)` = dplyr::if_else(out_of_state %in% TRUE, "OUT OF STATE", "NOT_SHOWN"),
+    `Public body` = dplyr::if_else(vendor_public %in% TRUE, "PUBLIC", "NON_PUBLIC"),
     Amount = amount, `Amount type` = amount_type, `Row kind` = row_kind, `Row file` = row_file,
     `116e label` = category_116e,
     `Purpose (verbatim quote)` = purpose_quote, `Source title` = source_title, `Source class` = source_class,
@@ -815,8 +815,17 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
     `Independent check` = independent_check, `RHTP tie page (V2)` = tie_source, `V9 location check` = v9_basis,
     Notes = notes, `Case ID` = case_id)
   by_cat <- vend %>% dplyr::group_by(`Spend category` = spend_category, `Amount type` = amount_type) %>%
-    dplyr::summarise(Cases = dplyr::n(), Total = sum(amount), `Out of state` = sum(amount[out_of_state %in% TRUE]),
+    dplyr::summarise(Cases = dplyr::n(), Total = sum(amount),
+                     # Session 117 (Task 7c): every total split PUBLIC / NON_PUBLIC.
+                     PUBLIC = sum(amount[vendor_public %in% TRUE]),
+                     NON_PUBLIC = sum(amount[!(vendor_public %in% TRUE)]),
+                     `Out of state` = sum(amount[out_of_state %in% TRUE]),
                      .groups = "drop") %>% dplyr::arrange(factor(`Spend category`, RHTP_VENDOR_CATEGORIES), `Amount type`)
+  by_pub <- vend %>% dplyr::mutate(`Public body` = dplyr::if_else(vendor_public %in% TRUE, "PUBLIC", "NON_PUBLIC")) %>%
+    dplyr::group_by(`Public body`, `Amount type` = amount_type) %>%
+    dplyr::summarise(Cases = dplyr::n(), Total = sum(amount),
+                     Recipients = paste(sort(unique(paste0(state, ": ", recipient_as_printed))), collapse = "; "),
+                     .groups = "drop") %>% dplyr::arrange(dplyr::desc(`Public body`), `Amount type`)
   by_firm <- vend %>% dplyr::group_by(Firm = firm, `Amount type` = amount_type) %>%
     dplyr::summarise(Cases = dplyr::n(), Total = sum(amount), States = paste(sort(unique(state)), collapse = " "),
                      `Spend categories` = paste(sort(unique(spend_category)), collapse = ", "),
@@ -857,9 +866,13 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
                       "Grouped by category, ranked by amount; amount types (award, intent, obligation, contract maximum) are never added together."),
                "Internal use only. See 'Method'."),
       widths = c(6, 26, 22, 6, 40, 15, 14, 14, 9, 16, 15, 9, 40, 30, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 50, 50, 60, 8))
-  add("By category", by_cat, c("Total", "Out of state"),
-      note = "Verified cases by spend category and amount type. Never add across amount types.",
-      widths = c(28, 18, 8, 18, 18))
+  add("By category", by_cat, c("Total", "PUBLIC", "NON_PUBLIC", "Out of state"),
+      note = "Verified cases by spend category and amount type, each total split PUBLIC / NON_PUBLIC. Never add across amount types.",
+      widths = c(28, 18, 8, 18, 18, 18, 18))
+  add("Public vs non-public", by_pub, "Total",
+      note = c("Session 117: every verified vendor total split by recipient form. PUBLIC = a state-created or local public body (North Carolina's NC ROOTS hub leads Trillium Health Resources and Vaya Health, owner ruling session 116f); NON_PUBLIC = a private firm or private nonprofit (NC's other two hub leads, Impact Health and Access East, are private nonprofits).",
+               "Never add across amount types."),
+      widths = c(14, 18, 8, 18, 120))
   add("Pass-through and hospital", pt %>% dplyr::transmute(
         State = state, `Recipient (as printed)` = recipient_as_printed, `Spend category` = spend_category,
         Amount = amount, `Amount type` = amount_type, `116e label` = category_116e,
@@ -881,15 +894,19 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
       note = "LEADS ONLY. Award and contract rows in a vendor category that no verified case covers. Never part of any vendor total.",
       widths = c(6, 44, 26, 22, 16, 16, 9, 44, 50, 80))
   add("Unnamed contractor money", un_state, c("CONTRACTOR_ONLY", "MIXED"),
-      note = c(paste0("CMS RHTP Obligated Funds Report (edition ", unique(un_lines$edition), "): obligation lines for contractors, consultants or administrators that NAME NO FIRM. ",
-                      "MIXED lines also cover state staff, agencies or administrative infrastructure. Context only; never attributed to any firm."),
+      note = c(paste0("HEADLINE: ", "$", formatC(sum(un_lines$amount_obligated[un_lines$split == "CONTRACTOR_ONLY"]), format = "f", digits = 2, big.mark = ","),
+                      " obligated to unnamed contractors (CONTRACTOR_ONLY, ", sum(un_lines$split == "CONTRACTOR_ONLY"), " lines). MIXED lines ($",
+                      formatC(sum(un_lines$amount_obligated[un_lines$split == "MIXED"]), format = "f", digits = 2, big.mark = ","),
+                      ", ", sum(un_lines$split == "MIXED"), " lines) are shown separately and never added to the headline."),
+               paste0("CMS RHTP Obligated Funds Report (edition ", unique(un_lines$edition), "): obligation lines for contractors, consultants or administrators that NAME NO FIRM. ",
+                      "MIXED lines also cover state staff, agencies or administrative infrastructure (e.g. NH, KS). Context only; never attributed to any firm."),
                "Line-level quotes are in the second table below."),
       widths = c(10, 8, 22, 22))
   openxlsx::writeData(wb, "Unnamed contractor money",
                       un_lines %>% dplyr::transmute(State = state, `Line ID` = line_id, Obligated = amount_obligated,
                                                     Split = split, `Why` = split_basis, `Quote (CMS's words)` = quote),
-                      startRow = nrow(un_state) + 6, headerStyle = hs)
-  openxlsx::addStyle(wb, "Unnamed contractor money", money, rows = (nrow(un_state) + 7):(nrow(un_state) + 7 + nrow(un_lines)),
+                      startRow = nrow(un_state) + 7, headerStyle = hs)
+  openxlsx::addStyle(wb, "Unnamed contractor money", money, rows = (nrow(un_state) + 8):(nrow(un_state) + 8 + nrow(un_lines)),
                      cols = 3, gridExpand = TRUE)
   openxlsx::setColWidths(wb, "Unnamed contractor money", cols = 1:6, widths = c(10, 16, 22, 18, 50, 110))
   add("Planned (not awarded)", planned %>% dplyr::transmute(State = state, Recipient = recipient, Amount = amount,

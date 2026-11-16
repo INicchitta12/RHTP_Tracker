@@ -56,9 +56,9 @@ test_that("HOSPITAL is exactly R/07's HOSPITAL call, and a hospital-coded row is
   strict <- award$hospital_attribution %in% c("NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS")
   expect_true(all(award$spend_category[strict] == "HOSPITAL"))
   expect_false(any(contract$recipient_type %in% "HOSPITAL_OR_SYSTEM" & contract$spend_category != "HOSPITAL"))
-  # out_of_state: TRUE/FALSE on every non-hospital row, empty on a hospital row
+  # out_of_state: TRUE/NOT_SHOWN on every non-hospital row (session 117: NOT_SHOWN replaces FALSE, never "in state"), empty on a hospital row
   expect_true(all(both$out_of_state[both$spend_category == "HOSPITAL"] == ""))
-  expect_true(all(both$out_of_state[both$spend_category != "HOSPITAL"] %in% c("TRUE", "FALSE")))
+  expect_true(all(both$out_of_state[both$spend_category != "HOSPITAL"] %in% c("TRUE", "NOT_SHOWN")))
   # V7: a state agency is never a vendor, whatever its name says
   expect_false(any(both$recipient_type %in% "STATE_AGENCY" & both$spend_category %in% RHTP_VENDOR_CATEGORIES))
   # verified only on vendor categories
@@ -94,7 +94,7 @@ test_that("the owner's rulings hold", {
   v9 <- both %>% dplyr::filter(grepl(RHTP_V9_RX, awardee, ignore.case = TRUE))
   expect_gte(nrow(v9), 4L)
   expect_true(all(v9$spend_category == "OTHER"))
-  expect_true(all(v9$out_of_state == "FALSE"))
+  expect_true(all(v9$out_of_state == "NOT_SHOWN"))
   expect_true(all(v9$vendor_verified == "FALSE"))
   id5 <- award %>% dplyr::filter(state == "ID", grepl("Public Consulting|BDO|Guidehouse|Deloitte|22nd Century", awardee),
                                  vendor_verified == "TRUE")
@@ -131,4 +131,32 @@ test_that("NO HOSPITAL FIGURE MOVED: the strict partition is pinned to the cent"
   expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2167733246.58)
   expect_equal(got$usd[got$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
   expect_equal(got$usd[got$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
+})
+
+
+test_that("session 117 Task 7: NOT_SHOWN, the source label beats the dictionary, PUBLIC split, UKHS", {
+  co <- readr::read_csv(here::here("data/reference/contracts/co_contracts.csv"), col_types = readr::cols(.default = "c"))
+  ht <- co[co$awardee == "HealthTech Solutions, LLC", ]
+  # Colorado's own annual report types it 'Other Consulting': CONSULTANT, and the
+  # dictionary's TECH_VENDOR class is recorded in the basis, not used.
+  expect_equal(ht$spend_category, "CONSULTANT")
+  expect_match(ht$spend_category_basis, "Other Consulting", fixed = TRUE)
+  expect_match(ht$spend_category_basis, "dictionary class TECH_VENDOR", fixed = TRUE)
+  expect_equal(rhtp_spend_source_label("the report's own Entity Type: 'Other Consulting'", NA), "Other Consulting")
+  # No row anywhere carries the old FALSE.
+  files <- c(unname(sc_state_files()), unname(rhtp_contract_files()))
+  vals <- unique(unlist(lapply(files, function(f) readr::read_csv(here::here(f), col_types = readr::cols(.default = "c"),
+                                                                    na = character(), progress = FALSE)$out_of_state)))
+  expect_setequal(vals, c("", "TRUE", "NOT_SHOWN"))
+  sp <- rhtp_spend_rows(sc_state_files())
+  # NC's ROOTS hub leads Trillium and Vaya are PUBLIC; Impact Health and Access East are not.
+  nc <- sp[sp$state == "NC" & sp$vendor_verified, ]
+  expect_true(all(nc$vendor_public[grepl("Trillium|Vaya", nc$awardee, ignore.case = TRUE)]))
+  expect_false(any(nc$vendor_public[grepl("Impact Health|Access East", nc$awardee, ignore.case = TRUE)]))
+  # UKHS Care Collaborative: all five lines PROVIDER_PASS_THROUGH (owner ruling, 116f).
+  cs <- readr::read_csv(here::here("config/spend_category_cases.csv"), show_col_types = FALSE)
+  expect_true(all(cs$spend_category[cs$case_id %in% sprintf("VV%03d", 2:6)] == "PROVIDER_PASS_THROUGH"))
+  uk <- sp[grepl("UKHS CARE COLLABORATIVE", sp$awardee), ]
+  expect_equal(nrow(uk), 5L)
+  expect_true(all(uk$spend_category == "PROVIDER_PASS_THROUGH"))
 })

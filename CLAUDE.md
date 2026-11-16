@@ -1461,7 +1461,7 @@ the action date is after 2026-10-30. `R/09b_fsrs_award_source.R` reads the archi
 Every award row and contract row carries `spend_category` (one of `HOSPITAL`, `CONSULTANT`, `DATA_TECH_VENDOR`,
 `ADMINISTRATOR`, `NON_PROVIDER_INTERMEDIARY`, `PROVIDER_PASS_THROUGH`, `OTHER`), `vendor_role`
 (`ADMINISTERS_PROGRAM` | `DELIVERS_TO_PROVIDERS` | `MIXED` | `UNKNOWN`, from the source's purpose text), `out_of_state`
-(V6: TRUE only on a linked FSRS address outside the awarding state; empty on hospital rows), `vendor_public`,
+(V6: TRUE only on a linked FSRS address outside the awarding state, else NOT_SHOWN, never "in state" (session 117); empty on hospital rows), `vendor_public`,
 `vendor_verified`, `vendor_verified_usd` and `vendor_case_id`. Spec §8.1.
 - **One function writes them:** `rhtp_spend_category()` (`R/utils_spend_category.R`), run LAST by `R/07 --apply`.
   Hand calls live in `config/spend_category_cases.csv` (each 116e case, quoted) and `config/spend_category_entities.csv`;
@@ -1470,6 +1470,7 @@ Every award row and contract row carries `spend_category` (one of `HOSPITAL`, `C
   rows, AHCs, system parents and hospital associations/networks never enter a vendor category (`PROVIDER_PASS_THROUGH`
   where they pass money on, else `OTHER`).
 - **Only `vendor_verified` dollars (116e V1–V9) enter vendor totals**; every other vendor-category row is a lead.
+- **Source label beats the dictionary (session 117):** a state's own category label (`config/spend_category_source_labels.csv`) decides; the dictionary class goes in the basis. Vendor totals are split PUBLIC / NON_PUBLIC.
 - **Contract files** (`data/reference/contracts/`, `R/10_contract_registers.R`, `STATE_CONTRACT`, budget period 1) are
   never award files. A contract maximum, obligation or intent never counts toward published awards or the hospital
   share, and vendor dollars are never summed across amount types. SD, VT and ID's registers are already award files.
