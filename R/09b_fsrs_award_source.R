@@ -146,6 +146,12 @@ fsrs_dispose <- function(raw = fsrs_raw()) {
     dplyr::mutate(record_status = dplyr::case_when(
       refiling_rank > 1 ~ "REFILING_SUPERSEDED",
       action_date < FSRS_NOA ~ "PREDATES_NOA",
+      # SESSION 118 (independent check): an action dated after the end of
+      # Budget Period 1 is Year 2 money. Year 2 is safeguards only (owner
+      # ruling, session 116): held, never written into a Year 1 file. 44 such
+      # filings (TN's 10-31 HART round, NM's 11-03 hubs, IL 11-02) had been
+      # written with budget_period 1 stamped by file.
+      action_date > FSRS_BP1_END ~ "BUDGET_PERIOD_2_HELD",
       TRUE ~ "CURRENT"))
   # distinct actions under one key (per-action amounts)
   k <- r %>% dplyr::filter(record_status != "REFILING_SUPERSEDED") %>%
@@ -572,7 +578,10 @@ fsrs_type_new <- function(new) {
         cls$classification_rule[i] <- "FALLBACK"
       }
       if (nrow(hit_name) || nrow(hit_addr)) {
-        h <- if (nrow(hit_name)) hit_name[1, ] else hit_addr[1, ]
+        h <- if (nrow(hit_name)) hit_name else hit_addr
+        # SESSION 118: prefer the hospital's own CCN (third character a digit)
+        # over a swing-bed or psychiatric-unit CCN (24Z380 -> 241380).
+        h <- h[order(!grepl("^[0-9]{2}[0-9]", h$ccn)), , drop = FALSE][1, ]
         how <- if (nrow(hit_name)) "EXACT" else "ADDRESS"
         recd <- sprintf("%s%s (%s, %s), %s", h$org, ifelse(nzchar(h$dba), paste0(" dba ", h$dba), ""),
                         h$ccn, h$city, h$type)
@@ -960,7 +969,11 @@ fsrs_held <- function(p) {
     dplyr::transmute(st, fsrs_id, status = "PREDATES_NOA", name, amount,
                      detail = paste0("action date ", action_date, " before the NOA (2025-12-29); description '",
                                      description, "'. §6.2 date test: quarantined, never written."))
-  dplyr::bind_rows(h1, h2, h4, h3) %>% dplyr::arrange(status, st, dplyr::desc(amount))
+  h5 <- p$records %>% dplyr::filter(record_status == "BUDGET_PERIOD_2_HELD") %>%
+    dplyr::transmute(st, fsrs_id, status = "BUDGET_PERIOD_2_HELD", name, amount,
+                     detail = paste0("action date ", action_date, " after the end of Budget Period 1 (2026-10-30): ",
+                                     "Year 2 money, held under the session-116 safeguards, never in a Year 1 file."))
+  dplyr::bind_rows(h1, h2, h4, h3, h5) %>% dplyr::arrange(status, st, dplyr::desc(amount))
 }
 
 fsrs_nonfilers <- function(tot) {

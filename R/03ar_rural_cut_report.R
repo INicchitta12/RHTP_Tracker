@@ -393,14 +393,14 @@ rc_assert <- function(rows = rc_rows()) {
   # re-check (TX Lockney + Moore County x2): 2,204 / $2,170,425,246.88 / 42.
   # Session 117a: + WV Cabell Huntington (1 / $1,544,313): 2,205 / $2,171,969,559.88 / 42.
   # Session 117: TX 11/12 list (-3) and NE FSRS extras held (-3): 2,199 / $2,167,733,246.58 / 42.
-  # Session 118: FSRS 11-16 refresh (MN +42, NM +3, NE +3, TN +3, IL +1, OK
-  # priced, VT -1 duplicate held), WA's 28 at $0, IN GROW -2, KY 0:
-  # 2,276 / $2,225,056,209.17 / 43.
-  if (nrow(rows) != 2276L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2225056209.17) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 43L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,276 rows / $2,225,056,209.17 ",
-         "/ 43 states; re-state the rural cut against the new partition.",
+  # Session 118: FSRS 11-16 refresh (MN, NE, TN, OK priced; VT -1 duplicate
+  # held; Year 2 filings and the independent check's duplicate pairs held),
+  # WA's 28 at $0, IN GROW -2: 2,268 / $2,204,266,238.38 / 42.
+  if (nrow(rows) != 2268L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2204266238.38) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 42L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,268 rows / $2,204,266,238.38 ",
+         "/ 42 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)
