@@ -171,7 +171,25 @@ rp_derive <- function(st, v3, moves = rp_moves()) {
     "CLAUDE.md."), 1, "CLAUDE.md pointer", st)
 
   # 1. the working-copy block
-  paste0(head, "\n\n", rp_working_copy_block(), "\n\n", rp_step1(kind), tail)
+  out <- paste0(head, "\n\n", rp_working_copy_block(), "\n\n", rp_step1(kind), tail)
+
+  # 6. SESSION 117: the CMS write set gains data/reference/cms_national_events.csv,
+  # which R/00 --run writes since session 116. Without it the 2026-11-12 run
+  # correctly declined to publish and every later firing failed the coverage
+  # check (config/probe_gaps_explained.csv).
+  if (kind == "CMS") {
+    ne <- "data/reference/cms_national_events.csv"
+    out <- rp_sub_once(out, "data/reference/cms_newsroom_topic_index.csv, logs/",
+                       paste0("data/reference/cms_newsroom_topic_index.csv, ", ne, ", logs/"),
+                       1, "write-set list", st)
+    out <- rp_sub_once(out, "data/reference/cms_state_announcements.csv or data/reference/cms_newsroom_topic_index.csv",
+                       paste0("data/reference/cms_state_announcements.csv, data/reference/cms_newsroom_topic_index.csv or ", ne),
+                       2, "write-set 'or' clauses", st)
+    out <- rp_sub_once(out, "data/reference/cms_state_announcements.csv data/reference/cms_newsroom_topic_index.csv &&",
+                       paste0("data/reference/cms_state_announcements.csv data/reference/cms_newsroom_topic_index.csv ", ne, " &&"),
+                       1, "restore list", st)
+  }
+  out
 }
 
 rp_all <- function() {
