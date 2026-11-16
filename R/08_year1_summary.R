@@ -513,7 +513,7 @@ ys_sources <- function(rows, s) {
     state = "FSRS (all states)",
     award_files = "data/reference/<st>_fsrs_awardees.csv; FSRS overlay columns (fsrs_amount, fsrs_match) on every award file of a filing state",
     source_documents = paste("USAspending custom award download, Assistance Listing 93.798 (prime awards and FFATA first-tier subawards as filed by each state in SAM.gov/FSRS).",
-                             "Covers subawards only; state procurement contracts are not reportable (2 CFR 170 App. A). 19 states had filed no subaward."),
+                             "Covers subawards only; state procurement contracts are not reportable (2 CFR 170 App. A). 18 states had filed no subaward (Alabama filed its first in November)."),
     source_urls = "https://api.usaspending.gov/api/v2/download/awards/ (custom award download, filter program_numbers = 93.798)",
     archive_paths = "data/raw/usaspending/2026-11-09/usaspending_rhtp_93798_prime_and_subawards.zip (+ .manifest.txt with SHA-256)",
     status_evidence = "data/reference/fsrs_state_totals.csv; data/reference/fsrs_reconciliation.csv; data/reference/fsrs_held.csv; data/reference/fsrs_nonfiling_states.csv",

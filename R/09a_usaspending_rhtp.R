@@ -56,16 +56,21 @@ suppressPackageStartupMessages({
 USA_ALN <- "93.798"
 USA_API <- "https://api.usaspending.gov/api/v2"
 USA_AGENT <- "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)"
-USA_AS_OF <- "2026-11-09"
+USA_AS_OF <- "2026-11-16"
 USA_RAW_DIR <- function(as_of = USA_AS_OF) here::here("data", "raw", "usaspending", as_of)
 USA_ZIP <- "usaspending_rhtp_93798_prime_and_subawards.zip"
 USA_SUB_CSV <- "data/reference/usaspending_rhtp_subawards.csv"
 USA_COVERAGE_CSV <- "data/reference/usaspending_rhtp_coverage_by_state.csv"
 
-# What the 2026-11-09 archive holds, pinned so a re-fetch that differs is read,
-# not absorbed.
-USA_EXPECT <- list(primes = 50L, prime_total = 1e10, sub_rows = 2025L,
-                   sub_states = 31L, sub_total = 2822602267.02)
+# What the 2026-11-16 archive holds, pinned so a re-fetch that differs is read,
+# not absorbed. SESSION 118: the 2026-11-09 archive held 50 primes obligating
+# $10,000,000,000 and 2,025 subawards ($2,822,602,267.02) in 31 states; the
+# 2026-11-16 archive holds 2,518 subawards in 32 states (Alabama's first 171),
+# and the 50 primes now obligate $15,000,000,000 -- each state's BP1 award plus
+# CMS's "initial $100 million" Year 2 award (the 11-09 release). Prime
+# obligations are Tier 1 and never enter a Year 1 figure.
+USA_EXPECT <- list(primes = 50L, prime_total = 1.5e10, sub_rows = 2518L,
+                   sub_states = 32L, sub_total = 3384964895.92)
 
 usa_request_body <- function(end_date = USA_AS_OF) {
   list(

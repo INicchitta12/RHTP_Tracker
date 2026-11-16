@@ -378,7 +378,10 @@ test_that("every probe that offers --probe also runs the name tripwire", {
   # Session 116d adds the FSRS watch: structured federal records diffed by
   # report id (every new subaward IS a new recipient line), Alaska's shape.
   exempt <- c("03h_ak_year1_awardees.R", "03i_sd_rht_contracts.R",
-              "03bg_newsroom_sweep.R", "09a_usaspending_rhtp.R")
+              "03bg_newsroom_sweep.R", "09a_usaspending_rhtp.R",
+              # Session 118: the rhtptracker.com LEAD check -- a third-party
+              # aggregator, diffed by URL; a name on it is not a state naming anybody.
+              "03cw_rhtptracker_leads.R")
   files <- list.files(here::here("R"), pattern = "\\.R$", full.names = TRUE)
   offenders <- character(0)
   for (f in files) {

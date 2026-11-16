@@ -219,7 +219,7 @@ test_that("Regional Grants HAS awarded (2026-09-03), and is extracted in R/03bi"
   expect_true(grepl("nearly 200 subrecipients have been selected", now, fixed = TRUE))
   # The seven vendors and the regional roster never merge.
   g <- readr::read_csv(IN_GROW_REGIONAL_CSV, show_col_types = FALSE)
-  expect_equal(nrow(g), 186L)
+  expect_equal(nrow(g), 176L)   # session 118: ten removed by IDOH (R/03bi)
   expect_false(any(IN_TEST_AWARDS$awardee %in% g$awardee))
 })
 
@@ -269,7 +269,9 @@ test_that("the groups COVER the live set: an unread candidate cannot be absorbed
   # Every GROW candidate lands on a row of in_grow_regional_awardees.csv, by
   # exact (region, name) or the ONE hand-read rename -- and a new spelling fails.
   j <- in_rcj_grow_join(cands)
-  expect_true(all(j$rcj$in_file))
+  # Session 118: the ten members IDOH removed are candidates on no row.
+  expect_true(all(j$rcj$in_file | j$rcj$removed_by_state))
+  expect_equal(sum(j$rcj$removed_by_state), 10L)
   expect_equal(sum(j$rcj$page_name != j$rcj$awardee_name_clean), 1L)
   expect_equal(j$page_rows_not_in_rcj$awardee,
                "Putnam County Emergency Medical Services (EMS) - Mobile Integrated Health (MIH) Program")

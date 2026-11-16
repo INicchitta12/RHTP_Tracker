@@ -931,9 +931,10 @@ in_assert_regional_awarded <- function() {
   }
   g <- readr::read_csv(IN_GROW_REGIONAL_CSV, show_col_types = FALSE,
                        progress = FALSE)
-  if (nrow(g) != 186L || any(!is.na(g$amount))) {
+  # Session 118: 186 -> 176, ten members removed by IDOH (owner ruling d, R/03bi).
+  if (nrow(g) != 176L || any(!is.na(g$amount))) {
     stop("[IN] in_grow_regional_awardees.csv is ", nrow(g), " rows (expected ",
-         "186, every amount empty). Rebuild it from R/03bi.", call. = FALSE)
+         "176, every amount empty). Rebuild it from R/03bi.", call. = FALSE)
   }
   # And THIS file must not have absorbed it: the vendors stay seven.
   if (any(in_build_awards()$awardee %in% g$awardee)) {
@@ -1227,6 +1228,16 @@ in_rcj_disposition <- function() {
 
 #' The GROW candidates, each placed on a row of in_grow_regional_awardees.csv
 #' by (region, exact name) -- or by the ONE hand-read rename.
+# Session 118: the (region, name) pairs IDOH removed from the GROW page on
+# 2026-11-16; R/03bi's IG_REMOVED_S118 is the source of record.
+IN_GROW_REMOVED_S118 <- c(
+  "2 Well County Council on Aging", "2 Bluffton Health System LLC",
+  "2 Living Well in Wabash County CoA, Inc", "2 Steuben County Council on Aging",
+  "2 Cass Area Transit Inc", "2 Huntington County Council on Aging",
+  "2 Noble County Council on Aging, Inc",
+  "5 Area 10 Council on Aging of Monroe and Owen Co Inc", "5 Hamilton Center, Inc.",
+  "5 West Central Indiana Economic Development District, Inc.")
+
 in_rcj_grow_join <- function(cands = in_rcj_candidates()) {
   g <- cands[cands$source_doc_title == IN_GROW_SOURCE_TITLE, ]
   g$region <- as.integer(stringr::str_match(g$program_description,
@@ -1240,6 +1251,9 @@ in_rcj_grow_join <- function(cands = in_rcj_candidates()) {
   file <- readr::read_csv(IN_GROW_REGIONAL_CSV, show_col_types = FALSE,
                           progress = FALSE)
   g$in_file <- paste(g$region, g$page_name) %in% paste(file$region, file$awardee)
+  # Session 118: the ten members IDOH removed from the page (R/03bi,
+  # IG_REMOVED_S118) are RCJ candidates on no row, by the state's own edit.
+  g$removed_by_state <- paste(g$region, g$page_name) %in% IN_GROW_REMOVED_S118
   list(rcj = g, file = file,
        page_rows_not_in_rcj = file[!paste(file$region, file$awardee) %in%
                                      paste(g$region, g$page_name), ])
@@ -1267,9 +1281,9 @@ in_assert_rcj_disposition <- function() {
   # one hand-read rename. A new RCJ spelling fails here rather than being
   # counted as a real award on RCJ's word (§0.1).
   j <- in_rcj_grow_join(cands)
-  if (any(!j$rcj$in_file) || any(is.na(j$rcj$region))) {
+  if (any(!j$rcj$in_file & !j$rcj$removed_by_state) || any(is.na(j$rcj$region))) {
     stop("[IN] GROW candidates on no row of in_grow_regional_awardees.csv: ",
-         paste(j$rcj$awardee_name_clean[!j$rcj$in_file], collapse = "; "),
+         paste(j$rcj$awardee_name_clean[!j$rcj$in_file & !j$rcj$removed_by_state], collapse = "; "),
          ". Read them; do not fuzzy-match (§2).", call. = FALSE)
   }
   if (any(duplicated(paste(j$rcj$region, j$rcj$page_name)))) {

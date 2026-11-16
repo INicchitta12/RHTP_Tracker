@@ -637,10 +637,87 @@ ig_validate <- function() {
   invisible(a)
 }
 
+# SESSION 118, OWNER RULING (d): THE STATE REMOVED TEN MEMBERS. The live page
+# (archived 2026-11-16) re-publishes every region's "Grant Recipient
+# Organizations" table in a new order, with region figures unchanged and NO
+# name added, and without these ten -- seven in Region 2 (archived rows 5, 11,
+# 13, 14, 21, 22, 23) and three in Region 5 (rows 1, 13, 16). The positions are
+# scattered, not a truncated tail, and the committee tables on the same page were
+# re-laid out in the same edit: a deliberate re-publication by IDOH, not a page
+# error. Per the ruling the members leave the file and the strict-majority test
+# runs on the CURRENT list (Region 5: 7 typed hospitals of 13, HOSPITAL in the
+# summary layer; it was 8 of 16, a tie).
+# COUNTER-EVIDENCE, RECORDED (§0.4): Indiana's own FFATA filings (FSRS archive
+# 2026-11-16) still carry CURRENT subawards to five of the ten -- Bluffton
+# Health System LLC $20,000 (09-24), Huntington County Council on Aging
+# $266,560.55, Living Well in Wabash County CoA $50,145.02, The Wells County
+# Council on Aging $182,442.75 and West Central Indiana Economic Development
+# District $176,080.16 (08-28; Region 5). If WCIEDD stays a member, Region 5
+# is 7 of 14, a tie, NOT_HOSPITAL. The removal is the latest state source and
+# governs (Vermont's Gifford precedent); the conflict is on the status table.
+IG_ARCHIVE_1116 <- file.path("data", "evidence", "recheck", "2026-11-16", "IN",
+                             "2026-11-16_grow_regional_grants_page_TEN_REMOVED.html")
+IG_REMOVED_S118 <- tibble::tribble(
+  ~region, ~awardee, ~fsrs_current_usd,
+  2L, "Well County Council on Aging", 182442.75,
+  2L, "Bluffton Health System LLC", 20000,
+  2L, "Living Well in Wabash County CoA, Inc", 50145.02,
+  2L, "Steuben County Council on Aging", NA,
+  2L, "Cass Area Transit Inc", NA,
+  2L, "Huntington County Council on Aging", 266560.55,
+  2L, "Noble County Council on Aging, Inc", NA,
+  5L, "Area 10 Council on Aging of Monroe and Owen Co Inc", NA,
+  5L, "Hamilton Center, Inc.", NA,
+  5L, "West Central Indiana Economic Development District, Inc.", 176080.16)
+
+#' The removal, asserted against the two archived copies: exactly these ten
+#' are on the 09-24 page and off the 11-16 page, nothing else differs in the
+#' member sets, and the region figures did not move.
+ig_assert_s118_removal <- function() {
+  a <- ig_parse_page()
+  l <- ig_parse_page(here::here(IG_ARCHIVE_1116))
+  k <- function(d) paste(d$region, d$awardee)
+  gone <- setdiff(k(a), k(l)); added <- setdiff(k(l), k(a))
+  if (length(added) || !setequal(gone, paste(IG_REMOVED_S118$region, IG_REMOVED_S118$awardee))) {
+    stop("[IN-GROW] the 11-16 page is not the 09-24 page less the ten recorded removals.", call. = FALSE)
+  }
+  if (!identical(sort(unique(a$region_figure_as_published)), sort(unique(l$region_figure_as_published)))) {
+    stop("[IN-GROW] a region figure moved on the 11-16 page.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+ig_apply_s118_removals <- function(a) {
+  ig_assert_s118_removal()
+  out <- a[!paste(a$region, a$awardee) %in% paste(IG_REMOVED_S118$region, IG_REMOVED_S118$awardee), ]
+  stopifnot(nrow(out) == nrow(a) - 10L)
+  out$row_no <- seq_len(nrow(out))
+  out$source_archive_path <- IG_ARCHIVE_1116   # the current page; the 09-24 page stays archived
+  out
+}
+
+ig_s118_status_row <- function() {
+  f <- IG_REMOVED_S118
+  tibble::tibble(
+    state = IG_STATE, channel = "GROW Regional Grants -- ten members removed by IDOH (page of 2026-11-16)",
+    stage = "MEMBERS_REMOVED_BY_STATE", publishes_roster = "Yes -- names only, no per-organisation amount",
+    region_figure_as_published = NA_character_, region_figure_dollars = NA_real_,
+    recipient_rows = 10L, distinct_names = 10L,
+    named_hospital_rows = 1L,
+    note = paste0(
+      "The 11-16 page re-publishes every region table (new order, region figures unchanged, no name added) without: ",
+      paste0(f$awardee, " (Region ", f$region, ")", collapse = "; "),
+      ". Owner ruling (d), session 118: removed by the state, so they leave the file and the strict-majority test runs on the current list ",
+      "(Region 5: 7 hospitals of 13, HOSPITAL; was 8 of 16, a tie). Hamilton Center, Inc. was the one hospital-typed row (a CMHC holding psychiatric CCN 154009). ",
+      "CONFLICT: Indiana's FFATA filings (FSRS 2026-11-16) still carry current subawards to five of the ten, $",
+      format(sum(f$fsrs_current_usd, na.rm = TRUE), big.mark = ",", nsmall = 2),
+      ", incl. West Central Indiana Economic Development District $176,080.16 (Region 5); with it Region 5 is 7 of 14, a tie."))
+}
+
 ig_build <- function() {
-  a <- ig_validate()
+  a <- ig_apply_s118_removals(ig_validate())
   readr::write_csv(a, IG_CSV, na = "")
-  readr::write_csv(ig_status_table(a = a), IG_STATUS_CSV, na = "")
+  readr::write_csv(dplyr::bind_rows(ig_status_table(a = a), ig_s118_status_row()), IG_STATUS_CSV, na = "")
   p <- rhtp_hospital_dollar_partition(a)
   message(sprintf("[IN-GROW] wrote %d rows; partition: %s.", nrow(a),
                   paste0(p$bucket, " ", p$rows, " rows / $", p$dollars, collapse = "; ")))

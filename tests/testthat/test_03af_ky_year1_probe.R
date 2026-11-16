@@ -235,8 +235,9 @@ test_that("session 94: Kentucky's award file is R/03by's, named rows at no amoun
   expect_true(file.exists(p))
   # Session 116c: Kentucky's own publication (the FSRS overlay stripped; R/09b priced LCDHD).
   d <- rhtp_strip_fsrs_overlay(readr::read_csv(p, show_col_types = FALSE, progress = FALSE))
-  # Session 99: Purchase District Health Department is row 2.
-  expect_equal(nrow(d), 2L)
+  # Session 99: Purchase District Health Department is row 2; session 118:
+  # Martin County Health Department (Big Sandy) is row 3.
+  expect_equal(nrow(d), 3L)
   expect_true(all(is.na(d$amount)))
   expect_true(all(d$validator == "R/03by_ky_rch_awardees.R"))
 })

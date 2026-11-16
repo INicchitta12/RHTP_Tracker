@@ -1093,7 +1093,11 @@ RHTP_PROBE_LOG_COLUMNS <- c("state", "probed_at", "verdict", "page", "note",
 #   VENDOR     (session 116f) a dictionary consultant or technology vendor is
 #              named on a probed page that its archived copy does not name.
 #              Logged, never raised: the run still publishes, a human reads it.
-RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR", "YEAR2", "VENDOR")
+#   LEAD       (session 118) a third-party lead source (rhtptracker.com, R/03cw)
+#              lists a document this repository has not seen. The row carries
+#              the state and the OFFICIAL-source link it points at, never a
+#              figure. Logged, never raised: a lead is a pointer, not a finding.
+RHTP_PROBE_VERDICTS <- c("UNCHANGED", "CHANGED", "TRIPWIRE", "ERROR", "YEAR2", "VENDOR", "LEAD")
 
 # -- Year 2 on a probed page (session 116) -----------------------------------
 #
@@ -1540,7 +1544,9 @@ rhtp_probe_ctx_empty <- function() {
        # Session 116f: dictionary vendors newly named (VENDOR, logged only) and
        # contract registers whose content moved (CHANGED, logged only).
        vendor      = tibble::tibble(page = character(0), msg = character(0)),
-       registers   = tibble::tibble(page = character(0), msg = character(0)))
+       registers   = tibble::tibble(page = character(0), msg = character(0)),
+       # Session 118: third-party leads (LEAD, logged only; R/03cw).
+       lead        = tibble::tibble(page = character(0), msg = character(0)))
 }
 
 #' Enter a probe context; returns the previous one, for rhtp_probe_ctx_pop()
@@ -1624,6 +1630,7 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   year2       <- .rhtp_probe_ctx$year2
   if (is.null(year2)) year2 <- tibble::tibble(page = character(0), msg = character(0))
   vendor      <- .rhtp_probe_ctx$vendor
+  lead        <- .rhtp_probe_ctx$lead
   if (is.null(vendor)) vendor <- tibble::tibble(page = character(0), msg = character(0))
   registers   <- .rhtp_probe_ctx$registers
   if (is.null(registers)) registers <- tibble::tibble(page = character(0), msg = character(0))
@@ -1704,6 +1711,11 @@ rhtp_probe_run <- function(state, expr, path = rhtp_probe_log_path(),
   if (nrow(vendor)) {
     rows <- dplyr::bind_rows(rows, one_row("VENDOR", vendor$page, vendor$msg))
     for (m in vendor$msg) message("[", state, "] VENDOR (logged): ", m)
+  }
+  # Session 118: a third-party lead (rhtptracker.com) is a LEAD row. Logged,
+  # NOT raised, and never a figure.
+  if (!is.null(lead) && nrow(lead)) {
+    rows <- dplyr::bind_rows(rows, one_row("LEAD", lead$page, lead$msg))
   }
   # (c) the guard's refusal is logged, as ERROR, before it is raised.
   if (!is.null(guard)) {

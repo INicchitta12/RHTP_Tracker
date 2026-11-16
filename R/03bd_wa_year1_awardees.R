@@ -261,6 +261,11 @@ waa_subtotal_check <- function() {
 }
 
 wa_year1_awardees <- function() {
+  d <- wa_first_tier_rows()
+  dplyr::bind_rows(d, waa_mes_rows(nrow(d) + 1L))
+}
+
+wa_first_tier_rows <- function() {
   a <- WAA_ROWS
   cls <- rhtp_classify_recipient_type(a$awardee, WAA_STATE)
   tibble::tibble(
@@ -307,6 +312,131 @@ wa_year1_awardees <- function() {
   )
 }
 
+# -- SESSION 118, OWNER RULING (c): HCA's 28 "maternal, emergency, and specialty
+# services" hospitals -----------------------------------------------------------
+# HCA's "Washington's RHT funds are 100% obligated" (2026-11-05, archived
+# recheck/2026-11-13/WA/) prices Initiative 1's activities under the column
+# "Estimated amount", including "Maternal, emergency, and specialty services
+# $9.67 million", and says: "As part of Initiative 1, hospitals could apply for
+# funding to sustain and maintain essential maternal, emergency, and specialty
+# services. Twenty-eight hospitals were approved through a competitive bid
+# process:" -- then lists 28 names and no per-hospital figure. A figure stated
+# for named hospitals alone: ONE POOL_NAMED_HOSPITALS row at the stated
+# obligation, never divided (§6.2; §7 "a pool is judged per priced component";
+# Ohio's shape). The 28 are rows at $0, typed on CMS WA Hospital Enrollments.
+# "Estimated amount" is recorded on the pool row (AMOUNT_PRELIMINARY) and in
+# the members' notes only. WA stays PARTIAL. This is very likely the deck's
+# competitive line 1.4 ($10.71M, "36 rural hospitals statewide", status table),
+# re-stated at award: that line was never an award row, so nothing is counted
+# twice.
+WAA_OBL_PDF <- file.path("data", "evidence", "recheck", "2026-11-13", "WA",
+                         "2026-11-13_hca_rht_obligated_funds.pdf")
+WAA_OBL_DATE <- as.Date("2026-11-05")
+WAA_MES_POOL <- 9670000
+WAA_MES_SENTENCE <- paste("Twenty-eight hospitals were approved through a competitive bid",
+                          "process")
+# match: EXACT (the string is the enrolled name or DBA) or BRIDGE (hand-read,
+# LOW). An entity holding two hospital CCNs gets none (Ohio's rule).
+WAA_MES <- tibble::tribble(
+  ~awardee, ~match, ~ccn, ~enrolment,
+  "Astria Sunnyside Hospital", "EXACT", "501330", "SUNNYSIDE COMMUNITY HOSPITAL ASSOCIATION dba ASTRIA SUNNYSIDE HOSPITAL (501330, Sunnyside, CAH)",
+  "Astria Toppenish Hospital", "EXACT", "500037", "SHC MEDICAL CENTER TOPPENISH dba ASTRIA TOPPENISH HOSPITAL (500037, Toppenish)",
+  "Cascade Medical Center", "EXACT", "501313", "CHELAN COUNTY PUBLIC HOSPITAL DISTRICT NO. 1 dba CASCADE MEDICAL CENTER (501313, Leavenworth, CAH)",
+  "Confluence Health", "BRIDGE", "500016", "CENTRAL WASHINGTON HEALTH SERVICES ASSOCIATION dba CONFLUENCE HEALTH HOSPITAL (500016, Wenatchee): the string is the DBA less 'Hospital'",
+  "EvergreenHealth Monroe", "BRIDGE", "500084", "PUBLIC HOSPITAL DISTRICT 1 OF SNOHOMISH COUNTY dba EVERGREEN HEALTH MONROE (500084, Monroe): the DBA spelled with a space",
+  "Forks Community Hospital", "EXACT", "501325", "CLALLAM COUNTY PUBLIC HOSPITAL DISTRICT NO 1 dba FORKS COMMUNITY HOSPITAL (501325, Forks, CAH)",
+  "Garfield County Hospital", "BRIDGE", "501301", "GARFIELD COUNTY MEMORIAL HOSPITAL DISTRICT dba GARFIELD COUNTY PUBLIC HOSPITAL DISTRICT #1 (501301, Pomeroy, CAH): the only Garfield County hospital",
+  "Grays Harbor Community Hospital", "EXACT", "500031", "GRAYS HARBOR COMMUNITY HOSPITAL (500031, Aberdeen)",
+  "Island Health", "BRIDGE", "500007", "PUBLIC HOSPITAL DISTRICT NO 2 SKAGIT COUNTY WASHINGTON dba ISLAND HOSPITAL (500007, Anacortes): Island Health is the Anacortes district's trading name (general knowledge)",
+  "Jefferson Healthcare", "EXACT", "501323", "JEFFERSON COUNTY PUBLIC HOSPITAL DISTRICT NO 2 dba JEFFERSON HEALTHCARE (501323, Port Townsend, CAH)",
+  "Kittitas Valley Healthcare", "EXACT", "501333", "KITTITAS COUNTY PUBLIC HOSPITAL DIST 1 dba KITTITAS VALLEY HEALTHCARE (501333, Ellensburg, CAH)",
+  "Mid Valley Hospital", "EXACT", "501328", "OKANOGAN COUNTY PUBLIC HOSPITAL DISTRICT NO. 3 dba MID VALLEY HOSPITAL (501328, Omak, CAH)",
+  "Newport Community Hospital", "EXACT", "501310", "PEND OREILLE COUNTY PUBLIC HOSPITAL DISTRICT NO 1 dba NEWPORT COMMUNITY HOSPITAL (501310, Newport, CAH)",
+  "North Valley Hospital District", "BRIDGE", "501321", "OKANOGAN COUNTY PUBLIC HOSPITAL DIST NO 4 dba NORTH VALLEY HOSPITAL (501321, Tonasket, CAH)",
+  "Odessa Memorial Healthcare Center", "EXACT", "501307", "LINCOLN COUNTY PUBLIC HOSPITAL DISTRICT 1 dba ODESSA MEMORIAL HEALTHCARE CENTER (501307, Odessa, CAH)",
+  "Olympic Medical Center", "EXACT", "500072", "CLALLAM COUNTY PUBLIC HOSPITAL DISTRICT 2 dba OLYMPIC MEDICAL CENTER (500072, Port Angeles)",
+  "Othello Community Hospital", "EXACT", "501318", "ADAMS COUNTY PUBLIC HOSPITAL DISTRICT 3 dba OTHELLO COMMUNITY HOSPITAL (501318, Othello, CAH)",
+  "Prosser Public Hospital", "BRIDGE", "501312", "PROSSER PUBLIC HOSPITAL DISTRICT OF BENTON COUNTY dba PROSSER MEMORIAL HEALTH (501312, Prosser, CAH): the legal name's prefix",
+  "Providence St. Mary Medical Center", "EXACT", "500002", "PROVIDENCE HEALTH & SERVICES - WASHINGTON dba PROVIDENCE ST MARY MEDICAL CENTER (500002, Walla Walla)",
+  "Samaritan Healthcare", "BRIDGE", "500033", "GRANT COUNTY PUBLIC HOSPITAL DISTRICT 1 dba SAMARITAN HOSPITAL (500033, Moses Lake): Samaritan Healthcare is the district's trading name (general knowledge); MultiCare Good Samaritan (Puyallup) is a different body",
+  "Seattle Children's Hospital", "EXACT", "503300", "SEATTLE CHILDRENS HOSPITAL (503300, Seattle)",
+  "Skagit Regional Health", "BRIDGE", NA, "PUBLIC HOSPITAL DIST NO 1 SKAGIT dba SKAGIT VALLEY HOSPITAL (500003, Mount Vernon) and dba CASCADE VALLEY HOSPITAL (500060, Arlington): Skagit Regional Health is the district's trading name (general knowledge), and the entity holds two hospital CCNs, so none on the row",
+  "Skyline Health", "BRIDGE", "501315", "PUBLIC HOSPITAL DISTRICT NO. 2, KLICKITAT COUNTY dba SKYLINE HOSPITAL (501315, White Salmon, CAH)",
+  "Summit Pacific Medical Center", "EXACT", "501304", "GRAYS HARBOR COUNTY PUBLIC HOSPITAL DISTRICT NO 1 dba SUMMIT PACIFIC MEDICAL CENTER (501304, Elma, CAH)",
+  "Snoqualmie Valley Health", "BRIDGE", "501338", "PUBLIC HOSPITAL DISTRICT NO 4 KING COUNTY dba SNOQUALMIE VALLEY HOSPITAL (501338, Snoqualmie, CAH)",
+  "Trios Health", "EXACT", "500053", "RCCH TRIOS HEALTH LLC dba TRIOS HEALTH (500053, Kennewick)",
+  "St. Elizabeth Hospital", "EXACT", "501335", "ENUMCLAW REGIONAL HOSPITAL ASSOCIATION dba ST ELIZABETH HOSPITAL (501335, Enumclaw, CAH)",
+  "Whitman Hospital", "BRIDGE", "501327", "PUBLIC HOSPITAL DISTRICT NO 3 OF WHITMAN COUNTY dba WHITMAN HOSPITAL & MEDICAL CLINICS (501327, Colfax, CAH); Pullman Regional (Whitman County District 1-A) is a different body")
+WAA_WA_FED <- "data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_WA.json"
+
+waa_obl_text <- function() waa_squish(paste(rhtp_pdf_text(here::here(WAA_OBL_PDF)), collapse = " "))
+
+waa_assert_obl <- function() {
+  t <- waa_obl_text()
+  need <- c(WAA_MES_SENTENCE, "Maternal, emergency, and specialty services $9.67 million",
+            "Estimated amount", "November 5, 2026",
+            "financial assistance award totaling $181,257,515.06 with 100 percent funded by CMS/HHS")
+  miss <- need[!vapply(need, function(w) grepl(w, t, fixed = TRUE), logical(1))]
+  if (length(miss)) stop("[WA] HCA's obligation summary no longer says: ", paste(miss, collapse = " | "), call. = FALSE)
+  # every one of the 28 names is printed, and there are 28
+  if (nrow(WAA_MES) != 28L || anyDuplicated(WAA_MES$awardee)) stop("[WA] WAA_MES is not 28 distinct names.", call. = FALSE)
+  nm <- gsub("'", "'", WAA_MES$awardee)
+  absent <- nm[!vapply(nm, function(w) grepl(w, t, fixed = TRUE), logical(1))]
+  if (length(absent)) stop("[WA] not on HCA's list: ", paste(absent, collapse = "; "), call. = FALSE)
+  # the footer is the allotment (Tier 1), never this pool (§0.2)
+  rhtp_assert_footer_tiers(tibble::tibble(state = WAA_STATE, rfp = "HCA obligation summary 2026-11-05",
+                                          footer_amount = 181257515.06, footer_tier = "STATE_ALLOTMENT"))
+  if (WAA_OBL_DATE <= WAA_NOA_DATE) stop("[WA] date test.", call. = FALSE)
+  invisible(TRUE)
+}
+
+waa_mes_rows <- function(start_row) {
+  m <- WAA_MES
+  why <- paste0(ifelse(m$match == "EXACT",
+                       "EXACT federal record: CMS WA Hospital Enrollments carry the string as the enrolled name or DBA: ",
+                       "HAND-READ BRIDGE (LOW): "), m$enrolment, ".")
+  base <- tibble::tibble(state = WAA_STATE, recipient_confirmed = "Yes", amount_confirmed = "No",
+    fiscal_year = "FY2026 (Year 1)", source_document_title = "HCA, Washington's RHT funds are 100% obligated (2026-11-05)",
+    state_source_url = WAA_DECK_URL, validation_source_type = "AGENCY_PRESS_RELEASE",
+    extraction_method = "PDF_TEXT", validator = "R/03bd_wa_year1_awardees.R", aha_id = NA_character_,
+    rural_designation = NA_character_, reviewer = NA_character_,
+    initiative = "1. Ignite innovation in rural hospitals: Maternal, emergency, and specialty services",
+    award_pool = "HCA Initiative 1: Maternal, emergency, and specialty services ($9.67M estimated, 28 hospitals)",
+    budget_period = "Budget Period 1", flow_type = "DIRECT", hospital_benefiting = "Yes",
+    intermediary_name = NA_character_, round_amount = NA_real_, announcement_date = WAA_OBL_DATE,
+    source_archive_path = WAA_OBL_PDF)
+  mem <- dplyr::bind_cols(base[rep(1, 28), ], tibble::tibble(
+    awardee = m$awardee, amount = NA_real_, recipient_type = "HOSPITAL_OR_SYSTEM",
+    distributed_to_hospital = "Yes",
+    note = paste0("One of the 28 hospitals HCA lists for maternal, emergency, and specialty services (2026-11-05): '",
+                  WAA_MES_SENTENCE, "'. No per-hospital figure; the pool's $9.67 million is printed under HCA's ",
+                  "column 'Estimated amount' and is ONE POOL_NAMED_HOSPITALS row of this file, never divided (§6.2)."),
+    ccn = m$ccn,
+    recipient_type_source = paste0("TYPED (session 118, ", m$match, "): ", why),
+    determination_confidence = ifelse(m$match == "EXACT", "MEDIUM", "LOW"),
+    flag_reason = NA_character_, hospital_attribution = "NAMED_HOSPITAL",
+    determination_basis = paste0("§10.2 DIRECT: ", why, " NAMED AT $0: HCA prices only the 28-hospital pool (owner ruling c, session 118)."),
+    amount_basis = "NO AMOUNT: HCA publishes no per-hospital figure. The pool is a separate row; it is never divided.",
+    basis_type = ifelse(m$match == "EXACT", "ORG_WEBSITE", "GENERAL_KNOWLEDGE"),
+    cms_enrolment_record = paste0("CMS WA Hospital Enrollments: ", m$enrolment, " (", WAA_WA_FED, ")")))
+  pool <- dplyr::bind_cols(base, tibble::tibble(
+    awardee = paste0("28 hospitals named by HCA for maternal, emergency, and specialty services (",
+                     paste(m$awardee, collapse = "; "), ")"),
+    amount = WAA_MES_POOL, recipient_type = "HOSPITAL_OR_SYSTEM", distributed_to_hospital = "Yes",
+    note = paste0("HCA (2026-11-05), Initiative 1, under 'Estimated amount': 'Maternal, emergency, and specialty services $9.67 million'; '",
+                  WAA_MES_SENTENCE, "'. 28 named, no split. The page says Washington's funds are '100% obligated'."),
+    ccn = NA_character_,
+    recipient_type_source = "TYPED (session 118): each of the 28 named recipients is a hospital on CMS WA Hospital Enrollments (see their own rows).",
+    determination_confidence = "MEDIUM", flag_reason = "AMOUNT_ROUNDED_IN_SOURCE;AMOUNT_PRELIMINARY;MULTI_RECIPIENT_FIELD",
+    hospital_attribution = "POOL_NAMED_HOSPITALS",
+    determination_basis = paste0("§10.2 DIRECT, POOL_NAMED_HOSPITALS (owner ruling c, session 118; §7 'a pool is judged per priced component'): ",
+                                 "a figure HCA states for this activity, whose recipients are the 28 hospitals it names and no one else ('hospitals could apply'). ",
+                                 "No per-hospital split, so one pool row, never divided (§6.2); Ohio's shape. VULNERABILITY: HCA labels every figure 'Estimated amount'."),
+    amount_basis = "HCA's 'Estimated amount', rounded to $10,000 ('$9.67 million'); the stated obligation, never un-rounded or split.",
+    basis_type = "STATE_SOURCE", cms_enrolment_record = NA_character_))
+  dplyr::bind_rows(mem, pool) %>% dplyr::mutate(row_no = start_row + dplyr::row_number() - 1L)
+}
+
 wa_year1_status <- function() {
   WAA_STATUS %>%
     mutate(state = WAA_STATE, source = WAA_DECK,
@@ -316,11 +446,15 @@ wa_year1_status <- function() {
 
 wa_validate <- function() {
   waa_assert_sources()
+  waa_assert_obl()
   d <- wa_year1_awardees()
-  stopifnot(nrow(d) == 8L,
-            abs(sum(d$amount, na.rm = TRUE) - 67020000) < 0.5,
+  stopifnot(nrow(d) == 8L + 29L,
+            abs(sum(d$amount, na.rm = TRUE) - (67020000 + WAA_MES_POOL)) < 0.5,
             !"amount" %in% names(wa_year1_status()))
-  p <- rhtp_hospital_dollar_partition(d)
+  mp <- rhtp_hospital_dollar_partition(d[d$row_no > 8L, ])
+  stopifnot(sum(mp$rows[mp$bucket == "NAMED_HOSPITAL"]) == 28L,
+            abs(sum(mp$dollars[mp$bucket == "POOL_NAMED_HOSPITALS"]) - WAA_MES_POOL) < 0.5)
+  p <- rhtp_hospital_dollar_partition(d[d$row_no <= 8L, ])
   if (nrow(p) > 0 && sum(p$rows) > 0) {
     # The BUILDER's own name-rule typing reaches no bucket. The two University
     # of Washington rows reach NAMED_HOSPITAL only through session 71's
@@ -344,7 +478,7 @@ wa_build <- function() {
   readr::write_csv(s71$s71_overlay(wa_year1_awardees(), "wa_year1_awardees.csv"),
                    here::here(WAA_AWARD_CSV), na = "")
   readr::write_csv(wa_year1_status(), here::here(WAA_STATUS_CSV), na = "")
-  message("[WA] wrote 8 award rows and ", nrow(WAA_STATUS), " status rows.")
+  message("[WA] wrote ", nrow(wa_year1_awardees()), " award rows and ", nrow(WAA_STATUS), " status rows.")
 }
 
 wa_report <- function() {

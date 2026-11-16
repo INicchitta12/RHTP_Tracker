@@ -146,6 +146,12 @@ fsrs_dispose <- function(raw = fsrs_raw()) {
     dplyr::mutate(record_status = dplyr::case_when(
       refiling_rank > 1 ~ "REFILING_SUPERSEDED",
       action_date < FSRS_NOA ~ "PREDATES_NOA",
+      # SESSION 118 (independent check): an action dated after the end of
+      # Budget Period 1 is Year 2 money. Year 2 is safeguards only (owner
+      # ruling, session 116): held, never written into a Year 1 file. 44 such
+      # filings (TN's 10-31 HART round, NM's 11-03 hubs, IL 11-02) had been
+      # written with budget_period 1 stamped by file.
+      action_date > FSRS_BP1_END ~ "BUDGET_PERIOD_2_HELD",
       TRUE ~ "CURRENT"))
   # distinct actions under one key (per-action amounts)
   k <- r %>% dplyr::filter(record_status != "REFILING_SUPERSEDED") %>%
@@ -237,8 +243,20 @@ fsrs_award_rows <- function(states, files = fsrs_state_files()) {
                    notice_date = if ("notice_date" %in% names(d)) d$notice_date else NA_character_,
                    round_amount = if ("round_amount" %in% names(d)) suppressWarnings(as.numeric(d$round_amount)) else NA_real_,
                    distributed_to_hospital = d$distributed_to_hospital,
+                   ccn = fsrs_row_ccn(d),
                    validation_source_type = d$validation_source_type)
   })) %>% dplyr::mutate(n = fsrs_norm(awardee), row_id = paste(file_key, row_no, sep = "#"))
+}
+
+#' A roster row's CCN (session 118): the ccn column, else the one CCN its
+#' determination_basis names (many hand bridges record the CCN only there:
+#' Vermont's Grace Cottage, "CCN 471300"). A basis naming two CCNs gives none.
+fsrs_row_ccn <- function(d) {
+  cc <- if ("ccn" %in% names(d)) gsub("\\.0$", "", d$ccn) else rep(NA_character_, nrow(d))
+  b <- if ("determination_basis" %in% names(d)) d$determination_basis else rep(NA_character_, nrow(d))
+  from_b <- vapply(stringr::str_match_all(dplyr::coalesce(b, ""), "CCN ([0-9]{2}[0-9A-Z][0-9]{3})"),
+                   function(m) { u <- unique(m[, 2]); if (length(u) == 1L) u else NA_character_ }, character(1))
+  dplyr::if_else(is.na(cc) | !nzchar(cc), from_b, cc)
 }
 
 # -- 4. candidate generator (for the HELD rule only; never matches) ---------------
@@ -560,7 +578,10 @@ fsrs_type_new <- function(new) {
         cls$classification_rule[i] <- "FALLBACK"
       }
       if (nrow(hit_name) || nrow(hit_addr)) {
-        h <- if (nrow(hit_name)) hit_name[1, ] else hit_addr[1, ]
+        h <- if (nrow(hit_name)) hit_name else hit_addr
+        # SESSION 118: prefer the hospital's own CCN (third character a digit)
+        # over a swing-bed or psychiatric-unit CCN (24Z380 -> 241380).
+        h <- h[order(!grepl("^[0-9]{2}[0-9]", h$ccn)), , drop = FALSE][1, ]
         how <- if (nrow(hit_name)) "EXACT" else "ADDRESS"
         recd <- sprintf("%s%s (%s, %s), %s", h$org, ifelse(nzchar(h$dba), paste0(" dba ", h$dba), ""),
                         h$ccn, h$city, h$type)
@@ -651,13 +672,24 @@ fsrs_plan <- function() {
     status %in% wr & st %in% names(FSRS_POOL_LEVEL_STATES) &
       amount <= FSRS_POOL_LEVEL_STATES[st] ~ "HELD_STATE_POOL_MAY_CONTAIN",
     status %in% wr & st %in% FSRS_COMPLETE_ROSTER_STATES ~ "HELD_STATE_ROSTER_IS_COMPLETE",
-    # An EXTRA subaward in a state whose Year 1 is COMPLETE (R/03aw): the
-    # roster already covers that recipient's Year 1 money, so a second FSRS
-    # line is most likely the same money at another grain (Utah's UDAF $26.5M
-    # and USBE $13.1M would put Utah over its allotment).
-    status == "EXTRA_ROW" & st %in% fsrs_complete_states() ~ "HELD_EXTRA_STATE_YEAR1_COMPLETE",
+    # SESSION 118, OWNER RULING (a). A state COMPLETE on a PUBLISHED ROSTER
+    # (R/03aw completion_basis): the roster covers the Year 1 money, so an FSRS
+    # subaward that does not pair to a roster row is most likely the same money
+    # at another grain (Utah's UDAF $26.5M and USBE $13.1M would put Utah over
+    # its allotment; Vermont's Grace Cottage $2,000,000 facilities line is roster
+    # row 41 under the operator's legal name). EXTRA and NEW rows are both held.
+    # A state COMPLETE on FULL OBLIGATION only (NE SD WV) has a FLOOR roster:
+    # its extras are written, under the pairing and duplicate checks below and
+    # the allotment cap (fsrs_allotment_cap()).
+    status == "EXTRA_ROW" & st %in% fsrs_complete_states("PUBLISHED_ROSTER") ~ "HELD_EXTRA_STATE_YEAR1_COMPLETE",
+    status == "NEW_ROW" & st %in% fsrs_complete_states("PUBLISHED_ROSTER") ~ "HELD_NEW_STATE_ROSTER_PUBLISHED_COMPLETE",
     TRUE ~ status))
   typed <- fsrs_type_extra_from_roster(typed, rc$aw)
+  typed <- fsrs_hand_typing(typed)
+  # SESSION 118: a NEGATIVE amount is a de-obligation of an action the archive
+  # may not hold (CT filed five on 2026-10-08..28, -$1,250 to -$1,219,235); it
+  # is never written as a row.
+  typed$status[typed$status %in% wr & typed$amount < 0] <- "HELD_NEGATIVE_AMOUNT"
   typed <- fsrs_ia_round_check(typed, rc)
   # SESSION 116d (independent check 2d): a new or extra row whose NON-ROUND
   # amount equals, to the cent, an award row already in the same state is held:
@@ -670,6 +702,19 @@ fsrs_plan <- function() {
       any(ra$state == typed$st[i] & abs(ra$amount - a) < 0.005)
   }, logical(1))
   typed$status[same] <- "HELD_SAME_AMOUNT_ON_ROSTER"
+  # SESSION 118: a new or extra row typed to a CMS CCN that a roster row of the
+  # same state carries, at the same amount (round or not), is that roster row
+  # under the operator's legal name. Vermont's Grace Cottage $2,000,000 (CARLOS
+  # G. OTIS HEALTH CARE CENTER, INC., CCN 471300) is the case the non-round
+  # guard above could not see.
+  rc_ccn <- rc$aw %>% dplyr::filter(!is.na(ccn), nzchar(ccn), !is.na(amount), amount > 0) %>%
+    dplyr::select(state, ccn, amount)
+  same_ccn <- vapply(seq_len(nrow(typed)), function(i) {
+    typed$status[i] %in% c("NEW_ROW", "EXTRA_ROW") && !is.na(typed$ccn[i]) && nzchar(typed$ccn[i]) &&
+      any(rc_ccn$state == typed$st[i] & rc_ccn$ccn == typed$ccn[i] & abs(rc_ccn$amount - typed$amount[i]) < 0.005)
+  }, logical(1))
+  typed$status[same_ccn] <- "HELD_SAME_AMOUNT_SAME_CCN_ON_ROSTER"
+  typed <- fsrs_allotment_cap(typed, rc)
   bridge <- typed %>% dplyr::filter(typing == "CMS_ADDRESS") %>% dplyr::group_by(st) %>%
     dplyr::summarise(bridge_usd = sum(amount), .groups = "drop")
   held_states <- bridge$st[bridge$bridge_usd > FSRS_HOLD_USD]
@@ -718,9 +763,67 @@ fsrs_pool_guard <- function(rc) {
   rc
 }
 
-fsrs_complete_states <- function() {
+# SESSION 118: hand typings, keyed on (state, UEI), for a recipient the
+# classifier mis-types. Each carries the sentence that decides it.
+FSRS_HAND_TYPING <- tibble::tribble(
+  ~st, ~uei, ~recipient_type, ~flow_type, ~distributed_to_hospital, ~hospital_benefiting, ~basis_type, ~basis,
+  "NM", "JQQ1BUVQQ845", "VENDOR_OR_CONTRACTOR", "NON_HOSPITAL", "No", "Unclear", "STATE_SOURCE",
+  paste0("TYPED BY HAND (session 118): Accenture LLP is a for-profit consulting firm (vendor dictionary: ",
+         "Accenture, CONSULTING_BIG), not a nonprofit. The state's own FFATA filing (PSC 27-630-1000-1007, ",
+         "2026-10-28, $128,979,618.21) says what the money buys: '(RHT) ACCENTURE LLP WILL PROVIDE ADMINISTRATIVE ",
+         "SERVICES ORGANIZATION (ASO) SUPPORT FOR THE NEW MEXICO RURAL HEALTH TRANSFORMATION PROGRAM (RHTP)'. ",
+         "A vendor administering the programme: NON_HOSPITAL. Whether any of it reaches providers is not on the ",
+         "filing (hospital_benefiting Unclear); never a hospital dollar."))
+
+fsrs_hand_typing <- function(typed) {
+  for (i in seq_len(nrow(FSRS_HAND_TYPING))) {
+    h <- FSRS_HAND_TYPING[i, ]
+    k <- which(typed$st == h$st & typed$uei == h$uei)
+    if (!length(k)) next
+    for (c in c("recipient_type", "flow_type", "distributed_to_hospital", "hospital_benefiting", "basis_type"))
+      typed[[c]][k] <- h[[c]]
+    typed$determination_confidence[k] <- "MEDIUM"
+    typed$flag_reason[k] <- NA_character_
+    typed$ccn[k] <- NA_character_; typed$cms_enrolment_record[k] <- NA_character_
+    typed$typing[k] <- "HAND"
+    typed$recipient_type_source[k] <- "HAND (session 118, FSRS_HAND_TYPING)"
+    typed$determination_basis[k] <- h$basis
+  }
+  typed
+}
+
+#' COMPLETE states, optionally only those of one completion_basis (session 118).
+fsrs_complete_states <- function(basis = NULL) {
   d <- readr::read_csv(here::here("data/reference/year1_completion_status.csv"), show_col_types = FALSE)
-  d$state[d$year1_status == "COMPLETE"]
+  d <- d[d$year1_status == "COMPLETE", , drop = FALSE]
+  if (is.null(basis)) return(d$state)
+  if (!"completion_basis" %in% names(d) || anyNA(d$completion_basis)) {
+    stop("[fsrs] year1_completion_status.csv carries no completion_basis for every COMPLETE ",
+         "state; run R/03aw --build (session 118).", call. = FALSE)
+  }
+  d$state[d$completion_basis == basis]
+}
+
+#' SESSION 118, OWNER RULING (a): the allotment cap. In a state COMPLETE on
+#' FULL OBLIGATION, the rows written (the state's own priced rows, $0 rows
+#' priced from FSRS, and the new and extra FSRS rows) must not exceed its FY2026
+#' allotment. If they would, every new and extra row of that state is held
+#' (HELD_ALLOTMENT_CAP): which of them is the double count is a reading, not a
+#' sort order.
+fsrs_allotment_cap <- function(typed, rc) {
+  states <- intersect(unique(typed$st), fsrs_complete_states("FULL_OBLIGATION"))
+  if (!length(states)) return(typed)
+  allot <- readr::read_csv(here::here("data/reference/cms_fy2026_allotments.csv"), show_col_types = FALSE)
+  pr <- rc$overlay %>% dplyr::filter(priced) %>% dplyr::select(row_id, fsrs_amount)
+  for (s in states) {
+    base <- rc$aw %>% dplyr::filter(state == s) %>% dplyr::left_join(pr, by = "row_id") %>%
+      dplyr::summarise(v = sum(dplyr::coalesce(dplyr::if_else(amount > 0, amount, NA_real_), fsrs_amount, 0))) %>%
+      dplyr::pull(v)
+    w <- typed$st == s & typed$status %in% c("NEW_ROW", "EXTRA_ROW")
+    a <- allot$fy2026_allotment[allot$state == s]
+    if (base + sum(typed$amount[w]) > a + 0.005) typed$status[w] <- "HELD_ALLOTMENT_CAP"
+  }
+  typed
 }
 
 #' An EXTRA row is a recipient the roster already types: it takes the typing of
@@ -866,7 +969,11 @@ fsrs_held <- function(p) {
     dplyr::transmute(st, fsrs_id, status = "PREDATES_NOA", name, amount,
                      detail = paste0("action date ", action_date, " before the NOA (2025-12-29); description '",
                                      description, "'. §6.2 date test: quarantined, never written."))
-  dplyr::bind_rows(h1, h2, h4, h3) %>% dplyr::arrange(status, st, dplyr::desc(amount))
+  h5 <- p$records %>% dplyr::filter(record_status == "BUDGET_PERIOD_2_HELD") %>%
+    dplyr::transmute(st, fsrs_id, status = "BUDGET_PERIOD_2_HELD", name, amount,
+                     detail = paste0("action date ", action_date, " after the end of Budget Period 1 (2026-10-30): ",
+                                     "Year 2 money, held under the session-116 safeguards, never in a Year 1 file."))
+  dplyr::bind_rows(h1, h2, h4, h3, h5) %>% dplyr::arrange(status, st, dplyr::desc(amount))
 }
 
 fsrs_nonfilers <- function(tot) {

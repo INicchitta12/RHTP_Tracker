@@ -141,7 +141,18 @@ VT_STATE        <- "VT"
 VT_ALLOTMENT    <- 195053740      # cms_fy2026_allotments.csv (§7.1)
 VT_PAGE_TOTAL   <- 181752448.14   # the table's own total row (2026-10-30 update)
 VT_PAGE_ROWS    <- 241L           # 112 on 09-18; 146 on 09-25; 166 on 10-02; 175 on 10-08; 237 on 10-23; 241 on 10-30
-VT_MOU_AMOUNT   <- 2635000
+VT_MOU_AMOUNT   <- 2635000        # the GMCB MOU, the only MOU on the archived 10-30 list
+# SESSION 118, OWNER RULING (f): every inter-agency MOU on the list is OUT of the
+# award file. The 2026-11-12 update added a second one: legal column "MOU with
+# DVHA to support regional transformation managers", $402,500.00, Regionalization /
+# "Transformation, innovation, and regionalization support grants" (page row 76).
+# AHS to the Department of Vermont Health Access is one state agency to another,
+# exactly the GMCB shape. Each MOU is pinned by legal-column prefix AND amount, and
+# an MOU-shaped row that matches neither stops the build (vt_assert_mous_known()).
+VT_MOUS <- tibble::tribble(
+  ~agency, ~pattern,                                              ~amount,
+  "GMCB",  "^Memorandum of Understanding between AHS and GMCB",   2635000,
+  "DVHA",  "^MOU with DVHA\\b",                                  402500)
 VT_UPDATED      <- as.Date("2026-10-30")
 VT_UPDATED_TXT  <- "Updated as of October 30, 2026"
 VT_NOA_DATE     <- as.Date("2025-12-29")
@@ -519,8 +530,34 @@ vt_parse_table <- function(body = NULL) {
   tb
 }
 
-vt_is_mou <- function(tb) grepl("^Memorandum of Understanding between AHS and GMCB",
-                                tb$legal)
+vt_is_mou <- function(tb) {
+  hit <- rep(FALSE, nrow(tb))
+  for (p in VT_MOUS$pattern) hit <- hit | grepl(p, tb$legal)
+  hit
+}
+
+#' Every MOU-shaped row (legal column opens "MOU" or "Memorandum of
+#' Understanding") must be a known MOU at its pinned amount, and each known MOU
+#' appears at most once. GMCB must be present (it is on every list since 09-18).
+vt_assert_mous_known <- function(tb) {
+  shaped <- grepl("^(MOU\\b|Memorandum of Understanding)", tb$legal)
+  if (any(shaped & !vt_is_mou(tb))) {
+    stop("[VT] an MOU-shaped row is not a known MOU: ",
+         paste(tb$legal[shaped & !vt_is_mou(tb)], collapse = "; "),
+         ". Read it and add it to VT_MOUS (session 118) before building.", call. = FALSE)
+  }
+  for (i in seq_len(nrow(VT_MOUS))) {
+    k <- grepl(VT_MOUS$pattern[i], tb$legal)
+    if (sum(k) > 1L || (sum(k) == 1L && abs(tb$amount[k] - VT_MOUS$amount[i]) > 0.005)) {
+      stop("[VT] the ", VT_MOUS$agency[i], " MOU is not where it was (",
+           sum(k), " row(s)).", call. = FALSE)
+    }
+  }
+  if (!any(grepl(VT_MOUS$pattern[VT_MOUS$agency == "GMCB"], tb$legal))) {
+    stop("[VT] the GMCB MOU row ($2,635,000) is not on the list.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
 
 
 # -- assertions --------------------------------------------------------------
@@ -533,16 +570,16 @@ vt_assert_reconciles <- function(tb = vt_parse_table()) {
          "it and re-type the new rows.", call. = FALSE)
   }
   if (anyNA(tb$amount)) stop("[VT] an amount did not parse.", call. = FALSE)
-  if (abs(pt - VT_PAGE_TOTAL) > 0.005 || abs(sum(tb$amount) - pt) > 0.005) {
+  # The 11-12 list prints its total without cents ($182,154,948 against rows
+  # summing to $182,154,948.14): a whole-dollar printed total is compared to
+  # the dollar.
+  tol <- if (abs(pt - round(pt)) < 0.005) 0.5 else 0.005
+  if (abs(pt - VT_PAGE_TOTAL) > 0.005 || abs(sum(tb$amount) - pt) > tol) {
     stop("[VT] the rows ($", format(sum(tb$amount), nsmall = 2),
          ") no longer sum to the printed total ($", format(pt, nsmall = 2),
          ").", call. = FALSE)
   }
-  if (sum(vt_is_mou(tb)) != 1L ||
-      abs(tb$amount[vt_is_mou(tb)] - VT_MOU_AMOUNT) > 0.005) {
-    stop("[VT] the GMCB MOU row ($2,635,000) is not where it was.",
-         call. = FALSE)
-  }
+  vt_assert_mous_known(tb)
   invisible(TRUE)
 }
 
@@ -676,13 +713,14 @@ vt_year1_awardees <- function(tb = vt_parse_table()) {
 }
 
 vt_status_table <- function(tb = vt_parse_table()) {
-  mou <- tb[vt_is_mou(tb), ]
-  tibble::tribble(
+  mou <- tb[grepl(VT_MOUS$pattern[VT_MOUS$agency == "GMCB"], tb$legal), ]
+  dvha <- tb[grepl(VT_MOUS$pattern[VT_MOUS$agency == "DVHA"], tb$legal), ]
+  st <- tibble::tribble(
     ~state, ~channel, ~stage, ~publishes_roster, ~year1_figure, ~note,
     VT_STATE, "RHT Year 1 Awards and Contracts (AHS)",
     "EXECUTED_ROSTER_PUBLISHED_PARTIAL", "Yes",
     sum(tb$amount[!vt_is_mou(tb)]),
-    paste(VT_PAGE_ROWS - 1L, "executed agreements to named recipients in the award file.",
+    paste(sum(!vt_is_mou(tb)), "executed agreements to named recipients in the award file.",
           "Updated as of 2026-10-30: 'Vermont has fully obligated its approximately",
           "$195 million Year 1 RHT award. ... The list below list represents executed",
           "grant and contract agreements only and does not reflect the entirety of",
@@ -724,6 +762,15 @@ vt_status_table <- function(tb = vt_parse_table()) {
           "activities benefiting Vermont patients'. facility_state = NH on",
           "each row so a reader can subtract them.")
   )
+  if (nrow(dvha)) {
+    st <- dplyr::bind_rows(st, tibble::tibble(
+      state = VT_STATE, channel = "DVHA inter-agency MOU (NOT A SUBAWARD)",
+      stage = "INTER_AGENCY_NOT_SUBAWARD", publishes_roster = "No", year1_figure = dvha$amount,
+      note = paste0("'", dvha$legal, "' -- ", dvha$activity, ". AHS to the Department of ",
+                    "Vermont Health Access, one state agency to another: out of the award file ",
+                    "like the GMCB MOU (owner ruling (f), session 118).")))
+  }
+  st
 }
 
 
@@ -752,9 +799,12 @@ vt_probe <- function() {
     live = list(awards = live_txt), archived = list(awards = arch_txt),
     state = "VT")
   lt <- vt_parse_table(live)
-  if (nrow(lt) != VT_PAGE_ROWS) {
-    stop("[VT] the list now carries ", nrow(lt), " agreements (was ",
-         VT_PAGE_ROWS, "), printed total $",
+  vt_assert_mous_known(lt)
+  # SESSION 118: count AWARD rows (MOUs out), so a new inter-agency MOU is a
+  # CHANGED page, not a new agreement.
+  if (sum(!vt_is_mou(lt)) != sum(!vt_is_mou(vt_parse_table()))) {
+    stop("[VT] the list now carries ", sum(!vt_is_mou(lt)), " award agreements (was ",
+         sum(!vt_is_mou(vt_parse_table())), "), printed total $",
          format(attr(lt, "printed_total"), nsmall = 2),
          ". Vermont has executed more -- re-archive and re-type.",
          call. = FALSE)
@@ -802,8 +852,8 @@ vt_validate <- function() {
   vt_assert_after_noa()
   vt_assert_types_cover(tb)
   d <- vt_year1_awardees(tb)
-  stopifnot(nrow(d) == VT_PAGE_ROWS - 1L,
-            abs(sum(d$amount) + VT_MOU_AMOUNT - VT_PAGE_TOTAL) < 0.005)
+  stopifnot(nrow(d) == VT_PAGE_ROWS - sum(vt_is_mou(tb)),
+            abs(sum(d$amount) + sum(tb$amount[vt_is_mou(tb)]) - VT_PAGE_TOTAL) < 0.005)
   message("[VT] all assertions pass.")
   invisible(TRUE)
 }

@@ -52,8 +52,10 @@ test_that("a dagger marks every state under 90% published, with the footnote ver
 
 test_that("the total row is pinned (data 2026-11-16)", {
   expect_equal(tot$`FY2026 allotment`, 2230243286)
-  expect_equal(round(tot$`Awards published`, 2), 1841482439.80)
-  expect_equal(round(tot$`Hospital $ (best estimate)`, 2), 752622490.26)
-  expect_equal(round(tot$`Strict named-hospital $`, 2), 695077021.55)
-  expect_equal(round(100 * tot$`Hospital % of awards`, 1), 40.9)
+  # Session 118: NE's FSRS extras applied (+$9,827,430.86; hospital +$2,048,392.80),
+  # VT's Grace Cottage duplicate held (-$2,000,000), WV's Ascend WV pair (-$2,399,990).
+  expect_equal(round(tot$`Awards published`, 2), 1846909880.66)
+  expect_equal(round(tot$`Hospital $ (best estimate)`, 2), 752670883.06)
+  expect_equal(round(tot$`Strict named-hospital $`, 2), 695125414.35)
+  expect_equal(round(100 * tot$`Hospital % of awards`, 1), 40.8)
 })

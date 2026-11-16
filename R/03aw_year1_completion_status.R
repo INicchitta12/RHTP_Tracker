@@ -49,6 +49,26 @@ Y1_OUT_SHARE  <- here::here("data", "reference", "year1_complete_hospital_share.
 
 Y1_STATUS_CODES <- c("COMPLETE", "PARTIAL", "UNKNOWN")
 
+# SESSION 118, OWNER RULING (a): a COMPLETE state is COMPLETE on one of two
+# bases, and the basis decides what FSRS may add (R/09b, CLAUDE.md §7).
+#   PUBLISHED_ROSTER -- the state's published award roster is taken to cover its
+#     Year 1 money. An FSRS subaward that does not pair to a roster row is HELD
+#     (most are roster rows at another grain; Utah's two would exceed its
+#     allotment). AL AR FL GA ID UT VT WY.
+#   FULL_OBLIGATION  -- COMPLETE rests on a full-obligation sentence only, so
+#     the roster is a FLOOR. FSRS extras are applied under the pairing and
+#     duplicate checks, with the allotment cap enforced. NE SD WV.
+# The classification is the owner's. UT's and VT's evidence sentences are
+# themselves obligation statements ("100% of its Year 1 RHTP funding", "fully
+# obligated"); the owner placed them under PUBLISHED_ROSTER because their
+# rosters reach 98.6% and 92% of the allotment.
+Y1_COMPLETION_BASIS <- c(
+  AL = "PUBLISHED_ROSTER", AR = "PUBLISHED_ROSTER", FL = "PUBLISHED_ROSTER",
+  GA = "PUBLISHED_ROSTER", ID = "PUBLISHED_ROSTER", UT = "PUBLISHED_ROSTER",
+  VT = "PUBLISHED_ROSTER", WY = "PUBLISHED_ROSTER",
+  NE = "FULL_OBLIGATION", SD = "FULL_OBLIGATION", WV = "FULL_OBLIGATION")
+Y1_COMPLETION_BASIS_CODES <- c("PUBLISHED_ROSTER", "FULL_OBLIGATION")
+
 # The committed award files, one or more per state. The same list
 # test_state_union.R combines; Missouri's Hub Anchors and Maine's invited
 # cohort are NOT award files and are not here (§0.3).
@@ -455,6 +475,13 @@ y1_assert_status <- function(s = Y1_STATUS) {
   if (nrow(bad)) stop("[Y1] COMPLETE without a completeness statement, or ",
                       "with a recorded remainder: ",
                       paste(bad$state, collapse = ", "), call. = FALSE)
+  done <- s$state[s$year1_status == "COMPLETE"]
+  if (!setequal(done, names(Y1_COMPLETION_BASIS)) ||
+      !all(Y1_COMPLETION_BASIS %in% Y1_COMPLETION_BASIS_CODES)) {
+    stop("[Y1] every COMPLETE state needs a completion_basis (owner ruling, session 118), ",
+         "and only a COMPLETE state has one. COMPLETE: ", paste(sort(done), collapse = " "),
+         "; with a basis: ", paste(sort(names(Y1_COMPLETION_BASIS)), collapse = " "), call. = FALSE)
+  }
   bad <- s %>% dplyr::filter(year1_status == "PARTIAL",
                              remaining_unawarded != "Yes")
   if (nrow(bad)) stop("[Y1] PARTIAL without a recorded remainder: ",
@@ -490,11 +517,12 @@ y1_build_status <- function() {
         round(100 * priced_usd_on_intent / published_priced, 1), NA_real_)
     ) %>%
     dplyr::left_join(Y1_STATUS, by = "state") %>%
+    dplyr::mutate(completion_basis = unname(Y1_COMPLETION_BASIS[state])) %>%
     dplyr::select(state, state_name, fy2026_allotment, rows, priced_rows,
                   published_priced, pct_priced, pool_level_unpriced,
                   published_incl_pool_level, pct_incl_pool_level,
                   intent_rows, priced_usd_on_intent, pct_priced_on_intent,
-                  year1_status, source_calls_complete, remaining_unawarded,
+                  year1_status, completion_basis, source_calls_complete, remaining_unawarded,
                   evidence_date, evidence, evidence_path) %>%
     dplyr::arrange(factor(year1_status, Y1_STATUS_CODES),
                    dplyr::desc(pct_incl_pool_level))

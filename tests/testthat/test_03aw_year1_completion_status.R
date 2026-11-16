@@ -120,7 +120,8 @@ test_that("COMPLETE is a statement about the ROUND; the intent status is carried
   # approvals carried as intents; ID and VT are awarded / executed.
   # Session 117a: order AL AR FL GA ID NE SD UT VT WV WY.
   expect_equal(s$intent_rows, c(0, 80, 0, 0, 0, 13, 0, 41, 0, 0, 77))
-  expect_equal(s$pct_priced_on_intent, c(0, 100, 0, 0, 0, 12.3, 0, 100, 0, 0, 100))
+  # Session 118: NE 12.3 -> 12.4 (row 74's FSRS price paired to row 28; same intents, a smaller base).
+  expect_equal(s$pct_priced_on_intent, c(0, 100, 0, 0, 0, 12.4, 0, 100, 0, 0, 100))
   expect_match(s$award_action_stage[s$state == "AL"], "^AWARDED")
   expect_match(s$award_action_stage[s$state == "AR"], "^NOTICE OF INTENT")
   expect_match(s$award_action_stage[s$state == "FL"], "^AWARDED")
@@ -150,4 +151,13 @@ test_that("session 85: AL's AHC and GENERAL_KNOWLEDGE slices are carried and sub
   # no AL row is NOTICE_OF_INTENT_TO_AWARD, and the stage text says so.
   expect_equal(al$intent_rows, 0)
   expect_match(al$award_action_stage, "NOT A NOTICE OF INTENT", fixed = TRUE)
+})
+
+test_that("session 118 (owner ruling a): every COMPLETE state carries its completion basis", {
+  s <- readr::read_csv(here::here("data/reference/year1_completion_status.csv"), show_col_types = FALSE)
+  d <- s[s$year1_status == "COMPLETE", ]
+  expect_setequal(d$state[d$completion_basis == "PUBLISHED_ROSTER"],
+                  c("AL", "AR", "FL", "GA", "ID", "UT", "VT", "WY"))
+  expect_setequal(d$state[d$completion_basis == "FULL_OBLIGATION"], c("NE", "SD", "WV"))
+  expect_true(all(is.na(s$completion_basis[s$year1_status != "COMPLETE"])))
 })
