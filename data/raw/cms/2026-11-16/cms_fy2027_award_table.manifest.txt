@@ -1,0 +1,10 @@
+source_url: https://www.cms.gov/newsroom/press-releases/trump-administration-announces-10-billion-second-year-rural-health-transformation-awards-all-50
+fact_sheet_url: https://www.cms.gov/newsroom/fact-sheets/rural-health-transformation-program-year-2-awards
+release_date: 2026-11-09
+fetched: 2026-11-16
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org; contact: AHA Data and Policy; R httr2)
+release_raw_sha256 (as served, before stripping the Mapbox token): 2a9c3391938c26d9865840a65e2b9badabeaab968e7e019f4b72017adcc72c85
+fact_sheet_raw_sha256: 58ebcf5a5f9f3002773060c6d001611b0d23e8ce0ad8f4c74302506179c184c0
+release_sha256: 78d06beedd514a238fe25078abfe4477c72961adb270fd7f56d82dcb29d6d77c
+fact_sheet_sha256: a9c7cb6628ac7ca6ca1f3d6d73b8caa23f2e9c5267bb593a595486fd3b769aad
+note: Tier 1 (CMS award to a state), Budget Period 2. Parsed by R/03cu, never transcribed.

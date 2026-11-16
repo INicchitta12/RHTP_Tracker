@@ -614,8 +614,8 @@ RHTP_FOOTER_ALLOTMENT_MARGIN <- 10000
 #' cover state's administrative expenses for BP 2"), NCDHHS ("All states will
 #' receive an initial $100 million award, with additional funding to follow")
 #' and two footers that print allotment + $100M (CA, MN). Every signal is in
-#' data/reference/year2_signals.csv. CMS has published no FY2027 allotment;
-#' cms_fy2027_allotments.csv is empty. Used ONLY to recognise a cumulative
+#' data/reference/year2_signals.csv. (Session 117: CMS has since published every
+#' state's FY2027 award, cms_fy2027_allotments.csv, R/03cu.) Used ONLY to recognise a cumulative
 #' footer so it is never read as a round total; it enters no figure.
 RHTP_YEAR2_INITIAL_AWARD <- 100000000
 
@@ -634,7 +634,22 @@ rhtp_footer_class <- function(amount, state, margin = RHTP_FOOTER_ALLOTMENT_MARG
   if (abs(amount - (hit + RHTP_YEAR2_INITIAL_AWARD)) <= margin) {
     return("ALLOTMENT_PLUS_YEAR2_INITIAL")
   }
+  y2 <- rhtp_fy2027_amount(state)
+  if (!is.na(y2) && abs(amount - (hit + y2)) <= margin) return("ALLOTMENT_PLUS_FY2027")
   "OTHER"
+}
+
+#' A state's FY2027 (Year 2) CMS award, or NA while the table is empty
+#'
+#' SESSION 117: CMS published every state's FY2027 award on 2026-11-09
+#' (R/03cu). A footer printing FY2026 + FY2027 (Montana's $473,250,028.01,
+#' West Virginia's $401,557,453) is BP1 + BP2 CUMULATIVE, Tier 1, never a pool
+#' and never a Year 1 figure.
+rhtp_fy2027_amount <- function(state, path = here::here(RHTP_FY2027_ALLOTMENTS)) {
+  if (!file.exists(path)) return(NA_real_)
+  a <- readr::read_csv(path, col_types = readr::cols(.default = "c"), progress = FALSE)
+  v <- suppressWarnings(as.numeric(a$fy2027_allotment[a$state == state]))
+  if (length(v) != 1L) NA_real_ else v
 }
 
 #' Refuse a footer figure that is the state's allotment wearing a pool's grammar
@@ -705,6 +720,15 @@ rhtp_assert_footer_not_allotment <- function(amount, state, declared_tier,
          "state-reported Year 2 initial award (", money(RHTP_YEAR2_INITIAL_AWARD),
          "). That is a CUMULATIVE CMS award (BP1 + BP2), never a round total. ",
          "Do not read it as a pool and do not widen the margin.", call. = FALSE)
+  }
+
+  # SESSION 117: and BP1 + the FY2027 award CMS published on 2026-11-09.
+  y2 <- rhtp_fy2027_amount(state)
+  if (declared_tier == "SOLICITATION" && !is.na(y2) && abs(amount - (hit + y2)) <= margin) {
+    stop("[§0.2] ", label, ": the footer prints ", money(amount),
+         ", which is ", state, "'s FY2026 allotment (", money(hit), ") plus its ",
+         "FY2027 award (", money(y2), "). That is a CUMULATIVE CMS award (BP1 + BP2), ",
+         "never a round total. Do not read it as a pool and do not widen the margin.", call. = FALSE)
   }
 
   if (!collides && declared_tier == "STATE_ALLOTMENT") {
@@ -2368,6 +2392,8 @@ rhtp_year1_only <- function(d, label = "a table") {
 
 # -- FY2027 (Year 2) allotments (session 116) ---------------------------------
 #
+# SESSION 117: FILLED. CMS published all 50 FY2027 awards on 2026-11-09
+# (R/03cu_cms_fy2027_allotments.R parses the archived release). Before that:
 # EMPTY UNTIL CMS PUBLISHES THEM. data/reference/cms_fy2027_allotments.csv has
 # the FY2026 file's shape (state, state_name, <fy>_allotment,
 # <fy>_allotment_published, source_url, source_fetched) with fy2027 column

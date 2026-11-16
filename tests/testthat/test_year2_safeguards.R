@@ -63,9 +63,20 @@ test_that("the stamp refuses a Year 2 builder text in a file registered 1", {
 
 # -- (b) FY2027 allotments and Year 2 signals -------------------------------------
 
-test_that("cms_fy2027_allotments.csv is empty, FY2026-shaped, and its loader holds", {
+test_that("cms_fy2027_allotments.csv is all 50 states PARSED from CMS's release, FY2026-shaped, and its loader holds", {
+  # Session 117: CMS published every FY2027 award on 2026-11-09; R/03cu parses
+  # the archived release (never transcribed). $10 billion + $1 of rounding.
   a <- rhtp_load_fy2027_allotments()
-  expect_equal(nrow(a), 0L)
+  expect_equal(nrow(a), 50L)
+  expect_equal(sum(as.numeric(a$fy2027_allotment)), 10000000001)
+  expect_true(all(a$source_url == a$source_url[1]) && grepl("^https://www.cms.gov/newsroom/", a$source_url[1]))
+  expect_equal(as.numeric(a$fy2027_allotment[a$state == "WV"]), 202081355)
+  source(here::here("R", "03cu_cms_fy2027_allotments.R"))
+  expect_silent(suppressMessages(fy27_validate()))
+  # BP1 + FY2027 footers are cumulative Tier 1, never a pool (MT, WV).
+  expect_equal(rhtp_footer_class(473250028.01, "MT"), "ALLOTMENT_PLUS_FY2027")
+  expect_equal(rhtp_footer_class(401557453, "WV"), "ALLOTMENT_PLUS_FY2027")
+  expect_error(rhtp_assert_footer_not_allotment(473250028.01, "MT", "SOLICITATION"), "FY2027 award")
   f26 <- names(readr::read_csv(here::here("data/reference/cms_fy2026_allotments.csv"),
                                n_max = 0, show_col_types = FALSE))
   expect_equal(sub("fy2027", "fy2026", RHTP_FY2027_COLUMNS), f26)

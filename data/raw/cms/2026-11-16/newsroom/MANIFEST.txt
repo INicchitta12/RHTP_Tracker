@@ -1,0 +1,77 @@
+RHTP tracker archive: the CMS newsroom, filtered to the 'Rural health' topic.
+
+listing_url  : https://www.cms.gov/newsroom/articles
+fetched_utc  : 2026-11-16T15:36:05Z
+listing_pages: 25
+floor_date   : 2025-09-01
+items_seen   : 226
+topics_learnt: 4
+rural_archived (this run): 2
+
+WHAT IS COMMITTED, AND WHAT IS NOT. Each file under releases/ is the
+<main> element plus the schema.org JSON-LD, NOT the page as served.
+CMS's page chrome carries a third-party Mapbox API token in its Drupal
+settings JSON, which is CMS's to publish and not ours to redistribute;
+this is the posture §7.1 took for the allotment table and Session 11
+took for the six state press releases. The JSON-LD is kept because it
+is where CMS publishes the topic -- archiving <main> alone would throw
+away the field the filter reads and leave the archive unre-parseable
+offline. Every file was asserted free of that token shape before it was
+written, and the full page's digest is recorded per release in
+data/reference/cms_newsroom_topic_index.csv (full_page_sha256), so
+provenance still closes against what cms.gov served.
+
+The listing pages under listing/ carry no such token and ARE archived
+byte for byte as served.
+
+Digests are written with writeBin, not writeLines: writeLines appends a
+trailing newline, so the file on disk would be one byte longer than the
+body that was hashed and a reader verifying it would get a mismatch.
+
+THE TOPIC FILTER is CMS's own, read from each release's schema.org
+NewsArticle JSON-LD `about`. CMS's facet URL for the same taxonomy,
+/newsroom/search?about[]=<id>, is refused by Akamai for any
+non-browser client (403 on the bare path, with no query string), so
+the topic is read from the document instead of from a query.
+
+A DISCOVERY source (§0.1). No figure here may enter an AHA-published
+number, and `amount` is never summed (§0.2): CMS mixes the Tier 1
+state allotment and the Tier 3 announcement in the same release --
+Virginia's names $122M in its headline and $189M in a quoted
+statement, and those are two different tiers of the same programme.
+
+sha256 per file. MANIFEST.txt IS NOT LISTED IN ITSELF -- a manifest
+cannot record its own digest, because the value would be stale the
+instant the file is written. It listed itself until a second --run on
+one archive date exposed it: the first run wrote the manifest AFTER
+taking the listing, so the file did not exist to be listed and the
+verification test passed on absence rather than on correctness.
+
+  3f58abd45985b3f67cbd17a2a4fad7fbff520d65f35cca0e19a8207b0200742c  listing/articles_page_00.html
+  96bdb4246f791d0238f79efa3f901486a57de77c1a1a0697592c7e634dcb1db0  listing/articles_page_01.html
+  5e2e8361ecfddbb9525f4723e69e5fc7ddc8ac36b0ff2a944ba6cfdd6ec52bd2  listing/articles_page_02.html
+  961ef15d81751e2d6ea3970753c8026e979c8c4d6dfd3c26083c6eae4421d7c8  listing/articles_page_03.html
+  d2b9156da1c458c683e82b54b9c6090ac4f1587fed69894faf45e72313eebede  listing/articles_page_04.html
+  5d03852e5dab1f2aa876280126d9072d004dfcc182119afd3eaae508bd150dbf  listing/articles_page_05.html
+  2bebf832e704799b85147802039c14ddfe5d8634d628fb6a7c31ebd98273390f  listing/articles_page_06.html
+  ab7bf6baad854ec64551898c053af0a953c1b063bc5b632705da19802a51cdd1  listing/articles_page_07.html
+  aa8ac3e3a8265c068fb29558f0e8cb52d0cea59a2920d5756d1a956d1824a5ff  listing/articles_page_08.html
+  2f67b78bbc88d4d9a7425418c782a39298c26ee81a8ef0f49b3f9ac60fb74c07  listing/articles_page_09.html
+  7a8ac3c3bc540e23676e6bd30a45a933336b0a9583c9c718cf2304ff41824b03  listing/articles_page_10.html
+  af7a60ab4c04dc3e2aed982c1f1b38b0d2d511ca80e3efa995ca48b973a7d4fd  listing/articles_page_11.html
+  e2c65e78ed96b9ca1efe3caf9ddce2ed1876e5315610d85e71e9e203d9a24d92  listing/articles_page_12.html
+  9e17163c093e86e3987865f9ad0024888ed3f8e0b98bcf1fb5481712133e7268  listing/articles_page_13.html
+  4a5bab3a0770cf1691dde53b7b835eef9aa39bbeb100c8680f570cfae9e15a50  listing/articles_page_14.html
+  3824530f3d8d729670f451274220d5d7d885baeac906ea960023d7d45ab970ac  listing/articles_page_15.html
+  2677f94b749fa5675ae77db4fd4f26698c4cc1fcbe279a12a3a9e438ffb0204d  listing/articles_page_16.html
+  6b8a3362260e4b3430904e126f2449971668326899275de5d076d2954c4b82bd  listing/articles_page_17.html
+  e82fcf10c0b1a8d857f3e0e4c6151da16efc18cb7c72fe4f1caa65f473818cea  listing/articles_page_18.html
+  7cd7b03d674beff50079f9436b5bfa44c06c6197e9774ad60921d9790734639a  listing/articles_page_19.html
+  c0491907e8e66a3321abac7e072016c5d20447b3efc4eec97d8477d26d7cc5ce  listing/articles_page_20.html
+  08705d35675704cfa50098d6ce7b6c6703218cce4ae0680ba2fef7499ba41e54  listing/articles_page_21.html
+  1cb32d215652122b7af824e1b0b10818083be4c090b44de705dca9cda4e0c8c5  listing/articles_page_22.html
+  2b032ab63efae30f241c6f975141ea1de62ce43fdb02105613479fcbc5a81d1e  listing/articles_page_23.html
+  ccf60f74780df5aa51ef0276fc11727e5d463e2d1ac17faf15e31c94de0e1d27  listing/articles_page_24.html
+  abba32efb35500f68937fdc3270f36f24c44c0f3234880ca21ebf96e10b2f1b4  releases/rural-health-transformation-program-year-2-awards.html
+  aecc284ceb3b915ca0f1a047a2953fea97840feb73e41c81cc421c74484e5cab  releases/trump-administration-announces-10-billion-second-year-rural-health-transformation-awards-all-50.html
+
