@@ -232,3 +232,12 @@ Rscript R/07_summary_calls.R --apply           # LAST: summary calls, budget_per
 Rscript R/08_year1_summary.R --build           # + year1_vendor_summary_<date>.csv, the Vendor spending sheet
 Rscript R/09c_verified_vendor_list.R --xlsx    # verified_vendor_list_<date>.xlsx from the spend layer
 ```
+
+## Session 118
+```
+Rscript R/03cv_tn_multiyear_roster.R --validate | --build      # TN five-year roster, NON-AWARD
+Rscript R/03cw_rhtptracker_leads.R --fetch [--force] | --validate
+RHTP_PROBE_ORIGIN=interactive Rscript R/03cw_rhtptracker_leads.R --probe   # LEAD rows, never a figure
+Rscript R/09a_usaspending_rhtp.R --fetch   # new dated archive: set USA_AS_OF and USA_EXPECT first
+Rscript R/09b_fsrs_award_source.R --plan | --apply   # then the independent duplicate check, then R/07 --apply
+```
