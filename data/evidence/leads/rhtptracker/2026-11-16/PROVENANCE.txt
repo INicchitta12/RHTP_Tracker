@@ -1,0 +1,5 @@
+THIRD-PARTY LEAD BASELINE (session 118). rhtptracker.com is a private aggregator (Moodr Health).
+These files are a DISCOVERY baseline only (CLAUDE.md 0.1): never a source of any figure, recipient, date or tier.
+sitemap.xml: https://www.rhtptracker.com/sitemap.xml, 719 URLs; state_awards_official_links.csv: the .gov/.us links on 36 /states/<ST>/awards pages.
+fetched_at_utc: 2026-11-16T17:50:34Z
+sitemap_sha256: ef7a429e8c907856913fba0382c4f16776fc0652c29d2e33bde43b1dd2b0a27d
