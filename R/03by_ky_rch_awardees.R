@@ -94,6 +94,13 @@ KYR_PDHD_HEADLINE <- paste(
   "Purchase District Health Department Selected to Lead Local Efforts for New",
   "Program Supporting Healthier Rural Communities")
 KYR_ANNOUNCED   <- as.Date("2026-10-05")
+# SESSION 118, OWNER RULING (e): Big Sandy's Hub Lead is Martin County Health
+# Department. FHKY's RCH page (archived 2026-11-16) now lists all three: "The
+# Hub Lead Organizations Big Sandy: Martin County Health Department Lake
+# Cumberland: Lake Cumberland District Health Department Purchase: Purchase
+# District Health Department". No amount; a local health department; $0.
+KYR_FHKY_1116   <- file.path(KYR_DIR, "2026-11-16_fhky_rch_hub_leads_MARTIN_COUNTY.html")
+KYR_MCHD_LINE   <- "Big Sandy: Martin County Health Department"
 KYR_NOA_DATE    <- as.Date("2025-12-29")
 KYR_CSV         <- here::here("data", "reference", "ky_year1_awardees.csv")
 
@@ -174,6 +181,9 @@ kyr_assert_sources <- function() {
          paste(money, collapse = "; "), ". Read them before building.",
          call. = FALSE)
   }
+  if (!grepl(KYR_MCHD_LINE, kyr_text(KYR_FHKY_1116), fixed = TRUE)) {
+    stop("[KY RCH] FHKY's 2026-11-16 page does not name Martin County Health Department.", call. = FALSE)
+  }
   if (KYR_ANNOUNCED <= KYR_NOA_DATE) stop("[KY RCH] date test.", call. = FALSE)
   invisible(TRUE)
 }
@@ -182,7 +192,7 @@ kyr_assert_sources <- function() {
 # -- the award file ----------------------------------------------------------
 
 kyr_awardees <- function() {
-  dplyr::bind_rows(kyr_lcdhd(), kyr_pdhd()) %>%
+  dplyr::bind_rows(kyr_lcdhd(), kyr_pdhd(), kyr_mchd()) %>%
     dplyr::mutate(row_no = dplyr::row_number())
 }
 
@@ -222,6 +232,40 @@ kyr_pdhd <- function() {
       amount_ceiling_text = "up to $10 million over the five-year grant period, Purchase region; a ceiling, not an award",
       announcement_date = KYR_PDHD_ANNOUNCED,
       source_archive_path = paste(KYR_PDHD, KYR_FHKY_FILE, sep = "; "))
+}
+
+#' Martin County Health Department (session 118, owner ruling e): the Big Sandy
+#' Hub Lead, named on FHKY's RCH page. LCDHD's row, re-read for that line.
+kyr_mchd <- function() {
+  kyr_lcdhd() %>%
+    dplyr::mutate(
+      awardee = "Martin County Health Department",
+      note = paste(
+        "Rural Community Hubs for Chronic Care Innovation: Hub Lead Organization",
+        "for the Big Sandy region, named on FHKY's RCH page (read 2026-11-16:",
+        "'The Hub Lead Organizations Big Sandy: Martin County Health Department').",
+        "NO AMOUNT PUBLISHED; the five-year regional ceiling is not an award.",
+        "Owner ruling (e), session 118: added at $0, non-hospital."),
+      source_document_title = "Foundation for a Healthy Kentucky -- Rural Community Hubs (Hub Lead Organizations)",
+      recipient_type_source = paste0(
+        "TYPED (session 118, owner ruling e): a Kentucky county health department -- ",
+        "its own name (ORG_WEBSITE: FHKY's page). Classifier said ",
+        rhtp_classify_recipient_type(awardee, KYR_STATE)$recipient_type, "/",
+        rhtp_confidence_ceiling(rhtp_classify_recipient_type(awardee, KYR_STATE)$determination_confidence), "."),
+      determination_basis = paste0(
+        "§10.2 NON_HOSPITAL on the RECIPIENT (§0.3a): a local health department, ",
+        "not a hospital; partners are not recipients (§7, New York's rule), so ",
+        "hospital_benefiting is Unclear and moves no figure. RECIPIENT NAMED by ",
+        "FHKY's RCH page (the RCH convening partner): '", KYR_MCHD_LINE, "'. ",
+        "Not a state agency, hence validation_source_type = OTHER. No release by ",
+        "the department itself was found (session 117 read; session 118 archive)."),
+      amount_basis = paste0(
+        "NOT PUBLISHED. FHKY's page prints no award amount; the RCH ceiling ('up ",
+        "to $10 million' per region over the grant period, LCDHD's and PDHD's ",
+        "releases) is a maximum on the REGION, text only."),
+      amount_ceiling_text = "up to $10 million per region over the grant period (LCDHD/PDHD releases); a ceiling, not an award",
+      announcement_date = as.Date("2026-11-16"),
+      source_archive_path = KYR_FHKY_1116)
 }
 
 kyr_lcdhd <- function() {
@@ -300,7 +344,7 @@ kyr_lcdhd <- function() {
 kyr_validate <- function() {
   kyr_assert_sources()
   d <- kyr_awardees()
-  stopifnot(nrow(d) == 2L, all(is.na(d$amount)),
+  stopifnot(nrow(d) == 3L, all(is.na(d$amount)),
             all(d$recipient_type %in% rhtp_vocabulary("recipient_type")),
             all(d$distributed_to_hospital == "No"))
   message("[KY RCH] all assertions pass.")

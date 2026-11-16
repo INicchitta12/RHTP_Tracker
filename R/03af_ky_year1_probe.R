@@ -190,7 +190,7 @@ KY_SOURCES <- tibble::tribble(
         "the status row, NOT in KY_AWARD_DATES, and the stage is unchanged."),
   "rch",
   "https://healthy-ky.org/rch",
-  "2026-10-26_ky_foundation_healthy_kentucky_rch.html",  # re-based session 108 after reading (FHKY job postings only); the 10-15 copy stays
+  "2026-11-16_ky_foundation_healthy_kentucky_rch.html",  # re-based session 118 after reading: Big Sandy's Hub Lead (Martin County Health Department) extracted by R/03by; the 10-26 copy stays
   paste("The designated pass-through's own page (§7, Illinois/ICAHN's",
         "route). RE-BASED session 94: its 'Program News' now names ONE Hub",
         "Lead (Lake Cumberland District Health Department, 2026-10-05;",
