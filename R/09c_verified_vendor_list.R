@@ -61,7 +61,7 @@ suppressPackageStartupMessages({
 source(here::here("R", "09_vendor_flags.R"))
 source(here::here("R", "utils_spend_category.R"))
 
-VV_AS_OF <- "2026-11-10"
+VV_AS_OF <- "2026-11-16"   # session 119: live check re-run (11-10 file kept)
 VV_CASES <- "config/verified_vendor_cases.csv"
 VV_HAND_DROPS <- "config/verified_vendor_hand_drops.csv"
 # Task 4: a separate agent that had not seen the case-building re-opened every
@@ -830,7 +830,7 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
     `Purpose (verbatim quote)` = purpose_quote, `Source title` = source_title, `Source class` = source_class,
     URL = source_url, `Archive path` = archive_path, `Archive record` = archive_member,
     `Archive SHA-256` = archive_sha256, `Source date` = source_date,
-    `FSRS registered address` = fsrs_address, `Live check (2026-11-10)` = live_status,
+    `FSRS registered address` = fsrs_address, `Live check` = live_status,
     `Independent check` = independent_check, `RHTP tie page (V2)` = tie_source, `V9 location check` = v9_basis,
     Notes = notes, `Case ID` = case_id)
   by_cat <- vend %>% dplyr::group_by(`Spend category` = spend_category, `Amount type` = amount_type) %>%

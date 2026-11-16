@@ -44,7 +44,7 @@ Unite USA|\bUnite Us\b,Unite USA Inc. (Unite Us),Unite Us,TECH_VENDOR,NY,SOURCE_
 \bPear Suite\b,"Pear Suite, Inc.",Pear Suite,TECH_VENDOR,HI,SOURCE_ADDRESS: USAspending FSRS subawardee address Honolulu HI,Added: community health worker software
 Real Time Medical Systems,Real Time Medical Systems LLC,Real Time Medical Systems,TECH_VENDOR,MD,SOURCE_ADDRESS: USAspending FSRS subawardee address Columbia MD,Added
 \bCaringWire\b,CaringWire LLC,CaringWire,TECH_VENDOR,OH,SOURCE_ADDRESS: USAspending FSRS subawardee address Dublin OH,Added
-\bAndor Health\b,"Andor Health, LLC",Andor Health,TECH_VENDOR,FL,GENERAL_KNOWLEDGE: headquarters Orlando FL (not verified against a source),Added: virtual-care platform
+\bAndor ?Health\b,"Andor Health, LLC",Andor Health,TECH_VENDOR,FL,GENERAL_KNOWLEDGE: headquarters Orlando FL (not verified against a source),Added: virtual-care platform
 22nd Century Tech,"22nd Century Technologies, Inc.",22nd Century Technologies,TECH_VENDOR,UNKNOWN,NONE: no address in Idaho's roster,Added: IT services firm
 Fond of You|\bSomethings\b,"Fond of You, Inc. (Somethings)",Fond of You,TECH_VENDOR,NY,SOURCE_ADDRESS: USAspending FSRS subawardee address Brooklyn NY,Added: digital youth mental-health service
 \bGainwell\b,Gainwell Technologies,Gainwell Technologies,TECH_VENDOR,VA,GENERAL_KNOWLEDGE: headquarters Chantilly VA,Added as a watch pattern (large Medicaid IT vendor); no hit at 2026-11-09
