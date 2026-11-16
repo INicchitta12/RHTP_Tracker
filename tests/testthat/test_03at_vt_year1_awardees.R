@@ -261,3 +261,23 @@ test_that("session 112: the 2026-10-30 update adds 4 agreements, none a hospital
   # Full obligation is stated, and it is not an award figure.
   expect_silent(vt_assert_partial_and_executed())
 })
+
+test_that("session 118 (owner ruling f): the DVHA MOU on the 11-12 list is excluded like GMCB", {
+  fx <- here::here("data/evidence/recheck/2026-11-16/VT/2026-11-16_vt_year1_awards_11-12_DVHA_MOU.html")
+  tb <- vt_parse_table(readBin(fx, "raw", file.size(fx)))
+  expect_equal(nrow(tb), 242L)
+  m <- tb[vt_is_mou(tb), ]
+  expect_equal(nrow(m), 2L)
+  expect_setequal(m$amount, c(2635000, 402500))
+  expect_true(any(grepl("^MOU with DVHA", m$legal)))
+  expect_silent(vt_assert_mous_known(tb))
+  # The award rows on the 11-12 list are exactly the committed file: nothing new.
+  vt <- readr::read_csv(here::here("data/reference/vt_year1_awardees.csv"), show_col_types = FALSE)
+  expect_equal(sum(!vt_is_mou(tb)), nrow(vt))
+  expect_equal(round(sum(tb$amount[!vt_is_mou(tb)]), 2), round(sum(vt$amount), 2))
+  st <- vt_status_table(tb)
+  expect_true("DVHA inter-agency MOU (NOT A SUBAWARD)" %in% st$channel)
+  # An unknown MOU-shaped row stops the build.
+  bad <- tb; bad$legal[bad$amount == 402500] <- "MOU with DMH for something new"
+  expect_error(vt_assert_mous_known(bad), "not a known MOU")
+})
