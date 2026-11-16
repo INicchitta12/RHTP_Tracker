@@ -2382,3 +2382,4 @@ AR,2026-11-15T20:22:00Z,UNCHANGED,home2,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-15T20:22:00Z,UNCHANGED,resources,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-15T20:22:00Z,UNCHANGED,rise,,trig_01DLRYTSBPvrst5LqGBv1M9M
 AR,2026-11-15T20:22:00Z,UNCHANGED,heart,,trig_01DLRYTSBPvrst5LqGBv1M9M
+KS,2026-11-16T08:12:25Z,ERROR,(probe),ℹ In index: 1. Caused by error: ! [KS] HTTP 403 for https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program,trig_01HYYurhCCUFATgTUuTqqjpn
