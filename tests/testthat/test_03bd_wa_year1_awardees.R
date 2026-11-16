@@ -13,9 +13,12 @@ test_that("the sources still say what the rows rest on", {
 })
 
 test_that("eight rows, $67,020,000 named, the Tribes' pool in round_amount only", {
-  expect_equal(nrow(wa), 8L)
-  expect_equal(sum(wa$amount, na.rm = TRUE), 67020000)
-  tribes <- wa[is.na(wa$amount), ]
+  # Session 118 (owner ruling c): + HCA's 28 hospitals at $0 and their $9.67M pool row.
+  expect_equal(nrow(wa), 37L)
+  expect_equal(sum(wa$amount, na.rm = TRUE), 67020000 + 9670000)
+  first <- wa[wa$row_no <= 8, ]
+  expect_equal(sum(first$amount, na.rm = TRUE), 67020000)
+  tribes <- first[is.na(first$amount), ]
   expect_equal(nrow(tribes), 1L)
   expect_equal(tribes$round_amount, 19410000)
   expect_true(grepl("RECIPIENT_NOT_NAMED", tribes$flag_reason))
@@ -42,7 +45,7 @@ test_that("WSHA's $42M is Unclear and in NEITHER bucket", {
   expect_equal(w$recipient_type, "NONPROFIT_CBO")
   expect_equal(w$distributed_to_hospital, "Unclear")
   expect_true(grepl("FLOW_UNRESOLVED_HOSPITAL_AFFILIATED", w$flag_reason))
-  p <- rhtp_hospital_dollar_partition(wa)
+  p <- rhtp_hospital_dollar_partition(wa[wa$row_no <= 8, ])
   expect_equal(sum(p$rows), 0L)
 })
 
@@ -75,4 +78,16 @@ test_that("DOH and DSHS are pools in the status file, which has no amount column
   expect_false("amount" %in% names(st))
   expect_true(any(grepl("^DOH", st$line)) && any(grepl("^DSHS", st$line)))
   expect_false(any(grepl("DOH|DSHS|Department of", wa$awardee)))
+})
+
+test_that("session 118 (owner ruling c): HCA's 28 hospitals at $0 and ONE pool row, never split", {
+  m <- wa[wa$row_no > 8, ]
+  p <- rhtp_hospital_dollar_partition(m)
+  expect_equal(p$rows[p$bucket == "NAMED_HOSPITAL"], 28L)
+  expect_equal(p$dollars[p$bucket == "NAMED_HOSPITAL"], 0)
+  expect_equal(p$dollars[p$bucket == "POOL_NAMED_HOSPITALS"], 9670000)
+  pool <- m[!is.na(m$amount), ]
+  expect_equal(nrow(pool), 1L)
+  expect_true(grepl("AMOUNT_PRELIMINARY", pool$flag_reason))
+  expect_true(waa_assert_obl())
 })

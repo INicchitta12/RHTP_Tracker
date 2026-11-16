@@ -87,7 +87,8 @@ test_that("the partition reports 44 named-hospital ROWS and $0 -- read the row c
   expect_equal(p$bucket, "NAMED_HOSPITAL")
   expect_equal(p$rows, 44L)
   expect_equal(p$dollars, 0)
-  expect_equal(rhtp_hospital_dollar_partition(committed)$rows, 44L)
+  # Session 118 (owner ruling d): IDOH removed ten members; two were hospital-typed.
+  expect_equal(rhtp_hospital_dollar_partition(committed)$rows, 42L)
 })
 
 test_that("hospitals the NAME RULE MISSES are typed from exact CMS records", {
@@ -164,6 +165,7 @@ test_that("the leading 19 columns are the union's, and values are inside §8", {
 })
 
 test_that("the committed file is this build", {
+  a <- ig_apply_s118_removals(a)
   expect_equal(committed$awardee, a$awardee)
   expect_equal(committed$recipient_type, a$recipient_type)
   expect_equal(committed$distributed_to_hospital, a$distributed_to_hospital)

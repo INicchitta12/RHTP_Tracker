@@ -349,6 +349,13 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 117: TX 11/12 list (5 lines withdrawn, -3 hospital rows / -$1,695,726.58)
   # and NE FSRS extras held now NE is COMPLETE (R/09b, -3 / -$2,540,586.72):
   # 2,199 / $2,167,733,246.58 / 42. Subtracted first.
+  # Session 118: FSRS 11-16 refresh and the owner's rulings (see test_03ap):
+  # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
+  expect_equal(n$rows, 2268L)
+  expect_equal(round(n$dollars, 2), 2204266238.38)
+  expect_equal(n$states, 42L)
+  n$rows <- n$rows - 69L
+  n$dollars <- n$dollars - 36532991.80
   expect_equal(n$rows, 2199L)
   expect_equal(round(n$dollars, 2), 2167733246.58)
   expect_equal(n$states, 42L)
@@ -469,7 +476,8 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # Session 104: + Ohio's ODH 22-hospital pool, $30,300,000.
   # Session 107: + VA VHCF's VCU Health pair, $1,000,000.
   # Session 112: + OK Lung Cancer Screening's two SSM affiliate lines, $340,608.
-  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 340608 - 1000000 - 30300000 -
+  # Session 118: + WA HCA's 28-hospital pool, $9,670,000 (owner ruling c).
+  expect_equal(round(tot$dollars[tot$bucket == "POOL_NAMED_HOSPITALS"] - 9670000 - 340608 - 1000000 - 30300000 -
                        4170261 - 20278054.31, 2), 30806856.12)
   # Session 98: + HARI and NHA (CMS_OBLIGATION_ASSOCIATION), $19,314,845.17.
   # Session 112: + UT's Utah Hospital Association, $9,891,739.

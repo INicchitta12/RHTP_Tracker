@@ -149,8 +149,9 @@ test_that("Delaware's confidential source is not used", {
 test_that("the USAspending archive is what the flags were built from", {
   cv <- readr::read_csv(here::here(USA_COVERAGE_CSV), show_col_types = FALSE, progress = FALSE)
   expect_equal(nrow(cv), 50L)
-  expect_equal(sum(cv$reports_subawards), 31L)
-  expect_equal(sum(cv$subaward_rows), 2025L)
+  # Session 118: the 2026-11-16 archive (Alabama the 32nd filer).
+  expect_equal(sum(cv$reports_subawards), 32L)
+  expect_equal(sum(cv$subaward_rows), 2518L)
   expect_true(file.exists(file.path(USA_RAW_DIR(), USA_ZIP)))
   expect_true(file.exists(paste0(file.path(USA_RAW_DIR(), USA_ZIP), ".manifest.txt")))
 })
@@ -176,8 +177,8 @@ test_that("NO HOSPITAL FIGURE CHANGED: the partition is session 116's", {
   pin <- tibble::tribble(
     ~bucket, ~rows, ~dollars,
     # Session 116c/d moved it (R/09b, FSRS as an award source); R/09 still moves nothing.
-    "NAMED_HOSPITAL", 2199L, 2167733246.58,   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
-    "POOL_NAMED_HOSPITALS", 10L, 86895779.43,
+    "NAMED_HOSPITAL", 2268L, 2204266238.38,   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
+    "POOL_NAMED_HOSPITALS", 11L, 96565779.43,   # session 118: + WA HCA pool $9.67M
     "POOL_UNNAMED_HOSPITALS", 6L, 79214848.17)
   for (i in seq_len(nrow(pin))) {
     r <- p[p$bucket == pin$bucket[i], ]

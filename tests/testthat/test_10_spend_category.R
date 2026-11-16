@@ -109,7 +109,7 @@ test_that("contract files are never award files, carry budget period 1, and coun
   expect_true(all(contract$budget_period == "1"))
   expect_true(all(contract$amount_type %in% c("contract maximum", "obligation", "intent")))
   expect_true(all(contract$validation_source_type %in% c("STATE_CONTRACT", "CMS_OBLIGATION_REPORT", "STATE_REPORT")))
-  expect_setequal(names(cf), c("KY", "TX", "CO", "OK", "MS", "CMS_OBL"))
+  expect_setequal(names(cf), c("KY", "TX", "CO", "OK", "MS", "SC", "CMS_OBL"))   # session 118: + SC annual report
   expect_silent(suppressMessages(cr_validate()))
   ky <- contract %>% dplyr::filter(file_key == "KY")
   expect_equal(nrow(ky), 218L)
@@ -127,9 +127,9 @@ test_that("NO HOSPITAL FIGURE MOVED: the strict partition is pinned to the cent"
   })
   parts <- rhtp_hospital_dollar_partition(d)
   got <- parts %>% dplyr::group_by(bucket) %>% dplyr::summarise(rows = sum(rows), usd = round(sum(dollars), 2))
-  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2199L)   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington
-  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2167733246.58)
-  expect_equal(got$usd[got$bucket == "POOL_NAMED_HOSPITALS"], 86895779.43)
+  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2268L)   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington
+  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2204266238.38)
+  expect_equal(got$usd[got$bucket == "POOL_NAMED_HOSPITALS"], 96565779.43)
   expect_equal(got$usd[got$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
 })
 

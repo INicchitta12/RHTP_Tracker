@@ -692,7 +692,7 @@ ig_apply_s118_removals <- function(a) {
   out <- a[!paste(a$region, a$awardee) %in% paste(IG_REMOVED_S118$region, IG_REMOVED_S118$awardee), ]
   stopifnot(nrow(out) == nrow(a) - 10L)
   out$row_no <- seq_len(nrow(out))
-  out$source_archive_path <- paste(out$source_archive_path, IG_ARCHIVE_1116, sep = "; ")
+  out$source_archive_path <- IG_ARCHIVE_1116   # the current page; the 09-24 page stays archived
   out
 }
 

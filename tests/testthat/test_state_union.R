@@ -600,7 +600,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # Tappahannock Hospitals" is ONE $1,000,000 Provider Productivity award to a
   # system and two separately enrolled hospitals (CCN 490098, 490084), no split
   # -- Connecticut's shape exactly, Tier 3.
-  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "OK", "VA"))
+  # SESSION 118: WASHINGTON JOINS. HCA's $9.67M for 28 named hospitals (owner ruling c).
+  expect_equal(sort(unique(pooled_named$state)), c("CT", "NE", "NV", "OH", "OK", "VA", "WA"))
+  expect_equal(pooled_named$dollars[pooled_named$state == "WA"], 9670000)
   expect_equal(pooled_named$dollars[pooled_named$state == "OH"], 30300000)
   expect_equal(pooled_named$dollars[pooled_named$state == "VA"], 1000000)
   # SESSION 102: + NRHP's RHOAP-18 and RHIT-19 on the owner's extension
@@ -629,7 +631,11 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # on CMS enrolment) -> 27,922,279.67. The POOLED figure did not move.
   # Session 117: NE is COMPLETE (117a), so R/09b holds its FSRS extras: three
   # hospital rows (Antelope Memorial, St. Mary's Community, Box Butte General) out.
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 25381692.95)
+  # Session 118: NE is COMPLETE on FULL_OBLIGATION (owner ruling a), so the
+  # extras are applied: +$2,540,586.72, less two Memorial filings the
+  # independent check paired to roster rows (-$339,999.92 on row 74 and
+  # -$152,194.00) -> 27,430,085.75.
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 27430085.75)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at

@@ -609,6 +609,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 117: TX 11/12 list (5 lines withdrawn, -3 hospital rows / -$1,695,726.58)
   # and NE FSRS extras held now NE is COMPLETE (R/09b, -3 / -$2,540,586.72):
   # 2,199 / $2,167,733,246.58 / 42. Subtracted first.
+  # Session 118: FSRS 11-16 refresh (MN +42, NE extras applied, TN/OK/IL priced,
+  # VT's duplicate held, Year 2 filings held, the independent check's pairs incl.
+  # CT Vassar/Sharon -$13,116,917), WA's 28 at $0, IN GROW -2:
+  # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
+  expect_equal(named$rows, 2268L)
+  expect_equal(round(named$dollars, 2), 2204266238.38, tolerance = 0)
+  expect_equal(named$states, 42L)
+  named$rows <- named$rows - 69L
+  named$dollars <- named$dollars - 36532991.80
   expect_equal(named$rows, 2199L)
   expect_equal(round(named$dollars, 2), 2167733246.58, tolerance = 0)
   expect_equal(named$states, 42L)
@@ -799,10 +808,12 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Both subtracted first.
   # Session 112: + OK's two SSM affiliate lines (Lung Cancer Screening),
   # 2 rows / $340,608, subtracted first: 10 rows / $86,895,779.43.
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 86895779.43)
-  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 10L)
-  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 340608, 2), 86555171.43)
-  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 340608 - 1000000 - 30300000
+  # Session 118: + WA HCA's 28 hospitals, $9,670,000 (owner ruling c), one row,
+  # never split, subtracted first: 11 rows / $96,565,779.43.
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"], 2), 96565779.43)
+  expect_equal(t$rows[t$bucket == "POOL_NAMED_HOSPITALS"], 11L)
+  expect_equal(round(t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 9670000 - 340608, 2), 86555171.43)
+  pn <- t$dollars[t$bucket == "POOL_NAMED_HOSPITALS"] - 9670000 - 340608 - 1000000 - 30300000
   expect_equal(round(pn, 2), 55255171.43)
   expect_equal(round(pn - 4170261, 2), 51084910.43)
   expect_equal(round(pn - 4170261 - 20278054.31, 2), 30806856.12)
@@ -855,6 +866,11 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   expect_equal(p$state[[2]], "AR")
   expect_equal(round(p$dollars[[2]], 2), 128336961.52)
   p <- p[p$state != "TX", ]
+  # Session 118: Minnesota's FFATA subawards (the CAH direct allocations, 86 rows)
+  # put Minnesota next; the order below it is unchanged once it is set aside.
+  expect_equal(p$state[[2]], "MN")
+  expect_equal(round(p$dollars[[2]]), 117523237)
+  p <- p[p$state != "MN", ]
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53
   # SESSION 83: Alabama's two rounds ($83,548,287 + $20,886,572) go ahead of
