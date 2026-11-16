@@ -351,9 +351,12 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # 2,199 / $2,167,733,246.58 / 42. Subtracted first.
   # Session 118: FSRS 11-16 refresh and the owner's rulings (see test_03ap):
   # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
-  expect_equal(n$rows, 2268L)
-  expect_equal(round(n$dollars, 2), 2204266238.38)
+  expect_equal(n$rows, 2270L)
+  expect_equal(round(n$dollars, 2), 2205963832.38)
   expect_equal(n$states, 42L)
+  # Session 119: + IN GROW Bluffton ($0) and MN Pipestone ($1,697,594). Subtracted first.
+  n$rows <- n$rows - 2L
+  n$dollars <- n$dollars - 1697594
   n$rows <- n$rows - 69L
   n$dollars <- n$dollars - 36532991.80
   expect_equal(n$rows, 2199L)

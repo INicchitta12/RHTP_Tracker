@@ -88,7 +88,7 @@ test_that("the partition reports 44 named-hospital ROWS and $0 -- read the row c
   expect_equal(p$rows, 44L)
   expect_equal(p$dollars, 0)
   # Session 118 (owner ruling d): IDOH removed ten members; two were hospital-typed.
-  expect_equal(rhtp_hospital_dollar_partition(committed)$rows, 42L)
+  expect_equal(rhtp_hospital_dollar_partition(committed)$rows, 43L)   # session 119: Bluffton Health System reinstated (FSRS ruling)
 })
 
 test_that("hospitals the NAME RULE MISSES are typed from exact CMS records", {

@@ -70,7 +70,12 @@ VF_FLAG_COLUMNS <- c("flag_id", "state", "recipient", "canonical_name", "parent_
                      "entity_class", "hq_state", "amount", "amount_type", "budget_period",
                      "role", "purpose_quote", "source_type", "source_url", "archive_path",
                      "confidence", "notes", "out_of_state", "hq_basis", "is_lead",
-                     "also_cited_in")
+                     "also_cited_in",
+                     # session 119: the current spend-category layer, joined (vf_join_spend())
+                     "layer_spend_category", "layer_vendor_role", "layer_vendor_verified",
+                     "layer_vendor_verified_usd", "layer_vendor_case_id", "layer_file")
+VF_FLAG_COLUMNS_PRE_LAYER <- setdiff(VF_FLAG_COLUMNS, c("layer_spend_category", "layer_vendor_role",
+  "layer_vendor_verified", "layer_vendor_verified_usd", "layer_vendor_case_id", "layer_file"))
 
 # A name that reads as a hospital or health system. Used as a SECOND guard (the
 # first is the award files' own coding) and on USAspending rows, which carry no
@@ -699,7 +704,7 @@ vf_build_flags <- function() {
   f <- f %>%
     dplyr::arrange(state, entity_class, canonical_name, dplyr::desc(amount)) %>%
     dplyr::mutate(flag_id = sprintf("VF%04d", dplyr::row_number()))
-  f[, VF_FLAG_COLUMNS]
+  f[, VF_FLAG_COLUMNS_PRE_LAYER]
 }
 
 vf_assert_flags <- function(f) {
@@ -873,9 +878,8 @@ vf_join_spend <- function(f, spend = NULL) {
 }
 
 vf_build <- function() {
-  f <- vf_build_flags()
+  f <- vf_join_spend(vf_build_flags())
   vf_assert_flags(f)
-  f <- vf_join_spend(f)
   readr::write_csv(f, here::here(VF_FLAGS_CSV), na = "")
   un <- vf_unnamed_contractor(f)
   readr::write_csv(un, here::here(VF_UNNAMED_CSV), na = "")

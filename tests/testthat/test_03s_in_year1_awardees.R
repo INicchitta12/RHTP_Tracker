@@ -219,7 +219,7 @@ test_that("Regional Grants HAS awarded (2026-09-03), and is extracted in R/03bi"
   expect_true(grepl("nearly 200 subrecipients have been selected", now, fixed = TRUE))
   # The seven vendors and the regional roster never merge.
   g <- readr::read_csv(IN_GROW_REGIONAL_CSV, show_col_types = FALSE)
-  expect_equal(nrow(g), 176L)   # session 118: ten removed by IDOH (R/03bi)
+  expect_equal(nrow(g), 181L)   # session 118: ten removed by IDOH (R/03bi); session 119: five reinstated on FSRS
   expect_false(any(IN_TEST_AWARDS$awardee %in% g$awardee))
 })
 

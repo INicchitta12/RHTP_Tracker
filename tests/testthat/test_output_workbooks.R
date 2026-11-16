@@ -29,6 +29,8 @@ test_that("the 2026-11-11 verified vendor list is rebuilt from the spend layer",
   v <- openxlsx::read.xlsx(x, "Verified list", startRow = 4, check.names = FALSE, sep.names = " ")
   m <- readr::read_csv(here::here("config/spend_category_cases.csv"), show_col_types = FALSE)
   vendor_cases <- m$case_id[m$spend_category %in% c("CONSULTANT", "DATA_TECH_VENDOR", "ADMINISTRATOR", "NON_PROVIDER_INTERMEDIARY")]
+  # Session 119's cases (VV064-VV070) post-date the 11-11 workbook.
+  vendor_cases <- setdiff(vendor_cases, sprintf("VV%03d", 64:70))
   expect_setequal(v$`Case ID`, vendor_cases)
   expect_true(all(v$`Spend category` %in% c("CONSULTANT", "DATA_TECH_VENDOR", "ADMINISTRATOR", "NON_PROVIDER_INTERMEDIARY")))
 })

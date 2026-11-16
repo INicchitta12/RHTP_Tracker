@@ -87,8 +87,8 @@ test_that("the summary layer does not move the strict partition", {
   # Session 117a: + WV Cabell Huntington Hospital (1 / $1,544,313).
   # Session 117: TX 11/12 list (-3 / -$1,695,726.58), NE FSRS extras held (-3).
   # Session 118: FSRS 11-16 refresh and the owner's rulings (WA pool +$9.67M).
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 2268L)
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 2204266238.38)
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 2270L)
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 2205963832.38)
   expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 96565779.43)
   expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.
@@ -140,14 +140,17 @@ test_that("every OPEN queue question is placed, and the pools are counted once",
   # typed members (a strict majority).
   # Session 118 (owner ruling d): IDOH removed ten GROW members; Region 5 is
   # now 7 typed hospitals of 13, a strict majority: HOSPITAL (+$16,700,000).
-  expect_equal(round(sum(p$pool_usd[p$call == "HOSPITAL"]), 2), 43295162.93)
+  # Session 119 (owner ruling): Indiana's FSRS filings outrank the page; West
+  # Central Indiana EDD (live FSRS subaward) is a member again: 7 of 14, a tie,
+  # NOT_HOSPITAL (-$16,700,000).
+  expect_equal(round(sum(p$pool_usd[p$call == "HOSPITAL"]), 2), 26595162.93)
   expect_setequal(p$pool_id[p$call == "HOSPITAL"],
-                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "OK_CHW_EXPANSION", "IN_GROW_REGION_5"))
+                  c("GA_P2_CONNECTING_TO_CARE", "GA_P4_TRANSFORMING", "OK_CHW_EXPANSION"))
   expect_equal(p$hospital_members[p$pool_id == "OK_CHW_EXPANSION"], 29L)
   expect_equal(p$members[p$pool_id == "OK_CHW_EXPANSION"], 48L)
-  expect_equal(p$call[p$pool_id == "IN_GROW_REGION_5"], "HOSPITAL")
+  expect_equal(p$call[p$pool_id == "IN_GROW_REGION_5"], "NOT_HOSPITAL")
   expect_equal(p$hospital_members[p$pool_id == "IN_GROW_REGION_5"], 7L)
-  expect_equal(p$members[p$pool_id == "IN_GROW_REGION_5"], 13L)
+  expect_equal(p$members[p$pool_id == "IN_GROW_REGION_5"], 14L)
   expect_true(all((p$hospital_members * 2 > p$members) == (p$call == "HOSPITAL")))
   expect_false(exists("SC_POOL_TIEBREAKS"))
 })
