@@ -1,0 +1,2 @@
+526a17d7678bae4f76584d07b39c5dd1300a5ff526001f53c81c670c2db82fc6  2026-11-16_hhsc_rts_list_award_recipients_as_of_2026-11-12.xlsx  https://pfd.hhs.texas.gov/sites/default/files/documents/rural-hlth-prgm/rhtp-award-recipients.xlsx  last_modified=Fri, 13 Nov 2026 23:01:41 GMT  2026-11-16T15:40:32Z
+44380f6a412c00170e3311d930d51d7b22da05740e9812f5138944be6c7bdb72  2026-11-16_pfd_rhtp_programme.html  https://pfd.hhs.texas.gov/rural-health-transformation-program  full_page_sha256=11b37a1e0f0eb2c72b18701d53bddaf54b0b173755e741d7e3f5463e4291b484  2026-11-16T15:40:34Z

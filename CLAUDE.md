@@ -2025,14 +2025,14 @@ through the work: an award file, or an archive plus a probe plus a Routine.
 ### Hospital partition (re-derived 2026-11-09, session 116d, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,206 / $2,174,427,619.88
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,200 / $2,170,191,306.58
 (NV's FLEX-36 $2,458,060.00 back in; FLEX-28 was cleared on an exact FSRS pair in session 116d); never
 publish it alone. SESSION 116c/116d: FSRS/FFATA subawards are an award source (R/09b): $0 rows priced
 (`validation_source_type = FSRS_FFATA`, original kept) and `<st>_fsrs_awardees.csv` new rows; both subtract by
 `validation_source_type`.
 
 ```
-NAMED_HOSPITAL          2,205 rows   $2,171,969,559.88   42 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
+NAMED_HOSPITAL          2,199 rows   $2,167,733,246.58   42 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
 POOL_NAMED_HOSPITALS       10 rows      $86,895,779.43   NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
@@ -2103,7 +2103,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | OK CHW | 48 | 0 | — (pool $4,460,162.93 obligated to OHA, Q3 report; R/07 SC_POOLS, called HOSPITAL on 29 of 48) | 29 / $0 (30 "Hospitals receiving CHWs" lines; AVEM Health Partners, a management company, Unclear; 18 FQHCs; no strict bucket for the pool, owner ruling session 114) |
 | MN | 11 | 11 | $12,453,451 | 0 (MDH Sub-Recipient Awardees, "$12.5 million"; state agencies $9,775,054 kept, an owner question; direct-allocation grants to CAHs "in the coming days") |
 | UT | 41 | 41 | $193,095,907 | 6 / $5,196,813 + POOL_UNNAMED 1 / $9,891,739 (INTENTS, DHHS announcement; UHA capital $38.3M Unclear, hospitals among others; Year 1 COMPLETE on 100% obligation) |
-| TX | 445 | 445 | $224,596,379 (Year 1 subset, the 10/29 list; the $8M and $87M releases reconcile to its weekly sections) | 286 / $191,913,856 (HHSC corrected the three SOURCE_SUSPECT lines, Anson HD now $262,566.30 on REH 670781; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 159 / $108,586,856; LOW 91 / $61,493,003) |
+| TX | 440 | 440 | $222,548,441 (Year 1 subset, the 11/12 list posted 11/13 as rhtp-award-recipients.xlsx; 5 lines withdrawn, session 117) | 283 / $190,218,130 (Yoakum Community Hospital x2 and LLano Regional withdrawn on the 11/12 list; HHSC corrected the three SOURCE_SUSPECT lines, Anson HD now $262,566.30 on REH 670781; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 71 / $47,814,390; LOW 88 / $59,243,003) |
 | IN GROW | 186 | 0 | — | 44 / $0 |
 | IA | 264 | 161 | $156,302,236 (161 $0 rows priced from FSRS, paired by RFP pool, session 116c; sibling rows point at the priced row) | 218 / $144,551,736 |
 | IA CC R2 | 4 | 0 | — | 4 / $0 (Combat Cancer Health Hubs Round 2 NOIA, COMPADM26008, 2026-08-12; INTENTS; typed on CMS IA enrolment, CCNs 160047/160064/160082/160083 in the basis; footer is the allotment; owner ruling session 116) |
@@ -2134,7 +2134,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | MT_FSRS | 1 | 1 | $22,093,078 | 0 (FSRS new rows, session 116c; R/09b) |
 | NC_FSRS | 6 | 6 | $5,129,299 | 0 (FSRS new rows, session 116c; R/09b) |
 | ND_FSRS | 103 | 103 | $15,927,797 | 48 / $8,751,589 (FSRS new rows, session 116c; R/09b) |
-| NE_FSRS | 141 | 141 | $93,356,409 | 13 / $9,499,948 (FSRS new rows, session 116c; R/09b) |
+| NE_FSRS | 120 | 120 | $83,036,784 | 10 / $6,959,361 (FSRS new rows, session 116c; R/09b; 21 extras held since NE is COMPLETE, session 117) |
 | NM_FSRS | 3 | 3 | $23,320,773 | 0 (FSRS new rows, session 116c; R/09b) |
 | OK_FSRS | 26 | 26 | $103,564,606 | 1 / $100,000 (FSRS new rows, session 116c; R/09b) |
 | RI_FSRS | 5 | 5 | $37,724,387 | 0 (FSRS new rows, session 116c; R/09b) |

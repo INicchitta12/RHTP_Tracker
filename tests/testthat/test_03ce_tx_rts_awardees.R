@@ -16,11 +16,13 @@ test_that("the 10/29 list is read whole and the release reconciles to the cent",
   expect_silent(tx_rts_assert_reconciles())
   expect_silent(tx_rts_assert_release())
   expect_silent(tx_rts_assert_weekly_releases())
-  expect_equal(nrow(tx), 445L)
-  expect_equal(round(sum(tx$amount), 2), 224596379.37)
-  expect_equal(sum(tx$list_section == "Added Oct. 23, 2026"), 129L)
+  # Session 117: the 11/12 list (posted 11/13): 440 lines, 5 withdrawn (TRT_WITHDRAWN).
+  expect_equal(nrow(tx), 440L)
+  expect_equal(round(sum(tx$amount), 2), 222548440.55)
+  expect_equal(sum(tx$list_section == "Added Oct. 23, 2026"), 128L)
+  expect_equal(nrow(TRT_WITHDRAWN), 5L)
   expect_equal(sum(tx$list_section == "Added Oct. 29, 2026"), 4L)
-  expect_equal(sum(tx$contract_executed == "Yes"), 204L)
+  expect_equal(sum(tx$contract_executed == "Yes"), 294L)
   expect_true(all(nzchar(tx$county)))
   # 10/8 list: $129,089,434.73 = the release's $78,089,434.73 + 68 x $750,000.
   prior <- tx_rts_read(here::here(TRT_SOURCES$file[TRT_SOURCES$key == "prior"]))
@@ -53,11 +55,13 @@ test_that("the hospital figure and its LOW bridges", {
   # Session 112, the 10/29 list: Anson's line is corrected to Year 1
   # $262,566.30 and is no longer SOURCE_SUSPECT; Castro and Crane are printed
   # in full, so their Initiative 1 bridges are EXACT (LOW -2 / -$1,500,000).
-  expect_equal(nrow(h), 286L)
-  expect_equal(round(sum(h$amount), 2), 191913856.31)
+  # Session 117, the 11/12 list: Yoakum Community Hospital (2 lines, $945,726.58) and
+  # LLano Regional ($750,000, a LOW bridge) withdrawn: 283 / $190,218,129.73.
+  expect_equal(nrow(h), 283L)
+  expect_equal(round(sum(h$amount), 2), 190218129.73)
   low <- h[h$determination_confidence == "LOW", ]
-  expect_equal(nrow(low), 89L)
-  expect_equal(round(sum(low$amount), 2), 59993002.61)
+  expect_equal(nrow(low), 88L)
+  expect_equal(round(sum(low$amount), 2), 59243002.61)
   b <- h[h$awardee == "St. Joseph Health Burleson", ]
   expect_equal(b$ccn, "451305")
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
@@ -108,7 +112,7 @@ test_that("session 112: HHSC corrected the three session 108 SOURCE_SUSPECT line
   expect_equal(nrow(fixed), 3L)
   expect_equal(round(fixed$amount[fixed$awardee == "Anson Hospital District"], 2), 262566.30)
   part <- rhtp_hospital_dollar_partition(tx)
-  expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2), 191913856.31)
+  expect_equal(round(part$dollars[part$bucket == "NAMED_HOSPITAL"], 2), 190218129.73)
   # Each re-priced line is recorded, not silently absorbed.
   expect_equal(nrow(TRT_AMENDED), 4L)
 })

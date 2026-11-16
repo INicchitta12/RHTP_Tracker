@@ -606,6 +606,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # ruling): +246 / +$372,805,292.26 and five states (AZ ND NM were new to the
   # union; IL and IA gained named dollars; the count is states with named rows):
   # 2,204 / $2,170,425,246.88 / 42. Subtracted first.
+  # Session 117: TX 11/12 list (5 lines withdrawn, -3 hospital rows / -$1,695,726.58)
+  # and NE FSRS extras held now NE is COMPLETE (R/09b, -3 / -$2,540,586.72):
+  # 2,199 / $2,167,733,246.58 / 42. Subtracted first.
+  expect_equal(named$rows, 2199L)
+  expect_equal(round(named$dollars, 2), 2167733246.58, tolerance = 0)
+  expect_equal(named$states, 42L)
+  named$rows <- named$rows + 6L
+  named$dollars <- named$dollars + 4236313.30
   # Session 117a: + WV 11-10 "nearly $17 million" release, Cabell Huntington
   # Hospital (1 / $1,544,313): 2,205 / $2,171,969,559.88 / 42. Subtracted first.
   expect_equal(named$rows, 2205L)
@@ -838,7 +846,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Session 103 put Texas second ($117,571,194.73); session 104 added its
   # seven county-test bridges ($119,558,582.13).
   expect_equal(p$state[[1]], "TX")
-  expect_equal(round(p$dollars[[1]], 2), 191913856.31)   # session 111: + Burleson; session 112: 10/29 list, Anson corrected and in (+$262,566.30)
+  expect_equal(round(p$dollars[[1]], 2), 190218129.73)   # session 117: 11/12 list, Yoakum x2 + LLano withdrawn (-$1,695,726.58);   # session 111: + Burleson; session 112: 10/29 list, Anson corrected and in (+$262,566.30)
   # Session 116c: Iowa's FFATA subawards ($163,082,841.20) put Iowa second;
   # the order below it is unchanged once Iowa is set aside.
   expect_equal(p$state[[2]], "IA")
