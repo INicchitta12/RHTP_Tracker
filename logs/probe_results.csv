@@ -2495,3 +2495,6 @@ MT,2026-11-17T17:41:51Z,TRIPWIRE,(probe),"[MT] 'home' HAS 1 NEW SENTENCE(S) OF T
 NM,2026-11-17T18:41:51Z,TRIPWIRE,(probe),[NM] HCA's RHT page no longer carries: Currently under evaluation. Those are the six procurements and the state's own word for their stage; losing one means the page has moved on.,trig_01FYoAwtuoWkZDiCt4dsNvuj
 RI,2026-11-17T19:52:21Z,CHANGED,rss,,trig_01WXYStckEw4tjE1Er77BV94
 RI,2026-11-17T19:52:21Z,CHANGED,index,,trig_01WXYStckEw4tjE1Er77BV94
+WY,2026-11-17T21:11:44Z,CHANGED,programme,,trig_01CLqQDvGoWCDoSMtS29FJbQ
+WY,2026-11-17T21:11:44Z,CHANGED,submittable,,trig_01CLqQDvGoWCDoSMtS29FJbQ
+WY,2026-11-17T21:11:44Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Year One Award Summaries View Year One Award Summaries Project and Budget Narratives. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01CLqQDvGoWCDoSMtS29FJbQ
