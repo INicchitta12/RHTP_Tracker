@@ -2527,3 +2527,8 @@ IL,2026-11-18T16:21:41Z,UNCHANGED,hfs_stakeholder,,trig_01B62afWZaQXR4Hooi2gjZmH
 IL,2026-11-18T16:21:41Z,CHANGED,gov_press,,trig_01B62afWZaQXR4Hooi2gjZmH
 IL,2026-11-18T16:21:41Z,UNCHANGED,planning_method,,trig_01B62afWZaQXR4Hooi2gjZmH
 IL,2026-11-18T16:21:41Z,CHANGED,gov_sitemap,,trig_01B62afWZaQXR4Hooi2gjZmH
+CA,2026-11-18T17:05:38Z,CHANGED,funding,,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-18T17:05:38Z,CHANGED,calrht,,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-18T17:05:38Z,CHANGED,newsroom,,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-18T17:05:38Z,CHANGED,updates,,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-18T17:05:38Z,TRIPWIRE,calrht,"[CA] 'calrht' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: The CalRHT Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_012VpnHG4hW6pg4sjeFhk2BC
