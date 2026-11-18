@@ -2511,3 +2511,6 @@ NY,2026-11-18T11:11:34Z,UNCHANGED,roster,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
 NY,2026-11-18T11:11:34Z,CHANGED,press_index,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
 NY,2026-11-18T11:11:34Z,CHANGED,scr,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
 LA,2026-11-18T12:52:13Z,TRIPWIRE,(probe),[LA] LDH's programme page no longer carries an 'IMPORTANT DATES - BUDGET YEAR 1' block closed by 'Notice of Funding Opportunities'. That block is where every announcement date this file reports comes from -- re-read the page.,trig_01NRTUU1Vg3DoQPL1uK2gKBt
+OH,2026-11-18T13:42:15Z,CHANGED,hospitals,,trig_01SmiBet1QpVwpQrBe1GEBJ3
+OH,2026-11-18T13:42:15Z,TRIPWIRE,(finding),OH ODH HOSPITALS PAGE: [OH] ODH's CIN/Hub or maternal-care recipient list moved: re-read it (session 108).,trig_01SmiBet1QpVwpQrBe1GEBJ3
+OH,2026-11-18T13:42:15Z,TRIPWIRE,hospitals,"[OH] 'hospitals' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Ohio Rural Health Association Total Funding. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01SmiBet1QpVwpQrBe1GEBJ3
