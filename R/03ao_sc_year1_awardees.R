@@ -353,7 +353,7 @@ SC_SOURCES <- tibble::tribble(
 
   "programme",
   "https://www.scdhhs.gov/resources/grants",
-  "2026-09-21_scdhhs_grants_rhtp_programme.html",
+  "2026-11-19_scdhhs_grants_rhtp_programme.html",
   paste("THE PROVENANCE AND BOTH NEGATIVE CONTROLS, ON ONE PAGE. Names the",
         "award list by name and by posting date; names the four initiatives",
         "the list is sectioned by and the FIFTH (Tech Catalyst Fund) that is",
@@ -379,7 +379,7 @@ SC_SOURCES <- tibble::tribble(
 
   "rmua_control",
   "https://www.scdhhs.gov/communications/scdhhs-awards-482-million-healthcare-infrastructure-funds-improve-access-quality",
-  "2026-09-21_scdhhs_rural_mua_grant_NEGATIVE_CONTROL.html",
+  "2026-11-19_scdhhs_rural_mua_grant_NEGATIVE_CONTROL.html",
   paste("§0.1 NEGATIVE CONTROL. A real, named, priced SCDHHS roster with",
         "'RURAL' IN ITS TITLE, awarded 2024-02-02 -- twenty-three months",
         "before South Carolina's Notice of Award, so §6.2's date test",
@@ -387,7 +387,7 @@ SC_SOURCES <- tibble::tribble(
 
   "bhcs_control",
   "https://www.scdhhs.gov/communications/scdhhs-awards-behavioral-health-crisis-stabilization-grants-13-south-carolina",
-  "2026-09-21_scdhhs_bh_crisis_13_hospitals_NEGATIVE_CONTROL.html",
+  "2026-11-19_scdhhs_bh_crisis_13_hospitals_NEGATIVE_CONTROL.html",
   paste("THE SHARPEST §0.1 TRAP THIS STATE HAS: a real named roster OF",
         "HOSPITALS -- 'Behavioral Health Crisis Stabilization Grants to 13",
         "South Carolina Hospitals', ~$35,000,000 -- linked from the RHTP page",

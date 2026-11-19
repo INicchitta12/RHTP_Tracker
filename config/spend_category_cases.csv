@@ -52,7 +52,7 @@ VV054,DATA_TECH_VENDOR,MIXED,FALSE,"Unite Us: a referral-platform company; quote
 VV055,CONSULTANT,DELIVERS_TO_PROVIDERS,FALSE,"Quote: Moda partners with two hospitals 'to support implementation of ... PCMH model across four clinic sites' (implementation support)."
 VV056,DATA_TECH_VENDOR,DELIVERS_TO_PROVIDERS,FALSE,"Quote: 'MapHabit delivers AI-powered visual maps' (a software product)."
 VV064,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,"Session 119 (annual report admitted): 'rate methodology for community paramedics', analysis for the state."
-VV065,NON_PROVIDER_INTERMEDIARY,MIXED,FALSE,Session 119: 'passthrough to subrecipients for the Tech Catalyst Fund' (SC6) and 'overall grant manager' (SC7): pass-through to technology firms plus administration.
+VV065,NON_PROVIDER_INTERMEDIARY,MIXED,TRUE,"Session 119: 'passthrough to subrecipients for the Tech Catalyst Fund' (SC6) and 'overall grant manager' (SC7): pass-through to technology firms plus administration. Session 120, OWNER RULING (b): SCRA is a state-chartered public body (SC Code Title 13 Ch. 17), not a state agency under V7; it stays in the vendor totals marked PUBLIC, the NC Trillium/Vaya treatment."
 VV066,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,Session 119: 'a comprehensive rural health assessment' for the state.
 VV067,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,Session 119: 'technical assstance and compliance monitoring of the overall program'.
 VV068,CONSULTANT,ADMINISTERS_PROGRAM,FALSE,Session 119: 'a targeted transition plan for the dual population' for the state.

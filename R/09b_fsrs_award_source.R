@@ -828,10 +828,33 @@ FSRS_HAND_TYPING <- tibble::tribble(
          "(data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_MN.json) carries PIPESTONE COUNTY MEDICAL CENTER, ",
          "PART A PROVIDER - CRITICAL ACCESS HOSPITAL, CCN 241374, 916 4TH AVE SW, PIPESTONE. The FSRS filing names ",
          "'PIPESTONE COUNTY MED CENTER', 916 5TH AVE SW, PIPESTONE: the enrolled legal name abbreviated, one avenue off ",
-         "(a hand-read LEGAL_NAME_TRUNCATED bridge, LOW). §0.3a: the recipient is a hospital whatever the activity."))
-FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374")
+         "(a hand-read LEGAL_NAME_TRUNCATED bridge, LOW). §0.3a: the recipient is a hospital whatever the activity."),
+  # SESSION 120, OWNER RULING (a): Murray County. FSRS files "MURRAY COUNTY
+  # SLAYTON" (UEI VHBBM8QCCG63, the county offices, 2500 28TH ST) for
+  # $1,535,332 + $75,000. CMS MN enrolment's legal entity for CAH 241319 is
+  # COUNTY OF MURRAY (dba Murray County Memorial Hospital, 2042 JUNIPER AVE,
+  # SLAYTON, ORGANIZATION TYPE STRUCTURE = GOVERNMENT). The owner promoted it
+  # on the county's enrolment, the basis of the Texas hospital-district bridges
+  # (session 104): the legal entity that received the money is the legal
+  # entity CMS enrols as the hospital. LOW: a hand-read bridge, and the
+  # generic FSRS description does not say the money is the hospital's.
+  "MN", "VHBBM8QCCG63", "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes", "Yes", "ORG_WEBSITE",
+  NA_character_,
+  paste0("§10.2 DIRECT, TYPED BY HAND (session 120, OWNER RULING a): CMS MN Hospital Enrollment ",
+         "(data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_MN.json) carries ORGANIZATION NAME 'COUNTY OF ",
+         "MURRAY', DBA 'MURRAY COUNTY MEMORIAL HOSPITAL', PART A PROVIDER - CRITICAL ACCESS HOSPITAL, CCN 241319, ",
+         "ORGANIZATION TYPE STRUCTURE GOVERNMENT, 2042 JUNIPER AVE, SLAYTON. The FSRS filing names 'MURRAY COUNTY ",
+         "SLAYTON' at the county offices (2500 28TH ST, SLAYTON). The county is the enrolled hospital's legal entity; the ",
+         "owner promoted the row on that enrolment, the basis of the Texas hospital-district bridges (session 104). A ",
+         "hand-read bridge, LOW. Counter: the county is also a general-purpose government and the FSRS description does ",
+         "not say the money is the hospital's (the City of Ketchikan precedent, session 111); the owner ruled the ",
+         "enrolment decides. Subtract by ccn 241319 to reverse (-$1,610,332)."))
+FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319")
 FSRS_HAND_RECORD <- c(NL3YAWLVSGK1 = paste0("PIPESTONE COUNTY MEDICAL CENTER (241374, PIPESTONE), PART A PROVIDER - ",
-                                             "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"))
+                                             "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"),
+                      VHBBM8QCCG63 = paste0("COUNTY OF MURRAY dba MURRAY COUNTY MEMORIAL HOSPITAL (241319, SLAYTON), ",
+                                            "PART A PROVIDER - CRITICAL ACCESS HOSPITAL, GOVERNMENT; 2042 JUNIPER AVE ",
+                                            "(FSRS: 2500 28TH ST, the county offices)"))
 
 fsrs_hand_typing <- function(typed) {
   for (i in seq_len(nrow(FSRS_HAND_TYPING))) {
