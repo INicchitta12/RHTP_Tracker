@@ -2541,3 +2541,8 @@ SC,2026-11-19T08:36:10Z,TRIPWIRE,programme,"[SC] 'programme' NAMES 3 ORGANISATIO
 CO,2026-11-19T09:11:30Z,UNCHANGED,awardees,,trig_012SyFT6QNtKsZK6veV5KznF
 CO,2026-11-19T09:11:30Z,CHANGED,programme,,trig_012SyFT6QNtKsZK6veV5KznF
 CO,2026-11-19T09:11:30Z,TRIPWIRE,programme,"[CO] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Healthcare Providers Upcoming Events Grantee Open Office Hours. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_012SyFT6QNtKsZK6veV5KznF
+WA,2026-11-19T10:11:42Z,CHANGED,programme,,trig_0158cE6E2ZBK6R7bte3EygBY
+WA,2026-11-19T10:11:42Z,UNCHANGED,working_on,,trig_0158cE6E2ZBK6R7bte3EygBY
+WA,2026-11-19T10:11:42Z,UNCHANGED,participate,,trig_0158cE6E2ZBK6R7bte3EygBY
+WA,2026-11-19T10:11:42Z,CHANGED,bids,,trig_0158cE6E2ZBK6R7bte3EygBY
+WA,2026-11-19T10:11:42Z,TRIPWIRE,programme,"[WA] 'programme' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Year | Medicaid.gov RHT Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_0158cE6E2ZBK6R7bte3EygBY
