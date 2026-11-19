@@ -399,10 +399,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 119: IN GROW Bluffton Health System reinstated at $0 (FSRS ruling)
   # and MN Pipestone County Medical Center ($1,697,594, CAH 241374):
   # 2,270 / $2,205,963,832.38 / 42.
-  if (nrow(rows) != 2270L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2205963832.38) > 0.005 ||
+  # Session 120: FSRS 11-19 archive (ME 12 hospital rows incl. MaineGeneral's
+  # hand bridge, MN Graceville CAH 241321) and MN Murray County (owner ruling
+  # a, CAH 241319, 2 rows): 2,285 / $2,223,153,907.38 / 42.
+  if (nrow(rows) != 2285L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2223153907.38) > 0.005 ||
       dplyr::n_distinct(rows$state) != 42L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,270 rows / $2,205,963,832.38 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,285 rows / $2,223,153,907.38 ",
          "/ 42 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

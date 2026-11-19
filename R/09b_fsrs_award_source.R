@@ -863,7 +863,7 @@ FSRS_HAND_TYPING <- tibble::tribble(
          "'MAINE GENERAL MEDICAL CENTER', 35 MEDICAL CENTER PKWY, AUGUSTA, SAM business type HOSPITAL: the enrolled ",
          "legal name with one space added, at the same street address (a hand-read bridge, LOW). §0.3a: the recipient ",
          "is a hospital whatever the activity."))
-FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319", DCJGSC4LY1W4 = "200039")
+FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319", DCJGSC4LY1W4 = "200039A")  # as CMS publishes it (Prairie Lakes 430005A precedent)
 FSRS_HAND_RECORD <- c(NL3YAWLVSGK1 = paste0("PIPESTONE COUNTY MEDICAL CENTER (241374, PIPESTONE), PART A PROVIDER - ",
                                              "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"),
                       VHBBM8QCCG63 = paste0("COUNTY OF MURRAY dba MURRAY COUNTY MEMORIAL HOSPITAL (241319, SLAYTON), ",

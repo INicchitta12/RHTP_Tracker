@@ -35,8 +35,8 @@ test_that("the 2026-11-11 verified vendor list is rebuilt from the spend layer",
   expect_true(all(v$`Spend category` %in% c("CONSULTANT", "DATA_TECH_VENDOR", "ADMINISTRATOR", "NON_PROVIDER_INTERMEDIARY")))
 })
 
-test_that("the 2026-11-16 verified vendor list: PUBLIC split and the CONTRACTOR_ONLY headline (session 117)", {
-  x <- here::here("output", "verified_vendor_list_2026-11-16.xlsx")
+test_that("the 2026-11-19 verified vendor list: PUBLIC split and the CONTRACTOR_ONLY headline (session 117; re-pinned session 120)", {
+  x <- here::here("output", "verified_vendor_list_2026-11-19.xlsx")
   expect_true(file.exists(x))
   expect_equal(openxlsx::getSheetNames(x),
                c("Verified list", "By category", "Public vs non-public", "Pass-through and hospital",
@@ -44,10 +44,14 @@ test_that("the 2026-11-16 verified vendor list: PUBLIC split and the CONTRACTOR_
                  "Planned (not awarded)", "Dropped", "Method"))
   p <- openxlsx::read.xlsx(x, "Public vs non-public", startRow = 4, check.names = FALSE, sep.names = " ")
   expect_equal(p$Total[p$`Public body` == "PUBLIC" & p$`Amount type` == "award"], 42750000)
-  expect_match(p$Recipients[p$`Public body` == "PUBLIC"], "TRILLIUM.*VAYA", ignore.case = TRUE)
+  expect_match(p$Recipients[p$`Public body` == "PUBLIC" & p$`Amount type` == "award"], "TRILLIUM.*VAYA", ignore.case = TRUE)
+  # Session 120, owner ruling (b): SCRA is a state-chartered public body, PUBLIC, never beside private firms.
+  expect_equal(p$Total[p$`Public body` == "PUBLIC" & p$`Amount type` == "obligation"], 5025452.32)
+  expect_match(p$Recipients[p$`Public body` == "PUBLIC" & p$`Amount type` == "obligation"], "South Carolina Research Authority")
+  expect_equal(round(p$Total[p$`Public body` == "NON_PUBLIC" & p$`Amount type` == "obligation"], 2), 25156213.31)
   u <- openxlsx::read.xlsx(x, "Unnamed contractor money", colNames = FALSE, rows = 1)[[1]]
   expect_match(u, "^HEADLINE: \\$116,332,666\\.43 obligated to unnamed contractors \\(CONTRACTOR_ONLY, 41 lines\\)")
   expect_match(u, "MIXED lines \\(\\$32,613,736\\.29, 4 lines\\)")
-  vs <- openxlsx::read.xlsx(here::here("output", "year1_summary_2026-11-16.xlsx"), "Notes and caveats", colNames = FALSE)[[1]]
+  vs <- openxlsx::read.xlsx(here::here("output", "year1_summary_2026-11-19.xlsx"), "Notes and caveats", colNames = FALSE)[[1]]
   expect_true(any(grepl("UNNAMED CONTRACTOR MONEY (headline: CONTRACTOR_ONLY). CMS's Obligated Funds Report obligates $116,332,666", vs, fixed = TRUE)))
 })
