@@ -1,0 +1,14 @@
+WISCONSIN -- DHS RHTP award tables, archived 2026-11-19 (session 120). HELD, NOT EXTRACTED.
+
+Fetched with curl, agent 'Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)' (honest, the R/09a/R/03i agent). No credentials, Mapbox or Maps keys found (grep).
+Pages: https://www.dhs.wisconsin.gov/rhtp/{index,implementation,workforce,technology,coordinated-care}.htm, each 'Last revised November 18, 2026'.
+DHS: 'all dollar amounts are the obligated awards and are subject to Centers for Medicare & Medicaid Services (CMS) review.'
+Parsed tables (NOT an award file, never in STATE_FILES): 2026-11-19_wi_award_tables_PARSED_NOT_AN_AWARD_FILE.csv, 138 rows, $149,330,290.71.
+Why held: see docs/session120_rulings_sc_probe_log.md (obligated awards subject to CMS review; ~$25.4M hospital-shaped; state agencies among implementation partners).
+
+d8febd83ecb88452e65fa997f465bd157cf2ae64d921e1fe0984fc6720fb544f  2026-11-19_wi_dhs_rhtp_coordinated-care.html
+c7c4df4dc437a5c2f1c91703e2601a5bd132faf8a5fdd72262f4e6deb85ee56d  2026-11-19_wi_dhs_rhtp_implementation.html
+27acdccabbfe7334732181a586016233e2092113352d0ea92570806789a729c6  2026-11-19_wi_dhs_rhtp_index.html
+64686c9e6994f9dc6dfad47bcb2b0aab0886bf94f3bc6a373312d7dd35ce042a  2026-11-19_wi_dhs_rhtp_technology.html
+1974efd31d31a864bba4d65edd48864d7493fd7484af8cf300b33254f56193c8  2026-11-19_wi_dhs_rhtp_workforce.html
+fc45e48694d516ebb1ad495eb3429af8fb4a481109133c1abc77d961137522ee  2026-11-19_wi_award_tables_PARSED_NOT_AN_AWARD_FILE.csv

@@ -465,10 +465,20 @@ OH_S104_DIR <- file.path("data", "evidence", "recheck", "2026-10-16", "OH")
 # haven't been announced yet. Please check back soon" replaced by a "News
 # Release" link to the Governor's $92M release. The 2026-10-16 copy stays.
 OH_S108_DIR <- file.path("data", "evidence", "recheck", "2026-10-26", "OH")
+# SESSION 120: re-based to the 2026-11-19 copy after reading the diff (probe
+# 11-18 13:42Z). The ONLY change is a new block between the maternal list and
+# the total: "Training and Technical Assistance Vendor This investment dedicates
+# $1,000,000 for a rural hospital training and technical assistance vendor. Ohio
+# Rural Health Association". The 22, the CIN/Hub and maternal lists and the
+# "Total Funding $92,000,000" line are unchanged, so the components now print
+# $93.0M against a $92M total: the page's own conflict, recorded, not fixed.
+OH_S120_DIR <- file.path("data", "evidence", "recheck", "2026-11-19", "OH")
+OH_ORHA_SENTENCE <- paste("Training and Technical Assistance Vendor This investment dedicates $1,000,000 for a",
+                          "rural hospital training and technical assistance vendor. Ohio Rural Health Association")
 OH_S104_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~dir,
   "hospitals", "https://odh.ohio.gov/wps/portal/gov/odh/know-our-programs/rural-health-transformation-program/rht-resources/healthcare-centers",
-  "2026-10-26_odh_rht_hospitals_cins_hubs_maternal.html", OH_S108_DIR,
+  "2026-11-19_odh_rht_hospitals_cins_hubs_maternal.html", OH_S120_DIR,
   "pharmacy", "https://odh.ohio.gov/wps/portal/gov/odh/know-our-programs/rural-health-transformation-program/rht-resources/pharmacy",
   "2026-10-16_odh_rht_pharmacy.html", OH_S104_DIR)
 OH_S104_HOSP_PRIOR <- file.path(OH_S104_DIR, "2026-10-16_odh_rht_hospitals_cins_hubs_maternal.html")
@@ -625,7 +635,28 @@ oh_s104_rows <- function() {
     amount_basis = "ROUNDED IN SOURCE ('$2 million'), stated twice on the page.",
     basis_type = NA_character_, announcement_date = as.Date("2026-10-15"), source_archive_path = src[2],
     cms_enrolment_record = NA_character_))
-  dplyr::bind_rows(opa, h, pool)
+  # SESSION 120: the Ohio Rural Health Association, $1,000,000, named and priced
+  # on the hospitals page (2026-11-18). A vendor delivering training and TA TO
+  # hospitals: the association keeps the money and delivers services, so it is
+  # IN_KIND_BENEFIT (CLAUDE.md §7, the Georgia Hospital Association carts), never
+  # a hospital dollar. A rural health association, not a hospital association.
+  orha <- dplyr::bind_cols(base(1L), tibble::tibble(
+    awardee = "Ohio Rural Health Association", amount = 1000000, recipient_type = "NONPROFIT_CBO",
+    distributed_to_hospital = "No",
+    note = paste0("ODH Hospitals page (re-read 2026-11-19, first seen by the probe 2026-11-18): '", OH_ORHA_SENTENCE,
+                  "'. The page still prints 'Total Funding $92,000,000' while its components now sum to $93.0M; recorded, not reconciled."),
+    recipient_confirmed = "Yes", amount_confirmed = "Yes",
+    source_document_title = "ODH, Hospitals, Clinically Integrated Networks and Rural Health Innovation Hubs, and Maternal Care",
+    state_source_url = url[1], ccn = NA_character_,
+    recipient_type_source = "TYPED (session 120, FALLBACK): the page calls it a 'training and technical assistance vendor' and states no form; no CMS OH hospital enrolment carries the name (§8's standing fallback).",
+    determination_confidence = "LOW", flag_reason = "RECIPIENT_TYPE_INFERRED",
+    award_pool = "ODH Hospitals: rural hospital training and technical assistance vendor ($1,000,000)",
+    flow_type = "IN_KIND_BENEFIT", hospital_benefiting = "Yes", hospital_attribution = "NOT_HOSPITAL",
+    determination_basis = "§10.2 IN_KIND_BENEFIT: ODH dedicates the $1,000,000 'for a rural hospital training and technical assistance vendor' and names the Ohio Rural Health Association. The association delivers training and TA to hospitals; no sentence moves money to them (the Georgia Hospital Association precedent, CLAUDE.md §7). Never a hospital dollar.",
+    amount_basis = "STATED EXACTLY ('$1,000,000').",
+    basis_type = NA_character_, announcement_date = as.Date("2026-11-18"), source_archive_path = oh_s104_path("hospitals"),
+    cms_enrolment_record = NA_character_))
+  dplyr::bind_rows(opa, h, pool, orha)
 }
 
 # SESSION 108, OWNER RULING (c): ODH's 13 network and maternal-care recipients
@@ -721,7 +752,7 @@ oh_assert_s108_lists <- function(hospitals_body = NULL) {
     stringr::str_squish(substr(rest, 1L, j - 1L))
   }
   cin <- blk("This project provides $31.4 million to establish/expand these structured alliances.", " Maternal Care ")
-  mat <- blk("This investment dedicates $30.3 million to improving maternal care.", " Total Funding")
+  mat <- blk("This investment dedicates $30.3 million to improving maternal care.", " Training and Technical Assistance Vendor")
   if (!identical(cin, paste0(paste(OH_CIN_NAMES, collapse = ". "), ".")) ||
       !identical(mat, paste0(paste(OH_MAT_NAMES, collapse = ". "), "."))) {
     stop("[OH] ODH's CIN/Hub or maternal-care recipient list moved: re-read it (session 108).", call. = FALSE)
@@ -738,9 +769,9 @@ oh_all_rows <- function() {
 oh_assert_s104_rows <- function(d = oh_all_rows()) {
   part <- rhtp_hospital_dollar_partition(d)
   nh <- part[part$bucket == "NAMED_HOSPITAL", ]; pn <- part[part$bucket == "POOL_NAMED_HOSPITALS", ]
-  if (nrow(d) != 38L || nh$rows != 27L || nh$dollars != 0 || pn$rows != 1L || pn$dollars != OH_HOSP_POOL ||
+  if (nrow(d) != 39L || nh$rows != 27L || nh$dollars != 0 || pn$rows != 1L || pn$dollars != OH_HOSP_POOL ||
       nrow(part) != 2L) {
-    stop("[OH] expected 38 rows: NAMED_HOSPITAL 27 / $0 (22 + 5 network/maternal hospital rows, ",
+    stop("[OH] expected 39 rows (session 120: + ORHA, non-hospital): NAMED_HOSPITAL 27 / $0 (22 + 5 network/maternal hospital rows, ",
          "session 108) and POOL_NAMED_HOSPITALS 1 / $30,300,000.", call. = FALSE)
   }
   if (any(d$amount %in% c(92e6, 31.4e6))) stop("[OH] a shared sub-pool became a row.", call. = FALSE)
@@ -925,6 +956,9 @@ oh_probe_s104 <- function(fetch = NULL) {
   }
   if (grepl("Funded Projects", h, fixed = TRUE)) {
     findings <- c(findings, "OH ODH HOSPITALS PAGE: a 'Funded Projects' section is back -- ODH may now price the 22 hospitals or the CIN/Hub/maternal projects. Read it.")
+  }
+  if (!grepl(OH_ORHA_SENTENCE, h, fixed = TRUE)) {
+    findings <- c(findings, "OH ODH HOSPITALS PAGE: the Ohio Rural Health Association $1,000,000 TA-vendor block is gone or reworded. Read it (session 120).")
   }
   if (!grepl("The Ohio Pharmacists Association (OPA) has been awarded $2 million", oh_s104_text("pharmacy", live$pharmacy), fixed = TRUE)) {
     findings <- c(findings, "OH ODH PHARMACY PAGE: the OPA $2 million award sentence is gone. Read it.")
