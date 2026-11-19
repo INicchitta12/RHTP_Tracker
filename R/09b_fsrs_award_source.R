@@ -848,13 +848,29 @@ FSRS_HAND_TYPING <- tibble::tribble(
          "owner promoted the row on that enrolment, the basis of the Texas hospital-district bridges (session 104). A ",
          "hand-read bridge, LOW. Counter: the county is also a general-purpose government and the FSRS description does ",
          "not say the money is the hospital's (the City of Ketchikan precedent, session 111); the owner ruled the ",
-         "enrolment decides. Subtract by ccn 241319 to reverse (-$1,610,332)."))
-FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319")
+         "enrolment decides. Subtract by ccn 241319 to reverse (-$1,610,332)."),
+  # SESSION 120: MaineGeneral Medical Center. The 11-19 archive's new ME filing
+  # names "MAINE GENERAL MEDICAL CENTER", 35 MEDICAL CENTER PKWY, AUGUSTA (SAM
+  # business types include HOSPITAL). CMS ME enrolment: MAINEGENERAL MEDICAL
+  # CENTER, PART A PROVIDER - HOSPITAL, 35 MEDICAL CENTER PARKWAY, AUGUSTA. The
+  # name differs by one space and the street address is the same: a hand-read
+  # bridge, LOW. The classifier's exact match missed it on the space.
+  "ME", "DCJGSC4LY1W4", "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes", "Yes", "ORG_WEBSITE",
+  NA_character_,
+  paste0("§10.2 DIRECT, TYPED BY HAND (session 120): CMS ME Hospital Enrollment ",
+         "(data/evidence/federal_records/2026-09-25/cms_hosp_enrollments_ME.json) carries MAINEGENERAL MEDICAL CENTER, ",
+         "PART A PROVIDER - HOSPITAL, CCN printed '200039A', 35 MEDICAL CENTER PARKWAY, AUGUSTA. The FSRS filing names ",
+         "'MAINE GENERAL MEDICAL CENTER', 35 MEDICAL CENTER PKWY, AUGUSTA, SAM business type HOSPITAL: the enrolled ",
+         "legal name with one space added, at the same street address (a hand-read bridge, LOW). §0.3a: the recipient ",
+         "is a hospital whatever the activity."))
+FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319", DCJGSC4LY1W4 = "200039")
 FSRS_HAND_RECORD <- c(NL3YAWLVSGK1 = paste0("PIPESTONE COUNTY MEDICAL CENTER (241374, PIPESTONE), PART A PROVIDER - ",
                                              "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"),
                       VHBBM8QCCG63 = paste0("COUNTY OF MURRAY dba MURRAY COUNTY MEMORIAL HOSPITAL (241319, SLAYTON), ",
                                             "PART A PROVIDER - CRITICAL ACCESS HOSPITAL, GOVERNMENT; 2042 JUNIPER AVE ",
-                                            "(FSRS: 2500 28TH ST, the county offices)"))
+                                            "(FSRS: 2500 28TH ST, the county offices)"),
+                      DCJGSC4LY1W4 = paste0("MAINEGENERAL MEDICAL CENTER (CCN printed '200039A', AUGUSTA), PART A ",
+                                            "PROVIDER - HOSPITAL; 35 MEDICAL CENTER PARKWAY (FSRS: 35 MEDICAL CENTER PKWY)"))
 
 fsrs_hand_typing <- function(typed) {
   for (i in seq_len(nrow(FSRS_HAND_TYPING))) {
