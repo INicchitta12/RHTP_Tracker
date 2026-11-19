@@ -794,7 +794,7 @@ VV_METHOD <- c(
 # not the 116e label; the evidence columns (quote, source, archive, SHA-256,
 # live check, independent check) still come from this file's checks, which
 # have not changed. The live check is the 2026-11-10 one (VV_AS_OF).
-VV_XLSX_AS_OF <- "2026-11-16"   # session 117 (116f: 2026-11-11)
+VV_XLSX_AS_OF <- "2026-11-19"   # session 120 (119: 2026-11-16; 116f: 2026-11-11)
 
 #' Every verified 116e case with the row that carries it in the spend layer
 vv_layer_cases <- function(b = vv_build(write = FALSE)) {

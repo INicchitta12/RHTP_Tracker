@@ -298,7 +298,10 @@ test_that("NEW MEXICO: the six hubs fire against the archive that predates them"
   expect_false(any(grepl("cibola|gallup|regents|eastern plains|gila|nor-lea",
                          prior_names)))
 
-  live <- nm_html_text("programme")
+  # SESSION 120: the programme baseline was re-based to 2026-11-19; this test
+  # pins the 2026-09-21 page on which HCA first named the six hubs.
+  f921 <- here::here("data/evidence/NM/2026-09-21_nm_hca_rht_programme_SIX_HUBS_SELECTED.html")
+  live <- nm_reduce_html(readBin(f921, "raw", file.size(f921)))
   new_names <- rhtp_new_organisation_names(live, "", furniture = prior_names)
   expect_identical(new_names, c(
     "Cibola General Hospital",

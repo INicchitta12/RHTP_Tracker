@@ -164,7 +164,7 @@ NM_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
   "programme",
-  "2026-09-21_nm_hca_rht_programme_SIX_HUBS_SELECTED.html",
+  "2026-11-19_nm_hca_rht_programme_STAGES_DATED.html",
   "https://www.hca.nm.gov/rural-health-transformation-program/",
 
   # THE SUPERSEDED PROGRAMME PAGE, kept rather than overwritten: it is the
@@ -199,7 +199,7 @@ NM_SOURCES <- tibble::tribble(
          "new-mexico-announces-76-2-million-investment-in-rural-health-care/"),
 
   "news",
-  "2026-09-21_nm_hca_news_index_CONTROL_HUBS_RELEASE.html",
+  "2026-11-19_nm_hca_news_index_CRHSI_GUIDEHOUSE.html",
   "https://www.hca.nm.gov/news/",
 
   "advisory",
@@ -230,7 +230,9 @@ NM_STATED <- list(
   # "Currently under evaluation", which is the ordinary next step and not an
   # award. The live deadline on the programme page is now the Data Hub
   # Administrator's, and it is TODAY.
-  rhdha_due      = "Submissions due: Monday, September 21 at 5:00PM MST",
+  # SESSION 120: the Data Hub Administrator's deadline passed; its row (and
+  # Rooted in New Mexico's) now reads this, the programme page's own date.
+  rhdha_due      = "Selection complete announcement expected by December 18, 2026",
   # The six Healthy Horizons Regional Hubs, named by HCA on that same page.
   horizons_selected = "HCA has selected six Regional Hub Organizations",
   horizons_regional = "more than $74 million in regional funding",
@@ -503,6 +505,13 @@ nm_assert_programme_provenance <- function(programme = NULL, fund47 = NULL) {
 #' Wisconsin, California and Connecticut carry.
 nm_assert_footer_corroborates <- function(strict = FALSE, programme = NULL) {
   t <- if (is.null(programme)) nm_html_text("programme") else programme
+  # SESSION 120: the re-based page prints FY2026 + FY2027 ($422,529,376.25).
+  # That footer is classed by rhtp_footer_class(), never read as a round; it
+  # corroborates the FY2026 allotment only through the class.
+  m <- stringr::str_match(t, "financial assistance award totaling \\$([0-9,]+\\.[0-9]{2})")[, 2]
+  if (!is.na(m) && identical(rhtp_footer_class(as.numeric(gsub(",", "", m)), "NM"), "ALLOTMENT_PLUS_FY2027")) {
+    return(invisible(TRUE))
+  }
   want <- paste0("financial assistance award totaling ", NM_STATED$footer_amount)
   if (!stringr::str_detect(t, stringr::fixed(want))) {
     msg <- paste0("[NM] the CMS financial-assistance footer is not on HCA's ",
@@ -617,8 +626,15 @@ nm_name_scope <- function(text, key) {
                   state = "NM", page = key)
 }
 
+# SESSION 120: re-based to the 2026-11-19 copy after reading it (probe trip
+# 2026-11-17 18:41Z). "Currently under evaluation" is gone: every procurement
+# now reads "Selection complete" with an announcement date (CRHSI by November
+# 20, ASO by November 30, Innovation Fund by December 30, Rooted in New Mexico
+# and the Data Hub Administrator by December 18, 2026). Nobody is named and no
+# amount is printed. The footer now prints $422,529,376.25, FY2026 + FY2027
+# (ALLOTMENT_PLUS_FY2027), never a round.
 NM_PENDING_MARKERS <- c(
-  "Currently under evaluation",
+  "Selection complete",
   "Administrative Services Organization (ASO) RFP",
   "Center for Rural Health Sustainability & Innovation",
   "Healthy Horizons",
@@ -626,6 +642,23 @@ NM_PENDING_MARKERS <- c(
   "Rooted in New Mexico",
   "Rural Health Data Hub"
 )
+
+NM_ASO_PENDING <- paste("Administrative Services Organization (ASO) RFP Provides administrative and operational",
+                        "support across RHT Program initiatives, including contract management, financial processes,",
+                        "and reporting Selection complete announcement will be made by November 30, 2026")
+nm_aso_findings <- function(programme) {
+  t <- stringr::str_squish(programme)
+  out <- character(0)
+  if (!grepl(NM_ASO_PENDING, t, fixed = TRUE)) {
+    out <- c(out, paste0("[NM] ASO: HCA's ASO line no longer reads 'Selection complete announcement will be made by ",
+                         "November 30, 2026'. The ASO may be announced: read it, then re-read Accenture LLP's FSRS ",
+                         "subaward ($128,979,618.21, ADMINISTRATOR_PASS_THROUGH_UNRESOLVED) for a fee and pass-through split."))
+  }
+  if (grepl("Accenture", t, ignore.case = TRUE)) {
+    out <- c(out, "[NM] ASO: HCA's RHT page now names Accenture. Read it for the fee and the pass-through share.")
+  }
+  out
+}
 
 nm_assert_no_award_roster <- function(programme = NULL) {
   t <- if (is.null(programme)) nm_html_text("programme") else programme
@@ -1385,6 +1418,13 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
                                       news = txt$news)
   nm_assert_pending_not_awarded(programme = txt$programme)
   nm_assert_programme_provenance(programme = txt$programme)
+  # SESSION 120, OWNER RULING (d): the ASO announcement. Accenture LLP's FSRS
+  # subaward ($128,979,618.21) is held out of NM's awards under
+  # ADMINISTRATOR_PASS_THROUGH_UNRESOLVED until HCA splits the fee from the
+  # pass-through share. HCA says the ASO "announcement will be made by November
+  # 30, 2026"; this trips the day that sentence changes or the page names the ASO.
+  aso <- nm_aso_findings(txt$programme)
+  if (length(aso)) stop(paste(aso, collapse = " | "), call. = FALSE)
   nm_assert_roster_control(rhcdf = txt$rhcdf, news = txt$news)
   nm_assert_candidates_are_rhcdf_recipients(rhcdf = txt$rhcdf)
 

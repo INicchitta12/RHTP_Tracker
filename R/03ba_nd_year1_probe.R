@@ -75,7 +75,18 @@ ND_KNOWN_AWARDED <- c(
   # Applicants"; the section names no awardee and prints no amount (RFP and
   # FAQ text only). Its eligible class is health-care employers and education
   # institutions, NOT hospitals only, so it is not in ND_HOSPITAL_ONLY_ROUNDS.
-  "Train In Place")
+  "Train In Place",
+  # SESSION 120, read 2026-11-19 (Routine TRIPWIRE 11-18 09:21Z): three headings
+  # went "Closed" -> "Awarded | N Applicants" (5, 8 and 13). No section names an
+  # awardee or prints an amount (RFP, TA and FAQ text only). NEMT's eligible
+  # class is "hospitals, clinics, federally qualified health centers, ... tribally
+  # run 638 health facilities", not hospitals only; Childcare's centre "would have
+  # to be located on the hospital campus" but the class is not stated to be
+  # hospitals only, so neither is in ND_HOSPITAL_ONLY_ROUNDS. The name diff on
+  # both pages still catches a roster.
+  "Suicide Intervention \u2013 Healthcare Systems Initiative",
+  "Childcare for the Rural Health Workforce",
+  "Non-Emergency Medical Transportation Acquisition")
 
 # THE ROUNDS WHOSE ELIGIBLE CLASS IS HOSPITALS ONLY (session 94, owner). When
 # North Dakota names recipients for these, EVERY recipient is a critical
