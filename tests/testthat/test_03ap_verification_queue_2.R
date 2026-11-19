@@ -613,6 +613,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # VT's duplicate held, Year 2 filings held, the independent check's pairs incl.
   # CT Vassar/Sharon -$13,116,917), WA's 28 at $0, IN GROW -2:
   # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
+  # Session 120: FSRS 11-19 archive (ME +12 hospital rows / +$15,543,284; MN
+  # Graceville CAH 241321 +$36,459) and MN Murray County (owner ruling a, CAH
+  # 241319, 2 rows / $1,610,332): +15 / +$17,190,075: 2,285 / $2,223,153,907.38 / 42.
+  expect_equal(named$rows, 2285L)
+  expect_equal(round(named$dollars, 2), 2223153907.38, tolerance = 0)
+  expect_equal(named$states, 42L)
+  named$rows <- named$rows - 15L
+  named$dollars <- named$dollars - 17190075
   expect_equal(named$rows, 2270L)   # session 119: + IN GROW Bluffton (FSRS ruling), + MN Pipestone
   expect_equal(round(named$dollars, 2), 2205963832.38, tolerance = 0)
   expect_equal(named$states, 42L)
@@ -875,7 +883,7 @@ test_that("session 49 took Arkansas past Georgia, and session 50 took South Caro
   # Session 118: Minnesota's FFATA subawards (the CAH direct allocations, 86 rows)
   # put Minnesota next; the order below it is unchanged once it is set aside.
   expect_equal(p$state[[2]], "MN")
-  expect_equal(round(p$dollars[[2]]), 119220831)   # session 119: + Pipestone CAH $1,697,594
+  expect_equal(round(p$dollars[[2]]), 120867622)   # session 120: + Murray County $1,610,332, Graceville $36,459   # session 119: + Pipestone CAH $1,697,594
   p <- p[p$state != "MN", ]
   expect_equal(p$state[[2]], "SC")
   expect_equal(round(p$dollars[[2]], 2), 115985714.95)  # + $145,000, session 53
