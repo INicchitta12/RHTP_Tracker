@@ -2587,3 +2587,25 @@ CT,2026-11-19T15:42:10Z,CHANGED,dss_press,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-19T15:42:10Z,CHANGED,dmhas_rfps,,trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-19T15:42:10Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
 CT,2026-11-19T15:42:10Z,TRIPWIRE,documents,"[CT] 'documents' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program-Documents | Documents Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Documents On. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-11-19T16:51:31Z,CHANGED,AZ:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:31Z,CHANGED,AZ:ahcccs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:37Z,TRIPWIRE,(probe),"[DE] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: news: 'Delaware Announces Rural Health Transformation Funding to Strengthen Physician Workforce'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:38Z,UNCHANGED,FL:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:38Z,ERROR,governor,HTTP 403 from https://www.flgov.com/eog/news/press,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:39Z,CHANGED,IA:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:39Z,CHANGED,ID:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:39Z,CHANGED,ID:dhw,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:41Z,CHANGED,MN:mdh,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:41Z,UNCHANGED,MT:news,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:41Z,CHANGED,MT:dphhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:43Z,CHANGED,NE:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:43Z,UNCHANGED,NE:dhhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:44Z,CHANGED,NJ:doh,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:44Z,CHANGED,NV:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:44Z,UNCHANGED,NV:nvha,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:45Z,UNCHANGED,OK:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:46Z,UNCHANGED,OR:oha,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:47Z,TRIPWIRE,(probe),"[TX] NEW RHTP AWARD HEADLINE ON A NEWSROOM INDEX: hhsc: 'Gov. Abbott Announces Recipients of $87 Million in Rural Texas Strong Grants'; hhsc: 'Gov. Abbott, HHSC Announce Recipients of $8 Million in Rural Texas Strong Grants'; hhsc: 'Gov. Abbott, HHSC Announce Recipients of $78 Million in Rural Texas Strong Grants'. Open the item and look for a roster (Tennessee's and New Jersey's shape). Then extract it, or re-base this page with --fetch after READING it (§2.2).",trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:49Z,CHANGED,UT:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:49Z,CHANGED,UT:dhhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-19T16:51:49Z,CHANGED,MD:governor,,trig_018XcygicsAyLfgdhgjE7uDU
