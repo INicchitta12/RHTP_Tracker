@@ -118,6 +118,14 @@ agree. **Answer provenance and tier separately, in that order.**
 > re-read is the percentage, which is the field this project had never had to
 > look at because it had always been 100.
 
+> **SESSION 121, OWNER RULING: A FOOTER IS A CHECK, NEVER A SOURCE.** Compare its printed dollar figures against
+> the state's FY2026 allotment, its FY2027 award and their sum, and take the verdict on the CMS share
+> (`rhtp_footer_check()` / `rhtp_assert_footer_check()`, `R/utils_config.R`): `ALLOTMENT`, `FY2027_AWARD` or
+> `ALLOTMENT_PLUS_FY2027`. A CMS share matching none is **REFUSED**: re-read the document and record the reading
+> in `config/footer_refusals_read.csv` (`REFUSED_READ`, still never a source). A partial percentage with no
+> printed CMS dollar figure is refused, never multiplied. Mississippi's 11-17 footer is the fixture: its headline
+> $410,584,410.13 is FY2026 + FY2027, and its printed CMS share $410,420,176.37 matches none.
+
 > **AND SESSION 51 FOUND THE SAME ERROR INSIDE THIS REPOSITORY: A BUCKET MUST
 > NOT MIX TIERS.** Session 50 put Iowa's $50,000,000 Centers of Excellence
 > footer, a Tier 2 pool, into `POOL_NAMED_HOSPITALS` beside Nebraska's Tier 3

@@ -599,6 +599,17 @@ ms_assert_footer_is_not_fully_federal <- function(body = NULL) {
   invisible(f)
 }
 
+#' SESSION 121: the footer rule on the funding page (a check, never a source)
+ms_assert_footer_rule <- function(body = NULL) {
+  f <- rhtp_assert_footer_check(ms_html_text("funding", body), MS_STATE,
+                                label = "MS funding-page CMS footer")
+  if (nrow(f) != 1L) {
+    stop("[MS] expected exactly ONE CMS footer on the funding page; parsed ",
+         nrow(f), ".", call. = FALSE)
+  }
+  invisible(f)
+}
+
 #' The CMS SHARE is the allotment; the HEADLINE is not, and is not a pool
 #'
 #' Driven in all four directions, because the failure this prevents is the
@@ -1488,7 +1499,12 @@ ms_probe <- function() {
   # The tripwires run against the LIVE bytes (session 25's Indiana lesson).
   ms_assert_remaining_tranches(bodies = live)
   ms_assert_selection_complete_unnamed(body = live$funding)
-  ms_assert_footer_is_not_fully_federal(body = live$funding)
+  # SESSION 121: the LIVE footer is checked by the owner's footer rule, not
+  # pinned to the archived BP1 sentence. Since 2026-11-17 it prints FY2026 +
+  # FY2027 with a CMS share that matches no anchor: REFUSED, re-read and
+  # recorded (config/footer_refusals_read.csv), so it no longer trips. A new
+  # unread refusal stops the probe.
+  ms_assert_footer_rule(body = live$funding)
   ms_assert_announcement_on_channel(body = live$gov_newsroom,
                                     release_body = live$release)
   ms_assert_no_new_rhtp_headline(body = live$gov_newsroom)

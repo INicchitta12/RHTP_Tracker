@@ -725,13 +725,19 @@ ca_assert_footer_corroborates <- function(strict = FALSE, calrht = NULL,
   # award (cumulative); it is NEVER a round total, and anything else stops.
   printed <- stringr::str_match(
     calrht, "financial assistance award totaling (\\$[0-9,]+\\.[0-9]{2})")[, 2]
-  cls <- rhtp_footer_class(as.numeric(gsub("[$,]", "", printed)), "CA")
-  if (is.na(printed) || !identical(printed, CA_STATED$footer_amount_bp1_bp2) ||
-      !identical(cls, "ALLOTMENT_PLUS_YEAR2_INITIAL")) {
-    stop("[CA] the footer amount is no longer ", CA_STATED$footer_amount_bp1_bp2,
-         " (read: ", printed, ", class ", cls, "). It is the allotment plus the ",
-         "Year 2 initial award, and its cents are pinned. Re-read the page; a ",
-         "footer is never a round total.", call. = FALSE)
+  # SESSION 121 (owner ruling): the footer is checked against FY2026, FY2027
+  # and their sum (rhtp_assert_footer_check). HCAI printed $333,639,308.46
+  # (allotment + the $100M initial award, recorded as a read refusal) to 11-14
+  # and $464,745,131.25 (FY2026 + FY2027) since. Either passes; anything else
+  # the rule refuses stops here. It is NEVER a round total.
+  if (is.na(printed)) {
+    stop("[CA] the CalRHT footer prints no 'totaling $' figure. Re-read the page.", call. = FALSE)
+  }
+  fc <- rhtp_assert_footer_check(calrht, "CA", label = "CA CalRHT footer")
+  if (!all(fc$verdict %in% c("ALLOTMENT", "ALLOTMENT_PLUS_FY2027", "REFUSED_READ"))) {
+    stop("[CA] the CalRHT footer reads ", paste(fc$verdict, collapse = "/"),
+         " (printed ", printed, "). Re-read the page; a footer is never a round total.",
+         call. = FALSE)
   }
   # The outlier that agrees with CMS.
   if (is.null(wcap)) wcap <- ca_pdf_text("gg_wcap")
