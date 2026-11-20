@@ -2273,6 +2273,9 @@ Network is Full; the old allowlist blockers are superseded.
   - **Delete old LA `trig_01NRTUU1Vg3DoQPL1uK2gKBt` and SC `trig_01221XxhsPrg8ojwngYSAAFv`** once each successor logs on
     `main` (LA Sat 11-21 12:50Z, SC Thu 11-26 08:30Z); a check-in is scheduled. Delete old IN `trig_01KZZ2aZLdhxo8X827vsNMyE`
     and ID `trig_019dET8MmsxwJAHBnx6dCLqF` after IN (Fri 11-27 09:50Z) and ID (Tue 11-24 12:40Z) log on their new ids.
+  - **Fix `R/03cw` before the next RHTPTRACKER firing (Fri 11-27 20:23Z).** The 11-20 run logged 63 LEADs, and every one gave the same
+    "official source": CMS's 11-09 FY2027 release, a link on every page of the site. 33 opportunity leads were logged as UNKNOWN state.
+    No new official document was found. Detail is in the write-up addendum.
   - **Confirm IN Meds-to-Beds names** (read off an image) when IDOH publishes text. VA page TLS-failing since 11-20 17:25Z.
   - **Runners 600k-650k:** VT, OK, VA, DE, CT, KS, NC. Move VT and OK next.
 - **Session 120.** Detail: `docs/session120_rulings_sc_probe_log.md`.
