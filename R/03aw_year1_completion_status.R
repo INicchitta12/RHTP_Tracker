@@ -200,7 +200,7 @@ y1_file_figures <- function(st, f) {
   # out of the pool-inclusive figure, never out of published_priced.
   inside <- 0
   if (st == "SD" && "round_id" %in% names(d)) {
-    inside <- sum(amt[d$round_id %in% c("RS", "UNPLACED")], na.rm = TRUE)
+    inside <- sum(amt[d$round_id %in% c("RS", "UNPLACED", "CCBHC")], na.rm = TRUE)  # CCBHC: session 121, inside R/03bw's round
   }
   vst <- if ("validation_source_type" %in% names(d))
     d$validation_source_type else rep(NA_character_, nrow(d))
