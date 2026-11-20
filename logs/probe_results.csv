@@ -2942,3 +2942,5 @@ MT,2026-11-20T17:48:03Z,UNCHANGED,grants,,interactive
 MT,2026-11-20T17:48:03Z,UNCHANGED,rfps,,interactive
 MT,2026-11-20T17:48:03Z,UNCHANGED,home,,interactive
 MT,2026-11-20T17:48:03Z,UNCHANGED,communications,,interactive
+MT,2026-11-20T17:41:15Z,TRIPWIRE,(probe),"[MT] 'home' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""Department of Health and Human Services (HHS) as part of a financial assistance award totaling $473,250,028.01 with 100 percent funded by CMS/HHS."". Montana has awarded its EMS Equipment Grant and named only the four ambulance awardees. A new award sentence is a roster for the 75 or a new round: read it, then re-run R/03bv.",trig_01FwfCtRE6GoEX7tUJ1pjYrm
+MN,2026-11-20T18:11:53Z,TRIPWIRE,(probe),"[MN] 'grants' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""Department of Health and Human Services (HHS) as part of a financial assistance award totaling $293,090,618.14 with 100 percent funded by CMS/HHS."". MDH has named no RHTP grantee beyond the nine sub-recipient awardee PDFs R/03cp extracted. The 94 eligible hospitals are a class, not a roster (§0.3); read what the page now names.",trig_01HoMz12EJy5235Sqfipm8mM
