@@ -1464,6 +1464,22 @@ the action date is after 2026-10-30. `R/09b_fsrs_award_source.R` reads the archi
 - **What it is not.** FSRS shows subawards only: state procurement contracts are not reportable (2 CFR 170),
   and 19 states had filed nothing (`fsrs_nonfiling_states.csv`). Every held subaward is in `fsrs_held.csv`.
 
+#### Which date decides Year 1 (session 121, owner ruling)
+
+A row is Year 1 (`budget_period` 1) if a **state source** shows the award or contract was executed or started on or
+before 2026-10-30, even when its FSRS filing is dated later. The FSRS action date decides only where no state source
+gives a date.
+- **Where it lives.** `config/year1_state_source_dates.csv`: one row per subaward, with `date_kind`
+  (`AWARD_ANNOUNCED` | `CONTRACT_BEGIN`), the archived source and the quoted sentence or register field. `R/09b`
+  refuses a date after 10-30, an entry naming no FSRS record, or a missing archive. The state date applies only where
+  the FSRS date alone would hold the record. Pinned in `test_09b_year1_state_dates.R`.
+- **What is not a date of execution or start.** A selection or intent (NM: "HCA has selected six Regional Hub
+  Organizations"). A plan line. A contract begin date shown to be a backdated period of performance. SD Monument
+  Health's 2026-02-20 begin date predates its round's 08-19 award and carries an FY27 number and an 11-02 FFATA date;
+  it is held in `sd_rht_contracts_held.csv`.
+- **Session 121 moves:** TN HART 45 (TDH's 2026-09-03 award release) and SD 21 (the register's begin dates). Still
+  held: SD Monument, NM's four hubs, IL Morris and TN's 12 non-HART or unmatched filings.
+
 #### Completed states: a published roster or full obligation (session 118, owner ruling)
 
 `year1_completion_status.csv` carries `completion_basis` on every COMPLETE state (R/03aw `Y1_COMPLETION_BASIS`).
