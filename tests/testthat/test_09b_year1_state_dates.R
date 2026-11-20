@@ -73,24 +73,30 @@ test_that("the config refuses a date after 10-30, an unknown kind and a missing 
   expect_error(fsrs_state_dates(tmp), "not on disk")
 })
 
-test_that("the committed config: 66 subawards (TN HART 45, SD register 21), none held without it", {
+test_that("the committed config: 67 subawards (TN HART 45, SD 22), none held without it", {
   sd <- fsrs_state_dates()
-  expect_equal(nrow(sd), 66L)
-  expect_equal(as.integer(table(sd$state)[c("SD", "TN")]), c(21L, 45L))
+  expect_equal(nrow(sd), 67L)
+  expect_equal(as.integer(table(sd$state)[c("SD", "TN")]), c(22L, 45L))
   expect_true(all(sd$state_source_date <= "2026-10-30"))
   expect_setequal(unique(sd$date_kind[sd$state == "TN"]), "AWARD_ANNOUNCED")
-  expect_setequal(unique(sd$date_kind[sd$state == "SD"]), "CONTRACT_BEGIN")
-  # what stays held: Monument Health (begin date not confirmed), NM's four hubs
+  # owner ruling: the 19 SD subawards whose register begin date is 2026-02-20
+  # rest on SD's completion statement (OBLIGATED_BY_DEADLINE, 10-30), Monument
+  # Health among them; the other 3 on their register begin dates
+  expect_equal(sum(sd$date_kind == "OBLIGATED_BY_DEADLINE"), 19L)
+  expect_equal(sum(sd$state == "SD" & sd$date_kind == "CONTRACT_BEGIN"), 3L)
+  expect_true(all(grepl("committed every dollar", sd$source_quote[sd$date_kind == "OBLIGATED_BY_DEADLINE"])))
+  expect_true("27RHT00112" %in% sd$subaward_number)
+  # what stays held: NM's four hubs
   # ("selected" is not executed or started), IL Morris (no state date), and
   # TN's twelve non-HART or unmatched filings
-  expect_false("27RHT00112" %in% sd$subaward_number)
   rec <- fsrs_dispose()
   held <- rec[rec$record_status == "BUDGET_PERIOD_2_HELD", ]
-  expect_equal(nrow(held), 18L)
-  expect_equal(as.integer(table(held$st)[c("IL", "NM", "SD", "TN")]), c(1L, 4L, 1L, 12L))
-  expect_true("27RHT00112" %in% held$subaward_number)
+  expect_equal(nrow(held), 17L)
+  expect_equal(as.integer(table(held$st)[c("IL", "NM", "TN")]), c(1L, 4L, 12L))
+  expect_false("SD" %in% held$st)
+  expect_false("27RHT00112" %in% held$subaward_number)
   moved <- rec[rec$year1_date_basis != "FSRS_ACTION_DATE", ]
-  expect_equal(nrow(moved), 66L)
+  expect_equal(nrow(moved), 67L)
   expect_true(all(moved$action_date > "2026-10-30"))
   expect_true(all(moved$budget_period == 1L))
 })

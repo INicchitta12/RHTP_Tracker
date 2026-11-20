@@ -1482,11 +1482,13 @@ gives a date.
   refuses a date after 10-30, an entry naming no FSRS record, or a missing archive. The state date applies only where
   the FSRS date alone would hold the record. Pinned in `test_09b_year1_state_dates.R`.
 - **What is not a date of execution or start.** A selection or intent (NM: "HCA has selected six Regional Hub
-  Organizations"). A plan line. A contract begin date shown to be a backdated period of performance. SD Monument
-  Health's 2026-02-20 begin date predates its round's 08-19 award and carries an FY27 number and an 11-02 FFATA date;
-  it is held in `sd_rht_contracts_held.csv`.
-- **Session 121 moves:** TN HART 45 (TDH's 2026-09-03 award release) and SD 21 (the register's begin dates). Still
-  held: SD Monument, NM's four hubs, IL Morris and TN's 12 non-HART or unmatched filings.
+  Organizations"). A plan line. A contract begin date that reads as a backdated period of performance.
+- **A state completion statement is a state source date (`OBLIGATED_BY_DEADLINE`, owner ruling).** South Dakota's
+  "committed every dollar of its $189.5 million ... by the federal deadline, through 234 agreements" (Governor/DOH,
+  11-10) dates every SD RHTP register agreement on or before 10-30. It, not the register's 2026-02-20 begin date, is the
+  Year 1 basis of the 34 contracts carrying that date (Monument Health $12.9M among them), recorded on each row.
+- **Session 121 moves:** TN HART 45 (TDH's 2026-09-03 award release) and SD 22 (19 on the completion statement, 3 on
+  register begin dates). Still held: NM's four hubs, IL Morris and TN's 12 non-HART or unmatched filings.
 
 #### Completed states: a published roster or full obligation (session 118, owner ruling)
 

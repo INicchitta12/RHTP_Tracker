@@ -146,7 +146,7 @@ fsrs_raw <- function(as_of = FSRS_AS_OF) {
 # to be a backdated period of performance is not a start (SD Monument Health,
 # held). An entry dated after 2026-10-30 is refused: it cannot move anything.
 FSRS_STATE_DATES <- "config/year1_state_source_dates.csv"
-FSRS_STATE_DATE_KINDS <- c("AWARD_ANNOUNCED", "CONTRACT_BEGIN")
+FSRS_STATE_DATE_KINDS <- c("AWARD_ANNOUNCED", "CONTRACT_BEGIN", "OBLIGATED_BY_DEADLINE")
 
 fsrs_state_dates <- function(path = FSRS_STATE_DATES) {
   if (!file.exists(here::here(path))) {

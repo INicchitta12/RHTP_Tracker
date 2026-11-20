@@ -156,6 +156,21 @@ SD_POOL_UNPLACED <- "RHT series - named RHTP awards whose round the register doe
 # of 2026-09-24 (R/03bw: a 13-member cohort, 12 grants, "more than $13
 # million"), INSIDE it and never on top: R/03bw carries the round whole in
 # round_amount, at $0 per row, and R/03aw nets these contracts out of it.
+# SESSION 121, OWNER RULING: THE YEAR 1 BASIS OF THE 2026-02-20 CONTRACTS. The
+# 34 contracts first seen 2026-11-19 with a register Begin Date of 2026-02-20
+# (Monument Health among them) are Year 1 on South Dakota's own completion
+# statement, which dates every SD RHTP agreement on or before the federal
+# deadline -- NOT on the begin date, which reads as a backdated period of
+# performance (FY27 contract numbers, posted after 11-02, FFATA 11-02..11-06).
+SD_Y1_COMPLETION_QUOTE <- paste0(
+  "'In Year One, South Dakota committed every dollar of its $189.5 million Rural ",
+  "Health Transformation award by the federal deadline, through 234 agreements ",
+  "supporting healthcare organizations and communities across the state.' ",
+  "(Governor/DOH release KB0047476, 2026-11-10; ",
+  "data/evidence/recheck/2026-11-13/SD/2026-11-13_sd_gov_year_two_release_KB0047476.html)")
+SD_Y1_COMPLETION_FIRST_SEEN <- "2026-11-19_open_sd_contract_search_RHT.html"
+SD_Y1_COMPLETION_BEGIN <- as.Date("2026-02-20")
+
 SD_POOL_CCBHC <- "RHT series - CCBHC Core Service Areas grants (inside the 2026-09-24 CCBHC round, R/03bw; NEVER added to it)"
 SD_CCBHC_ROUND_GRANTS <- 12L
 # SESSION 121: a contract the owner's instruction holds out of every total
@@ -269,7 +284,7 @@ SD_PLACEMENT <- tibble::tribble(
   "27RHT00109",     "UNPLACED", "Helpline Center Inc: 'Network of Care data architecture modernization ... Resource Directory as a Service'. No round named.",
   "27RHT00110",     "ADMIN", "Great Plains Tribal Leaders: 'Expand and strengthen the doula workforce in South Dakota through recruitment, training, certification, and workforce development' -- doula workforce development, the kind of award session 64 read as administrative (South Dakota Doulas).",
   "27RHT00111",     "UNPLACED", "Capital Area Counseling Svc: 'enhance EHR, connect to SD HIE'. No round named.",
-  "27RHT00112",     "HELD", "Monument Health Rapid City Hos: 'fund EHR enhancement, purchase imaging and laboratory equipment, and strengthen network and cybersecurity across the Monument system', $12,915,000, Begin Date 2026-02-20. HELD (session 121, owner instruction): the detail page carries no contract image and no execution date, so the 2026-02-20 begin date cannot be confirmed as an execution or start date. Against it: the contract carries an FY27 number (27RHT00112), first appeared on the register between 11-02 and 11-19, and its FFATA action date is 2026-11-02; the round it reads like was awarded 2026-08-19 (KB0047023), six months after the begin date. Never in any total until a contract record dates it.",
+  "27RHT00112",     "UNPLACED", "Monument Health Rapid City Hos: 'fund EHR enhancement, purchase imaging and laboratory equipment, and strengthen network and cybersecurity across the Monument system', $12,915,000, Begin Date 2026-02-20. No round named. Held by session 121's first pass (the begin date could not be confirmed as an execution or start date) and RELEASED the same day on the OWNER'S RULING: Year 1 rests on South Dakota's completion statement (SD_Y1_COMPLETION_QUOTE), not on the begin date.",
   "27RHT00113",     "UNPLACED", "Sr Citizens, Active Generation: 'develop the Aging in Place Innovation Center, a regional innovation and implementation hub'. KB0047023 names Regional Innovation Centers; the register does not name the round.",
   "27RHT00114",     "UNPLACED", "RMD Recovery, Buffalo Plns Rec: 'fund EHR enhancements, network infrastructure, and equipment' (begun 2026-08-20). No round named.",
   "27RHT00115",     "UNPLACED", "Community Health Center of BH: 'enhance EHR, connect to SD HIE, and strengthen cybersecurity'; its 27RHT00100 is separate. No round named.",
@@ -360,7 +375,9 @@ SD_ENROLMENT_BRIDGES <- tibble::tribble(
   "27RHT00093",     "WINNER REGIONAL HEALTHCARE CTR", "WINNER REGIONAL HEALTHCARE CENTER",       "WINNER",      "LEGAL_NAME_TRUNCATED",
   "27RHT00104",     "WINNER REGIONAL HEALTHCARE CTR", "WINNER REGIONAL HEALTHCARE CENTER",       "WINNER",      "LEGAL_NAME_TRUNCATED",
   "27RHT00082",     "VERMILLION SANFORD HEALTH",      "SANFORD HEALTH NETWORK",                  "VERMILLION",  "DBA_OF_LEGAL_ENTITY",
-  "27RHT00072",     "MARSHALL COUNTY MEMORIAL HOSP",  "MARSHALL COUNTY MEMORIAL HOSPITAL",       "BRITTON",     "LEGAL_NAME_TRUNCATED"
+  "27RHT00072",     "MARSHALL COUNTY MEMORIAL HOSP",  "MARSHALL COUNTY MEMORIAL HOSPITAL",       "BRITTON",     "LEGAL_NAME_TRUNCATED",
+  # Monument Health's second contract: 27RHT00048's string and bridge (released on the owner's ruling).
+  "27RHT00112",     "MONUMENT HEALTH RAPID CITY HOS", "MONUMENT HEALTH RAPID CITY HOSPITAL INC", "RAPID CITY",  "LEGAL_NAME_TRUNCATED"
 )
 # What each session-112 bridge read, in place of session 99's truncation sentence.
 SD_BRIDGE_READING <- c(
@@ -1141,6 +1158,14 @@ rhtp_sd_build <- function() {
         )
       )
     ) %>%
+    dplyr::mutate(determination_basis = dplyr::if_else(
+      .data$first_seen_archive == SD_Y1_COMPLETION_FIRST_SEEN &
+        .data$begin_date == SD_Y1_COMPLETION_BEGIN,
+      paste0(.data$determination_basis,
+             " YEAR 1 BASIS (session 121, owner ruling): South Dakota's completion statement, ",
+             SD_Y1_COMPLETION_QUOTE, ", dates this agreement on or before 2026-10-30. The register's ",
+             "2026-02-20 Begin Date is NOT the basis (it reads as a backdated period of performance)."),
+      .data$determination_basis)) %>%
     dplyr::select(
       # -- the FL_year1_awardees schema, in FL's order --------------------
       "state", "row_no", "awardee", "amount", "recipient_type",
@@ -1417,7 +1442,9 @@ rhtp_sd_write <- function() {
   rhtp_sd_assert(records)
 
   readr::write_csv(records, here::here(SD_CSV), na = "")
-  readr::write_csv(rhtp_sd_held(), here::here(SD_HELD_CSV), na = "")
+  held <- rhtp_sd_held()
+  if (nrow(held)) readr::write_csv(held, here::here(SD_HELD_CSV), na = "") else
+    if (file.exists(here::here(SD_HELD_CSV))) file.remove(here::here(SD_HELD_CSV))
 
   wb <- openxlsx::createWorkbook()
   add <- function(sheet, data) {
