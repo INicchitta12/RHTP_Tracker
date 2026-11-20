@@ -2,7 +2,11 @@
 # Session 54. West Virginia's seven named awards, $6,444,803.
 
 suppressWarnings(suppressMessages(source(here::here("R", "03av_wv_year1_awardees.R"))))
-wv <- wv_year1_awardees()
+# Session 121: the release rows (what each release printed) and the award
+# file (the release rows priced from, and extended by, the state's Year 1
+# roster). The release-level pins below read `wv`; the file reads `wv_all`.
+wv <- wv_year1_release_rows()
+wv_all <- wv_year1_awardees()
 
 source(here::here("R", "utils_summary_calls.R"))  # session 116c: strip the FSRS overlay before comparing a build
 test_that("thirty-three rows, twenty-four priced, $24,324,218, each quoted verbatim from its release", {
@@ -12,9 +16,10 @@ test_that("thirty-three rows, twenty-four priced, $24,324,218, each quoted verba
   # Wellness Center ($250,000), neither a hospital row.
   # Session 115: + three CAMC awards from the 10-30 release ($3,930,266).
   # Session 117a: + seven awards from the 11-10 release ($16,976,480).
-  expect_equal(nrow(wv), 40L)
-  expect_equal(sum(!is.na(wv$amount)), 31L)
-  expect_equal(sum(wv$amount, na.rm = TRUE), 41300698)
+  # Session 121: + three awards from the 11-16 and 11-19 releases ($7,526,918).
+  expect_equal(nrow(wv), 43L)
+  expect_equal(sum(!is.na(wv$amount)), 34L)
+  expect_equal(sum(wv$amount, na.rm = TRUE), 48827616)
   expect_silent(wv_assert_sources())
 })
 
@@ -25,9 +30,12 @@ test_that("CAMC/Vandalia, Cabell Huntington Foundation, Minnie Hamilton, the six
                                        WV_INV_ENROL$awardee, "Vandalia Health",
                                        "West Virginia United (WVU) Health System",
                                        "Charleston Area Medical Center (CAMC)",
-                                       "Cabell Huntington Hospital"))
-  expect_equal(nrow(h), 18L)   # session 107: + 2 WVU Health System (system parent, LOW); session 115: + 3 CAMC; session 117a: + Cabell Huntington Hospital
-  expect_equal(sum(h$amount, na.rm = TRUE), 11798579)
+                                       "Cabell Huntington Hospital",
+                                       "West Virginia University Hospitals, Inc.",
+                                       "West Virginia United Health System",
+                                       "West Virginia University (WVU) Medicine"))
+  expect_equal(nrow(h), 21L)   # session 107: + 2 WVU Health System (system parent, LOW); session 115: + 3 CAMC; session 117a: + Cabell Huntington Hospital; session 121: + 3
+  expect_equal(sum(h$amount, na.rm = TRUE), 19325497)
   expect_true(all(h$determination_confidence[h$awardee == "West Virginia United (WVU) Health System"] == "LOW"))
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   # The foundation rests on §10.2's named-parent row, a reading -> LOW.
@@ -73,8 +81,8 @@ test_that("session 85: Minnie Hamilton is typed on its CAH enrolment, CCWV on it
 test_that("the committed CSV matches a fresh build", {
   # Session 116c: the FSRS overlay (R/09b) priced seven $0 rows; undo it first.
   d <- rhtp_strip_fsrs_overlay(readr::read_csv(WV_CSV, show_col_types = FALSE))
-  expect_equal(d$awardee, wv$awardee)
-  expect_equal(d$amount, wv$amount)
+  expect_equal(d$awardee, wv_all$awardee)
+  expect_equal(d$amount, wv_all$amount)
 })
 
 
@@ -138,8 +146,10 @@ test_that("an RHTP headline trips whatever its verb; the 09-30 release is now KN
   # It says "Investments", not "Award" -- the old test could not see it.
   expect_false(grepl("award", paste(a$headline[a$slug == inv], inv), ignore.case = TRUE))
   expect_silent(wv_assert_no_new_award_release(arch))
-  # Nothing is held unextracted any more.
-  expect_equal(nrow(WV_READ_UNEXTRACTED), 0L)
+  # Session 121: two releases are held unextracted, each with its sentence
+  # (the Year 2 release, and Greenbrier's award with no named recipient).
+  expect_equal(nrow(WV_READ_UNEXTRACTED), 2L)
+  expect_true(all(nchar(WV_READ_UNEXTRACTED$why) > 100))
   # Without its WV_SLUG entry, the widened test trips on it.
   held <- WV_SLUG
   WV_SLUG <<- WV_SLUG[names(WV_SLUG) != "inv"]
@@ -231,4 +241,56 @@ test_that("session 112: Williamson Health & Wellness Center is the FQHC, not Wil
   expect_equal(c$amount, 1339077)
   expect_equal(c$recipient_type, "UNIVERSITY_OR_AHC")
   expect_equal(c$distributed_to_hospital, "No")
+})
+
+
+test_that("session 121: the 11-16 and 11-19 releases, Year 1 on the 11-09 'finalized' sentence", {
+  r <- wv[wv$state_source_url %in% paste0(WV_URL, WV_SLUG[c("rni", "cp")]), ]
+  expect_equal(nrow(r), 3L)
+  expect_equal(sum(r$amount), 7526918)
+  expect_true(all(r$distributed_to_hospital == "Yes"))
+  expect_equal(r$determination_confidence[r$awardee == "West Virginia University Hospitals, Inc."], "MEDIUM")
+  expect_true(all(r$determination_confidence[r$awardee != "West Virginia University Hospitals, Inc."] == "LOW"))
+  expect_true(all(r$basis_type[r$awardee != "West Virginia University Hospitals, Inc."] == "GENERAL_KNOWLEDGE"))
+  # the OED $3,000,000 to WVUIC is state money and has no row
+  expect_false(any(grepl("WVUIC|Innovation Corporation", wv$awardee)))
+  expect_true(all(grepl("finalized ahead of the October 30", r$determination_basis, fixed = TRUE)))
+})
+
+
+test_that("session 121: the file IS the state's Year 1 roster -- 67 awards, $108,261,312.68", {
+  ra <- wv_ra_parse()
+  expect_silent(wv_ra_assert(ra))
+  expect_equal(nrow(ra), 67L)
+  expect_equal(sum(ra$amount), 108261312.68)
+  expect_equal(nrow(wv_all), 68L)                 # 43 release rows + 25 roster-only
+  expect_equal(sum(!is.na(wv_all$amount)), 67L)   # row 14 is priced on row 13
+  expect_equal(sum(wv_all$amount, na.rm = TRUE), 108261312.68)
+  expect_true(all(!is.na(wv_all$wv_roster_row)))
+  # every release row is on the roster; the map is a bijection but for row 14
+  expect_equal(sort(unique(wv_all$wv_roster_row)), 1:67)
+  # the release prices that moved: priced from $0, a floor, a rounding, and WVPCA
+  r <- wv_all[wv_all$row_no %in% c(4, 12, 13, 15:21, 24, 27, 28), ]
+  expect_true(all(r$validation_source_type == "NOTICE_OF_AWARD"))
+  expect_true(all(grepl("FROM THE STATE'S YEAR 1 ROSTER", r$amount_basis, fixed = TRUE)))
+  expect_equal(wv_all$amount[wv_all$row_no == 24], 1897109)   # release printed $1,656,432
+  expect_equal(wv_all$amount[wv_all$row_no == 27], 2551145)   # release floor $2,500,000
+  expect_true(is.na(wv_all$amount[wv_all$row_no == 14]))
+  expect_match(wv_all$amount_basis[wv_all$row_no == 14], "PRICED ON ROW 13")
+  # hospital rows: 21 release rows + Pleasant Valley Hospital Foundation
+  h <- wv_all[wv_all$distributed_to_hospital == "Yes", ]
+  expect_equal(nrow(h), 22L)
+  expect_equal(sum(h$amount, na.rm = TRUE), 25162640)
+  expect_equal(sum(h$amount[h$determination_confidence == "LOW"], na.rm = TRUE), 10919290)
+  pv <- wv_all[grepl("Pleasant Valley", wv_all$awardee), ]
+  expect_equal(pv$amount, 203275)
+  expect_equal(pv$determination_confidence, "LOW")
+  # state agencies are typed as state agencies, never vendors or hospitals
+  sa <- wv_all[wv_all$recipient_type == "STATE_AGENCY", ]
+  expect_setequal(sa$awardee, c("West Virginia Department of Health Facilities",
+                                "West Virginia Higher Education Policy Commission",
+                                "Department of Environmental Protection"))
+  expect_true(all(sa$distributed_to_hospital == "No"))
+  # WVSOM's birthing center (the Greenbrier release names no recipient; the roster does)
+  expect_equal(wv_all$amount[wv_all$awardee == "West Virginia School of Osteopathic Medicine"], 3999993)
 })

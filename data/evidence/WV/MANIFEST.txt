@@ -57,3 +57,8 @@ f34e8902ef67d3621a3e2a04b64eff450b5904547873498508be2b7887b0ee5c  2026-11-02_wv_
 
 Session 115 (2026-11-09): the 2026-10-30 CAMC release (three awards, "more than $3.9 million"), fetched 2026-11-09 by a session-115 read, scripts stripped (the full page is the second digest). Credential scan: none.
 be480c89c1ca8ca855ccdd26aee51cfe9918641c233f568aa24945786ad1739b  2026-11-09_wv_art_camc_3_9m.html  https://health.wv.gov/article/governor-morrisey-announces-39-million-expand-rural-healthcare-training-and-workforce  full_page_sha256=9be94c96f532b0a0b429836dcb4a481cb2f597630d2bd06af8c45b02b5b0a837  2026-11-09T14:10:00Z
+
+Session 121 (2026-11-20): probe re-base after reading each diff (news index: the four articles read; programme page: menu + FY2026+FY2027 footer; /grant-opportunities redirects to /funding-opportunities, which links the Year 1 roster archived under recheck/2026-11-20/WV/). Fetched with the project agent, saved as served. Credential scan: none.
+e1274a6a80b462a7acf86d93317c13f38aa56728ede38743b2f0972c83537081  2026-11-20_wv_news_index.html  https://health.wv.gov/news  2026-11-20T16:45:00Z
+251ff4bfcef9c7dac29bc5c199394bb4e68fb82e13eb98537983c0c99fde5b48  2026-11-20_wv_rhtp_programme.html  https://health.wv.gov/rhtp  2026-11-20T16:45:00Z
+6ba153c82d0f6a5414036e6c80ae03bf9b669bcc8b3f88aac4b9d6209e433aa3  2026-11-20_wv_funding_opportunities.html  https://health.wv.gov/funding-opportunities  2026-11-20T16:45:00Z
