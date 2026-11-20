@@ -12,8 +12,8 @@ SHA-256s. Both are attribute-borne, so ky_reduce_html() absorbs them and
 
 file  bytes  sha256
 2026-10-12_ky_ruralhealthplan_home.html  61587  d4a66b356d9873624910025c71bf04ab338ac2047db58dbdd490b211686359b6
-2026-10-15_ky_ruralhealthplan_funding_opportunities.html  84292  8ce4402f9ea667ba2203556d270d12cbf36df1153043c8d1c1ecd5989b5e31b3
-2026-09-02_ky_chfs_grant_opportunities.html  97837  35fd0a60dbbcb6e0eaa2377728c553e40bbff5989102998888c6f3e04e1b2d9f
+2026-11-16b_ky_ruralhealthplan_funding_opportunities.html  88265  4366332df32c9ec4b9d0bf786f8347a2e88fc86705562272b7b816593b454efb
+2026-11-20_ky_chfs_grant_opportunities.html  102829  06451be137c3f1f26972cbd5a81ff293a218096281c9a0061129937109c804b8
 2026-09-02_ky_rfa_community_health_worker.pdf  246241  a2d845ffafc7cefbdf18265156feb1de4c8a5fdbd3f9cf4beb5a743e7c37e75b
 2026-09-02_ky_rfa_cmhc_support.pdf  384680  10df121f9c1e3f40c00030de4298e966741f1c6694f57de52e7874024f8ab41e
 2026-09-02_ky_cms_notice_of_award_attachment_b.pdf  2880479  e6a899a5d498ab8f10f08ffeb3156ee0b90cd7faf09df7e69748c5e3dec0f778
@@ -21,9 +21,4 @@ file  bytes  sha256
 2026-10-05_ky_rfa_ems_training_equipment.pdf  309037  05b0e677af2aa4c0a6202d8982899d6709586e6afa1f017438df64aafbb4bd34
 2026-10-05_ky_rfa_rural_dental_access_phdh_teams.pdf  319788  2f3e023daa03a536749947c30e0d1299c4894a248a1d128c08e07e464b9dd1ce
 2026-10-05_ky_rfa_accredited_dental_hygiene_programs.pdf  109989  0f3b328e6f7adee4a8d9ccc64ea72a95daa8fbcb7d775d7b270b9048078567f1
-2026-10-15_ky_foundation_healthy_kentucky_rch.html  328873  a9e177bb6ae9c9d307c27a99bd8d00e0d415f7d82c94610d9e4a174b36a1a2ea
-2026-10-26_ky_foundation_healthy_kentucky_rch.html  483456  3eb65a0544e79859d15fc5b683aebed179411c5cd8013fff18151bebf29247d9
-2026-10-26_ky_chfs_grant_opportunities.html  100010  aa4872537bff4f65bdc28c6a58fcdff9855e3ac7d4127e90c651a14f506bd270
-721b900bf6cf8025f29da8a0c94541d804d18fc4d7cd8a1f938c125237eef89f  2026-11-16_ky_foundation_healthy_kentucky_rch.html  https://healthy-ky.org/rch  copy of rch/2026-11-16_fhky_rch_hub_leads_MARTIN_COUNTY.html (session 118 re-base)
-4366332df32c9ec4b9d0bf786f8347a2e88fc86705562272b7b816593b454efb  2026-11-16b_ky_ruralhealthplan_funding_opportunities.html  https://ruralhealthplan.ky.gov/Pages/Request_For_Applications.aspx  session 119 re-base (88265 bytes)
-0db0448e9697d5eda105eb464bd45398e5d2af7d0e0de1a7ed55e9c0c9bcf692  2026-11-16b_ky_foundation_healthy_kentucky_rch.html  https://healthy-ky.org/rch  session 119 re-base (363074 bytes)
+2026-11-20_ky_foundation_healthy_kentucky_rch.html  378250  4fd239cfcc6303c7535288cb516b9ff8bf4a34e264f76516a764c9fba0bdf9e7
