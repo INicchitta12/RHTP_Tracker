@@ -62,10 +62,16 @@ AL_AGENT <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
 AL_DIR <- file.path("data", "evidence", "AL")
 AL_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
+  # Session 121: re-based after reading the 11-19 trip -- subrecipient kickoff
+  # recordings (10-28 .. 11-02), procurement and reimbursement trainings, a
+  # kickoff FAQ and grantee forms; no Community Medicine NOFO, no award, no
+  # recipient. The 10-02 copy stays.
   "resources", "https://alabamarhtp.com/resources/",
-  file.path(AL_DIR, "2026-10-02_al_rhtp_resources.html"), TRUE,
+  file.path(AL_DIR, "2026-11-20_al_rhtp_resources.html"), TRUE,
+  # Session 121: re-based -- the initiative menu was re-spaced ("Maternal &
+  # Fetal Health", "EHR, IT & Cybersecurity"), nothing else moved.
   "home", "https://alabamarhtp.com/",
-  file.path(AL_DIR, "2026-10-02_al_rhtp_home.html"), TRUE,
+  file.path(AL_DIR, "2026-11-20_al_rhtp_home.html"), TRUE,
   "adeca", "https://adeca.alabama.gov/alruralhealth/",
   file.path(AL_DIR, "2026-10-02_adeca_alruralhealth.html"), TRUE,
   "governor", "https://governor.alabama.gov/newsroom/",

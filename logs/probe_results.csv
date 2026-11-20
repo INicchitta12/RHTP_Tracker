@@ -2790,3 +2790,38 @@ OK,2026-11-20T17:04:49Z,UNCHANGED,xf:telestroke-expansion-i,,interactive
 OK,2026-11-20T17:04:49Z,UNCHANGED,xf:transportation-expansion,,interactive
 OK,2026-11-20T17:04:49Z,UNCHANGED,xf_bp2,,interactive
 OK,2026-11-20T17:04:49Z,UNCHANGED,legislative_reports,,interactive
+AL,2026-11-20T17:05:22Z,TRIPWIRE,(probe),"[AL] 'resources' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""6, 2026 Request for Reimbursement Training Update Grantee Resources ARHTP Subrecipient Kickoff FAQ Read the ARHTP Subrecipient Kickoff Frequently Asked Questions Beason-Hammon Certificate of Compliance Download the Beason-Hammon Certificate of Compliance RHTP Certification Form 9.26 Download the RHT"". Community Medicine, ARHTP's eleventh initiative, begins in Year 2 (2027) as a subaward round. Read the page: a NOFO is Tier 2 and names nobody; an award names recipients, coded one at a time on the RECIPIENT (§0.3a).",interactive
+CT,2026-11-20T17:05:25Z,CHANGED,opm,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,programme,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,documents,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,dss_press,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,dmhas_rfps,,interactive
+CT,2026-11-20T17:05:25Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-11-20T17:05:25Z,TRIPWIRE,documents,"[CT] 'documents' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program-Documents | Documents Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Documents On | Governor's Endorsement Letter Notice of Award CT Rural Health Transformation Project Narrative CT Rural Health Transformation Budget Narrative CT Rural Health Project Summaries RHTP Overview Slides Policies Accessibility About CT Directories Social Media For State Employees United States FULL Connecticut FULL. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NM,2026-11-20T17:05:48Z,TRIPWIRE,(probe),[NM] HCA's RHT page no longer carries: Selection complete | Administrative Services Organization (ASO) RFP | Center for Rural Health Sustainability & Innovation | Healthy Horizons | Rural Health Innovation Fund | Rooted in New Mexico | Rural Health Data Hub. Those are the six procurements and the state's own word for their stage; losing one means the page has moved on.,interactive
+NM,2026-11-20T17:05:48Z,ERROR,news,[NM] HTTP 404 for https://www.hca.nm.gov/news/,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,funding,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,programme,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rch,,interactive
+KY,2026-11-20T17:05:57Z,CHANGED,chfs_grants,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_et,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_rda,,interactive
+AL,2026-11-20T17:08:05Z,UNCHANGED,resources,,interactive
+AL,2026-11-20T17:08:05Z,CHANGED,home,,interactive
+AL,2026-11-20T17:08:05Z,CHANGED,adeca,,interactive
+AL,2026-11-20T17:08:05Z,CHANGED,governor,,interactive
+AL,2026-11-20T17:08:05Z,TRIPWIRE,home,"[AL] 'home' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Stroke Initiative Maternal | Fetal Health Collaborative EHR | Cybersecurity Rural Workforce Initiative Rural Health Practice Initiative Contact Us Looking. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AL,2026-11-20T17:08:05Z,YEAR2,home,"[AL] 'home' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: Cancer Digital Regionalization EMS Treat-in-Place Initiative Simulation Training Rural Health Initiative Mental Health Initiative EMS Trauma. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",interactive
+AL,2026-11-20T17:08:10Z,UNCHANGED,resources,,interactive
+AL,2026-11-20T17:08:10Z,CHANGED,home,,interactive
+AL,2026-11-20T17:08:10Z,CHANGED,adeca,,interactive
+AL,2026-11-20T17:08:10Z,CHANGED,governor,,interactive
+AL,2026-11-20T17:08:10Z,TRIPWIRE,home,"[AL] 'home' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Stroke Initiative Maternal | Fetal Health Collaborative EHR | Cybersecurity Rural Workforce Initiative Rural Health Practice Initiative Contact Us Looking. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AL,2026-11-20T17:08:10Z,YEAR2,home,"[AL] 'home' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: Cancer Digital Regionalization EMS Treat-in-Place Initiative Simulation Training Rural Health Initiative Mental Health Initiative EMS Trauma. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",interactive
+AL,2026-11-20T17:08:26Z,UNCHANGED,resources,,interactive
+AL,2026-11-20T17:08:26Z,UNCHANGED,home,,interactive
+AL,2026-11-20T17:08:26Z,CHANGED,adeca,,interactive
+AL,2026-11-20T17:08:26Z,CHANGED,governor,,interactive
