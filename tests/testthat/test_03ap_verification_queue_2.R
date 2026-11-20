@@ -618,6 +618,15 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # 241319, 2 rows / $1,610,332): +15 / +$17,190,075: 2,285 / $2,223,153,907.38 / 42.
   # Session 121 (Task 2, owner ruling): WI DHS award tables, INTENTS (R/03cx),
   # a 43rd state: +39 / +$32,216,238: 2,324 / $2,255,370,145.38 / 43. Subtracted first.
+  # Session 121 (rebuild): SD register incl. Monument (owner ruling), the Year 1
+  # date rule (TN HART), WV's Year 1 roster and releases, IN Meds-to-Beds (20 at
+  # $0) and Parkview Goshen, ND FSRS 11-20, OK re-pricing: +45 / +$36,663,307.52:
+  # 2,369 / $2,292,033,452.90 / 43. Subtracted first.
+  expect_equal(named$rows, 2369L)
+  expect_equal(round(named$dollars, 2), 2292033452.90, tolerance = 0)
+  expect_equal(named$states, 43L)
+  named$rows <- named$rows - 45L
+  named$dollars <- named$dollars - 36663307.52
   expect_equal(named$rows, 2324L)
   expect_equal(round(named$dollars, 2), 2255370145.38, tolerance = 0)
   expect_equal(named$states, 43L)

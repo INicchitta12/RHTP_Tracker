@@ -23,9 +23,11 @@ test_that("eleven COMPLETE states; WA and NC stay PARTIAL", {
   expect_equal(tot$State, "Total (11 states)")
 })
 
-test_that("n/m where state-sourced awards are under 50% of the allotment (today: West Virginia)", {
-  expect_equal(plain[st$nm], "West Virginia")
-  expect_lt(st$state_sourced_usd[plain == "West Virginia"] / st$`FY2026 allotment`[plain == "West Virginia"], 0.5)
+test_that("n/m where state-sourced awards are under 50% of the allotment (11-19: West Virginia; 11-20: none)", {
+  # Session 121: West Virginia's Year 1 roster ($108.3M) took its state-sourced
+  # awards to 56.2% of the allotment, so no completed state prints n/m today.
+  expect_length(plain[st$nm], 0L)
+  expect_gte(st$state_sourced_usd[plain == "West Virginia"] / st$`FY2026 allotment`[plain == "West Virginia"], 0.5)
   expect_false(tot$nm)
   x <- here::here("output", "completed_states_2026-11-19.xlsx")
   d <- openxlsx::read.xlsx(x, "Completed states", rows = 1:13, check.names = FALSE, sep.names = " ")

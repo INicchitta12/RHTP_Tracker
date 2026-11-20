@@ -79,8 +79,8 @@ test_that("every verified 116e case lands on exactly one row, and verified dolla
   expect_equal(sum(as.numeric(both$vendor_verified_usd)), sum(vend$amount), tolerance = 1e-9)
   # Session 116f national verified pins, by category (types never added)
   v <- both %>% dplyr::filter(vendor_verified == "TRUE")
-  expect_equal(nrow(v), 41L)   # session 119: + SC five, CO HealthTech, NM Accenture (administers, $0)
-  expect_equal(round(sum(as.numeric(v$vendor_verified_usd)), 2), 271888139.07)   # session 119: + $27,976,165.63 annual-report obligations
+  expect_equal(nrow(v), 42L)   # session 119: + SC five, CO HealthTech, NM Accenture (administers, $0); session 121: + ME Northeastern (VV071)
+  expect_equal(round(sum(as.numeric(v$vendor_verified_usd)), 2), 303894517.22)   # session 119: + $27,976,165.63 annual-report obligations; session 121: + $32,006,378.15 (VV071)
 })
 
 test_that("the owner's rulings hold", {
@@ -128,8 +128,8 @@ test_that("NO HOSPITAL FIGURE MOVED: the strict partition is pinned to the cent"
   })
   parts <- rhtp_hospital_dollar_partition(d)
   got <- parts %>% dplyr::group_by(bucket) %>% dplyr::summarise(rows = sum(rows), usd = round(sum(dollars), 2))
-  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2324L)   # session 121: + 39 WI (R/03cx intents);   # session 120: FSRS 11-19, MN Murray County;     # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington
-  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2255370145.38)
+  expect_equal(got$rows[got$bucket == "NAMED_HOSPITAL"], 2369L)   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK) (R/03cx intents);   # session 120: FSRS 11-19, MN Murray County;     # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington
+  expect_equal(got$usd[got$bucket == "NAMED_HOSPITAL"], 2292033452.90)
   expect_equal(got$usd[got$bucket == "POOL_NAMED_HOSPITALS"], 96565779.43)
   expect_equal(got$usd[got$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
 })

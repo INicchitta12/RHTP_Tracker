@@ -292,6 +292,10 @@ DISPO_HAND_READ <- tibble::tribble(
   "WVHIN's Connected Care Grid award under a shorter name", "RHTP_SUBAWARD_IN_FILE_UNDER_ANOTHER_NAME",
   "{rows} row(s), {amount}. Real: 'West Virginia Health Information Network (WVHIN)', $855,400, is in wv_year1_awardees.csv; RCJ drops the acronym. Evidence: data/evidence/recheck/2026-09-23/WV/wv_art_855400-award-strengthen-statewide-health.html. {new} first seen after 08-27.",
 
+  "WV", "\\$2\\.4 Million Award to Ascend WV", "^Ascend WV$", "",
+  "Ascend WV, re-priced by WV's Year 1 roster", "RHTP_SUBAWARD_IN_FILE_AMOUNT_REVISED_BY_STATE",
+  "{rows} row(s), {amount}. Real: Ascend WV is wv_year1_awardees.csv row 4. The Governor's 09-09 release says '$2.4 Million'; WV's Year 1 Released Awards roster (session 121, latest list governs) prints $2,399,990, so the file carries the roster's figure. Evidence: data/evidence/WV/ (Year 1 Released Awards PDF). {new} first seen after 08-27.",
+
   # ---- North Carolina -------------------------------------------------------
   "NC", "Advisory Committee Meeting", "", "",
   "YMCA of Southeastern North Carolina -- a lead, not in the file", "RHTP_SUBAWARD_LEAD_UNVERIFIED",
