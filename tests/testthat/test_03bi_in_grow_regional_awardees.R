@@ -88,7 +88,7 @@ test_that("the partition reports 44 named-hospital ROWS and $0 -- read the row c
   expect_equal(p$rows, 44L)
   expect_equal(p$dollars, 0)
   # Session 118 (owner ruling d): IDOH removed ten members; two were hospital-typed.
-  expect_equal(rhtp_hospital_dollar_partition(committed)$rows, 43L)   # session 119: Bluffton Health System reinstated (FSRS ruling)
+  expect_equal(rhtp_hospital_dollar_partition(committed)$rows, 44L)   # session 119: Bluffton Health System reinstated (FSRS ruling); session 121: + Parkview Goshen Hospital
 })
 
 test_that("hospitals the NAME RULE MISSES are typed from exact CMS records", {
@@ -165,7 +165,7 @@ test_that("the leading 19 columns are the union's, and values are inside §8", {
 })
 
 test_that("the committed file is this build", {
-  a <- ig_apply_s118_removals(a)
+  a <- ig_apply_s121_changes(ig_apply_s118_removals(a))
   expect_equal(committed$awardee, a$awardee)
   expect_equal(committed$recipient_type, a$recipient_type)
   expect_equal(committed$distributed_to_hospital, a$distributed_to_hospital)
@@ -173,8 +173,9 @@ test_that("the committed file is this build", {
 })
 
 test_that("the watch fires on a priced cell, a moved roster, and a new dollar sentence", {
-  raw <- paste(readLines(here::here(IG_PAGE), warn = FALSE), collapse = "\n")
-  arch <- ig_page_text()
+  # Session 121: the watch's baseline is the 2026-11-20 page.
+  raw <- paste(readLines(here::here(IG_ARCHIVE_1120), warn = FALSE), collapse = "\n")
+  arch <- ig_page_text(here::here(IG_ARCHIVE_1120))
   expect_silent(ig_assert_watch(raw, arch, rhtp_watch_reduce(raw)))
   priced <- sub(">Woodlawn Hospital<", ">Woodlawn Hospital $1,250,000<", raw, fixed = TRUE)
   expect_error(ig_assert_watch(priced, arch, rhtp_watch_reduce(priced)),
@@ -233,4 +234,21 @@ test_that("THE COUNTERFACTUALS: a named Meds-to-Beds hospital, a new letter, a n
   home2 <- gsub("RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028", "NOVEMBERISSUE.140000", home, fixed = TRUE)
   expect_equal(setdiff(ig_newsletter_links(home2), ig_newsletter_links(f("grow_home"))),
                "https://view.subscription.in.gov/?vawpToken=NOVEMBERISSUE.140000")
+})
+
+
+test_that("session 121: the 11-20 page -- three dropped, three kept on FSRS, Parkview Goshen added", {
+  expect_silent(ig_assert_s121_page())
+  expect_equal(nrow(committed), 179L)
+  k <- paste(committed$region, committed$awardee)
+  expect_false(any(c("3 Paul Phillippe Resource Center, Inc.", "3 Crawfordsville Area Transit",
+                     "6 Jennings County Coordinating Council") %in% k))
+  expect_true(all(c("3 Boone County Senior Services, Inc", "3 White County Council on Aging, Inc.",
+                    "6 Aging and Community Services of South Central Indiana",
+                    "8 Trustees of Indiana University", "1 Parkview Goshen Hospital") %in% k))
+  pg <- committed[committed$awardee == "Parkview Goshen Hospital", ]
+  expect_equal(pg$distributed_to_hospital, "Yes")
+  expect_equal(pg$determination_confidence, "LOW")
+  expect_equal(as.character(pg$ccn), "150026")
+  expect_true(is.na(pg$amount))
 })
