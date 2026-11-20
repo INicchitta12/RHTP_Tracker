@@ -2,8 +2,19 @@
 # Wisconsin Year 1 -> data/reference/wi_year1_status.csv
 #                     data/reference/wi_rcj_candidate_disposition.csv
 #
-# THERE IS DELIBERATELY NO wi_year1_awardees.csv, AND A TEST ASSERTS ITS
-# ABSENCE. Wisconsin has published no recipient-level RHTP award list.
+# SESSION 121: WISCONSIN HAS AWARDED, AND THIS FILE IS NOW ITS WATCH.
+# DHS published six award tables on four RHTP pages ("Last revised November
+# 18, 2026"; 138 rows / $149,331,289.71, "the obligated awards and are subject
+# to ... CMS review"). They are extracted as INTENTS by
+# R/03cx_wi_year1_awardees.R into data/reference/wi_year1_awardees.csv (owner
+# ruling, the Missouri Smart Growth precedent). This probe now WATCHES those
+# tables: any new, removed, renamed or re-priced row, or a new table, trips,
+# and R/03cx is REWRITTEN from the re-archived pages, never patched. Everything
+# below about the September negative is kept as the record of what the archive
+# showed on 2026-09-01 and 2026-10-26; the --validate assertions still read
+# those archived copies and still pass on them.
+#
+# (Until session 121:) THERE WAS DELIBERATELY NO wi_year1_awardees.csv.
 #
 # WHY WISCONSIN. It led the queue once New Hampshire was extracted -- 19 Tier 3
 # candidates, 19 distinct awardees, a $203,670,005 allotment, no CMS press
@@ -106,13 +117,20 @@ source(here::here("R", "02_normalize.R"))
 WI_EVIDENCE_DIR <- here::here("data", "evidence", "WI")
 WI_STATUS_CSV   <- "data/reference/wi_year1_status.csv"
 WI_DISPO_CSV    <- "data/reference/wi_rcj_candidate_disposition.csv"
-WI_AWARDS_CSV   <- "data/reference/wi_year1_awardees.csv"   # MUST NOT EXIST
+WI_AWARDS_CSV   <- "data/reference/wi_year1_awardees.csv"   # R/03cx's (session 121)
 WI_HOST_THROTTLE_S <- 3
 WI_USER_AGENT <- paste(
   "RHTP-Tracker/0.1 (AHA Data & Policy research;",
   "+https://www.aha.org)"
 )
 
+# Session 121: dhs_solicit re-based to a 2026-11-20 copy after reading the
+# diff: eight titles left, two new -- "Family-Centered Approach to Substance Use
+# Disorders" and "Milwaukee Cocaine Use Prevention and Treatment", both funded
+# by the "Substance Use Prevention, Treatment, and Recovery Services Block
+# Grant" (detail pages read 2026-11-20; "Rural Health Transformation" once each,
+# the site menu). Opportunities, not RHTP, no recipient; the name tripwire was
+# quiet on them. The 2026-10-26 copy stays on disk.
 # Session 108: dhs_rhtp and dhs_solicit re-based to 2026-10-26 copies after
 # reading the diffs (navigation, a sign-up box and a revised date on the
 # first; six non-RHTP solicitations on the second, each in WI_NAME_FURNITURE).
@@ -125,8 +143,22 @@ WI_SOURCES <- tibble::tribble(
   "https://www.dhs.wisconsin.gov/rhtp/rhtpac.htm",
   "dhs_deck_0723",  "2026-09-01_dhs_rhtpac_presentation_260723.pdf",
   "https://www.dhs.wisconsin.gov/rhtp/rhtpac-presentation260723.pdf",
-  "dhs_solicit",    "2026-10-26_dhs_current_grant_solicitations.html",
+  "dhs_solicit",    "2026-11-20_dhs_current_grant_solicitations.html",
   "https://www.dhs.wisconsin.gov/business/solicitations-list.htm",
+  # SESSION 121: the award pages R/03cx extracts (byte-identical copies of the
+  # 2026-11-19 recheck archive) and the 11-19 programme index, which no longer
+  # carries the September-negative markers. dhs_rhtp (10-26) stays the
+  # --validate copy of the pre-award page.
+  "dhs_rhtp_index", "2026-11-19_dhs_rhtp_index.html",
+  "https://www.dhs.wisconsin.gov/rhtp/index.htm",
+  "dhs_awards_implementation", "2026-11-19_dhs_rhtp_implementation.html",
+  "https://www.dhs.wisconsin.gov/rhtp/implementation.htm",
+  "dhs_awards_workforce", "2026-11-19_dhs_rhtp_workforce.html",
+  "https://www.dhs.wisconsin.gov/rhtp/workforce.htm",
+  "dhs_awards_technology", "2026-11-19_dhs_rhtp_technology.html",
+  "https://www.dhs.wisconsin.gov/rhtp/technology.htm",
+  "dhs_awards_coordinated", "2026-11-19_dhs_rhtp_coordinated-care.html",
+  "https://www.dhs.wisconsin.gov/rhtp/coordinated-care.htm",
   "dwd_heart",      "2026-09-01_dwd_wig_heart.html",
   "https://dwd.wisconsin.gov/det/heart/",
   "dwd_wig_awards", "2026-09-01_dwd_wig_healthcare_awards_NEGATIVE_CONTROL.pdf",
@@ -637,17 +669,22 @@ wi_assert_wig_is_not_rhtp <- function(body = NULL) {
   invisible(TRUE)
 }
 
-#' There is no Wisconsin award file, and the status table has no amount column
+#' The award file is R/03cx's, and the status table has no amount column
 #'
-#' Texas's device, twice. A status table with an `amount` column would be
-#' summable, and Wisconsin has named no recipient and published no
-#' per-recipient figure.
-wi_assert_no_award_file <- function() {
-  if (file.exists(here::here(WI_AWARDS_CSV))) {
-    stop("[WI] ", WI_AWARDS_CSV, " exists. Wisconsin has published no ",
-         "recipient-level award list; if that has changed, write the ",
-         "extractor deliberately and delete this assertion in the same ",
-         "commit.", call. = FALSE)
+#' SESSION 121: Wisconsin awarded, and the extractor was written deliberately
+#' (R/03cx) in the same commit that retired wi_assert_no_award_file(). The
+#' award file must exist, be R/03cx's and be all intents; the status table must
+#' still carry no amount column (Texas's device).
+wi_assert_award_file <- function() {
+  path_a <- here::here(WI_AWARDS_CSV)
+  if (!file.exists(path_a)) {
+    stop("[WI] ", WI_AWARDS_CSV, " is missing. Run R/03cx_wi_year1_awardees.R --build.",
+         call. = FALSE)
+  }
+  a <- readr::read_csv(path_a, col_types = readr::cols(.default = "c"), progress = FALSE)
+  if (!all(a$validator == "R/03cx_wi_year1_awardees.R") ||
+      !all(a$validation_source_type == "NOTICE_OF_INTENT_TO_AWARD")) {
+    stop("[WI] ", WI_AWARDS_CSV, " is not R/03cx's intents file.", call. = FALSE)
   }
   path <- here::here(WI_STATUS_CSV)
   if (file.exists(path)) {
@@ -674,7 +711,7 @@ rhtp_wi_assert <- function() {
   wi_assert_dpi_eligibility_not_receipt()
   wi_assert_tech_eligibility_pre_identified()
   wi_assert_wig_is_not_rhtp()
-  wi_assert_no_award_file()
+  wi_assert_award_file()
   invisible(TRUE)
 }
 
@@ -693,33 +730,36 @@ rhtp_wi_year1_status <- function() {
 
     "Rural dental efficiency and access", "DHS",
     "DHS plans to award $10 million (pending CMS approval)",
-    "CLOSED_UNAWARDED", "Dental clinics in rural and semi-rural communities",
-    "No",
-    paste("'application period now closed'; the award is stated in the FUTURE",
-          "tense. The 2026-07-23 council deck gives 'Launched: June 15, 2026',",
-          "'Deadline: July 27, 2026', 'Award announcements: September'."),
+    "AWARDED_PUBLISHED_INTENTS", "Dental clinics in rural and semi-rural communities",
+    "Yes",
+    paste("SESSION 121: AWARDED. DHS's technology page (revised 2026-11-18):",
+          "'$9,500,722 in grants to 37 organizations', a named, priced table",
+          "extracted as INTENTS by R/03cx ('obligated awards ... subject to",
+          "CMS review'). Before: 'application period now closed'; the council",
+          "deck gave 'Award announcements: September'."),
 
     "Rural technology transformation", "DHS",
     "DHS will award up to $61 million in the first round of funding",
-    "CLOSED_UNAWARDED",
+    "AWARDED_PUBLISHED_INTENTS",
     paste("CLOSED AND PRE-IDENTIFIED -- 'Only organizations named in the",
           "application are eligible', drawn from 'the rural health facility",
           "information provided to CMS'. HOSPITAL-WEIGHTED AND WORTH $61M."),
-    "No",
-    paste("The largest hospital-facing figure Wisconsin has published, and",
-          "§0.3 governs all of it: eligibility is not receipt. The",
-          "application's facility list is not published on this page, no",
-          "recipient is named, and the council deck says 'Award",
+    "Yes",
+    paste("SESSION 121: AWARDED. 'DHS awarded $39,740,002 in funding to 33",
+          "healthcare organizations' (technology page, revised 2026-11-18),",
+          "a named, priced table extracted as INTENTS by R/03cx. Before:",
+          "eligibility only (§0.3), the council deck said 'Award",
           "announcements: September'. Round 2 is 2027."),
 
     "Community health worker", "DHS",
     "DHS plans to award $20 million for the first year of funding",
-    "CLOSED_UNAWARDED",
+    "AWARDED_PUBLISHED_INTENTS",
     "Rural community health worker programmes and their host organisations",
-    "No",
-    paste("'application period now closed'. Council deck: 'Launched: June 15,",
-          "2026', 'Deadline: August 7, 2026', 'Award announcements:",
-          "September'."),
+    "Yes",
+    paste("SESSION 121: AWARDED. 'DHS awarded $19,942,572 to 49 organizations'",
+          "plus '$274,714 ... to two' CHW training providers (workforce page,",
+          "revised 2026-11-18), extracted as INTENTS by R/03cx. Before:",
+          "'application period now closed', 'Award announcements: September'."),
 
     "Care coordination", "DHS",
     "DHS plans to award up to $10 million in 2026 for a 6-month planning period",
@@ -873,10 +913,10 @@ rhtp_wi_build <- function() {
   readr::write_csv(status, here::here(WI_STATUS_CSV))
   rhtp_assert_disposition_prose(dispo, "WI")
   readr::write_csv(dispo,  here::here(WI_DISPO_CSV))
-  wi_assert_no_award_file()
+  wi_assert_award_file()
   message("[WI] wrote ", WI_STATUS_CSV, " (", nrow(status), " rows) and ",
           WI_DISPO_CSV, " (", nrow(dispo), " rows).")
-  message("[WI] NO wi_year1_awardees.csv was written, and that is the finding.")
+  message("[WI] the award file is R/03cx's (session 121); this script writes none.")
   invisible(list(status = status, disposition = dispo))
 }
 
@@ -886,9 +926,8 @@ rhtp_wi_report <- function() {
   message("WISCONSIN -- Rural Health Transformation Program, Year 1")
   message("  CMS FY2026 allotment      : $",
           format(WI_STATED$cms_allotment_anchor, big.mark = ","))
-  message("  Recipient-level award list: NONE PUBLISHED")
-  message("  Named hospitals           : 0")
-  message("  Hospital dollars          : $0")
+  message("  Recipient-level award list: DHS award tables, 2026-11-18 (R/03cx, INTENTS)")
+  message("  The report below is the pre-award record; award rows are R/03cx's.")
   message("")
   message("  Wisconsin is at SOLICITATION stage. Four DHS opportunities are")
   message("  all 'application period now closed' and none names a recipient;")
@@ -925,7 +964,15 @@ rhtp_wi_report <- function() {
 #                 pre-identified eligible class
 #   dhs_solicit   the index calling itself "current solicitations (unawarded)"
 #   dhs_deck_0723 "Award announcements: September" -- the date itself
-WI_PROBE_KEYS <- c("dhs_rhtp", "dhs_solicit", "dhs_deck_0723")
+#
+# SESSION 121: DHS HAS AWARDED, so the probe watches the AWARD TABLES (four
+# pages, R/03cx's archive) and the 11-19 programme index in place of the
+# 10-26 pre-award page. dhs_rhtp stays in WI_SOURCES as the --validate copy.
+WI_AWARD_KEYS <- c(implementation = "dhs_awards_implementation",
+                   workforce = "dhs_awards_workforce",
+                   technology = "dhs_awards_technology",
+                   `coordinated-care` = "dhs_awards_coordinated")
+WI_PROBE_KEYS <- c("dhs_rhtp_index", "dhs_solicit", "dhs_deck_0723", unname(WI_AWARD_KEYS))
 
 # WHY THIS IS A CONTENT DIGEST AND NOT A FILE DIGEST, MEASURED ON THIS HOST.
 # `www.dhs.wisconsin.gov` is fronted by Akamai and injects a Boomerang RUM
@@ -1062,10 +1109,16 @@ WI_NAME_FURNITURE <- list(dhs_solicit = c(
   # a recipient.
   dhs_rhtp = c(
     "Home About DHS Rural Health Transformation Program Rural Health Transformation Program",
+    "Home Advisory Council About DHS Rural Health Transformation Program Harnessing"),
+  # SESSION 121: the same breadcrumb on the 11-19 index copy (the baseline is
+  # that page itself, so these only matter if DHS re-flows it).
+  dhs_rhtp_index = c(
+    "Home About DHS Rural Health Transformation Program Rural Health Transformation Program",
     "Home Advisory Council About DHS Rural Health Transformation Program Harnessing"))
 
 wi_probe <- function(keys = WI_PROBE_KEYS) {
   live <- list()
+  raw_award <- list()
   for (i in seq_along(keys)) {
     key <- keys[[i]]
     src <- WI_SOURCES[WI_SOURCES$key == key, ]
@@ -1077,6 +1130,7 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
     cur  <- wi_content_digest(body, kind)
     held <- wi_content_digest(readBin(wi_path(key), "raw",
                                       file.size(wi_path(key))), kind)
+    if (key %in% WI_AWARD_KEYS) raw_award[[names(WI_AWARD_KEYS)[WI_AWARD_KEYS == key]]] <- body
     live[[key]] <- list(text = cur$text, sha = cur$sha, held_sha = held$sha,
                         file = src$file, url = src$url,
                         changed = !identical(cur$sha, held$sha))
@@ -1094,11 +1148,18 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
     res <- tryCatch({ expr; NULL }, error = function(e) conditionMessage(e))
     if (!is.null(res)) findings <<- c(findings, paste0(label, ": ", res))
   }
-  if (all(c("dhs_rhtp", "dhs_solicit") %in% names(live))) {
-    ask("AWARD ROSTER", wi_assert_no_award_roster(
-      program_body = live$dhs_rhtp$text, solicit_body = live$dhs_solicit$text))
-    ask("$61M ELIGIBLE CLASS", wi_assert_tech_eligibility_pre_identified(
-      body = live$dhs_rhtp$text))
+  # SESSION 121: the pre-award questions (AWARD ROSTER, $61M ELIGIBLE CLASS)
+  # are answered -- DHS awarded -- and retired from the live probe; they still
+  # run in --validate against the 10-26 archive. The live question is now
+  # whether the award tables still equal R/03cx's rows.
+  if (length(raw_award) == length(WI_AWARD_KEYS)) {
+    if (!exists("wia_assert_live")) source(here::here("R", "03cx_wi_year1_awardees.R"))
+    ask("AWARD TABLES", wia_assert_live(raw_award))
+  }
+  if ("dhs_solicit" %in% names(live) &&
+      !stringr::str_detect(live$dhs_solicit$text, stringr::fixed(WI_SOLICIT_UNAWARDED))) {
+    findings <- c(findings, paste0("SOLICITATIONS INDEX: no longer calls itself '",
+                                   WI_SOLICIT_UNAWARDED, "'. READ IT."))
   }
   if ("dhs_deck_0723" %in% names(live)) {
     ask("SEPTEMBER WINDOW", wi_assert_award_announcements_pending(
@@ -1119,7 +1180,8 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
   # archive. New Mexico is why it exists: HCA named six Regional Hubs and not
   # one of its ten award phrases matched. Subject pages only -- a control or a
   # press index moves for reasons that are not this state awarding.
-  nm_keys <- intersect(c("dhs_rhtp", "dhs_solicit"), names(live))
+  # Session 121: the 11-19 index and the four award pages are the subject pages.
+  nm_keys <- intersect(c("dhs_rhtp_index", "dhs_solicit", unname(WI_AWARD_KEYS)), names(live))
   rhtp_assert_no_new_organisations_across(
     live = stats::setNames(purrr::map(nm_keys, function(k) live[[k]]$text),
                            nm_keys),
@@ -1130,9 +1192,8 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
   if (!any(moved) && !length(findings)) {
 
     message("[WI] UNCHANGED -- all ", length(live), " probed sources are ",
-            "content-identical to the committed archive: all four DHS ",
-            "opportunities still say '", WI_CLOSED_MARKER, "', all four still ",
-            "state their award in the FUTURE TENSE, the solicitations index ",
+            "content-identical to the committed archive: the six DHS award ",
+            "tables still equal R/03cx's 138 rows, the solicitations index ",
             "still calls itself unawarded, and the council deck still says '",
             WI_AWARD_ANNOUNCEMENT_MARKER, "'.")
     for (key in names(live)) {
@@ -1163,14 +1224,9 @@ wi_probe <- function(keys = WI_PROBE_KEYS) {
   }
   message("[WI] Re-run: --fetch --force (re-dating the affected WI_SOURCES ",
           "files), then --validate, then --build, then COMMIT.")
-  message("[WI] IF AN OPPORTUNITY HAS AWARDED, R/03y MUST BE REWRITTEN AS AN ",
-          "AWARD EXTRACTOR, NOT PATCHED: wi_year1_status.csv has no `amount` ",
-          "column by design and an assertion refuses one, and ",
-          "wi_year1_awardees.csv is asserted ABSENT.")
-  message("[WI] Rural Technology Transformation (up to $61 million) is the ",
-          "row to read first: its eligible class is pre-identified from the ",
-          "rural health facility list in Wisconsin's CMS application, so its ",
-          "awardees will be disproportionately HOSPITALS.")
+  message("[WI] IF THE AWARD TABLES MOVED, R/03cx MUST BE REWRITTEN FROM THE ",
+          "RE-ARCHIVED PAGES (its pins, its typing table), NOT PATCHED, then ",
+          "R/03cx --build and every overlay through R/07 --apply.")
   invisible(list(changed = any(moved), findings = findings, sources = live,
                  unreadable = unreadable))
 }

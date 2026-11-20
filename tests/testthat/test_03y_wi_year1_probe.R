@@ -6,9 +6,10 @@
 
 source(here::here("R", "03y_wi_year1_probe.R"))
 
-test_that("no Wisconsin award file exists, deliberately", {
-  expect_false(file.exists(here::here(WI_AWARDS_CSV)))
-  expect_silent(wi_assert_no_award_file())
+test_that("session 121: the Wisconsin award file is R/03cx's intents file", {
+  expect_true(file.exists(here::here(WI_AWARDS_CSV)))
+  expect_silent(wi_assert_award_file())
+  expect_false(exists("wi_assert_no_award_file"))
 })
 
 test_that("the status table has no amount column, and cannot acquire one", {
@@ -204,9 +205,12 @@ test_that("the unreadable path is recorded as UNKNOWN, never as a negative", {
   expect_true(stringr::str_detect(row$evidence, "PER-PATH refusal"))
 })
 
-test_that("no status row claims a roster", {
+test_that("session 121: exactly the three awarded DHS channels claim a roster", {
   status <- rhtp_wi_year1_status()
-  expect_false(any(status$publishes_roster == "Yes"))
+  expect_setequal(status$channel[status$publishes_roster == "Yes"],
+                  c("Rural dental efficiency and access", "Rural technology transformation",
+                    "Community health worker"))
+  expect_true(all(status$stage[status$publishes_roster == "Yes"] == "AWARDED_PUBLISHED_INTENTS"))
 })
 
 test_that("the archive verifies and the manifest does not list itself", {
@@ -231,14 +235,25 @@ test_that("the archive verifies and the manifest does not list itself", {
 # archive and against synthesised bodies. The probe itself makes network calls
 # and is never invoked here.
 
-test_that("the probe watches the three sources that can answer the question", {
-  # And only those. DPI, DWD, WORH and WTCS are context and controls: they
-  # cannot change whether Wisconsin has awarded, and probing them weekly would
-  # spend requests on a question they do not hold.
-  expect_setequal(WI_PROBE_KEYS, c("dhs_rhtp", "dhs_solicit", "dhs_deck_0723"))
+test_that("the probe watches the award tables, the index, the solicitations and the deck", {
+  # Session 121: DHS awarded, so the four award pages and the 11-19 index
+  # replace the 10-26 pre-award page. DPI, DWD, WORH and WTCS stay unprobed.
+  expect_setequal(WI_PROBE_KEYS, c("dhs_rhtp_index", "dhs_solicit", "dhs_deck_0723",
+                                   "dhs_awards_implementation", "dhs_awards_workforce",
+                                   "dhs_awards_technology", "dhs_awards_coordinated"))
   expect_true(all(WI_PROBE_KEYS %in% WI_SOURCES$key))
   expect_equal(unname(vapply(WI_PROBE_KEYS, wi_probe_kind, character(1))),
-               c("html", "html", "pdf"))
+               c("html", "html", "pdf", "html", "html", "html", "html"))
+})
+
+test_that("session 121: the award-table watch trips on a re-priced or new row", {
+  source(here::here("R", "03cx_wi_year1_awardees.R"))
+  bodies <- lapply(stats::setNames(names(WI_AWARD_KEYS), names(WI_AWARD_KEYS)),
+                   function(p) readBin(here::here(WIA_FILE(p)), "raw", file.size(here::here(WIA_FILE(p)))))
+  expect_true(wia_assert_live(bodies))
+  tech <- rawToChar(bodies$technology)
+  bodies$technology <- charToRaw(sub("$3,000,000", "$3,100,000", tech, fixed = TRUE))
+  expect_error(wia_assert_live(bodies), "award tables moved")
 })
 
 test_that("the content digest ignores what the Akamai beacon rotates", {

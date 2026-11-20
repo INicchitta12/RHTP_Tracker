@@ -353,6 +353,15 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
   # Session 120: FSRS 11-19 (ME +12, MN Graceville) and MN Murray County (owner
   # ruling a): +15 / +$17,190,075: 2,285 / $2,223,153,907.38 / 42. Subtracted first.
+  # Session 121: WI DHS award tables (R/03cx, intents; cms_enrolment_match left
+  # empty, so not through this overlay), a 43rd state: +39 / +$32,216,238:
+  # 2,324 / $2,255,370,145.38 / 43. Subtracted first.
+  expect_equal(n$rows, 2324L)
+  expect_equal(round(n$dollars, 2), 2255370145.38)
+  expect_equal(n$states, 43L)
+  n$rows <- n$rows - 39L
+  n$dollars <- n$dollars - 32216238
+  n$states <- n$states - 1L
   expect_equal(n$rows, 2285L)
   expect_equal(round(n$dollars, 2), 2223153907.38)
   expect_equal(n$states, 42L)
@@ -532,7 +541,9 @@ test_that("every OTHER row in the repository states a determined form", {
   # Session 112: + 16 -- PA 12 (DHS Selected Projects), VT 2 (the 10-30 list),
   # TX 1 (the 10/29 list), UT 1 -- each with its form in determination_basis.
   # Session 117: - 1, Brookshire Brothers withdrawn from the TX 11/12 list.
-  expect_equal(nrow(rev), 162L)
+  # Session 121: + 6 WI (R/03cx) -- five dental practices and MouthWatch Inc.,
+  # a teledentistry company -- each with its form in determination_basis.
+  expect_equal(nrow(rev), 168L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

@@ -177,7 +177,7 @@ test_that("NO HOSPITAL FIGURE CHANGED: the partition is session 116's", {
   pin <- tibble::tribble(
     ~bucket, ~rows, ~dollars,
     # Session 116c/d moved it (R/09b, FSRS as an award source); R/09 still moves nothing.
-    "NAMED_HOSPITAL", 2285L, 2223153907.38,   # session 120: FSRS 11-19, MN Murray County;   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
+    "NAMED_HOSPITAL", 2324L, 2255370145.38,   # session 121: + 39 WI (R/03cx intents);   # session 120: FSRS 11-19, MN Murray County;   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
     "POOL_NAMED_HOSPITALS", 11L, 96565779.43,   # session 118: + WA HCA pool $9.67M
     "POOL_UNNAMED_HOSPITALS", 6L, 79214848.17)
   for (i in seq_len(nrow(pin))) {

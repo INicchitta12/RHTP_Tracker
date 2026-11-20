@@ -616,6 +616,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 120: FSRS 11-19 archive (ME +12 hospital rows / +$15,543,284; MN
   # Graceville CAH 241321 +$36,459) and MN Murray County (owner ruling a, CAH
   # 241319, 2 rows / $1,610,332): +15 / +$17,190,075: 2,285 / $2,223,153,907.38 / 42.
+  # Session 121 (Task 2, owner ruling): WI DHS award tables, INTENTS (R/03cx),
+  # a 43rd state: +39 / +$32,216,238: 2,324 / $2,255,370,145.38 / 43. Subtracted first.
+  expect_equal(named$rows, 2324L)
+  expect_equal(round(named$dollars, 2), 2255370145.38, tolerance = 0)
+  expect_equal(named$states, 43L)
+  named$rows <- named$rows - 39L
+  named$dollars <- named$dollars - 32216238
+  named$states <- named$states - 1L
   expect_equal(named$rows, 2285L)
   expect_equal(round(named$dollars, 2), 2223153907.38, tolerance = 0)
   expect_equal(named$states, 42L)

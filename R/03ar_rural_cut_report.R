@@ -149,7 +149,9 @@ RC_ENROLMENTS <- c(
   MN = "data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_MN.json",
   KY = "data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_KY.json",
   # Session 118: NM's three Healthy Horizons hub hospitals (FSRS new rows).
-  NM = "data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_NM.json")
+  NM = "data/evidence/federal_records/2026-11-09/cms_hosp_enrollments_NM.json",
+  # Session 121: Wisconsin's DHS award tables (R/03cx), typed on CMS's WI file.
+  WI = "data/evidence/federal_records/2026-11-20/cms_hosp_enrollments_WI.json")
 
 RC_ROWS_CSV <- "data/reference/rural_cut_rows.csv"
 RC_STATE_CSV <- "data/reference/rural_cut_by_state.csv"
@@ -402,11 +404,13 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 120: FSRS 11-19 archive (ME 12 hospital rows incl. MaineGeneral's
   # hand bridge, MN Graceville CAH 241321) and MN Murray County (owner ruling
   # a, CAH 241319, 2 rows): 2,285 / $2,223,153,907.38 / 42.
-  if (nrow(rows) != 2285L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2223153907.38) > 0.005 ||
-      dplyr::n_distinct(rows$state) != 42L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,285 rows / $2,223,153,907.38 ",
-         "/ 42 states; re-state the rural cut against the new partition.",
+  # Session 121 (Task 2): WI DHS award tables, INTENTS (R/03cx, 39 hospital
+  # rows / $32,216,238, a 43rd state): 2,324 / $2,255,370,145.38 / 43.
+  if (nrow(rows) != 2324L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2255370145.38) > 0.005 ||
+      dplyr::n_distinct(rows$state) != 43L) {
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,324 rows / $2,255,370,145.38 ",
+         "/ 43 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
   invisible(TRUE)
