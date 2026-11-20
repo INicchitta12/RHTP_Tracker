@@ -218,4 +218,23 @@ Fixes found in the rebuild:
 - **LA, SC and ID old tasks:** their successors first fire Sat 11-21, Thu 11-26 and Tue 11-24. A check-in is scheduled
   for Thu 11-26 09:30Z to delete each old task once its successor logs. IN's successor first fires Fri 11-27, so its
   old task is left for the next session.
-- **rhtptracker.com LEAD run (20:23Z):** reported by the 20:35Z check-in.
+- **rhtptracker.com LEAD run (Routine `trig_01FsufuT9voRgAhvSzYQpUMk`, logged 20:24:56Z on `main`):** 64 lines:
+  63 `LEAD` and 1 `CHANGED` (`sitemap`). No `ERROR`, no `TRIPWIRE`. The Routine logged on its own id, so the firing is covered.
+  - **30 state "awards: who was funded" pages** (`https://www.rhtptracker.com/states/<ST>/awards`): DE FL GA HI ID IL IN KS KY MD
+    MI MN MO MS NE NH NJ NM NV NY OH OK OR PA SC SD TX VA VT WV.
+  - **33 opportunity pages, all attributed `UNKNOWN`.** The state code is in each slug but was not parsed. Examples: KS KDHE second-round
+    grant opportunities; NH GO-NORTH CCSNH CTE RFP; WV Mountain State Care Force marketing; AL EMS/Trauma/Stroke and Rural Health
+    Initiative NOFOs; HI HOME RUN workforce; MA Rural Health Cybersecurity and Rural SHINE-HT (NOFO 2027-MeHI-03); ME community
+    paramedicine; MO Digital Backbone + Ambient AI, Digital Innovation and RPM; MS Rural GME Expansion; NC ROOTS Region 5 (three);
+    RI Behavioral Health Stabilization Unit, Recovery Community Centers FY27, RIDE tele-behavioral health, APM Incentive and OHIC
+    Transformation Grant Fund; LA Implementation Partner RFI; MD FY2027 guidelines; NV WRRAP-RR, FLEX and RHIT.
+    Every one is a solicitation (Tier 2) or a Year 2 item. None is an award roster.
+  - **The official-source field is defective.** All 63 leads give the same link:
+    `https://www.cms.gov/newsroom/press-releases/trump-administration-announces-10-billion-second-year-rural-health-transformation-awards-all-50`.
+    That is CMS's 11-09 FY2027 release, which `R/03cu` has already parsed. It is not the source of a state awards page, an
+    Alabama NOFO or a Nevada RFA. `R/03cw` is taking a link that appears on every page (site chrome) as each page's official
+    source. So **no lead this run points at a new official document**, and nothing was opened or extracted. A LEAD carries no figure.
+  - **Next session:** fix `R/03cw` so `official_link` is read from the page body only, excluding links that appear on every page.
+    Parse the state code from the `/opportunities/` slug (`email-ks-…`, `page-al-…`, `rhtp-nv-…`, `portal-hi-…`). Add a fixture test
+    asserting that a site-wide CMS link is never reported as a lead's official source. Until then, read RHTPTRACKER leads by their
+    aggregator URL only.
