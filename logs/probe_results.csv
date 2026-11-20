@@ -2706,3 +2706,18 @@ SD,2026-11-20T16:24:20Z,UNCHANGED,'Rural Health Transformation' in the descripti
 SD,2026-11-20T16:25:15Z,UNCHANGED,RHT number series (all agencies),,interactive
 SD,2026-11-20T16:25:15Z,UNCHANGED,'Rural Strong' in the description,,interactive
 SD,2026-11-20T16:25:15Z,UNCHANGED,'Rural Health Transformation' in the description,,interactive
+FSRS,2026-11-20T16:37:48Z,CHANGED,FSRS AK,,interactive
+FSRS,2026-11-20T16:37:48Z,CHANGED,FSRS ID,,interactive
+FSRS,2026-11-20T16:37:48Z,CHANGED,FSRS ND,,interactive
+FSRS,2026-11-20T16:37:48Z,CHANGED,FSRS OR,,interactive
+FSRS,2026-11-20T16:37:48Z,TRIPWIRE,(finding),"AK: 44 FFATA subaward report(s) not in the 2026-11-19 archive ($41,609,628); read them, then re-archive with --fetch",interactive
+FSRS,2026-11-20T16:37:48Z,TRIPWIRE,(finding),"ID: 1 FFATA subaward report(s) not in the 2026-11-19 archive ($   469,592); read them, then re-archive with --fetch",interactive
+FSRS,2026-11-20T16:37:48Z,TRIPWIRE,(finding),"ND: 9 FFATA subaward report(s) not in the 2026-11-19 archive ($ 1,157,470); read them, then re-archive with --fetch",interactive
+FSRS,2026-11-20T16:37:48Z,TRIPWIRE,(finding),"OR: 2 FFATA subaward report(s) not in the 2026-11-19 archive ($   383,525); read them, then re-archive with --fetch",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($  853,956, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($  381,512, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($1,080,000, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($4,559,451, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($  772,500, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to MAT-SU VALLEY MEDICAL CENTER LLC ($5,000,000, FRANKLIN, TN) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($1,086,793, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
