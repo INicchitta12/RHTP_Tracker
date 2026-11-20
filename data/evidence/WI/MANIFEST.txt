@@ -32,7 +32,12 @@ file  bytes  sha256
 2026-10-26_dhs_rhtp_program.html  172577  8f7d686dd15618d0ed22f90a950f831d4805bc57f40026bfa8f16cb69f7d3b62
 2026-09-01_dhs_rhtp_advisory_council.html  162626  6e0fc171afb369f14bdeeaeb6f38da4b7985622802268ca86e63e2ab45521ffd
 2026-09-01_dhs_rhtpac_presentation_260723.pdf  2278558  8e3a9d2e84bd63fa1a77022cf5d89aacb473441a4f72cd52aaa4d082af5f41e1
-2026-10-26_dhs_current_grant_solicitations.html  172642  391f2507e7a036002d8960797b259ba5bfb116e13d8962ae9b1f3ab2be19f210
+2026-11-20_dhs_current_grant_solicitations.html  169788  35a1b698aedf82a04291b402d9d67432c7a0d96a97361712f0a561e14cc35f1e
+2026-11-19_dhs_rhtp_index.html  175178  27acdccabbfe7334732181a586016233e2092113352d0ea92570806789a729c6
+2026-11-19_dhs_rhtp_implementation.html  171208  c7c4df4dc437a5c2f1c91703e2601a5bd132faf8a5fdd72262f4e6deb85ee56d
+2026-11-19_dhs_rhtp_workforce.html  186930  1974efd31d31a864bba4d65edd48864d7493fd7484af8cf300b33254f56193c8
+2026-11-19_dhs_rhtp_technology.html  184999  64686c9e6994f9dc6dfad47bcb2b0aab0886bf94f3bc6a373312d7dd35ce042a
+2026-11-19_dhs_rhtp_coordinated-care.html  181657  d8febd83ecb88452e65fa997f465bd157cf2ae64d921e1fe0984fc6720fb544f
 2026-09-01_dwd_wig_heart.html  29833  6810996ee4b3f3f026789a26bd0b92360b69b9be3df47a760cb4186b07488dc0
 2026-09-01_dwd_wig_healthcare_awards_NEGATIVE_CONTROL.pdf  4229439  7157083afa868e7e8c7c7521d39ffe3fc1b65e3272bfd7d9c75928840c3c34cc
 2026-09-01_dpi_rhtp_grant.html  175984  5ad1ea2e8c67c0175bf456e29fa5a51d678e968300f5778514be7d127c93eb64
@@ -42,3 +47,12 @@ file  bytes  sha256
 SUPERSEDED, kept on disk (session 108 re-based dhs_rhtp and dhs_solicit after reading the diffs):
   superseded: 2026-09-01_dhs_rhtp_program.html sha256=073e67b9a02f17e90529ebbf894e06ba9baf298214ffecbdb44240ae9e7a8757
   superseded: 2026-09-01_dhs_current_grant_solicitations.html sha256=665020f1a88189cc654636a7b78858134c9e26070376a8b53a1c77e3966e65e4
+
+SESSION 121 (2026-11-20): Wisconsin AWARDED. The four award pages and the 11-19 index are
+byte-identical copies of data/evidence/recheck/2026-11-19/WI/ (fetched 2026-11-19 by session
+120 with the honest agent; credential-free). R/03cx_wi_year1_awardees.R extracts their six
+tables as INTENTS; R/03y's probe watches them. dhs_solicit re-based to the 2026-11-20 copy
+(fetched with R/03y's agent, credential-free) after reading the diff: the two new titles are
+SUPTRS Block Grant RFAs, not RHTP, no recipient. Superseded, kept on disk:
+  superseded: 2026-10-26_dhs_current_grant_solicitations.html sha256=391f2507e7a036002d8960797b259ba5bfb116e13d8962ae9b1f3ab2be19f210
+CMS WI Hospital, FQHC and RHC Enrollments for R/03cx's typing: data/evidence/federal_records/2026-11-20/.

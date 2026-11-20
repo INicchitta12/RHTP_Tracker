@@ -1,0 +1,11 @@
+FEDERAL RECORDS -- fetched 2026-11-20 by session 121
+
+WHY: Wisconsin DHS's award tables (R/03cx_wi_year1_awardees.R) are typed on CMS's WI Hospital,
+FQHC and RHC Enrollment files. Committed as served (§0.5). The 2026-10-12 WI hospital file is
+kept; this is a fresh read on the day of extraction.
+Fetched with UA "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)".
+
+file | sha256 | bytes | url
+cms_hosp_enrollments_WI.json | df9a7eaa892e21ed75993506ba3e65024d760fa23e0291fa45120b0057190351 | 279775 | https://data.cms.gov/data-api/v1/dataset/f6f6505c-e8b0-4d57-b258-e2b94133aaf2/data?filter[STATE]=WI&size=5000 (Hospital Enrollments)
+cms_fqhc_enrollments_WI.json | 5c8c1b083631b65a9426f36f5e0bc652bcf0ffad20a96136210bac8e15aede9b | 53124 | https://data.cms.gov/data-api/v1/dataset/4bcae866-3411-439a-b762-90a6187c194b/data?filter[STATE]=WI&size=5000 (FQHC Enrollments)
+cms_rhc_enrollments_WI.json | f059f69de312596c9b974642c87408d15e82bdd6f2e34677f5385aedd24c7d71 | 97117 | https://data.cms.gov/data-api/v1/dataset/3b7e7659-067e-41ea-8e36-f9ee2036e1f6/data?filter[STATE]=WI&size=5000 (RHC Enrollments)
