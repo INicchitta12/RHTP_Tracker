@@ -508,15 +508,18 @@ test_that("the OPM staffing-study RFP and the HALF footer are quiet, a real reci
 })
 
 test_that("sessions 94 and 106: opm and documents are re-based; the prior copies stay on disk", {
-  expect_equal(ct_source("opm", "file"), "2026-10-20_ct_opm_rfp_index_AWARD_DATE_PASSED.html")
-  expect_equal(ct_source("documents", "file"), "2026-10-07_ct_dss_rhtp_documents.html")
+  # Session 121: both re-based again, to 2026-11-20.
+  expect_equal(ct_source("opm", "file"), "2026-11-20_ct_opm_rfp_index_AWARD_DATE_PASSED.html")
+  expect_equal(ct_source("documents", "file"), "2026-11-20_ct_dss_rhtp_documents.html")
   expect_true(file.exists(file.path(CT_EVIDENCE_DIR, "2026-09-02_ct_opm_rfp_index_AWARD_DATE_PASSED.html")))
   expect_true(file.exists(file.path(CT_EVIDENCE_DIR, "2026-09-02_ct_dss_rhtp_documents.html")))
   # The State Police RFP read in session 85 is now in the baseline, and the
   # RHTP NOFO block is still there under it.
   expect_true(grepl("26OPM0202AA", ct_html_text("opm"), fixed = TRUE))
   expect_true(grepl("26OHS001", ct_html_text("opm"), fixed = TRUE))
-  expect_true(grepl("Connecticut PACE Frequently Asked Questions", ct_html_text("documents"), fixed = TRUE))
+  # Session 121: the PACE FAQ left the Documents list for the new PACE page.
+  expect_true(grepl("Notice of Award", ct_html_text("documents"), fixed = TRUE))
+  expect_true(grepl("Overview PACE Public Engagement Webinars Documents", ct_html_text("documents"), fixed = TRUE))
 })
 
 

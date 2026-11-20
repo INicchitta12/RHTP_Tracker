@@ -176,20 +176,27 @@ CT_MEDIA <- paste0("https://portal.ct.gov/dss/-/media/departments-and-agencies",
 CT_SOURCES <- tibble::tribble(
   ~key, ~file, ~url,
 
+  # Session 121: RE-BASED after reading the 11-19 trips: the RHTP sub-menu gained
+  # "PACE" and "Webinars" (the PACE/webinar links left the Documents list for
+  # those pages); the footer prints $307,901,183.16 "for Budget Periods 1 & 2";
+  # OPM's index moved a NON-RHTP RFP's dates; DSS posted two Medicaid waiver
+  # notices; DMHAS's index re-dated text, no link changed. No award, no
+  # recipient. Earlier copies stay on disk.
+
   # Session 106: RE-BASED after reading the change -- portal.ct.gov leaks a
   # stray HTML comment closer, "-->", after the breadcrumb, which ends the
   # breadcrumb run one word early ("... Documents Overview" instead of
   # "... Documents Overview Federal"); that shorter run was the 10-19 name
   # trip. Nothing else on the page moved. The 2026-09-02 copy stays on disk.
   "programme",
-  "2026-10-20_ct_dss_rhtp_programme.html",
+  "2026-11-20_ct_dss_rhtp_programme.html",
   "https://portal.ct.gov/dss/rural-health-transformation-program",
 
   # Session 94: RE-BASED after reading the change -- one new document link,
   # "Connecticut PACE Frequently Asked Questions (FAQ) - 8/2026". The
   # 2026-09-02 copy stays on disk.
   "documents",
-  "2026-10-07_ct_dss_rhtp_documents.html",
+  "2026-11-20_ct_dss_rhtp_documents.html",
   "https://portal.ct.gov/dss/rural-health-transformation-program/documents",
 
   "noa",
@@ -218,7 +225,7 @@ CT_SOURCES <- tibble::tribble(
   # link inside the SAME staffing-study RFP block moved (bid 145966 -> 146239).
   # The RHTP NOFO block is unchanged. The 2026-10-07 copy stays on disk.
   "opm",
-  "2026-10-20_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
+  "2026-11-20_ct_opm_rfp_index_AWARD_DATE_PASSED.html",
   "https://portal.ct.gov/opm/root/rfp/request-for-proposals",
 
   "leadership",
@@ -232,7 +239,7 @@ CT_SOURCES <- tibble::tribble(
   "https://portal.ct.gov/ohs/press-room/press-releases",
 
   "dss_press",
-  "2026-09-02_ct_dss_press_index.html",
+  "2026-11-20_ct_dss_press_index.html",
   "https://portal.ct.gov/dss/press-room/press-releases",
 
   "ctsource",
@@ -257,7 +264,7 @@ CT_SOURCES <- tibble::tribble(
   # The REST row is unchanged and still links no outcome. The 2026-10-05 copy
   # stays on disk.
   "dmhas_rfps",
-  "2026-10-20_ct_dmhas_rfp_index.html",
+  "2026-11-20_ct_dmhas_rfp_index.html",
   "https://portal.ct.gov/dmhas/rfps/index/rfps-and-rfqs",
 
   "dmhas_rest_rfp",
@@ -592,6 +599,14 @@ ct_assert_footer_corroborates <- function(strict = FALSE, programme = NULL) {
   t <- if (is.null(programme)) ct_html_text("programme") else programme
   want <- paste0("financial assistance award totaling ", CT_STATED$footer_amount,
                  " in Budget Period 1")
+  # SESSION 121: the page now prints "$307,901,183.16 for Budget Periods 1 & 2"
+  # -- FY2026 + FY2027, cumulative Tier 1 (rhtp_footer_class). Accepted as the
+  # footer in its new form; it is never a round total.
+  bp12 <- stringr::str_match(t, "financial assistance award totaling (\\$[0-9,]+\\.[0-9]{2}) for Budget Periods 1 & 2")[, 2]
+  if (!is.na(bp12) &&
+      identical(rhtp_footer_class(as.numeric(gsub("[$,]", "", bp12)), "CT"), "ALLOTMENT_PLUS_FY2027")) {
+    return(invisible(TRUE))
+  }
   if (!stringr::str_detect(t, stringr::fixed(want))) {
     msg <- paste0("[CT] the CMS financial-assistance footer is not on the ",
                   "programme page in the expected form. It is the WEAK form ",
@@ -1347,7 +1362,12 @@ CT_NAME_FURNITURE <- list(opm = c(
     # listed so neither the leak nor its repair trips; a real organisation
     # in the breadcrumb changes the string and still fires.
     "Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview",
-    "Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview Federal"))
+    "Rural Health Transformation Program Rural Health Transformation Program Overview Public Engagement Documents Overview Federal",
+    # Session 121: read 2026-11-20 -- the RHTP sub-menu gained "PACE" (DSS's
+    # PACE expansion, a programme page) and "Webinars". The same breadcrumb
+    # run, two more menu words; no organisation.
+    "Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview",
+    "Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview Federal"))
 
 #' The change test: a digest of the REDUCED text, not of the file
 #'

@@ -2825,3 +2825,11 @@ AL,2026-11-20T17:08:26Z,UNCHANGED,resources,,interactive
 AL,2026-11-20T17:08:26Z,UNCHANGED,home,,interactive
 AL,2026-11-20T17:08:26Z,CHANGED,adeca,,interactive
 AL,2026-11-20T17:08:26Z,CHANGED,governor,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,opm,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,programme,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,documents,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,dss_press,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,dmhas_rfps,,interactive
+CT,2026-11-20T17:08:45Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-11-20T17:08:45Z,TRIPWIRE,documents,"[CT] 'documents' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program-Documents | Documents Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Documents On | Governor's Endorsement Letter Notice of Award CT Rural Health Transformation Project Narrative CT Rural Health Transformation Budget Narrative CT Rural Health Project Summaries RHTP Overview Slides Policies Accessibility About CT Directories Social Media For State Employees United States FULL Connecticut FULL. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-11-20T17:11:07Z,UNCHANGED,(all),,interactive
