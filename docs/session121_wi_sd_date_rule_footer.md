@@ -198,3 +198,24 @@ Fixes found in the rebuild:
 - **Indiana Meds-to-Beds:** confirm the 20 names against a text source when IDOH publishes one.
 - **WV:** the existing CAMC $612k FSRS filing DIFFERS-pairs onto rows 31–33 rather than row 2 (pre-existing).
 - **WI:** Fond du Lac County on its psychiatric-hospital enrolment ($118,914; Ketchikan is the counter-reading).
+
+## Addendum: Friday checks (written after each ran)
+
+- **MT (17:40Z):** the new runner `trig_01FwfCtRE6GoEX7tUJ1pjYrm` logged at 17:41Z. It tripped only on the page footer
+  (FY2026 + FY2027, $473,250,028.01), so the old MT `trig_013NBAwSZ2Rh4hhbjtLZtYA6` was deleted
+  (`old_deleted` 2026-11-20).
+  - The shared sentence watch (`R/utils_page_watch.R`) now treats an anchored footer as a check under the footer rule,
+    not as an award sentence; an unread refusal still stops. Test in `test_utils_footer_rule.R`.
+  - MT's `home`, `communications`, `grants` and `rfps` were re-based after reading: the footer, newsletter #4 with the
+    $239.7M Year 2 release and an RFI, and a new "Center of Excellence" menu item. Live probe UNCHANGED on all five
+    pages.
+- **19:40Z old-task check (`trig_01SdoPUKsfxnhsEkPE8nhkNt`):** it ran. All four old ids are gone (`get_trigger`: not
+  found): CMS `trig_01LUqkDnDGErLj9N8SJUDb1C`, MN `trig_018tLxX82fNyKgxw5JkRw5PV`, MO `trig_01EB2Xxyn1bSy3LcGBEcuZra`,
+  NEWSROOM `trig_016FmK98AUDVtzPBGtE5VVh2`.
+  - Each successor has logged on `main`: CMS 2 lines, MN 1, MO 8, NEWSROOM 22.
+  - The check-in session's `routines.csv` record never reached `main`, so the four deletions are recorded here
+    (`old_deleted` 2026-11-20). `probe_coverage.R --check`: 473 due firings, all logged except 9 explained misses.
+- **LA, SC and ID old tasks:** their successors first fire Sat 11-21, Thu 11-26 and Tue 11-24. A check-in is scheduled
+  for Thu 11-26 09:30Z to delete each old task once its successor logs. IN's successor first fires Fri 11-27, so its
+  old task is left for the next session.
+- **rhtptracker.com LEAD run (20:23Z):** reported by the 20:35Z check-in.
