@@ -2084,17 +2084,17 @@ No state has been through Stage 4. Pilot set (spec §14): GA, VA, NE, FL, TX.
 `QUEUED` 2 (AZ RI). UT left QUEUED by extraction in session 112 (R/03cn); it has no probe or Routine yet. A state leaves `QUEUED` or `INVESTIGATED_NO_PROBE` only
 through the work: an award file, or an archive plus a probe plus a Routine.
 
-### Hospital partition (re-derived 2026-11-19, session 120, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
+### Hospital partition (re-derived 2026-11-20, session 121, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,286 / $2,225,611,967.38
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,370 / $2,294,491,512.90
 (NV's FLEX-36 $2,458,060.00 back in; FLEX-28 was cleared on an exact FSRS pair in session 116d); never
 publish it alone. SESSION 116c/116d: FSRS/FFATA subawards are an award source (R/09b): $0 rows priced
 (`validation_source_type = FSRS_FFATA`, original kept) and `<st>_fsrs_awardees.csv` new rows; both subtract by
 `validation_source_type`.
 
 ```
-NAMED_HOSPITAL          2,285 rows   $2,223,153,907.38   42 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
+NAMED_HOSPITAL          2,369 rows   $2,292,033,452.90   43 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
 POOL_NAMED_HOSPITALS       11 rows      $96,565,779.43   WA (HCA's 28 hospitals $9,670,000, estimated, session 118) + NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
@@ -2133,6 +2133,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | MD | 41 | 41 | $78,625,071 | 9 / $27,681,260 (offers) |
 | MD Labor | 38 | 38 | $13,965,196 | 9 / $3,574,030 (MD Labor workforce roster; "$16.4M" is the Transformation Fund size, MPI 10-26; LOW $1,999,897: Charles bridge, Shore + UCH system parents, Meritus foundation) |
 | NY | 56 | 56 | $76,190,022 | 34 / $45,858,791 (Glens Falls Hospital/ Hudson Headwaters $1,500,000 a joint award in no bucket, owner ruling session 108) |
+| WI | 138 | 138 | $149,331,290 | 39 / $32,216,238 (INTENTS, DHS award tables revised 11-18, "obligated awards ... subject to CMS review", R/03cx, session 121 owner ruling; LOW 13 / $9,167,667 incl. 9 system parents GENERAL_KNOWLEDGE $6,424,244; state agencies 5 / $21,083,727 non-hospital) |
 | WA | 37 | 8 | $76,690,000 | 30 / $9,740,000 + POOL_NAMED 1 / $9,670,000 (WSHA $42M Unclear; HCA 11-05 'Maternal, emergency, and specialty services', 28 hospitals at $0 on CMS WA enrolment, 11 LOW bridges, the $9.67M 'Estimated amount' one pool row never split, owner ruling c session 118) |
 | NH | 2 | 1 | $66,547,394 | 0 (FHC Unclear) |
 | AL r2 | 34 | 34 | $54,793,527 | 21 / $20,886,572 (AHC $6.69M; Greene $3.91M LOW, general knowledge, no CCN) |
@@ -2144,13 +2145,13 @@ Change a state file and you must update this table in the same commit. Never loo
 | MO SG | 25 | 25 | $39,400,821 | 14 / $31,862,170 (Smart Growth CONTINGENT roster, 10-30; 23 intents pending CMS approval, 2 "approved by CMS"; DSS says 26 providers, the table lists 25; LOW $9,191,320; Ozarks Community Hospital $787,430 not a hospital row, no enrolment; owner ruling session 114) |
 | NE | 91 | 74 | $44,835,140 (4 $0 rows priced from FSRS; Memorial Health Care Systems' filing paired to row 28, session 118) | 60 / $17,579,429 + POOL_NAMED 1 / $18,156,856 |
 | OK RRR | 20 | 20 | $40,078,522 | 11 / $22,723,303 (Keetoowah $1,123,500 withdrawn 10-12; SSM St. Anthony Shawnee Cancer Center $1,623,498.82 added 10-16, CCN 370149, LOW; LOW $9,895,512: 4 enrolment bridges; Mercy $3,938,438 general knowledge, no CCN) |
-| SD contracts | 63 | 63 | $41,291,166 | 24 / $26,949,094 (11-02 register, +4 LOW bridges incl. Avera McKennan Cancer Inst $1,163,000; Sanford + Avera parents $7,007,000 and 3 hand-read enrolment bridges $7,789,960 LOW; 18 Rural Strong inside $31.5M; 16 unplaced, never on top of $90M) |
+| SD contracts | 122 | 122 | $90,790,630 | 40 / $52,943,667 (11-19/11-20 register, session 121: +59 contracts; Monument Health $12,915,000 released on the owner's ruling, Year 1 on SD's completion statement "committed every dollar ... by the federal deadline", recorded on all 34 02-20 contracts; 10 CCBHC grants inside R/03bw's round; 72 unplaced, never on top of $90M; LOW bridges incl. Winner, Vermillion, Marshall County, Monument; Sanford + Avera parents) |
 | DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
 | OH | 39 | 4 | $43,300,000 | 27 / $0 + POOL_NAMED 1 / $30,300,000 (ODH's 22 named hospitals, no split; the 13 CIN/Hub and maternal-care listings at $0, owner ruling session 108, 5 hospital rows; the $92M's other $61.7M is shared with non-hospitals, no bucket; Ohio University $10M, OPA $2M and the Ohio Rural Health Association $1M TA vendor (IN_KIND, session 120) non-hospital; components now print $93.0M against the page's $92M total) |
-| WV | 40 | 38 | $44,515,698 (7 $0 rows priced from FSRS, session 116c) | 18 / $15,013,579 (11-10, session 117a: seven awards $16,976,480, Cabell Huntington Hospital $1,544,313 on CCN 510055 the one hospital row; Marshall University Research Corporation, WVPCA, ROAM WV non-hospital; 10-30: Charleston Area Medical Center three awards $3,930,266, CCN 510022, session 115; 10-26/27: WVU Cancer Institute $1,339,077 and Williamson H&WC (FQHC) $250,000, both NON_HOSPITAL; Minnie Hamilton CAH on CMS enrolment; 09-30 "Investments" release: 6 hospitals at $0, 3 LOW bridges; Vandalia Health system parent $0, LOW, owner ruling; 10-13/14: WVU Eye Institute $2,000,026 NON_HOSPITAL on the owner's ruling (session 104), 4 non-hospital; 10-19: WVU Health System, a system parent, two rows totalling $3,400,000, LOW, the CCG $2.5M a published floor) |
-| OK | 69 | 68 | $3,572,121 | 27 / $1,353,503 |
+| WV | 68 | 67 | $108,261,313 | 22 / $25,162,640 (WV Year 1 Released Awards roster, 67 awards, $108,261,312.68, latest list governs, session 121; + WVU Hospitals $3,000,000 (CCN 510001) and the WVU system parent $4,526,918 LOW/GENERAL_KNOWLEDGE from the 11-16/11-19 releases, Year 1 on the 11-09 "finalized ahead of the October 30 federal deadline"; WVJIT $18.8M OTHER, IBM vendor, three state agencies; LOW/GENERAL_KNOWLEDGE $10,919,290) |
+| OK | 69 | 68 | $3,622,121 | 27 / $1,403,503 (Mercy Hospital Oklahoma Communities (Johnston) re-priced $50,000 -> $100,000 on the BP1 fragment, session 121) |
 | LA | 6 | 5 | $1,965,788 | 1 / $1,500,000 ("20 hospital-setting awards" in no bucket) |
 | MT | 5 | 4 | $1,360,000 | 0 (4 ambulance grants, rounded; 75 equipment awards unnamed, one pool row) |
 | IN | 7 | 1 | $860,088 | 0 (vendors) |
@@ -2166,12 +2167,13 @@ Change a state file and you must update this table in the same commit. Never loo
 | MN | 11 | 11 | $12,453,451 | 0 (MDH Sub-Recipient Awardees, "$12.5 million"; state agencies $9,775,054 kept, an owner question; direct-allocation grants to CAHs "in the coming days") |
 | UT | 41 | 41 | $193,095,907 | 6 / $5,196,813 + POOL_UNNAMED 1 / $9,891,739 (INTENTS, DHHS announcement; UHA capital $38.3M Unclear, hospitals among others; Year 1 COMPLETE on 100% obligation) |
 | TX | 440 | 440 | $222,548,441 (Year 1 subset, the 11/12 list posted 11/13 as rhtp-award-recipients.xlsx; 5 lines withdrawn, session 117) | 283 / $190,218,130 (Yoakum Community Hospital x2 and LLano Regional withdrawn on the 11/12 list; HHSC corrected the three SOURCE_SUSPECT lines, Anson HD now $262,566.30 on REH 670781; county test on the list's own County, Memorial Hospital now CCN 451386; St. Joseph Health Burleson bridged to CAH 451305, owner ruling session 111; intents 71 / $47,814,390; LOW 88 / $59,243,003) |
-| IN GROW | 181 | 0 | — | 43 / $0 (ten members removed by IDOH on the 11-16 page, owner ruling d session 118; FIVE reinstated session 119, owner ruling: a removed member holding a live FSRS subaward counts as a member (Bluffton Health System, a hospital row, and three Region 2 councils on aging; WCIEDD in Region 5, now 7 of 14, a tie, NOT_HOSPITAL); Hamilton Center and four others stay removed) |
+| IN GROW | 179 | 0 | — | 44 / $0 (11-20 page, session 121: 7 removed (Boone County Senior Services, White County CoA, Aging & Community Services of South Central Indiana kept on live FSRS subawards; three dropped), Parkview Goshen Hospital added at $0 (CCN 150026, LOW; Goshen Health System shares it); ten members removed by IDOH on the 11-16 page, owner ruling d session 118; FIVE reinstated session 119, owner ruling: a removed member holding a live FSRS subaward counts as a member (Bluffton Health System, a hospital row, and three Region 2 councils on aging; WCIEDD in Region 5, now 7 of 14, a tie, NOT_HOSPITAL); Hamilton Center and four others stay removed) |
+| IN MTB | 20 | 0 | — | 20 / $0 (IDOH Initiative 6 Meds-to-Beds, "Year 1 Grant Agreements Executed July 2026", 13 implementation + 7 planning sites, no amounts; names model-read from the archived awardee map (MODEL_ASSISTED, CONFIRM); 16 exact CMS IN enrolments, 4 LOW bridges; R/03cz, session 121) |
 | IA | 264 | 161 | $156,302,236 (161 $0 rows priced from FSRS, paired by RFP pool, session 116c; sibling rows point at the priced row) | 218 / $144,551,736 |
 | IA CC R2 | 4 | 0 | — | 4 / $0 (Combat Cancer Health Hubs Round 2 NOIA, COMPADM26008, 2026-08-12; INTENTS; typed on CMS IA enrolment, CCNs 160047/160064/160082/160083 in the basis; footer is the allotment; owner ruling session 116) |
 | NC | 44 | 42 | $97,146,908 (FSRS, Rowan and Wilkes MIH re-priced on the 11-19 archive, +$44,000: 36 MIH counties, the five ROOTS Hub Leads; MIH reaches its $10M round) | 2 / $14,550,000 (UNC Hospitals $14,250,000 DIRECT; Cape Fear Valley MIH $300,000; the four non-hospital Hub Leads stay Unclear, FHC rule) |
 | NC SBHC | 5 | 0 | — (pool $1.25M) | 1 / $0 (FirstHealth) |
-| TN | 53 | 3 | $1,166,926 (FSRS; the 10-31 HART filings are Year 2, held) | 2 / $0 (the $422M / 138-project five-year roster is a NON-AWARD file, tn_multiyear_awards_or_requests.csv, owner ruling b session 118) |
+| TN | 53 | 46 | $3,831,081 (43 HART rows priced from FSRS 10-31 filings, Year 1 on TDH's 2026-09-03 award release, session 121 date rule; End Zone etc. 10-31 filings held as Year 2) | 2 / $148,832 (Macon Hospital $72,727.27 LOW bridge CCN 441305; Cookeville Regional Medical Center Foundation $76,105.13; the $422M / 138-project five-year roster is a NON-AWARD file, owner ruling b session 118) |
 | DE | 4 | 3 | $2,854,876 (FSRS) | 4 / $2,854,876 |
 | VA | 16 | 7 | $86,929,718 (7 partners priced from FSRS) | 0 (VHHA Foundation $27,201,764 Unclear; summary call NOT_HOSPITAL with RPM + GME components HOSPITAL, $24,728,876, owner ruling 116d a) |
 | VA VHCF | 25 | 25 | $14,390,000 | 9 / $6,390,000 (system parents $5,700,000 LOW, GENERAL_KNOWLEDGE; UVA strings $884k queued; Highland is an FQHC) |
@@ -2195,7 +2197,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | MN_FSRS | 141 | 141 | $145,016,441 | 90 / $120,867,622 (FSRS new rows, sessions 116c and 118; 42 hospital rows added session 118, the CAH direct allocations; Pipestone County Medical Center $1,697,594 on CAH 241374, LOW bridge, session 119; Murray County $1,610,332 on CAH 241319, owner ruling a session 120, LOW; Graceville Health Center CAH 241321 and Family Services Collaborative added session 120; R/09b) |
 | MT_FSRS | 1 | 1 | $22,093,078 | 0 (FSRS new rows, session 116c; R/09b) |
 | NC_FSRS | 9 | 9 | $7,124,404 | 0 (FSRS new rows, session 116c; R/09b) |
-| ND_FSRS | 103 | 103 | $15,927,797 | 48 / $8,751,589 (FSRS new rows, session 116c; R/09b) |
+| ND_FSRS | 112 | 112 | $17,085,267 | 53 / $9,275,705 (FSRS new rows, sessions 116c and 121; +5 CAH rows from the 11-20 archive on exact CMS ND enrolment, independent duplicate check clean; R/09b) |
 | NE_FSRS | 140 | 140 | $93,204,214 | 12 / $9,347,753 (FSRS new rows, session 116c; R/09b; 21 extras applied session 118, owner ruling a: NE is COMPLETE on FULL_OBLIGATION, its roster a floor; Alegent Creighton $711,629.63 held, same amount on roster) |
 | NM_FSRS | 5 | 5 | $154,099,169 | 0 (FSRS new rows, sessions 116c and 118; the Healthy Horizons hub filings of 11-03 are Year 2, held; ACCENTURE LLP $128,979,618.21 ASO, VENDOR_OR_CONTRACTOR, flagged ADMINISTRATOR_PASS_THROUGH_UNRESOLVED session 119: held out of NM awards and the >=50% test by R/08, verified as administers only) |
 | OK_FSRS | 24 | 24 | $103,414,608 | 1 / $100,000 (FSRS new rows, session 116c; R/09b; SWOSU $99,997.96 paired to OK row 66, session 119) |
@@ -2203,7 +2205,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | TN_FSRS | 105 | 105 | $50,784,651 | 18 / $17,342,982 (FSRS new rows, sessions 116c, 118 and 120; R/09b; 10-31 filings held as Year 2) |
 | TX_FSRS | 3 | 3 | $20,406,310 | 0 (FSRS new rows, session 116c; R/09b) |
 | VA_FSRS | 2 | 2 | $17,211,297 | 0 (FSRS new rows, session 116c; R/09b) |
-| WV_FSRS | 13 | 13 | $26,009,376 | 7 / $2,868,596 (FSRS new rows, session 116c; R/09b) |
+| WV_FSRS | 9 | 9 | $3,790,502 | 6 / $2,665,321 (FSRS new rows, session 116c; session 121: four now pair to WV's Year 1 roster rows (WVJIT, Unite Us, Cartwheel, Pleasant Valley Hospital Foundation); R/09b) |
 
 Each file's caveats are in its own `R/` header and in the history file. Reference tables: `data/reference/`.
 Every `<st>_year1_*.csv` has a matching `<st>_rcj_candidate_disposition.csv`, rebuilt by its own script and
