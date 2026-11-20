@@ -2721,3 +2721,10 @@ FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: 
 FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($  772,500, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
 FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to MAT-SU VALLEY MEDICAL CENTER LLC ($5,000,000, FRANKLIN, TN) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
 FSRS,2026-11-20T16:37:48Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to PROVIDENCE HEALTH & SERVICES-WASHINGTON ($1,086,793, SEATTLE, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",interactive
+VT,2026-11-20T16:18:03Z,UNCHANGED,awards,,interactive
+LA,2026-11-20T16:21:57Z,UNCHANGED,(all),,interactive
+ND,2026-11-20T16:24:24Z,CHANGED,programme,,interactive
+ND,2026-11-20T16:24:24Z,UNCHANGED,funding,,interactive
+ND,2026-11-20T16:24:24Z,TRIPWIRE,programme,"[ND] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: North Dakota Health and Human Services. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ND,2026-11-20T16:24:54Z,UNCHANGED,programme,,interactive
+ND,2026-11-20T16:24:54Z,UNCHANGED,funding,,interactive

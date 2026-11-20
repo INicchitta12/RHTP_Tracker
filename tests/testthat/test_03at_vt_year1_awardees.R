@@ -281,3 +281,21 @@ test_that("session 118 (owner ruling f): the DVHA MOU on the 11-12 list is exclu
   bad <- tb; bad$legal[bad$amount == 402500] <- "MOU with DMH for something new"
   expect_error(vt_assert_mous_known(bad), "not a known MOU")
 })
+
+test_that("session 121: the probe baseline is the 11-12 list and carries the build list's agreements exactly", {
+  p <- here::here(VT_PROBE_FILE)
+  expect_true(file.exists(p))
+  body <- readBin(p, "raw", file.size(p))
+  bt <- vt_parse_table(body)
+  expect_equal(nrow(bt), 242L)
+  expect_equal(sum(!vt_is_mou(bt)), 240L)
+  expect_equal(round(sum(bt$amount[!vt_is_mou(bt)]), 2), 179117448)
+  expect_silent(vt_assert_partial_and_executed(body, VT_PROBE_UPDATED_TXT))
+  # The BUILD list is still 10-30; its date text is NOT on the probe baseline.
+  expect_error(vt_assert_partial_and_executed(body), "October 30, 2026")
+  expect_true(vt_assert_probe_baseline_same_awards())
+  # A baseline that moved an agreement must be extracted, never re-based over.
+  tb <- vt_parse_table()
+  moved <- tb; moved$amount[which(!vt_is_mou(moved))[1]] <- moved$amount[which(!vt_is_mou(moved))[1]] + 1
+  expect_error(vt_assert_probe_baseline_same_awards(moved), "differ from the build list")
+})

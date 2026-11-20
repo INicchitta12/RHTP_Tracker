@@ -86,14 +86,52 @@ source(here::here("R", "03ba_nd_year1_probe.R"))
 nd_file <- here::here(ND_PAGES$file[ND_PAGES$key == "funding"])
 nd_html <- paste(readLines(nd_file, warn = FALSE), collapse = "\n")
 
-test_that("ND: 25 headings, eight Awarded, and the archive passes", {
+test_that("ND: 25 headings, eleven Awarded, and the archive passes", {
   hd <- nd_headings(nd_file)
   expect_equal(nrow(hd), 25L)
-  # Session 99 re-based the funding page to 2026-10-12: all eight Awarded
-  # headings are read and recorded in ND_KNOWN_AWARDED.
-  expect_equal(sum(hd$status == "Awarded"), 8L)
+  # Session 99 re-based the funding page to 2026-10-12 (eight Awarded);
+  # session 121 to 2026-11-20 (eleven): every Awarded heading is read and
+  # recorded in ND_KNOWN_AWARDED and ND_AWARDED_ROUNDS.
+  expect_equal(sum(hd$status == "Awarded"), 11L)
   expect_true(all(hd$name[hd$status == "Awarded"] %in% ND_KNOWN_AWARDED))
   expect_silent(nd_assert_headings(nd_file))
+  expect_true(nd_assert_awarded_record(hd))
+})
+
+test_that("ND: the three session-120 rounds are recorded 'Awarded, nobody named'", {
+  three <- c("Suicide Intervention – Healthcare Systems Initiative",
+             "Childcare for the Rural Health Workforce",
+             "Non-Emergency Medical Transportation Acquisition")
+  r <- ND_AWARDED_ROUNDS[ND_AWARDED_ROUNDS$round %in% three, ]
+  expect_equal(nrow(r), 3L)
+  expect_equal(r$applicants, c(5L, 8L, 13L))
+  expect_true(all(r$status == "AWARDED_NOBODY_NAMED" & r$named == 0L))
+  expect_false(any(r$hospitals_only))
+  expect_false(any(grepl("amount", names(ND_AWARDED_ROUNDS))))
+  # The CAH workforce round stays the only hospitals-only round.
+  expect_equal(ND_AWARDED_ROUNDS$round[ND_AWARDED_ROUNDS$hospitals_only],
+               ND_HOSPITAL_ONLY_ROUNDS)
+  # A record that drifts from the quiet-list is refused.
+  bad <- ND_AWARDED_ROUNDS
+  ND_AWARDED_ROUNDS <<- bad[-1, ]
+  on.exit(ND_AWARDED_ROUNDS <<- bad)
+  expect_error(nd_assert_awarded_record(nd_headings(nd_file)), "disagree")
+})
+
+test_that("ND: the NAME tripwire still fires on a recipient named in an Awarded section", {
+  # Quieting the heading never quiets the name diff: a roster published under
+  # any of the eleven Awarded headings trips on WHOM it names.
+  base <- rhtp_watch_reduce(readBin(nd_file, "raw", file.size(nd_file)))
+  named <- sub("Non-Emergency Medical Transportation Acquisition",
+               paste("Non-Emergency Medical Transportation Acquisition Awardees:",
+                     "Sakakawea Medical Center, Jacobson Memorial Hospital Care Center."),
+               base, fixed = TRUE)
+  expect_false(identical(named, base))
+  expect_error(rhtp_assert_no_new_organisations_across(
+    live = list(funding = named), archived = list(funding = base), state = "ND"),
+    "NAMES .* ORGANISATION")
+  expect_silent(rhtp_assert_no_new_organisations_across(
+    live = list(funding = base), archived = list(funding = base), state = "ND"))
 })
 
 test_that("ND: a second heading turning 'Awarded' trips", {
