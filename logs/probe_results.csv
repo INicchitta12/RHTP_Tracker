@@ -2735,3 +2735,191 @@ WI,2026-11-20T16:28:50Z,UNCHANGED,dhs_awards_implementation,,interactive
 WI,2026-11-20T16:28:50Z,UNCHANGED,dhs_awards_workforce,,interactive
 WI,2026-11-20T16:28:50Z,UNCHANGED,dhs_awards_technology,,interactive
 WI,2026-11-20T16:28:50Z,UNCHANGED,dhs_awards_coordinated,,interactive
+ME,2026-11-20T16:21:24Z,CHANGED,programme,,trig_01D21P4pNZXJv9vN7Uv6jmdn
+ME,2026-11-20T16:21:24Z,TRIPWIRE,programme,"[ME] 'programme' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Population Health As | University of New England | Maine Department of Health and Human Services. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01D21P4pNZXJv9vN7Uv6jmdn
+WV,2026-11-20T16:40:39Z,CHANGED,news,,interactive
+WV,2026-11-20T16:40:39Z,CHANGED,rhtp,,interactive
+WV,2026-11-20T16:40:39Z,CHANGED,grants,,interactive
+WV,2026-11-20T16:40:39Z,TRIPWIRE,rhtp,"[WV] 'rhtp' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: WV Office of the Governor Patrick Morrisey LeadershipListserv ResourcesFunding Image This. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+WV,2026-11-20T16:40:39Z,TRIPWIRE,grants,"[WV] 'grants' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Phone Directory WV Department of Health About Us News Contact Us Employment Leadership Stroke Smart RHTP Search Text Box Home Funding Opportunities Explore RHTP | State of West Virginia Vendor and Sub Recipient Self Service Q&A Forms for Solicitations Solicitation Q&A Form | Mountain State Care Force. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+WV,2026-11-20T16:46:06Z,UNCHANGED,news,,interactive
+WV,2026-11-20T16:46:06Z,UNCHANGED,rhtp,,interactive
+WV,2026-11-20T16:46:06Z,UNCHANGED,grants,,interactive
+IN,2026-11-20T16:52:32Z,UNCHANGED,grow_regional,,interactive
+IN,2026-11-20T16:52:32Z,UNCHANGED,idoa_recs,,interactive
+IN,2026-11-20T16:52:32Z,UNCHANGED,grow_home,,interactive
+IN,2026-11-20T16:52:32Z,UNCHANGED,newsletter,,interactive
+IN,2026-11-20T16:52:32Z,UNCHANGED,init6,,interactive
+IA,2026-11-20T16:52:54Z,CHANGED,programme,,interactive
+IA,2026-11-20T16:52:54Z,CHANGED,noia_index,,interactive
+IA,2026-11-20T16:52:54Z,CHANGED,council,,interactive
+IA,2026-11-20T16:52:54Z,CHANGED,council_0827,,interactive
+IA,2026-11-20T16:52:54Z,CHANGED,hhs_news,,interactive
+IA,2026-11-20T16:52:54Z,CHANGED,gov_news,,interactive
+IA,2026-11-20T16:52:54Z,TRIPWIRE,(finding),"NOIA INDEX: [IA] 'noia_index' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""Notice Regarding Advancing Access to Colorectal Cancer Screening Evidence Based Interventions in Clinical Settings Request for Proposal PHTHOCC27705 (95.87 KB) .pdf Notice Regarding Iowa Rural Residency Program Request for Proposal PHTHORC27001 (106.77 KB) .pdf (10.30.2026) HHT Notice of Delay for I"". Iowa posts a NOIA for ten business days only. Archive it under data/evidence/IA/ now, then read whom it names and whether it is Healthy Hometowns money (PHTHORC27001 was NOT: no CMS footer, filed under Other Opportunities).",interactive
+IA,2026-11-20T16:52:54Z,TRIPWIRE,(finding),"COUNCIL: a new meeting is listed: HHS Council Meeting - November 16, 2026. Read its deck for named Healthy Hometowns recipients (the 2026-08-27 deck named nine hospitals no notice does).",interactive
+IA,2026-11-20T16:52:54Z,YEAR2,(finding),"YEAR 2 SIGNAL, HELD (bespoke check; every quoted trigger is a Year 2 string, session 117): HHS_NEWS: NEW RHTP headline(s): ""Iowa receives $216 million in Year 2 funding from the Centers of Medicare and Medicaid Services (CMS) to advance Rural Health Transformation through Healthy Hometowns"". Read the release: Iowa announces Healthy Hometowns awards in both newsrooms. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file.",interactive
+IA,2026-11-20T16:52:54Z,TRIPWIRE,programme,"[IA] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Procedures Local Boards Government Relations Resources HHS System Alignment Behavioral Health Service System County Snapshots Early Childhood and Family Services System Public Health Service System Public Health Service System FAQs BH. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+IA,2026-11-20T16:52:54Z,TRIPWIRE,council,"[IA] 'council' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Council on Health and Human Services Council Members Council on Health and Human Services Past Meetings HHS Council Meeting | Virtual HHS Council Meeting and Budget Public Hearing | Child Welfare Partners Committee MAC Hawki Board CCBHC Engagement Committee Council on Health and Human Services Iowa Child Advocacy Board Iowa Maternal Mortality Review Committee Medical Cannabidiol Board Newborn Hearing Screening Advisory Committee. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+IA,2026-11-20T16:52:54Z,TRIPWIRE,council_0827,"[IA] 'council_0827' NAMES 14 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Care Brain Injury Rehabilitation Childhood Screenings Family Planning Program Habilitation Services Home and Community-Based Services | Attendant Care Home Health Services Hospice Individual Consumer Directed Attendant Care | Verification Information System Excluded Individuals and Entities Medicaid Pharmacy Pharmaceutical Care Management Pharmacy Carveout Programs | Member Resources Provider Resources Steering Committee Case Management Eligibility and Enrollment HCBS Waiver Assessments Waiver Priority Needs Assessment Self-Direction Service Funding Adult Medicaid | Doula Perinatal Mental Health Pregnancy Resources Programs | Resources Unbundled Maternal Health Early Hearing Detection | Best Practice Materials Communications Options Cancer Cancer Provider Services Cancer Services | Five Adolescent Health Resources for Parents Resources for Professionals CAPP Program PREP Program SRAE Program Resources for Young People Childhood Lead Poisoning Prevention Program For Parents | Wellness Congregate Nutrition Locations Falls Prevention Fresh Conversations Support Services Adult Protective Services Office of the Public Guardian Dependent Adult Abuse Reports Child Care Child Care Assistance Child Care Funding Opportunities Statewide Child Care Solutions Fund Child Care Licensing Child Care News | Initiatives Child Care Statistics Child Care Tools and Resources Find Child Care Healthy Child Care Iowa IQ4K Child Care Providers Child Protective Services A Home For Every Child | CPS Town Halls Child Abuse Statistics Child Protective Services Licensing Contracts Crisis Intervention Stabilization and Reunification | Support Home Visitation Programs ICAPP MOMS Safe Infant Sleep Family Development (and 2 more). THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+IA,2026-11-20T16:56:17Z,UNCHANGED,programme,,interactive
+IA,2026-11-20T16:56:17Z,UNCHANGED,noia_index,,interactive
+IA,2026-11-20T16:56:17Z,UNCHANGED,council,,interactive
+IA,2026-11-20T16:56:17Z,UNCHANGED,council_0827,,interactive
+IA,2026-11-20T16:56:17Z,UNCHANGED,hhs_news,,interactive
+IA,2026-11-20T16:56:17Z,UNCHANGED,gov_news,,interactive
+NEWSROOM,2026-11-20T16:59:10Z,UNCHANGED,AZ:governor,,interactive
+NEWSROOM,2026-11-20T16:59:10Z,UNCHANGED,AZ:ahcccs,,interactive
+NEWSROOM,2026-11-20T16:59:18Z,UNCHANGED,DE:news,,interactive
+NEWSROOM,2026-11-20T16:59:19Z,UNCHANGED,FL:governor,,interactive
+NEWSROOM,2026-11-20T16:59:20Z,UNCHANGED,IA:governor,,interactive
+NEWSROOM,2026-11-20T16:59:21Z,UNCHANGED,ID:governor,,interactive
+NEWSROOM,2026-11-20T16:59:21Z,UNCHANGED,ID:dhw,,interactive
+NEWSROOM,2026-11-20T16:59:23Z,UNCHANGED,MN:mdh,,interactive
+NEWSROOM,2026-11-20T16:59:23Z,UNCHANGED,MT:news,,interactive
+NEWSROOM,2026-11-20T16:59:23Z,UNCHANGED,MT:dphhs,,interactive
+NEWSROOM,2026-11-20T16:59:25Z,UNCHANGED,NE:governor,,interactive
+NEWSROOM,2026-11-20T16:59:25Z,UNCHANGED,NE:dhhs,,interactive
+NEWSROOM,2026-11-20T16:59:27Z,UNCHANGED,NJ:doh,,interactive
+NEWSROOM,2026-11-20T16:59:28Z,UNCHANGED,NV:governor,,interactive
+NEWSROOM,2026-11-20T16:59:28Z,UNCHANGED,NV:nvha,,interactive
+NEWSROOM,2026-11-20T16:59:29Z,UNCHANGED,OK:governor,,interactive
+NEWSROOM,2026-11-20T16:59:29Z,UNCHANGED,OR:oha,,interactive
+NEWSROOM,2026-11-20T16:59:30Z,UNCHANGED,TX:governor,,interactive
+NEWSROOM,2026-11-20T16:59:30Z,UNCHANGED,TX:hhsc,,interactive
+NEWSROOM,2026-11-20T16:59:31Z,UNCHANGED,UT:governor,,interactive
+NEWSROOM,2026-11-20T16:59:31Z,UNCHANGED,UT:dhhs,,interactive
+NEWSROOM,2026-11-20T16:59:31Z,UNCHANGED,MD:governor,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,recipients,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,funding,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,program,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf_index,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:behavioral-health-integration,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:chronic-disease-management-program,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:closed-loop-community-care-platform,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:community-health-worker-expansion,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:community-led-wellness-hubs--microgrants,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:consumer-facing-technology,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:data-and-analytics-expansion,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:ehr-expansion,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:ems-centralization,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:expanding-care--community-paramedicine,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:expanding-care--doulasprogram,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:hie-expansion,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:high-school-lpn-program----grow-your-own-,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:lung-cancer-screening-program,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:maternal-health-value-based-payments-support,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:mfm-telehealth-expansion,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:osde-s-roots-competitive-grant,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:practice-enablement,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:primary-care-provider--pcp--clinical-extension-models-clinical-e,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:program-of-all-inclusive-care-for-the-elderly--pace--expansion-,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:provider-collaborative,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:remote-patient-monitoring--maternal-health,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:rural-re-location-incentives,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:rural-regional-reorientation--rrr--program,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:rural-residency-programs,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:school-based-health-services-support,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:technology-cooperative-for-pcps-bh-providers,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:telestroke-expansion-i,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf:transportation-expansion,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,xf_bp2,,interactive
+OK,2026-11-20T17:04:49Z,UNCHANGED,legislative_reports,,interactive
+AL,2026-11-20T17:05:22Z,TRIPWIRE,(probe),"[AL] 'resources' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""6, 2026 Request for Reimbursement Training Update Grantee Resources ARHTP Subrecipient Kickoff FAQ Read the ARHTP Subrecipient Kickoff Frequently Asked Questions Beason-Hammon Certificate of Compliance Download the Beason-Hammon Certificate of Compliance RHTP Certification Form 9.26 Download the RHT"". Community Medicine, ARHTP's eleventh initiative, begins in Year 2 (2027) as a subaward round. Read the page: a NOFO is Tier 2 and names nobody; an award names recipients, coded one at a time on the RECIPIENT (§0.3a).",interactive
+CT,2026-11-20T17:05:25Z,CHANGED,opm,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,programme,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,documents,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,dss_press,,interactive
+CT,2026-11-20T17:05:25Z,CHANGED,dmhas_rfps,,interactive
+CT,2026-11-20T17:05:25Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-11-20T17:05:25Z,TRIPWIRE,documents,"[CT] 'documents' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program-Documents | Documents Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Documents On | Governor's Endorsement Letter Notice of Award CT Rural Health Transformation Project Narrative CT Rural Health Transformation Budget Narrative CT Rural Health Project Summaries RHTP Overview Slides Policies Accessibility About CT Directories Social Media For State Employees United States FULL Connecticut FULL. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NM,2026-11-20T17:05:48Z,TRIPWIRE,(probe),[NM] HCA's RHT page no longer carries: Selection complete | Administrative Services Organization (ASO) RFP | Center for Rural Health Sustainability & Innovation | Healthy Horizons | Rural Health Innovation Fund | Rooted in New Mexico | Rural Health Data Hub. Those are the six procurements and the state's own word for their stage; losing one means the page has moved on.,interactive
+NM,2026-11-20T17:05:48Z,ERROR,news,[NM] HTTP 404 for https://www.hca.nm.gov/news/,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,funding,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,programme,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rch,,interactive
+KY,2026-11-20T17:05:57Z,CHANGED,chfs_grants,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_et,,interactive
+KY,2026-11-20T17:05:57Z,UNCHANGED,rfa_rda,,interactive
+AL,2026-11-20T17:08:05Z,UNCHANGED,resources,,interactive
+AL,2026-11-20T17:08:05Z,CHANGED,home,,interactive
+AL,2026-11-20T17:08:05Z,CHANGED,adeca,,interactive
+AL,2026-11-20T17:08:05Z,CHANGED,governor,,interactive
+AL,2026-11-20T17:08:05Z,TRIPWIRE,home,"[AL] 'home' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Stroke Initiative Maternal | Fetal Health Collaborative EHR | Cybersecurity Rural Workforce Initiative Rural Health Practice Initiative Contact Us Looking. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AL,2026-11-20T17:08:05Z,YEAR2,home,"[AL] 'home' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: Cancer Digital Regionalization EMS Treat-in-Place Initiative Simulation Training Rural Health Initiative Mental Health Initiative EMS Trauma. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",interactive
+AL,2026-11-20T17:08:10Z,UNCHANGED,resources,,interactive
+AL,2026-11-20T17:08:10Z,CHANGED,home,,interactive
+AL,2026-11-20T17:08:10Z,CHANGED,adeca,,interactive
+AL,2026-11-20T17:08:10Z,CHANGED,governor,,interactive
+AL,2026-11-20T17:08:10Z,TRIPWIRE,home,"[AL] 'home' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Stroke Initiative Maternal | Fetal Health Collaborative EHR | Cybersecurity Rural Workforce Initiative Rural Health Practice Initiative Contact Us Looking. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AL,2026-11-20T17:08:10Z,YEAR2,home,"[AL] 'home' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: Cancer Digital Regionalization EMS Treat-in-Place Initiative Simulation Training Rural Health Initiative Mental Health Initiative EMS Trauma. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",interactive
+AL,2026-11-20T17:08:26Z,UNCHANGED,resources,,interactive
+AL,2026-11-20T17:08:26Z,UNCHANGED,home,,interactive
+AL,2026-11-20T17:08:26Z,CHANGED,adeca,,interactive
+AL,2026-11-20T17:08:26Z,CHANGED,governor,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,opm,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,programme,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,documents,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,dss_press,,interactive
+CT,2026-11-20T17:08:45Z,CHANGED,dmhas_rfps,,interactive
+CT,2026-11-20T17:08:45Z,TRIPWIRE,programme,"[CT] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Overview. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-11-20T17:08:45Z,TRIPWIRE,documents,"[CT] 'documents' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Rural Health Transformation Program-Documents | Documents Rural Health Transformation Program Overview PACE Public Engagement Webinars Documents Documents On | Governor's Endorsement Letter Notice of Award CT Rural Health Transformation Project Narrative CT Rural Health Transformation Budget Narrative CT Rural Health Project Summaries RHTP Overview Slides Policies Accessibility About CT Directories Social Media For State Employees United States FULL Connecticut FULL. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CT,2026-11-20T17:11:07Z,UNCHANGED,(all),,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,funding,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,programme,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,rch,,interactive
+KY,2026-11-20T17:14:57Z,CHANGED,chfs_grants,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,rfa_et,,interactive
+KY,2026-11-20T17:14:57Z,UNCHANGED,rfa_rda,,interactive
+VA,2026-11-20T17:15:33Z,UNCHANGED,vhcf,,interactive
+VA,2026-11-20T17:15:33Z,UNCHANGED,vhha_foundation,,interactive
+VA,2026-11-20T17:15:33Z,CHANGED,ways_to_apply,,interactive
+VA,2026-11-20T17:15:33Z,UNCHANGED,news,,interactive
+VA,2026-11-20T17:15:33Z,UNCHANGED,vhcf_news,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,funding,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,programme,,interactive
+KY,2026-11-20T17:16:29Z,CHANGED,rch,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,rfa_et,,interactive
+KY,2026-11-20T17:16:29Z,UNCHANGED,rfa_rda,,interactive
+KY,2026-11-20T17:16:29Z,TRIPWIRE,rch,"[KY] 'rch' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Statewide Program Positions RCH Technology Lead. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,funding,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,programme,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,rch,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,chfs_grants,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,rfa_cmhc,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,rfa_chw,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,rfa_cp,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,rfa_et,,interactive
+KY,2026-11-20T17:18:40Z,UNCHANGED,rfa_rda,,interactive
+AR,2026-11-20T17:21:07Z,CHANGED,home2,,interactive
+AR,2026-11-20T17:21:07Z,CHANGED,resources,,interactive
+AR,2026-11-20T17:21:07Z,CHANGED,rise,,interactive
+AR,2026-11-20T17:21:07Z,CHANGED,heart,,interactive
+AR,2026-11-20T17:21:07Z,TRIPWIRE,rise,"[AR] 'rise' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: NOFO For RISEDownload Now Office of Governor Sarah Huckabee Sanders HEALTHY. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AR,2026-11-20T17:21:07Z,TRIPWIRE,heart,"[AR] 'heart' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: NOFO For HEARTDownload Now Office of Governor Sarah Huckabee Sanders HEALTHY. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+AR,2026-11-20T17:23:13Z,CHANGED,home2,,interactive
+AR,2026-11-20T17:23:13Z,CHANGED,resources,,interactive
+AR,2026-11-20T17:23:13Z,CHANGED,rise,,interactive
+AR,2026-11-20T17:23:13Z,CHANGED,heart,,interactive
+ME,2026-11-20T17:24:25Z,CHANGED,programme,,interactive
+ME,2026-11-20T17:24:25Z,TRIPWIRE,programme,"[ME] 'programme' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Population Health As | University of New England | Maine Department of Health and Human Services. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ME,2026-11-20T17:25:07Z,CHANGED,programme,,interactive
+NV,2026-11-20T17:26:04Z,UNCHANGED,roster,,interactive
+NV,2026-11-20T17:26:04Z,CHANGED,nofos,,interactive
+NV,2026-11-20T17:26:04Z,UNCHANGED,bp1_report,,interactive
+NV,2026-11-20T17:26:04Z,TRIPWIRE,nofos,"[NV] 'nofos' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Children's Behavioral Health Transformation | Workforce Recruitment and Rural Access Program | CBHT Rural Health Transformation Grant. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NV,2026-11-20T17:26:04Z,YEAR2,nofos,"[NV] 'nofos' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: Rural Health Transformation Applicant Guide. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",interactive
+NV,2026-11-20T17:26:20Z,UNCHANGED,roster,,interactive
+NV,2026-11-20T17:26:20Z,CHANGED,nofos,,interactive
+NV,2026-11-20T17:26:20Z,UNCHANGED,bp1_report,,interactive
+NV,2026-11-20T17:26:20Z,YEAR2,nofos,"[NV] 'nofos' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: Rural Health Transformation Applicant Guide. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",interactive

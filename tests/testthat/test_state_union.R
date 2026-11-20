@@ -263,6 +263,7 @@ STATE_FILES <- c(
   # round_amount). 44 named-hospital rows and $0 -- READ THE ROW COUNT. A
   # second Indiana file beside the seven procurement vendors.
   IN_GROW = "data/reference/in_grow_regional_awardees.csv",
+  IN_MTB = "data/reference/in_meds_to_beds_awardees.csv",   # session 121: Meds-to-Beds, 20 hospitals at $0
 
   # SESSION 64. LOUISIANA'S RURAL CLINICIAN CREDIT BANK: 5 named awards
   # ($1,965,788) and ONE aggregate row for the 48 LDH names nowhere (amount

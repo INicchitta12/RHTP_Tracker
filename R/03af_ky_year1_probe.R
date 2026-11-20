@@ -137,7 +137,7 @@ KY_SOURCES <- tibble::tribble(
         "reduction, sentence by sentence). The 2026-09-02 copy stays on disk."),
   "chfs_grants",
   "https://www.chfs.ky.gov/agencies/os/oas/Pages/grants.aspx",
-  "2026-10-26_ky_chfs_grant_opportunities.html",  # re-based session 108 after reading (the Community Paramedicine RFA left; a new RHTP Tier 2 RFA, Rapid Response to Recovery: Transportation Support, for the 14 CMHCs); the 09-02 copy stays
+  "2026-11-20_ky_chfs_grant_opportunities.html",  # re-based session 121 after reading (the RHTP RFA list is unchanged, re-flowed; Serve Kentucky's 2027-28 AmeriCorps RFA added, not RHTP); the 10-26 copy stays. Earlier: re-based session 108 after reading (the Community Paramedicine RFA left; a new RHTP Tier 2 RFA, Rapid Response to Recovery: Transportation Support, for the 14 CMHCs); the 09-02 copy stays
   paste("THE POSITIVE CONTROL. CHFS's cabinet-wide grants channel, which",
         "states presence or absence PER AGENCY in its own words ('No grant",
         "opportunities are available at this time'), so silence is a",
@@ -190,7 +190,7 @@ KY_SOURCES <- tibble::tribble(
         "the status row, NOT in KY_AWARD_DATES, and the stage is unchanged."),
   "rch",
   "https://healthy-ky.org/rch",
-  "2026-11-16b_ky_foundation_healthy_kentucky_rch.html",  # re-based session 119 after reading the 11-16 19:35Z trip: the live page names the same three Hub Leads (Lake Cumberland, Purchase, Martin County, all in ky_year1_awardees.csv) in a different layout than session 118s capture, plus menu text ("Events Conference Facility Board"); nobody new. Session 118 after reading: Big Sandy's Hub Lead (Martin County Health Department) extracted by R/03by; the 10-26 copy stays
+  "2026-11-20_ky_foundation_healthy_kentucky_rch.html",  # re-based session 121 after reading: one job posting ("Deputy Director of Collective Impact") left the Statewide Program Positions list; the three Hub Leads unchanged; the 11-16b copy stays. Earlier: re-based session 119 after reading the 11-16 19:35Z trip: the live page names the same three Hub Leads (Lake Cumberland, Purchase, Martin County, all in ky_year1_awardees.csv) in a different layout than session 118s capture, plus menu text ("Events Conference Facility Board"); nobody new. Session 118 after reading: Big Sandy's Hub Lead (Martin County Health Department) extracted by R/03by; the 10-26 copy stays
   paste("The designated pass-through's own page (§7, Illinois/ICAHN's",
         "route). RE-BASED session 94: its 'Program News' now names ONE Hub",
         "Lead (Lake Cumberland District Health Department, 2026-10-05;",

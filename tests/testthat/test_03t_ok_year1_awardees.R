@@ -205,8 +205,9 @@ test_that("sum(amount) is the microgrant total and NOTHING else", {
   skip_if_no_archive()
   recs <- ok_records()
   expect_silent(ok_assert_amount_column(recs))
+  # Session 121: + the Mercy Hospital Oklahoma Communities re-pricing (+$50,000).
   expect_equal(round(sum(recs$amount, na.rm = TRUE), 2),
-               OK_STATED$microgrant_total)
+               OK_STATED$microgrant_total + 50000)
   # Georgia's and South Dakota's rule, made a test: the ROOTS row's $600,000
   # is reachable only through round_amount.
   roots <- recs[recs$award_pool == "ROOTS", ]
@@ -235,7 +236,7 @@ test_that("20 award actions reach 18 named hospitals, and that is a FLOOR", {
   expect_true(all(h$recipient_type == "HOSPITAL_OR_SYSTEM"))
   expect_true(all(h$flow_type == "DIRECT"))
   expect_true(all(h$hospital_attribution == "NAMED_HOSPITAL"))
-  expect_equal(round(sum(h$amount), 2), 1079506.22)
+  expect_equal(round(sum(h$amount), 2), 1129506.22)   # session 121: Mercy (Johnston) $50,000 -> $100,000
 
   # Oklahoma has no pass-through row at all, so neither pool bucket exists.
   part <- rhtp_hospital_dollar_partition(recs)
@@ -399,7 +400,7 @@ test_that("the §7A comparison is two claims over two universes", {
 
   cmp <- ok_initiative_comparison(recs)
   expect_true(any(grepl("48.7%", cmp$value, fixed = TRUE)))
-  expect_true(any(grepl("30.2%", cmp$value, fixed = TRUE)))
+  expect_true(any(grepl("31.2%", cmp$value, fixed = TRUE)))   # session 121: was 30.2% before the Mercy re-pricing
 })
 
 test_that("Oklahoma revised the microgrant line between its two Tier 2 docs", {
@@ -424,7 +425,7 @@ test_that("the committed CSV matches what the extractor builds", {
                              progress = FALSE)
   expect_equal(nrow(on_disk), 69L)
   expect_equal(round(sum(on_disk$amount, na.rm = TRUE), 2),
-               OK_STATED$microgrant_total)
+               OK_STATED$microgrant_total + 50000)   # session 121 re-pricing
   # 20 -> 26 in session 49: six Oklahoma microgrant recipients whose form
   # OSDH never stated verified as hospitals, +$235,396.66.
   # 26 -> 27 in session 71: Choctaw Nation of Oklahoma is the enrolled legal
@@ -457,7 +458,7 @@ test_that("session 112: the moved roster is read from its dropdown index and fra
     if (grepl("xfdisplay.json", url, fixed = TRUE)) {
       return(readBin(here::here(OK_XF_INDEX_FILE), "raw", file.size(here::here(OK_XF_INDEX_FILE))))
     }
-    slug <- stringr::str_match(url, "/rhtp-funding-recipients/([^/]+)/jcr:content")[, 2]
+    slug <- stringr::str_match(url, "/rhtp-funding-recipients(?:-bp[0-9])?/([^/]+)/jcr:content")[, 2]
     f <- here::here(OK_XF_FRAGMENT_DIR, paste0(slug, ".html"))
     readBin(f, "raw", file.size(f))
   }
@@ -524,4 +525,20 @@ test_that("session 114: the LifeCare Provider Collaborative is a named watch ite
   expect_match(ok_lifecare_findings(function() NULL), "no longer on the Funding Recipients dropdown")
   nolabel <- charToRaw(sub(OK_LIFECARE_LABEL, "Recipients", rawToChar(raw), fixed = TRUE))
   expect_match(ok_lifecare_findings(function() nolabel), "no longer carries")
+})
+
+
+test_that("session 121: the BP1 index moved, Mercy (Johnston) re-priced, BP2 is watched as Year 2", {
+  idx <- ok_xf_index(here::here(OK_XF_INDEX_FILE))
+  expect_equal(nrow(idx), 29L)
+  expect_true(grepl("container_797926255_", OK_XF_INDEX_URL, fixed = TRUE))
+  b2 <- ok_xf_index(here::here(OK_XF_BP2_INDEX_FILE))
+  expect_setequal(b2$label, c("Chronic Disease Management Program", "Expanding Care: Doulas Program"))
+  expect_true(all(file.exists(here::here(OK_XF_BP2_FRAGMENT_DIR, paste0(b2$slug, ".html")))))
+  t <- rhtp_watch_reduce(here::here(OK_REPRICED_S121$source))
+  expect_true(grepl(OK_REPRICED_S121$quote, t, fixed = TRUE))
+  r <- ok_records()
+  m <- r[r$awardee == "Mercy Hospital Oklahoma Communities" & r$county == "Johnston", ]
+  expect_equal(m$amount, 100000)
+  expect_match(m$amount_basis, "RE-PRICED (session 121)", fixed = TRUE)
 })

@@ -3140,6 +3140,13 @@ NV_PROBE_PAGES <- tibble::tribble(
   "data/evidence/NV/2026-08-31_nv_rht_nofos.html", TRUE
 )
 
+# Session 121, READ 2026-11-20: the NOFO page is now Budget Period 2 (CBHT WRRAP
+# due 12-10, RHIT/FLEX 12-15; logged YEAR2 by the probe). The three new
+# "organisations" are PROGRAMME titles of those Year 2 NOFOs, not recipients.
+NV_NAME_FURNITURE <- list(nofos = c("Children's Behavioral Health Transformation",
+                                    "Workforce Recruitment and Rural Access Program",
+                                    "CBHT Rural Health Transformation Grant"))
+
 nv_probe <- function() {
   w <- rhtp_watch_pages(NV_PROBE_PAGES, NV_USER_AGENT)
   live_tabs <- nv_roster_tables(raw = w$raw$roster)
@@ -3149,7 +3156,7 @@ nv_probe <- function() {
                                 nofos_text = nv_html_text(raw = w$raw$nofos),
                                 sections = names(live_tabs))
   rhtp_assert_no_new_organisations_across(live = w$live, archived = w$arch,
-                                          state = NV_STATE)
+                                          state = NV_STATE, furniture = NV_NAME_FURNITURE)
   # SESSION 101: the BP1 Subrecipient Report, by DIGEST. NVHA says its amounts
   # "may not be final"; a revised file is the signal to re-parse it.
   bp1 <- rhtp_probe_get(NV_BP1_KEY, function()

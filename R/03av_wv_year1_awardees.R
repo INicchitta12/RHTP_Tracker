@@ -138,7 +138,7 @@ source(here::here("R", "utils_recipient_classification.R"))
 
 WV_STATE     <- "WV"
 WV_ALLOTMENT <- 199476099        # cms_fy2026_allotments.csv (§7.1)
-WV_TOTAL     <- 41300698         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000; session 112: + $1,589,077; session 115: + $3,930,266; session 117a: + $16,976,480); unpriced rows carry none
+WV_TOTAL     <- 48827616         # the PRICED rows (session 103: + $6,156,458; session 107: + $3,400,000; session 112: + $1,589,077; session 115: + $3,930,266; session 117a: + $16,976,480; session 121: + $7,526,918); unpriced rows carry none
 WV_NOA_DATE  <- as.Date("2025-12-29")
 WV_DIR       <- file.path("data", "evidence", "recheck", "2026-09-23", "WV")
 WV_CSV       <- here::here("data", "reference", "wv_year1_awardees.csv")
@@ -170,7 +170,9 @@ WV_SLUG <- c(
   can  = "governor-morrisey-announces-13-million-expand-mobile-cancer-screenings-across-west-virginia",
   whwc = "governor-patrick-morrisey-today-announced-250000-award-williamson-health-wellness-center",
   camc = "governor-morrisey-announces-39-million-expand-rural-healthcare-training-and-workforce",
-  dia  = "governor-morrisey-announces-nearly-17-million-rural-health-transformation-awards-strengthen")
+  dia  = "governor-morrisey-announces-nearly-17-million-rural-health-transformation-awards-strengthen",
+  rni  = "governor-morrisey-announces-more-93-million-help-west-virginians-stay-recovery-and-grow",
+  cp   = "governor-morrisey-announces-more-11-million-investment-launch-community-paramedicine")
 
 # AWARD RELEASES READ AND JUDGED NOT RHTP (session 99). Each slug is excluded
 # from the tripwire with the sentence that justifies it; a release is never
@@ -189,7 +191,26 @@ WV_NOT_RHTP <- tibble::tribble(
 # its sentence. EMPTY since session 100: the one entry session 99 held, the
 # 2026-09-30 "$3.2 Million ... Investments" release, was extracted on the
 # owner's approval (key `inv` in WV_SLUG and WV_AWARDS_S100).
-WV_READ_UNEXTRACTED <- tibble::tibble(slug = character(0), why = character(0))
+# SESSION 121: two releases read and NOT extracted, each with its reason.
+WV_READ_UNEXTRACTED <- tibble::tribble(
+  ~slug, ~why,
+  "governor-morrisey-announces-202-million-new-rural-health-funding-bringing-two-year-total",
+  paste("Read 2026-11-20 (session 121; tripped the 11-20 Routine): the YEAR 2 award",
+        "release ('$202 Million in New Rural Health Funding, Bringing Two-Year Total",
+        "to More Than $401 Million'), the health.wv.gov copy of the release archived",
+        "2026-11-13 (WV_Y2_RELEASE). Year 2 is safeguards only (session 116): no row."),
+  "governor-morrisey-announces-reopening-labor-and-delivery-services-greenbrier-valley-medical",
+  paste("Read 2026-11-20 (session 121). Its award IS extracted, from the state's",
+        "Year 1 roster (row 57: West Virginia School of Osteopathic Medicine,",
+        "$3,999,993, 'Birthing Center'); the release itself is not a source of a row.",
+        "The release reads: 'a nearly $4 million Rural Health",
+        "Transformation Program award to establish West Virginia's second freestanding",
+        "birthing center' that 'will support a new WVSOM community-based birthing",
+        "center and also provide assistance for more complex pregnancies'. The release",
+        "names NO recipient of the award (WVSOM, Vandalia Health/CAMC and Greenbrier",
+        "Valley Medical Center are all in it) and prints the amount only as 'nearly $4",
+        "million'. Not extracted: a recipient is not inferred from a setting (§0.3a,",
+        "§0.4). Archived recheck/2026-11-20/WV/."))
 
 # Where each release is archived. The session-85 pair sits under
 # data/evidence/WV/ with its fetch date, not under the 09-23 recheck folder.
@@ -206,7 +227,9 @@ WV_PATHS <- c(
   can  = file.path("data", "evidence", "WV", "2026-11-02_wv_art_wvu_cancer_institute_1_3m.html"),
   whwc = file.path("data", "evidence", "WV", "2026-11-02_wv_art_williamson_hwc_250k.html"),
   camc = file.path("data", "evidence", "WV", "2026-11-09_wv_art_camc_3_9m.html"),
-  dia  = file.path("data", "evidence", "recheck", "2026-11-13", "WV", "2026-11-13_wv_gov_17m_diabetes_awards.html"))
+  dia  = file.path("data", "evidence", "recheck", "2026-11-13", "WV", "2026-11-13_wv_gov_17m_diabetes_awards.html"),
+  rni  = file.path("data", "evidence", "recheck", "2026-11-20", "WV", "2026-11-20_wv_art_rni_6_3m_recovery.html"),
+  cp   = file.path("data", "evidence", "recheck", "2026-11-20", "WV", "2026-11-20_wv_art_wvu_medicine_community_paramedicine_1_1m.html"))
 
 # Minnie Hamilton's CMS enrolment (session 85), read from the archived file.
 WV_MH_ENROLMENT <- paste0(
@@ -219,10 +242,16 @@ WV_MH_ENROLMENT <- paste0(
 WV_PROBE_DIR <- file.path("data", "evidence", "WV")
 WV_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
-  "news", "https://health.wv.gov/news", "2026-10-12_wv_news_index.html", FALSE,
-  "rhtp", "https://health.wv.gov/rhtp", "2026-09-23_wv_rhtp_programme.html", TRUE,
-  "grants", "https://health.wv.gov/grant-opportunities",
-  "2026-09-23_wv_grant_opportunities.html", TRUE)
+  # Session 121: all three re-based to 2026-11-20 after READING each diff: the
+  # news index added the four articles read above; the programme page renamed
+  # a menu item (Grants -> Funding) and its footer now prints FY2026 + FY2027;
+  # /grant-opportunities REDIRECTS to /funding-opportunities, which links the
+  # state's Year 1 roster (extracted) and one Tier 2 solicitation ("Mountain
+  # State Care Force: Public Education and Marketing").
+  "news", "https://health.wv.gov/news", "2026-11-20_wv_news_index.html", FALSE,
+  "rhtp", "https://health.wv.gov/rhtp", "2026-11-20_wv_rhtp_programme.html", TRUE,
+  "grants", "https://health.wv.gov/funding-opportunities",
+  "2026-11-20_wv_funding_opportunities.html", TRUE)
 WV_USER_AGENT <- paste0("Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; ",
                         "+https://www.aha.org)")
 
@@ -623,6 +652,57 @@ WV_AWARDS_S117 <- tibble::tribble(
   NA, NA, "NON_HOSPITAL", "No", WV_ROAM_WHY, FALSE)
 WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S117)
 WV_S117_KEYS <- "dia"
+
+# Session 121 (Task 7): the 11-16 community paramedicine and 11-19 recovery
+# releases, found by the 11-20 Routine's article check and extracted on the
+# standing pre-approval. Both are announced after 10-30; they are Year 1 on a
+# STATE SOURCE DATE (session 121 owner ruling, CLAUDE.md §7): the 11-09 Year 2
+# release says every Year 1 agreement was "finalized ahead of the October 30
+# federal deadline" (WV_Y2_RELEASE), the 117a precedent. Both footers print
+# FY2026 + FY2027 ($401,557,453.35, "combined Year 1 and Year 2 funding").
+#   * WEST VIRGINIA UNIVERSITY HOSPITALS, INC. is the exact legal name on CMS
+#     Hospital Enrollments (WEST VIRGINIA UNIVERSITY HOSPITALS INC, CCN 510001,
+#     Morgantown): a hospital row, typed as Cabell's (no CCN on the row). The
+#     money serves WVU's Rockefeller Neuroscience Institute ("on behalf of
+#     RNI"); §0.3a judges the recipient, and the recipient is the hospital.
+#   * WEST VIRGINIA UNITED HEALTH SYSTEM and "WEST VIRGINIA UNIVERSITY (WVU)
+#     MEDICINE" (the system's trading name) are the session-107 SYSTEM PARENT:
+#     LOW, GENERAL_KNOWLEDGE, no CCN. Counter-argument recorded: "WVU Medicine"
+#     could be read as the university's medical school; the release describes
+#     a care-delivery programme run with EMS agencies and home health, which is
+#     the health system's, and session 54 typed only NAMED UNITS of WVU
+#     (Center for Nursing Education) as the university.
+#   * The $9.3M headline's other $3,000,000 (WVUIC incubator labs) is "from the
+#     Office of Economic Development": STATE money, §0.1 mode 1, no row.
+WV_WVUH_WHY <- paste0(
+  "CMS Hospital Enrollments (", WV_INV_ENROL_FILE, "): WEST VIRGINIA UNIVERSITY ",
+  "HOSPITALS INC, CCN 510001, Morgantown -- the awardee's own legal name ('Awarded ",
+  "to West Virginia University Hospitals, Inc., on behalf of RNI'). The recovery ",
+  "platform serves WVU's Rockefeller Neuroscience Institute; §0.3a judges the ",
+  "recipient. Year 1 on the 11-09 release's 'finalized ahead of the October 30 ",
+  "federal deadline' (session 121 date rule).")
+WV_WVU_S121_WHY <- paste0(WV_WVU_WHY, " Session 121: the same system parent, ",
+  "named here as '", c("West Virginia United Health System", "West Virginia University (WVU) Medicine"),
+  "'. Year 1 on the 11-09 release's 'finalized ahead of the October 30 federal ",
+  "deadline' (session 121 date rule).")
+WV_AWARDS_S121 <- tibble::tribble(
+  ~key, ~date, ~initiative, ~awardee, ~amount, ~quote,
+  ~recipient_type, ~basis_type, ~flow_type, ~dist, ~why, ~rounded,
+  "rni", "2026-11-19", "Personal Health Accelerator / Rural Health Link (the release names the pair for both awards)",
+  "West Virginia University Hospitals, Inc.", 3000000,
+  "Awarded to West Virginia University Hospitals, Inc., on behalf of RNI",
+  "HOSPITAL_OR_SYSTEM", "STATE_SOURCE", "DIRECT", "Yes", WV_WVUH_WHY, FALSE,
+  "rni", "2026-11-19", "Personal Health Accelerator / Rural Health Link (the release names the pair for both awards)",
+  "West Virginia United Health System", 3382229,
+  "Recovery Access Coordination Hub ($3,382,229): Awarded to West Virginia United Health System, on behalf of the RNI Addiction Ecosystem",
+  "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "DIRECT", "Yes", WV_WVU_S121_WHY[1], FALSE,
+  "cp", "2026-11-16", "Connected Care Grid",
+  "West Virginia University (WVU) Medicine", 1144689,
+  "announced a $1,144,689 award to West Virginia University (WVU) Medicine through the Connected Care Grid (CCG) initiative",
+  "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "DIRECT", "Yes", WV_WVU_S121_WHY[2], FALSE)
+WV_AWARDS <- dplyr::bind_rows(WV_AWARDS, WV_AWARDS_S121)
+WV_S121_KEYS <- c("rni", "cp")
+WV_BP1_BP2_FOOTER_KEYS <- c("dia", WV_S121_KEYS)
 # Its footer prints BP1 + the FULL Year 2 award ($401,557,453 = $199,476,099 +
 # $202,081,354), which rhtp_footer_class() does not know (it knows only the
 # $100M initial award). Checked here against the 11-09 Year 2 release instead
@@ -648,7 +728,7 @@ wv_assert_sources <- function() {
     }
   }
   # §0.2: the footer on every release prints the ALLOTMENT.
-  for (k in setdiff(names(WV_PATHS), "dia")) {
+  for (k in setdiff(names(WV_PATHS), WV_BP1_BP2_FOOTER_KEYS)) {
     rhtp_assert_footer_text_tier(wv_text(k), WV_STATE, "STATE_ALLOTMENT",
                                  label = paste("WV", k, "footer"))
   }
@@ -707,6 +787,20 @@ wv_assert_sources <- function() {
     stop("[WV] the 11-10 release no longer reads as 'nearly $17 million' in seven ",
          "awards with a BP1 + BP2 footer.", call. = FALSE)
   }
+  # Session 121: the two releases' sums and their FY2026 + FY2027 footers.
+  rni <- wv_text("rni"); cp <- wv_text("cp")
+  if (sum(WV_AWARDS$amount[WV_AWARDS$key == "rni"]) != 6382229 ||
+      !grepl("more than $6.3 million in West Virginia Rural Health Transformation Program (WV RHTP) awards", rni, fixed = TRUE) ||
+      !grepl("$3 million from the Office of Economic Development", rni, fixed = TRUE) ||
+      !grepl("Digital Disease Management Platform ($3,000,000)", rni, fixed = TRUE) ||
+      sum(WV_AWARDS$amount[WV_AWARDS$key == "cp"]) != 1144689 ||
+      !all(grepl("financial assistance award totaling $401,557,453.35 in combined Year 1 and Year 2 funding",
+                 c(rni, cp), fixed = TRUE)) ||
+      !grepl("finalized ahead of the October 30 federal deadline", y2, fixed = TRUE)) {
+    stop("[WV] the 11-16/11-19 releases no longer read as $6,382,229 (two RHTP awards; ",
+         "the OED $3M is state money) and $1,144,689, with BP1 + BP2 footers and the ",
+         "11-09 'finalized ahead of the October 30' sentence.", call. = FALSE)
+  }
   # Session 115: the three CAMC awards make "more than $3.9 million".
   camc <- wv_text("camc")
   if (sum(WV_AWARDS$amount[WV_AWARDS$key == "camc"]) != 3930266 ||
@@ -719,7 +813,7 @@ wv_assert_sources <- function() {
   invisible(TRUE)
 }
 
-wv_year1_awardees <- function() {
+wv_year1_release_rows <- function() {
   a <- WV_AWARDS
   cls <- rhtp_classify_recipient_type(a$awardee, WV_STATE)
   typed <- !is.na(a$recipient_type)
@@ -775,8 +869,8 @@ wv_year1_awardees <- function() {
     reviewer = NA_character_,
     initiative = a$initiative,
     recipient_type_source = ifelse(
-      typed, paste0(ifelse(a$key %in% WV_S117_KEYS, "TYPED (session 117a): ", ifelse(a$key %in% WV_S115_KEYS, "TYPED (session 115): ", ifelse(a$key %in% WV_S112_KEYS, "TYPED (session 112): ", ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
-                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): "))))))),
+      typed, paste0(ifelse(a$key %in% WV_S121_KEYS, "TYPED (session 121): ", ifelse(a$key %in% WV_S117_KEYS, "TYPED (session 117a): ", ifelse(a$key %in% WV_S115_KEYS, "TYPED (session 115): ", ifelse(a$key %in% WV_S112_KEYS, "TYPED (session 112): ", ifelse(a$key %in% WV_S107_KEYS, "TYPED (session 107): ", ifelse(a$key %in% WV_S103_KEYS, "TYPED (session 103): ", ifelse(inv, "TYPED (session 100): ",
+                           ifelse(s85, "TYPED (session 85): ", "TYPED (session 54): ")))))))),
                     a$why, " Classifier said ",
                     cls$recipient_type, "/", cls$determination_confidence, "."),
       paste0("rhtp_classify_recipient_type() on the name: ",
@@ -815,6 +909,240 @@ wv_year1_awardees <- function() {
                                                         ie$cms_org, ", CCN ", ie$ccn),
                                          NA_character_)))
 }
+
+
+# -- session 121: the Year 1 "Released Awards" roster --------------------------
+#
+# SESSION 121 (Task 7). health.wv.gov/funding-opportunities (the old
+# /grant-opportunities path now redirects there) links "Year 1 Released Awards
+# File: RHTP Released Awards.pdf" -- WV Department of Health's own roster of
+# Year 1 awards: initiative, activity, organisation, "Awarded Amount", service
+# area and summary, closing "Total Announced (67 awards): $108,261,312.68".
+# It is the STATE'S OWN AWARD LIST and the latest list governs (the CO and VT
+# precedent): it prices the rows the releases left at $0 or as a floor, and it
+# adds awards no release announced. It is a FLOOR ("Released", "Total
+# Announced") against the 11-09 statement that all 145 Year 1 agreements were
+# finalized by 10-30; nothing is computed for the rest.
+#
+# The PDF is read through poppler's word boxes (pdftotext -bbox, version
+# 24.02.0), committed beside it, because the cloud reader carries no table
+# model; each row is anchored on its "$" amount, and the parse must reproduce
+# the printed total to the cent and the printed count (67).
+WV_RA_DIR  <- file.path("data", "evidence", "recheck", "2026-11-20", "WV")
+WV_RA_PDF  <- file.path(WV_RA_DIR, "2026-11-20_wv_rhtp_released_awards_year1.pdf")
+WV_RA_BBOX <- file.path(WV_RA_DIR, "2026-11-20_wv_rhtp_released_awards_year1.pdftotext_bbox.html")
+WV_RA_URL  <- "https://health.wv.gov/sites/default/files/2026-11/RHTP%20Released%20Awards_1.pdf"
+WV_RA_TOTAL <- 108261312.68
+WV_RA_COUNT <- 67L
+WV_RA_COLS <- c(activity = 60, org = 166, amount = 281, area = 378, summary = 505)
+
+wv_ra_words <- function(path = here::here(WV_RA_BBOX)) {
+  x <- xml2::read_html(path)
+  pages <- xml2::xml_find_all(x, "//page")
+  dplyr::bind_rows(lapply(seq_along(pages), function(p) {
+    w <- xml2::xml_find_all(pages[[p]], ".//word")
+    tibble::tibble(page = p, t = xml2::xml_text(w),
+                   x0 = as.numeric(xml2::xml_attr(w, "xmin")),
+                   y0 = as.numeric(xml2::xml_attr(w, "ymin")))
+  }))
+}
+
+#' One row per award, in document order
+wv_ra_parse <- function(path = here::here(WV_RA_BBOX)) {
+  w <- wv_ra_words(path) %>%
+    dplyr::mutate(col = cut(.data$x0, c(WV_RA_COLS, Inf), labels = names(WV_RA_COLS), right = FALSE),
+                  key = .data$page * 1e4 + .data$y0)
+  # initiative headers ("Initiative: Connected Care Grid (CCG)") and the total line
+  init <- w %>% dplyr::filter(.data$t == "Initiative:") %>% dplyr::select(page, y0, key)
+  init$name <- vapply(seq_len(nrow(init)), function(i) {
+    l <- w[w$page == init$page[i] & abs(w$y0 - init$y0[i]) < 2 & w$t != "Initiative:", ]
+    paste(l$t[order(l$x0)], collapse = " ")
+  }, character(1))
+  tot_i <- which(w$t == "Total")
+  amt <- w %>% dplyr::filter(.data$col == "amount", grepl("^\\$[0-9]", .data$t), !.data$key %in% c()) %>%
+    dplyr::arrange(.data$key)
+  tot_key <- if (length(tot_i)) w$key[tot_i[1]] else Inf
+  amt <- amt[amt$key < tot_key - 1, ]
+  ends <- c(amt$key[-1], tot_key) - 1
+  # an initiative header also ends a row's text window
+  ends <- vapply(seq_len(nrow(amt)), function(i) {
+    nx <- init$key[init$key > amt$key[i] + 1]
+    min(c(ends[i], nx - 1))
+  }, numeric(1))
+  txt <- function(colname, k0, k1) {
+    l <- w[w$col == colname & w$key >= k0 - 2 & w$key < k1, ]
+    l <- l[order(l$key, l$x0), ]
+    stringr::str_squish(paste(l$t, collapse = " "))
+  }
+  out <- tibble::tibble(
+    ra_row = seq_len(nrow(amt)),
+    page = amt$page,
+    initiative = vapply(amt$key, function(k) init$name[max(which(init$key < k))], character(1)),
+    activity_raw = vapply(seq_len(nrow(amt)), function(i) txt("activity", amt$key[i], ends[i]), character(1)),
+    organization = vapply(seq_len(nrow(amt)), function(i) txt("org", amt$key[i], ends[i]), character(1)),
+    amount_text = amt$t,
+    amount = as.numeric(gsub("[$,]", "", amt$t)),
+    service_area = vapply(seq_len(nrow(amt)), function(i) txt("area", amt$key[i], ends[i]), character(1)),
+    summary = vapply(seq_len(nrow(amt)), function(i) txt("summary", amt$key[i], ends[i]), character(1)))
+  # an empty activity cell is the merged cell above it
+  for (i in seq_len(nrow(out))) {
+    if (!nzchar(out$activity_raw[i]) && i > 1 && out$initiative[i] == out$initiative[i - 1]) {
+      out$activity_raw[i] <- out$activity_raw[i - 1]
+    }
+  }
+  tl <- w[w$page == w$page[tot_i[1]] & abs(w$y0 - w$y0[tot_i[1]]) < 2, ]
+  attr(out, "total_line") <- paste(tl$t[order(tl$x0)], collapse = " ")
+  out
+}
+
+wv_ra_assert <- function(ra = wv_ra_parse()) {
+  tl <- attr(ra, "total_line")
+  if (!grepl(paste0("Total Announced (", WV_RA_COUNT, " awards): $108,261,312.68"), tl, fixed = TRUE)) {
+    stop("[WV] the roster's total line is not 'Total Announced (67 awards): $108,261,312.68' (read: ", tl, ").", call. = FALSE)
+  }
+  if (nrow(ra) != WV_RA_COUNT || abs(sum(ra$amount) - WV_RA_TOTAL) > 0.005) {
+    stop("[WV] the roster parses to ", nrow(ra), " rows / $", format(sum(ra$amount), nsmall = 2, big.mark = ","),
+         ", not the printed 67 / $108,261,312.68.", call. = FALSE)
+  }
+  if (any(!nzchar(ra$organization))) stop("[WV] a roster row has no organisation.", call. = FALSE)
+  invisible(TRUE)
+}
+
+# Each release row, mapped by hand to its roster row (read 2026-11-20, session
+# 121). Every release row is on the roster; row 14 (Minnie Hamilton's AI
+# documentation project) shares roster row 41 with row 13 (the drone project):
+# the roster prices the two together at $2,363,000 ("Launches autonomous drone
+# delivery ... and deploys AI ambient clinical listening"), so row 13 carries it
+# and row 14 stays at $0, pointing at row 13 -- never divided (§6.2).
+WV_RA_MAP <- tibble::tribble(
+  ~row_no, ~ra_row,
+  1, 15,  2, 17,  3, 16,  4, 30,  5, 7,   6, 23,  7, 43,  8, 1,   9, 6,   10, 24,
+  11, 36, 12, 4,  13, 41, 14, 41, 15, 50, 16, 51, 17, 53, 18, 49, 19, 52, 20, 44,
+  21, 31, 22, 9,  23, 45, 24, 42, 25, 46, 26, 19, 27, 11, 28, 32, 29, 5,  30, 20,
+  31, 28, 32, 33, 33, 18, 34, 61, 35, 14, 36, 62, 37, 34, 38, 55, 39, 37, 40, 56,
+  41, 59, 42, 63, 43, 3)
+WV_RA_SIBLING <- c(`14` = 13)
+
+# The roster-only awards' typing, read by hand where the roster or a federal
+# record states the form; every other roster-only row takes the shared
+# classifier on its name (§8's fallback where it states nothing).
+WV_RA_HAND <- tibble::tribble(
+  ~ra_row, ~recipient_type, ~basis_type, ~flow_type, ~dist, ~why,
+  12, "FQHC_OR_RHC", "ORG_WEBSITE", "NON_HOSPITAL", "No",
+  "CMS FQHC Enrollments (data/evidence/federal_records/2026-09-23/cms_fqhc_enrollments_WV.json): VALLEY HEALTH SYSTEMS, INC (Harts, Cedar Grove, Wayne ...). The West Virginia FQHC network, not Virginia's Valley Health hospital system.",
+  40, "FQHC_OR_RHC", "ORG_WEBSITE", "NON_HOSPITAL", "No",
+  "CMS FQHC Enrollments (data/evidence/federal_records/2026-09-23/cms_fqhc_enrollments_WV.json): VALLEY HEALTH SYSTEMS, INC; the roster's own summary says 'across a regional community health center network'.",
+  13, "FQHC_OR_RHC", "ORG_WEBSITE", "NON_HOSPITAL", "No",
+  "CMS FQHC Enrollments (data/evidence/federal_records/2026-09-23/cms_fqhc_enrollments_WV.json): RAINELLE MEDICAL CENTER INC, CCN 511817, Rainelle. An FQHC, not a hospital, whatever its name.",
+  54, "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "DIRECT", "Yes",
+  "§10.2 HOSPITAL-FOUNDATION ROW (session 49): the foundation of a NAMED hospital whose name it carries -- PLEASANT VALLEY HOSPITAL, INC. dba RIVERS HEALTH, CCN 510012, Point Pleasant (CMS Hospital Enrollments, data/evidence/federal_records/2026-09-23/cms_hosp_enrollments_WV.json); the roster prints '(under Rivers Health Foundation)'. The parent tie is a reading, so LOW.",
+  57, "UNIVERSITY_OR_AHC", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No",
+  "The West Virginia School of Osteopathic Medicine is a state medical school (general knowledge; the roster states no form); it is on no CMS WV hospital enrolment. The 11-06 Greenbrier release names Vandalia Health/CAMC and Greenbrier Valley Medical Center in the same story, but the roster names WVSOM as the organisation of this award: §0.3a judges the recipient.",
+  25, "STATE_AGENCY", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "A state agency named as the organisation; the roster: 'A qualified entity will be selected through a competitive process to carry out the work.' The eventual contractor is not named; never a hospital.",
+  58, "STATE_AGENCY", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "A state agency (WV Department of Environmental Protection); the roster: 'A qualified entity will be selected through a competitive process to carry out the work.' Water testing and filters; never a hospital.",
+  26, "STATE_AGENCY", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "The West Virginia Higher Education Policy Commission, a state agency (general knowledge); career-exposure outreach for high-school students; never a hospital.",
+  22, "OTHER", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No",
+  "DETERMINED FORM: the West Virginia Jobs Investment Trust is a public venture-capital body created by state statute (general knowledge); the roster: 'Administers HealthTech Appalachia's accelerator and seed funding programs'. An administrator of a startup programme, not a hospital and not the awarding agency.",
+  67, "EMS_OR_PSAP", "STATE_SOURCE", "NON_HOSPITAL", "No",
+  "Grant Town Emergency Medical Services: an EMS agency by its own name ('Adds new ambulances and EMTs for medical transport').",
+  39, "OTHER", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No",
+  "DETERMINED FORM: Hospice of Huntington is a hospice (general knowledge); 'Opens a new adult day center ... and funds a State PACE Director'. Not a hospital.",
+  29, "OTHER", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No",
+  "DETERMINED FORM: the American College of Lifestyle Medicine is a physicians' professional society (general knowledge), not a college or university; the shared classifier's 'College' token is overridden here only. 'Trains rural clinicians and care teams in lifestyle medicine'.",
+  2, "VENDOR_OR_CONTRACTOR", "GENERAL_KNOWLEDGE", "NON_HOSPITAL", "No",
+  "IBM (International Business Machines), a technology vendor (general knowledge): 'Builds the State's health data spine, the shared data system all RHTP grantees will connect to'. A supplier to the state, never a hospital.")
+
+#' The release rows priced or re-priced from the roster, and the roster-only rows appended
+wv_apply_roster <- function(d, ra = wv_ra_parse()) {
+  wv_ra_assert(ra)
+  if (!setequal(WV_RA_MAP$row_no, d$row_no)) {
+    stop("[WV] WV_RA_MAP must map every release row (", nrow(d), "); a new release row is mapped by hand.", call. = FALSE)
+  }
+  src <- paste0("WV Department of Health, 'West Virginia Rural Health Transformation Program (WV RHTP) - ",
+                "Released Awards' (Year 1 Released Awards File, health.wv.gov/funding-opportunities, ",
+                "fetched 2026-11-20; 'Total Announced (67 awards): $108,261,312.68')")
+  d$wv_roster_row <- WV_RA_MAP$ra_row[match(d$row_no, WV_RA_MAP$row_no)]
+  d$roster_organization <- ra$organization[d$wv_roster_row]
+  d$roster_amount <- ra$amount[d$wv_roster_row]
+  sib <- as.character(d$row_no) %in% names(WV_RA_SIBLING)
+  d$roster_amount[sib] <- NA_real_
+  move <- !sib & (is.na(d$amount) | abs(d$amount - d$roster_amount) > 0.005)
+  prior <- d$amount
+  d$amount[move] <- d$roster_amount[move]
+  d$amount_confirmed[move] <- "Yes"
+  d$validation_source_type[move] <- "NOTICE_OF_AWARD"
+  strip <- function(f, codes) {
+    out <- vapply(strsplit(dplyr::coalesce(f, ""), ";", fixed = TRUE),
+                  function(x) paste(setdiff(x, codes), collapse = ";"), character(1))
+    ifelse(nzchar(out), out, NA_character_)
+  }
+  d$flag_reason[move] <- strip(d$flag_reason[move], c("AMOUNT_ROUNDED_IN_SOURCE", "AMOUNT_MISSING"))
+  d$amount_basis[move] <- paste0(
+    ifelse(is.na(prior[move]), "PRICED", "RE-PRICED"), " FROM THE STATE'S YEAR 1 ROSTER (session 121): ", src,
+    ", roster row ", d$wv_roster_row[move], " ('", d$roster_organization[move], "', ", ra$amount_text[d$wv_roster_row[move]], ").",
+    ifelse(is.na(prior[move]), " The release printed no per-award amount.",
+           paste0(" The release printed $", format(prior[move], big.mark = ",", scientific = FALSE),
+                  "; the latest list governs (the CO and VT precedent).")),
+    ifelse(d$row_no[move] == 13, " This roster row prices TWO of the release's projects together (drone delivery and AI ambient listening); row 14 points here and stays at $0, never divided (§6.2).", ""))
+  d$amount_basis[sib] <- paste0("PRICED ON ROW ", WV_RA_SIBLING[as.character(d$row_no[sib])],
+                                " (session 121): the roster's row 41 prices this project together with row 13's; never divided (§6.2).")
+  d$note <- paste0(d$note, ifelse(is.na(d$wv_roster_row), "", paste0(" [Session 121: on the state's Year 1 roster, row ", d$wv_roster_row, ".]")))
+
+  # the roster-only awards
+  used <- unique(WV_RA_MAP$ra_row)
+  nr <- ra[!ra$ra_row %in% used, ]
+  cls <- rhtp_classify_recipient_type(nr$organization, WV_STATE)
+  h <- WV_RA_HAND[match(nr$ra_row, WV_RA_HAND$ra_row), ]
+  typed <- !is.na(h$recipient_type)
+  rtype <- ifelse(typed, h$recipient_type, cls$recipient_type)
+  dist <- ifelse(typed, h$dist, ifelse(rtype %in% c("HOSPITAL_OR_SYSTEM"), "Yes", "No"))
+  flow <- ifelse(typed, h$flow_type, ifelse(dist == "Yes", "DIRECT", "NON_HOSPITAL"))
+  conf <- ifelse(typed, ifelse(h$basis_type == "GENERAL_KNOWLEDGE", "LOW", "MEDIUM"), cls$determination_confidence)
+  btype <- ifelse(typed, h$basis_type, NA_character_)
+  why <- ifelse(typed, h$why, paste0("rhtp_classify_recipient_type() on the name: ", cls$recipient_type, "/",
+                                     cls$determination_confidence, ". The roster states no form."))
+  new <- tibble::tibble(
+    state = WV_STATE, row_no = max(d$row_no) + seq_len(nrow(nr)), awardee = nr$organization, amount = nr$amount,
+    recipient_type = rtype, distributed_to_hospital = dist,
+    note = paste0(nr$initiative, " award (", nr$activity_raw, "), on the state's Year 1 roster, row ", nr$ra_row,
+                  "; announced in no release read. Service area: ", nr$service_area, ". Summary as printed: '",
+                  nr$summary, "'"),
+    recipient_confirmed = "Yes", amount_confirmed = "Yes", fiscal_year = "FY2026 (Year 1)",
+    source_document_title = src, state_source_url = WV_RA_URL,
+    validation_source_type = "NOTICE_OF_AWARD", extraction_method = "DIRECT_TEXT",
+    validator = "R/03av_wv_year1_awardees.R", ccn = NA_character_, aha_id = NA_character_,
+    rural_designation = NA_character_, reviewer = NA_character_, initiative = nr$initiative,
+    recipient_type_source = ifelse(typed, paste0("TYPED (session 121): ", why, " Classifier said ",
+                                                 cls$recipient_type, "/", cls$determination_confidence, "."), why),
+    determination_confidence = conf,
+    flag_reason = ifelse(!typed & cls$rule == "FALLBACK", "RECIPIENT_TYPE_INFERRED", NA_character_),
+    award_pool = nr$initiative, budget_period = "Budget Period 1", flow_type = flow,
+    hospital_benefiting = ifelse(dist == "Yes", "Yes", "Unclear"),
+    hospital_attribution = ifelse(dist == "Yes", "NAMED_HOSPITAL", "NOT_HOSPITAL"),
+    intermediary_name = NA_character_,
+    determination_basis = paste0("§10.2 ", ifelse(dist == "Yes", "DIRECT", flow), ": ", why,
+                                 " Year 1: the state's own 'Year 1 Released Awards' list; the 11-09 release says every ",
+                                 "Year 1 agreement was 'finalized ahead of the October 30 federal deadline'."),
+    amount_basis = paste0("EXACT, as printed on the state's Year 1 roster (", nr$amount_text, ")."),
+    basis_type = btype, round_amount = NA_real_, announcement_date = as.Date(NA),
+    source_archive_path = WV_RA_PDF, recipient_subtype = NA_character_,
+    cms_enrolment_match = NA_character_, cms_enrolment_record = NA_character_,
+    wv_roster_row = nr$ra_row, roster_organization = nr$organization, roster_amount = nr$amount)
+  out <- dplyr::bind_rows(d, new)
+  # the file and the roster must agree to the cent
+  if (abs(sum(out$roster_amount, na.rm = TRUE) - WV_RA_TOTAL) > 0.005 ||
+      any(abs(out$amount[!is.na(out$roster_amount)] - out$roster_amount[!is.na(out$roster_amount)]) > 0.005) ||
+      sum(!is.na(out$wv_roster_row) & !sib[seq_len(nrow(out))] %in% TRUE) != WV_RA_COUNT) {
+    stop("[WV] the file no longer reproduces the roster's 67 awards / $108,261,312.68.", call. = FALSE)
+  }
+  out
+}
+
+#' The award file: the release rows, priced from and extended by the roster
+wv_year1_awardees <- function() wv_apply_roster(wv_year1_release_rows())
 
 # -- probe (session 55) ------------------------------------------------------
 
@@ -988,6 +1316,9 @@ wv_status_table <- function() {
     WV_STATE, "2026-10-30 'More Than $3.9 Million to Expand Rural Healthcare Training and Workforce Programs' release",
     "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
     "Three awards to Charleston Area Medical Center (CAMC): MSCF $500,000 and $1,693,946, HTP $1,736,320 ($3,930,266, 'more than $3.9 million'). A hospital on its CMS WV enrolment (CCN 510022), typed as the 09-04 CAMC/Vandalia Health row. Found by the 11-06 Routine's name check; extracted session 115.",
+    WV_STATE, "WV DoH 'Year 1 Released Awards' roster (health.wv.gov/funding-opportunities, fetched 2026-11-20)",
+    "AWARDED_NAMED_AND_PRICED_PARTIAL", "Yes",
+    "THE STATE'S OWN YEAR 1 AWARD LIST: 67 awards, 'Total Announced (67 awards): $108,261,312.68', parsed from poppler word boxes and reproduced to the cent. It prices every release row (the 09-30 Investments rows, Minnie Hamilton's projects, the WVU floor) and adds 25 awards no release announced (IBM's data spine, WV Jobs Investment Trust $18.8M, VeeOne, Cartwheel, Unite Us, Pleasant Valley Hospital Foundation, WVSOM's birthing center ...). The latest list governs (session 121). A FLOOR: the 11-09 release counts 145 Year 1 agreements.",
     WV_STATE, "2026-08-14 '$4.2 million investment' release",
     "SOLICITATION_TIER_2", "No",
     "Two funding OPPORTUNITIES (Tier 2), not awards. Kept out of the award file (§0.2).",
@@ -1006,10 +1337,15 @@ wv_validate <- function() {
   # Institute, Williamson Health & Wellness Center).
   # Session 115: + 3 rows, all priced, all hospital (CAMC, $3,930,266).
   # Session 117a: + 7 rows, all priced, one hospital (Cabell Huntington, $1,544,313).
-  stopifnot(nrow(d) == 40L, sum(!is.na(d$amount)) == 31L,
+  # Session 121: + 3 rows, all priced, all hospital (WVU Hospitals + the WVU system parent, $7,526,918).
+  # Session 121: + the state's Year 1 roster (67 awards, $108,261,312.68): 25
+  # roster-only rows appended, every release row priced from it but one (row 14,
+  # Minnie Hamilton's second project, priced on row 13). The file IS the roster.
+  stopifnot(nrow(d) == 68L, sum(!is.na(d$amount)) == 67L,
+            abs(sum(d$amount, na.rm = TRUE) - WV_RA_TOTAL) < 0.005,
             sum(d$distributed_to_hospital == "Unclear") == 0L,
-            sum(d$distributed_to_hospital == "Yes") == 18L,   # session 101: + Vandalia Health ($0)
-            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 11798579)
+            sum(d$distributed_to_hospital == "Yes") == 22L,   # session 101: + Vandalia Health; session 121: + Pleasant Valley Hospital Foundation
+            sum(d$amount[d$distributed_to_hospital == "Yes"], na.rm = TRUE) == 25162640)
   message("[WV] all assertions pass.")
   invisible(TRUE)
 }

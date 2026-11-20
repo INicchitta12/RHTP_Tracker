@@ -101,9 +101,14 @@ NW_PAGES <- tibble::tribble(
   # DE re-based 2026-10-02 (session 86): its one hot headline, the 2026-09-24
   # FQHC release, was READ (session 85) and extracted (R/03bu); the live index
   # carried no other hot headline. The 2026-09-24 DE baseline is kept.
-  dplyr::mutate(date = dplyr::case_when(.data$state == "MD" ~ "2026-09-28",
-                                        .data$state == "DE" ~ "2026-10-02",
-                                        TRUE ~ "2026-09-24"),
+  # SESSION 121: EVERY page re-based to 2026-11-20 after reading each page's
+  # new headlines (rural/RHTP/hospital-shaped ones listed in the session-121
+  # write-up): TX's "$87 Million", "$8 Million" and "$78 Million" releases
+  # (read session 112, they name nobody) and DE's physician-workforce item
+  # (read session 102) were the two trips; DE ($160,294,521), ID ($183M) and
+  # TX ($281M) Year 2 headlines are Year 2 (held, never extracted). The
+  # earlier baselines stay archived.
+  dplyr::mutate(date = "2026-11-20",
                 file = file.path(NW_DIR, paste0(date, "_", tolower(state),
                                                 "_", key, ".html")),
                 name_diff = FALSE) %>%

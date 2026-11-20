@@ -1,0 +1,8 @@
+Session 121 (Task 7): West Virginia, fetched 2026-11-20 ~16:40Z with the project agent, saved as served. Four health.wv.gov articles the 11-20 Routine named; the funding-opportunities page (the old /grant-opportunities now redirects here) and the 'Year 1 Released Awards' PDF it links (https://health.wv.gov/sites/default/files/2026-11/RHTP%20Released%20Awards_1.pdf), with poppler 24.02.0 'pdftotext -bbox' output committed beside it (R/03av parses that).
+2026-11-20_wv_art_202m_year2_two_year_total.html  sha256 a2c3151c6d10c882daadeecd7c3e3fa50fd7e39ce53552db8b6ab19fcc32f0f3  bytes 36966
+2026-11-20_wv_art_greenbrier_ld_wvsom_birthing_center.html  sha256 998f663d85b824630931c2087d69c2f974f522cb4e54ff194f43ce317e9e01e8  bytes 37595
+2026-11-20_wv_art_rni_6_3m_recovery.html  sha256 dd199c0f81c736f7b3c32353733f738fefe18e10acc86a630db941090af8aabb  bytes 38893
+2026-11-20_wv_art_wvu_medicine_community_paramedicine_1_1m.html  sha256 8194d528bd9d3508395e5b1e92ae41733540cea14f5ab60ef7453e8e8a3236b1  bytes 37037
+2026-11-20_wv_funding_opportunities.html  sha256 6ba153c82d0f6a5414036e6c80ae03bf9b669bcc8b3f88aac4b9d6209e433aa3  bytes 30834
+2026-11-20_wv_rhtp_released_awards_year1.pdf  sha256 95c70dd099a1b68a0a53c41aad9943ecbd747c4a5b288a98802e486572125926  bytes 181125
+2026-11-20_wv_rhtp_released_awards_year1.pdftotext_bbox.html  sha256 0fec5500b86910907b8eca888856c59955a66cfc9e12d6d4239ea0d86a373c72  bytes 214671

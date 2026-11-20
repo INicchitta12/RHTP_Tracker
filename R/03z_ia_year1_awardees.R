@@ -1349,14 +1349,21 @@ ia_report <- function() {
 # surfacing in one of these pages trips the probe like anything else.
 IA_YEAR2_AWARD_WINDOW <- as.Date(c("2026-10-15", "2026-11-20"))
 IA_PROBE_DIR <- file.path("data", "evidence", "IA", "probe")
+# SESSION 121: all six re-based to 2026-11-20 after READING each change: the
+# programme and two council pages changed menus only; the NOIA index added four
+# notices, none RHTP (two RFP rescissions, PHTHORC27001 and PHTHOCC27705; the
+# FY27 TB/STI pharmacy NOIA; Public Health Lead Entities, no CMS footer); the
+# 11-16 Council meeting's eight files name no Healthy Hometowns recipient (the
+# August minutes summarise a Year 1 review and the Year 2 plan); HHS's newsroom
+# carries the Year 2 award headline (logged YEAR2, held). The 10-15 copies stay.
 IA_PROBE_PAGES <- tibble::tribble(
   ~key,           ~url,                                                                                          ~file,                                                   ~name_diff,
-  "programme",    "https://hhs.iowa.gov/initiatives/healthy-hometowns-iowas-rural-health-transformation-plan",    "2026-10-15_ia_healthy_hometowns_programme.html",        TRUE,
-  "noia_index",   "https://hhs.iowa.gov/about/funding-opportunities/notice-intent-award",                         "2026-10-15_ia_hhs_noia_index.html",                     FALSE,
-  "council",      "https://hhs.iowa.gov/about/advisory-groups/council-health-and-human-services",                 "2026-10-15_ia_hhs_council_page.html",                   TRUE,
-  "council_0827", "https://hhs.iowa.gov/events/hhs-council-meeting-and-budget-public-hearing-august-27-2026",     "2026-10-15_ia_hhs_council_2026-08-27_meeting.html",     TRUE,
-  "hhs_news",     "https://hhs.iowa.gov/about/newsroom",                                                          "2026-10-15_ia_hhs_newsroom.html",                       FALSE,
-  "gov_news",     "https://governor.iowa.gov/newsroom",                                                           "2026-10-15_ia_governor_newsroom.html",                  FALSE
+  "programme",    "https://hhs.iowa.gov/initiatives/healthy-hometowns-iowas-rural-health-transformation-plan",    "2026-11-20_ia_healthy_hometowns_programme.html",        TRUE,
+  "noia_index",   "https://hhs.iowa.gov/about/funding-opportunities/notice-intent-award",                         "2026-11-20_ia_hhs_noia_index.html",                     FALSE,
+  "council",      "https://hhs.iowa.gov/about/advisory-groups/council-health-and-human-services",                 "2026-11-20_ia_hhs_council_page.html",                   TRUE,
+  "council_0827", "https://hhs.iowa.gov/events/hhs-council-meeting-and-budget-public-hearing-august-27-2026",     "2026-11-20_ia_hhs_council_2026-08-27_meeting.html",     TRUE,
+  "hhs_news",     "https://hhs.iowa.gov/about/newsroom",                                                          "2026-11-20_ia_hhs_newsroom.html",                       FALSE,
+  "gov_news",     "https://governor.iowa.gov/newsroom",                                                           "2026-11-20_ia_governor_newsroom.html",                  FALSE
 ) %>% dplyr::mutate(file = file.path(IA_PROBE_DIR, .data$file))
 IA_RHTP_HEADLINE <- "(?i)rural health transformation|healthy hometowns|\\bRHTP?\\b"
 
