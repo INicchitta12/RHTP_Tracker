@@ -48,9 +48,23 @@ ND_BASE_DIR <- file.path("data", "evidence", "ND", "probe_baseline")
 ND_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "programme", "https://www.hhs.nd.gov/rural-health-transformation",
-  file.path(ND_DIR, "hhs_rhtp_programme.html"), TRUE,
+  # SESSION 121: re-based after reading the diff against the 09-23 archive.
+  # The ONLY change is the CMS footer: $198,936,969.55 -> $405,316,596.31
+  # (FY2026 + FY2027) and "North Dakota Department of Health and Human
+  # Services (ND HHS)" -> "North Dakota Health and Human Services" -- the
+  # agency's own name, which the name tripwire read as a new organisation on
+  # 2026-11-20. Not a recipient. The 09-23 copy stays (R/03bh cites ND_DIR).
+  file.path(ND_BASE_DIR, "2026-11-20_hhs_rhtp_programme.html"), TRUE,
   "funding", "https://www.hhs.nd.gov/rural-health-transformation/funding",
-  file.path(ND_BASE_DIR, "2026-10-12_hhs_rhtp_funding.html"), TRUE)
+  # SESSION 121: re-based to a NEW dated file after reading the diff against
+  # the 10-12 baseline. Three headings went "Closed (N Applicants)" ->
+  # "Awarded | N Applicants" (Suicide Intervention 7 -> 5, Childcare 9 -> 8,
+  # NEMT 13), a "Sample Service Commitment Agreement" link was removed, and
+  # the CMS footer now prints $405,316,596.31 -- FY2026 ($198,936,970) plus
+  # FY2027 ($206,379,627), to the dollar: ALLOTMENT_PLUS_FY2027, a Year 2
+  # signal only. No section names an awardee or prints an amount. The 10-12
+  # copy stays archived.
+  file.path(ND_BASE_DIR, "2026-11-20_hhs_rhtp_funding.html"), TRUE)
 
 # SESSION 85: five more headings read "Awarded" on 2026-10-02 (four tripped the
 # Routine on 09-30; Behavioral Health Promotion followed). READ: none of the
@@ -87,6 +101,28 @@ ND_KNOWN_AWARDED <- c(
   "Suicide Intervention \u2013 Healthcare Systems Initiative",
   "Childcare for the Rural Health Workforce",
   "Non-Emergency Medical Transportation Acquisition")
+
+# SESSION 121: THE SAME ROUNDS AS A RECORD, so "Awarded, nobody named" is a
+# statement in the file and not only a comment. One row per round North Dakota
+# heads "Awarded"; `named` is how many recipients any ND surface names for it
+# (0 on every row). Applicant counts are as the heading printed them when read.
+# NO AMOUNT COLUMN, EVER: a heading prints none, and this is a status record.
+# A round that later names recipients is EXTRACTED (and leaves this table's
+# 'nobody named' reading); it is never patched here.
+ND_AWARDED_ROUNDS <- tibble::tribble(
+  ~round,                                                                                                   ~applicants, ~read,        ~session, ~named, ~hospitals_only,
+  "Expand Rural Health Care Rotations",                                                                     24L,         "2026-09-23", 55L,      0L,     FALSE,
+  "Zero-Hour Physical Education (PE) Initiative",                                                           NA_integer_, "2026-10-02", 85L,      0L,     FALSE,
+  "Community Gardens Project",                                                                              NA_integer_, "2026-10-02", 85L,      0L,     FALSE,
+  "Behavioral Health Promotion Community Grants",                                                           NA_integer_, "2026-10-02", 85L,      0L,     FALSE,
+  "Rightsizing Health Care Delivery Systems for the Future: Rural Federally Qualified Health Centers and Critical Access Hospitals", NA_integer_, "2026-10-02", 85L, 0L, FALSE,
+  "Mobile Mammography Unit Acquisition Funding Opportunity",                                                NA_integer_, "2026-10-02", 85L,      0L,     FALSE,
+  "Workforce Retention Funding for Critical Access Hospitals and Their Owned and Operated Clinics",         36L,         "2026-10-07", 94L,      0L,     TRUE,
+  "Train In Place",                                                                                         45L,         "2026-10-12", 99L,      0L,     FALSE,
+  "Suicide Intervention \u2013 Healthcare Systems Initiative",                                              5L,          "2026-11-19", 120L,     0L,     FALSE,
+  "Childcare for the Rural Health Workforce",                                                               8L,          "2026-11-19", 120L,     0L,     FALSE,
+  "Non-Emergency Medical Transportation Acquisition",                                                       13L,         "2026-11-19", 120L,     0L,     FALSE) %>%
+  dplyr::mutate(status = "AWARDED_NOBODY_NAMED")
 
 # THE ROUNDS WHOSE ELIGIBLE CLASS IS HOSPITALS ONLY (session 94, owner). When
 # North Dakota names recipients for these, EVERY recipient is a critical
@@ -126,12 +162,43 @@ nd_assert_headings <- function(raw) {
   invisible(hd)
 }
 
+#' SESSION 121: the record and the quiet-list are one list, the hospitals-only
+#' class is the same in both places, every row reads "nobody named", and the
+#' applicant counts agree with the archived headings.
+nd_assert_awarded_record <- function(hd) {
+  r <- ND_AWARDED_ROUNDS
+  if (!setequal(r$round, ND_KNOWN_AWARDED) || anyDuplicated(r$round)) {
+    stop("[ND] ND_AWARDED_ROUNDS and ND_KNOWN_AWARDED disagree: a round read ",
+         "as Awarded must be recorded in both.", call. = FALSE)
+  }
+  if (!setequal(r$round[r$hospitals_only], ND_HOSPITAL_ONLY_ROUNDS)) {
+    stop("[ND] the hospitals-only class differs between ND_AWARDED_ROUNDS and ",
+         "ND_HOSPITAL_ONLY_ROUNDS.", call. = FALSE)
+  }
+  if (any(r$named != 0L) || any(r$status != "AWARDED_NOBODY_NAMED") ||
+      any(grepl("amount", names(r)))) {
+    stop("[ND] ND_AWARDED_ROUNDS records 'Awarded, nobody named' and no amount; ",
+         "a round that names recipients is EXTRACTED, not patched here.", call. = FALSE)
+  }
+  n <- suppressWarnings(as.integer(stringr::str_match(hd$heading, "\\|\\s*([0-9]+) Applicants")[, 2]))
+  live <- tibble::tibble(round = hd$name, n = n)[hd$status == "Awarded", ]
+  chk <- dplyr::inner_join(r, live, by = "round") %>%
+    dplyr::filter(!is.na(.data$applicants), !is.na(.data$n), .data$applicants != .data$n)
+  if (nrow(chk)) {
+    stop("[ND] an Awarded heading's applicant count moved: ",
+         paste0(chk$round, " (", chk$applicants, " -> ", chk$n, ")", collapse = "; "),
+         ". Re-read the section.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 nd_validate <- function() {
   hd <- nd_assert_headings(here::here(ND_PAGES$file[ND_PAGES$key == "funding"]))
-  stopifnot(nrow(hd) == 25L, sum(hd$status == "Awarded") == 8L,
+  nd_assert_awarded_record(hd)
+  stopifnot(nrow(hd) == 25L, sum(hd$status == "Awarded") == 11L,
             all(hd$name[hd$status == "Awarded"] %in% ND_KNOWN_AWARDED))
-  message("[ND] the archive carries 25 opportunities, eight Awarded (all in ",
-          "ND_KNOWN_AWARDED), nobody named.")
+  message("[ND] the archive carries 25 opportunities, eleven Awarded (all in ",
+          "ND_AWARDED_ROUNDS), nobody named.")
   invisible(TRUE)
 }
 
@@ -150,10 +217,12 @@ nd_probe <- function() {
 if (!interactive() && sys.nframe() == 0L) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--fetch" %in% args) {
-    f <- ND_PAGES$file[ND_PAGES$key == "funding"]
-    if (file.exists(here::here(f))) stop("[ND] ", f, " exists; a re-base is a NEW dated file.", call. = FALSE)
+    # A re-base is a NEW dated file: only a page whose baseline file does not
+    # exist yet is fetched, and an existing baseline is never rewritten.
+    todo <- ND_PAGES[!file.exists(here::here(ND_PAGES$file)), ]
+    if (!nrow(todo)) stop("[ND] every baseline exists; a re-base is a NEW dated file.", call. = FALSE)
     dir.create(here::here(ND_BASE_DIR), recursive = TRUE, showWarnings = FALSE)
-    rhtp_watch_archive(ND_PAGES$url[ND_PAGES$key == "funding"], f, ND_AGENT)
+    for (i in seq_len(nrow(todo))) rhtp_watch_archive(todo$url[i], todo$file[i], ND_AGENT)
   }
   if ("--validate" %in% args) nd_validate()
   if ("--probe" %in% args) rhtp_probe_run("ND", nd_probe())
