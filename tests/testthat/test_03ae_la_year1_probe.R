@@ -35,7 +35,8 @@ library(testthat)
 source(here::here("R", "03ae_la_year1_probe.R"))
 source(here::here("R", "utils_summary_calls.R"))  # session 110: committed files carry the summary-call columns
 
-la_prog  <- la_html_text("programme")
+la_prog  <- la_html_text("programme_windows")   # session 121: the last page carrying the seven windows
+la_prog_now <- la_html_text("programme")       # session 121: the stage-block page
 # SESSION 88: the 09-21 page is now the prior; the window-shape tests below
 # that were written against it read it by name.
 la_prog_0921 <- la_html_text("programme_prior")
@@ -781,4 +782,54 @@ test_that("the 11-05 BP1 report is recorded in the status table only, in no buck
   aw <- readr::read_csv(here::here(LA_AWARDS_CSV), show_col_types = FALSE)
   expect_equal(nrow(aw), 6L)
   expect_false(any(grepl("2026-11-05", aw$source_archive_path, fixed = TRUE)))
+})
+
+
+# -- SESSION 121: THE STAGE BLOCK THAT REPLACED THE SEVEN WINDOWS --------------
+
+test_that("the current page's IMPORTANT DATES block parses to the three stage sentences", {
+  s <- la_parse_stage_block(la_prog_now)
+  expect_equal(s$stage, c("Y1_AWARD_NOTIFICATIONS_DONE", "Y1_CONTRACT_EXECUTION",
+                          "Y2_ANNOUNCEMENTS_EXPECTED"))
+  expect_match(s$sentence[1], "completed as of October 30, 2026", fixed = TRUE)
+  expect_match(s$sentence[2], "November 2026", fixed = TRUE)
+  expect_match(s$sentence[3], "January 2027", fixed = TRUE)
+  # The current page carries no window at all: the windows are read off the
+  # 10-05 snapshot, never off this page.
+  expect_false(grepl("IMPORTANT DATES - BUDGET YEAR 1", la_prog_now, fixed = TRUE))
+  expect_error(la_parse_windows(la_prog_now), "IMPORTANT DATES - BUDGET YEAR 1")
+})
+
+test_that("a changed stage sentence, an added sentence or a named recipient trips", {
+  moved <- sub("October 30, 2026", "November 30, 2026", la_prog_now, fixed = TRUE)
+  expect_error(la_assert_stage_block(moved), "block has CHANGED")
+  slipped <- sub("in November 2026", "in December 2026", la_prog_now, fixed = TRUE)
+  expect_error(la_assert_stage_block(slipped), "block has CHANGED")
+  y2 <- sub("January 2027", "February 2027", la_prog_now, fixed = TRUE)
+  expect_error(la_assert_stage_block(y2), "block has CHANGED")
+  named <- sub("November 2026 .", paste("November 2026 . Awardees: Ochsner LSU",
+                                        "Health Shreveport, Rural Health Clinic of Ville Platte ."),
+               la_prog_now, fixed = TRUE)
+  expect_error(la_assert_stage_block(named), "block has CHANGED")
+  gone <- sub("IMPORTANT DATES", "KEY MILESTONES", la_prog_now, fixed = TRUE)
+  expect_error(la_assert_stage_block(gone), "no longer carries its 'IMPORTANT DATES'")
+  # The old seven-window block coming back is a change too.
+  expect_error(la_assert_stage_block(la_prog), "block has CHANGED|no longer carries")
+  # Award language still trips the phrase list on the new page.
+  expect_error(la_assert_no_award_roster(paste(la_prog_now, "have been awarded"),
+                                         la_fund, la_deck), "award language")
+})
+
+test_that("the funding page still carries seven solicitations", {
+  expect_true(la_assert_seven_solicitations(la_fund))
+  fewer <- sub("Strategic Funding Opportunity Title", "Opportunity", la_fund, fixed = TRUE)
+  expect_error(la_assert_seven_solicitations(fewer), "6 solicitations")
+})
+
+test_that("the status table carries the stage sentences and still no amount column", {
+  st <- readr::read_csv(here::here(LA_STATUS_CSV), show_col_types = FALSE)
+  expect_false(any(c("amount", "round_amount", "amount_announced") %in% names(st)))
+  y1 <- grepl("SESSION 121", st$evidence, fixed = TRUE)
+  expect_gte(sum(y1), 6L)
+  expect_true(all(grepl("completed as of October 30, 2026", st$evidence[y1], fixed = TRUE)))
 })

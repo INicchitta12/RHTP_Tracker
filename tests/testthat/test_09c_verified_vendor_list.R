@@ -59,11 +59,15 @@ test_that("every drop names a test V1-V9 and a reason", {
   expect_false(any(duplicated(h$drop_id)))
   # a hand drop never reappears as a verified case at the same state and amount
   hit <- h %>% dplyr::filter(!is.na(amount)) %>%
-    dplyr::inner_join(v %>% dplyr::select(state, v_amount = amount, recipient_as_printed), by = "state",
-                      suffix = c("", ".v"), relationship = "many-to-many") %>%
+    dplyr::inner_join(v %>% dplyr::select(state, v_amount = amount, recipient_as_printed, v_categories = categories),
+                      by = "state", suffix = c("", ".v"), relationship = "many-to-many") %>%
     dplyr::filter(abs(amount - v_amount) < 0.01,
                   vv_norm_name(recipient_as_printed) == vv_norm_name(recipient_as_printed.v),
-                  failed_test != "V6")
+                  failed_test != "V6",
+                  # session 121: a V9 drop of the OUT_OF_STATE_VENDOR category only
+                  # (HD80, Northeastern) beside a case that does not claim it
+                  !(failed_test == "V9" & categories_considered == "OUT_OF_STATE_VENDOR" &
+                      !grepl("OUT_OF_STATE_VENDOR", v_categories, fixed = TRUE)))
   expect_equal(nrow(hit), 0)
 })
 

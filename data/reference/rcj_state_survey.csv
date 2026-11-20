@@ -18,7 +18,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 17,MO,Missouri,30,3,27,0,30,7964687.43,6500000,31,Yes,2026-09-22,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-45-million-upgrade-rural-missouri-hospitals-connect-families,216276818,EXTRACTED,RCJ_AND_CMS,No
 18,SD,South Dakota,29,28,1,0,23,41223178,31500000,29,Yes,2026-08-19,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-90-million-modernize-improve-it-interoperability-south-dakota,189477607,EXTRACTED,RCJ_AND_CMS,No
 19,NH,New Hampshire,23,11,12,3,15,302352411,43810000,26,Yes,2026-10-16,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-11-million-strengthen-rural-ems-expand-mobile-healthcare-across,204016550,EXTRACTED,RCJ_AND_CMS,No
-20,WI,Wisconsin,19,16,3,0,19,100139403,44000000,21,No,,,,203670005,INVESTIGATED_NO_LIST,RCJ_ONLY,No
+20,WI,Wisconsin,19,16,3,0,19,100139403,44000000,21,No,,,,203670005,EXTRACTED,RCJ_ONLY,No
 21,ME,Maine,17,6,11,0,16,130102049,33821698,17,No,,,,190008051,EXTRACTED,RCJ_ONLY,No
 22,IA,Iowa,15,0,15,0,15,5,1,15,Yes,2026-10-09,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-209-million-expand-advanced-medical-care-maternal-telehealth-cancer,209040064,EXTRACTED,RCJ_AND_CMS,No
 23,VT,Vermont,13,7,6,0,11,221897105.93,74720667,13,Yes,2026-09-10,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-11-7-million-expand-access-improve-patient-care-facilities-strengthen,195053740,EXTRACTED,RCJ_AND_CMS,No

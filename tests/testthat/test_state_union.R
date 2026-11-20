@@ -263,6 +263,7 @@ STATE_FILES <- c(
   # round_amount). 44 named-hospital rows and $0 -- READ THE ROW COUNT. A
   # second Indiana file beside the seven procurement vendors.
   IN_GROW = "data/reference/in_grow_regional_awardees.csv",
+  IN_MTB = "data/reference/in_meds_to_beds_awardees.csv",   # session 121: Meds-to-Beds, 20 hospitals at $0
 
   # SESSION 64. LOUISIANA'S RURAL CLINICIAN CREDIT BANK: 5 named awards
   # ($1,965,788) and ONE aggregate row for the 48 LDH names nowhere (amount
@@ -328,6 +329,11 @@ STATE_FILES <- c(
   # hospitals, typed on CMS IA enrolment, INTENTS at NO AMOUNT; the footer is
   # Iowa's allotment, never a round total.
   IA_CC_R2 = "data/reference/ia_combat_cancer_r2_awardees.csv",
+  # SESSION 121, OWNER RULING (R/03cx): Wisconsin DHS's first award tables
+  # (pages revised 2026-11-18), 138 rows / $149,331,289.71, INTENTS ("the
+  # obligated awards and are subject to ... CMS review"), typed on CMS WI
+  # enrolment; state agencies STATE_AGENCY.
+  WI = "data/reference/wi_year1_awardees.csv",
   DE_FQHC = "data/reference/de_year1_fqhc_awardees.csv",
   # Montana (session 88): four named ambulance grants, ROUNDED, and one
   # NOT_YET_NAMED pool of 75 equipment awards with no amount. No hospital.
@@ -451,7 +457,7 @@ test_that("the state files union without a coercion failure", {
                c("AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN",
                  "KS", "KY", "LA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV",
                  "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA",
-                 "WV", "WY"))
+                 "WI", "WV", "WY"))
 })
 
 test_that("no categorical value anywhere in the union is outside §8", {

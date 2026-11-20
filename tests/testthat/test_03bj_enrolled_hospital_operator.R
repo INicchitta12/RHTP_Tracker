@@ -89,6 +89,20 @@ test_that("74 rows / $99,235,607.60 typed on enrolment, 30 / $60,226,387.31 of t
   # enrolment at $170,304 each, $1,532,736, none an AHC: 86 /
   # $105,393,999.60. Set aside with the Michigan rows.
   expect_equal(nrow(eff), 86L)
+  # Session 121: West Virginia's Year 1 roster (latest list governs) prices the
+  # six 09-30 hospitals ($2,315,000) and re-prices Minnie Hamilton's three rows
+  # ($1,700,000 -> $4,067,771): +$4,682,771. Set back to the session-120 figures
+  # first; every pin below is the earlier set.
+  wv6 <- eff$file == "wv_year1_awardees.csv" &
+    eff$awardee %in% c("Stonewall Jackson Memorial Hospital", "Mon Health Marion Neighborhood Hospital",
+                       "Preston Memorial Hospital", "Plateau Medical Center",
+                       "Webster Memorial Hospital", "Broaddus Hospital")
+  expect_equal(sum(eff$amount[wv6], na.rm = TRUE), 2315000)
+  eff$amount[wv6] <- NA
+  mh <- which(eff$file == "wv_year1_awardees.csv" & eff$awardee == "Minnie Hamilton Health Care Center")
+  expect_equal(length(mh), 3L)
+  expect_equal(sum(eff$amount[mh], na.rm = TRUE), 4067771)
+  eff$amount[mh] <- c(1700000, NA, NA)
   s112ok <- eff[eff$file == "ok_year1_lung_screening_awardees.csv", ]
   expect_equal(nrow(s112ok), 9L)
   expect_equal(sum(s112ok$amount), 1532736)
@@ -353,6 +367,21 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # +69 / +$36,532,991.80: 2,268 / $2,204,266,238.38 / 42. Subtracted first.
   # Session 120: FSRS 11-19 (ME +12, MN Graceville) and MN Murray County (owner
   # ruling a): +15 / +$17,190,075: 2,285 / $2,223,153,907.38 / 42. Subtracted first.
+  # Session 121: WI DHS award tables (R/03cx, intents; cms_enrolment_match left
+  # empty, so not through this overlay), a 43rd state: +39 / +$32,216,238:
+  # 2,324 / $2,255,370,145.38 / 43. Subtracted first.
+  # Session 121 (rebuild): SD Monument et al., TN HART, WV roster, IN MTB, ND
+  # FSRS, OK: +45 / +$36,663,307.52: 2,369 / $2,292,033,452.90 / 43.
+  expect_equal(n$rows, 2369L)
+  expect_equal(round(n$dollars, 2), 2292033452.90)
+  expect_equal(n$states, 43L)
+  n$rows <- n$rows - 45L
+  n$dollars <- n$dollars - 36663307.52
+  expect_equal(n$rows, 2324L)
+  expect_equal(round(n$dollars, 2), 2255370145.38)
+  n$rows <- n$rows - 39L
+  n$dollars <- n$dollars - 32216238
+  n$states <- n$states - 1L
   expect_equal(n$rows, 2285L)
   expect_equal(round(n$dollars, 2), 2223153907.38)
   expect_equal(n$states, 42L)
@@ -532,7 +561,12 @@ test_that("every OTHER row in the repository states a determined form", {
   # Session 112: + 16 -- PA 12 (DHS Selected Projects), VT 2 (the 10-30 list),
   # TX 1 (the 10/29 list), UT 1 -- each with its form in determination_basis.
   # Session 117: - 1, Brookshire Brothers withdrawn from the TX 11/12 list.
-  expect_equal(nrow(rev), 162L)
+  # Session 121: + 6 WI (R/03cx) -- five dental practices and MouthWatch Inc.,
+  # a teledentistry company -- each with its form in determination_basis.
+  # Session 121: + 3 WV (the Year 1 roster) -- West Virginia Jobs Investment
+  # Trust (statutory public venture body), American College of Lifestyle
+  # Medicine (a professional society) and Hospice of Huntington (a hospice).
+  expect_equal(nrow(rev), 171L)
   expect_silent(other_assert_forms(rev))
   expect_equal(sum(rev$form_source == "session 49 verified basis, form read session 71"), 35L)
 })

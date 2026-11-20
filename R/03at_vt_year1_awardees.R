@@ -208,6 +208,20 @@ VT_REGIONALIZATION_ACTIVITIES <- c(
   "Mental Health (MH) and Substance Use Disorder (SUD) urgent care expansion",
   "Development of a statewide health care delivery strategic plan")
 VT_AWARDS_FILE  <- file.path(VT_ARCHIVE_DIR, VT_AWARDS_BASENAME)
+# SESSION 121: THE PROBE BASELINE IS THE 11-12 LIST; THE AWARD FILE IS STILL
+# BUILT FROM THE 10-30 LIST. The 2026-11-12 update ("Updated as of November 12,
+# 2026", 242 page rows, printed total $182,154,948) differs from the 10-30 list
+# by ONE row, the DVHA MOU ($402,500), which is out of the award file (owner
+# ruling (f), session 118). The 240 award agreements and their $179,117,448 are
+# identical, keyed on legal name + amount + initiative + activity
+# (vt_assert_probe_baseline_same_awards()). Re-pointing the BUILD at the 11-12
+# list would rewrite every row's announcement date, title and amount basis while
+# moving no agreement, so the build source stays on 10-30 and only the probe
+# re-bases. Read live 2026-11-20 against the 11-16 copy: the only other change
+# was a menu label ("Communication" -> "Communications & Press Releases").
+VT_PROBE_FILE  <- file.path("data", "evidence", "recheck", "2026-11-20", "VT",
+                            "2026-11-20_vt_year1_awards_11-12_PROBE_BASELINE.html")
+VT_PROBE_UPDATED_TXT <- "Updated as of November 12, 2026"
 VT_AWARDS_URL   <- paste0("https://healthcarereform.vermont.gov/",
                           "rht-year-1-executed-agreements-and-contracts")
 
@@ -583,7 +597,7 @@ vt_assert_reconciles <- function(tb = vt_parse_table()) {
   invisible(TRUE)
 }
 
-vt_assert_partial_and_executed <- function(body = NULL) {
+vt_assert_partial_and_executed <- function(body = NULL, updated_txt = VT_UPDATED_TXT) {
   txt <- stringr::str_squish(rvest::html_text2(vt_read_page(body)))
   # SESSION 112: the 2026-10-30 page drops "partial and ongoing list" and says
   # instead that the list "does not reflect the entirety of Vermont's Year 1
@@ -593,7 +607,7 @@ vt_assert_partial_and_executed <- function(body = NULL) {
   want <- c("executed agreements for Vermont",
             "does not reflect the entirety of Vermont",
             "Vermont has fully obligated its approximately $195 million Year 1 RHT award",
-            VT_UPDATED_TXT)
+            updated_txt)
   miss <- want[!vapply(want, function(w) grepl(w, txt, fixed = TRUE), TRUE)]
   if (length(miss)) {
     stop("[VT] the page no longer says: ", paste(sQuote(miss), collapse = "; "),
@@ -609,6 +623,26 @@ vt_assert_footer_is_allotment <- function() {
   txt <- rvest::html_text2(vt_read_page())
   rhtp_assert_footer_text_tier(txt, VT_STATE, "STATE_ALLOTMENT",
                                label = "VT awards-page footer")
+  invisible(TRUE)
+}
+
+#' SESSION 121: the probe baseline (the 11-12 list) carries the build list's
+#' award agreements exactly; only MOUs may differ. A baseline that moved an
+#' agreement must be extracted, never silently re-based over.
+vt_assert_probe_baseline_same_awards <- function(tb = vt_parse_table()) {
+  p <- here::here(VT_PROBE_FILE)
+  body <- readBin(p, "raw", file.size(p))
+  bt <- vt_parse_table(body)
+  vt_assert_mous_known(bt)
+  vt_assert_partial_and_executed(body, VT_PROBE_UPDATED_TXT)
+  k <- function(t) sort(paste(t$legal, sprintf("%.2f", t$amount), t$initiative,
+                              t$activity, sep = " | "))
+  a <- k(tb[!vt_is_mou(tb), ]); b <- k(bt[!vt_is_mou(bt), ])
+  if (!identical(a, b)) {
+    stop("[VT] the probe baseline's award agreements differ from the build list's: +",
+         length(setdiff(b, a)), " / -", length(setdiff(a, b)),
+         ". Extract the new list; do not re-base over it.", call. = FALSE)
+  }
   invisible(TRUE)
 }
 
@@ -785,16 +819,17 @@ vt_probe <- function() {
            call. = FALSE)
     }
     httr::content(resp, as = "raw")
-  }, here::here(VT_AWARDS_FILE))
+  }, here::here(VT_PROBE_FILE))
   txt_of <- function(h) {
     main <- rvest::html_element(h, "main")
     stringr::str_squish(rvest::html_text2(if (inherits(main, "xml_missing")) h else main))
   }
   live_txt <- txt_of(vt_read_page(live))
-  arch_txt <- txt_of(vt_read_page())
+  base <- readBin(here::here(VT_PROBE_FILE), "raw", file.size(here::here(VT_PROBE_FILE)))
+  arch_txt <- txt_of(vt_read_page(base))
   changed <- digest::digest(live_txt) != digest::digest(arch_txt)
 
-  vt_assert_partial_and_executed(body = live)
+  vt_assert_partial_and_executed(body = live, updated_txt = VT_PROBE_UPDATED_TXT)
   rhtp_assert_no_new_organisations_across(
     live = list(awards = live_txt), archived = list(awards = arch_txt),
     state = "VT")
@@ -802,25 +837,26 @@ vt_probe <- function() {
   vt_assert_mous_known(lt)
   # SESSION 118: count AWARD rows (MOUs out), so a new inter-agency MOU is a
   # CHANGED page, not a new agreement.
-  if (sum(!vt_is_mou(lt)) != sum(!vt_is_mou(vt_parse_table()))) {
+  bt <- vt_parse_table(base)
+  if (sum(!vt_is_mou(lt)) != sum(!vt_is_mou(bt))) {
     stop("[VT] the list now carries ", sum(!vt_is_mou(lt)), " award agreements (was ",
-         sum(!vt_is_mou(vt_parse_table())), "), printed total $",
+         sum(!vt_is_mou(bt)), "), printed total $",
          format(attr(lt, "printed_total"), nsmall = 2),
          ". Vermont has executed more -- re-archive and re-type.",
          call. = FALSE)
   }
   message("[VT] ", if (changed) "CONTENT CHANGED" else "UNCHANGED",
-          " -- ", VT_PAGE_ROWS, " executed agreements.")
+          " -- ", sum(!vt_is_mou(bt)), " executed award agreements (MOUs out).")
   invisible(tibble::tibble(key = "awards", changed = changed))
 }
 
 #' Archive the live list VERBATIM into VT_ARCHIVE_DIR (session 94). Writes
 #' data/evidence/ -- a deliberate act after READING what changed (§2.2), never
 #' called by --probe. Refuses a credential-shaped string.
-vt_fetch <- function(force = FALSE) {
-  dest <- here::here(VT_AWARDS_FILE)
+vt_fetch <- function(force = FALSE, rel = VT_AWARDS_FILE) {
+  dest <- here::here(rel)
   if (file.exists(dest) && !force) {
-    message("[VT] ", VT_AWARDS_FILE, " exists; --force to re-fetch.")
+    message("[VT] ", rel, " exists; --force to re-fetch.")
     return(invisible(dest))
   }
   resp <- httr::GET(VT_AWARDS_URL, httr::user_agent(VT_USER_AGENT),
@@ -837,10 +873,10 @@ vt_fetch <- function(force = FALSE) {
   }
   dir.create(dirname(dest), recursive = TRUE, showWarnings = FALSE)
   writeBin(raw, dest)
-  man <- here::here(dirname(VT_ARCHIVE_DIR), "MANIFEST.txt")
+  man <- here::here(dirname(dirname(rel)), "MANIFEST.txt")
   cat(paste0(digest::digest(raw, algo = "sha256", serialize = FALSE), "  ./VT/",
              basename(dest), "\n"), file = man, append = TRUE)
-  message("[VT] archived ", length(raw), " bytes to ", VT_AWARDS_FILE)
+  message("[VT] archived ", length(raw), " bytes to ", rel)
   invisible(dest)
 }
 
@@ -851,6 +887,7 @@ vt_validate <- function() {
   vt_assert_footer_is_allotment()
   vt_assert_after_noa()
   vt_assert_types_cover(tb)
+  vt_assert_probe_baseline_same_awards(tb)
   d <- vt_year1_awardees(tb)
   stopifnot(nrow(d) == VT_PAGE_ROWS - sum(vt_is_mou(tb)),
             abs(sum(d$amount) + sum(tb$amount[vt_is_mou(tb)]) - VT_PAGE_TOTAL) < 0.005)
@@ -888,6 +925,7 @@ vt_report <- function() {
 if (!interactive()) {
   args <- commandArgs(trailingOnly = TRUE)
   if ("--fetch" %in% args) vt_fetch(force = "--force" %in% args)
+  if ("--fetch-probe-baseline" %in% args) vt_fetch(force = "--force" %in% args, rel = VT_PROBE_FILE)
   if ("--validate" %in% args) vt_validate()
   if ("--build" %in% args) vt_build()
   if ("--probe" %in% args) rhtp_probe_run("VT", vt_probe())

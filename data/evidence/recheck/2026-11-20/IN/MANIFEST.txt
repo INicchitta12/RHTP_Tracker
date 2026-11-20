@@ -1,0 +1,7 @@
+Session 121 (Task 7): Indiana, fetched 2026-11-20 ~16:48Z with the project agent, saved as served (credential-free). GROW Regional Grants page (7 removed, Parkview Goshen added, Trustees of IU re-printed 'Indiana University'); IDOA Award Recommendations register and the new RFP 26-87448 MOCC letter zip (09-25 letter: three vendors, five-year maximum contract values, a RECOMMENDATION, read and not extracted); GROW home; Initiative 6 page and its 'Meds-to-Beds Awardees' map (JPEG, no text layer; names hand-read by R/03cz).
+2026-11-20_grow_regional_grants_page.html  sha256 58fb18859a0fa107c9627217a636e116c9d060a1e60432dd7207576eb5a0e3b3  bytes 160869
+2026-11-20_idoa_RFP_26-87448RHTPMOCC_20260928.zip  sha256 64fbd04a76608ab1fb1530ea99047b1c584d5ba3051ef7c4a459aecf1aa70c88  bytes 475378
+2026-11-20_in_grow_initiative_6_meds_to_beds.html  sha256 934034917115a0685dc6617c75a3da5ca7f29b6ec9d9ea86eb261b516008b85b  bytes 29870
+2026-11-20_in_grow_rural_health_home.html  sha256 9f7a037b9b11caec485345fff00858fecb8fd6c63f4a4453c0b526d1002f8cfe  bytes 31732
+2026-11-20_in_idoa_award_recommendations.html  sha256 96717714d07e585a3cab971710b52d7ee23dfc52b9e66ee58314a0248c453dfc  bytes 191415
+2026-11-20_in_meds_to_beds_awardees_map.jpg  sha256 754ed90aa4a2e77f064255581bd57f7f831d7312a3e75ae293486e794f68b115  bytes 209977

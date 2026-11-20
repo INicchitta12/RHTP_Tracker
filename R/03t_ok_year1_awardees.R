@@ -163,6 +163,15 @@ OK_CMS_FOOTER <- paste(
   "as part of a financial assistance award totaling $223,476,948.62 with 100",
   "percent funded by CMS/HHS")
 
+# SESSION 121: microgrants OSDH has RE-PRICED since the 2026-08-31 roster this
+# file is built from. The archive assertions still read the 08-31 figures; the
+# file carries the latest (ok_records()).
+OK_REPRICED_S121 <- tibble::tribble(
+  ~county, ~awardee, ~prior, ~latest, ~source, ~quote,
+  "Johnston", "Mercy Hospital Oklahoma Communities", 50000, 100000,
+  "data/evidence/recheck/2026-11-20/OK/fragments/community-led-wellness-hubs--microgrants.html",
+  "Johnston Mercy Hospital Oklahoma Communities $100,000.00")
+
 # What OSDH itself states, so a change in the source fails rather than passes.
 OK_STATED <- list(
   microgrant_awards        = 68L,     # Q2 report: "OSDH issued 68 awards"
@@ -865,6 +874,23 @@ ok_records <- function() {
                                       ok_source("recipients", "file"))
     )
 
+  # SESSION 121: the latest list governs (the CO and VT precedent). Read on the
+  # live BP1 fragment 2026-11-20; every other microgrant is unchanged.
+  for (i in seq_len(nrow(OK_REPRICED_S121))) {
+    r <- OK_REPRICED_S121[i, ]
+    w <- which(recs$award_pool == "MICROGRANTS" & recs$county == r$county & recs$awardee == r$awardee)
+    if (length(w) != 1L || abs(recs$amount[w] - r$prior) > 0.005) {
+      stop("[OK] re-price ", r$awardee, " (", r$county, "): the archived row is not one row at $",
+           r$prior, ".", call. = FALSE)
+    }
+    recs$amount[w] <- r$latest
+    recs$amount_basis[w] <- paste0("RE-PRICED (session 121): the live Community-Led Wellness Hubs: Microgrants ",
+                                   "fragment (", r$source, ") prints '", r$quote, "'; the 2026-08-31 roster printed $",
+                                   format(r$prior, big.mark = ","), ". The latest list governs.")
+    recs$note[w] <- paste0(recs$note[w], " [Session 121: re-priced $", format(r$prior, big.mark = ","), " -> $",
+                           format(r$latest, big.mark = ","), " on OSDH's 2026-11-20 fragment.]")
+  }
+
   recs %>%
     dplyr::select(
       "state", "row_no", "awardee", "amount", "recipient_type",
@@ -892,9 +918,10 @@ ok_assert_amount_column <- function(recs) {
     stop("[OK] ", nrow(priced), " rows carry an amount; only the ",
          OK_STATED$microgrant_awards, " microgrants may.", call. = FALSE)
   }
-  if (abs(sum(priced$amount) - OK_STATED$microgrant_total) > 0.005) {
+  repriced <- sum(OK_REPRICED_S121$latest - OK_REPRICED_S121$prior)   # session 121
+  if (abs(sum(priced$amount) - OK_STATED$microgrant_total - repriced) > 0.005) {
     stop("[OK] sum(amount) is $", format(sum(priced$amount), nsmall = 2),
-         ", not the microgrant total.", call. = FALSE)
+         ", not the microgrant total plus the session-121 re-pricing.", call. = FALSE)
   }
   roots <- recs %>% dplyr::filter(.data$award_pool == "ROOTS")
   if (nrow(roots) != 1L || !is.na(roots$amount) ||
@@ -1550,7 +1577,7 @@ OK_PROBE_BASELINE_DIR <- file.path("data", "evidence", "OK", "probe_baseline")
 # and all three new rosters were written by R/03bt: the live recipients page's
 # reduced text was identical to data/evidence/OK/new_rosters/2026-10-02_*, and
 # named nobody that copy does not. The 09-28 baseline files are kept.
-OK_PROBE_BASELINE_DATE <- "2026-11-02"   # session 112: funding + home re-based after reading (both MOVED to oklahoma.gov/rhtp/; new Tier 2 items only: CP Consulting Services RFP due 11-18, OSU Tech Co-Op enrollment forms due 12-01, OHCA EHR Expansion RFI due 12-01; past events dropped from home). The recipients roster is read from OK_XF_* below. 10-16 (session 103) and earlier copies stay.
+OK_PROBE_BASELINE_DATE <- "2026-11-20"   # session 121: funding (two due dates moved, 11-18 -> 11-25), programme (past RRR meetings dropped, a 01-22-2027 webinar) re-based after reading. Earlier: "2026-11-02";    # session 112: funding + home re-based after reading (both MOVED to oklahoma.gov/rhtp/; new Tier 2 items only: CP Consulting Services RFP due 11-18, OSU Tech Co-Op enrollment forms due 12-01, OHCA EHR Expansion RFI due 12-01; past events dropped from home). The recipients roster is read from OK_XF_* below. 10-16 (session 103) and earlier copies stay.
 ok_probe_baseline_file <- function(key) {
   file.path(OK_PROBE_BASELINE_DIR,
             paste0(OK_PROBE_BASELINE_DATE, "_", ok_source(key, "file") %>%
@@ -1589,14 +1616,28 @@ ok_probe_baseline <- function() {
 # The extraction archive (2026-08-31 and later) is untouched: --validate and
 # the tests still read it, and ok_assert_award_index() is now an ARCHIVE
 # assertion only. The anchors it reads exist only on the old page.
-OK_XF_DIR        <- file.path("data", "evidence", "recheck", "2026-11-02", "OK")
+# SESSION 121: THE PAGE NOW CARRIES TWO DROPDOWNS, "Budget Period 1" and
+# "Budget Period 2". The old index (container_copy/xfdisplay.json) answers 404
+# (every 11-19 fragment ERROR); the BP1 index moved to
+# container_copy/container_797926255_/xfdisplay.json with the SAME 29
+# programmes, its fragments under rhtp-funding-recipients-bp1/. One BP1
+# fragment moved (Mercy Hospital Oklahoma Communities, Johnston, $50,000 ->
+# $100,000, re-priced in the file). The BP2 index lists two Year 2 rosters
+# (Chronic Disease Management, Doulas): Year 2 is safeguards only, so they are
+# archived and WATCHED -- a change logs YEAR2 (held), never a Year 1 row.
+OK_XF_DIR        <- file.path("data", "evidence", "recheck", "2026-11-20", "OK")
 OK_XF_PAGE_URL   <- "https://oklahoma.gov/rhtp/rhtp-funding-recipients.html"
-OK_XF_PAGE_FILE  <- file.path(OK_XF_DIR, "2026-11-02_ok_rhtp_funding_recipients.html")
+OK_XF_PAGE_FILE  <- file.path(OK_XF_DIR, "2026-11-20_ok_rhtp_funding_recipients.html")
 OK_XF_INDEX_URL  <- paste0("https://oklahoma.gov/content/sok-wcm/en/rhtp/",
                            "rhtp-funding-recipients/jcr:content/responsivegrid-second/",
-                           "container_copy/xfdisplay.json?xf")
-OK_XF_INDEX_FILE <- file.path(OK_XF_DIR, "2026-11-02_ok_funding_recipients_xfdisplay.json")
+                           "container_copy/container_797926255_/xfdisplay.json?xf")
+OK_XF_INDEX_FILE <- file.path(OK_XF_DIR, "2026-11-20_ok_funding_recipients_bp1_xfdisplay.json")
 OK_XF_FRAGMENT_DIR <- file.path(OK_XF_DIR, "fragments")
+OK_XF_BP2_INDEX_URL  <- paste0("https://oklahoma.gov/content/sok-wcm/en/rhtp/",
+                               "rhtp-funding-recipients/jcr:content/responsivegrid-second/",
+                               "container_copy/container_copy/xfdisplay_copy.json?xf")
+OK_XF_BP2_INDEX_FILE <- file.path(OK_XF_DIR, "2026-11-20_ok_funding_recipients_bp2_xfdisplay.json")
+OK_XF_BP2_FRAGMENT_DIR <- file.path(OK_XF_DIR, "fragments_bp2")
 
 #' The dropdown's programmes: label and fragment slug, from the JSON index
 ok_xf_index <- function(raw) {
@@ -1611,7 +1652,7 @@ ok_xf_index <- function(raw) {
          call. = FALSE)
   }
   tibble::tibble(label = stringr::str_squish(j$label),
-                 slug = stringr::str_match(j$value, "/rhtp-funding-recipients/([^/]+)/jcr:content")[, 2],
+                 slug = stringr::str_match(j$value, "/rhtp-funding-recipients(?:-bp[0-9])?/([^/]+)/jcr:content")[, 2],
                  value = j$value)
 }
 
@@ -1669,6 +1710,23 @@ ok_xf_findings <- function(agent = ok_probe_agent(),
         ". Read it against ", OK_XF_FRAGMENT_DIR, "/", slug, ".html; extract a ",
         "named, priced roster, and never remove a row on a disappearance alone."))
     }
+  }
+  # SESSION 121: the Budget Period 2 dropdown -- logged YEAR2 when it moves, never a trip.
+  b2 <- tryCatch(ok_xf_index(fetch(OK_XF_BP2_INDEX_URL)), error = function(e) NULL)
+  if (!is.null(b2)) {
+    a2 <- ok_xf_index(here::here(OK_XF_BP2_INDEX_FILE))
+    moved2 <- character(0)
+    if (!setequal(b2$slug, a2$slug)) moved2 <- c(moved2, paste0("programmes now: ", paste(b2$label, collapse = "; ")))
+    for (i in which(b2$slug %in% a2$slug)) {
+      f2 <- here::here(OK_XF_BP2_FRAGMENT_DIR, paste0(b2$slug[i], ".html"))
+      raw2 <- tryCatch(fetch(paste0("https://oklahoma.gov", b2$value[i], ".html")), error = function(e) NULL)
+      if (!is.null(raw2) && !identical(gsub("\\s+", "", rhtp_watch_reduce(raw2)), gsub("\\s+", "", rhtp_watch_reduce(f2)))) {
+        moved2 <- c(moved2, paste0("'", b2$label[i], "' fragment changed"))
+      }
+    }
+    changed["xf_bp2"] <- length(moved2) > 0
+    if (length(moved2)) rhtp_year2_fire(OK_STATE, "xf_bp2", paste0("Budget Period 2 Funding Recipients: ",
+                                                                   paste(moved2, collapse = " | ")))
   }
   lc <- ok_lifecare_findings(fetch_fragment = function() {
     i <- which(live_idx$slug == OK_LIFECARE_SLUG)

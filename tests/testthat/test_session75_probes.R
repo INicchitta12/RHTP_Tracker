@@ -130,7 +130,8 @@ test_that("OK: the probe baseline is separate from the extraction archive", {
   # Re-based 2026-10-02 (session 86) after RRR and CDM were written, and
   # 2026-10-16 (session 103) after BHI, EMS/CP and SSM Shawnee were read, and
   # 2026-11-02 (session 112) after the site moved to oklahoma.gov/rhtp/.
-  expect_match(f, "probe_baseline/2026-11-02_ok_rhtp_funding.html$")
+  # 2026-11-20 (session 121) after the BP1/BP2 fragment index moved.
+  expect_match(f, "probe_baseline/2026-11-20_ok_rhtp_funding.html$")
   expect_true(file.exists(here::here(f)))
   expect_false(identical(f, e$ok_path("funding")))
   # The live-bytes override is empty outside a probe, so --validate still

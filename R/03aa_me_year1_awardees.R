@@ -1492,7 +1492,16 @@ rhtp_me_write_xlsx <- function(awards, cohort, status, dispo) {
 # together by the reduction, not a roster.
 ME_NAME_FURNITURE <- list(
   programme = c("Maine RHTP Project Narrative Maine RHTP Y1 Budget",
-                "Maine RHTP Y2 Project Narrative Maine RHTP Y1 Project Narrative Maine RHTP Y1 Budget"))
+                "Maine RHTP Y2 Project Narrative Maine RHTP Y1 Project Narrative Maine RHTP Y1 Budget",
+                # Session 121, READ 2026-11-20: a "Population Health" block --
+                # "the University of New England (UNE), in partnership with the
+                # Maine Department of Health and Human Services (DHHS), invites
+                # applications from community-based organizations ... to expand
+                # ... community health worker (CHW) services". A Tier 2
+                # solicitation run by UNE (an administrator already in ME's FSRS
+                # rows); the agency is the grantor. Nobody awarded.
+                "Population Health As", "University of New England",
+                "Maine Department of Health and Human Services"))
 
 # Each region starts after the page chrome and ends before the footer. The two
 # DHHS pages open their content at the breadcrumb ("DHHS → News → ..." /

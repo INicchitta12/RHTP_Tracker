@@ -61,7 +61,7 @@ suppressPackageStartupMessages({
 source(here::here("R", "09_vendor_flags.R"))
 source(here::here("R", "utils_spend_category.R"))
 
-VV_AS_OF <- "2026-11-16"   # session 119: live check re-run (11-10 file kept)
+VV_AS_OF <- "2026-11-20"   # session 121: live check re-run (VV071 added; 11-16 file kept)
 VV_CASES <- "config/verified_vendor_cases.csv"
 VV_HAND_DROPS <- "config/verified_vendor_hand_drops.csv"
 # Task 4: a separate agent that had not seen the case-building re-opened every
@@ -794,7 +794,7 @@ VV_METHOD <- c(
 # not the 116e label; the evidence columns (quote, source, archive, SHA-256,
 # live check, independent check) still come from this file's checks, which
 # have not changed. The live check is the 2026-11-10 one (VV_AS_OF).
-VV_XLSX_AS_OF <- "2026-11-19"   # session 120 (119: 2026-11-16; 116f: 2026-11-11)
+VV_XLSX_AS_OF <- "2026-11-20"   # session 121 (120: 2026-11-19; 119: 2026-11-16; 116f: 2026-11-11)
 
 #' Every verified 116e case with the row that carries it in the spend layer
 vv_layer_cases <- function(b = vv_build(write = FALSE)) {

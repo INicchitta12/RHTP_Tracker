@@ -79,8 +79,18 @@ it. Living in attributes rather than a script body makes it Connecticut's
 free: reduced text IDENTICAL across all three at 21,249 characters.
 --probe compares a CONTENT digest via la_reduce_html(), never a file one.
 
+SESSION 121 (2026-11-20): *_Y1_NOTIFICATIONS_COMPLETED.html is the
+programme page after LDH replaced the seven windows with three stage
+sentences: Year 1 award notifications 'completed as of October 30, 2026',
+contract execution 'will be completed in November 2026', Year 2
+announcements 'January 2027'. It names NOBODY. The 10-05 page stays
+archived as 'programme_windows', the last page carrying the windows; the
+09-21 funding page and 10-12 legislative-reports list stay as priors.
+
 file  bytes  sha256
+2026-11-20_la_ldh_rhtp_programme_Y1_NOTIFICATIONS_COMPLETED.html  172338  66036ec4c052d6b524df5945851d8514de05f670458553da9f253846a43d0795
 2026-10-05_la_ldh_rhtp_programme_NOTICES_DATED_OCT_2.html  172440  1c5e6ef86b0d3d061f8396ac58e4938ec99dbbe403c9060609a707a2e23b5043
+2026-11-20_la_ldh_rhtp_funding_opportunities.html  169001  4b8825e11088bf390ad3b6a4b8643a10f069c2aebb8a79fd9a0a68bae1c9e9a9
 2026-09-21_la_ldh_rhtp_funding_opportunities.html  166500  415616ddb7d29094636b4b4e925a8b0cbee1b311dbc6141d557cc96d1cf8f9ae
 2026-04-07_la_ldh_governor_establishes_orhts.html  164621  94692e9323d3de10169abb481e2c006e1aff64e38312f8d845420ea38478039a
 2026-08-20_la_ldh_rhtp_advisory_council_slides_PROJECTED_FUNDING.pdf  3190596  43ee7be72938d58dd659f0adadb4efefdc09321c1cee1e24ac3fecd083062f6b
@@ -90,4 +100,5 @@ file  bytes  sha256
 2026-09-02_la_ldh_rhtp_programme_SEVEN_WINDOWS_PASSED_SUPERSEDED.html  169500  3deee9aacfd9ec654373bf0bb9795dc3bf6642f7a1576fdc5cc2cd81def46d5d
 2026-09-02_la_rhtla_atlas_landing_UNREADABLE.html  95644  e2ed84809c99613ecab16c9f8faa225cf1a7ee649fcf7ee7f6eb686c7eaeaddd
 2026-09-02_la_rhtla_api_facilities_ELIGIBILITY_CONTROL.json  1778624  3d22571600fa81cbf880aa0fa610aee8349b8f9e32f843a34127e4cd713ad6a9
+2026-11-20_la_ldh_legislative_reports_index.html  197681  0ba6972ac94d75925f694849aa250429a457ad96f9a3d6fe18948da5bc762ad6
 2026-10-12_la_ldh_legislative_reports_index.html  197471  aff3feebe09ebee26ee9fbc35d1b74c279617ebfc24fcadcb5ee003efedbd602

@@ -502,12 +502,15 @@ test_that("FIXTURE: the footer check accepts BP1 + BP2 and stops on anything els
   expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = txt))
   # A footer moved to a figure that is neither the allotment nor BP1 + BP2.
   odd <- sub("$333,639,308.46", "$166,720,000.00", txt, fixed = TRUE)
+  # Session 121 (owner footer rule): refused, re-read, never a source.
   expect_error(ca_assert_footer_corroborates(strict = TRUE, calrht = odd),
-               "never a round total")
-  # The old BP1-only footer is a re-read too, not a silent pass: the pin moved.
+               "footer REFUSED -- MATCHES_NONE")
+  # The BP1-only footer is the FY2026 allotment: one of the rule's three anchors.
   old <- sub("$333,639,308.46", "$233,639,308.46", txt, fixed = TRUE)
-  expect_error(ca_assert_footer_corroborates(strict = TRUE, calrht = old),
-               "footer amount is no longer")
+  expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = old))
+  # FY2026 + FY2027, what HCAI prints since 11-14, passes.
+  cur <- sub("$333,639,308.46", "$464,745,131.25", txt, fixed = TRUE)
+  expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = cur))
 })
 
 test_that("the re-based probe pages pass every tripwire as archived", {

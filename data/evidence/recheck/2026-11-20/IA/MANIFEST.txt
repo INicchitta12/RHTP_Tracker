@@ -1,0 +1,6 @@
+Session 121 (Task 7): Iowa documents read for the 11-19 IA trips, fetched 2026-11-20 from hhs.iowa.gov/media with the project agent, saved as served. None is a Healthy Hometowns award: two RFP rescissions, two non-RHTP NOIAs (no RHTP mention, no CMS footer; Mahaska Health Partnership is a Public Health Lead Entity, state public-health money, §0.1), and the August Council minutes (Year 1 review, Year 2 plan, no recipient named).
+2026-09-25_ia_notice_rescinds_PHTHOCC27705_crc_screening.pdf  sha256 e12809f9de99db46fca9b7ec4858b42fe636cf6d22fe7cf53f116e981e216ed8  bytes 98173
+2026-10-30_ia_notice_rescinds_PHTHORC27001_rural_residency.pdf  sha256 1f5ec0fe493f1b824e99b7186aaffeea5e97a5ce5bd387a05be5120d7a6e5c8a  bytes 109336
+2026-11-02_ia_noia_PHTHOIT27001_fy27_pharmacy_NOT_RHTP.pdf  sha256 78b2f0653532771bc4274ae3df3868f4090417e3ee9d3688afb38edd1e8efd55  bytes 164195
+2026-11-16_ia_hhs_council_minutes_august_2026.pdf  sha256 bff7075db8297624f95c3afbb8658213864265053c359e3d685077689dfe9666  bytes 164841
+2026-11-16_ia_noia_PHTHOPD27001_public_health_lead_entities_NOT_RHTP.pdf  sha256 fabfa426fd60fd5cca9bc4c7a29d1ccc80a3fd987150c17c66d5915162ae8930  bytes 233836

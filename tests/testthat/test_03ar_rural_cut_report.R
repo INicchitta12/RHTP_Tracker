@@ -69,10 +69,10 @@ test_that("every NAMED_HOSPITAL row lands in exactly one class, and the partitio
   # Session 115: + WV CAMC (3 / $3,930,266): 1,954 / $1,797,619,954.62 / 37.
   # Session 116: + IA Combat Cancer Round 2 (4 / $0): 1,958.
   # Session 116c/d: FSRS (R/09b): + 246 / + $372,805,292.26: 2,204 / $2,170,425,246.88.
-  expect_equal(nrow(rows), 2285L)   # session 120: + FSRS 11-19 (ME 12, MN Graceville) and MN Murray County (2);   # session 119: + IN GROW Bluffton, + MN Pipestone;   # session 118: FSRS 11-16 refresh and rulings (+69);   # session 117: - 3 TX (11/12 list), - 3 NE FSRS (held, NE COMPLETE);   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
-  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 2223153907.38,
+  expect_equal(nrow(rows), 2369L)   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK) (R/03cx);   # session 120: + FSRS 11-19 (ME 12, MN Graceville) and MN Murray County (2);   # session 119: + IN GROW Bluffton, + MN Pipestone;   # session 118: FSRS 11-16 refresh and rulings (+69);   # session 117: - 3 TX (11/12 list), - 3 NE FSRS (held, NE COMPLETE);   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
+  expect_equal(round(sum(rows$amount, na.rm = TRUE), 2), 2292033452.90,
                tolerance = 0)
-  expect_equal(nrow(rows[rows$state != "TX", ]), 2002L)   # session 120: + 15   # session 119: + 2   # session 118: + 69;   # session 117: - 3 NE FSRS;   # session 117a: + 1 WV   # session 116c/d: + 246 (FSRS; the TX FSRS rows were all duplicates)   # session 116: + 4 IA CC R2; session 115: + 3 WV CAMC; session 114: + 29 OK CHW, + 14 MO SG; session 112: + 7 SD, + 31 PA, + 19 MI, + 9 OK, + 6 UT; session 111: - 1 AK (Ketchikan); session 110: + 1 (CA +1 -1, VA +1); session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
+  expect_equal(nrow(rows[rows$state != "TX", ]), 2086L)   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK)   # session 120: + 15   # session 119: + 2   # session 118: + 69;   # session 117: - 3 NE FSRS;   # session 117a: + 1 WV   # session 116c/d: + 246 (FSRS; the TX FSRS rows were all duplicates)   # session 116: + 4 IA CC R2; session 115: + 3 WV CAMC; session 114: + 29 OK CHW, + 14 MO SG; session 112: + 7 SD, + 31 PA, + 19 MI, + 9 OK, + 6 UT; session 111: - 1 AK (Ketchikan); session 110: + 1 (CA +1 -1, VA +1); session 109: + 59 CA, + 1 MS r2; session 108: + 48 ID, + 31 VT, + 30 MS r2, + 5 OH, - 1 NY; session 107: + 2 WV, + 7 VA; session 104: + 9 MD, + 22 OH
   expect_true(all(rows$rural_class %in% RC_CLASSES))
   expect_silent(rc_assert(rows))
 })
@@ -142,7 +142,7 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   # LLano Regional, all rural: 754 / $671,551,567.78.
   # Session 118: MN's CAH allocations and NE's extras (CAH CCNs), less VT's
   # Grace Cottage duplicate and CT/NE pairs: 793 / $696,097,519.78.
-  expect_equal(nrow(r), 803L)   # session 120: + 9 (ME rural/CAH hospitals, Murray x2 and Graceville CAHs)   # session 119: + Pipestone
+  expect_equal(nrow(r), 850L)   # session 121: + 21 WI (CAH CCNs, R/03cx intents), + 26 rebuild (SD 10 incl. Monument area CAHs, ND 5, WV, TN);   # session 120: + 9 (ME rural/CAH hospitals, Murray x2 and Graceville CAHs)   # session 119: + Pipestone
   expect_equal(sum(r$state == "CA"), 31L)
   expect_equal(round(sum(r$amount[r$state == "CA"], na.rm = TRUE), 2), 46065499.94)
   expect_equal(sum(r$state == "TX"), 184L)   # session 117: - 3 withdrawn;   # session 112: + Anson (CAH)
@@ -150,13 +150,13 @@ test_that("the rural figure is 268 rows / $282,660,793.99, from three classes of
   expect_equal(round(sum(r$amount[r$state == "TX"], na.rm = TRUE), 2), 130099090.40)   # session 117: - $1,695,726.58 withdrawn;   # session 112: + $262,566.30 (Anson)
   expect_equal(sum(r$state == "OK"), 21L)   # session 114: + 13 OK CHW (CAH/REH CCN, $0)
   expect_equal(sum(r$state == "WV"), 12L)
-  expect_equal(sum(r$state == "SD"), 13L)   # session 112: + 4 (register)
+  expect_equal(sum(r$state == "SD"), 23L)   # session 112: + 4 (register); session 121: + 10 (11-19 register CAHs)
   expect_equal(sum(r$state == "CO"), 26L)
   expect_equal(sum(r$state == "NV"), 2L)
   expect_equal(sum(r$state == "TN"), 2L)
   expect_equal(sum(r$state == "VA"), 1L)
-  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 702766673.78, tolerance = 0)   # session 120: +4,971,560
-  expect_equal(round(sum(r$amount[r$state != "TX"], na.rm = TRUE), 2), 572667583.38, tolerance = 0)   # session 120   # session 119: + Pipestone  # OH Pomerene is $0
+  expect_equal(round(sum(r$amount, na.rm = TRUE), 2), 735967275.17, tolerance = 0)   # session 121: + $18,306,048 (WI), + $14,894,553.39 (rebuild)   # session 120: +4,971,560
+  expect_equal(round(sum(r$amount[r$state != "TX"], na.rm = TRUE), 2), 605868184.77, tolerance = 0)   # session 121: + WI, + rebuild   # session 120   # session 119: + Pipestone  # OH Pomerene is $0
   expect_equal(round(sum(r$amount[r$state == "MO"], na.rm = TRUE), 2), 19455234.09)   # session 114: + Hermann, Mercy Perry, Scotland, Washington County
   expect_equal(sum(r$state %in% c("NY", "KS")), 13L)
   expect_equal(sum(r$state == "VT"), 32L)   # session 118: - Grace Cottage FSRS duplicate
@@ -212,11 +212,11 @@ test_that("the committed report tables match a fresh computation, and no state f
   fresh <- rc_by_state(rows)
   expect_equal(nrow(by), nrow(fresh))
   # Session 63: + 21 Indiana GROW rows CMS enrols as a CAH ($0, unpriced).
-  expect_equal(sum(by$rural_rows), 803L)   # session 120: + 9;   # session 119: + 1;   # session 118: + 39;   # session 117: - 3 TX withdrawn;   # session 116c/d: + 164 (FSRS)   # session 114: + 4 MO SG, + 13 OK CHW; session 112: + 7 MI, + 12 PA, + 4 SD, + 1 TX (Anson), + 2 UT; session 111: + TX Burleson (CAH); session 109: + 31 CA; session 108: + 42 ID, + 43 TX, + 14 VT, + 8 MS r2; session 107: + VA Bath County (CAH); session 104: + 3 TX CAH county bridges (Hardeman x2, Stonewall), - TX Memorial Hospital (no CCN), + OH Pomerene ($0); session 103: + 140 TX; session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
+  expect_equal(sum(by$rural_rows), 850L)   # session 121: + 21 WI   # session 120: + 9;   # session 119: + 1;   # session 118: + 39;   # session 117: - 3 TX withdrawn;   # session 116c/d: + 164 (FSRS)   # session 114: + 4 MO SG, + 13 OK CHW; session 112: + 7 MI, + 12 PA, + 4 SD, + 1 TX (Anson), + 2 UT; session 111: + TX Burleson (CAH); session 109: + 31 CA; session 108: + 42 ID, + 43 TX, + 14 VT, + 8 MS r2; session 107: + VA Bath County (CAH); session 104: + 3 TX CAH county bridges (Hardeman x2, Stonewall), - TX Memorial Hospital (no CCN), + OH Pomerene ($0); session 103: + 140 TX; session 102: - NV Washoe Barton (SOURCE_SUSPECT); session 101: + NV Banner Churchill RHIT; session 100: + 3 WV CAHs; session 99: + 2 (Chase County, OK Newman); session 82: + 26 CO; session 94: + 4 VT; session 98: + 2 NE
   # ccn is character: session 54's Vermont CCNs include "47Z300".
   committed <- readr::read_csv(here::here(RC_ROWS_CSV), show_col_types = FALSE,
                                progress = FALSE,
                                col_types = readr::cols(ccn = "c"))
-  expect_equal(nrow(committed), 2285L)   # session 120: + 15;   # session 119: + 2;   # session 118: + 69;   # session 117: - 3 TX, - 3 NE FSRS;   # session 117a: + 1 WV Cabell Huntington   # session 116c/d: + 246 (FSRS, R/09b)   # session 116: + 4 IA CC R2 at $0; session 115: + 3 WV CAMC; session 114: + 43 (OK CHW 29, MO SG 14); session 112: + 73 (TX 1, SD 7, PA 31, MI 19, OK 9, UT 6); session 110: + 1 (UC San Diego Health, UVA Health in; Providence Medical Foundation out); session 109: + 59 CA, + 1 MS r2 (Magnolia EMS); session 108: + 189 (ID TX VT MS r2 OH, - NY); session 107: + 2 WV, + 7 VA VHCF PP; session 104: + 7 TX, + 9 MD Labor, + 22 OH; session 103: + 201 TX, + 1 OK; session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
+  expect_equal(nrow(committed), 2369L)   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK)   # session 120: + 15;   # session 119: + 2;   # session 118: + 69;   # session 117: - 3 TX, - 3 NE FSRS;   # session 117a: + 1 WV Cabell Huntington   # session 116c/d: + 246 (FSRS, R/09b)   # session 116: + 4 IA CC R2 at $0; session 115: + 3 WV CAMC; session 114: + 43 (OK CHW 29, MO SG 14); session 112: + 73 (TX 1, SD 7, PA 31, MI 19, OK 9, UT 6); session 110: + 1 (UC San Diego Health, UVA Health in; Providence Medical Foundation out); session 109: + 59 CA, + 1 MS r2 (Magnolia EMS); session 108: + 189 (ID TX VT MS r2 OH, - NY); session 107: + 2 WV, + 7 VA VHCF PP; session 104: + 7 TX, + 9 MD Labor, + 22 OH; session 103: + 201 TX, + 1 OK; session 101: + 5 (NV 2, VT 2, WV 1); session 100: + 6 WV; session 99: + 12; session 98: + 5 CMS obligation rows; session 82: + 36 CO; session 83: + 23; session 87: + 2 SD; session 92: + 9 VA; session 94: + 9 VT
   expect_equal(committed$rural_class, rows$rural_class)
 })

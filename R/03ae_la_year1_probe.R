@@ -164,11 +164,31 @@ LA_SOURCES <- tibble::tribble(
   # dropped the application-deadline clause, and added "Notification of
   # denial for all remaining strategies by October 16, 2026". It names NOBODY:
   # the October 2 notices went to applicants, not to a page.
+  # SESSION 121: THE 2026-11-20 PAGE. LDH replaced the seven-window "IMPORTANT
+  # DATES - BUDGET YEAR 1" block (first seen by the 11-07 Routine) with three
+  # stage sentences: "All RHTP Budget Year 1 award notifications have been
+  # completed as of October 30, 2026 . Contract execution will be completed in
+  # November 2026 . RHTP Budget Year 2 anticipated funding announcements -
+  # January 2027 ." It still names NOBODY. la_parse_stage_block() reads it;
+  # the windows live on in the 10-05 snapshot ("programme_windows").
   "programme",
+  "2026-11-20_la_ldh_rhtp_programme_Y1_NOTIFICATIONS_COMPLETED.html",
+  "https://ldh.la.gov/page/rural-health-transformation-program",
+
+  # The LAST page to carry the seven windows (session 88). Everything that
+  # parses a window reads THIS key, never "programme" (session 121).
+  "programme_windows",
   "2026-10-05_la_ldh_rhtp_programme_NOTICES_DATED_OCT_2.html",
   "https://ldh.la.gov/page/rural-health-transformation-program",
 
+  # SESSION 121: re-based after reading the diff. The scoped page body is
+  # character-identical to the 09-21 copy (5,784 characters); only LDH's
+  # site-wide mega-menu moved. The 09-21 copy stays archived and listed.
   "funding",
+  "2026-11-20_la_ldh_rhtp_funding_opportunities.html",
+  "https://ldh.la.gov/page/rhtp-funding-opportunities",
+
+  "funding_prior_0921",
   "2026-09-21_la_ldh_rhtp_funding_opportunities.html",
   "https://ldh.la.gov/page/rhtp-funding-opportunities",
 
@@ -226,9 +246,27 @@ LA_SOURCES <- tibble::tribble(
   # the one public page a probe can watch. On 2026-10-12 it names SR 198,
   # "Rural Health Transformation" and "RHTP" ZERO times (newest entry: the
   # LaCHIP Annual Report, 2026-08-26).
+  # SESSION 121: re-based. The live list's new entries (Healthy Louisiana
+  # Claims Report 2026-11-05, Diabetes and Obesity Report 2026-11-02, ...)
+  # name neither SR 198 nor RHTP (la_assert_no_sr198_report() passes live).
   "leg_reports",
+  "2026-11-20_la_ldh_legislative_reports_index.html",
+  "https://ldh.la.gov/resources/category/legislative-governmental-relations",
+
+  "leg_reports_prior_1012",
   "2026-10-12_la_ldh_legislative_reports_index.html",
   "https://ldh.la.gov/resources/category/legislative-governmental-relations"
+)
+
+# SESSION 121: LDH'S STAGE BLOCK, AS PRINTED (reduced text, so the space LDH
+# puts before each full stop is kept). Exact match: a changed word is a
+# re-read, never a widened pattern.
+LA_STAGE_BLOCK_ANCHORS <- c(from = "IMPORTANT DATES", to = "Rural Health Atlas")
+LA_STAGE_SENTENCES <- tibble::tribble(
+  ~stage,                        ~sentence,                                                                                    ~as_of,
+  "Y1_AWARD_NOTIFICATIONS_DONE", "All RHTP Budget Year 1 award notifications have been completed as of October 30, 2026 .", "2026-10-30",
+  "Y1_CONTRACT_EXECUTION",       "Contract execution will be completed in November 2026 .",                                  "2026-11",
+  "Y2_ANNOUNCEMENTS_EXPECTED",   "RHTP Budget Year 2 anticipated funding announcements - January 2027 .",                    "2027-01"
 )
 
 # Every figure Louisiana states, in its own words.
@@ -354,7 +392,7 @@ la_window_deadline <- function(window, year = 2026L) {
 #' PARSED, NEVER TRANSCRIBED (the §7.1 posture), so the status table cannot
 #' drift from the page and a slip shows up as data rather than as a halt.
 la_parse_windows <- function(programme = NULL) {
-  p <- if (is.null(programme)) la_html_text("programme") else programme
+  p <- if (is.null(programme)) la_html_text("programme_windows") else programme
 
   block <- stringr::str_match(
     p, "IMPORTANT DATES - BUDGET YEAR 1(.*?)Notice of Funding Opportunities")
@@ -414,6 +452,58 @@ la_parse_windows <- function(programme = NULL) {
       window_ends = purrr::map_vec(.data$window, la_window_deadline),
       completed = .data$window == "Completed",
       .after = "window")
+}
+
+#' SESSION 121: LDH's "IMPORTANT DATES" stage block (the page since 2026-11-07)
+#'
+#' PARSED, NEVER TRANSCRIBED. The block runs from "IMPORTANT DATES" to the
+#' "Rural Health Atlas" link that follows it, and must be EXACTLY the three
+#' sentences in LA_STAGE_SENTENCES, in order. Anything else -- a reworded
+#' sentence, a fourth sentence, a date that moves, the old seven-window block
+#' coming back -- stops, worded so rhtp_probe_verdict() files it TRIPWIRE.
+#' The Year 2 sentence is a Year 2 SIGNAL (session 116 safeguards): it is read
+#' and asserted, never extracted, and a change to it is a re-read like any other.
+la_parse_stage_block <- function(programme = NULL) {
+  p <- if (is.null(programme)) la_html_text("programme") else programme
+  m <- stringr::str_match(p, paste0(LA_STAGE_BLOCK_ANCHORS[["from"]], "\\s*(.*?)\\s*",
+                                    LA_STAGE_BLOCK_ANCHORS[["to"]]))
+  if (is.na(m[1, 2])) {
+    stop("[LA] LDH's programme page no longer carries its 'IMPORTANT DATES' ",
+         "stage block ending at the 'Rural Health Atlas' link. That block is ",
+         "where Louisiana states its Year 1 award stage -- re-read the page.",
+         call. = FALSE)
+  }
+  block <- stringr::str_squish(m[1, 2])
+  want <- paste(LA_STAGE_SENTENCES$sentence, collapse = " ")
+  if (!identical(block, want)) {
+    stop("[LA] LDH's 'IMPORTANT DATES' block has CHANGED. It now reads: '",
+         block, "'. It read: '", want, "'. THAT IS THE SIGNAL: a moved date, a ",
+         "new sentence or a named recipient here is Louisiana changing its ",
+         "stage. Read the page; re-base only after reading.", call. = FALSE)
+  }
+  LA_STAGE_SENTENCES
+}
+
+la_assert_stage_block <- function(programme = NULL) {
+  s <- la_parse_stage_block(programme)
+  # Each fact asserted separately, so a reader sees which half moved.
+  stopifnot(identical(s$stage, c("Y1_AWARD_NOTIFICATIONS_DONE",
+                                 "Y1_CONTRACT_EXECUTION",
+                                 "Y2_ANNOUNCEMENTS_EXPECTED")))
+  invisible(s)
+}
+
+#' The funding page still carries seven solicitations (the windows' count is
+#' gone from the programme page; the solicitations are not).
+la_assert_seven_solicitations <- function(funding = NULL) {
+  f <- if (is.null(funding)) la_html_text("funding") else funding
+  n <- stringr::str_count(f, stringr::fixed("Strategic Funding Opportunity Title"))
+  if (n != LA_STATED$opportunities) {
+    stop("[LA] the funding page now carries ", n, " solicitations, not ",
+         LA_STATED$opportunities, ". A solicitation that has stopped being ",
+         "published is the case to read first.", call. = FALSE)
+  }
+  invisible(TRUE)
 }
 
 
@@ -574,6 +664,14 @@ la_write_manifest <- function(entries) {
     "'?v=' stamp structurally, and the tag-stripping reduction absorbs it for",
     "free: reduced text IDENTICAL across all three at 21,249 characters.",
     "--probe compares a CONTENT digest via la_reduce_html(), never a file one.",
+    "",
+    "SESSION 121 (2026-11-20): *_Y1_NOTIFICATIONS_COMPLETED.html is the",
+    "programme page after LDH replaced the seven windows with three stage",
+    "sentences: Year 1 award notifications 'completed as of October 30, 2026',",
+    "contract execution 'will be completed in November 2026', Year 2",
+    "announcements 'January 2027'. It names NOBODY. The 10-05 page stays",
+    "archived as 'programme_windows', the last page carrying the windows; the",
+    "09-21 funding page and 10-12 legislative-reports list stay as priors.",
     "",
     "file  bytes  sha256",
     paste(entries$file, entries$bytes, entries$sha256, sep = "  ")
@@ -823,7 +921,7 @@ la_assert_no_award_roster <- function(programme = NULL, funding = NULL,
 #' off the state's own page (§0.4).
 la_assert_windows_published <- function(programme = NULL, funding = NULL,
                                         asof = Sys.Date()) {
-  p <- if (is.null(programme)) la_html_text("programme") else programme
+  p <- if (is.null(programme)) la_html_text("programme_windows") else programme
   f <- if (is.null(funding)) la_html_text("funding") else funding
 
   w <- la_parse_windows(p)
@@ -864,7 +962,7 @@ la_assert_windows_published <- function(programme = NULL, funding = NULL,
 #' own authority (§0.4) -- and it is the reason the superseded file is kept
 #' rather than overwritten.
 la_assert_windows_slipped <- function(programme = NULL, prior = NULL) {
-  now_w   <- la_parse_windows(if (is.null(programme)) la_html_text("programme")
+  now_w   <- la_parse_windows(if (is.null(programme)) la_html_text("programme_windows")
                               else programme)
   prior_w <- la_parse_windows(if (is.null(prior)) la_html_text("programme_prior")
                               else prior)
@@ -941,7 +1039,7 @@ la_assert_deck_is_projected_not_awarded <- function(council = NULL) {
 #' "no roster" is measured against Louisiana's own stated intention.
 la_assert_announcement_control <- function(programme = NULL, funding = NULL,
                                            council = NULL) {
-  p <- if (is.null(programme)) la_html_text("programme") else programme
+  p <- if (is.null(programme)) la_html_text("programme_windows") else programme
   f <- if (is.null(funding)) la_html_text("funding") else funding
   d <- if (is.null(council)) la_pdf_text("council") else council
 
@@ -1007,6 +1105,8 @@ rhtp_la_assert <- function(strict_footer = FALSE) {
   la_assert_no_award_roster()
   la_assert_windows_published()
   la_assert_windows_slipped()
+  la_assert_stage_block()          # session 121: the CURRENT page's stage block
+  la_assert_seven_solicitations()
   la_assert_deck_is_projected_not_awarded()
   la_assert_announcement_control()
   la_assert_facilities_are_not_awards()
@@ -1224,6 +1324,20 @@ rhtp_la_year1_status <- function() {
     "applicant or an amount, so nothing is extracted and publishes_roster",
     "stays No. 'Not yet awarded' is out of date; 'awarded, unpublished' is",
     "the finding.")
+
+  # SESSION 121: LDH's current page states the stage for EVERY Budget Year 1
+  # solicitation at once. Read off the archived page (la_parse_stage_block),
+  # never typed; the stage codes do not move, because the statement adds a
+  # date to "notified privately" and names nobody.
+  sb <- la_parse_stage_block()
+  y1 <- !is.na(out$window_key)
+  out$evidence[y1] <- paste(
+    out$evidence[y1],
+    paste0("SESSION 121: LDH's programme page (archived 2026-11-20) now reads '",
+           sb$sentence[sb$stage == "Y1_AWARD_NOTIFICATIONS_DONE"], "' and '",
+           sb$sentence[sb$stage == "Y1_CONTRACT_EXECUTION"], "'."),
+    "It names no recipient and no amount, so nothing is extracted; the",
+    "Year 2 sentence beside them is a Year 2 signal only.")
 
   # SESSION 64: THE RCCB HAS AWARDED, AND ITS STAGE IS READ OFF THE DECK, NOT
   # OFF THE WINDOW. The programme page still prints its "Mid-September"
@@ -2356,7 +2470,11 @@ la_probe <- function(keys = LA_PROBE_KEYS) {
   }
 
   la_assert_no_award_roster(programme = prog, funding = fund, council = deck)
-  la_assert_windows_published(programme = prog, funding = fund)
+  # SESSION 121: the live page no longer prints the seven windows (they live
+  # on in the 10-05 snapshot, read by --validate). The live check is the
+  # stage block, exactly, and the funding page's seven solicitations.
+  if (!is.null(prog)) la_assert_stage_block(prog)
+  if (!is.null(fund)) la_assert_seven_solicitations(fund)
   la_assert_deck_is_projected_not_awarded(council = deck)
 
   # THE NAME TRIPWIRE (§2.3, session 48). The phrase assertions above ask HOW

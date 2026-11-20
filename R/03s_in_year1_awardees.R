@@ -933,9 +933,11 @@ in_assert_regional_awarded <- function() {
                        progress = FALSE)
   # Session 118: 186 -> 176, ten members removed by IDOH (owner ruling d, R/03bi).
   # Session 119: 176 -> 181, five reinstated on Indiana's FSRS filings (owner ruling).
-  if (nrow(g) != 181L || any(!is.na(g$amount))) {
+  # Session 121: 181 -> 179 (11-20 page: three removed members without a live
+  # FSRS subaward leave, Parkview Goshen Hospital joins; R/03bi IG_S121_CHANGES).
+  if (nrow(g) != 179L || any(!is.na(g$amount))) {
     stop("[IN] in_grow_regional_awardees.csv is ", nrow(g), " rows (expected ",
-         "181, every amount empty). Rebuild it from R/03bi.", call. = FALSE)
+         "179, every amount empty). Rebuild it from R/03bi.", call. = FALSE)
   }
   # And THIS file must not have absorbed it: the vendors stay seven.
   if (any(in_build_awards()$awardee %in% g$awardee)) {
@@ -1237,7 +1239,11 @@ IN_GROW_REMOVED_S118 <- c(
   "2 Cass Area Transit Inc", "2 Huntington County Council on Aging",
   "2 Noble County Council on Aging, Inc",
   "5 Area 10 Council on Aging of Monroe and Owen Co Inc", "5 Hamilton Center, Inc.",
-  "5 West Central Indiana Economic Development District, Inc.")
+  "5 West Central Indiana Economic Development District, Inc.",
+  # Session 121: removed on the 11-20 page with no live FSRS subaward (R/03bi
+  # IG_S121_CHANGES); the three removed members WITH one stay in the file.
+  "3 Paul Phillippe Resource Center, Inc.", "3 Crawfordsville Area Transit",
+  "6 Jennings County Coordinating Council")
 
 in_rcj_grow_join <- function(cands = in_rcj_candidates()) {
   g <- cands[cands$source_doc_title == IN_GROW_SOURCE_TITLE, ]

@@ -51,13 +51,13 @@ MT_PAGES <- tibble::tribble(
   "release", "https://dphhs.mt.gov/News/2026/September/Investment-in-Rural-EMS",
   file.path(MT_DIR, "2026-10-05_mt_dphhs_rural_ems_award_release.html"), TRUE,
   "grants", paste0(MT_BASE, "Grants"),
-  file.path(MT_DIR, "2026-10-26_mt_rhtp_grants.html"), TRUE,
+  file.path(MT_DIR, "2026-11-20_mt_rhtp_grants.html"), TRUE,  # session 121: re-based (menu gained "Center of Excellence"; body unchanged; 10-26 copy kept)
   "rfps", paste0(MT_BASE, "RHTP-RFPs"),
-  file.path(MT_DIR, "2026-10-05_mt_rhtp_rfps.html"), TRUE,
+  file.path(MT_DIR, "2026-11-20_mt_rhtp_rfps.html"), TRUE,  # session 121: re-based (menu gained "Center of Excellence"; body unchanged; 10-05 copy kept)
   "home", MT_BASE,
-  file.path(MT_DIR, "2026-10-05_mt_rhtp_home.html"), TRUE,
+  file.path(MT_DIR, "2026-11-20_mt_rhtp_home.html"), TRUE,  # session 121: re-based (FY2026+FY2027 footer; 10-05 copy kept)
   "communications", paste0(MT_BASE, "Communications"),
-  file.path(MT_DIR, "2026-10-05_mt_rhtp_communications.html"), FALSE)
+  file.path(MT_DIR, "2026-11-20_mt_rhtp_communications.html"), FALSE)  # session 121: re-based after reading (newsletter #4, the $239.7M Year 2 release, an RFI and surveys; no roster; 10-05 copy kept)
 
 # What R/03bv's five rows rest on, and the Grants page's award block. The
 # session-75 anchor ("funding decisions will be shared in September") is gone

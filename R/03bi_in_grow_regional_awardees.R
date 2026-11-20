@@ -386,6 +386,9 @@ IG_CMHC_WITH_HOSPITAL_CCN <- c("Northeastern Center", "Hamilton Center, Inc.",
 # classifier where the form is in the string, or §8's standing fallback.
 IG_OVERRIDES <- tibble::tribble(
   ~awardee, ~recipient_type, ~basis_type, ~confidence, ~ccn, ~why,
+  # SESSION 121: added to Region 1 on the 2026-11-20 page, beside Goshen Health System.
+  "Parkview Goshen Hospital", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "150026",
+  "HAND-READ BRIDGE (session 121): CMS IN Hospital Enrollment (archived 2026-09-24) carries no record under this string; Goshen's hospital enrols as GOSHEN HOSPITAL ASSOCIATION INC dba GOSHEN GENERAL HOSPITAL (CCN 150026), and 'Parkview Goshen Hospital' is its name since Goshen Health joined Parkview (general knowledge). The same CCN as Region 1's Goshen Health System row: two rows, one hospital, both at $0. LOW; queued as IN_GROW_HOSPITAL_BRIDGES.",
   "Goshen Health System", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "150026",
   "HAND-READ BRIDGE: CMS IN Hospital Enrollment carries no record under this string; Goshen Health's hospital is GOSHEN HOSPITAL ASSOCIATION INC dba GOSHEN GENERAL HOSPITAL (CCN 150026), and the page links goshenhealth.com. LOW and subtractable; queued as IN_GROW_HOSPITAL_BRIDGES.",
   "Northwest Health Starke Hospital", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "150102",
@@ -707,6 +710,87 @@ ig_apply_s118_removals <- function(a) {
   out
 }
 
+# SESSION 121 (Task 7): THE 2026-11-20 PAGE. Against the 11-16 page, IDOH
+# removed seven more names, added one and re-spelt one; region figures are
+# unchanged. Read 2026-11-20 and applied on the session 118/119 rulings:
+#   * a removed member WITH a live FSRS subaward (archive 2026-11-19) stays a
+#     member (session 119): Boone County Senior Services ($294,380.26), White
+#     County Council on Aging ($292,625.26), Aging and Community Services of
+#     South Central Indiana ($89,170.17);
+#   * a removed member without one leaves: Paul Phillippe Resource Center,
+#     Crawfordsville Area Transit (Region 3), Jennings County Coordinating
+#     Council (Region 6);
+#   * "Trustees of Indiana University" (Region 8) is re-printed "Indiana
+#     University": one legal body (FSRS files it as TRUSTEES OF INDIANA
+#     UNIVERSITY); the row keeps the string the file has carried;
+#   * Parkview Goshen Hospital is ADDED to Region 1, typed on a hand-read
+#     bridge to CCN 150026 (IG_OVERRIDES), at $0.
+# No region's summary call moves: Region 1 is 10 typed hospitals of 27 named
+# members, Region 3 3 of 22, Region 6 6 of 31 (none a strict majority).
+IG_ARCHIVE_1120 <- file.path("data", "evidence", "recheck", "2026-11-20", "IN",
+                             "2026-11-20_grow_regional_grants_page.html")
+IG_S121_CHANGES <- tibble::tribble(
+  ~region, ~awardee, ~change, ~fsrs_current_usd,
+  3L, "Paul Phillippe Resource Center, Inc.", "REMOVED", NA_real_,
+  3L, "Boone County Senior Services, Inc", "REMOVED", 294380.26,
+  3L, "White County Council on Aging, Inc.", "REMOVED", 292625.26,
+  3L, "Crawfordsville Area Transit", "REMOVED", NA_real_,
+  6L, "Aging and Community Services of South Central Indiana", "REMOVED", 89170.17,
+  6L, "Jennings County Coordinating Council", "REMOVED", NA_real_,
+  8L, "Trustees of Indiana University", "RENAMED", NA_real_,
+  8L, "Indiana University", "RENAMED_TO", NA_real_,
+  1L, "Parkview Goshen Hospital", "ADDED", NA_real_)
+
+ig_assert_s121_page <- function() {
+  a <- ig_parse_page(here::here(IG_ARCHIVE_1116))
+  l <- ig_parse_page(here::here(IG_ARCHIVE_1120))
+  k <- function(d) paste(d$region, d$awardee)
+  ch <- IG_S121_CHANGES
+  if (!setequal(setdiff(k(a), k(l)), paste(ch$region, ch$awardee)[ch$change %in% c("REMOVED", "RENAMED")]) ||
+      !setequal(setdiff(k(l), k(a)), paste(ch$region, ch$awardee)[ch$change %in% c("ADDED", "RENAMED_TO")])) {
+    stop("[IN-GROW] the 11-20 page is not the 11-16 page with the recorded session-121 changes.", call. = FALSE)
+  }
+  if (!identical(sort(unique(a$region_figure_as_published)), sort(unique(l$region_figure_as_published)))) {
+    stop("[IN-GROW] a region figure moved on the 11-20 page.", call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
+ig_apply_s121_changes <- function(a) {
+  ig_assert_s121_page()
+  ch <- IG_S121_CHANGES
+  gone <- ch[ch$change == "REMOVED" & is.na(ch$fsrs_current_usd), ]
+  out <- a[!paste(a$region, a$awardee) %in% paste(gone$region, gone$awardee), ]
+  stopifnot(nrow(out) == nrow(a) - 3L)
+  l <- ig_parse_page(here::here(IG_ARCHIVE_1120))
+  add <- ig_year1_awardees(l[paste(l$region, l$awardee) %in% paste(ch$region, ch$awardee)[ch$change == "ADDED"], ])
+  add$source_archive_path <- IG_ARCHIVE_1120
+  add$note <- paste0(add$note, " [Session 121: ADDED by IDOH on the 2026-11-20 page.]")
+  stay <- ch[ch$change == "REMOVED" & !is.na(ch$fsrs_current_usd), ]
+  w <- paste(out$region, out$awardee) %in% paste(stay$region, stay$awardee)
+  out$note[w] <- paste0(out$note[w], " [Session 121: off IDOH's 2026-11-20 page, KEPT on Indiana's live FSRS subaward (session 119 ruling).]")
+  ren <- out$region == 8 & out$awardee == "Trustees of Indiana University"
+  out$note[ren] <- paste0(out$note[ren], " [Session 121: the 2026-11-20 page prints 'Indiana University' -- the same legal body; the string is kept.]")
+  out <- dplyr::bind_rows(out, add)
+  out$row_no <- seq_len(nrow(out))
+  out$source_archive_path[!out$awardee %in% add$awardee] <- IG_ARCHIVE_1120
+  out
+}
+
+ig_s121_status_row <- function() {
+  ch <- IG_S121_CHANGES
+  tibble::tibble(
+    state = IG_STATE, channel = "GROW Regional Grants -- the 2026-11-20 page: seven removed, one added, one re-spelt (session 121)",
+    stage = "MEMBERS_REMOVED_BY_STATE", publishes_roster = "Yes -- names only, no per-organisation amount",
+    region_figure_as_published = NA_character_, region_figure_dollars = NA_real_,
+    recipient_rows = 1L, distinct_names = 1L, named_hospital_rows = 1L,
+    note = paste0("Removed and KEPT on a live FSRS subaward (session 119): ",
+                  paste0(ch$awardee[ch$change == "REMOVED" & !is.na(ch$fsrs_current_usd)], collapse = "; "),
+                  ". Removed and dropped: ", paste0(ch$awardee[ch$change == "REMOVED" & is.na(ch$fsrs_current_usd)], collapse = "; "),
+                  ". Added: Parkview Goshen Hospital (Region 1; CCN 150026 bridge, LOW, $0). Region 8's 'Trustees of Indiana University' ",
+                  "is re-printed 'Indiana University'. No region's summary call moves."))
+}
+
 ig_s118_status_row <- function() {
   f <- IG_REMOVED_S118
   tibble::tibble(
@@ -727,9 +811,9 @@ ig_s118_status_row <- function() {
 }
 
 ig_build <- function() {
-  a <- ig_apply_s118_removals(ig_validate())
+  a <- ig_apply_s121_changes(ig_apply_s118_removals(ig_validate()))
   readr::write_csv(a, IG_CSV, na = "")
-  readr::write_csv(dplyr::bind_rows(ig_status_table(a = a), ig_s118_status_row()), IG_STATUS_CSV, na = "")
+  readr::write_csv(dplyr::bind_rows(ig_status_table(a = a), ig_s118_status_row(), ig_s121_status_row()), IG_STATUS_CSV, na = "")
   p <- rhtp_hospital_dollar_partition(a)
   message(sprintf("[IN-GROW] wrote %d rows; partition: %s.", nrow(a),
                   paste0(p$bucket, " ", p$rows, " rows / $", p$dollars, collapse = "; ")))
@@ -832,15 +916,19 @@ ig_assert_queued <- function(a = ig_year1_awardees()) {
 IG_PROBE_DIR <- file.path("data", "evidence", "recheck", "2026-10-15", "IN")
 IG_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
-  "grow_regional", IG_PAGE_URL, IG_PAGE, TRUE,
+  # SESSION 121: grow_regional, idoa_recs, grow_home and init6 re-based to the
+  # 2026-11-20 archive after reading each diff (the GROW membership changes
+  # applied above; IDOA's 09-25 MOCC letter read; grow_home links the October
+  # newsletter; init6 now carries the Meds-to-Beds awardee map, extracted).
+  "grow_regional", IG_PAGE_URL, IG_ARCHIVE_1120, TRUE,
   "idoa_recs", "https://www.in.gov/idoa/procurement/award-recommendations/",
-  file.path(IG_PROBE_DIR, "2026-10-15_in_idoa_award_recommendations.html"), FALSE,
+  file.path("data", "evidence", "recheck", "2026-11-20", "IN", "2026-11-20_in_idoa_award_recommendations.html"), FALSE,
   "grow_home", "https://www.in.gov/grow-rural-health/",
-  file.path(IG_PROBE_DIR, "2026-10-15_in_grow_rural_health_home.html"), TRUE,
+  file.path("data", "evidence", "recheck", "2026-11-20", "IN", "2026-11-20_in_grow_rural_health_home.html"), TRUE,
   "newsletter", "https://view.subscription.in.gov/?vawpToken=RZ4XWZNCJEXEFNK5OQBDUFBKWA.130028",
   file.path(IG_PROBE_DIR, "2026-10-15_in_rhtp_october_2026_newsletter.html"), TRUE,
   "init6", "https://www.in.gov/grow-rural-health/initiatives/initiative-6",
-  file.path(IG_PROBE_DIR, "2026-10-15_in_grow_initiative_6_meds_to_beds.html"), TRUE)
+  file.path("data", "evidence", "recheck", "2026-11-20", "IN", "2026-11-20_in_grow_initiative_6_meds_to_beds.html"), TRUE)
 IG_MTB <- "(?i)meds[- ]to[- ]beds|post-discharge medications|initiative 6"
 IG_HOSPITAL_NAME <- paste0(
   "\\b(?:[A-Z][A-Za-z.&'-]+\\s+){0,5}(?:Hospital|Health|Medical Center|",
@@ -917,7 +1005,7 @@ ig_mtb_named_hospitals <- function(live_text, arch_text) {
 #' be REWRITTEN, not patched. (2) A NEW sentence on the page carrying a dollar
 #' figure, which the archive does not carry (a per-organisation amount would
 #' arrive as one).
-ig_assert_watch <- function(raw_live, arch_text = ig_page_text(),
+ig_assert_watch <- function(raw_live, arch_text = ig_page_text(here::here(IG_ARCHIVE_1120)),
                             live_text = rhtp_watch_reduce(raw_live)) {
   d <- tryCatch(ig_parse_page(raw_live), error = function(e) e)
   if (inherits(d, "error")) {
@@ -929,7 +1017,7 @@ ig_assert_watch <- function(raw_live, arch_text = ig_page_text(),
          "`amount` in in_grow_regional_awardees.csv is empty because Indiana ",
          "published none; REWRITE the file.", call. = FALSE)
   }
-  base <- ig_parse_page()
+  base <- ig_parse_page(here::here(IG_ARCHIVE_1120))   # session 121: the latest read page
   if (!identical(d$awardee, base$awardee) || !identical(d$region, base$region) ||
       !identical(d$round_amount, base$round_amount)) {
     stop("[IN-GROW] the recipient tables or region figures moved (",

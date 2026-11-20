@@ -114,7 +114,9 @@ SD_SEARCH_ARCHIVES <- c(
   "2026-09-24_open_sd_contract_search_RHT.html",
   "2026-10-02_open_sd_contract_search_RHT.html",
   "2026-10-12_open_sd_contract_search_RHT.html",
-  "2026-11-02_open_sd_contract_search_RHT.html"
+  "2026-11-02_open_sd_contract_search_RHT.html",
+  "2026-11-19_open_sd_contract_search_RHT.html",
+  "2026-11-20_open_sd_contract_search_RHT.html"
 )
 SD_SEARCH_FILE <- SD_SEARCH_ARCHIVES[1]                          # the first read
 SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
@@ -129,8 +131,8 @@ SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
 #     number series -- two of them on 2026-09-24 (see SD_OUTSIDE_SERIES).
 SD_DESC_SEARCHES <- tibble::tribble(
   ~probe_key,     ~description_contains,          ~file,
-  "rural_strong", "Rural Strong",                 "2026-11-02_open_sd_contract_search_desc_rural_strong.html",
-  "rht_desc",     "Rural Health Transformation",  "2026-11-02_open_sd_contract_search_desc_rural_health_transformation.html"
+  "rural_strong", "Rural Strong",                 "2026-11-20_open_sd_contract_search_desc_rural_strong.html",
+  "rht_desc",     "Rural Health Transformation",  "2026-11-20_open_sd_contract_search_desc_rural_health_transformation.html"
 )
 
 # A Rural Strong GRANT is identified by the register's own full description on
@@ -148,6 +150,32 @@ SD_RS_ROUND_AMOUNT <- 31500000
 SD_POOL_ADMIN <- "RHT series - programme administration, consulting, evaluation and workforce contracts"
 SD_POOL_RS    <- "RHT series - Rural Strong grants (subset of the 28-grant, $31.5M round of 2026-07-23)"
 SD_POOL_UNPLACED <- "RHT series - named RHTP awards whose round the register does not state (may sit INSIDE the $90M Technology and data round; NEVER added to it)"
+# SESSION 121: the CCBHC Core Service Areas grants. Each detail page names the
+# programme ("development and expansion of the CCHBC Core Service Areas
+# Program", the register's own spelling), so they are placed in the CCBHC round
+# of 2026-09-24 (R/03bw: a 13-member cohort, 12 grants, "more than $13
+# million"), INSIDE it and never on top: R/03bw carries the round whole in
+# round_amount, at $0 per row, and R/03aw nets these contracts out of it.
+# SESSION 121, OWNER RULING: THE YEAR 1 BASIS OF THE 2026-02-20 CONTRACTS. The
+# 34 contracts first seen 2026-11-19 with a register Begin Date of 2026-02-20
+# (Monument Health among them) are Year 1 on South Dakota's own completion
+# statement, which dates every SD RHTP agreement on or before the federal
+# deadline -- NOT on the begin date, which reads as a backdated period of
+# performance (FY27 contract numbers, posted after 11-02, FFATA 11-02..11-06).
+SD_Y1_COMPLETION_QUOTE <- paste0(
+  "'In Year One, South Dakota committed every dollar of its $189.5 million Rural ",
+  "Health Transformation award by the federal deadline, through 234 agreements ",
+  "supporting healthcare organizations and communities across the state.' ",
+  "(Governor/DOH release KB0047476, 2026-11-10; ",
+  "data/evidence/recheck/2026-11-13/SD/2026-11-13_sd_gov_year_two_release_KB0047476.html)")
+SD_Y1_COMPLETION_FIRST_SEEN <- "2026-11-19_open_sd_contract_search_RHT.html"
+SD_Y1_COMPLETION_BEGIN <- as.Date("2026-02-20")
+
+SD_POOL_CCBHC <- "RHT series - CCBHC Core Service Areas grants (inside the 2026-09-24 CCBHC round, R/03bw; NEVER added to it)"
+SD_CCBHC_ROUND_GRANTS <- 12L
+# SESSION 121: a contract the owner's instruction holds out of every total
+# (Monument Health). Written to SD_HELD_CSV, a NON-AWARD file, never STATE_FILES.
+SD_HELD_CSV <- "data/reference/sd_rht_contracts_held.csv"
 
 # SESSION 86: THE 2026-10-02 RE-READ. The series went from 26 contracts /
 # $9,223,177 to 41 / $26,836,144 -- 15 new, +$17,612,967 (session 85 read 13
@@ -205,7 +233,73 @@ SD_PLACEMENT <- tibble::tribble(
   "27RHT00061",     "UNPLACED", "Hometown Family Health PLLC (Plankinton): 'implement chronic disease management activities'. No round named.",
   "27RHT00062",     "UNPLACED", "Winner Regional Healthcare Ctr: 'implement chronic disease management activities'. No round named.",
   "27RHT00063",     "UNPLACED", "Webster Sanford Health: 'implement chronic disease management activities'. No round named.",
-  "27RHT00092",     "UNPLACED", "Huron Regional Medical Center: 'fund EHR enhancements and cyber security infrastructure' -- Lakeside Pain Center's 27RHT00044 wording. Reads like the $90M round's EHR modernisation; the register does not name the round."
+  "27RHT00092",     "UNPLACED", "Huron Regional Medical Center: 'fund EHR enhancements and cyber security infrastructure' -- Lakeside Pain Center's 27RHT00044 wording. Reads like the $90M round's EHR modernisation; the register does not name the round.",
+  # SESSION 121: THE 2026-11-19 RE-READ. 63 -> 121 contracts, +$49,456,264,
+  # none removed and no amount moved. ONE is a Rural Strong grant by its own
+  # description (27RHT00093, Winner). The other 57 are placed here after each
+  # detail page was read: TEN are CCBHC Core Service Areas grants (a new pool,
+  # inside R/03bw's round), ONE is doula workforce (ADMIN), ONE is HELD
+  # (Monument Health, the owner's instruction: its 2026-02-20 begin date could
+  # not be confirmed as an execution or start date), the rest name no round.
+  "27RHT00064",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00065",     "UNPLACED", "Horizon Health Care: 'implement chronic disease management activities' (begun 2026-07-01). No round named.",
+  "27RHT00066",     "UNPLACED", "Horizon Health Care: 'implement chronic disease management activities' (begun 2026-07-01), a second contract. No round named.",
+  "27RHT00067",     "UNPLACED", "Southern Hills Family Medicine: 'implement chronic disease management activities'. No round named.",
+  "27RHT00068",     "UNPLACED", "Big Stone Therapies: 'fund network infrastructure upgrades' (begun 2026-02-20). Reads like the $90M round; the register does not name the round.",
+  "27RHT00069",     "UNPLACED", "Philip Health Services Inc: 'purchase equipment for patient care' (begun 2026-02-20). No round named; Philip's Rural Strong grant is a separate contract.",
+  "27RHT00070",     "UNPLACED", "Modern Day Health Care: 'fund EHR enhancement, imaging equipment, and network and cyber security infrastructure'. No round named.",
+  "27RHT00071",     "UNPLACED", "Belle Care LLC: 'upgrade technology infrastructure to enhance EHR, connect to SD HIE'. No round named.",
+  "27RHT00072",     "UNPLACED", "Marshall County Memorial Hosp (Britton): 'fund imaging and laboratory equipment'. No round named.",
+  "27RHT00073",     "UNPLACED", "Bowdle Hospital: 'purchase equipment to support technology'. No round named.",
+  "27RHT00074",     "UNPLACED", "Hometown Family Health PLLC: 'fund telehealth technology and strengthen cybersecurity infrastructure'. No round named.",
+  "27RHT00075",     "UNPLACED", "Kleinjan Chiropractic LLC: 'fund EHR enhancements and equipment for clinical operations'. No round named.",
+  "27RHT00076",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00077",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00078",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00079",     "UNPLACED", "Brookings Health System: 'implement chronic disease management activities'. No round named.",
+  "27RHT00080",     "UNPLACED", "Southern Plains Behavioral: 'fund an EHR replacement, SD HIE connection, equipment, and cyber security infrastructure' (begun 2026-02-20); its CCBHC grant 27RHT00098 is a separate award. No round named.",
+  "27RHT00081",     "UNPLACED", "Southeastern Direction Life: 'fund EHR enhancements, SD HIE connection, and technology training'; its CCBHC grant 27RHT00091 is separate. No round named.",
+  "27RHT00082",     "UNPLACED", "Vermillion Sanford Health: 'implement chronic disease management activities'. No round named.",
+  "27RHT00083",     "UNPLACED", "Avera McKennan Hospital: 'implement chronic disease management activities'; its CCBHC grant 27RHT00087 is separate. No round named.",
+  "27RHT00084",     "UNPLACED", "Avera Health: 'implement chronic disease management activities'; Avera Health's 27RHT00034 is a separate award. No round named.",
+  "27RHT00086",     "UNPLACED", "Aberdeen Dental: 'purchase dental equipment for the Britton and Faulkton dental offices'. No round named.",
+  "27RHT00087",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00088",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00089",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00090",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00091",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00094",     "UNPLACED", "Canton School District No 41-1: 'implement chronic disease remote monitoring programming' ($1,287; Faulkton Area Schools' 27RHT00060 shape). No round named.",
+  "27RHT00095",     "UNPLACED", "Community Counseling Services: 'contractual Technical Assistance and Support to assist with their EHR planning' (the State Veterans Home's 27RHT00047 wording). No round named.",
+  "27RHT00096",     "UNPLACED", "SD Urban Indian Health: 'fund network infrastructure and equipment for clinical operations'. No round named; its 27RHT00015 and 27RHT00052 are separate awards.",
+  "27RHT00097",     "UNPLACED", "Flandreau Santee Sioux Tribe: 'To implement the Avera Maternal Health Hub & eOB Network as part of the Rural Health Transformation Project' (27RHT00038's and 00055's hub). No round named.",
+  "27RHT00098",     "CCBHC", "CCBHC Core Service Areas grant: 10 grants begun 2026-09-01, each described 'financial and technical assistance ... through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling): the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants), INSIDE it and never on top.",
+  "27RHT00099",     "UNPLACED", "Dakota Counseling Institute: 'contractual Technical Assistance and Support to assist with their EHR planning'. No round named.",
+  "27RHT00100",     "UNPLACED", "Community Health Center of BH: 'implement chronic disease management activities'. No round named.",
+  "27RHT00102",     "UNPLACED", "Bethel Lutheran Home: 'upgrade their EHR, connect to SD HIE, and connect to behavioral health telehealth services'. No round named.",
+  "27RHT00103",     "UNPLACED", "Pioneer Memorial Hospital (Viborg): 'purchase imaging, screening, and laboratory equipment' (begun 2026-02-20; FSRS 27RHT00103 at the same amount). No round named.",
+  "27RHT00104",     "UNPLACED", "Winner Regional Healthcare Ctr: 'fund network infrastructure upgrades' (begun 2026-02-20); its Rural Strong grant 27RHT00093 is separate. No round named.",
+  "27RHT00105",     "UNPLACED", "Caring Professionals: 'fund equipment ... in multiple assisted living locations'. No round named.",
+  "27RHT00106",     "UNPLACED", "Human Service Agency: 'enhance EHR, connect to SD HIE'; its CCBHC grant 27RHT00077 is separate. No round named.",
+  "27RHT00107",     "UNPLACED", "Mobridge Regional Hospital: 'fund EHR enhancement, imaging equipment, and network and cyber security infrastructure' (begun 2026-02-20). No round named.",
+  "27RHT00109",     "UNPLACED", "Helpline Center Inc: 'Network of Care data architecture modernization ... Resource Directory as a Service'. No round named.",
+  "27RHT00110",     "ADMIN", "Great Plains Tribal Leaders: 'Expand and strengthen the doula workforce in South Dakota through recruitment, training, certification, and workforce development' -- doula workforce development, the kind of award session 64 read as administrative (South Dakota Doulas).",
+  "27RHT00111",     "UNPLACED", "Capital Area Counseling Svc: 'enhance EHR, connect to SD HIE'. No round named.",
+  "27RHT00112",     "UNPLACED", "Monument Health Rapid City Hos: 'fund EHR enhancement, purchase imaging and laboratory equipment, and strengthen network and cybersecurity across the Monument system', $12,915,000, Begin Date 2026-02-20. No round named. Held by session 121's first pass (the begin date could not be confirmed as an execution or start date) and RELEASED the same day on the OWNER'S RULING: Year 1 rests on South Dakota's completion statement (SD_Y1_COMPLETION_QUOTE), not on the begin date.",
+  "27RHT00113",     "UNPLACED", "Sr Citizens, Active Generation: 'develop the Aging in Place Innovation Center, a regional innovation and implementation hub'. KB0047023 names Regional Innovation Centers; the register does not name the round.",
+  "27RHT00114",     "UNPLACED", "RMD Recovery, Buffalo Plns Rec: 'fund EHR enhancements, network infrastructure, and equipment' (begun 2026-08-20). No round named.",
+  "27RHT00115",     "UNPLACED", "Community Health Center of BH: 'enhance EHR, connect to SD HIE, and strengthen cybersecurity'; its 27RHT00100 is separate. No round named.",
+  "27RHT00116",     "UNPLACED", "First Chiropractic Centers PC: 'fund EHR enhancements, HIE connection, and cybersecurity infrastructure'. No round named.",
+  "27RHT00117",     "UNPLACED", "Great Plains Tribal Leaders: 'implement chronic disease management activities'. No round named.",
+  "27RHT00118",     "UNPLACED", "Horizon Health Care Inc: 'fund EHR enhancements, network infrastructure, and cybersecurity'. No round named.",
+  "27RHT00119",     "UNPLACED", "West River Heart Vascular Inst: 'purchase equipment, implement an EHR, connect to SD HIE'. No round named.",
+  "27RHT00120",     "UNPLACED", "Abbott House: 'purchase therapeutic equipment to improve patient outcomes'. No round named.",
+  "27RHT00121",     "UNPLACED", "Evangelical Good Samaritan Sty: 'fund EHR upgrades, tele pharmacy, and patient care equipment'. No round named.",
+  "27RHT00122",     "UNPLACED", "Bennett County Hospital (Martin): 'purchase and implement a server infrastructure environment'; its Rural Strong grant is separate. No round named.",
+  "27RHT00123",     "UNPLACED", "Coteau des Prairies Hospital (Sisseton): 'purchase equipment ... to improve patient monitoring and imaging services'. No round named.",
+  "27RHT00124",     "UNPLACED", "Community Memorial Hospital (Redfield): 'purchase equipment for Community Memorial Hospital (Redfield) to improve telehealth, screening, and imaging services'. No round named.",
+  "27RHT00125",     "UNPLACED", "Palmquist, Collin C (Watertown): 'purchase dental equipment to improve dental access in northeast South Dakota'. No round named.",
+  # SESSION 121 (live probe 2026-11-20 16:24Z): one more contract, archived the same day.
+  "27RHT00139",     "ADMIN",    "Watertown School District 14-4: 'Offer specialized training and certificaiton/education for CHWs and CHRs in South Dakota' (sic), $43,200, Professional Services under $50K, begun 2026-08-01 -- workforce training, the kind of award session 64 read as administrative."
 )
 
 # AMENDMENTS READ BY A HUMAN (session 112). A contract whose amount moved
@@ -215,6 +309,22 @@ SD_PLACEMENT <- tibble::tribble(
 # $250,000 on every archive to 2026-10-12 and is $531,000 on 2026-11-02; the
 # vendor, description and RFP number are unchanged on the re-read detail page.
 # The register publishes no amendment document; the latest figure is carried.
+# SESSION 121: A VENDOR STRING THE REGISTER RE-SPELT. 27RHT00008 printed
+# "ACTIVE GENERATION" on every archive to 2026-11-02 and "ACTIVE GENERATIONS" on
+# 2026-11-19; the amount ($226,930), begin date and agency are unchanged, and
+# the new 27RHT00113 prints "SR CITIZENS, ACTIVE GENERATION" for the same body
+# (FSRS: SENIOR CITIZENS SERVICES, INC.). A spelling, not a new vendor; the
+# PRIOR string is carried (the row's identity and the classifier's curated
+# override are keyed on it). Any other vendor change still fails the build.
+# Also seen on 2026-11-19 and NOT a failure (the check reads amount and vendor
+# only): 27RHT00092 (Huron Regional Medical Center, $710,072 unchanged) moved
+# its Begin Date from 2026-06-01 to 2026-02-01. A register begin date is an
+# editable field; the latest is carried (session 121 write-up).
+SD_VENDOR_RENAMES <- tibble::tribble(
+  ~contract_number, ~awardee_prior,      ~awardee_latest,
+  "27RHT00008",     "ACTIVE GENERATION", "ACTIVE GENERATIONS"
+)
+
 SD_AMENDMENTS <- tibble::tribble(
   ~contract_number, ~amount_prior, ~amount_latest, ~detail_reread,
   "26RHT00003",     250000,        531000,         "contract_details/26RHT00003_reread_2026-11-02.html"
@@ -253,14 +363,32 @@ SD_ENROLMENT_BRIDGES <- tibble::tribble(
   "27RHT00062",     "WINNER REGIONAL HEALTHCARE CTR", "WINNER REGIONAL HEALTHCARE CENTER",       "WINNER",      "LEGAL_NAME_TRUNCATED",
   "27RHT00057",     "CHAMBERLAIN SANFORD HEALTH",     "SANFORD HEALTH NETWORK",                  "CHAMBERLAIN", "DBA_OF_LEGAL_ENTITY",
   "27RHT00063",     "WEBSTER SANFORD HEALTH",         "SANFORD HEALTH NETWORK",                  "WEBSTER",     "DBA_OF_LEGAL_ENTITY",
-  "27RHT00055",     "AVERA MCKENNAN CANCER INST",     "AVERA MCKENNAN",                          "SIOUX FALLS", "DBA_OF_LEGAL_ENTITY"
+  "27RHT00055",     "AVERA MCKENNAN CANCER INST",     "AVERA MCKENNAN",                          "SIOUX FALLS", "DBA_OF_LEGAL_ENTITY",
+  # SESSION 121, hand-read the same way against the same archived file:
+  #   * Winner (x2): 00062's truncation, two more contracts.
+  #   * Vermillion: Chamberlain's / Webster's shape (town + system name).
+  #   * Marshall County Memorial Hosp: the register abbreviates the enrolled
+  #     legal name MARSHALL COUNTY MEMORIAL HOSPITAL (Britton, a CAH).
+  #   Avera McKennan Hospital (x2) and Bennett County Hospital are NOT
+  #   bridged: the name rule already types them hospitals (MEDIUM), Huron's
+  #   precedent (session 112); Stage 5's CCN match attaches 430016 / 431314.
+  "27RHT00093",     "WINNER REGIONAL HEALTHCARE CTR", "WINNER REGIONAL HEALTHCARE CENTER",       "WINNER",      "LEGAL_NAME_TRUNCATED",
+  "27RHT00104",     "WINNER REGIONAL HEALTHCARE CTR", "WINNER REGIONAL HEALTHCARE CENTER",       "WINNER",      "LEGAL_NAME_TRUNCATED",
+  "27RHT00082",     "VERMILLION SANFORD HEALTH",      "SANFORD HEALTH NETWORK",                  "VERMILLION",  "DBA_OF_LEGAL_ENTITY",
+  "27RHT00072",     "MARSHALL COUNTY MEMORIAL HOSP",  "MARSHALL COUNTY MEMORIAL HOSPITAL",       "BRITTON",     "LEGAL_NAME_TRUNCATED",
+  # Monument Health's second contract: 27RHT00048's string and bridge (released on the owner's ruling).
+  "27RHT00112",     "MONUMENT HEALTH RAPID CITY HOS", "MONUMENT HEALTH RAPID CITY HOSPITAL INC", "RAPID CITY",  "LEGAL_NAME_TRUNCATED"
 )
 # What each session-112 bridge read, in place of session 99's truncation sentence.
 SD_BRIDGE_READING <- c(
   "27RHT00062" = "the register truncates vendor names at 30 characters",
   "27RHT00057" = "the register prints the town and the system name, not the enrolled DBA; the only enrolled hospital in Chamberlain is Sanford's",
   "27RHT00063" = "the register prints the town and the system name, not the enrolled DBA; the only enrolled hospital in Webster is Sanford's",
-  "27RHT00055" = "the register prints the enrolled legal name AVERA MCKENNAN plus a unit name (a sub-unit named WITH its legal entity); the only non-swing-bed enrolment of AVERA MCKENNAN in Sioux Falls")
+  "27RHT00055" = "the register prints the enrolled legal name AVERA MCKENNAN plus a unit name (a sub-unit named WITH its legal entity); the only non-swing-bed enrolment of AVERA MCKENNAN in Sioux Falls",
+  "27RHT00093" = "the register truncates vendor names at 30 characters (session 121; 00062's string)",
+  "27RHT00104" = "the register truncates vendor names at 30 characters (session 121; 00062's string)",
+  "27RHT00082" = "the register prints the town and the system name, not the enrolled DBA; the only enrolled hospital in Vermillion is Sanford's (session 121)",
+  "27RHT00072" = "the register abbreviates HOSPITAL to HOSP; the only enrolled hospital in Britton (session 121)")
 SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
 
 # Health-system PARENTS, typed by hand on the owner's resolution of
@@ -276,7 +404,9 @@ SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
 SD_SYSTEM_PARENTS <- tibble::tribble(
   ~contract_number, ~awardee,         ~why,
   "27RHT00031",     "SANFORD HEALTH", "Sanford Health (Sioux Falls), the parent system of Sanford's South Dakota hospitals, which enrol with CMS under their own legal entities (e.g. SANFORD MEDICAL CENTER, SANFORD HEALTH NETWORK); 'SANFORD HEALTH' is not itself on CMS's SD Hospital Enrollments.",
-  "27RHT00034",     "AVERA HEALTH",   "Avera Health (Sioux Falls), the parent system of Avera's South Dakota hospitals, which enrol with CMS under their own legal entities (e.g. AVERA MCKENNAN, AVERA ST LUKES); 'AVERA HEALTH' is not itself on CMS's SD Hospital Enrollments."
+  "27RHT00034",     "AVERA HEALTH",   "Avera Health (Sioux Falls), the parent system of Avera's South Dakota hospitals, which enrol with CMS under their own legal entities (e.g. AVERA MCKENNAN, AVERA ST LUKES); 'AVERA HEALTH' is not itself on CMS's SD Hospital Enrollments.",
+  # SESSION 121: a second Avera Health contract (chronic disease management), the same string and parent.
+  "27RHT00084",     "AVERA HEALTH",   "Avera Health (Sioux Falls), the parent system of Avera's South Dakota hospitals, which enrol with CMS under their own legal entities (e.g. AVERA MCKENNAN, AVERA ST LUKES); 'AVERA HEALTH' is not itself on CMS's SD Hospital Enrollments. Session 121: the same parent as 27RHT00034 (owner ruling, session 87)."
 )
 
 # The Technology and data round, the only announced round an UNPLACED row could
@@ -716,13 +846,23 @@ rhtp_sd_search_rows <- function(dir = here::here(SD_EVIDENCE_DIR)) {
       dplyr::filter(!(paste(.data$contract_number, .data$amount_prior, .data$amount_latest) %in%
                         paste(SD_AMENDMENTS$contract_number, SD_AMENDMENTS$amount_prior,
                               SD_AMENDMENTS$amount_latest) &
-                        .data$awardee_prior == .data$awardee_latest))
+                        .data$awardee_prior == .data$awardee_latest)) %>%
+      dplyr::filter(!(paste(.data$contract_number, .data$awardee_prior, .data$awardee_latest) %in%
+                        paste(SD_VENDOR_RENAMES$contract_number, SD_VENDOR_RENAMES$awardee_prior,
+                              SD_VENDOR_RENAMES$awardee_latest) &
+                        .data$amount_prior == .data$amount_latest))
     if (nrow(moved)) {
       stop("[SD] contract(s) changed amount or vendor between archives: ",
            paste(moved$contract_number, collapse = ", "),
            ". Read the register before rebuilding.", call. = FALSE)
     }
   }
+
+  # SESSION 121: a re-spelt vendor keeps the string the file has carried (the
+  # row's identity, and the curated override keyed on it); the register's new
+  # spelling is recorded in SD_VENDOR_RENAMES.
+  rn <- match(latest$contract_number, SD_VENDOR_RENAMES$contract_number)
+  latest$awardee[!is.na(rn)] <- SD_VENDOR_RENAMES$awardee_prior[rn[!is.na(rn)]]
 
   first_seen <- dplyr::bind_rows(archives) %>%
     dplyr::mutate(archive_order = match(.data$first_seen_archive,
@@ -929,20 +1069,30 @@ rhtp_sd_build <- function() {
   placed <- SD_PLACEMENT$pool[match(classified$contract_number,
                                     SD_PLACEMENT$contract_number)]
   is_unplaced <- !classified$is_rural_strong & placed %in% "UNPLACED"
+  is_ccbhc <- !classified$is_rural_strong & placed %in% "CCBHC"
+  is_held <- !classified$is_rural_strong & placed %in% "HELD"
   placement_why <- SD_PLACEMENT$why[match(classified$contract_number,
                                           SD_PLACEMENT$contract_number)]
 
   classified %>%
     dplyr::mutate(
       is_unplaced = is_unplaced,
-      placement_why = placement_why,
+      is_ccbhc = is_ccbhc,
+      is_held = is_held,
+      placement_why = placement_why
+    ) %>%
+    # SESSION 121: a HELD contract leaves the award file entirely (rhtp_sd_held()).
+    dplyr::filter(!.data$is_held) %>%
+    dplyr::mutate(
       state = SD_STATE,
       row_no = dplyr::row_number(),
       award_pool = dplyr::case_when(.data$is_rural_strong ~ SD_POOL_RS,
                                     .data$is_unplaced ~ SD_POOL_UNPLACED,
+                                    .data$is_ccbhc ~ SD_POOL_CCBHC,
                                     TRUE ~ SD_POOL_ADMIN),
       round_id = dplyr::case_when(.data$is_rural_strong ~ "RS",
                                   .data$is_unplaced ~ "UNPLACED",
+                                  .data$is_ccbhc ~ "CCBHC",
                                   TRUE ~ NA_character_),
       note = paste0(.data$agency, " | ", .data$solicitation_type,
                     " | ", .data$vendor_city, ", ", .data$vendor_state),
@@ -982,6 +1132,14 @@ rhtp_sd_build <- function() {
             " neither case is it ever added to a round total. Tier 3, named",
             " recipient, primary source."
           ),
+          .data$is_ccbhc ~ paste0(
+            " This is a CCBHC CORE SERVICE AREAS GRANT (placed by hand,",
+            " session 121: ", .data$placement_why, ") -- one of the 12",
+            " grants of the CCBHC round South Dakota announced on 2026-09-24",
+            " ('more than $13 million'; R/03bw names its 13-member cohort at",
+            " $0). It is INSIDE that round total and NEVER in addition to it.",
+            " Tier 3, named recipient, primary source."
+          ),
           .data$is_rural_strong ~ paste0(
             " This is a RURAL STRONG GRANT -- the register's own description is '",
             SD_RURAL_STRONG_PATTERN, " as a part of the federal Rural Health",
@@ -1000,6 +1158,14 @@ rhtp_sd_build <- function() {
         )
       )
     ) %>%
+    dplyr::mutate(determination_basis = dplyr::if_else(
+      .data$first_seen_archive == SD_Y1_COMPLETION_FIRST_SEEN &
+        .data$begin_date == SD_Y1_COMPLETION_BEGIN,
+      paste0(.data$determination_basis,
+             " YEAR 1 BASIS (session 121, owner ruling): South Dakota's completion statement, ",
+             SD_Y1_COMPLETION_QUOTE, ", dates this agreement on or before 2026-10-30. The register's ",
+             "2026-02-20 Begin Date is NOT the basis (it reads as a backdated period of performance)."),
+      .data$determination_basis)) %>%
     dplyr::select(
       # -- the FL_year1_awardees schema, in FL's order --------------------
       "state", "row_no", "awardee", "amount", "recipient_type",
@@ -1023,6 +1189,22 @@ rhtp_sd_build <- function() {
     )
 }
 
+
+#' SESSION 121: the contracts held out of the award file, with why. A NON-AWARD
+#' file: never in STATE_FILES, never summed with anything.
+rhtp_sd_held <- function(dir = here::here(SD_EVIDENCE_DIR)) {
+  held <- SD_PLACEMENT %>% dplyr::filter(.data$pool == "HELD")
+  rhtp_sd_search_rows(dir) %>%
+    dplyr::filter(.data$contract_number %in% held$contract_number) %>%
+    dplyr::transmute(state = SD_STATE, contract_number = .data$contract_number,
+                     awardee = .data$awardee, begin_date = .data$begin_date,
+                     register_amount = .data$amount,
+                     status = "HELD_BEGIN_DATE_NOT_CONFIRMED",
+                     why = held$why[match(.data$contract_number, held$contract_number)],
+                     detail_page = file.path(SD_EVIDENCE_DIR, SD_DETAIL_SUBDIR,
+                                             paste0(.data$contract_number, ".html")),
+                     never_in_any_total = TRUE)
+}
 
 rhtp_sd_records <- function(path = SD_CSV) {
   full <- here::here(path)
@@ -1112,7 +1294,21 @@ rhtp_sd_assert <- function(records = rhtp_sd_build()) {
 
   rs <- records$round_id %in% "RS"
   unplaced <- records$round_id %in% "UNPLACED"
-  admin <- !rs & !unplaced
+  ccbhc <- records$round_id %in% "CCBHC"
+  admin <- !rs & !unplaced & !ccbhc
+
+  # SESSION 121: the CCBHC pool sits inside R/03bw's 12-grant round, and a HELD
+  # contract is never in this file.
+  if (any(records$award_pool[ccbhc] != SD_POOL_CCBHC) || sum(ccbhc) > SD_CCBHC_ROUND_GRANTS) {
+    stop("[SD] the CCBHC pool is mislabelled or exceeds the 12-grant round.", call. = FALSE)
+  }
+  if (!all(stringr::str_detect(records$determination_basis[ccbhc], "INSIDE that round total and NEVER"))) {
+    stop("[SD] every CCBHC row must state that it is inside the CCBHC round.", call. = FALSE)
+  }
+  held_ids <- SD_PLACEMENT$contract_number[SD_PLACEMENT$pool == "HELD"]
+  if (any(records$contract_number %in% held_ids)) {
+    stop("[SD] a HELD contract is in the award file.", call. = FALSE)
+  }
 
   # A RURAL STRONG ROW IS DEFINED BY THE REGISTER'S OWN WORDS, AND TWO
   # INDEPENDENT READS OF THE REGISTER MUST AGREE ON WHICH ROWS THOSE ARE: the
@@ -1246,6 +1442,9 @@ rhtp_sd_write <- function() {
   rhtp_sd_assert(records)
 
   readr::write_csv(records, here::here(SD_CSV), na = "")
+  held <- rhtp_sd_held()
+  if (nrow(held)) readr::write_csv(held, here::here(SD_HELD_CSV), na = "") else
+    if (file.exists(here::here(SD_HELD_CSV))) file.remove(here::here(SD_HELD_CSV))
 
   wb <- openxlsx::createWorkbook()
   add <- function(sheet, data) {

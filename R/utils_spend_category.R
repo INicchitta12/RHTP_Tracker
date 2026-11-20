@@ -157,6 +157,12 @@ rhtp_spend_entity_match <- function(names, ent = rhtp_spend_entities()) {
 RHTP_V9_RX <- "Kinney Drugs|KPH Healthcare|Spirit Medical Transport|Fond of You|Thomas Jefferson University"
 # FSRS addresses session 116b doubted (VF_FSRS_REVIEWED_EXCLUSIONS): never out of state.
 RHTP_ADDRESS_DOUBTED <- "VERMONT ALLIANCE FOR RECOVERY RESIDENCES"
+# SESSION 121, OWNER RULING (Task 3): V9 IN-STATE, STILL CLASSED BY ROLE. An
+# out-of-state organisation that operates the funded work from an in-state
+# campus is NOT out of state (the Thomas Jefferson precedent), but unlike
+# RHTP_V9_RX it is not sent to OTHER: its category comes from its own case
+# (Northeastern University's Roux Institute, Portland ME: ADMINISTRATOR, VV071).
+RHTP_V9_INSTATE_ROLE_RX <- "^NORTHEASTERN UNIVERSITY$"
 
 #' The FSRS subawards, one row per record, for the V6 link
 rhtp_spend_fsrs <- function() {
@@ -192,6 +198,12 @@ rhtp_spend_out_of_state <- function(state, awardee, fsrs_uei, fsrs_subaward_numb
 #' Where none matches at the amount, the one row of that state and name whose
 #' amount exceeds the case's carries it (an award file that sums several FSRS
 #' subawards to one recipient: Trillium, VHCF, VHHA Foundation).
+# SESSION 121: a verified case whose award row now carries the state's own
+# spelling of the recipient. VV054's FSRS name is UNITE USA INC.; West
+# Virginia's Year 1 roster (row 64, $1,270,000, paired to that FSRS filing)
+# prints "Unite Us". Hand-read, amount-checked; never a fuzzy match.
+RHTP_CASE_ROW_ALIASES <- c(VV054 = "Unite Us")
+
 rhtp_spend_assign_cases <- function(rows, cases) {
   key <- rhtp_spend_norm(rows$awardee)
   taken <- rep(FALSE, nrow(rows))
@@ -201,6 +213,9 @@ rhtp_spend_assign_cases <- function(rows, cases) {
     L <- min(12L, nchar(ck))
     want_kind <- if (c$amount_type == "contract maximum") "contract" else "award"
     same <- which(rows$state == c$state & substr(key, 1, L) == substr(ck, 1, L))
+    if (!length(same) && c$case_id %in% names(RHTP_CASE_ROW_ALIASES)) {
+      same <- which(rows$state == c$state & key == rhtp_spend_norm(RHTP_CASE_ROW_ALIASES[[c$case_id]]))
+    }
     at <- same[(!is.na(rows$amount[same]) & abs(rows$amount[same] - c$amount) < 0.01) |
                  (!is.na(rows$fsrs_amount[same]) & abs(rows$fsrs_amount[same] - c$amount) < 0.01)]
     if (length(at) > 1) {
@@ -346,7 +361,8 @@ rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spe
     any(cases$case_out_of_state[cases$case_id %in% strsplit(x, ";", fixed = TRUE)[[1]]])
   }, logical(1))
   oos <- ifelse(is.na(case_oos), oos, case_oos | oos)
-  oos[v9 | grepl(RHTP_ADDRESS_DOUBTED, rows$awardee, ignore.case = TRUE)] <- FALSE
+  oos[v9 | grepl(RHTP_ADDRESS_DOUBTED, rows$awardee, ignore.case = TRUE) |
+        grepl(RHTP_V9_INSTATE_ROLE_RX, rows$awardee, ignore.case = TRUE)] <- FALSE
   oos_out <- ifelse(cat_ == "HOSPITAL", NA, oos)
 
   verified <- cat_ %in% RHTP_VENDOR_CATEGORIES & ver_usd > 0

@@ -96,6 +96,7 @@ Y1_AWARD_FILES <- c(
   MO = "mo_smart_growth_awardees.csv",
   NH = "nh_year1_awardees.csv",  IA = "ia_year1_awardees.csv",
   IA = "ia_combat_cancer_r2_awardees.csv",
+  WI = "wi_year1_awardees.csv",
   ME = "me_year1_awardees.csv",  NC = "nc_year1_awardees.csv",
   NC = "nc_year1_sbhc_awardees.csv",
   AR = "ar_year1_awardees.csv",  AR = "ar_year1_round2_awardees.csv",
@@ -200,7 +201,7 @@ y1_file_figures <- function(st, f) {
   # out of the pool-inclusive figure, never out of published_priced.
   inside <- 0
   if (st == "SD" && "round_id" %in% names(d)) {
-    inside <- sum(amt[d$round_id %in% c("RS", "UNPLACED")], na.rm = TRUE)
+    inside <- sum(amt[d$round_id %in% c("RS", "UNPLACED", "CCBHC")], na.rm = TRUE)  # CCBHC: session 121, inside R/03bw's round
   }
   vst <- if ("validation_source_type" %in% names(d))
     d$validation_source_type else rep(NA_character_, nrow(d))
@@ -380,6 +381,11 @@ Y1_STATUS <- tibble::tribble(
   "2026-10-27",
   "MDH grants page (Last Updated 10/27/2026): 'The Minnesota Department of Health has awarded $12.5 million in Rural Health Transformation Program funding to the following sole-source and competitive grant program recipients. Grants made to rural Critical Access Hospitals, Federally Qualified Health Centers, Tribal Nations, Certified Community Behavioral Health Centers and Community Mental Health Centers through direct allocation grant will be announced in the coming days.' The direct-allocation grants are the remainder (session 112).",
   "data/evidence/MN/2026-11-02_mdh_rhtp_grants.html",
+
+  "WI", "PARTIAL", "No", "Yes",
+  "2026-11-18",
+  "DHS's award tables (pages revised 11-18): 138 rows, $149,331,289.71, 'the obligated awards and are subject to Centers for Medicare & Medicaid Services (CMS) review' (extracted as intents, session 121). Coordinating Care Across Wisconsin: 'DHS will announce awards for a 6-month planning period' (up to $10 million) -- not yet announced. DHS-led lines (Epic digital collaborative $29,000,000, the mental-health website $9,398,000, PPS $3,708,794.62) have no recipient table. The index timeline's 'Early Fall: ... All funds obligated' is a plan line, not a statement that it happened.",
+  "data/evidence/WI/2026-11-19_dhs_rhtp_coordinated-care.html; data/evidence/WI/2026-11-19_dhs_rhtp_implementation.html",
 
   "NY", "PARTIAL", "No", "Yes",
   "2026-09-04",

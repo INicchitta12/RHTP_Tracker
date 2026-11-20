@@ -52,7 +52,9 @@ TABLE_LABEL_TO_KEY <- c(
   # Session 114: OK's CHW Expansion members and MO's Smart Growth contingent roster.
   "OK CHW" = "OK_CHW", "MO SG" = "MO_SG",
   # Session 116.
-  "IA CC R2" = "IA_CC_R2"
+  "IA CC R2" = "IA_CC_R2",
+  # Session 121: Indiana Meds-to-Beds.
+  "IN MTB" = "IN_MTB"
 )
 
 # The hospital cell's bucket prefixes. An unprefixed "N / $X" is NAMED_HOSPITAL,

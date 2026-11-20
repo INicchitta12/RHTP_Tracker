@@ -1011,6 +1011,109 @@ rhtp_footer_cms_share <- function(text, which = 1L) {
   row$tier_amount
 }
 
+# -- §0.2 SESSION 121, OWNER RULING: A FOOTER IS A CHECK, NEVER A SOURCE -------
+#
+# Compare the footer's PRINTED dollar figures against the state's FY2026
+# allotment, its FY2027 award, and their sum. The verdict is taken on the CMS
+# share (the CMS dollar figure where the footer prints one; the headline where
+# the footer is 100% federal):
+#   ALLOTMENT              the CMS share is the FY2026 allotment (BP1)
+#   FY2027_AWARD           the CMS share is the FY2027 award alone (BP2)
+#   ALLOTMENT_PLUS_FY2027  the CMS share is FY2026 + FY2027 (cumulative, Tier 1)
+#   REFUSED                none of the three. RE-READ THE DOCUMENT. Never
+#                          widen RHTP_FOOTER_ALLOTMENT_MARGIN.
+# A partial CMS percentage with no printed CMS dollar figure is REFUSED: a
+# federal amount is NEVER derived by multiplying a printed percentage by a
+# headline (Mississippi's 99.96%). A refusal a human has re-read is recorded in
+# config/footer_refusals_read.csv and reads REFUSED_READ: still never a
+# source, still never a check, no longer a trip. The $100M "initial award"
+# footers of sessions 115-116 (CA, LA, MN) predate CMS's FY2027 table and
+# match none of the three; they are recorded there as read.
+#
+# MISSISSIPPI, 2026-11-17: "$410,584,410.13, with 99.96% funded by CMS/HHS
+# ($410,420,176.37)". The HEADLINE is FY2026 + FY2027 to $0.13; the printed CMS
+# share is $164,233.76 below it and matches none of the three. REFUSED.
+RHTP_FOOTER_REFUSALS_READ <- "config/footer_refusals_read.csv"
+
+#' Which of the three anchors a printed figure is, or NA
+rhtp_footer_anchor <- function(amount, state, margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                               allotments = NULL) {
+  if (is.na(amount)) return(NA_character_)
+  if (is.null(allotments)) allotments <- rhtp_footer_allotments()
+  a26 <- allotments$fy2026_allotment[allotments$state == state]
+  if (length(a26) != 1L) return(NA_character_)
+  a27 <- rhtp_fy2027_amount(state)
+  if (abs(amount - a26) <= margin) return("ALLOTMENT")
+  if (!is.na(a27) && abs(amount - a27) <= margin) return("FY2027_AWARD")
+  if (!is.na(a27) && abs(amount - (a26 + a27)) <= margin) return("ALLOTMENT_PLUS_FY2027")
+  NA_character_
+}
+
+rhtp_footer_refusals_read <- function(path = here::here(RHTP_FOOTER_REFUSALS_READ)) {
+  if (!file.exists(path)) {
+    return(tibble::tibble(state = character(), printed_cms_share = numeric(), reading = character()))
+  }
+  x <- readr::read_csv(path, col_types = readr::cols(.default = "c"), progress = FALSE)
+  if (any(is.na(x$reading) | is.na(x$reviewer))) {
+    stop("[§0.2] every read footer refusal needs a reading and a reviewer.", call. = FALSE)
+  }
+  x %>% dplyr::mutate(printed_cms_share = as.numeric(.data$printed_cms_share))
+}
+
+#' Check every CMS footer in a text against the three anchors (session 121)
+#'
+#' @return One row per footer: the printed figures, the anchor each printed
+#'   figure matches, `cms_share` (printed CMS dollars, or the headline when
+#'   100% federal, else NA -- never computed), and `verdict`.
+rhtp_footer_check <- function(text, state, margin = RHTP_FOOTER_ALLOTMENT_MARGIN,
+                              allotments = NULL, refusals = rhtp_footer_refusals_read()) {
+  f <- rhtp_footer_parse(text)
+  if (!nrow(f)) return(f)
+  anc <- function(x) vapply(x, rhtp_footer_anchor, character(1), state = state,
+                            margin = margin, allotments = allotments)
+  read <- refusals[refusals$state == state, , drop = FALSE]
+  f %>%
+    dplyr::mutate(
+      cms_share = .data$tier_amount,
+      headline_anchor = anc(.data$headline_amount),
+      cms_amount_anchor = anc(.data$cms_amount),
+      cms_share_anchor = anc(.data$cms_share),
+      refused_read = vapply(.data$cms_share, function(v) {
+        if (is.na(v)) return(FALSE)
+        any(abs(read$printed_cms_share - v) < 0.005)
+      }, logical(1)) |
+        vapply(seq_along(.data$cms_share), function(i) {
+          is.na(.data$cms_share[i]) &&
+            any(abs(read$printed_cms_share - .data$headline_amount[i]) < 0.005 &
+                  grepl("NO_PRINTED_CMS_FIGURE", read$reading))
+        }, logical(1)),
+      verdict = dplyr::case_when(
+        !is.na(.data$cms_share_anchor) ~ .data$cms_share_anchor,
+        .data$refused_read ~ "REFUSED_READ",
+        TRUE ~ "REFUSED"),
+      refusal_reason = dplyr::case_when(
+        !is.na(.data$cms_share_anchor) ~ NA_character_,
+        is.na(.data$cms_share) ~ "NO_PRINTED_CMS_FIGURE (a partial CMS share with no dollar figure; never computed)",
+        TRUE ~ "MATCHES_NONE (the CMS share is not the FY2026 allotment, the FY2027 award or their sum)"))
+}
+
+#' Stop on a footer the rule refuses and nobody has re-read
+rhtp_assert_footer_check <- function(text, state, label = "a footer",
+                                     margin = RHTP_FOOTER_ALLOTMENT_MARGIN, allotments = NULL) {
+  f <- rhtp_footer_check(text, state, margin = margin, allotments = allotments)
+  bad <- f[f$verdict == "REFUSED", , drop = FALSE]
+  if (nrow(bad)) {
+    stop("[§0.2] ", label, " (", state, "): footer REFUSED -- ", bad$refusal_reason[1],
+         ". Printed headline $", formatC(bad$headline_amount[1], format = "f", digits = 2, big.mark = ","),
+         ", printed CMS share ", ifelse(is.na(bad$cms_share[1]), "none",
+                                        paste0("$", formatC(bad$cms_share[1], format = "f", digits = 2, big.mark = ","))),
+         ". A footer is a check, never a source: re-read the document and record the reading in ",
+         RHTP_FOOTER_REFUSALS_READ, ". Never widen the margin; never multiply a percentage.",
+         call. = FALSE)
+  }
+  invisible(f)
+}
+
 #' Tier-check a footer read straight out of a document, on its CMS share
 #'
 #' The wrapper the state files should use. `rhtp_assert_footer_not_allotment()`

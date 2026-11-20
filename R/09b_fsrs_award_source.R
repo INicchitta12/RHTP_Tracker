@@ -135,15 +135,85 @@ fsrs_raw <- function(as_of = FSRS_AS_OF) {
     )
 }
 
+# SESSION 121, OWNER RULING: WHICH DATE DECIDES YEAR 1. A row is Year 1
+# (budget_period 1) if a STATE SOURCE shows the award or contract was executed
+# or started on or before 2026-10-30, even when its FSRS filing is dated later.
+# The FSRS action date decides only where no state source gives a date. The
+# state dates live in config/year1_state_source_dates.csv, one row per
+# subaward, each with the archived source and the quoted sentence or field.
+# A selection, an intent or a plan is NOT an execution or a start (NM's
+# "selected six Regional Hub Organizations"), and a contract begin date shown
+# to be a backdated period of performance is not a start (SD Monument Health,
+# held). An entry dated after 2026-10-30 is refused: it cannot move anything.
+FSRS_STATE_DATES <- "config/year1_state_source_dates.csv"
+FSRS_STATE_DATE_KINDS <- c("AWARD_ANNOUNCED", "CONTRACT_BEGIN", "OBLIGATED_BY_DEADLINE")
+
+fsrs_state_dates <- function(path = FSRS_STATE_DATES) {
+  if (!file.exists(here::here(path))) {
+    return(tibble::tibble(state = character(0), subaward_number = character(0), uei = character(0),
+                          state_source_date = character(0), date_kind = character(0),
+                          source_archive = character(0), source_quote = character(0)))
+  }
+  x <- readr::read_csv(here::here(path), col_types = readr::cols(.default = "c"),
+                       na = c("", "NA"), progress = FALSE)
+  need <- c("state", "subaward_number", "uei", "fsrs_name", "state_source_date", "date_kind",
+            "source_archive", "source_quote", "reviewer")
+  if (length(setdiff(need, names(x)))) stop("[fsrs] ", path, " lacks: ",
+                                            paste(setdiff(need, names(x)), collapse = ", "), call. = FALSE)
+  if (any(is.na(x$state_source_date) | !grepl("^\\d{4}-\\d{2}-\\d{2}$", x$state_source_date))) {
+    stop("[fsrs] every state source date must be YYYY-MM-DD.", call. = FALSE)
+  }
+  late <- x %>% dplyr::filter(state_source_date > FSRS_BP1_END)
+  if (nrow(late)) stop("[fsrs] state source dates after 2026-10-30 cannot make a row Year 1: ",
+                       paste(late$state, late$subaward_number, collapse = "; "), call. = FALSE)
+  bad <- setdiff(x$date_kind, FSRS_STATE_DATE_KINDS)
+  if (length(bad)) stop("[fsrs] date_kind must be one of ", paste(FSRS_STATE_DATE_KINDS, collapse = ", "),
+                        ": ", paste(bad, collapse = ", "), call. = FALSE)
+  if (any(is.na(x$source_archive) | is.na(x$source_quote) | is.na(x$reviewer))) {
+    stop("[fsrs] every state source date needs source_archive, source_quote and reviewer.", call. = FALSE)
+  }
+  miss <- x$source_archive[!file.exists(here::here(x$source_archive))]
+  if (length(miss)) stop("[fsrs] state source archives not on disk: ", paste(unique(miss), collapse = ", "),
+                         call. = FALSE)
+  if (anyDuplicated(x[c("state", "subaward_number", "uei")])) {
+    stop("[fsrs] a subaward has two state source dates.", call. = FALSE)
+  }
+  x
+}
+
+#' The text a priced or new row carries when a state source date (not the FSRS
+#' action date) makes it Year 1. Empty for every other row.
+fsrs_year1_basis_text <- function(ids, records) {
+  vapply(ids, function(s) {
+    k <- strsplit(dplyr::coalesce(s, ""), ";", fixed = TRUE)[[1]]
+    r <- records[records$fsrs_id %in% k & records$year1_date_basis != "FSRS_ACTION_DATE", , drop = FALSE]
+    if (!nrow(r)) return("")
+    paste0(" YEAR 1 ON A STATE SOURCE DATE (session 121 owner ruling): FSRS action date ",
+           paste(unique(r$action_date), collapse = "/"), " is after 2026-10-30, and ",
+           paste(unique(r$year1_date_basis), collapse = "; "),
+           " (config/year1_state_source_dates.csv) dates the award or contract inside Budget Period 1.")
+  }, character(1), USE.NAMES = FALSE)
+}
+
 #' The amendment rule: every record with its disposition
-fsrs_dispose <- function(raw = fsrs_raw()) {
+fsrs_dispose <- function(raw = fsrs_raw(), state_dates = fsrs_state_dates()) {
+  sd <- state_dates %>% dplyr::select(st = state, subaward_number, uei, state_source_date, date_kind)
   r <- raw %>%
     dplyr::group_by(st, subaward_number, uei, action_date, amount, description) %>%
     dplyr::arrange(dplyr::desc(last_modified), dplyr::desc(fsrs_id), .by_group = TRUE) %>%
     dplyr::mutate(refiling_rank = dplyr::row_number(),
                   kept_id = dplyr::first(fsrs_id)) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(record_status = dplyr::case_when(
+    dplyr::left_join(sd, by = c("st", "subaward_number", "uei")) %>%
+    dplyr::mutate(
+      # the state date is used only where the FSRS date alone would hold the
+      # record (a second action under the same key dated inside BP1 keeps its
+      # own date: TN Lawrenceburg 341324, 08-01 and 10-31)
+      state_dated = !is.na(state_source_date) & action_date > FSRS_BP1_END,
+      year1_date_basis = dplyr::if_else(state_dated,
+        paste0("STATE_SOURCE_", date_kind, " ", state_source_date), "FSRS_ACTION_DATE"),
+      year1_date = dplyr::if_else(state_dated, state_source_date, action_date),
+      record_status = dplyr::case_when(
       refiling_rank > 1 ~ "REFILING_SUPERSEDED",
       action_date < FSRS_NOA ~ "PREDATES_NOA",
       # SESSION 118 (independent check): an action dated after the end of
@@ -151,8 +221,13 @@ fsrs_dispose <- function(raw = fsrs_raw()) {
       # ruling, session 116): held, never written into a Year 1 file. 44 such
       # filings (TN's 10-31 HART round, NM's 11-03 hubs, IL 11-02) had been
       # written with budget_period 1 stamped by file.
-      action_date > FSRS_BP1_END ~ "BUDGET_PERIOD_2_HELD",
+      # SESSION 121: unless a state source dates the award or contract on or
+      # before 2026-10-30 (year1_date is then the state's date).
+      year1_date > FSRS_BP1_END ~ "BUDGET_PERIOD_2_HELD",
       TRUE ~ "CURRENT"))
+  un <- sd %>% dplyr::anti_join(r, by = c("st", "subaward_number", "uei"))
+  if (nrow(un)) stop("[fsrs] state source dates naming no FSRS record: ",
+                     paste(un$st, un$subaward_number, collapse = "; "), call. = FALSE)
   # distinct actions under one key (per-action amounts)
   k <- r %>% dplyr::filter(record_status != "REFILING_SUPERSEDED") %>%
     dplyr::group_by(st, subaward_number, uei) %>%
@@ -164,8 +239,8 @@ fsrs_dispose <- function(raw = fsrs_raw()) {
   r %>% dplyr::left_join(k, by = "fsrs_id") %>%
     dplyr::mutate(actions_under_key = dplyr::coalesce(actions_under_key, 0L),
                   same_desc_diff_amount = dplyr::coalesce(same_desc_diff_amount, FALSE),
-                  budget_period = dplyr::if_else(action_date > FSRS_BP1_END, 2L, 1L)) %>%
-    dplyr::select(-refiling_rank) %>%
+                  budget_period = dplyr::if_else(year1_date > FSRS_BP1_END, 2L, 1L)) %>%
+    dplyr::select(-refiling_rank, -state_source_date, -date_kind, -state_dated) %>%
     dplyr::arrange(st, subaward_number, uei, action_date)
 }
 
@@ -1145,6 +1220,10 @@ fsrs_apply <- function(p = fsrs_plan(), files = fsrs_state_files()) {
                    d$fsrs_subaward_ids[pr], "; executed subaward, amount as filed. The recipient and the award ",
                    "come from the original source (", d$original_validation_source_type[pr], "), kept in ",
                    "original_validation_source_type and original_amount_basis.")
+      # SESSION 121: a subaward whose FSRS action date is after 2026-10-30 is
+      # Year 1 only on a state source date; say which, on the row.
+      yb <- fsrs_year1_basis_text(d$fsrs_subaward_ids[pr], p$records)
+      ab <- paste0(ab, yb)
       # a file with no amount_basis column gets none (the strip could not tell it was added)
       if ("amount_basis" %in% names(d)) d$amount_basis[pr] <- ab
     }
@@ -1179,7 +1258,8 @@ fsrs_new_rows <- function(p) {
                     " (subaward ", subaward_number, ", action date ", action_date, "). Recipient in no award file ",
                     "of this state (session 116c, case c)", ifelse(status == "EXTRA_ROW",
                     paste0(" in this programme; the recipient is on ", row_ids, " for another programme (session 116d, ruling d)"), ""),
-                    ". Description as filed: '", stringr::str_trunc(description, 400), "'."),
+                    ". Description as filed: '", stringr::str_trunc(description, 400), "'.",
+                    fsrs_year1_basis_text(fsrs_id, p$records)),
       recipient_confirmed = "Yes", amount_confirmed = "Yes", fiscal_year = "FY2026 (Year 1)",
       source_document_title = paste0(prime_awardee_name, ", FFATA first-tier subaward report (SAM.gov/FSRS) under ",
                                      prime_award_fain, ", as republished by USAspending (ALN 93.798), subaward report ", fsrs_id),
@@ -1225,10 +1305,10 @@ fsrs_strip_all <- function(files = fsrs_state_files()) {
 fsrs_validate <- function() {
   rec <- fsrs_dispose()
   stopifnot(nrow(rec) == USA_EXPECT$sub_rows,
-            sum(rec$record_status == "REFILING_SUPERSEDED") == 9L,
+            sum(rec$record_status == "REFILING_SUPERSEDED") == 10L,   # 11-19 archive (session 121)
             sum(rec$record_status == "PREDATES_NOA") == 8L)
   tot <- fsrs_state_totals(rec)   # refuses a state over its allotment
-  stopifnot(sum(tot$files_ffata) == USA_EXPECT$sub_states, sum(!tot$files_ffata) == 19L)
+  stopifnot(sum(tot$files_ffata) == USA_EXPECT$sub_states, sum(!tot$files_ffata) == 50L - USA_EXPECT$sub_states)
   message("[fsrs] amendment rule, date test and allotment check pass: ",
           sum(rec$record_status == "CURRENT"), " current subawards, $",
           format(round(sum(rec$amount[rec$record_status == "CURRENT"]), 2), big.mark = ",", nsmall = 2))
