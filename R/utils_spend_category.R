@@ -157,6 +157,12 @@ rhtp_spend_entity_match <- function(names, ent = rhtp_spend_entities()) {
 RHTP_V9_RX <- "Kinney Drugs|KPH Healthcare|Spirit Medical Transport|Fond of You|Thomas Jefferson University"
 # FSRS addresses session 116b doubted (VF_FSRS_REVIEWED_EXCLUSIONS): never out of state.
 RHTP_ADDRESS_DOUBTED <- "VERMONT ALLIANCE FOR RECOVERY RESIDENCES"
+# SESSION 121, OWNER RULING (Task 3): V9 IN-STATE, STILL CLASSED BY ROLE. An
+# out-of-state organisation that operates the funded work from an in-state
+# campus is NOT out of state (the Thomas Jefferson precedent), but unlike
+# RHTP_V9_RX it is not sent to OTHER: its category comes from its own case
+# (Northeastern University's Roux Institute, Portland ME: ADMINISTRATOR, VV071).
+RHTP_V9_INSTATE_ROLE_RX <- "^NORTHEASTERN UNIVERSITY$"
 
 #' The FSRS subawards, one row per record, for the V6 link
 rhtp_spend_fsrs <- function() {
@@ -346,7 +352,8 @@ rhtp_spend_category <- function(rows, cases = rhtp_spend_cases(), ent = rhtp_spe
     any(cases$case_out_of_state[cases$case_id %in% strsplit(x, ";", fixed = TRUE)[[1]]])
   }, logical(1))
   oos <- ifelse(is.na(case_oos), oos, case_oos | oos)
-  oos[v9 | grepl(RHTP_ADDRESS_DOUBTED, rows$awardee, ignore.case = TRUE)] <- FALSE
+  oos[v9 | grepl(RHTP_ADDRESS_DOUBTED, rows$awardee, ignore.case = TRUE) |
+        grepl(RHTP_V9_INSTATE_ROLE_RX, rows$awardee, ignore.case = TRUE)] <- FALSE
   oos_out <- ifelse(cat_ == "HOSPITAL", NA, oos)
 
   verified <- cat_ %in% RHTP_VENDOR_CATEGORIES & ver_usd > 0
