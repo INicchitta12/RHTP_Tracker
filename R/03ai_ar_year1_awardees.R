@@ -405,8 +405,12 @@ AR_WATCHED <- c("home2", "resources", "rise", "heart")
 # is inert until the menu moves again.
 AR_MENU_RUN <- paste("Home Resources Funding Resources Frequently Asked",
                      "Questions Resource Library Initiatives Healthy Eating")
-AR_NAME_FURNITURE <- list(home2 = AR_MENU_RUN, rise = AR_MENU_RUN,
-                          heart = AR_MENU_RUN)
+# Session 121: read 2026-11-20 -- the site dropped the space between list items
+# and links, welding the NOFO download link onto the footer run; the footer now
+# prints $416,568,306.28 (FY2026 + FY2027). No award, no recipient.
+AR_NOFO_RUN <- function(x) paste0("NOFO For ", x, "Download Now Office of Governor Sarah Huckabee Sanders HEALTHY")
+AR_NAME_FURNITURE <- list(home2 = AR_MENU_RUN, rise = c(AR_MENU_RUN, AR_NOFO_RUN("RISE")),
+                          heart = c(AR_MENU_RUN, AR_NOFO_RUN("HEART")))
 
 
 # -- fetch --------------------------------------------------------------------
