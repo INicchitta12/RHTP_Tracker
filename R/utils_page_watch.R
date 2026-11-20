@@ -202,6 +202,16 @@ rhtp_watch_forbid_new <- function(live, arch, pattern, state, page, why) {
     }
     new <- new[!y2]
   }
+  # SESSION 121 (owner footer rule): a CMS financial-assistance footer is a
+  # CHECK, never an award sentence. A new footer whose CMS share is one of the
+  # three anchors (FY2026, FY2027, their sum) or a recorded refusal is dropped
+  # here; an unread refusal still stops (rhtp_assert_footer_check). Montana's
+  # FY2026 + FY2027 footer ($473,250,028.01) tripped this watch on 11-20.
+  if (length(new) && exists("rhtp_footer_check")) {
+    is_footer <- vapply(new, function(x) nrow(rhtp_footer_parse(x)) > 0, logical(1))
+    for (x in new[is_footer]) rhtp_assert_footer_check(x, state, label = paste0(state, " '", page, "' footer"))
+    new <- new[!is_footer]
+  }
   if (length(new)) {
     stop("[", state, "] '", page, "' HAS ", length(new), " NEW SENTENCE(S) ",
          "OF THE KIND THIS WATCH EXISTS FOR: ",

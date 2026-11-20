@@ -73,3 +73,17 @@ test_that("the three anchors: FY2026, FY2027, and their sum (100% federal footer
   expect_equal(rhtp_footer_check(foot("$410,667,370.13"), "MS", refusals = no_read)$verdict, "REFUSED")
   expect_equal(RHTP_FOOTER_ALLOTMENT_MARGIN, 10000)
 })
+
+test_that("the shared new-sentence watch treats an anchored footer as a check, not an award sentence", {
+  source(here::here("R", "utils_page_watch.R"))
+  arch <- "Program page. Montana has awarded its EMS grants."
+  mt_footer <- paste("Department of Health and Human Services (HHS) as part of a financial assistance award",
+                     "totaling $473,250,028.01 with 100 percent funded by CMS/HHS.")
+  expect_true(rhtp_watch_forbid_new(paste(arch, mt_footer), arch, "\\baward", "MT", "home", "why"))
+  # a footer matching no anchor still stops, as the rule requires
+  bad <- sub("$473,250,028.01", "$12,345,678.00", mt_footer, fixed = TRUE)
+  expect_error(rhtp_watch_forbid_new(paste(arch, bad), arch, "\\baward", "MT", "home", "why"), "footer REFUSED")
+  # and a real award sentence still trips
+  expect_error(rhtp_watch_forbid_new(paste(arch, "The state awarded $2 million to Glendive Medical Center."),
+                                     arch, "\\baward", "MT", "home", "why"), "NEW SENTENCE")
+})
