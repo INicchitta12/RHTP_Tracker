@@ -198,6 +198,12 @@ rhtp_spend_out_of_state <- function(state, awardee, fsrs_uei, fsrs_subaward_numb
 #' Where none matches at the amount, the one row of that state and name whose
 #' amount exceeds the case's carries it (an award file that sums several FSRS
 #' subawards to one recipient: Trillium, VHCF, VHHA Foundation).
+# SESSION 121: a verified case whose award row now carries the state's own
+# spelling of the recipient. VV054's FSRS name is UNITE USA INC.; West
+# Virginia's Year 1 roster (row 64, $1,270,000, paired to that FSRS filing)
+# prints "Unite Us". Hand-read, amount-checked; never a fuzzy match.
+RHTP_CASE_ROW_ALIASES <- c(VV054 = "Unite Us")
+
 rhtp_spend_assign_cases <- function(rows, cases) {
   key <- rhtp_spend_norm(rows$awardee)
   taken <- rep(FALSE, nrow(rows))
@@ -207,6 +213,9 @@ rhtp_spend_assign_cases <- function(rows, cases) {
     L <- min(12L, nchar(ck))
     want_kind <- if (c$amount_type == "contract maximum") "contract" else "award"
     same <- which(rows$state == c$state & substr(key, 1, L) == substr(ck, 1, L))
+    if (!length(same) && c$case_id %in% names(RHTP_CASE_ROW_ALIASES)) {
+      same <- which(rows$state == c$state & key == rhtp_spend_norm(RHTP_CASE_ROW_ALIASES[[c$case_id]]))
+    }
     at <- same[(!is.na(rows$amount[same]) & abs(rows$amount[same] - c$amount) < 0.01) |
                  (!is.na(rows$fsrs_amount[same]) & abs(rows$fsrs_amount[same] - c$amount) < 0.01)]
     if (length(at) > 1) {

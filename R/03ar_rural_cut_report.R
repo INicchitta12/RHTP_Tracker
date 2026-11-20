@@ -406,10 +406,14 @@ rc_assert <- function(rows = rc_rows()) {
   # a, CAH 241319, 2 rows): 2,285 / $2,223,153,907.38 / 42.
   # Session 121 (Task 2): WI DHS award tables, INTENTS (R/03cx, 39 hospital
   # rows / $32,216,238, a 43rd state): 2,324 / $2,255,370,145.38 / 43.
-  if (nrow(rows) != 2324L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2255370145.38) > 0.005 ||
+  # Session 121 (rebuild): SD register 11-19/11-20 incl. Monument (owner ruling),
+  # the Year 1 date rule (TN HART priced, SD paired), WV's Year 1 roster and 11-16/
+  # 11-19 releases, IN Meds-to-Beds (20 at $0) and GROW Parkview Goshen, OK
+  # re-pricing, FSRS 11-20 (ND +5): 2,369 / $2,292,033,452.90 / 43.
+  if (nrow(rows) != 2369L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2292033452.90) > 0.005 ||
       dplyr::n_distinct(rows$state) != 43L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,324 rows / $2,255,370,145.38 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,369 rows / $2,292,033,452.90 ",
          "/ 43 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }
