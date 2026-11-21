@@ -3015,3 +3015,4 @@ TN,2026-11-21T09:35:16Z,TRIPWIRE,(probe),[TN] a recorded RHTP release left a sho
 NC,2026-11-21T10:51:57Z,TRIPWIRE,(probe),"[NC] the ROOTS page now carries currency figures other than the allotment: $429,832,929.77. If NCDHHS has published per-hub amounts this is an extraction, not a source archive -- read them.",trig_018AHiDwHQLWm9DHxr96c9qB
 NJ,2026-11-21T12:12:01Z,CHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
 NJ,2026-11-21T12:12:01Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
+LA,2026-11-21T12:51:02Z,UNCHANGED,(all),,trig_01T7QtHJswhFqEtfyFJAzUw2
