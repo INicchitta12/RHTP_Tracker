@@ -3016,3 +3016,7 @@ NC,2026-11-21T10:51:57Z,TRIPWIRE,(probe),"[NC] the ROOTS page now carries curren
 NJ,2026-11-21T12:12:01Z,CHANGED,rhtp,,trig_012B9ZAHznUciD2roxYqkzbK
 NJ,2026-11-21T12:12:01Z,CHANGED,doh_news,,trig_012B9ZAHznUciD2roxYqkzbK
 LA,2026-11-21T12:51:02Z,UNCHANGED,(all),,trig_01T7QtHJswhFqEtfyFJAzUw2
+CA,2026-11-21T17:05:28Z,CHANGED,newsroom,,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-21T17:05:28Z,ERROR,funding,[CA] HTTP 404 for https://hcai.ca.gov/calrht/funding/,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-21T17:05:28Z,ERROR,calrht,[CA] HTTP 404 for https://hcai.ca.gov/calrht/,trig_012VpnHG4hW6pg4sjeFhk2BC
+CA,2026-11-21T17:05:28Z,ERROR,updates,[CA] HTTP 404 for https://hcai.ca.gov/calrht/calrht-program-updates/,trig_012VpnHG4hW6pg4sjeFhk2BC
