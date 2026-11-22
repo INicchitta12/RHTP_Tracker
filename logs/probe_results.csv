@@ -3020,3 +3020,7 @@ CA,2026-11-21T17:05:28Z,CHANGED,newsroom,,trig_012VpnHG4hW6pg4sjeFhk2BC
 CA,2026-11-21T17:05:28Z,ERROR,funding,[CA] HTTP 404 for https://hcai.ca.gov/calrht/funding/,trig_012VpnHG4hW6pg4sjeFhk2BC
 CA,2026-11-21T17:05:28Z,ERROR,calrht,[CA] HTTP 404 for https://hcai.ca.gov/calrht/,trig_012VpnHG4hW6pg4sjeFhk2BC
 CA,2026-11-21T17:05:28Z,ERROR,updates,[CA] HTTP 404 for https://hcai.ca.gov/calrht/calrht-program-updates/,trig_012VpnHG4hW6pg4sjeFhk2BC
+NY,2026-11-22T11:11:48Z,UNCHANGED,programme,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
+NY,2026-11-22T11:11:48Z,UNCHANGED,roster,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
+NY,2026-11-22T11:11:48Z,CHANGED,press_index,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
+NY,2026-11-22T11:11:48Z,CHANGED,scr,,trig_01Sjy49Y8ARShrgJJ3LjZvzq
