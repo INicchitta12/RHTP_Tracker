@@ -78,7 +78,7 @@ test_that("the CMS footer is the STRONG form and is demoted anyway", {
   # Session 27's axis: the subject NAMES the programme, so this is the strong
   # form -- and it is still used for the amount only, because the NOA exists.
   expect_true(stringr::str_detect(txt, stringr::fixed(CA_FOOTER_STRONG)))
-  expect_true(stringr::str_detect(txt, stringr::fixed("The CalRHT program")))
+  expect_true(stringr::str_detect(txt, stringr::fixed("The CalRHT Program")))
   expect_silent(ca_assert_footer_corroborates(strict = FALSE))
 })
 
@@ -98,10 +98,12 @@ test_that("the one-cent disagreement is pinned in both directions", {
   # Three figures, all pinned, none corrected (§8, Kansas's rule).
   expect_true(stringr::str_detect(ca_pdf_text("cms_noa"),
                                   stringr::fixed("$233,639,308.47")))
-  # Session 116: the page's footer is now BP1 + the $100M Year 2 initial
-  # award, and it keeps HCAI's .46 cents: $333,639,308.46.
+  # Session 116: the footer was BP1 + the $100M Year 2 initial award,
+  # $333,639,308.46. Session 122: it is now FY2026 + FY2027, $464,745,131.25,
+  # and still carries HCAI's .46 cents on the FY2026 half (233,639,308.46 +
+  # 231,105,822.79).
   expect_true(stringr::str_detect(ca_html_text("calrht"),
-                                  stringr::fixed("$333,639,308.46")))
+                                  stringr::fixed("$464,745,131.25")))
   expect_true(grepl("$233,639,308.46", ca_pdf_text("faq_notifications"), fixed = TRUE))
   expect_true(stringr::str_detect(ca_pdf_text("gg_wcap"),
                                   stringr::fixed("$233,639,308.47")))
@@ -498,19 +500,20 @@ test_that("the CalRHT footer is the allotment plus the Year 2 initial award, nev
 
 test_that("FIXTURE: the footer check accepts BP1 + BP2 and stops on anything else", {
   txt <- ca_html_text("calrht")
-  expect_true(grepl("totaling $333,639,308.46", txt, fixed = TRUE))
+  # Session 122 re-base: the archived page now prints FY2026 + FY2027.
+  expect_true(grepl("totaling $464,745,131.25", txt, fixed = TRUE))
   expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = txt))
-  # A footer moved to a figure that is neither the allotment nor BP1 + BP2.
-  odd <- sub("$333,639,308.46", "$166,720,000.00", txt, fixed = TRUE)
+  # A footer moved to a figure that is neither the allotment nor a sum.
+  odd <- sub("$464,745,131.25", "$166,720,000.00", txt, fixed = TRUE)
   # Session 121 (owner footer rule): refused, re-read, never a source.
   expect_error(ca_assert_footer_corroborates(strict = TRUE, calrht = odd),
                "footer REFUSED -- MATCHES_NONE")
-  # The BP1-only footer is the FY2026 allotment: one of the rule's three anchors.
-  old <- sub("$333,639,308.46", "$233,639,308.46", txt, fixed = TRUE)
+  # The BP1-only footer is the FY2026 allotment: one of the rule's anchors.
+  old <- sub("$464,745,131.25", "$233,639,308.46", txt, fixed = TRUE)
   expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = old))
-  # FY2026 + FY2027, what HCAI prints since 11-14, passes.
-  cur <- sub("$333,639,308.46", "$464,745,131.25", txt, fixed = TRUE)
-  expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = cur))
+  # BP1 + the $100M Year 2 initial award (what HCAI printed 11-07..11-13) passes.
+  bp2 <- sub("$464,745,131.25", "$333,639,308.46", txt, fixed = TRUE)
+  expect_true(ca_assert_footer_corroborates(strict = TRUE, calrht = bp2))
 })
 
 test_that("the re-based probe pages pass every tripwire as archived", {

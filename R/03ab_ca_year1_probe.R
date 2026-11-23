@@ -314,7 +314,8 @@ CA_PROGRAMME_SCOPED <- c(
 # for the AMOUNT only, because the NOA is better evidence than any footer.
 # SESSION 116: the programme page keeps "program"; the funding and updates
 # pages capitalised it ("Program") in the 11-07 redesign.
-CA_FOOTER_STRONG <- "The CalRHT program is supported by the Centers for Medicare & Medicaid Services"
+# SESSION 122: HCAI now capitalises "Program" (11-21 redesign of the footer).
+CA_FOOTER_STRONG <- "The CalRHT Program is supported by the Centers for Medicare & Medicaid Services"
 
 # CMS's OWN NOTICE OF AWARD -- the §6.2 anchor, stronger than any footer.
 CA_NOA_MARKERS <- c(
