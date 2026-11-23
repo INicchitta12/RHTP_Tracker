@@ -410,10 +410,12 @@ rc_assert <- function(rows = rc_rows()) {
   # the Year 1 date rule (TN HART priced, SD paired), WV's Year 1 roster and 11-16/
   # 11-19 releases, IN Meds-to-Beds (20 at $0) and GROW Parkview Goshen, OK
   # re-pricing, FSRS 11-20 (ND +5): 2,369 / $2,292,033,452.90 / 43.
-  if (nrow(rows) != 2369L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2292033452.90) > 0.005 ||
+  # Session 122: KDHE IFTp, Labette County Medical Center (CCN 170120,
+  # $325,000): 2,370 / $2,292,358,452.90 / 43.
+  if (nrow(rows) != 2370L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2292358452.90) > 0.005 ||
       dplyr::n_distinct(rows$state) != 43L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,369 rows / $2,292,033,452.90 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,370 rows / $2,292,358,452.90 ",
          "/ 43 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

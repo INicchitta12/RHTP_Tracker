@@ -646,6 +646,7 @@ KS,ks_year1_awardees.csv,50,Hospital District #1 Rice County,1377990,FEDERAL_REC
 KS,ks_year1_awardees.csv,56,NMC Health,662642,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 170103: PART A PROVIDER - HOSPITAL",FALSE,170103,ORG_WEBSITE
 KS,ks_year1_awardees.csv,58,Grisell Memorial Hospital,350000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 171300: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,171300,GENERAL_KNOWLEDGE
 KS,ks_year1_awardees.csv,60,Meade Hospital District,141098,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 171321: PART A PROVIDER - CRITICAL ACCESS HOSPITAL",TRUE,171321,ORG_WEBSITE
+KS,ks_year1_awardees.csv,62,Labette County Medical Center,325000,FEDERAL_RECORD_CCN,"CMS enrolment, CCN 170120: PART A PROVIDER - HOSPITAL",FALSE,170120,STATE_SOURCE
 MD,md_year1_awardees.csv,7,Chester River Health System Inc (UM Shore Regional),4913250,NOT_RECORDED,,FALSE,,
 MD,md_year1_awardees.csv,12,Frederick Memorial Hospital,3948645,NOT_RECORDED,,FALSE,,
 MD,md_year1_awardees.csv,14,Garrett Regional Medical Center,1682177,NOT_RECORDED,,FALSE,,
