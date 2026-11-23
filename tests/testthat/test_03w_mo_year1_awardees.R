@@ -159,8 +159,9 @@ test_that("the open questions are in the review queue", {
 # -- the two real awards -----------------------------------------------------
 
 test_that("Missouri has awarded two priced partnerships and 20 hospitals, $41,879,139.77 (session 101)", {
-  expect_equal(nrow(mo_awards), 22L)
-  expect_equal(round(sum(mo_awards$amount, na.rm = TRUE), 2), 41879139.77)
+  # SESSION 122: + Kids Win Missouri ($1.46M, rounded), row 23.
+  expect_equal(nrow(mo_awards), 23L)
+  expect_equal(round(sum(mo_awards$amount, na.rm = TRUE), 2), 43339139.77)
   expect_equal(
     mo_awards$amount[mo_awards$awardee == "Missouri Doula Association"],
     732660.43)
@@ -179,7 +180,7 @@ test_that("MEMSA's figure is rounded AND multi-year, and says so", {
 })
 
 test_that("neither partnership reaches a hospital, and $0 is a published fact", {
-  two <- mo_awards[mo_awards$award_pool != "STRATEGIC_MINOR_RENOVATIONS", ]
+  two <- mo_awards[!mo_awards$award_pool %in% c("STRATEGIC_MINOR_RENOVATIONS", "CHILD_CARE_WORKS"), ]
   expect_equal(nrow(two), 2L)
   expect_true(all(two$distributed_to_hospital == "No"))
   expect_equal(nrow(rhtp_hospital_dollar_partition(two)), 0L)
@@ -538,4 +539,16 @@ test_that("memsa.org is recorded as UNREACHABLE, which is not a negative", {
   # And the archive route is closed for a different reason than blocker 7.
   expect_true(grepl("no snapshot at all", memsa, fixed = TRUE))
   expect_true(grepl("DO NOT RE-LITIGATE", memsa, fixed = TRUE))
+})
+
+
+test_that("session 122: Kids Win Missouri is row 23, $1.46M rounded, not a hospital", {
+  kw <- mo_awards[mo_awards$awardee == "Kids Win Missouri", ]
+  expect_equal(nrow(kw), 1L)
+  expect_equal(kw$row_no, 23L)
+  expect_equal(kw$amount, 1460000)
+  expect_equal(kw$distributed_to_hospital, "No")
+  expect_equal(kw$hospital_attribution, "NOT_HOSPITAL")
+  expect_match(kw$flag_reason, "AMOUNT_ROUNDED_IN_SOURCE", fixed = TRUE)
+  expect_true(all(mo_awards$award_pool[3:22] == "STRATEGIC_MINOR_RENOVATIONS"))
 })

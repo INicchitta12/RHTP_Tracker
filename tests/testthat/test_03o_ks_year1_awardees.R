@@ -34,7 +34,9 @@ source(here::here("R", "03o_ks_year1_awardees.R"))
 # they still prove what they proved; the fourth is tested on its own at the
 # end of this file.
 ks_all    <- rhtp_ks_year1_awardees()
-ks_awards <- ks_all[ks_all$award_pool != "EMERGING_TECH", ]
+# Session 122: the IFTp pool (rows 61-62) is outside the first-three-pools
+# set as well; it is tested on its own at the end of this file.
+ks_awards <- ks_all[!ks_all$award_pool %in% c("EMERGING_TECH", "IFTP"), ]
 ks_rec    <- rhtp_ks_reconcile(ks_awards)
 ks_links  <- ks_program_page_text()
 
@@ -518,7 +520,33 @@ test_that("the fourth pool's roster tripwire refuses a changed roster", {
 test_that("rows 1..46 of the committed file are the pre-session-52 rows", {
   d <- readr::read_csv(here::here(KS_CSV), show_col_types = FALSE,
                        progress = FALSE)
-  expect_equal(nrow(d), 60L)
+  expect_equal(nrow(d), 62L)
   expect_equal(sum(d$amount[1:46]), 80020499)
   expect_true(all(d$award_pool[47:60] == "EMERGING_TECH"))
+})
+
+
+# -- session 122: the fifth pool, Interfacility Transport --------------------
+
+test_that("session 122: KDHE's IFTp release yields two awards, $780,919.21, appended", {
+  x <- ks_assert_iftp()
+  expect_equal(nrow(x), 2L)
+  expect_equal(round(sum(x$amount), 2), 780919.21)
+  expect_setequal(x$awardee, c("Pulse Transport, LLC", "Labette County Medical Center"))
+  expect_true(all(ks_all$award_pool[61:62] == "IFTP"))
+  iftp <- ks_all[ks_all$award_pool == "IFTP", ]
+  lab <- iftp[iftp$awardee == "Labette County Medical Center", ]
+  expect_equal(lab$amount, 325000)
+  expect_equal(lab$hospital_attribution, "NAMED_HOSPITAL")
+  expect_equal(lab$ccn, "170120")
+  expect_equal(lab$determination_confidence, "MEDIUM")
+  pulse <- iftp[iftp$awardee == "Pulse Transport, LLC", ]
+  expect_equal(pulse$recipient_type, "EMS_OR_PSAP")
+  expect_equal(pulse$distributed_to_hospital, "No")
+  expect_true(all(iftp$validation_source_type == "AGENCY_PRESS_RELEASE"))
+  # a third awardee on the page fails rather than passing quietly
+  bad <- x; bad$awardee[1] <- "Brand New Ambulance LLC"
+  expect_error(ks_assert_iftp(bad), "no longer match")
+  bad <- x[1, ]
+  expect_error(ks_assert_iftp(bad), "not KDHE")
 })

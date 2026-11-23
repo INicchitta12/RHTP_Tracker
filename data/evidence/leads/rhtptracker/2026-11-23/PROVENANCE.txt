@@ -1,0 +1,7 @@
+THIRD-PARTY LEAD BASELINE, RE-BASED (session 122). rhtptracker.com is a private aggregator (Moodr Health).
+A DISCOVERY baseline only (CLAUDE.md 0.1): never a source of any figure, recipient, date or tier.
+sitemap.xml: https://www.rhtptracker.com/sitemap.xml, 736 URLs, fetched 2026-11-23T14:45:05Z, sha256 248b32462a12ee2a4c0b4e331f117cfbacd8093c5f319c6780e249b74992c1fa.
+Re-based after a human read the 43 new pages against the 11-16 baseline (40 logged as LEAD, interactive, 2026-11-23; all Tier 2 or Year 2 opportunity pages).
+The awards-page official-link baseline stays at ../2026-11-16/state_awards_official_links.csv: every /states/<ST>/awards page is access-gated
+since at least 2026-11-23 ('Access to RHTP Tracker is by request') and carries no official link in its <main> body.
+VT_awards_GATED.html: the Vermont awards page as served 2026-11-23, the test fixture for the body-only link reader.

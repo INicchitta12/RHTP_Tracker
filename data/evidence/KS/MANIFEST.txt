@@ -25,3 +25,5 @@ f248fb9e8bdcfe96c8b1d07201e661c8ba36656e4f2f61e3ba83b9e7f5f75429  2026-08-29_kdh
     full page as served: f248fb9e8bdcfe96c8b1d07201e661c8ba36656e4f2f61e3ba83b9e7f5f75429
 3f8d5a71cbdd091b816685415ec3e00992b57e6781306e0413bf2ca53c9f5be7  2026-08-29_kdhe_chw_afim_project_descriptions.pdf  (99221 bytes, reduce=NONE)  <- https://www.kdhe.ks.gov/DocumentCenter/View/60037/CHW-AFIM-Project-Descriptions
     full page as served: 3f8d5a71cbdd091b816685415ec3e00992b57e6781306e0413bf2ca53c9f5be7
+800fa141bbdcadfdfafb5afb8ff5cbbf27182576da8abf8853158c06da04507d  2026-11-23_kdhe_newsflash_2130_iftp_awardees.html  (107507 bytes, reduce=STRIP_CREDENTIALS)  <- https://www.coronavirus.kdheks.gov/m/newsflash/Home/Detail/2130
+    full page as served: 96ab7991e822cb4f3a0b502f6b99d26eb241565f8b3ea187915dcd491e69cf3c  (session 122, appended by hand: a --fetch rewrites this file and drops the hand-kept provenance lines above)

@@ -2087,14 +2087,14 @@ through the work: an award file, or an archive plus a probe plus a Routine.
 ### Hospital partition (re-derived 2026-11-20, session 121, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,370 / $2,294,491,512.90
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,371 / $2,294,816,512.90
 (NV's FLEX-36 $2,458,060.00 back in; FLEX-28 was cleared on an exact FSRS pair in session 116d); never
 publish it alone. SESSION 116c/116d: FSRS/FFATA subawards are an award source (R/09b): $0 rows priced
 (`validation_source_type = FSRS_FFATA`, original kept) and `<st>_fsrs_awardees.csv` new rows; both subtract by
 `validation_source_type`.
 
 ```
-NAMED_HOSPITAL          2,369 rows   $2,292,033,452.90   43 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
+NAMED_HOSPITAL          2,370 rows   $2,292,358,452.90   43 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
 POOL_NAMED_HOSPITALS       11 rows      $96,565,779.43   WA (HCA's 28 hospitals $9,670,000, estimated, session 118) + NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
@@ -2127,7 +2127,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | CA | 108 | 108 | $138,464,044 (HCAI prose "$166.72 million", gap $28,255,956 UNRECONCILED) | 59 / $82,852,823 (INTENTS, "tentative"; HCAI BP1 10-21; LOW 14 / $20,142,121 incl. 5 GENERAL_KNOWLEDGE $4,419,905: 4 system parents/foundations and UC San Diego Health $498,854, AHC, ruling a; Providence Medical Foundation out, ruling b; SCRHC–UCSD $6,213,882 not hospital) |
 | MS r2 | 60 | 60 | $32,606,496 | 31 / $22,986,996 (Governor 10-21, WEI + EmPATH; the three EmPATH units on their host hospitals; LOW $5,715,592 incl. UMMC Greenwood $4,320,032 AHC bridge, Memorial Health System $219,120 system parent and Magnolia Regional Health Center EMS $100,000 on CCN 250009, owner ruling session 109) |
 | MI | 231 | 231 | $161,740,847 | 24 / $15,654,777 (10-01 roster, a TOTAL; LOW/GENERAL_KNOWLEDGE $6,687,197; AHC $6,625,656; MHA $13.125M in no bucket) |
-| KS | 60 | 60 | $96,027,147 | 37 / $62,416,473 |
+| KS | 62 | 62 | $96,808,066 | 38 / $62,741,473 (session 122: KDHE's 09-14 Interfacility Transport release, Labette County Medical Center $325,000 on CCN 170120 and Pulse Transport, LLC $455,919.21, EMS) |
 | GA | 158 | 102 | $90,765,080 (published $197,148,327) | 126 / $90,277,580 (Year 1 COMPLETE) |
 | NJ | 103 | 103 | $83,060,837 | 35 / $35,275,076 |
 | MD | 41 | 41 | $78,625,071 | 9 / $27,681,260 (offers) |
@@ -2141,7 +2141,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | IL | 1 | 1 | $50,008,264 | POOL_UNNAMED 1 / $50,008,264 |
 | CT | 4 | 4 | $49,980,000 | 2 / $33,350,000 + POOL_NAMED 1 / $12,650,000 |
 | PA | 178 | 178 | $116,840,878 (header still says "$43,000,000", stale) | 60 / $41,709,703 (authorized; 11-02 page, five sections; The Guthrie Clinic $2,963,577 moved here from PA CMS obl) |
-| MO | 22 | 22 | $41,879,140 | 20 / $34,646,479 (SMRP priced by DSS 10-13; 27 hub anchors are NOT awards) |
+| MO | 23 | 23 | $43,339,140 | 20 / $34,646,479 (SMRP priced by DSS 10-13; Kids Win Missouri $1.46M rounded, non-hospital, session 122; 27 hub anchors are NOT awards) |
 | MO SG | 25 | 25 | $39,400,821 | 14 / $31,862,170 (Smart Growth CONTINGENT roster, 10-30; 23 intents pending CMS approval, 2 "approved by CMS"; DSS says 26 providers, the table lists 25; LOW $9,191,320; Ozarks Community Hospital $787,430 not a hospital row, no enrolment; owner ruling session 114) |
 | NE | 91 | 74 | $44,835,140 (4 $0 rows priced from FSRS; Memorial Health Care Systems' filing paired to row 28, session 118) | 60 / $17,579,429 + POOL_NAMED 1 / $18,156,856 |
 | OK RRR | 20 | 20 | $40,078,522 | 11 / $22,723,303 (Keetoowah $1,123,500 withdrawn 10-12; SSM St. Anthony Shawnee Cancer Center $1,623,498.82 added 10-16, CCN 370149, LOW; LOW $9,895,512: 4 enrolment bridges; Mercy $3,938,438 general knowledge, no CCN) |

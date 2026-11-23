@@ -139,6 +139,11 @@ KS_SOURCES <- tibble::tribble(
   "emerging_tech", "https://www.kdhe.ks.gov/DocumentCenter/View/60464/Emerging-Tech-Project-Descriptions", "2026-09-22_kdhe_emerging_technology_award_winners.pdf", "KS", "NONE", "Emerging Technology Award Winners and Project Descriptions",
   "reh_cap_rpgp", "https://www.kdhe.ks.gov/DocumentCenter/View/58981/REH-CAP-and-RPGP-Award-Winners-PDF", "2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf", "KS", "NONE", "REH CAP and RPGP Award Winners",
   "chw_afim",     "https://www.kdhe.ks.gov/DocumentCenter/View/60037/CHW-AFIM-Project-Descriptions",      "2026-08-29_kdhe_chw_afim_project_descriptions.pdf",  "KS", "NONE", "Kansas RHTP Community Health Worker (CHW) + Accountable Food is Medicine (AFIM) Awarded Project Descriptions",
+  # SESSION 122: KDHE's Interfacility Transport project (IFTp) award release,
+  # 2026-09-14, newsflash 2130 on KDHE's own CivicPlus host. Found by the
+  # rhtptracker.com cross-check (the aggregator's 11-16 Kansas page cited it);
+  # read from KDHE's bytes, never the aggregator's. Two named, priced awards.
+  "iftp",         "https://www.coronavirus.kdheks.gov/m/newsflash/Home/Detail/2130", "2026-11-23_kdhe_newsflash_2130_iftp_awardees.html", "KS", "STRIP_CREDENTIALS", "KDHE Awards Over $780K for Innovative Approaches to Interfacility Transportation",
   "budget_rev2",  "https://www.kdhe.ks.gov/DocumentCenter/View/60171",         "2026-07_ks_rht_plan_budget_narrative_revision_2.pdf", "NARRATIVE",   "NONE", "Kansas RHT Plan Year 1 Budget Narrative Revision 2: July 2026"
 )
 
@@ -160,6 +165,11 @@ KS_STATED <- list(
   # $16,006,648, which is what "$16 million" rounds.
   emerging_tech_n     = 14L,
   emerging_tech_total = 16006648,
+  # SESSION 122: the FIFTH pool, Interfacility Transport. KDHE: "In total,
+  # $780,919.21 was awarded to two organizations"; the two printed figures
+  # ($455,919.21 + $325,000) sum to it exactly.
+  iftp_n     = 2L,
+  iftp_total = 780919.21,
   # KDHE's own statement of the CMS award, on the award document's footer.
   cms_award_stated = 221890007.82,
   # THE SAME FIGURE ON KDHE'S OTHER TWO PUBLICATIONS, both read for the first
@@ -1034,13 +1044,114 @@ ks_assert_rhtp_provenance <- function() {
 }
 
 
+# -- THE FIFTH POOL: INTERFACILITY TRANSPORT (session 122) ---------------------
+#
+# KDHE's 2026-09-14 release: "The 2026 IFTp awardees are: Pulse Transport, LLC
+# (Pratt County): $455,919.21 ... Labette County Medical Center (Labette
+# County): $325,000". Each award is "<Recipient> (<County> County): $<amount>"
+# followed by its description. Parsed from the archived, credential-stripped
+# page; never from the aggregator that pointed at it.
+KS_IFTP_RX <- "([A-Z][A-Za-z0-9&.,' -]{2,80}?) \\(([A-Za-z .]+ County)\\): \\$([0-9][0-9,]*(?:\\.[0-9]{2})?)"
+
+KS_IFTP_TYPES <- tibble::tribble(
+  ~awardee, ~recipient_type, ~basis_type, ~ccn, ~cms_enrolment_match, ~evidence,
+  "Labette County Medical Center", "HOSPITAL_OR_SYSTEM", "STATE_SOURCE", "170120", "EXACT_LEGAL_NAME",
+  paste("CMS KS Hospital Enrollments (federal_records/2026-09-22/cms_hosp_enrollments_KS.json):",
+        "ORGANIZATION NAME 'LABETTE COUNTY MEDICAL CENTER', DBA 'LABETTE HEALTH', CCN 170120,",
+        "PART A PROVIDER - HOSPITAL; KDHE prints the awardee under that exact legal name"),
+  "Pulse Transport, LLC", "EMS_OR_PSAP", "STATE_SOURCE", NA_character_, NA_character_,
+  paste("KDHE's award sentence: the recipient will 'Establish a regional interfacility dispatch",
+        "and coordination center supported by dedicated BLS and advanced transport teams' and",
+        "'add at least 12 full-time clinicians' -- a transport (ambulance) operator, an LLC; no",
+        "CMS hospital enrolment carries the name"))
+
+ks_iftp_text <- function() {
+  p <- ks_archive_path("iftp")
+  if (!file.exists(p)) stop("[KS] 'iftp' is not archived. Run --fetch.", call. = FALSE)
+  raw <- readBin(p, "raw", file.size(p))
+  txt <- rawToChar(raw[raw != as.raw(0)]); Encoding(txt) <- "UTF-8"
+  txt <- stringr::str_remove_all(txt, "(?s)<(script|style)[^>]*>.*?</\\1>")
+  txt <- stringr::str_replace_all(txt, "<[^>]+>", " ")
+  txt <- stringr::str_replace_all(txt, "&nbsp;|&#160;|\u00a0", " ")
+  txt <- stringr::str_replace_all(txt, "&amp;", "&")
+  stringr::str_squish(txt)
+}
+
+ks_parse_iftp <- function(text = NULL) {
+  if (is.null(text)) text <- ks_iftp_text()
+  i <- regexpr("awardees are:", text, fixed = TRUE)
+  if (i < 0) stop("[KS] the IFTp release no longer carries 'awardees are:'.", call. = FALSE)
+  body <- substr(text, i, i + 3000L)
+  body <- substr(body, 1L, regexpr("RHTP is a five-year", body, fixed = TRUE) - 1L)
+  m <- stringr::str_match_all(body, KS_IFTP_RX)[[1]]
+  loc <- stringr::str_locate_all(body, KS_IFTP_RX)[[1]]
+  desc <- purrr::map_chr(seq_len(nrow(m)), function(k) {
+    end <- if (k < nrow(m)) loc[k + 1, "start"] - 1L else nchar(body)
+    stringr::str_squish(substr(body, loc[k, "end"] + 1L, end))
+  })
+  tibble::tibble(award_pool = "IFTP",
+                 # a description ends in a full stop; the next name starts after it
+                 awardee = stringr::str_squish(stringr::str_remove(
+                   stringr::str_remove(m[, 2], "^are:\\s*"), "^.*\\.\\s+(?=[A-Z])")),
+                 county = m[, 3],
+                 amount = as.numeric(gsub(",", "", m[, 4])),
+                 description = desc)
+}
+
+ks_assert_iftp <- function(x = ks_parse_iftp()) {
+  if (nrow(x) != KS_STATED$iftp_n || abs(sum(x$amount) - KS_STATED$iftp_total) > 0.005) {
+    stop("[KS] the IFTp release yields ", nrow(x), " awards / $", sum(x$amount),
+         ", not KDHE's ", KS_STATED$iftp_n, " / $", KS_STATED$iftp_total,
+         ". Re-read the archived release.", call. = FALSE)
+  }
+  if (!setequal(x$awardee, KS_IFTP_TYPES$awardee)) {
+    stop("[KS] the IFTp awardees no longer match the hand typing: ",
+         paste(setdiff(x$awardee, KS_IFTP_TYPES$awardee), collapse = ", "), call. = FALSE)
+  }
+  x
+}
+
+#' Type the two IFTp rows from KS_IFTP_TYPES (recipient identity, §0.3a).
+ks_type_iftp <- function(out) {
+  k <- which(out$award_pool == "IFTP")
+  if (!length(k)) return(out)
+  # cms_enrolment_match is NOT written as a column (that column belongs to
+  # §10.2's operator rule and R/03bj's verdicts); the match is in the basis.
+  for (col in c("basis_type", "verified_by", "verified_basis", "ccn"))
+    if (!col %in% names(out)) out[[col]] <- NA_character_
+  for (i in k) {
+    t <- KS_IFTP_TYPES[KS_IFTP_TYPES$awardee == out$awardee[i], ]
+    hosp <- t$recipient_type == "HOSPITAL_OR_SYSTEM"
+    out$recipient_type[i] <- t$recipient_type
+    out$basis_type[i] <- t$basis_type
+    out$ccn[i] <- t$ccn
+    out$determination_confidence[i] <- "MEDIUM"
+    out$flow_type[i] <- if (hosp) "DIRECT" else "NON_HOSPITAL"
+    out$distributed_to_hospital[i] <- if (hosp) "Yes" else "No"
+    out$hospital_benefiting[i] <- if (hosp) "Yes" else NA_character_
+    out$flag_reason[i] <- NA_character_
+    out$verified_by[i] <- "session 122 (hand-read: KDHE release + CMS KS enrolment)"
+    out$verified_basis[i] <- t$evidence
+    out$determination_basis[i] <- paste0(
+      "RECIPIENT TYPE (session 122): ", t$recipient_type, " [", t$basis_type,
+      if (!is.na(t$cms_enrolment_match)) paste0("; CMS enrolment ", t$cms_enrolment_match, ", CCN ", t$ccn) else "",
+      "] -- ",
+      t$evidence, ". Flow: ", out$flow_type[i],
+      ". KDHE IFTp award, 2026-09-14 (Year 1: announced before 2026-10-30).")
+  }
+  out
+}
+
 # -- assemble ----------------------------------------------------------------
 
 #' The 46 Kansas Year 1 award actions, in the §8 union schema
 rhtp_ks_year1_awardees <- function() {
   awards <- dplyr::bind_rows(ks_parse_reh_cap_rpgp(), ks_parse_chw_afim(),
                              ks_assert_emerging_tech() %>%
-                               dplyr::select(-"county"))
+                               dplyr::select(-"county"),
+                             # SESSION 122: APPENDED (rows 61-62), so rows
+                             # 1..60 keep session 49's overlay indices.
+                             ks_assert_iftp() %>% dplyr::select(-"county"))
 
   pool_meta <- tibble::tribble(
     ~award_pool, ~source_document_title,                                  ~source_key,
@@ -1049,7 +1160,8 @@ rhtp_ks_year1_awardees <- function() {
     "CHW_AFIM",  paste("Kansas RHTP Community Health Worker (CHW) +",
                        "Accountable Food is Medicine (AFIM) Awarded",
                        "Project Descriptions"),                           "chw_afim",
-    "EMERGING_TECH", "Emerging Technology Award Winners and Project Descriptions", "emerging_tech"
+    "EMERGING_TECH", "Emerging Technology Award Winners and Project Descriptions", "emerging_tech",
+    "IFTP",      "KDHE Awards Over $780K for Innovative Approaches to Interfacility Transportation", "iftp"
   )
 
   out <- awards %>%
@@ -1058,6 +1170,7 @@ rhtp_ks_year1_awardees <- function() {
 
   out <- rhtp_classify_records(out, state = "KS", description_col = "description")
   out <- ks_type_emerging_tech(out)
+  out <- ks_type_iftp(out)
 
   out %>%
     dplyr::mutate(
@@ -1071,8 +1184,10 @@ rhtp_ks_year1_awardees <- function() {
       # language Oregon's seven pools all carry.
       amount_confirmed       = "Yes",
       fiscal_year            = "FY2026",
-      state_source_url       = KS_PROGRAM_PAGE,
-      validation_source_type = "NOTICE_OF_AWARD",
+      state_source_url       = dplyr::if_else(award_pool == "IFTP",
+                                              ks_source("iftp", "url"), KS_PROGRAM_PAGE),
+      validation_source_type = dplyr::if_else(award_pool == "IFTP",
+                                              "AGENCY_PRESS_RELEASE", "NOTICE_OF_AWARD"),
       extraction_method      = "DIRECT_TEXT",
       validator              = "AUTO",
       ccn                    = if ("ccn" %in% names(.)) ccn else NA_character_,
@@ -1159,10 +1274,13 @@ rhtp_ks_assert <- function(awards = NULL) {
   stopifnot(tot[["CHW_AFIM"]]  == KS_STATED$chw_afim_total)
   stopifnot(pool[["EMERGING_TECH"]] == KS_STATED$emerging_tech_n)
   stopifnot(tot[["EMERGING_TECH"]]  == KS_STATED$emerging_tech_total)
-  stopifnot(rec$awards_n == 60L)
-  stopifnot(rec$awards_total == KS_STATED$reh_cap_total +
+  stopifnot(pool[["IFTP"]] == KS_STATED$iftp_n)
+  stopifnot(abs(tot[["IFTP"]] - KS_STATED$iftp_total) < 0.005)
+  stopifnot(rec$awards_n == 62L)
+  stopifnot(abs(rec$awards_total - (KS_STATED$reh_cap_total +
               KS_STATED$rpgp_total + KS_STATED$chw_afim_total +
-              KS_STATED$emerging_tech_total)
+              KS_STATED$emerging_tech_total + KS_STATED$iftp_total)) < 0.005)
+  stopifnot(all(awards$award_pool[61:62] == "IFTP"))
   # The fourth pool is APPENDED, so rows 1..46 keep the indices session 49's
   # verification overlay is keyed on (R/03ap). A fourth pool sorted into the
   # middle would re-type the wrong rows, silently.
@@ -1205,7 +1323,7 @@ rhtp_ks_assert <- function(awards = NULL) {
   # THE FIRST THREE POOLS keep session 20's machine floor (before session 49's
   # overlay, which R/03ap re-applies); the fourth is hand-typed and asserted
   # on its own, so neither figure can drift under the other.
-  first3 <- awards[awards$award_pool != "EMERGING_TECH", ]
+  first3 <- awards[!awards$award_pool %in% c("EMERGING_TECH", "IFTP"), ]
   partition <- rhtp_hospital_dollar_partition(first3)
   named <- partition$dollars[partition$bucket == "NAMED_HOSPITAL"]
   stopifnot(length(named) == 1L, named == KS_STATED$named_hospital_floor)

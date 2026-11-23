@@ -212,8 +212,9 @@ MO_STATED <- list(
   # Renovations Program hospital awards. SESSION 101: the twenty are PRICED
   # on DSS's page; their "Awarded Amount" column sums to $34,646,479.34
   # (the page prints no total; the sum is computed and asserted).
-  awards_n          = 22L,
-  awards_total      = 41879139.77,
+  # SESSION 122: + Kids Win Missouri, $1,460,000 (rounded), row 23.
+  awards_n          = 23L,
+  awards_total      = 43339139.77,
   smrp_n            = 20L,
   smrp_total        = 34646479.34,
   # DSS's own footer figure, and CMS's table. They agree once rounded.
@@ -1278,7 +1279,68 @@ rhtp_mo_year1_awardees <- function() {
       source_archive_path
     ) %>%
     dplyr::bind_rows(mo_smrp_rows()) %>%
+    # SESSION 122: APPENDED after the SMRP rows so rows 1..22 keep their indices.
+    dplyr::bind_rows(mo_kids_win_row()) %>%
     dplyr::mutate(row_no = dplyr::row_number())
+}
+
+# -- Kids Win Missouri (session 122) -----------------------------------------
+#
+# DSS, 2026-10-13, carried on the archived programme page
+# (2026-11-04_dss_rural_health.html): "DSS, in partnership with the Children's
+# Trust Fund (CTF), has awarded $1.46 million through the Rural Health
+# Transformation Program (RHTP) to Kids Win Missouri to expand its Child Care
+# Works program". Read in session 101 (the 10-14 name trip) and not extracted
+# because it is not a hospital; the session-122 cross-check against
+# rhtptracker.com's Missouri page (which cited DSS's release) put it back on
+# the list, and a priced, named, Year 1 state-source award is extracted under
+# the standing rules whatever its hospital effect. Kids Win Missouri is "a
+# coalition of organizations and individuals" (DSS's own words): a non-hospital,
+# its form otherwise unstated, so §8's standing fallback. $1.46 million is
+# DSS's ROUNDED figure.
+#
+# NOT EXTRACTED, ON PURPOSE: the same page's University of Missouri Sinclair
+# School of Nursing CNM CONTRACT (DHSS) prints NO amount ("a significant
+# investment"), is a state contract rather than a subaward, and is not a
+# hospital. It belongs to the contract layer if DHSS ever prices it.
+MO_KIDS_WIN_AMOUNT <- 1460000
+MO_KIDS_WIN_SENTENCE <- paste(
+  "has awarded $1.46 million through the Rural Health Transformation Program",
+  "(RHTP) to Kids Win Missouri")
+mo_kids_win_row <- function() {
+  txt <- stringr::str_squish(gsub("&nbsp;|\u00a0", " ", mo_html_text("program_page")))
+  if (!grepl(MO_KIDS_WIN_SENTENCE, txt, fixed = TRUE)) {
+    stop("[MO] the programme page no longer carries the Kids Win Missouri award sentence.",
+         call. = FALSE)
+  }
+  tibble::tibble(
+    state = "MO", awardee = "Kids Win Missouri", amount = MO_KIDS_WIN_AMOUNT,
+    recipient_type = "NONPROFIT_CBO", distributed_to_hospital = "No",
+    note = paste("RHTP Child Care Works award (DSS with the Children's Trust Fund,",
+                 "2026-10-13): childcare cost-sharing for rural health employers'",
+                 "workers. Not a hospital."),
+    recipient_confirmed = "Yes", amount_confirmed = "Yes",
+    fiscal_year = "FY2026",
+    source_document_title = "Missouri Awards $1.46 Million to Expand Childcare Support for Rural Health Workers",
+    state_source_url = MO_PROGRAM_PAGE,
+    validation_source_type = "AGENCY_PRESS_RELEASE",
+    extraction_method = "DIRECT_TEXT", validator = "AUTO",
+    ccn = NA_character_, aha_id = NA_character_, rural_designation = NA_character_,
+    reviewer = NA_character_,
+    award_pool = "CHILD_CARE_WORKS", award_date = "2026-10-13",
+    flow_type = "NON_HOSPITAL", hospital_benefiting = NA_character_,
+    hospital_attribution = "NOT_HOSPITAL", intermediary_name = NA_character_,
+    determination_confidence = "LOW",
+    determination_basis = paste0(
+      "§10.2 NON_HOSPITAL on the recipient (§0.3a): DSS '", MO_KIDS_WIN_SENTENCE,
+      "'; DSS calls it 'a coalition of organizations and individuals'. Form otherwise ",
+      "unstated: §8's standing fallback NONPROFIT_CBO + LOW. Year 1: awarded 2026-10-13, ",
+      "before 2026-10-30. Session 122."),
+    classification_rule = "HAND_READ_STATE_SOURCE",
+    flag_reason = "AMOUNT_ROUNDED_IN_SOURCE;RECIPIENT_TYPE_INFERRED",
+    amount_basis = "DSS's '$1.46 million', rounded in source; no exact figure is published.",
+    source_archive_path = file.path("data/evidence/MO",
+                                    MO_SOURCES$file[MO_SOURCES$key == "program_page"]))
 }
 
 

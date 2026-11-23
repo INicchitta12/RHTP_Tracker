@@ -46,10 +46,14 @@ source(here::here("R", "utils_page_watch.R"))
 
 RTL_STATE <- "RHTPTRACKER"
 RTL_BASE <- "https://www.rhtptracker.com"
-RTL_AS_OF <- "2026-11-16"
+RTL_AS_OF <- "2026-11-23"
 RTL_DIR <- file.path("data", "evidence", "leads", "rhtptracker", RTL_AS_OF)
 RTL_SITEMAP <- file.path(RTL_DIR, "sitemap.xml")
-RTL_LINKS <- file.path(RTL_DIR, "state_awards_official_links.csv")
+# SESSION 122: the sitemap was re-based to 2026-11-23 after the 43 new pages
+# were read; the awards-page link baseline stays at 2026-11-16, because every
+# awards page is access-gated now and carries no body link to re-base to.
+RTL_LINKS <- file.path("data", "evidence", "leads", "rhtptracker", "2026-11-16",
+                       "state_awards_official_links.csv")
 RTL_AGENT <- "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)"
 RTL_DISALLOWED <- c("/api/", "/reports/", "/auth/")     # robots.txt; never read
 RTL_MAX_NEW_PAGES <- 40L                                  # new pages opened per run
@@ -74,10 +78,24 @@ rtl_sitemap_urls <- function(raw) {
   sort(unique(trimws(u)))
 }
 
-#' Official-source links on a page: absolute hrefs whose host ends .gov or .us.
+#' Official-source links on a page: absolute hrefs whose host ends .gov or .us,
+#' read from the page BODY only.
+#'
+#' SESSION 122: the body is the <main> element. The site-wide news banner,
+#' header, nav and footer sit outside it, and since 2026-11-09 the banner links
+#' CMS's FY2027 release on every page: the 11-20 run reported that one link as
+#' the "official source" of all 63 leads. A page with no <main> yields no links
+#' rather than falling back to the whole page, and the site-wide link is
+#' refused even if it ever moves inside <main> (RTL_SITEWIDE_LINKS).
+RTL_SITEWIDE_LINKS <- c(
+  "https://www.cms.gov/newsroom/press-releases/trump-administration-announces-10-billion-second-year-rural-health-transformation-awards-all-50")
 rtl_official_links <- function(raw) {
   h <- xml2::read_html(raw)
-  a <- unique(xml2::xml_attr(xml2::xml_find_all(h, "//a[@href]"), "href"))
+  body <- xml2::xml_find_all(h, "//main")
+  if (!length(body)) return(character(0))
+  a <- unique(xml2::xml_attr(xml2::xml_find_all(body, ".//a[@href]"), "href"))
+  a <- a[!is.na(a)]
+  a <- setdiff(a, RTL_SITEWIDE_LINKS)
   a <- a[grepl("^https?://", a)]
   host <- tolower(sub("^https?://([^/:?#]+).*$", "\\1", a))
   sort(unique(a[grepl(RTL_OFFICIAL_HOST, host)]))
@@ -94,10 +112,14 @@ rtl_strip_money <- function(x) {
   stringr::str_squish(x)
 }
 
-#' The state a page is about: /states/<ST>/..., else the "(State Name)" in its title.
+#' The state a page is about: /states/<ST>/..., then an opportunity address
+#' (/opportunities/<channel>-<st>-..., session 122: the 11-20 run logged 33 of
+#' these as UNKNOWN), else the "(State Name)" in its title.
 rtl_state_of <- function(url, title = NA_character_) {
   m <- stringr::str_match(url, "/states/([A-Z]{2})(/|$)")[, 2]
   if (!is.na(m)) return(m)
+  o <- toupper(stringr::str_match(url, "/opportunities/[a-z0-9]+-([a-z]{2})-")[, 2])
+  if (!is.na(o) && o %in% c(datasets::state.abb, "DC")) return(o)
   if (!is.na(title)) {
     nm <- stringr::str_match(title, "\\(([A-Za-z .]+)\\)\\s*$")[, 2]
     k <- match(nm, c(datasets::state.name, "District of Columbia"))
