@@ -212,6 +212,49 @@ NM_SOURCES <- tibble::tribble(
   paste0("https://www.hca.nm.gov/2026/04/27/",
          "new-mexico-seeks-vendors-to-support-rural-and-",
          "behavioral-health-program-administration/")
+,
+
+  # SESSION 122: HCA MIGRATED www.hca.nm.gov on or about 2026-11-20 (Drupal;
+  # /rural-health-transformation-program/ 301s to a stale pre-procurement page
+  # without the six stages or the ASO line; /news/ and /rht are 404). The probe
+  # now watches these six pages instead. The old keys above stay: they are the
+  # archive --validate reads, and the evidence of what HCA said before.
+  "programme_v2",
+  "2026-11-23_nm_hca_rht_programme_MIGRATED.html",
+  paste0("https://www.hca.nm.gov/get-help/programs-services-reforms-initiatives/",
+         "medicaid-hcbs-health-coverage-programs/rural-health-transformation-program"),
+
+  # The news index FILTERED to "rural health": every RHT release HCA has
+  # posted since 2025 (the 11-18 Guidehouse and FY2027 releases included).
+  "news_rht",
+  "2026-11-23_nm_hca_news_index_RURAL_HEALTH_FILTER.html",
+  "https://www.hca.nm.gov/about-us/news-updates?search_api_fulltext=rural+health",
+
+  # HCA's own site search for the ASO procurement's name. Today it returns the
+  # 04-27 RFP release and the Data Hub administrator release; a selection
+  # release would be a new result.
+  "aso_search",
+  "2026-11-23_nm_hca_site_search_ASO.html",
+  "https://www.hca.nm.gov/search?search_api_fulltext=Administrative+Services+Organization",
+
+  # The ASO RFP release itself, at its migrated address.
+  "aso_release",
+  "2026-11-23_nm_hca_aso_rfp_release_MIGRATED.html",
+  paste0("https://www.hca.nm.gov/about-us/news-updates/",
+         "new-mexico-seeks-vendors-support-rural-and-behavioral-health-program-administration"),
+
+  # The procurement listings, filtered to "Rural Health": the RFP list (stage
+  # words: Status Open/Closed) and the contracts list (an executed ASO contract
+  # would appear here). Neither lists the 2026 RHT procurements today.
+  "rfp_rht",
+  "2026-11-23_nm_hca_rfp_list_RURAL_HEALTH_FILTER.html",
+  paste0("https://www.hca.nm.gov/partners-providers/contracts-procurements/",
+         "request-proposals-rfp?search_api_fulltext=Rural+Health"),
+
+  "contracts_rht",
+  "2026-11-23_nm_hca_contracts_list_RURAL_HEALTH_FILTER.html",
+  paste0("https://www.hca.nm.gov/partners-providers/contracts-procurements/",
+         "contracts?search_api_fulltext=Rural+Health")
 )
 
 # Every figure New Mexico states, in its own words. These are the state's
@@ -618,7 +661,16 @@ NM_NAME_SCOPE <- list(
   # scope that kept the link text welded it onto the newest headline and read
   # the pair as a new organisation.
   news      = c(from = "(?<=Behavioral Health Assessment and Feasibility Study Newsroom )\\S",
-                to = "Looking for Assistance Looking for Information Providers Overview"))
+                to = "Looking for Assistance Looking for Information Providers Overview"),
+  # SESSION 122: the migrated (Drupal) pages. The programme page's content
+  # starts at "Latest News for Providers and Communities"; the filtered news
+  # index's at its FIRST ITEM -- the first "Press Release" not followed by
+  # "Division", because the facet list above the items also reads "Category
+  # News Press Release Division ...". Both end at the site footer.
+  programme_v2 = c(from = "Latest News for Providers and Communities",
+                   to = "Contact Us Chat: 24/7"),
+  news_rht     = c(from = "Press Release (?!Division)",
+                   to = "Contact Us Chat: 24/7"))
 
 nm_name_scope <- function(text, key) {
   a <- NM_NAME_SCOPE[[key]]
@@ -1359,40 +1411,128 @@ rhtp_nm_report <- function() {
 
 # -- the live probe -----------------------------------------------------------
 
-# WHICH SOURCES ANSWER "HAS NEW MEXICO AWARDED?" -- and only those.
-#   programme  the six procurement blocks and their stage, where a roster would
-#              appear
-#   news       HCA's announcement channel, which is also the §0.1 trap
-#   rhcdf      the state roster, watched because a NEW cycle appearing there is
-#              the thing most likely to be mistaken for an RHTP award
-NM_PROBE_KEYS <- c("programme", "news", "rhcdf")
+# WHICH SOURCES ANSWER "HAS NEW MEXICO NAMED ITS ADMINISTRATOR OR AWARDED?"
+# (session 122, after HCA's site migration). Until 2026-11-20 these were the
+# old programme page, /news/ and the RHCDF page; the first two no longer exist.
+#   programme_v2   the migrated RHT page (stale pre-procurement text today)
+#   news_rht       the news index filtered to "rural health"
+#   aso_search     site search for "Administrative Services Organization"
+#   aso_release    the ASO RFP release (04-27), at its migrated address
+#   rfp_rht        the RFP list filtered to "Rural Health" (stage words)
+#   contracts_rht  the contracts list filtered to "Rural Health"
+# The RHCDF control is no longer probed: its URL now redirects to a Drupal
+# page the session-35 roster assertions were not written for, and it is state
+# money either way. --validate still reads its archive.
+NM_PROBE_KEYS <- c("programme_v2", "news_rht", "aso_search", "aso_release",
+                   "rfp_rht", "contracts_rht")
+
+# SESSION 122: THE ASO / ADMINISTRATOR WATCH, rewritten for HCA's migrated site.
+#
+# Session 120's watch read ONE sentence on the old programme page ("Selection
+# complete announcement will be made by November 30, 2026"). HCA's migration on
+# or about 2026-11-20 took that page away, so the watch now asks, on every page
+# it reads, whether a WATCH ITEM is new. A watch item is a headline or sentence
+# (split on "Read More" and on sentence ends) that carries any of:
+#   * "Accenture" -- anywhere, any context (Accenture LLP's FSRS subaward,
+#     $128,979,618.21, is held under ADMINISTRATOR_PASS_THROUGH_UNRESOLVED);
+#   * "administrator", "ASO", "third-party administrator" or "administrative
+#     services organization", in an RHT context (rural / RHT / Healthy Horizons);
+#   * a dollar figure beside "fee", "contract maximum", "not to exceed" or
+#     "pass-through", in an RHT context;
+#   * on the filtered NEWS index, a selection or award word (select, award,
+#     contract) in an RHT context -- an administrator selected in other words;
+#   * on the two PROCUREMENT LISTS, any RHT listing at all, with its Status --
+#     so a changed stage (Open -> Closed, a new RFP, an executed contract) is
+#     a new item.
+# Items in the ARCHIVED copy of the same page are known and cancel; the
+# baseline is the committed archive, re-based only by --fetch --force after a
+# human reads the change (§2.2). A new item is a TRIPWIRE, never a CHANGED.
+NM_WATCH_ACCENTURE <- "(?i)accenture"
+NM_WATCH_ADMIN     <- paste0("(?i)\\badministrators?\\b|\\bASO\\b|third[- ]party administrator|",
+                             "administrative services organi[sz]ation")
+NM_WATCH_MONEY     <- "(?i)\\bfees?\\b|contract maximum|not[- ]to[- ]exceed|pass[- ]through"
+NM_WATCH_CONTEXT   <- "(?i)rural|\\bRHTP?\\b|healthy horizons"
+NM_WATCH_SELECTION <- "(?i)\\bselect(s|ed|ion)?\\b|\\bawards?\\b|\\bawarded\\b|\\bcontracts?\\b"
+NM_WATCH_LISTINGS  <- c("rfp_rht", "contracts_rht")
+
+nm_watch_split <- function(text) {
+  items <- unlist(strsplit(paste(text, collapse = " "),
+                           paste0("Read More|(?<=[.!?])\\s+(?=[A-Z\"])|",
+                                  "\\s(?=(Press Release|News/Announcement|Contract/Procurement|",
+                                  "Request for Proposals \\(RFP\\)|Contract) (?!Division|Type|Term))"),
+                           perl = TRUE))
+  items <- stringr::str_squish(items)
+  items[nzchar(items)]
+}
+
+#' The watch items on one page (reduced text)
+nm_watch_items <- function(text, key) {
+  it  <- nm_watch_split(text)
+  has <- function(rx) stringr::str_detect(it, rx)
+  ctx <- has(NM_WATCH_CONTEXT)
+  keep <- has(NM_WATCH_ACCENTURE) |
+    (has(NM_WATCH_ADMIN) & ctx) |
+    (has(NM_WATCH_MONEY) & has("\\$\\s?[0-9]") & ctx)
+  if (identical(key, "news_rht")) keep <- keep | (has(NM_WATCH_SELECTION) & ctx)
+  if (key %in% NM_WATCH_LISTINGS) keep <- keep | ctx
+  unique(it[keep])
+}
+
+#' What the ASO watch finds on one page: Accenture anywhere, and every watch
+#' item the archived copy does not carry. Returns messages; empty is quiet.
+nm_aso_watch_findings <- function(live, archived, key) {
+  out <- character(0)
+  if (stringr::str_detect(live, NM_WATCH_ACCENTURE)) {
+    out <- c(out, paste0("[NM] ", key, ": HCA's page names ACCENTURE. Read it for the ASO selection, ",
+                         "the fee and the pass-through share (Accenture LLP FSRS $128,979,618.21, ",
+                         "ADMINISTRATOR_PASS_THROUGH_UNRESOLVED)."))
+  }
+  new <- setdiff(nm_watch_items(live, key), nm_watch_items(archived, key))
+  new <- new[!stringr::str_detect(new, NM_WATCH_ACCENTURE)]
+  if (length(new)) {
+    out <- c(out, paste0("[NM] ", key, ": new administrator / ASO / procurement-stage item(s) on HCA's ",
+                         "site -- THAT IS THE SIGNAL. Read them: ",
+                         paste(sQuote(substr(new, 1, 300)), collapse = " | ")))
+  }
+  out
+}
+
+#' The page-structure check: each migrated page must still be the page it was
+#' when archived, or the watch above is reading nothing. A page that loses its
+#' marker is a finding (re-read and re-anchor), never a quiet pass.
+NM_V2_MARKERS <- list(
+  programme_v2  = "Rural Health Transformation Program",
+  news_rht      = "Press Release",
+  aso_search    = "administrative services organization",
+  aso_release   = "administrative services organization services",
+  rfp_rht       = "Request for Proposals",
+  contracts_rht = "Contracts")
+nm_v2_marker_findings <- function(txt) {
+  miss <- names(NM_V2_MARKERS)[!purrr::map_lgl(names(NM_V2_MARKERS), function(k)
+    !is.null(txt[[k]]) && stringr::str_detect(txt[[k]], stringr::regex(NM_V2_MARKERS[[k]], ignore_case = TRUE)))]
+  if (!length(miss)) return(character(0))
+  paste0("[NM] the migrated page(s) ", paste(miss, collapse = ", "), " no longer carry their marker. ",
+         "HCA's site has moved again: re-read it and re-point the probe; the ASO watch is blind until then.")
+}
 
 #' The change test: a digest of the REDUCED text, not of the file
 nm_content_digest <- function(body) {
   digest::digest(nm_reduce_html(body), algo = "sha256", serialize = FALSE)
 }
 
-#' LIVE: has New Mexico awarded yet?
+#' LIVE: has New Mexico named its administrator or awarded?
 #'
-#' Missouri's `--probe` shape (session 29): fetch, compare, report, ARCHIVE
-#' NOTHING. The tripwires run against the LIVE bytes rather than the archive --
-#' session 25's Indiana lesson as code.
-#'
-#' IT COMPARES A CONTENT DIGEST, AND THE MECHANISM IS THE SIXTH THIS PROJECT
-#' HAS MET. hca.nm.gov runs the WordPress Complianz cookie-consent plugin,
-#' which writes a `privacy-statement-children` URL into a JSON config inside a
-#' script body -- and draws that URL from the site's own posts AT RANDOM on
-#' each render. Twenty minutes apart it served "/snapchanges/" and a 2021
-#' suicide-prevention press release, moving the page from 199,369 to 199,464
-#' bytes.
-#'
-#' IT IS CALIFORNIA'S antispambot() FINDING ONE PLUGIN OVER, WITH ONE
-#' DIFFERENCE THAT MATTERS: California's re-roll was CONSTANT-LENGTH and this
-#' one is not, so a byte-count check passes California's and fails this. And
-#' THREE FETCHES SECONDS APART HERE WERE BYTE-IDENTICAL while the copy taken
-#' twenty minutes earlier was not -- California's lesson confirmed a third
-#' time, by a third mechanism. Stripping script bodies absorbs it: the reduced
-#' text is identical across all four copies at 6,978 characters.
+#' SESSION 122 REWRITE. HCA migrated www.hca.nm.gov to Drupal on or about
+#' 2026-11-20: the old RHT page (the six procurement stages and the ASO line)
+#' redirects to a stale pre-procurement page and /news/ is 404, so the session
+#' 120 assertions read a page that no longer exists. The probe now reads six
+#' migrated pages (NM_PROBE_KEYS) and runs the ASO watch on each, the
+#' structure check, and the name tripwire on the programme page and the
+#' RHT-filtered news index. The old assertions (`nm_assert_no_award_roster()`
+#' and friends) still run under --validate, against the archive they were
+#' written for. Fetch, compare, report, ARCHIVE NOTHING (§2.2). The content
+#' digest strips script bodies, so the session-35 Complianz finding is moot on
+#' Drupal but the reduction is unchanged.
 nm_probe <- function(keys = NM_PROBE_KEYS) {
   message("[NM] LIVE probe, ", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"))
   changed <- character(0)
@@ -1407,54 +1547,38 @@ nm_probe <- function(keys = NM_PROBE_KEYS) {
     have <- nm_content_digest(readBin(nm_path(key), "raw",
                                       file.size(nm_path(key))))
     same <- identical(live, have)
-    message(sprintf("  %-10s %s  %s", key, if (same) "UNCHANGED" else "CHANGED  ",
+    message(sprintf("  %-13s %s  %s", key, if (same) "UNCHANGED" else "CHANGED  ",
                     substr(live, 1, 16)))
     if (!same) changed <- c(changed, key)
   }
 
   txt <- lapply(bodies, nm_reduce_html)
-  nm_assert_no_award_roster(programme = txt$programme)
-  nm_assert_hubs_selected_not_awarded(programme = txt$programme,
-                                      news = txt$news)
-  nm_assert_pending_not_awarded(programme = txt$programme)
-  nm_assert_programme_provenance(programme = txt$programme)
-  # SESSION 120, OWNER RULING (d): the ASO announcement. Accenture LLP's FSRS
-  # subaward ($128,979,618.21) is held out of NM's awards under
-  # ADMINISTRATOR_PASS_THROUGH_UNRESOLVED until HCA splits the fee from the
-  # pass-through share. HCA says the ASO "announcement will be made by November
-  # 30, 2026"; this trips the day that sentence changes or the page names the ASO.
-  aso <- nm_aso_findings(txt$programme)
-  if (length(aso)) stop(paste(aso, collapse = " | "), call. = FALSE)
-  nm_assert_roster_control(rhcdf = txt$rhcdf, news = txt$news)
-  nm_assert_candidates_are_rhcdf_recipients(rhcdf = txt$rhcdf)
+  findings <- nm_v2_marker_findings(txt)
+  for (k in keys) {
+    findings <- c(findings, nm_aso_watch_findings(txt[[k]], nm_html_text(k), k))
+  }
 
-  # THE NAME TRIPWIRE, AND NEW MEXICO IS WHY IT EXISTS. On 2026-09-21 HCA's
-  # page said "HCA has selected six Regional Hub Organizations to lead Healthy
-  # Horizons" and NOT ONE of `NM_AWARD_POSTED`'s phrases matched it. Run
-  # against the archive session 35 committed, this fires on all six hubs by
-  # NAME -- Cibola General, the Regents, Eastern Plains, Gila Regional,
-  # Nor-Lea -- because it asks what the page NAMES rather than how it phrased
-  # it. The phrase list above stays as the second signal: it is what would
-  # catch New Mexico announcing awards while naming nobody, which no name diff
-  # can see.
+  # THE NAME TRIPWIRE (§2.3): New Mexico is why it exists -- on 2026-09-21 HCA
+  # named six hubs and no phrase matched. It now reads the migrated programme
+  # page and the RHT-filtered news index, each scoped past HCA's menus.
   rhtp_assert_no_new_organisations_across(
-    live = list(programme = nm_name_scope(txt$programme, "programme"),
-                news = nm_name_scope(txt$news, "news")),
-    archived = list(programme = nm_name_scope(nm_html_text("programme"), "programme"),
-                    news = nm_name_scope(nm_html_text("news"), "news")),
+    live = list(programme_v2 = nm_name_scope(txt$programme_v2, "programme_v2"),
+                news_rht = nm_name_scope(txt$news_rht, "news_rht")),
+    archived = list(programme_v2 = nm_name_scope(nm_html_text("programme_v2"), "programme_v2"),
+                    news_rht = nm_name_scope(nm_html_text("news_rht"), "news_rht")),
     state = "NM", known = NM_KNOWN_ORGANISATIONS)
 
-  message("[NM] the award tripwires pass against the LIVE bytes. READ THIS ",
-          "CAREFULLY, because what it now means changed on 2026-09-21: HCA ",
-          "HAS named six Healthy Horizons Regional Hubs -- three of them New ",
-          "Mexico hospitals -- and has priced NOT ONE of them. What still ",
-          "does not exist is a per-recipient amount, an executed contract, or ",
-          "a subrecipient. New Mexico is a SELECTION to watch, no longer a ",
-          "state that names nobody.")
   if (length(changed)) {
     message("[NM] CHANGED, read them: ", paste(changed, collapse = ", "))
   }
-  invisible(list(changed = changed))
+  if (length(findings)) {
+    message("[NM] the ASO / administrator watch FOUND something: read it.")
+  } else {
+    message("[NM] the ASO / administrator watch is quiet on all ", length(keys),
+            " migrated pages: no administrator named, no Accenture, no fee or ",
+            "pass-through figure, no RHT procurement-stage change.")
+  }
+  invisible(list(changed = changed, findings = findings))
 }
 
 
