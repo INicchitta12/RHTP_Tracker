@@ -3088,3 +3088,9 @@ VA,2026-11-23T14:46:51Z,UNCHANGED,vhha_foundation,,interactive
 VA,2026-11-23T14:46:51Z,UNCHANGED,ways_to_apply,,interactive
 VA,2026-11-23T14:46:51Z,UNCHANGED,news,,interactive
 VA,2026-11-23T14:46:51Z,UNCHANGED,vhcf_news,,interactive
+CA,2026-11-23T14:47:49Z,CHANGED,funding,,interactive
+CA,2026-11-23T14:47:49Z,CHANGED,calrht,,interactive
+CA,2026-11-23T14:47:49Z,CHANGED,newsroom,,interactive
+CA,2026-11-23T14:47:49Z,CHANGED,updates,,interactive
+CA,2026-11-23T14:47:49Z,TRIPWIRE,calrht,"[CA] 'calrht' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: The CalRHT Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+CA,2026-11-23T14:48:46Z,UNCHANGED,(all),,interactive

@@ -176,8 +176,11 @@ CA_SOURCES <- tibble::tribble(
   # $333,639,308.46 = BP1 + the $100M Year 2 initial award, cumulative). No
   # name; the 10-28 copy stays.
   "calrht",
-  "2026-11-09_ca_hcai_calrht_programme.html",
-  "https://hcai.ca.gov/calrht/",
+  "2026-11-23_ca_hcai_calrht_programme.html",  # SESSION 122 re-base, after reading: HCAI privacy-breach banner; survey block gone; footer $464,745,131.25 = FY2026 + FY2027 (ALLOTMENT_PLUS_FY2027). No name, roster 108 / $138,464,043.97 unchanged. The 11-09 copy stays.
+  # SESSION 122: HCAI moved CalRHT BACK to /rural-health/calrht/ between
+  # 11-20 and 11-21 (the 11-21 Routine logged HTTP 404 on all three /calrht/
+  # URLs). Re-pointed; the baselines are unchanged.
+  "https://hcai.ca.gov/rural-health/calrht/",
 
   # SESSION 108: HCAI's "Recommended Subrecipients for CalRHT Budget Period 1
   # Announced" (2026-10-21): five tables, 108 rows, $138,464,043.97 as printed
@@ -193,8 +196,8 @@ CA_SOURCES <- tibble::tribble(
   # label above the FM-OB table. The roster is 108 rows / $138,464,043.97, to
   # the cent (ca_assert_recommended_roster). R/03cl still reads the 10-28 copy.
   "updates",
-  "2026-11-09_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",
-  "https://hcai.ca.gov/calrht/calrht-program-updates/",
+  "2026-11-23_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html",  # SESSION 122 re-base, after reading: HCAI privacy-breach banner; survey block gone; footer $464,745,131.25 = FY2026 + FY2027 (ALLOTMENT_PLUS_FY2027). No name, roster 108 / $138,464,043.97 unchanged. The 11-09 copy stays.
+  "https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/",
 
   # Session 108: re-based after reading. Added a Tribal Set-Aside section
   # ("$11.65 million ... reserved for California's federally recognized
@@ -208,8 +211,8 @@ CA_SOURCES <- tibble::tribble(
   # the FM-OB block's "Coming Soon!" labels replaced by a webinar presentation
   # link (Tier 2). Four "(Closed)" headings, no name.
   "funding",
-  "2026-11-09_ca_hcai_calrht_funding_opportunities.html",
-  "https://hcai.ca.gov/calrht/funding/",
+  "2026-11-23_ca_hcai_calrht_funding_opportunities.html",  # SESSION 122 re-base, after reading: HCAI privacy-breach banner; survey block gone; footer $464,745,131.25 = FY2026 + FY2027 (ALLOTMENT_PLUS_FY2027). No name, roster 108 / $138,464,043.97 unchanged. The 11-09 copy stays.
+  "https://hcai.ca.gov/rural-health/calrht/funding/",
 
   "cms_noa",
   "2026-03-31_ca_cms_notice_of_award_revised.pdf",
@@ -250,7 +253,7 @@ CA_SOURCES <- tibble::tribble(
   # Session 109: re-based after reading (the mega-menu swap only).
   # Session 116: re-based after reading (HCAI's maintenance banner gone; no new headline link).
   "newsroom",
-  "2026-11-09_ca_hcai_newsroom_CONTROL.html",
+  "2026-11-23_ca_hcai_newsroom_CONTROL.html",  # SESSION 122 re-base, after reading: HCAI privacy-breach banner; survey block gone; footer $464,745,131.25 = FY2026 + FY2027 (ALLOTMENT_PLUS_FY2027). No name, roster 108 / $138,464,043.97 unchanged. The 11-09 copy stays.
   "https://hcai.ca.gov/media-center/",
 
   # SESSION 88. Linked from the CalRHT page as "CalRHT Frequently Asked
