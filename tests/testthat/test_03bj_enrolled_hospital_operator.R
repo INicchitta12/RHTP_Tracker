@@ -372,9 +372,15 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # 2,324 / $2,255,370,145.38 / 43. Subtracted first.
   # Session 121 (rebuild): SD Monument et al., TN HART, WV roster, IN MTB, ND
   # FSRS, OK: +45 / +$36,663,307.52: 2,369 / $2,292,033,452.90 / 43.
+  # Session 122: KS IFTp, Labette County Medical Center (CCN on row, not via
+  # this overlay): +1 / +$325,000: 2,370 / $2,292,358,452.90 / 43. Subtracted first.
+  expect_equal(n$rows, 2370L)
+  expect_equal(round(n$dollars, 2), 2292358452.90)
+  expect_equal(n$states, 43L)
+  n$rows <- n$rows - 1L
+  n$dollars <- n$dollars - 325000
   expect_equal(n$rows, 2369L)
   expect_equal(round(n$dollars, 2), 2292033452.90)
-  expect_equal(n$states, 43L)
   n$rows <- n$rows - 45L
   n$dollars <- n$dollars - 36663307.52
   expect_equal(n$rows, 2324L)

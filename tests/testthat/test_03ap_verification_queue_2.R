@@ -622,9 +622,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # date rule (TN HART), WV's Year 1 roster and releases, IN Meds-to-Beds (20 at
   # $0) and Parkview Goshen, ND FSRS 11-20, OK re-pricing: +45 / +$36,663,307.52:
   # 2,369 / $2,292,033,452.90 / 43. Subtracted first.
-  expect_equal(named$rows, 2369L)
-  expect_equal(round(named$dollars, 2), 2292033452.90, tolerance = 0)
+  # Session 122: KDHE IFTp, Labette County Medical Center ($325,000):
+  # +1 / +$325,000: 2,370 / $2,292,358,452.90 / 43. Subtracted first.
+  expect_equal(named$rows, 2370L)
+  expect_equal(round(named$dollars, 2), 2292358452.90, tolerance = 0)
   expect_equal(named$states, 43L)
+  named$rows <- named$rows - 1L
+  named$dollars <- named$dollars - 325000
+  expect_equal(named$rows, 2369L)
   named$rows <- named$rows - 45L
   named$dollars <- named$dollars - 36663307.52
   expect_equal(named$rows, 2324L)

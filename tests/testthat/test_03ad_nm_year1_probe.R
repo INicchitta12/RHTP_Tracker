@@ -523,3 +523,83 @@ test_that("session 94: the name tripwire reads past HCA's menus on both pages", 
     state = "NM", page = "news", known = NM_KNOWN_ORGANISATIONS),
     "THAT IS THE SIGNAL")
 })
+
+# -- session 122: the probe rewritten for HCA's migrated site ------------------
+
+test_that("session 122: the probe reads the six migrated pages, each archived", {
+  expect_setequal(NM_PROBE_KEYS, c("programme_v2", "news_rht", "aso_search",
+                                   "aso_release", "rfp_rht", "contracts_rht"))
+  for (k in NM_PROBE_KEYS) expect_true(file.exists(nm_path(k)), info = k)
+  # The fixture: HCA's migrated RHT page is the STALE pre-procurement text.
+  prog <- nm_html_text("programme_v2")
+  expect_match(prog, "HCA will develop Requests for Proposals", fixed = TRUE)
+  expect_false(grepl("Selection complete", prog, fixed = TRUE))
+  expect_false(grepl("Accenture", prog, fixed = TRUE))
+  # The filtered news index carries the 11-18 Guidehouse release (baseline).
+  expect_match(nm_html_text("news_rht"), "State selects Guidehouse", fixed = TRUE)
+})
+
+test_that("session 122: the archive against itself is quiet on every watched page", {
+  txt <- purrr::set_names(purrr::map(NM_PROBE_KEYS, nm_html_text), NM_PROBE_KEYS)
+  expect_length(nm_v2_marker_findings(txt), 0L)
+  for (k in NM_PROBE_KEYS) {
+    expect_length(nm_aso_watch_findings(txt[[k]], txt[[k]], k), 0L)
+  }
+})
+
+test_that("session 122: the ASO watch TRIPS on an administrator named or selected", {
+  news <- nm_html_text("news_rht")
+  sel <- sub("Press Release State seeks administrator",
+             paste("Press Release State selects Acme Health Partners as administrative services",
+                   "organization for rural health programs November 25, 2026 Division Medical",
+                   "Assistance Division (MAD) Read More Press Release State seeks administrator"),
+             news, fixed = TRUE)
+  expect_false(identical(sel, news))
+  f <- nm_aso_watch_findings(sel, news, "news_rht")
+  expect_length(f, 1L)
+  expect_match(f, "Acme Health Partners", fixed = TRUE)
+  # ...and the name tripwire sees the new organisation as well.
+  expect_error(rhtp_assert_no_new_organisations(
+    nm_name_scope(sel, "news_rht"), nm_name_scope(news, "news_rht"),
+    state = "NM", page = "news_rht", known = NM_KNOWN_ORGANISATIONS),
+    "THAT IS THE SIGNAL")
+})
+
+test_that("session 122: Accenture, a fee and a third-party administrator each trip", {
+  rel <- nm_html_text("aso_release")
+  expect_match(paste(nm_aso_watch_findings(paste(rel, "HCA has selected Accenture."),
+                                           rel, "aso_release"), collapse = " "),
+               "ACCENTURE", fixed = TRUE)
+  fee <- paste(rel, "The rural health ASO contract carries an administrative fee of $4,200,000.")
+  expect_length(nm_aso_watch_findings(fee, rel, "aso_release"), 1L)
+  tpa <- paste(rel, "A third-party administrator will issue RHT payments.")
+  expect_length(nm_aso_watch_findings(tpa, rel, "aso_release"), 1L)
+  # A pass-through amount without the word administrator still trips.
+  pt <- paste(rel, "Of the rural award, $120,000,000 is pass-through to providers.")
+  expect_length(nm_aso_watch_findings(pt, rel, "aso_release"), 1L)
+})
+
+test_that("session 122: a procurement-stage change on the RFP or contracts list trips", {
+  rfp <- nm_html_text("rfp_rht")
+  closed <- sub("Consultant Support for Rural Health Transformation RHTP Division Administrative Services Division (ASD) Status Open",
+                "Consultant Support for Rural Health Transformation RHTP Division Administrative Services Division (ASD) Status Closed",
+                rfp, fixed = TRUE)
+  expect_false(identical(closed, rfp))
+  expect_length(nm_aso_watch_findings(closed, rfp, "rfp_rht"), 1L)
+  con <- nm_html_text("contracts_rht")
+  exe <- paste(con, "Contract Rural Health Transformation Administrative Services Organization",
+               "Contract Type Original Term December 1, 2026 Status Open Read More")
+  expect_length(nm_aso_watch_findings(exe, con, "contracts_rht"), 1L)
+})
+
+test_that("session 122: a migrated page losing its marker is a finding, not a pass", {
+  txt <- purrr::set_names(purrr::map(NM_PROBE_KEYS, nm_html_text), NM_PROBE_KEYS)
+  txt$aso_search <- "Page not found"
+  expect_match(nm_v2_marker_findings(txt), "aso_search", fixed = TRUE)
+})
+
+test_that("session 122: unrelated 'Administrative ...' hits on site search do not trip", {
+  s <- nm_html_text("aso_search")
+  noise <- paste(s, "Rule/Statute/Policy/Register Chapter 999 - Administrative Hearings Read More")
+  expect_length(nm_aso_watch_findings(noise, s, "aso_search"), 0L)
+})

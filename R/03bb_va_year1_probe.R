@@ -72,8 +72,15 @@ VA_PAGES <- tibble::tribble(
   # Education) and Food is Medicine (Virginia Hospital and Healthcare
   # Foundation). Tier 2 status only: no partner added, nobody named, no
   # amount. The 10-26 copy stays (R/03be reads it for the collaboratives).
+  # Session 122: re-based after reading the CHANGED diff logged every firing
+  # since 11-17 (re-read live 2026-11-23, past the 11-20 TLS outage). Only RFA
+  # Status cells moved: Innovation Fund (VIPC) Open -> Closed, Active Kids
+  # Open -> Closed, Consumer Technology TBD -> Open, and the "Commonwealth of
+  # VA ... Additional RFAs to be released" Mobile & Hybrid line is gone (the
+  # five Regional Collaboratives remain, Open). Tier 2 status only: nobody
+  # named, no amount. The 10-28 copy stays.
   "ways_to_apply", paste0(VA_RHT, "/ways-to-apply/"),
-  file.path(VA_DIR, "2026-10-28_rhtva_ways_to_apply.html"), TRUE,
+  file.path(VA_DIR, "2026-11-23_rhtva_ways_to_apply.html"), TRUE,
   "news", paste0(VA_RHT, "/news--updates/"),
   file.path(VA_RECHECK, "rhtva_news_updates.html"), FALSE,
   "vhcf_news", "https://www.vhcf.org/news/",

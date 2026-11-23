@@ -112,7 +112,7 @@ test_that("Kansas's own figures are unchanged by all of the above", {
                         show_col_types = FALSE, progress = FALSE)
   # The first three pools are unchanged; session 52 APPENDED a fourth
   # (Emerging Technology, 14 / $16,006,648), which is not a reader change.
-  first3 <- ks[ks$award_pool != "EMERGING_TECH", ]
+  first3 <- ks[!ks$award_pool %in% c("EMERGING_TECH", "IFTP"), ]   # session 122: IFTp appended, not a reader change
   expect_equal(nrow(first3), 46L)
   expect_equal(sum(first3$amount), 80020499)
   expect_true(any(grepl("Citizens Foundation", ks$awardee)))

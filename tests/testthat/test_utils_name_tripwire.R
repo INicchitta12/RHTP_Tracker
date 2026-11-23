@@ -338,7 +338,7 @@ test_that("every wired probe's watched pages have a real baseline TODAY", {
     CT = list("R/03ac_ct_year1_probe.R", "ct_html_text",
               c("programme", "documents", "opm")),
     NM = list("R/03ad_nm_year1_probe.R", "nm_html_text",
-              c("programme", "news")),
+              c("programme_v2", "news_rht")),
     KY = list("R/03af_ky_year1_probe.R", "ky_html_text",
               c("funding", "programme", "rch")),
     NY = list("R/03ag_ny_year1_probe.R", "ny_html_text", c("programme")),
