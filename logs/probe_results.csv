@@ -3095,3 +3095,26 @@ CA,2026-11-23T14:47:49Z,CHANGED,updates,,interactive
 CA,2026-11-23T14:47:49Z,TRIPWIRE,calrht,"[CA] 'calrht' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: The CalRHT Program. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
 CA,2026-11-23T14:48:46Z,UNCHANGED,(all),,interactive
 CT,2026-11-23T15:42:11Z,UNCHANGED,(all),,trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-11-23T16:52:21Z,CHANGED,AZ:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:21Z,UNCHANGED,AZ:ahcccs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:29Z,CHANGED,DE:news,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:31Z,UNCHANGED,FL:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:31Z,ERROR,governor,HTTP 403 from https://www.flgov.com/eog/news/press,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:32Z,CHANGED,IA:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:32Z,UNCHANGED,ID:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:32Z,UNCHANGED,ID:dhw,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:34Z,UNCHANGED,MN:mdh,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:34Z,UNCHANGED,MT:news,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:34Z,UNCHANGED,MT:dphhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:36Z,CHANGED,NE:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:36Z,UNCHANGED,NE:dhhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:37Z,CHANGED,NJ:doh,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:38Z,UNCHANGED,NV:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:38Z,UNCHANGED,NV:nvha,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:40Z,UNCHANGED,OK:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:40Z,UNCHANGED,OR:oha,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:41Z,CHANGED,TX:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:41Z,CHANGED,TX:hhsc,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:43Z,CHANGED,UT:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:43Z,UNCHANGED,UT:dhhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-23T16:52:43Z,CHANGED,MD:governor,,trig_018XcygicsAyLfgdhgjE7uDU
