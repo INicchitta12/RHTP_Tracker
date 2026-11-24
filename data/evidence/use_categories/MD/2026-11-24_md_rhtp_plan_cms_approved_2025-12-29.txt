@@ -1,0 +1,2959 @@
+Rural Health
+Transformation
+Program Plan
+Project Narrative
+Maryland Rural Health Transformation Program
+
+
+Rural Health Needs and Target Population
+Maryland’s Current Rural Health Landscape
+Maryland is “America in miniature” in large part due to its rural areas. From the Appalachian
+
+mountains of Western Maryland to the Eastern Shore’s coastal plains and wetlands, rural
+
+Marylanders have a long tradition of strength and resiliency. Our rural areas have deep historical
+
+roots, often tied to agriculture and aquaculture economies that helped shape Maryland’s overall
+
+prosperity. Common characteristics – including geographic isolation and lack of proximity to
+
+healthcare – set rural jurisdictions apart from their suburban and urban counterparts.
+
+
+Rural Maryland Demographics
+
+Figure 1: Rural Maryland, by Federal and State Designation
+
+
+
+
+Maryland law recognizes 18 of our 24 counties as rural, based on shared attributes including
+
+agricultural-based economies; challenges of persistent unemployment and poverty; aging
+
+Rural Health Transformation Program       Project Narrative                                       1
+CMS-RHT-26-001
+populations; out-migration of youth; inadequate access to quality housing, healthcare and other
+
+services; and inadequate transportation, communications, sanitation, and economic development
+
+infrastructure.1 Rural counties are home to 29% of the State’s population.2 Figure 1 shows
+
+federal and State definitions of rural areas. The Health Resources and Services Administration
+
+Federal Office of Rural Health Policy designates nine full and eight partial counties as rural,
+
+approximately 484,000 residents. Maryland’s rural areas have low population density with small
+
+settlements. Figure 2 shows key demographic indicators.
+
+
+Figure 2: Maryland’s Rural Population Demographics3,4
+
+                                                          % Persons
+                                               % 65+                   Median     % Bachelor’s
+                                                            Under                              % Medicaid
+          FEATURES              Population    Years and               Household    Degree or
+                                                          150% of                               Eligibility
+                                               Older                   Income       Higher
+                                                           Poverty
+      DATA OBTAINED              2023 est.    2023 est.   2019-2023   2019-2023    2019-2023       2023
+    United States of America    334,914,895     17%          20%       $78,538        34%          N/A
+    State of Maryland (total)    6,180,253      17%          15%      $101,652        43%          31%
+    State-Designated Rural       1,833,824      18%          14%       $89,577        28%          28%
+      Western Maryland           251,509        20%          21%       $66,860        23%          39%
+      Northern Maryland          734,674        17%          10%      $115,884        41%          21%
+      Southern Maryland          381,982        15%          10%      $122,410        34%          25%
+    Eastern Shore Maryland       465,659        21%          19%       $77,435        29%          36%
+
+Maryland’s population is aging – almost a quarter of the statewide population is over 60 and
+
+those over 85 are the fastest growing segment of the population. Compared to the State overall,
+
+
+
+
+1
+  Maryland General Assembly. 2014 Regular Session. Senate Bill 137 Chapter 469.
+https://mgaleg.maryland.gov/2014RS/Chapters_noln/CH_469_sb0137t.pdf
+2
+  United States Census Bureau. Quick Facts Maryland.
+https://www.census.gov/quickfacts/fact/table/MD/PST045224
+3
+  Maryland Vital Statistics Administrative. Maryland Vital Statistics Annual Report 2023.
+https://health.maryland.gov/vsa/Documents/Reports%20and%20Data/Annual%20Reports/2023_Annual%20Report_
+Final.pdf
+4
+ United States Census Bureau. Quick Facts Maryland.
+https://www.census.gov/quickfacts/fact/table/MD/PST045224
+
+Rural Health Transformation Program             Project Narrative                                         2
+CMS-RHT-26-001
+the rural Maryland population tends to be even older. Five of six counties predicted to have
+
+the largest percentage increases in older adults are rural.
+
+Rural Marylanders have fewer economic resources with higher rates of poverty and lower
+
+educational attainment compared to the State overall. A larger proportion of rural Medicaid
+
+participants compared to urban Medicaid participants is eligible for partial dual (6% vs. 4% in
+
+CY 2024) or full dual (9% vs. 7% in CY 2024) Medicare and Medicaid coverage.5
+
+
+Rural Maryland Health Outcomes
+
+Rural health outcomes lag behind the rest of the State, with lower life expectancy, limited
+
+access to healthcare, and higher rates of conditions like obesity,6 diabetes,7 heart disease,8 and
+
+behavioral health issues.9 Figure 3 shows that many rural areas have elevated death rates.
+
+
+
+
+5
+  September 2025 analysis by The Hilltop Institute.
+6
+  Rural Health Information Hub, Map of Obesity Prevalence, 2021. https://www.ruralhealthinfo.org/charts/39
+7
+  Maryland BRFSS Surveillance Brief, Volume 4, Number 1. Diabetes in Maryland. February 2022.
+https://health.maryland.gov/phpa/ccdpc/Reports/Documents/Diabetes%20in%20Maryland%E2%80%94Maryland%
+20BRFSS%20Surveillance%20Brief%202022.pdf
+8
+  HD Pulse, Heart Disease Death Rates for Maryland by County, 2019-2023. https://hdpulse.nimhd.nih.gov/data-
+portal/mortality/table?age=001&age_options=age_11&cod=250&cod_options=cod_15&comparison=states_to_us&
+comparison_options=comparison_statename_to_us&race=00&race_options=race_6&ratetype=aa&ratetype_options
+=ratetype_2&ruralurban=0&ruralurban_options=ruralurban_3&sex=0&sex_options=sex_3&statefips=24&statefips
+_options=area_states&yeargroup=5&yeargroup_options=yearmort_2&ut
+9
+  Investing in Maryland’s Behavioral Health Talent. October 2024.
+https://mhcc.maryland.gov/mhcc/pages/plr/plr/documents/2024/md_bh_workforce_rpt_SB283.pdf
+
+Rural Health Transformation Program           Project Narrative                                            3
+CMS-RHT-26-001
+Figure 3: Age-Adjusted All-Cause Death Rates, 202310
+
+
+
+
+Despite these challenges, rural Maryland performs as well as or better than the State overall on
+
+important perinatal outcomes: early prenatal care is higher among Maryland’s rural population
+
+(72.9% federally defined rural versus 65.7% State overall). The percentage of babies with low
+
+birthweight is similar (8.7% federally defined rural versus 8.6% State overall).11
+
+
+Rural Maryland Healthcare Access
+
+Like health outcomes, rural healthcare access lags behind more urban and suburban areas.
+
+Maryland has well-documented rural provider shortages with fewer primary care, specialty,
+
+and behavioral health providers. For example, some Eastern Shore rural counties have among the
+
+lowest provider-to-population ratios in the State. The federal government designates 14 rural
+
+
+
+10
+   2025-2029 Maryland Rural Health Strategic Plan
+11
+   Maryland Vital Statistics Administration. Maryland Vital Statistics Annual Report 2023.
+https://health.maryland.gov/vsa/Documents/Reports%20and%20Data/Annual%20Reports/2023_Annual%20Report_
+Final.pdf
+
+Rural Health Transformation Program        Project Narrative                                        4
+CMS-RHT-26-001
+Maryland jurisdictions in their entirety as health professional shortage areas for primary care.
+
+Rural behavioral health providers are only 3% of Maryland’s total behavioral health providers.
+
+Many rural residents rely on hospitals as their main source of healthcare services. Geographic
+
+isolation and transportation barriers restrict timely care and preventive services.
+
+Communities face barriers managing chronic disease, with preventable hospitalizations and
+
+emergency department (ED) visits driving up costs and worsening outcomes. Lack of
+
+healthcare access means delayed diagnosis, advanced disease at presentation, and higher
+
+burdens of chronic conditions such as heart disease, diabetes, and kidney disease. Behavioral
+
+health needs, particularly among youth, are urgent and growing.
+
+
+Rural Facility Financial Health
+
+Hospitals and other healthcare facilities operating in rural areas face challenges that
+
+fundamentally differ from their counterparts in other parts of the State. These include acute
+
+workforce shortages and limited access to specialty services. Over many years, Maryland and the
+
+federal Centers for Medicare & Medicaid Services (CMS) have worked together to create a
+
+financing model that has helped preserve access to care in rural areas. Maryland’s history of
+
+working with CMS and the CMS Innovation Center to implement a unique system of hospital
+
+global budgets has made rural hospital funding relatively more stable and predictable. Hospitals
+
+have been able to innovate with hub and spoke models for specialty care and community-based
+
+services. Maryland is actively engaged with CMS/CMMI to build on this experience with a
+
+model that will further advance efficient, accountable, and sustainable value-based care.
+
+
+
+
+Rural Health Transformation Program        Project Narrative                                       5
+CMS-RHT-26-001
+Target Population
+
+Maryland will target Rural Health Transformation Program (RHTP) resources to rural residents
+
+and healthcare providers in all 18 counties recognized as rural by Maryland law. This
+
+includes Western Maryland (Allegany, Garrett, and Washington Counties), Eastern Shore
+
+(Caroline, Cecil, Dorchester, Kent, Queen Anne’s, Somerset, Talbot, Wicomico, and Worcester
+
+Counties), Southern Maryland (Calvert, Charles, and St. Mary’s Counties) and Northern
+
+Maryland (Carroll, Frederick, and Harford Counties).
+
+
+Need for Transformation
+
+As described below in Governance and Project Management, the Maryland Department of
+
+Health (MDH) is the lead agency for the RHTP. Maryland’s State Office of Rural Health
+
+(SORH) is the designated office within MDH responsible for overall implementation,
+
+management, and assessment of RHTP initiatives. Through our Rural Health Transformation
+
+Plan (Transformation Plan) and proposed initiatives, Maryland will tackle longstanding
+
+challenges to improve the well-being of the one- third of residents who call rural Maryland
+
+home. Our strategies include strengthening the rural health workforce; expanding access to
+
+primary care, chronic disease management, and specialty care including behavioral health;
+
+reshaping care access points through technology; and increasing access to nutritious food to
+
+address root causes of chronic disease.
+
+
+
+
+Rural Health Transformation Program       Project Narrative                                    6
+CMS-RHT-26-001
+Rural Health Transformation Plan: Goals and Strategies
+
+Maryland Context
+
+Maryland’s Transformation Plan builds on the experience of our hospital global budgeting
+
+system. Maryland’s next phase of transformation will invest in continued adoption of value-
+
+based care models to ensure residents in every part of the State have access to high-quality,
+
+sustainable healthcare. Maryland’s additional strengths include a culture of cross-sector
+
+collaboration and a track record of creative, community-led solutions to empower rural
+
+stakeholders to design the solutions they need for transformation.
+
+
+Vision and Goals for Rural Health Transformation
+
+Our vision is to enable all rural Marylanders to achieve optimal health and well-being. Our
+
+goals are to (1) Transform the Rural Health Workforce, (2) Promote Sustainable Access and
+
+Innovative Care for Rural Marylanders, and (3) Empower Rural Marylanders to Eat for Health.
+
+
+Strategies for Rural Health Transformation
+
+Achieving true rural health transformation requires an array of interconnected strategies,
+
+initiatives, and actions. These strategies are not discrete – they will interact with and reinforce
+
+one another by design.
+
+Improving Access, Technology Use, and Data Driven Solutions
+
+One of Maryland’s pillars for transformation is promoting sustainable access and innovative care
+
+to improve access via technology use and data-driven Solutions (Initiative Two). This aligns with
+
+the RHTP strategic goals of Sustainable Access, Innovative Care, and Tech Innovation.
+
+Maryland will fund a range of initiatives, including to:
+
+Rural Health Transformation Program       Project Narrative                                           7
+CMS-RHT-26-001
+● Improve health information technology (HIT) connectivity and telehealth infrastructure.
+
+● Create sustainable access through clinical care service expansions and HIT advances,
+
+    including advanced artificial intelligence (AI) models, telehealth, and technology-
+
+    enabled chronic disease management.
+
+● Bring healthcare into rural communities by expanding mobile health services.
+
+● Advance innovative value-based care models, including geographic-based approaches.
+
+● Launch new primary care practices and expand specialty practices.
+
+● Strengthen emergency response for trauma care.
+
+● Expand School-Based Health Center (SBHC) capacity.
+
+● Provide focused support to expand behavioral health across the care continuum.
+
+We will support data-driven workforce solutions through immediate funding for a health
+
+workforce data strategy under Initiative One: Transform the Rural Health Workforce.
+
+Improving Outcomes
+
+Maryland will improve health outcomes through all three of our pillars, aligning with the RHTP
+
+strategic goal to Make Rural America Healthy Again. Initiative One: Transform the Rural
+
+Health Workforce will expand the professionals who can help rural Marylanders prevent and
+
+manage chronic disease. Initiative Two: Promote Sustainable Access and Innovative Care for
+
+Rural Marylanders will expand services for primary care, specialty care, and behavioral health
+
+across the continuum and bring healthcare directly to rural Marylanders to help prevent and
+
+manage chronic disease. Initiative Three: Empower Rural Marylanders to Eat for Health will
+
+expand supply and demand for local, nutritious, unprocessed foods to reverse chronic disease by
+
+confronting food as a root cause of health.
+
+
+
+
+Rural Health Transformation Program       Project Narrative                                       8
+CMS-RHT-26-001
+Partnerships
+
+Our RHTP funding method fosters partnerships by supporting strategic, cohesive proposals and
+
+delivering resources to rural providers and organizations working together. We will award
+
+partnerships that align around common resources for cohesive solutions. Our Transformation
+
+Plan is consistent with our long-standing commitment to partnership, community
+
+engagement, coalition-building, and addressing service gaps. As described in Stakeholder
+
+Engagement below, we heard directly from rural communities about their needs and strengths
+
+when developing this proposal.
+
+Workforce
+
+Workforce is a foundational issue to promote population health; ensure effective, trusted, high-
+
+value care; and improve access and outcomes. Technology alone cannot close care gaps – people
+
+are the core of a world-class healthcare system. Initiative One will address the persistent
+
+health workforce shortages that have been a critical deficiency. This directly aligns with the
+
+RHTP Workforce Development strategic goal. We will grow a well-trained and supported
+
+workforce across a broad range of healthcare fields and different levels of professions. We
+
+include career ladder advancement and “grow your own” initiatives to foster community
+
+expertise and opportunities for healthcare careers close to home.
+
+Financial Solvency Strategies
+
+Initiative Two promotes innovative care models such as a geographic-based model to create
+
+payment mechanisms that incentivize reduced healthcare costs while promoting population
+
+health and improving quality. In Maryland’s experience, hospital global budgets provided
+
+relatively stable financial solvency for rural hospitals.
+
+
+
+Rural Health Transformation Program         Project Narrative                                      9
+CMS-RHT-26-001
+Cause Identification
+
+Hospitals and other healthcare facilities in rural areas face challenges such as especially acute
+
+workforce shortages and limited access to specialty services. Maryland will continue working
+
+with CMS to understand and address the risks our rural hospitals face to advance efficient and
+
+accountable care. Initiatives One and Two provide flexibility for hospitals to propose solutions
+
+to meet their needs.
+
+Program Key Performance Objectives
+
+Maryland’s Transformation Plan will improve the health of rural Marylanders by (1)
+
+strengthening the rural health workforce, (2) connecting them to primary care, chronic
+
+disease management, specialty care, and behavioral health, and (3) addressing chronic
+
+disease with increased demand for and supply of nutritious food. Per our Metrics and
+
+Evaluation Plan, we will assess our success with initiative-specific metrics. SORH staff will
+
+measure our overall success by tracking rural performance on: potentially avoidable hospital
+
+utilization; diabetes control; and follow-up for acute behavioral health needs. We will build
+
+on this effort to define specific rural performance targets, in alignment with stated strategic
+
+goals.
+
+Strategic Goals Alignment
+
+    ● Initiative One: Transform the Rural Health Workforce aligns with the RHTP strategic
+
+         goal Workforce Development.
+
+    ● Initiative Two: Promote Sustainable Access and Innovative Care for Rural Marylanders
+
+         aligns with the RHTP strategic goals Sustainable Access, Innovative Care, and Tech
+
+         Innovation.
+
+
+
+Rural Health Transformation Program        Project Narrative                                        10
+CMS-RHT-26-001
+    ● Initiative Three: Empower Rural Marylanders to Eat for Health aligns with the RHTP
+
+        strategic goal Make Rural America Healthy Again.
+
+State Policies
+
+Figure 4 shows Maryland’s current status regarding state policy actions as outlined in the
+
+NOFO. Maryland is engaged with CMS/CMMI to pursue additional policies to support the
+
+delivery of high-quality, cost-effective care.
+
+
+
+Figure 4: Maryland’s Current State Policy Action Status
+ State Policy Action         Maryland Status
+ B.2. Health and Lifestyle   No statewide mandated reinstatement of Presidential Fitness Test.
+ B.3. SNAP Waivers           No pending or approved USDA SNAP food restriction waiver.
+                             Physicians applying for renewal of their license must earn at least 50 Category I or
+                             II CME credits in the two-year period preceding the license expiration date, with at
+ B.4. Nutrition Continuing
+                             least 25 of those CME credits being Category I. Physicians are exempt from the
+ Medical Education
+                             continuing education requirement for the first license renewal. Accredited Nutrition
+                             Continuing Medical Education courses are included in Category I.
+                             MD ranks 41st with a total score of 95 from the Cicero Institute’s A Policymaking
+                             Playbook for Certificate of Need Repeal Ranking (2024). Maryland has modernized
+ C.3. Certificate of Need
+                             and streamlined CON provisions in recent years. The state will consider further
+                             work in the policy area.
+                             MD participates in the: Interstate Medical Licensure Compact (IMLC) and serves as
+                             SPL; Nurse Licensure Compact (NLC); and Psychology Interjurisdictional Compact
+ D.2. Licensure Compacts
+                             (PSYPACT). The state is not currently a member of the EMS compact or the PA
+                             Compact but will consider further work in the policy area.
+                             Based on data sources provided on pages 87-88 of the NOFO - MD’s PA Scope of
+                             Practice scored as Moderate; NP Scope is considered Full Practice; and Dental
+ D.3. Scope of Practice
+                             Hygienist Scope is considered semi-restrictive with 4 of 8 allowable tasks. The state
+                             will consider further work in the policy area.
+                             MD does offer STLDI plans.
+                             Restrictions in place to limit STLDI plans beyond latest federal guidance - Maryland
+                             law defines short-term limited duration insurance as health coverage that 1) has a
+                             policy term that is less than 3 months after the original effective date of the policy or
+ E.3. Short-term, limited-   contract; 2) may not be extended or renewed; 3) applies the same underwriting
+ duration insurance          standards to all applicants regardless of whether they have previously been covered
+                             by short-term limited duration insurance; and 4) contains the notice required by
+                             federal law prominently displayed in the contract and any application materials.
+                             State’s maximum allowable initiative contract term is: 3 months
+                             State’s maximum allowable coverage period is: 3 months
+
+
+
+
+Rural Health Transformation Program              Project Narrative                                                  11
+CMS-RHT-26-001
+                           The recently enacted Preserve Telehealth Access Act of 2025 permanently extends
+                           telehealth coverage and reimbursement in Maryland, making permanent the inclusion
+ F.1. Remote Care Services of audio-only visits and requiring payment parity. Medicaid insurers must reimburse
+                           for telehealth services on the same basis and at the same rate as in-person visits. The
+                           state will explore whether additional work is needed in this policy area.
+
+Certified Community Behavioral Health Clinic (CCBHC) Entities (Factor A.2.)
+
+Maryland is working with stakeholders to address requirements of our Substance Abuse and
+
+Mental Health Services Administration (SAMHSA) CCBHC Planning Grant, awarded
+
+December 2024. There are no CCBHCs certified by the State in Maryland. Five SAMHSA
+
+CCBHC Expansion Grantees self-attest to meeting criteria (see Attachments). One of the five –
+
+Lower Shore Clinic (doing business as Healthport) – serves several rural counties including
+
+Caroline, Dorchester, Somerset, Wicomico and Worcester.
+
+Maryland is committed to increasing sustainable access to the full behavioral health
+
+continuum of care for holistic, whole-system transformation for rural communities. Beyond
+
+CCBHCs, MDH’s Behavioral Health Administration (BHA) and Maryland Medicaid are
+
+partnering to identify behavioral health service expansions, including revising the 1915(i)
+
+Intensive Home and Community-Based Services State Plan Amendment for youth and families.
+
+Efforts include outreach to partners and family caregivers, streamlining the referral process, and
+
+enhanced provider training. Revisions to the 1915(i) State Plan Amendment and associated
+
+regulations will streamline enrollment and strengthen referrals. A new reimbursement code
+
+supports the inclusion of Youth Peer Support Service, enhancing the comprehensive suite of
+
+services offered by Medicaid. We will use RHTP funds to expand and not supplant these efforts.
+
+Medicaid Disproportionate Share Hospital (DSH) Payment (Factor A.7.)
+
+Because of Maryland’s unique hospital payment system, Maryland hospitals do not receive
+
+DSH payments like their counterparts in other states.
+
+
+Rural Health Transformation Program             Project Narrative                                               12
+CMS-RHT-26-001
+Proposed Initiatives and Use of Funds
+Proposed Initiatives
+
+Our Transformation Plan centers on three initiatives, as shown in Figure 5.
+
+
+
+
+Figure 5: Proposed Initiatives and Activities
+
+                                                                                       Estimated
+ Initiative          Activities
+                                                                                       Required Funding
+
+                     Immediate Impact Funding:
+                     - Pathways to Health Careers
+ Initiative One:     - Area Health Education Centers                                   $139,118,329
+ Transform the
+ Rural Health        - Health Workforce Infrastructure                                 over all five years
+ Workforce           Transformation Funding Opportunities:
+                     - Workforce Pipeline Training Programs
+                     - Provider Training, Recruitment, and Retention Strategies
+                     Immediate Impact Funding:
+                     - Expand Primary Care and Specialty Practice Capacity
+                     - Increase Efficiency of Local Agency Operations
+ Initiative Two:     - Strengthen Emergency Trauma Response
+ Promote             - Expand School-Based Health Center Capacity
+ Sustainable                                                                           $765,310,876
+ Access and
+                     - Optimize HIT Connectivity and Use of CRISP Tools                over all five years
+ Innovative Care     - Centralize Telehealth Infrastructure
+ for Rural           Transformation Funding Opportunities:
+ Marylanders         - Sustainable Access through Service Expansions and IT Advances
+                     - Mobile Health Transformation Fund
+                     - Innovative Care Transformation Fund
+                     - Behavioral Health Transformation Fund
+ Initiative Three:   Immediate Impact Funding:                                         $88,017,624
+ Empower Rural       - Post-Harvest Infrastructure                                     over all five years
+
+
+Rural Health Transformation Program           Project Narrative                                              13
+CMS-RHT-26-001
+ Marylanders to      - Expand Grocers and Mobile Markets
+ Eat for Health      - Create Demand for Healthy Foods
+                     - Support Food Planning and Coordination
+                     Transformation Funding Opportunities:
+                     - Increase Local Healthy Food Access: Aggregation
+                     - Increase Local Healthy Food Access: Purchasing Strategy
+
+
+
+
+Funding Methods
+
+Maryland proposes two funding methods to transform rural health:
+
+
+
+
+Rural Health Transformation Program           Project Narrative                  14
+CMS-RHT-26-001
+● Immediate impact funding will target resources to projects that are ready for
+
+    implementation and have a clear entity to carry out the project.
+
+● Transformation fund opportunities through grant subawards will enable Maryland to
+
+    select the most promising projects from a pool of applicants.
+
+This directs resources to impactful projects as soon as possible while creating flexibility to
+
+distribute resources to projects that will benefit from a longer planning process. It builds on
+
+Maryland’s key strengths identified by stakeholders: (1) history of creative, community-led
+
+solutions, and (2) robust partnerships and collaboration across sectors and organizations.
+
+
+Immediate Impact Funding
+
+The immediate impact funding approach allows us to quickly provide resources to expand
+
+“shovel-ready” activities that do not currently exist in rural areas. The RHTP planning
+
+process provided sufficient opportunity for us to deliberate on and select programs for funding.
+
+
+
+
+Rural Health Transformation Program        Project Narrative                                       15
+CMS-RHT-26-001
+Transformation Fund Opportunities
+
+Transformation fund opportunities provide for a longer planning process that leverages rural
+
+expertise and empowers local ecosystems. Rural residents and leaders possess deep knowledge
+
+of their communities’ needs and opportunities. MDH and its transformation fund partners will
+
+issue requests for proposals (RFPs)/requests for applications (RFAs). RFPs/RFAs will define
+
+proposal requirements such as required partnerships; target population/geography served;
+
+proposed activities; measurement and outcomes; scalability and sustainability; implementation
+
+plan; budget; and evaluation criteria. Maryland will appoint committees to review applications
+
+and make award recommendations.
+
+Transformation fund opportunities will foster innovation and accelerate progress while
+
+reflecting federal RHTP goals and amplifying investment impact. MDH and its transformation
+
+fund partners will award funds to compelling proposals with clear potential impact. We will
+
+distribute funding only to the most promising and innovative projects, advancing CMS core
+
+principles of choice and competition.
+
+
+Maryland Will Not Use RHTP Funds For Any Prohibited Spending
+
+Maryland will comply with all RHTP policies and limitations, including all applicable
+
+provisions of 2 CFR Part 200 and 2 CFR Part 300. We will not use RHTP funding for any
+
+unallowable costs as described in the RHTP Notice of Funding Opportunity (NOFO).
+
+
+
+
+Rural Health Transformation Program      Project Narrative                                       16
+CMS-RHT-26-001
+Description of Initiative One: Transform the Rural Health Workforce
+
+Figure 6: Overview of Initiative One
+
+ Initiative              Transform the Rural Health Workforce
+
+ Main Strategic Goal     Workforce Development
+
+ Use of Funds            E. Workforce
+                         F. IT Advances
+
+ Technical Score         D.1. Talent recruitment
+ Factors                 F.2. Data infrastructure
+
+ Key Stakeholders        MDH Office of Health Care Access and Workforce Development, MD Labor,
+                         employers and industry intermediaries, AHECs, Maryland occupational boards,
+                         Maryland Longitudinal Data System Center, MHCC, community colleges, school
+                         districts, colleges and universities, academic medical centers, healthcare providers,
+                         LHDs, and community-based organizations.
+                         See Acronym List Attachment.
+
+ Outcomes                See Metrics and Evaluation Plan for detail.
+                         (1) Student participants in pipeline programs across medical and behavioral health, #
+                         with percentage increase, as available (workforce and program implementation
+                         metric)
+                         (2) Participants in training and education programming related to medical, behavioral,
+                         and dental health, # with percentage increase, as available (workforce and program
+                         implementation metric)
+                         (3) Participants providing professional services to meet Maryland’s health needs for the
+                         first time (as a student or new employee) or in a promoted role due to newly earned
+                         credentials (#) (workforce and program implementation metric)
+                         (4) Sustainable infrastructure improvements related to workforce transformation
+                         efforts, # (workforce and program implementation metric)
+
+ Impacted Counties       Maryland law recognizes 18 counties as rural. The initiative will impact residents in all
+                         18 counties. The Federal Information Processing Series (FIPS) codes for these counties
+                         are: 24001, 24009, 24011, 24013, 24015, 24017, 24019, 24021, 24023, 24025, 24029,
+                         24035, 24037, 24039, 24041, 24043, 24045, and 24047.
+
+ Estimated Required      $139,118,329 over all five years
+ Funding                 Please see detailed information in the Budget Narrative.
+
+
+Under Initiative One: Transform the Rural Health Workforce Maryland will expand existing
+
+and implement new efforts to develop, recruit, and retain a strong health workforce in rural
+
+communities, addressing multiple types of healthcare clinicians and allied health professionals.
+
+Figure 7 shows Initiative One elements. See the Budget Narrative for budget information.
+
+
+
+
+Rural Health Transformation Program            Project Narrative                                                 17
+CMS-RHT-26-001
+Figure 7: Initiative One Proposed Elements
+
+ Initiative One: Transform the Rural Health Workforce
+
+ Immediate Impact Funding
+
+ Investments:                                                                               Key Uses of Funds:
+ - Pathways to Health Careers (Technical Score Factor D.1.)                                 Workforce
+ - Area Health Education Centers (Technical Score Factor D.1.)                              IT advances
+ - Health Workforce Infrastructure (Technical Score Factor D.1., F.2.)
+
+ Transformation Funding
+
+ Funding Opportunities:                                                                     Key Uses of Funds:
+ - Workforce Pipeline Training Programs (Technical Score Factor D.1.)                       Workforce
+ - Provider Training, Recruitment, and Retention Strategies (Technical Score Factor D.1.)
+
+Immediate Impact Funding
+
+Pathways to Health Careers
+
+Maryland operates effective apprenticeships with an estimated $1.47 return on every $1 invested
+
+and a reported one-year retention rate exceeding 90%. We propose allocating RHTP funds to the
+
+Maryland Department of Labor (MD Labor) to expand its Registered Apprenticeship program
+
+to focus on healthcare apprenticeships not currently available in rural parts of the State.
+
+We will expand annual placements, including for community health workers (CHWs), certified
+
+nursing assistants, licensed practical nurses, medical assistants, alcohol and drug counselors, and
+
+Certified Peer Recovery Specialists (Peers). MD Labor will use funds to support employer
+
+costs for items such as apprentice instruction and preceptor pay, as well as infrastructure costs
+
+of developing and scaling the program of apprenticeships in new healthcare fields and new
+
+geographic areas.
+
+MD Labor’s Rural Advancement for Maryland Peers (RAMP) program provides a career
+
+pathway for Peers. RAMP funds rural organizations that (1) Train individuals to become
+
+certified in Maryland; (2) Provide supportive services to participants to ensure their successful
+
+
+
+Rural Health Transformation Program              Project Narrative                                           18
+CMS-RHT-26-001
+completion of training for certification and employment; and (3) Prepare participants for
+
+upskilling and supervisor training for advancement to mid-level behavioral health roles.
+
+We propose allocating RHTP funds to MD Labor to expand the RAMP model to additional
+
+health occupation tracks including CHWs, patient navigators, direct support professionals, and
+
+other healthcare support occupations as determined by labor market analysis. The expansion will
+
+emphasize training for unemployed and underemployed individuals and upskilling post-
+
+certification with ongoing training, education, and support services. Notably, the expanded
+
+RAMP program is a pathway for employment for Maryland Medicaid participants in rural
+
+areas to meet new Working Families Tax Cut Act community engagement requirements starting
+
+in 2027. Maryland will refer adult Medicaid participants to RAMP. We anticipate the RAMP
+
+model’s expansion will result in 1,100 additional Marylanders participating in training and
+
+upskilling pathways, with 900 reporting an increase in skills, 750 earning an industry-
+
+recognized credential, and 500 obtaining employment.
+
+MD Labor will competitively grant funds to non-profit organizations, institutions of higher
+
+education, local workforce development boards, and Registered Apprenticeship sponsors.
+
+Employers will help identify skills gaps and training needs and will hire participants upon
+
+successful completion of the program. The track record of success and MD Labor’s experience
+
+engaging employers will lead to sustainability beyond RHTP.
+
+Area Health Education Centers
+
+Maryland’s Area Health Education Centers (AHECs) work across rural Maryland to recruit,
+
+train, and retain a qualified health workforce. Programs address pre-college students, health
+
+professional students, and current professionals from the fields of medicine, nursing, dentistry,
+
+pharmacy, psychology, and social work. We will allocate RHTP funds to the Maryland Area
+
+
+Rural Health Transformation Program       Project Narrative                                         19
+CMS-RHT-26-001
+Health Education Center at the University of Maryland to expand the capacity of existing
+
+AHEC work in rural Maryland, as well as open a new AHEC in rural Southern Maryland.
+
+Within the existing AHECs, RHTP funds will expand programs that (1) connect rural students to
+
+healthcare careers with hands-on experience in healthcare settings and (2) support health
+
+profession clinical education rotations that include housing, preceptorships, interprofessional
+
+training, and continuing education. The AHEC Scholars Program is a longitudinal two-year
+
+program that exposes students to interdisciplinary didactic and community-based clinical or
+
+experiential training in rural Maryland. RHTP funds will support new infrastructure including
+
+data management and analysis technology tools to capture return on investment.
+
+RHTP funds will support start-up operations of a new AHEC in Southern Maryland,
+
+including execution of five formal partnerships with health systems, preceptor pool development,
+
+and K-12 and health professions program initiation. We will track a number of performance
+
+indicators including AHEC Scholars enrolled/completing interprofessional training and employer
+
+placements. Infrastructure investments will have sustained use. The new Southern AHEC will
+
+build sustainability through in-kind support, partnerships and diverse funding opportunities.
+
+Health Workforce Infrastructure
+
+Considerable technical infrastructure is necessary to effectively support workforce investments
+
+throughout rural Maryland. We need better insight into the capacity and characteristics of
+
+our current health workforce. Like all states, Maryland collects licensure data via occupational
+
+boards. However, there are significant gaps between active licensure and actual provision of
+
+healthcare services. Data are often incomplete and outdated. To determine the needs of rural
+
+Maryland, we need to know who practitioners are, what services they provide, in what
+
+geographies and settings they practice, hours worked per week, and number of hours providing
+
+
+Rural Health Transformation Program       Project Narrative                                       20
+CMS-RHT-26-001
+clinical care versus performing administrative, teaching, or managerial responsibilities. Better
+
+data will enable us to effectively focus our rural workforce investments.
+
+We propose allocating RHTP funds to the MDH Office of Population Health Improvement to
+
+implement a Maryland Health Workforce Data Clearinghouse (Clearinghouse). MDH has
+
+engaged stakeholders in planning and drafting a Clearinghouse blueprint, identifying the
+
+following potential data sources: all-payer claims data, health plan network adequacy, licensing
+
+boards, hospital staff vacancy rates, and community insights. Key partners are the Maryland
+
+occupational boards, Maryland Longitudinal Data System Center, and Maryland Health Care
+
+Commission (MHCC). A task force will help develop initial use cases for key professions and
+
+inform inaugural data collection, analysis, and reporting on patient need and healthcare
+
+professional supply. This work is foundational to determine need for primary and specialty care
+
+providers, promote the recruitment and retention of healthcare providers to help meet identified
+
+needs, and help reduce shortages of healthcare providers in rural Maryland.
+
+In addition, a proposed Data System will improve efficiency and the experience of rural
+
+health professionals in their interactions with MDH workforce development programs such as
+
+the Maryland Loan Repayment Programs and CHW Program. The Maryland Department of
+
+Information Technology will use RHTP funds to enhance existing workforce development
+
+opportunities by managing data to ensure appropriate healthcare delivery throughout rural
+
+Maryland. Current manual processes create inefficiencies, security challenges, and delays for
+
+health professionals. We need an automated, cloud-based system to streamline and expedite
+
+operations, enhance security, improve customer service, and strengthen reporting and auditing
+
+capabilities while adapting to significantly increased health professional applicant numbers.
+
+
+
+
+Rural Health Transformation Program       Project Narrative                                        21
+CMS-RHT-26-001
+Thousands of current and prospective healthcare professionals across rural Maryland will
+
+benefit from more efficient MDH programming.
+
+Transformation Fund Opportunities
+
+Workforce Pipeline Training Programs
+
+This transformation fund will increase recruitment and training opportunities for healthcare
+
+and public health professionals in rural Maryland and build the bench strength of the rural
+
+health workforce. In compliance with RHTP requirements, there will be a five-year rural service
+
+commitment where applicable. MD Labor will administer the fund.
+
+Background: Awards to local and/or regional entities will help eligible individuals find, train
+
+for, and obtain employment, paving the way to long term health careers serving rural
+
+Marylanders. The fund will support three categories of opportunities:
+
+● Career exploration and work-based learning programs that provide hands-on, skills-
+
+    based training for students (ranging from from middle school to those as institutions of
+
+    higher education) to connect classroom learning to real-world careers. This can include but is
+
+    not limited to career and technical education, internships, and apprenticeships.
+
+● Upskilling opportunities for incumbent workers to gain new skills, credentials, and/or
+
+    access advancement opportunities. This investment will boost earning potential of workers
+
+    while also cultivating a more highly skilled workforce and increasing the quality of care
+
+    received in rural Maryland.
+
+● Programs to support innovation and public health, including the creation of a public health
+
+    service corps, community-level health promotion and chronic disease prevention, and health
+
+    data analytics.
+
+
+
+
+Rural Health Transformation Program       Project Narrative                                       22
+CMS-RHT-26-001
+Objectives: This transformation fund will build a pipeline of future health professionals for
+
+rural communities, while providing advancement opportunities to existing workers. This fund
+
+will focus on direct care, administrative, and HIT careers. It will help individuals complete
+
+educational and training opportunities and obtain certifications and degrees. The fund will spur
+
+partnerships across K-12 and postsecondary education, workforce systems, and training
+
+infrastructure.
+
+Potential Applicants: Potential applicants to this transformation fund include community
+
+colleges, school districts, universities, and other education providers in partnership with
+
+hospitals/health systems, healthcare providers, community-based social service providers, and
+
+local health departments (LHDs). Applicants will have the flexibility to define how to form
+
+partnerships across geographies that make sense for their proposals.
+
+Activities: Figure 8 shows the types of activities eligible for funding to develop rural
+
+professionals.
+
+Figure 8: Potential Workforce Pipeline Training Programs Activities
+ Domain           Examples
+                  - Partner with middle and high schools, community colleges, training programs to identify
+                    students interested in healthcare/public health.
+ Recruitment      - “Grow your own” recruitment, including career and technical education (CTE) programs
+ and Training       reflective of rural communities.
+                  - Deploy participants (trainees, interns, apprentices, early-careers) to skill building pathways.
+                  - Match recruits with experienced mentors in public health or healthcare practice.
+                  - Full-time roles, college summer internships, and junior fellowships for high school students.
+                  - Strengthen and formalize partnerships with employers
+ Placement/       - Deploy participants to partner sites, e.g., local health departments, FQHCs, hospitals, schools,
+ Partnerships       EMS/community paramedicine programs.
+                  - Training in place to bridge training and full-time employment.
+                  - Structure tiers for different education/experience levels.
+                  - Earn while you learn models with stipends, support for transportation, and other potential
+ Incentives         training obstacles to reduce participation barriers.
+ and Support      - Training cost reductions tied to service commitments.
+                  - Career advancement with preferential hiring.
+ Outcomes         - Data-sharing partnerships with education institutions and health systems to track outcomes and
+ Tracking           workforce retention.
+
+
+
+
+Rural Health Transformation Program               Project Narrative                                                23
+CMS-RHT-26-001
+Provider Training, Recruitment, and Retention Strategies
+
+The Provider Training, Recruitment, and Retention Transformation Fund will expand training,
+
+recruitment, and retention strategies for rural Maryland physicians and advanced practice
+
+professionals (e.g.,physician assistants, advanced practice nurses, behavioral health
+
+providers, and dentists). In compliance with RHTP requirements, there will be a five-year rural
+
+service commitment. MD Labor will administer the fund.
+
+Background: The transformation fund will enable Maryland’s education and health systems to
+
+develop cohesive strategies across provider types and rural areas. The increase in workforce
+
+resulting from five years of RHTP funding will produce a positive cycle – a larger workforce
+
+will reduce burnout and professional isolation, creating a more appealing environment for new
+
+and established providers. This will continue to attract additional healthcare providers,
+
+sustaining workforce gains even after the RHTP period.
+
+Objectives: This transformation fund will increase the number of healthcare trainees and
+
+practitioners in rural areas.
+
+Potential Applicants: Potential applicants include health professional schools and healthcare
+
+provider organizations.
+
+Activities: Figure 9 shows examples of activities eligible for funding across training,
+
+recruitment, and retention.
+
+
+
+
+Rural Health Transformation Program       Project Narrative                                     24
+CMS-RHT-26-001
+Figure 9: Potential Provider Training, Recruitment, and Retention Activities
+ Domain          Examples
+                 - Build rural-relevant education pathways to expose students early to rural practice and
+                   community-based training.
+                 - Rural track programs within health professional schools to place students in rural settings
+                   early and often, offering immersive experiences via longitudinal curriculum, mentoring, and
+                   clinical experiences in rural areas.
+                 - Training cost reductions tied to service commitments.
+ Training
+                 - Community-based education partnerships to deliver training in local hospitals, FQHCs, or
+                   health departments and build familiarity with the community.
+                 - Interprofessional rural training hubs to combine nursing, medical, behavioral health, EMS,
+                   and public health students for team-based, interprofessional training.
+                 - Simulation and telehealth training to allow rural providers to practice high-acuity skills and
+                   integrate technology (tele-emergency, tele-ICU, telepsychiatry).
+                 - Attract and match clinicians to rural practices.
+                 - Flexible work and lifestyle incentives, e.g., flexible scheduling, spousal employment
+                   assistance, childcare assistance.
+                 - Community integration initiatives, e.g., “Welcome Teams” to help new clinicians connect
+ Recruitment       with schools, faith communities, and civic groups.
+ and Retention   - Relocation incentives.
+                 - Professional development funding, e.g., CME stipends, leadership training, and tele-
+                   mentoring to keep rural clinicians connected and advancing.
+                 - Wellness, team-based practice models and peer support networks to reduce professional
+                   isolation.
+
+Note the Budget Narrative combines the two Initiative One transformation fund opportunities.
+
+This reflects an efficient staffing approach across the two transformation funds.
+
+
+
+
+Rural Health Transformation Program              Project Narrative                                                  25
+CMS-RHT-26-001
+Description of Initiative Two: Promote Sustainable Access and
+
+Innovative Care for Rural Marylanders
+
+Figure 10: Overview of Initiative Two
+
+ Initiative            Promote Sustainable Access and Innovative Care for Rural Marylanders
+
+                       Sustainable Access
+ Main Strategic Goal   Innovative Care
+                       Tech Innovation
+
+                       F. IT advances
+                       G. Appropriate care delivery
+ Use of Funds
+                       H. Behavioral health
+                       I. Innovative care
+
+                       B.1. Population health clinical infrastructure
+                       C.1. Rural provider strategic partnerships
+                       C.2. EMS
+ Technical Score
+                       E.1. Medicaid provider payment incentives
+ Factors
+                       F.1. Remote care services
+                       F.2. Data infrastructure
+                       F.3. Consumer-facing tech
+
+                       SORH, HSCRC, MHCC, CRISP, MIEMSS, MACHO, LHDs, AAAs, healthcare
+                       providers (hospitals, primary and specialty care practices, behavioral health providers,
+ Key Stakeholders
+                       FHQCs, SBHCs), community-based organizations, technology vendors, and universities.
+                       See Acronym List Attachment.
+
+                       See Metrics and Evaluation Plan for detail.
+                       (1) Increase in primary care capacity in rural counties (access metric)
+                       (2) Increase in behavioral health capacity in rural counties (access metric)
+ Outcomes              (3) New connectivity points to HIE benefiting rural Marylanders, # connections, with
+                       percentage increase (technology use, quality and health outcomes metric)
+                       (4) New rural provider participation in advanced care models, # with percentage increase,
+                       as available (quality and health outcomes metric)
+
+                       Maryland law recognizes 18 counties as rural. The initiative will impact residents in all
+                       18 counties. The Federal Information Processing Series (FIPS) codes for these counties
+ Impacted Counties
+                       are: 24001, 24009, 24011, 24013, 24015, 24017, 24019, 24021, 24023, 24025, 24029,
+                       24035, 24037, 24039, 24041, 24043, 24045, and 24047.
+
+ Estimated Required    $765,310,876 over all five years
+ Funding               Please see detailed information in the Budget Narrative.
+
+
+To achieve a world-class health system for rural Marylanders, we will expand existing and
+
+implement new efforts to bring healthcare services into rural communities. Figure 11 shows the
+
+elements of Initiative Two. See the Budget Narrative for budget information.
+
+Rural Health Transformation Program             Project Narrative                                                  26
+CMS-RHT-26-001
+Figure 11: Initiative Two Proposed Elements
+ Initiative Two: Promote Sustainable Access and Innovative Care for Rural Marylanders
+
+ Immediate Impact Funding
+
+ Investments:                                                                              Key Uses of Funds:
+ - Expand Primary Care and Specialty Practice Capacity (Technical Score Factors B.1.,      - Appropriate Care
+   C.1., E.1.)                                                                               Delivery
+ - Increase Efficiency of Local Agency Operations (Technical Score Factor F.2.)            - IT Advances
+ - Strengthen Emergency Trauma Response (Technical Score Factor C.2)
+ - Expand School-Based Health Center Capacity (Technical Score Factors B.1., F.1., F.2.)
+ - Optimize HIT Connectivity and Use of CRISP Tools (Technical Score Factors B.1.,
+   C.2., F.1., F.2.)
+ - Centralize Telehealth Infrastructure (Technical Score Factors F.1., F.2.)
+
+ Transformation Funding
+
+ Funding Opportunities:                                                                    Key Uses of Funds:
+ - Sustainable Access through Service Expansions and IT Advances (Technical Score          - Innovative Care
+   Factors B.1., F.1., F.2., F.3.)                                                         - IT Advances
+ - Mobile Health Transformation Fund (Technical Score Factors B.1., C.1., F.2.)            - Behavioral Health
+ - Innovative Care Transformation Fund (Technical Score Factors B.1., C.1., E.1.)          - Appropriate Care
+ - Behavioral Health Transformation Fund Technical Score Factors B.1., C.1., F.1.)           Delivery
+
+Immediate Impact Funding
+
+Expand Primary Care and Specialty Practice Capacity
+
+Maryland has used savings from value-based care models to increase access to advanced primary
+
+care and help specialty physician practices participate in value-based care arrangements. To date,
+
+eleven new primary care practice sites are serving communities and specialty practices generated
+
+more than $50 million in savings in the first two years of an episode-based value-based care
+
+arrangement. We propose allocating RHTP funds to the Health Services Cost Review
+
+Commission (HSCRC) to expand these efforts, supporting more primary care and specialty
+
+practices in rural communities. This builds on existing HSCRC and MDH initiatives to expand
+
+rural primary care access and transform more rural specialty practices. Funding will support
+
+primary care start-up costs and specialty practice transformation. Efforts promote patient-
+
+centered care and help avoid high cost, unnecessary health care utilization. As providers fill
+
+
+
+Rural Health Transformation Program             Project Narrative                                                27
+CMS-RHT-26-001
+patient panels and advance their practices they will sustain costs through billing and earned
+
+savings through value-based care arrangements.
+
+
+Increase Efficiency of Local Agency Operations
+
+Maryland’s LHDs and local Area Agencies on Aging (AAAs) provide critical clinical services
+
+and/or care coordination in rural areas. However, contracting with and billing Medicare,
+
+Medicaid, and other insurers is an administrative hurdle to reimbursement for currently covered
+
+services. Maryland proposes allocating RHTP funding to strengthen rural LHD and AAA
+
+revenue capture and self-sufficiency. MDH would fund a lead LHD to hire a contractor with
+
+expertise in coding, billing, and revenue cycle management. The contractor will help LHDs
+
+and AAAs streamline processes for empaneling with insurance companies, enabling rural
+
+residents to access covered services locally. This can translate to earlier disease detection, better
+
+chronic disease management, and avoidance of high-cost health crises. Increased revenue will
+
+sustain ongoing service delivery.
+
+Strengthen Emergency Trauma Response
+
+The Maryland Institute for Emergency Medical Services Systems (MIEMSS) has a
+
+sophisticated pre-hospital system, with a single statewide integrated emergency medical services
+
+(EMS) and trauma system, plus two Level 1 adult trauma centers. For severely injured trauma
+
+patients, providing blood within 35 minutes of the injury increases survival. This is particularly
+
+valuable in rural areas where travel distance to trauma centers is significant. With RHTP funds,
+
+we will pilot pre-hospital whole blood transfusion in rural regions to reduce mortality.
+
+MIEMSS recently worked with a central Maryland county’s fire and rescue services and local
+
+hospital to pilot a pre-hospital blood transfusion program. We will fund a pilot and assess
+
+effectiveness in our rural jurisdictions to inform the role of whole blood programs in increasing
+
+Rural Health Transformation Program        Project Narrative                                         28
+CMS-RHT-26-001
+survival and reducing hospital lengths of stay. MIEMSS and MHCC will assess results to
+
+determine sustainability, for example through Maryland’s recently expanded trauma fund grant
+
+program.
+
+Expand School-Based Health Center Capacity
+
+Maryland has 37 rural SBHCs in 12 counties. Our rural SBHCs address residents’ needs
+
+holistically by offering physical, behavioral, and oral healthcare. Demand for rural SBHC
+
+services currently exceeds supply due to limits on operational capacity. Compared to their
+
+urban counterparts, rural SBHCs have higher utilization despite being open fewer overall hours
+
+due to provider staffing shortages. Investment in SBHCs expands access to integrated
+
+primary care, chronic disease management, behavioral health, and oral health for students,
+
+teachers, school staff, and the rural community. We propose allocating RHTP funding to the
+
+Maryland School-Based Health Center Program within MDH to immediately impact rural
+
+communities by:
+
+● Expanding service delivery to new geographic areas currently lacking services.
+
+● Expanding primary care, chronic disease management (e.g. asthma action plan support), oral
+
+    health, behavioral health, and social work to integrate care and ensure more rural youth can
+
+    access preventive and therapeutic care within their communities.
+
+● Investing in start-up costs of increased clinical provider staffing to extend operating hours.
+
+● Piloting alternative service delivery models and partnerships with Federally Qualified Health
+
+    Centers (FQHCs) to increase access, including mobile clinic capacity and telehealth/HIT
+
+    infrastructure.
+
+● Building long-term capacity through minor alternations and facility upgrades and equipment.
+
+
+
+
+Rural Health Transformation Program       Project Narrative                                        29
+CMS-RHT-26-001
+SBHC start-up and infrastructure investments will be sustainable through ongoing Medicaid
+
+coverage for existing benefits covered under the Maryland Medicaid State Plan and billing of
+
+other insurance types.
+
+Optimize HIT Connectivity and Use of CRISP Tools
+
+We propose allocating RHTP funds to enable the Chesapeake Regional Information System for
+
+our Patients (CRISP), Maryland’s State-Designated Health Information Exchange (HIE) and
+
+Health Data Utility (HDU), to expand HIT connectivity and optimize the use of CRISP tools
+
+in rural Maryland. Figure 12 summarizes proposed activities. CRISP has long supported
+
+interoperability and data exchange across multiple systems, partners, and domains to improve
+
+quality of care, create a holistic view of patient care, and reduce healthcare costs. CRISP
+
+integrates health and other data across sectors to support clinical treatment, care coordination,
+
+and public health. The comprehensive and longitudinal data available through CRISP enables
+
+Maryland to develop advanced AI models to improve care. CRISP’s ability to manage
+
+granular consent for 42 CFR Part 2 data creates a unique opportunity for Maryland to address
+
+rural behavioral health challenges through improved data sharing. To realize the full
+
+benefits of HIE and HDU infrastructure, we need interoperability across all care touchpoints.
+
+However, many rural health providers lack connectivity and/or interoperability, resulting in
+
+system fragmentation. CRISP will connect new rural providers to HIE tools, support their use,
+
+and develop new offerings for rural communities. MHCC will implement needed regulatory
+
+changes and oversight.
+
+
+
+
+Rural Health Transformation Program        Project Narrative                                        30
+CMS-RHT-26-001
+Figure 12: Proposed Activities for HIT Connectivity and Use of CRISP Tools
+Domain         Examples
+Pilot AI       - Implement AI search functionality to allow providers to search the HIE for specific
+technology       encounters, diagnoses, and medications. Develop with provider input and pilot in select rural
+to improve       areas.
+clinical       - Develop predictive alerts that notify care teams when a patient’s risk level changes based on
+workflows        HIE data.
+               - Increase provider data sharing and data quality with CRISP through outreach, integrations,
+                 automating manual feeds and targeted technical assistance for new rural providers, including
+                 primary care, specialists, behavioral health providers and others.
+               - Offset provider integration costs for newly connected rural providers.
+Increase rural
+               - Improve behavioral health HIT and connectivity as well as data sharing through a central
+provider
+                 registry for methadone dosage information among Opioid Treatment Programs, EMS, and
+connectivity
+                 hospitals and share EMS and hospital overdose data with LHDs to facilitate more rapid
+and HIT
+                 outreach and treatment initiation.
+optimization
+               - Enable access to the HIE from EMS EMR platforms to emergency providers with patient
+                 clinical and care management information.
+               - Extract Mobile Integrated Health reporting from community paramedicine to incorporate in
+                 the HIE.
+               - Significantly scale the number of new rural community-based organizations (CBOs) CBOs
+                 onboarded onto a closed-loop screening and referral platform for upstream drivers of health
+Connect closed- free of charge through outreach and integrations. This work will focus on non-food CBOs.
+loop referral    Work to connect food CBOs to the referral platform is supported outside of RHTP.
+tools          - Develop new interoperability capabilities for commercial and CRISP tools through standards
+                 or FHIR APIs that allow screening and referral platforms to exchange electronic health data
+                 efficiently and securely, and integrate screening data with EHR vendors.
+               - Support rural CBO billing for non-clinical needs, integrated with CRISP’s screening and
+                 referral tools. Billing capacity will expand to CBOs that address other needs identified by
+Support CBO      rural communities.
+Billing        - Develop reporting tools and resources to inform community planning efforts through Local
+                 Health Departments and funding under the Food Is Health work (see Initiative Three for
+                 information about this fund).
+
+Centralize Telehealth Infrastructure
+
+Telehealth enables patients to overcome transportation barriers and allows rural providers to link
+
+to specialty knowledge. Maryland lacks the technical infrastructure to realize telehealth at scale
+
+in rural communities. A centralized telehealth technical infrastructure will help create a
+
+virtual continuum of care across local clinics, hospitals, and distant tertiary care centers and
+
+spur adoption among rural providers and residents. We propose allocating RHTP funding to
+
+CRISP for a centralized telehealth infrastructure. Figure 13 shows examples of activities.
+
+As Maryland’s backbone of interoperability, CRISP will enable telehealth to operate as part of
+
+an integrated healthcare ecosystem by connecting telehealth platforms with electronic health
+
+Rural Health Transformation Program              Project Narrative                                               31
+CMS-RHT-26-001
+records (EHRs) and supporting standardized data exchange for real-time information sharing.
+
+MDH and MHCC will review and develop any necessary policy to support broad adoption of
+
+interoperable telehealth.
+
+Figure 13: Proposed Activities to Centralize Telehealth Infrastructure
+ Domain              Example
+ Needs Assessment    - Conduct a needs assessment and develop an implementation plan to advance the adoption
+ and Strategy          of telehealth and teleconsults in rural communities, e.g., making grants to offset provider
+ Implementation        costs for telehealth system adoption and maintenance, and/or conducting provider outreach
+ Plan                  for telehealth adoption.
+                     - Integrate existing telehealth platforms with CRISP, ensuring seamless interoperability with
+ Integration of
+                       local EHRs and across the care continuum of health care, public health, and social
+ Existing
+                       services.
+ Telehealth
+                     - Oversee data security, encryption, and patient privacy.
+                     - Provide guidance and training to providers on assessing technology infrastructure needs
+ Workforce
+                       for telehealth and understanding vendor offerings.
+ Support/Technical
+                     - Develop telehealth training and technical assistance for technology use, legal and
+ Assistance
+                       regulatory issues, and contracting billing and coding, and patient engagement.
+                     - Develop tools for patients and health workers (e.g., CHWs) to support patient reception
+ Patient Support
+                       to/use of telehealth.
+ Data Analytics      - Track real-time metrics to optimize operations and inform telehealth strategy.
+                     - Work with MHCC, MDH, and other regulatory authorities to align telehealth with
+                       Maryland’s priorities and vision for rural health as needed.
+ Policy and
+                     - Track and disseminate federal, state, and payer telehealth regulations and reimbursement
+ Reimbursement
+                       rules.
+                     - Provide guidance for specialized areas such as school telehealth and tele-behavioral health.
+
+RHTP funds will cover outreach and integrations with new rural providers and the
+
+development of new technical solutions. Some of these activities are one-time start-up costs.
+
+To sustain activities that require ongoing funding, we will consider CRISP’s revenue model of
+
+hospital assessments and provider user fees.
+
+Transformation Fund Opportunities
+
+Sustainable Access Through Service Expansions and HIT Advances
+
+The Sustainable Access Transformation Fund will provide strategic investments to: (1) Expand
+
+services to meet current demand and build long-term capacity to improve health outcomes; and
+
+(2) Deploy technology-enabled chronic disease management including remote patient
+
+
+
+Rural Health Transformation Program             Project Narrative                                                 32
+CMS-RHT-26-001
+monitoring and wearable devices such as continuous glucose monitors. MDH will administer the
+
+fund and issue a competitive RFP/RFA.
+
+Service Expansions for Appropriate Care Delivery
+
+Background: The advanced age of rural Maryland residents means higher chronic disease
+
+prevalence. Maryland’s rural residents need better access to primary care and specialists.
+
+RHTP funds will support initial service expansion start-up costs. As patient volumes grow,
+
+providers will bill public and private payers for ongoing sustainability. Additional sources for
+
+future sustainability include hospital contracts for readmission reduction and ED diversion, MCO
+
+partnerships for chronic care management, and integration into Accountable Care Organization
+
+(ACO) shared savings programs and other value-based care arrangements. Behavioral health is
+
+also a major need. We elevate behavioral health to its own transformation fund described below.
+
+Objectives: This fund will increase access to a range of priority healthcare services in rural
+
+areas. We will create net-new access points and promote efficient, effective management for
+
+individuals at increased risk for hospital readmissions, such as older adults and those with
+
+multiple chronic conditions including co-occurring behavioral and somatic needs.
+
+Potential applicants: (1) Partnerships of providers/institutions across the delivery system, and
+
+(2) Individual healthcare providers, including hospitals/health systems, FQHCs, pharmacies,
+
+post-acute providers, and home and community-based service providers.
+
+Activities: Figure 14 provides examples of activities eligible for funding. These domains are not
+
+mutually exclusive, for example a provider could submit a proposal with primary care and oral
+
+health elements. Proposals should involve community-driven design and integrate with and
+
+complement existing healthcare and social service systems.
+
+
+
+Rural Health Transformation Program       Project Narrative                                        33
+CMS-RHT-26-001
+Figure 14: Potential Service Expansions Activities
+ Domain             Examples
+                    - Start-up expenditures for recruitment and retention of staff to expand or add services.
+                    - Equipment and infrastructure to expand, update, or modify services.
+ Primary Care,
+                    - Minor alterations or retrofitting to convert underutilized cost-intensive spaces within existing
+ Chronic Disease
+                      healthcare facilities to clinic or community-based treatment spaces.
+ Management,
+                    - Training, technical assistance, and support for integrated care models.
+ Oral Health, and
+                    - Training, technical assistance, and support to integrate allied health professionals into care
+ Specialty Care
+                      teams.
+                    - Community outreach to engage patients in new or expanded services.
+ Primary Care       - Co-located and integrated primary care and behavioral health.
+ Oral Health        - Preventive and restorative oral health services integrated with chronic disease care.
+HIT Advances
+
+Background: Rural residents face a multitude of challenges in overcoming long distances to
+
+access healthcare, often without adequate transportation. Our RHTP stakeholder engagement
+
+process identified technology-enabled chronic disease management tools such as remote patient
+
+monitoring and wearable devices such as continuous glucose monitors as key strategies to
+
+overcome access barriers. Some of these technology initiatives exist in rural Maryland. However,
+
+there is opportunity to scale and connect efforts to bring healthcare directly to rural
+
+residents. Technology-enabled solutions empower individuals to manage their chronic
+
+conditions, support post-discharge monitoring, and increase patient-provider communication.
+
+Objectives: Funding will deploy technology-enabled chronic disease management tools by
+
+supporting provider start-up costs and patient adoption.
+
+Potential applicants: Potential applicants will be regional collaborations inclusive of healthcare
+
+providers, technology vendors, LHDs, AAAs, and/or community-based organizations. The
+
+competitive RFP/RFA proposal process will describe the required partner types. Each
+
+collaboration must designate a lead.
+
+Activities: Figure 15 shows examples of the types of activities eligible for funding.
+
+
+
+
+Rural Health Transformation Program              Project Narrative                                                 34
+CMS-RHT-26-001
+Figure 15: Potential HIT Advances Activities
+ Domain               Example
+ Needs Assessment     - Assessment/planning for identification of services gaps and digital health needs.
+ Technology           - Hardware: tablets, smartphones, laptops.
+ Infrastructure       - Support for rural providers to assess, implement, enhance, and maintain their HIT
+                        infrastructure and cybersecurity to support remote patient monitoring. This can include
+                        support for provider revenue cycle management for monthly remote patient monitoring
+                        vendor fees.
+                      - Events to connect providers and technology vendors via education, technology demos,
+                        and networking opportunities.
+ Technology-          - Service model design and deployment for technology solutions including for remote
+ Enabled Chronic        patient monitoring and wearable devices.
+ Disease              - Pilots to assess effectiveness of new remote patient monitoring benefits in improving
+ Management             chronic disease management.
+                      - Remote monitoring devices/equipment for chronic disease management not already
+                        covered.
+ Integration with     - Protocols for follow-up and continuity of care, e.g., care coordination with the medical
+ Existing Care          home, community paramedicine support, CHW visits, or community-based
+                        organizations.
+                      - Clinical protocols including triage, escalation, and follow-up.
+                      - Linkage to CRISP.
+ Workforce and        - Training for digital health navigators and other members of the care team to help
+ Training               patients learn to use new technologies.
+                      - Training and technical assistance to care team members to implement new technologies
+                        into clinical workflows.
+ Patient Engagement   - Patient-centered design and support e.g., to help patients learn how to use remote patient
+ and Accessibility      monitoring devices and other technologies.
+
+RHTP funding will cover start-up costs of technology or pilot programs. Staff will assess
+
+health and cost outcomes for continued and expanded payer investment and/or integration with
+
+value-based care models to achieve sustainability. MDH and MHCC will assess regulatory
+
+policy in Maryland to support expansion. Based on assessment results, we will bring evidence to
+
+CMS to explore any necessary policy changes.
+
+Mobile Health Transformation Fund
+
+Stakeholders identified mobile health as a key strategy to overcome access barriers by
+
+bringing care directly to rural residents. Maryland’s rural LHDs will administer this
+
+transformation fund. LHDs in each of the State’s rural regions will work together with a lead
+
+
+
+Rural Health Transformation Program            Project Narrative                                                 35
+CMS-RHT-26-001
+LHD to administer the fund for that region. Each region will issue a competitive RFP/RFA. The
+
+regional approach ensures awards are specific to the needs and strengths of local communities.
+
+Background: Several mobile health programs currently exist in rural Maryland. However, there
+
+is opportunity to scale and connect efforts for a more coordinated approach. This
+
+transformation fund is inclusive of a range of mobile health solutions recommended by
+
+stakeholders, including chronic disease screening, mobile clinics, partnerships with EMS to
+
+expand community paramedicine and mobile integrated health models, and community-based
+
+care teams that provide home visiting.
+
+LHDs are effective at bringing together community partners to design and implement critical
+
+health programming. Many have experience in mobile health service delivery. To support LHD
+
+administration of the Mobile Health Transformation Fund, we will allocate resources to LHDs
+
+for planning, implementation, financial oversight, and programmatic monitoring.
+
+RHTP funds will support initial mobile health start-up costs. As patient volumes grow,
+
+providers will bill public and private payers. Sustainability sources include hospital contracts for
+
+readmission reduction and ED diversion, MCO partnerships for chronic care management, cost-
+
+sharing agreements among EMS and county agencies, and integration into ACO shared savings
+
+programs.
+
+Objectives: This transformation fund will increase access to priority health services in rural
+
+areas via mobile solutions.
+
+Potential Applicants: While one organization will serve as the lead applicant to this
+
+transformation fund, only partnerships/collaborations of multiple organizations will be eligible to
+
+apply. Examples of potential organizations include health care providers, hospitals/health
+
+
+
+
+Rural Health Transformation Program        Project Narrative                                      36
+CMS-RHT-26-001
+systems, EMS providers, social service providers, diagnostic service providers, and home and
+
+community-based service providers.
+
+Activities: Figure 16 shows examples of activities eligible for funding.
+
+Figure 16: Potential Mobile Health Activities
+ Domain             Example
+ Planning and       - Needs assessment.
+ Service Model      - Service delivery model elements including: centralized hubs/smaller satellites, health
+ Design               education, referral pathways, clinical triage, diagnostics, follow-up and coordination.
+                    - Development of formal agreements.
+ Start-Up           - Staffing.
+ Implementation     - Training, technical assistance, and support.
+ Costs              - Technology infrastructure.
+                    - Vehicle acquisition/improvements.
+                    - Funding for micro access points or place-based sites of care, such as pharmacies, libraries,
+                      churches, and retail centers to bridge access gaps and facilitate community engagement.
+                    - Mobile diagnostic services, such as mammography, sonography, and point of care testing.
+                    - Integration of workflows/data across clinical care and community-based supports (e.g.,
+                      CHWs and Peers).
+
+Innovative Care Transformation Fund
+
+The Innovative Care Transformation Fund will help rural providers position themselves to
+
+manage the health of the communities that they serve and succeed under payment models that
+
+incentivize reduced healthcare costs, improved quality of care, and shifts to lower cost care
+
+settings. HSCRC will administer the fund.
+
+Background: Maryland will help rural providers adopt value-based care and alternative
+
+payment models. Rural providers have traditionally faced barriers to participation such as
+
+financial strain from low patient volumes and limited access to specialized care.
+
+The Innovative Care Transformation Fund will help align rural providers with the incentives
+
+built into Maryland’s hospital payment system and enable them to participate in alternative
+
+payment mechanisms such as ACOs. For example, the fund could support clinically
+
+integrated network implementation to help rural providers achieve the scale and develop the
+
+infrastructure necessary to successfully participate in value-based care and payment
+
+Rural Health Transformation Program            Project Narrative                                                 37
+CMS-RHT-26-001
+opportunities. Shared infrastructure and operational resources through a clinically integrated
+
+network can improve the financial viability of rural providers, support specialty access, and
+
+help providers focus on care coordination and population health improvement.
+
+Applicants will be able to request funding to enable practices to participate in value-based
+
+care arrangements, including geographic-based approaches, and alternative payment models.
+
+Geographic payment models are especially suited to rural areas, where providers have
+
+accountability for the care of a more distinctly defined population to align post-acute care and
+
+reduce utilization across the care continuum. Rural providers will have the opportunity to
+
+improve care coordination, focus on preventative care interventions, increase hospital
+
+control of cost growth, and accelerate the transition to true value-based payment models.
+
+We include RHTP funds to support an evaluation to identify effective practices.
+
+Providers will continue to bill public and private payers for ongoing sustainability. Provider
+
+success under value-based arrangements will also contribute to long-term sustainability.
+
+Objectives: The objective for this transformation fund is to prepare rural health providers to
+
+participate in innovative, value-based care models such as geographic-based models.
+
+Potential Applicants: Potential applicants include (1) rural health providers (primary care and
+
+specialty care practices, FQHCs, SBHCs, hospitals, pharmacies, post-acute, and others), (2)
+
+consortiums of healthcare providers, and/or (3) healthcare provider collaborators.
+
+Activities: Figure 17 shows examples of the types of domains eligible for funding.
+
+Figure 17: Potential Innovative Care Activities
+ Domain           Examples
+ Infrastructure   - Readiness assessment.
+                  - Clinically integrated network development.
+                  - Staffing, training, and support for workflow redesign, managing value-based payment models.
+                  - Revenue management including coding for billing and quality reporting and financing
+                    mechanisms to support value-based care arrangements.
+                  - Consultation for legal and contractual structure of shared savings/risk agreements and
+
+Rural Health Transformation Program             Project Narrative                                                 38
+CMS-RHT-26-001
+                   clinically integrated networks.
+                 - Organizational change management and process standardization.
+ Workforce       - Training for team-based care and population health management principles.
+                 - Role expansion for care team members to practice at top of license.
+                 - Staffing optimization for panel outreach and management.
+                 - Change management coaching.
+ Technology      - EHR optimization to configure templates and reporting tools.
+ and Data        - Data analytics dashboards for risk stratification, care gap identification, alerts, and
+                   performance tracking.
+                 - Education of patients on portals for secure messaging and scheduling, education and self-
+                   management.
+                 - Community linkage to resources to address non-clinical needs such as food..
+ Clinical Care   - Care management workflows, including protocols for evidence-based chronic disease
+ and Quality       management, care transition management, behavioral health integration, preventive care
+ Improvement       outreach, and population health management with patient risk stratification and intervention.
+                 - Training on quality metrics/benchmarks and reporting and continuous improvement coaching.
+ External        - Learning collaboratives to share lessons and best practices.
+ Partnerships    - Integration with public health systems, streamlining specialty referral networks.
+                 - Planning and engagement with payers to gain conceptual buy-in to develop operational
+                   mechanics and pilot new models.
+
+Behavioral Health Transformation Fund
+
+Maryland is committed to increasing sustainable access to the full behavioral health
+
+continuum of care across the lifespan in our rural communities, resulting in holistic, whole-
+
+system transformation. BHA will administer the fund.
+
+Background: The need for expanded behavioral health services was a major theme from our
+
+RHTP stakeholder engagement process. Maryland’s children and adolescents, like those across
+
+the nation, are suffering declines in mental and emotional health. Data from recent years
+
+indicates that 30% of Maryland middle and high school students report feeling sad or hopeless,
+
+the state is losing more than 100 young people a year to drug and alcohol overdoses, behavioral
+
+health patients board in emergency departments at a median time of 34 hours, and suicide is the
+
+third leading cause of death among young people.12
+
+
+
+
+12
+  Roadmap to Strengthen Maryland’s Public Behavioral Health System for Children, Youth and Families. June
+2025.https://health.maryland.gov/bha/Documents/MDH%20BH%20Roadmap%20for%20Children%202025.pdf?ut
+m_source=chatgpt.com
+
+Rural Health Transformation Program             Project Narrative                                                  39
+CMS-RHT-26-001
+The Behavioral Health Transformation Fund will provide resources to proposals that are
+
+responsive to demonstrated local need based on quantifiable metrics of service gaps and
+
+outcomes (e.g., lowest quartile of provider to condition ratio, opioid and suicide fatalities);
+
+evidence-based interventions; and aligned with State and RHTP priorities including scaling
+
+telehealth. RHTP funds will support initial service expansion start-up costs. As patient
+
+volumes grow, providers will bill public and private payers for ongoing sustainability.
+
+Objectives: The objective for this transformation fund is to increase sustainable access to
+
+priority services across the full continuum of behavioral health care in rural areas.
+
+Potential Applicants: Potential applications include local behavioral health authorities, LHDs,
+
+non-profit and for-profit behavioral health service providers.
+
+Activities: Figure 18 shows examples of the types of activities eligible for funding.
+
+Figure 18: Potential Behavioral Health Activities
+ Domain                  Examples
+ Behavioral Health and   - Training, technical assistance, and infrastructure to expand models that support
+ Primary Care              integrated care such as the Collaborative Care Model, Screening, Brief
+ Integration               Intervention, Referral and Treatment (SBIRT), and Healthy Steps.
+                         - Development of referral pathways from Maryland schools.
+                         - Training for providers to expand access to community-based treatment via in-
+ Prevention and
+                           person and telehealth modalities.
+ Promotion
+                         - Start-up staffing to increase access to opioid-associated disease prevention and
+                           outreach programs operated by LHDs and/or community-based organizations.
+                         - Start-up staffing to increase access to Intensive In-Home Service Providers to
+ Primary Behavioral        provide individualized support to children and their families to prevent out-of-home
+ Health and Early          placement and reduce psychiatric symptoms.
+ Intervention            - Training, technical assistance, and support to expand the number of Young Adult
+                           Certified Peer Recovery Specialists.
+ Urgent and Acute Care   - Mobile response and stabilization services for youth and families.
+                         - Training, technical assistance, and start-up staffing to increase access to intensive
+ Treatment and             case management programs for older adults with substance use disorders.
+ Recovery                - Training, technical assistance, and start-up staffing to expand medication for opioid
+                           use disorder.
+
+
+
+
+Rural Health Transformation Program            Project Narrative                                                   40
+CMS-RHT-26-001
+Description of Initiative Three: Empower Marylanders to Eat for Health
+
+Figure 19: Overview of Initiative Three
+
+ Initiative Three          Empower Marylanders to Eat for Health
+
+ Main Strategic Goal       Make Rural America Healthy Again
+
+                           A. Prevention and chronic disease
+ Use of Funds
+                           J. Capital expenditures and infrastructure
+
+ Technical Score Factors   B.2. Health and lifestyle
+
+                           SORH, MDA, MDHCD, MDEM, Rural Maryland Council, LHDs, food producers,
+                           food retailers, institution buyers, preschools/schools, farmers’ markets, food councils,
+ Key Stakeholders
+                           food buyers and/or consortiums of buyers.
+                           See Acronym List Attachment.
+
+                           See Metrics and Evaluation Plan for detail.
+                           (1) Participants in targeted nutrition education programs with increased knowledge
+                           regarding consumption of healthy foods and reduced consumption of processed
+                           foods, # with percentage increase, as available (program implementation metric)
+ Outcomes                  (2) Sustainable infrastructure improvements, # (program implementation metric)
+                           (3) New or expanded initiatives to strengthen healthy food distribution across rural
+                           Maryland, # (program implementation metric)
+                           (4) New or expanded initiatives to strengthen healthy food purchasing strategies
+                           across rural Maryland, # (program implementation metric)
+
+                           Maryland law recognizes 18 counties as rural. The initiative will impact residents in
+                           all 18 counties. The Federal Information Processing Series (FIPS) codes for these
+ Impacted Counties
+                           counties are: 24001, 24009, 24011, 24013, 24015, 24017, 24019, 24021, 24023,
+                           24025, 24029, 24035, 24037, 24039, 24041, 24043, 24045, and 24047.
+
+ Estimated Required        $88,017,624 over all five years
+ Funding                   Please see detailed information in the Budget Narrative.
+
+
+Addressing consistent access to food is important for health promotion, chronic disease
+
+prevention, and overall well-being. Maryland’s work on promoting healthy food is key to
+
+addressing the diet-related chronic disease epidemics of heart disease, diabetes, and obesity.
+
+Maryland’s cross-agency approach brings together multiple State entities, eliminating silos to
+
+improve health. Maryland will invest in infrastructure to improve access to nutritious,
+
+locally grown and raised foods. No RHTP funds will be used to purchase food and this work
+
+does not supplant any existing funding. RHTP funds will not replace any State or federal funds.
+
+
+
+Rural Health Transformation Program            Project Narrative                                                   41
+CMS-RHT-26-001
+Figure 20 shows the elements we propose for Initiative Three. The Budget Narrative includes
+
+additional detail.
+
+Figure 20: Initiative Three Proposed Elements
+
+ Initiative Three: Empower Marylanders to Eat for Health
+
+ Immediate Impact Funding
+
+ Investments:                                                                     Key Uses of Funds:
+ - Post-Harvest Infrastructure (Technical Score Factor B.2)                       - Prevention and chronic
+ - Expand Grocers and Mobile Markets (Technical Score Factor B.2)                   disease
+ - Create Demand for Healthy Foods (Technical Score Factor B.2)                   - Capital expenditures and
+ - Support Food Planning and Coordination (Technical Score Factor B.2)              infrastructure
+
+ Transformation Funding
+
+ Funding Opportunities:                                                           Key Uses of Funds:
+ - Increase Local Healthy Food Access: Aggregation (Technical Score Factor B.2)   - Prevention and chronic
+ - Increase Local Healthy Food Access: Purchasing Strategy (Technical Score         disease
+   Factor B.2)
+
+Immediate Impact Funding
+
+Post-Harvest Infrastructure
+
+Post-harvest infrastructure expands the availability of nutritious, fresh, healthy food for
+
+distribution to communities. Annually, Maryland farms produce over $429 million in fruits,
+
+vegetables, dairy, seafood and proteins. Maryland’s small to mid-size producers are uniquely
+
+vulnerable to post-harvest losses—the degradation or spoilage of food that occurs between
+
+harvest and consumption. A lack of effective refrigeration for perishable crops like fruits and
+
+vegetables results in a 44% loss of all food produced. The lack of accessible and affordable
+
+cold storage is a persistent and structural challenge for Maryland's “middle of the supply chain”
+
+agricultural food producers. The inability of small to mid-size farms to store and preserve
+
+perishable goods like fresh produce means they cannot consistently supply local markets. This
+
+issue is exacerbated in rural areas, where residents already lack access to full-service
+
+supermarkets. Cold storage that accommodates larger equipment (e.g., pallet jacks) enhances
+
+Rural Health Transformation Program            Project Narrative                                               42
+CMS-RHT-26-001
+wider distribution of a variety of foods, including fresh produce. We propose allocating RHTP
+
+funds to the Maryland Department of Agriculture (MDA) to strategically locate cold storage
+
+infrastructure within rural communities to expand food aggregation and distribution
+
+capacities.
+
+Cold storage infrastructure for agriculture and food distribution includes freezers, refrigerators,
+
+cold storage lockers, cold storage trucks, and other related equipment. Investing in cold storage
+
+and distribution of fresh, healthy produce will improve Marylanders’ dietary quality.
+
+Expand Grocers and Mobile Markets
+
+Low access food areas or “hunger hotspots” are prevalent in rural Maryland and especially
+
+concentrated in Western Maryland. Smaller-scale food retailers often have limited capacity and
+
+infrastructure to shoulder the financial liability of stocking perishable foods with a short shelf
+
+life. By investing in the ability of small food retailers to have improved customer-facing
+
+inventories of perishable foods as opposed to shelf-stable highly processed foods, Marylanders
+
+will have better access to healthy produce and fresh foods. A lack of transportation is another
+
+major barrier to accessing fresh, local foods. Mobile markets, pop-up markets, and other
+
+temporary farm sales channels are highly effective in increasing access to healthy, locally
+
+produced food.
+
+We propose allocating RHTP funds to the Maryland Department of Housing and Community
+
+Development (DHCD) to expand the NourishMD: Healthy Food Access Grant Program to
+
+provide capital to small grocers and mobile access points serving rural Maryland. This
+
+program will help local food retailers overcome the financial barriers that limit access to
+
+affordable, healthy foods. Funds will support equipment purchases (e.g., refrigeration, shelving),
+
+minor facility alterations, technology infrastructure, and marketing to create a sustainable
+
+
+Rural Health Transformation Program        Project Narrative                                          43
+CMS-RHT-26-001
+business by expanding the demand pool. Eligible businesses must demonstrate a commitment
+
+to offering healthy, affordable food options, including fresh fruits, vegetables, dairy, proteins,
+
+and other staple items, and are encouraged to partner with local and regional farmers to
+
+source products that strengthen Maryland’s agricultural economy and food supply chain.
+
+Additional staff support will provide operational support for program implementation and
+
+enhance technical assistance to small grocery retailers.
+
+Create Demand for Healthy Foods
+
+Improving the diet of rural Marylanders requires education to increase the demand for healthy,
+
+fresh foods, in addition to increasing the supply. Many rural Maryland children and adults have
+
+low intake of fruits, vegetables, and water, and limited engagement in physically active
+
+behaviors. We propose allocating RHTP funds to rural LHDs to provide targeted nutrition
+
+education to improve healthy behaviors among rural residents. LHDs will deliver educational
+
+interventions in collaboration with partners at settings such as faith-based organizations,
+
+preschools, health care organizations, schools, and farmers’ markets. Objectives include
+
+increased consumption of fruits and vegetables, increased water consumption, and
+
+decreased consumption of processed foods.
+
+Support Food Planning and Coordination
+
+To improve diets and achieve better health outcomes, regional convening and coordination is
+
+essential. We propose allocating RHTP funds to the Maryland Department of Emergency
+
+Management (MDEM). MDEM serves as the coordinator and convenor of food system partners
+
+across agencies and jurisdictions statewide. MDEM will establish a Rural Food Coordination
+
+program with a regional approach to convening and coordinating. In addition to conducting in-
+
+person outreach to rural stakeholders to understand the needs of Maryland’s farmers, MDEM’s
+
+
+Rural Health Transformation Program       Project Narrative                                      44
+CMS-RHT-26-001
+Rural Food Coordinators will coordinate efforts across local food councils, food banks, and local
+
+government agencies in rural communities. MDEM will partner with the Rural Maryland
+
+Council to ensure that the transformation fund opportunities described in the next section help
+
+improve the dietary quality of rural communities.
+
+
+Transformation Fund Opportunities
+
+Increase Local Healthy Food Access: Aggregation
+
+The establishment and expansion of local farm food aggregators in Maryland can help provide a
+
+link between the small to mid-size farmer and the large-scale buyer such as a wholesaler or
+
+large institution that is looking to purchase locally grown food. We propose allocating RHTP
+
+funds to the Rural Maryland Council for development and expansion of healthy food
+
+aggregation.
+
+Background: Food aggregators, hubs, and associated coordination and IT infrastructure are
+
+critical in rural areas where farms are small and dispersed. Coordination prevents
+
+fragmentation and helps build economies of scale. The primary functions of food aggregators
+
+include coordination and planning, aggregation of food supply, and transportation. RHTP funds
+
+will cover the start-up costs for food aggregation systems. In addition to food aggregators,
+
+RHTP funds will help offset food safety equipment. A farm with good existing infrastructure
+
+may only spend a few hundred dollars, while a farm that needs to modify an aging packing area
+
+will spend significantly more. Examples of expenditures include harvest containers, cleaning
+
+tools and supplies, packing surfaces, packhouse modifications, and packing line equipment.
+
+Once operational, the revenue from foods sold will support ongoing food aggregation
+
+sustainability.
+
+
+
+Rural Health Transformation Program       Project Narrative                                       45
+CMS-RHT-26-001
+Objectives: Develop food aggregators and hubs to stimulate increased market access for small
+
+to mid-size Maryland farmers who wish to sell healthy food to wholesale and institutional
+
+buyers, ultimately increasing the volume and value of healthy local food sold. This investment
+
+will improve the dietary quality of Marylanders and will improve the economic viability of
+
+Maryland farmers.
+
+Potential Applicants: Potential applicants include producers (collaboratives of small to mid-
+
+farms or existing farming operation aggregators seeking to expand) and food councils.
+
+Activities: Figure 21 shows examples of the types of activities eligible for funding.
+
+Figure 21: Potential Aggregation Activities
+
+ Domains           Examples
+
+ Needs             - Conduct a regional assessment to identify farm production, food demand (schools,
+ Assessment          hospitals, retailers, food banks), transportation links, and storage capacity.
+ and Planning      - Map existing aggregation points (e.g., co-ops, cold storage, food pantries, wholesale
+                     markets).
+                   - Identify aggregation deserts—areas without shared infrastructure or processing capacity.
+                   - Assess potential anchor buyers (e.g., universities, hospitals, prisons) to guarantee
+                     demand.
+
+ Hub               - Create a shared logistics network (e.g., hub-and-spoke model) where smaller
+ Development         aggregation points feed into regional hubs or piloting innovative distribution models.
+                   - Support shared services (e.g., food safety certification, training, insurance, coordinated
+                     marketing).
+                   - Design protocols for collective product pooling and sales management.
+                   - Develop memoranda of understanding.
+
+ Core Physical     - Aggregation and post-harvest processing centers for washing, packing, grading, light
+ Infrastructure/     processing (e.g., cutting vegetables).
+ Supply Chain      - Cold storage and refrigerated trucks to maintain food safety and freshness.
+                   - Cross-docking site for regional redistribution.
+                   - Support for last-mile delivery.
+
+ Establish         - Implement IT infrastructure for virtual aggregation with an online coordination platform
+ Digital             that manages ordering and logistics (e.g., trucking route optimization) but not physical
+ Infrastructure      storage.
+                   - Develop e-commerce digital marketplaces and ordering systems to connect producers
+                     with institutional buyers.
+
+
+
+
+Rural Health Transformation Program               Project Narrative                                               46
+CMS-RHT-26-001
+Increase Local Healthy Food Access: Purchasing Strategy
+
+We propose allocating RHTP funds to the Rural Maryland Council to spur Maryland
+
+institutions to purchase locally grown food. This addresses the demand side to maximize the
+
+purchase of healthy foods and ensure that more Maryland food feeds Marylanders.
+
+Background: Maryland institutions such as community colleges, childcare centers, local school
+
+systems, hospitals, and senior centers need support to pivot away from their current food
+
+acquisition operations to develop new strategies to purchase local foods. Transitioning
+
+institutional purchasing towards fresh foods improves the diets of large numbers of Marylanders.
+
+RHTP funds will cover the start-up costs of pivoting away from traditional food purchasing
+
+systems to focus on locally produced foods. Once operational, the new system will be
+
+sustainable within existing institutional food budgets.
+
+Objectives: This transformation fund will provide resources to food purchasers to plan for and
+
+implement processes to purchase local, healthy foods on an ongoing basis, ultimately increasing
+
+the volume and value of local food sold.
+
+Potential Applicants: Potential applicants are buyers and/or consortiums of buyers. These could
+
+include county governments, municipalities, community colleges, universities, local school
+
+systems, food pantries, childcare centers, and healthcare facilities.
+
+Activities: Figure 22 shows examples of the types of activities eligible for funding.
+
+Figure 22: Potential Purchasing Strategy Activities
+
+ Domains       Examples
+
+ Policy and    - Alignment with federal and state rules, e.g., USDA National School Lunch Program cost
+ Procurement     and competition requirements.
+ Framework     - Administrative support and training for food service directors and procurement officers on
+                 how to legally and efficiently source local food.
+               - Policies to prioritize local sourcing, such as a “geographic preference” in bids.
+               - Clear procurement guidance with simplified templates, vendor qualification processes,
+                 and model contracts for local vendors.
+
+
+Rural Health Transformation Program            Project Narrative                                              47
+CMS-RHT-26-001
+                - Incorporate local food goals into health improvement and economic development.
+
+ Menu           - Volume coordination systems to forecast demand and match it with supply (e.g., forward
+ Planning and     contracts or seasonal menus).
+ Culinary       - Menu alignment for seasonal menu planning based on local availability.
+ Capacity       - Scratch cooking capacity and training for kitchen staff to prepare fresh, whole foods.
+                - Equipment upgrades including better refrigeration, preparation, and cooking equipment to
+                  handle raw or minimally processed ingredients.
+                - Nutrition education to integrate local food into curriculum and cafeteria promotions to
+                  increase consumer acceptance.
+
+ Data systems   - Dashboards tracking purchases, pricing, sales to assess/refine procurement and menu
+                  planning and justify continued investment.
+
+
+Note we combine the two Initiative Three transformation fund opportunities in the Budget
+
+Narrative. This reflects an efficient staffing approach across the two transformation funds.
+
+Implementation Plan and Timeline
+Maryland will achieve RHTP goals and milestones with a robust and active governance
+
+structure, effective project management, and close collaboration with State agencies,
+
+transformation fund partners, and stakeholders. Figure 23 shows a summary of Maryland’s
+
+Implementation Plan. We include Maryland’s detailed RHTP implementation plan and
+
+timeline for all FY26 – FY31 activities, including implementation stages, in Attachments.
+
+Figure 23: Summary of Maryland’s Implementation Plan
+
+ Activity                                                                  BP1     BP2     BP3     BP4       BP5
+
+ Governance                                                                 0-2     3       3      3-4       4-5
+ Initiative One: Transform the Rural Health Workforce
+ Pathways to Health Careers                                                 0-2     3       3       3        4-5
+ Area Health Education Centers                                              0-2     3       3      3-4       4-5
+ Health Workforce Infrastructure                                            0-1    2-3      3      3-4       4-5
+ Workforce Pipeline Training Programs                                       0-2     3       3      3-4       4-5
+ Provider Training, Recruitment, and Retention Strategies                   0-2     3       3      3-4       4-5
+ Initiative Two: Promote Sustainable Access and Innovative Care for
+ Rural Marylanders
+ Expand Primary Care and Specialty Practice Capacity                        0-1     2       3       4         5
+ Increase Efficiency of Local Agency Operations                             0-2     3      3-5     N/A       N/A
+ Strengthen Emergency Trauma Response
+ Expand School-Based Health Center Capacity                                 0-2     3       3      3-4       4-5
+ Optimize HIT Connectivity and Use of CRISP Tools                           0-2     2      2-3      4         5
+
+
+Rural Health Transformation Program            Project Narrative                                                   48
+CMS-RHT-26-001
+ Centralize Telehealth Infrastructure                             0-2   2-3    2-3   3-4     5
+ Sustainable Access through Service Expansions and IT Advances    0-2    3      3    3-4    4-5
+ Mobile Health Transformation Fund                                0-2    3      3    3-4    4-5
+ Innovative Care Transformation Fund                              0-2    3      3    3-4    4-5
+ Behavioral Health Transformation Fund                            0-2    3      3    3-4    4-5
+ Initiative Three: Empower Rural Marylanders to Eat for Health
+ Post-Harvest Infrastructure                                      0-2    3      3    3-4    4-5
+ Expand Grocers and Mobile Markets                                0-2    3      3    3-4    4-5
+ Create Demand for Healthy Foods                                  0-2    3      3    3-4    4-5
+ Support Food Planning and Coordination                           0-2    3      3    3-4    4-5
+ Increase Local Healthy Food Access: Aggregation                  0-2    3      3    3-4    4-5
+ Increase Local Healthy Food Access: Purchasing Strategy          0-2    3      3    3-4    4-5
+
+Governance and Project Management Structure
+
+MDH is the lead agency for the RHTP. SORH is the designated office within MDH
+
+responsible for overall implementation, management, and assessment of RHTP initiatives.
+
+SORH will serve as the central coordinating entity for all activities under Maryland’s RHTP and
+
+Cooperative Agreement. SORH will ensure consistency with CMS requirements per the
+
+Notice of Award and subsequent Cooperative Agreement, along with State policies, resources,
+
+and initiatives to support rural health transformation. Sara Seitz, SORH Director, will serve as
+
+the RHTP Project Director and will oversee daily operations, reporting, and coordination
+
+among internal and external partners. With nearly 20 years as a public health professional, Sara
+
+Seitz, MPH, has extensive experience engaging stakeholders to expand healthcare access
+
+and improve health outcomes. Her leadership will draw on first-hand knowledge of rural health
+
+via the SORH directorship role, extensive federal grants management expertise, working
+
+experience in a rural LHD, and as a current resident of rural Maryland.
+
+The RHTP work will benefit from direct oversight and engagement from the Assistant
+
+Secretary for Population Health and Strategic Initiatives Elizabeth Edsall Kromm, Ph.D.,
+
+M.Sc., which offers a direct line to the Office of MDH Secretary Meena Seshamani, M.D.,
+
+Ph.D. To fulfill the responsibilities under this Cooperative Agreement, SORH will add staff
+
+
+Rural Health Transformation Program         Project Narrative                                      49
+CMS-RHT-26-001
+capacity for project management, performance management, outreach, and contract
+
+management. We will dedicate contractual FTEs to support implementation over five years of
+
+Transformation Plan as described with additional detail in the Budget Narrative. With approval
+
+for expedited hiring, we anticipate completing the recruitment process with staff in place by
+
+February 2026. We will engage contractors to support the work of (1) Developing RFPs/RFAs
+
+for the transformation funds, (2) Structuring review committee processes and (3) Drafting
+
+evaluation/scoring rubrics. The contractors will also support coordination with partner agencies
+
+administering immediate impact funds.
+
+
+Coordination with State Agencies and Funding Partners
+
+Frequent communication and a defined decision-making process will be key for this scope of
+
+transformation. MDH contains many of the key roles and resources critical to achieving RHTP
+
+goals, including SORH, the State’s Medicaid Agency, the Program Management Office of the
+
+Maryland Primary Care Program, BHA, the Prevention and Health Promotion Administration
+
+(PHPA), and the Public Health Services Administration. As the central coordinating entity,
+
+SORH will engage with agency and funding partners described in Initiatives One, Two, and
+
+Three. LHD Health Officers report to the Deputy Secretary for Public Health Services. LHDs
+
+will support mobile health partnerships, including programs that work to create partnerships with
+
+county-based EMS.
+
+SORH will lead engagement with Maryland’s rural communities, providers, and
+
+stakeholders for input on the further development of initiatives, implementation, and
+
+achievement of milestones.
+
+
+
+
+Rural Health Transformation Program      Project Narrative                                         50
+CMS-RHT-26-001
+SORH is well-positioned to manage initiatives in close collaboration with other MDH
+
+administrations and funding partners outside of MDH. SORH has effective systems for
+
+coordination among MDH administrations and Maryland agencies. It has successfully carried
+
+out multiple federal grants. Sara Seitz participates in a number of commissions and councils,
+
+including leading the Maryland Statewide Telehealth Interest Group and serving on the
+
+advisory board of the Mid-Atlantic Telehealth Resource Center, Executive Board Member of
+
+the Rural Maryland Council and Chair of its Health Committee, and Rural Maryland
+
+Prosperity Investment Fund Committee member. SORH’s coordination efforts will focus on:
+
+● Funding Coordination: Align and coordinate the deployment of funding streams across
+
+    agency partners to avoid duplication and promote complementary investments. Collaborate
+
+    with CMS on the Cooperative Agreement.
+
+● Policy Alignment and Milestone Tracking: Monitor the implementation of the
+
+    Transformation Plan, assess progress toward milestones, identify gaps in state policy or
+
+    regulation that may impede progress, and coordinate responses to address gaps as needed.
+
+● Performance Assessment: Oversee collection and analysis of impact metrics to assess the
+
+    effectiveness of funded initiatives and inform continuous improvement efforts.
+
+● Grantee Performance and Accountability: Review grantee financial and outcome
+
+    reporting to ensure accountability and confirm that no program duplication exists.
+
+The RHTP governance model will establish a RHTP Steering Committee as part of an
+
+integrated Engagement and Advisory Framework, consistent with CMS Notice of Award and
+
+Cooperative Agreement. The framework combines formal advisory processes with broad
+
+community engagement mechanisms to ensure rural stakeholders are actively involved in
+
+shaping and assessing transformation strategies. The RHTP Steering Committee will monitor
+
+
+Rural Health Transformation Program      Project Narrative                                      51
+CMS-RHT-26-001
+Maryland’s implementation of our Transformation Plan and provide ongoing oversight and
+
+accountability for RHTP funding. SORH will report to the RHTP Steering Committee on the
+
+progress on implementation, the achievement of milestones, and the outcomes of initiative-
+
+specific metrics. The Steering Committee will include all the State agency and funding partners,
+
+and representatives from rural hospitals, primary care and specialty care providers, behavioral
+
+health providers, EMS, and other key stakeholders including the perspective of rural residents.
+
+We describe stakeholder engagement further below.
+
+Stakeholder Engagement
+
+Engagement Framework
+
+Maryland’s collaboration and partnership with providers across the healthcare delivery
+
+system is a hallmark of decades of innovation in care. We will continue leveraging our
+
+infrastructure and experience in coalition-building to advance rural health transformation. See
+
+Attachments for letters of support.
+
+The RHTP governance model will include an Engagement and Advisory Framework to
+
+formalize advisory processes combined with broad community engagement mechanisms to
+
+ensure rural stakeholders are actively involved in shaping and evaluating transformation
+
+strategies, consistent with the Notice of Award and Cooperative Agreement. The Framework
+
+ensures input from rural communities, including patients and providers.
+
+As part of the Framework, we will establish a RHTP Steering Committee to monitor
+
+Maryland’s implementation of our Rural Health Transformation Plan and provide ongoing
+
+oversight and accountability for RHTP funding. SORH will report to the RHTP Steering
+
+Committee on the progress of funds deployment, implementation, the achievement of
+
+
+Rural Health Transformation Program       Project Narrative                                       52
+CMS-RHT-26-001
+milestones, and the outcomes of initiative-specific metrics. The Steering Committee will
+
+include all the State Agency and funding partners as well as MDH – Maryland Medicaid and
+
+Maryland’s SORH – in addition to representatives from rural hospitals, primary care
+
+providers, specialists, behavioral health programs, EMS, and other key stakeholders. The
+
+RHTP Steering Committee will monitor Maryland’s implementation of our Rural Health
+
+Transformation Plan and provide ongoing oversight and accountability for deploying funds,
+
+tracking milestones, and assessing impact metrics. Steering Committee functions include:
+
+● Program Oversight: Review progress on the Immediate Impact Fund and advise on
+
+    alignment of funded projects within the RHTP goals.
+
+● Strategic Input: Provide guidance on the design and goals of Transformation Funds to
+
+    ensure alignment with community priorities and participate in application review committees
+
+    absent any conflicts.
+
+● Accountability and Transparency: Review and interpret metrics on program outcomes, and
+
+    progress and milestones, ensuring accountability and transparency in implementation.
+
+SORH will work with the RHTP Steering Committee to continue the broad-based stakeholder
+
+engagement critical to developing our RHTP proposal. Maryland will require funding partners
+
+and grantees to engage community partners in their activities and share feedback with SORH and
+
+the RHTP Steering Committee. SORH will create ongoing opportunities to share information
+
+on RHTP progress with rural communities and stakeholders to gain their feedback and
+
+recommendations. Avenues include regular community meetings (monthly or at least quarterly
+
+depending on the organizer) convened at the local level by LHDs, Local Health Improvement
+
+Coalitions, and Local Behavioral Health Authorities. At the state level, Maryland’s Health
+
+Secretary has regular community convenings, and we will partner with existing standing
+
+Rural Health Transformation Program      Project Narrative                                    53
+CMS-RHT-26-001
+convenings of the Rural Maryland Council, the Medicaid Advisory Committee, and other groups
+
+to keep rural health transformation at the forefront of discussions. We will continue sharing
+
+regular updates via the rural health transformation webpage launched for our RHTP planning
+
+process.
+
+Engagement to Develop Rural Health Transportation Plan and Proposal
+
+To engage stakeholder input on this rural health transformation plan and proposal, MDH
+
+implemented a two-pronged strategy consisting of a request for information (RFI) survey and a
+
+series of community listening sessions in rural jurisdictions.
+
+Request for Information Survey
+
+On September 8, 2025, MDH broadly disseminated a RFI describing the RHTP opportunity and
+
+encouraging residents and stakeholders to submit project ideas by the end of the month.
+
+MDH announced the RFI survey via a press release, publication of a web page, a public webinar,
+
+and direct email to various stakeholder groups and email addresses via MDH, Medicaid, BHA,
+
+HSCRC, MHCC, Maryland Philanthropy Network, MedChi (the Maryland State Medical
+
+Society), Maryland Hospital Association, Mid-Atlantic Association of Community Health
+
+Centers, Maryland Rural Health Association, and the Rural Maryland Council. We received
+
+more than 325 RFI survey submissions and letters. We include a summary in Attachments.
+
+Participants in the RFI process included provider associations (Maryland Hospital Association,
+
+MedChi, the Mid-Atlantic Association of Community Health Centers) as well as individual rural
+
+hospitals, primary care physicians, behavioral health providers, community-based organizations,
+
+for-profit vendors, and Medicaid managed care organizations among others.
+
+
+
+
+Rural Health Transformation Program        Project Narrative                                     54
+CMS-RHT-26-001
+Community Listening Sessions
+
+MDH, in partnership with our local health departments, held 17 community listening sessions
+
+in Maryland's rural jurisdictions. More than 250 people participated in the listening
+
+sessions. Meetings were in virtual, hybrid and in-person formats and occurred at different times
+
+of the day. LHD leaders facilitated the discussions to gain understanding of needs and
+
+opportunities. MDH provided a discussion guide for LHDs to use and a standardized template
+
+for collecting feedback. LHDs completed the template after each session.
+
+Additional Efforts
+
+A number of additional stakeholder engagement efforts informed the RHT plan and proposal.
+
+For example, MDH leadership participated in three roundtables convened by the Maryland
+
+Hospital Association in October 2025. The State also held roundtable discussions with Directors
+
+from its Local Departments of Social Services, its Local Health Officers, and the Maryland
+
+Medicaid Advisory Committee. MDH drew on its SORH efforts throughout 2023 and 2024 to
+
+identify rural health strengths and obstacles. Inputs included Community Health Needs
+
+Assessments from all 18 rural Maryland counties and stakeholder meetings with community
+
+members, local health departments, hospitals, universities, community-based organizations, and
+
+government agencies. MDH also leveraged its regular engagement with the Rural Maryland
+
+Council and Rural Maryland Prosperity Investment Fund.
+
+Metrics and Evaluation Plan
+Maryland’s RHTP Metrics and Evaluation Plan aligns with the CMS RHTP NOFO requirements
+
+with an evidence-based framework for assessing implementation progress, measuring
+
+outcomes, and ensuring accountability for the three initiatives described in the State’s
+
+
+Rural Health Transformation Program      Project Narrative                                     55
+CMS-RHT-26-001
+Transformation Plan. Many of the proposed RHTP activities enable infrastructure or new
+
+programs to address rural health care needs. We will require grant awardee agreements to
+
+identify specific evidence-based measures and identify milestones. This will inform the
+
+SORH staff’s assessment of the RHTP implementation.
+
+Performance Measures and Outcomes
+
+Maryland is proposing specific, measurable outcomes to monitor the progress of each of our
+
+three RHTP initiatives and support the goals and strategies of our Transformation Plan. Figure
+
+24 shows our performance measures. In addition, we will track supplemental metrics at the
+
+individual program level. We may add measures upon program initiation and in
+
+discussion/consultation with CMS.
+
+Figure 24: Proposed RHTP Performance Measures
+                                                                  Timing of Data and
+                                Data Source/Availability at
+          Measure                                                Ability to Collect and           Rationale
+                                County or Community Level
+                                                                        Analyze
+  Initiative One: Transform
+ the Rural Health Workforce
+(1) Student participants in      Subrecipient reporting at the  Bi-annual collection       Accommodates new and
+pipeline programs across         county level (e.g. AHEC; 4,000                            expanded workforce
+medical and behavioral health, rural 6-12 grade students per    Targets to be set based on development
+# of programs with percentage year, Transformation Fund via partner baselines              programming, including
+increase, as available           Dept of Labor)                 established prior to       Transformation Fund
+(workforce and program                                          project initiation.        progress
+implementation metric)
+(2) Participants in training and Subrecipient reporting at the  Bi-annual collection       Accommodates new and
+education programming            county level (e.g. AHEC; 100                              expanded workforce
+related to medical, behavioral, apprentices per year, Dept. of Targets to be set based on development
+and dental health, # with        Labor)                         partner baselines          programming, including
+percentage increase, as                                         established prior to       Transformation Fund
+available (workforce and                                        project initiation         progress
+program implementation
+metric)
+(3) Participants providing       Subrecipient report at the     Bi-annual collection       Provides interim
+professional services to meet county level (e.g. 15% annual                                evaluation metric for
+Maryland’s health needs for increase in clinical rotation       Targets to be set based on long term impacts on
+the first time (as a student or preceptors; AHEC clinical       partner baselines          state of health workforce
+new employee) or in a            rotations, 500 newly employed established prior to        to be seen beyond RHTP
+promoted role due to newly       rural RAMP model)              project initiation         end
+earned credentials (#)
+
+
+Rural Health Transformation Program              Project Narrative                                                56
+CMS-RHT-26-001
+(workforce and program
+implementation metric)
+(4) Sustainable infrastructure   Subrecipient reporting at the   Annual collection       Infrastructure
+improvements related to          county level, where appropriate                         improvements will result
+workforce transformation         (e.g Southern AHEC, new         Targets based on RHTP   in transformed
+efforts, # (workforce and        apprenticeship programs, Data implementation plan.      foundations to support
+program implementation           Clearinghouse)                                          rural health
+metric)                                                                                  improvements
+Initiative Two: Promote
+Sustainable Access and
+Innovative Care for Rural
+Marylanders
+(1) Increase in primary care    Subrecipient reporting of # of Bi-annual collection       Demonstrates
+capacity within state-          expansion projects by                                     transformation across
+designated rural counties       geographic location/county of Target is to reach rural    rural Maryland
+(access metric)                 service, with count of new     counties at a level at     geography in priority
+                                primary care visits (e.g.      which MD is able to        service area
+                                HSCRC, Transformation Fund) demonstrate progress
+                                                               toward 5-year RHTP
+                                                               goals.
+(2) Increase in behavioral      Subrecipient reporting of # of Bi-annual collection       Demonstrates
+health capacity within state- expansion projects by                                       transformation across
+designated rural counties       geographic location/county of Target is to reach rural    rural Maryland
+(access metric)                 services with count of new     counties at a level at     geography in priority
+                                behavioral health visits (e.g. which MD is able to        service area
+                                Transformation Fund)           demonstrate progress
+                                                               toward 5-year RHTP
+                                                               goals.
+(3) New connectivity points to Subrecipient reporting of newly Bi-annual collection       Demonstrates expanded
+HIE benefiting rural            established connections                                   access to data for
+Marylanders, # connections, (CRISP)                            Targets to be set based on improved care
+with percentage increase                                       partner baselines          coordination across
+(technology use, quality and                                   established prior to       priority service areas in
+health outcomes metric)                                        project initiation.        rural Maryland and long-
+                                                                                          term impact on improved
+                                                                                          rural health outcomes
+(4) New rural provider          Subrecipient reporting by      Bi-annual collection       Demonstrates initial
+participation in advanced care county (e.g. HSCRC, LHDs,                                  reach toward long term
+models, # with percentage       CRISP)                         Targets to be set based on goal of improved rural
+increase, as available (quality                                partner baselines          health outcomes
+and health outcomes metric)                                    established prior to
+                                                               project initiation.
+Initiative Three: Empower
+Rural Marylanders to Eat
+for Health
+(1) Participants in targeted    Subrecipient reporting by      Bi-annual collection       Demonstrates initial
+nutrition education programs county (e.g. LHDs)                                           reach toward long term
+with increased knowledge                                       Targets to be set based on goal of improved rural
+regarding consumption of                                       literature review of       health outcomes due to
+healthy foods and reduced                                      outcomes in similar rural improved dietary
+consumption of processed                                       health programming.        practices
+foods, # with percentage
+increase, as available
+
+
+
+Rural Health Transformation Program               Project Narrative                                             57
+CMS-RHT-26-001
+(program implementation
+metric)
+(2) Sustainable infrastructure Subrecipient reporting at         Bi-annual collection    Infrastructure
+improvements, # (program       county level, as appropriate (e.g                         improvements will result
+implementation metric)         200 small-scale cold storage      Targets based on RHTP   in transformed
+                               units, MDA, DCHD, MDEM, implementation plan.              foundations to support
+                               RMC)                                                      Maryland healthy food
+                                                                                         distribution and long-
+                                                                                         term improved health
+                                                                                         outcomes
+(3) New or expanded           Subrecipient reporting on food Bi-annual collection        Demonstrates increased
+initiatives to strengthen     preparation and aggregation                                market access Maryland
+healthy food distribution     activities by geographic        Targets to be set based on farmers to sell healthy
+across rural Maryland, #      location (county) of food       partner baselines          food to larger buyers to
+(program implementation       supply                          established prior to       reach Marylanders
+metric)                       (Transformation Fund, RMC) project initiation.
+(4) New or expanded           Subrecipient reporting by       Bi-annual collection       Demonstrates increased
+initiatives to strengthen     geographic location (county) of                            purchasing intent of
+healthy food purchasing       purchaser/ distribution locale Targets to be set based on healthy Maryland foods
+strategies across rural       (Transformation Fund, RMC) partner baselines               for distribution to reach
+Maryland, # (program                                          established prior to       Marylanders
+implementation metric)                                        project initiation.
+
+Baseline Data, Targets, and Evaluation Metrics
+
+We will work with grantees and transformation fund partners to develop baseline data for related
+
+metrics and establish specific and measurable targets. Where available, we will collect data at
+
+the county or community level to demonstrate the impact of RHTP funding across rural
+
+communities. SORH will develop grantee reporting requirements that ensure our ability to
+
+collect data at the county or community level when appropriate.
+
+Maryland has sophisticated health data expertise with the ability to connect health data across
+
+sectors. We have data use agreements in place across agencies, with solid processes for data
+
+security. SORH will work with the MDH Chief Information Officer to develop tools to monitor
+
+performance and hold funding partners accountable for meeting the objectives of the
+
+initiatives. We will enhance existing statewide data dashboards by adding rural/non-rural
+
+analysis and routinely sharing data with transformation fund partners and the RHTP Steering
+
+Committee. We will provide performance reports to CMS, as required in the Notice of Award
+
+
+Rural Health Transformation Program             Project Narrative                                               58
+CMS-RHT-26-001
+and Cooperative Agreement, including progress reports along and non-competing continuation
+
+applications. Maryland will participate in any CMS-led evaluation or monitoring.
+
+The RFPs/RFAs and grantee agreements associated with RHTP transformation funds will
+
+include data collection and reporting requirements appropriate to hold grantees
+
+accountable for performance and support any necessary evaluations. SORH will develop an
+
+overarching RHTP evaluation plan to ensure a comprehensive approach to accountability. SORH
+
+staff’s comprehensive evaluation will include community feedback and provider
+
+recommendations from rural regions gathered by LHDs. For Initiative Three, MDEM will
+
+gather community input through their ongoing convening role.
+
+Maryland’s RHTP initiatives include specific pilots. For example, we include RHTP funds to
+
+support an evaluation to identify Innovative Care Transformation Fund effective practices.
+
+Evaluation results will inform continuous improvement and guide sustainability planning
+
+beyond the RHTP grant period.
+
+Sustainability Plan
+Maryland is committed to ensuring lasting transformation in our rural communities beyond
+
+this five-year RHTP cooperative agreement. Figure 25 shows the sustainability plan for each
+
+applicable activity under our three initiatives. Importantly, many activities are one-time
+
+infrastructure costs that will not require ongoing infusions of resources for sustainability.
+
+As described above in Proposed Initiatives and Use of Funds, our competitive transformation
+
+fund approach will identify the most promising proposals with clear potential impact. Each
+
+RFP/RFA will require applicants to address sustainability. The strength of sustainability plans
+
+will factor prominently in evaluating the proposals/applications.
+
+
+
+Rural Health Transformation Program       Project Narrative                                     59
+CMS-RHT-26-001
+Figure 25: Sustainability Plan
+Initiative  Sustainability Plan
+            Immediate Impact Funding:
+            - Pathways to Health Careers: Strong relationships with employers, reinforced through agreements
+              with the State will sustain programs.
+            - Area Health Education Centers: Sustainability plan unnecessary for one-time start-up
+              infrastructure costs. New Southern AHEC will attain support from partners to diversify funding,
+              similar to the funding model for existing AHECs.
+Initiative  - Health Workforce Infrastructure: Sustainability plan unnecessary for one-time start-up
+One:          infrastructure costs. Ongoing IT maintenance costs for the Clearinghouse will be factored into
+Transform     MDH’s budget in future years.
+the Rural   Transformation Funding Opportunities:
+Health      - Workforce Pipeline Training Program: Start-up infrastructure resources will create a self-
+Workforce     sustaining pathway to keep rural residents in their communities.
+            - Provider Training, Recruitment, and Retention Strategies: RHTP investments will help attract
+              new sources of funds.
+            - For both transformation funds, the increase in the health workforce resulting from five years of
+              RHTP funding will produce a larger workforce. This will reduce burnout and professional isolation,
+              creating a more appealing environment for new and established providers. This creates a cycle to
+              continue to attract more healthcare providers.
+            Immediate Impact Funding:
+            - Expand Primary Care and Specialty Practice Capacity: Seed funding supports providers as they
+              fill patient panels and advance their practices, ultimately achieving sustainability for salaries and
+              operational costs through billing for services and realizing earned savings through value-based care
+              arrangements and alternative payment models.
+            - Increase Efficiency of Local Agency Operations: Increased revenue will help sustain ongoing
+              delivery of clinical services and care coordination.
+            - Strengthen Emergency Trauma Response: Pilot performance will determine if sustainability path
+Initiative    is needed. One option is the expanded Trauma Fund Grant Program.
+Two:        - Expand School-Based Health Center Capacity: One-time initial costs will not continue. Access
+Promote       will be sustained through ongoing billing of public and payers.
+Sustainable - Optimize HIT Connectivity and Use of CRISP Tools: Sustainability plan unnecessary for one-
+Access and    time start-up infrastructure costs. Potential for practices to benefit from future participation in
+Innovative    value-based care models if connected and make use of population health management tools for high
+Care for      and medium risk patient panels. Increased CBO billing provides ongoing revenue for operations.
+Rural       - Centralize Telehealth Infrastructure: Some activities are one-time start-up costs. For others,
+Marylanders updates to the CRISP’s assessment and user fee model will support sustainability.
+            Transformation Funding Opportunities:
+            - Sustainable Access through Service Expansions and IT Advances
+            - Mobile Health Transformation Fund
+            - Innovative Care Transformation Fund
+            - Behavioral Health Transformation Fund
+            - For all four funds, provider billing will support ongoing sustainability, along with potential hospital
+              contracts for potentially avoidable utilization, MCO partnerships for chronic care management, and
+              integration into value-based care arrangements including ACO shared savings programs.
+            Immediate Impact Funding:
+Initiative
+            - Post-Harvest Infrastructure: Sustainability plan unnecessary for one-time start-up infrastructure
+Three:
+              costs.
+Empower
+            - Expand Grocers and Mobile Markets: Sustainability plan unnecessary for one-time start-up
+Rural
+              infrastructure costs. Pilot may provide proof of concept for ongoing investment. Support for
+Marylanders
+              marketing can sustain businesses by expanding local demand.
+to Eat for
+            - Create Demand for Healthy Foods: Sustainability plan unnecessary for one-time start-up
+Health
+              infrastructure costs. Once we introduce educational interventions to partners, they will continue to
+
+
+Rural Health Transformation Program               Project Narrative                                                60
+CMS-RHT-26-001
+               be able to integrate them within chronic disease curriculum. Maryland LHDs will explore future
+               sources of funds in partnership with MDA and our State and local education systems.
+             - Support Food Planning and Coordination: Sustainability plan unnecessary for one-time planning
+               activities.
+             Transformation Funding Opportunities:
+             - Improved Access to Local Healthy Food: Sustainability plan unnecessary for one-time start-up
+               infrastructure costs. We will require grantees to develop a revenue model, e.g., tiered payment by
+               suppliers/producers with processing fees.
+             - Local Foods Purchasing Strategy: Sustainability plan unnecessary for one-time start-up
+               infrastructure costs of pivoting away from traditional food purchasing systems to focus on locally
+               produced foods. Once operational, the new system will be sustainable within existing institutional
+               food budgets.
+
+
+Maryland will integrate lessons learned from RHTP into ongoing policy through a number of
+
+avenues, including through the Rural Health Strategic Plan, State Health Assessment, and State
+
+Health Improvement Plan. SORH’s connection to and support from the Office of Assistant
+
+Secretary for Population Health and Strategic Initiatives elevates its work and provides visibility
+
+and ensures leadership support within the Office of MDH Secretary. In addition, as described in
+
+the Implementation Plan and Timeline section, our governance structure includes a range of
+
+MDH administrations and State agency partners such as Medicaid, PHS and BHAas well as MD
+
+Labor, MDA, and LHDs. By design we are eliminating silos to achieve strategic focus, action,
+
+and ultimately, success. Maryland will keep prioritization of rural health transformation at
+
+the forefront of existing convenings across State government, including Maryland Medicaid and
+
+the Rural Maryland Council. SORH will continue sharing rural health transformation
+
+information with rural communities and stakeholders to gain feedback.
+
+
+
+
+Rural Health Transformation Program            Project Narrative                                               61
+CMS-RHT-26-001
+
