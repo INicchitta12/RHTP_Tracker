@@ -803,11 +803,28 @@ vv_layer_cases <- function(b = vv_build(write = FALSE)) {
     tidyr::separate_rows(vendor_case_id, sep = ";") %>%
     dplyr::transmute(case_id = vendor_case_id, row_file = file, row_kind = kind, row_awardee = awardee,
                      row_amount = amount, spend_category, vendor_role, out_of_state, vendor_public,
-                     vendor_verified)
+                     vendor_verified, use_group_primary)
   ev <- dplyr::bind_rows(b$verified, b$pass_through %>% dplyr::select(-dplyr::any_of("why_here")))
   ev %>% dplyr::left_join(on_rows, by = "case_id") %>%
     dplyr::mutate(category_116e = dplyr::if_else(is.na(intermediary_type), categories,
                                                  paste0(categories, " (", intermediary_type, ")")))
+}
+
+#' SESSION 123: the owner-facing label of a row's use group; a contract row has
+#' no use category (they cover award rows only).
+vv_use_label <- function(g, kind) {
+  labels <- c(PREVENTION_CHRONIC_DISEASE = "Prevention and chronic disease",
+              DIRECT_PROVIDER_PAYMENTS = "Direct provider payments", HEALTH_IT_TECHNOLOGY = "Health IT and technology",
+              WORKFORCE = "Workforce", SERVICE_LINES_CARE_AVAILABILITY = "Service lines and care availability",
+              BEHAVIORAL_HEALTH = "Behavioral health",
+              CARE_DELIVERY_PAYMENT_TRANSFORMATION = "Care delivery and payment transformation",
+              CAPITAL_INFRASTRUCTURE = "Capital and infrastructure",
+              PARTNERSHIPS_REGIONAL_NETWORKS = "Partnerships and regional networks", MULTIPLE = "Multiple",
+              NOT_STATED = "Not stated")
+  out <- unname(labels[g])
+  out[kind %in% "contract"] <- "n/a (contract row; use categories cover award rows)"
+  if (any(is.na(out))) stop("[vv] a verified case's award row has no use category. Re-run Rscript R/11_use_categories.R --apply.", call. = FALSE)
+  out
 }
 
 vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
@@ -832,7 +849,10 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
     `Archive SHA-256` = archive_sha256, `Source date` = source_date,
     `FSRS registered address` = fsrs_address, `Live check` = live_status,
     `Independent check` = independent_check, `RHTP tie page (V2)` = tie_source, `V9 location check` = v9_basis,
-    Notes = notes, `Case ID` = case_id)
+    Notes = notes, `Case ID` = case_id,
+    # SESSION 123 (task 4d): the use-category group of the case's award row
+    # (R/11); a contract row carries none. Never changes any total.
+    `Use group (primary)` = vv_use_label(use_group_primary, row_kind))
   by_cat <- vend %>% dplyr::group_by(`Spend category` = spend_category, `Amount type` = amount_type) %>%
     dplyr::summarise(Cases = dplyr::n(), Total = sum(amount),
                      # Session 117 (Task 7c): every total split PUBLIC / NON_PUBLIC.
@@ -884,7 +904,7 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
                       " cases passed V1-V9 and sit in a vendor category (consultant, data/tech vendor, administrator, non-provider intermediary). ",
                       "Grouped by category, ranked by amount; amount types (award, intent, obligation, contract maximum) are never added together."),
                "Internal use only. See 'Method'."),
-      widths = c(6, 26, 22, 6, 40, 15, 14, 14, 9, 16, 15, 9, 40, 30, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 50, 50, 60, 8))
+      widths = c(6, 26, 22, 6, 40, 15, 14, 14, 9, 16, 15, 9, 40, 30, 80, 50, 22, 50, 50, 30, 20, 26, 22, 40, 20, 50, 50, 60, 8, 30))
   add("By category", by_cat, c("Total", "PUBLIC", "NON_PUBLIC", "Out of state"),
       note = "Verified cases by spend category and amount type, each total split PUBLIC / NON_PUBLIC. Never add across amount types.",
       widths = c(28, 18, 8, 18, 18, 18, 18))
@@ -896,12 +916,13 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
         State = state, `Recipient (as printed)` = recipient_as_printed, `Spend category` = spend_category,
         Amount = amount, `Amount type` = amount_type, `116e label` = category_116e,
         `Purpose (verbatim quote)` = purpose_quote, `Source title` = source_title, URL = source_url,
-        `Archive path` = archive_path, `Row file` = row_file, `Case ID` = case_id),
+        `Archive path` = archive_path, `Row file` = row_file, `Case ID` = case_id,
+        `Use group (primary)` = vv_use_label(use_group_primary, row_kind)),
       "Amount",
       note = c(paste0("Verified 116e cases whose row is NOT vendor spending: PROVIDER_PASS_THROUGH (an intermediary paying providers) or HOSPITAL (money this tracker already counts as hospital money). ",
                       nrow(pt), " cases. Hospital associations, networks and system parents follow the hospital rulings and never enter a vendor category (owner direction, session 116f)."),
                "Amount types differ and are never added together."),
-      widths = c(6, 40, 24, 16, 15, 34, 80, 50, 50, 50, 40, 8))
+      widths = c(6, 40, 24, 16, 15, 34, 80, 50, 50, 50, 40, 8, 30))
   add("Re-categorised in 116f", moved %>% dplyr::transmute(`Case ID` = case_id, State = state,
                                                           Recipient = recipient_as_printed, Amount = amount,
                                                           `116e label` = category_116e, `116f spend category` = spend_category),
