@@ -1,0 +1,3262 @@
+Rural Health Transformation
+        Program Application
+            Opportunity Number: CMS-RHT-26-001
+
+                                 Project Narrative
+              Submitted by the State of Tennessee
+                 Tennessee Department of Health
+
+                               November 5, 2025
+Table of Contents
+Project Narrative: Rural Health Transformation plan ........................................................................... 3
+  Rural Health Needs and Target Population............................................................................................... 4
+  Goals and Strategies .................................................................................................................................. 7
+      Improving Access and Outcomes ......................................................................................................... 8
+      Technology Use .................................................................................................................................... 9
+      Partnerships........................................................................................................................................... 9
+      Workforce ........................................................................................................................................... 10
+      Financial Solvency Strategies & Cause Identification Workforce ..................................................... 11
+      Key Performance Objectives Workforce ............................................................................................ 12
+      Strategic Alignment and Goals Workforce ......................................................................................... 12
+      Legislative and Policy Actions Workforce ......................................................................................... 13
+  Proposed Initiatives and Uses of Funds .................................................................................................. 16
+  Implementation Plan and Timeline ......................................................................................................... 41
+  Stakeholder Engagement......................................................................................................................... 50
+  Metrics and Evaluation Plan ................................................................................................................... 52
+  Sustainability Plan................................................................................................................................... 57
+
+
+
+
+                                                                             2
+Project Narrative
+Tennessee’s rural communities have long been the heart of the state’s economy, culture, and
+
+identity. The RHTF plan equips these communities with the modern tools, partnerships, and
+
+innovations to thrive – building a locally-led model for how rural America can become healthy,
+
+vibrant, and self-sustaining and bring “Better Care, Closer to Home.” Tennessee faces some of
+
+the nation’s most complex rural health challenges, from hospital closures and workforce
+
+shortages to high rates of chronic disease. Since his first Executive Order, Governor Bill Lee has
+
+made rural health a statewide priority, directing every agency to define its impact on rural
+
+Tennessee and strengthen it. With legislative support, he created the Rural Health Care Task
+
+Force, catalyzing major investments in rural access, workforce, and prevention. Tennessee has
+
+opened new rural hospitals and strengthened existing ones through sustained investment under
+
+the TennCare Shared Savings Program, including the competitive Rural Health Resiliency
+
+Program (HRP)—a proven model for driving hundreds of millions of dollars to underserved
+
+communities. In every rural county, these efforts are anchored by County Health Councils, which
+
+lead Community Health Assessments and Implementation Plans that align local leaders around
+
+shared priorities and accountability. Years of prioritizing rural needs have laid the foundation for
+
+the RHTF’s success.
+
+To match this historic opportunity Tennessee will now invest $125 million of our own TennCare
+
+Shared Savings to strengthen rural health through targeted capital projects in hospitals and
+
+primary care—and to extend the most effective models emerging from this RHTF. Separately,
+
+TennCare will launch a first-of-its-kind Pathway to Independence pilot using additional shared-
+
+savings funds to help parents transition to private coverage and stable employment, reducing
+
+Medicaid dependence and creating long-term taxpayer value.
+
+
+
+                                                 3
+Rural Health Needs and Target Population
+Across the hills and hollers of Appalachia in the east to the farmlands of west, one in three
+
+Tennessee residents lives in a rural community where isolation, poverty, and declining
+
+infrastructure can create barriers to health and prosperity. Communities that have defined
+
+Tennessee and much of America’s identity are at the center of this great opportunity. Rural
+
+Tennesseans are older, poorer, and sicker than urban counterparts, and gaps continue to widen.
+
+With 93 of 95 counties designated as Health Professional Shortage Areas (HPSAs), the need for
+
+system-wide response is urgent.
+
+Tennesseans contribute enormously to the national healthcare infrastructure, as a regional
+
+healthcare capital for the American southeast, with tremendous assets and upsides including the
+
+nation’s largest for-profit hospital network and nation-leading Medicaid agency in innovation
+
+and efficiency. For 20 years, Tennessee has been number one in the southeast for medical
+
+equipment and supplies and the third-ranked exporter in the United States for medical
+
+equipment.iv Investing in rural Tennessee is investing in the health of the nation’s economy.
+
+Tennessee's years of rural health investments has laid a foundation that RHTP funds can build on
+
+to innovate and transform health to Make Rural Tennessee Healthy Again. This Rural Health
+
+Transformation Proposal reimagines our rural communities—restoring access, dignity, and
+
+sustainability to the places that house Tennessee’s heart and our economy.
+
+Rural Needs
+   - Rural Healthcare Transformation (Right-sizing facilities to improve access)
+
+   -   Maternal and Child Health (Investing in the future of Tennessee families)
+
+   -   Making Rural TN Healthy Again (Chronic disease prevention & nutrition security)
+
+   -   Technology Infrastructure (Ensuring capital meets modern care tools)
+
+   -   Workforce Development (Building a comprehensive health workforce pipeline)
+
+
+                                                 4
+Rural Demographics
+Over 75% of Tennessee’s counties are majority rural i, and in 2024, 2,333,558 Tennesseans, or
+
+33% of the state’s population, were rural residents. ii Rural Tennesseans, as a whole, are older,
+
+poorer, and have less formal education than urban Tennesseans. iii Life expectancy decreases as
+
+rurality increases, with residents in 100% rural counties having a life expectancy (71.6 years)
+
+over 3 years lower than those in mostly urban counties (74.9 years). iv
+
+Tennessee ranks 40th for percentage of households living below the federal poverty level at
+
+14.2%. v The average median household income in rural Tennessee is $57,000, 23% lower than in
+
+urban areas. vi In 2023, 12.2% of Tennesseans aged 18-24 in rural areas did not have a high
+
+school diploma. vii In counties that are 100% rural, 44.5% of residents have public health
+
+insurance, compared to 31.4% of residents in counties that are mostly (>75%) non-rural. viii
+
+Health Outcomes
+Overall, Tennessee is ranked 44th in health and has ranked among the bottom 10 states for 35
+
+years. Rural Tennessee counties generally rank worse than urban counties on health outcomes
+
+(mortality, preventable hospitalizations, life expectancy) and are more likely to experience poor
+
+housing, environmental exposures, limited access to preventive services and nutrition
+
+insecurity. ix In 2023, 37.6% of adults in Tennessee were obese, ranking 40th in the nation, with
+
+rural rates being 17% higher than urban rates. xxi Tennessee experiences poor maternal and infant
+
+health outcomes such as preterm birth and maternal mortality. According to the 2024 Maternal
+
+Mortality in Tennessee Report, 76% of pregnancy-related deaths were preventable, signaling a
+
+clear opportunity for intervention xii across rural Tennessee.
+
+In Tennessee, 16.1% of adults have three or more chronic conditions, the third highest in the
+
+country, leading to higher death rates among rural Tennesseans. For all of Tennessee’s top 10
+
+
+
+                                                  5
+leading causes of death, the crude death rate is higher in rural areas than urban. In rural
+
+Tennessee, the death rate for heart disease (the leading cause of death), is 51% higher among
+
+rural Tennesseans than their urban counterparts. We face the third-highest percentage of cancer
+
+deaths attributable to smoking, and fifth-highest lung cancer incidence and mortality. xiii
+
+Alzheimer’s Disease is the state’s 6th leading cause of death (4th for women), and is also higher
+
+among rural Tennesseans. xiv Tennessee will need a 232.4% increase in the number of
+
+geriatricians by 2050 to meet the demands of the aging population. xv Meanwhile, diseases of
+
+despair (alcohol, prescription- and illegal-drug overdose; suicide; and cirrhosis of the liver) are
+
+of particular concern in Tennessee, and especially rural Appalachia where diseases of despair are
+
+30% higher compared to non-Appalachia. xvi In 2023, over 3600 Tennesseans died of a drug
+
+overdose, which has the 2nd highest drug death rate in the nation. xviiAs these health and
+
+healthcare challenges compound over time, they result in an overall lower life expectancy in
+
+rural Tennessee.
+
+Healthcare Access and Rural Facilities and Financial Health
+Tennessee has 15 Critical Access Hospitals, 2 Rural Emergency Hospitals, 326 Rural Health
+
+Clinics, 100 rural Federally Qualified Health Centers, and 42 small rural hospitals. xviii Since
+
+2010, 16 rural hospitals have closed in Tennessee, the second-most hospital closures of any state
+
+and the most per capita. ~ 75% of Tennessee's essential access rural hospitals are at high risk of
+
+closure, and 45% of Tennessee hospitals have unsustainable financial metrics. xix Workforce
+
+shortages are systemic, with 93 of Tennessee’s 95 counties designated as Healthcare Provider
+
+Shortage Area (HPSAs) for primary care, dental, and/or mental health services. Financial
+
+pressures on rural hospitals are acute and increasing. Higher costs, increasing prevalence of
+
+high-deductible health plans, provider and staff shortages and escalating costs all pose significant
+
+
+                                                  6
+and serious challenges to a significant and growing portion of rural hospitals. TDH works to
+
+address shortages by embedding primary and dental care within local health departments in
+
+every rural county. Five counties in Tennessee have no dental provider and statewide there are
+
+only 50.4 dentists for every 100,000 residents, ~25% lower than the national average, ranking
+
+Tennessee 45th in the nation. xx Nearly a third of Tennessee is a maternity care desert, with 18
+
+Tennessee rational service areas having no obstetric providers. In Tennessee, women travel 15.9
+
+miles and 22.4 minutes, on average, to their nearest birthing hospital.xxi In rural Tennessee,
+
+however, 55.1% of women live over 30 minutes from a birthing hospital. xxii
+
+Target Population
+With nearly every county in Tennessee formally recognized as a Health Professional Shortage
+
+Area, the case for statewide transformation is undeniable. Tennessee’s health outcomes fall
+
+behind national benchmarks across nearly every major measure, underscoring that this is not a
+
+local issue but a statewide imperative: a call to reimagine how care is delivered, sustained, and
+
+shared across rural Tennessee. Tennessee’s rural health needs and challenges define the
+
+foundation of Tennessee’s modernization strategy, which is ready to be scaled.
+
+Rural Health Transformation Plan – Goals and Strategies
+Tennessee knows that the heart of rural America still beats strong. We envision a system of care
+
+that honors the independence of our small towns while connecting them to trusted partnerships,
+
+modern technology and shared purpose to bring “Better Care, Closer to Home.” Tennessee’s
+
+existing structures for rural health transformation ensure funds will be used effectively to achieve
+
+this vision. Notably, Tennessee’s competitive Healthcare Resiliency Program (HRP) has invested
+
+over $300 million since 2023 to drive targeted investments to underserved and rural
+
+communities. By fueling innovation at the local level, prioritizing proven strategies such as the
+
+HRP model of funding distribution, and trusting the wisdom of our rural people, we will build
+
+                                                 7
+not just programs, but sustaining systems of strength — ensuring every citizen, no matter their
+
+ZIP code, can find high-quality care close to home, for generations to come.
+
+Improving Access and Outcomes
+Goal: Tennessee will strengthen the rural health system so that from older adults to the unborn,
+
+every person can find timely, affordable, and high-quality health and healthcare services, closer
+
+to home. We aim not only to treat illness but to restore rural well-being as a way of life.
+
+Strategies: (1) The Healthcare Resiliency Program (HRP) will fund competitive community-led
+
+redesign of facilities, service expansions, and co-located specialty sites to high needs areas in
+
+rural Tennessee. (2) The Last Mile Initiative will expand EMS and mobile Mental Health
+
+services, train Community Paramedics in prevention and neonatal care, and integrate maternal
+
+coordination through CHANT, (Community Health Access and Navigation in Tennessee), an
+
+integrated model of care coordination offered through TDH. (3) Optimizing Rural Healthcare
+
+includes expansion of our successful Safety Net, including millions for currently ineligible
+
+providers in services deserts, connecting uninsured Tennesseans to volunteer specialists and
+
+reduce hospitalizations. Investments will strengthen TDH health clinics in every single rural
+
+county – as the nation’s highest-serving state-operated network, providing both primary and
+
+dental care. (4)A Memory Care Assessment Network, supported by a proven dementia
+
+navigation program will provide rural residents access to ADRD screening and treatment faster
+
+and at lower acuity. For the (5) Capacity Building of our providers, we will invest in direct
+
+technical-assistance funding, executive leadership pipelines, (6) co-location of behavioral health
+
+services for existing providers will build local leadership and coordination.
+
+We will make generational investments in (7) Maternal and Child Health through the proven
+
+Healthcare Resiliency Program (HRP) model, distributing competitive grants, support regional
+
+perinatal centers, and expand our Fetal and Infant Mortality Review work into rural areas,
+
+                                                  8
+addressing the root causes of maternal and infant mortality.
+
+Outcomes: By FY 2031, >80% of rural residents within 30 minutes of a primary care or co-
+
+location site (currently 68% (HRSA)), >50 additional rural facilities modernized, right-sized, or
+
+collocated with behavioral, primary, or specialty care services, 25% reduction in rural maternal
+
+mortality (current: 53/100k), 15% reduction in rural infant mortality (current: 7.2/1000), MCAN
+
+operating in all, identifying 100 early diagnoses of ADRD annually, >20% increase in patients
+
+seen via Safety Net.
+
+Technology Use
+Goal: Make care more efficient and effective by fostering use of innovative technologies and
+
+health-tech as a force multiplier for rural health success, meeting need with opportunity,
+
+expanding interoperability, and spurring innovation to reduce provider burden.
+
+Strategies: Tennessee will engage rural providers onto Tennessee’s long-needed Health
+
+Information Exchange (HIE) for real-time data sharing and safety alerts. Through an HRP
+
+model, Tennessee will use targeted Health-Tech grants to modernize rural clinic management,
+
+provider output, and digital workflows. An enhanced closed-loop referral platform builds on
+
+existing work to expand additional linkages to community-based social and behavioral-health
+
+services, while a statewide eConsult platform will expand prompt access to specialty services.
+
+Outcomes: By FY31, 100% percent of HRP awardees (eligible healthcare providers/systems)
+
+will connect or develop a roadmap to connect to the HIE and the CLRS.
+
+Partnerships
+Goal: Build durable, community-rooted partnerships that unify Tennessee’s rural health
+
+ecosystem—linking providers and partners to improve quality, stability, and shared learning.
+
+Strategies: Building on decades of innovative leadership at the local level, cross-sector County
+
+Health Councils will align local partners and receive annual progress reports from RHTF
+
+
+
+                                                 9
+participants and HRP awardees. Regional Healthcare Coalitions will coordinate emergency
+
+preparedness and shared planning across EMS regions. The Academic Health Department
+
+program will connect with universities and training centers in both rural and urban centers to
+
+improve shared learning and rural training opportunities. Regional affiliations between rural and
+
+tertiary systems will strengthen finances and preserve access, while TDH, TennCare, and the
+
+Tennessee Department of Mental Health and Substance Abuse Services (TDMHSAS) continue
+
+to align funding and metrics at the community and regional level.
+
+Outcomes: By FY31, residents in every county health council will be connected with an HRP
+
+awardee, ≥30 formal or renewed affiliations with data-sharing, telehealth, or referral agreements.
+
+Workforce
+Goal: Strengthen Tennessee’s rural health care workforce through comprehensive career
+
+pipelines, pre- and post-licensure training, plus continuing education and support for clinicians
+
+and health care administrators.
+
+Strategies: Tennessee will expand and up-scale a variety of rural training opportunities for
+
+health professions, led by the foundational work of Tennessee Rural Health Care Task Force
+
+(2022-2024) and the Tennessee Rural Health Care Center of Excellence established in 2025.
+
+State investments in key pilot initiatives will include the (1) Comprehensive Rural Health
+
+Pipeline and Pathways Program for K-12 students, the (2) Rural Healthcare Initiatives Program
+
+for paid apprenticeships and other work-based learning opportunities, and the (3) Rural Clinical
+
+Training Program for rural-based education curricula, constitute a three-prong approach for
+
+career pathways, paid apprenticeships, rural residencies/fellowships, and other rural-based
+
+learning opportunities for the spectrum of the healthcare workforce. The state will concentrate
+
+on shortage areas such as health care ‘deserts’ in obstetrics, primary care, dental and the
+
+behavioral-health workforce.
+
+                                                 10
+Outcomes: By FY31, 25 new rural residencies or fellowships will be active, and 150 new
+
+healthcare providers placed in rural counties. One thousand students will enter early-exposure
+
+tracks, and rural provider retention will rise. 50% of workforce programs will shift to sustained
+
+funding.
+
+Financial Solvency and Cause Identification
+Goal: Safeguard the financial future of rural hospitals and clinics through value-based payment
+
+models, right-sizing services, targeted technical assistance, and pro-active solvency oversight.
+
+Strategies: Tennessee is making significant investments ($100m, scalable) in value-based
+
+payment models. Technical assistance will guide facility restructuring into hybrid, Rural
+
+Emergency Hospitals, or micro-hospital formats. Rural TDH primary clinics will modernize
+
+systems, and a Rural Prosperity Coordinator will engage public-private partnership opportunities
+
+to improve community health outcomes in TN.
+
+Outcomes: By FY31, 15 hospitals, EDs, or clinics will complete right-sizing transitions, and 20
+
+new diversified rural outpatient programs will open statewide. Although there will be forces
+
+beyond our control impacting potential changes, Tennessee is setting the goal of a net loss of
+
+zero critical-access hospital services during the grant period.
+
+Program-Wide Key Performance Objectives (by FY 2031)
+
+By the end of the funding period, Tennessee will demonstrate measurable statewide progress across five
+
+strategic focus areas. These key performance objectives represent the overarching goals of the Rural
+
+Health Transformation Plan and are derived directly from initiative-level metrics and data sources.
+
+
+Focus Area        Objective                          Baseline (2025)               Target (FY 2031)
+
+                                                                                    ≥20 rural clinics providing
+                  Expand integrated primary,         Few rural clinics offering co-
+1. Rural                                                                            co-located care and a 50%
+                  behavioral, and specialty care     located behavioral or
+Healthcare                                                                          increase in organizations
+                  access across rural Tennessee by   specialty care; limited
+Transformation                                                                      connected through TN
+                  increasing the number of clinics   referral connectivity.
+                                                                                    Community Compass.
+
+
+
+                                                     11
+Focus Area        Objective                           Baseline (2025)               Target (FY 2031)
+
+                  offering co-located services and
+                  connected referral systems.
+
+                  Expand access to comprehensive 0 maternity-care-desert            100% of maternity-care-
+                  maternity care in all Tennessee    counties served; postpartum    desert counties served;
+2. Maternal and
+                  maternity-care-desert counties and depression screening 84%;      postpartum depression
+Child Health
+                  improve perinatal quality          postpartum visit attendance    screening 91%; postpartum
+                  outcomes                           92.6%;                         visit attendance 93.8%;
+
+                                                      45 counties with funded
+                  Improve preventive health and
+                                                      health-promotion
+                  chronic disease outcomes in rural
+3. Make Rural                                         environments; 0% of rural     89 counties funded; ≥25%
+                  Tennessee by expanding access to
+Tennessee                                             residents within one mile of of rural residents within one
+                  health-promoting environments
+Healthy Again                                         such environments; 42         mile; 73 tailored resources.
+                  and strengthening County Health
+                                                      tailored resources for Health
+                  Councils.
+                                                      Councils.
+
+                                                    Structured data exchange at
+                                                                                    Structured data exchange at
+                  Modernize rural health technology 60% of encounters; 0
+                                                                                    85% of encounters; 500
+4. Technology     systems to strengthen data        providers enrolled in HIE;
+                                                                                    providers enrolled in HIE;
+Infrastructure    exchange, interoperability, and   ~20,000 annual referrals
+                                                                                    200,000 annual TNCC
+                  care coordination statewide.      through TN Community
+                                                                                    referrals.
+                                                    Compass.
+
+                  Expand Tennessee’s rural health
+                  workforce pipeline by increasing
+                                                       0 rural residencies; 38      250 rural residencies; 80
+5. Workforce      residencies, apprenticeships, and
+                                                       apprenticeships; 0 student   apprenticeships; 1,000
+Development       internships that establish sustained
+                                                       internships.                 student internships.
+                  training and placement capacity
+                  statewide.
+
+
+CMS Strategic Goal Alignment
+This plan advances all five Strategic Goals outlined by CMS in the NOFO:
+
+1. Sustainable Access – Right-sized facilities, Safety Net, ADRD, Maternal and Child Health
+
+2. MRAHA – Community-based prevention, chronic-disease management, CHWs
+
+3. Tech Innovation – HIE expansion, AI-supported analytics, remote monitoring, EMS
+
+4. Workforce Development – Expanded physician, behavioral, and administrator pipelines.
+
+5. Innovative Care – Payment model reform, revenue diversification, sustainability planning,
+
+   community engagement through County Health Councils.
+
+
+
+
+                                                       12
+Legislative and Regulatory Actions
+Tennessee is immediately pursuing full policy alignment with the Administration on legislative
+and regulatory actions, as outlined in the NOFO.
+
+A.2 – Certified Community Behavioral Health Clinics (CCBHCs)
+None of Tennessee’s Community Mental Health Centers are certified CCBHC.
+
+A. 7 -,DSH Payments
+There were 60 unique hospitals that received Statutory DSH payments in SFY2025.
+
+B. 2. Health and lifestyle
+Tennessee will introduce and pass legislation in 2026 requiring schools to reestablish the
+
+Presidential Fitness Test in a way that is aligned with any announced federal guidance associated
+
+with Executive Order 14327 to promote high fitness standards and encourage active lifestyles
+
+among youth. Implementation will occur prior to December 31, 2028.
+
+B. 3. SNAP waivers
+On August 12, 2025, Tennessee requested a demonstration project waiver from U.S. Department
+
+of Agriculture Food and Nutrition Service (USDA FNS) to modify the definition of foods
+
+allowable for purchase with the Supplemental Nutrition Assistance Program (SNAP) benefits.
+
+This demonstration project will restrict the purchase of some food and beverage items with high
+
+sugar content using SNAP benefits in support of improved health outcomes among SNAP
+
+recipients. The State received technical assistance from USDA FNS following the request and
+
+submitted a revised waiver request incorporating USDA FNS feedback on September 29, 2025.
+
+However, USDA FNS has since notified Tennessee that the agency is unable to continue
+
+processing the State’s waiver approval during the federal government shutdown. Tennessee
+
+intends to obtain final approval of the State’s waiver immediately upon the reopening of the
+
+federal government.
+
+
+
+
+                                                13
+B. 4. Nutrition Continuing Medical Education
+Tennessee will introduce and pass legislation in 2026 requiring nutrition to be a component of
+
+continuing medical education (CME) for physicians to equip them to better prevent and manage
+
+a variety of health conditions. Implementation will occur prior to December 31, 2028.
+
+C.3.Certificate of Need (CON)
+In 2024, the Tennessee General Assembly passed HB2269/SB2009, Public Chapter No. 985,
+
+which significantly reformed the State’s certificate of need (CON) program. Among the reforms
+
+was allowing providers to initiate imaging services without a CON, specifically PET and MRI
+
+services. These changes will take effect on December 1, 2025, and, therefore, are not reflected in
+
+the Cicero Institute 2024 report. Tennessee will introduce and pass legislation to eliminate CONs
+
+across facility categories in the 2026 legislative session. The elimination of CON will reduce
+
+barriers to entry for new providers, which will help facilitate greater access, lower costs, and
+
+improve quality of care. Implementation will occur by January 1, 2027.
+
+D. 2. Licensure compacts
+The sources accurately reflect that Tennessee has fully enacted the five compacts.
+
+D. 3. Scope of practice
+Expanding the scopes of practice for physician assistants, nurse practitioners, pharmacists, and
+
+dental hygienists will help alleviate critical workforce shortages and enable more timely,
+
+accessible care for rural residents.
+
+Physician Assistants: The source accurately reflects Tennessee’s moderate scope of practice
+
+environment. Tennessee will introduce and pass legislation in 2026 to enable optimal scope of
+
+practice. Implementation will occur by January 1, 2027. Nurse Practitioners: The source
+
+accurately reflects Tennessee’s restricted scope of practice environment. Tennessee will
+
+introduce and pass legislation in 2026 to enable full scope of practice. Implementation will occur
+
+by January 1, 2027. Pharmacists: The source accurately classifies Tennessee as having
+
+
+
+                                                 14
+formulary-based authority. Tennessee will introduce and pass legislation in 2026 to enable full
+
+authority. Implementation will occur by January 1, 2027. Dental Hygienists: The source’s
+
+classification is accurate. Tennessee will introduce and pass legislation in 2026 to enable
+
+unrestricted scope of practice. Implementation will occur by January 1, 2027.
+
+E. 3. Short-term, limited-duration insurance (STLDI)
+Tennessee has no state-specific restrictions in place that limit short-term, limited-duration
+
+insurance (STLDI) beyond the federal guidance. There are no state-imposed policies regarding
+
+maximum allowable initial contract term or maximum allowable total coverage period.
+
+F. 1. Remote care services
+The Center for Connected Health Policy (CCHP) accurately reports that Tennessee has an in-
+
+State licensing requirement, a registration policy for telehealth, and provides reimbursements for
+
+live video. Tennessee also provides Medicaid payments for Store and Forward, as required by
+
+T.C.A. 56-7-1002(e), and payments for Remote Patient Monitoring (RPM), as evidenced by
+
+Tenn. R. & Regs. Rule 1200-13-14-.04. These two state policy action factors are not captured in
+
+the CCHP report. If greater policy documentation of RPM coverage would be beneficial for
+
+increased awareness of rural health providers, Tennessee commits to adopt such a policy prior to
+
+December 31, 2026.
+
+
+
+
+                                                 15
+Proposed Initiatives & Use of Funds
+Tennessee’s Rural Health Transformation Fund (RHTF) initiatives are organized into five
+
+interconnected focus areas designed to address the Strategic Goals of RHTF. Together, 17
+
+initiatives strengthen access, workforce, technology, and prevention across all rural counties.
+
+Select stakeholders are listed for each initiative, while a more a comprehensive table of existing
+
+stakeholders and/or partners is attached to this application.
+
+             Focus Area                                         Select Initiatives
+                                           1.   HRP: Service Line Expansion and Co-Location
+                                           2.   Last Mile Teams
+                                           3.   Optimizing Rural Health Care
+   Rural Healthcare Transformation
+                                           4.   Memory Care Assessment Network
+                                           5.   Rural Capacity Building
+                                           6.   Dental Pilot
+
+                                           7.   HRP: Maternal and Child Health
+      Maternal and Child Health
+                                           8.   Value-Based Payment: Maternal, Hospitals, Dental
+
+
+                                           9. HRP: Make Rural Tennessee Healthy Again (MaRTHA)
+ Make Rural Tennessee Healthy Again        10. Rural Health Improvement Grants
+                                           11. HRP: Rural Non-Emergency Transportation
+
+
+                                           12. HRP: Health-Tech
+                                           13. Statewide Health Information Exchange (HIE)
+      Technology Infrastructure            14. TN Community Compass
+                                           15. Rural Health Innovation Catalyst
+                                           16. Statewide eConsult Platform
+
+       Workforce Development               17. Comprehensive Health Workforce Pipeline
+
+
+
+1. HRP: Service Line Expansion & Co-Location
+
+Initiative: Activating Sustainable Service Lines in Rural Hospital and Healthcare Facilities
+
+Description: Access to comprehensive healthcare services in Tennessee's rural communities
+
+remains a critical challenge, often resulting in fragmented care and poor health outcomes. The
+
+proven Healthcare Resiliency Program (HRP) model aims to expand and integrate access to
+
+primary, specialty, behavioral, and social health services within hospital and healthcare settings.
+
+
+                                                  16
+Through a competitive grant process, this initiative will fund innovative projects designed to
+
+increase the capacity of primary care practices to offer comprehensive services and improve
+
+collaboration among healthcare providers. This initiative supports rural hospitals, Critical Access
+
+Hospitals (CAHs), and co-located clinics in implementing or expanding strategic priority service
+
+lines within existing facilities. Focus areas include perinatal care, behavioral health, emergency
+
+department services, primary care, pediatrics, chronic care coordination, specialty services, and
+
+targeted diagnostic capacity. The initiative emphasizes portfolio-based sustainability by
+
+balancing margin-positive services (e.g., infusion therapy, oncology, nephrology, diagnostic
+
+imaging, certain surgical procedures) with mission-critical services (e.g., OB delivery,
+
+emergency department, primary care, behavioral health) and strategic loss leaders (e.g., pediatric
+
+primary care, chronic care coordination).
+
+Activities include: co-location of services (i.e.; adding behavioral health services in a primary
+
+care setting), minor alterations and renovations (MAR) within existing footprint to retrofit
+
+underutilized space; acquisition and installation of clinical equipment; limited staffing supports
+
+and retention incentives tied to 5-year rural service commitments; simulation-based training and
+
+credentialing for high-acuity, low-occurrence events; development of clinical protocols and
+
+workflow redesign; coverage models and on-call strategies; and integration of telemedicine. All
+
+projects must demonstrate how service lines fit within a balanced portfolio that achieves
+
+financial sustainability at rural volumes through hybrid/digital models and value-based payment
+
+pathways.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: B, D, E, F, G, H, I, J, K
+
+Technical Score Factors: B.1, C.1, C.2, D.1, F.1, F.2, F.3
+
+
+
+                                                 17
+Key Stakeholders: Primary and behavioral health providers, nonprofit and CBOs
+
+ Outcome Metric                                                                  Baseline/Target
+ Increase the number of rural primary care clinics adding access to integrated   Baseline: 0
+ behavioral health.*(* - indicates availability at community level)              Target: 10 Clinics
+ Increase the number of rural primary care clinics adding access to specialty    Baseline: 0
+ care services onsite.                                                           Target: 10 Clinics
+ Increase the number of organizations connected to TN Community Compass.         Baseline: TBD in 2025
+                                                                                 Target: 50% increase.
+ Increase the number of new or upgraded exam/treatment rooms.                    Baseline: 0
+                                                                                 Target:10
+Impacted Counties: County selection will be based on rural designation, demonstrated
+community health needs, provider capacity, partnership readiness, and feasibility, with each
+funded model required to identify target counties, show potential for replication, and, when
+technology-enabled, demonstrate scalable reach across rural Tennessee.
+Estimated Required Funding: $95,000,000 (scalable to $250,000,000)
+
+2. Last Mile Teams
+Initiative: Unifying multiple high-impact efforts to expand Tennessee’s rural emergency care
+
+infrastructure and bring integrated health services directly to residents in hard-to-reach areas
+
+Description: The Last Mile Teams initiative unites multiple high-impact efforts to expand
+
+Tennessee’s rural emergency care infrastructure and bring integrated health services directly to
+
+residents in hard-to-reach communities. This comprehensive program will fund not just a new
+
+ambulance in every county, but a comprehensive new program to expand EMT training and
+
+support, launch and scale Community Paramedicine programs in high-need counties, and embed
+
+neonatal resuscitation (NRP) and perinatal readiness into rural EMS operations statewide, while
+
+deploying mobile behavioral health units or Mobile Health Clinics (MHCs) through an
+
+expansion of Project Rural Recovery. MHCs step in as frontline behavioral providers, often in
+
+counties with no hospitals, preventing unnecessary hospital visits and filling care gaps that would
+
+otherwise overwhelm rural facilities, saving money across the healthcare system. Of 2,308
+
+Project Rural Recovery clients assessed, they reported 227 times that they would have gone to
+
+the emergency department if the mobile clinic had not been available, and 671 times that they
+
+                                                        18
+wouldn’t have received any care. In one year alone, Project Rural Recovery’s mobile units saved
+
+an estimated $200,000 by treating these clients on the mobile health clinic rather than in
+
+emergency departments. 17% of clients reported that it would have taken over an hour to reach
+
+alternate care. MCHs can prevent around 600 emergency room visits per clinic annually,
+
+equivalent to an average savings of 20% in healthcare costs (Tulane University, 2021). By
+
+driving care directly into high-need areas and preventing avoidable hospital use, mobile health
+
+clinics not only improve health outcomes but also serve as a cost-saving, capacity-building asset
+
+to rural hospitals across Tennessee.
+
+Another critical component of the Last Mile Team is the Regional Healthcare Coalitions (HCCs)
+
+that will build the Tennessee Healthcare Resilience, Integration, and Value Expansion
+
+(THRIVE) initiative, representing Tennessee’s next-generation model for sustainable healthcare
+
+preparedness and rural system transformation. THRIVE will create a platform for innovation to
+
+address persistent gaps in healthcare preparedness. Initial efforts will focus on HCC
+
+effectiveness, system interoperability, operational readiness, supply chain resilience, continuous
+
+QI, and federal alignment. Planned activities include strengthening supply chain resilience
+
+through rotational cache management programs and expansion of healthcare buying groups,
+
+establishing Medical Operations Coordination Centers (MOCCs) to streamline patient movement
+
+and placement, implementing HL7 FHIR/US SAFR standards to enhance data interoperability
+
+and create a comprehensive common operating picture during response efforts, and developing
+
+deployable medical teams for field, triage, and surge support operations.
+
+Finally, TDH will build upon the core Community Health Access and Navigation in Tennessee
+
+(CHANT) program by connecting pregnant and postpartum women to critical resources,
+
+comprehensive referrals, and individualized care coordination with increased intensity and
+
+
+
+                                                19
+education components, building a robust system of wraparound support aimed at reducing risks
+
+and improving perinatal health outcomes at both the individual and community levels. Funding
+
+from this grant will allow the enhanced CHANT maternal care coordination to launch in twelve
+
+rural counties with high rates of sleep-related infant deaths and limited maternity care access.
+
+The expansion will strengthen Tennessee’s maternal health infrastructure by bridging resource
+
+gaps, enhancing care coordination capacity, and building a scalable, data-driven model that can
+
+be replicated statewide. This investment not only supports direct service delivery but also lays
+
+the foundation for long-term system transformation—one that promotes maternal wellness,
+
+infant safety, and equitable access to care across all 95 counties by 2035.Together, these efforts
+
+ensure that Tennesseans—regardless of geography—have timely access to lifesaving care,
+
+chronic disease management, and maternal and behavioral health services through coordinated
+
+local response systems that link EMS, hospitals, and community providers.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, C, D, E, F, G, H, I, K
+
+Technical Score Factors: B.1, B.2, C.1, C.2, F.1, F.2, F.3
+
+Key Stakeholders: County Ambulance Services, TDMHSAS, EMS, hospitals, community-
+based partners, women in rural communities, health care providers, i.e., obstetricians,
+gynecologists, family physicians, certified nurse midwives, neonatal care providers,
+pediatricians, March of Dimes, Rural Health Association of TN (RHAT)
+
+ Outcome Metric                                               Baseline/Target
+
+ Increase the number of rural ambulances.                     Baseline: 0 ambulances
+                                                              Target: 89 ambulances
+ Increase the number of rural counties with active            Baseline: 0 rural counties
+ Community Paramedic Programs.*                               Target: 20 rural counties
+ Increase the number of EMS staff certified in Neonatal       Baseline: 0 EMS staff
+ Resuscitation Program.                                       Target: 8,000 EMS staff
+ Increase the number of coalition-led training or exercise    Baseline: 40 training events
+ events annually to support rural healthcare, EMS, and non-   Target: 50 training events per year by Q4 FY30 (25%
+ healthcare personnel education and coordination.             increase)
+
+
+
+
+                                                       20
+ Establish Medical Operations Coordination Centers             Baseline: 0
+ (MOCCs) statewide                                             Target: 8
+ Conduct annual facility readiness assessments                 Baseline: 0% of hospitals completing assessments
+                                                               Target: 100%
+ Establish coalition-led/PPE/MCM rotational programs           Baseline: 0% of coalitions implementing program
+                                                               Target: 100%
+ Increase the percentage of women who attend a                 Baseline: 92.6%
+ postpartum checkup within 12 weeks after giving birth         Target: 93.8%
+ Increase the percentage of women screened for depression      Baseline: 83.7%
+ and anxiety following a recent live birth                     Target: 89.3%
+ Reduce the percentage of clients that report ED use related   Baseline: 5%
+ to MH or SUD over the course of treatment.                    Target: 2%
+Impacted Counties: Statewide (prioritizing rural and frontier counties per HRSA definition and
+maternity care deserts)
+
+Estimated Required Funding: $66,568,795
+
+3. Optimizing Rural Health Care
+
+Initiative: Direct Access to public health, primary care, and dental services for the uninsured
+
+Description: To increase access to primary care and provide a medical home for uninsured
+
+adults, Tennessee will expand their Uninsured Adult Healthcare Safety Net Program network.
+
+Twenty-one counties have been identified with no access to a Safety Net provider for uninsured
+
+adults ages 19-64. Additional providers will be added to the program to expand services to
+
+counties not currently served. Existing Safety Net providers will also have an opportunity to
+
+expand their sites and services to improve access.
+
+Tennessee will leverage its unparalleled network of local health departments (LHDs) in 89 rural
+
+counties to align public and private resources, expand high-value direct services, and help
+
+patients navigate a complex system. Core activities include: (1) a statewide sustainability plan,
+
+which includes an assessment to align TDH clinical capacity with community demand and
+
+private-sector partners; (2) targeted direct services for uninsured/underinsured residents—e-
+
+consults for specialty care, medication assistance through increasing on-site formularies,
+
+transportation/telehealth access, expanded dental capacity/equipment, tobacco/vaping cessation,
+
+
+                                                        21
+and colorectal cancer screening; and (3) Clinical Care Navigation Teams (≈21 staff) embedded
+
+in LHDs to connect patients to specialty care, food, housing, and social supports. The aim is to
+
+right-size services where needs are greatest, reduce avoidable utilization, and improve outcomes
+
+through whole-person, locally delivered care.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, B, C, D, E, F, G, I, J
+
+Technical Score Factors: B.1, B.2, C.1, D.1, F.1, F.2
+
+Key Stakeholders: Rural Providers; faith-based and community organizations; Federally
+Qualified Health Centers (FQHCs), Rural Health Clinics (RHCs); Tennessee Charitable Care
+Network (TCCN); Tennessee Primary Care Association (TPCA); Safety Net Providers
+ Outcome Metric                                                             Baseline/Target
+ Increase provider placements in counties not currently served.             Baseline: 0 Placements
+ *Available at Community Level                                              Target: 21 Placements
+
+ Increase the number of sites offering primary care.                        Baseline: 300 sites
+                                                                            Target: 325 sites
+ Increase the total number of participants who are enrolled in the          Baseline: 2,668
+ program.                                                                   Target: 2,935 (10%)
+
+ Increase the percentage of participants who self-report quitting tobacco   Baseline: 8.8% (National)
+ and nicotine-based products.                                               Target: 13%
+ Increase the percentage of new primary care patients who are referred      Baseline: 0
+ for SDOH services.                                                         Target: Equivalent of 10% increase
+                                                                            annually
+Impacted Counties: All rural counties and communities
+
+Estimated Required Funding: $96,000,000
+
+4. Memory Care Assessment Network
+Initiative: Expanded rural access to ADRD Care through a hub-and-spoke model
+
+Description: A game-changing evidence-based program for rural adults, this comprehensive
+
+Dementia Network for rural seniors builds a statewide resource to improve access to diagnosis
+
+and treatment for those experiencing ADRD. With rural populations disproportionately
+
+represented by older adults—over 20% of rural residents are aged 65 and older—there is a
+
+pressing need for dedicated resources to address their specific health challenges. Modeled after
+
+
+
+                                                         22
+successful systems in Georgia and Florida, MACN+DN will create a hub-and-spoke network
+
+connecting specialized Memory Assessment Clinics with existing urban Neuropsychiatry
+
+resources, leveraging a dramatically expanded Dementia Navigator network. By utilizing
+
+telehealth and trained non-clinical staff, the program will effectively address geographic and
+
+workforce barriers to enhance access and care for individuals with ADRD and their caregivers.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, C, D, E, F, G, I, K
+
+Technical score factors: B.1, B.2, C.1, D.1
+
+Key Stakeholders: Area Agencies on Aging and Disability, primary care providers, caregivers
+
+ Outcome Metric                                                      Baseline/Target
+ Increase # of rural residents with suspected dementia receiving a   Baseline: TBD
+ specialized, confirmed diagnosis (via MACN+DN /telehealth).         Target: TBD
+ Increase # of newly diagnosed patients (& caregivers) who           Baseline: TBD
+ receive in-person, post-diagnostic consultation/resource-linking.   Target: TBD
+ Increase the number of unique rural residents utilizing the         Baseline: 0
+ telehealth platform for MACN+DN diagnostic appointments.            Target: 100 served / MACN by Q4 FY28
+ Establish and formalize Dementia Navigators in rural health         Baseline: 0
+ departments.*                                                       Target: 30 dementia navigators by Q4 FY28
+ Establish shared IT infrastructure to facilitate program            Baseline: N/A
+ evaluation, patient-level data capture, ROI, and data sharing       Target: IT implemented by Q4 FY28
+Impacted Counties: All counties with HRSA rural status
+
+Estimated Required Funding: $32,000,000
+
+5. Rural Capacity Building
+Initiative: Targeting Efficiency to Improve Access to Leadership Skills and Specialty Services
+
+Description: Establish a multi-modal, robust and resilient rural health system that aggressively
+
+removes burdens on rural providers, supports integrating high-value healthcare models in under-
+
+served rural areas by (1) developing executive leadership pathways to place trained rural health
+
+leaders in within priority communities. Tennessee will enhance rural capacity through targeted
+
+partnerships with existing academic centers that can provide technology and workflow
+
+integration support for rural providers. (2) An expanded a Behavioral Health Workforce will
+
+                                                        23
+utilize co-location at high demand locations such as Local Health Departments (LHDs) and
+
+Emergency Departments (Eds) to reduce bottlenecks in emergency care, facilitate quicker access
+
+to appropriate services, and ensure individuals have easy access to crisis intervention,
+
+intake/assessments, peer support, and ongoing MH and SUD treatment. Finally, (3)Tennessee
+
+will accelerate the successful, evidence-based Community Health Worker (CHW) program to
+
+rural communities to improve health outcomes for rural Tennesseans. Tennessee has already laid
+
+the groundwork by investing in CHWs through TennCare and the TN CHW Association
+
+(TNCHWA), becoming the first state with a CHW organizational accreditation pathway that
+
+ensures evidence-based practices are consistently implemented. Accreditation at the organization
+
+level helps ensure better outcomes and maximizes ROI; TennCare, TNCHWA, and NCQA
+
+partnered to establish TNCHWA as the state accrediting agency. RHT funds will support rural
+
+providers to launch evidence-based CHW programs, obtain accreditation, and receive short-term
+
+bridge support while TennCare explores sustainable reimbursement pathways for CHW services.
+
+Collectively, these investments strengthen execution capacity, stabilize operations, and ensure
+
+clinical and community teams can deliver integrated, value-focused care close to home.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, D, E, F, G, H, I, K
+
+Technical Score Factors: B.1, B.2, C.1, D.1, E.1, F.1, F.3
+
+Key Stakeholders: Primary and behavioral care providers, CHWs, payors
+
+ Outcome Metric                                                         Baseline/Target
+ Increase the number of MH providers co-located in rural primary care   Baseline: 11.4 FTEs
+ clinics, specialty clinics, and Eds.                                   Target: 63.4 FTEs
+ Increase the number of executive certifications provided.              Baseline: 0 certificates
+                                                                        Target: 30 certificates
+ Reduce the median boarding hours.                                      Baseline: 0
+                                                                        Target: 40% reduction in median
+                                                                        boarding hours
+
+
+
+                                                       24
+ Increase the number of provider organizations with community health         Baseline: 0 organizations
+ worker accreditation.                                                       Target: 20 organizations
+ *Available at Community Level
+Impacted Counties: Statewide rural, prioritizing At-Risk/Distressed counties
+
+Estimated Required Funding: $39,000,000
+
+6. Dental Pilot
+Initiative: Enhancing investments in the rural dental workforce to improve oral health access
+
+Description: Tennessee will extend its successful Rural Dental Pilot Program to address
+
+persistent shortages of dental professionals in rural and distressed communities. Building on the
+
+early success supported by Governor Lee and the Legislature, this extended pilot (FY2028–
+
+FY2030) will expand dental provider recruitment, establish new rural dental access points, and
+
+integrate preventive oral health services into Dental HPSAs (which include 83% of Tennessee
+
+counties), with many lacking even one full-time dentist. In FY2024, TDH’s public health dental
+
+clinics provided 97,086 dental services to more than 11,000 Tennesseans, while the School-
+
+Based Dental Prevention Project reached 44,000 children and placed nearly 200,000 sealants
+
+statewide. Demand continues to exceed capacity, underscoring the need to extend the model
+
+through RHT funding to achieve scale and sustainability.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, D, F, G, H, K
+
+Technical Score Factors: B.1, B.2, D.1, E.1, F.1, F.3
+
+Key Stakeholders: TDH Office of Oral Health, TennCare; Academic training center participants
+
+ Outcome Metric                                                             Baseline/Target
+ Increase the # of dental clinicians placed in rural/distressed counties*   Baseline: 0 clinicians
+                                                                            Target: 25 clinicians
+ Increase the # of new or renovated dental suites established.              Baseline: 0 dental suites
+                                                                            Target:15 dental suites
+ Increase the # of Tennesseans receiving preventive/restorative dental      Baseline: 0 Tennesseans
+ services through projects funded through this opportunity.                 Target: 100,000 Tennesseans
+ Reduce the % of Emergency Department visits for dental conditions          Baseline: TBD
+ among uninsured populations.                                               Target:10%
+
+                                                          25
+ Establish full HRTS integration of dental metrics.                  Baseline: 0
+                                                                     Target:100%
+Total Requested: $20,000,000 (scalable to $75,000,000)
+
+
+
+7. HRP: Maternal and Child Health
+Initiative: Building a safer start for every mother and child in rural Tennessee.
+
+Description: Tennessee continues to experience unacceptably high rates of preventable fetal,
+
+infant, child, and maternal mortality, ranking 43rd nationally in women’s and children’s health.
+
+As defined by TDH, 38 of the state’s 56 birthing hospitals are considered rural, with 22 of these
+
+rural birthing hospitals having greater than 70% of their births covered by Medicaid. TennCare
+
+currently contracts annually with Tennessee’s five regional perinatal centers, which provide
+
+direct services to high-acuity patients and administer critical supports to rural health providers
+
+and rural birthing centers to support early diagnosis and treatment of high-acuity, life-threatening
+
+conditions of pregnant women and newborn infants. Guided by the Tennessee Maternal Health
+
+Strategic Plan (2025–2030) and Infant Health Strategic Plan (2024–2028), this initiative will
+
+strengthen rural systems of care through aligned investments across facilities, workforce, and
+
+digital infrastructure.
+
+The Healthcare Resiliency Program (HRP) will fund projects that expand rural maternity care
+
+capacity, improve perinatal education and emergency response, and enhance data systems that
+
+connect families to services. Investments include grants to upgrade rural birthing facilities, with
+
+an emphasis on those serving high proportions of TennCare births and persons. The program will
+
+also expand the capacity of the state’s existing perinatal centers, strengthen community
+
+partnerships, and implement new training and tech-enabled consultation supports.
+
+Transformative technology infrastructure investments will be made in behavioral health
+
+
+
+                                                      26
+teleconsultation for maternal and pediatric providers, modernization of TDH’s Call Center and
+
+referral interoperability, and the launch of a mobile pregnancy app to deliver evidence-based
+
+education and resource linkage.
+
+Main Strategic Goal: Innovative Care
+
+Use of Funds: A, C, D, E, F, G, H, J, K
+
+Technical Score Factors: B.1, B.2, C.1, C.2, F.1, F.3
+
+Key Stakeholders: Title V Maternal & Child Health Partners, Maternal Health Task Force,
+Infant Health Advisory Committee, and the Rural Health Association of Tennessee.
+ Outcome Metric                                                              Baseline/Target
+ Increase access to care in maternity care deserts. *                        Baseline: 0 counties
+                                                                             Target: Serve 100% of maternity care
+                                                                             desert counties through MCH HRP grants
+ Increase the percentage of birthing hospitals serving rural patients that   Baseline: 61%
+ are actively participating in Tennessee Initiative for Perinatal Quality    Target: 73%
+ Care (TIPQC) quality improvement projects from a baseline.
+ Decrease the fatal overdose rate among women aged 15–44 years.              Baseline: 47 per 100,000
+                                                                             Target: 42 per 100,000
+ Increase the percentage of women screened for depression postpartum         Baseline: 84%
+ by a healthcare provider.                                                   Target: 91%
+Impacted Counties: Rural counties and communities across Tennessee
+
+Estimated Required Funding: $144,000,000
+
+8. Value-Based Payment: Maternal, Hospitals, Dental
+Initiative: Catalyzing Rural Health Value Based Payment Models
+
+Description: Traditional fee-for-service models reward volume over value, exacerbating the
+
+challenges faced by rural providers. TennCare has demonstrated success in implementing value-
+
+based payment (VBP) programs that improve outcomes and reduce costs across multiple care
+
+settings. This initiative aims to expand that success to rural hospitals, obstetric providers, and
+
+dental clinics to strengthen infrastructure, workforce readiness, and quality improvement systems
+
+that support sustained participation in VBP models. Investments focus on three coordinated
+
+models: the Patient-Centered Obstetric Medical Home, incentivizing coordinated maternal care
+
+& postpartum follow-up; the Rural Hospital VBP Capacity Program, providing infrastructure
+
+                                                          27
+funding for rural hospitals to meet quality benchmarks and be successful under the TennCare
+
+Hospital Investment Program (HIP-QC); and the Patient-Centered Dental Home, engaging rural
+
+dental providers to expand preventive care, reduce emergency visits, and promote integrated oral
+
+and physical health. Together, these models catalyze a sustainable shift toward value-based,
+
+high-quality delivery for providers serving rural communities.
+
+Main Strategic Goal: Innovative Care
+
+Use of Funds: B, D, I, K
+
+Technical Score Factors: B.1, E.1, F.2
+
+Key Stakeholders: TennCare Health Plans, hospitals,
+ Outcome Metric                                                                         Baseline/Target
+ Improve average Admission, Discharge, and Transfer (ADT) quality measure performance   Baseline: 41%
+ in HIP-QC.                                                                             Target: 70%
+ Increase number of obstetric practices in maternal VBP program.*                       Baseline: 0
+                                                                                        Target: 10
+ Decrease Plan All-Cause Readmissions (PCR).                                            Baseline: 1.1445
+                                                                                        Target: <1.0
+ Decrease Ambulatory Care Sensitive Emergency Department Visits for Non-Traumatic       Baseline: 180.75
+ Dental Conditions in Adults (EDV-AD).                                                  Target: 170
+Impacted Counties: Statewide/All TN Counties
+Estimated Required Funding: $100,000,000 (scalable to $125,000,000)
+
+9. HRP: Make Rural TN Healthy Again (MaRTHA)
+Initiative: Expansion of Competitive “Rural Health Resiliency Program” Grants for Community
+
+Driven Prevention Efforts
+
+Description: Through this competitive opportunity, allocated funds will help Tennessee
+
+providers and community-based organizations deliver integrated, high-quality, comprehensive
+
+prevention and health services that address the root causes of poor health outcomes. This
+
+initiative aims to strengthen the healthcare landscape in rural Tennessee by addressing the unique
+
+challenges these communities face, such as limited access to services, health disparities, and lack
+
+of coordinated care. By fostering collaboration among local healthcare providers, the program
+
+seeks to create a robust network that promotes holistic health and well-being for residents in
+
+                                                    28
+underserved areas. These investments may include innovative projects that expand access to
+
+health and healthcare services in rural areas and support transitions to alternative care models
+
+that meet community needs. For example, establishing community health centers with extended
+
+hours and same-day appointments can greatly improve primary care access. Funding can also
+
+expand telehealth through provider training and technology investment, reducing the need for
+
+long-distance travel. Another priority is building mobile and in-home clinical capacity—licensed
+
+teams delivering diagnostics and preventive services through a scalable, tech-enabled
+
+infrastructure that enhances reach, continuity, and reduces emergency use. To improve services
+
+for younger populations, initiatives could hire more school health nurses to ensure timely
+
+screenings and care for students with chronic conditions. Together, these projects address the
+
+unique challenges of rural Tennessee communities and advance overall health outcomes.
+
+Main Strategic Goal: Make Rural America Healthy Again
+
+Use of Funds: A, B, C, D, E, F, G, H, I, J, K
+
+Technical Score Factors: B.1, B.2, C.1, E.1, F.1, F.3
+
+Key Stakeholders: Rural hospitals, FQHCs, EMS, behavioral health providers,
+ Outcome Metric*                                                         Baseline/Target
+ Increase the percentage of rural residents with an identified primary   Baseline: TBD
+ care provider, *                                                        Target: 10% increase
+ Increase the # of mobile strategies in all three grand divisions of     Baseline: 0
+ Tennessee, while connecting patients to a dedicated medical home.       Target: 5
+ Increase the percentage of rural resident encounters using telehealth   Baseline: TBD
+ for primary or specialty visits with participating organizations        Target: 10% increase
+ Increase the % of TN public schools employing a full-time nurse. *      Baseline: 83% in the 2023-24 school year
+                                                                         Target: Based on each individual grantee
+Impacted Counties: County selection will be based on rural designation, demonstrated
+community health needs, provider capacity, partnership readiness, and feasibility, with each
+funded model required to identify target counties, show potential for replication, and, when
+technology-enabled, demonstrate scalable reach across rural Tennessee.
+
+Estimated Required Funding: $56,000,000 (scalable to $150,000,000)
+
+
+                                                         29
+10. Rural Health Improvement Grants
+Initiative: Competitive grants for locally led-upstream prevention, nutrition, and active living.
+
+Description: An ounce of prevention is worth a pound of cure, and Tennessee stands ready to
+
+accelerate our community-driven investments in prevention of chronic diseases by accelerating
+
+and braiding multi-modal layers of community driven support by establishing County Health
+
+Council Collaborative Action for Rural Engagement (CARE) Grants, enhanced Healthy Built
+
+Environments (HBE) Grants, and Integrated Policy, Systems, and Environmental (PSE) Grants
+
+to address severe nutrition security issues across rural Tennessee. County Health Councils, active
+
+in all of Tennessee’s 95 counties for over 30 years, will deploy transformative CARE Grants to
+
+move from planning to action by funding locally prioritized health improvement projects and
+
+building community capacity for long-term sustainability.
+
+The HBE and PSE programs will expand rural access to health-promoting environments,
+
+nutrition security infrastructure, and evidence-based prevention initiatives. HBE grants,
+
+administered by TDH’s Office of Primary Prevention will fund enhancements, programming,
+
+and planning for existing spaces, including parks, trails, farmers markets, and other health
+
+promoting-environment and community assets that support active outdoor living for children and
+
+adults. These spaces provide opportunities for partnerships with school-based physical activity
+
+and healthy eating programs, as well as community events and programming to activate spaces
+
+for strengthened social connection. PSE investments will leverage partnerships utilizing the End
+
+Zone playbook, a Blue Zones inspired PSE model, to implement proven strategies addressing
+
+nutrition security and social connection. By leveraging local expertise and establishing
+
+innovative partnerships Tennessee will efficiently deliver prevention funding that is designed by
+
+the rural communities we serve – maximizing buy-in, increasing access to physical activity and
+
+nutrition security, and building a culture of health in every community in Tennessee.
+
+                                                30
+Main Strategic Goal: Make Rural America Healthy Again
+
+Use of Funds: A, D, G, I ,K
+
+Technical Score Factors: B.1, B.2, C.1 F.1, F.2
+
+Key Stakeholders: County Health Councils, rural and non-profit health systems, community-
+based organizations, and faith-based organizations.
+ Outcome Metric                                                                      Baseline/Target
+ Increase the number of rural counties funded for new health-promoting               Baseline: 45
+ environments that increase access to healthy foods and opportunities for physical   Target: 89
+ activity
+ Increase the percentage of rural Tennesseans living within 1 mile of health-        Baseline: 0
+ promoting environments                                                              Target: 25%
+ Increase the number of partnerships, including county health councils, school
+                                                                                     Baseline: 0
+ systems, local governments, NGOs, CBOs, or nonprofits, that implement End-
+                                                                                     Target: 3 per grantee
+ Zone inspired PSE strategies.
+ Increase the number of tailored resources and trainings administered to County      Baseline: 42
+ Health Councils.*                                                                   Target:73
+Impacted Counties: All rural Tennessee counties.
+
+Estimated Required Funding: $51,000,000
+
+11. HRP: Rural Non-Emergency Transportation
+Initiative: Develop and scale solutions to reduce transportation barriers in rural Tennessee.
+
+Description: The Tennessee Rural Non-Emergency Transportation (RNET) Initiative will bridge
+
+the distance between health and home by transforming how rural Tennesseans are able to access
+
+primary, preventive, and specialty care. Transportation remains one of the most persistent,
+
+preventable, and solvable barriers to health—responsible for thousands of (expensive) missed
+
+appointments, delayed treatments, and preventable hospitalizations each year. Through RNET,
+
+Tennessee will develop an integrated, technology-enabled transportation coordination system
+
+that aligns hospitals, clinics, and community networks under a single framework for equitable,
+
+efficient, and sustainable access.
+
+There is no reason to invent the wheel, but instead we intend to share the wisdom of what works.
+
+Rural hospitals and clinics across Tennessee are already demonstrating how transportation access
+
+
+                                                        31
+improves outcomes. Hospital-led shuttle programs in Upper Cumberland counties reduced
+
+appointment no-shows by more than 25%, saving nearly $600,000 in uncompensated care within
+
+18 months. Community-based ride partnerships in West Tennessee cut travel time to behavioral
+
+health services by 30% while improving treatment adherence and patient retention.
+
+These outcomes mirror national evidence: systematic reviews confirm that reliable non-
+
+emergency medical transportation (NEMT) access reduces missed appointments, emergency
+
+visits, and overall healthcare costs (BMC Public Health, 2022; Milliman Insight, 2023). RNET is
+
+designed to scale these proven successes into a statewide network that standardizes data
+
+reporting, expands coverage to all HRSA-defined rural counties, and integrates transportation
+
+coordination into the fabric of rural healthcare delivery. RNET will launch as a competitive
+
+grant program under the Healthcare Resiliency Program (HRP) model, allowing hospitals,
+
+critical-access facilities, or other third-parties to apply for funding to implement or expand
+
+transportation programs. Key features may include a Statewide Coordination Platform, shared
+
+data-driven decision support, local innovation and flexibility, and cross system integration with
+
+electronic health records (EHRs), the Tennessee Community Compass (closed-loop referral
+
+system), and regional EMS coordination hubs.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, D, F, H, K
+
+Technical Score Factors: B.1, B.2, C.1, E.1, F.3
+
+Key Stakeholders: regional health networks, local transit agencies, TennCare, Federally
+Qualified Health Centers (FQHCs), and community-based organizations
+ Outcome Metric                                                       Baseline/Target
+ Reduce missed medical appointments due to transportation barriers.   Baseline: TBD
+                                                                      Target: 25% reduction
+ Expand coordinated medical transport options in rural counties.*     Baseline: TBD
+                                                                      Target: 65% of rural counties
+
+
+                                                       32
+ Improve chronic disease management (A1C and BP control) among        Baseline: TBD
+ transported patients.                                                Target: 15% improvement
+ Achieve high satisfaction and scheduling reliability among program   Baseline: TBD
+ users.                                                               Target: ≥ 90 percent satisfaction
+
+Impacted Counties: Specific county impact will be determined through a competitive
+application process that prioritizes rural status, community-identified needs, provider capacity,
+partnership commitments, and implementation feasibility, requiring each funded model to target
+specific counties, demonstrate replicability to at least one additional rural county, and—where
+technology platforms allow—enable scalable, multi-county reach.
+
+Estimated Required Funding: $9,000,000
+
+12. HRP: Health-Tech
+Initiative: Competitive Grants for Rural Health Technology Infrastructure
+
+Description: The Tennessee HRP Health-Tech Initiative will modernize the digital backbone of
+
+rural healthcare, empowering providers to deliver faster, safer, and more coordinated care. Rural
+
+hospitals, clinics, and health systems will receive competitive grants to implement scalable,
+
+interoperable, and secure digital solutions that expand access, strengthen clinical integration, and
+
+reduce administrative burden. Building on the proven success of Tennessee’s Healthcare
+
+Resiliency Program (HRP), expansions in eICU and mobile telemetry, and demonstrated
+
+provider appetite - this initiative will deploy a coordinated statewide digital modernization
+
+strategy—one that ensures rural providers are not left behind in the nation’s health-technology
+
+transformation. RHTF investments will target high-impact areas of need, such as virtual care
+
+expansion, interoperability and data integration, advanced analytics and AI-enabled tools,
+
+wearable tech, cyber-security modernization, and workflow automation to improve provider
+
+efficiency. Evidence demonstrates that investment in digital infrastructure improves access,
+
+outcomes, and cost-efficiency. Studies from AHRQ and Health Affairs find that robust EHR and
+
+telehealth adoption yields 10–15 percent reductions in hospital readmissions and substantial
+
+improvements in preventive-service rates.
+
+
+
+                                                       33
+Tennessee will administer HRP: Health-Tech as a competitive, milestone-based grant program.
+
+Rural hospitals, clinics, and networks will submit proposals demonstrating measurable impact,
+
+sustainability, and alignment with federal and state priorities. TDH’s Office of Strategic
+
+Initiatives will provide technical assistance, shared procurement support, and cybersecurity
+
+readiness assessments.
+
+Funding will prioritize technology implementations that demonstrate measurable clinical impact,
+
+integration into care workflows, and long-term sustainability beyond the grant period.
+
+Partnerships between rural providers and technology companies are encouraged to ensure
+
+scalable, vendor-agnostic solutions that comply with federal interoperability and privacy
+
+standards (FHIR, TEFCA, HIPAA). Ultimately, this initiative seeks to enhance technological
+
+infrastructure in rural healthcare settings and address systemic disparities that have historically
+
+hindered these communities from accessing high-quality, efficient care.
+
+Main Strategic Goal: Tech Innovation
+
+Use of Funds: C. D. F. J. K
+
+Technical Score Factors: F.1, F.2, F.3
+
+Key Stakeholders: Providers, Patients, Associations, vendors & infrastructure builders
+ Outcome Metric                                                                 Baseline/Target
+ Award at least 10 competitive subgrants to rural providers for technology      Baseline: 0
+ infrastructure and innovation projects.                                        Target: 10
+ *Available at the community level
+ Ensure that 80% of funded sites will have implemented at least one             Baseline: 0
+ interoperable health technology solution (e.g., telehealth, EHR integration,   Target: 80%
+ AI workflow tool).
+ Participating health systems will report a 25% reduction in administrative     Baseline: 0%
+ burden related to documentation or reporting, as measured by pre/post          Target: 25% reduction
+ surveys in RedCAP.
+ Confirm, achieve and/or sustain role-based cybersecurity training              Baseline: 0
+ completion among participating health systems.                                 Target: 100%
+Impacted Counties: County selection will be based on HRSA-defined rurality, local health
+
+needs, provider capacity, and partnership readiness. Each funded model must target specific
+
+
+
+                                                         34
+counties and demonstrate replicability in at least one additional rural county, with technology-
+
+enabled models eligible for broader statewide reach.
+
+Estimated Required Funding: $76,000,000
+
+13. Statewide Health Information Exchange (HIE)
+Initiative: Developing a statewide Health Information Exchange
+
+Description: Tennessee will transform its healthcare landscape by designing and implementing a
+
+statewide Health Information Exchange (HIE) that will connect rural providers, hospitals, and
+
+payers through a secure, interoperable data infrastructure. Currently, Tennessee lacks a unified
+
+HIE, relying on fragmented regional systems that limit coordination and data sharing. The
+
+initiative will formalize the existing HIE workgroup to develop a detailed implementation plan,
+
+aimed at creating a cohesive statewide network. The development of the HIE by a public-private
+
+partnership will leverage existing cloud infrastructure and technologies for its build and launch.
+
+The HIE will enable seamless data sharing across providers, strengthen emergency and disaster
+
+response, and reduce provider burden, ultimately enhancing population health management and a
+
+more integrated healthcare system that meets the diverse needs of rural communities.
+
+Main Strategic Goal: Tech Innovation
+
+Use of Funds: B, D, F, K
+
+Technical Score Factors: B.1, C.1, C.2, E.1, F.2
+
+Key Stakeholders: Regional HIE, Payers, TN Providers, Dental and Pharmacy, MCOs
+ Outcome Metric                                                         Baseline/Target
+ Increase the # of stakeholder engagement sessions.                     Baseline: 0 sessions
+                                                                        Target:10 sessions
+ Increase the # of training and educational events for HIE users.       Baseline: 0 events
+                                                                        Target: 5 events
+ Increase the # of providers, hospitals, and payers enrolled in HIE.*   Baseline: 0 enrolled
+                                                                        Target: 500 enrolled
+ Increase EHR data exchange compatibility among health care networks.   Baseline: TBD
+                                                                        Target: 90% if legislation effective by
+                                                                        FY28; 60% if legislation still pending
+                                                                        by FY28.
+
+
+                                                         35
+Impacted Counties: Statewide/All TN Counties
+
+Estimated Required Funding: $31,000,000
+
+
+14. TN Community Compass (TNCC)
+Initiative: Expansion of Tennessee’s successful Closed Loop Referral System (CLRS)
+
+Description: Tennessee will dramatically expand rural access to TN Community Compass
+
+(TNCC), a statewide closed-loop referral platform that connects individuals to community-based
+
+organizations addressing health-related social needs (HRSN) such as food, housing, and
+
+transportation. Initially launched by TennCare in 2025, TNCC has been successfully integrated
+
+with an initial group of hospital systems, primary care providers, and community partners,
+
+improving whole-person care coordination and reducing duplication of services. With RHT
+
+support Tennessee can significantly scale integration across key state agencies to build a single,
+
+interoperable referral platform. At TDH a Project Supervisor and Project Coordinator will
+
+oversee TNCC implementation and coordination. This initiative will enable cross-agency
+
+collaboration, improve data sharing, streamline service delivery, and strengthen partnerships
+
+between healthcare providers and community organizations.
+
+Main Strategic Goal: Make Rural America Healthy Again
+
+Use of Funds: A, C, F, K
+
+Technical Score Factors: B.1, B.2, C.1, F.3
+
+Key Stakeholders: Multiple state agencies, Rural Health Association of Tennessee, CBOs,
+county health departments, rural providers
+ Outcome Metric                                                  Baseline/Target
+ Increase total number of referrals made at by TDH navigators.   Baseline: TBD after program rollout
+                                                                 Target: 50,000 referrals (FindHelp)
+ Increase the total number of navigators utilizing FindHelp.     Baseline: 16 navigators
+                                                                 Target: 650 navigators
+ Increase total number of referrals made annually through        Baseline: 20,000
+ statewide TN Community Compass.*                                Target: 200,000 referrals
+ Increase number and new state agencies onboarded to TNCC.       Baseline: 1 agency
+                                                                 Target:4 agencies
+
+
+                                                        36
+Impacted Counties: All rural Tennessee counties and communities
+
+Estimated Required Funding: $31,000,000
+
+15. Rural Health Innovation Catalyst
+
+Initiative: Connecting Innovation Offices to Rural Providers to Advance Health-Tech
+
+Description: Led by the University of Tennessee Health Science Center, Tennessee’s Rural
+
+Center of Excellence (CoE) is advancing a coordinated statewide effort to accelerate rural health
+
+transformation through health technology innovation and targeted technical assistance with rural
+
+providers who lack health-tech tools. The CoE leverages Tennessee’s higher education and
+
+healthcare delivery networks to identify and close critical gaps in access, coordination, and
+
+quality of care across rural communities.
+
+Through structured technical assistance, applied research, and capacity-building support, the
+
+initiative empowers rural providers and community partners to adopt, adapt, and scale
+
+technology-enabled solutions that improve outcomes and reduce costs. The CoE will convene
+
+innovation offices across Tennessee’s public universities and healthcare systems, facilitating
+
+collaboration between academic institutions, health systems, payors, and technology developers.
+
+The initiative deploys planning and implementation grants to advance projects that:
+
+•   Support the development and deployment of health-tech innovation planning and purchasing
+
+    in rural clinics and hospitals
+
+•   Strengthen integration between health and social service systems.
+
+•   Expand access to primary, specialty, and behavioral health care through telehealth and digital
+
+    platforms.
+
+•   Enhance chronic disease management and population health analytics.
+
+•   Build local capacity for technology adoption and data-driven decision-making.
+
+
+
+                                                37
+Funds are administered through a transparent, competitive process managed by an entity with
+
+demonstrated healthcare innovation expertise, consistent with all applicable federal regulations
+
+(including 2 CFR 200.315 and 37 CFR Part 401). All awards are milestone-based and emphasize
+
+measurable outcomes, including improved care coordination, increased technology utilization,
+
+and sustained provider engagement in rural areas.
+
+By combining targeted investments with hands-on technical assistance and strategic alignment
+
+across Tennessee’s innovation ecosystem, this initiative creates a replicable model for federal-
+
+state partnership in advancing rural health transformation through technology.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, D, F, G, H, K
+
+Technical Score Factors: C.1, C.2, D.3, F.1, F.2
+
+Key Stakeholders: Academic partners, healthcare systems, rural providers
+ Outcome Metric                                        Baseline/Target
+ Increase the number of counties receiving CoE
+                                                       Baseline: 0 (new program).
+ planning or implementation support.
+                                                       Target:8
+ *Available at the community level
+ Increase the students participating in the planning   Baseline: 0.
+ and implementation processes.                         Target: 50
+ Increase the number of rural health organizations     Baseline: 0
+ receiving intensive technical assistance (TA).        Target: 35
+ Increase the number of innovative pilots that are
+                                                       Baseline: 0
+ adopted by at least one other county.
+                                                       Target: 4 (50% of awards).
+Impacted Counties: Statewide, with priority to At-Risk and Distressed counties, and the 21
+
+counties currently without Safety Net coverage (Benton, Carroll, Cheatham, Crockett, Decatur,
+
+Dyer, Franklin, Giles, Henderson, Henry, Hickman, Houston, Humphreys, Lawrence, Lincoln,
+
+Marion, Moore, Sequatchie, Tipton, Trousdale, Weakley)
+
+Estimated Required Funding: $15,000,000
+
+16. Statewide eConsult Platform
+
+Initiative: Establish Statewide eConsult Platform to Improve Specialty Access for Safety Net
+
+
+                                                       38
+Description: The eConsult initiative is designed to revolutionize access to specialty care for
+
+uninsured individuals in rural Tennessee. This innovative platform provides a secure digital
+
+system that allows primary care providers (PCPs) to consult with specialists electronically,
+
+eliminating the need for patients to be physically present. As an asynchronous telehealth
+
+solution, eConsult streamlines the consultation process by enabling PCPs to submit cases and
+
+receive specialist recommendations at their convenience. This addresses the critical shortage of
+
+specialty care specialists in rural areas, facilitating timely consultations for uninsured populations
+
+and ensuring they receive necessary care without the logistical and financial burdens associated
+
+with traditional referrals. In Safety Net settings, where economic barriers and provider shortages
+
+often limit healthcare access, eConsult proves especially invaluable. The platform bridges gaps
+
+in healthcare access, allowing PCPs to connect effortlessly with specialists and reduce wait times
+
+for key input. This leads to quicker diagnoses and treatment plans, ultimately enhancing patient
+
+outcomes. By empowering healthcare providers to navigate the complexities of care for high-
+
+need patients, eConsult elevates the standard of healthcare delivery in rural communities.
+
+Additionally, Tennessee will strengthen the digital foundation of rural health care through the
+
+expansion of the Healthcare Resource Tracking System (HRTS) and Patient Bed Matching
+
+(PBM) platforms—transforming them from emergency-use tools into sustainable engines of
+
+coordination and care delivery. Contracted specialists will train and support rural hospitals to
+
+integrate their electronic medical records directly into HRTS, allowing real-time sharing of
+
+capacity, specialty services, and disease data while automatically meeting CMS and NHSN
+
+reporting requirements. This modernization will ease administrative burdens, enable faster
+
+transfers to higher levels of care, and connect rural facilities to regional networks that improve
+
+efficiency and outcomes. By building a unified data infrastructure, Tennessee will create lasting
+
+
+
+                                                 39
+digital capacity that strengthens rural hospitals, supports clinical collaboration, and embeds
+
+sustainable, data-driven care delivery across every region of the state.
+
+Main Strategic Goal: Tech Innovation
+
+Use of Funds: C, D, F
+
+Technical Score Factors: F.3
+
+Key Stakeholders: Safety Net Primary Care Providers, Specialist Provider Networks
+ Outcome Metrics                                  Baseline/Target
+ E-Consults that were not converted to face-to-   Baseline: Annual average of 17,600 referrals to Project Access
+ face appointments for the patient.               for Specialist Care.
+                                                  Target: 10,000 e-consultations provided without the need for
+                                                  face-to-face appointment.
+ Reduce wait time for access to specialty care.   Baseline: 6-9 months
+                                                  Target: 3 days average wait time for e-consultation
+ Increase the number of HRTS system users by      Baseline: LTC Skilled 849 users, LTC Assisted 475 users
+ facility type: Long Term Care (LTC) Skilled      Target: 15% increase.
+ and LTC Assisted Living.
+ Enhance rural collaboration and bridge           Baseline: 40 training events per year
+ resource gaps by increasing the number of        Target: 50 training events per year by (25% increase)
+ HRTS training events.*
+Impacted Counties: All rural Tennessee counties and communities
+
+Estimated Required Funding: $15,000,000
+
+17. Comprehensive Health Workforce Pipeline
+Initiative: Building a Comprehensive Rural Health Workforce Pipeline
+
+Description: Tennessee will expand and align its Comprehensive Rural Health Workforce
+
+Pipeline to create a more sustainable supply of clinicians, administrators, and behavioral health
+
+professionals in rural areas. This initiative encompasses the full continuum of workforce
+
+development — from early exposure through advanced practice — to ensure every community
+
+has access to the talent necessary for high-quality, integrated care. Investments include: (1)
+
+MD/DO and Psychiatry Residencies to retain graduates in rural regions; (2) advancing Rural
+
+Behavioral Health careers; (3) Recruitment Incentives to attract providers to underserved areas;
+
+(4) Early Exposure Programs in high schools and colleges; (5) Academic Health Department
+
+partnerships which connect urban academic training centers with rural Universities and partners,
+
+                                                       40
+as well as and Rural Workforce Development partnerships offering paid internships and field
+
+placements in rural health; (6) Mental Health First Aid (MHFA) training for frontline staff and
+
+other health professionals; and (7) expansion of the TRAIN Learning Management System
+
+(LMS) for CE-credit learning across disciplines, allowing Tennessee providers to continue their
+
+professional development in isolated training environments.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: A, D, E, G, H, K
+
+Technical Score Factors: B.1, B.2, D.1, E.1, F.1, F.3
+
+Key Stakeholders: Academic centers, medical and nursing schools, rural hospitals
+ Outcome Metric                                                                   Baseline/Target
+ Increase the number of rural psychiatry residencies established.                 Baseline: 0 residencies
+                                                                                  Target: 10 residencies
+ Establish a tuition scholarship assistance opportunity for graduate studies in   Baseline: 0 scholarships
+ a behavioral health field.                                                       Target: 100 scholarships
+ Increase the number of rural recruits supported through incentives.              Baseline: 0 recruits
+ *Available at Community Level                                                    Target: 250 recruits
+ Increase the number of students in early exposure or paid internships.           Baseline: 0 students
+                                                                                  Target: 1,000 students
+ Increase the number of Mental Health First Aid instructors certified in at       Baseline: 19 instructors
+ least one community-specific module.                                             Target: 38 instructors
+ Increase the number of training opportunities based on the Tennessee             Baseline: 353 trainings
+ TRAIN Learning Management System.                                                Target: 529 trainings
+Impacted Counties: Statewide, prioritizing HRSA-defined rural and distressed counties.
+
+Estimated Required Funding: $52,000,000
+
+Implementation Plan and Timeline
+1. Introduction & Governance
+
+The implementation of the Rural Health Transformation Fund Initiatives will take place across
+
+Federal Fiscal years 2026-2031. The Tennessee Department of Health will serve as lead agency,
+
+in partnership with the Governor’s Office, Legislative leaders, TDH, TennCare, and TDMHSAS.
+
+Tennessee’s implementation plan will be guided by the Tennessee Department of Health as the
+
+primary implementation agency and led by a core team of TDH leaders. The core team will
+
+
+                                                          41
+manage the coordination of the plan across the state enterprise. Day to day management of the
+
+implementation plan will be led by the Office of Strategic Initiatives at the Tennessee
+
+Department of Health. TDH Core Team:
+
+       o   Commissioner                                 o Assistant Comm for Family
+       o   Dep Comm for Health Strategy                    Health and Wellness
+       o   Chief of Staff                               o Healthcare Partnerships Director
+       o   Director, Off. of Strat Initiatives          o Director, Off. of Health Planning
+       o   Director, Off. of Rural Health               o RHTF Coordinator
+       o   Assistant Comm for Legislative               o RHTF Implementation Lead
+           Affairs
+On a quarterly basis, the RHTF Governance Committee will convene to ensure compliance,
+
+monitor fund disbursement, enhance cross-agency collaboration, measurable outcomes achieved
+
+(e.g., access, quality, sustainability), rural stakeholder engagement, and policy or regulatory
+
+developments that affect implementation—using standardized dashboards and narrative
+
+summaries to support transparency and decision-making. The committee brings strategic
+
+oversight and policy alignment across the state enterprise, oversees the strategic direction, fiscal
+
+stewardship, and sustainability planning, ensuring coordination and compliance with CMS. This
+
+group will also ensure progress on Non-Competitive Continuations (NCCs) and annual reporting.
+
+This committee shall consist of:
+
+ o         Governor (or designee)                       o         The Commissioner of
+ o         Governor’s COO                                         TDMHSAS (or designee)
+ o         Governor’s Policy Director                   o         The Commissioner of TDH
+ o         Commissioner of F&A                          o         The CoS of TDH
+ o         Deputy Commissioner of F&A                   o         Deputy Commissioner of Health
+ o         The Director of TennCare                               Strategy and Regulation at TDH
+ o         The CMO of TennCare                          o         Legislative Leadership
+
+2. Staffing & Capacity Development - RHTF Program Oversight and Staffing
+The PI for the Rural Health Transformation Fund (RHTF) will be Deputy Commissioner JW
+
+Randolph, with the Department of Health. Funding will be administered by the Office of
+
+Strategic Initiatives (OSI) within the Tennessee Department of Health (TDH). The office
+
+
+
+                                                 42
+coordinates enterprise-wide initiatives that advance data-driven decision-making, operational
+
+efficiency, and measurable outcomes.
+
+The OSI Director will provide executive leadership and strategic alignment across TDH
+
+divisions, CMS, and the RHTF Governance Committee. The OSI Deputy Director will provide
+
+day-to-day oversight of RHT administrative staff, ensuring operations, reporting, and stakeholder
+
+coordination remain efficient and compliant. A Program Coordinator, reporting directly to the
+
+Deputy Commissioner will be hired for day-to-day coordination and visibility.
+
+A dedicated 16-member administrative team will manage statewide implementation, fiscal
+
+oversight, and performance monitoring for RHTF initiatives. These contracted positions provide
+
+the operational, fiscal, and reporting infrastructure needed for coordination, compliance, and
+
+performance tracking. Staff will manage initiative progress in Asana, maintain fiscal integrity,
+
+coordinate contracts, and ensure timely communication with CMS and partners. TDH plans to
+
+contract with a 3rd party to support compliance, with a particular focus on the Healthcare
+
+Resiliency Program. Evaluation activities will be outsourced to an academic partner through a
+
+competitive procurement process, with coordination led by TDH’s Evaluation & Reporting Lead
+
+to ensure methodological rigor and independence.
+
+Role                                  Staff   Primary Function
+                                              Coordinates governance committee functions, manages day-
+RHTF Coordinator                        1
+                                              today coordination of grant, reports to Dep Commissioner
+RHTF Implementation Lead                1     Manages RHTF team & program managers
+                                              Manage initiatives, track milestones, and coordinate
+Grant/Project Managers                  2
+                                              stakeholders.
+Budget Managers / Analysts              4     Oversee budgets, fiscal controls, and financial reporting.
+                                              Manage vendor procurements, subrecipient agreements, and
+Procurement & Contracts Specialists     4
+                                              documentation.
+                                              Directs program evaluation and reporting; coordinates with
+Evaluation & Reporting Lead             1
+                                              academic evaluator.
+Systems & Performance
+                                        1     Manages dashboards for performance and tracking analytics.
+Management Specialist
+
+
+
+                                                   43
+Role                                     Staff    Primary Function
+                                                  Leads communication, documentation, and stakeholder
+Communications Specialist                   1
+                                                  engagement.
+                                                  Coordinates daily workflow, logistics, and internal
+Business Operations Manager                 1
+                                                  communication.
+Public/Private Partnerships                       Develops sustainability partnerships across agencies and
+                                            1
+Coordinator                                       sectors.
+
+
+Phase       Timeframe            Milestones and Key Activities
+                                     Finalize job descriptions. Initiate hiring for Grants Office Director, 1 each of
+                                     RHT Project Manager, Budget Manager, and Procurement Specialist.
+ Stage 0         FY26 Q1–Q2
+                                     Establish governance framework and coordination protocols. Begin
+                                     procurement for 3rd party compliance.
+                                     Train staff on RHTF governance, workflows, and fiscal procedures. Launch
+ Stage 1         FY26 Q2–Q3          internal communications and reporting structure. Initiate hiring for
+                                     Evaluation Lead, Public/Private Partnerships Coordinator.
+                                     Full administrative team operational; initiative tracking and reporting with
+ Stage 2              FY26 Q4
+                                     OSI and CMS.
+                                     Contract academic evaluation partner. Begin baseline data collection and
+ Stage 3      FY26 Q3–FY27 Q1
+                                     alignment with statewide metrics.
+                                     Continue regular governance meetings. Maintain fiscal oversight, evaluation
+ Stage 4         FY27–FY31           reporting, and performance monitoring. Coordinate annual reports to CMS
+                                     and state leadership.
+ Stage 5          FY 31 Q1           Initiate closing protocol for RHT Program
+
+
+
+3. Initiative Timelines (by Stage 0–5); FY=Federal Fiscal Year
+Stage      Timeline     Milestone / Deliverable
+Initiative 1: HRP: Service Line Expansion and Co-Location
+Stage FY25–Q2 Conduct statewide readiness assessment; identify target rural counties and partners; develop
+  0         FY26      co-location RFA and evaluation plan.
+Stage      Q3–Q4      Release RFA; select and contract grantees; hire staff and deploy technical assistance teams;
+  1         FY26      finalize data sharing MOUs.
+Stage                 Renovate or expand physical infrastructure; launch first 8 co-located sites; integrate EHR
+            FY27
+  2                   systems; initiate workforce placements.
+Stage                 Reach 50% of target co-located sites operational; begin continuous quality improvement;
+            FY28
+  3                   document best practices for replication.
+Stage                 Complete 25+ operational co-located sites; conduct statewide evaluation; publish case
+            FY29
+  4                   studies and economic analyses.
+Stage                 Sustain 35 co-located sites; achieve target metrics; transition to long-term reimbursement
+            FY30
+  5                   strategies (value-based or shared savings).
+Initiative 2: Last Mile Teams
+                      Ambulance procurement planning, Neonatal Resuscitation Protocol (NRP) supply purchase;
+Stage
+          FY26 Q2 ID maternity care desert regions and estimate eligible participants; Convene a
+  0
+                      multidisciplinary planning team; Draft a logic model, goals, key activities, and outcomes.
+                      Train 1,500 EMS staff in NRP; begin paramedic training, finalize project plan for perinatal
+Stage FY26 Q3–
+                      home visits, assign staff and plan implementation for HRTS; Finalize project plan for
+  1          Q4
+                      prenatal and postpartum home visits; Assign staff and train care coordinators and home
+
+                                                        44
+                      visiting personnel; Refine electronic tracking and reporting systems; Establish data-sharing
+                      agreements and referral pathways with OB, mental health, and social service providers.
+                      Continue NRP training; launch community paramedic services in five rural counties; begin
+                      enrolling participants in perinatal home visits, pilot HRTS in select hospitals; Begin
+Stage
+            FY27      enrolling participants and conducting prenatal home visits (target: ≥25% of annual goal in
+  2
+                      first 3 months); Conduct initial health assessments; Launch monthly case review; Gather
+                      initial feedback from clients and staff to refine services.
+                      Expand paramedic program to five additional counties; deploy ambulances; achieve 50% of
+Stage                 annual perinatal visit goals, conduct midpoint evaluations, expand HRTS statewide; Achieve
+            FY28
+  3                   50% of annual prenatal and postpartum visit goals; Conduct mid-project review of maternal
+                      outcomes; Provide refresher training based on audit findings and participant feedback.
+                      Operate ambulances in 15 rural communities; ongoing training and data tracking, achieve
+                      full HRTS implementation; Complete 100% of annual home visits; Prepare outcome
+Stage
+            FY29      analysis on prenatal care entry, postpartum compliance & breastfeeding rates.; Document
+  4
+                      success stories and challenges; Begin formal sustainability planning for future funding and
+                      policy integration.
+                      Complete final evaluation of outcomes and processes; Share results, funders, and partners;
+Stage FY30-FY
+                      Finalize sustainability plan and develop replication/scaling guides for other maternity care
+  5         31 Q4
+                      deserts; Ensure program integration into ongoing state and local systems.
+Initiative 3: Optimizing Rural Health Care
+                      Develop RFA applications for new providers to fill coverage gaps through the safety net;
+Stage                 Develop an internal application for existing safety net providers to expand their services or
+          Q1FY26
+  0                   sites. Begin LHD assessment; start service realignment and smoking/vaping plans; identify
+                      dental equipment need.
+Stage Q1 FY27- Safey net application cycles and review; Release RFP for e-consult vendor; dental plans
+  1       Q3 FY27 drawn up and put out for bids.
+                      New providers will be included in the safety net program; RHCs will begin their new
+Stage Q4 FY27- program within the Safety Net; Continuation of safety net expansion efforts; Purchase
+  2       Q4FY28      medications to expand scope of care; begin equipment procurement; launch smoking/vaping
+                      program.
+Stage Q3 FY26– Complete assessment of coverage gaps and identify counties without needed coverage (if
+  3       Q3 FY27 any). E-consult vendor selection complete; 100+ consults per month achieved.
+Stage                 Determine if additional RFAs need to be developed to further increase access through the
+          Q4 FY27
+  4                   safety net; advertise loan repayment incentives; complete medication assistance roll-out.
+                      Continuation of expanded access program with new and existing providers to
+Stage Q1 FY27- reduce/eliminate counties without a Safety Net provider; Full statewide implementation of
+  5       Q4 FY31 medication assistance and e-consult programs; dental plans enacted; e-consults delivering
+                      200+ consults per month; smoking/vaping plans fully enacted.
+Initiative 4: Memory Care Assessment Network
+Stage FY26 Q2– Hire MCAN Project Manager. Identify and onboard 5 regional coordination hubs, establish
+  0       FY26 Q4 program evaluation standards, establish memory assessment hub.
+Stage FY27 Q1– Hub creates IT infrastructure, 3 spoke MACNS are established, MCANS are trained,
+  1       FY27 Q3 dementia navigators hired and trained.
+Stage FY27 Q4– Remaining MACNs established, Dementia navigators are fully operational.
+  2       FY28 Q4
+Stage FY29 Q1– Program evaluation ongoing, successes and barriers addressed.
+  3       FY29 Q4
+Stage FY30 Q1– Begin transitioning programs to long-term funding mechanisms.
+  4       FY30 Q3
+Stage FY30 Q4– Disseminate final impact report and final evaluation, transition to long-term sustainability is
+  5       FY31 Q4 complete.
+Initiative 5: Rural Capacity Building
+
+
+
+                                                       45
+Stage FY26 Q2– Develop scope of services for grant contracts, announcement of funds issued by TN.
+  0       FY26 Q2
+Stage FY26 Q2– Select providers, develop evaluation plan, recruit and hire staff, establish opening procedures
+  1       FY26 Q4 with providers.
+Stage FY27 Q1– Implementation of project plan underway, refined as needed.
+  2       FY28 Q4
+Stage FY29 Q1– Implementation halfway complete, continuous improvement ongoing.
+  3       FY29 Q4
+Stage FY30 Q1– Sustainability plans developed. Evaluation plan in motion.
+  4       FY30 Q3
+Stage FY30 Q4– Sustainability plans are enacted. Final evaluation report produced.
+  5       FY31 Q4
+Initiative 6: Dental Pilot
+Stage FY26 Q2– Assess rural dental care gaps; develop competitive sub award process.
+  0       FY26 Q4
+Stage FY27 Q1– Finalize sub-award recipients, finalize contracts with participating LHDs, FQHCs, and
+  1       FY27 Q3 academic partners.
+Stage FY27 Q4– Begin recruitment and launch prevention and school sealant programs.
+  2       FY28 Q4
+Stage FY29 Q1– Place at least 12 dental professionals in priority counties, continue operations of school
+  3       FY29 Q4 sealant program.
+Stage FY30 Q1– Dental positions are fully filled at 25 placements, programs are fully operational.
+  4       FY30 Q3
+Stage FY30 Q4– Assess program performance, prepare final reports of cost savings and patient outcomes.
+  5       FY31 Q4
+Initiative 7: HRP: Maternal and Child Health
+                      Begin hiring process for HRP MCH Program Director, MCH Epidemiologist, and regional
+Stage FY26 Q2–
+                      Fetal and Infant Mortality Directors. Partner with perinatal regional centers to develop
+  0       FY26 Q4
+                      expanded workplan.
+                      Finalize contracts and launch first MCH HRP grants. Expand Perinatal educator staffing and
+Stage FY27 Q1–
+                      purchase training equipment. Acquire vendor for Call Center and Interoperability project.
+  1       FY27 Q4
+                      Hire Teleconsultation Director. Pilot Behavioral Health Teleconsultation in East region.
+                      Begin full program operations: deploy Mobile Pregnancy App, expand Teleconsultation
+Stage FY28 Q1–
+                      services, and test Call Center platform. Launch Round 2 Rural Fetal and Infant Mortality
+  2       FY28 Q4
+                      grants.
+Stage FY29 Q1– Monitor progress across all MCH initiatives. Conduct interim evaluation. Refine
+  3       FY29 Q4 Teleconsultation and Interoperability tools for statewide integration.
+Stage FY30 Q1– Serve ≥15 maternity-care-desert counties through MCH HRP grants. Finalize
+  4       FY30 Q4 interoperability of Call Center platform and complete training.
+Stage FY31 Q1– Complete program evaluation and publish final report on MCH outcomes. Sustain
+  5       FY31 Q4 Teleconsultation and Mobile App operations through state and partner funding.
+Initiative 8: VBP: Maternal, Hospital, Dental
+                      Convene TennCare, MCOs, and provider associations to co-design OB, dental, and rural
+Stage FY26 Q2–
+                      hospital VBP frameworks. Identify performance metrics, payment structures, and readiness
+  0          Q4
+                      needs. Initiate hiring for VBP Project Coordinator and Data Analyst.
+Stage FY27 Q1– Finalize program designs. Recruit and contract first-round participants for OB Medical
+  1          Q4       Home and Dental VBP. Launch HIP-QC capacity-building payments for rural hospitals.
+Stage FY28 Q1– Begin VBP implementation and operations: OB Medical Home and dental practices
+  2       FY29 Q1 implement new care workflows. Begin collecting baseline performance data.
+Stage FY29 Q2– Expand participation statewide. Conduct interim evaluation of quality and cost outcomes.
+  3       FY29 Q4 Adjust incentive formulas and technical assistance.
+
+
+
+                                                     46
+Stage FY30 Q1– Sustain provider participation, integrate VBP data into TennCare analytics. Begin
+  4       FY30 Q4 sustainability planning and stakeholder feedback cycle.
+Stage FY31 Q1– Achieve mature VBP operations across OB, Dental, and Hospital models. Begin statewide
+  5       FY31 Q4 evaluation and finalize sustainability framework.
+Initiative 9: HRP: Make Rural Tennessee Healthy Again
+          FY 27 Q1 Develop a statewide framework and RFA for local partners, select pilot grantees and finalize
+Stage
+           – FY28     contracts for more than 12 grantees across 5 rural regions, and conduct baseline assessments
+  0
+              Q1      and readiness evaluations. Initiate hiring for HRP Epidemiologist.
+          FY 28 Q2
+Stage                 Launch community-driven programs that are>80% operational within 6 months, and deploy
+           – FY 28
+  1                   a shared data platform for performance monitoring.
+              Q4
+Stage                 Measure early access and coordination outcomes - >10% improvement in access and 5%
+          FY29 Q4
+  2                   decrease in missed visits.
+Stage                 Scale partnerships and service models statewide with =50% increase in funded partnerships,
+          FY30 Q2
+  3                   10 new counties added.
+Stage
+          FY30 Q4 All grantees complete mid-term evaluations and sustainability roadmaps.
+  4
+Stage                 Finalize HRP-wide outcome report and transition strategy with >80% of partners sustaining
+          FY 31 Q4
+  5                   services post-funding.
+Initiative 10: Rural Health Improvement Grants
+Stage                 Assess the County Health Council's capacity and grant-readiness to inform targeted
+            FY26
+  0                   assistance and training needs. Conduct a statewide PSE landscape analysis.
+Stage                 Deliver TA, training workshops, and peer support. Publish PSE/HBE RFPs. Develop and
+            FY26
+  1                   deliver PSE curriculum, utilizing the End Zone Playbook. Hire PSE Program Director.
+Stage       FY26–     Execute Round 1 CARE, HBE, and PSE grants. Deliver technical assistance, training
+  2         FY27      workshops, and peer collaboration support.
+                      Conduct mid-point evaluation for CARE, PSE, and HBE grants.
+Stage                 Conduct mid-point evaluation for County Health Council capacity and impact of trainings
+            FY28
+  3                   and resources.
+                      Refine support and publish Round 2 CARE Grant materials.
+Stage       FY28–     Execute Round 2 CARE grants. Document best practices, finalize data collection, and
+  4         FY30      prepare for evaluation.
+                      Complete final evaluation of CARE, PSE, and HBE grants. Complete final evaluation of
+Stage       FY29–
+                      County Health Council growth and change over grant period and the impact of trainings and
+  5       FY31 Q4
+                      resources. Publish outcomes reports
+Initiative 11: HRP: Rural Non-Emergency Transportation
+Stage
+            FY26      Finalize planning and stakeholder engagement; release RFA; collect baseline data.
+  0
+Stage FY27 Q1–
+                      Launch pilot regional hubs; conduct patient surveys.
+  1           Q2
+Stage FY27 Q3–
+                      Expand coverage to new regions; train local partners, complete mid-point review.
+  2       FY28 Q4
+Stage       FY28–
+                      Deploy statewide coordination system; standardize reporting.
+  3         FY29
+Stage       FY29–
+                      Integrate transportation and clinical data; equity analysis and optimization.
+  4         FY30
+Stage       FY30-
+                      Conduct final evaluation and approve sustainability plan.
+  5       FY31 Q4
+Initiative 12: HRP: Health-Tech
+Stage      FY26 –     Initiate Hiring for HRP Tech Program Manager. Release RFA, select grantees, finalize
+  0       Q4 FY26 contracts, baseline technology and cybersecurity assessment.
+
+
+
+                                                       47
+         Q1 FY27      Launch pilot implementations for telehealth, automation, and analytics in initial sites.
+Stage
+          – Q4
+  1
+          FY27
+Stage                 Scale technology platforms to additional sites, enhance interoperability and workflow tools.
+            FY28
+  2
+Stage      FY28 –     Achieve full interoperability between EHRs, health systems, and analytics platforms.
+  3         FY29
+Stage      FY29 –     Integrate analytics, refine automation tools, assess ROI and user satisfaction.
+  4       Q2 FY30
+Stage FY30 Q3- Conduct program evaluation, publish outcomes, establish sustainability models.
+  5       FY31 Q4
+Initiative 13: Statewide Health Information Exchange (HIE)
+                      Identify an HIE governance structure; partner with key public and private stakeholders;
+Stage       FY26
+                      develop any legislative and/or procurement processes as needed; hire state staff, pending
+  0        Q2 -Q4
+                      necessary approvals.
+Stage       FY27      Pursue procurement and contracting processes; begin HIE design if contracting timeline
+  1        Q1- Q4     permits; establish data agreements; planning and strategic work with relevant stakeholders.
+Stage       FY28
+                      HIE design and development.
+  2        Q1- Q4
+Stage       FY29      Vendor continues HIE development and implementation and prepares for user training and
+  3       Q1- Q4 F onboarding.
+Stage       FY30      Vendor conducts user training and onboarding activities. State provides user incentives to
+  4        Q1- Q4     ease early adoption and the change management burden on providers.
+Stage       FY31
+                      Integrate analytics, refine automation tools, assess ROI and user satisfaction.
+  5        Q1- Q4
+Initiative 14: TN Community Compass (TNCC)
+Stage       FY26      Design integration and expansion with TDH, DHS, DDA, and TNCC vendor; gather
+  0        Q2–Q3      stakeholder feedback. Expand CLRS within TDH.
+Stage       FY26
+                      Begin integration of Agency 1; assign staff and finalize project plan.
+  1        Q3–Q4
+Stage       FY27
+                      Continue integration of Agency 1 and Agency 2; begin testing and reporting.
+  2        Q1–Q2
+Stage       FY27
+                      Integrate Agency 3; test and configure system enhancements.
+  3        Q3–Q4
+Stage       FY28
+                      Continue Agency 3 integration; report outcomes and begin sustainability planning.
+  4        Q1–Q2
+Stage      FY29–
+                      Finalize sustainability plan; ongoing reporting and evaluation.
+  5       FY31 Q4
+Initiative 15: Rural Health Innovation Catalyst
+Stage       FY26      RHTF CoE convenes a workgroup of Innovation Centers across the higher education
+  0        Q2– Q3     network.
+Stage FY26 Q4– Scope of planning and implementation grant proposals will be determined by the CoE based
+  1       FY27 Q1 upon feedback from the workgroup.
+Stage FY27 Q2–
+                      Statewide Request for Grant Proposals will be open to eligible applicants.
+  2       FY27 Q3
+Stage FY27 Q3–
+                      Application Cycle and Review of Applications.
+  3       FY28 Q2
+Stage FY29 Q3–
+                      Evaluation of metrics defined in grant proposals across the state.
+  4       FY30 Q2
+Stage FY30 Q3–
+                      Assessment of utilization of initiatives in more than one county or region of the state.
+  5       FY31 Q4
+Initiative 16: Statewide eConsult Platform
+
+
+                                                        48
+Stage       FY26
+                    Develop RFGP for Statewide/Safety Net e-Consult platform
+  0        Q1– Q4
+Stage FY26 Q4–
+                    Application cycle and review.
+  1       FY27 Q2
+Stage FY27 Q3– Determine the vendor for the e-Consult platform. Develop an implementation plan for Safety
+  2       FY28 Q2 Net providers to utilize the e-Consult platform.
+Stage FY28 Q3– Rollout of the e-Consult platform to Safety Net providers. Provide ongoing provider training
+  3       FY29 Q2 and technical assistance.
+Stage FY29 Q3–
+                    Assessment of Provider Utilization.
+  4       FY30 Q2
+Stage FY30 Q3– Increased access to specialty care through the e-Consult platform for Safety Net providers.
+  5       FY31 Q4 Decreased need for face-to-face patient encounters.
+Initiative 17: Comprehensive Health Workforce Pipeline
+Stage       FY26    Convene a Rural Health Workforce Committee, hire additional staff to support an increase in
+  0        Q2–Q4    funding for pilot initiatives
+Stage       FY27    Allocate funding to the RHCTF Pilot initiatives, and award funding through competitive
+  1        Q1–Q4    processes.
+Stage       FY28
+                    Early work in new residency and other rural health care learning programs is complete.
+  2        Q1–Q4
+Stage       FY29    Fully integrate all pathways to practice programs, significant increase in participating
+  3        Q1–Q4    programs.
+Stage       FY30    Evaluate workforce retention rates; refine incentive models. Establish a sustainable funding
+  4        Q1– Q3   plan.
+Stage FY30 Q4– Publish final workforce sustainability report; align with HRP and MCH initiatives. Programs
+  5      FY31 Q4    become fully sustainable.
+
+
+
+
+                                                     49
+Stakeholder Engagement
+Stakeholders Consulted in the Design of RHT
+The Governor’s Office and executive branch agencies sought input from a wide range of
+
+stakeholders in designing Tennessee’s RHT strategy. A select list of entities consulted is attached
+
+to this application (“Stakeholder Consultation Record”) and included stakeholders from
+
+healthcare providers to patients and community partners, among many others.
+
+Stakeholder Engagement Framework
+Stakeholders in the RHTF are organized into 7 primary groups laid out in the table that follows,
+
+each with a tailored engagement structure based on its needs and role. In addition to each formal
+
+engagement plan, stakeholder groups will receive regular updates through newsletters, public
+
+dashboards hosted on Asana and Tableau, and open meetings.
+
+Communication Plan for Deploying Funds, Tracking Milestones, and Assessing Impact
+The Governance Committee will monitor funding compliance and alignment with state policy
+
+priorities, track deployment of funds, and review progress toward milestones. All program
+
+impact data will be compiled annually and shared with the RHTF Governance Committee.
+
+Evidence of Support
+Tennessee is building on years of support in transforming the rural health landscape, including
+
+but not limited to the Rural Health Taskforce, County Health Councils, and Rural HRP Work.
+
+Conclusion
+The RHTF Stakeholder Engagement Plan ensures that Tennessee’s transformation efforts are
+
+technically sound and community driven. By establishing a strong governance committee and
+
+embedding multiple avenues for engagement, the State will ensure that the program reflects the
+
+voices of rural communities while maintaining compliance with CMS requirements and
+
+alignment with state policy priorities.
+
+
+
+                                                50
+                                                                                                   Engagement
+ Stakeholder
+                                     Rationale for Inclusion & Role                                 Frequency
+    Group
+                                                                                                    & Method
+                 Rationale: Rural County Health Councils and local leaders bring decades             Ongoing
+                 of experience addressing locally relevant solutions. Their feedback            engagement through
+ Community
+                 ensures implementation remains community-driven and responsive.                county and regional
+  Groups &
+                                                                                                  meetings, annual
+   Leaders
+                 Role: Provide local insight into population health needs, infrastructure        summit, monthly
+                 gaps, and community strengths.                                                     newsletters.
+                 Rationale: Rural hospitals, clinics, and professional associations offer
+                                                                                                Annual roundtables
+                 critical insights on access, workforce, and sustainability.
+Rural Health                                                                                       and ongoing
+Providers &                                                                                      feedback through
+             Role: Represent hospitals, clinics, and provider networks to identify
+Associations                                                                                        association
+             workforce, access, and sustainability challenges; collect patient and
+                                                                                                     meetings.
+             provider feedback.
+                 Rationale: Universities and schools of public health strengthen RHTF
+                 through research and evaluation capabilities and ensure evidence-based             Throughout,
+                 implementation. TDH, TennCare and TDMHAS—bring perspective that                   collaborate on
+ Academic,
+                 can drive alignment with statewide initiatives, guide milestones, and foster        evaluation
+ Technical
+                 interagency coordination.                                                          partnerships,
+ Assistance
+                                                                                                technical assistance
+Partners, and
+              Role: Provide evaluation, research, and workforce development capacity;              contracts, and
+   SMEs
+              lead rural field practicums, fellowships, and applied learning initiatives.         annual research
+              Provide policy alignment, program design guidance, and cross-division                   reviews.
+              expertise to integrate RHTF with statewide initiatives.
+                 Rationale: Comprising TDH, TennCare, the Governor’s Office, and
+                 legislative leaders, the RHTF Governance Committee brings strategic
+    State                                                                                       Monthly governance
+                 oversight and policy alignment capabilities across agencies.
+  Enterprise                                                                                    meetings and policy
+   Partners                                                                                      review sessions.
+                 Role: Oversee strategic direction, fiscal stewardship, and sustainability
+                 planning; ensure interagency coordination and compliance with CMS.
+               Rationale: Philanthropic organizations, the Tennessee Department of
+               Economic and Community Development, and regional Development
+               Districts are able to align RHTF initiatives with investments in                   Biannual strategy
+Public–Private
+               infrastructure, workforce, and community development to create the                sessions and ad hoc
+ & Economic
+               economic conditions necessary for sustainable rural health systems.                 collaboration on
+ Development
+                                                                                                joint investment and
+   Partners
+               Role: Align rural health transformation with economic and community                 planning efforts.
+               development strategies, coordinate funding opportunities, and leverage
+               philanthropic and public investments.
+                                                                                                Weekly-to-monthly
+                 Rationale: Local organizations and service providers bring community
+                                                                                                  check-ins during
+                 knowledge and local connections to enable local project implementation.
+Participants &                                                                                   initiation; regular
+Sub-awardees                                                                                     reporting and site
+                 Role: Implement community-based projects and innovations in care
+                                                                                                visits throughout the
+                 delivery; report outcomes and share promising practices.
+                                                                                                   funding period.
+                                                                                                Ongoing surveys,
+                 Rationale: Improving patient experiences and outcomes is a key focus of
+Recipients of                                                                                   annual focus groups,
+                 the RHTF; their perspectives are central to evaluating program success.
+Funded                                                                                          and patient feedback
+                 Role: Provide direct feedback on care experiences and program outcomes
+Services                                                                                        sessions facilitated
+                 to ensure equitable, effective service delivery.
+                                                                                                by providers.
+
+
+                                                   51
+Metrics and Evaluation Plan
+
+TDH will implement robust internal and external evaluations to monitor, assess, and
+
+improve implementation of the RHT Program, ensuring accountability to CMS, enabling
+
+real-time learning, and documenting lessons to inform future state and national rural
+
+health strategies while scaling effective models. TDH will lead internal monitoring,
+
+collaborating with an academic partner for independent evaluation to ensure impact and
+
+the effective use of funds.
+
+Evaluation Approach
+
+As in existing programs such as HRP, TDH will employ a mixed-methods design
+
+integrating quantitative metrics with qualitative insights. The evaluation will include
+
+performance measurement of key indicators, progress monitoring of milestones, targeted
+
+evaluation projects specifically focused on innovative pilots, and regular stakeholder
+
+feedback opportunities involving providers, and community partners.
+
+Roles, Reporting, and Dissemination
+
+The TDH Evaluation Lead will serve as the primary point of contact for evaluation
+
+activities and coordinate directly with the academic partner, who will conduct
+
+independent analyses to ensure methodological rigor and objectivity. Findings will be
+
+disseminated through annual performance reports to CMS, and the RHT Governance
+
+Committee and stakeholders referenced in the Stakeholder Engagement Plan. At the
+
+conclusion of the grant, TDH will publish a comprehensive evaluation report capturing
+
+outcomes, lessons learned, and recommendations to support the long-term sustainability
+
+of Tennessee’s rural health transformation efforts.
+
+
+
+
+                                             52
+Initiative-Level Metrics
+
+Each RHT initiative includes at least four quantifiable performance indicators to track
+
+progress and impact. Unless otherwise noted, all targets are for Quarter 4 Fiscal Year
+
+2031 and will be collected at least annually to be reported to CMS annually as required.
+
+Baseline data stating “TBD” indicates that the data will have to be collected at the point
+
+the initiative begins. Metrics with a data source of “Program data” indicates that data will
+
+be collected by program staff as the initiative is implemented.
+
+ Outcome metrics
+                                                          Baseline / Target                     Data Source
+ * indicates availability at community level
+ 1) HRP: Service Line Expansion and Co-Location
+ Increase the number of rural primary care clinics        Baseline: 0                           Program Data,
+ adding access to integrated behavioral health.*          Target: 10 Clinics                    Redcap
+ Increase the number of rural primary care clinics
+                                                          Baseline: 0                           Program Data,
+ adding access to specialty care services onsite.
+                                                          Target: 10 Clinics                    Redcap
+ Increase the number of organizations connected to TN
+                                                          Baseline: TBD in 2025                 Program Data,
+ Community Compass or other closed-loop referral
+                                                          Target: Equivalent to 50% increase.   Redcap
+ system. (CHANT, 211, etc.)
+ Increase the number of new or upgraded                   Baseline: 0                           Program Data,
+ exam/treatment rooms.                                    Target:10                             Redcap
+ 2) Last Mile Teams
+                                                          Baseline: 0 ambulances
+ Increase the number of rural ambulances.                                                       Program Data
+                                                          Target: 89 ambulances
+ Increase the number of rural counties with active        Baseline: 0 rural counties
+                                                                                                Program Data
+ Community Paramedic Programs.*                           Target: 20 rural counties
+ Increase the number of EMS staff certified in Neonatal   Baseline: 0 EMS staff                 Program Data/
+ Resuscitation Program.                                   Target: 8,000 EMS staff               Training Logs
+                                                          Baseline: 40 training events
+ Increase the number of coalition-led training or
+                                                          Target: 50 training events per year   Program Data
+ exercise events annually to support rural healthcare
+                                                          by Q4 FY30 (25% increase)
+ Establish Medical Operations Coordination Centers        Baseline: 0
+                                                                                                Program Data
+ (MOCCs) statewide                                        Target: 8
+                                                          Baseline: 0% of hospitals
+ Conduct annual facility readiness assessments            completing                            Program Data
+                                                          Target: 100%
+                                                          Baseline: 0% of coalitions
+ Establish coalition-led/PPE/MCM rotational programs      implementing                          Program Data
+                                                          Target: 100%
+ Increase the percentage of women who attend a            Baseline: 92.6%
+                                                                                                Program Data
+ postpartum checkup within 12 weeks after giving birth    Target: 93.8%
+ Increase the percentage of women screened for            Baseline: 83.7%
+                                                                                                Program Data
+ depression and anxiety following a recent live birth     Target: 89.3%
+
+
+
+                                                    53
+Reduce the percentage of clients that report emergency
+                                                           Baseline: 5%
+department use related to mental health and substance                                             Program Data
+                                                           Target: 2%
+use issues over the course of treatment.
+3) Optimizing Rural Health Care
+                                                           Baseline: 0 Placements
+Increase provider placements in unserved counties*                                                Program Data
+                                                           Target: 21 Placements
+                                                           Baseline: 300 sites
+Increase the number of sites offering primary care.                                               Program Data
+                                                           Target: 325 sites
+Increase the total number of participants who are          Baseline: 2,668
+                                                                                                  Program Data
+enrolled in the program.                                   Target: 2,935 (10%)
+Increase the percentage of participants who self-report    Baseline: 8.8% (National)
+                                                                                                  Program Data
+quitting tobacco and nicotine-based products.              Target: 13%
+                                                           Baseline: 0
+Increase the percentage of new primary care patients
+                                                           Target: Equivalent of 10% increase     Program Data
+who are referred for SDOH services.
+                                                           annually
+4) Memory Care Assessment Network
+Increase the number of rural residents with suspected
+                                                           Baseline: TBD                          Program Data
+dementia receiving a specialized, confirmed diagnosis
+                                                           Target: TBD
+(via MACN+DN /telehealth).
+Increase the number of newly diagnosed patients and
+                                                           Baseline: TBD                          Program Data
+their caregivers who receive in-person, post-diagnostic
+                                                           Target: TBD
+consultation and resource-linking.
+Increase the number of unique rural residents utilizing    Baseline: 0
+the telehealth platform for MACN+DN diagnostic             Target: 100 patients served per        Program Data
+appointments.                                              MACN by Q4 FY28
+                                                           Baseline: 0
+Establish and formalize Dementia Navigators in rural
+                                                           Target: 30 navigators in place by Q4   Program Data
+health departments.*
+                                                           FY28
+Establish a shared IT infrastructure to facilitate
+                                                           Baseline: N/A
+program evaluation, patient-level data capture, analysis
+                                                           Target: IT implemented by Q4           Program Data
+of the statewide impact, return on investment, and
+                                                           FY28
+patient data sharing among providers.
+5) Rural Capacity Building
+Increase the number of MH providers co-located in          Baseline: 11.4 FTEs
+                                                                                                  Program Data
+rural primary care clinics, specialty clinics, and Eds.    Target: 63.4 FTEs
+Increase the number of executive certifications            Baseline: 0 certificates
+                                                                                                  Program Data
+provided.                                                  Target: 30 certificates
+                                                           Baseline: 0
+Reduce the median boarding hours.                          Target: 40% reduction in median        Program Data
+                                                           boarding hours
+Increase the number of provider organizations with         Baseline: 0 organizations
+                                                                                                  Program Data
+community health worker accreditation.*                    Target: 20 organizations
+6) Dental Pilot
+Increase the number of dental clinicians placed in         Baseline: 0 clinicians
+                                                                                                  Program Data
+rural/distressed counties.*                                Target: 25 clinicians
+                                                           Baseline: 0 dental suites
+Increase number of new or renovated dental suites                                                 Program Data
+                                                           Target:15 dental suites
+Increase the number of Tennesseans receiving               Baseline: 0 Tennesseans
+                                                                                                  Program Data
+preventive/restorative dental services.                    Target: 100,000 Tennesseans
+Reduce the percentage of Emergency Department visits       Baseline: TBD
+                                                                                                  Program Data
+for dental conditions among uninsured populations.         Target:10%
+                                                           Baseline: 0
+Establish full HRTS integration of dental metrics.                                                Program Data
+                                                           Target:100%
+
+                                                      54
+7) Healthcare Resiliency Program: Maternal & Child Health
+                                                        Baseline: 0 counties
+                                                        Target: Serve 100% of maternity
+Increase access to care in maternity care deserts.*                                          Program Data
+                                                        care desert counties through MCH
+                                                        HRP grants
+Increase the percentage of birthing hospitals serving
+rural patients that are actively participating in       Baseline: 61%                        Program Data-
+Tennessee Initiative for Perinatal Quality Care         Target: 73%                          (TIPQC)
+(TIPQC) quality improvement projects from a baseline
+Decrease the fatal overdose rate among women aged       Baseline: 47 per 100,000
+                                                                                             TDH PRAMS
+15–44 years.                                            Target: 42 per 100,000
+Increase the percentage of women screened for           Baseline: 84%
+                                                                                             TDH PRAMS
+depression postpartum by a healthcare provider.         Target: 91%
+8) Value-Based Payment: Maternal, Hospitals, Dental
+Improve average Admission, Discharge, and Transfer      Baseline: 41%
+                                                                                             TennCare Data
+(ADT) quality measure performance in HIP-QC.            Target: 70%
+Increase number of obstetric practices in maternal VBP Baseline: 0
+                                                                                             TennCare Data
+program.*                                               Target: 10
+                                                        Baseline: 1.1445
+Decrease Plan All-Cause Readmissions (PCR).                                                  HEDIS
+                                                        Target: <1.0
+Decrease Ambulatory Care Sensitive Emergency                                                 CMS Adult
+                                                        Baseline: 180.75
+Department Visits for Non-Traumatic Dental                                                   Health Care
+                                                        Target: 170
+Conditions in Adults (EDV-AD).                                                               Quality Measures
+9) HRP: Make Rural Tennessee Healthy Again
+Increase the percentage of rural residents with an      Baseline: TBD                        Program, grantee
+identified primary care provider*                       Target: 10% increase                 data
+Increase the number of mobile strategies in all three
+                                                        Baseline: 0                          Program, grantee
+grand divisions of Tennessee, while connecting
+                                                        Target: 5                            data
+patients to a dedicated medical home.
+Increase the percentage of rural resident encounters
+                                                        Baseline: TBD                        Program, grantee
+using telehealth for primary or specialty visits with
+                                                        Target: 10%                          data
+participating organizations.
+                                                        Baseline: 83% statewide by 2023-24
+Increase the percentage of Tennessee public schools
+                                                        Target: Based on each individual     TN Dept of Edu.
+employing a full-time nurse.*
+                                                        grantee
+10) Rural Health Improvement Grants
+Increase the number of rural counties funded for new
+                                                        Baseline: 45
+health-promoting environments that increase access to                                        Program Data
+                                                        Target: 89
+healthy foods and opportunities for physical activity.*
+                                                                                             Program &
+Increase the percentage of rural Tennesseans living       Baseline: 0
+                                                                                             Census Data,
+within one mile of health-promoting environments.         Target: 25%
+                                                                                             ArcGIS Analysis
+Increase the number of partnerships, including county
+health councils, school systems, local governments,       Baseline: 0
+                                                                                             Program Data
+NGOs, CBOs, or nonprofits, that implement End-Zone        Target: 3 per grantee
+inspired PSE strategies.
+Increase the number of tailored resources and trainings   Baseline: 42
+                                                                                             Program Data
+administered to County Health Councils.                   Target:73
+11) HRP: Rural Non-Emergency Transportation
+Reduce missed medical appointments due to                 Baseline: TBD
+                                                                                             Program Data
+transportation barriers.                                  Target: 25% reduction
+Expand coordinated medical transport options in rural
+                                                          Baseline: TBD                      Program Data
+counties.
+
+
+                                                   55
+                                                            Target: At least one option in 65%
+                                                            of rural counties
+Improve chronic disease management (A1C and BP              Baseline: TBD
+                                                                                                    Program Data
+control) among transported patients.                        Target: 15% improvement
+Achieve high satisfaction and scheduling reliability        Baseline: TBD                           Statewide patient
+among program users.*                                       Target: ≥ 90 percent satisfaction       transport survey
+12) HRP: Health-Tech
+Increase the percentage of patient encounters at
+                                                            Baseline: 60%
+participating facilities that include structured clinical                                           Program Data
+                                                            Target: 85%
+document exchange within 24 hours. *
+Achieve and sustain role-based cybersecurity training       Baseline: 80%
+                                                                                                    Program Data
+completion.                                                 Target: 95%
+Increase the percentage of telehealth and remote patient    Baseline: 0%
+                                                                                                    Program Data
+monitoring encounters across participating counties.        Target: 50%
+Reduce the provider documentation and administrative        Baseline: TBD
+                                                                                                    Program Data
+time per encounter.                                         Target: 40%
+Increase clinician adoption of analytics platforms for      Baseline: TBD                           Program Data
+population health management.                               Target: 85%
+13) Statewide Health Information Exchange (HIE)
+Increase the number of stakeholder engagement               Baseline: 0 sessions                    Program Data
+sessions.*                                                  Target:10 sessions
+Increase the number of training and educational events      Baseline: 0 events                      Program Data
+for HIE users.                                              Target: 5 events
+Increase the number of providers, hospitals, and payers     Baseline: 0 enrolled                    Program Data
+enrolled in HIE*                                            Target: 500 enrolled
+                                                                       Baseline: TBD
+Increase EHR data exchange compatibility among               Target: 90% if legislation effective
+                                                                                                    Program Data
+health care networks.                                       by FY28; 60% if legislation pending
+                                                                          by FY28.
+14) TN Community Compass
+Increase total number of referrals made at by TDH           Baseline: TBD after program rollout
+                                                                                                    Program Data
+navigators.                                                 Target: 50,000 referrals (FindHelp)
+Increase the total number of navigators utilizing           Baseline: 16 navigators                 TNCC Program
+FindHelp.                                                   Target: 650 navigators                  Data
+Increase total number of referrals made annually            Baseline: 20,000
+                                                                                                    Program Data
+through statewide TN Community Compass.*                    Target: 200,000 referrals
+Increase number and new state agencies onboarded to         Baseline: 1 agency
+                                                                                                    Program Data
+TNCC.                                                       Target:4 agencies
+15) Rural Health Innovation Catalyst
+Increase the number of counties receiving CoE               Baseline: 0 (new program).
+                                                                                                    Program Data
+planning or implementation support.*                        Target:8
+Increase the students participating in the planning and     Baseline: 0.
+                                                                                                    Program Data
+implementation processes.                                   Target: 50
+Increase the number of rural health organizations           Baseline: 0
+                                                                                                    Program Data
+receiving intensive technical assistance (TA).              Target: 35
+Increase the number of innovative pilots that are           Baseline: 0
+                                                                                                    Program Data
+adopted by at least one other county.                       Target: 4 (50% of awards).
+16) Statewide eConsult Platform
+                                                            Baseline: Average 17,600 referrals
+E-Consults that were not converted to face-to-face
+                                                            to Project Access for Specialist Care   Program Data
+appointments for the patient.
+                                                            / year
+
+
+
+
+                                                     56
+                                                           Target: 10,000 e-consultations
+                                                           provided without the need for face-
+                                                           to-face appointment.
+                                                           Baseline: 6-9 months
+ Reduce wait time for access to specialty care.            Target: 3 days average wait time for   Program Data
+                                                           e-consultation
+ Increase the number of HRTS system users by facility      Baseline: LTC Skilled - 849 users,
+ type: Long Term Care (LTC) Skilled and LTC Assisted       LTC Assisted 475 users                 HRTS User Data
+ Living.                                                   Target: 15% increase.
+                                                           Baseline: 40 training events per
+ Enhance rural collaboration and bridge resource gaps      year                                   Program Data
+ by increasing the number of HRTS training events.*        Target: 50 training events per
+                                                           year by (25% increase)
+ 17) Comprehensive Health Workforce Pipeline
+ Increase the number of rural recruits supported through   Baseline: 0 residencies
+                                                                                                  Program Data
+ incentives.                                               Target: 250 residencies
+ Increase the number of students in early exposure or      Baseline: 0 students
+                                                                                                  Program Data
+ paid internships.                                         Target: 1000 students
+                                                           Baseline: 38
+ Increase the number of paid apprenticeship programs                                              Program Data
+                                                           Target: 80
+ Increase the number of students in early exposure or      Baseline: 0 students
+                                                                                                  Program Data
+ paid internships.                                         Target: 1,000 students
+ Increase the number of rural residency and similar        Baseline: 10
+                                                                                                  Program Data
+ academic rural health care training programs              Target: 50
+Using Evaluation Findings for Continuous Improvement
+
+Findings from initiative-level metrics will be synthesized across programs to identify
+
+cross-cutting trends, emerging challenges, and successful strategies. TDH will use these
+
+insights to guide quarterly performance reviews, inform mid-course corrections, and
+
+prioritize high-impact initiatives for sustained investment. Evaluation results will also
+
+feed directly into governance discussions and sustainability planning, ensuring that data-
+
+driven decision-making remains central to Tennessee’s Rural Health Transformation
+
+strategy.
+
+Sustainability Plan
+
+The State of Tennessee is deeply committed to careful stewardship, routinely ranking #1
+
+in the nation for fiscal responsibility metrics, low per-capita debt, conservative budgeting,
+
+and a consistently superior credit rating. We are committed to upholding these principles
+
+to ensure that the RHT Program produces lasting impact. Sustainability will be achieved
+
+
+                                                   57
+by intentional planning, empowering local ownership, and embedding RHT activities into
+
+permanent policy, financing, operational structures, earned income, and public/private
+
+partnerships. We have challenged our teams to establish sustainability plans at the
+
+initiative level, and to come up with a “Year 6” plan, included below. All subrecipient
+
+awardees will be scored based on their ability to sustain their programs beyond the 5-year
+
+term. Primary sustainability strategies include:
+
+1. Capacity Building & Institutionalization
+
+   •   State Capacity: Tennessee’s proven and established cross-agency
+
+       infrastructure—anchored by the RHTF Core Team within TDH and the statewide
+
+       RHTF Governance Committee—ensures durable leadership and operational
+
+       capacity for managing complex, multi-year initiatives.
+
+   •   Data & Analytics Infrastructure: Health-tech investments, including the
+
+       statewide Health Information Exchange (HIE), strengthen interoperability, create
+
+       shared data, and embed analytics into routine decision-making.
+
+   •   Local Ownership: County Health Councils and local partners will continue
+
+       leading rural health projects, building community buy-in and embedding RHT
+
+       initiatives into existing community structures for long-term sustainability.
+
+   •   Workforce Institutionalization: Pipeline programs—including residencies,
+
+       apprenticeships, and leadership training—will permanently expand Tennessee’s
+
+       rural workforce capacity by integrating pathways into academic partnerships.
+
+2. Funding Diversification & Revenue Streams
+
+   •   Integration into Payor Reimbursement: Initiatives such as the Memory Care
+
+       Assessment Network and telehealth models will transition to stable financing
+
+
+
+                                             58
+       through TennCare, Medicare, and CMS reimbursement mechanisms (e.g.,
+
+       GUIDE, CCM, and teleconsultation codes).
+
+   •   Value-Based Payment Models: TennCare’s proven record implementing and
+
+       scaling federal VBP programs will extend to new rural models launched under
+
+       RHT, creating ongoing revenue through managed care performance incentives.
+
+   •   Public–Private Partnerships: The state will leverage relationships with hospital
+
+       systems, foundations, and private sector partners to co-fund capital improvements,
+
+       workforce programs, and innovation pilots.
+
+   •   Earned Revenue & Fee Models: Technology-enabled services—such as
+
+       diagnostic networks, administrative automation tools, and the statewide referral
+
+       system—may transition to cost-sharing or subscription-based models.
+
+3. Policy & Regulatory Anchoring
+
+   •   Legislative & Regulatory Commitments: The state may pursue statutory or
+
+       rule-based mechanisms to codify successful RHT initiatives and enable expansion
+
+       through permanent program authority.
+
+   •   Integration into State Policy Frameworks: Outcomes and performance metrics
+
+       from RHT will be embedded into the State Health Improvement Plan (SHIP),
+
+       TennCare managed care contracts, and the TDH Strategic and Quality
+
+       Management Plans, ensuring alignment with statewide health priorities.
+
+
+
+
+                                           59
+“Year 6 Plan” by Initiative
+  Initiative Name   Primary Sustainability Strategy              Year 6 Plan Summary
+                                                   Transitions co-located service models to
+                 Funding Diversification &
+HRP: Service                                       TennCare VBP; expands FQHC/RHC
+                 Revenue Streams – Value-Based
+Expansion / Co-                                    designations; blends state TA and data
+                 Models; Public–Private
+Location                                           infrastructure with local hospital and foundation
+                 Partnerships
+                                                   support.
+                                                   May sustain through Title V MCH Block Grants,
+                 Capacity Building &               TennCare reimbursements, and state
+                 Institutionalization – State      appropriations, with continued support from
+Last Mile Teams
+                 Capacity; Funding Diversification TDMHSAS Behavioral Health Safety Net,
+                 – State & Federal Funds           Continuum of Care, and county cost-sharing;
+                                                   under TDH Family Health & Wellness
+                 Capacity Building &
+                                                   Performance-based funding ensures only
+                 Institutionalization – Program
+Optimizing Rural                                   successful models continue; integrates proven
+                 Integration; Funding
+Health Care                                        approaches into TDH operating budgets and
+                 Diversification – Value-Based
+                                                   TennCare payment reform.
+                 Models
+                 Funding Diversification –         Pursues Medicaid SPA/waivers and CMS
+Memory Care
+                 Reimbursement Integration;        GUIDE/CCM reimbursement; integrates MA
+Assessment
+                 Capacity Building –               supplemental benefits and local public-health
+Network
+                 Institutionalization              contracts to secure long-term billing pathways.
+                 Capacity Building &
+                                                   Uses TDMHSAS and TennCare CHW funding
+                 Institutionalization – Workforce
+Rural Capacity                                     plus leadership and behavioral-health workforce
+                 Development; Funding
+Building                                           investments supported by state and block-grant
+                 Diversification – State & Federal
+                                                   funds.
+                 Funds
+                 Funding Diversification –         Leverages TennCare dental reimbursement and
+Dental Pilot     Reimbursement Integration;        training pipelines to sustain rural dental
+                 Workforce Development             workforce placements.
+                                                   Built into Title V, TennCare, and state
+                 Funding Diversification – State &
+                                                   appropriations; embeds IT costs into provider
+HRP: Maternal & Federal Funds; Reimbursement
+                                                   budgets; telehealth and mobile app components
+Child Health     Integration; Capacity Building –
+                                                   supported through Medicare/Medicaid
+                 Institutionalization
+                                                   reimbursement.
+                                                   Transitions co-located service models to
+                                                   reimbursable services; expands FQHC/RHC
+VBP: Maternal,   Funding Diversification – Value- designations; blends state TA and data
+Hospital, Dental Based Models                      infrastructure with local hospital and foundation
+                                                   support.
+
+                 Funding Diversification &
+                                                      Ensures long-term impact through capacity
+                 Revenue Streams –
+                                                      building, shared billing models, and formalized
+HRP: Make Rural Reimbursement Integration;
+                                                      community partnerships that sustain mobile,
+TN Healthy Again Capacity Building &
+                                                      telehealth, and school-based services via existing
+                 Institutionalization – Local
+                                                      reimbursement streams and local reinvestment.
+                 Ownership
+                                                  Builds on existing funding (Project Diabetes,
+Rural Community Funding Diversification – State &
+                                                  CARE Grants) and scales through future state
+Prevention Grants Federal Funds
+                                                  appropriations.
+
+
+
+
+                                                 60
+  Initiative Name  Primary Sustainability Strategy                 Year 6 Plan Summary
+                   Funding Diversification &         Sustained through grantee-developed
+HRP: Rural         Revenue Streams – Public–Private sustainability plans emphasizing ongoing funding
+Transportation     Partnerships; Capacity Building & mechanisms, cross-sector partnerships, and
+Program            Institutionalization – State &    integration into existing transportation and
+                   Local Coordination                healthcare networks.
+                                                     Sustained through required grantee sustainability
+                   Capacity Building &
+                                                     plans, vendor-agnostic platforms, and technical
+                   Institutionalization – Data &
+                                                     assistance that supports telehealth
+HRP: Health-Tech Analytics Infrastructure; Funding
+                                                     reimbursement, value-based alignment, and
+                   Diversification, Revenue, –
+                                                     integration with statewide health information
+                   Reimbursement Integration
+                                                     systems.
+                                                     Oversight committee ensures ongoing
+Statewide Health
+                   Capacity Building – Data &        maintenance and technology upgrades and will
+Information
+                   Analytics Infrastructure          establish long-term governance structure
+Exchange (HIE)
+                                                     leveraging public/private partnerships
+                   Funding Diversification – Fee     Pursues public/private partnerships and
+TN Community
+                   Models; Public–Private            subscription models for long-term operation of
+Compass
+                   Partnerships                      the referral system.
+                   Capacity Building – Workforce
+Rural Health                                         Sustained through partnerships with academic
+                   Development; Funding
+Innovation                                           medical centers and joint state–philanthropic
+                   Diversification – Public–Private
+Catalyst                                             funding for innovation pilots.
+                   Partnerships
+                   Funding Diversification –
+                                                     Telehealth and e-consult services reimbursed via
+Statewide eConsult Reimbursement Integration;
+                                                     Medicare/Medicaid; HRTS upgrades absorbed
+Platform           Capacity Building –
+                                                     into state IT budgets.
+                   Institutionalization
+Comprehensive                                        Mental Health First Aid train-the-trainer model
+                   Capacity Building – Workforce
+Health Workforce                                     and pipeline programs institutionalized in TDH
+                   Development
+Pipeline                                             workforce systems.
+
+Monitoring, Adaptation & Continuous Learning
+Tennessee’s Rural Health Transformation Fund (RHTF) will embed continuous
+
+evaluation and feedback into program operations to ensure that effective initiatives are
+
+and refined over time. Quarterly performance and impact reports will be compiled by the
+
+RHTF Core Team and reviewed by the RHTF Governance Committee. Sustainability
+
+Indicators—such as ongoing funding commitments or integration into reimbursement —
+
+will guide these reviews. Annual strategy sessions will allow the Core Team and key
+
+stakeholders to assess lessons learned and plan for the upcoming year. At the close of the
+
+grant a final debrief will capture findings for dissemination across state agencies, creating
+
+a foundation for future statewide initiatives.
+
+
+                                                 61
+i
+   County Health Rankings. Rural. https://www.countyhealthrankings.org/health-data/community-
+conditions/demographics/demographics/rural?year=2025
+ii
+    County Health Rankings. % Rural. % Rural* | County Health Rankings & Roadmaps
+iii
+    Rural Health Information Hub. Line Chart of Average Median Age for Metro and Nonmetro Counties,
+2010-2024 - Rural Health Information Hub
+iv
+    County Health Rankings. Life Expectancy. https://www.countyhealthrankings.org/health-data/population-
+health-and-well-being/length-of-life/life-span/life-expectancy?year=2025
+v
+   America’s Health Rankings. Poverty.
+https://www.americashealthrankings.org/explore/measures/household_poverty/TN
+vi
+    Rural Health Information Hub. Average Median Household Income. Line Chart of Average Median
+Household Income for Metro and Nonmetro Counties, 2010-2023 - Rural Health Information Hub
+vii
+     U.S. Census 2023 5-year estimates. Accessed via Rural Health Information Hub.
+viii
+     U.S. Census ACS 5-year 2023 Data.
+ix
+    Tennessee Department of Health. 2024. Health Disparities in Tennessee Report.
+tn.gov/content/dam/tn/health/program-areas/division-of-health-disparities-
+elimination/documents/HD_Report_FINAL_06122024.pdf?utm_source=chatgpt.com
+x
+   America’s Health Rankings. Obesity in Tennessee.
+https://www.americashealthrankings.org/explore/measures/Obesity/Obesity_nonmetro/TN
+xi
+    America's Health Rankings. Physical Inactivity.
+https://www.americashealthrankings.org/explore/measures/Sedentary/TN
+xii
+     Tennessee Department of Health. Maternal Mortality in Tennessee Report.
+https://www.tn.gov/content/dam/tn/health/program-
+areas/Maternal%20Mortality%20Report%20key%20findings.pdf
+xiii
+     Tennessee Department of Health. 2025 Cancer in Tennessee 2016-2020 Annual Report.
+https://www.tn.gov/content/dam/tn/health/2025-notcom/Cancer-in-Tennessee-2016-2020-Annual-
+Report.pdf
+xiv
+     CDC WONDER, 2019-2023.
+xv
+    Alzheimer’s Association. 2025 Tennessee Facts and Figures. https://www.alz.org/getmedia/8b000dbe-
+150f-4390-a32d-ba108c599e6d/tennessee-alzheimers-facts-figures.pdf
+xvi
+     Heffernan, M; Papanikolaou, M.; Meit, M. Appalachian Diseases of Despair, 2024.
+https://www.arc.gov/report/appalachian-diseases-of-despair-2024/
+xvii
+      Tennessee Department of Health. Drug Overdose Deaths Report.
+https://www.tn.gov/content/dam/tn/health/documents/pdo/death-
+report/2023_Tennessee_Drug_Overdose_Death_Report.pdf
+xviii
+      Rural Health Info Hub. Tennessee Rural Health Facilities.
+https://www.ruralhealthinfo.org/states/images/tennessee-rural-health-facilities.jpg?v=873
+xix
+     Tennessee Health Care Campaign. Rural Equity Project Report. https://tnhealthcarecampaign.org/rural-
+equity-report/
+
+
+
+
+                                                   62
+

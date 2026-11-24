@@ -1,0 +1,8 @@
+file: 2026-11-24_az_ahcccs_approved_program_narrative.pdf
+source_url: https://www.azahcccs.gov/AHCCCS/Downloads/Initiatives/RHTP/Arizona'sApprovedProgramNarrative.pdf
+fetched_utc: 2026-11-24T14:54:49Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1218571
+sha256: 2ebff3239ecd8e067f0f513c0851272ccd10a96ee8cdfcfd97aac7421ae9899c
+
